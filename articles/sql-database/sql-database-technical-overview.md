@@ -69,4 +69,4 @@ SQL Server tradicionalmente ha proporcionado una sólida seguridad de datos que 
 
 - Comience por [crear su primera base de datos](sql-database-get-started.md). Luego cree su primera aplicación en [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) o [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

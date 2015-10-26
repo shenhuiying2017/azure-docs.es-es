@@ -33,7 +33,7 @@ Otro ejemplo es si desea bloquear el acceso a Internet para una aplicación dete
 1.	Si la colección de RemoteApp está unida al dominio, puede aplicar cualquier [Directiva de grupo](https://technet.microsoft.com/library/cc725828.aspx) (a excepción de las directivas de tiempo de espera Inactivo y Desconexión descritas [aquí](../azure-subscription-service-limits.md)).
 2.	Como alternativa a la directiva de grupo (si la colección no está unida al dominio o no tiene los privilegios adecuados en Active Directory), puede configurar [Directivas locales](https://technet.microsoft.com/library/cc775702.aspx) en su imagen de plantilla. Tenga en cuenta que las directivas de grupo superan a las locales cuando hay un conflicto.
 3.	Algunos valores de configuración de SO/aplicación no son configurables a través de la directiva, pero se pueden establecer mediante la clave de registro con la [herramienta RegEdit](./remoteapp-hybridtrouble.md) durante la configuración de la imagen de la plantilla.
-4.	Puede usar el [Firewall de Windows](http://windows.microsoft.com/es-es/windows-8/Windows-Firewall-from-start-to-finish) para controlar el acceso de red a y desde el equipo donde se ejecuta la aplicación. Simplemente asegúrese de no bloquear las direcciones URL y los puertos definidos aquí.
+4.	Puede usar el [Firewall de Windows](http://windows.microsoft.com/es-ES/windows-8/Windows-Firewall-from-start-to-finish) para controlar el acceso de red a y desde el equipo donde se ejecuta la aplicación. Simplemente asegúrese de no bloquear las direcciones URL y los puertos definidos aquí.
 5.	Puede usar [AppLocker](https://technet.microsoft.com/library/hh831440.aspx) para controlar qué aplicaciones y archivos pueden ejecutar los usuarios. Por ejemplo, los usuarios más experimentados pueden averiguar cómo ejecutar aplicaciones no publicadas por usted pero que están disponibles en la imagen que usó para crear la recopilación (AppLocker puede bloquear esto).
  
 ## Información detallada
@@ -47,4 +47,4 @@ Otro ejemplo es si desea bloquear el acceso a Internet para una aplicación dete
 - [Directivas de Office 2013](https://technet.microsoft.com/library/cc178969.aspx) (incluido [cómo personalizar la barra de herramientas de Office](https://technet.microsoft.com/library/cc179143.aspx)).
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

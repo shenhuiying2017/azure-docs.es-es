@@ -7,4 +7,4 @@ A continuación se indican algunos de los casos donde se pueden usar aplicacione
 
 Para obtener más información sobre el enrutamiento definido por el usuario y el reenvío IP, visite [Rutas definidas por el usuario y reenvío IP](./virtual-networks-udr-overview.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

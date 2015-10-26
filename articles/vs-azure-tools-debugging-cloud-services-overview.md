@@ -27,4 +27,4 @@ Puede utilizar diferentes enfoques para depurar una aplicación de Azure utiliza
 
 - Puede habilitar la depuración remota en los servicios en la nube cuando implementa el servicio en la nube desde Visual Studio. Si elige habilitar la depuración remota para una implementación, los servicios de depuración remota se instalan en las máquinas virtuales que ejecutan cada instancia de rol. Estos servicios, como msvsmon.exe, no afectan al rendimiento ni al resultado en cuando a costos adicionales. Para obtener más información, consulte [Depuración de un servicio en la nube en Azure](vs-azure-tools-debug-cloud-services-virtual-machines.md#debug-a-cloud-service-in-azure).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

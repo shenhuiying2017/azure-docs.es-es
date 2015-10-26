@@ -20,4 +20,4 @@ Entre las principales propiedades de un extremo se incluyen las siguientes:
 - **Ponderación**: ponderación del extremo utilizada en la administración del tráfico. 
 - **Prioridad**: prioridad del extremo, utilizada para definir una acción de conmutación por error. 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

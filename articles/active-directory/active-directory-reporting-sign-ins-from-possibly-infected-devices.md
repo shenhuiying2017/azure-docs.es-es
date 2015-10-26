@@ -26,4 +26,4 @@ Para obtener más información acerca de cómo tratar infecciones de malware, co
 
 ![Inicios de sesión desde dispositivos posiblemente infectados](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -16,4 +16,4 @@ Tamaño de recursos de API de Administrador de recursos|4194304 bytes|4194304 by
 
 <sup>3</sup>Estas características ya no son necesarias con los grupos de recursos de Azure y el Administrador de recursos de Azure.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

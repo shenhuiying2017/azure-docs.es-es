@@ -73,4 +73,4 @@ Para ver un tutorial completo sobre cómo crear una cuenta de almacenamiento y r
 
 [Prácticas recomendadas de copia de seguridad y restauración (servicio de almacenamiento de blobs de Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

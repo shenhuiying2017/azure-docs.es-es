@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 # Configuración de la protección entre sitios VMM locales
@@ -309,10 +309,7 @@ Cuando se haya creado un plan de recuperación, aparecerá en la lista de la pes
 ###Ejecución de una conmutación por error de prueba
 
 1. En la pestaña **Planes de recuperación**, seleccione el plan y haga clic en **Conmutación por error de prueba**.
-2. En la página **Confirmar conmutación por error de prueba** seleccione **Ninguno**. Tenga en cuenta que con esta opción habilitada las máquinas virtuales de réplica de conmutación por error no se conectarán a ninguna red. Esto probará que la máquina virtual realiza un conmutación por error de la manera esperada pero no prueba su entorno de red de replicación. Si desea ejecutar una conmutación por error de prueba más amplia, consulte <a href="http://go.microsoft.com/fwlink/?LinkId=522291">Probar una implementación local en MSDN</a>.
-
-	![Selección de la red de prueba](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_TestFailover1.png)
-
+2. En la página **Confirmar conmutación por error de prueba** seleccione **Ninguno**. Tenga en cuenta que con esta opción habilitada las máquinas virtuales de réplica de conmutación por error no se conectarán a ninguna red. Esto probará que la máquina virtual realiza un conmutación por error de la manera esperada pero no prueba su entorno de red de replicación. Veamos cómo [ejecutar una conmutación por error de prueba](site-recovery-failover.md#run-a-test-failover) para obtener más detalles sobre cómo usar las diferentes opciones de red.
 
 7. La máquina virtual de prueba se creará en el mismo host en el que existe la máquina virtual de réplica. Se ha agregado a la misma nube en la que se encuentra la máquina virtual de réplica.
 
@@ -348,7 +345,7 @@ En esta sección se proporciona información adicional de privacidad del servici
 **Característica: Registro**
 
 - **Qué hace**: registra el servidor en el servicio para que las máquinas virtuales se puedan proteger.
-- **Información recopilada**: después de registrar el servicio, recopila, procesa y transmite la información del certificado de administración desde el servidor VMM designado para proporcionar recuperación ante desastres con el nombre de servicio del servidor VMM y el nombre de las nubes de máquinas virtuales en el servidor VMM.
+- **Información recopilada**: una vez realizado el registro, el servicio recopila, procesa y transmite la información del certificado de administración desde el servidor VMM designado para proporcionar recuperación ante desastres con el nombre de servicio del servidor VMM y el nombre de las nubes de máquinas virtuales en el servidor VMM.
 - **Uso de la información**:
 	- Certificado de administración: se utiliza para ayudar a identificar y autenticar el servidor VMM registrado para el acceso al Servicio. El servicio utiliza la parte de clave pública del certificado para proteger un token al que solo puede obtener acceso el servidor VMM registrado. El servidor debe utilizar este token para obtener acceso a las características del Servicio.
 	- Nombre del servidor VMM: el nombre del servidor VMM es necesario para identificar y comunicarse con el servidor VMM adecuado en donde se ubican las nubes.
@@ -388,7 +385,7 @@ En esta sección se proporciona información adicional de privacidad del servici
 
 **Característica :Conmutación por error - Planeada, no planeada, prueba**
 
-- **Qué hace**: esta característica contribuye a la conmutación por error de una máquina virtual de un centro de datos administrados de VMM a otro centro de datos administrados de VMM. La acción de conmutación por error la desencadena el usuario en el portal del Servicio. Entre las posibles razones para una conmutación por error se incluyen un evento no planeado (por ejemplo, en el caso de un desastre natural; un evento planeado (por ejemplo, equilibrio de carga de centro de datos); una conmutación por error de prueba (por ejemplo, un ensayo del plan de recuperación).
+- **Qué hace**: esta característica contribuye a la conmutación por error de una máquina virtual de un centro de datos administrado de VMM a otro centro de datos administrado de VMM. La acción de conmutación por error la desencadena el usuario en el portal del Servicio. Entre las posibles razones para una conmutación por error se incluyen un evento no planeado (por ejemplo, en el caso de un desastre natural; un evento planeado (por ejemplo, equilibrio de carga de centro de datos); una conmutación por error de prueba (por ejemplo, un ensayo del plan de recuperación).
 
 El proveedor en el servidor VMM recibe notificación del evento desde el Servicio y ejecuta una acción de conmutación por error en el host de Hyper-V a través de las interfaces de VMM. La conmutación por error real de la máquina virtual desde un host de Hyper-V a otro (normalmente se ejecuta en un centro de datos de "recuperación" diferente) se controla mediante la tecnología de replicación de Windows Server 2012 o de Windows Server 2012 R2 Hyper-V. Una vez finalizada la conmutación por error, el proveedor instalado en el servidor VMM del centro de datos de "recuperación" envía la información de que está todo correcto al Servicio.
 
@@ -402,4 +399,4 @@ El proveedor en el servidor VMM recibe notificación del evento desde el Servici
 
 - **Opción**: es una parte esencial del servicio y no se puede desactivar. Si no desea que esta información se envíe al Servicio, no utilice este Servicio.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

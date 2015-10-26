@@ -44,4 +44,4 @@ La siguiente información puede ayudarle a configurar y usar RemoteApp de Azure 
 	- Deshabilite las actualizaciones de software automáticas para las aplicaciones publicadas: en su lugar, aplíquelas manualmente a la imagen de plantilla y pruébelas antes de implementar desde la plantilla.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

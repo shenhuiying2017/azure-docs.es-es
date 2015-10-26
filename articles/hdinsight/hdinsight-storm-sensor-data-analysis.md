@@ -422,4 +422,4 @@ Ahora ha aprendido a utilizar Storm para leer datos desde el Centro de eventos y
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

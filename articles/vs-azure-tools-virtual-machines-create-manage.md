@@ -177,4 +177,4 @@ Al configurar la máquina virtual e instalarle software, es conveniente guardar 
 
 Para obtener más información sobre la creación de máquinas virtuales, consulte [Creación de una máquina virtual con Linux](virtual-machines-linux-tutorial.md) y [Creación de una máquina virtual con Windows en el Portal de vista previa de Azure](virtual-machines-windows-tutorial.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

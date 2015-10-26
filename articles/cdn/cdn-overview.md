@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Información general de la red CDN de Azure"
-	description="Obtenga información acerca de la Red de entrega de contenido (CDN) de Azure y de cómo usarla para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs y contenidos estáticos."
-	services="cdn"
-	documentationCenter=".NET"
-	authors="zhangmanling"
-	manager="dwrede"
+	pageTitle="Información general de la red CDN de Azure" 
+	description="Obtenga información acerca de la Red de entrega de contenido (CDN) de Azure y de cómo usarla para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs y contenidos estáticos." 
+	services="cdn" 
+	documentationCenter=".NET" 
+	authors="zhangmanling" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="mazha"/>
 
 #Información general de la red de entrega de contenido (CDN) de Azure
@@ -114,4 +114,4 @@ Para obtener más información acerca de la asignación de un dominio personaliz
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

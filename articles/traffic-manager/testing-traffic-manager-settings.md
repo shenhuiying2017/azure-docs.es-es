@@ -21,11 +21,11 @@ La mejor forma de probar la configuración del Administrador de tráfico es conf
 
 ## Pasos de pruebas básicos
 
-\-**Establezca el TTL de DNS muy bajo** de forma que los cambios se propaguen rápidamente; por ejemplo, en 30 segundos.
+-**Establezca el TTL de DNS muy bajo** de forma que los cambios se propaguen rápidamente; por ejemplo, en 30 segundos.
 
-\-**Conozca las direcciones IP de los servicios en la nube de Azure y los sitios web** del perfil que prueba.
+-**Conozca las direcciones IP de los servicios en la nube de Azure y los sitios web** del perfil que prueba.
 
-\-**Use herramientas que permiten resolver un nombre de DNS en una dirección IP** y mostrar dicha dirección. Compruebe que el nombre de dominio de la empresa se resuelve en las direcciones IP de los extremos del perfil. Deben resolverse de manera coherente con el método de equilibrio de carga del perfil del Administrador de tráfico. Si se encuentra en un equipo que ejecuta Windows, puede usar la herramienta Nslookup.exe desde un símbolo del sistema o de Windows PowerShell. También dispone en Internet de otras herramientas disponibles públicamente que le permiten "profundizar" en la dirección IP.
+-**Use herramientas que permiten resolver un nombre de DNS en una dirección IP** y mostrar dicha dirección. Compruebe que el nombre de dominio de la empresa se resuelve en las direcciones IP de los extremos del perfil. Deben resolverse de manera coherente con el método de equilibrio de carga del perfil del Administrador de tráfico. Si se encuentra en un equipo que ejecuta Windows, puede usar la herramienta Nslookup.exe desde un símbolo del sistema o de Windows PowerShell. También dispone en Internet de otras herramientas disponibles públicamente que le permiten "profundizar" en la dirección IP.
 
 ### Para comprobar el perfil del Administrador de tráfico con nslookup
 
@@ -57,4 +57,4 @@ Hay servicios gratuitos de indagación y de búsqueda DNS basada en web disponib
 [Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](../about-traffic-manager-balancing-methods.md) [Administrador de tráfico](../traffic-manager.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

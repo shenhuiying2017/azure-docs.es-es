@@ -62,4 +62,4 @@ Estos vínculos serán útiles para explorar el servicio en profundidad:
 - [P+F sobre Azure Active Directory B2C](active-directory-b2c-faqs.md)
 - [Presentación de solicitudes de soporte técnico con respecto a Azure Active Directory B2C](active-directory-b2c-support.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

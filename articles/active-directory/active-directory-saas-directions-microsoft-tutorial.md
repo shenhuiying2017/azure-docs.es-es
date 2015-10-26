@@ -99,4 +99,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Sí](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "Sí")
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

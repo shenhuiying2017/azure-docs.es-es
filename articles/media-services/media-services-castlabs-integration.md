@@ -3,7 +3,7 @@
 	description="En este artículo se describe cómo puede usar Servicios multimedia de Azure (AMS) para entregar una secuencia que se cifra dinámicamente por AMS con DRM tanto de PlayReady como Widevine. La licencia de PlayReady procede del servidor de licencias PlayReady de Servicios multimedia y la licencia de Widevine se entrega al servidor de licencias de castLabs." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="Mingfeiy,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015"  
+	ms.date="10/08/2015"  
 	ms.author="juliako"/>
 
 
@@ -124,4 +124,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 - [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -99,4 +99,4 @@ Reemplace SourceAddressPrefix con la dirección IP virtual (VIP) del servicio en
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -322,4 +322,4 @@ Para obtener más información sobre las pruebas unitarias en Visual Studio Onli
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

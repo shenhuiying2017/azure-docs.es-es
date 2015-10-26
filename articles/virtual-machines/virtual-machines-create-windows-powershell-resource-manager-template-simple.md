@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Crear una máquina virtual con la plantilla ARM | Microsoft Azure"
+	pageTitle="Crear una máquina virtual con una plantilla | Microsoft Azure"
 	description="Use una plantilla del Administrador de recursos y Azure PowerShell para crear una nueva máquina virtual Windows."
 	services="virtual-machines"
 	documentationCenter=""
@@ -14,12 +14,13 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="10/08/2015"
 	ms.author="davidmu"/>
 
 # Creación de una máquina virtual Windows con una plantilla del Administrador de recursos y PowerShell
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos. No puede crear este recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+
 
 Puede crear fácilmente una nueva máquina virtual de Azure basada en Windows mediante una plantilla del Administrador de recursos con Azure PowerShell. Esta plantilla crea una sola máquina virtual que ejecuta Windows en una nueva red virtual con una sola subred en un nuevo grupo de recursos.
 
@@ -39,21 +40,21 @@ Rellene un nombre de implementación de Azure, un nombre de grupo de recursos de
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup –Name $RGName –Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-Al ejecutar el comando **New-AzureResourceGroupDeployment**, se le solicitará que proporcione los valores de parámetros en la sección "parameters" del archivo JSON. Cuando haya especificado todos los valores de parámetros, el comando crea el grupo de recursos y la máquina virtual.
+Al ejecutar el comando **New-AzureRmResourceGroupDeployment**, se le solicitará que proporcione los valores de los parámetros en la sección "parameters" del archivo JSON. Cuando haya especificado todos los valores de parámetros, el comando crea el grupo de recursos y la máquina virtual.
 
 	$deployName="TestDeployment"
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup –Name $RGName –Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Verá algo parecido a lo siguiente:
 
-	cmdlet New-AzureResourceGroupDeployment at command pipeline position 1
+	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
 	newStorageAccountName: newsaacct
@@ -105,4 +106,4 @@ Ahora dispone de una nueva máquina virtual Windows denominada MyWindowsVM en el
 
 [Instalación y configuración de Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

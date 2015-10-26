@@ -19,7 +19,8 @@
 
 # Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+
 
 Este artículo contiene vínculos a las instrucciones detalladas para implementar una aplicación de línea de negocio basada en web solo de intranet con grupos de disponibilidad AlwaysOn de SQL Server en servicios de infraestructura de Azure. La aplicación se hospeda en estos equipos:
 
@@ -68,4 +69,4 @@ Para iniciar la configuración de esta carga de trabajo, vaya a [Fase 1: Configu
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

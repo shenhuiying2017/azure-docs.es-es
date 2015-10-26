@@ -53,4 +53,4 @@ Consulte [más información](remoteapp-ad.md) sobre cómo configurar Active Dire
 Si usa la imagen de plantilla de Office 365 ProPlus en su colección *o* si creó una imagen personalizada que usa Office 365, solo puede agregar usuarios de Azure Active Directory que tengan suscripciones de Office 365 para el dominio predeterminado de su suscripción. Consulte [Uso de Office 365 con RemoteApp de Azure](remoteapp-o365.md) para obtener más información.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

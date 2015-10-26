@@ -120,4 +120,4 @@ En esta sección, modificará la aplicación para mostrar una pantalla de inicio
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!-----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

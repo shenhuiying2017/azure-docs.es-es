@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Incorporación de notificaciones push a la aplicación universal Windows en tiempo de ejecución 8.1 | Aplicaciones móviles de Azure"
-	description="Obtenga información acerca de cómo usar Aplicaciones móviles del Servicio de aplicaciones de Azure y Centros de notificaciones de Azure para enviar notificaciones push a la aplicación Windows."
-	services="app-service\mobile,notification-hubs"
-	documentationCenter="windows"
-	authors="ggailey777"
-	manager="dwrede"
+	pageTitle="Incorporación de notificaciones push a la aplicación universal Windows en tiempo de ejecución 8.1 | Aplicaciones móviles de Azure" 
+	description="Obtenga información acerca de cómo usar Aplicaciones móviles del Servicio de aplicaciones de Azure y Centros de notificaciones de Azure para enviar notificaciones push a la aplicación Windows." 
+	services="app-service\mobile,notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.service="app-service-mobile" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/14/2015" 
 	ms.author="glenga"/>
 
 # Incorporación de notificaciones push a la aplicación universal Windows en tiempo de ejecución 8.1
@@ -202,4 +202,4 @@ La carpeta ahora ya está lista para recibir notificaciones.
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

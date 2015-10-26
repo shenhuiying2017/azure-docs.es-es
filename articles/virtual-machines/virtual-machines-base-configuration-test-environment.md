@@ -19,7 +19,7 @@
 
 # Entorno de prueba de la configuración básica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica. También puede crear estos recursos con el [modelo de implementación del Administrador de recursos](virtual-machines-base-configuration-test-environment-resource-manager.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-base-configuration-test-environment-resource-manager.md).
 
 En este artículo se proporcionan instrucciones paso a paso para crear el entorno de prueba de la configuración básica en una red virtual de Azure.
 
@@ -51,7 +51,7 @@ Hay cuatro fases de configuración de la subred de la red corporativa del entorn
 3.	Configuración de APP1.
 4.	Configuración de CLIENT1.
 
-Si no dispone de ninguna cuenta de Azure, puede registrarse para una evaluación gratuita en [Evaluación gratuita de un mes](http://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si no dispone de ninguna cuenta de Azure, puede registrarse para obtener una prueba gratuita en [Prueba gratuita de un mes](http://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 > [AZURE.NOTE]Las máquinas virtuales en Azure suponen en un costo económico constante cuando se están ejecutando. Este costo se factura en su prueba gratuita, la suscripción de MSDN o la suscripción de pago. Para obtener más información acerca de los costos de ejecutar máquinas virtuales de Azure, consulte [Detalles de precios de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/) y [Calculadora de precios de Azure](http://azure.microsoft.com/pricing/calculator/). Para reducir los costos, consulte [Reducción del costo de las máquinas virtuales del entorno de prueba en Azure](#costs).
 
@@ -131,7 +131,7 @@ A continuación, conéctese a la máquina virtual DC1.
 3.	Cuando se le pida que abra DC1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan las credenciales, utilice las siguientes:
-- Nombre: **DC1\**[nombre de la cuenta de administrador local]
+- Nombre: **DC1\**[Nombre de la cuenta de administrador local]
 - Contraseña: [Contraseña de la cuenta de administrador local]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto referido a certificados, haga clic en **Sí**.
 
@@ -160,7 +160,7 @@ Una vez reiniciado DC1, vuelva a conectar la máquina virtual de DC1.
 3.	Cuando se le pida que abra DC1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan las credenciales, utilice las siguientes:
-- Nombre: **CORP\**[nombre de la cuenta de administrador local]
+- Nombre: **CORP\**[Nombre de la cuenta de administrador local]
 - Contraseña: [Contraseña de la cuenta de administrador local]
 6.	Cuando se lo solicite un cuadro de mensaje de conexión a Escritorio remoto que haga referencia a certificados, haga clic en **Sí**.
 
@@ -239,7 +239,7 @@ A continuación, compruebe que puede tener acceso a recursos compartidos de arch
 2.	En **Propiedades de CLIENT1**, haga clic en **Activo** al lado de **Configuración de seguridad mejorada de IE**.
 3.	En **Configuración de seguridad mejorada de IE**, haga clic en **Desactivar** para **Administradores** y **Usuarios** y, a continuación, haga clic en **Aceptar**.
 4.	En la pantalla Inicio, haga clic en **Internet Explorer** y, a continuación, en **Aceptar**.
-5.	En la barra de direcciones, escriba ****http://app1.corp.contoso.com/** y después presione INTRO. Debe ver la página web de Internet Information Services de forma predeterminada para APP1.
+5.	En la barra de direcciones, escriba ****http://app1.corp.contoso.com/** y, a continuación, presione ENTRAR. Debe ver la página web de Internet Information Services de forma predeterminada para APP1.
 6.	En la barra de tareas del escritorio, haga clic en el icono Explorador de archivos.
 7.	En la barra de direcciones, escriba **\\\app1\\Files** y, a continuación, presione ENTRAR.
 8.	Debería ver una ventana de carpeta con el contenido de la carpeta compartida Archivos.
@@ -288,4 +288,4 @@ Para iniciar las máquinas virtuales en orden con Azure PowerShell, escriba el n
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

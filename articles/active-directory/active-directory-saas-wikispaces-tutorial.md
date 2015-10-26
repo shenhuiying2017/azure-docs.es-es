@@ -39,7 +39,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
     ![Agregar aplicación](./media/active-directory-saas-wikispaces-tutorial/IC749321.png "Agregar aplicación")
 
-5.  En el cuadro de diálogo **Qué desea hacer**, haga clic en **Agregar una aplicación de la galería**.
+5.  En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
 
     ![Agregar una aplicación de la galería](./media/active-directory-saas-wikispaces-tutorial/IC749322.png "Agregar una aplicación de la galería")
 
@@ -99,7 +99,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Wikispaces, deben 
 
 4.  En la sección **Invitar asistentes**, siga estos pasos:
 
-    ![Invitar asistentes](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "Invitar asistentes")
+    ![Invitar asistentes](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "Invitar a contactos")
 
     1.  Escriba los **nombres de usuario o dirección de correo electrónico** de una cuenta válida de AAD que quiera aprovisionar en los cuadros de texto relacionados.
     2.  Haga clic en **Send** (Enviar).  
@@ -120,10 +120,10 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Asignar usuarios](./media/active-directory-saas-wikispaces-tutorial/IC787195.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-wikispaces-tutorial/IC767830.png "Sí")
   
-Si quiere probar su configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

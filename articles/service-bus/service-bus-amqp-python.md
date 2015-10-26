@@ -166,19 +166,11 @@ En las tablas siguientes se muestra la asignación entre las propiedades estánd
 ¿Listo para obtener más información? Consulte los siguientes vínculos:
 
 - [Información general sobre AMQP para el Bus de servicio]
-- [Uso del Bus de servicio desde .NET con AMQP]
-- [Uso del Bus de servicio desde Java con AMQP]
-- [Uso del Bus de servicio desde PHP con AMQP]
-- [Instalación de Apache Qpid Proton-C en una máquina virtual Linux de Azure]
 - [AMQP de Bus de servicio para Windows Server]
 
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 [AMQP de Bus de servicio para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
 [Información general sobre AMQP para el Bus de servicio]: service-bus-amqp-overview.md
-[Uso del Bus de servicio desde .NET con AMQP]: service-bus-amqp-dotnet.md
-[Uso del Bus de servicio desde Java con AMQP]: service-bus-amqp-java.md
-[Uso del Bus de servicio desde PHP con AMQP]: service-bus-amqp-php.md
-[Instalación de Apache Qpid Proton-C en una máquina virtual Linux de Azure]: service-bus-amqp-apache.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

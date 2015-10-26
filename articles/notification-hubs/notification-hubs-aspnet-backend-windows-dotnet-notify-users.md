@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="10/15/2015"
 	ms.author="wesmc"/>
 
 #Notificación a los usuarios con los Centros de notificaciones de Azure
@@ -28,7 +28,14 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 Este tutorial también es el requisito previo para el tutorial [Inserción segura]. Después de haber completado los pasos de este tutorial, puede continuar con el tutorial [Inserción segura], que muestra cómo modificar el código de este tutorial para enviar una notificación push de forma segura.
 
 
-El código completo para este tutorial se puede encontrar en GitHub [aquí](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers).
+
+
+
+## Antes de empezar
+
+Nos tomamos muy en serio sus comentarios. Si tiene dificultades para completar este tema o tiene recomendaciones para mejorar este contenido, agradecemos que escriba sus comentarios en la parte inferior de la página.
+
+El código completo de este tutorial se puede encontrar en GitHub [aquí](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers).
 
 
 
@@ -377,4 +384,4 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Información general acerca de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

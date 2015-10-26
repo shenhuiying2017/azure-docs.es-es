@@ -320,4 +320,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

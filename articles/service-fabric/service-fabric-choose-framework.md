@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Elegir un marco"
+   pageTitle="Elegir un marco de Service Fabric | Microsoft Azure"
    description="Service Fabric ofrece dos marcos de alto nivel para la creación de servicios: el marco de actores y el marco de servicios. Comprender el valor de cada uno de ellos le ayudará a tomar las decisiones arquitectónicas correctas para su aplicación."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="timlt"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="10/13/2015"
    ms.author="seanmck"/>
 
 # Elección de un marco para su servicio
@@ -36,4 +36,4 @@ Tenga en cuenta que es perfectamente razonable usar marcos diferentes para disti
 - [Obtener más información acerca de las API de actores confiables](service-fabric-reliable-actors-introduction.md)
 - [Obtener más información acerca de las API de servicios de confianza](../Service-Fabric/service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Proveedor de recursos de red"
-	description="Proveedor de recursos de red"
-	services="azure-portal"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Proveedor de recursos de red"
+   services="azure-portal"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="azure-portal"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="04/22/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="04/22/2015"
+   ms.author="telmos" />
 
 # Proveedor de recursos de red
 Una necesidad que sustenta el éxito de un negocio hoy en día es la capacidad de crear y administrar aplicaciones compatibles con redes de gran escala de una forma ágil, flexible, segura y repetible. El Administrador de recursos de Azure (ARM) permite crear aplicaciones, como una única colección de recursos en grupos de recursos. Estos recursos se administran a través de diversos proveedores de recursos en el Administrador de recursos de Azure.
@@ -363,4 +363,4 @@ Puede implementar servicios en Azure desde una plantilla mediante PowerShell, CL
 
 [Implementaciones de plantilla](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

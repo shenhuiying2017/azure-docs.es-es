@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="msStevenPo"
+	manager="StevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="10/07/2015"
 	ms.author="rkarlin"/>
 
 # Uso de dominios personalizados en el proxy de la aplicación de Azure AD
@@ -35,9 +35,22 @@ P: ¿Puedo seleccionar un certificado ya cargado sin cargarlo de nuevo? <br> R: 
 
 
 
+## Consulte también
+Hay mucho más que puede hacer con el proxy de la aplicación:
+
+- [Publicar aplicaciones con Proxy de aplicación](active-directory-application-proxy-publish.md)
+- [Habilitar el inicio de sesión único](active-directory-application-proxy-sso-using-kcd.md)
+- [Habilitar el acceso condicional](active-directory-application-proxy-conditional-access.md)
+- [Trabajar con las aplicaciones para notificaciones](active-directory-application-proxy-claims-aware-apps.md)- [Solucionar los problemas que tiene con el Proxy de la aplicación](active-directory-application-proxy-troubleshoot.md)
+
+## Obtenga más información acerca del proxy de la aplicación
+- [Eche un vistazo aquí para ver nuestra ayuda en línea](active-directory-application-proxy-enable.md)
+- [Consulte el blog del proxy de la aplicación](http://blogs.technet.com/b/applicationproxyblog/)
+- [Vea nuestros vídeos de Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
+
 ## Recursos adicionales
 
 * [Registro en Azure como una organización](..sign-up-organization.md)
 * [Identidad de Azure](..fundamentals-identity.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

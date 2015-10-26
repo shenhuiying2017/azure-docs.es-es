@@ -48,4 +48,4 @@ Ahora, podrá usar el conector de Aplicaciones lógicas. Cuando utilice este con
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

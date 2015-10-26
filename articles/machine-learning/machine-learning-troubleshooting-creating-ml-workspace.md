@@ -77,4 +77,4 @@ Nuestro objeto es hacer que la experiencia de Aprendizaje automático sea lo má
 [screen6]: media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

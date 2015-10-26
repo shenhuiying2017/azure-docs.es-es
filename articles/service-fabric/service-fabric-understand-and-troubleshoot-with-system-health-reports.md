@@ -530,4 +530,4 @@ System.Hosting notifica un error si se produce un error de validación durante l
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -114,4 +114,4 @@ Si el paquete de implementación se [configuró para usar certificados](cloud-se
 * [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

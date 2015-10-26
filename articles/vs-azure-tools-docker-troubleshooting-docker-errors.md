@@ -1,19 +1,19 @@
 <properties
    pageTitle="Solución de problemas de errores del cliente Docker en Windows con Visual Studio | Microsoft Azure"
-	description="Solucione los problemas que encuentre al usar Visual Studio para crear e implementar aplicaciones web en Docker en Windows mediante Visual Studio."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="Solucione los problemas que encuentre al usar Visual Studio para crear e implementar aplicaciones web en Docker en Windows mediante Visual Studio."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/20/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/20/2015"
+   ms.author="kempb" />
 
 # Solución de problemas de errores de Docker
 
@@ -100,4 +100,4 @@ R: Una forma es usando OpenSSL en el servidor para generar los certificados y cl
 
 Otra opción es descargando OpenSSL para Windows y generando los certificados y claves necesarios y, a continuación, cargar la CA, certificados de servidor y claves en el equipo Linux. Para obtener más información acerca de cómo establecer una conexión segura con Docker, consulte el artículo sobre [protección del socket de demonio de Docker con HTTPS](https://docs.docker.com/articles/https/).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

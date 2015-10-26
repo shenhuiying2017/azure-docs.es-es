@@ -1,19 +1,19 @@
 <properties 
    pageTitle="IP reservada"
-	description="Descripción y administración de las IP reservadas, VIP, ILPIP"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Descripción y administración de las IP reservadas, VIP, ILPIP"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/17/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/17/2015"
+   ms.author="telmos" />
 
 # Descripción general de una IP reservada
 Las direcciones IP en Azure se dividen en dos categorías: dinámicas y reservadas. Las direcciones IP públicas administradas por Azure son dinámicas de forma predeterminada. Esto significa que la dirección IP usada para un determinado servicio en la nube (VIP) o para tener acceso a una máquina virtual o instancia de rol directamente (ILPIP) puede cambiar de vez en cuando, cuando los recursos se cierran o desasignan.
@@ -119,4 +119,4 @@ También puede asociar una IP reservada a un servicio en la nube mediante un arc
 
 - Consulte las [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

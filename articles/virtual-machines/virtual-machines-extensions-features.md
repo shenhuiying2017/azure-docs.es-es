@@ -17,9 +17,11 @@
  ms.date="09/03/2015"
  ms.author="rasquill"/>
 #Acerca de las características y extensiones de las máquinas virtuales
+
 Microsoft Azure proporciona extensiones de máquina virtual creadas por Microsoft y proveedores de terceros de confianza para habilitar seguridad, tiempo de ejecución, administración y otras características que puede aprovechar con el fin de aumentar su productividad con Máquinas virtuales de Azure. En este tema, se describen varias características que las extensiones de máquina virtual de Azure brindan a las máquinas virtuales de Windows y Linux para su uso y apunta a documentación correspondiente a cada una de ellas.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se tratan los recursos creados con el modelo de implementación del Administrador de recursos o el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 
 Si desea obtener detalles sobre los agentes de máquina virtual y cómo funcionan para admitir las extensiones de máquina virtual, consulte [Información general sobre el agente de máquina virtual y las extensiones de máquina virtual](https://msdn.microsoft.com/library/dn832621.aspx).
@@ -101,4 +103,4 @@ Estas extensiones brindan la compatibilidad para otras características de máqu
 |**BGInfo**|Presenta una imagen consolidada de la información útil del servidor en el escritorio cuando se utiliza el protocolo de Escritorio remoto.|[Extensión de BGInfo](https://msdn.microsoft.com/library/dn606289.aspx)|
 |**HpcVmDrivers**|Instala, configura y mantiene los controladores de dispositivos de red para el acceso directo a memoria remota (RDMA) en una máquina virtual de tamaño A8 o A9 que ejecute Windows Server 2012 R2 o Windows Server 2012. Permite que las máquinas virtuales A8 o A9 agrupadas utilicen la red RDMA cuando ejecuten aplicaciones MPI en paralelo.|[Sobre las instancias de proceso intensivo A8, A9, A10 y A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -13,14 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/12/2015" 
 	ms.author="spelluru"/>
 
 # Actividades de movimiento de datos
 Factoría de datos tiene un [servicio disponible globalmente](#global) para admitir el movimiento de datos con [actividad de copia](#copyactivity) en diversos almacenes de datos que se muestran a continuación. Factoría de datos también tiene compatibilidad integrada para [mover los datos de forma segura entre ubicaciones locales y la nube](#moveonpremtocloud) mediante la puerta de enlace de administración de datos.
 
+Para obtener un tutorial rápido sobre el uso de la actividad de copia, consulte [Tutorial: Uso de la actividad de copia en una canalización de la factoría de datos de Azure](data-factory-get-started.md). En el tutorial, usará la actividad de copia para copiar datos desde un almacenamiento de blobs de Azure en una base de datos SQL de Azure. En la sección siguiente se enumeran los orígenes y receptores que admite la actividad de copia.
+
+
 ## Almacenes de datos admitidos para la actividad de copia
-La actividad de copia copia los datos de un almacén de datos de **origen** a un almacén de datos **receptor**. Factoría de datos admite las siguientes combinaciones de almacenes de datos, origen y receptor. Haga clic en un almacén de datos para obtener información sobre cómo copiar datos desde/a ese almacén.
+Este tipo de actividad copia los datos de un almacén de datos de **origen** a un almacén de datos **receptor**. Factoría de datos admite las siguientes combinaciones de almacenes de datos, origen y receptor. Haga clic en un almacén de datos para obtener información sobre cómo copiar datos desde/a ese almacén.
 
 | **Origen** | **Sink** |
 | ------ | ---- |
@@ -98,4 +101,4 @@ En el caso de la actividad de copia, la sección **typeProperties** varía en fu
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

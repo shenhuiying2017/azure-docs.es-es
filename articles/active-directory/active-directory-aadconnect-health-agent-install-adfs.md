@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Instalación del agente de Azure AD Connect Health para AD FS | Microsoft Azure"
 	description="Esta es la página de Azure AD Connect Health que describe la instalación del agente de Servicios de federación de Active Directory (AD FS)."
 	services="active-directory"
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="10/15/2015"
 	ms.author="billmath"/>
 
 
@@ -53,7 +53,7 @@ Para comprobar que se instaló el agente, abra los servicios y busque lo siguien
 - Servicio de diagnóstico de AD FS de Azure AD Connect Health
 - Servicio de análisis de AD FS de Azure AD Connect Health
 - Servicio de supervisión de AD FS de Azure AD Connect Health
- 
+
 ![Comprobación de Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install5.png)
 
 
@@ -70,6 +70,99 @@ En el caso de los servidores de Windows Server 2008 R2, haga lo siguiente:
  - Instale Internet Explorer versión 10 o posterior en el servidor. Esto es necesario para que el servicio de mantenimiento autentique su identidad con las credenciales de administrador de Azure.
 1. Para obtener información adicional acerca de cómo instalar Windows PowerShell 4.0 en Windows Server 2008 R2, consulte el artículo wiki [aquí](http://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx).
 
+
+## Habilitación de la auditoría de AD FS
+
+Para que la característica Análisis de uso pueda recopilar y analizar datos, el agente de Azure AD Connect Health necesita la información de los registros de auditoría de AD FS. que no están habilitados de forma predeterminada. Esto solo se aplica a los servidores de federación de AD FS. No es necesario habilitar la auditoría en los servidores proxy de AD FS o de aplicación web. Use los procedimientos siguientes para habilitar la auditoría de AD FS y localizar los registros de auditoría de AD FS obtenidos.
+
+#### Para habilitar la auditoría de AD FS 2.0
+
+1. Haga clic en **Inicio**, seleccione **Programas**, **Herramientas administrativas** y luego haga clic en **Directiva de seguridad local**.
+2. Navegue hasta la carpeta **Configuración de seguridad\\Directivas locales\\Administración de derechos de usuario** y haga doble clic en Generar auditorías de seguridad.
+3. En la pestaña **Configuración de seguridad local**, compruebe que aparezca la cuenta de servicio de AD FS 2.0. Si no aparece, haga clic en **Agregar usuario o grupo**, agréguela a la lista y luego haga clic en **Aceptar**.
+4. Abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando para habilitar la auditoría.<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
+5. Cierre Directiva de seguridad local y luego abra el complemento de administración. Para abrir el complemento de administración, haga clic en **Inicio**, seleccione **Programas**, **Herramientas administrativas** y luego haga clic en Administración de AD FS 2.0.
+6. En el panel Acciones, haga clic en Editar propiedades del servicio de federación.
+7. En el cuadro de diálogo **Propiedades del servicio de federación**, haga clic en la pestaña **Eventos**.
+8. Active las casillas **Auditorías de aciertos** y **Auditorías de errores**.
+9. Haga clic en **Aceptar**.
+
+#### Para habilitar la auditoría de AD FS en Windows Server 2012 R2
+
+1. Abra **Directiva de seguridad local**; para ello, abra **Administrador del servidor** en la pantalla Inicio o Administrador del servidor en la barra de tareas del escritorio y luego haga clic en **Herramientas/Directiva de seguridad local**.
+2. Navegue hasta la carpeta **Configuración de seguridad\\Directivas locales\\Asignación de derechos de usuario** y haga doble clic en **Generar auditorías de seguridad**.
+3. En la pestaña **Configuración de seguridad local**, compruebe que aparezca la cuenta de servicio de AD FS. Si no aparece, haga clic en **Agregar usuario o grupo**, agréguela a la lista y luego haga clic en **Aceptar**.
+4. Abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando para habilitar la auditoría:<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
+5. Cierre **Directiva de seguridad local** y luego abra el complemento **Administración de AD FS** (en Administrador del servidor, haga clic en Herramientas y luego seleccione Administración de AD FS).
+6. En el panel Acciones, haga clic en **Editar propiedades del servicio de federación**.
+7. En el cuadro de diálogo Propiedades del servicio de federación, haga clic en la pestaña **Eventos**.
+8. Active las casillas **Auditorías de aciertos y Auditorías de errores** y luego haga clic en **Aceptar**.
+
+
+
+
+
+
+#### Para buscar los registros de auditoría de AD FS
+
+
+1. Abra **Visor de eventos**.
+2. Vaya a Registros de Windows y seleccione **Seguridad**.
+3. A la derecha, haga clic en **Filtrar registros actuales**.
+4. En Origen de evento, seleccione **Auditoría de AD FS**.
+
+![Registros de auditoría de AD FS](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
+
+> [AZURE.WARNING]Si tiene una directiva de grupo que deshabilita la auditoría de AD FS, el agente de Azure AD Connect Health no podrá recopilar información. Asegúrese de no tener ninguna directiva de grupo de este tipo.
+
+[//]: # "Inicio de la sección de configuración del proxy del agente"
+
+## Configuración de agentes de Azure AD Connect Health para usar el proxy HTTP
+Puede configurar agentes de Azure AD Connect Health para trabajar con un proxy HTTP
+
+>[AZURE.NOTE]- El uso de "Netsh WinHttp set ProxyServerAddress" no funcionará ya que el agente utiliza System.Net para realizar solicitudes web en lugar de los servicios HTTP de Microsoft Windows. - La dirección del proxy Http configurada se utilizará para pasar mensajes Https cifrados. - No se admiten servidores proxy autenticados (mediante HTTPBasic).
+
+### Cambio de configuración del proxy del agente de estado
+Tiene las siguientes opciones para configurar el agente de Azure AD Connect Health para utilizar a un proxy HTTP.
+
+>[AZURE.NOTE]Debe reiniciar todos los servicios del agente de Azure AD Connect Health para la configuración de proxy. Ejecute el siguiente comando:<br> Restart-Service AdHealth*.
+
+#### Importación de configuración de proxy existente
+##### Importación desde Internet Explorer.
+Puede importar la configuración del proxy HTTP de Internet Explorer y usarla para agentes de Azure AD Connect Health ejecutando el siguiente comando de PowerShell en cada servidor en el que se ejecute el agente de estado.
+
+	Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
+
+##### Importación desde WinHTTP
+Puede importar la configuración del proxy WinHTTP ejecutando el siguiente comando de PowerShell en cada servidor en el que se ejecute el agente de estado.
+
+	Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
+
+#### Especificación manual de direcciones de proxy
+Puede especificar un servidor proxy manualmente ejecutando el siguiente comando de PowerShell en cada servidor en el que se ejecute el agente de estado.
+
+	Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
+
+Ejemplo: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myservidorproxy:443*
+
+- "address" puede ser un nombre de servidor resoluble DNS o una dirección IPv4
+- "port" se puede omitir. Si se omite, se elige 443 como puerto predeterminado.
+
+#### Borrado de la configuración de proxy existente
+Puede borrar la configuración de proxy existente ejecutando el comando siguiente.
+
+	Set-AzureAdConnectHealthProxySettings -NoProxy
+
+
+### Lectura de la configuración de proxy actual
+Puede utilizar el comando siguiente para leer la configuración de proxy definida actualmente.
+
+	Get-AzureAdConnectHealthProxySettings
+
+
+[//]: # "Fin de la sección de configuración del proxy del agente"
+
+
 ## Vínculos relacionados
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
@@ -77,4 +170,4 @@ En el caso de los servidores de Windows Server 2008 R2, haga lo siguiente:
 * [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

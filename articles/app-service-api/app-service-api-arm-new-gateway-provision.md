@@ -73,7 +73,7 @@ Esta plantilla define una variable que se usa para implementar los recursos.
       "packageId": "Microsoft.ApiApp"
     }
     
-El valor se usa a continuación como **variables('packageId')**.
+El valor se usa a continuación como **variables('packageId')**. Contiene el identificador del paquete NuGet para las aplicaciones de API.
 
 ## Recursos para implementar
 
@@ -308,4 +308,4 @@ Observe que los nombres de la aplicación web de hospedaje y la puerta de enlace
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

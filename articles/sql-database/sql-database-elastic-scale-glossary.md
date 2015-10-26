@@ -80,4 +80,4 @@ Los siguientes términos se definen para las herramientas de bases de datos elá
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

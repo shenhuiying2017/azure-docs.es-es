@@ -40,4 +40,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Java
 <!-- External Links -->
 [Servicio de aplicaciones de Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

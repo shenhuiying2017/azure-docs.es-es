@@ -1,20 +1,20 @@
 <properties
    pageTitle="Solución de problemas: El elemento ";Active Directory"; falta o no está disponible | Microsoft Azure"
-	description="Qué hacer cuando el elemento de menú Active Directory no aparece en el Portal de administración de Azure."
-	services="active-directory"
-	documentationCenter="na"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   description="Qué hacer cuando el elemento de menú Active Directory no aparece en el Portal de administración de Azure."
+   services="active-directory"
+   documentationCenter="na"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/24/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="08/24/2015"
+   ms.author="mbaldwin"/>
 
 # Solución de problemas: El elemento "Active Directory" falta o no está disponible
 
@@ -54,4 +54,4 @@ Sin embargo, mientras se carga la página, el elemento aparece atenuado y marcad
 
 ![Captura de pantalla: Active Directory no está disponible](./media/active-directory-troubleshooting/not-available.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

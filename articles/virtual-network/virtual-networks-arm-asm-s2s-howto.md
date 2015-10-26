@@ -130,4 +130,4 @@ Para crear una puerta de enlace de VPN para la red virtual ARM, siga las instruc
 - Obtener más información sobre [el proveedor de recursos de red (NRP) para ARM](../resource-groups-networking.md).
 - Cree una [solución integral mediante la conexión de una red virtual clásica a una ARM mediante una VPN S2S](../virtual-networks-arm-asm-s2s.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso del Administrador de conexiones híbridas | Servicio de aplicaciones de Microsoft Azure"
-	description="Instale y configure el Administrador de conexiones híbridas y conéctese a los conectores locales en Servicio de aplicaciones de Azure"
-	services="app-service\logic"
+	pageTitle="Uso del Administrador de conexiones híbridas | Servicio de aplicaciones de Microsoft Azure" 
+	description="Instale y configure el Administrador de conexiones híbridas y conéctese a los conectores locales en Servicio de aplicaciones de Azure" 
+	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
-	authors="MandiOhlinger"
-	manager="dwrede"
+	authors="MandiOhlinger" 
+	manager="dwrede" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/23/2015"
+	ms.service="app-service-logic" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/23/2015" 
 	ms.author="mandia"/>
 
 # Conexión a conectores locales en Servicio de aplicaciones de Azure mediante el Administrador de conexiones híbridas
@@ -133,4 +133,4 @@ Si la API personalizada usa un puerto TCP o HTTP, puede usar [Conexiones híbrid
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

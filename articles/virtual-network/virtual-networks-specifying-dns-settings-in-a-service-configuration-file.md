@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Especificación de la configuración DNS en un archivo de configuración de servicio | Microsoft Azure"
-	description="Especificación de la configuración de DNS personalizada mediante un archivo de configuración de servicio para una red virtual"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="Especificación de la configuración de DNS personalizada mediante un archivo de configuración de servicio para una red virtual"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="joaoma" />
 
 # Especificar la configuración DNS en un archivo de configuración de servicio
 
@@ -41,4 +41,4 @@ Un archivo de configuración de servicio puede contener un elemento DnsServers c
 
 [Información acerca de la configuración de red virtual en el Portal de administración](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="Hospedaje de aplicaciones web en Docker | Microsoft Azure"
-	description="Aprenda a usar Visual Studio para hospedar una aplicación web en un contenedor de Docker."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="Aprenda a usar Visual Studio para hospedar una aplicación web en un contenedor de Docker."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/20/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/20/2015"
+   ms.author="kempb" />
 
 # Hospedaje de Aplicaciones web en Docker
 
@@ -80,7 +80,7 @@ En estos procedimientos, creará un nuevo proyecto de aplicación web ASP.NET 5,
     |Imagen|Elija una imagen de sistema operativo para usar en el host de Docker, si existe. Por ejemplo, elija una imagen de Ubuntu Server. (Tenga en cuenta que una imagen de Windows Server está ahora disponible en la lista de imágenes disponibles).|
     |Nombre de usuario|Escriba un nombre de usuario único para la máquina virtual.|
     |Contraseñas|Escriba una contraseña para el usuario y después confírmela.|
-    |Directorio de certificados |Especifica la carpeta donde se almacenan los certificados de Docker. Aunque puede crear una carpeta nueva o apuntar a una carpeta existente, se recomienda usar la carpeta de certificados predeterminada (C:\\Usuarios\[*nombre de usuario*]\\.docker). De lo contrario, las opciones de autenticación no se podrán recuperar automáticamente si reutiliza el mismo host en otro proyecto o sistema.|
+    |Directorio de certificados |Especifica la carpeta donde se almacenan los certificados de Docker. Aunque puede crear una carpeta nueva o apuntar a una carpeta existente, se recomienda usar la carpeta de certificados predeterminada (C:\\Usuarios\\[*nombre de usuario*]\\.docker). De lo contrario, las opciones de autenticación no se podrán recuperar automáticamente si reutiliza el mismo host en otro proyecto o sistema.|
 
 1. Elija el botón de puntos suspensivos (...) junto a la entrada **Directorio de certificados** y después, cree una nueva carpeta para los certificados de Docker o navegue a una carpeta de certificados de Docker existente.
 
@@ -177,4 +177,4 @@ Para obtener información sobre los problemas con el uso de Docker en Visual Stu
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Implementación de SharePoint con grupos de disponibilidad AlwaysOn de SQL Server en Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 Este tema contiene vínculos a las instrucciones detalladas para implementar una granja de servidores de SharePoint 2013 solo de intranet con grupos de disponibilidad AlwaysOn de SQL Server con el modelo clásico de implementación. La granja de servidores contiene estos equipos:
 
@@ -76,4 +77,4 @@ Para iniciar la configuración de esta carga de trabajo, vaya a [Fase 1: Configu
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

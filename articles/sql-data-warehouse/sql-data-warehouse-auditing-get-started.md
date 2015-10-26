@@ -141,4 +141,4 @@ Cuando esté en el modo Administrador de recursos de Azure, ejecute `Get-Command
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

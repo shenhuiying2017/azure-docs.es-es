@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Configuración de un clúster de Windows RDMA con HPC Pack e instancias de A8 y A9 para ejecutar aplicaciones de MPI
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo se aplica a la creación de un recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 En este artículo se muestra cómo configurar un clúster de Windows RDMA en [Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) e [instancias de proceso intensivo de tamaño A8 y A9](virtual-machines-a8-a9-a10-a11-specs.md) para ejecutar aplicaciones de interfaz de paso de mensajes (MPI) paralelas. Al configurar instancias de tamaño A8 y A9 basadas en Windows Server para ejecutar una implementación de MPI compatible, las aplicaciones de MPI se comunican eficazmente a través de una red de latencia baja y alto rendimiento en Azure basada en tecnología de acceso directo a memoria remota (RDMA).
 
@@ -245,4 +246,4 @@ Las siguientes son consideraciones que hay que tener en cuenta para ejecutar apl
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

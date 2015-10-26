@@ -281,4 +281,4 @@ Ejecute el programa con el parámetro "test" y compruebe en primer lugar si se p
 
 - [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -166,4 +166,4 @@ Si quiere ampliar conocimientos, puede agregar más capacidades a la aplicación
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

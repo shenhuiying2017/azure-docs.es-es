@@ -523,4 +523,4 @@ Este enfoque es posiblemente el más puro de los mecanismos de control de versio
 - El [Libro de cocina de RESTful](http://restcookbook.com/) contiene una introducción a la creación de API RESTful.
 - La [lista de comprobación de API web](https://mathieu.fenniak.net/the-api-checklist/) contiene una lista útil de elementos que se deben tener en cuenta al diseñar e implementar una API web.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

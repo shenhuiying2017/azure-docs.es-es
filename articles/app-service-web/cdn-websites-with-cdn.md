@@ -155,11 +155,11 @@ Esta configuración hace que todos los archivos estáticos de la carpeta *\Conte
 
 Para obtener más información sobre cómo configurar el elemento `<clientCache>`, vea [Caché de cliente clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
 
-En [Suministro de contenido de acciones de controlador a través de la red CDN de Azure](#controller) también le mostraremos cómo configurar los valores de caché para los resultados de las acciones de controlador en la memoria caché de CDN.
+E esta sección , le mostraremos cómo puede configurar los valores de la caché para los resultados de las acciones de controlador en la memoria caché de red CDN.
 
 ## Suministro de contenido de acciones de controlador a través de la red CDN de Azure ##
 
-Al integrar Aplicaciones Web con la red CDN de Azure, es relativamente fácil servir el contenido desde las acciones de controlador a través de la red CDN de Azure. Sin embargo, si decide suministrar la aplicación web de Azure completa a través de la red CDN, no será necesario hacerlo, puesto que todas las acciones de controlador están accesibles a través de dicha red. No obstante, debido a los motivos indicados en [Implementación de una aplicación web de Azure con un extremo de red CDN integrado](#deploy), puede que decida no adoptar esta opción y optar por seleccionar la acción de controlador que desea servir desde la red CDN de Azure. [Maarten Balliauw](https://twitter.com/maartenballiauw) muestra cómo hacerlo con un divertido controlador MemeGenerator en [Reducción de la latencia en Web con la red CDN de Azure](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN). Aquí simplemente lo vamos a reproducir.
+Al integrar Aplicaciones Web con la red CDN de Azure, es relativamente fácil servir el contenido desde las acciones de controlador a través de la red CDN de Azure. Sin embargo, si decide suministrar la aplicación web de Azure completa a través de la red CDN, no será necesario hacerlo, puesto que todas las acciones de controlador están accesibles a través de dicha red. No obstante, debido a los motivos indicados en [Implementación de una aplicación web de Azure con un extremo de red CDN integrado](#deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint), puede que decida no adoptar esta opción y optar por seleccionar la acción de controlador que desea servir desde la red CDN de Azure. [Maarten Balliauw](https://twitter.com/maartenballiauw) muestra cómo hacerlo con un divertido controlador MemeGenerator en [Reducción de la latencia en Web con la red CDN de Azure](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN). Aquí simplemente lo vamos a reproducir.
 
 Suponga que desea generar en la aplicación web memes basados en una imagen de Chuck Norris de joven (foto de [Alan Light](http://www.flickr.com/photos/alan-light/218493788/)) como esta:
 
@@ -542,11 +542,11 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 	...
 	```
 
-	Observe que el script inyectado para el paquete de CSS contiene aún el residuo errante de la propiedad `CdnFallbackExpression` en la línea:
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
-        }())||document.write('<script src="/Content/css"></script>');</script>
+		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	Pero como la primera parte de la expresión || siempre devolverá true (en la línea directamente encima de esa), la función document.write() nunca se ejecutará.
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
 6. Para probar si el script de reserva funciona, vuelva al panel del extremo de la red CDN y haga clic en **Deshabilitar extremo**.
 
@@ -566,4 +566,4 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

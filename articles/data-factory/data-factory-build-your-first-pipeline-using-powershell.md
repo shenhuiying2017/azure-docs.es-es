@@ -152,9 +152,9 @@ Ahora, va a crear el conjunto de datos de salida que representa los datos almace
 
 	En el ejemplo anterior, se crea un conjunto de datos llamado **AzureBlobOutput** y se especifica la estructura de los datos que generará el script de Hive. Además, se especifica que los resultados se almacenan en el contenedor de blobs llamado **data** y la carpeta llamada **partitioneddata**. La sección **availability** especifica que el conjunto de datos de salida se genera mensualmente.
 
-2. Ejecute el comando siguiente en Azure PowerShell para crear la tabla Factoría de datos.
+2. Ejecute el comando siguiente en Azure PowerShell para crear el conjunto de datos Factoría de datos.
 
-		New-AzureDataFactoryTable $df -File .\OutputTable.json
+		New-AzureDataFactoryDataset $df -File .\OutputTable.json
 
 ## Paso 3: Creación de la primera canalización
 En este paso, creará la primera canalización:
@@ -268,4 +268,4 @@ En este artículo, creó una canalización con una actividad de transformación 
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

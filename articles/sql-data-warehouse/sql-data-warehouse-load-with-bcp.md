@@ -152,4 +152,4 @@ Para obtener información general sobre la carga, vea [Carga de datos en Almacen
 <!--Other Web references-->
 [Centro de descarga de Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

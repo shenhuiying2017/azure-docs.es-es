@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="10/05/2015"
+	ms.date="10/13/2015"
 	ms.author="jeffstok"/>
 
 # Comparación de Apache Storm y el Análisis de transmisiones de Azure #
@@ -578,7 +578,7 @@ Aunque ambos proporcionan las ventajas de una solución PaaS, hay algunas capaci
             </td>
             <td width="204" valign="top">
                 <p>
-                    Sí, mediante la configuración de los modelos publicados de aprendizaje automático de Azure a modo de funciones durante la creación del trabajo ASA.
+                    Mediante la configuración de los modelos publicados del aprendizaje automático de Azure a modo de funciones durante la creación del trabajo ASA <a href="http://blogs.msdn.com/b/streamanalytics/archive/2015/05/24/real-time-scoring-of-streaming-data-using-machine-learning-models.aspx">(vista previa privada)</a>.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -590,4 +590,4 @@ Aunque ambos proporcionan las ventajas de una solución PaaS, hay algunas capaci
     </tbody>
 </table>
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

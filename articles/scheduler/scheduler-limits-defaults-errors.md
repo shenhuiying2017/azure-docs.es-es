@@ -73,4 +73,4 @@ Las operaciones de API pueden devolver también información adicional de error 
 
  [Autenticación de salida de Programador](scheduler-outbound-authentication.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

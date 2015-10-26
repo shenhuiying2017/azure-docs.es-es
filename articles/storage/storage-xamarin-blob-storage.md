@@ -179,4 +179,4 @@ Obtenga más información acerca de blobs, tablas y colas mediante la consulta d
 [Cómo utilizar el almacenamiento de colas de .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

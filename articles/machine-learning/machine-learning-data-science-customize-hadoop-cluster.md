@@ -1,24 +1,28 @@
 <properties 
-	pageTitle="Personalizar los clústeres de Hadoop para Tecnología y procesos de análisis avanzado | Microsoft Azure"
+	pageTitle="Personalizar los clústeres de Hadoop para Tecnología y procesos de análisis avanzado | Microsoft Azure" 
 	description="Están disponibles módulos de Python populares en los clústeres de Hadoop de HDInsight de Azure personalizados."
-	services="machine-learning"
-	documentationCenter=""
-	authors="hangzh-msft"
-	manager="paulettm"
-	editor="cgronlun"/>
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="hangzh-msft" 
+	manager="paulettm" 
+	editor="cgronlun"  />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="hangzh;bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/13/2015" 
+	ms.author="hangzh;bradsev" />
 
 # Personalizar los clústeres de Hadoop para HDInsight Azure para Tecnología y procesos de análisis avanzado
 
-En este artículo se describe cómo personalizar un clúster de Hadoop para HDInsight mediante la instalación de Anaconda de 64 bits (Python 2.7) en cada nodo cuando el clúster se está aprovisionando en el servicio HDInsight. Esta personalización prepara el clúster para su uso con Tecnología y procesos de análisis avanzado (ADAPT) utilizados en Aprendizaje automático de Azure. También muestra cómo obtener acceso al nodo principal para enviar trabajos personalizados al clúster.
+Este menú vincula a temas en los que se describe cómo configurar los diversos entornos de ciencia de datos usados por el proceso de análisis de Cortana (CAPS).
+
+[AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
+
+En este artículo se describe cómo personalizar un clúster de Hadoop para HDInsight mediante la instalación de Anaconda de 64 bits (Python 2.7) en cada nodo cuando el clúster se está aprovisionando en el servicio HDInsight. Esta personalización prepara el clúster para usarlo con el proceso de análisis de Cortana. También muestra cómo obtener acceso al nodo principal para enviar trabajos personalizados al clúster.
 
 Esta personalización provoca que muchos módulos populares de Python incluidos en Anaconda estén disponibles convenientemente para su uso en funciones definidas por el usuario (UDF) que están diseñadas para procesar los registros de subárbol en el clúster. Para obtener instrucciones sobre los procedimientos usados en este escenario, consulte [Envío de consultas de Hive a clústeres de Hadoop de HDInsight en el proceso de análisis avanzado](machine-learning-data-science-hive-queries.md).
 
@@ -51,7 +55,7 @@ En la última página de configuración de **Acciones de script**, haga clic en 
  
 * **NOMBRE**: cualquier cadena como el nombre de esta acción de script. 
 * **TIPO DE NODO**: seleccione **Todos los nodos**. 
-* **URI DE SCRIPT** - **http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
+* **URI DE SCRIPT**: **http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
 	* *publicscripts* es un contenedor público situado en la cuenta de almacenamiento. 
 	* *getgoing* se usa para compartir archivos de script de PowerShell para facilitar el trabajo de los usuarios en Azure. 
 * **PARÁMETROS**: (dejar en blanco)
@@ -98,4 +102,4 @@ Consulte [Envío de consultas de Hive a clústeres de Hadoop de HDInsight en el 
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -22,7 +22,8 @@
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Máquinas virtuales y contenedores de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+ 
 
 Azure ofrece soluciones de nube excelentes, integradas en máquinas virtuales y basadas en la emulación de hardware de equipo físico para habilitar el movimiento ágil de implementaciones de software y mejorar considerablemente la consolidación de los recursos respecto al hardware físico. En los últimos años, en gran medida gracias al enfoque [Docker](https://www.docker.com) de los contenedores y el ecosistema de docker, la tecnología de contenedores de Linux ha ampliado considerablemente las maneras en que puede desarrollar y administrar el software distribuido. El código de la aplicación de un contenedor está aislado de la máquina virtual de Azure host, así como otros contenedores de la misma máquina virtual, que le ofrecen más agilidad de desarrollo e implementación en el nivel de la aplicación, además de la agilidad que ya proporcionan las máquinas virtuales de Azure.
 
@@ -239,4 +240,4 @@ Desmarque [Docker](https://www.docker.com) y [Contenedores de Windows Server](ht
 [microservicio]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

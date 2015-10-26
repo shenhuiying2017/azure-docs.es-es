@@ -1,7 +1,8 @@
 
 Puede proteger la comunicación entre la aplicación web y el explorador con HTTPS, que utiliza el cifrado de capa de sockets seguros (SSL). Este es el método más usado para proteger los datos que se envían por Internet y asegura a los visitantes la protección de las transacciones que realizan en su aplicación. En este artículo se describe cómo configurar HTTPS para una aplicación web en el Servicio de aplicaciones de Azure. En este artículo no se cubre la autenticación de certificado de cliente; para obtener información al respecto, vea [Configuración de la autenticación mutua TLS para una aplicación web](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md).
 
-> [AZURE.NOTE]Póngase en marcha más rápido: use el NUEVO [tutorial guiado](http://support.microsoft.com/kb/2990804) de Azure. Con este tutorial, resulta muy fácil asociar un nombre de dominio personalizado Y proteger la comunicación (SSL) con los Servicios en la nube o el [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) de Azure.
+> [AZURE.NOTE]
+> Póngase en marcha más rápido: use el NUEVO [tutorial guiado](http://support.microsoft.com/kb/2990804) de Azure. Con este tutorial, resulta muy fácil asociar un nombre de dominio personalizado Y proteger la comunicación (SSL) con los Servicios en la nube o el [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) de Azure.
 
 ##<a name="bkmk_azurewebsites"></a>HTTPS para el dominio \\*.azurewebsites.net
 
@@ -392,8 +393,10 @@ La habilitación de HTTPS para un dominio personalizado solo está disponible pa
 3.	Haga clic en la hoja **Aplicaciones web**.
 4.	Haga clic en el nombre de la aplicación web.
 5.	En la página **Essentials**, haga clic en **Configuración**.
-6.	Haga clic en **Escala**![Pestaña SCALE][scale].
-7.	En la sección **Escala**, establezca el modo del plan del Servicio de aplicaciones haciendo clic en **Seleccionar**. ![The Pricing tier][sslreserved]
+6.	Haga clic en **Escala**
+	![Pestaña SCALE][scale].
+7.	En la sección **Escala**, establezca el modo del plan del Servicio de aplicaciones haciendo clic en **Seleccionar**. 
+	![The Pricing tier][sslreserved]
 
 	> [AZURE.NOTE]Si se muestra el error "Error al configurar la escala de la aplicación web '&lt;nombre de aplicación'&gt;", puede usar el botón Detalles para obtener más información. Puede que reciba un error "Not enough available standard instance servers to satisfy this request". Si se muestra este error, póngase en contacto con el [soporte técnico de Azure](/support/options/).
 
@@ -407,9 +410,11 @@ Antes de realizar los pasos de esta sección, debe haber asociado un nombre de d
 3.	Haga clic en la hoja **Aplicaciones web**.
 4.	Haga clic en el nombre de la aplicación web.
 5.	En la página **Essentials**, haga clic en **Configuración**.	
-6.	Haga clic en **Dominios personalizados y SSL**. ![The config tab][sslconfig]
+6.	Haga clic en **Dominios personalizados y SSL**. 
+	![The config tab][sslconfig]
 7.	En la sección **Certificados**, haga clic en **Cargar**.
-8.	Mediante el cuadro de diálogo **Cargar un certificado**, seleccione el archivo de certificado .pfx que ha creado previamente con Administrador de IIS u OpenSSL. Especifique la contraseña, si procede, que se utilizó para proteger el archivo .pfx. Por último, haga clic en **Guardar** para cargar el certificado. ![ssl upload][ssluploadcert]
+8.	Mediante el cuadro de diálogo **Cargar un certificado**, seleccione el archivo de certificado .pfx que ha creado previamente con Administrador de IIS u OpenSSL. Especifique la contraseña, si procede, que se utilizó para proteger el archivo .pfx. Por último, haga clic en **Guardar** para cargar el certificado. 
+	![ssl upload][ssluploadcert]
 9. En la sección **Enlaces SSL** de la pestaña **Configuración de SSL**, use las listas desplegables para seleccionar el nombre de dominio que desea proteger con SSL y el certificado que va a usar. Es posible que también desee seleccionar el uso de SSL basada en IP o en la extensión [Indicación de nombre de servidor][sni] (SNI).
 
 	![enlaces ssl][sslbindings]
@@ -539,4 +544,4 @@ Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la 
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

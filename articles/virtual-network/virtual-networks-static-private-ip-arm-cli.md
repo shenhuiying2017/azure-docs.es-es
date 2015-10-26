@@ -264,4 +264,4 @@ Resultado esperado:
 - Encuentra más información sobre las direcciones [IP públicas a nivel de instancia (ILPIP)](../virtual-networks-instance-level-public-ip).
 - Consulta las [API de REST de IP reservadas](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

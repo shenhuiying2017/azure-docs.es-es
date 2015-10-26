@@ -150,4 +150,4 @@ Todas las razones para usar las colas descritas en [Creación de aplicaciones qu
 
 Para ver cómo usar las colas en el escenario minorista de PDV, consulte [Creación de aplicaciones que usan temas y suscripciones del Bus de servicio](service-bus-create-topics-subscriptions.md).
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

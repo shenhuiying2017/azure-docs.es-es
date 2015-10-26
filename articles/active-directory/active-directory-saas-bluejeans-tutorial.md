@@ -63,7 +63,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de BlueJeans**, escriba su dirección URL con el siguiente patrón "**https://company.BlueJeans.com**" y, a continuación, haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de BlueJeans**, escriba su dirección URL con el siguiente patrón "**https://company.BlueJeans.com*" y, a continuación, haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "Configurar dirección URL de la aplicación")
 
@@ -97,11 +97,11 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Guardar cambios](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Guardar cambios")
 
-    1.  En el cuadro de texto **Identificador de usuario**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-    2.  En el cuadro de texto **Correo electrónico**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    1.  En el cuadro de texto **Identificador de usuario**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+2.  En el cuadro de texto **Correo electrónico**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
 3.  Haga clic en **Guardar cambios**.
 
-10. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+10. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-bluejeans-tutorial/IC785876.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -145,4 +145,4 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

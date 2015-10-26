@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/28/2015"
+	ms.date="10/14/2015"
 	ms.author="juliako"/>
 
 #Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure
@@ -48,6 +48,8 @@ El siguiente diagrama representa un flujo de trabajo de streaming en vivo donde 
 ##<a id="scenario"></a>Escenario común de streaming en vivo
 
 A continuación se indican los pasos generales para crear aplicaciones comunes de streaming en vivo.
+
+>[AZURE.NOTE]Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Póngase en contacto con amslived en Microsoft punto com si necesita ejecutar un canal durante largos períodos de tiempo.
 
 1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una **sola** velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
@@ -260,6 +262,8 @@ Pueden especificarse hasta 8 conjuntos de secuencias de audio si la entrada al c
 
 Especifica el valor preestablecido que usará el codificador en directo dentro de este canal. Actualmente, el único valor permitido es **Default720p** (valor predeterminado).
 
+Tenga en cuenta que si necesita valores preestablecidos personalizados, debe ponerse en contacto con amslived en Microsoft punto com.
+
 **Default720p** codificará el vídeo en las 7 capas siguientes.
 
 
@@ -267,13 +271,13 @@ Especifica el valor preestablecido que usará el codificador en directo dentro d
 
 Velocidad de bits|Ancho|Alto|Fotogramas/seg. máx.|Perfil|Nombre secuencia salida
 ---|---|---|---|---|---
-3500|1280|720|30|Alto|Video\_1280x720\_30fps\_3500kbps
-2200|960|540|30|Principal|Video\_960x540\_30fps\_2200kbps
-1350|704|396|30|Principal|Video\_704x396\_30fps\_1350kbps
-850|512|288|30|Principal|Video\_512x288\_30fps\_850kbps
-550|384|216|30|Principal|Video\_384x216\_30fps\_550kbps
-350|340|192|30|Línea base|Video\_340x192\_30fps\_350kbps
-200|340|192|30|Línea base|Video\_340x192\_30fps\_200kbps
+3500|1280|720|30|Alto|Video\_1280x720\_3500kbps
+2200|960|540|30|Principal|Video\_960x540\_2200kbps
+1350|704|396|30|Principal|Video\_704x396\_1350kbps
+850|512|288|30|Principal|Video\_512x288\_850kbps
+550|384|216|30|Principal|Video\_384x216\_550kbps
+350|340|192|30|Línea base|Video\_340x192\_350kbps
+200|340|192|30|Línea base|Video\_340x192\_200kbps
 
 
 ####Secuencia de audio de salida
@@ -374,7 +378,7 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 Estado del canal|Indicadores IU del portal|¿Facturado?
 ---|---|---
 Iniciando|Iniciando|No (estado transitorio)
-Ejecución|Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución)|Sí
+Ejecución|Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos hay un programa en ejecución)|Sí
 Deteniéndose|Deteniéndose|No (estado transitorio)
 Detenido|Detenido|No
 
@@ -391,6 +395,8 @@ Detenido|Detenido|No
 - De forma predeterminada solo puede agregar 5 canales a su cuenta de Servicios multimedia. Esta es una cuota de advertencia a todas las cuentas nuevas. Para obtener más información, consulte [Cuotas y limitaciones](media-services-quotas-and-limitations.md).
 - No se puede cambiar el protocolo de entrada mientras el canal o sus programas asociados se están ejecutando. Si necesita diferentes protocolos, debe crear canales independientes para cada protocolo de entrada.
 - Solo se le cobrará cuando el canal esté en estado **En ejecución**. Para obtener más información, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) sección.
+- Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Póngase en contacto con amslived en Microsoft punto com si necesita ejecutar un canal durante largos períodos de tiempo.
+- Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
 
 ##Problemas conocidos
 
@@ -400,7 +406,7 @@ Detenido|Detenido|No
 
 ###Creación de canales que realizan la codificación en directo desde una secuencia de una sola velocidad de bits a una secuencia de velocidad de bits adaptable 
 
-Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar canales y programas.
+Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar los canales y programas.
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -426,4 +432,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -44,4 +44,4 @@
 
    	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

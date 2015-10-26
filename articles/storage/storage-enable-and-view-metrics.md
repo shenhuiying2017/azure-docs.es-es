@@ -192,4 +192,4 @@ La capacidad de las tablas de métricas también es facturable: puede usar las o
 [Habilitar el registro de almacenamiento y acceso a los datos del registro](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

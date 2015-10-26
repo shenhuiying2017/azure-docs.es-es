@@ -15,4 +15,4 @@ El Administrador de conexiones híbridas permite que su máquina local se conect
 
 La instalación de la conexión híbrida ha terminado.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

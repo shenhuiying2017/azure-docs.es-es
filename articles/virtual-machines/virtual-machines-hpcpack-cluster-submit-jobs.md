@@ -18,7 +18,7 @@ ms.service="virtual-machines"
 
 # Envío de trabajos HPC desde un equipo local a un clúster de HPC Pack en Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo se aplica a la administración de recursos creados con el modelo de implementación del Administrador de recursos o el modelo de implementación clásico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 En este artículo se muestra cómo configurar un equipo cliente local con Windows para ejecutar herramientas de envío de trabajos de HPC Pack que se comunican con un clúster de HPC Pack en Azure a través de HTTPS. Esto proporciona una forma sencilla y flexible para que los usuarios de varios clústeres envíen trabajos a un clúster de HPC Pack en la nube sin necesidad de conectarse directamente a la máquina virtual del nodo principal para ejecutar las herramientas de envío de trabajos.
 
@@ -183,4 +183,4 @@ Para comprobar la configuración, intente ejecutar trabajos en el clúster de Az
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

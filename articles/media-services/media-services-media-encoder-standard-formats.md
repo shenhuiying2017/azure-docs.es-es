@@ -58,6 +58,7 @@ Códecs de vídeo de entrada|Compatible
 AVC 8 bits/10 bits, hasta 4:2:2, incluido AVCIntra |8 bits: 4:2:0 y 4:2:2 
 Avid DNxHD (en MXF) |Sí 
 DVCPro/DVCProHD (en MXF) |Sí 
+Vídeo digital (DV) (en archivos AVI) |Sí
 JPEG 2000 |Sí 
 MPEG-2 (hasta 422 Perfil y Nivel alto; incluidas variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® y D10)|Hasta 422 Perfil 
 MPEG-1 |Sí 
@@ -109,7 +110,7 @@ MPEG2-TS |H.264 (perfil alto, perfil principal y perfil de base de línea)|AAC-L
 
 Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
-- [Flujo de trabajo de streaming en vivo de AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Consulte también
@@ -118,4 +119,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 [Codificación con Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo trata la solución de problemas de una máquina virtual creada con el modelo de implementación clásica o el modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Puede haber varias razones por las que el Escritorio remoto (RDP) no pueda conectarse una máquina virtual de Azure con Windows. Este artículo le ayudará a determinar las causas y corregirlas.
 
@@ -157,4 +158,4 @@ Si no se produjeron estos errores y aún no se pudo conectar a la máquina virtu
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

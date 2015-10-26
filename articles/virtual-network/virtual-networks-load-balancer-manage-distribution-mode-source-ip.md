@@ -1,20 +1,22 @@
 <properties 
    pageTitle="Administración: Modo de distribución del equilibrador de carga (afinidad de IP de origen)"
-	description="Características de administración para el modo de distribución del equilibrador de carga de Azure"
-	services="virtual-network"
-	documentationCenter=""
-	authors="telmosampaio"
-	manager="carolz"
-	editor=""/>
+   description="Características de administración para el modo de distribución del equilibrador de carga de Azure" 
+   services="virtual-network" 
+   documentationCenter="" 
+   authors="telmosampaio" 
+   manager="carolz" 
+   editor=""
+   />
 
 <tags
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/21/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/21/2015"
+   ms.author="telmos"
+   />
    
 # Administrar la red virtual : Modo de distribución del equilibrador de carga (afinidad de IP de origen)
 **Afinidad de IP de origen** (también conocida como **afinidad de la sesión** o **afinidad de IP del cliente**), un modo de distribución del equilibrador de carga de Azure, enlaza las conexiones de un solo cliente a un único servidor hospedado de Azure, en lugar de distribuir cada conexión de cliente de manera dinámica a distintos servidores hospedados de Azure (el comportamiento del equilibrador de carga predeterminado).
@@ -159,4 +161,4 @@ El valor de LoadBalancerDistribution puede ser sourceIP para la afinidad de 2-tu
     Date: Thu, 16 Oct 2014 22:49:21 GMT
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

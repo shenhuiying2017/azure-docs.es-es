@@ -19,7 +19,8 @@
 
 # Ejecución de una tarea de Java de proceso intensivo en una máquina virtual
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+ 
 
 Con Azure puede utilizar una máquina virtual para controlar tareas de proceso intensivo. Por ejemplo, una máquina virtual puede controlar tareas y ofrecer los resultados a equipos cliente o a aplicaciones móviles. Después de leer este artículo, sabrá cómo crear una máquina virtual que ejecute una aplicación Java de proceso intensivo que otra aplicación Java puede supervisar.
 
@@ -519,4 +520,4 @@ En ambas aplicaciones, el solucionador y el cliente, presione **Ctrl+C** para sa
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

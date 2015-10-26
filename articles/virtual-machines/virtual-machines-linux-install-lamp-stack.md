@@ -21,7 +21,8 @@
 
 #Instalación de la pila LAMP en una máquina virtual con Linux en Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se describe la creación de recursos con el modelo de implementación del Administrador de recursos o el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Una pila LAMP consta de los siguientes elementos diferentes:
 
@@ -128,4 +129,4 @@ Existen muchos recursos para instalar una pila LAMP en Ubuntu.
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

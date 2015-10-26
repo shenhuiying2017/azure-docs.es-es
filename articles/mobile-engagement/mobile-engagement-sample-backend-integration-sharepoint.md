@@ -118,7 +118,7 @@ Este tutorial recorre este escenario en el que un usuario empresarial de SharePo
                 client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", CreateAuthZHeader());
                 
                 // Create the payload to send the content
-                // Reference -> https://msdn.microsoft.com/es-es/library/dn913749.aspx
+                // Reference -> https://msdn.microsoft.com/es-ES/library/dn913749.aspx
                 string data =
                     @"{""name"":""" + campaignName + @"""," + 
                     @"""type"":""only_notif""," + 
@@ -207,4 +207,4 @@ Este ejemplo crea una campaña de anuncio simple y especifica principalmente las
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

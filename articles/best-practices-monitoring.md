@@ -1,21 +1,21 @@
 <properties
    pageTitle="Guía de supervisión y diagnósticos | Microsoft Azure"
-	description="Prácticas recomendadas para la supervisión de aplicaciones distribuidas en la nube."
-	services=""
-	documentationCenter="na"
-	authors="dragon119"
-	manager="masimms"
-	editor=""
-	tags=""/>
+   description="Prácticas recomendadas para la supervisión de aplicaciones distribuidas en la nube."
+   services=""
+   documentationCenter="na"
+   authors="dragon119"
+   manager="masimms"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="best-practice"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="04/28/2015"
-	ms.author="masashin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="04/28/2015"
+   ms.author="masashin"/>
 
 # Guía de supervisión y diagnósticos
 
@@ -612,4 +612,4 @@ En muchos casos, los informes se pueden generar mediante procesos por lotes seg�
 - La página [Descripción de la supervisión de alertas y notificaciones en Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) del sitio web de Microsoft.
 - La página de [Application Insights](app-insights-get-started/) del sitio web de Microsoft.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

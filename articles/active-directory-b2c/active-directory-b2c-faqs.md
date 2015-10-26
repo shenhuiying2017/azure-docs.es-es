@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Preguntas más frecuentes
@@ -22,9 +22,9 @@ Esta página responde a las preguntas más frecuentes acerca de la vista previa 
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-### ¿Puedo usar Azure AD B2C en mi directorio de Azure de AD existente, basado en empleados?
+### ¿Puedo usar Azure AD B2C en mi inquilino de Azure de AD existente, basado en empleados?
 
-Actualmente, las características de Azure AD B2C no pueden activarse en los directorios existentes de Azure AD. Se recomienda que cree un directorio independiente para usar características de Azure AD B2C, es decir, para administrar los consumidores.
+Actualmente, las características de Azure AD B2C no pueden activarse en su inquilino existente de Azure AD. Se recomienda que cree un inquilino independiente para usar características de Azure AD B2C, es decir, para administrar los consumidores.
 
 ### ¿Puedo usar Azure AD B2C para proporcionar un inicio de sesión social (Facebook y Google+) en Office 365?
 
@@ -32,9 +32,9 @@ Azure AD B2C no se puede usar con Office 365. En general, no se puede usar para 
 
 ### ¿Qué son las "cuentas locales" en Azure AD B2C? ¿En qué se distinguen de las "cuentas de trabajo o educativas" en Azure AD?
 
-En un directorio de Azure AD, todos los usuarios del directorio (excepto los usuarios con Cuentas de Microsoft existentes), inician sesión con una dirección de correo electrónico de formato `<xyz>@<directory domain>` donde `<directory domain>` es uno de los dominios comprobados del directorio o el dominio `<...>.onmicrosoft.com` inicial. Este tipo de cuenta es una "cuenta de trabajo o educativa", que también se denomina "cuenta de organización".
+En un inquilino de Azure AD, todos los usuarios del inquilino (excepto los usuarios con Cuentas de Microsoft existentes), inician sesión con una dirección de correo electrónico de formato `<xyz>@<tenant domain>` donde `<tenant domain>` es uno de los dominios comprobados del inquilino o el dominio `<...>.onmicrosoft.com` inicial. Este tipo de cuenta es una "cuenta de trabajo o educativa", que también se denomina "cuenta de organización".
 
-En un directorio de Azure AD B2C, la mayoría de las aplicaciones solicita al usuario que inicie sesión con cualquier dirección de correo electrónico arbitraria (por ejemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com)). Este tipo de cuenta es una "cuenta local". Hoy en día, también se admiten nombres de usuario arbitrarios (cadenas simples) como cuentas locales (ejemplo, joe, bob, sarah o jim). Puede elegir uno de estos dos "tipos" de cuentas locales en el servicio de Azure AD B2C.
+En un inquilino de Azure AD B2C, la mayoría de las aplicaciones solicita al usuario que inicie sesión con cualquier dirección de correo electrónico arbitraria (por ejemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com)). Este tipo de cuenta es una "cuenta local". Hoy en día, también se admiten nombres de usuario arbitrarios (cadenas simples) como cuentas locales (ejemplo, joe, bob, sarah o jim). Puede elegir uno de estos dos "tipos" de cuentas locales en el servicio de Azure AD B2C.
 
 ### ¿Qué proveedores de identidades sociales se admiten ahora? ¿Cuáles se prevén que se van a admitir en el futuro?
 
@@ -55,7 +55,7 @@ No, puede hospedar la aplicación en cualquier lugar (en la nube o de forma loca
 
 ### Tengo varios directorios de Azure AD B2C ¿Cómo puedo administrarlos en el Portal de vista previa de Azure?
 
-Cada directorio de Azure AD B2C tiene su propia hoja de características de B2C en el Portal de vista previa de Azure. Lea [aquí](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sobre cómo puede navegar a una hoja de características de B2C de un directorio específico en el Portal de vista previa de Azure. El cambio entre directorios de Azure AD B2C en el Portal de vista previa de Azure no mantendrá la hoja de características B2C abierta en la mayoría de los exploradores.
+Cada inquilino de Azure AD B2C tiene su propia hoja de características de B2C en el Portal de vista previa de Azure. Lea [aquí](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sobre cómo puede navegar a una hoja de características de B2C de un inquilino específico en el Portal de vista previa de Azure. El cambio entre directorios de Azure AD B2C en el Portal de vista previa de Azure no mantendrá la hoja de características B2C abierta en la mayoría de los exploradores.
 
 ### ¿Cómo puedo personalizar los mensajes de correo electrónico de comprobación (el contenido y el campo remitente, es decir, el campo "De:") enviados por Azure AD B2C?
 
@@ -87,7 +87,7 @@ Actualmente, Azure AD B2C está optimizado solo para inglés. Tenemos previsto i
 
 ### ¿Puedo usar mis propias direcciones URL en las páginas de registro y de inicio servidas por Azure AD B2C? Por ejemplo, ¿cambiar las direcciones URL de login.microsoftonline.com a login.contoso.com?
 
-Actualmente, no. Pero esta característica está en nuestro mapa de ruta.
+Actualmente, no. Esta característica está en nuestro mapa de ruta. Tenga en cuenta también que "comprobar" su dominio en la pestaña **Dominios** de su inquilino en el portal de Azure no hará esto.
 
 ### ¿Puedo obtener Azure AD B2C como parte de Enterprise Mobility Suite (EMS)?
 
@@ -105,4 +105,4 @@ No podemos proporcionar información sobre la fecha en la que estará disponible
 
 Es posible que desee ver las [limitaciones y restricciones de la versión preliminar](active-directory-b2c-limitations.md) actual.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

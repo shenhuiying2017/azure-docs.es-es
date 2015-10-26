@@ -82,4 +82,4 @@ Para obtener una lista completa, consulte [Extensiones de VM de Azure](http://ms
 [Extensiones de máquina virtual para Linux y Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

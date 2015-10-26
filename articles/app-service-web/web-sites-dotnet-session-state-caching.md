@@ -109,4 +109,4 @@ También puede usar el servicio Caché en Redis para almacenar objetos en la mem
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

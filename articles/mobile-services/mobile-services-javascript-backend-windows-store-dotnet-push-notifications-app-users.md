@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Envío de notificaciones de inserción a usuarios autenticados" 
-	description="Obtenga información acerca de cómo enviar notificaciones de inserción a específicos" 
+	pageTitle="Envío de notificaciones push a usuarios de aplicaciones universales de Windows autenticados." 
+	description="Obtenga información sobre cómo enviar notificaciones de inserción desde Servicios móviles de Azure a usuarios específicos de su aplicación universal C# de Windows." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -98,4 +98,4 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 [Portal de administración de Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

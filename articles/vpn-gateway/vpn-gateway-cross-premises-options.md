@@ -102,4 +102,4 @@ Para obtener más información sobre ExpressRoute, consulte la [Información té
 
 Consulte las [Preguntas más frecuentes sobre ExpressRoute](../expressroute/expressroute-faqs.md) y las [Preguntas más frecuentes de la puerta de enlace de VPN](vpn-gateway-vpn-faq.md) para obtener más información.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

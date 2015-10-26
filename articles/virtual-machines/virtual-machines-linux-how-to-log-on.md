@@ -22,7 +22,7 @@
 
 #Inicio de sesión en una máquina virtual con Linux #
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo trata sobre el uso de máquinas virtuales creadas con el modelo de implementación clásico. Puede seguir pasos similares para la máquina virtual creada mediante el [modelo de implementación del Administrador de recursos](virtual-machines-linux-tutorial-portal-rm.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-linux-tutorial-portal-rm.md).
 
 Para una máquina virtual con el sistema operativo Linux, utilice un cliente Secure Shell (SSH) para iniciar sesión.
 
@@ -56,4 +56,4 @@ Ahora puede trabajar con la máquina virtual igual que hace con cualquier otro s
 <!-- LINKS -->
 [Restablecimiento de una contraseña o de SSH para máquinas virtuales de Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

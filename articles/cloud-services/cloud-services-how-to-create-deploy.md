@@ -153,4 +153,4 @@ Hay tres características del servicio en la nube que requieren configuraciones 
 * [Administración de su servicio en la nube](cloud-services-how-to-manage.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

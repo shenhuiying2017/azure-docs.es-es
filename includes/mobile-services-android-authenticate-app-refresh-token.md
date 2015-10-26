@@ -285,4 +285,4 @@ En esta sección definirá un ServiceFilter que detectará una respuesta 401 del
 
        En este código, se usa `RefreshTokenCacheFilter` junto con `ProgressFilter`. También, durante `onCreate` queremos cargar la caché del token. Por tanto, `false` se pasa al método `authenticate`.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

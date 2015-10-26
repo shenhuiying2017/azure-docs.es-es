@@ -270,4 +270,4 @@ El historial de ejecución contiene como máximo las 50 ejecuciones completadas 
  - Para obtener más información sobre Búsqueda de Azure, haga clic [aquí](/services/search/).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

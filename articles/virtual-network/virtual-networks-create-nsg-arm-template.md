@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="10/08/2015"
    ms.author="telmos" />
 
 # Creación de grupos de seguridad de red mediante una plantilla
@@ -97,19 +97,10 @@ La plantilla de ejemplo disponible en el repositorio público usa un archivo de 
 Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos.
 
 1. Si es la primera vez que usa Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
-2. Ejecute el cmdlet **Switch-AzureMode** para cambiar al modo del Administrador de recursos, como se muestra a continuación.
 
-		Switch-AzureMode AzureResourceManager
+3. Ejecute el cmdlet **New-AzureRMResourceGroup** para crear un grupo de recursos mediante esta plantilla.
 
-	Este es el resultado esperado del comando anterior:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING]El cmdlet Switch-AzureMode pronto estará en desuso. Cuando esto suceda, se cambiará el nombre de todos los cmdlets del Administrador de recursos.
-
-3. Ejecute el cmdlet **New-AzureResourceGroup** para crear un grupo de recursos mediante esta plantilla.
-
-		New-AzureResourceGroup -Name TestRG -Location uswest `
+		New-AzureRMResourceGroup -Name TestRG -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
 		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'	
 
@@ -147,14 +138,14 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 		                    testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
 		                    testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
 		                    
-		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
 ## Implementar la plantilla ARM mediante la CLI de Azure
 
 Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
-2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
+2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, tal como se muestra a continuación.
 
 		azure config mode arm
 
@@ -162,7 +153,7 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 		info:    New mode is arm
 
-4. Ejecute el cmdlet **azure group deployment create** para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que descargó y modificó antes. En la lista que se muestra en la salida se explican los parámetros utilizados.
+4. Ejecute el cmdlet **azure group deployment create** para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que ha descargado y modificado anteriormente. En la lista que se muestra en la salida se explican los parámetros utilizados.
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
 
@@ -175,7 +166,7 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 		info:    Initializing template configurations and parameters
 		info:    Creating a deployment
 		info:    Created template deployment "azuredeploy"
-		data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 		data:    Name:                TestRG
 		data:    Location:            westus
 		data:    Provisioning State:  Succeeded
@@ -188,4 +179,4 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 	- **-f (o --template-file)**. Ruta de acceso al archivo de plantilla ARM.
 	- **-e (o --parameters-file)**. Ruta de acceso al archivo de parámetros ARM.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

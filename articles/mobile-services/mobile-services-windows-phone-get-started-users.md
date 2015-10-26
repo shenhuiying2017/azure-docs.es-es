@@ -79,4 +79,4 @@ En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

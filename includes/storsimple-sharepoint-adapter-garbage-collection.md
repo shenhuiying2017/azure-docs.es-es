@@ -64,4 +64,4 @@ En este procedimiento, hará lo siguiente:
 
 2. En el servidor web front-end, en**Administración central**, edite la **Configuración general de la aplicación web**para la base de datos de contenido deseada para volver a habilitar la papelera de reciclaje. Para ello, haga clic en **Administración central** -> **Administración de aplicaciones** -> **Aplicaciones web (Administrar aplicaciones web)** -> **SharePoint - 80** -> **Configuración de aplicación general**. Establezca el estado de la Papelera de reciclaje en **Activado**.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Uso de la CLI de Azure con el Administrador de recursos | Microsoft Azure"
-	description="Obtenga información sobre cómo usar la CLI de Azure para Mac, Linux y Windows para administrar recursos de Azure mediante el modo de implementación del Administrador de recursos."
-	services="virtual-machines"
+	description="Obtenga información sobre cómo usar la CLI de Azure para Mac, Linux y Windows para administrar recursos de Azure mediante el CLI en el modo del Administrador de recursos de Azure."
+	services="virtual-machines,mobile-services,cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-mangaer"/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="multiple"
@@ -14,31 +14,34 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos. También puede crear un recurso con el [modelo de implementación clásica](virtual-machines-command-line-tools.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
 
+En este tema se describe cómo usar la interfaz de línea de comandos (CLI de Azure) de Azure en modo del Administrador de recursos de Azure para crear, administrar y eliminar servicios en la línea de comandos de equipos Mac, Linux y Windows. Puede realizar muchas de las mismas tareas usando las diversas bibliotecas de los SDK de Azure, con Azure PowerShell y mediante el Portal de vista previa de Azure.
 
-Este tema describe cómo utilizar la interfaz de línea de comandos (CLI de Azure) de Azure en modo **arme cli** para crear, administrar y eliminar servicios en la línea de comandos de equipos Mac, Linux y Windows. Puede realizar las mismas tareas usando las diversas bibliotecas de los SDK de Azure, con PowerShell y mediante el Portal de Azure.
+El Administrador de recursos de Azure le permite crear un grupo de recursos (máquinas virtuales, sitios web, bases de datos, etc.) como una sola unidad de implementación. A continuación, puede implementar, actualizar o eliminar todos los recursos de la aplicación en una operación única y coordinada. Describa sus recursos de grupo en una plantilla JSON para la implementación, y luego use esa plantilla para diferentes entornos, como pruebas, almacenamiento provisional y producción.
 
-La administración de recursos de Azure le permite crear un grupo de recursos (máquinas virtuales, sitios web, bases de datos, etc.) como una sola unidad de implementación. A continuación, puede implementar, actualizar o eliminar todos los recursos de la aplicación en una operación única y coordinada. Describa sus recursos de grupo en una plantilla JSON para la implementación, y luego use esa plantilla para diferentes entornos, como pruebas, almacenamiento provisional y producción.
+## Ámbito del artículo
+
+En este artículo se ofrecen sintaxis y opciones para los comandos de CLI de Azure usados habitualmente para el modelo de implementación del Administrador de recursos. Tenga en cuenta que esta no es una referencia completa, y que la versión de CLI puede mostrar algunos comandos o parámetros diferentes. Para las opciones y la sintaxis de comando actuales de la línea de comandos en el modo del Administrador de recursos, escriba `azure help` o, para mostrar la ayuda de un comando específico, `azure help [command]`. También encontrará ejemplos de CLI en la documentación para crear y administrar servicios de Azure concretos.
+
+Se muestran parámetros opcionales entre corchetes (por ejemplo, [parameter]). Los demás parámetros son obligatorios.
+
+Además de los parámetros opcionales específicos de los comandos documentados aquí, existen tres parámetros opcionales que pueden usarse para mostrar el resultado detallado como opciones de solicitud y códigos de estado. El parámetro -v ofrece un resultado detallado y el parámetro -w ofrece un resultado incluso más detallado. La opción --json mostrará el resultado en formato json sin procesar. El uso con el modificador --json es muy común y es una parte importante de obtención y descripción de los resultados de las operaciones de la CLI de Azure que devuelven los registros, el estado y la información del recurso, y también del uso de plantillas. Puede que desee instalar herramientas de analizador JSON como **jq** o **jsawk** o usar la biblioteca de su lenguaje preferido.
 
 ## Enfoques imperativos y declarativos
 
-Al igual que con el [modo de administración de servicio (**asm**)](../virtual-machines-command-line-tools.md), el modo **arm** de la CLI de Azure ofrece comandos que crean recursos de forma imperativa en la línea de comandos. Por ejemplo, si escribe `azure group create <groupname> <location>`, pide a Azure que cree un grupo de recursos, y con `azure group deployment create <resourcegroup> <deploymentname>` indica a Azure que cree una implementación de cualquier número de elementos y los coloque en un grupo. Dado que cada tipo de recurso tiene comandos imperativos, se pueden encadenar para crear implementaciones bastante complejas.
+Al igual que con el [Modo de administración de servicio](../virtual-machines-command-line-tools.md), el modo del Administrador de recursos de la CLI de Azure le ofrece comandos que crean recursos de forma imperativa en la línea de comandos. Por ejemplo, si escribe `azure group create <groupname> <location>`, pide a Azure que cree un grupo de recursos, y con `azure group deployment create <resourcegroup> <deploymentname>` indica a Azure que cree una implementación de cualquier número de elementos y los coloque en un grupo. Dado que cada tipo de recurso tiene comandos imperativos, se pueden encadenar para crear implementaciones bastante complejas.
 
 Sin embargo, el uso del grupo de recursos de _plantillas_ que describe un grupo de recursos es un enfoque declarativo mucho más eficaz, lo que permite automatizar implementaciones complejas de (casi) cualquier número de recursos para (casi) cualquier propósito. Cuando se usen plantillas, el único comando imperativo es implementar uno. Para obtener una descripción general de las plantillas, los recursos y grupos de recursos, vea [Información general del grupo de recursos de Azure](resource-groups-overview).
 
-> [AZURE.NOTE]Además de los parámetros opcionales específicos de los comandos documentados aquí, existen tres parámetros opcionales que pueden usarse para mostrar el resultado detallado como opciones de solicitud y códigos de estado. El parámetro -v ofrece un resultado detallado y el parámetro -w ofrece un resultado incluso más detallado. La opción --json mostrará el resultado en formato json sin procesar, y es muy útil para escenarios de scripting.
->
-> El uso con el modificador --json es muy común y es una parte importante de obtención y descripción de los resultados de las operaciones de la CLI de Azure que devuelven los registros, el estado y la información del recurso, y también del uso de plantillas. Puede que desee instalar herramientas de analizador JSON como **jq** o **jsawk** o usar la biblioteca de su lenguaje preferido.
-
 ##Requisitos de uso
 
-Los requisitos de configuración para utilizar el modo **arm** con la CLI de Azure son:
+Los requisitos de configuración para usar el modo del Administrador de recursos con la CLI de Azure son:
 
 - una cuenta de Azure ([obtenga aquí una prueba gratuita](http://azure.microsoft.com/pricing/free-trial/));
 - [instalar las bibliotecas de clientes de Azure](../xplat-cli-install.md);
@@ -46,10 +49,9 @@ Los requisitos de configuración para utilizar el modo **arm** con la CLI de Azu
 
 Una vez que tiene una cuenta y ha instalado la CLI de Azure, debe:
 
-- cambiar el modo **arm** escribiendo `azure config mode arm`;
+- cambie al modo del Administrador de recursos escribiendo `azure config mode arm`.
 - iniciar sesión en su cuenta de Azure escribiendo `azure login` y usando su identidad de trabajo o entidad educativa en los cuadros.
 
-Ahora escriba `azure` para ver una lista de los comandos de nivel superior descritos en las secciones siguientes.
 
 ## Cuenta de Azure: administración de la información de la cuenta y publicación de la configuración
 La herramienta usa la información de la suscripción de Azure para la conexión a su cuenta. Esta información se puede obtener en el portal de Azure en un archivo de configuración de publicación como se describe aquí. Puede importar el archivo de configuración de publicación como un valor de configuración local permanente que la herramienta usará para operaciones posteriores. Solo tiene que importar la configuración de publicación una vez.
@@ -1740,4 +1742,4 @@ Opciones de parámetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

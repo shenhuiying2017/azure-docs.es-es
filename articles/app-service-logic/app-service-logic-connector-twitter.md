@@ -41,15 +41,15 @@ El desencadenador **Nuevo tweet** se ha archivado. Actualmente, sigue estando di
 
 ## Creación del conector de Twitter
 
-> [AZURE.IMPORTANT]Actualmente, la creación de un conector de Twitter requiere el registro de una aplicación de API con Twitter. Puede registrar una aplicación de forma gratuita en [http://apps.twitter.com](http://apps.twitter.com). Necesitará la clave y el secreto de API de Twitter para crear un conector.
+> [AZURE.IMPORTANT]Al crear un conector de Twitter, puede elegir registrar su propia aplicación con Twitter y usar las claves de aplicación con el conector de Twitter. Puede registrar una aplicación de forma gratuita en [http://apps.twitter.com](http://apps.twitter.com). Durante el registro, asegúrese de que tiene que proporciona alguna dirección URL de devolución de llamada. Podría cambiar la dirección URL de devolución de llamada una vez creado el conector de Twitter. Necesitará la clave y el secreto de API de Twitter para crear un conector.
 
 Un conector puede crearse dentro de una aplicación lógica o directamente desde Azure Marketplace. Para crear un conector desde Marketplace:
 
-1. Cree una aplicación gratuita de Twitter en [http://apps.twitter.com](http://apps.twitter.com).
-    * Al registrarse para la aplicación, puede colocar cualquier dirección URL para el sitio web y dejar en blanco la dirección URL de devolución de llamada.
+1. [Opcional] Cree una aplicación gratuita de Twitter en [http://apps.twitter.com](http://apps.twitter.com).
+    * Al registrarse para la aplicación, puede colocar cualquier dirección URL para el sitio web. Especifique cualquier dirección URL de devolución de llamada (no la deje en blanco); podrá actualizarla más adelante.
 2. En el panel de inicio de Azure, seleccione **Marketplace**.
 3. Busque "Conector de Twitter", selecciónelo y seleccione **Crear**.
-4. Haga clic en 'Configuración del paquete' y pegue la 'clave consumidor' de su aplicación de Twitter en el campo 'clientId'. Pegue el 'secreto de consumidor' de su aplicación de Twitter en el campo 'clientSecret'. 
+4. [Opcional] Haga clic en 'Configuración del paquete' y pegue la 'clave consumidor' de su aplicación de Twitter en el campo 'clientId'. Pegue el 'secreto de consumidor' de su aplicación de Twitter en el campo 'clientSecret': 
 	![][10]
 5. Especifique otra configuración necesaria en el nombre del conector, el servicio de la aplicación y el grupo de recursos.
 6.	Haga clic en **Crear**.
@@ -98,4 +98,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

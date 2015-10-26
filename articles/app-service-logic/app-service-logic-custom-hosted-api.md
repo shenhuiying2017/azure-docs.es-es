@@ -170,4 +170,4 @@ Además, si desea implementarla totalmente en su propio código y no aprovechar 
 
 Necesitará seguir los pasos anteriores para crear una identidad de aplicación para la aplicación lógica y usarla para llamar a la API.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

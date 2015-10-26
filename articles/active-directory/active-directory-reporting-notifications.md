@@ -50,4 +50,4 @@ Sí, para desactivar las notificaciones relacionadas con inicios de sesión err�
 - [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

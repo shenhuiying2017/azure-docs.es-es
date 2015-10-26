@@ -39,7 +39,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
     ![Agregar aplicación](./media/active-directory-saas-topdesk-secure-tutorial/IC749321.png "Agregar aplicación")
 
-5.  En el cuadro de diálogo **Qué desea hacer**, haga clic en **Agregar una aplicación de la galería**.
+5.  En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
 
     ![Agregar una aplicación de la galería](./media/active-directory-saas-topdesk-secure-tutorial/IC749322.png "Agregar una aplicación de la galería")
 
@@ -96,8 +96,8 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "Configurar dirección URL de la aplicación")
 
     1.  En el cuadro de texto **URL de inicio de sesión de TOPdesk - Secure**, escriba la dirección URL usada por los usuarios para iniciar sesión en su aplicación TOPdesk - Secure (por ejemplo, "**https://qssolutions.topdesk.net*").
-    2.  En el cuadro de texto**URL de respuesta de TOPdesk – Public**, pegue la **URL de AssertionConsumerService de TOPdesk - Secure**(por ejemplo, "*https://qssolutions.topdesk.net/tas/public/login/saml*")
-    3.  Haga clic en **Siguiente**.
+2.  En el cuadro de texto**URL de respuesta de TOPdesk – Public**, pegue la **URL de AssertionConsumerService de TOPdesk - Secure**(por ejemplo, "**https://qssolutions.topdesk.net/tas/public/login/saml*")
+3.  Haga clic en **Siguiente**.
 
 10. En la página **Configuración de inicio de sesión único en TOPdesk - Secure**, para descargar su archivo de metadatos, haga clic en **Descargar metadatos** y luego guarde el archivo localmente en el equipo.
 
@@ -183,6 +183,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Sí](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "Sí")
   
-Si quiere probar su configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!------HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

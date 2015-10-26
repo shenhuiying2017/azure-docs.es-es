@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Movimiento de datos de PostgreSQL | Factoría de datos de Azure"
-	description="Obtenga información acerca de cómo mover los datos de la base de datos de PostgreSQL mediante Factoría de datos de Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Movimiento de datos de PostgreSQL | Factoría de datos de Azure" 
+	description="Obtenga información acerca de cómo mover los datos de la base de datos de PostgreSQL mediante Factoría de datos de Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos de PostgreSQL mediante Factoría de datos de Azure
@@ -306,4 +306,4 @@ text | | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

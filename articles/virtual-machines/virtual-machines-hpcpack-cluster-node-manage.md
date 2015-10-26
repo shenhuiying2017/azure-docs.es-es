@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Administrar el número y la disponibilidad de los nodos de ejecución en un clúster de HPC Pack en Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se aplica la administración de un recurso creado con el modelo de implementación clásico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 Si ha creado un clúster de HPC Pack en las máquinas virtuales de Azure, puede que desee maneras de agregar, quitar iniciar (aprovisionar) o detener (desaprovisionar) con facilidad un número de máquinas virtuales de nodo de ejecución en el clúster. Para realizar estas tareas, ejecute los scripts de Azure PowerShell que están instalados en el nodo principal de la máquina virtual (comenzando por HPC Pack 2012 R2 Update 1). Estos scripts le ayudan a controlar el número y la disponibilidad de los recursos de clúster de HPC Pack para que pueda controlar los costos.
 
@@ -177,4 +178,4 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 * Si quiere una manera de aumentar o reducir automáticamente los recursos informáticos de Azure según la carga de trabajo actual de los trabajos y las tareas en el clúster, consulte [Aumentar y reducir los recursos de proceso de Azure en un clúster de HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

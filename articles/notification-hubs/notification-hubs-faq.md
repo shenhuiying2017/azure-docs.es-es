@@ -130,4 +130,4 @@ Los Centros de notificaciones Azure permiten ver los datos de telemetría en el 
 [Centro de notificaciones: ejemplo de métricas]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Exportación e importación de registros]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

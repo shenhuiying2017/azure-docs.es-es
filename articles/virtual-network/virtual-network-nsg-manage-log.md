@@ -114,4 +114,4 @@ Debe conectarse a la cuenta de almacenamiento y recuperar las entradas del regis
 - Entrada de blog [Visualize your Azure Audit Logs with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Visualizar los registros de auditoría de Azure con Power BI).
 - Entrada de blog [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Ver y analizar registros de auditoría de Azure en Power BI y más).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

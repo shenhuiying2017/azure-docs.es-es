@@ -162,4 +162,4 @@ Ahora que su implementación está funcionando en Azure, puede conectarse a ella
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

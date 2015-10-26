@@ -114,4 +114,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Envío de notificaciones basadas en plantillas a los suscriptores]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

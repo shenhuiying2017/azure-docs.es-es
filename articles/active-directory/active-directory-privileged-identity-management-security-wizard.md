@@ -69,4 +69,4 @@ Una vez realizados los cambios, ya no se mostrará el asistente. Pero se puede a
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

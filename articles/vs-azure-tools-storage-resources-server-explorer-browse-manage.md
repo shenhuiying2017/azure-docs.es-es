@@ -313,4 +313,4 @@ Existen dos formas de agregar cuentas de almacenamiento mediante el Explorador d
 
 Para obtener más información sobre cómo usar los servicios de almacenamiento de Azure, vea [Acceso a los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

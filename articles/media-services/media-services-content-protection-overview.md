@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/08/2015" 
 	ms.author="juliako"/>
 
 #Información general de protección del contenido
@@ -54,7 +54,7 @@ Para entregar a un recurso cifrado de almacenamiento, debe configurar la directi
 
 ###Cifrado dinámico
 
-Servicios multimedia de Microsoft Azure le permite entregar el contenido cifrado de forma dinámica con Estándar de cifrado avanzado (AES) (mediante claves de cifrado de 128 bits) y PlayReady DRM.
+Servicios multimedia de Microsoft Azure le permite entregar el contenido cifrado de forma dinámica con Estándar de cifrado avanzado (AES) (mediante claves de cifrado de 128 bits) y PlayReady o Widevine DRM.
 
 Actualmente puede cifrar los formatos de streaming siguientes: HLS, MPEG DASH y Smooth Streaming. No puede cifrar el formato de streaming HDS ni descargas progresivas.
 
@@ -86,7 +86,7 @@ Al configurar la directiva de restricción de token, debe especificar los parám
 
 ###Widevine
 
-AMS también le permite entrega DASH cifrado con DRM de Widevine. PlayReady y Widewine se cifran según la especificación de cifrado común (CENC). Puede usar el [.NET SDK de AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir de la versión 3.5.1) o la API de REST para configurar AssetDeliveryConfiguration para usar Widevine.
+AMS también le permite entregar MPEG DASH cifrado con DRM de Widevine. PlayReady y Widewine se cifran según la especificación de cifrado común (CENC). Puede usar el [.NET SDK de AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir de la versión 3.5.1) o la API de REST para configurar AssetDeliveryConfiguration para usar Widevine.
 
 Actualmente, Servicios multimedia no proporciona un servidor de licencias de Widevine. Puede usar los siguientes partners de AMS para ayudarle a entregar licencias de Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
@@ -136,4 +136,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

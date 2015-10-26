@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Ubicaciones POP de la Red de entrega de contenido (CDN) de Azure"
-	description="En este tema se enumeran las ubicaciones POP de la Red de entrega de contenido (CDN) de Azure."
-	services="cdn"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Ubicaciones POP de la Red de entrega de contenido (CDN) de Azure" 
+	description="En este tema se enumeran las ubicaciones POP de la Red de entrega de contenido (CDN) de Azure." 
+	services="cdn" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ne"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ne" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="juliako"/>
 
 
@@ -71,4 +71,4 @@ En este tema se enumeran las ubicaciones del punto de presencia (POP) de CDN de 
 - Melbourne
 - Sidney 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -3,9 +3,9 @@
 	description="Configure una máquina virtual de Azure para su uso en un entorno de ciencia de datos con el servidor de IPython para realizar análisis avanzados."
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"  />
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mohabib;xibingao;bradsev"/>
+	ms.date="10/13/2015"
+	ms.author="mohabib;xibingao;bradsev" />
 
 # Configuración de una máquina virtual de Azure como servidor del Bloc de notas de IPython para realizar análisis avanzados
 
@@ -122,7 +122,7 @@ Se desasignará la máquina virtual, pero no se eliminará. Puede reiniciar la m
 
 ## La máquina virtual de Azure está lista para su uso: ¿qué es lo siguiente?
 
-La máquina virtual ya está lista para su uso en los ejercicios de ciencia de datos. La máquina virtual también está preparada para su uso como un servidor de Bloc de notas de IPython para la exploración y procesamiento de datos, y otras tareas junto con el Aprendizaje automático de Azure y la Tecnología y procesos de análisis avanzado (ADAPT).
+La máquina virtual ya está lista para su uso en los ejercicios de ciencia de datos. La máquina virtual también está preparada para su uso como un servidor de Notebook de IPython para la exploración y el procesamiento de datos, y otras tareas junto con el Aprendizaje automático de Azure y el proceso de análisis de Cortana (CAP).
 
 Los pasos siguientes de Tecnología y procesos de análisis avanzado se asignan en la [Guía de aprendizaje: procesamiento avanzado de datos en Azure](machine-learning-data-science-advanced-data-processing.md) y pueden incluir pasos que muevan datos a HDInsight, los procese y muestree allí como preparación para el aprendizaje a partir de los datos con Aprendizaje automático de Azure.
 
@@ -143,4 +143,4 @@ Los pasos siguientes de Tecnología y procesos de análisis avanzado se asignan 
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

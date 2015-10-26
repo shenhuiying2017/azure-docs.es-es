@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/28/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -174,8 +174,7 @@ Según el porcentaje de uso de DTU y la edición necesaria para ajustar su carga
 
 ![Consumo de recursos][4]
 
-> **Nota**:
-> los números DTU relativos entre distintos niveles de rendimiento se basan en la carga de trabajo [Información general comparativa sobre Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn741327.aspx). Puesto que es probable que la carga de trabajo de la base de datos sea diferente de la prueba comparativa, debe usar los cálculos anteriores como criterio para un ajuste inicial de la base de datos Web o Business en los nuevos niveles. Una vez que se ha movido la base de datos al nuevo nivel, use el procedimiento descrito en la sección anterior para validar y ajustar el nivel de servicio correcto que mejor se adapte a sus necesidades de carga de trabajo.
+> **Nota**: los números DTU relativos entre distintos niveles de rendimiento se basan en la carga de trabajo [Información general comparativa sobre Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn741327.aspx). Puesto que es probable que la carga de trabajo de la base de datos sea diferente de la prueba comparativa, debe usar los cálculos anteriores como criterio para un ajuste inicial de la base de datos Web o Business en los nuevos niveles. Una vez que se ha movido la base de datos al nuevo nivel, use el procedimiento descrito en la sección anterior para validar y ajustar el nivel de servicio correcto que mejor se adapte a sus necesidades de carga de trabajo.
 > 
 > Mientras que el nuevo nivel de rendimiento o de edición tiene en cuenta la actividad de la base de datos durante los últimos 14 días, estos datos se basan en los ejemplos de datos de consumo de recursos promediados en un periodo de 5 minutos. Como tal puede perder ráfagas cortas de actividad cuya duración es inferior a 5 minutos. Por lo tanto, esta guía debe usarse como punto de partida al que actualizar la base de datos. Después de actualizar la base de datos al nivel sugerido, se necesita más supervisión, pruebas y validaciones, y la base de datos se puede mover hacia arriba o hacia abajo hasta un nivel de rendimiento o de servicio diferente, según sea necesario.
 
@@ -255,9 +254,9 @@ Después de determinar el nivel adecuado de servicio y de rendimiento para la ba
 | Herramienta de administración | Para cambiar el nivel de rendimiento y el nivel de servicio de una base de datos|
 | :---| :---|
 | [Portal de administración de Azure](https://manage.windowsazure.com) | haga clic en la pestaña **ESCALA** de la página del panel de la base de datos. |
-| [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | utilice el cmdlet [Set-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546732.aspx). |
-| [API de REST de administración del servicio](http://msdn.microsoft.com/library/azure/dn505719.aspx) | utilice el comando [Actualizar base de datos](http://msdn.microsoft.com/library/dn505718.aspx).|
-| [Transact-SQL](http://msdn.microsoft.com/library/bb510741.aspx) | utilice la instrucción [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/ms174269.aspx). |
+| [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | use el cmdlet [Set-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx). |
+| [API DE REST](https://msdn.microsoft.com/library/azure/mt163571.aspx) | use el comando [Crear o actualizar base de datos](https://msdn.microsoft.com/library/azure/mt163685.aspx).|
+| [Transact-SQL](http://msdn.microsoft.com/library/azure/bb510741.aspx) | utilice la instrucción [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/azure/ms174269.aspx). |
 
 Para obtener información más detallada, consulte [Cambio de los niveles de servicio y de rendimiento de la base de datos](sql-database-scale-up.md)
 
@@ -318,4 +317,4 @@ El servicio Base de datos SQL de Azure proporciona herramientas y datos de telem
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

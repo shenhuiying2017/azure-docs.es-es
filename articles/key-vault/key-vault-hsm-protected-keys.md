@@ -317,4 +317,4 @@ Si la carga se realiza correctamente, verá que se muestran las propiedades de l
 
 Ahora puede usar esta clave protegida con HSM en el almacén de claves. Para obtener más información, consulte la sección **Si desea usar un módulo de seguridad de hardware (HSM)** del tutorial[ Introducción al Almacén de claves de Azure](key-vault-get-started.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

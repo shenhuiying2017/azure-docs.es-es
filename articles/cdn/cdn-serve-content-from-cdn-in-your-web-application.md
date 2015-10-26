@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Entrega de contenido desde la red CDN de Azure en su aplicación web"
-	description="Un tutorial que le enseña a usar el contenido de una CDN para mejorar el rendimiento de su aplicación web."
-	services="cdn"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Entrega de contenido desde la red CDN de Azure en su aplicación web" 
+	description="Un tutorial que le enseña a usar el contenido de una CDN para mejorar el rendimiento de su aplicación web." 
+	services="cdn" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="cephalin"/>
 
 # Entrega de contenido desde la red CDN de Azure en su aplicación web #
@@ -271,4 +271,4 @@ Sin la integración con Aplicaciones web del Servicio de aplicaciones de Azure o
 - [Uso de la red CDN en Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

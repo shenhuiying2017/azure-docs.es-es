@@ -274,4 +274,4 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

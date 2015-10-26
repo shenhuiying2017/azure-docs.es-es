@@ -196,7 +196,7 @@ En este tutorial, se usa la acción de script del portal de administración de A
 
 2. Abra el entorno de script integrado de Azure PowerShell:
 	- Si el equipo dispone de Windows 8 o Windows Server 2012, o una versión posterior, puede utilizar la búsqueda integrada. En la pantalla de inicio, escriba **powershell ise** y haga clic en **Entrar**. 
-	- Si el equipo dispone de una versión anterior a Windows 8 o Windows Server 2012, use el menú Inicio. En el menú Inicio, escriba **Símbolo del sistema** en el cuadro de búsqueda. A continuación, en la lista de resultados, haga clic en **Símbolo del sistema**. En el Símbolo del sistema, escriba **powershell_ise** y haga clic en **Entrar**.
+	- Si el equipo dispone de una versión anterior a Windows 8 o Windows Server 2012, use el menú Inicio. En el menú Inicio, escriba **Símbolo del sistema** en el cuadro de búsqueda. A continuación, en la lista de resultados, haga clic en **Símbolo del sistema**. En el Símbolo del sistema, escriba **powershell\_ise** y haga clic en **Entrar**.
 
 3. Agregue su cuenta de Azure.
 	1. En el panel de consola, escriba **Add-AzureAccount** y haga clic en **Entrar**. 
@@ -493,4 +493,4 @@ Para obtener más información, consulte los artículos siguientes:
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

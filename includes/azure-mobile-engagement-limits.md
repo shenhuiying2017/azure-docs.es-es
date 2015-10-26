@@ -9,4 +9,4 @@ Criterios por segmento|10
 Campañas de inserción activas|50 por aplicación
 Número total de campañas de inserción (activas y completadas)|1000 por aplicación
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

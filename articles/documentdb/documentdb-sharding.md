@@ -167,4 +167,4 @@ Puede encadenar PartitionResolvers implementando su propio valor de IPartitionRe
 * [Blog de DocumentDB sobre sugerencias de rendimiento](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

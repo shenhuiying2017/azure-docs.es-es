@@ -11,7 +11,8 @@ ms.author="bbenz" />
 
 #Lista de imágenes de máquinas virtuales de Oracle
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se describe la creación de recursos con el modelo de implementación del Administrador de recursos o el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Para crear máquinas virtuales a partir de imágenes de Oracle, conéctese al [Portal de Azure](https://ms.portal.azure.com/), haga clic en **Marketplace**, haga clic en **Proceso** y, a continuación, escriba **Oracle** en el cuadro de búsqueda. Seleccione una imagen y siga las instrucciones para configurarla en Microsoft Azure. Tenga en cuenta que las imágenes de Oracle efectuadas por Microsoft en el [Portal de Azure](https://ms.portal.azure.com/) se ejecutan en Windows, mientras que las imágenes de Oracle efectuadas por Oracle se ejecutan en Oracle Linux.
 
@@ -62,4 +63,4 @@ A continuación se facilita una lista de las imágenes de máquina virtual de Or
 
 [Imágenes de máquina virtual de Oracle: consideraciones variadas](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

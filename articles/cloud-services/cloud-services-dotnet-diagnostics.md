@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso del diagnóstico (.NET) | Microsoft Azure"
-	description="Aprenda a utilizar datos de diagnóstico en Azure para realizar tareas de depuración, medición de rendimiento, supervisión, análisis de tráfico y más."
-	services="cloud-services"
-	documentationCenter=".net"
-	authors="rboucher"
-	manager="jwhit"
+	pageTitle="Uso del diagnóstico (.NET) | Microsoft Azure" 
+	description="Aprenda a utilizar datos de diagnóstico en Azure para realizar tareas de depuración, medición de rendimiento, supervisión, análisis de tráfico y más." 
+	services="cloud-services" 
+	documentationCenter=".net" 
+	authors="rboucher" 
+	manager="jwhit" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="robb"/>
 
 
@@ -174,7 +174,7 @@ Reemplace el contenido de WorkerRole.cs por el código siguiente. La clase Sampl
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -320,7 +320,7 @@ En este tutorial se supone que tiene una suscripción a Azure y usa Visual Studi
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -512,4 +512,4 @@ ETW basado en manifiesto|No|Tabla|Eventos de ETW generados por cualquier proceso
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

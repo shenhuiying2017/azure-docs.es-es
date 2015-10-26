@@ -128,4 +128,4 @@ Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de 
 
 Este escenario de API web encadenadas puede admitirse mediante la concesión de credenciales de portador Jwt de OAuth 2.0, también conocido como flujo "en nombre de". Sin embargo, el flujo "en nombre de" no está implementado actualmente en la vista previa de Azure AD B2C.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

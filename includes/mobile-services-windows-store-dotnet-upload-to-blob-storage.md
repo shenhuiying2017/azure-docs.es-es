@@ -142,4 +142,4 @@ El paso final es probar la aplicación y validar que se carga correctamente.
 
    	>[AZURE.NOTE]La imagen se descarga automáticamente desde el servicio de almacenamiento de blobs cuando la propiedad <code>imageUri</code> del elemento nuevo está ligada al control <strong>Image</strong>.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

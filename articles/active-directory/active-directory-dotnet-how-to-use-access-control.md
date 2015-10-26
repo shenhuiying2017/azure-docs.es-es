@@ -402,4 +402,4 @@ Para seguir explorando la funcionalidad de ACS y experimentar con más escenario
   [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

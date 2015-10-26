@@ -183,4 +183,4 @@ Para conectarse al motor de base de datos de SQL Server desde otro equipo, debe 
 
 	![Conectar mediante SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

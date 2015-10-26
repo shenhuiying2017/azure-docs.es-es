@@ -528,4 +528,4 @@ Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar 
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

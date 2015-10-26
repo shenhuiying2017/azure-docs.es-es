@@ -153,4 +153,4 @@ Debe configurar cualquier rol que tenga acceso a los servicios de almacenamiento
 
 Para obtener más información acerca de la publicación de aplicaciones en Azure desde Visual Studio, consulte [Publicar un servicio en la nube mediante Azure Tools](vs-azure-tools-publishing-a-cloud-service.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

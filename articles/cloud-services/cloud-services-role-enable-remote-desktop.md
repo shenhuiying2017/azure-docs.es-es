@@ -1,19 +1,19 @@
 <properties 
-pageTitle="Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure"
-	description="Configuración de la aplicación de servicios en la nube de Azure para permitir conexiones a Escritorio remoto"
-	services="cloud-services"
-	documentationCenter=""
-	authors="sbtron"
-	manager="timlt"
-	editor=""/>
+pageTitle="Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure" 
+description="Configuración de la aplicación de servicios en la nube de Azure para permitir conexiones a Escritorio remoto" 
+services="cloud-services" 
+documentationCenter="" 
+authors="sbtron" 
+manager="timlt" 
+editor=""/>
 <tags 
-ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/06/2015"
-	ms.author="saurabh"/>
+ms.service="cloud-services" 
+ms.workload="tbd" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="10/14/2015" 
+ms.author="saurabh"/>
 
 # Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure
 
@@ -147,4 +147,4 @@ El archivo [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscf
 
 [Configuración de servicios en la nube](cloud-services-how-to-configure.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

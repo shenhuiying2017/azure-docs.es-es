@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/23/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -149,7 +149,7 @@ Los servidores de Base de datos SQL V12 de Azure se encuentran en grupos de recu
 
 Hay varios comandos de API de REST y cmdlets de PowerShell que están disponibles para crear y administrar grupos elásticos. Para obtener información detallada y ejemplos de código, consulte [Crear y administrar un grupo de bases de datos elásticas de Base de datos SQL con PowerShell](sql-database-elastic-pool-powershell.md) y [Crear y administrar Base de datos SQL con C#](sql-database-client-library.md).
 
-
+> [AZURE.IMPORTANT]Tenga en cuenta que el cmdlet Switch-AzureMode ya no está disponible a partir de la versión Vista previa de Azure PowerShell 1.0, y que los cmdlets que estaban en el módulo de Azure ResourceManager han cambiado de nombre. Para obtener más información detallada, consulte [Degradación del cmdlet Switch-AzureMode en Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 | [Cmdlets de PowerShell](https://msdn.microsoft.com/library/mt163521.aspx) | [Comandos de las API de REST](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
@@ -211,4 +211,4 @@ El precio unitario de eDTU de un grupo elástico es mayor que el precio unitario
 | 40891 | EX_USER | El mínimo de DTU por base de datos (%d) no puede superar el máximo de DTU por base de datos (%d). | Mínimo de DTU por base de datos; máximo de DTU por base de datos. | Intentando establecer el mínimo de DTU por base de datos por encima del máximo de DTU por base de datos. | Asegúrese de que el mínimo de DTU por bases de datos no supera el máximo de DTU por base de datos. |
 | Por determinar | EX_USER | El tamaño de almacenamiento para una base de datos individual en un grupo elástico no puede superar el tamaño máximo permitido por el grupo elástico del nivel de servicio '%.*ls'. | nivel de servicio del grupo elástico | El tamaño máximo de la base de datos supera el tamaño máximo permitido por el nivel de servicio del grupo elástico. | Establezca el tamaño máximo de la base de datos dentro de los límites del tamaño máximo permitido por el nivel de servicio del grupo elástico. |
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

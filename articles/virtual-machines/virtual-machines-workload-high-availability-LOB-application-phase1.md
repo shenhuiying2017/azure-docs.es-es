@@ -19,7 +19,8 @@
 
 # Fase 1 de la carga de trabajo de aplicación de línea de negocio: Configuración de Azure
  
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+
  
 En esta fase de la implementación de una aplicación de línea de negocio de alta disponibilidad solo de intranet en los servicios de infraestructura de Azure, creará la infraestructura de red y almacenamiento de Azure. Debe completar esta fase antes de pasar a la [fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md). Vea [Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) en todas las fases.
 
@@ -249,4 +250,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 2: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

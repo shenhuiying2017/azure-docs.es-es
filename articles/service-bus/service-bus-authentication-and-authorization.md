@@ -73,4 +73,4 @@ Para obtener una descripción general de SAS en el Bus de servicio, consulte [Fi
 
 Puede encontrar más información acerca de los tokens ACS en [Procedimiento: Solicitar un token de ACS mediante el protocolo OAuth WRAP](https://msdn.microsoft.com/library/hh674475.aspx).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

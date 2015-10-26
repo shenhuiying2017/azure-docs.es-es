@@ -37,4 +37,4 @@ En esta sección, modificará la aplicación de dispositivo simulado que creó e
 
 <!-- Images -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

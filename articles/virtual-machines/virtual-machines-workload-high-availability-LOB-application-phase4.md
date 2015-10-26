@@ -19,7 +19,8 @@
 
 # Fase 4 de la carga de trabajo de aplicación de línea de negocio: Configuración de servidores web
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+ 
 
 En esta fase de la implementación de una aplicación de línea de negocio de alta disponibilidad en servicios de infraestructura de Azure, creará los servidores web y cargará la aplicación de línea de negocio en ellos.
 
@@ -174,4 +175,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 5: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

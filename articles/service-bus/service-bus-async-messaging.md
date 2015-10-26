@@ -172,4 +172,4 @@ Ahora que ha aprendido los conceptos básicos de la mensajería asincrónica en 
   [BacklogQueueCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx
   [espacios de nombres emparejados implicaciones y su costo]: service-bus-paired-namespaces.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

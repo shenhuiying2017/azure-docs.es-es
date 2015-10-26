@@ -97,4 +97,4 @@ Para quitar la dirección IP privada estática de la VM creada anteriormente, si
 - Obtenga más información acerca de las [direcciones IP públicas a nivel de instancia (ILPIP)](../virtual-networks-instance-level-public-ip).
 - Consulte las [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

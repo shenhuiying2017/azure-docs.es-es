@@ -75,4 +75,4 @@ Ha realizado correctamente el ensayo de la implementación y la actualización d
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [Implementación de una actualización de servicio en producción intercambiando las VIP en Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

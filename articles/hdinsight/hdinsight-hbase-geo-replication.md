@@ -311,4 +311,4 @@ En este tutorial, ha aprendido cómo configurar la replicación de HBase entre d
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Fase 2 de la carga de trabajo de aplicación de línea de negocio: Configuración de controladores de dominio
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+ 
 
 En esta fase de la implementación de una aplicación de línea de negocio de alta disponibilidad en servicios de infraestructura de Azure, configurará dos controladores de dominio de réplica en la red virtual de Azure para que las solicitudes web de cliente de recursos web se puedan autenticar localmente en la red virtual de Azure, en lugar de enviar ese tráfico de autenticación a través de la conexión con la red local.
 
@@ -212,4 +213,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 3: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

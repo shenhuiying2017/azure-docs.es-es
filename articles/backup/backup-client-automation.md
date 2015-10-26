@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/21/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
@@ -16,6 +16,15 @@ En este artículo se muestra cómo usar PowerShell para configurar la copia de s
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## Instalación y registro
+Para empezar:
+
+1. [Descargue el PowerShell más reciente](https://github.com/Azure/azure-powershell/releases) (la mínima versión necesaria es: 1.0.0)
+2. Para empezar, habilite los commandlets de Copia de seguridad de Azure, para lo que debe cambiar al modo *AzureResourceManager* usando el commandlet **Switch-AzureMode**:
+
+```
+PS C:\> Switch-AzureMode AzureResourceManager
+```
+
 Las siguientes tareas de instalación y registro se pueden automatizar con PowerShell:
 
 - Creación de un almacén de copia de seguridad
@@ -25,14 +34,17 @@ Las siguientes tareas de instalación y registro se pueden automatizar con Power
 - Configuración de cifrado
 
 ### Creación de un almacén de copia de seguridad
-Puede crear un nuevo almacén de copia de seguridad mediante el cmdlet **New-AzureBackupVault**. El almacén de copia de seguridad es un recurso ARM, por lo que necesita colocarlo dentro de un grupo de recursos. En una consola de Azure PowerShell, ejecute los comandos siguientes:
+
+> [AZURE.WARNING]La primera vez que los clientes usen Azure Backup deben registrar el proveedor de Azure Backup que se va a usar con su suscripción. Para ello, ejecute el siguiente comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+
+Puede crear un nuevo almacén de copia de seguridad con el commandlet **New-AzureRMBackupVault**. El almacén de copia de seguridad es un recurso ARM, por lo que necesita colocarlo dentro de un grupo de recursos. En una consola de Azure PowerShell, ejecute los comandos siguientes:
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Location “West US”
-PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
-Puede obtener una lista de todos los almacenes de copia de seguridad en una determinada suscripción mediante el cmdlet **Get-AzureBackupVault**.
+Puede obtener una lista de todos los almacenes de copia de seguridad de una suscripción dada usando el commandlet **Get-AzureRMBackupVault**.
 
 
 ### Instalación del agente de Copia de seguridad de Azure
@@ -80,7 +92,7 @@ Para poder registrarse con el servicio de copia de seguridad de Azure, debe aseg
 - Disponer de una suscripción válida a Azure
 - Disponer de un almacén de copia de seguridad
 
-Para descargar las credenciales de almacén, ejecute el cmdlet **Get-AzureBackupVaultCredentials** en una consola de Azure PowerShell y almacénelas en una ubicación adecuada como *C:\\Downloads*.
+Para descargar las credenciales de almacén, ejecute el cmdlet **Get-AzureRMBackupVaultCredentials** en una consola de Azure PowerShell y almacénelas en una ubicación adecuada como *C:\\Downloads*.
 
 ```
 PS C:\> $credspath = "C:"
@@ -580,7 +592,7 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Pasos siguientes
 Para obtener más información sobre Copia de seguridad de Azure para Windows Server o cliente de Windows, consulte
 
-- [Introducción a la Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
+- [Introducción a la Copia de seguridad de Azure](backup-configure-vault.md)
 - [Copia de seguridad de servidores Windows](backup-azure-backup-windows-server.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

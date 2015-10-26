@@ -1,52 +1,39 @@
 <properties 
-	pageTitle="Mover datos a un servidor SQL Server en una máquina virtual de Azure| Azure"
-	description="Mover datos desde archivos planos o desde un servidor SQL Server local a un servidor SQL Server en una máquina virtual de Azure"
-	services="machine-learning"
-	documentationCenter=""
-	authors="msolhab"
-	manager="paulettm"
-	editor="cgronlun"/>
+	pageTitle="Mover datos a un servidor SQL Server en una máquina virtual de Azure| Azure" 
+	description="Mover datos desde archivos planos o desde un servidor SQL Server local a un servidor SQL Server en una máquina virtual de Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="fashah;mohabib;bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/12/2015" 
+	ms.author="fashah;mohabib;bradsev" />
 
 # Mover datos a un servidor SQL Server en una máquina virtual de Azure
 
-En este documento se describen las opciones para mover datos de archivos planos (formatos CSV o TSV) o de un servidor SQL Server local a un servidor SQL Server en una máquina virtual de Azure. Estas tareas de movimiento de datos a la nube forman parte de la Tecnología y procesos de análisis avanzado (ADAPT) proporcionada por Aprendizaje automático de Azure.
+Este **menú** vincula a temas en los que se describe cómo introducir datos en los entornos de destino en que se pueden almacenar y procesar los datos durante el proceso de análisis de Cortana (CAPS).
 
-Para ver un tema que describa las opciones para mover datos a una base de datos de SQL de Azure para Aprendizaje automático, vea [Mover datos a una base de datos de SQL de Azure para Aprendizaje automático de Azure](machine-learning-data-science-move-sql-azure.md).
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
-En la tabla siguiente se resumen las opciones para mover datos a un servidor SQL Server en una máquina virtual de Azure. <table>
 
-<tr>
-<td><b>ORIGEN</b></td>
-<td colspan="2" align="center"><b>DESTINO: servidor SQL Server en una máquina virtual de Azure</b></td>
-</tr>
+## Introducción
+En **este documento** se describen las opciones para mover datos de archivos planos (formatos CSV o TSV) o de un servidor SQL Server local a un servidor SQL Server en una máquina virtual de Azure. Estas tareas de movimiento de datos a la nube forman parte del proceso de análisis de Cortana proporcionado por Azure.
 
-<tr>
-  <td><b>Archivos planos</b></td>  
-  <td>
-    1. <a href="#insert-tables-bcp">Utilidad de copia masiva (BCP) de la línea de comandos </a><br>
-    2. <a href="#insert-tables-bulkquery">Consulta SQL de inserción masiva</a><br>
-    3. <a href="#sql-builtin-utilities">Utilidades integradas gráficas de SQL Server</a>
-  </td>
-</tr>
-<tr>
-  <td><b>SQL Server local</b></td>
-  <td>
-    1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Asistente para implementación de una base de datos de SQL Server en una máquina virtual de Microsoft Azure</a><br>
-    2. <a href="#export-flat-file">Exportación a un archivo plano </a><br>
-    3. <a href="#sql-migration">Asistente para migración de Base de datos SQL </a> <br>    
-    4. <a href="#sql-backup">Copia de seguridad y restauración de la base de datos </a> <br>
-  </td>
-</tr>
-</table>
+Para ver un tema que describa las opciones para mover datos a una base de datos SQL de Azure para Aprendizaje automático, vea [Mover datos a una base de datos SQL de Azure para Aprendizaje automático de Azure](machine-learning-data-science-move-sql-azure.md).
+
+En la tabla siguiente se resumen las opciones para mover datos a un servidor SQL Server en una máquina virtual de Azure.
+
+<b>ORIGEN</b> |<b>DESTINO: servidor SQL Server en una máquina virtual de Azure</b> |
+------------------ |-------------------- |
+<b>Archivo plano</b> |1\. <a href="#insert-tables-bcp">Utilidad de copia masiva (BCP) de la línea de comandos </a><br> 2. <a href="#insert-tables-bulkquery">Consulta SQL de inserción masiva </a><br> 3. <a href="#sql-builtin-utilities">Utilidades integradas gráficas de SQL Server</a>
+<b>SQL Server local</b> | 1\. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Asistente para implementación de una base de datos de SQL Server en una máquina virtual de Microsoft Azure</a><br> 2. <a href="#export-flat-file">Exportación a un archivo plano </a><br> 3. <a href="#sql-migration">Asistente para migración de Base de datos SQL </a> <br> 4. <a href="#sql-backup">Copia de seguridad y restauración de la base de datos </a><br>
 
 Tenga en cuenta que en este documento se da por supuesto que los comandos SQL se ejecutan desde SQL Server Management Studio o el Explorador de bases de datos de Visual Studio.
 
@@ -56,9 +43,9 @@ Tenga en cuenta que en este documento se da por supuesto que los comandos SQL se
 ## <a name="prereqs"></a>Requisitos previos
 En este tutorial se asume que dispone de:
 
-* Una **suscripción de Azure**. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Una **suscripción de Azure**. Si no tiene una suscripción, puede registrarse para obtener una [prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Una **cuenta de almacenamiento de Azure**. En este tutorial, usará una cuenta de almacenamiento de Azure para almacenar los datos. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account). Tras crear la cuenta de almacenamiento, tendrá que obtener la clave de cuenta que se usa para tener acceso al almacenamiento. Vea [Vista, copia y regeneración de las claves de acceso de almacenamiento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
-* **Servidor SQL Server aprovisionado en una máquina virtual de Azure**. Para obtener instrucciones, vea [Configuración de una máquina virtual de Azure SQL Server como servidor del Bloc de notas de IPython para realizar análisis avanzados](machine-learning-data-science-setup-sql-server-virtual-machine.md).
+* **Servidor SQL Server aprovisionado en una máquina virtual de Azure**. Para obtener instrucciones, vea [Configuración de una máquina virtual de Azure SQL Server como servidor del Notebook de IPython para realizar análisis avanzados](machine-learning-data-science-setup-sql-server-virtual-machine.md).
 * **Azure PowerShell** instalado y configurado de forma local. Para obtener instrucciones, consulte [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
 
 
@@ -236,4 +223,4 @@ A continuación se muestra una captura de pantalla de las opciones de copia de s
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

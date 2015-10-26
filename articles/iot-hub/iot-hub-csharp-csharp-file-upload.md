@@ -4,19 +4,19 @@
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="csharp"
+     ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# Cargar archivos desde dispositivos a la nube con un centro de IoT
+# Tutorial: cómo cargar archivos desde dispositivos a la nube con un centro de IoT
 
 ## Introducción
 
@@ -33,11 +33,11 @@ Al final de este tutorial ejecutará dos aplicaciones de consola de Windows:
 * **SimulatedDevice**; una versión modificada de la aplicación creada en [Send Cloud-to-Device messages with IoT Hub] (Envío de mensajes de nube a dispositivo con el centro de IoT), que se conecta a su centro de IoT, recibe los mensajes enviados de nube a dispositivo que contienen URI de blobs de Azure. Para cada mensaje de nube a dispositivo recibido, se desencadenará una carga de archivo al URI del blob especificado.
 * **SendCloudToDevice**; que genera un URI de blob de Azure (tal como se explica en [Creación y uso de una firma de acceso compartido con el servicio blob](../storage/storage-dotnet-shared-access-signature-part-2.md)), envía un mensaje de nube a dispositivo al dispositivo simulado mediante el centro de IoT y, a continuación, recibe la confirmación de entrega.
 
-> [AZURE.NOTE]El centro de IoT ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes (incluido C, Java y Javascript), mediante los SDK del dispositivo de IoT de Azure. Consulte el [Centro para desarrolladores de IoT de Azure] para obtener instrucciones paso a paso sobre cómo conectar el dispositivo al código de este tutorial y, en general, al centro de IoT de Azure. Próximamente estarán disponibles SDK de servicio de IoT de Azure para Java y Node.
+> [AZURE.NOTE]El centro de IoT ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes (incluido C, Java y Javascript), mediante los SDK del dispositivo de IoT de Azure. Consulte el [Centro para desarrolladores de IoT de Azure] para obtener instrucciones paso a paso sobre cómo conectar el dispositivo al código de este tutorial y, en general, al Centro de IoT de Azure. Próximamente estarán disponibles SDK de servicios IoT de Azure para Java y Node.
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Microsoft Visual Studio 2015,
++ Microsoft Visual Studio 2015
 
 + Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank").
 
@@ -70,7 +70,7 @@ Información adicional sobre el centro de IoT:
 * [Guía del desarrollador del centro de IoT]
 * [Directrices sobre el centro de IoT]
 * [Lenguajes y plataformas de dispositivos compatibles][Supported devices]
-* [Centro para desarrolladores de Azure]
+* [Centro para desarrolladores de IoT de Azure]
 
 <!-- Images. -->
 
@@ -97,11 +97,6 @@ Información adicional sobre el centro de IoT:
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Centro para desarrolladores de Azure]: http://www.azure.com/iotdev
-[Centro para desarrolladores de IoT de Azure]: http://www.azure.com/iotdev
+[Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

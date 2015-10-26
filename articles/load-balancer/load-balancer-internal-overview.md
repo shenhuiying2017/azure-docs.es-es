@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/12/2015"
    ms.author="joaoma" />
 
 
@@ -92,4 +92,4 @@ Otro escenario para el LOB es tener una VPN de sitio a sitio a la red virtual do
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

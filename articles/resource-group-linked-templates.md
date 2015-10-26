@@ -110,4 +110,4 @@ Si necesita pasar un valor de una plantilla vinculada a la plantilla principal, 
 - [Creación de plantillas](./resource-group-authoring-templates.md)
 - [Implementación de plantillas](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

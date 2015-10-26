@@ -31,4 +31,4 @@ Número máximo de operaciones de escala por minuto*|5
 
 Las cuotas que aparecen con un asterisco (*) [se pueden ajustar poniéndose en contacto con el soporte técnico de Azure](../articles/documentdb/documentdb-increase-limits.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

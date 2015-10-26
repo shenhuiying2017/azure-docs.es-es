@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Análisis de patrones de uso de la red CDN"
-	description="Puede ver los patrones de uso de la red CDN mediante los siguientes informes: Ancho de banda, Datos transferidos, Aciertos, Estados de la memoria caché, Frecuencia de aciertos de caché, Datos de IPV4/IPV6 transferidos."
-	services="cdn"
-	documentationCenter=".NET"
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Análisis de patrones de uso de la red CDN" 
+	description="Puede ver los patrones de uso de la red CDN mediante los siguientes informes: Ancho de banda, Datos transferidos, Aciertos, Estados de la memoria caché, Frecuencia de aciertos de caché, Datos de IPV4/IPV6 transferidos." 
+	services="cdn" 
+	documentationCenter=".NET" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="juliako"/>
 
 #Análisis de patrones de uso de la red CDN 
@@ -139,4 +139,4 @@ Este informe muestra la distribución de uso de tráfico en IPV4 frente a IPV6.
 
 Los informes solo pueden generarse en los últimos 18 meses.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

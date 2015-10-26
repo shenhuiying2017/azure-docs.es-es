@@ -27,7 +27,11 @@ Las máquinas virtuales y servicios en la nube de Azure son dos de los distintos
 
 Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 
-* Las instancias se pueden configurar ahora para usar una máquina virtual de la serie D. Están diseñadas para ejecutar aplicaciones que exigen una mayor capacidad de proceso y un rendimiento de disco temporal. Las máquinas virtuales de la serie D ofrecen procesadores más rápidos, una mayor proporción de memoria al núcleo y una unidad de estado sólido (SSD) para el disco temporal. Para obtener más información, vea el anuncio en el blog de Azure, [Nuevos tamaños de máquina virtual de la serie D](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).  
+* Las instancias de máquinas virtuales de la serie D están diseñadas para ejecutar aplicaciones que exigen mayor capacidad de proceso y rendimiento de disco temporal. Las máquinas virtuales de la serie D proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco temporal. Para obtener más información, vea el anuncio en el blog de Azure, [Nuevos tamaños de máquina virtual de la serie D](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).  
+
+*   Serie de Dv2, una evolución de la serie D original, presenta una CPU más eficaz. La CPU de la serie Dv2 es un 35 % aproximadamente más rápida que la CPU de la serie D. Se basa en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz de la última generación; y con Intel Turbo Boost Technology 2.0, puede alcanzar los 3,2 GHz. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
+
+    La disponibilidad regional de la serie Dv2 se basará en esta programación: octubre de 2015: Este 2 de EE. UU., Centro de EE. UU., Centro y norte de EE. UU., Oeste de EE. UU. Noviembre 2015: Este de EE. UU., Norte de Europa, Oeste de Europa Enero de 2016: Centro y Sur de EE. UU., Este de Asia y del Pacífico Sur, Sudeste de Asia y del Pacífico Sur, Este de Japón, Oeste de Japón, Este de Australia, Sudeste de Australia, Sur de Brasil
 
 * Los roles web y los roles de trabajo requieren más espacio en el disco temporal que las máquinas virtuales de Azure debido a los requisitos del sistema. Los archivos del sistema reservan 4 GB de espacio para el archivo de paginación de Windows y 2 GB de espacio para el archivo de volcado de memoria de Windows.
 
@@ -41,27 +45,35 @@ Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 
 |Tamaño|Núcleos<br>de CPU|Memoria|Tamaños de disco|
 |---|---|---|---|
-|ExtraSmall|1|768 MB|SO = Tamaño del SO invitado<br/>Recurso local = 15 384 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Pequeña|1|1,75 GB|SO = Tamaño del SO invitado<br/>Recurso local = 225 304 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Mediano|2|3,5 GB|SO = Tamaño del SO invitado<br/>Recurso local = 496 664 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Grande|4|7 GB|SO = Tamaño del SO invitado<br/>Recurso local = 1 018 904 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|ExtraLarge|8|14 GB|SO = Tamaño del SO invitado<br/>Recurso local = 2 083 864 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|A5|2|14 GB|SO = Tamaño del SO invitado<br/>Recurso local = 496 664 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|A6|4|28 GB|SO = Tamaño del SO invitado<br/>Recurso local = 1 018 904 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|A7|8|56 GB|SO = Tamaño del SO invitado<br/>Recurso local = 2 083 864 MB<br/>Aplicaciones = aprox. 1,5 GB
+|ExtraSmall|1|768 MB|SO = tamaño del SO invitado<br/>Recurso local = 15384 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|Pequeña|1|1,75 GB|SO = tamaño del SO invitado<br/>Recurso local = 225304 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|Mediano|2|3,5 GB|SO = tamaño del SO invitado<br/>Recurso local = 496664 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|Grande|4|7 GB|SO = tamaño del SO invitado<br/>Recurso local = 1018904 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|ExtraLarge|8|14 GB|SO = tamaño del SO invitado<br/>Recurso local = 2083864 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|A5|2|14 GB|SO = tamaño del SO invitado<br/>Recurso local = 496664 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|A6|4|28 GB|SO = tamaño del SO invitado<br/>Recurso local = 1018904 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|A7|8|56 GB|SO = tamaño del SO invitado<br/>Recurso local = 2083864 MB<br/>Aplicaciones = aprox. 1,5 GB
 |A8|8|56 GB|SO = tamaño del SO invitado<br/>Recurso local = 1 856 172 MB<br/>Aplicaciones = aprox. 1,5 GB<blockquote> Nota: para obtener información y algunas consideraciones sobre el uso de este tamaño, vea <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Acerca de las instancias intensivas de proceso A8, A9, A10 y A11</a>.</blockquote>|
 |A9|16|112 GB|SO = tamaño del SO invitado<br/>Recurso local = 1 856 172 MB<br/>Aplicaciones = aprox. 1,5 GB<blockquote> Nota: para obtener información y algunas consideraciones sobre el uso de este tamaño, vea <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Acerca de las instancias intensivas de proceso A8, A9, A10 y A11</a>.</blockquote>|
 |A10|8|56 GB|SO = tamaño del SO invitado<br/>Recurso local = 1 856 172 MB<br/>Aplicaciones = aprox. 1,5 GB<blockquote> Nota: para obtener información y algunas consideraciones sobre el uso de este tamaño, vea <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Acerca de las instancias intensivas de proceso A8, A9, A10 y A11</a>.</blockquote>|
 |A11|16|112 GB|SO = tamaño del SO invitado<br/>Recurso local = 1 856 172 MB<br/>Aplicaciones = aprox. 1,5 GB<blockquote> Nota: para obtener información y algunas consideraciones sobre el uso de este tamaño, vea <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Acerca de las instancias intensivas de proceso A8, A9, A10 y A11</a>.</blockquote>|
-|Standard\_D1|1|3,5 GB|SO = tamaño del SO invitado<br/>Recurso local = 46 104 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D2|2|7 GB|SO = tamaño del SO invitado<br/>Recurso local = 97 304 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D3|4|14 GB|SO = tamaño del SO invitado<br/>Recurso local = 199 704 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D4|8|28 GB|SO = tamaño del SO invitado<br/>Recurso local = 404 504 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D11|2|14 GB|SO = tamaño del SO invitado<br/>Recurso local = 97 304 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D12|4|28 GB|SO = tamaño del SO invitado<br/>Recurso local = 199 704 MB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard\_D13|8|56 GB|SO = tamaño del SO invitado<br/>Recurso local = 404 504 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D1|1|3,5 GB|SO = tamaño del SO invitado<br/>Recurso local = 46104 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D2|2|7 GB|SO = tamaño del SO invitado<br/>Recurso local = 97304 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D3|4|14 GB|SO = tamaño del SO invitado<br/>Recurso local = 199704 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D4|8|28 GB|SO = tamaño del SO invitado<br/>Recurso local = 404504 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D11|2|14 GB|SO = tamaño del SO invitado<br/>Recurso local = 97304 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D12|4|28 GB|SO = tamaño del SO invitado<br/>Recurso local = 199704 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D13|8|56 GB|SO = tamaño del SO invitado<br/>Recurso local = 404504 MB<br/>Aplicaciones = aprox. 1,5 GB|
 |Standard\_D14|16|112 GB|SO = tamaño del SO invitado<br/>Recurso local = 814 104 MB<br/>Aplicaciones = aprox. 1,5 GB|
-
+|Standard\_D1\_v2|1|3,5 GB|SO = tamaño del SO invitado<br/>Recurso local = 46104 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D2\_v2|2|7 GB|SO = tamaño del SO invitado<br/>Recurso local = 97304 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D3\_v2|4|14 GB|SO = tamaño del SO invitado<br/>Recurso local = 199704 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D4\_v2|8|28 GB|SO = tamaño del SO invitado<br/>Recurso local = 404504 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D5\_v2|16|56 GB|SO = tamaño del SO invitado<br/>Recurso local = 814 104 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D11\_v2|2|14 GB|SO = tamaño del SO invitado<br/>Recurso local = 97304 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D12\_v2|4|28 GB|SO = tamaño del SO invitado<br/>Recurso local = 199704 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D13\_v2|8|56 GB|SO = tamaño del SO invitado<br/>Recurso local = 404504 MB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D14\_v2|16|112 GB|SO = tamaño del SO invitado<br/>Recurso local = 814 104 MB<br/>Aplicaciones = aprox. 1,5 GB|
 ## Configuración de tamaños para los Servicios en la nube
 
 Puede especificar el tamaño de la máquina virtual de una instancia de rol como parte del modelo de servicio descrito por el archivo de definición de servicio. El tamaño del rol determina la cantidad de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asigna a una instancia en ejecución. Elija el tamaño del rol en función del requisito de recursos de la aplicación.
@@ -78,4 +90,4 @@ Asegúrese de que el tamaño de recurso local especificado es menor o igual que 
 
 [Configurar un servicio en la nube para Azure](https://msdn.microsoft.com/library/hh124108)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

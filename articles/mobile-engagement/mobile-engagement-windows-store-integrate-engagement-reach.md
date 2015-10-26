@@ -410,4 +410,4 @@ Ahora, para usar este protocolo, edite `App.xaml.cs` mediante el método `OnActi
 			  #endregion
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

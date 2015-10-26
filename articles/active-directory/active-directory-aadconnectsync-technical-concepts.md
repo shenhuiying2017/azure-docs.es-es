@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Sincronización de Azure AD Connect: conceptos técnicos"
+	pageTitle="Azure AD Connect Sync: conceptos técnicos | Microsoft Azure"
 	description="Explica los conceptos técnicos de Sincronización de Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi"/>
 
 
@@ -22,18 +22,18 @@
 Sincronización de Azure AD Connect se basa en una plataforma de sincronización de metadirectorio sólido.<br> Las secciones siguientes presentan los conceptos de sincronización de metadirectorio. Basándose en MIIS, ILM y FIM, Servicios de sincronización de Azure Active Directory proporciona la plataforma siguiente para conectarse a orígenes de datos, sincronizar datos de datos entre orígenes de datos y realizar el aprovisionamiento/desaprovisionamiento de identidades.
 
 ![Conceptos técnicos][1]
- 
+
 
 
 Las secciones siguientes proporcionan más detalles sobre los siguientes aspectos del Servicio de sincronización de FIM:
 
-- Conector 
-- Flujo del atributo 
-- Espacio del conector 
-- Metaverso 
-- Aprovisionamiento 
+- Conector
+- Flujo del atributo
+- Espacio del conector
+- Metaverso
+- Aprovisionamiento
 
- 
+
 
 
 
@@ -45,7 +45,7 @@ Los módulos de código que se usan para comunicarse con un origen de datos cone
 En la figura anterior, el conector es sinónimo del espacio del conector, pero abarca toda la comunicación con el sistema externo.
 
 El conector es responsable de la funcionalidad de importación y exportación en el sistema y libera a los desarrolladores de la necesidad de entender cómo conectarse a cada sistema de forma nativa al usar el aprovisionamiento declarativo para personalizar las transformaciones de datos. Las importaciones y exportaciones solo se producen cuando se programan, lo que permite más aislamiento de los cambios que se producen en el sistema, ya que los cambios no se propagan automáticamente al origen de datos conectado. Además, los programadores también pueden crear sus propios conectores para conectarse a prácticamente cualquier origen de datos.
- 
+
 
 
 
@@ -55,14 +55,14 @@ El conector es responsable de la funcionalidad de importación y exportación en
 El metaverso es la vista consolidada de todas las identidades combinadas de otros espacios de conector. En la ilustración anterior, se muestra el flujo de atributos por líneas con puntas de flecha para el flujo de entrada y salida. El flujo de atributos es el proceso de copia o transformación de datos de un sistema a otro y todos los flujos de atributos (entrantes o salientes).
 
 El flujo de atributos se produce entre el espacio del conector y el metaverso bidireccionalmente cuando las operaciones de sincronización (completa o delta) están programadas para ejecutarse. El flujo de atributos solo se produce cuando se ejecutan estas sincronizaciones. Los flujos de atributos se definen en las reglas de sincronización. Pueden ser de entrada (ISR en la imagen anterior) o salida (OSR en la imagen anterior).
- 
+
 
 ## Espacio del conector
 
 Cada origen de datos conectado se representa como un subconjunto filtrado de los objetos y atributos en el espacio del conector. Esto permite que el servicio de sincronización funcione localmente sin necesidad de ponerse en contacto con el sistema remoto al sincronizar los objetos y restringe la interacción solo a las importaciones y exportaciones.
 
 Cuando el origen de datos y el conector tienen la capacidad de proporcionar una lista de cambios (una importación delta), la eficiencia operativa aumenta significativamente porque solo se intercambian los cambios desde el último ciclo de sondeo. El espacio del conector aísla el origen de datos conectado de los cambios que se propagan automáticamente solicitando la importación y exportación de la programación del conector. Esta seguridad adicional le proporciona tranquilidad durante las pruebas, la obtención de vista previa o la confirmación de la próxima actualización.
- 
+
 
 
 
@@ -70,7 +70,7 @@ Cuando el origen de datos y el conector tienen la capacidad de proporcionar una 
 ## Metaverso
 
 El metaverso es la vista consolidada de todas las identidades combinadas de otros espacios de conector. Puesto que las identidades están vinculadas entra sí y la autoridad está asignada para varios atributos a través de asignaciones de flujo de importación, el objeto de metaverso central comienza a agregar información desde varios sistemas. A partir de este flujo de atributos de objetos, las asignaciones proporcionan información a los sistemas de salida. Los objetos se crean cuando un sistema autorizado los proyecta en el metaverso. En cuanto se quitan todas las conexiones, se elimina el objeto de metaverso. No se pueden editar directamente objetos en el metaverso. Debe contribuirse a todos los datos en el objeto a través del flujo de atributos. El metaverso mantiene conectores persistentes con cada espacio de conector. Estos conectores no requieren una nueva evaluación para cada ejecución de la sincronización. Esto significa que AADsync no tiene que localizar el objeto remoto coincidente cada vez. Esto evita la necesidad de agentes costosos para evitar cambios en los atributos que normalmente serían responsables de la correlación de los objetos. Durante la detección de nuevos orígenes de datos que pueden tener objetos preexistentes que deban administrarse, AADSync usa un proceso en el que se llama a una regla de combinación para evaluar a posibles candidatos con los que se va a establecer un vínculo. Una vez establecido el vínculo, esta evaluación no se repite y el flujo de atributos normal puede producirse entre el origen de datos conectado remoto y el metaverso.
- 
+
 
 
 
@@ -87,8 +87,8 @@ Siempre que una regla se determina que tiene que crearse un nuevo objeto de espa
 
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
- 
+
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

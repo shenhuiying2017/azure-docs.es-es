@@ -120,4 +120,4 @@ En este tema se resaltan las diferencias de conexión de cliente entre la Base d
 
 - [Configuración del firewall en Base de datos SQL](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -121,4 +121,4 @@ Para modificar la configuración de un servicio, siga estos pasos:
 
 8. Una vez haya reiniciado los servicios, pulse el botón **Acciones de servicio** para **Desactivar el modo de mantenimiento**. Esto hará que Ambari reanude la supervisión de alertas para el servicio.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

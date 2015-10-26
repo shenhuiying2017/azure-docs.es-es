@@ -21,4 +21,4 @@
 > - Este comando solo se aplica a las actualizaciones regulares. Este comando se ejecuta en un solo controlador, pero se actualizarán ambos controladores. 
 > - Es posible que observe una conmutación por error del controlador durante el proceso de actualización. Sin embargo, la conmutación por error no afectará a la disponibilidad o el funcionamiento del sistema.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

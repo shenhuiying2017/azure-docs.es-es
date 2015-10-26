@@ -1,20 +1,20 @@
 <properties
    pageTitle="Implementación de varias instancias de recursos | Microsoft Azure"
-	description="Use la operación de copia y matrices en una plantilla del Administrador de recursos de Azure para iterar varias veces al implementar recursos."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="Use la operación de copia y matrices en una plantilla del Administrador de recursos de Azure para iterar varias veces al implementar recursos."
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/27/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/27/2015"
+   ms.author="tomfitz"/>
 
 # Creación de varias instancias de recursos en el Administrador de recursos de Azure
 
@@ -119,4 +119,4 @@ Por supuesto, establezca el número de copias en un valor distinto de la longitu
 - Para obtener todas las funciones que puede usar en una plantilla, consulte [Funciones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md).
 - Para obtener información sobre cómo implementar la plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

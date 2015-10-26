@@ -116,4 +116,4 @@ La aplicación está ahora lista y la entidad de servicio creada en el inquilino
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

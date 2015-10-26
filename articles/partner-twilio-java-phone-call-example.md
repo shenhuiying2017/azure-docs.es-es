@@ -30,9 +30,9 @@ Tendrá que hacer lo siguiente para utilizar el código de este tema:
 4. Si está usando Eclipse para crear esta aplicación Java, incluya el JAR de Twilio en su archivo de implementación de la aplicación (WAR) utilizando la característica de ensamblado de implementación de Eclipse. Si no va a usar Eclipse para crear esta aplicación Java, asegúrese de que el JAR de Twilio se incluya dentro del mismo rol de Azure que la aplicación Java y se agregue a la ruta de clase de la aplicación.
 5. Asegúrese de que el keystore cacerts contenga el certificado de la entidad de certificación Equifax Secure con la huella digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (el número de serie es 35:DE:F4:CF y la huella digital SHA1 es D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Este es el certificado de la entidad de certificación (CA) para el servicio [https://api.twilio.com][twilio_api_service], al que se llama cuando se utilizan las API de Twilio. Para obtener información acerca de cómo agregar este certificado CA a su almacén de certificados CA de JDK, consulte [Incorporación de un certificado al almacén de certificados CA de Java][add_ca_cert].
 
-Además, le recomendamos que se familiarice con la información que se incluye en [Creación de una aplicación Hola a todos para Azure en Eclipse][azure_java_eclipse_hello_world] o con otras técnicas para hospedar aplicaciones Java en Azure, si no usa Eclipse.
+Además, se recomienda estar familiarizado con la información que encontrará en [Creación de una aplicación Hello World con el kit de herramientas de Azure para Eclipse][azure_java_eclipse_hello_world] o con otras técnicas para hospedar aplicaciones Java en Azure si no usa Eclipse.
 
-## un formulario web para hacer una llamada
+## Creación de un formulario web para hacer una llamada
 
 El siguiente código muestra cómo crear un formulario web para recuperar datos de usuario para hacer una llamada. Para este ejemplo, se creó un nuevo proyecto web dinámico, llamado **TwilioCloud**, y se agregó **callform.jsp** como archivo JSP.
 
@@ -163,7 +163,7 @@ Además de hacer la llamada, makecall.jsp muestra el extremo de Twilio, la versi
 ![Respuesta de llamada de Azure con Twilio y Java][twilio_java_response]
 
 ## Ejecución de la aplicación
-A continuación le indicamos los paseos de alto nivel que deberá dar para ejecutar su aplicación; los detalles de estos pasos se pueden encontrar en [Creación de una aplicación Hola a todos para Azure en Eclipse][azure_java_eclipse_hello_world].
+A continuación le indicamos los pasos de alto nivel que deberá dar para ejecutar su aplicación; los detalles de estos pasos se pueden encontrar en [Creación de una aplicación Hello World con el kit de herramientas de Azure para Eclipse][azure_java_eclipse_hello_world].
 
 1. Exporte su TwilioCloud WAR a la carpeta de Azure **approot**. 
 2. Modifique **startup.cm**d para descomprimir el TwilioCloud WAR.
@@ -209,4 +209,4 @@ Para obtener información adicional acerca de Twilio, consulte [https://www.twil
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -114,4 +114,4 @@ Vuelva a publicar el proyecto de back-end móvil y ejecute cualquiera de las apl
 [Introducción a las notificaciones de inserción]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [plantillas]: https://msdn.microsoft.com/es-ES/library/dn530748.aspx
 
-<!-----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

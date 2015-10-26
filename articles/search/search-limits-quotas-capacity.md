@@ -131,4 +131,4 @@ Las claves de API se usan para la autenticación del servicio. Hay dos tipos. La
 - Máximo de 1000 documentos devueltos por página de resultados de búsqueda
 - Máximo de 100 sugerencias devueltas por solicitud de Sugerir API
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

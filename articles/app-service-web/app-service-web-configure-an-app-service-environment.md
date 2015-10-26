@@ -133,4 +133,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

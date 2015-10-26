@@ -19,7 +19,8 @@
 
 #Implementación de una aplicación LAMP con la extensión CustomScript de Azure para Linux#
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo trata la solución de problemas del acceso de aplicaciones de una máquina virtual creada con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 La extensión CustomScript de Microsoft Azure para Linux ofrece una manera de personalizar sus máquinas virtuales mediante la ejecución de código arbitrario escrito en cualquier lenguaje de scripting compatible con la máquina virtual (por ejemplo, Python y Bash). Esto proporciona una forma muy flexible de automatizar la implementación de aplicaciones en varios equipos.
 
@@ -109,4 +110,4 @@ A continuación, se ofrecen algunos recursos adicionales para la CLI de Azure, L
 
 [Informática de código abierto y Linux en Azure](virtual-machines-linux-opensource.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

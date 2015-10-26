@@ -37,4 +37,4 @@ En esta sección agregará dos nuevos usuarios a su directorio junto con el nuev
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id-app-setting.png)
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

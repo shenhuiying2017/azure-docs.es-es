@@ -97,4 +97,4 @@ Puede colocar el dispositivo StorSimple en modo de mantenimiento (desde el modo 
 
 Aprenda a [aplicar las actualizaciones del modo normal y del de mantenimiento](storsimple-update-device.md) en el dispositivo StorSimple.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

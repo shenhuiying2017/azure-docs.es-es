@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="piyushjo"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr"/>
+	ms.author="MehrdadMzfr" />
 
 #SDK de iOS para Azure Mobile Engagement
 
@@ -32,9 +32,12 @@ Haga clic para ver el [contenido del SDK](mobile-engagement-ios-sdk-content.md)
 
 ##Notas de la versión
 
-###3\.1.0 (08/26/2015)
+##3\.2.0 (10/08/2015)
 
--   Corrija los errores de compatibilidad de iOS 9 con una biblioteca de terceros. Generaban bloqueos al enviar resultados de sondeo, información de la aplicación o datos adicionales.
+-   Se habilitó Bitcode en el SDK para que funcione con **Xcode 7**.
+-   Se corrigieron los errores relacionados con las notificaciones desde la aplicación.
+-   Las notificaciones desde la aplicación ahora son más fiables en caso de que, por ejemplo, la batería esté baja.
+-   Se quitaron registros de la consola adicionales generados por la biblioteca de terceros.
 
 Para la versión anterior, consulte las [notas de la versión completas](mobile-engagement-ios-release-notes.md)
 
@@ -53,10 +56,10 @@ Si usa Reach en la aplicación, debe agregar el valor `remote-notification` a la
 
 El método `application:didReceiveRemoteNotification:` debe reemplazarse por `application:didReceiveRemoteNotification:fetchCompletionHandler:` en el delegado de aplicación.
 
-"AEPushDelegate.h" es una interfaz desusada y debe quitar todas las referencias. Esto incluye eliminar `[[EngagementAgent shared] setPushDelegate:self]` y los métodos delegados del delegado de la aplicación:
+"AEPushDelegate.h" es una interfaz desusada y debe quitar todas las referencias. Esto incluye quitar `[[EngagementAgent shared] setPushDelegate:self]` y los métodos delegados del delegado de la aplicación:
 
 	-(void)willRetrieveLaunchMessage;
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

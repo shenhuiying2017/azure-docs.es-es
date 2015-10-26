@@ -12,4 +12,4 @@ De manera predeterminada, el nuevo contenedor es privado y debe especificar su c
 
 [Image1]: ./media/vs-create-blob-container-in-server-explorer/vs-storage-create-blob-containers-in-Server-Explorer.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

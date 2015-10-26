@@ -22,4 +22,4 @@
 El contenedor de volúmenes se guardará y el contenedor de volúmenes recién creado se mostrará en la página **Contenedor de volúmenes**.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

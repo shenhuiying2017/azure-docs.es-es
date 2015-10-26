@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="10/08/2015" 
 	ms.author="tdykstra"/>
 
 # Implementación de una aplicación de API en el Servicio de aplicaciones de Azure 
 
 ## Información general
 
-En este tutorial, implementará el proyecto Web API que creó en el [tutorial anterior](app-service-dotnet-create-api-app.md) en una nueva [aplicación de API](app-service-api-apps-why-best-platform.md). Usará Visual Studio para crear el recurso de aplicación de API en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md) e implementará su código Web API a la aplicación de API de Azure.
+En este tutorial, implementará el proyecto Web API que creó en el [tutorial anterior](app-service-dotnet-create-api-app.md) en una nueva [aplicación de API](app-service-api-apps-why-best-platform.md). Usa Visual Studio para crear el recurso de aplicación de API en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md) e implementará su código Web API a la aplicación de API de Azure.
 
 ### Otras opciones de implementación
 
@@ -121,7 +121,10 @@ A continuación, realizará un cambio en la definición de API y verá el cambio
 
 ## Pasos siguientes
 
-Ha visto cómo las capacidades de implementación directa en Visual Studio facilitan la iteración y la implementación rápida y prueban que la API funcione correctamente. En el [siguiente tutorial](../app-service-dotnet-remotely-debug-api-app.md), aprenderá a depurar la aplicación de API mientras se ejecuta en Azure.
- 
+Ha visto cómo las capacidades de implementación directa en Visual Studio facilitan las pruebas de que la API funciona correctamente. En el [siguiente tutorial](../app-service-dotnet-remotely-debug-api-app.md), aprenderá a depurar la aplicación de API mientras se ejecuta en Azure.
 
-<!---HONumber=Oct15_HO2-->
+Las aplicaciones de API son aplicaciones web con características adicionales para hospedar API, lo que significa que puede usar cualquier método de implementación que funcione con aplicaciones web. Para obtener más información sobre las opciones de implementación para aplicaciones web, vea [Implementación de una aplicación web en el Servicio de aplicaciones de Azure](../app-service-web/web-sites-deploy.md).
+
+Para obtener información sobre las características de las aplicaciones de API, consulte [¿Qué son las aplicaciones de API?](app-service-api-apps-why-best-platform.md).
+
+<!---HONumber=Oct15_HO3-->

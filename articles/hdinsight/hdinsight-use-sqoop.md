@@ -45,11 +45,11 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 - **Clúster de Azure HDInsight**: para obtener instrucciones acerca del aprovisionamiento del clúster, consulte [Introducción al uso de HDInsight][hdinsight-get-started] o [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision]. Para completar el tutorial, necesita los datos siguientes:
 
 	<table border="1">
-<tr><th>Propiedad del clúster</th><th>Nombre de variable de Azure PowerShell</th><th>Valor</th><th>Descripción</th></tr>
-<tr><td>Nombre del clúster de HDInsight</td><td>$clusterName</td><td></td><td>El nombre del clúster de HDInsight.</td></tr>
-<tr><td>Nombre de la cuenta de almacenamiento de Azure</td><td>$storageAccountName</td><td></td><td>Cuenta de almacenamiento de Azure disponible para el clúster de HDInsight. Para este tutorial, use la cuenta de almacenamiento predeterminada especificada durante el proceso de aprovisionamiento del clúster.</td></tr>
-<tr><td>Nombre del contenedor de blobs de Azure</td><td>$containerName</td><td></td><td>Para este ejemplo, use el nombre del blob utilizado para el sistema de archivos predeterminado del clúster de HDInsight. De manera predeterminada, tiene el mismo nombre que el del clúster de HDInsight.</td></tr>
-</table>
+	<tr><th>Propiedad del clúster</th><th>Nombre de variable de Azure PowerShell</th><th>Valor</th><th>Descripción</th></tr>
+	<tr><td>Nombre del clúster de HDInsight</td><td>$clusterName</td><td></td><td>El nombre del clúster de HDInsight.</td></tr>
+	<tr><td>Nombre de la cuenta de almacenamiento de Azure</td><td>$storageAccountName</td><td></td><td>Cuenta de almacenamiento de Azure disponible para el clúster de HDInsight. Para este tutorial, use la cuenta de almacenamiento predeterminada especificada durante el proceso de aprovisionamiento del clúster.</td></tr>
+	<tr><td>Nombre del contenedor de blobs de Azure</td><td>$containerName</td><td></td><td>Para este ejemplo, use el nombre del blob utilizado para el sistema de archivos predeterminado del clúster de HDInsight. De manera predeterminada, tiene el mismo nombre que el del clúster de HDInsight.</td></tr>
+	</table>
 
 - **Base de datos SQL de Azure**: debe configurar una regla de firewall para que el servidor de base de datos SQL de Azure permita el acceso desde la estación de trabajo. Para obtener instrucciones sobre cómo crear una base de datos SQL de Azure y configurar el firewall, consulte [Introducción al uso de la base de datos SQL de Azure][sqldatabase-get-started]. En este artículo se proporciona un script de Windows PowerShell para crear la tabla de base de datos SQL de Azure requerida para este tutorial.
 
@@ -88,7 +88,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 	</table>
 
 
-> [AZURE.NOTE]Rellene los valores de las tablas anteriores. Le resultará útil para completar el tutorial.
+> [AZURE.NOTE] Rellene los valores de las tablas anteriores. Le resultará útil para completar el tutorial.
 
 ##Descripción del escenario
 Un clúster de HDInsight incluye algunos datos de ejemplo. Usará los dos ejemplos siguientes:
@@ -395,7 +395,7 @@ En esta sección, usará Azure PowerShell para ejecutar el comando de exportaci�
 
 	Para ver más descripciones de las variables, consulte la sección [Requisitos previos](#prerequisites) de este tutorial.
 
-	Observe que $exportDir\_log4j no tiene especificado el nombre del archivo sample.log. Sqoop exportará los datos de todos los archivos ubicados en esa carpeta.
+	Observe que $exportDir_log4j no tiene especificado el nombre del archivo sample.log. Sqoop exportará los datos de todos los archivos ubicados en esa carpeta.
 
 4. Anexe el script siguiente en el panel de scripts:
 
@@ -610,4 +610,4 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

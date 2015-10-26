@@ -38,7 +38,7 @@ Abra el terminal e instale lo siguiente:
 
 **3) TinyTDS**: ejecute el siguiente comando desde su terminal. Esto instalará TinyTDS en su equipo.
 
-    sudo ARCHFLAGS="-arch x86_64" gem install tiny_tds
+    gem install tiny_tds
 
 ## Creación de una base de datos y recuperación de la cadena de conexión
 
@@ -104,4 +104,4 @@ Para estar en consonancia con el formato [datetime](http://msdn.microsoft.com/li
     puts row
     end
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

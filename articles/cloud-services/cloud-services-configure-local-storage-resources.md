@@ -104,4 +104,4 @@ El código que se ejecuta en una instancia de rol puede acceder a un recurso de 
 
 - [Configurar un servicio en la nube para Azure](https://msdn.microsoft.com/library/azure/hh124108.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

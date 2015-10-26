@@ -1,21 +1,21 @@
 <properties
    pageTitle="Guía de implementación de API | Microsoft Azure"
-	description="Guía sobre cómo implementar una API."
-	services=""
-	documentationCenter="na"
-	authors="dragon119"
-	manager="masimms"
-	editor=""
-	tags=""/>
+   description="Guía sobre cómo implementar una API."
+   services=""
+   documentationCenter="na"
+   authors="dragon119"
+   manager="masimms"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="best-practice"
-	ms.devlang="rest-api"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="05/13/2015"
-	ms.author="masashin"/>
+   ms.devlang="rest-api"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="05/13/2015"
+   ms.author="masashin"/>
 
 # Guía de implementación de API
 
@@ -1152,4 +1152,4 @@ Puede usar esta información para determinar si una operación o API web determi
 - En la página [Comprobar código utilizando pruebas unitarias](https://msdn.microsoft.com/library/dd264975.aspx) del sitio web de Microsoft se ofrece información detallada sobre la creación y administración de las pruebas unitarias con Visual Studio.
 - En la página [Ejecutar pruebas de rendimiento en la aplicación](https://msdn.microsoft.com/library/dn250793.aspx) del sitio web de Microsoft se describe cómo usar Visual Studio Ultimate para crear un proyecto de pruebas de carga y rendimiento web.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

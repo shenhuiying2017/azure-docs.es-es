@@ -197,4 +197,4 @@ Puede actualizar fácilmente la Ayuda en la interfaz de Windows PowerShell. Real
 ## Pasos siguientes
 Si experimenta problemas con el dispositivo StorSimple al realizar uno de los flujos de trabajo anteriores, vea [Herramientas para solucionar problemas en implementaciones de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

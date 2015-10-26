@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción de eventos de telemetría y aplicación a escala" 
+	pageTitle="Introducción de eventos de telemetría y aplicación a escala | Microsoft Azure" 
 	description="Aprenda a introducir eventos de telemetría y aplicación a escala en sus soluciones de negocio." 
 	services="event-hubs,service-bus" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="10/06/2015" 
 	ms.author="sethm"/>
 
 # Introducción de eventos de telemetría y aplicación a escala
@@ -29,11 +29,12 @@ Las aplicaciones modernas crean una cantidad ingente de información mientras se
  
 ## Compilación
 - [Referencia de la API de REST de Centros de eventos](https://msdn.microsoft.com/library/azure/dn790674.aspx)
-- [Ejemplos de código de Centros de eventos](https://code.msdn.microsoft.com/windowsazure/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
+- [Ejemplos de código de Centros de eventos](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## Servicios relacionados
-- [Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
-- [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
+- [Bus de servicio](http://azure.microsoft.com/services/service-bus/)
+- [Almacenamiento de Azure](http://azure.microsoft.com/services/storage/)
+- [HDInsight](http://azure.microsoft.com/services/hdinsight/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

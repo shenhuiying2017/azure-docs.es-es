@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/11/2015" 
 	ms.author="awills"/>
 
 # ¿Cómo ... en Application Insights?
@@ -33,10 +33,15 @@ La aplicación también podría mostrar señales de esfuerzo al devolver código
 
 Si quiere establecer una alerta en **Excepciones de servidor**, puede que tenga que realizar [alguna configuración adicional](app-insights-asp-net-exceptions.md) para poder ver los datos.
 
+### Envío de excepciones por correo electrónico
+
+1. [Configurar supervisión de excepciones](app-insights-asp-net-exceptions.md)
+2. [Establecer una alerta](app-insights-alert.md) en la métrica de recuento de excepciones
+
 
 ### Enviar un correo electrónico sobre un evento en mi aplicación
 
-Supongamos que quiere recibir un correo electrónico cuando se produce un evento específico. Application Insights no ofrece esta función directamente, pero puede [enviar una alerta cuando una métrica pasa un umbral](app-insights-alerts.md).
+Supongamos que quiere recibir un correo electrónico cuando se produce un evento específico. Application Insights no ofrece esta función directamente, pero puede [enviar una alerta cuando una métrica sobrepasa un umbral](app-insights-alerts.md).
 
 Las alertas se pueden establecer en [métricas personalizadas](app-insights-api-custom-events-metrics.md#track-metric), aunque no así los eventos no personalizados. Escribir código para aumentar una métrica cuando se produce el evento:
 
@@ -52,7 +57,7 @@ Dado que las alertas tienen dos estados, debe enviar un valor bajo cuando consid
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Cree un gráfico en el [explorador de métricas](app-insights-metric-explorer.md) para ver la alarma:
+Cree un gráfico en el [Explorador de métricas](app-insights-metric-explorer.md) para ver la alarma:
 
 ![](./media/app-insights-how-do-i/010-alarm.png)
 
@@ -71,12 +76,31 @@ Algunos puntos que se deben tener en cuenta:
 * Un mensaje de correo electrónico solo se envía cuando cambia el estado. Este es el motivo por el que tiene que enviar métricas tanto de valores altos como bajos. 
 * Para evaluar la alerta, la media se toma de los valores recibidos durante el período anterior. Esto se produce cada vez que se recibe una métrica, por lo que los mensajes de correo electrónico se pueden enviar con mayor frecuencia que el período definido.
 * Puesto que los correos electrónicos se envían tanto en los estados "alerta" como "correcto", es posible que considere volver a pensar en su evento monoestable como en una condición de dos estados. Por ejemplo, en lugar de un evento de "trabajo completado", tiene una condición de "trabajo en curso", donde recibe correos electrónicos al principio y al final de un trabajo.
+
+### Configuración de alertas automáticamente
+
+[Uso de PowerShell para crear nuevas alertas](app-insights-alerts/#set-alerts-by-using-powershell)
+
+## Uso de PowerShell para administrar Application Insights
+
+* [Creación de nuevos recursos](app-insights-powershell-script-create-resource.md)
+* [Creación de nuevas alertas](app-insights-alerts/#set-alerts-by-using-powershell)
+
+## Marcas de tiempo y versiones de aplicación
+
+### Separación de los resultados de desarrollo, prueba y producción
+
+* Para distintos entornos, configurar diferentes claves
+* Para las distintas marcas de tiempo (desarrollo, prueba, producción), etiquete la telemetría con distintos valores de propiedad.
+
+[Más información](app-insights-separate-resources.md)
  
-## Filtro de la versión de la aplicación
 
-Cuando se publica una nueva versión de la aplicación, querrá poder separar la telemetría de diferentes versiones.
+### Filtrado por número de compilación
 
-Puede establecer la propiedad de versión de la aplicación para que pueda filtrar resultados de [búsqueda](app-insights-diagnostic-search.md) y [explorador de métricas](app-insights-metrics-explorer.md).
+Cuando se publica una nueva versión de la aplicación, querrá poder separar la telemetría en las diferentes versiones.
+
+Puede establecer la propiedad de versión de la aplicación para filtrar los resultados de la [búsqueda](app-insights-diagnostic-search.md) y del [Explorador de métricas](app-insights-metrics-explorer.md).
 
 
 ![](./media/app-insights-how-do-i/050-filter.png)
@@ -119,4 +143,85 @@ Hay diferentes métodos de establecer la propiedad de versión de la aplicación
 
     Para permitir que MSBuild genere números de versión, establezca la versión como `1.0.*` en AssemblyReference.cs.
 
-<!---HONumber=Oct15_HO1-->
+## Supervisión de servidores back-end
+
+[Uso de la API básica](app-insights-windows-desktop.md)
+
+
+## Visualización de datos
+
+#### Panel con métricas de varias aplicaciones
+
+* En el [Explorador de métricas](app-insights-metrics-explorer.md), personalice el gráfico y guárdelo como favorito. Ánclelo al panel de Azure.
+* 
+
+#### Panel con datos de otros orígenes y Application Insights
+
+* [Exporte la telemetría a Power BI](app-insights-export-power-bi.md). 
+
+O
+
+* Use SharePoint como panel, mostrando los datos en elementos web de SharePoint. [Use la exportación continua y Análisis de transmisiones para exportar a SQL](app-insights-code-sample-export-sql-stream-analytics.md). Use PowerView para examinar la base de datos y crear un elemento web de SharePoint para PowerView.
+
+
+### Filtrado complejo, segmentación y combinaciones
+
+* [Use la exportación continua y Análisis de transmisiones para exportar a SQL](app-insights-code-sample-export-sql-stream-analytics.md). Use PowerView para examinar la base de datos.
+
+<a name="search-specific-users"></a>
+### Filtrado de usuarios anónimos o autenticados
+
+Si los usuarios inician sesión, puede establecer el [identificador de usuario autenticado](app-insights-api-custom-events-metrics.md#authenticated-users). (No ocurre automáticamente).
+
+A continuación, puede:
+
+* Buscar identificadores de usuario específicos
+
+![](./media/app-insights-how-do-i/110-search.png)
+
+* Filtrar métricas a los usuarios anónimos o autenticados
+
+![](./media/app-insights-how-do-i/115-metrics.png)
+
+## Enumeración de usuarios específicos y su uso
+
+Si solo desea [buscar usuarios específicos](#search-specific-users), puede establecer el [identificador de usuario autenticado](app-insights-api-custom-events-metrics/#authenticated-users).
+
+Si desea obtener una lista de usuarios con datos como las páginas que ven o la frecuencia con la que inician sesión, tiene dos opciones:
+
+* [Establezca el identificador de usuario autenticado](app-insights-api-custom-events-metrics/#authenticated-users), [exporte a una base de datos](app-insights-code-sample-export-sql-stream-analytics.md) y use las herramientas adecuadas para analizar los datos de usuario.
+* Si solo dispone de un número reducido de usuarios, envíe eventos o métricas personalizados, mediante el uso de los datos de interés como el valor de métrica o el nombre de evento y el establecimiento del identificador de usuario como una propiedad. Para analizar las vistas de página, reemplace la llamada trackPageView de JavaScript estándar. Para analizar la telemetría en el servidor, use un inicializador de telemetría para agregar el identificador de usuario para toda la telemetría de servidor. Después puede filtrar y segmentar las métricas y las búsquedas en el identificador de usuario.
+
+
+## Reducción del tráfico de la aplicación a Application Insights
+
+* En [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), deshabilite los módulos que no necesite, como contadores de rendimiento.
+* Si está utilizando [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calcule el agregado de los lotes de los valores de métricas antes de enviar el resultado. Hay una sobrecarga de TrackMetric() que se proporciona para eso.
+
+Obtenga más información sobre [precios y cuotas](app-insights-pricing.md).
+
+## Visualización de contadores de rendimiento del sistema
+
+Entre las métricas que se pueden mostrar en el Explorador de métricas se encuentra un conjunto de contadores de rendimiento del sistema. Hay una hoja predefinida denominada **Servidores** que muestra varios de ellos.
+
+![Abra el recurso de Application Insights y haga clic en Servidores](./media/app-insights-how-do-i/121-servers.png)
+
+### Si no ve ningún dato de contadores de rendimiento
+
+* El **servidor IIS** en su propio equipo o en una máquina virtual. [Instale el Monitor de estado](app-insights-monitor-performance-live-website-now.md). 
+* **Sitio web de Azure**: aún no se admiten los contadores de rendimiento. Hay varias métricas que se puede obtener como parte estándar del sitio web de Azure en el panel de control.
+* **Servidor Unix**: [instale collectd](app-insights-java-collectd.md)
+
+### Para mostrar más contadores de rendimiento
+
+* En primer lugar, [agregue un nuevo gráfico](app-insights-metrics-explorer.md) y compruebe si el contador está en el conjunto básico que se ofrece.
+* Si no es así, [agregue el contador al conjunto recopilado por el módulo del contador de rendimiento](app-insights-web-monitor-performance.md#system-performance-counters).
+
+
+ 
+
+### Roles web de Azure
+
+Actualmente, no se supervisan los contadores de rendimiento.
+
+<!---HONumber=Oct15_HO3-->

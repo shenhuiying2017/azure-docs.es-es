@@ -19,7 +19,8 @@
 
 # Configuración de un entorno de nube híbrida simulado para pruebas
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 Este tema le guiará en el proceso de creación de un entorno de nube híbrida simulado con Microsoft Azure para las pruebas con dos redes virtuales de Azure independientes. Use esta configuración como alternativa a la [configuración de un entorno de nube híbrida para hacer pruebas](virtual-networks-setup-hybrid-cloud-environment-testing.md) cuando no tenga conexión directa a Internet ni una dirección IP pública disponible. Aquí está la configuración resultante.
 
@@ -275,4 +276,4 @@ A continuación, configure la clave previamente compartida para que ambas puerta
 A continuación, en la página Red del Portal de administración de Azure, haga clic en la red virtual **TestLab** y, a continuación, haga clic en **Conectar** en la barra de tareas. Espere hasta que la red virtual TestLab muestre un estado conectado a la red local TestVNET.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

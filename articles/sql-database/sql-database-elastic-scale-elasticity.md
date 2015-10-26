@@ -155,4 +155,4 @@ Para facilitar la implementación real de ambos escenarios de escalado, horizont
 [Action]: #action
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

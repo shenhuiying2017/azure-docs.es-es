@@ -27,4 +27,4 @@ Si está buscando el conjunto completo de límites del servicio de Microsoft Azu
 - [Cómo se asocian las suscripciones a Azure con Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Terminología de Azure AD](active-directory-terminology.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

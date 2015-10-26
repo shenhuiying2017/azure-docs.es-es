@@ -1,19 +1,19 @@
 <properties 
-pageTitle="Tareas de inicio comunes para los servicios en la nube | Microsoft Azure"
-	description="Este artículo proporciona algunos ejemplos de tareas de inicio comunes que puede realizar en el rol web o rol de trabajo del servicio en la nube."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
+pageTitle="Tareas de inicio comunes para los servicios en la nube | Microsoft Azure" 
+description="Este artículo proporciona algunos ejemplos de tareas de inicio comunes que puede realizar en el rol web o rol de trabajo del servicio en la nube." 
+services="cloud-services" 
+documentationCenter="" 
+authors="Thraka" 
+manager="timlt" 
+editor=""/>
 <tags 
-ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
-	ms.author="adegeo"/>
+ms.service="cloud-services" 
+ms.workload="tbd" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="08/24/2015" 
+ms.author="adegeo"/>
 
 # Tareas de inicio comunes para los servicios en la nube
 
@@ -503,4 +503,4 @@ Obtener más información acerca de cómo funcionan las [tareas](cloud-services-
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

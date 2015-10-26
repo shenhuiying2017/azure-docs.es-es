@@ -55,4 +55,4 @@ Con Cloud App Discovery, la parte de la recuperación de datos se realiza median
 * [Cloud App Discovery: registro de cambios del agente](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
 * [Cloud App Discovery: preguntas más frecuentes](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

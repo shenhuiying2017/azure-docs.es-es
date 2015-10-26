@@ -10,4 +10,4 @@ A continuación, usará esta puerta de enlace con un proveedor de autenticación
 <!-- URLs. -->
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -342,4 +342,4 @@ También puede utilizar AMQP 1.0 del Bus de servicio desde otros lenguajes, como
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

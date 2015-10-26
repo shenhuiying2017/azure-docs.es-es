@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Probar el rendimiento de un servicio en la nube | Microsoft Azure"
-	description="Probar el rendimiento de un servicio en la nube mediante el generador de perfiles de Visual Studio"
-	services="visual-studio-online"
-	documentationCenter="n/a"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
+   description="Probar el rendimiento de un servicio en la nube mediante el generador de perfiles de Visual Studio"
+   services="visual-studio-online"
+   documentationCenter="n/a"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/14/2015"
-	ms.author="patshea"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="multiple"
+   ms.workload="na"
+   ms.date="08/14/2015"
+   ms.author="patshea" />
 
 
 # Probar el rendimiento de un servicio en la nube 
@@ -146,4 +146,4 @@ Se crea una sesión de generación de perfiles para cada instancia de un rol en 
 
 [Publicación en un servicio en la nube de Azure desde Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

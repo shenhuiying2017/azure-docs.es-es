@@ -76,4 +76,4 @@ Las particiones afectan al equilibrio de carga y la escalabilidad de cada uno de
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

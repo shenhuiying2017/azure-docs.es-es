@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Factoría de datos de Azure: terminología"
-	description="En este artículo se presenta la terminología que se usa al crear factorías de datos con el servicio Factoría de datos de Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Factoría de datos de Azure: terminología" 
+	description="En este artículo se presenta la terminología que se usa al crear factorías de datos con el servicio Factoría de datos de Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 #Factoría de datos de Azure: terminología
@@ -110,4 +110,4 @@ Una característica importante de los centros es que una canalización se ejecut
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

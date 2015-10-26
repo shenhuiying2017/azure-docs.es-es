@@ -116,4 +116,4 @@ Si no puede resolver los problemas y necesita crear una solicitud de servicio, c
 
 -  [Contactar al servicio técnico de Microsoft](storsimple-contact-microsoft-support.md)
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

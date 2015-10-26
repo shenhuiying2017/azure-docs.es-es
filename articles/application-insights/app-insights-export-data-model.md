@@ -1081,4 +1081,4 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * [Exportación continua](app-insights-export-telemetry.md)
 * [Ejemplos de código](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

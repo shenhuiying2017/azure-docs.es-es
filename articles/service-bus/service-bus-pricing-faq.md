@@ -114,4 +114,4 @@ Para obtener más información sobre la mensajería de Bus de servicio, consulte
 - [Información general sobre la arquitectura de Azure Service Bus](fundamentals-service-bus-hybrid-solutions.md)
 - [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

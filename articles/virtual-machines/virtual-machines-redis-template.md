@@ -19,7 +19,8 @@
 
 # Clúster de Redis con una plantilla del Administrador de recursos
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un clúster Redis con el modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+
 
 Redis es un almacén y memoria caché de pares clave-valor de código abierto, donde las claves pueden contener estructuras de datos tales como cadenas, hash, listas, conjuntos y conjuntos ordenados. Redis admite un conjunto de operaciones atómicas con estos tipos de datos. Con el lanzamiento de Redis versión 3.0, el clúster de Redis ahora está disponible en la versión estable más reciente de Redis. El clúster de Redis es una implementación distribuida de Redis donde los datos se particionan automáticamente en varios nodos de Redis, con la posibilidad de continuar las operaciones cuando un subconjunto de nodos experimenta errores.
 
@@ -669,4 +670,4 @@ Básicamente, se sugiere este enfoque para:
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

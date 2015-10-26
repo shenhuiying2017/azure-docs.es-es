@@ -440,4 +440,4 @@ Esta configuración incluye:
 
 [Proveedores de proceso, red y almacenamiento de Azure en el Administrador de recursos de Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2015" ms.author="trinadhk";"aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"aashishr"/>
 
 
 # Solución de problemas de copia de seguridad de máquinas virtuales de Azure
@@ -24,7 +24,7 @@ Puede solucionar los errores detectados al usar Copia de seguridad de Azure con 
 | Operación de copia de seguridad | Detalles del error | Solución alternativa |
 | -------- | -------- | -------|
 | Registro | El número de discos de datos asociados a la máquina virtual sobrepasa el límite admitido. Desconecte algunos discos de datos de esta máquina virtual y vuelva a intentarlo. Copia de seguridad de Azure admite hasta 16 discos de datos conectados a una máquina virtual de Azure para realizar una copia de seguridad. | None |
-| Registro | Copia de seguridad de Microsoft Azure encontró un error interno. Espere unos minutos y vuelva a intentarlo. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft. | Este error puede deberse a una de las siguientes configuraciones no admitidas: <ol><li>LRS Premium <li>Varias NIC <li>Equilibrador de carga </ol> |
+| Registro | Copia de seguridad de Microsoft Azure encontró un error interno. Espere unos minutos y vuelva a intentarlo. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft. | Este error puede deberse a una de las siguientes configuraciones no admitidas: <ol><li>LRS Premium <li>Varias NIC <li>Equilibrador de carga (interna y desde Internet)</ol> |
 | Registro | Se ha producido un error en el registro porque se ha agotado el tiempo de espera de la operación de instalación del agente. | Compruebe si se admite la versión del sistema operativo de la máquina virtual. |
 | Registro | Error en la ejecución de comando: hay otra operación en curso en este elemento. Espere hasta que se complete la operación anterior. | None |
 | Registro | No se pueden usar máquinas virtuales con discos duros virtuales almacenados en Almacenamiento Premium para realizar copias de seguridad | None |
@@ -42,7 +42,7 @@ Puede solucionar los errores detectados al usar Copia de seguridad de Azure con 
 | Copia de seguridad | Error de instalación de la extensión "COM+ no pudo realizar la conexión con MS DTC (Microsoft Distributed Transaction Coordinator)" | Normalmente, esto significa que el servicio COM+ no se ejecuta. Para obtener ayuda acerca de cómo solucionar este problema, póngase en contacto con el servicio de soporte técnico de Microsoft. |
 | Copia de seguridad | Error en la operación de instantánea con el error de operación de VSS "El Cifrado de unidad BitLocker está bloqueando esta unidad" Debe desbloquear esta unidad en el Panel de Control. | Desactive BitLocker para todas las unidades de la máquina virtual y observe si se resuelve el problema VSS |
 | Copia de seguridad | No se pueden usar máquinas virtuales con discos duros virtuales almacenados en Almacenamiento Premium para realizar copias de seguridad | None |
-| Copia de seguridad | No se admite la copia de seguridad de una máquina virtual con una configuración de equilibrador de carga. | None |
+| Copia de seguridad | No se admite la copia de seguridad de una máquina virtual con una configuración de equilibrador de carga. | Ninguno <br><br>Esto se aplica a los equilibradores de carga internos y a los equilibradores de carga con conexión a Internet.|
 | Copia de seguridad | No se admite la copia de seguridad de una máquina virtual con varias tarjetas de interfaz de red. | None |
 | Copia de seguridad | Máquina virtual de Azure no encontrada. | Esto sucede cuando se elimina la máquina virtual principal, pero la directiva de copia de seguridad continúa buscando una máquina virtual para realizar la copia de seguridad. Para solucionar este error: <ol><li>Vueva a crear la máquina virtual con el mismo nombre e igual nombre de grupo de recursos [nombre del servicio en la nube], <br>(O BIEN) <li> Desactive la protección para esta máquina virtual para que no se creen los trabajos de copia de seguridad </ol> |
 | Copia de seguridad | El agente de máquina virtual no está presente en la máquina virtual: instale los requisitos previos necesarios, el agente de máquina virtual y reinicie la operación. | [Obtenga más información](#vm-agent) acerca del agente de la máquina virtual y sobre cómo validar su instalación. |
@@ -123,4 +123,4 @@ Una vez que la resolución de nombres se haya realizado correctamente, también 
 1. Obtenga la lista de [IP del centro de datos de Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) que van a formar parte de la lista de direcciones IP aprobadas.
 2. Desbloquee las direcciones IP usando el commandlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Ejecute este commandlet en la máquina virtual de Azure, en una ventana de PowerShell con privilegios elevados (realice la ejecución como administrador).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -90,4 +90,4 @@ Si la arquitectura de la aplicación web requiere una dependencia más profunda 
 ## Pasos siguientes
 Revise las [versiones del SO invitado](cloud-services-guestos-update-matrix.md) más recientes.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

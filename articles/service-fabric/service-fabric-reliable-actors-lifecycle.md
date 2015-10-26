@@ -90,4 +90,4 @@ Tenga en cuenta que un actor nunca se recolectará mientras se está ejecutando 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

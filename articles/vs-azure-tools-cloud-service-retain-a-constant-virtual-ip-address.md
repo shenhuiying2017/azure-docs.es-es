@@ -45,4 +45,4 @@ La dirección VIP de un servicio en la nube se asigna al implementarla por prime
 
 Para obtener información sobre la publicación en Azure desde Visual Studio, consulte [Asistente Publicar aplicaciones de Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

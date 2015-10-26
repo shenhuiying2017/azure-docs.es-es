@@ -131,4 +131,4 @@ Para ejecutar la aplicación, realice las siguientes tareas:
 
 4. En la interfaz de usuario de la aplicación Android, haga clic en **Log in** (Iniciar sesión). A continuación, haga clic en **Send push** (Enviar inserción).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

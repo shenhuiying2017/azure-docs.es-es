@@ -1,20 +1,20 @@
 <properties
    pageTitle="Terminología del Catálogo de datos de Azure"
-	description="Introducción a los conceptos y términos usados en la documentación del Catálogo de datos de Azure."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Introducción a los conceptos y términos usados en la documentación del Catálogo de datos de Azure."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/20/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="08/20/2015"
+   ms.author="maroche"/>
 
 # Terminología del Catálogo de datos de Azure
 
@@ -80,4 +80,4 @@ El registro es el acto de extraer metadatos de recursos de datos de un origen de
 
 - [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md): este artículo ofrece un tutorial integral que muestra cómo usar el Catálogo de datos de Azure para la detección del orígenes de datos.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

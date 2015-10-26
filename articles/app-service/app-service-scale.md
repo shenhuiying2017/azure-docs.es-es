@@ -131,4 +131,4 @@ Según el nivel de precios, se encuentran disponibles las siguientes caracterís
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

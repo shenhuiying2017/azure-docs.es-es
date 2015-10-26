@@ -10,14 +10,14 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/23/2015"
+	ms.date="10/13/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Creación y exportación de un BACPAC de una base de datos SQL con PowerShell
+# Creación y exportación de un BACPAC de una base de datos SQL de Azure mediante PowerShell
 
 **Base de datos única**
 
@@ -26,7 +26,7 @@
 - [PowerShell](sql-database-export-powershell.md)
 
 
-En este artículo se muestra cómo exportar manualmente un BACPAC de su base de datos SQL con PowerShell.
+Este artículo proporciona instrucciones para exportar un archivo BACPAC de la base de datos SQL de Azure con PowerShell.
 
 Un BACPAC es un archivo .bacpac que contiene datos y un esquema de base de datos. Para obtener detalles, consulte Paquete de copia de seguridad (.bacpac) en [Aplicaciones del nivel de datos](https://msdn.microsoft.com/library/ee210546.aspx).
 
@@ -144,4 +144,4 @@ Al ejecutar este comando se le solicitará una contraseña. Escriba la contrase�
 - [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
 - [Documentación de la base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

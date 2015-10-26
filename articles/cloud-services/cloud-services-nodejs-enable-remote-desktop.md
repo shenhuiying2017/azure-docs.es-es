@@ -116,4 +116,4 @@ Cuando ya no necesite conexiones de Escritorio remoto a las instancias de rol en
   [Uso de Escritorio de remoto con los roles de Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

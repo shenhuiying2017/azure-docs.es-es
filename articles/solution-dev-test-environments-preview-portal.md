@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/17/2015"
+   ms.date="10/08/2015"
    ms.author="jdial"/>
 
 # Entornos de desarrollo y pruebas en Microsoft Azure
@@ -178,9 +178,9 @@ Todos los recursos de Azure deben crearse dentro de un [grupo de recursos de Azu
 
   **Método 2:** PowerShell
 
-  Asegúrese de que tiene PowerShell instalado en un equipo Windows y que está conectado a su suscripción como se detalla en el artículo [Instalación y configuración de Azure PowerShell](powershell-install-configure.md). En el símbolo del sistema de PowerShell, escriba el comando siguiente para crear el grupo de recursos del entorno de desarrollo.
+  Asegúrese de que tiene PowerShell instalado en un equipo Windows y que está conectado a su suscripción como se detalla en el artículo [Instalación y configuración de Azure PowerShell](powershell-install-configure.md). En el símbolo del sistema de PowerShell, escriba el comando siguiente para crear el grupo de recursos del entorno de desarrollo. Si está utilizando la versión de vista previa de Azure PowerShell 1.0, el comando es **New-AzureRmResourceGroup** tal como se muestra a continuación. Si está utilizando una versión de Azure PowerShell anterior a la versión de vista previa 1.0, el comando es **New-AzureResourceGroup**.
 
-	New-AzureResourceGroup -Name TestApp1-Development -Location "Central US"
+	New-AzureRmResourceGroup -Name TestApp1-Development -Location "Central US"
 
   El comando devolverá el siguiente resultado si se ejecuta correctamente:
 
@@ -200,15 +200,15 @@ Todos los recursos de Azure deben crearse dentro de un [grupo de recursos de Azu
 
   Para crear el grupo de recursos del entorno de prueba, escriba el comando siguiente:
 
-	New-AzureResourceGroup -Name TestApp1-Test -Location "Central US"
+	New-AzureRmResourceGroup -Name TestApp1-Test -Location "Central US"
 
   Para crear el grupo de recursos del entorno de preproducción, escriba el comando siguiente:
 
-	New-AzureResourceGroup -Name TestApp1-Pre-Production -Location "Central US"
+	New-AzureRmResourceGroup -Name TestApp1-Pre-Production -Location "Central US"
 
- **Paso 6:** Implementación de los recursos de Azure para cada entorno mediante el archivo de plantilla de la aplicación y de los archivos de parámetros para cada entorno mediante uno de estos métodos. Con ambos métodos se obtiene exactamente el mismo resultado.
+ **Paso 6:** Implementación de los recursos de Azure en grupos de recursos para cada entorno mediante el archivo de plantilla de la aplicación y los archivos de parámetros de cada entorno con uno de estos métodos. Con ambos métodos se obtiene exactamente el mismo resultado.
 
-  **Método 1:** Interfaz de línea de comandos (CLI)
+  **Método 1:** Interfaz de línea de comandos de Azure (CLI)
 
   En la línea de comandos CLI, escriba el comando siguiente para implementar recursos en el grupo de recursos que creó para el entorno de desarrollo, y sustituya [path] por la ruta de acceso a los archivos guardados en los pasos anteriores.
 
@@ -256,9 +256,9 @@ Todos los recursos de Azure deben crearse dentro de un [grupo de recursos de Azu
   
   **Método 2:** PowerShell
 
-  En el símbolo del sistema de PowerShell, escriba el comando siguiente para implementar recursos en el grupo de recursos que creó para el entorno de desarrollo, y sustituya [path] por la ruta de acceso a los archivos guardados en los pasos anteriores.
+  En el símbolo del sistema de PowerShell, escriba el comando siguiente para implementar recursos en el grupo de recursos que creó para el entorno de desarrollo, y sustituya [path] por la ruta de acceso a los archivos guardados en los pasos anteriores. Si está utilizando la versión de vista previa de Azure PowerShell 1.0, el comando es **New-AzureRmResourceGroupDeployment** tal como se muestra a continuación. Si está utilizando una versión de Azure PowerShell anterior a la versión de vista previa 1.0, el comando es **New-AzureResourceGroupDeployment**.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName TestApp1-Development -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Development.json -Name Deployment1 
+	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Development -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Development.json -Name Deployment1 
 
   El comando devolverá el siguiente resultado si se ejecuta correctamente:
 
@@ -292,11 +292,11 @@ Todos los recursos de Azure deben crearse dentro de un [grupo de recursos de Azu
 
   En el símbolo del sistema de PowerShell, escriba el comando siguiente para implementar recursos en el grupo de recursos que creó para el entorno de pruebas, y sustituya [path] por la ruta de acceso a los archivos guardados en los pasos anteriores.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName TestApp1-Test -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Test.json -Name Deployment1
+	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Test -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Test.json -Name Deployment1
 
   En el símbolo del sistema de PowerShell, escriba el comando siguiente para implementar recursos en el grupo de recursos que creó para el entorno de preproducción, y sustituya [path] por la ruta de acceso a los archivos guardados en los pasos anteriores.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName TestApp1-Pre-Production -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Pre-Production.json -Name Deployment1
+	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Pre-Production -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Pre-Production.json -Name Deployment1
 
 Se puede controlar la versión de los archivos de plantilla y de parámetros y se pueden mantener estos archivos con el código de aplicación en el sistema de control de código fuente. También puede guardar los comandos anteriores en archivos de script y guardarlos con el código.
 
@@ -346,9 +346,9 @@ Una vez que ha terminado con un entorno, querrá eliminarlo para así no incurri
   
   **Método 2:** PowerShell
 
-  En un símbolo del sistema de PowerShell, escriba lo siguiente:
+  Si está utilizando la versión de vista previa de Azure PowerShell 1.0, el comando es **Remove-AzureRmResourceGroup** tal como se muestra a continuación. Si está utilizando una versión de Azure PowerShell anterior a la versión de vista previa 1.0, el comando es **Remove-AzureResourceGroup**. En un símbolo del sistema de PowerShell, escriba lo siguiente:
 
-	Remove-AzureResourceGroup -Name TestApp1-Development
+	Remove-AzureRmResourceGroup -Name TestApp1-Development
 
   El comando devolverá el siguiente resultado si especifica "y" cuando se le pregunta:
 
@@ -358,8 +358,8 @@ Una vez que ha terminado con un entorno, querrá eliminarlo para así no incurri
 
   En un símbolo del sistema de PowerShell, escriba lo siguiente para eliminar el resto de entornos:
 
-	Remove-AzureResourceGroup -Name TestApp1-Test
-	Remove-AzureResourceGroup -Name TestApp1-Pre-Production
+	Remove-AzureRmResourceGroup -Name TestApp1-Test
+	Remove-AzureRmResourceGroup -Name TestApp1-Pre-Production
 
 Con independencia del método que use, una vez que los comandos terminan de ejecutarse, los grupos de recursos y todos los recursos que contienen ya no existirán y se le dejará de cobrar por estos recursos.
 
@@ -372,7 +372,7 @@ Ahora que ha experimentado lo fácil que es crear, mantener y eliminar entornos 
 
 ## Pasos siguientes
 
-- [Delegue el control administrativo](role-based-access-control-configure.md) en diferentes recursos de cada entorno y asigne grupos o usuarios de Microsoft Azure Active Directory a roles específicos que tengan la capacidad para realizar un subconjunto de operaciones en recursos de Azure.
+- [Delegue el control administrativo](role-based-access-control-configure.md) en diferentes recursos de cada entorno y asigne grupos o usuarios de Microsoft Azure AD a roles específicos que tengan la capacidad para realizar un subconjunto de operaciones en recursos de Azure.
 - [Asigne etiquetas](resource-group-using-tags.md) a los grupos de recursos para cada entorno o a los recursos individuales. Puede agregar una etiqueta "Entorno" a los grupos de recursos y establecer su valor para que coincida con los nombres de su entorno. Las etiquetas pueden resultar especialmente útiles si necesita organizar recursos para facturación o administración.
 - Supervise las alertas y la facturación de los recursos del grupo de recursos en el [Portal de vista previa de Azure](https://portal.azure.com).
 
@@ -380,8 +380,8 @@ Ahora que ha experimentado lo fácil que es crear, mantener y eliminar entornos 
 
 - [Cree e implemente plantillas del Administrador de recursos de Azure en Visual Studio](http://msdn.microsoft.com/library/azure/Dn872471.aspx) con Azure SDK 2.6 instalado.
 - Cree la aplicación mediante [Visual Studio Enterprise](https://www.visualstudio.com/products/visual-studio-enterprise-vs), [Visual Studio Code](http://www.visualstudio.com/products/code-vs) o [Web Matrix](http://www.microsoft.com/web/webmatrix/).
-- [Implemente una aplicación Web](app-service-web/web-sites-deploy.md) en los entornos que creó.
+- [Implemente una aplicación web](app-service-web/web-sites-deploy.md) en los entornos que creó.
 - Use [Visual Studio Release Management](http://msdn.microsoft.com/Library/vs/alm/Release/overview) para crear canalizaciones de implementación continuas y administradas y liberarlas de forma rápida, fácil y con frecuencia.
-- Solicite una invitación para la versión preliminar de [Laboratorio de desarrollo y pruebas de Azure](http://azure.microsoft.com/campaigns/devtest-lab/). Esta aplicación le permite administrar entornos de laboratorio de desarrollo y pruebas mediante plantillas y configurar cuotas y directivas para su uso dentro de la organización.
+- Solicite una invitación para la vista previa de [Laboratorio de desarrollo y pruebas de Azure](http://azure.microsoft.com/campaigns/devtest-lab/). Esta aplicación le permite administrar entornos de laboratorio de desarrollo y pruebas mediante plantillas y configurar cuotas y directivas para su uso dentro de la organización.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

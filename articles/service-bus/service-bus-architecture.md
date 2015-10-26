@@ -69,4 +69,4 @@ Ahora que ha leído una visión general de cómo funciona el Bus de servicio, pa
 - [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
 - [Una solución de mensajería en cola mediante las colas de Bus de servicio](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

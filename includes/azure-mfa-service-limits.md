@@ -13,4 +13,4 @@ Desbloquear cuenta tras **X** minutos|No establecido|9\.999
 
 <sup>1</sup>Se espera que aumente en el futuro.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

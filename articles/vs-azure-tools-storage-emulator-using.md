@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Configuración y uso del emulador de almacenamiento con Visual Studio"
-	description="Configuración y uso del emulador de almacenamiento con Visual Studio"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
+   description="Configuración y uso del emulador de almacenamiento con Visual Studio"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="storage"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Configuración y uso del emulador de almacenamiento con Visual Studio
 
@@ -43,4 +43,4 @@ El emulador de almacenamiento proporciona una interfaz de usuario para ver el es
 
 El nodo Almacenamiento de Azure en el Explorador de servidores permite ver los datos y cambiar la configuración para los datos de blob y tabla en sus cuentas de almacenamiento, incluido el emulador de almacenamiento. Consulte [Exploración y administración de recursos de almacenamiento con el Explorador de servidores](https://msdn.microsoft.com/library/azure/ff683677.aspx) para obtener más información.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -99,11 +99,11 @@ Los módulos de PowerShell contienen cmdlets que puede usar en sus runbooks; los
 
 ## Solicitud de un runbook o módulo
 
-Puede enviar solicitudes a [User Voice](http://feedback.azure.com/forums/246290-azure-automation). Si necesita ayuda para escribir un runbook o se plantea preguntas acerca de PowerShell, publique una pregunta en nuestro [foro](http://social.msdn.microsoft.com/Forums/windowsazure/es-es/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
+Puede enviar solicitudes a [User Voice](http://feedback.azure.com/forums/246290-azure-automation). Si necesita ayuda para escribir un runbook o se plantea preguntas acerca de PowerShell, publique una pregunta en nuestro [foro](http://social.msdn.microsoft.com/Forums/windowsazure/es-ES/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
 ## Artículos relacionados
 
 - [Creación o importación de un runbook en Automatización de Azure](automation-creating-importing-runbook.md)
 - [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

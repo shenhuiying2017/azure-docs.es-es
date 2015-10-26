@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Solución de problemas de Servicios de BizTalk mediante registros de operaciones | Microsoft Azure"
-	description="Solucione los problemas de los Servicios de BizTalk con el uso de registros de operaciones. MABS, WABS"
-	services="biztalk-services"
-	documentationCenter=""
-	authors="MandiOhlinger"
-	manager="dwrede"
+	pageTitle="Solución de problemas de Servicios de BizTalk mediante registros de operaciones | Microsoft Azure" 
+	description="Solucione los problemas de los Servicios de BizTalk con el uso de registros de operaciones. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="biztalk-services"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="mandia"/>
 
 
@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | Operación para purgar copias de seguridad del Servi
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

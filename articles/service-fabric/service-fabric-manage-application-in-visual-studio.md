@@ -79,4 +79,4 @@ Puede quitar una aplicación del clúster local mediante el Explorador de servid
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

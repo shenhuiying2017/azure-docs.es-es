@@ -69,4 +69,4 @@ Para transferir blobs de un contenedor de Azure a otro, use el siguiente comando
 
 > [AZURE.TIP]1. Al cargar archivos, /S cargará los archivos de forma recursiva. Sin este parámetro, no se cargarán los archivos del subdirectorio. 2. Al descargar el archivo, /S buscará el contenedor de manera recursiva hasta que se descarguen todos los archivos del directorio especificado y sus subdirectorios, o todos los archivos que coincidan con el patrón especificado en el directorio especificado y sus subdirectorios. 3. No se puede especificar un archivo de blob específico para descargar mediante el parámetro /Source. Para descargar un archivo específico, especifique el nombre del archivo blob que se va a descargar mediante el parámetro /Pattern. El parámetro /S se puede usar para que AzCopy busque de forma recursiva un patrón de nombre de archivo. Sin el parámetro de patrón, AzCopy descargará todos los archivos en ese directorio.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

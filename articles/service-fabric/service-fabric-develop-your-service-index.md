@@ -87,4 +87,4 @@ Los servicios de confianza emiten eventos y contadores de rendimiento, que se pu
 
 - [Diagnóstico de servicios de confianza con estado](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

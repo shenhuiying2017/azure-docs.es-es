@@ -65,4 +65,4 @@ El contrato de datos es la solución recomendada para garantizar que sus datos s
 
 [Temas avanzados](service-fabric-application-upgrade-advanced.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

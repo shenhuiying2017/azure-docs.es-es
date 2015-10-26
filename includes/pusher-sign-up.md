@@ -68,4 +68,4 @@ Para obtener más información sobre cómo comenzar con Pusher, consulte [Descri
 [Portal de administración de Azure]: https://manage.windowsazure.com
 [Descripción de Pusher]: http://pusher.com/docs
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

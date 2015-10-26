@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Compilación de una aplicación de HBase con Maven | Microsoft Azure"
-	description="Aprenda a usar Apache Maven para compilar una aplicación de Apache HBase basada en Java e implementarla después en HDInsight de Azure."
+	pageTitle="Crear una aplicación de HBase con Maven y luego implementar en HDInsight basado en Windows | Microsoft Azure"
+	description="Aprenda a usar Apache Maven para compilar una aplicación de Apache HBase basada en Java e implementarla después en un clúster de HDInsight de Azure basado en Windows."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 #Uso de Maven para crear aplicaciones Java que utilicen HBase con HDInsight (Hadoop)
@@ -592,4 +592,4 @@ Reemplace __hdinsightclustername__ por el nombre del clúster de HDInsight.
 
 Use el parámetro `-showErr` para ver el error estándar (STDERR) producido mientras se ejecutaba el trabajo.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

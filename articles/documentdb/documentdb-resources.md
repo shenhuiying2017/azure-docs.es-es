@@ -57,7 +57,7 @@ Para empezar a trabajar con los recursos, debe [crear una cuenta de base de dato
 ##Recursos del sistema frente a recursos definidos por el usuario
 Los recursos (por ejemplo, las cuentas de bases de datos, las bases de datos, las colecciones, los usuarios, los permisos, los procedimientos almacenados, los desencadenadores y las UDF) tienen todos un esquema fijo y se les denomina "recursos del sistema". En cambio, los recursos como documentos y datos adjuntos no tienen restricciones de esquema y son ejemplos de recursos definidos por el usuario. En DocumentDB, tanto los recursos del sistema como los definidos por el usuario se representan y controlan como JSON compatibles con el estándar. Todos los recursos ya sean definidos por el sistema o el usuario tienen las siguientes propiedades comunes.
 
->[AZURE.NOTE] Tenga en cuenta que todas las propiedades generadas por el sistema en un recurso tienen un prefijo con subrayado (_) en su representación de JSON.
+>[AZURE.NOTE]Tenga en cuenta que todas las propiedades generadas por el sistema en un recurso tienen un prefijo con subrayado (\_) en su representación de JSON.
 
 
 Propiedad |¿Configurable por el usuario o generado por el sistema?|Propósito
@@ -414,4 +414,4 @@ Obtenga más información sobre cómo trabajar con recursos usando comandos HTTP
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

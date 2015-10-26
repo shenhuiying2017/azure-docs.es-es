@@ -36,7 +36,7 @@ Noam Ben Zeev muestra lo que describimos en este artículo.
 
 ## Supervisión de aplicaciones con Application Insights
 
-Si aún no lo ha intentado, ahora es el momento de empezar. Application Insights puede supervisar cualquier aplicación web o de dispositivo en una amplia gama de plataformas, entre ellas, Windows, iOS, Android, J2EE y muchas más. [Introducción](app-insights-get-started.md).
+Si aún no lo ha intentado, ahora es el momento de empezar. Application Insights puede supervisar cualquier aplicación web o de dispositivo en una amplia gama de plataformas, entre ellas, Windows, iOS, Android, J2EE y muchas más. [Introducción](app-insights-overview.md).
 
 ## Creación de almacenamiento en Azure
 
@@ -239,4 +239,4 @@ Noam Ben Zeev muestra cómo exportar a Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Más ejemplos y tutoriales](app-insights-code-samples.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

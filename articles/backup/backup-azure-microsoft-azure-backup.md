@@ -29,12 +29,14 @@ En este artículo, se trata cómo preparar el entorno para hacer copias de segur
 
 Además, puede administrar la protección de diversas entidades protegidas (servidores y clientes) desde una única interfaz de usuario local.
 
+>[AZURE.NOTE]La Copia de seguridad de Microsoft Azure hereda la funcionalidad de Data Protection Manager (DPM) para copias de seguridad de cargas de trabajo. Encontrará punteros para la documentación de DPM para algunas de estas capacidades. Sin embargo, el servidor de copias de seguridad de Microsoft Azure no ofrece protección en cinta o integración con System Center.
+
 Puede implementar el servidor de Copia de seguridad de Microsoft Azure como:
 
 - Un servidor físico independiente.
-- Una máquina virtual de Hyper-V: puede ejecutar DPM como una máquina virtual hospedada en un servidor host de Hyper-V local para hacer una copia de seguridad de los datos locales. Para ver una lista de consideraciones en este entorno, consulte [Instalación de DPM como una máquina virtual en un servidor Hyper-V local](https://technet.microsoft.com/library/dn440941.aspx).
-- Una máquina virtual de Windows en VMWare: puede implementar DPM para ofrecer protección para las cargas de trabajo de Microsoft que se ejecutan en máquinas virtuales de Windows en VMWare. En este escenario, DPM puede implementarse como servidor físico independiente, como máquina virtual de Hyper-V o como máquina virtual de Windows en VMWare.
-- Una máquina virtual de Azure: se puede ejecutar DPM como máquina virtual en Azure para hacer copias de seguridad de las cargas de trabajo de nube que se ejecutan como máquinas virtuales de Azure. Para obtener información acerca de esta implementación, consulte [Preparación del entorno para System Center 2012 R2 Data Protection Manager (DPM)](https://technet.microsoft.com/library/hh758176.aspx).
+- Una máquina virtual de Hyper-V: puede ejecutar el servidor de copias de seguridad de Microsoft Azure como una máquina virtual hospedada en un servidor host de Hyper-V local para hacer copias de seguridad de los datos locales. Para ver una lista de consideraciones en este entorno, consulte [Instalación de DPM como una máquina virtual en un servidor Hyper-V local](https://technet.microsoft.com/library/dn440941.aspx).
+- Una máquina virtual de Windows en VMWare: puede implementar el servidor de copias de seguridad de Microsoft Azure para ofrecer protección para las cargas de trabajo de Microsoft que se ejecutan en máquinas virtuales de Windows en VMWare. En este escenario, el servidor de copias de seguridad de Microsoft Azure se puede implementar como servidor físico independiente, como máquina virtual de Hyper-V o como máquina virtual de Windows en VMWare.
+- Una máquina virtual de Azure: puede ejecutar el servidor de copias de seguridad de Microsoft Azure como máquina virtual en Azure para hacer copias de seguridad de las cargas de trabajo de nube que se ejecutan como máquinas virtuales de Azure. Para obtener información sobre esta implementación, consulte [Instalar DPM como máquina virtual de Azure](https://technet.microsoft.com/library/hh758176.aspx).
 
 Además,
 
@@ -42,7 +44,7 @@ Además,
 - El servidor de Copia de seguridad de Microsoft Azure no puede instalarse en un equipo que tenga instalado SCDPM ni el agente RA de SCDPM.
 - El servidor de Copia de seguridad de Microsoft Azure no puede instalarse en un equipo que tenga el agente de Copia de seguridad de Microsoft Azure instalado y registrado con un almacén de Copia de seguridad de Azure.
 
->[AZURE.NOTE]El servidor de Copia de seguridad de Microsoft Azure hereda la funcionalidad de Data Protection Manager (DPM) para la copia de seguridad de cargas de trabajo; no obstante, no proporciona protección en cinta ni integración con System Center.
+
 
 Una vez seleccionado el servidor en el que se va a instalar Copia de seguridad de Microsoft Azure, necesitará:
 
@@ -64,7 +66,7 @@ Para realizar la instalación sin problemas, asegúrese de que se cumplen los si
 - El servidor de Copia de seguridad de Microsoft Azure debe estar unido a un dominio.
 - El servidor de Copia de seguridad de Microsoft Azure debe tener instaladas las características de .NET 3.5, .NET 4.0 y .NET 3.5 SP1. Consulte [más información acerca de cómo habilitar .NET Framework](https://technet.microsoft.com/library/dn482071.aspx) para obtener más detalles.
 - El servidor de Copia de seguridad de Microsoft Azure debe tener instalado Windows Management Framework 4.0. Puede descargarlo [aquí](http://www.microsoft.com/download/details.aspx?id=40855).
-- Para el disco usado como espacio dedicado para el almacenamiento de datos de DPM, el tamaño recomendado para el grupo de almacenamiento es 1,5 veces el tamaño de los datos protegidos. Para obtener más información, consulte la sección Discos y almacenamiento de [este tema](https://technet.microsoft.com/library/hh758176.aspx#DPM servidor).
+- Para el disco usado como espacio dedicado para el almacenamiento de datos del servidor de copias de seguridad de Microsoft Azure, el tamaño recomendado para el grupo de almacenamiento es 1,5 veces el tamaño de los datos protegidos. Para obtener más información, consulte la sección Discos y almacenamiento de [este tema](https://technet.microsoft.com/library/hh758176.aspx#DPM servidor).
 
 Haga lo siguiente para preparar el servidor de Copia de seguridad de Microsoft Azure para realizar copias de seguridad de los datos:
 
@@ -286,4 +288,4 @@ Puede usar estos artículos para mejorar la comprensión sobre la protección de
 - [Copia de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint.md)
 - [Copia de seguridad de otro servidor](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

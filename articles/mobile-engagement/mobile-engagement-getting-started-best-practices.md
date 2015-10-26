@@ -403,4 +403,4 @@ Una vez conseguida una mayor experiencia, puede agregar lo siguiente a sus progr
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

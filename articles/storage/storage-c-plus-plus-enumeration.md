@@ -184,4 +184,4 @@ Para obtener más información sobre el almacenamiento de Azure y la biblioteca 
 -	[Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Documentación de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

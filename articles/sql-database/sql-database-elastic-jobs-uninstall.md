@@ -64,4 +64,4 @@ Si desea obtener más información sobre Trabajos de base de datos elástica, ve
 [1]: ./media/sql-database-elastic-job-uninstall/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

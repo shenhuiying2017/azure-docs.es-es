@@ -61,7 +61,7 @@ Las demás muestras que se encuentran disponibles para ayudarle a acelerar el pr
 		$piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "pi" -Arguments "16", "10000000"
 
 
-	El primer argumento indica cuántas asignaciones se deben crear (el valor predeterminado es 16). El segundo argumento indica cuántas muestras se generan por asignación (el valor predeterminado es 10 millones). Por lo tanto, este programa utiliza 10\*10 millones = 160 millones de puntos aleatorios para realizar el cálculo de pi. El tercer argumento indica la ubicación y el nombre del archivo jar usado para ejecutar la muestra en clústeres de HDInsight 3.0 y 3.1. (Consulte a continuación el contenido de este archivo).
+	El primer argumento indica cuántas asignaciones se deben crear (el valor predeterminado es 16). El segundo argumento indica cuántas muestras se generan por asignación (el valor predeterminado es 10 millones). Por lo tanto, este programa utiliza 10*10 millones = 160 millones de puntos aleatorios para realizar el cálculo de pi. El tercer argumento indica la ubicación y el nombre del archivo jar usado para ejecutar la muestra en clústeres de HDInsight 3.0 y 3.1. (Consulte a continuación el contenido de este archivo).
 
 5. Ejecute los siguientes comandos para enviar el trabajo de MapReduce y espere a que finalice:
 
@@ -475,4 +475,4 @@ Para ver tutoriales que describen la ejecución de otras muestras y ofrecen inst
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

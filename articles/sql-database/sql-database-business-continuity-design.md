@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Diseño de la base de datos SQL para la continuidad del negocio"
-	description="Directrices para realizar su elección En esta sección se proporcionan directrices que le ayudarán a elegir las características BCDR que deben usarse, así como el momento en que deben usarse. Esto incluye descripciones de lo que obtendrá automáticamente con el uso de la base de datos SQL."
-	services="sql-database"
-	documentationCenter=""
-	authors="elfisher"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="Diseño de la base de datos SQL para la continuidad del negocio" 
+   description="Directrices para realizar su elección En esta sección se proporcionan directrices que le ayudarán a elegir las características BCDR que deben usarse, así como el momento en que deben usarse. Esto incluye descripciones de lo que obtendrá automáticamente con el uso de la base de datos SQL."
+   services="sql-database" 
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="07/14/2015"
-	ms.author="elfish"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="07/14/2015"
+   ms.author="elfish"/>
 
 #Diseño para la continuidad del negocio
 
@@ -102,4 +102,4 @@ Al diseñar la aplicación para la continuidad del negocio, debe tener en cuenta
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

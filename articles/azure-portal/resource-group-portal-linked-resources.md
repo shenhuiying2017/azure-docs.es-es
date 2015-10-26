@@ -34,4 +34,4 @@ Al crear recursos a través del portal o mediante la implementación de una plan
 - Para profundizar en la creación de vínculos entre los recursos, vea [Vinculación de recursos en el Administrador de recursos de Azure](../resource-group-link-resources.md).
 - Para conocer más sobre cómo trabajar con grupos de recursos a través del Portal de vista previa, vea [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](resource-group-portal.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -80,4 +80,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

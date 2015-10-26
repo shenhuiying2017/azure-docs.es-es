@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Copia de datos de salida en una base de datos de SQL Server local (Portal de Azure)"
+	pageTitle="Copia de datos de salida en una base de datos de SQL Server local (Portal de Azure)" 
 	description="En este tutorial se amplía el del uso del editor de la factoría de datos en el Portal de Azure en el sentido de que la canalización copia datos de salida en una base de datos de SQL Server."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 
@@ -169,4 +169,4 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

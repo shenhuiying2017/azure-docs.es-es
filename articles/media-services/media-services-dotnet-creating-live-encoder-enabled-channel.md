@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/05/2015"
+	ms.date="10/14/2015"
 	ms.author="juliako"/>
 
 
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 ##Información general
@@ -30,34 +30,41 @@ Este tutorial le guía por los pasos para crear un **canal** que reciba una secu
 
 >[AZURE.NOTE]Para obtener información más detallada sobre los canales habilitados para la codificación en directo, consulte [Uso de canales que realizan la codificación en directo de una secuencia de una sola velocidad de bits a otra de varias velocidades](media-services-manage-live-encoder-enabled-channels.md).
 
->[AZURE.NOTE]Debe usar el SDK de Servicios multimedia para .NET versión 3.2.0.0 o posterior.
 
 ##Escenario común de streaming en vivo
 
 Los pasos siguientes describen las tareas para crear aplicaciones comunes de streaming en vivo.
 
+>[AZURE.NOTE]Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Póngase en contacto con amslived en Microsoft punto com si necesita ejecutar un canal durante largos períodos de tiempo.
+
 1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-Este paso también puede realizarse después de crear el canal.
+	Este paso también puede realizarse después de crear el canal.
 
 1. Cree e inicie un canal.
 
 1. Recupere la URL de ingesta de canales.
 
-El codificador en directo usa la URL de ingesta para enviar la secuencia al canal. 1. Recupere la URL de vista previa de canal.
+	El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
 
-Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en directo.
+1. Recupere la URL de vista previa de canal.
+
+	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en directo.
 
 2. Cree un recurso.
 3. Si desea que el recurso se cifre dinámicamente durante la reproducción, haga lo siguiente:
-
-1. 	Cree una clave de contenido.
-1. 	Configure la directiva de autorización de claves de contenido.
-1. Configure la directiva de entrega de recursos (usada por el empaquetado y el cifrado dinámicos).
+	1. Cree una clave de contenido.
+	1. Configure la directiva de autorización de claves de contenido.
+	1. Configure la directiva de entrega de recursos (usada por el empaquetado y el cifrado dinámicos).
 3. Cree un programa y especifique que se use el recurso que ha creado.
 1. Publique el recurso asociado al programa mediante la creación de un localizador a petición.
 
-Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido. 1. Inicie el programa cuando esté listo para iniciar el streaming y el archivo. 2. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida. 1. Detenga el programa cuando quiera detener el streaming y el archivo del evento. 1. Elimine el programa (y, opcionalmente, elimine el recurso).
+	Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
+
+1. Inicie el programa cuando esté listo para iniciar el streaming y el archivo.
+2. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
+1. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
+1. Elimine el programa (y, opcionalmente, elimine el recurso).
 
 ##En este tema
 
@@ -74,7 +81,11 @@ En el tema se muestra cómo:
 1. Mostrar y ocultar pizarras. Iniciar y detener anuncios. Se usan las API de ejecución prolongada.
 1. Limpiar el canal y todos los recursos asociados.
 
->[AZURE.NOTE]La duración máxima recomendada de un evento en directo es de 8 horas. Póngase en contacto con amslived en Microsoft punto com si necesita ejecutar un canal durante largos períodos de tiempo.
+
+##Consideraciones
+
+- Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Póngase en contacto con amslived en Microsoft punto com si necesita ejecutar un canal durante largos períodos de tiempo.
+- Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
 
 ##Requisitos previos
 Los siguientes requisitos son necesarios para completar el tutorial.
@@ -82,6 +93,7 @@ Los siguientes requisitos son necesarios para completar el tutorial.
 - Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](azure.microsoft.com).
 - Una cuenta de Servicios multimedia. Para crear una cuenta de Servicios multimedia, consulte el tema de [creación de cuenta](media-services-create-account.md).
 - Visual Studio 2010 SP1 o superior.
+- Debe usar el SDK de Servicios multimedia para .NET versión 3.2.0.0 o posterior.
 - Una cámara web y un codificador que puede enviar una secuencia en directo de una sola velocidad de bits.
 
 ##Configuración para el desarrollo con el SDK de Servicios multimedia para .NET
@@ -97,10 +109,15 @@ Se recomienda usar un archivo app.config para almacenar la clave de cuenta y nom
 Agregue la sección appSettings al archivo app.config y establezca los valores de nombre y clave de la cuenta de Servicios multimedia.
 
 
-<?xml version="1.0"?> <configuration> <appSettings> <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" /> <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" /> </appSettings> </configuration>
+	<?xml version="1.0"?>
+	<configuration>
+	  <appSettings>
+	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
+	      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
+	  </appSettings>
+	</configuration>
 	 
 	
-
 ##Ejemplo de código
 
 	using System;
@@ -500,4 +517,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna forma sus necesidades, háganos llegar sus comentarios mediante el subproceso de Disqus siguiente.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

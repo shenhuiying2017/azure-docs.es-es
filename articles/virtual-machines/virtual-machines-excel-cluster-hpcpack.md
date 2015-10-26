@@ -21,7 +21,8 @@
 
 En este artículo se muestra cómo implementar un clúster de HPC Pack en los servicios de infraestructura de Azure (IaaS) con una plantilla de inicio rápido de Azure o un script de implementación de Azure PowerShell. Usará imágenes de VM de Azure Marketplace diseñadas para ejecutar cargas de trabajo Microsoft Excel o de Arquitectura orientada a servicios (SOA) con HPC Pack. Puede usar el clúster para ejecutar servicios de SOA y Excel HPC sencillos desde un equipo cliente local. Los servicios de Excel HPC incluyen la descarga de libros de Excel y las funciones definidas por el usuario de Excel o UDF.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se describen los recursos creados con el modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+
 
 En un nivel alto el diagrama siguiente muestra el clúster de HPC Pack que creará.
 
@@ -234,7 +235,7 @@ Siga estos pasos para descargar un libro de Excel para que se ejecute en el clú
 ```
 4.	Descargue la [instalación de HPC Pack 2012 R2 Update 2](http://www.microsoft.com/download/details.aspx?id=47755) completa e instale el cliente de HPC Pack o descargue e instale las [utilidades del cliente de HPC Pack 2012 R2 Update 2](https://www.microsoft.com/download/details.aspx?id=47754) y el paquete redistribuible de Visual C++ 2010 adecuado para su equipo ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555)).
 
-5.	En este ejemplo, usamos un libro de Excel de ejemplo denominado ConvertiblePricing\_Complete.xlsb, que se puede descargar [aquí](https://www.microsoft.com/es-es/download/details.aspx?id=2939).
+5.	En este ejemplo, usamos un libro de Excel de ejemplo denominado ConvertiblePricing\_Complete.xlsb, que se puede descargar [aquí](https://www.microsoft.com/es-ES/download/details.aspx?id=2939).
 
 6.	Copie el libro de Excel en una carpeta de trabajo como D:\\Excel\\Run.
 
@@ -271,7 +272,7 @@ Siga estos pasos para descargar un libro de Excel para que se ejecute en el clú
 
 Para ejecutar UDF de Excel, siga los pasos de 1 a 3 anteriores para configurar el equipo cliente. Para UDF de Excel, no es necesario que la aplicación de Excel esté instalada en los nodos de proceso, por lo que puede elegir una imagen de nodo de proceso normal en el paso 1 en lugar de la imagen del nodo de proceso con Excel.
 
->[AZURE.NOTE]Hay un límite de 34 caracteres en el cuadro de diálogo del conector de clúster de Excel 2010 y 2013. Si el nombre completo del clúster es más largo, por ejemplo, hpcexcelhn01.southeastasia.cloudapp.azure.com, no cabrá en el cuadro de diálogo. La solución consiste en aplicar la actualización 2 de QFE KB3085833 (descárguela [aquí](http://www.microsoft.com/es-es/download/details.aspx?id=48725)) para la API de sesión de SOA en el equipo cliente; a continuación, establezca una variable para todo el equipo, por ejemplo, *CCP\_IAASHN* con el valor del nombre de clúster largo y escriba *% CCP\_IAASHN %* en el cuadro de diálogo como el nombre de nodo principal del clúster.
+>[AZURE.NOTE]Hay un límite de 34 caracteres en el cuadro de diálogo del conector de clúster de Excel 2010 y 2013. Si el nombre completo del clúster es más largo, por ejemplo, hpcexcelhn01.southeastasia.cloudapp.azure.com, no cabrá en el cuadro de diálogo. La solución consiste en aplicar la actualización 2 de QFE KB3085833 (descárguela [aquí](http://www.microsoft.com/es-ES/download/details.aspx?id=48725)) para la API de sesión de SOA en el equipo cliente; a continuación, establezca una variable para todo el equipo, por ejemplo, *CCP\_IAASHN* con el valor del nombre de clúster largo y escriba *% CCP\_IAASHN %* en el cuadro de diálogo como el nombre de nodo principal del clúster.
 
 Una vez que el clúster esté implementado correctamente, siga estos pasos para ejecutar una UDF de Excel integrada de ejemplo. Para UDF personalizadas de Excel, consulte los [recursos](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) para compilar las funciones XLL e implementarlas en el clúster de IaaS.
 
@@ -388,4 +389,4 @@ La aplicación cliente de SOA no requiere cambios excepto modificar el nombre pr
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

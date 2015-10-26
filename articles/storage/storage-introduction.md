@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="10/07/2015" 
 	ms.author="tamram"/>
 
 # Introducción a Almacenamiento de Microsoft Azure
@@ -79,6 +79,8 @@ Cuando esté listo para crear una cuenta de almacenamiento estándar, consulte [
 ### Cuentas de Almacenamiento premium
 
 El almacenamiento premium de Azure actualmente solo admite los discos de Máquinas virtuales de Azure. Para obtener una introducción detallada de Almacenamiento premium de Azure, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](http://go.microsoft.com/fwlink/?LinkId=521898).
+
+[AZURE.INCLUDE [storage-versions-include](../../includes/storage-versions-include.md)]
 
 ## Almacenamiento de blobs
 
@@ -234,4 +236,4 @@ Para comenzar a usar Almacenamiento de Azure, explore estos recursos:
 - [Uso del almacenamiento de colas de Python](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

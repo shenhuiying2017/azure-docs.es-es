@@ -225,4 +225,4 @@ El tiempo de actualización de un dominio de actualización está limitado por *
 [Serialización de datos](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

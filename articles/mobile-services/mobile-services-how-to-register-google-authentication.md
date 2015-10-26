@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Registro para la autenticación de Google | Microsoft Azure"
-	description="Obtenga información acerca de cómo registrar las aplicaciones para usar Google para autenticarse con los Servicios móviles de Azure."
-	services="mobile-services"
-	documentationCenter="android"
-	authors="ggailey777"
-	manager="dwrede"
+	pageTitle="Registro para la autenticación de Google | Microsoft Azure" 
+	description="Obtenga información acerca de cómo registrar las aplicaciones para usar Google para autenticarse con los Servicios móviles de Azure." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="ggailey777" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/27/2015" 
 	ms.author="glenga"/>
 
 # Registro de las aplicaciones para el inicio de sesión de Google con Servicios móviles
@@ -56,4 +56,4 @@ Ahora está listo para configurar el servicio móvil para utilizar inicio de ses
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Información general sobre la seguridad de Base de datos SQL" 
-   description="Obtenga información acerca de la seguridad de la Base de datos SQL de Azure y SQL Server, incluidas las diferencias entre la nube y SQL Server local en cuanto a la autenticación, autorización, seguridad de conexión, cifrado y cumplimiento normativo." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="tmullaney" 
-   manager="jeffreyg" 
+<properties
+   pageTitle="Información general sobre la seguridad de Base de datos SQL"
+   description="Obtenga información acerca de la seguridad de la Base de datos SQL de Azure y SQL Server, incluidas las diferencias entre la nube y SQL Server local en cuanto a la autenticación, autorización, seguridad de conexión, cifrado y cumplimiento normativo."
+   services="sql-database"
+   documentationCenter=""
+   authors="tmullaney"
+   manager="jeffreyg"
    editor=""/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-services" 
-   ms.date="09/22/2015"
+   ms.workload="data-services"
+   ms.date="10/13/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -21,7 +21,7 @@
 
 ## Información general
 
-Este artículo describe los fundamentos de la protección de la capa de datos de una aplicación que use Base de datos SQL de Azure. En concreto, estos artículos le ayudarán a empezar a trabajar con los recursos para limitar el acceso, proteger datos y supervisar actividades en una base de datos creada en [Introducción al tutorial de Base de datos SQL](sql-database-get-started.md). Para obtener una descripción completa de las características de seguridad disponibles en todas las versiones de SQL, consulte [Seguridad y protección (motor de base de datos)](https://msdn.microsoft.com/library/bb510589).
+Este artículo describe los fundamentos de la protección de la capa de datos de una aplicación que use Base de datos SQL de Azure. En concreto, este artículo le ayudará a empezar a trabajar con los recursos para limitar el acceso, proteger datos y supervisar actividades en una base de datos creada en el tutorial [Introducción a la Base de datos SQL](sql-database-get-started.md). Para obtener una descripción completa de las características de seguridad disponibles en todas las versiones de SQL, consulte [Seguridad y protección (motor de base de datos)](https://msdn.microsoft.com/library/bb510589). Asimismo, tiene información adicional disponible en las [Notas del producto técnicas acerca de la seguridad y la base de datos SQL de Azure](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (en PDF).
 
 ## Seguridad de conexión
 
@@ -36,12 +36,12 @@ Todas las conexiones a Base de datos SQL de Azure requieren cifrado (SSL/TLS) si
 
 La autenticación indica a cómo demostrar su identidad al conectarse a la base de datos. Base de datos SQL admite dos tipos de autenticación:
 
- - **Autenticación de SQL**, que utiliza un nombre de usuario y una contraseña.
- - **Autenticación de Azure Active Directory**, que utiliza las identidades administradas por Azure Active Directory y es compatible con los dominios administrados e integrados
+ - **Autenticación de SQL**, la cual usa un nombre de usuario y una contraseña.
+ - **Autenticación de Azure Active Directory**, la cual usa las identidades administradas por Azure Active Directory y es compatible con los dominios administrados e integrados
 
-Al crear el servidor lógico de la base de datos, especificó un inicio de sesión de "administrador de servidor" con un nombre de usuario y una contraseña. Con estas credenciales, puede autenticarse en cualquier base de datos en ese servidor como propietario de la base de datos, o "dbo". Si desea usar la autenticación de Azure Active Directory, debe crear otro administrador de servidor llamado "administrador de Azure AD" con permiso para administrar usuarios y grupos de Azure AD. Este administrador también puede realizar todas las operaciones de un administrador de servidor normal. Vea el tutorial [Conexión a Base de datos SQL mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md) sobre cómo crear un administrador de Azure AD para habilitar la autenticación de Active Directory de Azure.
+Al crear el servidor lógico de la base de datos, especificó un inicio de sesión de "administrador de servidor" con un nombre de usuario y una contraseña. Con estas credenciales, puede autenticarse en cualquier base de datos en ese servidor como propietario de la base de datos, o "dbo". Si desea usar la autenticación de Azure Active Directory, debe crear otro administrador de servidor llamado "administrador de Azure AD" con permiso para administrar usuarios y grupos de Azure AD. Este administrador también puede realizar todas las operaciones de un administrador de servidor normal. Consulte el tutorial [Conectar a la Base de datos SQL mediante la autenticación de Azure Active Directory](sql-database-aad-authentication.md), para obtener información acerca de cómo crear un administrador de Azure AD y así habilitar la autenticación de Azure Active Directory.
 
-Como procedimiento recomendado, la aplicación debe usar una cuenta distinta para autenticar. De esta forma, puede limitar los permisos concedidos a la aplicación y reducir los riesgos de actividad malintencionada en caso de que el código de la aplicación sea vulnerable a ataques por inyección de código SQL. Se recomienda crear un [usuario de base de datos independiente](https://msdn.microsoft.com/library/ff929188), lo que permite a la aplicación autenticarse directamente en una base de datos única. Para crear un usuario de base de datos independiente que utilice la autenticación de SQL, ejecute el comando de T-SQL siguiente cuando haya iniciado sesión como administrador de servidor en la base de datos de usuario a la que está conectado:
+Como procedimiento recomendado, la aplicación debe usar una cuenta distinta para autenticar. De esta forma, puede limitar los permisos concedidos a la aplicación y reducir los riesgos de actividad malintencionada en caso de que el código de la aplicación sea vulnerable a ataques por inyección de código SQL. Se recomienda crear un [usuario de base de datos independiente](https://msdn.microsoft.com/library/ff929188), ya que este permitirá a la aplicación autenticarse directamente en una base de datos única. Para crear un usuario de base de datos independiente que utilice la autenticación de SQL, ejecute el comando de T-SQL siguiente cuando haya iniciado sesión como administrador de servidor en la base de datos de usuario a la que está conectado:
 
 ```
 CREATE USER ApplicationUser WITH PASSWORD = 'strong_password'; -- SQL Authentication
@@ -73,7 +73,7 @@ Existen varias formas de limitar aún más lo que los usuarios pueden hacer con 
 * Los [roles de base de datos](https://msdn.microsoft.com/library/ms189121) que no sean db\_datareader y db\_datawriter se pueden utilizar para crear cuentas de usuario de aplicación más eficaces o cuentas de administración menos eficaces.
 * Los [permisos](https://msdn.microsoft.com/library/ms191291) granulares permiten control qué operaciones se pueden realizar en columnas individuales, tablas, vistas, procedimientos y otros objetos de la base de datos.
 * La [suplantación](https://msdn.microsoft.com/library/vstudio/bb669087) y la [firma de módulos](https://msdn.microsoft.com/library/bb669102) se pueden utilizar para elevar los permisos temporalmente de forma segura.
-* La [seguridad de nivel de fila](https://msdn.microsoft.com/library/dn765131) permite filtrar las filas que puede ver el usuario.
+* La [seguridad del nivel de fila](https://msdn.microsoft.com/library/dn765131) permite filtrar las filas que puede ver el usuario.
 * El [enmascaramiento de datos](sql-database-dynamic-data-masking-get-started.md) puede utilizarse para limitar la exposición de información confidencial.
 * Los [procedimientos almacenados](https://msdn.microsoft.com/library/ms190782) puede utilizarse para limitar las acciones que se pueden realizar en la base de datos.
 
@@ -85,10 +85,10 @@ La administración bases de datos y servidores lógicos desde el Portal de admin
 Base de datos SQL de Azure puede ayudar a proteger los datos mediante el cifrado de los mismos cuando estén "en reposo" o almacenados en archivos de base de datos y copias de seguridad, con el [cifrado de datos transparente](http://go.microsoft.com/fwlink/?LinkId=526242). Para cifrar una base de datos, conéctese como propietario de la base de datos y ejecute:
 
 ```
-CREATE DATABASE ENCRYPTION KEY 
-   WITH ALGORITHM = AES_256 
+CREATE DATABASE ENCRYPTION KEY
+   WITH ALGORITHM = AES_256
    ENCRYPTION BY SERVER CERTIFICATE ##MS_TdeCertificate##;
-   
+
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
@@ -105,6 +105,5 @@ La auditoría y el seguimiento de eventos de la base de datos pueden ayudarle a 
 ## Cumplimiento normativo
 
 Además de las anteriores características y funcionalidades que pueden ayudar a su aplicación a cumplir distintos requisitos de cumplimiento de normas de seguridad, la Base de datos SQL de Azure también participa en las auditorías regulares y ha sido certificada con una serie de estándares de cumplimiento normativo. Para obtener más información, consulte el [Centro de confianza de Microsoft Azure](http://azure.microsoft.com/support/trust-center/), donde podrá encontrar la lista más reciente de [certificaciones de cumplimiento de Base de datos SQL](http://azure.microsoft.com/support/trust-center/services/).
- 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

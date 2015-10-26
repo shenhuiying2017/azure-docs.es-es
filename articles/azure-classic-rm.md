@@ -68,4 +68,4 @@ Puede crear y configurar recursos de Azure desde equipos Windows, OS X o Linux m
 - Aprenda a [diseñar plantillas](/best-practices-resource-manager-design-templates.md).
 - Uso de [prácticas recomendadas](/best-practices-resource-manager-examples.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

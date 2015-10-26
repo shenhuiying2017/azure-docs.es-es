@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="07/24/2015"
+   ms.date="10/08/2015"
    ms.author="elfish; v-romcal; v-stste"/>
 
 # Restaurar una base de datos SQL de Azure eliminada en Azure PowerShell
@@ -38,17 +38,19 @@ Consulte [Restaurar una base de datos SQL de Azure eliminada en el portal de Azu
 
 Debe utilizar la autenticación basada en certificados para ejecutar los cmdlets siguientes. Para más información, consulte la sección *Uso del método del certificado* en [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md#use-the-certificate-method).
 
+> [AZURE.IMPORTANT]Este artículo contiene comandos para las versiones de Azure PowerShell, hasta la versión 1.0 (*sin incluir esta ni las posteriores*). Puede comprobar la versión de Azure PowerShell con el comando **Get-Module azure | format-table version**.
+
 1. Obtenga la lista de bases de datos recuperables mediante el cmdlet [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546735.aspx).
 	* Utilice el modificador **RestorableDropped** y especifique el **ServerName** (nombre del servidor) del servidor del que se ha eliminado la base de datos.
 	* Al ejecutar el comando siguiente, los resultados se almacenan en una variable denominada **$RecoverableDBs**.
 	
-	`PS C:\>$RecoverableDBs = Get-AzureSqlDatabase -ServerName "myserver" –RestorableDropped`
+	`$RecoverableDBs = Get-AzureSqlDatabase -ServerName "myserver" –RestorableDropped`
 
 2. Elija la base de datos eliminada que desea restaurar de la lista de bases de datos eliminadas.
 
 	* Escriba el número de la base de datos eliminada de la lista **$RecoverableDBs**.  
 
-	`PS C:\>$Database = $RecoverableDBs[<deleted database number>]`
+	`$Database = $RecoverableDBs[<deleted database number>]`
 
 	* Para obtener más información acerca de cómo obtener un objeto de base de datos eliminada, consulte [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/dn546735.aspx).
 
@@ -58,14 +60,14 @@ Debe utilizar la autenticación basada en certificados para ejecutar los cmdlets
 
 	Almacene lo obtenido en una variable denominada **$RestoreRequest**. Esta variable contiene el identificador de solicitud de restauración usado para supervisar el estado de una restauración.
 	
-	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName “myrestoredDB”`
+	`$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName “myrestoredDB”`
 
 Una restauración puede tardar algún tiempo en completarse. Para supervisar el estado de la restauración, utilice el cmdlet [Get AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) y especifique los siguientes parámetros:
 
 * **ServerName** (nombre del servidor) de la base de datos en la que va a restaurar.
 * **OperationGuid**, que es el identificador de solicitud de restauración almacenado en la variable **$RestoreRequest** en el paso 3.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
+	`Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
 
 Los campos **State** (estado) y **PercentComplete** (porcentaje finalizado) muestran el estado de la restauración.
 
@@ -73,10 +75,8 @@ Los campos **State** (estado) y **PercentComplete** (porcentaje finalizado) mues
 
 Para obtener más información, consulte los temas siguientes:
 
-[Continuidad de negocio de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/hh852669.aspx)
-
-[Copia de seguridad y restauración de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/jj650016.aspx)
+[Continuidad de negocio de Base de datos SQL de Azure](sql-database-business-continuity.md)
 
 [Azure PowerShell](http://msdn.microsoft.com/library/azure/jj156055.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

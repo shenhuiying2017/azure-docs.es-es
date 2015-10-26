@@ -18,4 +18,4 @@
 Con el control de código fuente habilitado en el servicio móvil, puede usar Git para clonar el repositorio en el equipo local.
  
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

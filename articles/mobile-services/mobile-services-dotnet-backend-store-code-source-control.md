@@ -100,4 +100,4 @@ Ahora, el proyecto de servicio móvil se mantiene en el control de código fuent
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Modificación del modelo de datos de un servicio móvil back-end de .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

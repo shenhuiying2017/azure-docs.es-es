@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Análisis de datos de retraso de vuelos con Hadoop en HDInsight | Microsoft Azure" 
-	description="Obtenga información acerca de cómo usar un script de Windows PowerShell para aprovisionar el clúster de HDInsight, ejecutar un trabajo de Hive, ejecutar un trabajo de Sqool y eliminar el clúster." 
+	pageTitle="Análisis de datos de retraso de vuelos con Hive en HDInsight basado en Linux | Microsoft Azure" 
+	description="Aprenda a usar Hive para analizar datos de vuelos en HDInsight basado en Linux y luego exporte los datos a la Base de datos SQL con Sqoop." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="Blackmist" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="10/09/2015" 
 	ms.author="larryfr"/>
 
 #Análisis de datos de retraso de vuelos con Hive en HDInsight
@@ -305,4 +305,4 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

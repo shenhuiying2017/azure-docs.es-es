@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/21/2015" 
+	ms.date="10/09/2015" 
 	ms.author="femila"/>
 
 # Configuración de Azure AD Join en su organización
@@ -34,9 +34,13 @@ Para crear y administrar usuarios en Azure AD manualmente, consulte [Administrac
 6. En la pestaña **Dispositivos**, configure lo siguiente:  
    * **Número máximo de dispositivos por usuario**: seleccione el número máximo de dispositivos que puede tener un usuario en Azure AD. Si un usuario alcanza esta cuota, no podrá agregar dispositivos adicionales hasta que se quiten uno o varios de sus dispositivos existentes.
    * **Requerir Multi-factor Auth para conectar dispositivos**: habilite esta opción cuando los usuarios deban proporcionar un segundo factor de autenticación para unir su dispositivo a Azure AD. Para obtener más información sobre Multi-Factor Authentication, consulte [Introducción a Multi-Factor Authentication de Azure en la nube](multi-factor-authentication-get-started-cloud/)
-   * **Los usuarios pueden unir dispositivos a Azure AD**: seleccione los usuarios y grupos que tienen permiso para unir dispositivos a Azure AD.
-   * **Administradores adicionales en dispositivos unidos a Azure AD**: con Azure AD Premium o Enterprise Mobility Suite (EMS), puede elegir a qué usuarios se les conceden derechos de administrador local al dispositivo. De forma predeterminada, a los administradores globales y a los propietarios de dispositivos se les conceden derechos de administrador local.
+   *  **Los usuarios pueden unir dispositivos a Azure AD**: seleccione los usuarios y grupos que tienen permiso para unir dispositivos a Azure AD.   
+    * **Administradores adicionales en dispositivos unidos a Azure AD**: con Azure AD Premium o Enterprise Mobility Suite (EMS), puede elegir a qué usuarios se les conceden derechos de administrador local al dispositivo. De forma predeterminada, a los administradores globales y a los propietarios de dispositivos se les conceden derechos de administrador local.
+   
+>[AZURE.NOTE]Si los usuarios reciben el error "**Se ha alcanzado el límite del registro de dispositivos**" (Código de error: **0x801C000E - DSREG\_ E\_ DEVICE\_ REGISTRATION\_ QUOTA\_EXCCEEDED**), tendrá que cambiar los dispositivos máximos permitidos por usuario. En la sección **Los usuarios pueden unirse a dispositivos de Azure AD**, seleccione **Agregar** y establezca el número de dispositivos que desea permitir por usuario.
+      
 
+    
 <center>![](./media/active-directory-azureadjoin/active-directory-aadjoin-configure-devices.png) </center>
 Después de configurar Azure AD Join para los usuarios, se pueden conectar a Azure AD mediante sus dispositivos personales o corporativos.
 
@@ -51,4 +55,4 @@ A continuación se describen tres escenarios de cómo puede permitir que los usu
 * [Conozca los escenarios de uso de Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

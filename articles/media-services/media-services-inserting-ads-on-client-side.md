@@ -810,4 +810,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 [Desarrollo de aplicaciones para reproductor de vídeo](media-services-develop-video-players.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

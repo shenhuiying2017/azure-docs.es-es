@@ -15,4 +15,4 @@ Tiene la posibilidad de probar las notificaciones de inserción con su servicio 
 
 Ahora, el proyecto de servicio móvil está configurado para conectarse al centro de notificaciones en Azure cuando se ejecuta localmente. Es importante usar el mismo nombre de centro de notificaciones y la misma cadena de conexión del portal porque esta configuración de proyecto que hay en Web.config se reemplaza por la configuración del portal cuando se ejecuta en Azure.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

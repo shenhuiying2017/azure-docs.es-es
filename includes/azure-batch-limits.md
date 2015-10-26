@@ -7,4 +7,4 @@ Número máximo de tareas por nodo de proceso|4 × número de núcleos de nodo|4
 
 <sup>1</sup> Se puede aumentar el número de núcleos por cada cuenta de lotes, pero no se ha especificado el número máximo. Póngase en contacto con atención al cliente para obtener información sobre las opciones de aumento. <sup>2</sup> Incluye trabajos activos y programaciones de trabajos activos de una sola ejecución.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

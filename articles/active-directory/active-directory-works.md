@@ -49,4 +49,4 @@ Azure Active admite varios de los protocolos de autenticación y autorización m
 * [Registro en Azure como una organización](sign-up-organization.md)
 * [Identidad de Azure](fundamentals-identity.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

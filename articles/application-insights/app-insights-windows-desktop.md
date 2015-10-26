@@ -299,4 +299,4 @@ El código del canal de persistencia se encuentra en [github](https://github.com
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -58,4 +58,4 @@ Por ejemplo, es posible que quite un rol de servicio web y más adelante decida 
 
 Vea [Configuración de los roles para un servicio en la nube de Azure con Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md) para saber cómo configurar los roles en Visual Studio.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

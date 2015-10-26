@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/14/2015"
+   ms.date="10/13/2015"
    ms.author="tomfitz"/>
 
 # Funciones de la plantilla del Administrador de recursos de Azure
@@ -493,6 +493,41 @@ En el siguiente ejemplo se convierte el valor del parámetro proporcionado por e
     }
 
 
+## uniqueString
+
+**uniqueString (stringForCreatingUniqueString,...)**
+
+Realiza un hash de 64 bits de las cadenas proporcionadas para crear una cadena única. Esta función es útil cuando se debe crear un nombre único para un recurso. Proporciona valores de parámetros que representan el nivel de unicidad del resultado. Puede especificar si el nombre es único para la suscripción, el grupo de recursos o la implementación.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| stringForCreatingUniqueString | Sí | Cadena base utilizada en la función hash para crear una cadena única.
+| parámetros adicionales según sea necesario | No | Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad.
+
+El valor devuelto no es una cadena completamente aleatoria, sino que es el resultado de una función hash. El valor devuelto tiene 13 caracteres. No se garantiza que sea único global. Puede que desee combinar el valor con un prefijo de su convención de nomenclatura para crear un nombre más descriptivo.
+
+En los ejemplos siguientes se muestra cómo utilizar uniqueString para crear un valor único para diferentes niveles de uso común.
+
+Único basado en la suscripción
+
+    "[uniqueString(subscription().subscriptionId)]"
+
+Único basado en el grupo de recursos
+
+    "[uniqueString(resourceGroup().id)]"
+
+Único basado en la implementación de un grupo de recursos
+
+    "[uniqueString(resourceGroup().id, deployment().name)]"
+    
+En el ejemplo siguiente se muestra cómo crear un nombre único para una cuenta de almacenamiento basada en el grupo de recursos.
+
+    "resources": [{ 
+        "name": "[concat('ContosoStorage', uniqueString(resourceGroup().id))]", 
+        "type": "Microsoft.Storage/storageAccounts", 
+        ...
+
+
 ## variables
 
 **variables (variableName)**
@@ -510,4 +545,4 @@ Devuelve el valor de variable. El nombre de la variable especificada debe defini
 - Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 - Para saber cómo implementar la plantilla que creó, vea [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Depuración con IntelliTrace y Visual Studio de un servicio en la nube publicado | Microsoft Azure"
-	description="Depuración con IntelliTrace y Visual Studio de un servicio en la nube publicado"
-	services="visual-studio-online"
-	documentationCenter="n/a"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
+   description="Depuración con IntelliTrace y Visual Studio de un servicio en la nube publicado"
+   services="visual-studio-online"
+   documentationCenter="n/a"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/14/2015"
-	ms.author="patshea"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="multiple"
+   ms.workload="na"
+   ms.date="08/14/2015"
+   ms.author="patshea" />
 
 
 
@@ -69,4 +69,4 @@ Puede continuar trabajando en Visual Studio mientras se descargan los registros 
 
 [Depuración de Servicios en la nube](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

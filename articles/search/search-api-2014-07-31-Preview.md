@@ -1,6 +1,6 @@
 <properties pageTitle="API de REST del Servicio Búsqueda de Azure versión 2014-07-31-Preview" description="API de REST del servicio de Búsqueda de Azure: versión 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/26/2015" ms.author="heidist"/>
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/26/2015" ms.author="heidist" />
 
 # Version de API de REST del servicio de Búsqueda de Azure: 2014-07-31-Preview
 
@@ -1062,4 +1062,4 @@ Recupere 5 sugerencias en las que la entrada de búsqueda parcial sea "lux"
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&api-version=2014-07-31-Preview
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

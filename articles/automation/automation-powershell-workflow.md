@@ -249,4 +249,4 @@ Para obtener más información acerca de los puntos de control, consulte [Adici�
 
 - [Introducción al flujo de trabajo de Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

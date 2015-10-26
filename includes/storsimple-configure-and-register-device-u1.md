@@ -29,7 +29,7 @@
     
 		Tenga en cuenta que el sistema valida la configuración de red después de cada paso del proceso.
    
-	> [AZURE.NOTE]Tendrá que esperar unos minutos para que se apliquen la máscara de subred y la configuración de DNS. Si recibe el mensaje de error «Compruebe la conectividad de red para Data 0», compruebe la conexión de red física en la interfaz de red DATA 0 de su controlador activo.
+      >[AZURE.NOTE]Tendrá que esperar unos minutos para que se apliquen la máscara de subred y la configuración de DNS. Si recibe el mensaje de error «Compruebe la conectividad de red para Data 0», compruebe la conexión de red física en la interfaz de red DATA 0 de su controlador activo.
 
 8. (Opcional) Configure el servidor proxy web. Aunque la configuración del proxy web es opcional, **tenga en cuenta que, si usa un proxy web, solo puede configurarlo aquí**. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](../articles/storsimple/storsimple-configure-web-proxy.md).
 
@@ -68,4 +68,4 @@
 	     
        
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

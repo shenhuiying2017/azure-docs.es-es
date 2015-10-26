@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Copia de datos de salida en una base de datos de SQL Server local (Azure PowerShell)"
+	pageTitle="Copia de datos de salida en una base de datos de SQL Server local (Azure PowerShell)" 
 	description="En este tutorial amplía el del uso de Azure PowerShell en el sentido de que la canalización copia los datos de salida a una base de datos de SQL Server."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 
@@ -116,10 +116,10 @@ Para empezar, deberá crear la base de datos de SQL Server, tabla, tipos definid
 ### Creación de la tabla lógica local
 
 1.	En **Azure PowerShell**, cambie a la carpeta **C:\\ADFWalkthrough\\OnPremises**. 
-2.	Use el cmdlet **New-AzureDataFactoryTable** para crear las tablas para **MarketingCampaignEffectivenessOnPremSQLTable.json** de la manera siguiente.
+2.	Use el cmdlet **New-AzureDataFactoryDataset** para crear las tablas para **MarketingCampaignEffectivenessOnPremSQLTable.json** de la manera siguiente.
 
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### Creación del proceso para copiar los datos del blob de Azure a SQL Server
 
@@ -170,4 +170,4 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

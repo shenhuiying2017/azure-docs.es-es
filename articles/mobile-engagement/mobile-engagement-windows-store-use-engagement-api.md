@@ -360,4 +360,4 @@ En el ejemplo anterior, el JSON que se envía al servidor tiene una longitud de 
 			{"birthdate":"1983-12-07","gender":"female"}
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Creación de un notebook IPython | Microsoft Azure"
-	description="Obtenga información acerca de cómo implementar el notebook IPython en una máquina virtual Linux o Windows creada con el modelo de implementación clásica en Azure."
-	services="virtua-lmachines"
+	pageTitle="Creación de un cuaderno de Jupyter/IPython Notebook | Microsoft Azure"
+	description="Obtenga información sobre cómo implementar Jupyter/IPhyton Notebook en una máquina virtual de Linux creada con el modelo de implementación del administrador de recursos en Azure."
+	services="virtual-machines"
 	documentationCenter="python"
 	authors="huguesv"
 	manager="wpickett"
@@ -11,144 +11,102 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
+	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="python"
 	ms.topic="article"
 	ms.date="05/20/2015"
 	ms.author="huvalo"/>
 
-# Bloc de notas de IPython en Azure
+# Jupyter Notebook en Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la implementación de un notebook en una máquina virtual creada con el modelo de implementación clásica.
+El [proyecto Jupyter](http://jupyter.org), anteriormente conocido como el [proyecto IPython](http://ipython.org), proporciona una colección de herramientas para la informática científica mediante eficaces shells interactivos que combinan la ejecución del código con la creación de documentos informáticos activos. Estos archivos del bloc de notas pueden contener texto arbitrario, fórmulas matemáticas, código de entrada, resultados, gráficos, vídeos y cualquier otra clase de contenido multimedia que pueda mostrar cualquier explorador web moderno. Independientemente de si no tiene experiencia con Python y desea aprender en un entorno entretenido e interactivo, o bien desea realizar informática técnica o en paralelo, Jupyter Notebook es una excelente elección.
 
-El [proyecto IPython](http://ipython.org) proporciona una colección de herramientas para la informática científica que incluye potentes shells interactivos, bibliotecas paralelas de elevado rendimiento y facilidad de uso, así como un entorno basado en web conocido como bloc de notas de IPython. El bloc de notas ofrece un entorno de trabajo para la informática interactiva que combina la ejecución del código con la creación de documentos informáticos activos. Estos archivos del bloc de notas pueden contener texto arbitrario, fórmulas matemáticas, código de entrada, resultados, gráficos, vídeos y cualquier otra clase de contenido multimedia que pueda mostrar cualquier explorador web moderno.
+![Instantánea](./media/virtual-machines-python-ipython-notebook/ipy-notebook-spectral.png) Uso de los paquetes SciPy y Matplotlib para analizar la estructura de una grabación de sonido.
 
-Ya sea la primera toma de contacto con Python y desee aprenderlo en un entorno divertido e interactivo o bien esté poniendo en práctica la informática técnica o en paralelo, el bloc de notas de IPython constituirá una excelente elección. Para ilustrar sus capacidades, la captura de pantalla siguiente muestra IPython Notebook en uso, junto con los paquetes SciPy y Matplotlib, para analizar la estructura de una grabación de sonido.
 
-![Instantánea](./media/virtual-machines-python-ipython-notebook/ipy-notebook-spectral.png)
+## Dos formas de Jupyter: Azure Notebooks o implementación personalizada
+Azure ofrece un servicio que puede usar para [comenzar rápidamente a usar Jupyter ](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx). Si utiliza el servicio de Azure Notebook, puede obtener acceso fácilmente a la interfaz accesible desde la Web de Jupyter a los recursos informáticos escalables con toda la potencia de Python y sus diversas bibliotecas. Debido a que el servicio administra la instalación, los usuarios pueden obtener acceso a estos recursos sin necesidad de que el usuario los administre y configure.
 
-En este artículo se explicará cómo implementar IPython Notebook en Microsoft Azure mediante máquinas virtuales (VM) con Linux o Windows. Al utilizar el bloc de notas de IPython en Azure, puede proporcionar fácilmente una interfaz accesible por web a los recursos informáticos escalables con toda la potencia de Python y sus múltiples bibliotecas. Como la instalación se realiza en la nube, los usuarios podrán obtener acceso a estos recursos sin necesidad de configuración local alguna, salvo un explorador web moderno.
+Si el servicio de cuaderno no sirve en el escenario en cuestión, siga leyendo este artículo, que mostrará cómo implementar Jupyter Notebook en Microsoft Azure, mediante máquinas virtuales de Linux.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
 [AZURE.INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
 ## Creación y configuración de una máquina virtual en Azure
 
-El primer paso es crear una máquina virtual (VM) que se ejecute en Azure. Esta máquina virtual consiste en un sistema operativo completo en la nube y se utilizará para ejecutar el bloc de notas de IPython. Azure es capaz de ejecutar máquinas virtuales de Linux y Windows, y trataremos la instalación de IPython en ambos tipos de máquinas virtuales.
+El primer paso es crear una máquina virtual (VM) que se ejecute en Azure. Esta máquina virtual consiste en un sistema operativo completo en la nube y se usará para ejecutar Jupyter Notebook. Azure es capaz de ejecutar máquinas virtuales de Linux y Windows y abarcaremos la configuración de Jupyter en ambos tipos de máquinas virtuales.
 
-### Máquina virtual de Linux
+### Crear una máquina virtual de Linux y abrir un puerto para Jupyter
 
-Siga las instrucciones indicadas [aquí][portal-vm-linux] para crear una máquina virtual de la distribución *OpenSUSE* o *Ubuntu*. En este tutorial se utiliza OpenSUSE 13.2 y Ubuntu Server 14.04 LTS. Asumiremos el nombre de usuario predeterminado *azureuser*.
+Siga las instrucciones que aparecen [aquí][portal-vm-linux] para crear una máquina virtual de la distribución *Ubuntu*. En este tutorial se usa Ubuntu Server 14.04 LTS. Asumiremos que el nombre de usuario es *azureuser*.
 
-### Máquina virtual de Windows
+Una vez que se implementa la máquina virtual, es necesario abrir una regla de seguridad en el grupo de seguridad de red. En el portal, vaya a **Grupos de seguridad de red** y abra la pestaña del grupo de seguridad que corresponde a la máquina virtual. Debe agregar una regla de seguridad de entrada con la configuración siguiente: **TCP** para el protocolo, ***** para el puerto de origen (público) y **9999** para el puerto de destino (privado).
 
-Siga las instrucciones indicadas [aquí][portal-vm-windows] para crear una máquina virtual de la distribución *Windows Server 2012 R2 Datacenter*. En este tutorial, asumiremos que el nombre de usuario es *azureuser*.
+![Instantánea](./media/virtual-machines-python-ipython-notebook/azure-add-endpoint.png)
 
-## Creación de un extremo para IPython Notebook
-
-Este paso se aplica tanto a las máquinas virtuales de Linux como a las de Windows. Más adelante configuraremos IPython para que ejecute su servidor de bloc de notas en el puerto 9999. Para que este puerto esté disponible públicamente, deberemos crear un extremo en el Portal de administración de Azure. Este extremo abre un puerto en el firewall de Azure y asigna el puerto público (HTTPS, 443) al puerto privado en la máquina virtual (9999).
-
-Para crear un extremo, vaya al panel de la máquina virtual, haga clic en **Extremos**, a continuación en **Agregar extremo** y cree un nuevo extremo (denominado `ipython_nb` en este ejemplo). Seleccione **TCP** como protocolo, **443** como puerto público y **9999** como puerto privado.
-
-![Instantánea](./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-005.png)
-
-Después de este paso, la pestaña Panel de **Extremos** será similar al que aparece en la siguiente captura de pantalla.
-
-![Instantánea](./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-006.png)
+En el grupo de seguridad de red, haga clic en **Interfaces de red** y anote la **Dirección IP pública** que necesitará para conectarse a la máquina virtual en el paso siguiente.
 
 ## Instalación del software necesario en la máquina virtual
 
-Para ejecutar el bloc de notas de IPython en nuestra máquina virtual, primero tenemos que instalar IPython y sus dependencias.
+Para ejecutar Jupyter Notebook en nuestra máquina virtual, primero debemos instalar Jupyter y sus dependencias. Conéctese a la máquina virtual de Linux con SSH y el par de nombre de usuario/contraseña que eligió cuando creó la máquina virtual. En este tutorial, se usará PuTTY y se conectará desde Windows.
 
-### Linux (OpenSUSE)
+### Instalación de Jupyter en Ubuntu
+Instale Anaconda, una popular distribución de Python para ciencia de datos, desde uno de los vínculos proporcionados por [Continuum Analytics](https://www.continuum.io/downloads). En el momento de redactar este documento, los vínculos que aparecen a continuación son las versiones más actualizadas.
 
-Para instalar IPython y sus dependencias, conéctese con SSH en la máquina virtual Linux y complete los pasos siguientes.
+#### Instalaciones de Anaconda para Linux
+<table>
+  <th>Python 3.4</th>
+  <th>Python 2.7</th>
+  <tr>
+    <td>
+		<a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh'>64 bits</href>
+	</td>
+    <td>
+		<a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.3.0-Linux-x86_64.sh'>64 bits</href>
+	</td>
+  </tr>
+  <tr>
+    <td>
+		<a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86.sh'>32 bits</href>
+	</td>
+    <td>
+		<a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.3.0-Linux-x86.sh'>32 bits</href>
+	</td>  
+  </tr>
+</table>
 
-Instale [NumPy][NumPy], [Matplotlib][Matplotlib], [Tornado][Tornado] y otras dependencias de IPython con los siguientes comandos.
 
-    sudo zypper install python-matplotlib
-    sudo zypper install python-tornado
-    sudo zypper install python-jinja2
-    sudo zypper install ipython
+#### Instalación de Anaconda3 2.3.0 de 64 bits en Ubuntu
+Como ejemplo, se trata de cómo puede instalar Anaconda en Ubuntu
 
-### Linux (Ubuntu)
+	# install anaconda
+	cd ~
+	mkdir -p anaconda
+	cd anaconda/
+	curl -O https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
+	sudo bash Anaconda3-2.3.0-Linux-x86_64.sh -b -f -p /anaconda3
 
-Para instalar IPython y sus dependencias, conéctese con SSH en la máquina virtual Linux yrealice los pasos siguientes.
+	# clean up home directory
+	cd ..
+	rm -rf anaconda/
 
-En primer lugar, recupere nuevas listas de paquetes con el comando siguiente.
+	# Update Jupyter to the latest install and generate its config file
+	sudo /anaconda3/bin/conda install -f jupyter -y
+	/anaconda3/bin/jupyter-notebook --generate-config
 
-    sudo apt-get update
 
-Instale [NumPy][NumPy], [Matplotlib][Matplotlib], [Tornado][Tornado] y otras dependencias de IPython con los siguientes comandos.
+![Instantánea](./media/virtual-machines-python-ipython-notebook/anaconda-install.png)
 
-    sudo apt-get install python-matplotlib
-    sudo apt-get install python-tornado
-    sudo apt-get install ipython
-    sudo apt-get install ipython-notebook
 
-### Windows
-
-Para instalar IPython y sus dependencias en la máquina virtual de Windows, use el Escritorio remoto para conectarse a la máquina virtual. A continuación, realice los pasos siguientes, utilizando Windows PowerShell para ejecutar todas las acciones de la línea de comandos.
-
-**Nota:** para realizar descargas con Internet Explorer, tendrá que cambiar algunas opciones de seguridad. En **Administrador de servidores**, haga clic en **Servidor local**, a continuación en **Configuración de seguridad mejorada de IE** y desactívelo para administradores. Puede volver a habilitarlo después de instalar IPython.
-
-1.  Descargue e instale la última versión de 32 bits de [Python 2.7][]. Necesitará agregar `C:\Python27` y `C:\Python27\Scripts` a la variable de entorno `PATH`.
-
-1.  Instale [Tornado][Tornado] y [PyZMQ][PyZMQ], y otras dependencias de IPython con los siguientes comandos.
-
-        easy_install tornado
-        easy_install pyzmq
-        easy_install jinja2
-        easy_install six
-        easy_install python-dateutil
-        easy_install pyparsing
-
-1.  Descargue e instale [NumPy][NumPy] mediante el instalador binario `.exe` disponible en su sitio web. En el momento en que se redacta esto, la versión más reciente es numpy-1.9.1-win32-superpack-python2.7.exe.
-
-1.  Instale [Matplotlib][Matplotlib] con el comando siguiente.
-
-        pip install matplotlib==1.4.2
-
-1.  Descargue e instale [OpenSSL][].
-
-	* Encontrará Visual C++ 2008 Redistributable (necesario) en la misma página de descarga.
-
-	* Necesitará agregar `C:\OpenSSL-Win32\bin` a su variable de entorno `PATH`.
-
-	> [AZURE.NOTE]Al instalar OpenSSL, use la versión 1.0.1g, o posterior, ya que incluyen una corrección para la vulnerabilidad de seguridad Heartbleed.
-
-1.  Instale IPython con el comando siguiente.
-
-        pip install ipython==2.4
-
-1.  Abra un puerto en el Firewall de Windows. En Windows Server 2012, el firewall bloqueará de manera predeterminada las conexiones entrantes. Para abrir el puerto 9999, siga estos pasos:
-
-    - Inicie **Firewall de Windows con seguridad avanzada** en la pantalla de inicio.
-
-    - Haga clic en **Reglas de entrada** en el panel izquierdo.
-
-	- Haga clic en **Nueva regla** en el panel Acciones.
-
-	- En el Asistente para nueva regla de entrada, seleccione **Puerto**.
-
-	- En la pantalla siguiente, seleccione **TCP** e introduzca **9999** en **Puertos locales específicos**.
-
-	- Acepte los valores predeterminados, asigne un nombre a la regla y haga clic en **Finalizar**.
-
-### Configuración del bloc de notas de IPython
-
-A continuación, configuraremos el bloc de notas de IPython. El primer paso consiste en crear un perfil de configuración de IPython personalizado para encapsular la información de configuración con el siguiente comando.
-
-    ipython profile create nbserver
+### Configuración de Jupyter y uso de SSL
+Después de la instalación, necesitamos un momento para configurar los archivos de configuración de Jupyter. Si experimenta problemas con la configuración de Jupyter, puede resultar útil consultar la [documentación de Jupyter para ejecutar un servidor de Notebook](http://jupyter-notebook.readthedocs.org/en/latest/public_server.html).
 
 A continuación, mediante el comando `cd`, cámbiese al directorio del perfil para crear nuestro certificado SSL y modifique el archivo de configuración de perfiles.
 
 En Linux, use el comando siguiente.
 
-    cd ~/.ipython/profile_nbserver/
-
-En Windows, use el comando siguiente.
-
-    cd \users\azureuser\.ipython\profile_nbserver
+    cd ~/.jupyter
 
 Utilice el comando siguiente para crear el certificado SSL (Linux y Windows).
 
@@ -156,85 +114,61 @@ Utilice el comando siguiente para crear el certificado SSL (Linux y Windows).
 
 Tenga en cuenta que como estamos creando un certificado SSL autofirmado, al conectarse al bloc de notas el explorador le mostrará una advertencia de seguridad. En un uso de producción a largo plazo, querrá utilizar un certificado correctamente firmado asociado a la organización. Como la administración de certificados va más allá del ámbito de esta demostración, de momento nos ceñiremos a un certificado autofirmado.
 
-Además de utilizar un certificado, también debe proporcionar una contraseña para proteger el bloc de notas de un uso no autorizado. Por motivos de seguridad, IPython utiliza contraseñas cifradas en su archivo de configuración; así pues, tendrá que cifrar primero la contraseña. IPython proporciona una utilidad para hacerlo; en el símbolo del sistema ejecute el comando siguiente.
+Además de utilizar un certificado, también debe proporcionar una contraseña para proteger el bloc de notas de un uso no autorizado. Por motivos de seguridad, Jupyter usa contraseñas cifradas en su archivo de configuración, por lo que deberá cifrar primero la contraseña. IPython proporciona una utilidad para hacerlo; en el símbolo del sistema ejecute el comando siguiente.
 
-    python -c "import IPython;print IPython.lib.passwd()"
+    /anaconda3/bin/python -c "import IPython;print(IPython.lib.passwd())"
 
-Le solicitará una contraseña y su confirmación y, a continuación, imprimirá la contraseña de la forma siguiente.
+Se le solicitará una contraseña y su confirmación y, luego, se imprimirá la contraseña. Anótela para el paso siguiente.
 
     Enter password:
     Verify password:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
 
-A continuación, modificaremos el archivo de configuración del perfil, que es el archivo `ipython_notebook_config.py` en el directorio de perfil en el que se encuentra. Tenga en cuenta que es posible que este archivo no exista; si es así, créelo. Estearchivo tiene varios campos que, de manera predeterminada, se convierten en comentario. Puede abrir este archivo con el editor de texto que prefiera y debe asegurase de que al menos tiene el contenido siguiente.
+A continuación, editaremos el archivo de configuración del perfil, que es el archivo `jupyter_notebook_config.py` del directorio en que se encuentra. Observe que es posible que este archivo no exista. Si es así, simplemente créelo. Estearchivo tiene varios campos que, de manera predeterminada, se convierten en comentario. Puede abrir este archivo con el editor de texto que prefiera y debe asegurase de que al menos tiene el contenido siguiente. Asegúrese de reemplazar la contraseña con el valor sha1 del paso anterior.
 
     c = get_config()
 
-    # This starts plotting support always with matplotlib
-    c.IPKernelApp.pylab = 'inline'
-
     # You must give the path to the certificate file.
-
-    # If using a Linux VM:
-    c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
-
-    # And if using a Windows VM:
-    c.NotebookApp.certfile = r'C:\Users\azureuser\.ipython\profile_nbserver\mycert.pem'
+    c.NotebookApp.certfile = u'/home/azureuser/.jupyter/mycert.pem'
 
     # Create your own password as indicated above
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
 
     # Network and browser details. We use a fixed port (9999) so it matches
-    # our Azure setup, where we've allowed traffic on that port
-
+    # our Azure setup, where we've allowed :wqtraffic on that port
     c.NotebookApp.ip = '*'
     c.NotebookApp.port = 9999
     c.NotebookApp.open_browser = False
 
-### Ejecución del bloc de notas de IPython
+### Ejecutar Jupyter Notebook
 
-En este momento, estamos preparados para iniciar el bloc de notas de IPython. Para ello, vaya al directorio en el que desea almacenar los cuadernos e inicie el servidor de IPython Notebook con el siguiente comando.
+En este momento, estamos preparados para iniciar Jupyter Notebook. Para ello, vaya al directorio en el que desea almacenar los cuadernos e inicie el servidor Jupyter Notebook con el comando siguiente.
 
-    ipython notebook --profile=nbserver
+    /anaconda3/bin/jupyter-notebook
 
-Ahora debería poder obtener acceso al bloc de notas de IPython en la dirección `https://[Your Chosen Name Here].cloudapp.net`.
+Ahora debería poder tener acceso a Jupyter Notebook en la dirección `https://[PUBLIC-IP-ADDRESS]:9999`.
 
-La primera vez que se accede a un cuaderno, la página de inicio de sesión pide una contraseña.
+La primera vez que se accede a un cuaderno, la página de inicio de sesión pide una contraseña. Y una vez que haya iniciado sesión, verá el "panel de control de Jupyter Notebook", que es el centro de control para todas las operaciones del cuaderno. Desde esta página se pueden crear cuadernos nuevos y abrir los existentes.
 
-![Instantánea](./media/virtual-machines-python-ipython-notebook/ipy-notebook-001.png)
+![Instantánea](./media/virtual-machines-python-ipython-notebook/jupyter-tree-view.png)
 
-Y una vez haya iniciado sesión, verá el panel de control del bloc de notas de IPython, que es el centro de control para todas las operaciones del bloc de notas. Desde esta página se pueden crear cuadernos nuevos y abrir los existentes.
+### Uso de Jupyter Notebook
 
-![Instantánea](./media/virtual-machines-python-ipython-notebook/ipy-notebook-002.png)
+Si hace clic en el botón **Nuevo**, verá que se abre la página siguiente.
 
-Si hace clic en el botón **New Notebook** (Nuevo cuaderno), verá la siguiente página de inicio.
-
-![Instantánea](./media/virtual-machines-python-ipython-notebook/ipy-notebook-003.png)
+![Instantánea](./media/virtual-machines-python-ipython-notebook/jupyter-untitled-notebook.png)
 
 El área marcada con el mensaje `In []:` es el área de entrada y ahí puede escribir cualquier código Python válido, que se ejecutará cuando presione `Shift-Enter` o haga clic en el icono "Play" (el triángulo que apunta a la derecha en la barra de herramientas).
-
-Al haber configurado el cuaderno para que se inicie automáticamente con compatibilidad para NumPy y Matplotlib, incluso se pueden generar cifras, como se muestra en la siguiente captura de pantalla.
-
-![Instantánea](./media/virtual-machines-python-ipython-notebook/ipy-notebook-004.png)
 
 ## Los documentos informáticos activos con medios enriquecidos son un potente paradigma.
 
 El propio cuaderno le resultará muy familiar a cualquiera que haya utilizado Python y un procesador de textos, ya que, en cierto modo, es una mezcla de ambas cosas: permite ejecutar bloques de código de Python, pero también permite conservar notas y cualquier otro texto cambiando el estilo de una celda de "Code" a "Markdown" con el menú desplegable de la barra de herramientas.
 
-![Instantánea](./media/virtual-machines-python-ipython-notebook/ipy-notebook-005.png)
+Jupyter es mucho más que un simple procesador de texto, debido a que permite combinar informática y medios enriquecidos (texto, gráficos, vídeo y prácticamente todos los elementos que se pueden mostrar en un explorador web moderno). Puede combinar texto, código, vídeos, etc.
 
-
-Sin embargo, es mucho más que un procesador de texto, ya que el bloc de notas de IPython permite la combinación de informática y abundante contenido multimedia (texto, gráficos, vídeo y prácticamente todo lo que se pueda mostrar en cualquier explorador web moderno). Por ejemplo, permite combinar vídeos explicativos con cálculos con fines educativos.
-
-![Instantánea](./media/virtual-machines-python-ipython-notebook/ipy-notebook-006.png)
-
-O bien, como se muestra en la siguiente captura de pantalla, insertar sitios web externos que permanecen dinámicos y usables, en un archivo de cuaderno.
-
-![Instantánea](./media/virtual-machines-python-ipython-notebook/ipy-notebook-007.png)
+![Instantánea](./media/virtual-machines-python-ipython-notebook/jupyter-editing-experience.png)
 
 Y con la potencia de las gran cantidad de excelentes bibliotecas de Python para la informática técnica y científica, en la siguiente captura de pantalla, se puede realizar un cálculo simple con la misma facilidad que un análisis de red complejo, todo ello en un único entorno.
-
-![Instantánea](./media/virtual-machines-python-ipython-notebook/ipy-notebook-008.png)
 
 Este paradigma de combinar la potencia de la web moderna con la informática activa ofrece muchas posibilidades, y es perfectamente adecuado para la nube; el bloc de notas se puede usar:
 
@@ -249,28 +183,20 @@ Este paradigma de combinar la potencia de la web moderna con la informática act
 * Como plataforma de informática de colaboración: varios usuarios pueden iniciar sesión en el mismo servidor de IPython Notebook para compartir una sesión de cálculo dinámica.
 
 
-
-Si se dirige al [repositorio][] del código fuente de IPython, encontrará un directorio completo con ejemplos de blocs de notas que se pueden descargar para experimentar en su propia máquina virtual de IPython de Azure. Solo tiene que descargar los archivos `.ipynb` desde el sitio y cargarlos en el panel de la máquina virtual del bloc de notas de Azure (o descargarlos directamente en la máquina virtual).
+Si va al [repositorio][] de código fuente de IPython, encontrará un directorio completo con ejemplos de cuadernos que se pueden descargar para experimentar en su propia máquina virtual de Jupyter de Azure. Solo tiene que descargar los archivos `.ipynb` desde el sitio y cargarlos en el panel de la máquina virtual del bloc de notas de Azure (o descargarlos directamente en la máquina virtual).
 
 ## Conclusión
 
-El bloc de notas de IPython ofrece una sólida interfaz para tener acceso de manera interactiva a la potencia del ecosistema Python en Azure. Abarca una amplia variedad de casos de uso que incluye la exploración simple y el aprendizaje de Python, análisis de datos y visualización, simulación e informática en paralelo. Los documentos del bloc de notas resultantes contienen un registro completo de los cálculos que se realizan y que se pueden compartir con otros usuarios de IPython. El bloc de notas de IPython se puede usar como una aplicación local, pero es perfectamente adecuada para las implementaciones de nube en Azure.
+Jupyter Notebook brinda una sólida interfaz para tener acceso de manera interactiva a la potencia del ecosistema Python en Azure. Abarca una amplia variedad de casos de uso que incluye la exploración simple y el aprendizaje de Python, análisis de datos y visualización, simulación e informática en paralelo. Los documentos de Notebook resultantes contienen un registro completo de los cálculos que se realizan y que se pueden compartir con otros usuarios de Jupyter. Jupyter Notebook se puede usar como aplicación local, pero es perfectamente adecuado para implementaciones de nube en Azure.
 
-Las características centrales de IPython también están disponibles en Visual Studio mediante [Python Tools for Visual Studio][] (PTVS). PTVS es un complemento gratuito y de código abiertode Microsoft que convierte a Visual Studio unentorno de desarrollo avanzado de Python, que incluye un editor avanzado con la integración de IntelliSense, depuración,creación de perfiles y la informática en paralelo.
+las características centrales de Jupyter también está disponibles en Visual Studio mediante [Python Tools para Visual Studio][] (PTVS). PTVS es un complemento gratuito y de código abiertode Microsoft que convierte a Visual Studio unentorno de desarrollo avanzado de Python, que incluye un editor avanzado con la integración de IntelliSense, depuración,creación de perfiles y la informática en paralelo.
 
 ## Pasos siguientes
 
 Para obtener más información, consulte el [Centro para desarrolladores de Python](/develop/python/).
 
-[Tornado]: http://www.tornadoweb.org/ "Tornado"
-[PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
-[NumPy]: http://www.numpy.org/ "NumPy"
-[Matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
-[portal-vm-windows]: /manage/windows/tutorials/virtual-machine-from-gallery/
-[portal-vm-linux]: /manage/linux/tutorials/virtual-machine-from-gallery/
+[portal-vm-linux]: https://azure.microsoft.com/es-ES/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [repositorio]: https://github.com/ipython/ipython
-[python Tools for visual studio]: http://aka.ms/ptvs
-[Python 2.7]: http://www.python.org/download
-[OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
+[Python Tools para Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

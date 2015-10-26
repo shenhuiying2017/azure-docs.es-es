@@ -48,4 +48,4 @@ El objetivo de este tema es proporcionarle los pasos que debe llevar a cabo para
 
 * [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

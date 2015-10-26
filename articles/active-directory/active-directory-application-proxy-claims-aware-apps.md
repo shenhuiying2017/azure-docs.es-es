@@ -49,4 +49,4 @@ Antes de realizar este procedimiento, asegúrese de que el STS al que redirige l
 
 ![Agregar un extremo: establezca el valor de Dirección URL de confianza - captura de pantalla](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

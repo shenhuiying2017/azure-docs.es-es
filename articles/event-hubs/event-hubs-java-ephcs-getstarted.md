@@ -119,4 +119,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [solución de mensajería en cola]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!-----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

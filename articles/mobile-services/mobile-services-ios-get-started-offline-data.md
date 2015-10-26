@@ -270,4 +270,4 @@ Para sincronizar el almacén local con el servidor, ha usado `MSSyncTable.pullWi
 
 [Tutorial de inicio rápido de Servicios móviles]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

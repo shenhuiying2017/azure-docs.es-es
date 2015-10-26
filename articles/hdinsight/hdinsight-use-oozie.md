@@ -190,12 +190,16 @@ Hay un problema conocido de la ruta de acceso de Hive. Lo observará cuando env�
 	<tr><td>${jobTracker}</td><td>Especifica la dirección URL del seguimiento de trabajo de Hadoop. Use <strong>jobtrackerhost: 9010</strong> en HDInsight versión 3.0 y 2.1.</td></tr>
 	<tr><td>${nameNode}</td><td>Especifica la dirección URL del nombre de nodo de Hadoop. Use la dirección del sistema de archivos predeterminado, por ejemplo, <i>wasb://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>.</td></tr>
 	<tr><td>${queueName}</td><td>Especifica el nombre de cola al que se enviará el trabajo. Use el <strong>valor predeterminado</strong>.</td></tr>
-	</table><table border = "1">
+	</table>
+
+	<table border = "1">
 	<tr><th>Variable de acción de Hive</th><th>Descripción</th></tr>
 	<tr><td>${hiveDataFolder}</td><td>Especifica el directorio de origen para el comando Create Table de Hive.</td></tr>
 	<tr><td>${hiveOutputFolder}</td><td>Especifica la carpeta de salida para la instrucción INSERT OVERWRITE.</td></tr>
 	<tr><td>${hiveTableName}</td><td>Especifica el nombre de la tabla de Hive que hace referencia a los archivos de datos log4j.</td></tr>
-	</table><table border = "1">
+	</table>
+
+	<table border = "1">
 	<tr><th>Variable de acción de Sqoop</th><th>Descripción</th></tr>
 	<tr><td>${sqlDatabaseConnectionString}</td><td>Especifica la cadena de conexión de la base de datos SQL de Azure.</td></tr>
 	<tr><td>${sqlDatabaseTableName}</td><td>Especifica la tabla de base de datos SQL de Azure donde se exportarán los datos.</td></tr>
@@ -609,7 +613,7 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: ../powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/es-es/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/es-ES/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
@@ -619,4 +623,4 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

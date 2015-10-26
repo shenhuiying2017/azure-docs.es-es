@@ -20,9 +20,10 @@
 
 # Seleccione y navegue por imágenes de máquina virtual de Azure con PowerShell y la CLI de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la búsqueda de imágenes de máquina virtual en el modelo de implementación del Administrador de recursos. También puede buscar imágenes en el [modelo de implementación clásica](https://msdn.microsoft.com/library/azure/dn499770.aspx).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
-En este artículo se describe cómo navegar y seleccionar imágenes de máquina virtual, con una instalación reciente de la CLI de Azure o de Azure PowerShell. Como requisito previo, tendrá que cambiar al modo de administrador de recursos. Con la CLI de Azure, especifique el modo escribiendo `azure config mode arm`. Con PowerShell, escriba `Switch-AzureMode AzureResourceManager`. Vea [Uso de la CLI de Azure con el Administrador de recursos](xplat-cli-azure-resource-manager.md) y [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md) para obtener más información sobre la configuración y actualización.
+
+En este artículo se describe cómo navegar y seleccionar imágenes de máquina virtual, con una instalación reciente de la CLI de Azure o de Azure PowerShell. Como requisito previo, tendrá que cambiar al modo de administrador de recursos. Con la CLI de Azure, especifique el modo escribiendo `azure config mode arm`. Con PowerShell, escriba `Switch-AzureMode AzureResourceManager`. Consulte [Uso de la Interfaz de la línea de comandos de Azure con Administrador de recursos](xplat-cli-azure-resource-manager.md) y [Uso de Azure PowerShell con Administrador de recursos de Azure](../powershell-azure-resource-manager.md) para obtener más información sobre la configuración y actualización.
 
 ## Tabla de imágenes más usadas
 
@@ -70,7 +71,7 @@ La manera más fácil y rápida de buscar una imagen para usar con `azure vm qui
 
 La columna **Urn** será el formulario que pase a `azure vm quick-create`.
 
-A menudo, sin embargo, aún no se conoce lo que está disponible. En este caso, puede navegar por las imágenes, detectando primero los publicadores mediante `azure vm image list-publishers` y respondiendo a la solicitud de ubicación con la ubicación del centro de datos que vaya a usar para el grupo de recursos. Por ejemplo, a continuación se enumeran todos los publicadores de imágenes en la ubicación Oeste de EE. UU. (pase el argumento de ubicación en minúsculas y sin espacios a partir de las ubicaciones estándar).
+A menudo, sin embargo, aún no se conoce lo que está disponible. En este caso, puede navegar por las imágenes, detectando primero los publicadores mediante `azure vm image list-publishers` y respondiendo a la solicitud de ubicación con la ubicación de centro de datos que vaya a usar para el grupo de recursos. Por ejemplo, a continuación se enumeran todos los publicadores de imágenes en la ubicación Oeste de EE. UU. (pase el argumento de ubicación en minúsculas y sin espacios a partir de las ubicaciones estándar).
 
     azure vm image list-publishers
     info:    Executing command vm image list-publishers
@@ -137,7 +138,7 @@ Con esta información, ahora puede buscar con precisión la imagen que desee med
     data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201504270  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201504270
     info:    vm image list command OK
 
-Ahora puede elegir con precisión la imagen que desea utilizar. Para crear una máquina virtual rápidamente con la información de URN que acaba de encontrar, o para usar una plantilla con esa información de URN, vea [Uso de la CLI de Azure CLI para Mac, Linux y Windows con el Administrador de recursos de Azure](xplat-cli-azure-resource-manager.md).
+Ahora puede elegir con precisión la imagen que desea utilizar. Para crear una máquina virtual rápidamente con la información de URN que acaba de encontrar, o para utilizar una plantilla con esa información de URN, consulte [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure](xplat-cli-azure-resource-manager.md).
 
 ### Tutorial en vídeo
 
@@ -223,7 +224,7 @@ Para la oferta "WindowsServer":
 	2012-R2-Datacenter
 	Windows-Server-Technical-Preview
 
-En esta lista, copie el nombre de SKU elegido y tiene toda la información para el cmdlet de PowerShell **Set-AzureVMSourceImage** o para un archivo de plantilla de grupo de recursos que requiera que se especifique el publicador, la oferta y la SKU de una imagen.
+En esta lista, copie el nombre de SKU elegido y tiene toda la información para el cmdlet de PowerShell **Set-AzureVMSourceImage** o para un archivo de plantilla de grupo de recursos que requiere que especifique el publicador, la oferta y la SKU de una imagen.
 
 ### Tutorial en vídeo
 
@@ -243,4 +244,4 @@ Este vídeo muestra los pasos anteriores con PowerShell.
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

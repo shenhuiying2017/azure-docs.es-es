@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de colas del Bus de servicio (PHP) | Microsoft Azure" 
+	pageTitle="Uso de colas del Bus de servicio con PHP | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar las colas del Bus de servicio en Azure. Ejemplos de código escritos en PHP." 
 	services="service-bus" 
 	documentationCenter="php" 
@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="10/14/2015" 
 	ms.author="sethm"/>
 
 # Utilización de las colas del Bus de servicio
@@ -198,21 +198,13 @@ En caso de que la aplicación se bloquee después de procesar el mensaje y antes
 
 ## Pasos siguientes
 
-Ahora que ya conoce los aspectos básicos de las colas de bus de servicio, vea el tema [Colas, temas y suscripciones][] para obtener más información.
+Ahora que ya conoce los aspectos básicos de las colas del Bus de servicio, vea [Colas, temas y suscripciones][] para obtener más información.
 
 Para obtener más información, consulte también el [Centro para desarrolladores de PHP](/develop/php/).
 
-[Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
-[Azure Management Portal]: http://manage.windowsazure.com/
-[Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
-[Create a New Namespace screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_03_CreateNewSvcNamespace.jpg
-[Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
-[Namespace List screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_05_NamespaceList.jpg
-[Properties Pane screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_06_PropertiesPane.jpg
-[Default Key screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg
 [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

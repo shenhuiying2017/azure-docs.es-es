@@ -36,7 +36,7 @@ Los conjuntos de registros se crean mediante el cmdlet New-AzureDnsRecordSet. De
 
 >Para un conjunto de registros del vértice de la zona, utilice "@" como nombre de conjunto de registro, incluidas las comillas.Para un conjunto de registros del vértice de la zona, utilice "@" como nombre de conjunto de registro, incluidas las comillas. El nombre completo del conjunto de registros es igual al nombre de zona, en este caso "contoso.com".
 
-DNS de Azure es compatible con todos los tipos de registro siguientes: A, AAAA, CNAME, MX, NS, SOA, SRV y TXT. Los conjuntos de registros de tipo SOA se crean automáticamente con cada zona; no se pueden crear por separado.
+DNS de Azure es compatible con todos los tipos de registro siguientes: A, AAAA, CNAME, MX, NS, SOA, SRV y TXT. Los conjuntos de registros de tipo SOA se crean automáticamente con cada zona; no se pueden crear por separado. Tenga en cuenta que [el tipo de registro SPF está en desuso por los estándares DNS en favor de la creación de registros SPF mediante el tipo de registro TXT](http://tools.ietf.org/html/rfc7208#section-3.1).
 
 	PS C:\> $rs = New-AzureDnsRecordSet -Name www -Zone $zone -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
 
@@ -51,7 +51,7 @@ New-AzureDnsRecordSet devuelve un objeto local que representa el conjunto de reg
 >[AZURE.NOTE]Los conjuntos de registros CNAME coexisten con otros conjuntos de registros con el mismo nombre. Por ejemplo, no se puede crear un registro CNAME con el nombre relativo "www" y un registro A con el nombre relativo "www" al mismo tiempo. Habida cuenta de que el ápice de zona (nombre = “@”) siempre contiene los conjuntos de registros NS y SOA creados cuando se crea la zona, significa que no puede crear un conjunto de registros CNAME en el ápice de zona. Estas restricciones surgen de los estándares DNS; no son limitaciones de DNS de Azure.
 
 ### Registros de carácter comodín
-Azure DNS admite [registros de carácter comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Estos se devuelven en cualquier consulta con un nombre coincidente (a menos que haya una coincidencia más próxima de un conjunto de registros que no sean de caracteres comodín).
+DNS de Azure admite [registros de carácter comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Estos se devuelven en cualquier consulta con un nombre coincidente (a menos que haya una coincidencia más próxima de un conjunto de registros que no sean de caracteres comodín).
 
 >[AZURE.NOTE]Para crear un conjunto de registros de carácter comodín, use el nombre de conjunto de registros "*" o un nombre cuya primera etiqueta sea "*", por ejemplo, "*.foo".
 
@@ -271,4 +271,4 @@ El objeto del conjunto de registros también puede canalizarse en lugar de pasar
 [Introducción sobre la creación de registros y conjuntos de registros](../dns-getstarted-create-recordset)<BR> [Realización de operaciones en zonas DNS](../dns-operations-dnszones)<BR> [Automatización de operaciones con el SDK de .NET](../dns-sdk)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

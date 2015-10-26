@@ -95,6 +95,6 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 
 <!-- Links -->
 [crear una nueva aplicación lógica]: app-service-logic-create-a-logic-app.md
-[Definición de la API de OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
+[Definición de la API de OneDrive]: https://msdn.microsoft.com/es-es/library/dn974227.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

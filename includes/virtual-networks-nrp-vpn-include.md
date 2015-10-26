@@ -10,4 +10,4 @@ Entre las principales propiedades de una puerta de enlace de VPN se incluyen las
 - **Tipo de puerta de enlace**: puerta de enlace de ruta dinámica o estática. 
 - **Prefijo del grupo de direcciones de cliente VPN**: direcciones IP que se asignarán a los clientes que se conectan en una configuración de punto a sitio.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

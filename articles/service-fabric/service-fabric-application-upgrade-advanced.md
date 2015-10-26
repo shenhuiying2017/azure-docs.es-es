@@ -51,4 +51,4 @@ Casos en los que usar un paquete de diferencias sería una buena opción:
 [Solucionar problemas de una actualización de aplicación ](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

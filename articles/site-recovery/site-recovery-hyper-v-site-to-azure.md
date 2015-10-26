@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="09/29/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 
@@ -49,11 +49,11 @@ Asegúrese de que tiene todo colocado antes de comenzar.
 - En el sitio local de origen necesitará al menos un servidor que ejecute Windows Server 2012 R2 con el rol de Hyper-V.
 - Hyper-V Server debe contener una o más máquinas virtuales.
 - Los servidores de Hyper-V deben estar conectados a Internet, directamente o a través de un proxy.
-- Los servidores de Hyper-V deben tener correcciones que se mencionan en el [KB2961977](https://support.microsoft.com/es-es/kb/2961977 "KB2961977") instalado.
+- Los servidores de Hyper-V deben tener correcciones que se mencionan en el [KB2961977](https://support.microsoft.com/es-ES/kb/2961977 "KB2961977") instalado.
 
 ### Requisitos previos de las máquinas virtuales
 
-Las máquinas virtuales que quiera proteger deben cumplir los [requisitos previos de máquinas virtuales](site-recovery-best-practices.md/#virtual-machines).
+Las máquinas virtuales que quiera proteger deben cumplir los [requisitos previos de máquinas virtuales](site-recovery-best-practices.md#virtual-machines).
 
 ### Requisitos previos del proveedor y del agente
 
@@ -62,11 +62,11 @@ Como parte de la implementación de Azure Site Recovery, instalará el proveedor
 - Debe ejecutar las versiones más recientes del proveedor y del agente.
 - Todos los servidores de Hyper-V de un almacén de credenciales deben tener las mismas versiones.
 - El proveedor necesitará conectarse a Azure Site Recovery a través de Internet. Puede seleccionar hacerlo sin un proxy, utilizando la configuración de proxy que ya está definida en el servidor VMM o la configuración de proxy personalizada que estableció durante la instalación del proveedor. Para usar un servidor proxy existente, asegúrese de que están permitidas las direcciones URL para conectarse a Azure a través del firewall:
-	- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net
  
 - Para usar un proxy personalizado, configúrelo antes de instalar el proveedor. Durante la configuración del proveedor, deberá especificar la dirección y el puerto del servidor proxy, y las credenciales que pueden utilizarse para el acceso. Tenga en cuenta que no se admite el proxy basado en HTTPS.
 
@@ -145,11 +145,11 @@ Instale el proveedor y el agente. Si va a instalar en un clúster de Hyper-V, re
 	- Si el proxy predeterminado en el servidor de Hyper-V requiere autenticación, debe utilizar un servidor proxy personalizado. Escriba los detalles del proxy predeterminado y especifique las credenciales.
 	- Si desea utilizar un servidor proxy personalizado, debe configurarlo antes de instalar el proveedor.
 	- Las siguientes direcciones URL deben ser accesibles desde el host de Hyper-v
-		- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
 
 	- Permita las direcciones IP que se describen en [Intervalos de direcciones IP de los centros de datos de Azure](http://go.microsoft.com/fwlink/?LinkId=511094) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
 
@@ -192,7 +192,7 @@ Instale el proveedor y el agente. Si va a instalar en un clúster de Hyper-V, re
 	> - **/proxyUsername**: parámetro opcional que especifica el nombre de usuario del proxy (si el proxy requiere autenticación).
 	> - **/proxyPassword**: parámetro opcional que especifica la contraseña para autenticarse con el servidor proxy (si el proxy requiere autenticación).
 
->[AZURE.TIP]Puede configurar cada uno de los host de Hyper-V individual para usar la configuración de ancho de banda de red diferente para replicar máquinas virtuales en Azure. Obtenga más información sobre [Administración del uso de ancho de banda de red de protección de instalaciones locales a Azure](https://support.microsoft.com/es-es/kb/3056159).
+>[AZURE.TIP]Puede configurar cada uno de los host de Hyper-V individual para usar la configuración de ancho de banda de red diferente para replicar máquinas virtuales en Azure. Obtenga más información sobre [Administración del uso de ancho de banda de red de protección de instalaciones locales a Azure](https://support.microsoft.com/es-ES/kb/3056159).
 
 
 ## Paso 4: Creación de recursos de Azure
@@ -270,14 +270,10 @@ Hay dos maneras de ejecutar una prueba de conmutación por error en Azure.
 - Probar la conmutación por error sin una red de Azure: este tipo de conmutación por error de prueba comprueba que la máquina virtual incluye correctamente en Azure. La máquina virtual no estará conectada a ninguna red de Azure después de la conmutación por error.
 - Probar la conmutación por error con una red de Azure: este tipo de conmutación por error comprueba que todo el entorno de replicación se incluye como se esperaba y que conmutan las máquinas virtuales se conectarán al red de Azure de destino especificada. En el caso del control de subredes, para probar la conmutación por error de la subred se averiguará la máquina virtual de prueba de acuerdo con la subred de la máquina virtual de réplica. Esto es diferente a la replicación normal cuando la subred de una máquina virtual de réplica se basa en la subred de la máquina virtual de origen.
 
-Si desea ejecutar una conmutación por error de prueba para una máquina virtual habilitada para protección en Azure sin especificar una red de Azure de destino, no es necesario preparar nada. Para ejecutar una prueba de conmutación por error con una red de Azure de destino, es necesario crear una nueva red de Azure que esté aislada de su red de Azure de producción (el comportamiento predeterminado cuando se crea una nueva red de Azure) y configurar la infraestructura de la máquina virtual replicada para que funcione como se espera. Por ejemplo, una máquina virtual con controlador de dominio y DNS se pueden replicar en Azure con Azure Site Recovery y se puede crear en la red de prueba mediante pruebas de conmutación por error. Para ejecutar una conmutación por error de prueba siga estos pasos:
+Si desea ejecutar una conmutación por error de prueba para una máquina virtual habilitada para protección en Azure sin especificar una red de Azure de destino, no es necesario preparar nada. Para ejecutar una conmutación por error de prueba con una red de Azure de destino, es necesario crear una nueva red de Azure que esté aislada de su red de Azure de producción (el comportamiento predeterminado cuando se crea una nueva red de Azure). Veamos cómo [ejecutar una conmutación por error de prueba](site-recovery-failover.md#run-a-test-failover) para obtener más detalles.
 
 
-1. Realice una conmutación por error de prueba de la máquina virtual con controlador de dominio y DNS en la misma red que se usará para la conmutación por error de prueba real de la máquina virtual local.
-2. Anote las direcciones IP que se asignaron a los errores en la máquina virtual de DNS.
-3. En la red virtual de Azure que se utilizará para la conmutación por error, agregue la dirección IP como dirección del servidor DNS.
-4. Ejecute la conmutación por error de prueba de las máquinas virtuales locales de origen, especificando la red de prueba de Azure.
-5. Después de comprobar que el error de prueba funciona según lo esperado, marque la conmutación por error de prueba como completada para el plan de recuperación y, a continuación, marque la conmutación por error de prueba como completada para las máquinas virtuales de controlador de dominio y DNS.
+También necesitará configurar la infraestructura de la máquina virtual replicada para que funcione según lo previsto. Por ejemplo, una máquina virtual con controlador de dominio y DNS se pueden replicar en Azure con Azure Site Recovery y se puede crear en la red de prueba mediante pruebas de conmutación por error. Consulte la sección [Consideraciones sobre la conmutación por error de prueba para Active Directory](site-recovery-active-directory.md#considerations-for-test-failover) para obtener más información.
 
 Para ejecutar una conmutación por error de prueba, realice lo siguiente:
 
@@ -309,4 +305,4 @@ Para ejecutar una conmutación por error de prueba, realice lo siguiente:
 
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) acerca de la conmutación por error.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

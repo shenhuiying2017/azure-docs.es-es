@@ -199,4 +199,4 @@ A continuación se muestra un ejemplo que explica cómo descifrar, editar y volv
 - Aprenda cómo [usar paquetes de soporte y registros de dispositivos para solucionar los problemas de implementación de su dispositivo](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting). 
 - Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

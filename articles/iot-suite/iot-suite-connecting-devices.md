@@ -1,18 +1,18 @@
 <properties
-   pageTitle="Conexión del dispositivo a la solución de supervisión remota preconfigurada del conjunto de aplicaciones de IoT de Azure | Microsoft Azure"
-   description="Se describe cómo conectar el dispositivo a la solución de supervisión remota preconfigurada del conjunto de aplicaciones de IoT de Azure mediante un ejemplo que incluye la temperatura y la humedad."
-   services="iot-hub"
+   pageTitle="Conectar un dispositivo a una solución preconfigurada | Microsoft Azure"
+   description="Se describe cómo conectar un dispositivo a la solución de supervisión remota preconfigurada del Conjunto de IoT de Azure mediante un ejemplo que usa datos de temperatura y humedad."
+   services=""
    documentationCenter="na"
    authors="hegate"
-   manager="jamesosb"
+   manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="iot-hub"
+   ms.service="na"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na"
+   ms.workload="nana"
    ms.date="09/29/2015"
    ms.author="hegate"/>
 
@@ -28,7 +28,7 @@ En este ejemplo, tenemos tres orígenes de datos simulados: temperatura exterior
 
 ### Aprovisionar el conjunto de aplicaciones de IoT
 
-Si aún no aprovisionó la solución preconfigurada de supervisión remota, puede hacerlo [aquí](http://www.microsoft.com/es-es/server-cloud/internet-of-things/getting-started.aspx).
+Si aún no aprovisionó la solución preconfigurada de supervisión remota, puede hacerlo [aquí](http://www.microsoft.com/es-ES/server-cloud/internet-of-things/getting-started.aspx).
 
 
 ### Aprovisionar el dispositivo en la solución de supervisión remota
@@ -309,4 +309,4 @@ Ahora que el dispositivo está conectado y envía datos de temperatura generados
 
 Existen varias maneras de ampliar la funcionalidad de este ejemplo: conectar el sensor real al dispositivo para enviar la fecha real, implementar la funcionalidad de comando y control, etc. Use nuestra [guía](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md) sobre cómo ampliar la solución de supervisión remota para obtener más información al respecto.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

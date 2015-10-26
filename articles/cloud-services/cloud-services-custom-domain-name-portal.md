@@ -134,7 +134,7 @@ Por ejemplo, el siguiente registro D desvía todo el tráfico de **contoso.com**
 | @ | 137\.135.70.239 |
 
 
-En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una entrada de comodín para incluir todos los subdominios, debe especificar '__*__' como subdominio.
+En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una entrada de comodín para incluir todos los subdominios, debe especificar '\_\_*\_\_' como subdominio.
 
 >[AZURE.WARNING]Las direcciones IP en Azure son dinámicas de forma predeterminada. Probablemente querrá usar una [dirección IP reservada](..\virtual-network\virtual-networks-reserved-public-ip.md) para asegurarse de que la dirección IP no cambia.
 
@@ -156,4 +156,4 @@ En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una 
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

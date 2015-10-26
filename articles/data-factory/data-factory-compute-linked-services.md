@@ -247,4 +247,4 @@ Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimie
  
    
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

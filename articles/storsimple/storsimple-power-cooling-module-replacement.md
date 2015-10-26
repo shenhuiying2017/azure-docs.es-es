@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Reemplazar un PCM en el dispositivo StorSimple | Microsoft Azure"
-	description="Explica cómo quitar y reemplazar el Módulo de alimentación y refrigeración (PCM) en el dispositivo StorSimple"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Explica cómo quitar y reemplazar el Módulo de alimentación y refrigeración (PCM) en el dispositivo StorSimple"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # Reemplazar un Módulo de alimentación y de refrigeración en el dispositivo StorSimple
 
@@ -152,4 +152,4 @@ Siga estas instrucciones para instalar un PCM en el dispositivo StorSimple.
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

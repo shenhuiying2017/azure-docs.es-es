@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Creación de registros DNS personalizados para una aplicación web | Microsoft Azure"
-	description="Creación de registros DNS de dominios personalizados para aplicaciones web mediante DNS de Azure. Paso a paso para verificar la propiedad del dominio mediante registros A o CNAME"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="carolz"
-	editor=""/>
+   pageTitle="Creación de registros DNS personalizados para una aplicación web | Microsoft Azure" 
+   description="Creación de registros DNS de dominios personalizados para aplicaciones web mediante DNS de Azure. Paso a paso para verificar la propiedad del dominio mediante registros A o CNAME" 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/23/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="08/23/2015"
+   ms.author="joaoma"/>
 
 # Creación de registros DNS para aplicaciones web en un dominio personalizado
 
@@ -165,4 +165,4 @@ Ahora puede continuar con los pasos descritos en [Configurar un nombre de domini
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

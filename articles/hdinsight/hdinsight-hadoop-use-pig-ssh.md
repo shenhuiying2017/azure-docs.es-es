@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="10/09/2015"
    ms.author="larryfr"/>
 
 #Ejecución de trabajos de Pig en un clúster basado en Linux con el comando Pig (SSH)
@@ -99,7 +99,7 @@ Para obtener más información sobre el uso de PuTTY, consulte [Utilización de 
 
 6. También puede guardar los resultados de una transformación mediante la instrucción `STORE`. Por ejemplo, lo siguiente guarda el valor de `RESULT` en el directorio **/example/data/pigout** en el contenedor de almacenamiento predeterminado para el clúster.
 
-		STORE RESULT into 'wasb:///example/data/pigout'
+		STORE RESULT into 'wasb:///example/data/pigout';
 
 	> [AZURE.NOTE]Los datos se almacenan en el directorio especificado en los archivos denominados **part-nnnnn**. Si el directorio ya existe, recibirá un error.
 
@@ -154,4 +154,4 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

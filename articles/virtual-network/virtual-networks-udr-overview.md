@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/04/2015"
+   ms.date="10/12/2015"
    ms.author="telmos" />
 
 # Rutas definidas por el usuario y reenvío IP
@@ -32,9 +32,11 @@ La siguiente ilustración muestra una configuración simple con una red virtual,
 
 Aunque el uso de rutas del sistema facilita el tráfico automáticamente para su implementación, hay casos en los que seguramente quiera controlar el enrutamiento de paquetes a través de una aplicación virtual. Puede hacerlo mediante la creación de rutas definidas por el usuario que especifiquen el próximo salto de los paquetes que fluyen a una subred específica para que así vayan a su dispositivo virtual y se habilite el reenvío IP de la máquina virtual que funciona como aplicación virtual.
 
-La siguiente ilustración muestra un ejemplo de las rutas definidas por un usuario y el reenvío IP para forzar a los paquetes que vayan desde una subred front-end hasta Internet, a que pasen a través de una aplicación virtual, y a todos los paquetes que vayan desde la subred front-end hasta la subred de back-end, a que pasen a través de una aplicación diferente. Tenga en cuenta que el tráfico desde la subred de back-end hasta la subred de front-en todavía está fluyendo a través de la ruta del sistema, sin pasar por la aplicación.
+La siguiente ilustración muestra un ejemplo de las rutas definidas por el usuario y el reenvío IP para forzar el echo de que los paquetes enviados de una subred a otra vayan a través de una aplicación virtual en una subred de terceros.
 
 ![Rutas del sistema de Azure](./media/virtual-networks-udr-overview/Figure2.png)
+
+>[AZURE.IMPORTANT]Las rutas definidas por el usuario solo se aplican al tráfico que sale de una subred. Por ejemplo, no pueden crear rutas para especificar el modo de entrada del tráfico en una subred de Internet. Asimismo, la aplicación a la cual está enviando el tráfico no puede estar en la misma subred donde se origina ese tráfico. Recuerde siempre crear una subred independiente para sus aplicaciones.
 
 ## Enrutamiento
 Los paquetes se enrutan sobre una red TCP/IP basada en una tabla de enrutamiento definida en cada nodo de la red física. Una tabla de enrutamiento es una colección de rutas individuales que se utiliza para decidir dónde reenviar los paquetes según la dirección IP de destino. Una ruta consta de lo siguiente:
@@ -83,11 +85,9 @@ Como se describió anteriormente, una de las razones principales para crear una 
 
 La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tráfico entrante que no se dirige a sí mismo. Para permitir que una máquina virtual reciba el tráfico dirigido a otros destinos, debe habilitar el reenvío IP de la máquina virtual. Esta es una opción de configuración de Azure, no de la configuración del sistema operativo invitado.
 
-Para obtener más información sobre cómo habilitar el reenvío IP de una máquina virtual, consulte [Cómo crear rutas y habilitar el reenvío IP en Azure](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding).
-
 ## Pasos siguientes
 
 - Obtenga información sobre cómo [crear rutas en el modelo de implementación del Administrador de recursos](../virtual-network-create-udr-arm-template) y asociarlos a subredes. 
 - Obtenga información sobre cómo [crear rutas en el modelo de implementación clásico](../virtual-network-create-udr-classic-ps) y asociarlos a subredes.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

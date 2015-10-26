@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Generación de recomendaciones mediante Mahout y Hadoop | Microsoft Azure"
-	description="Aprenda a usar la biblioteca de aprendizaje automático de Apache Mahout para generar recomendaciones de películas con HDInsight (Hadoop)."
+	pageTitle="Generación de recomendaciones mediante Mahout y HDInsight basado en Windows | Microsoft Azure"
+	description="Aprenda a usar la biblioteca de aprendizaje automático de Apache Mahout para generar recomendaciones de películas con HDInsight basado en Windows (Hadoop)."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 #Generación de recomendaciones de películas mediante Apache Mahout con Hadoop en HDInsight
@@ -374,7 +374,7 @@ Para evitar errores al ejecutar trabajos de Mahout, elimine los archivos tempora
 Los clústeres de HDInsight 3.1 incluyen Mahout. La ruta y el nombre de archivo incluyen el número de la versión de Mahout instalada en el clúster. El script de ejemplo de WindowsPowerShell de este tutorial usa una ruta que es válida a partir de julio de 2014, pero el número de la versión cambiará en futuras actualizaciones de HDInsight. Para determinar la ruta actual al archivo JAR de Mahout de su clúster, use el siguiente comando de Windows PowerShell y luego modifique el script para que haga referencia a la ruta de archivo devuelta:
 
 	Use-AzureHDInsightCluster -Name $clusterName
-	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar'
+	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar'
 
 ###<a name="nopowershell"></a>Clases que no funcionan con Windows PowerShell
 
@@ -422,4 +422,4 @@ Ahora que ha aprendido a usar a Mahout, descubra otras formas de trabajar con da
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

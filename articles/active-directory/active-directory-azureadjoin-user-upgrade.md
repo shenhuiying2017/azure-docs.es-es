@@ -40,4 +40,4 @@ Para unirse a Azure AD desde el menú Configuración
 * [Conozca los escenarios de uso y las consideraciones de implementación de Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

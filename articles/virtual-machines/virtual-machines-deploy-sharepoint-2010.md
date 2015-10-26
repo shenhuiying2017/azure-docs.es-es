@@ -20,7 +20,8 @@
 
 # Implementación de SharePoint 2010 en máquinas virtuales de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 Microsoft SharePoint Server 2010 ofrece una flexibilidad completa en la implementación, lo que ayuda a las organizaciones a determinar los escenarios de implementación adecuados para alinearlos con sus necesidades y objetivos empresariales. Hospedada y administrada en Microsoft Azure, la oferta de máquinas virtuales de Azure proporciona una infraestructura completa, confiable y disponible para admitir diversas cargas de trabajo de base de datos y aplicaciones a petición, como implementaciones de Microsoft SQL Server y SharePoint.
 
@@ -287,4 +288,4 @@ La correcta implementación de SharePoint Server en Máquinas virtuales de Azure
 
 [Probar la vista previa de TI de SharePoint Server 2016 en Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

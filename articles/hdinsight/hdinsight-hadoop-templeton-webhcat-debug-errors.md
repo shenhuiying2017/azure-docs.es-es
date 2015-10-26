@@ -1,21 +1,21 @@
 <properties
  pageTitle="Comprender y resolver errores de WebHCat en HDInsight"
-	description="Aprenda cómo tratar errores comunes devueltos por WebHCat en HDInsight y cómo resolverlos."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
-	tags="azure-portal"/>
+ description="Aprenda cómo tratar errores comunes devueltos por WebHCat en HDInsight y cómo resolverlos."
+ services="hdinsight"
+ documentationCenter=""
+ authors="Blackmist"
+ manager="paulettm"
+ editor="cgronlun"
+ tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="09/02/2015"
-	ms.author="larryfr"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="big-data"
+ ms.date="09/02/2015"
+ ms.author="larryfr"/>
 
 #Entender y resolver errores recibidos de WebHCat (Templeton), en HDInsight
 
@@ -86,4 +86,4 @@ Los son los valores de configuración predeterminados que pueden afectar al rend
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -36,4 +36,4 @@ Azure proporciona distintos modelos de hospedaje para ejecutar aplicaciones. Cad
 [Máquinas virtuales]: ../virtual-machines-about.md
 [Servicios en la nube]: #tellmecs
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

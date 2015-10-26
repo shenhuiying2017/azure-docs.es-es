@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Uso de la acción de script para instalar Solr en un clúster de Hadoop | Microsoft Azure"
-	description="Obtenga información para personalizar el clúster de HDInsight con Solr. Va a usar una opción de configuración de la acción de script para emplear un script para instalar Solr."
+	pageTitle="Uso de la acción de script para instalar Solr en HDInsight basado en Linux | Microsoft Azure"
+	description="Aprenda a instalar Solr en clústeres de Hadoop para HDInsight basados en Linux mediante acciones de script."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 # Instalación y uso de Solr en clústeres de Hadoop de HDInsight
@@ -294,4 +294,4 @@ Para obtener más información sobre cómo trabajar con copia de seguridad y res
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

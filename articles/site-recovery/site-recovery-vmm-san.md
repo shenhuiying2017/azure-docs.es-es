@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 # Configuración de la protección entre sitios de VMM locales con SAN
@@ -347,7 +347,8 @@ Pruebe la implementación para asegurarse de que la conmutación por error de la
 	![Agregar máquinas virtuales](./media/site-recovery-vmm-san/SRSAN_RPlanVM.png)
 5. Cuando se haya creado un plan de recuperación, aparecerá en la lista de la pestaña **Planes de recuperación**.
 6. En la pestaña **Planes de recuperación**, seleccione el plan y haga clic en **Conmutación por error de prueba**.
-7. En la página **Confirmar conmutación por error de prueba** seleccione **Ninguno**. Tenga en cuenta que con esta opción habilitada las máquinas virtuales de réplica de conmutación por error no se conectarán a ninguna red. Esto probará que la máquina virtual realiza un conmutación por error de la manera esperada pero no prueba su entorno de red de replicación. Si desea ejecutar una conmutación por error de prueba más amplia, consulte <a href="http://go.microsoft.com/fwlink/?LinkId=522291">Probar una implementación local en MSDN</a>.
+7. En la página **Confirmar conmutación por error de prueba** seleccione **Ninguno**. Tenga en cuenta que con esta opción habilitada las máquinas virtuales de réplica de conmutación por error no se conectarán a ninguna red. Esto probará que la máquina virtual realiza un conmutación por error de la manera esperada pero no prueba su entorno de red de replicación. Veamos cómo [ejecutar una conmutación por error de prueba](site-recovery-failover.md#run-a-test-failover) para obtener más detalles sobre cómo usar las diferentes opciones de red.
+
 
 	![Selección de la red de prueba](./media/site-recovery-vmm-san/SRSAN_TestFailover1.png)
 
@@ -382,4 +383,4 @@ En el **Panel**, puede descargar las versiones más recientes de los archivos de
 
 Para obtener más información sobre la interacción con los trabajos y el panel, consulte la [Guía de operaciones y supervisión](http://go.microsoft.com/fwlink/?LinkId=398534).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -107,4 +107,4 @@ Este ejemplo utiliza el parámetro **UseConnectionObject** definido para la **ac
 
 - [Vínculos de creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

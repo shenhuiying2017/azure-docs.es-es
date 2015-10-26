@@ -35,4 +35,4 @@ Habrá ocasiones en las que querrá tomar un resultado intermedio de un experime
 
 Cuando termine de guardar, el conjunto de datos estará disponible para usarlo dentro de cualquier experimento de su área de trabajo. Puede encontrarlo en la lista **Conjuntos de datos guardados** de la paleta de módulos.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

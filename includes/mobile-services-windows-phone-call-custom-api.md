@@ -64,4 +64,4 @@
 
 	Se mostrará un cuadro de mensaje que indica el número de elementos marcados como completados y la consulta filtrada se vuelve a ejecutar, por lo que se borran todos los elementos de la lista.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

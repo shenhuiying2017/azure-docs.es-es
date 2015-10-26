@@ -81,4 +81,4 @@ Los servicios en la nube de la familia 1 del SO invitado ya no son compatibles. 
 ## Pasos siguientes
 Revise las [versiones del SO invitado](cloud-services-guestos-update-matrix.md) más recientes.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Aplicación web con almacenamiento de tablas (Node.js) | Microsoft Azure"
-	description="Un tutorial que se agrega a la aplicación web con el tutorial Express añadiendo servicios Almacenamiento de Azure y el módulo de Azure."
-	services="cloud-services, storage"
-	documentationCenter="nodejs"
-	authors="TomArcher"
-	manager="wpickett"
+	pageTitle="Aplicación web con almacenamiento de tablas (Node.js) | Microsoft Azure" 
+	description="Un tutorial que se agrega a la aplicación web con el tutorial Express añadiendo servicios Almacenamiento de Azure y el módulo de Azure." 
+	services="cloud-services, storage" 
+	documentationCenter="nodejs" 
+	authors="TomArcher" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="tarcher"/>
 
 
@@ -408,4 +408,4 @@ Los siguientes pasos muestran cómo detener y eliminar su aplicación.
  
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

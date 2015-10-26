@@ -47,4 +47,4 @@ Antes de continuar, asegúrese de que se cumplen todos los [requisitos previos](
 - [Restauración de Windows Server o el cliente de Windows desde Azure](backup-azure-restore-windows-server.md)
 - [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

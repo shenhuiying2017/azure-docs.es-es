@@ -11,4 +11,4 @@ Número máximo de indexadores|10 por servicio Búsqueda
 Número máximo de orígenes de datos|10 por servicio Búsqueda
 Número máximo de documentos que se pueden indexar en una sola invocación de indexador|Sin límite
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

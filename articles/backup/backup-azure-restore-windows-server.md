@@ -109,4 +109,4 @@ La terminología usada en estos pasos incluye:
 - [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-introduction.md)
 - [Copia de seguridad de las cargas de trabajo de Microsoft](backup-azure-dpm-introduction.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

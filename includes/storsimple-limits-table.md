@@ -24,4 +24,4 @@
 
 &#42; Se midió el rendimiento máximo por tipo de E/S con escenarios de escritura y de lectura del 100%. Es posible que el rendimiento real sea inferior y dependa de las condiciones de la red y de la mezcla de E/S.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

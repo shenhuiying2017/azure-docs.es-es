@@ -88,4 +88,4 @@ La replicación geográfica activa está disponible para bases de datos Premium.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

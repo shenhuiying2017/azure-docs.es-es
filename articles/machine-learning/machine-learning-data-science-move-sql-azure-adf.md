@@ -301,4 +301,4 @@ Una vez que se ejecuta la canalización, debe poder ver los datos que aparecen e
 
 Observe que no hemos aprovechado la funcionalidad que proporciona la ADF para canalizar los datos de forma incremental. Para obtener más detalles sobre cómo hacer esto y sobre otras capacidades que proporciona la ADF, consulte la [documentación de ADF](http://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

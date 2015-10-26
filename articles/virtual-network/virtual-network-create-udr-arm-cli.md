@@ -191,4 +191,4 @@ Para habilitar el reenvío IP en la NIC usada por **FW1**, siga estos pasos.
 
 	- **-f (o --enable-ip-forwarding)**. *true* o *false*.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

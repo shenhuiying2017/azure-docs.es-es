@@ -438,4 +438,4 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Uso de Sqoop con HDInsight"
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -74,4 +74,4 @@ La acción devuelve la salida como una cadena: archivo sin formato. La salida co
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Activación de la sincronización sin conexión para la aplicación móvil de Azure (Xamarin Android)"
-	description="Obtenga información acerca de cómo usar la aplicación móvil del Servicio de aplicaciones para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin Android."
-	documentationCenter="xamarin"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""
-	services="app-service\mobile"/>
+    pageTitle="Activación de la sincronización sin conexión para la aplicación móvil de Azure (Xamarin Android)"
+    description="Obtenga información acerca de cómo usar la aplicación móvil del Servicio de aplicaciones para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin Android."
+    documentationCenter="xamarin"
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""
+    services="app-service\mobile"/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-android"
-	ms.devlang="dotnet"
-	ms.topic="article"
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-android"
+    ms.devlang="dotnet"
+    ms.topic="article"
 	ms.date="08/22/2015"
-	ms.author="wesmc"/>
+    ms.author="wesmc"/>
 
 # Activación de la sincronización sin conexión para la aplicación móvil Xamarin.Android
 
@@ -72,10 +72,7 @@ El proyecto de cliente de Xamarin que descargó cuando completó el tutorial [Cr
     En el ejemplo proporcionado, se consultan todos los registros de la tabla `TodoItem` remota, pero también es posible filtrar registros pasando un identificador de consulta y una consulta a `PushAsync`. Para obtener más información, consulte la sección *Sincronización incremental* en [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
- 	-->
-
-
-		// ToDoActivity.cs
+-->	// ToDoActivity.cs
 
         private async Task SyncAsync()
         {
@@ -176,4 +173,4 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 
 [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/30/2015"
+   ms.date="10/08/2015"
    ms.author="telmos" />
 
 #Creación de rutas definidas por el usuario (UDR) con una plantilla
@@ -29,7 +29,7 @@
 
 ## Recursos de las rutas definidas por el usuario en un archivo de plantilla
 
-Puede ver y descargar la [plantilla de ejemplo](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/).
+Puede ver y descargar la [plantilla de ejemplo](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR).
 
 La sección siguiente muestra la definición de las rutas definidas por el usuario de front-end en el archivo azuredeploy-vnet-nsg-udr.json, según el escenario anterior.
 
@@ -108,26 +108,17 @@ También debe asegurarse de que la máquina virtual **FW1** tiene la propiedad d
 
 ## Implementar la plantilla ARM por medio de un solo clic para implementar
 
-La plantilla de ejemplo disponible en el repositorio público usa un archivo de parámetros que contiene los valores predeterminados utilizados para generar el escenario descrito anteriormente. Para implementar esta plantilla mediante el método de hacer clic para implementar, siga [esta plantilla](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR), haga clic en **Implementar en Azure**, reemplace los valores de parámetro predeterminados si es necesario y siga las instrucciones del portal.
+La plantilla de ejemplo disponible en el repositorio público usa un archivo de parámetros que contiene los valores predeterminados utilizados para generar el escenario descrito anteriormente. Para implementar esta plantilla mediante el método de hacer clic para implementar, siga [este vínculo](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), haga clic en **Implementar en Azure**, reemplace los valores de parámetro predeterminados si fuera necesario y siga las instrucciones del portal.
 
 ## Implementar la plantilla ARM mediante PowerShell
 
 Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos.
 
 1. Si es la primera vez que usa Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
-2. Ejecute el cmdlet **Switch-AzureMode** para cambiar al modo del Administrador de recursos, como se muestra a continuación.
 
-		Switch-AzureMode AzureResourceManager
+3. Ejecute el cmdlet **New-AzureRMResourceGroup** para crear un grupo de recursos mediante esta plantilla.
 
-	Este es el resultado esperado del comando anterior:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING]El cmdlet Switch-AzureMode pronto estará en desuso. Cuando esto suceda, se cambiará el nombre de todos los cmdlets del Administrador de recursos.
-
-3. Ejecute el cmdlet **New-AzureResourceGroup** para crear un grupo de recursos mediante esta plantilla.
-
-		New-AzureResourceGroup -Name TestRG -Location westus `
+		New-AzureRMResourceGroup -Name TestRG -Location westus `
 		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' `
 		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json'	
 
@@ -177,8 +168,8 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 
 Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
-1. Si nunca usó la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
-2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
+1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
+2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, tal como se muestra a continuación.
 
 		azure config mode arm
 
@@ -186,7 +177,7 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 		info:    New mode is arm
 
-3. Desde el explorador, navegue a ****https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie el contenido del archivo json y péguelo en un archivo nuevo en el equipo. En este escenario, debería copiar los valores siguientes en un archivo denominado **c:\\udr\\azuredeploy.parameters.json**.
+3. Desde el explorador, vaya a ****https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie el contenido del archivo json y péguelo en un archivo nuevo en el equipo. En este escenario, deberá copiar los valores siguientes en un archivo denominado **c:\\udr\\azuredeploy.parameters.json**.
 
 		{
 		  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -217,7 +208,7 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 		info:    Initializing template configurations and parameters
 		info:    Creating a deployment
 		info:    Created template deployment "azuredeploy"
-		data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 		data:    Name:                TestRG
 		data:    Location:            westus
 		data:    Provisioning State:  Succeeded
@@ -234,183 +225,158 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 		info:    Executing command group show
 		info:    Listing resource groups
 		info:    Listing resources for the group
-		data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 		data:    Name:                TestRG
 		data:    Location:            westus
 		data:    Provisioning State:  Succeeded
 		data:    Tags: null
 		data:    Resources:
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Compute/availabilitySets/ASFW
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Compute/availabilitySets/ASFW
 		data:      Name    : ASFW
 		data:      Type    : availabilitySets
 		data:      Location: westus
 		data:      Tags    : displayName=AvailabilitySet - DMZ
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Compute/availabilitySets/ASSQL
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Compute/availabilitySets/ASSQL
 		data:      Name    : ASSQL
 		data:      Type    : availabilitySets
 		data:      Location: westus
 		data:      Tags    : displayName=AvailabilitySet - SQL
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Compute/availabilitySets/ASWEB
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Compute/availabilitySets/ASWEB
 		data:      Name    : ASWEB
 		data:      Type    : availabilitySets
 		data:      Location: westus
 		data:      Tags    : displayName=AvailabilitySet - Web
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Compute/virtualMachines/FW1
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/FW1
 		data:      Name    : FW1
 		data:      Type    : virtualMachines
 		data:      Location: westus
 		data:      Tags    : displayName=VMs - DMZ
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Compute/virtualMachines/SQL1
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/SQL1
 		data:      Name    : SQL1
 		data:      Type    : virtualMachines
 		data:      Location: westus
 		data:      Tags    : displayName=VMs - SQL
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Compute/virtualMachines/SQL2
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/SQL2
 		data:      Name    : SQL2
 		data:      Type    : virtualMachines
 		data:      Location: westus
 		data:      Tags    : displayName=VMs - SQL
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Compute/virtualMachines/WEB1
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/WEB1
 		data:      Name    : WEB1
 		data:      Type    : virtualMachines
 		data:      Location: westus
 		data:      Tags    : displayName=VMs - Web
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Compute/virtualMachines/WEB2
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/WEB2
 		data:      Name    : WEB2
 		data:      Type    : virtualMachines
 		data:      Location: westus
 		data:      Tags    : displayName=VMs - Web
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Network/networkInterfaces/NICFW1
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICFW1
 		data:      Name    : NICFW1
 		data:      Type    : networkInterfaces
 		data:      Location: westus
 		data:      Tags    : displayName=NetworkInterfaces - DMZ
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Network/networkInterfaces/NICSQL1
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL1
 		data:      Name    : NICSQL1
 		data:      Type    : networkInterfaces
 		data:      Location: westus
 		data:      Tags    : displayName=NetworkInterfaces - SQL
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Network/networkInterfaces/NICSQL2
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL2
 		data:      Name    : NICSQL2
 		data:      Type    : networkInterfaces
 		data:      Location: westus
 		data:      Tags    : displayName=NetworkInterfaces - SQL
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Network/networkInterfaces/NICWEB1
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1
 		data:      Name    : NICWEB1
 		data:      Type    : networkInterfaces
 		data:      Location: westus
 		data:      Tags    : displayName=NetworkInterfaces - Web
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Network/networkInterfaces/NICWEB2
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB2
 		data:      Name    : NICWEB2
 		data:      Type    : networkInterfaces
 		data:      Location: westus
 		data:      Tags    : displayName=NetworkInterfaces - Web
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Network/networkSecurityGroups/NSG-BackEnd
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd
 		data:      Name    : NSG-BackEnd
 		data:      Type    : networkSecurityGroups
 		data:      Location: westus
 		data:      Tags    : displayName=NSG - Front End
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Network/networkSecurityGroups/NSG-FrontEnd
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
 		data:      Name    : NSG-FrontEnd
 		data:      Type    : networkSecurityGroups
 		data:      Location: westus
 		data:      Tags    : displayName=NSG - Remote Access
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Network/publicIPAddresses/PIPFW1
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPFW1
 		data:      Name    : PIPFW1
 		data:      Type    : publicIPAddresses
 		data:      Location: westus
 		data:      Tags    : displayName=PublicIPAddresses - DMZ
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Network/publicIPAddresses/PIPSQL1
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPSQL1
 		data:      Name    : PIPSQL1
 		data:      Type    : publicIPAddresses
 		data:      Location: westus
 		data:      Tags    : displayName=PublicIPAddresses - SQL
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Network/publicIPAddresses/PIPSQL2
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPSQL2
 		data:      Name    : PIPSQL2
 		data:      Type    : publicIPAddresses
 		data:      Location: westus
 		data:      Tags    : displayName=PublicIPAddresses - SQL
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Network/publicIPAddresses/PIPWEB1
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPWEB1
 		data:      Name    : PIPWEB1
 		data:      Type    : publicIPAddresses
 		data:      Location: westus
 		data:      Tags    : displayName=PublicIPAddresses - Web
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Network/publicIPAddresses/PIPWEB2
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPWEB2
 		data:      Name    : PIPWEB2
 		data:      Type    : publicIPAddresses
 		data:      Location: westus
 		data:      Tags    : displayName=PublicIPAddresses - Web
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Network/routeTables/UDR-BackEnd
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd
 		data:      Name    : UDR-BackEnd
 		data:      Type    : routeTables
 		data:      Location: westus
 		data:      Tags    : displayName=Route Table - Back End
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Network/routeTables/UDR-FrontEnd
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-FrontEnd
 		data:      Name    : UDR-FrontEnd
 		data:      Type    : routeTables
 		data:      Location: westus
 		data:      Tags    : displayName=UDR - FrontEnd
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Network/virtualNetworks/TestVNet
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
 		data:      Name    : TestVNet
 		data:      Type    : virtualNetworks
 		data:      Location: westus
 		data:      Tags    : displayName=VNet
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Storage/storageAccounts/testvnetstorageprm
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/testvnetstorageprm
 		data:      Name    : testvnetstorageprm
 		data:      Type    : storageAccounts
 		data:      Location: westus
 		data:      Tags    : displayName=Storage Account - Premium
 		data:    
-		data:      Id      : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mi
-		crosoft.Storage/storageAccounts/testvnetstoragestd
+		data:      Id      : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/testvnetstoragestd
 		data:      Name    : testvnetstoragestd
 		data:      Type    : storageAccounts
 		data:      Location: westus
@@ -422,6 +388,6 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 		data:    
 		info:    group show command OK
 
->[AZURE.TIP]Si no ve todos los recursos, ejecute el comando **azure group deployment show** para garantizar que el estado de aprovisionamiento de la implementación es *Correcto*.
+>[AZURE.TIP]Si no ve todos los recursos, ejecute el comando **azure group deployment show** para comprobar que el estado de aprovisionamiento de la implementación es *Correcto*.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

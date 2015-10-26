@@ -149,4 +149,4 @@ El valor de LoadBalancerDistribution puede ser sourceIP para la afinidad de 2-tu
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

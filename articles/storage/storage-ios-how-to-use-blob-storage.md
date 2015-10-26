@@ -352,10 +352,10 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 - [API de REST de almacenamiento de Azure]
 - [Blog del equipo de almacenamiento de Azure]
 
-Si tiene alguna pregunta sobre esta biblioteca, puede publicarla en el [foro de MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/es-es/home?forum=windowsazuredata) o en [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Si desea sugerir características nuevas para el Almacenamiento de Azure, publíquelas en la página de [comentarios sobre el Almacenamiento de Azure](http://feedback.azure.com/forums/217298-storage).
+Si tiene alguna pregunta sobre esta biblioteca, puede publicarla en el [foro de MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/es-ES/home?forum=windowsazuredata) o en [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Si desea sugerir características nuevas para el Almacenamiento de Azure, publíquelas en la página de [comentarios sobre el Almacenamiento de Azure](http://feedback.azure.com/forums/217298-storage).
 
 [Biblioteca de iOS del Almacenamiento de Azure]: https://github.com/azure/azure-storage-ios
 [API de REST de almacenamiento de Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

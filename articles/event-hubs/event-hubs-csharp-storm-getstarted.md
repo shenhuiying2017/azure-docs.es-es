@@ -12,7 +12,7 @@
 	ms.workload="core"
 	ms.tgt_pltfrm="csharp"
 	ms.devlang="csharp"
-	ms.topic="article"
+	ms.topic="article" 
 	ms.date="09/01/2015"
 	ms.author="sethm"/>
 
@@ -34,7 +34,7 @@ Para completar este tutorial necesitará lo siguiente:
 
 + Un entorno de desarrollo de Java configurado para ejecutar [Maven](http://maven.apache.org/). Para este tutorial, asumimos que vamos a trabajar con [Eclipse](https://www.eclipse.org/).
 
-+ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
++ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure￼</a>.
 
 ## Creación de un Centro de eventos
 
@@ -113,4 +113,4 @@ Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y e
 [solución de mensajería en cola]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

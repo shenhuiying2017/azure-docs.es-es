@@ -18,7 +18,8 @@
 
 # Usar PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+ 
 
 En este tema se describe y se le guiará por la implementación y la configuración de un servidor de informes de modo nativo de SQL Server Reporting Services en una máquina virtual de Azure. Los pasos de este documento usan una combinación de pasos manuales para crear la máquina virtual y un script de Windows PowerShell para configurar Reporting Services en la máquina virtual. El script de configuración incluye la apertura de un puerto de firewall para HTTP o HTTPS.
 
@@ -704,4 +705,4 @@ En la tabla siguiente se resumen algunas de las opciones disponibles para public
 
 [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

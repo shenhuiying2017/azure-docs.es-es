@@ -133,4 +133,4 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 
 - Si sigue teniendo problemas con el dispositivo, [póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

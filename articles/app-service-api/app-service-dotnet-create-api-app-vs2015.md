@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/14/2015" 
 	ms.author="tdykstra"/>
 
 # Creación de una aplicación de API de ASP.NET en el Servicio de aplicaciones de Azure mediante Visual Studio 2015
@@ -25,7 +25,7 @@
 
 ## Información general
 
-En este tutorial creará un proyecto de API web 2 de ASP.NET con [Visual Studio 2015](https://www.visualstudio.com/es-es/downloads/visual-studio-2015-downloads-vs.aspx) y lo configurará para implementarlo en la nube como una [aplicación de API](app-service-api-apps-why-best-platform.md) en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md). También implementará el proyecto en Azure Al final del tutorial, tendrá una aplicación de API que se ejecuta en la nube de Azure.
+En este tutorial creará un proyecto de API web 2 de ASP.NET con [Visual Studio 2015](https://www.visualstudio.com/es-ES/downloads/visual-studio-2015-downloads-vs.aspx) y lo configurará para implementarlo en la nube como una [aplicación de API](app-service-api-apps-why-best-platform.md) en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md). También implementará el proyecto en Azure Al final del tutorial, tendrá una aplicación de API que se ejecuta en la nube de Azure.
 
 En el tutorial se supone que sabe cómo trabajar con archivos y carpetas en el **Explorador de soluciones** de Visual Studio.
 
@@ -297,4 +297,4 @@ En esta sección, se navega al portal para ver la definición de la API de la ap
 Ahora ha creado e implementado una aplicación de API con Visual Studio 2015 RC. Para obtener más documentación sobre las aplicaciones de API, vea las entradas del panel de navegación que se muestra en el lado izquierdo de la página (para ventanas de explorador anchas) o en la parte superior de la página (para ventanas de explorador estrechas). Actualmente, la mayor parte de la documentación sobre aplicaciones de API se refiere a Visual Studio 2013, pero gran parte de ella puede usarse con VS 2015 porque la interfaz de usuario, el código que se escribe y la interfaz de usuario del portal son iguales.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

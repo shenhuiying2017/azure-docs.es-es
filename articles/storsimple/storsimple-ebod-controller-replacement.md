@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Reemplazar un controlador de EBOD de StorSimple | Microsoft Azure"
-	description="Explica cómo quitar y reemplazar uno o ambos controladores EBOD en un dispositivo de StorSimple 8600."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Explica cómo quitar y reemplazar uno o ambos controladores EBOD en un dispositivo de StorSimple 8600."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/12/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/12/2015"
+   ms.author="alkohli" />
 
 # Reemplazar un controlador EBOD en el dispositivo StorSimple
 
@@ -107,4 +107,4 @@ El procedimiento y la tabla siguientes explican cómo instalar el módulo de con
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

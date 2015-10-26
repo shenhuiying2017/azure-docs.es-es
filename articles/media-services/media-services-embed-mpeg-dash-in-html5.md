@@ -115,4 +115,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 [Repositorio dash.js de GitHub](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

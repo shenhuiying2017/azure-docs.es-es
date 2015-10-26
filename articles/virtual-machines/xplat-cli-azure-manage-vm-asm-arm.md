@@ -21,7 +21,8 @@
 # Comandos equivalentes del Administrador de recursos y de Administración de servicios para las tareas de máquina virtual con la CLI de Azure para Mac, Linux y Windows
 Este artículo muestra la interfaz de línea de comandos equivalente de Microsoft Azure (CLI de Azure) para crear y administrar máquinas virtuales de Azure en Administración de servicios de Azure y Administrador de recursos de Azure. Utilícelo como una guía para migrar los scripts de un modo de comando a otro.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se tratan los recursos creados con los modelos de implementación del Administrador de recursos (es decir, Administración de servicios) y clásico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 
 * Si aún no ha instalado la CLI de Azure y se ha conectado a su suscripción, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md) y [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md). Si desea usar los comandos de modo del Administrador de recursos, asegúrese de conectar con el método de inicio de sesión.
@@ -70,4 +71,4 @@ Obtención de todos los tamaños disponibles de la máquina virtual | No disponi
 * Para obtener más información acerca del uso de la CLI de Azure para trabajar con recursos del Administrador de recursos, vea [Uso de la interfaz de la línea de comandos de Azure con el Administrador de recursos](xplat-cli-azure-resource-manager.md) y [Administración del control de acceso basado en rol con la interfaz de la línea de comandos de Azure](../role-based-access-control-xplat-cli-install.md).
 * Para obtener ejemplos adicionales de los comandos CLI, consulte [Uso de la interfaz de la línea de comandos de Azure con la administración de servicios de Azure](../virtual-machines-command-line-tools.md) y [Uso de la CLI de Azure con el Administrador de recursos de Azure](azure-cli-arm-commands.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

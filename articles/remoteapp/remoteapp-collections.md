@@ -91,4 +91,4 @@ Bueno, creo que ya lo tenemos claro. Solo queda una cosa por hacer: crear la pri
 
 [Crear una colección de nube](remoteapp-create-cloud-deployment.md) o [crear una colección híbrida](remoteapp-create-hybrid-deployment.md): ya está preparado para crear su colección.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

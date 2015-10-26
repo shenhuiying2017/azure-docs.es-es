@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Preguntas más frecuentes de Azure AD Connect Health"
 	description="Las preguntas más frecuentes son preguntas y respuestas sobre Azure AD Connect Health. Estas preguntas más frecuentes cubre las preguntas acerca de cómo utilizar el servicio, incluido el modelo de facturación, las capacidades, las limitaciones y la compatibilidad."
 	services="active-directory"
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="10/15/2015"
 	ms.author="billmath"/>
 
 
@@ -25,10 +25,9 @@ Las preguntas más frecuentes son preguntas y respuestas sobre Azure AD Connect 
 
 
 
-**P: Tengo varios inquilinos en Azure Active Directory. ¿Cómo puedo cambiar al inquilino que tiene Azure Active Directory Premium?**
+**P: Administro varios directorios de Azure AD. ¿Cómo puedo cambiar al inquilino que tiene Azure Active Directory Premium?**
 
-Para cambiar al inquilino de Azure AD, seleccione "Inicio" en la barra de navegación de la izquierda, seleccione el nombre de usuario conectado actualmente en la esquina superior derecha y luego elija la cuenta de inquilino correcta. Si la cuenta de inquilino no aparece, seleccione Cerrar sesión y vuelva a iniciar sesión con las credenciales de administrador de inquilino global del inquilino de Azure Active Directory Premium.
-
+Puede alternar entre los distintos directorios de Azure AD seleccionando el nombre de usuario con el que se ha iniciado sesión actualmente en la esquina superior derecha y eligiendo la cuenta adecuada. Si la cuenta no aparece aquí, seleccione Cerrar sesión y luego use las credenciales de administrador global del directorio que tiene Azure Active Directory Premium habilitado para iniciar sesión.
 
 ## Preguntas sobre la instalación
 
@@ -43,7 +42,7 @@ Los números siguientes son una aproximación.
 - Consumo de CPU: aumento de ~1%
 - Consumo de memoria: hasta 10 % de la memoria total del sistema
 - Uso de ancho de banda de la red: ~1 MB por cada 1000 solicitudes de ADFS
->[AZURE.NOTE]Ante la eventualidad de que el agente no pueda comunicarse con Azure, el agente almacenará localmente los datos, hasta un límite máximo de 10 % de la memoria total del sistema. Una vez que el agente alcance el 10 % de la memoria física total, si no hay podido cargar los datos al servicio, las nuevas transacciones ADFS sobreescribirán cualquier transacción almacenada en caché o que haya sido menos atendida recientemente.
+>[AZURE.NOTE]En caso de que el agente no se pueda comunicar con Azure, el agente almacenará los datos localmente, hasta un límite máximo definido. Cuando el agente alcance el límite, si el agente no ha podido cargar los datos en el servicio, las nuevas transacciones de ADFS sobrescribirán cualquier transacción "en caché" como "menos atendida recientemente".
 
 - Almacenamiento en búfer local para el agente de AD Health: ~20 MB
 - Almacenamiento de datos requerido para canal de auditoría
@@ -60,49 +59,14 @@ En Windows Server 2008 R2, por ejemplo, la instalación de .Net 4.5 Framework re
 
 **P: ¿Los Servicios de Azure AD Connect Health funcionan mediante un proxy HTTP de paso a través?**
 
-Sí, el proceso de registro y el funcionamiento normal pueden funcionar mediante un proxy explícito configurado para desviar las solicitudes HTTP salientes. "Netsh WinHttp set Proxy" no funciona en este caso, porque el agente usa System.Net para realizar solicitudes web en lugar de los servicios HTTP de Microsoft Windows.
+Sí. Para las operaciones en curso, puede configurar el agente de mantenimiento para reenviar las solicitudes http de salida con un proxy HTTP. Vea [Configuración de agentes de Azure AD Connect Health para usar el proxy HTTP](active-directory-aadconnect-health-agent-install-adfs.md#configure-azure-ad-connect-health-agent-to-use-http-proxy) para obtener más información.
 
-Hágalo en cualquier momento antes de ejecutar Register-AdHealthAgent (el paso final de la instalación)
-
-
-- Paso 1: agregar una entrada en el archivo machine.config
-
-
-Busque el archivo machine.config El archivo se encuentra en in%windir%\\Microsoft.NET\\Framework64[version]\\config\\machine.config</li>
-
-Agregue la entrada siguiente en el elemento <configuration></configuration> del archivo machine.config.
-		
-	<system.net>  
-			<defaultProxy useDefaultCredentials="true">
-       		<proxy 
-        usesystemdefault="true" 
-        proxyaddress="http://YOUR.PROXY.HERE.com"  
-        bypassonlocal="true"/>
-		</defaultProxy>
-	</system.net> 
-
- 
-
-Puede encontrar <defaultProxy> información adicional [aquí](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110)).
-
-Este ajuste configura las aplicaciones .NET en todo el sistema para usar el proxy explícitamente definido cuando se realizan solicitudes .NET HTTP. No se recomienda modificar cada archivo app.config individual, porque esta acción se podría deshacer durante la actualización automática. Solo debe cambiar un archivo, el que se mantendrá a través de las actualizaciones si solo modifica machine.config.
-
-- Paso 2: configurar el servidor proxy en las Opciones de Internet
-
-Abra Internet Explorer -> Configuración -> Opciones de Internet -> Conexiones -> Configuración de LAN.
-
-Seleccione Usar un servidor proxy para la LAN
-
-Seleccione Opciones avanzadas si tiene distintos puertos de proxy para HTTP y HTTPS/Secure
-
-
+Si necesita configurar a un proxy durante el registro del agente, debe modificar su configuración del proxy de Internet Explorer. <br> Abra Internet Explorer -> Configuración -> Opciones de Internet -> Conexiones -> Configuración de LAN.<br> Seleccione Usar un servidor proxy para la LAN.<br> Seleccione Opciones avanzadas si tiene distintos puertos de proxy para HTTP y HTTPS/Secure.<br>
 
 
 **P: ¿Servicios de Azure AD Connect Health admiten la autenticación básica cuando se conectan con servidores proxy de HTTP?**
 
 No. Actualmente, no se admite un mecanismo para especificar un nombre de usuario/contraseña arbitrarios para la autenticación básica.
-
-
 
 
 
@@ -125,7 +89,7 @@ Las alertas de Azure AD Connect Health se resuelven con una condición de aciert
 
 **P: ¿Qué puertos de firewall debo abrir para que funcione el agente de Azure AD Connect Health?**
 
-Deberá abrir los puertos 80 y 443 TCP/UDP para que el agente de Azure AD Connect Health pueda comunicarse con los extremos de servicio de Azure AD Health.
+Deberá abrir los puertos 80, 443 y 5671 TCP/UDP para que el agente de Azure AD Connect Health pueda comunicarse con los extremos de servicio de Azure AD Health.
 
 ## Vínculos relacionados
 
@@ -134,4 +98,4 @@ Deberá abrir los puertos 80 y 443 TCP/UDP para que el agente de Azure AD Connec
 * [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Operaciones de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

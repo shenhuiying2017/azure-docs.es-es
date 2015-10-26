@@ -33,4 +33,4 @@ Muchas soluciones de IoT permiten a los usuarios ver y analizar los datos recopi
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [conjunto de aplicaciones de IoT de Azure]: http://azure.microsoft.com/solutions/iot
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

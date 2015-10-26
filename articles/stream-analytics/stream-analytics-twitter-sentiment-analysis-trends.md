@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="10/05/2015"
+	ms.date="10/09/2015"
 	ms.author="jeffstok"/>
 
 
@@ -55,7 +55,7 @@ Hemos proporcionado una aplicación cliente que derivará datos de Twitter media
 
 Siga estos pasos para configurar la aplicación:
 
-1.	[Descargue la solución TwitterClient](https://github.com/streamanalytics/samples/tree/master/TwitterClient)
+1.	[Descargue la solución TwitterClient](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)
 2.	Abra App.config y reemplace oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret con tokens de Twitter con sus valores.  
 
 	[Pasos para generar un token de acceso de OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
@@ -224,7 +224,7 @@ Cuando el trabajo se esté ejecutando y esté procesando el flujo de Twitter en 
 ![Análisis de los medios sociales: salida del análisis de opinión (minería de opinión) de Análisis de transmisiones en un panel de Power BI.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/ES-ES/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics).
 
 
 ## Pasos siguientes
@@ -236,4 +236,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

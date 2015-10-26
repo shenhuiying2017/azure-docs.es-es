@@ -122,4 +122,4 @@ Para obtener más información acerca de DocumentDB, consulte la [documentación
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

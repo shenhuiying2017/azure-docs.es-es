@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/05/2015" 
+	ms.date="10/06/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -25,24 +25,23 @@ Aprenda a supervisar y administrar los recursos de Análisis de transmisiones co
 
 ## Requisitos previos para ejecutar cmdlets de Azure PowerShell en Análisis de transmisiones
 
-1.	Instale y configure Azure PowerShell.
+ - Cree un grupo de recursos de Azure en su suscripción. A continuación se muestra un ejemplo de script de Azure PowerShell. Para obtener información sobre Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md).  
 
-	Siga las instrucciones de [Instalación y configuración de Azure PowerShell][powershell-install] para instalar Azure PowerShell.
 
-	Para conectarse a su suscripción de Azure mediante el método de Azure Active Directory:
-
+ 		# Log in to your Azure account
 		Add-AzureAccount
 
-	Para seleccionar su suscripción de Azure con el servicio Análisis de transmisiones de Azure habilitado, siga el siguiente método:
+		# Select the Azure subscription you want to use to create the resource group
+		Select-AzureSubscription -SubscriptionName <subscription name>
+ 
+		# Create an Azure resource group	
+			# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+			#Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
-		Select-AzureSubscription
+		# Create an Azure resource group
+		New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
+		
 
-
-2.	Configuración del modo de Azure.
-
-	Después de instalar Azure PowerShell, ejecute el cmdlet [Switch-AzureMode][msdn-switch-azuremode] para establecer el modo de Azure adecuado para acceder a los cmdlets de Análisis de transmisiones:
-
-		Switch-AzureMode AzureResourceManager
 
 > [AZURE.NOTE]Los trabajos de Análisis de transmisiones creados mediante programación no tienen la supervisión habilitada de forma predeterminada. Puede habilitar la supervisión manualmente en el Portal de Azure navegando hasta la página Supervisión del trabajo y haciendo clic en el botón Habilitar. También puede hacerlo mediante programación siguiendo los pasos que se encuentran en [Análisis de transmisiones de Azure - Supervisión de trabajos de Análisis de transmisiones mediante programación](stream-analytics-monitor-jobs.md)
 
@@ -259,7 +258,7 @@ Comprueba la capacidad de Análisis de transmisiones para conectarse a una salid
 Este comando de PowerShell comprueba el estado de conexión de la salida Output en StreamingJob.
 
 ## Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/ES-ES/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics).
 
 
 ## Pasos siguientes
@@ -288,4 +287,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

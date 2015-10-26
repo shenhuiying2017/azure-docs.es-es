@@ -82,14 +82,14 @@ La aplicación de muestra de este tutorial, [WebApp-WSFederation-DotNet)](https:
 5.	En App_Start\Startup.Auth.cs, cambie las definiciones de cadena estática como se resalta a continuación:
 
 	<pre class="prettyprint">
-private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
-<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
-<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
-<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
-<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
+		private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
+		<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
+		<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
+		<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
+		<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
 
-<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
-</pre>
+		<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
+	</pre>
 
 6.	Ahora realizará los cambios correspondientes en Web.config. Abra Web.config y modifique la configuración de la aplicación como se resalta a continuación:
 	<pre class="prettyprint">
@@ -353,4 +353,4 @@ Aplicaciones web del Servicio de aplicaciones de Azure admite el acceso a bases 
  
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

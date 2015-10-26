@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Configuración de MPIO para su dispositivo StorSimple | Microsoft Azure"
-	description="Describe cómo configurar E/S de múltiples rutas (MPIO) para el dispositivo StorSimple conectado a un host que ejecuta Windows Server 2012 R2."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Describe cómo configurar E/S de múltiples rutas (MPIO) para el dispositivo StorSimple conectado a un host que ejecuta Windows Server 2012 R2."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # Configurar E/S de múltiples rutas para el dispositivo StorSimple
 
@@ -173,4 +173,4 @@ Con el siguiente procedimiento explicamos cómo agregar las sesiones cuando un d
 Obtenga más información sobre el [uso del servicio StorSimple Manager para modificar la configuración del dispositivo StorSimple](storsimple-modify-device-config.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -270,4 +270,4 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 [trabajo web de Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
 [Tutorial sobre Centros de notificaciones: Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

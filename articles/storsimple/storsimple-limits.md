@@ -27,4 +27,4 @@ StorSimple proporciona almacenamiento escalable y flexible para su centro de dat
 
 Revise los [Requisitos del sistema StorSimple](storsimple-system-requirements.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

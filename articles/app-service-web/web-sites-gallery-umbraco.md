@@ -127,4 +127,4 @@ Una vez completada la implementación, el portal mostrará la hoja correspondien
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

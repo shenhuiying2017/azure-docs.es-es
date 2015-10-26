@@ -52,4 +52,4 @@ A continuación, abra un símbolo del sistema en el equipo con Windows 7 y ejecu
 
 El registro de eventos de Windows en el equipo con Windows 7 mostrará mensajes relacionados con Unión al área de trabajo. Puede encontrar mensajes para eventos de Unión al área de trabajo con éxito y sin éxito. El registro de eventos puede encontrarse en el Visor de eventos en Registros de aplicaciones y servicios> Microsoft-Unión al área de trabajo.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

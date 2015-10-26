@@ -33,4 +33,4 @@ También puede especificar que se use un proxy HTTP cuando se está probando el 
 
     UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

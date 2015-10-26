@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,9 +14,16 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr"/>
+	ms.author="MehrdadMzfr" />
 
 #Notas de la versión
+
+##3\.2.0 (10/08/2015)
+
+-   Se habilitó Bitcode en el SDK para que funcione con **Xcode 7**.
+-   Se corrigieron los errores relacionados con las notificaciones desde la aplicación.
+-   Las notificaciones desde la aplicación ahora son más fiables en caso de que, por ejemplo, la batería esté baja.
+-   Se quitaron registros de la consola adicionales generados por la biblioteca de terceros.
 
 ##3\.1.0 (08/26/2015)
 
@@ -47,4 +54,4 @@
 -   Mejoras de seguridad.
 -   Se ha eliminado el seguimiento de SmartAd.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

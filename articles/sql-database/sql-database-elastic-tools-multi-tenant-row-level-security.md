@@ -341,4 +341,4 @@ Las herramientas de base de datos elásticas y la seguridad de nivel de fila pue
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

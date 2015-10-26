@@ -130,9 +130,9 @@ Spark SQL le permite usar Spark para ejecutar consultas relacionales expresadas 
 
 6. Debe ver algo parecido a lo siguiente:
 
-		[820,11:35:17,es-es,Android,HTC,Inspire 4G,Louisiana,UnitedStates, 2.7383836,0,1]
-		[1055,17:24:08,es-es,Android,HTC,Incredible,Ohio,United States,18.0894738,0,0]
-		[1067,03:42:29,es-es,Windows Phone,HTC,HD7,District Of Columbia,United States,null,0,0]
+		[820,11:35:17,es-ES,Android,HTC,Inspire 4G,Louisiana,UnitedStates, 2.7383836,0,1]
+		[1055,17:24:08,es-ES,Android,HTC,Incredible,Ohio,United States,18.0894738,0,0]
+		[1067,03:42:29,es-ES,Windows Phone,HTC,HD7,District Of Columbia,United States,null,0,0]
 
 7. Escriba: q para salir del símbolo del sistema de Scala.
 
@@ -208,7 +208,7 @@ En esta sección se escribe una aplicación de Scala que cuenta el número de l�
 6. Escriba el siguiente comando para ejecutar el programa de SimpleApp.scala:
 
 
-		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master local target/scala-2.10/simpleapp_2.10-1.0.jar
+		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master yarn target/scala-2.10/simpleapp_2.10-1.0.jar
 
 4. Cuando el programa termine de ejecutarse, el resultado aparecerá en la consola.
 
@@ -234,4 +234,4 @@ En esta sección se escribe una aplicación de Scala que cuenta el número de l�
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

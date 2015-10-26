@@ -12,4 +12,4 @@
 
 7. Ya puede [usar el Portal de administración para instalar la Actualización 1.2](#use-the-management-portal-to-install-update-1). Siga las instrucciones a partir del paso 3 de este procedimiento. Después de haber instalado todas las actualizaciones, puede volver a habilitar la interfaz de red que deshabilitó.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

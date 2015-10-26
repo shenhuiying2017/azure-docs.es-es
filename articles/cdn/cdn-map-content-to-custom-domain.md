@@ -1,19 +1,19 @@
 <properties 
-	 pageTitle="Asignación del contenido de la Red de entrega de contenido (CDN) a un dominio personalizado"
-	description="Este tema muestra cómo asignar contenido de la red CDN a un dominio personalizado"
-	services="cdn"
-	documentationCenter=""
-	authors="zhangmanling"
-	manager="dwrede"
-	editor=""/>
+	 pageTitle="Asignación del contenido de la Red de entrega de contenido (CDN) a un dominio personalizado" 
+	 description="Este tema muestra cómo asignar contenido de la red CDN a un dominio personalizado" 
+	 services="cdn" 
+	 documentationCenter="" 
+	 authors="zhangmanling" 
+	 manager="dwrede" 
+	 editor=""/>
 <tags 
-	 ms.service="cdn"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mazha"/>
+	 ms.service="cdn" 
+	 ms.workload="media" 
+	 ms.tgt_pltfrm="na" 
+	 ms.devlang="na" 
+	 ms.topic="article" 
+	 ms.date="09/01/2015" 
+	 ms.author="mazha"/>
 
 #Cómo asignar un dominio personalizado al extremo de la Red de entrega de contenido (CDN)
 
@@ -90,4 +90,4 @@ Los procedimientos de este tema le mostrarán cómo:
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Automatización de operaciones de conjuntos de registros y DNS con el SDK de .NET | Microsoft Azure"
-	description="Uso del SDK de .NET para automatizar todas las operaciones DNS para DNS de Azure."
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor=""/>
+   pageTitle="Automatización de operaciones de conjuntos de registros y DNS con el SDK de .NET | Microsoft Azure" 
+   description="Uso del SDK de .NET para automatizar todas las operaciones DNS para DNS de Azure." 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="adinah" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="08/20/2015"
+   ms.author="joaoma"/>
 # Creación de conjuntos de registros y zonas DNS con el SDK de .NET
 Puede automatizar las operaciones para crear, eliminar o actualizar zonas, conjuntos de registros y registros DNS mediante el SDK de DNS con la biblioteca de administración de DNS de .NET. Un proyecto completo de Visual Studio se encuentra disponible [aquí](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip).
 
@@ -108,4 +108,4 @@ En el ejemplo siguiente se ilustra cómo obtener una lista de zonas y conjuntos 
 
 [Proyecto de ejemplo del SDK de Visual Studio](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

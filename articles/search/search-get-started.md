@@ -378,4 +378,4 @@ Si necesita un actualizador sobre dónde buscar las páginas de configuración, 
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

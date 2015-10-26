@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Vista previa de Azure AD B2C | Microsoft Azure"
-	description="Cómo llamar a la API Graph para un directorio de B2C mediante una identidad de aplicación para automatizar el proceso."
+	description="Cómo llamar a la API Graph para un inquilino de B2C mediante una identidad de aplicación para automatizar el proceso."
 	services="active-directory-b2c"
 	documentationCenter=".net"
 	authors="dstrockis"
@@ -13,36 +13,35 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="dastrock"/>
-
 
 # Vista previa de Azure AD B2C: Uso de la API Graph
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-graph-switcher](../../includes/active-directory-b2c-devquickstarts-graph-switcher.md)]-->
 
-Los directorios de Azure AD B2C tienden a ser muy grandes, lo que supone que muchas tareas comunes de administración de directorios deben realizarse mediante programación. Un ejemplo importante es la administración de usuarios: quizá debe migrar un almacén de usuarios existente a un directorio de B2C o desee hospedar el registro de usuarios en su propia página mediante la creación de cuentas de usuario en Azure AD en un segundo plano. Estos tipos de tareas requieren la capacidad de crear, leer, actualizar y eliminar cuentas de usuario, lo que puede realizar mediante la API de Azure AD Graph.
+Los inquilinos de Azure AD B2C tienden a ser muy grandes, lo que supone que muchas tareas comunes de administración de inquilinos necesitan realizarse mediante programación. Un ejemplo importante es la administración de usuarios: podría tener que migrar un almacén de usuarios existente a un inquilino de B2C o puede que desee hospedar el registro de usuarios en su propia página mediante la creación de cuentas de usuario en Azure AD en un segundo plano. Estos tipos de tareas requieren la capacidad de crear, leer, actualizar y eliminar cuentas de usuario, lo que puede realizar mediante la API de Azure AD Graph.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 	
-En los directorios de B2C, existen principalmente dos modos de comunicación con la API Graph.
+Para los inquilinos de B2C, existen principalmente dos modos de comunicación con la API Graph.
 
-- Para las tareas interactivas, que se ejecutan una vez, probablemente deseará realizar tareas de administración con una cuenta de administrador en el directorio de B2C. Este modo requiere un administrador para iniciar sesión con sus credenciales antes de realizar las llamadas a la API Graph.
+- Para las tareas interactivas, que se ejecutan una vez, probablemente deseará realizar tareas de administración con una cuenta de administrador en el inquilino de B2C. Este modo requiere un administrador para iniciar sesión con sus credenciales antes de realizar las llamadas a la API Graph.
 - Para las tareas automatizadas y continuas, es posible que desee realizar tareas de administración mediante algún tipo de cuenta de servicio a la que conceda los privilegios necesarios. En Azure AD, puede hacerlo registrando y autenticando una aplicación en Azure AD con una "identidad de aplicación", mediante la [concesión de credenciales de cliente OAuth 2.0](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). En este caso, la aplicación llama a la API Graph que actúa como sí misma, en lugar de como un usuario concreto.  
 
 En este artículo, le mostraremos cómo realizar este último caso de uso automatizado. Para demostrarlo, crearemos un "B2CGraphClient" de .NET 4.5 que realiza operaciones CRUD de usuario. Para fines de prueba, el cliente tendrá una interfaz de línea de comandos de Windows que permite invocar diversos métodos. Sin embargo, el código se escribe para que se comporte de forma no interactiva y automatizada. Comencemos.
 
-## Obtención de un directorio habilitado para B2C
+## Obtención de un inquilino de Azure AD B2C
 
-Antes de crear la aplicación, los usuarios o interactuar con Azure AD, necesitará un directorio habilitado para B2C y una cuenta de administrador en ese directorio. Si no tiene ninguno todavía, siga la guía de [Introducción a Azure AD B2C](active-directory-b2c-get-started.md).
+Antes de crear la aplicación, usuarios o interactuar con Azure AD, necesitará un inquilino de Azure AD B2C y una cuenta de administrador global en ese inquilino. Si no tiene ninguno todavía, siga la guía de [Introducción a Azure AD B2C](active-directory-b2c-get-started.md).
 
-## Registro de una aplicación de servicio en el directorio
+## Registro de una aplicación de servicio en el inquilino
 
-Ahora que ya tiene un directorio de B2C, deberá crear la aplicación de servicio con los cmdlets de Azure AD Powershell. En primer lugar, descargue e instale [Microsoft Online Services - Ayudante para el inicio de sesión](http://go.microsoft.com/fwlink/?LinkID=286152). A continuación, puede descargar e instalar el [módulo de Azure Active Directory de 64 bits para Windows Powershell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+Ahora que ya tiene un inquilino de B2C, deberá crear la aplicación de servicio con los cmdlets de Azure AD Powershell. En primer lugar, descargue e instale [Microsoft Online Services - Ayudante para el inicio de sesión](http://go.microsoft.com/fwlink/?LinkID=286152). A continuación, puede descargar e instalar el [módulo de Azure Active Directory de 64 bits para Windows Powershell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
-> [AZURE.NOTE]Para usar la API Graph con su directorio B2C, deberá registrar una aplicación dedicada con PowerShell mediante estas instrucciones. No puede volver a usar las aplicaciones B2C ya existentes que registró en el Portal de Azure. Se trata de una limitación de la vista previa de Azure AD B2C que se eliminará en un futuro cercano, momento en el cual actualizaremos este artículo.
+> [AZURE.NOTE]Para usar la API Graph con su inquilino B2C, deberá registrar una aplicación dedicada con PowerShell mediante estas instrucciones. No puede volver a usar las aplicaciones B2C ya existentes que registró en el Portal de Azure. Se trata de una limitación de la vista previa de Azure AD B2C que se eliminará en un futuro cercano, momento en el cual actualizaremos este artículo.
 
-Una vez instalado el módulo de Powershell, abra PowerShell y conéctese al directorio de B2C. Después de ejecutar `Get-Credential`, se le pedirá un nombre de usuario y una contraseña: escriba la información de su cuenta de administrador del directorio B2C.
+Una vez instalado el módulo de Powershell, abra PowerShell y conéctese al inquilino de B2C. Después de ejecutar `Get-Credential`, se le pedirá un nombre de usuario y una contraseña: escriba la información de su cuenta de administrador del inquilino B2C.
 
 ```
 > $msolcred = Get-Credential
@@ -81,7 +80,7 @@ Usage                 : Verify
 
 Si la creación de la aplicación se realiza correctamente, debe imprimir algunas propiedades de la aplicación como las anteriores. Necesitará tanto `ObjectId` como `AppPrincipalId`, así que anote también esos valores.
 
-Una vez creada una aplicación en el directorio de B2C, debe asignarle los permisos necesarios para efectuar operaciones CRUD de usuario. Tendrá que asignar a la aplicación tres roles distintos: lectores de directorio (para leer usuarios), escritores de directorio (para crear y actualizar usuarios) y administrador de cuentas de usuario (para eliminar usuarios). Estos roles tienen identificadores conocidos, por lo que puede ejecutar los comandos siguientes reemplazando el parámetro `-RoleMemberObjectId` por el `ObjectId` anterior. Para ver la lista de todos los roles de directorio, intente ejecutar `Get-MsolRole`.
+Una vez creada una aplicación en el inquilino de B2C, debe asignarle los permisos necesarios para efectuar operaciones CRUD de usuario. Tendrá que asignar a la aplicación tres roles distintos: lectores de directorio (para leer usuarios), escritores de directorio (para crear y actualizar usuarios) y administrador de cuentas de usuario (para eliminar usuarios). Estos roles tienen identificadores conocidos, por lo que puede ejecutar los comandos siguientes reemplazando el parámetro `-RoleMemberObjectId` por el `ObjectId` anterior. Para ver la lista de todos los roles de directorio, intente ejecutar `Get-MsolRole`.
 
 ```
 > Add-MsolRoleMember -RoleObjectId 88d8e3e3-8f55-4a1e-953a-9b9898b8876b -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
@@ -89,7 +88,7 @@ Una vez creada una aplicación en el directorio de B2C, debe asignarle los permi
 > Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
 ```  
 
-Ahora tiene una aplicación con permiso para crear, leer, actualizar y eliminar usuarios del directorio de B2C; vamos a escribir un código que la usa.
+Ahora tiene una aplicación con permiso para crear, leer, actualizar y eliminar usuarios del inquilino de B2C; vamos a escribir un código que la usa.
 
 ## Descarga, configuración y compilación del código de ejemplo
 
@@ -140,7 +139,7 @@ public B2CGraphClient(string clientId, string clientSecret, string tenant)
 	this.clientSecret = clientSecret;
 	this.tenant = tenant;
 
-	// The AuthenticationContext is ADAL's primary class, in which you indicate the directory to use.
+	// The AuthenticationContext is ADAL's primary class, in which you indicate the tenant to use.
 	this.authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenant);
 
 	// The ClientCredential is where you pass in your client_id and client_secret, which are 
@@ -166,7 +165,7 @@ Como puede ver, puede obtener un token de acceso para la API Graph mediante una 
 
 ### Lectura de usuarios
 
-Si desea obtener una lista de usuarios de la API Graph u obtener un usuario determinado, puede enviar una solicitud HTTP GET al extremo `/users`. Una solicitud para todos los usuarios de un directorio tendría el siguiente aspecto:
+Si desea obtener una lista de usuarios de la API Graph u obtener un usuario determinado, puede enviar una solicitud HTTP GET al extremo `/users`. Una solicitud para todos los usuarios de un inquilino tendría el siguiente aspecto:
 
 ```
 GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=beta
@@ -182,7 +181,7 @@ Para ver esta solicitud en acción, intente ejecutar:
 Hay dos aspectos importantes que se deben tener en cuenta aquí:
 
 - El token de acceso adquirido mediante ADAL se ha agregado al encabezado `Authorization` según el esquema `Bearer`.
-- En los directorios de B2C, debe usar el parámetro de consulta `api-version=beta`.
+- Para los inquilinos de B2C, debe usar el parámetro de consulta `api-version=beta`.
 
 
 > [AZURE.NOTE]La versión beta de la API de Azure AD Graph proporciona funcionalidad de vista previa. Consulte [esta entrada de blog del equipo de API Graph](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx) para obtener detalles sobre la versión beta.
@@ -212,7 +211,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 		
 ### Creación de cuentas de usuario de consumidor 
 
-Al crear cuentas de usuario en el directorio de B2C, puede enviar una solicitud HTTP POST al extremo `/users`:
+Al crear cuentas de usuario en el inquilino de B2C, puede enviar una solicitud HTTP POST al punto de conexión `/users`:
 
 ```
 POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=beta
@@ -304,11 +303,11 @@ Hay muchas otras acciones que puede realizar con la API de Azure AD Graph ademá
 
 ## Uso de atributos personalizados
 
-Casi todas las aplicaciones de consumidor necesitan almacenar algún tipo de información de perfil de usuario personalizada. Una manera de hacerlo es definir un atributo personalizado en el directorio de B2C, que le permitirá tratar ese atributo igual que cualquier otra propiedad en un objeto de usuario. Puede actualizar el atributo, eliminarlo, consultarlo, enviarlo como notificación en tokens de inicio de sesión, etc.
+Casi todas las aplicaciones de consumidor necesitan almacenar algún tipo de información de perfil de usuario personalizada. Una manera de hacerlo es definir un atributo personalizado en el inquilino de B2C, que le permitirá tratar ese atributo igual que cualquier otra propiedad en un objeto de usuario. Puede actualizar el atributo, eliminarlo, consultarlo, enviarlo como notificación en tokens de inicio de sesión, etc.
 
-Para definir un atributo personalizado en el directorio de B2C, consulte la [referencia de atributos personalizados de vista previa de B2C](active-directory-b2c-reference-custom-attr.md).
+Para definir un atributo personalizado en el inquilino de B2C, consulte la [referencia de atributos personalizados de vista previa de B2C](active-directory-b2c-reference-custom-attr.md).
 
-Puede ver los atributos personalizados definidos en el directorio de B2C mediante B2CGraphClient:
+Puede ver los atributos personalizados definidos en el inquilino de B2C mediante B2CGraphClient:
 
 ```
 > B2C Get-B2C-Application
@@ -339,13 +338,15 @@ Puede usar el nombre completo, por ejemplo `extension_55dc0861f9a44eb999e0a8a872
 > B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
-¡Y esto es todo! Con B2CGraphClient, ahora tiene una aplicación de servicio que puede administrar los usuarios del directorio de B2C mediante programación. Usa su propia identidad de aplicación para autenticarse en la API de Azure AD Graph y adquiere tokens mediante un client\_secret. Según vaya incorporando esta funcionalidad a su propia aplicación, debe recordar algunos puntos clave para las aplicaciones B2C:
+¡Y esto es todo! Con B2CGraphClient, ahora tiene una aplicación de servicio que puede administrar los usuarios del inquilino de B2C mediante programación. Usa su propia identidad de aplicación para autenticarse en la API de Azure AD Graph y adquiere tokens mediante un client\_secret. Según vaya incorporando esta funcionalidad a su propia aplicación, debe recordar algunos puntos clave para las aplicaciones B2C:
 
-- Tiene que conceder a la aplicación los permisos adecuados en el directorio
+- Tiene que conceder a la aplicación los permisos adecuados en el inquilino
 - Por ahora, deberá usar ADAL v2 para obtener tokens de acceso (o puede enviar mensajes de protocolo directamente, sin una biblioteca)
 - Al llamar a la API Graph, use [`api-version=beta`](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx).
 - A la hora de crear y actualizar los usuarios de consumidor, hay algunas propiedades necesarias, descritas anteriormente.
 
-Si tiene alguna pregunta o solicitud para las acciones que desea realizar con la API Graph en el directorio de B2C, ¡somos todo oídos! Deje un comentario sobre el artículo o genere un caso en el repositorio de GitHub de ejemplo de código.
+> [AZURE.IMPORTANT]Necesitará dar cuenta de las características de replicación del servicio de directorio que subyacen bajo Azure AD B2C (lea [este](http://blogs.technet.com/b/ad/archive/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-geo-distributed-cloud-directory.aspx) artículo para obtener más información) cuando use la API Graph de Azure AD en la aplicación B2C. Después de que un consumidor se suscriba a la aplicación B2C mediante una directiva de **suscripción**, si sale inmediatamente e intenta leer el objeto de usuario mediante la API Graph de Azure AD en su aplicación, puede que no esté disponible. Tendrá que esperar unos segundos para que se complete el proceso de replicación. Publicaremos instrucciones más concretas en la "garantía de coherencia de lectura y escritura" proporcionada por la API Graph de Azure AD y el servicio de directorio en disponibilidad general.
 
-<!---HONumber=Oct15_HO1-->
+Si tiene alguna pregunta o solicitud para las acciones que desea realizar con la API Graph en el inquilino de B2C, ¡somos todo oídos! Deje un comentario sobre el artículo o registre un problema en el repositorio de GitHub de ejemplos de código.
+
+<!---HONumber=Oct15_HO3-->

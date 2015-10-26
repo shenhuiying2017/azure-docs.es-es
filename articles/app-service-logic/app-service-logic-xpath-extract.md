@@ -50,4 +50,4 @@ La acción devuelve la salida como una cadena - resultado. El resultado contiene
 <!-- Links -->
 [Creación de una nueva aplicación lógica]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

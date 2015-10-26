@@ -130,11 +130,10 @@ La función [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php
 		}
 	?>
 	
-## Lecturas adicionales
-
+## Pasos siguientes
 
 Para obtener más información sobre el uso y la instalación de PHP, vea [Acceso a bases de datos de SQL Server con PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

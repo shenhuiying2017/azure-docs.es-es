@@ -259,4 +259,4 @@ Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Bas
 
 [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

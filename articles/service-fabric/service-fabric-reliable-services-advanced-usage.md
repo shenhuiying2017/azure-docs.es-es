@@ -59,4 +59,4 @@ Para obtener temas más avanzados relacionados con Service Fabric, consulte los 
 
 - [Información general de las restricciones de ubicación](service-fabric-placement-constraint.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

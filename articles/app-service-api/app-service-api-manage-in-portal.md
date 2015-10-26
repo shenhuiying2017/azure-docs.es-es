@@ -134,4 +134,4 @@ En este artículo, se muestra cómo usar el portal de Azure para realizar tareas
 
 Para obtener información acerca de cómo administrar aplicaciones de API mediante la línea de comandos, consulte los artículos de la sección **Automatizar** del menú que aparece en el lado izquierdo del artículo (en las ventanas del explorador anchas) o en la parte superior del artículo (en las ventanas del explorador estrechas).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

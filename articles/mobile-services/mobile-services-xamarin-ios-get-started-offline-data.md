@@ -182,4 +182,4 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 [extensión Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

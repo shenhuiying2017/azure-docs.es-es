@@ -111,4 +111,4 @@ Ahora que completó este tutorial, obtenga más información acerca de los Centr
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Procedimientos en los Centros de notificaciones para la Tienda Windows]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

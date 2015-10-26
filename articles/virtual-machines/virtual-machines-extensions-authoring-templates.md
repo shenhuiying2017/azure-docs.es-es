@@ -19,7 +19,8 @@
 
 # Cree plantillas del Administrador de recursos de Azure con extensiones de VM.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+ 
 
 ## Información general de las plantillas del Administrador de recursos de Azure
 
@@ -88,4 +89,4 @@ Consulte lo siguiente en las plantillas de VM para obtener una plantilla totalme
 
 Después de crear la plantilla, puede implementarla con la CLI de Azure o Azure PowerShell.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

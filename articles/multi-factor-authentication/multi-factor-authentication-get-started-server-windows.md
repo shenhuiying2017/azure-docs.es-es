@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Servidor de Autenticación de Windows y Azure Multi-Factor Authentication"
-	description="Se trata de la página Azure Multi-Factor Authentication que ayudará a implementar la Autenticación de Windows y el servidor de Azure Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Servidor de Autenticación de Windows y Azure Multi-Factor Authentication" 
+	description="Se trata de la página Azure Multi-Factor Authentication que ayudará a implementar la Autenticación de Windows y el servidor de Azure Multi-Factor Authentication." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Servidor de Autenticación de Windows y Azure Multi-Factor Authentication
@@ -49,4 +49,4 @@ La sección Autenticación de Windows permite al administrador habilitar y confi
 10. Seleccione Subred si desea especificar un intervalo de direcciones IP mediante la notación de subred. Escriba la dirección IP inicial de la subred y seleccione la máscara de red adecuada de la lista desplegable. 
 11. Haga clic en el botón Aceptar.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -62,4 +62,4 @@ Si desea utilizar un directorio alternativo para el paquete y los archivos de co
 
 Una vez compilado el paquete, puede implementarlo en Azure. Para obtener un tutorial que muestra ese proceso, consulte el sitio web de Azure. Para obtener información sobre cómo automatizar el proceso, consulte [Entrega continua para Servicios en la nube de Azure](../cloud-services/cloud-services-dotnet-continuous-delivery).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

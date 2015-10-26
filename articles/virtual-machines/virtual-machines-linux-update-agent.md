@@ -25,7 +25,8 @@ Para actualizar su [agente Linux de Azure](https://github.com/Azure/WALinuxAgent
 1. Tener una máquina virtual que ejecuta Linux en Azure
 2. Estar conectado a esa máquina virtual de Linux mediante SSH
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se describe la administración de recursos con el modelo de implementación del Administrador de recursos o el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 > [AZURE.NOTE]Si va a realizar esta tarea desde un equipo con Windows, utilice Putty para SSH en el equipo Linux. Para obtener más información, consulte [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md).
 
@@ -125,4 +126,4 @@ Verá que la versión del agente Linux se ha actualizado a la versión nueva.
 
 Para obtener más información sobre el agente Linux de Azure, consulte [archivo Léame del agente Linux de Azure](https://github.com/Azure/WALinuxAgent).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

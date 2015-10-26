@@ -389,4 +389,4 @@ En esta sección, va a crear un nuevo atributo de autorización personalizado qu
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [ADAL para .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

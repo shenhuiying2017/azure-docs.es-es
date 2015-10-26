@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Guía de inicio rápido: API de recomendaciones de Aprendizaje automático | Microsoft Azure"
-	description="Recomendaciones de aprendizaje automática de Azure - Guía de inicio rápido"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="Guía de inicio rápido: API de recomendaciones de Aprendizaje automático | Microsoft Azure" 
+	description="Recomendaciones de aprendizaje automática de Azure - Guía de inicio rápido" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="luisca"/>
 
 # Guía de inicio rápido para la API de recomendaciones de Aprendizaje automático
@@ -673,4 +673,4 @@ XML de OData
 Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso. Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse. Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia. © 2014 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

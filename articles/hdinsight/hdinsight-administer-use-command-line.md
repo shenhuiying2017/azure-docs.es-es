@@ -163,4 +163,4 @@ En este artículo, ha aprendido a realizar diferentes tareas administrativas en 
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Enumeración y visualización de clústeres"
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

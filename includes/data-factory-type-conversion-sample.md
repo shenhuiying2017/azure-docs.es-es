@@ -69,4 +69,4 @@ A continuación definirá el conjunto de datos de SQL de Azure como sigue. Nota:
 
 En este caso la factoría de datos realizará automáticamente las conversiones de tipo, incluido el campo de fecha y hora con el formato personalizado de fecha y hora usando la referencia cultural fr-fr, al mover datos de Blob a SQL deAzure.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

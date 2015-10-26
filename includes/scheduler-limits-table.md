@@ -12,8 +12,8 @@ En la tabla siguiente se describe cada uno de los principales aceleradores, valo
 |**Historial de trabajos**|El tamaño máximo del cuerpo de la respuesta que se almacena en el historial de trabajos es de 2048 bytes.|
 |**Frecuencia**|La cuota máxima de frecuencia predeterminada es de 1 hora en una colección de trabajos gratuita y de 1 minuto en una colección de trabajos estándar. La frecuencia máxima se puede configurar en una colección de trabajos para que sea inferior al máximo. Todos los trabajos de la colección de trabajos se limitan al valor establecido en la colección de trabajos. Si intenta crear un trabajo con una frecuencia mayor que la frecuencia máxima en la colección de trabajos, la solicitud generará un error con un código de estado 409 Conflicto.|
 |**Trabajos**|La cuota máxima de trabajos predeterminada es de 5 trabajos en una colección de trabajos gratuita y de 50 trabajos en una colección de trabajos estándar. El número máximo de trabajos se puede configurar en una colección de trabajos. Todos los trabajos de la colección de trabajos se limitan al valor establecido en la colección de trabajos. Si intenta crear un número de trabajos superior a la cuota máxima de trabajos, la solicitud genera un error con un código de estado 409 Conflicto.|
-|**Retención de historial de trabajos**|El historial de trabajos se conserva durante 2 meses como máximo.|
+|**Retención de historial de trabajos**|El historial de trabajos se conserva hasta 2 meses o hasta las últimas 1000 ejecuciones.|
 |**Retención de trabajos completados y con errores**|Los trabajos completados y con errores se conservan durante 60 días.|
 |**Tiempo de espera**|Hay un tiempo de espera de solicitud estático (no configurable) de 30 segundos para las acciones de HTTP. Para operaciones de ejecución más larga, siga los protocolos HTTP asincrónicos; por ejemplo, devolver inmediatamente un 202 pero continuar trabajando en segundo plano.|
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -28,4 +28,4 @@
 
    De esta manera, se registra un nuevo script de inserción, que almacena la información de registro en la nueva tabla.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

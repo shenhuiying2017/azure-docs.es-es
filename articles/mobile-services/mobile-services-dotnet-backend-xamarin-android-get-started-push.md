@@ -76,4 +76,4 @@ Puede probar la aplicación conectando directamente un teléfono Android con un 
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

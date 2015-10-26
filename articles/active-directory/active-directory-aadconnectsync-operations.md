@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Sincronización de Azure AD Connect: tareas y consideraciones operativas"
+   pageTitle="Sincronización de Azure AD Connect: tareas y consideraciones operativas | Microsoft Azure"
    description="En este tema se describen las tareas operativas para la sincronización de Azure AD Connect y cómo prepararse para el funcionamiento de este componente."
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="msStevenPo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell"/>
 
 # Sincronización de Azure AD Connect: tareas y consideraciones operativas
@@ -28,7 +28,7 @@ Se puede usar el modo provisional para distintos escenarios como:
 
 Con un servidor en modo provisional puede realizar cambios en la configuración y obtener una vista previa de los cambios antes de activar el servidor. También permite ejecutar una importación y sincronización completas para comprobar que se esperan todos los cambios antes de realizarlos en el entorno de producción.
 
-Durante la instalación puede seleccionar que el servidor esté en *modo provisional*. Esto activará el servidor para la importación y sincronización pero no realizará ninguna exportación. Un servidor en modo provisional no ejecutará la sincronización de contraseñas ni habilitará la escritura diferida de contraseñas incluso aunque estas características estén seleccionadas. Cuando se deshabilita el modo provisional, el servidor iniciará la exportación, y habilitará la sincronización de contraseñas y la escritura diferida de contraseñas (si están habilitadas).
+Durante la instalación puede seleccionar que el servidor esté en **modo provisional**. Esto activará el servidor para la importación y sincronización pero no realizará ninguna exportación. Un servidor en modo provisional no ejecutará la sincronización de contraseñas ni habilitará la escritura diferida de contraseñas incluso aunque estas características estén seleccionadas. Cuando se deshabilita el modo provisional, el servidor iniciará la exportación, y habilitará la sincronización de contraseñas y la escritura diferida de contraseñas (si están habilitadas).
 
 Un servidor en modo provisional seguirá recibiendo cambios de Active Directory y Azure AD. Por lo tanto, siempre tendrá una copia de los cambios más recientes y podrá asumir muy rápidamente las responsabilidades de otro servidor. Si realiza cambios de configuración en el servidor principal, es su responsabilidad realizar los mismos cambios en el servidor o servidores en modo provisional.
 
@@ -44,15 +44,15 @@ Para aplicar este método, siga estos pasos:
 
 **Preparación**
 
-1. Instale Azure AD Connect, seleccione el *modo provisional* y anule la selección de *Iniciar la sincronización* en la última página del Asistente para instalación. Esto permitirá ejecutar el motor de sincronización de forma manual.
-2. Cierre/inicie la sesión y en el menú de inicio, seleccione *Servicio de sincronización*.
+1. Instale Azure AD Connect, seleccione el **modo provisional** y anule la selección de **Iniciar la sincronización** en la última página del Asistente para instalación. Esto permitirá ejecutar el motor de sincronización de forma manual.
+2. Cierre/inicie la sesión y en el menú de inicio, seleccione **Servicio de sincronización**.
 
 **Importación y sincronización**
 
-1. Seleccione *Conectores* y elija el primer conector de tipo *Servicios de dominio de Active Directory*. Haga clic en *Ejecutar*, seleccione *Importación completa* y *Aceptar*. Haga esto para todos los conectores de este tipo.
-2. Seleccione el conector de tipo *Azure Active Directory (Microsoft)*. Haga clic en *Ejecutar*, seleccione *Importación completa* y *Aceptar*.
-4. Asegúrese de que Conectores sigue aún seleccionado y para cada conector de tipo *Servicios de dominio de Active Directory*, haga clic en *Ejecutar*, seleccione *Sincronización diferencial* y *Aceptar*.
-5. Seleccione el conector de tipo *Azure Active Directory (Microsoft)*. Haga clic en *Ejecutar*, seleccione *Sincronización diferencial* y, a continuación, Aceptar.
+1. Seleccione **Conectores** y elija el primer conector de tipo **Servicios de dominio de Active Directory**. Haga clic en **Ejecutar**, seleccione **Importación completa** y **Aceptar**. Haga esto para todos los conectores de este tipo.
+2. Seleccione el conector de tipo **Azure Active Directory (Microsoft)**. Haga clic en **Ejecutar**, seleccione **Importación completa** y **Aceptar**.
+4. Asegúrese de que Conectores sigue aún seleccionado y para cada conector de tipo **Servicios de dominio de Active Directory**, haga clic en **Ejecutar**, seleccione **Sincronización diferencial** y **Aceptar**.
+5. Seleccione el conector de tipo **Azure Active Directory (Microsoft)**. Haga clic en **Ejecutar**, seleccione **Sincronización diferencial** y, a continuación, Aceptar.
 
 Ahora ha almacenado provisionalmente los cambios de exportación en Azure AD y AD local (si está usando la implementación híbrida de Exchange). Los siguientes pasos le permitirán inspeccionar lo que está a punto de cambiar antes de que comience realmente la exportación a los directorios.
 
@@ -88,7 +88,7 @@ Parte del diseño de implementación es planear qué hacer en caso de que se pro
 En función de las respuestas a estas preguntas y de la directiva de su organización, puede implementar una de las estrategias siguientes:
 
 -	Recompilación si es necesario.
--	Servidor en espera de reserva, conocido como *modo provisional*.
+-	Servidor en espera de reserva, conocido como **modo provisional**.
 -	Uso de máquinas virtuales.
 
 Como la sincronización de Azure AD Connect tiene una dependencia en una base de datos SQL, debe revisar también la sección Alta disponibilidad de SQL si no usa SQL Express, que se incluye con Azure AD Connect.
@@ -99,7 +99,7 @@ Una estrategia viable es planear una recompilación del servidor si es necesario
 El servidor del motor de sincronización no almacena ningún estado acerca de los objetos, por lo que se puede recompilar la base de datos a partir de los datos de Active Directory y Azure AD. El atributo **sourceAnchor** se usa para unir los objetos de local y de la nube. Si recompila el servidor con objetos existentes locales y de la nube, el motor de sincronización los hará coincidir de nuevo en la reinstalación. Las acciones que necesita documentar y guardar son los cambios de configuración realizados en el servidor, como reglas de filtrado y de sincronización. Se deben aplicar de nuevo éstas antes de iniciar la sincronización.
 
 ### Servidor en espera de reserva - modo provisional
-Si tiene un entorno más complejo, se recomienda tener uno o más servidores en espera. Durante la instalación puede habilitar un servidor que esté en *modo provisional*.
+Si tiene un entorno más complejo, se recomienda tener uno o más servidores en espera. Durante la instalación puede habilitar un servidor que esté en **modo provisional**.
 
 Para obtener información adicional, consulte [Modo provisional](#staging-mode).
 
@@ -110,6 +110,8 @@ Un método común y admitido es ejecutar el motor de sincronización en una máq
 Si no se usa SQL Server Express que se incluye con Azure AD Connect, también se debe tener en cuenta la alta disponibilidad para SQL Server. La única solución de alta disponibilidad admitida son clústeres de SQL. Entre las soluciones no admitidas se incluyen creación de reflejos y siempre visible.
 
 ## Pasos siguientes
-Para obtener más información sobre la configuración de la sincronización de Azure AD Connect, consulte [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+Obtenga más información sobre la configuración de [sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-<!---HONumber=Sept15_HO2-->
+Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
+
+<!---HONumber=Oct15_HO3-->

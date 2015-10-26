@@ -19,7 +19,8 @@
 
 # Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+ 
 
 En este tema se muestran los pasos para crear un entorno de nube híbrida para probar una granja de SharePoint de intranet hospedada en Microsoft Azure. Aquí está la configuración resultante.
 
@@ -186,7 +187,7 @@ A continuación, configure SP1 para una nueva granja de SharePoint y un sitio de
 14.	En la página Creación de colección de sitios, en **Título y descripción**, escriba **Contoso Corporation** en **Título**, especifique la dirección URL ****http://sp1**/ y, a continuación, haga clic en **Aceptar**. La página Realizando la operación puede mostrarse durante un tiempo antes de que finalice. En este paso se crea un sitio de equipo en la dirección URL http://sp1.
 15.	En la página Esto completa el Asistente de configuración de granja, haga clic en **Finalizar**. La pestaña de Internet Explorer muestra el sitio de Administración central de SharePoint 2013.
 16.	Inicie sesión en el equipo CLIENT1 con las credenciales de la cuenta de CORP\\User1 y, a continuación, inicie Internet Explorer.
-17.	En la barra de direcciones, escriba ****http://sp1/** y, a continuación, presione ENTRAR. Debería ver el sitio del equipo de SharePoint de Contoso Corporation. El sitio puede tardar un rato en mostrarse.
+17.	En la barra de direcciones, escriba **http://sp1/** y, a continuación, presione ENTRAR. Debería ver el sitio del equipo de SharePoint de Contoso Corporation. El sitio puede tardar un rato en mostrarse. 
 
 Se trata de la configuración actual.
 
@@ -213,4 +214,4 @@ Su granja de intranet de SharePoint en un entorno de nube híbrida ya está list
 [Instrucciones de implementación de los servicios de infraestructura de Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

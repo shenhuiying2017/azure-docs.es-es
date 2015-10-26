@@ -160,4 +160,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

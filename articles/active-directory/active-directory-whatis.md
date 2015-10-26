@@ -104,4 +104,4 @@ Tenemos una gran cantidad de excelentes recursos en línea para ayudarle a apren
 
 - [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

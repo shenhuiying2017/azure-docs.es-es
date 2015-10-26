@@ -47,8 +47,8 @@ Para poder almacenar datos de aplicaciones en el nuevo servicio móvil, primero 
 
   	Este es el requisito mínimo para una tabla en Servicios móviles.
 
-    > [AZURE.NOTE] Cuando está habilitado el esquema dinámico en su servicio móvil, se crean columnas automáticamente cuando se envían objetos JSON al servicio móvil mediante una operación de inserción o de actualización.
+    > [AZURE.NOTE]Cuando está habilitado el esquema dinámico en su servicio móvil, se crean columnas automáticamente cuando se envían objetos JSON al servicio móvil mediante una operación de inserción o de actualización.
 
 Ahora ya está listo para utilizar el nuevo servicio móvil como almacenamiento de datos para la aplicación.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

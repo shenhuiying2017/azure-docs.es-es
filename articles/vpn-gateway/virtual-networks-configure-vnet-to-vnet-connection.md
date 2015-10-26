@@ -1,20 +1,20 @@
 <properties
    pageTitle="Configuración de una conexión de red virtual a red virtual | Microsoft Azure"
-	description="Cómo conectar redes virtuales de Azure simultáneamente en las mismas o en diferentes suscripciones o regiones."
-	services="vpn-gateway"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   description="Cómo conectar redes virtuales de Azure simultáneamente en las mismas o en diferentes suscripciones o regiones."
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""/>
 
 <tags
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/20/2015"
+   ms.author="cherylmc"/>
 
 
 # Configuración de una conexión de red virtual a red virtual en el Portal de Azure
@@ -232,4 +232,4 @@ Para obtener más información acerca del esquema de configuración, consulte [E
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

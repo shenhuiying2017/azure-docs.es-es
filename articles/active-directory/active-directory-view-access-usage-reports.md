@@ -222,7 +222,7 @@ Solo determinados tipos de eventos de inicio de sesión aparecerán en el inform
 | Inicios de sesión en una aplicación empresarial personalizada que se ha agregado al directorio | No (próximamente) |
 | Inicios de sesión en una aplicación de Proxy de aplicación de Azure AD que se ha agregado al directorio | No (próximamente) |
 
-> Nota: para reducir la cantidad de ruido en este informe, no se muestran los inicios de sesión del [Asistente para el inicio de sesión de Microsoft Online Services](http://community.office365.com/es-es/w/sso/534.aspx).
+> Nota: para reducir la cantidad de ruido en este informe, no se muestran los inicios de sesión del [Asistente para el inicio de sesión de Microsoft Online Services](http://community.office365.com/es-ES/w/sso/534.aspx).
 
 
 
@@ -271,4 +271,4 @@ Para obtener más información sobre las notificaciones de informes de Azure AD,
 - [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->
