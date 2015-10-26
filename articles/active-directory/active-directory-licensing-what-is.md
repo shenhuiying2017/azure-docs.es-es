@@ -132,4 +132,4 @@ Ahora ya está preparado para configurar y usar algunas características de Azur
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [Compra directa de licencias de Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

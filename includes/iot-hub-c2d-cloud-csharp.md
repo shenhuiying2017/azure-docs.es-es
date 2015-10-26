@@ -8,7 +8,7 @@ En esta sección, escribirá una aplicación de consola de Windows que envía me
 
 2. En el Explorador de soluciones, haga clic con el botón derecho en la solución y luego haga clic en **Administrar paquetes de NuGet para la solución...**.
 
-	De este modo aparece la ventana Administrar paquetes de NuGet.
+	Se muestra la ventana Administrar paquetes de NuGet.
 
 3. Busque `Microsoft Azure Devices`, haga clic en **Instalar** y acepte las condiciones de uso.
 
@@ -102,4 +102,4 @@ En esta sección, modificará la aplicación **SendCloudToDevice** para solicita
 [21]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
 [22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d2.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

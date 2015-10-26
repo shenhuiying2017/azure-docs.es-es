@@ -55,4 +55,4 @@ Esto es lo que tienes que habilitar en la subred de red virtual:
 
 Ahora, la [Tunelización forzada](vpn-gateway-about-forced-tunneling.md) es compatible con todas las colecciones nuevas de Azure RemoteApp. Actualmente no se admite que la migración de una colección existente admita la tunelización forzada. Tendrás que eliminar todas las colecciones existentes mediante la VNET que quieres vincular a Azure RemoteApp y crear una nueva para tener habilitada la tunelización forzada en las colecciones.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

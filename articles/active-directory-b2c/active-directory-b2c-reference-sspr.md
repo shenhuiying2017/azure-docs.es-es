@@ -36,4 +36,4 @@ Para probar, use la característica "Ejecutar ahora" en cualquier directiva de i
 
 > [AZURE.NOTE]Las páginas de autoservicio de restablecimiento de contraseña se pueden personalizar con la [característica de personalización de marca de la empresa](active-directory-add-company-branding.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

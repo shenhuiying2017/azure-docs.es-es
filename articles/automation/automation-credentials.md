@@ -103,4 +103,4 @@ La imagen siguiente muestra un ejemplo de cómo usar una credencial en un runboo
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

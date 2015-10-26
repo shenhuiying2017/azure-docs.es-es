@@ -148,4 +148,4 @@ Siga estos pasos para comprobar si la implementación de la extensión se realiz
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

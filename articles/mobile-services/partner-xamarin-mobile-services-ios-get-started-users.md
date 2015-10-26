@@ -150,4 +150,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], tomará el va
 [proyecto de ejemplo completado]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

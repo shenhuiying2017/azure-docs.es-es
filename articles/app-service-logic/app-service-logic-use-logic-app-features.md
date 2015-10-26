@@ -143,4 +143,4 @@ Para iniciar la aplicación lógica a petición, haga clic en el botón **Ejecut
 [Creación de una nueva aplicación lógica]: app-service-logic-create-a-logic-app.md
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -200,4 +200,4 @@ Cuando esté listo para detener la topología, vuelva al proyecto **CorrelationT
 Para obtener más ejemplos de Storm, vea [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

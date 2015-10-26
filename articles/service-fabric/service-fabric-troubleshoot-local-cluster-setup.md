@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Solución de problemas de instalación del clúster local"
+   pageTitle="Solucionar problemas de instalación del clúster local de Service Fabric | Microsoft Azure"
    description="En este artículo se trata de un conjunto de sugerencias para solucionar problemas de su clúster de desarrollo local"
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="timlt"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="10/13/2015"
    ms.author="seanmck"/>
 
 # Solución de problemas de instalación del clúster de desarrollo local
@@ -86,4 +86,4 @@ Asegúrese de que no tenga ningún proyecto de servicio establecido como proyect
 - [Comprensión y solución de problemas de clústeres con informes de mantenimiento del sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

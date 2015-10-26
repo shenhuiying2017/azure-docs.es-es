@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Modelado de datos en Azure DocumentDB | Microsoft Azure"
-	description="Aprenda a modelar datos para una base de datos de documentos NoSQL como Azure DocumentDB"
-	services="documentdb"
-	authors="ryancrawcour"
-	manager="jhubbard"
-	editor="mimig1"
+	pageTitle="Modelado de datos en Azure DocumentDB | Microsoft Azure" 
+	description="Aprenda a modelar datos para una base de datos de documentos NoSQL como Azure DocumentDB" 
+	services="documentdb" 
+	authors="ryancrawcour" 
+	manager="jhubbard" 
+	editor="mimig1" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="ryancraw"/>
 
 #Modelado de datos en DocumentDB#
@@ -392,4 +392,4 @@ Para comprender cómo particionar los datos en varias particiones, consulte [Par
 Y por último, para obtener información sobre el particionamiento y el modelado de datos para aplicaciones de varios inquilinos, consulte [Escalación de una aplicación de varios inquilinos con Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

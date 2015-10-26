@@ -208,4 +208,4 @@ Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la
 	![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

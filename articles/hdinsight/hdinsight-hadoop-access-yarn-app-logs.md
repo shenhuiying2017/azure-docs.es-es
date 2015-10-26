@@ -174,4 +174,4 @@ Si es necesario, también puede descargar los registros para cada contenedor (o 
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

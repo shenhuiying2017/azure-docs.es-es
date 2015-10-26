@@ -109,4 +109,4 @@ Para obtener más información acerca de la recuperación ante desastres, consul
   [Continuidad de negocio de Base de datos SQL de Azure]: https://msdn.microsoft.com/library/azure/hh852669.aspx
   [Orientación técnica de la continuidad del negocio de Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

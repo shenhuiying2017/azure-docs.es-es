@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Redes conocidas"
-	description="Mediante la configuración de redes conocidas, puede evitar que direcciones IP que son propiedad de su organización estén incluidas en los informes ";Inicios de sesión desde varias ubicaciones geográficas"; e ";Inicios de sesión desde direcciones IP con actividad sospechosa";."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="msStevenPo"
+	pageTitle="Redes conocidas" 
+	description="Mediante la configuración de redes conocidas, puede evitar que direcciones IP que son propiedad de su organización estén incluidas en los informes ";Inicios de sesión desde varias ubicaciones geográficas"; e ";Inicios de sesión desde direcciones IP con actividad sospechosa";." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="markusvi" 
+	manager="msStevenPo"  
 	editor=""/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/03/2015" 
 	ms.author="markvi"/>
 
 # Redes conocidas
@@ -56,4 +56,4 @@ Para evitar estos casos de generación de informes de seguridad engañosos, debe
 * [Inicios de sesión desde direcciones IP con actividad sospechosa](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [Inicios de sesión desde varias ubicaciones geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

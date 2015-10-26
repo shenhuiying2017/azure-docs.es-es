@@ -46,9 +46,9 @@ Para conectarse a Base de datos SQL, debe saber el nombre del servidor de Azure.
 
 2.  Haga clic en **Configurar** en la parte superior de la página.
 
-3.  Copie la dirección IP en CURRENT CLIENT IP ADDRESS.
+3.  Copie la dirección IP en DIRECCIÓN IP DEL CLIENTE ACTUAL.
 
-4.  En la página Configurar, la sección **Direcciones IP permitidas** incluye tres cuadros donde puede especificar un nombre de regla y un intervalo de direcciones IP como valores iniciales y finales. Para un nombre de regla, puede escribir el nombre del PC. Para el intervalo inicial y final, pegue la dirección IP del PC en ambos cuadros y, a continuación, haga clic en la casilla que aparece.
+4.  En la página Configurar, la sección **Direcciones IP permitidas** incluye tres cuadros donde puede especificar un nombre de regla y un intervalo de direcciones IP como valores iniciales y finales. Para un nombre de regla, puede escribir el nombre de su PC. Para el intervalo inicial y final, pegue la dirección IP de su PC en ambos cuadros y, a continuación, haga clic en la casilla que aparece.
 
 	El nombre de regla debe ser exclusivo. Si se trata de un equipo de desarrollo, puede escribir la dirección IP en el cuadro de inicio de intervalo de IP y en el cuadro de final de intervalo de IP. De lo contrario, puede que tenga que escribir un intervalo más amplio de direcciones IP para tener en cuenta conexiones de equipos adicionales de la organización.
  
@@ -86,7 +86,7 @@ Para abrir una ventana de consulta en Management Studio, abra la carpeta Bases d
 
 Haga clic en **Ejecutar** para ejecutar la consulta.
 
--   Use la instrucción **ALTER DATABASE** para modificar una base de datos existente, por ejemplo, si desea cambiar el nombre y la edición de la base de datos. Para obtener más información, consulte [ALTER DATABASE (Base de datos SQL)](https://msdn.microsoft.com/library/ms174269.aspx). La instrucción siguiente modifica la base de datos creada en el paso anterior para cambiar para cambiar a la edición Standard S1.
+-   Use la instrucción **ALTER DATABASE** para modificar una base de datos existente, por ejemplo, si desea cambiar el nombre y la edición de la base de datos. Para obtener más información, consulte [ALTER DATABASE (Base de datos SQL)](https://msdn.microsoft.com/library/ms174269.aspx). La instrucción siguiente modifica la base de datos creada en el paso anterior para cambiar a la edición Standard S1.
 
         ALTER DATABASE myTestDB
         MODIFY
@@ -173,7 +173,7 @@ Base de datos SQL admite varias vistas de administración dinámica que puede us
             INNER JOIN sys.dm_exec_connections e
               ON s.session_id = e.session_id;
 
--   Use la vista **sys.dm\_exec\_query\_stats** para recuperar estadísticas de agregado acerca del rendimiento para los planes de consulta en caché. La siguiente consulta devuelve información acerca de las cinco consultas principales clasificadas en función del tiempo promedio de CPU.
+-   Use la vista **sys.dm\_exec\_query\_stats** para recuperar estadísticas de agregado acerca del rendimiento para los planes de consulta en caché. La siguiente consulta devuelve información acerca de las cinco consultas principales clasificadas en función del tiempo de CPU promedio.
 
         SELECT TOP 5 query_stats.query_hash AS "Query Hash",
             SUM(query_stats.total_worker_time), SUM(query_stats.execution_count) AS "Avg CPU Time",
@@ -192,4 +192,4 @@ Base de datos SQL admite varias vistas de administración dinámica que puede us
  
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

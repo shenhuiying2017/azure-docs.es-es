@@ -168,4 +168,4 @@ En el ejemplo siguiente se inicia un runbook y, a continuación, se espera a que
 - [Realizar el seguimiento de un trabajo de runbook](automation-runbook-execution.md)
 - [Runbooks secundarios](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

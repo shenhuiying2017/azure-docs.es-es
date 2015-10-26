@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Compilación de una aplicación de HBase con Maven | Microsoft Azure"
+	pageTitle="Crear una aplicación de HBase con Maven y Java, y luego implementar en HDInsight basado en Linux | Microsoft Azure"
 	description="Aprenda a usar Apache Maven para compilar una aplicación de Apache HBase basada en Java e implementarla después en HDInsight basado en Linux en la nube de Azure."
 	services="hdinsight"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 #Uso de Maven para crear aplicaciones Java que utilicen HBase con HDInsight (Hadoop)
@@ -361,4 +361,4 @@ Cuando haya terminado con el ejemplo, use el siguiente comando desde la sesión 
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

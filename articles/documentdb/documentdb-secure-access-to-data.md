@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Aprenda a proteger el acceso a datos en DocumentDB | Microsoft Azure"
-	description="Obtenga información sobre los conceptos de control de acceso en DocumentDB, incluidas las claves maestras, las claves de solo lectura, los usuarios y los permisos."
-	services="documentdb"
-	authors="stephbaron"
-	manager="jhubbard"
-	editor="monicar"
+	pageTitle="Aprenda a proteger el acceso a datos en DocumentDB | Microsoft Azure" 
+	description="Obtenga información sobre los conceptos de control de acceso en DocumentDB, incluidas las claves maestras, las claves de solo lectura, los usuarios y los permisos." 
+	services="documentdb" 
+	authors="stephbaron" 
+	manager="jhubbard" 
+	editor="monicar" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="stbaro"/>
 
 # Protección del acceso a los datos de DocumentDB #
@@ -163,4 +163,4 @@ Para poder obtener fácilmente todos los recursos de permiso asociados a un usua
 - Para obtener más información acerca de cómo construir tokens de autorización de DocumentDB, haga clic [aquí](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

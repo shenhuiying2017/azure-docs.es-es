@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Escenarios y diseño de aplicación con Service Fabric"
-	description="Categorías de aplicaciones. Diseño de la aplicación mediante servicios con estado y sin estado"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="msfussell"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Escenarios y diseño de aplicación con Service Fabric" 
+   description="Categorías de aplicaciones. Diseño de la aplicación mediante servicios con estado y sin estado" 
+   services="service-fabric" 
+   documentationCenter=".net" 
+   authors="msfussell" 
+   manager="timlt" 
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/21/2015"
-	ms.author="mfussell"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA" 
+   ms.date="08/21/2015"
+   ms.author="mfussell"/>
 
 # Escenarios de aplicación de Service Fabric
 
@@ -68,4 +68,4 @@ Vea también los siguientes temas:
  
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

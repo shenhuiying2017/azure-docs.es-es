@@ -13,10 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/09/2015" 
 	ms.author="spelluru"/>
 
 # Notas de la versión de la factoría de datos Azure
+Consulte el artículo [Factoría de datos - registro de cambios de la API de .NET](data-factory-api-change-log.md) para obtener información sobre los cambios en el SDK de .NET de la factoría de datos en una versión específica.
 
 ## Notas para la versión de 07/17/2015 de la Factoría de datos
 Se incorporan los siguientes cambios en JSON en la versión de julio de 2015 de Azure PowerShell .
@@ -81,7 +82,7 @@ El nuevo elemento **typeProperties** contiene propiedades específicas del tipo 
 
 Tenga en cuenta lo siguiente:
 
-- La propiedad **type** es subirá un nivel y se establece en **AzureStorage** (se cambia de **AzureStorageLinkedService** a **AzureStorage**) 
+- La propiedad **type** se mueve un nivel y se establece en **AzureStorage** (se cambia de **AzureStorageLinkedService** a **AzureStorage**). 
 - Nuevo elemento **typeProperties** que contiene las propiedades admitidas por el servicio vinculado de Almacenamiento de Azure (**connectionString** en este ejemplo).  
 
 ### Conjunto de datos JSON antiguo
@@ -353,4 +354,4 @@ Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevo
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

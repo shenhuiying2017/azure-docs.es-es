@@ -224,4 +224,4 @@ Para que este ejemplo de código funcione, primero debe tener o crear un procedi
 
 Para obtener más información, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

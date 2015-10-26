@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="09/28/2015"
+	ms.date="10/13/2015"
 	ms.author="brohrer;garye" />
 
 # Cómo elegir algoritmos para Aprendizaje automático de Microsoft Azure
@@ -37,6 +37,8 @@ Lea las etiquetas de ruta de acceso y algoritmo del gráfico con el siguiente fo
 
 Este es un ejemplo de la [Galería de análisis de Cortana](http://gallery.azureml.net/) de un experimento en el que se prueban varios algoritmos con los mismos datos y se comparan los resultados: [Comparación de clasificadores multiclase: reconocimiento de letras](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
 
+>[AZURE.TIP]Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, vea [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
+
 ## Variantes del aprendizaje automático
 
 ### Supervisado
@@ -45,7 +47,7 @@ Los algoritmos de aprendizaje supervisado hacen predicciones basadas en un conju
 
 Este es un tipo conocido y útil del aprendizaje automático. Con una única excepción: todos los módulos de Aprendizaje automático de Azure son algoritmos de aprendizaje supervisado. Hay varios tipos específicos de aprendizaje supervisado representados en Aprendizaje automático de Azure: la clasificación, la regresión y la detección de anomalías.
 
-* **Clasificación**. Cuando los datos se usan para predecir una categoría, el aprendizaje supervisado también se denomina clasificación. Esto ocurre cuando se asigna una imagen, como una foto de un 'gato' o un 'perro'. Cuando hay solo dos opciones, esto se denomina **clasificación de dos clases** o **binomial**. Cuando hay más categorías, como cuando se predice el ganador del torneo March Madness de la NCAA, este problema se conoce como **clasificación multiclase**.
+* **Clasificación**. Cuando los datos se usan para predecir una categoría, el aprendizaje supervisado también se denomina clasificación. Esto ocurre cuando se asigna una imagen, como una foto de un 'gato' o un 'perro'. Cuando hay solo dos opciones, esto se denomina clasificación **de dos clases** o **binomial**. Cuando hay más categorías, como cuando se predice el ganador del torneo March Madness de la NCAA, este problema se conoce como **clasificación multiclase**.
 
 * **Regresión**. Cuando se predice un valor, como el precio de las acciones, el aprendizaje supervisado se denomina regresión.
 
@@ -63,7 +65,7 @@ En el aprendizaje de refuerzo, el algoritmo elige una acción en respuesta a cad
 
 ### Precisión
 
-No siempre es necesario obtener la respuesta más precisa posible. A veces, una aproximación ya es útil, según para qué se la desee usar. Si es así, puede reducir el tiempo de procesamiento de forma considerable al usar métodos más aproximados. Otra ventaja de los métodos más aproximados es que naturalmente tienden a evitar el [sobreajuste](https://youtu.be/DQWI1kvmwRg).
+No siempre es necesario obtener la respuesta más precisa posible. A veces, una aproximación ya es útil, según para qué se la desee usar. Si es así, puede reducir el tiempo de procesamiento de forma considerable al usar métodos más aproximados. Otra ventaja de los métodos más aproximados es que tienden naturalmente a evitar el [sobreajuste](https://youtu.be/DQWI1kvmwRg).
 
 ### Tiempo de entrenamiento
 
@@ -75,11 +77,11 @@ Muchos algoritmos de aprendizaje automático hacen uso de la linealidad. Los alg
 
 ![Límite de clase no lineal][1]
 
-***Límite de clase no lineal:**** depender de un algoritmo de clasificación lineal haría que la precisión fuera baja.*
+***Límite de clase no lineal****: la dependencia de un algoritmo de clasificación lineal se traduciría en baja precisión*.
 
 ![Datos con tendencia no lineal][2]
 
-***Datos con una tendencia no lineal:**** el uso de un método de regresión lineal generaría errores mucho mayores que los necesarios.*
+***Datos con tendencia no lineal****: el uso de un método de regresión lineal generaría errores mucho mayores que los necesarios*.
 
 A pesar de los riesgos, los algoritmos lineales son muy populares como primera línea de ataque. Tienden a ser algorítmicamente sencillos y rápidos para entrenar.
 
@@ -87,7 +89,7 @@ A pesar de los riesgos, los algoritmos lineales son muy populares como primera l
 
 Los parámetros son los botones que un científico de datos activa al configurar un algoritmo. Son números que afectan al comportamiento del algoritmo, como la tolerancia a errores o la cantidad de iteraciones, o bien opciones de variantes de comportamiento del algoritmo. El tiempo de entrenamiento y la precisión del algoritmo a veces pueden ser muy sensibles y requerir solo la configuración correcta. Normalmente, los algoritmos con parámetros de números grandes requieren la mayor cantidad de pruebas y errores posible para encontrar una buena combinación.
 
-También puede haber un bloque de módulos de [barrido de parámetros](machine-learning-algorithm-parameters-optimize.md) en Aprendizaje automático de Azure que intenta automáticamente todas las combinaciones de parámetros en cualquier granularidad que se elija. Aunque esta es una excelente manera de asegurarse de que se ha distribuido el espacio de parámetros, el tiempo necesario para entrenar un modelo aumenta de manera exponencial con la cantidad de parámetros.
+También puede haber un bloque de módulos de [barrido de parámetros](machine-learning-algorithm-parameters-optimize.md) en Aprendizaje automático de Azure que prueba automáticamente todas las combinaciones de parámetros en cualquier granularidad que se elija. Aunque esta es una excelente manera de asegurarse de que se ha distribuido el espacio de parámetros, el tiempo necesario para entrenar un modelo aumenta de manera exponencial con la cantidad de parámetros.
 
 La ventaja es que tener muchos parámetros normalmente indica que un algoritmo tiene mayor flexibilidad. A menudo, puede lograr una precisión muy alta. Siempre y cuando se encuentre la combinación correcta de configuraciones de parámetros.
 
@@ -137,15 +139,15 @@ Como se mencionó anteriormente, la [regresión lineal](https://msdn.microsoft.c
 
 ### Regresión logística
 
-Aunque confunda la palabra «regresión» en el nombre, la regresión logística es en realidad una herramienta eficaz para la clasificación [de dos clases](https://msdn.microsoft.com/library/azure/dn905994.aspx) y [multiclase](https://msdn.microsoft.com/library/azure/dn905853.aspx). Es rápida y sencilla. El hecho de que use una curva con forma de S en lugar de una línea recta la hace ideal para dividir los datos en grupos. La regresión logística proporciona límites de clase lineal. Por lo tanto, cuando la use, asegúrese de que la aproximación lineal le es útil.
+Aunque la inclusión de la palabra «regresión» en el nombre se preste a confusión, la regresión logística es en realidad una herramienta eficaz para la clasificación [de dos clases](https://msdn.microsoft.com/library/azure/dn905994.aspx) y [multiclase](https://msdn.microsoft.com/library/azure/dn905853.aspx). Es rápida y sencilla. El hecho de que use una curva con forma de S en lugar de una línea recta la hace ideal para dividir los datos en grupos. La regresión logística proporciona límites de clase lineal. Por lo tanto, cuando la use, asegúrese de que la aproximación lineal le es útil.
 
 ![Regresión logística a datos de dos clases con una sola característica][4]
 
-***Regresión logística a datos de dos clases con una única característica****: el límite de clase es el punto en el que la curva logística tiene la misma distancia hacia ambas clases*
+***Regresión logística a datos de dos clases con una sola característica****: el límite de clase es el punto en el que la curva logística tiene la misma distancia hacia ambas clases*
 
 ### Árboles, bosques y selvas
 
-Los bosques de decisión ([regresión](https://msdn.microsoft.com/library/azure/dn905862.aspx), [dos clases](https://msdn.microsoft.com/library/azure/dn906008.aspx) y [multiclase](https://msdn.microsoft.com/library/azure/dn906015.aspx)), las selvas de decisión ([dos clases](https://msdn.microsoft.com/library/azure/dn905976.aspx) y [multiclase](https://msdn.microsoft.com/library/azure/dn905963.aspx)) y los árboles de decisión impulsados ([regresión](https://msdn.microsoft.com/library/azure/dn905801.aspx) y [dos clases](https://msdn.microsoft.com/library/azure/dn906025.aspx)) se basan en árboles de decisión, un concepto fundamental del aprendizaje automático. Hay muchas variantes de árboles de decisión, pero todas ellas hacen lo mismo: subdividir el espacio de características en regiones con casi siempre la misma etiqueta. Estas pueden ser regiones de la misma categoría o de un valor constante, según si se está realizando una clasificación o una regresión.
+Los bosques de decisión ([regresión](https://msdn.microsoft.com/library/azure/dn905862.aspx), [dos clases](https://msdn.microsoft.com/library/azure/dn906008.aspx) y [multiclase](https://msdn.microsoft.com/library/azure/dn906015.aspx)), las selvas de decisión ([dos clases](https://msdn.microsoft.com/library/azure/dn905976.aspx) y [multiclase](https://msdn.microsoft.com/library/azure/dn905963.aspx)) y los árboles de decisión impulsados ([regresión](https://msdn.microsoft.com/library/azure/dn905801.aspx) y [dos clases](https://msdn.microsoft.com/library/azure/dn906025.aspx)) se basan todos en árboles de decisión, un concepto fundamental del aprendizaje automático. Hay muchas variantes de árboles de decisión, pero todas ellas hacen lo mismo: subdividir el espacio de características en regiones con casi siempre la misma etiqueta. Estas pueden ser regiones de la misma categoría o de un valor constante, según si se está realizando una clasificación o una regresión.
 
 ![El árbol de decisión subdivide un espacio de características][5]
 
@@ -184,7 +186,7 @@ Mediante una extensión inteligente de SVM no lineales, la [SVM de una clase](ht
 
 ### Métodos bayesianos
 
-Los métodos bayesianos tienen una calidad muy deseable: evitan el sobreajuste. Para ello, hacen algunas suposiciones anticipadas sobre la posible distribución de la respuesta. Otra característica de este enfoque es que tienen muy pocos parámetros. El Aprendizaje automático de Azure tiene dos algoritmos bayesianos tanto para la clasificación ([automática de puntos de Bayes de dos clases](https://msdn.microsoft.com/library/azure/dn905930.aspx)) como para la regresión ([regresión de bayesiana lineal](https://msdn.microsoft.com/library/azure/dn906022.aspx)). Tenga en cuenta que se asume que los datos se pueden dividir o encajan en una línea recta.
+Los métodos bayesianos tienen una calidad muy deseable: evitan el sobreajuste. Para ello, hacen algunas suposiciones anticipadas sobre la posible distribución de la respuesta. Otra característica de este enfoque es que tienen muy pocos parámetros. El Aprendizaje automático de Azure tiene dos algoritmos bayesianos tanto para la clasificación ([automática de puntos de Bayes de dos clases](https://msdn.microsoft.com/library/azure/dn905930.aspx)) como para la regresión ([regresión lineal bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx)). Tenga en cuenta que se asume que los datos se pueden dividir o encajan en una línea recta.
 
 En una nota histórica, se desarrollaron las máquinas de puntos de Bayes en Microsoft Research. Presentan un trabajo teórico excepcional. Al alumno interesado se lo dirige al [artículo original de JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) y a un [blog revelador de Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
@@ -198,7 +200,7 @@ Si tiene un objetivo muy específico, puede que sea su día de suerte. Dentro de
 
 ![Conjunto de datos agrupados mediante K-Means][9]
 
-***Un conjunto de datos se agrupa en 5 clústeres mediante K-Means***
+***Un conjunto de datos se agrupa en cinco clústeres mediante K-Means***
 
 También hay un [clasificador multiclase uno contra todos](https://msdn.microsoft.com/library/azure/dn905887.aspx) que divide el problema de clasificación de clase N en problemas de clasificación de dos clases N-1. La precisión, el tiempo de entrenamiento y las propiedades de linealidad se determinan con los clasificadores de dos clases que se usan.
 
@@ -222,4 +224,4 @@ Aprendizaje automático de Azure también incluye acceso a un marco de aprendiza
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

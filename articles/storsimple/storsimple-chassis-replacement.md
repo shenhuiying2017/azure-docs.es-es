@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Reemplazar el chasis en un dispositivo StorSimple | Microsoft Azure"
-	description="Describe cómo quitar y reemplazar el chasis en su dispositivo StorSimple"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Describe cómo quitar y reemplazar el chasis en su dispositivo StorSimple"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # Reemplazar el chasis en el dispositivo StorSimple
 
@@ -63,4 +63,4 @@ Realice los pasos siguientes para instalar el chasis en un dispositivo StorSimpl
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

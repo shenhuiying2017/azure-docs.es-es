@@ -62,4 +62,4 @@ Este subsistema ofrece mensajería confiable en la detección de clústeres y se
 La capacidad de prueba es un conjunto de herramientas diseñadas de manera específica para probar los servicios de pruebas basados en Service Fabric. Las herramientas permiten al desarrollador inducir con facilidad errores significativos y ejecutar escenarios de prueba para ejercer y validar los numerosos estados y transiciones diferentes que experimentará un servicio a lo largo de su duración, todo ello de forma segura y controlada. La capacidad de prueba también ofrece un mecanismo para ejecutar pruebas de ejecución prolongada que pueden iterar a través de varios errores posibles sin perder la disponibilidad al proporcionar a los usuarios un entorno de prueba en producción.
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -45,4 +45,4 @@ Puede calcular aproximadamente el número de discos muy usados admitidos por una
 - **ZRS**: almacenamiento con redundancia de zona. Disponible solo para blobs en bloques. 
 - **LRS**: almacenamiento con redundancia local. 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

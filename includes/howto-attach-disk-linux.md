@@ -92,4 +92,4 @@ El acoplamiento de un disco existente requiere que disponga de un .vhd disponibl
 
 > [AZURE.NOTE]Después de conectar un disco de datos, tendrá que iniciar sesión en la máquina virtual e inicializar el disco para que la máquina virtual pueda usar el disco para el almacenamiento.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

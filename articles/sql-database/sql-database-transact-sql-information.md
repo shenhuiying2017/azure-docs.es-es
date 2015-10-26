@@ -94,4 +94,4 @@ La referencia de Transact-SQL incluye temas relacionados con SQL Server 2008, SQ
 
 En algunos casos, el asunto general de un tema puede usarse en un producto, pero no se admiten todos los argumentos. Por ejemplo, los usuarios de base de datos independientes se introdujeron en SQL Server 2012. La instrucción **CREATE USER** puede usarse en cualquier producto de SQL Server, sin embargo, la sintaxis **WITH PASSWORD** no se puede utilizar con versiones anteriores. En este caso, se insertan secciones **Se aplica a** adicionales en las correspondientes descripciones de argumentos en el cuerpo del tema.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

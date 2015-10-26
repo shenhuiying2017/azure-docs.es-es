@@ -158,4 +158,4 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 * [Uso de MapReduce con Hadoop en HDInsight ](hdinsight-use-mapreduce.md) 
 [portal de vista previa]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

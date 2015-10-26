@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/23/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -216,8 +216,8 @@ Si detecta las siguientes advertencias cuando ejecute el script, puede ignorarla
 
 Cuando el script se completa, proporcionará el número estimado de eDTU necesarias para que un grupo elástico contenga todas las bases de datos candidatas en el servidor de destino. Esta DTU estimada puede usarse para crear y configurar un grupo de bases de datos elásticas que contenga estas bases de datos. Una vez que se crea el grupo y las bases de datos se trasladan al grupo, hay que supervisarlo estrechamente durante algunos días y deben realizarse los ajustes a la configuración de la eDTU de grupo que se requieran.
 
+> [AZURE.IMPORTANT]Este script contiene comandos para las versiones 1.0 y posteriores (*pero no incluidas*) de Azure PowerShell. Puede comprobar la versión de Azure PowerShell con el comando **Get-Module azure | format-table version**. Para obtener más información detallada, consulte [Degradación del cmdlet Switch-AzureMode en Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-Para seleccionar el script completo para la copia, haga clic en el texto en el script tres veces (triple clic).
 
     
     param (
@@ -435,4 +435,4 @@ No todas las bases de datos únicas son candidatas óptimas para los grupos de b
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Creación de particiones de los servicios de Service Fabric"
-	description="Describe cómo crear particiones de los servicios de Service Fabric"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="appi101"
-	manager="timlt"
-	editor=""/>
+   description="Describe cómo crear particiones de los servicios de Service Fabric"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="appi101"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="aprameyr"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="aprameyr"/>
 
 # Creación de particiones de los servicios de Service Fabric
 Service Fabric facilita la creación de servicios con estado escalables al admitir la creación de particiones del estado de servicio y al tener cada partición funcionando en un subconjunto del estado total. Cada partición se convierte en una unidad que se hace de [alta disponibilidad](service-fabric-availability-services.md). Las réplicas de particiones se distribuyen entre los nodos del clúster y están equilibradas.
@@ -54,4 +54,4 @@ Para obtener información sobre los conceptos de Service Fabric, vea lo siguient
 - [Escalabilidad de los servicios de Service Fabric](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

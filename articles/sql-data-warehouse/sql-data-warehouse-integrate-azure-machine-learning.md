@@ -138,8 +138,8 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 [información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop/
 [Información general de la integración de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-integration/
-[Tutorial para crear un experimento]: https://azure.microsoft.com/es-es/documentation/articles/machine-learning-create-experiment/
-[Introducción a Aprendizaje automático en Azure]: https://azure.microsoft.com/es-es/documentation/articles/machine-learning-what-is-machine-learning/
+[Tutorial para crear un experimento]: https://azure.microsoft.com/es-ES/documentation/articles/machine-learning-create-experiment/
+[Introducción a Aprendizaje automático en Azure]: https://azure.microsoft.com/es-ES/documentation/articles/machine-learning-what-is-machine-learning/
 [Estudio de aprendizaje automático de Azure]: https://studio.azureml.net/Home
 [Portal de Azure]: https://portal.azure.com/
 
@@ -149,4 +149,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

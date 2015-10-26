@@ -79,4 +79,4 @@ Se ha creado una base de datos denominada "sample\_shard\_2" y todos los objetos
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

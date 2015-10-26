@@ -266,4 +266,4 @@ Puede establecer la devolución de llamada en el método `Application_Launching`
 [requisitos adicionales para tipos específicos de aplicación vigentes]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

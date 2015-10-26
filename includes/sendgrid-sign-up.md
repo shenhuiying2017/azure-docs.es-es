@@ -50,7 +50,7 @@ Los clientes de Azure pueden desbloquear 25.000 correos electrónicos gratuitos 
 
 	![sendgrid-connection-info][sendgrid-connection-info]
 
-	Para configurar las opciones de entrega de correo electrónico, haga clic en el botón **Administrar**. Se abrirá la interfaz web de Sendgrid.com, donde podrá iniciar sesión y abrir el panel de control de SendGrid.
+	Para configurar las opciones de entrega de correo electrónico, haga clic en el botón **Administrar**. De esta forma se le redirigirá a su Panel de Control de SendGrid.
 
 	![sendgrid-control-panel][sendgrid-control-panel]
 
@@ -76,4 +76,4 @@ Los clientes de Azure pueden desbloquear 25.000 correos electrónicos gratuitos 
 [Proceso de aprovisionamiento de SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [todas las API]: https://sendgrid.com/docs/API_Reference/index.html
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

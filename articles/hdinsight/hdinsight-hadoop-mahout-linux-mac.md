@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Generación de recomendaciones mediante Mahout y Hadoop | Microsoft Azure"
+	pageTitle="Generación de recomendaciones mediante Mahout y HDInsight basado en Linux | Microsoft Azure"
 	description="Aprenda a usar la biblioteca de aprendizaje automático de Apache Mahout para generar recomendaciones de películas con HDInsight basado en Linux (Hadoop)."
 	services="hdinsight"
 	documentationCenter=""
@@ -264,4 +264,4 @@ Ahora que ha aprendido a usar a Mahout, descubra otras formas de trabajar con da
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -56,4 +56,4 @@ Uso de dispositivos RMS | No
  - [Informes de Azure Active Directory](active-directory-view-access-usage-reports.md)
  - [Eventos de auditoría de informes de Azure Active Directory](active-directory-reporting-audit-events.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

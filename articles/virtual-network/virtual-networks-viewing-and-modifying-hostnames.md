@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Ver y modificar los nombres de host | Microsoft Azure"
-	description="Cómo ver y cambiar los nombres de host para máquinas virtuales de Azure, roles de trabajo y web para la resolución de nombres"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="Cómo ver y cambiar los nombres de host para máquinas virtuales de Azure, roles de trabajo y web para la resolución de nombres"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/25/2015"
+   ms.author="joaoma" />
 
 # Ver y modificar los nombres de host
 
@@ -71,4 +71,4 @@ Puede modificar el nombre de host de cualquier máquina virtual o instancia de r
 
 [Especificación de la configuración de DNS usando los archivos de configuración de red](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

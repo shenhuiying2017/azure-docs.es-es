@@ -23,8 +23,7 @@
 
 En este artículo aprenderá a instalar y configurar MySQL en una máquina virtual de Azure con Linux.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se describe la creación de recursos con el modelo de implementación del Administrador de recursos o el modelo de implementación clásica.
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
 ##Instalación de MySQL en la máquina virtual
@@ -186,4 +185,4 @@ Aquí usaremos la máquina virtual de Linux con OpenSUSE.
 ###Paso siguiente
 Buscar más información de uso y sobre MySQL [aquí](https://www.mysql.com/).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

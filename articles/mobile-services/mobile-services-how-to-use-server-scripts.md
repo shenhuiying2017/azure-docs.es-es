@@ -226,7 +226,7 @@ Cuando una aplicación proporciona un valor para un identificador, Servicios mó
 
 El valor `id` debe ser exclusivo y no debe incluir caracteres de los siguientes conjuntos:
 
-+ Caracteres de control: [0x0000-0x001F\] y [0x007F-0x009F\]. Para obtener más información, consulte [Códigos de control ASCII C0 y C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set).
++ Caracteres de control: [0x0000-0x001F] y [0x007F-0x009F]. Para obtener más información, consulte [Códigos de control ASCII C0 y C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set).
 +  Caracteres imprimibles: **"**(0 x 0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **`** (0x0060)
 +  Los identificadores "." y ".."
 
@@ -1056,4 +1056,4 @@ Para evitar la sobrecarga del registro, debe quitar o deshabilitar las llamadas 
 [Support for package.json in Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

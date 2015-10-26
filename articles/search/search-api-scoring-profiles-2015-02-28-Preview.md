@@ -370,4 +370,4 @@ Para obtener más ejemplos, consulte [Esquema XML: tipos de datos (sitio web de 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

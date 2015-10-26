@@ -183,4 +183,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

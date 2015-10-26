@@ -19,7 +19,6 @@
 
 # <a id="nonendorsed"> </a>Información para las distribuciones no aprobadas #
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 **Importante**: el contrato de nivel de servicio de la plataforma Azure se aplica a máquinas virtuales que ejecutan el SO Linux solo cuando se usa una de las [distribuciones aprobadas](virtual-machines-../linux-endorsed-distributions.md). Todas las distribuciones de Linux que se ofrezcan en la galería de imágenes de Azure son distribuciones aprobadas con la configuración requerida.
 
@@ -191,4 +190,4 @@ El [agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md) (waage
 
 - A continuación, tendrá que apagar la máquina virtual y cargar el VHD en Azure.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

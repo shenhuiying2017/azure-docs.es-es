@@ -135,4 +135,4 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio de Base de da
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

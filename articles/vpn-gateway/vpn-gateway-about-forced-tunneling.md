@@ -1,12 +1,12 @@
-<properties pageTitle="Configuración de la tunelización forzada para puertas de enlace de VPN de Microsoft Azure | Microsoft Azure" description="Si tiene una red virtual con una puerta de enlace de VPN entre locales, puede redirigir o "forzar" todo el tráfico enlazado a Internet a la ubicación local." services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor=""/>
+<properties pageTitle="Configuración de la tunelización forzada para puertas de enlace de VPN de Microsoft Azure | Microsoft Azure" description="Si tiene una red virtual con una puerta de enlace de VPN entre locales, puede redirigir o "forzar" todo el tráfico enlazado a Internet a la ubicación local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" />
 <tags  
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/20/2015"
+   ms.author="cherylmc" />
 
 # Configuración de la tunelización forzada
 
@@ -151,4 +151,4 @@ A continuación se muestran algunos cmdlets de PowerShell adicionales que pueden
 
 Para obtener información acerca de cómo proteger el tráfico de red. Consulte [Qué es un grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+
 
 Mediante el uso de plantillas y grupos de recursos, tendrá la posibilidad de administrar en conjunto todos los recursos que admiten su aplicación. Este tutorial muestra cómo usar algunos de los clientes disponibles en la biblioteca de administración de recursos de Azure y cómo crear una plantilla para implementar una máquina virtual, una red virtual y una cuenta de almacenamiento.
 
@@ -38,31 +39,23 @@ Tardará unos 30 minutos en realizar estos pasos.
 
 Para usar Azure AD para autenticar las solicitudes con el Administrador de recursos de Azure, es necesario agregar una aplicación en el directorio predeterminado. Siga este procedimiento para agregar una aplicación:
 
-1. Abra un símbolo del sistema de Azure PowerShell y, a continuación, ejecute este comando:
+1. Abra un símbolo del sistema de Azure PowerShell y luego ejecute este comando y escriba las credenciales para la suscripción cuando se le solicite:
 
-        Switch-AzureMode –Name AzureResourceManager
+	    Login-AzureRmAccount
 
-2. Establezca la cuenta de Azure que desea utilizar para este tutorial. Ejecute este comando y escriba las credenciales para la suscripción cuando se le solicite:
+2. Reemplace {password} en el siguiente comando por la contraseña que desea utilizar y, a continuación, ejecútelo para crear la aplicación:
 
-	    Add-AzureAccount
+	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-3. Reemplace {password} en el siguiente comando por la contraseña que desea utilizar y, a continuación, ejecútelo para crear la aplicación:
+	>[AZURE.NOTE]Anote el identificador de la aplicación que se devuelve después de crear la aplicación, ya que la necesitará para el siguiente paso. Asimismo, también puede encontrar el identificador de la aplicación en el campo de id. de cliente de la aplicación en la sección de Active Directory del portal.
 
-	    New-AzureADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
+3. Reemplace {application-id} por el identificador que acaba de anotar y, a continuación, cree la entidad de servicio correspondiente a la aplicación:
 
-4. Anote el valor de ApplicationId en la respuesta del paso anterior. La necesitará más adelante en el tutorial:
+        New-AzureRmADServicePrincipal -ApplicationId {application-id}
 
-	![Crear una aplicación de AD](./media/arm-template-deployment/azureapplicationid.png)
+4. Establezca el permiso para usar la aplicación:
 
-	>[AZURE.NOTE]También puede encontrar el identificador de la aplicación en el campo Id. de cliente de la aplicación en el Portal de administración.
-
-5. Reemplace {application-id} por el identificador que acaba de anotar y, a continuación, cree la entidad de servicio correspondiente a la aplicación:
-
-        New-AzureADServicePrincipal -ApplicationId {application-id}
-
-6. Establezca el permiso para usar la aplicación:
-
-	    New-AzureRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
+	    New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
 
 ## Paso 2: Crear el proyecto de Visual Studio, el archivo de plantilla y el archivo de parámetros
 
@@ -453,4 +446,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 	![Crear una aplicación de AD](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -35,31 +35,31 @@ El código de este tutorial se mantiene [en GitHub](https://github.com/AzureADQu
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
-Al final de este tutorial se proporciona igualmente la aplicación completa.
+La aplicación completa se ofrece también al final de este tutorial.
 
 
-## 1. Registrar una aplicación
-Crea una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md).  Asegúrese de que:
+## 1\. Registrar una aplicación
+Cree una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md). Asegúrese de que:
 
-- Copia el **Id. de aplicación** asignado a la aplicación, lo necesitará pronto.
-- Agregue la plataforma **Móvil** a la aplicación..
-- Copie **URI de redirección** desde el portal. Debe utilizar el valor predeterminado de `urn:ietf:wg:oauth:2.0:oob`.
+- Anotar el **Id. de aplicación** asignado a su aplicación; lo necesitará pronto.
+- Agregar la plataforma **Móvil** a la aplicación.
+- Copiar el **URI de redirección** desde el portal. Debe usar el valor predeterminado de `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## 2: descargar node.js para su plataforma
+## Paso 2: Descarga de node.js para su plataforma
 Para usar correctamente este ejemplo, debe disponer de una instalación en funcionamiento de Node.js.
 
 Instale Node.js desde [http://nodejs.org](http://nodejs.org).
 
-## 3: Instalar MongoDB en su plataforma
+## Paso 3: Instalación de MongoDB en la plataforma
 
 Para usar correctamente este ejemplo, debe disponer de una instalación en funcionamiento de MongoDB. Usaremos MongoDB para que nuestra API de REST sea persistente en instancias de servidor.
 
 Instale MongoDB desde [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE] En este tutorial se asume que usa la instalación predeterminada y los extremos de servidor de MongoDB, que en el momento de escribir este artículo es: mongodb://localhost
+> [AZURE.NOTE]En este tutorial se asume que usa la instalación predeterminada y los extremos de servidor de MongoDB, que en el momento de escribir este artículo es: mongodb://localhost.
 
-## 4: Instalar los módulos Restify en su API web
+## Paso 4: Instalación de los módulos Restify en su API web
 
 Vamos a usar Restify para crear nuestra API de REST. Restify es un marco de trabajo de la aplicación de Node.js mínimo y flexible de Express que cuenta con un sólido conjunto de características para basar API de REST en Connect.
 
@@ -67,7 +67,7 @@ Vamos a usar Restify para crear nuestra API de REST. Restify es un marco de trab
 
 Desde la línea de comandos, cambie los directorios por el directorio azuread. Si el directorio **azuread** no existe, créelo.
 
-`cd azuread` - o- `mkdir azuread;`
+`cd azuread` o `mkdir azuread;`
 
 Escriba el siguiente comando:
 
@@ -79,9 +79,9 @@ Este comando instala Restify.
 
 Cuando se usa npm en algunos sistemas operativos, es posible recibir un error Error: EPERM, chmod '/ usr/local/bin/..' y que se solicite ejecutar la cuenta como administrador. Si esto ocurre, utilice el comando sudo para ejecutar npm en un nivel de privilegio más elevado.
 
-#### ¿Ha recibido un error relacionado con DTRACE?
+#### ¿Ha recibido un error relacionado con DTrace?
 
-Es posible que vea algo parecido a esto al instalar Restify: 
+Es posible que vea algo parecido a esto al instalar Restify:
 
 ```Shell
 clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
@@ -192,7 +192,7 @@ Desde la línea de comandos, cambie los directorios por la carpeta **azuread** s
 `cd azuread`
 
 
-Escriba los comandos siguientes para instalar los módulos siguientes en su directorio node_modules:
+Escriba los comandos siguientes para instalar los módulos siguientes en su directorio node\_modules:
 
 * `npm install crypto`
 * `npm install assert-plus`
@@ -268,7 +268,7 @@ identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-c
 
 ### Valores obligatorios
 
-*IdentityMetadata*: donde passport-azure-ad buscará los datos de configuración para el IdP, así como las claves para validar los tokens JWT. Probablemente no debería cambiarlo si usa Azure Active Directory.
+*IdentityMetadata*: es donde passport-azure-ad buscará los datos de configuración para el IDP, así como las claves para validar los tokens JWT. Probablemente no debería cambiarlo si usa Azure Active Directory.
 
 *audience*: el URI de redirección desde el portal.
 
@@ -650,8 +650,7 @@ En primer lugar, asegúrese de que se ejecute la instancia de MongoDB...
 
 A continuación, cambie al directorio y empiece el curvado...
 
-`$ cd azuread`
-`$ node server.js`
+`$ cd azuread` `$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 
@@ -770,7 +769,7 @@ Passport usa un patrón similar para todas sus estrategias (Twitter, Facebook, e
 > [AZURE.IMPORTANT]
 El código anterior toma cualquier usuario que se autentique en el servidor. Esto se conoce como registro automático. En los servidores de producción, no debería permitir que acceda cualquier usuario sin que antes pase por el proceso de registro que decida. Este suele ser el patrón que se observa en las aplicaciones de consumidor que permiten registrarse con Facebook, pero que luego piden que se rellene información adicional. Si no se tratara de un programa de línea de comandos, podríamos haber extraído el correo electrónico del objeto de token que se devuelve y, a continuación, haber pedido al usuario que rellenara la información adicional. Puesto que se trata de un servidor de prueba, simplemente los agregaremos a la base de datos en memoria.
 
-### 2. Por último, proteja algunos extremos
+### 2\. Por último, proteja algunos extremos
 
 Protege extremos mediante la especificación de la llamada passport.authenticate() con el protocolo que desea usar.
 
@@ -860,4 +859,4 @@ Para obtener recursos adicionales, consulte:
 - [Versión preliminar del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) 
 - [Etiqueta "azure-active-directory" en StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

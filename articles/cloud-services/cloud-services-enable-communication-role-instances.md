@@ -359,4 +359,4 @@ Puede encontrar una referencia del esquema XML de los elementos usados anteriorm
 ## Pasos siguientes
 Obtenga más información sobre el [modelo](cloud-services-model-and-package.md) del servicio en la nube.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

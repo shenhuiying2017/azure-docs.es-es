@@ -48,7 +48,7 @@ Cambiar la licencia de usuario | Cambió la licencia asignada a un usuario en el
 Actualizar usuario | Actualizó un usuario en el directorio. [Vea a continuación](#quotupdate-userquot-attributes) los atributos que se pueden actualizar.
 Establecer el cambio forzado de la contraseña de usuario | Estableció la propiedad que fuerza a un usuario a cambiar su contraseña en el inicio de sesión.
 **Eventos de grupo** |
-Crear grupo | Se crea un grupo en el directorio.
+Agregar grupo | Se crea un grupo en el directorio.
 Actualizar grupo | Se actualiza un grupo del directorio.
 Eliminar grupo | Se elimina un grupo del directorio.
 Agregar miembro a grupo | Se agrega un miembro a un grupo del directorio.
@@ -108,4 +108,4 @@ TelephoneNumber | Número de teléfono del usuario.
 
 Los registros de auditoría son un control necesario para muchas regulaciones de conformidad. Para que los clientes que usan el Informe de auditoría de Azure Active Directory cumplan las regulaciones de conformidad, se recomienda que el cliente envíe una copia de este tema de ayuda con la copia del informe de auditoría exportado del cliente para ayudar a explicar los detalles del informe. Si el auditor desea conocer las regulaciones de conformidad que cumple actualmente Azure, diríjalo a la [página Conformidad](http://azure.microsoft.com/support/trust-center/compliance/) del Centro de confianza de Microsoft Azure.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

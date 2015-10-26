@@ -50,7 +50,7 @@ Podemos agregar encabezados de columna mediante el módulo [Editor de metadatos]
 
 1.	En la paleta de módulos, escriba "metadatos" en el cuadro **Buscar**. Verá [Editor de metadatos][metadata-editor] en la lista de módulos.
 2.	Haga clic en el módulo [Editor de metadatos][metadata-editor], arrástrelo al lienzo y colóquelo bajo el conjunto de datos.
-3.	Conecte el conjunto de datos al [Editor de metadatos][metadata-editor]\: haga clic en el puerto de salida del conjunto de datos, arrastre el puerto de entrada del [Editor de metadatos][metadata-editor] y, a continuación, suelte el botón del mouse. El conjunto de datos y el módulo permanecerán conectados incluso si se desplaza por el lienzo.
+3.	Conecte el conjunto de datos al [Editor de metadatos][metadata-editor]: haga clic en el puerto de salida del conjunto de datos, arrastre el puerto de entrada del [Editor de metadatos][metadata-editor] y, a continuación, suelte el botón del mouse. El conjunto de datos y el módulo permanecerán conectados incluso si se desplaza por el lienzo.
 4.	Con el [Editor de metadatos][metadata-editor] aún seleccionado, en el panel **Propiedades** situado a la derecha del lienzo, haga clic en **Iniciar el selector de columnas**.
 5.	En el cuadro de diálogo **Seleccionar columnas**, establezca el campo **Empieza por** en "Todas las columnas".
 6.	La fila bajo **Empieza por** permite incluir o excluir columnas específicas para que el [Editor de metadatos][metadata-editor] las modifique. Puesto que deseamos modificar todas las columnas, elimine esta fila haciendo clic en el signo menos ("-") a la derecha de la fila. El cuadro de diálogo debe ser similar al siguiente:  
@@ -125,4 +125,4 @@ Para obtener más información sobre cómo usar los scripts de R en sus experime
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

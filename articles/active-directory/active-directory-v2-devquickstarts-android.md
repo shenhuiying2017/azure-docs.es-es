@@ -22,4 +22,4 @@ El tutorial de inicio rápido para Android aún no está listo... Compruébelo d
 
 > [AZURE.NOTE]Esta información se aplica a la vista previa pública del modelo de aplicaciones v2.0. Para obtener instrucciones sobre cómo integrar con el servicio de Azure AD disponible con carácter general, consulta la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

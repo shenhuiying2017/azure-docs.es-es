@@ -18,4 +18,4 @@
 
 6. Una vez aplicadas las revisiones, salga del modo de mantenimiento. Consulte [Paso 4: Salida del modo de mantenimiento](storsimple-update-device.md#step4) para obtener instrucciones.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

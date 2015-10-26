@@ -2,4 +2,4 @@ Además de conectar automáticamente los clientes a la réplica principal, un ag
 
 Para más información sobre el uso de SQL Server en Azure, consulta [SQL Server en máquinas virtuales de Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

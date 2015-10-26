@@ -94,7 +94,7 @@ Para un ejemplo funcional completo de una aplicación del Bus de servicio que il
 
 ## Acceso a las reglas de autorización de acceso compartido en un espacio de nombres
 
-Las operaciones en la raíz del espacio de nombres del Bus de servicio requieren la autenticación con certificados. Debe cargar un certificado de administración para la suscripción de Azure. Para cargar un certificado de administración, haga clic en **Configuración** en el panel izquierdo del Portal de Azure. Para obtener más información acerca de los certificados de administración de Azure, consulte [Creación de un certificado de administración para Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
+Las operaciones en la raíz del espacio de nombres del Bus de servicio requieren la autenticación con certificados. Debe cargar un certificado de administración para la suscripción de Azure. Para cargar un certificado de administración, haga clic en **Configuración** en el panel izquierdo del Portal de Azure. Para obtener más información acerca de los certificados de administración de Azure, consulte [￼Creación de un certificado de administración para Azure￼](https://msdn.microsoft.com/library/azure/gg551722.aspx).
 
 El extremo para acceder a las reglas de autorización de acceso compartido en un espacio de nombres del Bus de servicio es el siguiente:
 
@@ -256,4 +256,4 @@ Para obtener una descripción general de SAS en el Bus de servicio, consulte [Fi
 
 Para obtener más información sobre la autenticación del Bus de servicio, consulte [Autenticación y autorización del Bus de servicio](service-bus-authentication-and-authorization.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -33,7 +33,7 @@
 </div>
 
 
-<p>Este tutorial le ayuda a comprender con más detalle cómo los Servicios móviles de Azure pueden almacenar y recuperar datos desde una aplicación Android. De ese modo, este tutorial recorre mucho de los pasos ya completados para usted en el tutorial de inicio rápido de Servicios móviles. Si esta es la primera vez que usa los Servicios móviles, considere la posibilidad de completar antes el tutorial <a href="/es-es/develop/mobile/tutorials/get-started-android">Introducción a los Servicios móviles</a>.</p>
+<p>Este tutorial le ayuda a comprender con más detalle cómo los Servicios móviles de Azure pueden almacenar y recuperar datos desde una aplicación Android. De ese modo, este tutorial recorre mucho de los pasos ya completados para usted en el tutorial de inicio rápido de Servicios móviles. Si esta es la primera vez que usa los Servicios móviles, considere la posibilidad de completar antes el tutorial <a href="/es-ES/develop/mobile/tutorials/get-started-android">Introducción a los Servicios móviles</a>.</p>
 
 ## Requisitos previos
 
@@ -149,4 +149,4 @@ Cuando haya completado la serie de datos, pruebe estos otros tutoriales de Andro
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

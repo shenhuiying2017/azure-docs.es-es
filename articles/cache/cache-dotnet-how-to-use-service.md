@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="08/18/2015" 
 	ms.author="sdanie"/>
 
 # Cómo usar el Servicio de caché administrado de Azure
@@ -486,4 +486,4 @@ Ahora que está familiarizado con los aspectos básicos del Servicio de caché a
 [¿Cuál es la oferta de Caché de Azure más adecuada para mí?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: una herramienta auxiliar que se usa para mostrar la característica de personalización de la interfaz de usuario (IU) de página
@@ -22,7 +22,7 @@ Este artículo es un complemento del [artículo principal sobre personalización
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-## Obtener un inquilino B2C
+## Obtención de un inquilino de Azure AD B2C
 
 Antes de personalizar nada, deberá [obtener un inquilino de Azure AD B2C](active-directory-b2c-get-started.md) si todavía no tiene uno.
 
@@ -90,4 +90,4 @@ Ahora que ha cargado el contenido de ejemplo en su propia cuenta de almacenamien
         
 Ahora puede usar el botón **Ejecutar ahora** o su propia aplicación para ejecutar de nuevo la directiva. El resultado debería ser casi exactamente el mismo, ya que usó el mismo HTML y CSS de ejemplo en ambos casos. Sin embargo, las directivas ahora hacen referencia a su propia instancia de almacenamiento de blobs de Azure, y es libre de editar y volver a cargar los archivos a su gusto. Para obtener más información sobre la personalización del contenido HTML y CSS, consulte el [artículo principal sobre personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

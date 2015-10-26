@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Directiva de almacenamiento en caché de CDN en extensión de Servicios multimedia"
-	description="En este tema se proporciona información general sobre una directiva de almacenamiento en caché CDM en extensión de Servicios multimedia."
-	services="cdn"
-	documentationCenter=".NET"
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Directiva de almacenamiento en caché de CDN en extensión de Servicios multimedia" 
+	description="En este tema se proporciona información general sobre una directiva de almacenamiento en caché CDM en extensión de Servicios multimedia." 
+	services="cdn" 
+	documentationCenter=".NET" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="juliako"/>
 
 #Directiva de almacenamiento en caché de CDN en extensión de Servicios multimedia
@@ -43,4 +43,4 @@ Puede usar el Portal de administración de Azure o las API de Servicios multimed
 3. De forma predeterminada, se aplican encabezados de caché de 2 segundos para manifest(playlist) de streaming en directo independientemente de la configuración multimedia o de almacenamiento de Azure y la anulación de este valor no está disponible.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

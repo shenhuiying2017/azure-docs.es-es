@@ -265,4 +265,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 
 [300]: ./media/active-directory-saas-questetra-bpm-suite/questera_bpm_suite_11.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

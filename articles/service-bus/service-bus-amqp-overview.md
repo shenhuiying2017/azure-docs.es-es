@@ -105,4 +105,4 @@ En este momento las siguientes bibliotecas de cliente están trabajando con el B
 [Instalación de Apache Qpid Proton-C en una máquina virtual Linux de Azure]: service-bus-amqp-apache.md
 [AMQP de Bus de servicio para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

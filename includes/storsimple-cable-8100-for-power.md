@@ -24,4 +24,4 @@
 
 4. Para encender el sistema gira el interruptor de alimentación de ambos PCM a la posición de encendido.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

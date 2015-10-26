@@ -303,4 +303,4 @@ En este tema hemos mostrado cómo crear un simple cliente REST en Java para Cent
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

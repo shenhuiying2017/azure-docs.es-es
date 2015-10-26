@@ -114,9 +114,9 @@ En el ejemplo siguiente se muestra el encabezado y el cuerpo de solicitud HTTP q
 	
 **Cuerpo**:
 
-Debe probar los valores client\_id y client\_secret en el cuerpo de esta solicitud; client\_id y client\_secret se corresponden con los valores AccountName y AccountKey, respectivamente. Servicios multimedia le proporciona estos valores al configurar su cuenta.
+Debe probar los valores client_id y client_secret en el cuerpo de esta solicitud; client_id y client_secret se corresponden con los valores AccountName y AccountKey, respectivamente. Servicios multimedia le proporciona estos valores al configurar su cuenta.
 
-Tenga en cuenta que el valor AccountKey de su cuenta de Servicios multimedia debe tener codificación URL cuando se usa como el valor client\_secret en la solicitud de token de acceso.
+Tenga en cuenta que el valor AccountKey de su cuenta de Servicios multimedia debe tener codificación URL cuando se usa como el valor client_secret en la solicitud de token de acceso.
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -150,7 +150,7 @@ En el ejemplo siguiente se muestra la respuesta HTTP que contiene el token de ac
 >[AZURE.NOTE]
 >Se recomienda almacenar en memoria caché los valores "access_token" y "expires_in" en un almacenamiento externo. Los datos del token se pueden recuperar más tarde desde el almacenamiento y se pueden reutilizar en las llamadas de API de REST de Servicios multimedia. Esto es especialmente útil para escenarios en que el token se puede compartir de forma segura entre varios procesos o equipos.
 
-Asegúrese de supervisar el valor "expires\_in" del token de acceso y actualice las llamadas de API de REST con nuevos tokens según sea necesario.
+Asegúrese de supervisar el valor "expires_in" del token de acceso y actualice las llamadas de API de REST con nuevos tokens según sea necesario.
 
 ###Conexión al URI de Servicios multimedia
 
@@ -1067,12 +1067,12 @@ Si se realiza correctamente, se devuelve la respuesta siguiente:
 	         }
 	      },
 	      "Id":"nb:lid:UUID:8e5a821d-2194-4d00-8884-adf979856874",
-	      "ExpirationDateTime":"\/Date(1337049393000)\/",
+	      "ExpirationDateTime":"/Date(1337049393000)/",
 	      "Type":1,
 	      "Path":"https://storagetestaccount001.blob.core.windows.net/asset-71d2dd33-efdf-ec43-8ea1-136a110bd42c?st=2012-05-14T21%3A36%3A33Z&se=2012-05-15T02%3A36%3A33Z&sr=c&si=8e5a821d-2194-4d00-8884-adf979856874&sig=y75dViDpC5V8WutrXM%2B%2FGpR3uOtqmlISiNlHU1YUBOg%3D",
 	      "AccessPolicyId":"nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8",
 	      "AssetId":"nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c",
-	      "StartTime":"\/Date(1337031393000)\/"
+	      "StartTime":"/Date(1337031393000)/"
 	   }
 	}
 
@@ -1214,4 +1214,4 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

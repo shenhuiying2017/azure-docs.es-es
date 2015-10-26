@@ -20,7 +20,7 @@
 
 Se puede conectar una aplicación web de Servicio de aplicaciones de Azure a cualquier recurso local que utilice un puerto TCP estático, como SQL Server, MySQL, API Web HTTP, Servicios móviles y la mayoría de los servicios web personalizados. En este artículo se muestra cómo crear una conexión híbrida entre una aplicación web del Servicio de aplicaciones y una base de datos de SQL Server local.
 
-> [AZURE.NOTE] La parte Aplicaciones web de la característica Conexiones híbridas solo está disponible en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Para crear una conexión en Servicios de BizTalk, consulte [Conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+> [AZURE.NOTE]La parte Aplicaciones web de la característica Conexiones híbridas solo está disponible en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Para crear una conexión en Servicios de BizTalk, consulte [Conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
 ## Requisitos previos
 - Una suscripción de Azure. Para obtener una suscripción gratuita, consulte [Prueba gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/). 
@@ -37,7 +37,7 @@ Se puede conectar una aplicación web de Servicio de aplicaciones de Azure a cua
 
 ## Creación de una aplicación web en el Portal de Azure ##
 
-> [AZURE.NOTE] Si ya ha creado una aplicación web en el Portal de Azure que desea usar en este tutorial, puede omitir este paso e ir directamente a [Creación de una conexión híbrida y un servicio de BizTalk](#CreateHC) y comenzar desde ahí.
+> [AZURE.NOTE]Si ya ha creado una aplicación web en el Portal de Azure que desea usar en este tutorial, puede omitir este paso e ir directamente a [Creación de una conexión híbrida y un servicio de BizTalk](#CreateHC) y comenzar desde ahí.
 
 1. En la esquina inferior izquierda del [Portal de Azure](https://portal.azure.com), haga clic en **Nuevo** > **Web + móvil** > **Sitio web**.
 	
@@ -158,7 +158,7 @@ Llegados a este punto, ha completado una parte importante de la infraestructura 
 
 Ahora que la infraestructura de conexión híbrida se ha completado, puede crear una aplicación híbrida que la utilice.
 
->[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 <a name="NextSteps"></a>
 ## Pasos siguientes ##
@@ -211,4 +211,4 @@ Ahora que la infraestructura de conexión híbrida se ha completado, puede crear
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -12,4 +12,4 @@ Puede crear la tabla de almacenamiento de Azure mediante el **Explorador de serv
 
 [Image1]: ./media/vs-storage-getting-started-tables-include/vs-storage-create-tables-in-Server-Explorer.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

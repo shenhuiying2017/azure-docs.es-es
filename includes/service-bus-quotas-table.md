@@ -25,3 +25,5 @@ En la siguiente tabla se muestra la información de cuotas específica de la men
 |Tamaño de los filtros/acciones de SQL|En todo el sistema|Estática|Las solicitudes posteriores de creación de filtros adicionales se rechazarán y el código de llamada recibirá una excepción.|Longitud máxima de la cadena de condición de filtro: 1024 (1 KB).<br /><br />Longitud máxima de la cadena de acción de regla: 1024 (1 KB).<br /><br />Número máximo de expresiones por acción de regla: 32. |
 
 <!---HONumber=August15_HO6-->
+
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Aplicación web de .NET en el Servicio de aplicaciones de Azure con administración de rendimiento de aplicaciones de New Relic"
-	description="Aprenda a usar la supervisión de rendimiento de New Relic para las aplicaciones de ASP.NET que se ejecutan en el Servicio de aplicaciones de Azure."
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Aplicación web de .NET en el Servicio de aplicaciones de Azure con administración de rendimiento de aplicaciones de New Relic" 
+	description="Aprenda a usar la supervisión de rendimiento de New Relic para las aplicaciones de ASP.NET que se ejecutan en el Servicio de aplicaciones de Azure." 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="07/30/2015" 
 	ms.author="stepsic"/>
 
 
@@ -168,7 +168,6 @@ Consulte estos recursos adicionales para obtener más información:
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
-[webmatrixwebsite]: web-sites-dotnet-using-webmatrix.md
 [vswebsite]: web-sites-dotnet-get-started.md
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png
@@ -180,4 +179,4 @@ Consulte estos recursos adicionales para obtener más información:
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

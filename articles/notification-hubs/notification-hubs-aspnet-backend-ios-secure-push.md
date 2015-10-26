@@ -158,4 +158,4 @@ Para ejecutar la aplicación, realice las siguientes tareas:
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

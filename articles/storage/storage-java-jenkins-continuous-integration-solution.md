@@ -1,30 +1,28 @@
 <properties 
-	pageTitle="Uso del Almacenamiento de Azure con una solución de integración continua Jenkins | Microsoft Azure"
-	description="En este tutorial se muestra cómo usar el servicio BLOB de Azure como repositorio para artefactos de compilación creados por una solución de integración continua Jenkins."
-	services="storage"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="Uso del Almacenamiento de Azure con una solución de integración continua Jenkins | Microsoft Azure" 
+	description="En este tutorial se muestra cómo usar el servicio BLOB de Azure como repositorio para artefactos de compilación creados por una solución de integración continua Jenkins." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/12/2015" 
 	ms.author="robmcm"/>
 
 # Uso del Almacenamiento de Azure con una solución de integración continua Jenkins
-
-*Por [Microsoft Open Technologies Inc.][ms-open-tech]*
 
 ## Información general
 
 La siguiente información describe cómo usar el servicio BLOB de Azure como repositorio de artefactos de compilación creados por una solución de integración continua Jenkins, o como origen de archivos descargables para su uso en un proceso de compilación. Uno de los escenarios en que esto le puede resultar útil es para codificar en un entorno de desarrollo ágil (con el uso de Java o de otros lenguajes), cuando las compilaciones se ejecutan según una integración continua y si necesita un repositorio para los artefactos de compilación, a fin de que, por ejemplo, pueda compartirlos con otros miembros de la organización, con los clientes o para mantener un archivo. Otro es cuando su trabajo de compilación propiamente dicho requiere otros archivos, por ejemplo, la descarga de dependencias como parte de la entrada de compilación.
 
-En este tutorial va a usar el complemento de almacenamiento de Azure para la integración continua Jenkins habilitada por Microsoft Open Technologies, Inc.
+En este tutorial usará el complemento del Almacenamiento de Azure de la integración continua Jenkins habilitada por Microsoft.
 
 ## Información general sobre Jenkins ##
 
@@ -162,7 +160,6 @@ A continuación se ofrece información general acerca de los componentes del ser
 
   [Creación de una cuenta de almacenamiento]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Meet Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
-  [ms-open-tech]: http://msopentech.com
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

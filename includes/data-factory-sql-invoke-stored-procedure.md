@@ -60,4 +60,4 @@ En la base de datos, defina el tipo de tabla con el mismo nombre que SqlWriterTa
 
 La característica de procedimiento almacenado aprovecha los [parámetros con valores de tabla](https://msdn.microsoft.com/library/bb675163.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

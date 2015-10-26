@@ -13,19 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="10/13/2015"
    ms.author="ryanwi"/>
 
 # Administrar un servicio de Service Fabric
 Esta página tiene vínculos a tutorial y artículos de información general y sobre conceptos para ayudarle a aprender a administrar un servicio de Service Fabric.
 
-- [Ciclo de vida de aplicación](service-fabric-application-lifecycle.md)
-- [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
-
 ## Empaquetar, implementar y quitar una aplicación
 En los temas siguientes se describe el modelo de aplicación de Service Fabric, además de cómo empaquetar e implementar sus aplicaciones.
 
 - [Modelo de aplicación](service-fabric-application-model.md)
+- [Ciclo de vida de aplicación](service-fabric-application-lifecycle.md)
 - [Recursos de manifiesto de servicio](service-fabric-service-manifest-resources.md)
 - [Empaquetar una aplicación](service-fabric-application-model.md)
 - [Implementar y quitar una aplicación](service-fabric-deploy-remove-applications.md)
@@ -48,4 +46,7 @@ En los siguientes artículos se describen el escalado y la creación de particio
 - [Creación de particiones de los servicios de Service Fabric](service-fabric-concepts-partitioning.md)
 - [Escalar aplicaciones de Service Fabric](service-fabric-concepts-scalability.md)
 
-<!---HONumber=Sept15_HO4-->
+## Administración de un clúster
+- [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
+
+<!---HONumber=Oct15_HO3-->

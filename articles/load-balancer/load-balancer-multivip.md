@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Varias direcciones VIP por servicio en la nube"
-	description="Información general sobre multiVIP y cómo establecer varias direcciones VIP en un servicio en la nube"
-	services="load-balancer"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Información general sobre multiVIP y cómo establecer varias direcciones VIP en un servicio en la nube"
+   services="load-balancer"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="load-balancer"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/23/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="07/23/2015"
+   ms.author="joaoma" />
 
 # Varias direcciones VIP por servicio en la nube
 Puede tener acceso a los servicios en la nube de Azure a través de la Internet pública mediante una dirección IP proporcionada por Azure. Esta dirección IP pública se conoce como una dirección VIP (IP virtual) dado que está vinculada al Equilibrador de carga de Azure y no realmente a las instancias de máquina virtual dentro del servicio en la nube. Con una sola dirección VIP puede tener acceso a cualquier instancia de máquina virtual dentro de un servicio en la nube.
@@ -155,4 +155,4 @@ También puede actualizar el equilibrador de carga para que use una dirección V
 [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

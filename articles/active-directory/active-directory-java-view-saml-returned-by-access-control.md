@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="09/22/2015"
+    ms.date="10/12/2015" 
     ms.author="robmcm" />
 
 # Visualización del SAML que devuelve el servicio de control de acceso de Azure
@@ -24,7 +24,7 @@ En esta guía se explica cómo ver el lenguaje de marcado de aserción de seguri
 
 Para obtener más información sobre ACS, consulte la sección [Pasos siguientes](#next_steps).
 
-> [AZURE.NOTE]El filtro de control de los servicios de acceso de Azure (de Microsoft Open Technologies) es una Community Technology Preview. Como versión preliminar de software, no cuenta formalmente con el respaldo de Microsoft Open Technologies, Inc. ni de Microsoft.
+> [AZURE.NOTE]El filtro de control de los servicios de acceso de Azure es una Community Technology Preview. Como versión preliminar de software, no cuenta formalmente con el respaldo de Microsoft.
 
 ## Requisitos previos
 
@@ -195,4 +195,4 @@ Para seguir explorando la funcionalidad de ACS y experimentar con escenarios má
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

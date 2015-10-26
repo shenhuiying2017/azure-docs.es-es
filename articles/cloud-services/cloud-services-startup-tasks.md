@@ -163,4 +163,4 @@ Aprenda a realizar algunas [tareas de inicio comunes](cloud-services-startup-tas
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

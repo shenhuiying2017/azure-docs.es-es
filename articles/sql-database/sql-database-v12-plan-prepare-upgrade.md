@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/08/2015"
 	ms.author="genemi"/>
 
 
@@ -149,7 +149,7 @@ Se recomienda conectarse a las bases de datos SQL de Azure con Visual Studio 201
 - Para desarrollar una base de datos, en línea o sin conexión.
 
 
-En su lugar, puede conectarse con [Visual Studio Community 2013](https://www.visualstudio.com/es-es/news/vs2013-community-vs.aspx/), que es una versión gratuita y completa de VS2013.
+En su lugar, puede conectarse con [Visual Studio Community 2013](https://www.visualstudio.com/es-ES/news/vs2013-community-vs.aspx/), que es una versión gratuita y completa de VS2013.
 
 
 En el Portal de Azure anterior, en la página de la base de datos, puede hacer clic en **Abrir en Visual Studio** para iniciar VS2013 en el equipo para conectarse a Base de datos SQL de Azure.
@@ -220,18 +220,19 @@ En el siguiente escenario se explica que una base de datos SQL de Azure V11 pued
 5. Puede cambiar la base de datos a cualquier nivel de servicio compatible, si S0 no es su preferencia.
 
 
-### cmdlets de PowerShell
+### Cmdlets de PowerShell
 
 
-Los cmdlets de PowerShell se pueden usar para iniciar, detener o supervisar una actualización a Base de datos SQL de Azure V12 desde V11, o desde cualquier otra versión anterior a la V12.
+Los cmdlets de PowerShell se pueden usar para iniciar, detener o supervisar una actualización de la Base de datos SQL de Azure V12 a partir de la versión V11, o desde cualquier otra versión anterior a la V12.
 
+- [Actualización a la base de datos SQL V12 con PowerShell](sql-database-upgrade-server.md)
 
 Para obtener documentación de referencia acerca de estos cmdlets de Powershell, consulte:
 
 
-- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
-- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
-- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
+- [Get-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582.aspx)
+- [Start-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
+- [Stop-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
 
 El cmdlet Stop- significa cancelar, no pausar. La única forma de reanudar una actualización es volver a iniciarla desde el principio. El cmdlet Stop- limpia y libera todos los recursos adecuados.
@@ -253,4 +254,4 @@ Si la actualización falla por algún extraño motivo, la base de datos V11 perm
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

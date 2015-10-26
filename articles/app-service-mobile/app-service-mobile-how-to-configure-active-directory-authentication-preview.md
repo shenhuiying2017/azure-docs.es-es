@@ -75,4 +75,4 @@ Autenticación de usuarios de la aplicación móvil con un inicio de sesión ún
 [ios-adal]: ../app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

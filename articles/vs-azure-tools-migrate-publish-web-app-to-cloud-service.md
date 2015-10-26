@@ -208,4 +208,4 @@ Para publicar una aplicación web en Azure, la aplicación debe usar una de las 
 ## Pasos siguientes
 Para obtener más información sobre la publicación, vea [Preparación para publicar o implementar una aplicación de Azure desde Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Consulte también [Configuración de credenciales de autenticación con nombre](vs-azure-tools-setting-up-named-authentication-credentials.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

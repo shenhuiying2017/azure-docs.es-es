@@ -18,7 +18,9 @@
    ms.author="rasquill"/>
 
 # Cómo usar docker con enjambre
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 Este tema le mostrará una manera muy sencilla de usar [docker](https://www.docker.com/) con [swarm](https://github.com/docker/swarm) para crear un clúster administrado por swarm en Azure. Éste crea cuatro máquinas virtuales en Azure: una que actúe como el administrador de enjambre y tres como parte del clúster de los hosts docker. Cuando termine, puede usar enjambre para ver el clúster y comenzar a usar docker en él. Además, las llamadas de CLI de Azure en este tema utilizan el modo de administración de servicio (asm).
 
@@ -135,4 +137,4 @@ Empiece a ejecutar cosas en su enjambre. Si necesita inspiración, consulte [htt
 [docker-machine-azure]: virtual-machines-docker-machine.md
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

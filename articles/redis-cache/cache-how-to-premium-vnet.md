@@ -26,7 +26,7 @@ Para obtener información sobre otras características de caché premium, vea [C
 >[AZURE.NOTE]Actualmente, el nivel Premium de Caché en Redis de Azure está en vista previa.
 
 ## ¿Por qué la red virtual?
-La implementación de la [Red virtual de Azure](https://azure.microsoft.com/es-es/services/virtual-network/) ofrece seguridad mejorada y aislamiento para su Caché en Redis de Azure, así como subredes, directivas de control de acceso y otras características para restringir aún más el acceso a Caché en Redis de Azure.
+La implementación de la [Red virtual de Azure](https://azure.microsoft.com/es-ES/services/virtual-network/) ofrece seguridad mejorada y aislamiento para su Caché en Redis de Azure, así como subredes, directivas de control de acceso y otras características para restringir aún más el acceso a Caché en Redis de Azure.
 
 ## Compatibilidad con redes virtuales
 La compatibilidad de la red virtual está configurada en la hoja **Nueva caché en Redis** durante la creación de la memoria caché. Para crear una caché, inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com) y haga clic en **Nuevo**->**Datos y almacenamiento**>**Caché en Redis**.
@@ -79,7 +79,7 @@ En la lista siguiente se incluyen algunos errores de configuración comunes que 
 Las redes virtuales solo se pueden usar con memoria caché premium.
 
 ## Pasos siguientes
-Obtenga información sobre cómo usar más características de la memoria caché del nivel Premium.
+Obtenga información acerca de cómo usar más características de la memoria caché del nivel Premium.
 
 -	[Cómo configurar la persistencia para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md)
 -	[Cómo configurar la agrupación en clústeres para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md)
@@ -103,4 +103,4 @@ Obtenga información sobre cómo usar más características de la memoria caché
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
 
 # Copia de seguridad de máquina virtual de Azure
 
@@ -87,7 +87,7 @@ La siguiente imagen muestra las relaciones entre las diversas entidades de Copia
 
 5. Haga clic en **Crear almacén**. La creación del almacén de credenciales de copia de seguridad puede tardar unos minutos. Supervise las notificaciones de estado en la parte inferior del portal. ![Crear la notificación del sistema del almacén](./media/backup-azure-vms-introduction/creating-vault.png)
 
-6. Un mensaje confirma que el almacén se ha creado correctamente y se mostrará en la página de servicios de recuperación como activo. Asegúrese de que se ha elegido la opción de redundancia de almacenamiento apropiada justo después de que se ha creado el almacén. Obtenga más información sobre cómo [establecer la opción de redundancia de almacenamiento en el almacén de copia de seguridad](../backup-azure-backup-create-vault.md#storage-redundancy-options). ![Lista de copias de seguridad](./media/backup-azure-vms-introduction/backup_vaultslist.png)
+6. Un mensaje confirma que el almacén se ha creado correctamente y se mostrará en la página de servicios de recuperación como activo. Asegúrese de que se ha elegido la opción de redundancia de almacenamiento apropiada justo después de que se ha creado el almacén. Obtenga más información sobre cómo [establecer la opción de redundancia de almacenamiento en el almacén de copia de seguridad](backup-configure-vault.md#azure-backup---storage-redundancy-options). ![Lista de copias de seguridad](./media/backup-azure-vms-introduction/backup_vaultslist.png)
 
 7. Al hacer clic en el almacén de copia de seguridad, se dirige a la página **Inicio rápido**, donde se muestran las instrucciones para la copia de seguridad de máquinas virtuales de Azure. ![Instrucciones de copia de seguridad de máquina virtual en la página del panel](./media/backup-azure-vms-introduction/vmbackup-instructions.png)
 
@@ -104,7 +104,8 @@ Obtenga información acerca del [Agente de máquina virtual](https://go.microsof
 - No se admite la copia de seguridad de máquinas virtuales con el almacenamiento Premium.
 - No se admite la copia de seguridad de máquinas virtuales con varias direcciones IP reservadas.
 - No se admite la copia de seguridad de máquinas virtuales con una dirección IP reservada y ningún extremo definido.
-- No se admite la copia de seguridad de máquinas virtuales mediante varios NIC o en una configuración con equilibrio de carga.
+- No se admite la copia de seguridad de máquinas virtuales con varios NIC.
+- No se admite la copia de seguridad de máquinas virtuales en una configuración con equilibrio de carga (interna o con conexión a Internet).
 - No se admite el reemplazo de una máquina virtual existente durante la restauración. Primero, elimine la máquina virtual existente y los discos asociados y, a continuación, restaure los datos de copia de seguridad.
 - No se admite la restauración y copia de seguridad entre regiones.
 - La copia de seguridad de máquinas virtuales con el servicio Copia de seguridad de Azure se admite en todas las regiones públicas de Azure. Seguidamente se ofrece una [lista de comprobación](http://azure.microsoft.com/regions/#services) de las regiones admitidas. Si la región que está buscando hoy en día no es compatible, no aparecerá en la lista desplegable durante la creación del almacén.
@@ -122,4 +123,4 @@ Para empezar a usar la copia de seguridad de máquina virtual, aprenda cómo:
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 - [Administrar copia de seguridad de máquina virtual](backup-azure-manage-vms.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

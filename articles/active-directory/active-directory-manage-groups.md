@@ -94,4 +94,4 @@ A continuación presentamos algunos temas que proporcionarán información adici
 
 * [Referencia de la API Graph para grupos](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

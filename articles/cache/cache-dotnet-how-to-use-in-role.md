@@ -411,4 +411,4 @@ Ahora que está familiarizado con los aspectos básicos de la caché en rol, uti
 [¿Cuál es la oferta de Caché de Azure más adecuada para mí?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -109,4 +109,4 @@ Consulte el [Asesor de índices](sql-database-index-advisor.md) para obtener má
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

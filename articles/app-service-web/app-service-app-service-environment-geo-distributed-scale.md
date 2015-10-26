@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2015" 
+	ms.date="10/08/2015" 
 	ms.author="stefsch"/>
 
 # Escala distribuida geográficamente con entornos de Servicio de aplicaciones
@@ -43,6 +43,7 @@ Antes de crear la superficie de una aplicación distribuida, resulta útil tener
 - **Estrategia para el escalado de la superficie de la aplicación:** ¿se distribuirá la superficie de la aplicación entre distintos entornos de Servicio de aplicaciones en una sola región? ¿Varias regiones? ¿Una combinación de ambos enfoques? La decisión debería basarse en las expectativas de dónde se vaya a originar el tráfico del cliente, así como también en la medida en que el resto de la infraestructura de back-end de apoyo de una aplicación pueda escalarse. Por ejemplo, con una aplicación totalmente sin estado, se puede escalar una aplicación de forma masiva usando una combinación de varios entornos de Servicio de aplicaciones por región de Azure, multiplicados por más entornos de Servicio de aplicaciones implementados en varias regiones de Azure. Con más de 15 regiones de Azure públicas entre las que elegir, los clientes pueden realmente crear una superficie de aplicación de gran escala en todo el mundo. Para la aplicación de ejemplo usada en este artículo, se crearon tres entornos de Servicio de aplicaciones en una sola región de Azure (Centro y Sur de EE. UU.).
 - **Convención de nomenclatura para los entornos de Servicio de aplicaciones:** cada entorno de Servicio de aplicaciones requiere un nombre único. Si existen más de uno o dos entornos de Servicio de aplicaciones, resulta útil disponer de una convención de nomenclatura para ayudar a identificar cada uno de ellos. Para la aplicación de ejemplo, se usó una convención de nomenclatura sencilla. Los nombres de los tres entornos de Servicio de aplicaciones son *fe1ase*, *fe2ase* y *fe3ase*.
 - **Convención de nomenclatura para las aplicaciones:** ya que se implementarán varias instancias de la aplicación, se necesita un nombre para cada instancia de la aplicación implementada. Una característica poco conocida pero muy cómoda de los entornos de Servicio de aplicaciones es que se puede usar el mismo nombre de aplicación en varios entornos de Servicio de aplicaciones. Dado que cada entorno de Servicio de aplicaciones tiene un sufijo de dominio único, los desarrolladores pueden reutilizar el mismo nombre de aplicación en cada entorno. Por ejemplo, un desarrollador podría denominar a las aplicaciones como sigue:*myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc. No obstante, para la aplicación de ejemplo, cada instancia tiene un nombre único. Los nombres de las instancias de aplicación usados son *webfrontend1*, *webfrontend2* y *webfrontend3*.
+
 
 ## Configuración de un perfil del Administrador de tráfico ##
 Una vez que se implementan varias instancias de una aplicación en varios entornos de Servicio de aplicaciones, las instancias de aplicación individuales se pueden registrar con el Administrador de tráfico. Para la aplicación de ejemplo, se necesita un perfil del Administrador de tráfico para *scalable-ase-demo.trafficmanager.net* que pueda enrutar a los clientes a cualquiera de las siguientes instancias de la aplicación implementadas:
@@ -115,7 +116,7 @@ Documentación sobre [compatibilidad del Administrador de recursos de Azure (ARM
 <!-- LINKS -->
 [AzureTrafficManagerProfile]: https://azure.microsoft.com/documentation/articles/traffic-manager-manage-profiles/
 [ARMTrafficManager]: https://azure.microsoft.com/documentation/articles/traffic-manager-powershell-arm/
-[RegisterCustomDomain]: https://azure.microsoft.com/es-es/documentation/articles/web-sites-custom-domain-name/
+[RegisterCustomDomain]: https://azure.microsoft.com/es-ES/documentation/articles/web-sites-custom-domain-name/
 
 
 <!-- IMAGES -->
@@ -124,4 +125,4 @@ Documentación sobre [compatibilidad del Administrador de recursos de Azure (ARM
 [DNSLookup]: ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
 [CustomDomain]: ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

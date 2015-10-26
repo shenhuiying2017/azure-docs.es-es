@@ -205,4 +205,4 @@ Consulte la [Referencia de la API de REST de Azure DocumentDB](https://msdn.micr
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

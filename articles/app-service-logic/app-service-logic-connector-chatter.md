@@ -38,7 +38,7 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 1. En el panel de inicio de Azure, seleccione **Marketplace**.
 2. Busque "Conector de Chatter", selecciónelo y seleccione **Crear**.
-3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades: 
+3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades:
 	![][1]  
 	- **Ubicación**: elija la ubicación geográfica en la que desea implementar el conector.
 	- **Suscripción**: elija una suscripción en la que desee crear este conector.
@@ -55,17 +55,17 @@ Una vez creada la aplicación de API, ahora puede usar el conector de Chatter co
 
 1. En la aplicación lógica, abra **Desencadenadores y acciones** para abrir el diseñador de Aplicaciones lógicas y configure el flujo.
 
-2. El conector de Chatter se muestra en la galería: 
+2. El conector de Chatter se muestra en la galería:  
 	![][4]
-3. Seleccione el conector de Chatter para agregar automáticamente en el diseñador. Seleccione **Autorizar**, escriba sus credenciales y seleccione **Permitir**: 
+3. Seleccione el conector de Chatter para agregar automáticamente en el diseñador. Seleccione **Autorizar**, escriba sus credenciales y seleccione **Permitir**:  
 	![][5] 
 	![][6] 
 	![][7]
 
 Ahora puede usar el conector de Chatter en el flujo. Puede usar el nuevo mensaje recuperado desde el desencadenador de Chatter ("Mensaje nuevo") en otras acciones del flujo. Configure las propiedades de entrada para el desencadenador de Chatter de la forma siguiente:
 
-**Identificador de grupo**: escriba el identificador del grupo desde el que se va a recuperar el nuevo mensaje. Si no se proporciona el identificador de grupo, el nuevo mensaje se recupera de la fuente del usuario: 
-	![][8] 
+**Identificador de grupo**: escriba el identificador del grupo desde el que se va a recuperar el nuevo mensaje. Si no se proporciona el identificador de grupo, el nuevo mensaje se recupera de la fuente del usuario:  
+	![][8]
 	![][9]
 
 
@@ -79,7 +79,7 @@ En la forma similar puede usar la acción Chatter en el flujo para enviar un men
 	- 	**Menciones**: la matriz de los nombres de usuario que se van a etiquetar en este mensaje
 	- 	**Hashtags**: la matriz de los hashtags que se van a enviar junto con el mensaje
 
-![][10] 
+![][10]
 ![][11]
 
 ## Aplicaciones adicionales del conector
@@ -105,4 +105,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

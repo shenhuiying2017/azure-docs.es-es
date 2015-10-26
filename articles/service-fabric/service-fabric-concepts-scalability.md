@@ -1,20 +1,20 @@
 <properties
    pageTitle="Escalabilidad de los servicios de Service Fabric"
-	description="Describe cómo escalar servicios de Service Fabric"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="appi101"
-	manager="timlt"
-	editor=""/>
+   description="Describe cómo escalar servicios de Service Fabric"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="appi101"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="aprameyr"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="aprameyr"/>
 
 # Escalar aplicaciones de Service Fabric
 Service Fabric facilita la creación de aplicaciones escalables, al equilibrar la carga de servicios, particiones y réplicas en todos los nodos de un clúster. Esto habilita la utilización máxima de recursos.
@@ -61,4 +61,4 @@ Para obtener información sobre los conceptos de Service Fabric, vea lo siguient
 - [Definición y administración del estado](service-fabric-concepts-state.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

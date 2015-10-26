@@ -74,4 +74,4 @@ Asignación de almacenamiento|No aplicable|Asigna las clasificaciones de almacen
 Una vez finalizada la esta información general, [lea las prácticas recomendadas](site-recovery-best-practices.md) que le ayudarán a empezar a trabajar con la planeación de la implementación.
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

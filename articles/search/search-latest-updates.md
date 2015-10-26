@@ -125,4 +125,4 @@ La versión preliminar de [API de REST de administración](search-management-api
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

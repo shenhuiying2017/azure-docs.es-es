@@ -34,4 +34,4 @@ Se conocen varios problemas que pueden surgir durante la [creación de un inquil
 	- Elimine el inquilino que acaba de crear y vuelva a intentarlo.
 - Si ninguna de las soluciones anteriores funciona, póngase en contacto con el soporte técnico. Lea [este artículo](active-directory-b2c-support.md) sobre cómo presentar solicitudes de soporte técnico para Azure AD B2C.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

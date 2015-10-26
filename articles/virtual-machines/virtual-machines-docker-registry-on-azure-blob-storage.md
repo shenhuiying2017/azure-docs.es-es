@@ -19,7 +19,8 @@
 
 # Implementación de su propio Docker Registry privado en Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo se aplica a las máquinas virtuales creadas con el modelo de implementación del Administrador de recursos o el modelo de implementación clásico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 
 Este documento describe un Docker Registry privado y muestra cómo se puede implementar una imagen de contenedor de Docker Registry 2.0 en un Docker Registry privado en Microsoft Azure con el almacenamiento de blobs de Azure.
@@ -95,4 +96,4 @@ Una vez configurado el registro, es hora de usarlo más. Comience con [registry-
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -117,4 +117,4 @@ Esta última actualización incluye correcciones de errores y características n
 
 Publique cualquier pregunta en el [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).<
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

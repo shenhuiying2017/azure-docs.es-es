@@ -7,7 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/21/2015" ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
 
 
 # Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell
@@ -30,16 +30,35 @@ Sample DPM scripts: Get-DPMSampleScript
 ```
 
 ## Instalación y registro
+Para empezar:
 
-### Creación de un almacén de copia de seguridad
-Puede crear un nuevo almacén de copia de seguridad mediante el cmdlet **New-AzureBackupVault**. El almacén de copia de seguridad es un recurso ARM, por lo que necesita colocarlo dentro de un grupo de recursos. En una consola de Azure PowerShell, ejecute los comandos siguientes:
+1. [Descargue el PowerShell más reciente](https://github.com/Azure/azure-powershell/releases) (la mínima versión necesaria es: 1.0.0)
+2. Para empezar, habilite los commandlets de Copia de seguridad de Azure, para lo que debe cambiar al modo *AzureResourceManager* usando el commandlet **Switch-AzureMode**:
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Location “West US”
+PS C:\> Switch-AzureMode AzureResourceManager
+```
+
+Las siguientes tareas de instalación y registro se pueden automatizar con PowerShell:
+
+- Creación de un almacén de copia de seguridad
+- Instalación del agente de Copia de seguridad de Azure
+- Registro con el servicio de Copia de seguridad de Azure
+- Configuración de redes
+- Configuración de cifrado
+
+### Creación de un almacén de copia de seguridad
+
+> [AZURE.WARNING]La primera vez que los clientes usen Azure Backup deben registrar el proveedor de Azure Backup que se va a usar con su suscripción. Para ello, ejecute el siguiente comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+
+Puede crear un nuevo almacén de copia de seguridad con el commandlet **New-AzureRMBackupVault**. El almacén de copia de seguridad es un recurso ARM, por lo que necesita colocarlo dentro de un grupo de recursos. En una consola de Azure PowerShell, ejecute los comandos siguientes:
+
+```
+PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
 PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
 ```
 
-Puede obtener una lista de todos los almacenes de copia de seguridad en una determinada suscripción mediante el cmdlet **Get-AzureBackupVault**.
+Puede obtener una lista de todos los almacenes de copia de seguridad de una suscripción dada usando el commandlet **Get-AzureRMBackupVault**.
 
 
 ### Instalación del agente de copia de seguridad de Azure en un servidor DPM
@@ -300,6 +319,6 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 Los comandos se pueden ampliar fácilmente para cualquier tipo de origen de datos.
 
 ## Pasos siguientes
-Para obtener más información sobre Copia de seguridad de Azure para DPM, consulte [Introducción a Copia de seguridad de DPM en Azure](backup-azure-dpm-introduction.md)
+Para obtener más información sobre Copia de seguridad de Azure para DPM, consulte [Introducción a Copia de seguridad de DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

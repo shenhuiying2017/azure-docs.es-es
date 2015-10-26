@@ -257,4 +257,4 @@ Para reinstalar Administrador de instantáneas StorSimple, siga los pasos descri
 
 - Para obtener más información acerca de Snapshot Manager de StorSimple, vaya a [Use Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

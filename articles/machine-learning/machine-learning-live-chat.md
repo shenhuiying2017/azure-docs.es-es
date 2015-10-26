@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/06/2015" 
-    ms.author="luisca"/>
+    ms.date="10/14/2015" 
+    ms.author="olgali"/>
 #Obtener ayuda del soporte técnico por chat en tiempo real del Aprendizaje automático
 
 [Estudio de aprendizaje automático de Azure](machine-learning-what-is-ml-studio.md) proporciona una interfaz intuitiva para la creación de módulos de aprendizaje automático. La [Galería](machine-learning-gallery-how-to-use-contribute-publish.md) y los [Foros](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) le ayudarán en este proceso.
@@ -31,4 +31,4 @@ Los miembros del equipo están respondiendo a su pregunta. Si no ve el icono de 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

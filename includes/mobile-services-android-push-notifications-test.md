@@ -24,4 +24,4 @@ Cuando ejecute esta aplicación en el emulador, asegúrese de utilizar un dispos
 
 	![Visualice la notificación en el centro de notificaciones](./media/mobile-services-android-push-notifications-test/notification-area-received.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

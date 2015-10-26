@@ -126,4 +126,4 @@ Puede que desee intentar cambiar las versiones y pasar de la versión 2 a la ver
 [Solucionar problemas de una actualización de aplicación ](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

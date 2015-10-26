@@ -160,4 +160,4 @@ Si desea usar SSL para una implementaci√≥n de ensayo en vez de una implementaci√
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -50,4 +50,4 @@ En este tutorial, se requiere que los usuarios se autentiquen primero, registrar
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

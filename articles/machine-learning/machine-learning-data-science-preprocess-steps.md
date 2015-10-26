@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun" />
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2015"
-	ms.author="msolhab;bradsev"/>
+	ms.author="msolhab;bradsev" />
 
 
 # Preparación de los datos para el aprendizaje automático
@@ -104,4 +104,4 @@ La **exploración de los datos** ofrece una vista anticipada de los datos. Una s
 >_\_Minería de datos: conceptos y técnicas_, Tercera edición, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber y Jian Pei
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

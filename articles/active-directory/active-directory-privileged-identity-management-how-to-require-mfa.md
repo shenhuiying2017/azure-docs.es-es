@@ -28,4 +28,4 @@ Además, puede cambiar el requisito de MFA por rol haciendo clic en un rol en la
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

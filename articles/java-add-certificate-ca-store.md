@@ -56,4 +56,4 @@ Para obtener más información sobre los certificados raíz que usa Azure, consu
 
 Para obtener más información sobre Java, consulte el [Centro para desarrolladores de Java](/develop/java/).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

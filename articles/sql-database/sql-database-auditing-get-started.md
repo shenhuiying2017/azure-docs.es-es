@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="10/08/2015" 
 	ms.author="jeffreyg"/>
  
 # Introducción a la auditoría de bases de datos SQL 
@@ -139,12 +139,15 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 4. Vuelva a la interfaz de usuario de almacenamiento y **regenere** la *Clave de acceso secundaria* (como preparación para el siguiente ciclo de actualización de las claves).
   
 ##<a id="subheading-4"></a>Automatización
-Hay varios cmdlets de PowerShell que puede usar para configurar la auditoría en la base de datos de SQL de Azure. Para acceder a los cmdlets de auditoría debe ejecutar PowerShell en el modo del Administrador de recursos de Azure.
+Existen varios cmdlets de PowerShell que puede usar para configurar la auditoría en la base de datos de SQL de Azure.
 
-> [AZURE.NOTE]El módulo [Administrador de recursos de Azure](https://msdn.microsoft.com/library/dn654592.aspx) se encuentra disponible actualmente en modo de vista previa. Puede que no ofrezca las mismas capacidades de administración que el módulo de Azure.
-
-Cuando esté en el modo Administrador de recursos de Azure, ejecute `Get-Command *AzureSql*` para enumerar los cmdlets disponibles.
-
+- [Get-AzureRMSqlDatabaseAuditingPolicy](https://msdn.microsoft.com/library/azure/mt603731.aspx)
+- [Get-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/library/azure/mt619329.aspx)
+- [Remove-AzureRMSqlDatabaseAuditing](https://msdn.microsoft.com/library/azure/mt603796.aspx)
+- [Remove-AzureRMSqlServerAuditing](https://msdn.microsoft.com/library/azure/mt603574.aspx)
+- [Set-AzureRMSqlDatabaseAuditingPolicy](https://msdn.microsoft.com/library/azure/mt603531.aspx)
+- [Set-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/library/azure/mt603794.aspx)
+- [Use-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/library/azure/mt619353.aspx)
 
 
 
@@ -182,4 +185,4 @@ Cuando esté en el modo Administrador de recursos de Azure, ejecute `Get-Command
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

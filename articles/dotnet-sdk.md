@@ -186,4 +186,4 @@ Para obtener el código fuente del SDK de Azure para .NET, incluidas las bibliot
 
 Para obtener documentación de referencia de las bibliotecas de cliente de Azure, consulte la [referencia de Azure .NET](/documentation/api/).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

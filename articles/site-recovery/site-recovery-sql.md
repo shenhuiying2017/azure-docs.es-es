@@ -148,16 +148,111 @@ El gráfico siguiente muestra esta configuración.
 
 
 
-##Creación de planes de recuperación
+##Integración con AlwaysOn de SQL a Azure
 
-Los planes de recuperación agrupan las máquina que se deben conmutar por error. Obtenga más información sobre [planes de recuperación](site-recovery-create-recovery-plans.md) y [conmutación por error](site-recovery-failover.md) antes de empezar.
+Azure Site Recovery (ASR) admite de forma nativa AlwaysOn de SQL. Si creó un grupo de disponibilidad de SQL con una máquina virtual de Azure que se esté configurada como "secundaria" puede usar ASR para administrar la conmutación por error de los grupos de disponibilidad.
+
+Esta capacidad está actualmente en versión preliminar y está disponible cuando el centro de datos principal está administrado por System Center Virtual Machine Manager (VMM).
+
+### Entornos administrados por el servidor VMM
+Si entra en un almacén de ASR verá una pestaña para los servidores de SQL Server en los elementos de la pestaña Protegido.
+
+![Elementos protegidos](./media/site-recovery-sql/protected-items.png)
+
+A continuación se muestran los pasos necesarios para integrar AlwaysOn de SQL con ASR.
+
+#### Requisitos previos
+- Un servidor de SQL Server local en un servidor independiente o en un clúster de conmutación por error 
+- Una o más máquinas virtuales de Azure con SQL Server instalado
+- Grupo de disponibilidad de SQL configurado entre el servidor local de SQL Server y el servidor de SQL Server que se ejecuta en Azure
+- El acceso remoto a PowerShell debe habilitarse en el servidor local de SQL Server. El servidor VMM debe poder realizar llamadas remotas de PowerShell a SQL Server
+- En el servidor local de SQL Server debe agregarse una cuenta de usuario en los grupos de usuario SQL con los permisos siguientes como mínimo
+	- ALTER AVAILABILITY GROUP: [ referencia 1](https://msdn.microsoft.com/es-ES/library/hh231018.aspx), [referencia 2](https://msdn.microsoft.com/es-ES/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE: [referencia 1](https://msdn.microsoft.com/es-ES/library/ff877956.aspx#Security)
+- Debe crearse una cuenta de ejecución en el servidor VMM para la cuenta en el paso anterior
+- Se debe instalar el módulo PS de SQL en los servidores SQL Server locales y en las máquinas virtuales de Azure
+- Se debe instalar el Agente de máquina virtual en las máquinas virtuales que se ejecutan en Azure
+- NTAUTHORITY\\System debe tener los siguientes permisos en el servidor de SQL Server que se ejecuta en las máquinas virtuales en Azure
+	- ALTER AVAILABILITY GROUP: [ referencia 1](https://msdn.microsoft.com/es-ES/library/hh231018.aspx), [referencia 2](https://msdn.microsoft.com/es-ES/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE: [referencia 1](https://msdn.microsoft.com/es-ES/library/ff877956.aspx#Security)
+
+#### Incorporación de un servidor de SQL Server
+
+Haga clic en Agregar SQL para agregar un nuevo servidor de SQL Server.
+
+![Agregar SQL](./media/site-recovery-sql/add-sql.png)
+
+Proporcione los detalles de SQL Server, VMM y las credenciales que se usarán para administrar el servidor de SQL Server.
+
+![Agregar diálogo SQL](./media/site-recovery-sql/add-sql-dialog.png)
+
+##### Parámetros
+1. Nombre: nombre descriptivo que quiera proporcionar para hacer referencia a este servidor SQL Server
+2. El FQDN de SQL Server: nombre de dominio completo (FQDN) del SQL Server de origen que se va a agregar. En caso de que el servidor SQL Server se instale en un clúster de conmutación por error, proporcione el FQDN del clúster y no el de cualquiera de los nodos del clúster. 
+3. Instancia de SQL Server: elija la instancia SQL predeterminada o proporcione el nombre de la instancia SQL personalizada.
+4. Servidor VMM: seleccione uno de los servidores VMM que ya se hayan registrado con Azure Site Recovery (ASR). ASR usará este servidor VMM para comunicarse con el servidor SQL Server
+5. CUENTA DE EJECUCIÓN: proporcione el nombre de una de las cuentas de ejecución que se crearon en el servidor VMM seleccionado anteriormente. Esta cuenta de ejecución se usará para tener acceso a SQL Server y debe tener permisos de lectura y de conmutación por error en los grupos de disponibilidad en el servidor SQL Server. 
+
+Una vez que agregue SQL Server aparecerá en la pestaña de servidores de SQL.
+
+![Lista SQL Server](./media/site-recovery-sql/sql-server-list.png)
+
+#### Incorporación de un grupo de disponibilidad de SQL
+
+Una vez que se agrega el servidor SQL Server, el paso siguiente es agregar los grupos de disponibilidad a ASR. Para ello, profundice dentro del servidor SQL Server que agregó en el paso anterior y haga clic en Agregar un grupo de disponibilidad de SQL.
+
+![Agregar SQL AG](./media/site-recovery-sql/add-sqlag.png)
+
+El grupo de disponibilidad de SQL se puede replicar en una o varias máquinas virtuales en Azure. Al agregar el grupo de disponibilidad de SQL se le pide que proporcione el nombre y la suscripción de la máquina virtual de Azure donde desea que ASR realice la conmutación por error del grupo de disponibilidad.
+
+![Agregar diálogo SQL AG](./media/site-recovery-sql/add-sqlag-dialog.png)
+
+En el ejemplo anterior el grupo de disponibilidad DB1-AG se convertirá en principal en la máquina virtual SQLAGVM2 que se ejecuta dentro de la suscripción DevTesting2 en caso de una conmutación por error.
+
+>[AZURE.NOTE]Solamente los grupos de disponibilidad que son principales en el servidor SQL Server que agregó en el paso anterior están disponibles para agregarse a ASR. Si convirtió a un grupo de disponibilidad en principal en el servidor SQL Server, o si agrega más grupos de disponibilidad en el servidor SQL Server después una vez agregado, realice una actualización con la opción que está disponible para ello en SQL Server.
+
+#### Creación de un plan de recuperación
+
+El siguiente paso es crear un plan de recuperación con las máquinas virtuales y los grupos de disponibilidad. Seleccione el mismo servidor VMM que usó en el paso 1 como origen y Microsoft Azure como destino.
+
+![Creación del plan de recuperación](./media/site-recovery-sql/create-rp1.png)
+
+![Creación del plan de recuperación](./media/site-recovery-sql/create-rp2.png)
+
+En el ejemplo la aplicación de Sharepoint consta de 3 máquinas virtuales que usan un grupo de disponibilidad de SQL como su back-end. En este plan de recuperación podríamos seleccionar tanto el grupo de disponibilidad como la máquina virtual que constituyen la aplicación.
+
+Puede personalizar aún más el plan de recuperación moviendo las máquinas virtuales a diferentes grupos de conmutación por error para secuenciar el orden de conmutación por error. Grupo de disponibilidad siempre se conmuta primero ya que se usará como un back-end de cualquier aplicación.
+
+![Personalización de planes de recuperación](./media/site-recovery-sql/customize-rp.png)
+
+#### Conmutación por error
+
+Una vez que se agrega un grupo de disponibilidad a un plan de recuperación hay diferentes opciones de conmutación por error disponibles.
+
+##### Conmutación por error planeada
+
+Una conmutación por error planeada supone una conmutación sin pérdida de datos. Para lograrlo, el modo de disponibilidad del grupo de disponibilidad de SQL se establece primero en sincrónico y, a continuación, se desencadena una conmutación por error para convertir el grupo de disponibilidad en principal en la máquina virtual proporcionada, al tiempo que se agrega el grupo de disponibilidad a ASR. Una vez completada la conmutación por error, el modo de disponibilidad se establece con el mismo valor que tenía antes de que se desencadenara la conmutación planeada.
+
+##### Conmutación por error no planeada
+
+Una conmutación por error imprevista puede dar lugar a una pérdida de datos. Al desencadenar una conmutación por error que no está planeada el modo de disponibilidad del grupo de disponibilidad no se cambia y se convierte en principal en la máquina virtual proporcionada al agregar el grupo de disponibilidad al ASR. Una vez que la conmutación por error imprevista se completa y el servidor local que ejecuta SQL Server vuelve a estar disponible, es necesario desencadenar una replicación inversa en el grupo de disponibilidad. Tenga en cuenta que esta acción no está disponible en el plan de recuperación y se puede realizar en el grupo de disponibilidad de SQL en la pestaña de servidores SQL Server
+
+##### Test Failover
+La conmutación por error de prueba no se admite para los grupo de disponibilidad de SQL. Si se desencadena una conmutación por error de prueba de un plan de recuperación que contenga un grupo de disponibilidad de SQL, se omitirá la conmutación por error para el grupo de disponibilidad.
+
+##### Conmutación por recuperación
+
+Si desea que el grupo de disponibilidad vuelva a ser principal en el servidor local de SQL Server, puede hacerlo desencadenando una conmutación por error planeada en el plan de recuperación y eligiendo la dirección de Microsoft Azure al servidor VMM local
+
+##### Replicación inversa
+
+Después de una conmutación por error no planeada tiene que desencadenarse una replicación inversa en el grupo de disponibilidad para continuar con la replicación. Hasta que esto se realiza la replicación permanece suspendida.
 
 
-### Creación de un plan de recuperación para clústeres de SQL Server (SQL Server 2012/2014 Enterprise)
+### Entornos no son administrados por VMM
 
-#### Configuración de scripts de SQL Server para la conmutación por error en Azure
+Para los entornos que no están administrados por un servidor VMM, se pueden usar los runbooks de Automatización de Azure para configurar una conmutación por error con script de los grupos de disponibilidad de SQL. A continuación se muestran los pasos a seguir para esta configuración:
 
-En este escenario, se aprovechan scripts personalizados y la Automatización de Azure para los planes de recuperación con el fin de configurar una conmutación por error con scripts de los grupos de disponibilidad de SQL Server.
 
 1.	Cree un archivo local para que el script realice la conmutación por error de un grupo de disponibilidad. Este script de ejemplo especifica una ruta de acceso al grupo de disponibilidad en la réplica de Azure y realiza la conmutación por error a esa instancia de réplica. Este script se ejecutará en la máquina virtual de réplica de SQL Server y se pasará con la extensión de script personalizado.
 
@@ -243,120 +338,25 @@ En este escenario, se aprovechan scripts personalizados y la Automatización de 
 
 2. Al crear un plan de recuperación para la aplicación, agregue un paso de script "pre-Group 1 boot" que invoca el script para realizar la conmutación por error de grupos de disponibilidad.
 
-### Creación de un plan de recuperación para clústeres de SQL Server (Standard)
-
-#### Configuración de scripts de SQL Server para la conmutación por error en Azure
-
-1.	Cree un archivo local para que el script realice la conmutación por error del reflejo de Base de datos de SQL Server. Utilice este script de ejemplo.
-
-    	Param(
-    	[string]$database
-    	)
-    	Import-module sqlps
-    	Invoke-sqlcmd –query “ALTER DATABASE $database SET PARTNER FORCE_SERVICE_ALLOW_DATA_LOSS”
-
-2.	Cargue el script en un blob en una cuenta de Almacenamiento de Azure. Utilice este script de ejemplo.
-
-    	$context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"
-    	Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
-
-3.	Cree un runbook de automatización de Azure para invocar el script en la máquina virtual de réplica de SQL Server en Azure. Utilice este script de ejemplo para ello. [Obtenga más información](site-recovery-runbook-automation.md) acerca del uso de runbooks de automatización en los planes de recuperación. Asegúrese de que el agente de máquina virtual se ejecuta en la máquina virtual de SQL Server conmutada por error antes de hacerlo.
-
-    	workflow SQLAvailabilityGroupFailover
-		{
-    		param (
-        		[Object]$RecoveryPlanContext
-    		)
-
-    	$Cred = Get-AutomationPSCredential -name 'AzureCredential'
-	
-    	#Connect to Azure
-    	$AzureAccount = Add-AzureAccount -Credential $Cred
-    	$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
-    	Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
-    
-    	InLineScript
-    	{
-     	#Update the script with name of your storage account, key and blob name
-     	$context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key";
-     	$sasuri = New-AzureStorageBlobSASToken -Container "script-container" -Blob "AGFailover.ps1" -Permission r -FullUri -Context $context;
-     
-     	Write-output "failovertype " + $Using:RecoveryPlanContext.FailoverType;
-               
-     	if ($Using:RecoveryPlanContext.FailoverType -eq "Test")
-       		{
-           		#Skipping TFO in this version.
-           		#We will update the script in a follow-up post with TFO support
-           		Write-output "tfo: Skipping SQL Failover";
-       		}
-     	else
-       			{
-           		Write-output "pfo/ufo";
-           		#Get the SQL Azure Replica VM.
-           		#Update the script to use the name of your VM and Cloud Service
-           		$VM = Get-AzureVM -Name "SQLAzureVM" -ServiceName "SQLAzureReplica";     
-       
-           		Write-Output "Installing custom script extension"
-           		#Install the Custom Script Extension on teh SQL Replica VM
-           		Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $VM -Publisher Microsoft.Compute -Version 1.3| Update-AzureVM; 
-                    
-           		Write-output "Starting AG Failover";
-           		#Execute the SQL Failover script
-           		#Pass the SQL AG path as the argument.
-       
-           		$AGArgs="-SQLAvailabilityGroupPath sqlserver:\sql\sqlazureVM\default\availabilitygroups\testag";
-       
-           		Set-AzureVMCustomScriptExtension -VM $VM -FileUri $sasuri -Run "AGFailover.ps1" -Argument $AGArgs | Update-AzureVM;
-       
-           		Write-output "Completed AG Failover";
-
-       			}
-        
-    		}
-		}
-
-
-
-4. Agregue estos pasos en el plan de recuperación para conmutar por error la capa de SQL Server:
-
-	- Para la conmutación por error planeada, agregue un script principal para apagar el clúster principal después de "desconectar el grupo".
-	- Agregue la máquina virtual de reflejo de la base de datos SQL Server en el plan de recuperación, preferiblemente en el primer grupo de arranque.
-3.	Agregue un script posterior a la conmutación por error para conmutar la copia reflejada en esta máquina virtual mediante el script de automatización anterior. Tenga en cuenta que si bien habrá cambiado el nombre de la instancia de base de datos, la capa de aplicación tendrá que reconfigurarse para usar la nueva base de datos.
-
-
-#### Configuración de scripts de SQL Server para la conmutación por error a un sitio secundario
-
-1.	Agregue este script de ejemplo a la biblioteca de VMM en los sitios principales y secundarios.
-
-    	Param(
-    	[string]$database
-    	)
-    	Import-module sqlps
-    	Invoke-sqlcmd –query “ALTER DATABASE $database SET PARTNER FORCE_SERVICE_ALLOW_DATA_LOSS”
-
-2.	Agregue la máquina virtual de reflejo de la base de datos SQL Server en el plan de recuperación, preferiblemente en el primer grupo de arranque.
-3.	Agregue un script posterior a la conmutación por error para conmutar la copia reflejada en esta máquina virtual mediante el script de VMM anterior. Tenga en cuenta que si bien habrá cambiado el nombre de la instancia de base de datos, la capa de aplicación tendrá que reconfigurarse para usar la nueva base de datos.
-
-
-
-
 
 ## Consideraciones sobre la conmutación por error de prueba
 
 Si utiliza grupos de disponibilidad AlwaysOn, no puede realizar una conmutación por error de prueba de la capa de SQL Server. Como alternativa, considere las siguientes opciones:
 
-- Opción 1
+###Opción 1
 
-	1. Realice una conmutación por error de prueba de la aplicación y las capas de front-end.
-	2. Actualice la capa de aplicación para obtener acceso a la copia de réplica en modo de solo lectura y realizar una prueba de solo lectura de la aplicación.
 
-- Opción 2
+
+1. Realice una conmutación por error de prueba de la aplicación y las capas de front-end.
+
+2. Actualice la capa de aplicación para obtener acceso a la copia de réplica en modo de solo lectura y realizar una prueba de solo lectura de la aplicación.
+
+###Opción 2
+
 1.	Cree una copia de la instancia de máquina virtual de SQL Server de réplica (con clon de VMM para la copia de seguridad de Azure o de sitio a sitio) y muéstrela en una red de prueba
 2.	Realice la conmutación por error de prueba con el plan de recuperación.
 
-## Consideraciones de la conmutación por recuperación
 
-Para los clústeres SQL estándar, la conmutación por recuperación después de una conmutación por error no planeada requiere realizar una copia de seguridad de SQL Server y una restauración de la instancia reflejada en el clúster original y, a continuación, restablecer el reflejo.
 
 
 
@@ -364,4 +364,4 @@ Para los clústeres SQL estándar, la conmutación por recuperación después de
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

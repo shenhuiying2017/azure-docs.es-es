@@ -234,4 +234,4 @@ La unión y minificación los puede controlar ASP.NET. En un proyecto MVC, las u
 + [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](cdn-cloud-service-with-cdn.md)
 + [Prácticas recomendadas para la Red de entrega de contenido de Azure](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -16,4 +16,4 @@ En este paso, crearás una regla de firewall para abrir el puerto de sondeo para
 
 1. Repite los pasos anteriores para el puerto de escucha del grupo de disponibilidad (como se especificó anteriormente en el parámetro $EndpointPort del script) y especifica un nombre de regla adecuado, como **Puerto de escucha AlwaysOn**.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

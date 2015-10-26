@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="Indicadores de supervisión de StorSimple | Microsoft Azure"
-	description="Describe los diodos emisores de luz (LED) y alarmas audibles que se usan para supervisar el estado del dispositivo StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+    pageTitle="Indicadores de supervisión de StorSimple | Microsoft Azure" 
+    description="Describe los diodos emisores de luz (LED) y alarmas audibles que se usan para supervisar el estado del dispositivo StorSimple."
+    services="storsimple"
+    documentationCenter="NA"
+    authors="SharS"
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="v-sharos"/>
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="TBD"
+    ms.date="08/31/2015"
+    ms.author="v-sharos" />
 
 # Usar indicadores de supervisión de StorSimple para administrar su dispositivo   
 
@@ -256,4 +256,4 @@ Obtenga más información sobre los [componentes de hardware de StorSimple y su 
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

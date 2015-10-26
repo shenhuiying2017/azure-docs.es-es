@@ -115,7 +115,7 @@ El ejemplo siguiente muestra una directiva que denegará todas las solicitudes c
       "if" : {
         "not" : {
           "field" : "location",
-          "in" : ["north europe" , "west europe"]
+          "in" : ["northeurope" , "westeurope"]
         }
       },
       "then" : {
@@ -213,6 +213,26 @@ Con un cuerpo de solicitud similar al siguiente:
 
 La definición de la directiva puede definirse como uno de los ejemplos anteriores. Para obtener la versión de la API, use *2015-10-01-preview*. Para obtener más ejemplos y más detalles, vea la [API de REST para definiciones de directiva](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
+### Crear una definición de directiva con PowerShell
+
+Puede crear una nueva definición de directiva mediante el cmdlet New-AzureRmPolicyDefinition tal como se muestra a continuación. En los ejemplos siguientes se crea una directiva para permitir los recursos solo en Europa del Norte y Europa occidental.
+
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation onlyin certain regions" -Policy '{	"if" : {
+    	    			    "not" : {
+    	      			    	"field" : "location",
+    	      			    		"in" : ["northeurope" , "westeurope"]
+    	    			    	}
+    	    		          },
+    	      		    		"then" : {
+    	    			    		"effect" : "deny"
+    	      			    		}
+    	    		    	}'    		
+
+El resultado de la ejecución se almacena en el objeto $policy para que se pueda usar posteriormente durante la asignación de la directiva. Para el parámetro de directiva, también se puede proporcionar la ruta de acceso a un archivo .json que contenga la directiva en lugar de especificar la directiva en línea tal como se muestra a continuación.
+
+    New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
+
+
 ## Aplicación de una directiva
 
 ### Asignación de directivas con la API de REST
@@ -240,4 +260,20 @@ Con un cuerpo de solicitud similar al siguiente:
 
 Para obtener más ejemplos y más detalles, consulte la [API de REST para asignaciones de directivas](https://msdn.microsoft.com/library/azure/mt588466.aspx).
 
-<!---HONumber=Oct15_HO2-->
+### Asignación de directivas con PowerShell
+
+Puede aplicar la directiva creada anteriormente a través de PowerShell en el ámbito deseado mediante el cmdlet New-AzureRmPolicyAssignment tal como se muestra a continuación:
+
+    New-AzureRmPolicyAssignment -Name regionPolicyAssignment -PolicyDefinition $policy -Scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+        
+Aquí $policy es el objeto de la directiva que se devolvió como resultado de ejecutar el cmdlet New-AzureRmPolicyDefinition tal como se muestra más arriba. En este caso, el ámbito es el nombre del grupo de recursos que especifique.
+
+Si desea quitar la asignación de la directiva anterior, puede hacerlo de la siguiente manera:
+
+    Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+
+Puede obtener, cambiar o quitar definiciones de la directiva mediante los cmdlets Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition y Remove-AzureRmPolicyDefinition respectivamente.
+
+De forma similar, puede obtener, cambiar o quitar las asignaciones de directivas mediante los cmdlets Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment y Remove-AzureRmPolicyAssignment respectivamente.
+
+<!---HONumber=Oct15_HO3-->

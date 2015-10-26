@@ -21,7 +21,8 @@
 
 Utilice este material para crear grandes cosas rápidamente.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+
 
 | Plantilla | Descripción | Ver la plantilla | Implementarla ahora |
 |:---|:---|:---:|:---:|
@@ -52,4 +53,4 @@ Descubra todas las plantillas que están a su disposición en [GitHub](https://g
 
 Obtenga más información sobre [Administrador de recursos de Azure](../resource-group-template-deploy.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

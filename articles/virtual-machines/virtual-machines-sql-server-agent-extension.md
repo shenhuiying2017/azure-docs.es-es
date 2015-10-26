@@ -21,7 +21,8 @@
 
 Esta extensión permite que SQL Server en máquinas virtuales de Azure utilice determinados servicios, descritos en este artículo, que solo se puede usar con esta extensión instalada. Esta extensión se instala automáticamente para las imágenes de la galería de SQL Server en el Portal de vista previa de Azure. Se puede instalar en cualquier máquina virtual de SQL Server en Azure que tenga instalado el agente invitado de máquina virtual de Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata el uso de un recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+ 
  
 ## Requisitos previos
 Requisitos para usar los cmdlets de Powershell:
@@ -77,4 +78,4 @@ Si desea quitar esta extensión de la máquina virtual, puede utilizar el siguie
 ### Sintaxis
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

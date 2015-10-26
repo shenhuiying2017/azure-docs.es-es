@@ -22,4 +22,4 @@ A continuación se presentan características y conceptos importantes en los Ser
 + **Escala:** la capacidad de agregar, por un coste adicional, más potencia de procesamiento, rendimiento y almacenamiento a medida que su aplicación se hace más conocida.
 + **Trabajo programado:** código personalizado que se ejecuta en una programación predeterminada o a petición.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

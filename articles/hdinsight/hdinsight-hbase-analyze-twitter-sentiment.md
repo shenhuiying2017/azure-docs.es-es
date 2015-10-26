@@ -1177,7 +1177,7 @@ En esta sección, creará una aplicación web ASP.NET MVC para leer los datos de
 
 **Para modificar layout.cshtml, siga estos pasos:**
 
-1. En el **Explorador de soluciones**, expanda **TweetSentimentWeb**, **Vistas** y **Compartido**, y haga doble clic en _**Layout.cshtml**.
+1. En el **Explorador de soluciones**, expanda **TweetSentimentWeb**, **Views** y **Shared**, y haga doble clic en \__**Layout.cshtml**.
 2. Reemplace el contenido por lo siguiente:
 
 		<!DOCTYPE html>
@@ -1283,7 +1283,7 @@ En esta sección, creará una aplicación web ASP.NET MVC para leer los datos de
 
 		using System.Web.Http;
 
-2. Agregue las líneas siguientes a la función **Application_Start()**:
+2. Agregue las líneas siguientes a la función **Application\_Start()**:
 
 		// Register API routes
 		GlobalConfiguration.Configure(WebApiConfig.Register);
@@ -1357,4 +1357,4 @@ En este tutorial, ha aprendido a obtener tweets, analizar la opinión de estos, 
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

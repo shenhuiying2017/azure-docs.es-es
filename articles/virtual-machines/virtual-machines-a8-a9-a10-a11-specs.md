@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Sobre las instancias de proceso intensivo A8, A9, A10 y A11
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo se aplica a la creación de un recurso con el modelo de implementación del Administrador de recursos o el modelo de implementación clásico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 En este artículo se proporciona información general y consideraciones sobre el uso de las instancias de Azure A8, A9, A10 y A11, también conocidas como instancias de *proceso intensivo*. Entre las características clave de estas instancias se incluyen:
 
@@ -133,4 +134,4 @@ MPI | MS-MPI 2012 R2 o versiones posteriores, ya sean independientes o instalada
 * Para implementar y configurar un clúster basado en Linux con instancias de A8 y A9 para tener acceso a la red RDMA de Azure, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-cluster-rdma.md).
 * Para empezar a implementar y usar instancias A8 y A9 con HPC Pack en Windows, vea [Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

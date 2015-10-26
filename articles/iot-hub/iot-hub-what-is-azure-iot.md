@@ -1,8 +1,8 @@
 <properties
- pageTitle="Centro de IoT de Microsoft Azure e Internet de las cosas (IoT) | Microsoft Azure"
+ pageTitle="Soluciones de Azure para EL Internet de las cosas | Microsoft Azure"
  description="Descripción general de IoT en Azure que incluye la arquitectura de una solución de ejemplo y cómo se relaciona con el Centro de IoT de Azure, los SDK de dispositivos y las soluciones preconfiguradas"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="dobett"/>
 
@@ -29,25 +29,27 @@ Puede que también le interese [Azure IoT Suite][lnk-iot-suite], un conjunto de 
 
 ### Centro de IoT de Azure
 
-Centro de IoT es un servicio de Azure que le permite recibir datos de dispositivo a nube a escala desde los dispositivos y enrutar esos datos a un procesador de eventos de transmisión. El Centro de IoT puede enviar comandos de nube a dispositivo a dispositivos concretos mediante colas específicas del dispositivo.
+Centro de IoT es un servicio de Azure que recibe datos de dispositivo a nube a escala desde los dispositivos y enruta esos datos a un procesador de eventos de transmisión. El Centro de IoT puede enviar comandos de nube a dispositivo a dispositivos concretos mediante colas específicas del dispositivo.
 
-Además, el servicio Centro de IoT incluye un registro de identidades de dispositivo que le ayuda a aprovisionar dispositivos y administrar los dispositivos que pueden conectarse a un Centro de IoT.
+Además, el servicio Centro de IoT incluye un registro de identidades de dispositivo que puede usar para aprovisionar dispositivos y administrar los dispositivos que pueden conectarse a un Centro de IoT.
 
 ### SDK de dispositivos IoT de Azure
 
-Microsoft proporciona SDK de dispositivos IoT que permiten implementar aplicaciones cliente que se ejecuten en una gran variedad de plataformas de hardware de dispositivos y sistemas operativos. Los SDK de dispositivos IoT incluyen bibliotecas que facilitan el envío de datos de telemetría de dispositivo a nube al Centro de IoT y la recepción de comandos de nube a dispositivo desde el Centro de IoT. Estos SDK de dispositivos IoT permiten elegir entre una serie de protocolos de red diferentes para comunicarse con el Centro de IoT de Azure.
+Microsoft proporciona SDK de dispositivos IoT que puede usar para implementar aplicaciones cliente que se ejecuten en una gran variedad de plataformas de hardware de dispositivos y sistemas operativos. Los SDK de dispositivos IoT incluyen bibliotecas que facilitan el envío de datos de telemetría de dispositivo a nube al Centro de IoT y la recepción de comandos de nube a dispositivo desde el Centro de IoT. Al usar los SDK, puede elegir entre una serie de protocolos de red diferentes para comunicarse con el Centro de IoT de Azure.
 
 ## Pasos siguientes
 
 Para comenzar a usar IoT en Azure, explore estos recursos:
 
-- [Introducción al Centro de IoT][lnk-getstarted]
+- [Introducción al centro de IoT][lnk-getstarted]
+- [Centro para desarrolladores de IoT de Azure][lnk-iotdev]
 - [Centro de IoT de Azure][lnk-iot-hub]
-- [Azure IoT Suite][lnk-iot-suite].  
+- [Azure IoT Suite][lnk-iot-suite]  
 
 
 [lnk-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-iot-hub]: iot-hub-what-is-iot-hub.md
 [lnk-iot-suite]: http://azure.microsoft.com/solutions/iot/
+[lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

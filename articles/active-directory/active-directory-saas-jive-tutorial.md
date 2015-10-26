@@ -70,4 +70,4 @@ La captura de pantalla siguiente muestra un ejemplo del cuadro de diálogo relac
   
 Ahora ya puede crear una cuenta de prueba, espere 10 minutos y compruebe si la cuenta se ha sincronizado en Jive.com.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

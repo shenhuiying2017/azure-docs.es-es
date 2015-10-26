@@ -49,4 +49,4 @@ Para crear una red virtual mediante un archivo netcfg a través del portal de Az
 
 	![Nueva red virtual](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure6.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

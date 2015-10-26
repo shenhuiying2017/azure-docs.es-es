@@ -210,4 +210,4 @@ Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el esce
 		           OUTBOUND                                                                                                      
 		           DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

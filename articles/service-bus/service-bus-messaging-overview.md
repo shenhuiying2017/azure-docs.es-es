@@ -56,4 +56,4 @@ Para obtener más información sobre la mensajería de Bus de servicio, consulte
 - [Cómo usar temas de Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

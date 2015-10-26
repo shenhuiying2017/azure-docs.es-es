@@ -614,4 +614,4 @@ En ASP.NET 5, el concepto y modelo de programación de separar la *aplicación* 
 
 [Depuración de la aplicación de Service Fabric en Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

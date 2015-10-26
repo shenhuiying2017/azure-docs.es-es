@@ -90,7 +90,8 @@ Crea una solicitud "crear modelo".
 |:--------			|:--------								|
 |	modelName |	Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_).<br>Longitud máxima: 20 |
 |	apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+||| 
+| Cuerpo de la solicitud | NONE |
 
 
 **Respuesta**:
@@ -140,7 +141,8 @@ Crea una solicitud "obtener modelo".
 |:--------			|:--------								|
 |	id |	El identificador único del modelo (distingue mayúsculas de minúsculas) |
 |	apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+||| 
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -258,7 +260,7 @@ OData XML
 		</entry>
 	</feed>
 
-###5.4. Actualizar modelo
+###5\.4. Actualizar modelo
 
 Puede actualizar la descripción del modelo o el Id. de compilación activa.<br> <ins>Id. de compilación activa</ins>: cada compilación para cada modelo tiene un Id. de compilación. El Id. de compilación activa es la primera compilación correcta de cada nuevo modelo. Una vez que tiene un Id. de compilación activa y realiza compilaciones adicionales para el mismo modelo, necesitará establecerlo explícitamente como el Id. de compilación predeterminado si lo desea. Cuando se usan recomendaciones, si no se especifica el Id. de compilación que desea usar, se utilizará automáticamente el predeterminado.<br> Este mecanismo le permite tener un modelo de recomendación en producción para compilar nuevos modelos y probarlos antes de promoverlos a producción.
 
@@ -333,7 +335,8 @@ Disponible solo para la compilación de recomendación.
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
 |	apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+||| 
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -569,7 +572,8 @@ Disponible solo para la compilación de recomendación.
 |	modelId |	Identificador único del modelo |
 |	buildId |	Opcional: número que identifica una compilación correcta. |
 |	apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+||| 
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -648,7 +652,8 @@ Obtiene un ejemplo del modelo de recomendación.
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
 |	apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+||| 
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -801,7 +806,8 @@ Hay 4 tipos de reglas: <strong>BlockList</strong>: le permite proporcionar una l
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
 |	apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+||| 
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -858,7 +864,8 @@ OData XML
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | <ins>Para agregar la regla BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Para agregar la regla Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Para agregar la regla WhiteList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>Para agregar la regla PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+||| 
+| Cuerpo de la solicitud | <ins>Para agregar la regla BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Para agregar la regla Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Para agregar la regla WhiteList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>Para agregar la regla PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **Respuesta**:
 
@@ -905,7 +912,8 @@ OData XML
 |	modelId |	Identificador único del modelo |
 |	filterId |	Identificador único del filtro |
 |	apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+||| 
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -921,7 +929,8 @@ código de estado HTTP: 200
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
 |	apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+||| 
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -1006,7 +1015,8 @@ Recupera todos los elementos del catálogo.
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
 |	apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+||| 
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -1108,7 +1118,8 @@ OData XML
 |	modelId |	Identificador único del modelo |
 |	token |	Token del nombre de elemento de catálogo. Debe contener al menos 3 caracteres. |
 |	apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+||| 
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -1300,7 +1311,8 @@ Recupera los metadatos de todos los archivos de uso de modelo.
 |:--------			|:--------								|
 |	forModelId |	Identificador único del modelo |
 |	apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+||| 
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -1366,7 +1378,8 @@ Obtiene estadísticas de uso.
 | endDate |	Fecha de fin. Formato: aaaa/MM/ddTHH:mm:ss |
 | eventTypes |	Cadena de tipos de eventos separados por coma o null para obtener todos los eventos. |
 | apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+||| 
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -1448,7 +1461,8 @@ Recupera los primeros 2 KB de contenido de archivos de uso.
 | modelId |	Identificador único del modelo |
 | fileId |	Identificador único del archivo de uso de modelo |
 | apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+||| 
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -1470,7 +1484,8 @@ Recupera el contenido completo del archivo de uso.
 | fid |	Identificador único del archivo de uso de modelo |
 | descargar | 1 |
 | apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+||| 
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -1490,7 +1505,8 @@ Elimina el archivo de uso del modelo especificado.
 | modelId |	Identificador único del modelo |
 | fileId | Identificador único del archivo que se va a eliminar |
 | apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+||| 
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -1508,7 +1524,8 @@ Elimina todos los archivos de uso del modelo.
 |:--------			|:--------								|
 | modelId |	Identificador único del modelo |
 | apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+||| 
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -1529,7 +1546,8 @@ Recupera la información de características, incluida la clasificación de la �
 | modelId |	Identificador único del modelo |
 |samplingSize| Número de valores que se incluirán para cada característica de acuerdo con los datos presentes en el catálogo. <br/>Los valores posibles son:<br> -1 - Todas las muestras. <br>0: sin muestreo. <br>N: se devuelven N muestras para cada nombre de característica.|
 | apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+||| 
+| Cuerpo de la solicitud | NONE |
 
 
 **Respuesta**:
@@ -1611,7 +1629,8 @@ Recupera la información de características, incluida la clasificación de una 
 |samplingSize| Número de valores que se incluirán para cada característica de acuerdo con los datos presentes en el catálogo.<br/> Los valores posibles son:<br> -1 - Todas las muestras. <br>0: sin muestreo. <br>N: se devuelven N muestras para cada nombre de característica.|
 |rankBuildId| Identificador único de la compilación de rango o -1 para la última compilación de rango|
 | apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+||| 
+| Cuerpo de la solicitud | NONE |
 
 
 **Respuesta**:
@@ -1760,7 +1779,8 @@ En la siguiente tabla se describen los parámetros de compilación para una comp
 | modelId |	Identificador único del modelo |
 | userDescription | Identificador textual del catálogo. Tenga en cuenta que si usa espacios debe codificarlo en su lugar con un 20 %. Vea el ejemplo anterior.<br>Longitud máxima: 50 |
 | apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | Si se deja vacío, la compilación se ejecutará con los parámetros de compilación predeterminados.<br><br>Si desea establecer los parámetros de compilación, envíe los parámetros como XML en el cuerpo como en el ejemplo siguiente. (Consulte la sección "Parámetros de compilación" para obtener una explicación de los parámetros).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
+||| 
+| Cuerpo de la solicitud | Si se deja vacío, la compilación se ejecutará con los parámetros de compilación predeterminados.<br><br>Si desea establecer los parámetros de compilación, envíe los parámetros como XML en el cuerpo como en el ejemplo siguiente. (Consulte la sección "Parámetros de compilación" para obtener una explicación de los parámetros).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **Respuesta**:
 
@@ -2884,4 +2904,4 @@ código de estado HTTP: 200
 Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso.<br><br> Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse.<br><br> Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia.<br><br> © 2015 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

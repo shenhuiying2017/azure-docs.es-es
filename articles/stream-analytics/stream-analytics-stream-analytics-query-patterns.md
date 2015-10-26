@@ -444,7 +444,7 @@ Usando lo que aprendimos en "Combinación externa izquierda para incluir valores
 Al componer juntas estas funciones, obtenemos la secuencia correcto -> incorrecto -> correcto sin ningún evento correcto entre medio. Ahora podemos calcular la duración entre el principio y el final de los eventos correctos, lo que nos da la duración del error.
 
 ## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/ES-ES/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 
@@ -455,4 +455,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

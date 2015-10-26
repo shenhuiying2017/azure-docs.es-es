@@ -85,9 +85,48 @@ A continuación, actualice los localizadores existentes (que tienen una dependen
 
 ##Paso 3: Actualización de los localizadores 
 
-Pasados 30 minutos, puede actualizar los localizadores existentes de modo que tomen dependencia de la nueva clave de almacenamiento secundaria.
+Pasados 30 minutos, puede volver a crear los localizadores OnDemand de modo que tomen dependencia de la nueva clave de almacenamiento secundaria y mantengan la URL existente.
 
-Para actualizar la fecha de caducidad de un localizador, utilice las [API de REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Tenga en cuenta que, cuando se actualiza la fecha de caducidad de un localizador de SAS, cambia la dirección URL.
+Tenga en cuenta que al actualizar (o volver a crear) un localizador de SAS, la dirección URL siempre cambiará.
+
+>[AZURE.NOTE]Para asegurarse de que conserva las URL existentes de los localizadores OnDemand, deberá eliminar el localizador existente y crear uno nuevo con el mismo identificador.
+ 
+En el siguiente ejemplo de .NET se muestra cómo se puede volver a crear un localizador con el mismo identificador.
+	
+	private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
+	{
+	    // Save properties of existing locator.
+	    var asset = locator.Asset;
+	    var accessPolicy = locator.AccessPolicy;
+	    var locatorId = locator.Id;
+	    var startDate = locator.StartTime;
+	    var locatorType = locator.Type;
+	    var locatorName = locator.Name;
+	
+	    // Delete old locator.
+	    locator.Delete();
+	
+	    if (locator.ExpirationDateTime <= DateTime.UtcNow)
+	    {
+	        throw new Exception(String.Format(
+	            "Cannot recreate locator Id={0} because its locator expiration time is in the past",
+	            locator.Id));
+	    }
+	
+	    // Create new locator using saved properties.
+	    var newLocator = context.Locators.CreateLocator(
+	        locatorId,
+	        locatorType,
+	        asset,
+	        accessPolicy,
+	        startDate,
+	        locatorName);
+	
+	
+	
+	    return newLocator;
+	}
+
 
 ##Paso 5: Regeneración de la clave de acceso de almacenamiento principal
 
@@ -101,9 +140,9 @@ Use el mismo procedimiento que se describe en el [paso 2](media-services-roll-st
 
 ##Paso 7: Actualización de los localizadores  
 
-Pasados 30 minutos, puede actualizar los localizadores existentes de modo que tomen dependencia de la nueva clave de almacenamiento principal.
+Pasados 30 minutos, puede volver a crear los localizadores OnDemand de modo que tomen dependencia de la nueva clave de almacenamiento primaria y mantengan la URL existente.
 
-Para actualizar la fecha de caducidad de un localizador, utilice las [API de REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Tenga en cuenta que, cuando se actualiza la fecha de caducidad de un localizador de SAS, cambia la dirección URL.
+Use el mismo procedimiento descrito en el [paso 3](media-services-roll-storage-access-keys.md#step-3-update-locators).
 
  
 ##Rutas de aprendizaje de Servicios multimedia
@@ -113,4 +152,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 - [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

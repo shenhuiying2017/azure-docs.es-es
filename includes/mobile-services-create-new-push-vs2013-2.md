@@ -45,4 +45,4 @@
 		
 	Ahora, cuando inserte un TodoItem nuevo, se enviará una notificación push a todos los dispositivos registrados.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

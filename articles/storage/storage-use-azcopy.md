@@ -28,6 +28,9 @@ AzCopy es una utilidad de línea de comandos diseñada para realizar operaciones
 > 
 > Tenga en cuenta que, para AzCopy 4.x, las opciones de la línea de comandos y la funcionalidad pueden cambiar en versiones futuras.
 
+
+También publicamos una biblioteca de código fuente abierto basada en el marco del movimiento de datos principal que impulsa AzCopy; encuentre más información en [Introducción a la versión de vista previa de la biblioteca de movimiento de datos de Almacenamiento de Azure](https://azure.microsoft.com/es-ES/blog/introducing-azure-storage-data-movement-library-preview-2/).
+
 ## Descarga e instalación de AzCopy
 
 1. Descargue la [versión más reciente de AzCopy](http://aka.ms/downloadazcopy) o la [versión más reciente de vista previa](http://aka.ms/downloadazcopypr).
@@ -232,14 +235,14 @@ En la tabla siguiente se describen los parámetros para AzCopy. También puede e
   </tr>
   <tr>
     <td><b>/XN</b></td>
-    <td>Excluye un recurso origen más nuevo. El recurso no se copiará si el origen es más nuevo que el destino.</td>
+    <td>Excluye un recurso origen más nuevo. El recurso no se copiará si la última hora de modificación del origen es la misma o más reciente que el destino.</td>
     <td>Y</td>
     <td>Y<br /> (solo vista previa)</td>
     <td>N</td>
   </tr>
   <tr>
     <td><b>/XO</b></td>
-    <td>Excluye un recurso de origen más antiguo. El recurso no se copiará si el recurso de origen es más antiguo que el destino.</td>
+    <td>Excluye un recurso de origen más antiguo. El recurso no se copiará si la última hora de modificación del origen es la misma o más antigua que el destino.</td>
     <td>Y</td>
     <td>Y<br /> (solo vista previa)</td>
     <td>N</td>
@@ -479,7 +482,7 @@ Tenga en cuenta que si el contenedor de destino especificado no existe, AzCopy l
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
 
-Tenga en cuenta que, si el directorio virtual especificado no existe, AzCopy cargará el archivo para incluir el directorio virtual en su nombre (*p.ej.*, `vd/abc.txt` en el ejempo anterior).
+Tenga en cuenta que, si el directorio virtual especificado no existe, AzCopy cargará el archivo para incluir el directorio virtual en su nombre (*p.ej.*, `vd/abc.txt` en el ejemplo anterior).
 
 ### Descarga de un blob en una nueva carpeta
 
@@ -737,11 +740,11 @@ Tenga en cuenta que si especifica una ruta de acceso relativa después de la opc
 
 Especifique la opción `/MT` para comparar la hora de la última modificación del blob de origen y el archivo de destino.
 
-**Exclusión de blobs que son más nuevos que el archivo de destino**
+**Exclusión de los blobs cuya hora de la última modificación es igual o más reciente que el archivo de destino**
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XN
 
-**Exclusión de blobs que son más antiguos que el archivo de destino**
+**Exclusión de los blobs cuya hora de la última modificación es igual o más antigua que el archivo de destino**
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XO
 
@@ -830,7 +833,7 @@ Además de la copia asincrónica, usuario también puede especificar opción `/S
 	
 	AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
 
-Al copiar del Almacenamiento de archivos al Almacenamiento de blobs, el tipo de blob predeterminado es el blob de bloques, el usuario puede especificar la opción `/BlobType:page` para cambiar el tipo de blob de destino.
+Al copiar del Almacenamiento de archivos al Almacenamiento de blobs, el tipo de blob predeterminado es el blob en bloques, el usuario puede especificar la opción `/BlobType:page` para cambiar el tipo de blob de destino.
 
 Tenga en cuenta que `/SyncCopy` podría generar un coste de salida adicional, en comparación con la copia asincrónica. Es recomendable usar esta opción en la máquina virtual de Azure, que se encuentra en la misma región que la cuenta de almacenamiento de origen, para evitar el costo de salida.
 
@@ -931,23 +934,25 @@ Tenga en cuenta que los algoritmos compatibles con FIPS están deshabilitados de
 
 ## Versiones de AzCopy
 
-| Versión | Novedades |
-|---------|-----------------------------------------------------------------------------------------------------------------|
-| **V4.2.0** | **Versión de vista previa actual. Incluye toda la funcionalidad de V3.2.0. También admite SAS de recurso compartido de almacenamiento de archivo, copia asincrónica de almacenamiento de archivos, las entidades de tabla de exportación a CSV y especifica el nombre de manifiesto al exportar entidades de tabla**
-| **V3.2.0** | **Versión actual. Admite Blob de anexo y configuración de MD5 compatible con FIPS**
-| V4.1.0 | Incluye toda la funcionalidad de V3.1.0. Admite la copia sincrónica de blobs y archivos y la especificación del tipo de contenido de los blobs y archivos de destino
-| V3.1.0 | Admite la copia sincrónica de blobs y la especificación del tipo de contenido de los blobs de destino.
-| V4.0.0 | Incluye toda la funcionalidad de V3.0.0. Admite también la copia de archivos a o desde el Almacenamiento de archivos de Azure, así como la copia de entidades a o desde el Almacenamiento de tablas de Azure.
-| V3.0.0 | Modifica la sintaxis de línea de comandos de AzCopy para requerir nombres de parámetro, y rediseña la ayuda de la línea de comandos. Esta versión solo admite la copia a y desde el Almacenamiento de blobs de Azure.	
-| V2.5.1 | Optimiza el rendimiento al utilizar las opciones /xo y /xn. Soluciona errores relacionados con caracteres especiales en nombres de archivos originales y daños en archivos de diario después de que el usuario especifica una sintaxis de línea de comandos errónea.	
-| V2.5.0 | Optimiza el rendimiento de escenarios de copia a gran escala e introduce varias mejoras importantes relacionadas con la facilidad de uso.
-| V2.4.1 | Admite la especificación de la carpeta de destino en el asistente para la instalación.                     			
-| V2.4.0 | Admite la carga y descarga de archivos para Almacenamiento de archivos de Azure.
-| V2.3.0 | Admite cuentas de almacenamiento con redundancia geográfica de acceso de lectura.|
-| V2.2.2 | Actualizada para usar la versión 3.0.3 de la biblioteca del cliente de almacenamiento de Azure.
-| V2.2.1 | Problema de rendimiento solucionado cuando se copian grandes cantidades de archivos dentro de la misma cuenta de almacenamiento.
-| V2.2 | Admite el establecimiento del delimitador de directorios virtuales para nombres de blob. Admite la especificación de la ruta de acceso al archivo de diario.|
-| V2.1 | Proporciona más de 20 opciones para admitir operaciones de carga, descarga y copia de blobs de una forma diferente.|
+> [AZURE.NOTE]Recomendamos que instale la versión más reciente de AzCopy para obtener nuevas características y un mejor rendimiento.
+
+| Versión | Novedades | Versión a la biblioteca de clientes .NET de referencia | Versión de API de REST de almacenamiento de destino |
+|---------|-----------------------------------------------------------------------------------------------------------------|--------|----------|
+| [**V4.2.0**](http://xdmrelease.blob.core.windows.net/azcopy-4-2-0-preview/MicrosoftAzureStorageTools.msi) | **Versión de vista previa actual. Incluye toda la funcionalidad de V3.2.0. También admite SAS de recurso compartido de almacenamiento de archivo, copia asincrónica de almacenamiento de archivos, las entidades de tabla de exportación a CSV y especifica el nombre de manifiesto al exportar entidades de tabla** | **V5.0.0** | **21-02-2015**
+| [**V3.2.0**](http://xdmrelease.blob.core.windows.net/azcopy-3-2-0/MicrosoftAzureStorageTools.msi) | **Versión actual. Admite Blob de anexo y configuración de MD5 compatible con FIPS** | **V5.0.0** | **21-02-2015**
+| [V4.1.0](http://xdmrelease.blob.core.windows.net/azcopy-4-1-0-preview/MicrosoftAzureStorageTools.msi) | Incluye toda la funcionalidad de V3.1.0. Admite la copia sincrónica de blobs y archivos y la especificación del tipo de contenido de los blobs y archivos de destino | V4.3.0 | 14-02-2014
+| [V3.1.0](http://xdmrelease.blob.core.windows.net/azcopy-3-1-0/MicrosoftAzureStorageTools.msi) | Admite la copia sincrónica de blobs y la especificación del tipo de contenido de los blobs de destino.| V4.3.0 | 14-02-2014
+| [V4.0.0](http://xdmrelease.blob.core.windows.net/azcopy-4-0-0-preview/MicrosoftAzureStorageTools.msi) | Incluye toda la funcionalidad de V3.0.0. Admite también la copia de archivos a o desde el Almacenamiento de archivos de Azure, así como la copia de entidades a o desde el Almacenamiento de tablas de Azure.| V4.2.1 | 14-02-2014
+| [V3.0.0](http://xdmrelease.blob.core.windows.net/azcopy-3-0-0/MicrosoftAzureStorageTools.msi) | Modifica la sintaxis de línea de comandos de AzCopy para requerir nombres de parámetro, y rediseña la ayuda de la línea de comandos. Esta versión solo admite la copia a y desde el Almacenamiento de blobs de Azure.| V4.2.1 | 14-02-2014
+| V2.5.1 | Optimiza el rendimiento al utilizar las opciones /xo y /xn. Soluciona errores relacionados con caracteres especiales en nombres de archivos originales y daños en archivos de diario después de que el usuario especifica una sintaxis de línea de comandos errónea.| V4.1.0 | 14-02-2014
+| V2.5.0 | Optimiza el rendimiento de escenarios de copia a gran escala e introduce varias mejoras importantes relacionadas con la facilidad de uso.| V4.1.0 | 14-02-2014
+| V2.4.1 | Admite la especificación de la carpeta de destino en el asistente para la instalación.| V4.0.0 | 14-02-2014
+| V2.4.0 | Admite la carga y descarga de archivos para Almacenamiento de archivos de Azure.| V4.0.0 | 14-02-2014
+| V2.3.0 | Admite cuentas de almacenamiento con redundancia geográfica de acceso de lectura.| V3.0.3 | 15-08-2013
+| V2.2.2 | Actualizada para usar la versión 3.0.3 de la biblioteca del cliente de almacenamiento de Azure.| V3.0.3 | 15-08-2013
+| V2.2.1 | Problema de rendimiento solucionado cuando se copian grandes cantidades de archivos dentro de la misma cuenta de almacenamiento.| V2.1.0 |
+| V2.2 | Admite el establecimiento del delimitador de directorios virtuales para nombres de blob. Admite la especificación de la ruta de acceso al archivo de diario.| V2.1.0 |
+| V2.1 | Proporciona más de 20 opciones para admitir operaciones de carga, descarga y copia de blobs de una forma diferente.| V2.0.5 |
 
 
 ## Pasos siguientes
@@ -961,6 +966,7 @@ Para obtener más información acerca de Almacenamiento de Azure y AzCopy, consu
 - [Creación de un recurso compartido de archivos SMB en Azure con Almacenamiento de archivos](storage-dotnet-how-to-use-files.md)
 
 ### Publicaciones en blobs de Almacenamiento de Azure
+- [DML: Introducción a la versión de vista previa de la biblioteca de movimiento de datos de Almacenamiento de Azure](https://azure.microsoft.com/es-ES/blog/introducing-azure-storage-data-movement-library-preview-2/)
 - [AzCopy: Introducción a la copia sincrónica y el tipo de contenido personalizado](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 - [AzCopy: Presentación de la disponibilidad general de AzCopy 3.0 y de la versión de vista previa de AzCopy 4.0 compatible con tablas y archivos](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 - [AzCopy: Optimizada para escenarios de copia a gran escala](http://go.microsoft.com/fwlink/?LinkId=507682)
@@ -970,6 +976,4 @@ Para obtener más información acerca de Almacenamiento de Azure y AzCopy, consu
 - [AzCopy: Uso de copia de blobs entre cuentas](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Carga y descarga de archivos para blobs de Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
- 
-
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -23,7 +23,7 @@ Este artículo ofrece información general del uso de la extensión de script pe
 
 Las extensiones de máquina virtual (VM) se crean por Microsoft y editores de confianza de terceros para extender la funcionalidad de la máquina virtual. Para obtener información general de las extensiones de máquina virtual, vea [Características y extensiones de máquina virtual de Azure](virtual-machines-extensions-features.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica. También puede crear un recurso con el [modelo de implementación del Administrador de recursos](virtual-machines-extensions-customscript%20-with%20template.md).
+Vínculo:[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript%20-with%20template.md).
 
 
 ## Introducción a la extensión de script personalizada
@@ -32,8 +32,8 @@ La extensión de script personalizada para Windows le permite ejecutar scripts d
 
 ### Requisitos previos para ejecutar la extensión de script personalizada
 
-1. Instale cmdlets de Azure PowerShell versión 0.8.0 o superior desde <a href="http://azure.microsoft.com/downloads" target="_blank">aquí</a>.
-2. Si las secuencias de comandos se ejecutan en una máquina virtual existente, asegúrese de que el agente de máquina virtual está habilitado en la máquina virtual; si no lo está, siga las indicaciones de este <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">artículo</a> para instalar uno.
+1. Instale los cmdlets de Azure PowerShell versión 0.8.0 (o posterior) desde <a href="http://azure.microsoft.com/downloads" target="_blank">aquí</a>.
+2. Si los scripts se ejecutan en una máquina virtual existente, asegúrese de que el Agente de máquina virtual está habilitado en la máquina virtual; si no lo está, siga las indicaciones de este <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">artículo</a> para instalar uno.
 3. Cargue las secuencias de comandos que desea ejecutar en la máquina virtual para el almacenamiento de Azure. Las secuencias de comandos pueden proceder de un único contenedor de almacenamiento o de varios.
 4. El script debe crearse de forma tal que el script de entrada que inicia la extensión inicie, a su vez, otros scripts.
 
@@ -73,7 +73,7 @@ Este escenario muestra cómo usar un almacenamiento no predeterminado en la mism
 
 ### Agregar la extensión de script personalizada desde el portal
 
-Vaya a la máquina virtual en el <a href="https://portal.azure.com/ " target="_blank">Portal de vista previa de Azure</a> y especifique el archivo de scripts que se debe ejecutar para agregar la extensión.
+Vaya a la máquina virtual en el <a href="https://portal.azure.com/ " target="_blank">Portal de vista previa de Azure </a> y especifique el archivo de scripts que se debe ejecutar para agregar la extensión.
 
   ![][5]
 
@@ -91,4 +91,4 @@ Para obtener información sobre cómo usar la extensión de scripts personalizad
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

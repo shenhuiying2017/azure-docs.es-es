@@ -8,4 +8,4 @@ En la sesión de escritorio remoto para todos los nodos del clúster, descarga l
 > - Todos los nodos del clúster están conectados antes de instalar la revisión en cualquier nodo
 > - Se permite que se ejecute la instalación de la revisión hasta que finalice en un nodo, incluido el reinicio completo del servidor, antes de instalar la revisión en ningún otro nodo del clúster.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

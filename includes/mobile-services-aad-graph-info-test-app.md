@@ -10,4 +10,4 @@ Las instrucciones y capturas de pantalla siguientes se aplican a las pruebas de 
 
     ![](./media/mobile-services-aad-graph-info-test-app/custom-greeting.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

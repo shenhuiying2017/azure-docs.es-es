@@ -32,9 +32,9 @@ Para completar este tutorial, necesitará los siguientes productos. Todos están
 
 - **Visual Studio**: para descargar una versión de evaluación gratuita de Visual Studio 2013 o Visual Studio 2015, consulte [Descargas de Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Instale una de ellas antes de continuar. (Las capturas de pantalla de este tutorial se han obtenido con Visual Studio 2013)
 
-- **SQL Server 2014 Express with Tools**: descargue Microsoft SQL Server Express de forma gratuita en la [página de bases de datos de Plataforma web de Microsoft](https://www.microsoft.com/es-es/download/details.aspx?id=42299). Más adelante en este tutorial, verá cómo [instalar SQL Server](#InstallSQLDB) para asegurarse de que está correctamente configurado.
+- **SQL Server 2014 Express with Tools**: descargue Microsoft SQL Server Express de forma gratuita en la [página de bases de datos de Plataforma web de Microsoft](https://www.microsoft.com/es-ES/download/details.aspx?id=42299). Más adelante en este tutorial, verá cómo [instalar SQL Server](#InstallSQLDB) para asegurarse de que está correctamente configurado.
 
-- **SQL Server Management Studio Express**: este producto se incluye en la descarga de SQL Server 2014 Express with Tools mencionada anteriormente, pero si lo instala por separado, puede descargarlo e instalarlo desde la [página de descargas de SQL Server Express](https://www.microsoft.com/es-es/download/details.aspx?id=42299).
+- **SQL Server Management Studio Express**: este producto se incluye en la descarga de SQL Server 2014 Express with Tools mencionada anteriormente, pero si lo instala por separado, puede descargarlo e instalarlo desde la [página de descargas de SQL Server Express](https://www.microsoft.com/es-ES/download/details.aspx?id=42299).
 
 En este tutorial se supone que tiene una suscripción de Azure, que ha instalado Visual Studio 2013 y que ha instalado o habilitado .NET Framework 3.5. En el tutorial se muestra cómo instalar SQL Server 2014 Express en una configuración que funcione bien con la característica Conexiones híbridas de Azure (una instancia predeterminada con un puerto TCP estático). Antes de iniciar el tutorial, descargue (pero no instale) SQL Server 2014 Express with Tools desde la ubicación mencionada anteriormente sino tiene SQL Server instalado.
 
@@ -430,4 +430,4 @@ Ahora que la infraestructura de la conexión híbrida se ha completado, es el mo
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

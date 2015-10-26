@@ -89,4 +89,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 	
-	pageTitle="Factoría de datos de Azure: ejemplos"
-	description="Proporciona detalles sobre ejemplos que se distribuyen con el servicio Factoría de datos de Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Factoría de datos de Azure: ejemplos" 
+	description="Proporciona detalles sobre ejemplos que se distribuyen con el servicio Factoría de datos de Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/13/2015" 
 	ms.author="spelluru"/>
 
 # Factoría de datos de Azure: ejemplos
@@ -59,4 +59,4 @@ Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar 
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

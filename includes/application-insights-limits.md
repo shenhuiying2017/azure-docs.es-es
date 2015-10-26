@@ -21,4 +21,4 @@ Longitud del nombre de métrica | 100 | 100
  
 [Información acerca de precios y cuotas para Application Insights](app-insights-pricing.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

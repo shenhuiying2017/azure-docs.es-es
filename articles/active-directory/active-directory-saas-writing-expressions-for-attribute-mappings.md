@@ -44,7 +44,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
    3. Otras funciones. Por ejemplo: FunciónUna(<<argument1>>, FunciónDos(<<argument2>>))
 
 
-- Para las constantes de cadena, si necesita una barra diagonal inversa (\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\). Por ejemplo: "Nombre de empresa: "Contoso""
+- Para las constantes de cadena, si necesita una barra diagonal inversa (\\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\\). Por ejemplo: "Nombre de empresa: "Contoso""
 
 
 
@@ -307,4 +307,4 @@ Debe definir la zona horaria del usuario según el código de estado almacenado 
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

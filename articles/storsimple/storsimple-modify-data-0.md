@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Modificar la configuración de DATA 0 en un dispositivo StorSimple | Microsoft Azure"
-	description="Obtenga información acerca de cómo usar Windows PowerShell para StorSimple para volver a configurar la interfaz de red DATA 0 en el dispositivo StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Obtenga información acerca de cómo usar Windows PowerShell para StorSimple para volver a configurar la interfaz de red DATA 0 en el dispositivo StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/02/2015"
+   ms.author="alkohli" />
 
 # Modificación de las opciones de configuración de la interfaz de red DATA 0 en el dispositivo StorSimple
 
@@ -71,4 +71,4 @@ Una alternativa para volver a configurar la interfaz de red DATA 0 es mediante e
 
 Para configurar las interfaces de red que no sean DATA 0, puede usar la página [Configurar del Portal de administración](storsimple-modify-device-config.md). Si experimenta problemas al configurar las interfaces de red, consulte [Solucionar problemas de implementación](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

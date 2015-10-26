@@ -3,7 +3,7 @@
         description="Cree un recurso compartido de archivos en la nube y móntelo desde una máquina virtual de Azure o una aplicación local que se ejecute en Linux."
         services="storage"
         documentationCenter="na"
-        authors="jutang"
+        authors="jasontang501"
         manager="jahogg"
         editor="" />
 
@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="09/28/2015"
+      ms.date="10/06/2015"
       ms.author="jutang;tamram" />
 
 
@@ -28,7 +28,7 @@ Las aplicaciones que se ejecutan en Azure pueden montar fácilmente recursos com
 
 Tenga en cuenta que dado que el cliente SMB de Linux todavía no admite el cifrado, montar un recurso compartido de archivos de Linux requiere aún que el cliente se encuentre en la misma región de Azure que el recurso compartido de archivos. Sin embargo, la compatibilidad con el cifrado para Linux está en la hoja de ruta de los desarrolladores de Linux responsables de la funcionalidad SMB. Las distribuciones de Linux que admiten el cifrado en el futuro también podrán montar un recurso compartido de archivos de Azure desde cualquier lugar.
 
-## Selección de la distribución de Linux ##
+## Elija una distribución de Linux para usar ##
 
 Al crear una máquina virtual de Linux en Azure, puede especificar una imagen de Linux que admita SMB 2.1 o superior de la Galería de imágenes de Azure. A continuación se muestra una lista de imágenes de Linux recomendadas:
 
@@ -57,9 +57,7 @@ Asimismo, para mantener un recurso compartido de archivos montado tras reiniciar
 
     //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username= myaccountname,password= StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 
-Para ser más específico, a continuación se muestra un ejemplo.
-
-Si ha creado una máquina virtual de Azure con una imagen de Linux Ubuntu Server 15.04 que está disponible en Azure Marketplace, puede montar el archivo como sigue:
+Por ejemplo, si creó una máquina virtual de Azure con una imagen de Linux Ubuntu Server 15.04 (disponible en la galería de imágenes de Azure), puede montar el archivo de la manera siguiente:
 
     azureuser@azureconubuntu:~$ sudo apt-get install apt-file
     azureuser@azureconubuntu:~$ sudo mkdir /mnt/mountpoint
@@ -85,6 +83,28 @@ Si utiliza Open SUSE 13.2, puede montar el archivo como sigue:
     Filesystem  Size  Used Avail Use% Mounted on
     //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
 
+## Administre el recurso compartido de archivos ##
+
+El [Portal de vista previa de Azure](https://portal.azure.com/) ahora proporciona una interfaz de usuario para administrar el almacenamiento de archivos de Azure. Puede realizar las siguientes acciones desde el explorador web:
+
+- Cargar y descargar archivos al recurso compartido de archivos y desde este.
+- Supervisar el uso real de cada recurso compartido de archivos.
+- Ajustar la cuota de tamaño del recurso compartido de archivos.
+- Copie el comando `net use` para usarlo para montar el recurso compartido de archivos desde un cliente Windows. 
+
+También puede usar la interfaz de la línea de comandos multiplataforma de Azure (CLI de Azure) desde Linux para administrar el recurso compartido de archivos. La CLI de Azure proporciona un conjunto de comandos de código abierto multiplataforma para trabajar con Almacenamiento de Azure, incluido el almacenamiento de archivos. Proporciona muchas de las funcionalidades que se encuentran en el Portal de Azure, así como la funcionalidad de acceso a datos enriquecidos. Para obtener ejemplos, consulte [Uso de la CLI de Azure con Almacenamiento de Azure](storage-azure-cli.md).
+
+## Desarrollo con almacenamiento de archivos ##
+
+Como desarrollador, puede compilar una aplicación con almacenamiento de archivos mediante el uso de la [Biblioteca de clientes de Almacenamiento de Azure para Java](https://github.com/azure/azure-storage-java). Para conocer los ejemplos de código, consulte [Uso del almacenamiento de archivos de Java](storage-java-how-to-use-file-storage.md).
+
+También puede usar la [Biblioteca de clientes de Almacenamiento de Azure para Node.js](https://github.com/Azure/azure-storage-node) para desarrollar en el almacenamiento de archivos.
+
+## Comentarios y más información ##
+
+Usuarios de Linux: nos gustaría conocer su opinión.
+
+El almacenamiento de archivos de Azure para el grupo de usuarios de Linux cuenta con un foro donde puede compartir sus comentarios a medida que evalúa y adopta el almacenamiento de archivos en Linux. Envíe un correo electrónico a [Usuarios de Linux de Almacenamiento de archivos de Azure](mailto:azurefileslinuxusers@microsoft.com) para unirse al grupo de usuarios.
 
 ## Pasos siguientes
 
@@ -105,9 +125,9 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 
 ### Publicaciones de blog
 
-- [El Almacenamiento de archivos de Azure ya está disponible de manera general](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Profundización sobre el Almacenamiento de archivos de Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
+- [El almacenamiento de archivos de Azure ya está disponible de manera general](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
+- [Profundización en el almacenamiento de archivos de Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
 - [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx) (Introducción al servicio de archivos de Microsoft Azure)
 - [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx) (Persistencia de conexiones en archivos de Microsoft Azure)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

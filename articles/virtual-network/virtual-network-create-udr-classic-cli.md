@@ -104,4 +104,4 @@ Para crear la tabla de rutas y la ruta necesaria para la subred back-end según 
 
 		azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

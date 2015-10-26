@@ -72,4 +72,4 @@ Siga estos pasos para instalar y ejecutar MongoDB en una máquina virtual con Ce
 [Image7]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
 [Image8]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -54,4 +54,4 @@ Aquí puede realizar las siguientes tareas:
 - Para obtener más información sobre Copia de seguridad de Azure, consulte [Información general de Copia de seguridad de Azure](backup-introduction-to-azure-backup.md).
 - Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

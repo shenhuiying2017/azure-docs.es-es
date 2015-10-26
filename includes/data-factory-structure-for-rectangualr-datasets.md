@@ -7,7 +7,7 @@ Cada columna contiene las siguientes propiedades:
 | -------- | ----------- | -------- |
 | name | Nombre de la columna. | Sí |
 | type | Tipo de datos de la columna. Consulte la sección de conversiones de tipos siguiente para más detalles sobre cuándo debe especificar la información de tipo. | No |
-| culture | Referencia cultural basada en .NET que se usará cuando se especifica el tipo y sea un tipo .NET Datetime o Datetimeoffset. El valor predeterminado es «es-es». | No |
+| culture | Referencia cultural basada en .NET que se usará cuando se especifica el tipo y sea un tipo .NET Datetime o Datetimeoffset. El valor predeterminado es «es-ES». | No |
 | formato | Cadena de formato que se usará cuando se especifica el tipo y sea un tipo .NET Datetime o Datetimeoffset. | No |
 
 En el ejemplo siguiente se muestra el JSON de la sección structure de una tabla con tres columnas userid, name y lastlogindate.
@@ -47,4 +47,4 @@ Factoría de datos admite los siguientes valores de tipo basados en .NET compati
 
 Para Datetime y Datetimeoffset, también puede opcionalmente especificar la cadena "culture" y "format" para facilitar el análisis de la cadena de fecha y hora personalizada. Consulte el ejemplo de conversión de tipos siguiente.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

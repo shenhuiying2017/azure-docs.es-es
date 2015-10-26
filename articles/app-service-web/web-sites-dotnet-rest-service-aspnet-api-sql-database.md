@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Crear un servicio REST con la Web API de ASP.NET y la base de datos SQL en el servicio de aplicaciones de Azure"
-	description="Un tutorial que le enseña cómo implementar una aplicación que utiliza la Web API de ASP.NET en una aplicación web de Azure con Visual Studio."
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="Rick-Anderson"
-	manager="wpickett"
+	pageTitle="Crear un servicio REST con la Web API de ASP.NET y la base de datos SQL en el servicio de aplicaciones de Azure" 
+	description="Un tutorial que le enseña cómo implementar una aplicación que utiliza la Web API de ASP.NET en una aplicación web de Azure con Visual Studio." 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="Rick-Anderson" 
+	writer="Rick-Anderson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="riande"/>
 
 # Crear un servicio REST con la Web API de ASP.NET y la base de datos SQL en el servicio de aplicaciones de Azure
@@ -810,4 +811,4 @@ Es importante que haga comentarios acerca de lo que le gustó o lo que le gustar
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

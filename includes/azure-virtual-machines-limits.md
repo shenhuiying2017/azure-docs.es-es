@@ -7,4 +7,4 @@ Extremos de entrada por servicio en la nube<sup>2</sup>|150|150
 
 <sup>2</sup>Los extremos de entrada permiten las comunicaciones con una máquina virtual desde fuera del servicio en la nube de la máquina virtual. Las máquinas virtuales en el mismo servicio en la nube o red virtual pueden comunicarse automáticamente entre sí. Vea [Configuración de extremos en una máquina virtual](../articles/virtual-machines/virtual-machines-set-up-endpoints.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

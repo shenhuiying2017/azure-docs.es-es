@@ -84,4 +84,4 @@ A continuación, sepa [cómo utilizar el valor de identificador de usuario para 
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

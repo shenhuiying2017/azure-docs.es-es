@@ -173,7 +173,7 @@ Este código aumentará los subprocesos mínimos del grupo de subprocesos:
 
 	ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 
-Para obtener más información, consulte [Método ThreadPool.SetMinThreads](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx)).
+Para obtener más información, consulte [Método ThreadPool.SetMinThreads](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx).
 
 ####<a name="subheading11"></a>Aprovechamiento de la recolección de elementos no usados de .NET 4.5
 Use .NET 4.5 o posterior para que la aplicación cliente aproveche las mejoras de rendimiento en la recolección de elementos no usados del servidor.
@@ -184,7 +184,7 @@ Para obtener más información, consulte el artículo [Información general de l
 Aunque el paralelismo puede ser magnífico para el rendimiento, tenga cuidado cuando use paralelismo no vinculado (sin límite en el número de subprocesos y/o solicitudes paralelas) para cargar o descargar datos y cuando use varios trabajadores para obtener acceso a varias particiones (contenedores, colas o particiones de tabla) en la misma cuenta de almacenamiento o para obtener acceso a varios elementos de la misma partición. Si el paralelismo es no vinculado, la aplicación puede superar las capacidades del dispositivo cliente o los objetivos de escalabilidad de la cuenta de almacenamiento, lo que puede dar lugar a latencias más largas y a limitaciones.
 
 ###<a name="subheading13"></a>Herramientas y bibliotecas de cliente de almacenamiento
-Use siempre las herramientas y bibliotecas de cliente más recientes proporcionadas por Microsoft. En el momento de escribir estas líneas, hay bibliotecas de cliente disponibles para .NET, Windows Phone, Windows Runtime, Java y C ++, así como bibliotecas de vista previa para otros lenguajes. Además, Microsoft ha lanzado cmdlets de PowerShell y comandos de la CLI de Azure para trabajar con Almacenamiento de Azure. Microsoft desarrolla de forma activa estas herramientas pensando en el rendimiento, manteniéndolas actualizadas con las versiones de servicio más recientes, y garantiza que administran muchas de las prácticas de rendimiento probadas internamente.
+Use siempre las herramientas y bibliotecas de cliente más recientes proporcionadas por Microsoft. En el momento de escribir estas líneas, hay bibliotecas RTM disponibles para .NET, Windows Phone, Windows Runtime y Java, así como bibliotecas de vista previa en otros lenguajes como node.js y C++. Además, Microsoft ha lanzado cmdlets de PowerShell y comandos de la CLI de Azure para trabajar con Almacenamiento de Azure. Microsoft desarrolla de forma activa estas herramientas pensando en el rendimiento, manteniéndolas actualizadas con las versiones de servicio más recientes, y garantiza que administran muchas de las prácticas de rendimiento probadas internamente.
 
 ###Reintentos
 ####<a name="subheading14"></a>Limitación y servidor ocupado
@@ -384,4 +384,4 @@ Debe usar colas para que la arquitectura de la aplicación sea escalable. A cont
 En este artículo se analizaron algunas de las prácticas probadas más comunes para optimizar el rendimiento cuando se usa el Almacenamiento de Azure. Animamos a todos los desarrolladores de aplicaciones a que evalúen sus aplicaciones tomando como referencia todas las prácticas anteriores y que se planteen seguir las recomendaciones para obtener un magnífico rendimiento para aquellas aplicaciones que usan el Almacenamiento de Azure.
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

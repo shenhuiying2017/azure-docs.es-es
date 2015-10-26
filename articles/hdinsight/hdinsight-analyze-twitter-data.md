@@ -561,4 +561,4 @@ En este tutorial hemos visto cómo transformar un conjunto de datos JSON no estr
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

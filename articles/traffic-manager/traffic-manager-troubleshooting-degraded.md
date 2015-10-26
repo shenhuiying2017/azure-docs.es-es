@@ -80,4 +80,4 @@ Si el sondeo está usando el protocolo HTTPs, podrá agregar el parámetro "--no
 [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

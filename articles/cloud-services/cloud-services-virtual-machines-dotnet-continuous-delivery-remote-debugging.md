@@ -28,7 +28,7 @@ En este tema:
 ## <a name="cloudservice"></a>Habilitación de la depuración remota para los servicios en la nube
 
 1. En el agente de compilación, configure el entorno inicial para Azure como se describe en [Compilación de línea de comandos para Azure](http://msdn.microsoft.com/library/hh535755.aspx).
-2. Como se requiere el tiempo de ejecución de depuración remota (msvsmon.exe) para el paquete, instale las [Herramientas remotas para Visual Studio 2015 RC](http://www.microsoft.com/download/details.aspx?id=46874) (o las [Herramientas remotas para Visual Studio 2013 Update 5 RC](https://www.microsoft.com/es-es/download/details.aspx?id=46870) si usa Visual Studio 2013). También puede copiar los binarios de depuración remota desde un sistema que tenga instalado Visual Studio.
+2. Como se requiere el tiempo de ejecución de depuración remota (msvsmon.exe) para el paquete, instale las [Herramientas remotas para Visual Studio 2015 RC](http://www.microsoft.com/download/details.aspx?id=46874) (o las [Herramientas remotas para Visual Studio 2013 Update 5 RC](https://www.microsoft.com/es-ES/download/details.aspx?id=46870) si usa Visual Studio 2013). También puede copiar los binarios de depuración remota desde un sistema que tenga instalado Visual Studio.
 3. Cree un certificado como se describe en [Creación de un certificado de servicio para Azure](cloud-services-certs-create.md). Mantenga la huella digital del certificado de .pfx y RDP y cargue el certificado en el servicio en la nube de destino.
 4. Use las siguientes opciones de la línea de comandos MSBuild para compilarlo y empaquetarlo con la depuración remota habilitada. (Actualice las rutas de acceso de sus archivos de sistema y de proyecto.)
 
@@ -48,50 +48,50 @@ En este tema:
 5. Ejecute el siguiente script para habilitar la extensión RemoteDebug. Sustituya los datos personales por los suyos propios, como el nombre de la suscripción, el nombre de servicio y la huella digital. (NOTA: este script está configurado para Visual Studio 2015. Si utiliza Visual Studio 2013, use "RemoteDebugVS2013" para ReferenceName y ExtensionName).
 
 	<pre>
-    Add-AzureAccount
+Add-AzureAccount
 
-    Select-AzureSubscription "My Microsoft Subscription"
+Select-AzureSubscription "My Microsoft Subscription"
 
-    $vm = Get-AzureVM -ServiceName "mytestvm1" -Name "mytestvm1"
+$vm = Get-AzureVM -ServiceName "mytestvm1" -Name "mytestvm1"
 
-    $endpoints = @(
-    ,@{Name="RDConnVS2013"; PublicPort=30400; PrivatePort=30398}
-    ,@{Name="RDFwdrVS2013"; PublicPort=31400; PrivatePort=31398}
-    )
+$endpoints = @(
+,@{Name="RDConnVS2013"; PublicPort=30400; PrivatePort=30398}
+,@{Name="RDFwdrVS2013"; PublicPort=31400; PrivatePort=31398}
+)
 
-    foreach($endpoint in $endpoints)
-    {
-    Add-AzureEndpoint -VM $vm -Name $endpoint.Name -Protocol tcp -PublicPort $endpoint.PublicPort -LocalPort $endpoint.PrivatePort
-    }
+foreach($endpoint in $endpoints)
+{
+Add-AzureEndpoint -VM $vm -Name $endpoint.Name -Protocol tcp -PublicPort $endpoint.PublicPort -LocalPort $endpoint.PrivatePort
+}
 
-    $referenceName = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug.RemoteDebugVS2015"
-    $publisher = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug"
-    $extensionName = "RemoteDebugVS2015"
-    $version = "1.*"
-    $publicConfiguration = "<PublicConfig><Connector.Enabled>true</Connector.Enabled><ClientThumbprint>56D7D1B25B472268E332F7FC0C87286458BFB6B2</ClientThumbprint><ServerThumbprint>E7DCB00CB916C468CC3228261D6E4EE45C8ED3C6</ServerThumbprint><ConnectorPort>30398</ConnectorPort><ForwarderPort>31398</ForwarderPort></PublicConfig>"
+$referenceName = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug.RemoteDebugVS2015"
+$publisher = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug"
+$extensionName = "RemoteDebugVS2015"
+$version = "1.*"
+$publicConfiguration = "<PublicConfig><Connector.Enabled>true</Connector.Enabled><ClientThumbprint>56D7D1B25B472268E332F7FC0C87286458BFB6B2</ClientThumbprint><ServerThumbprint>E7DCB00CB916C468CC3228261D6E4EE45C8ED3C6</ServerThumbprint><ConnectorPort>30398</ConnectorPort><ForwarderPort>31398</ForwarderPort></PublicConfig>"
 
-    $vm | Set-AzureVMExtension `
-    -ReferenceName $referenceName `
-    -Publisher $publisher `
-    -ExtensionName $extensionName `
-    -Version $version `
-    -PublicConfiguration $publicConfiguration
+$vm | Set-AzureVMExtension `
+-ReferenceName $referenceName `
+-Publisher $publisher `
+-ExtensionName $extensionName `
+-Version $version `
+-PublicConfiguration $publicConfiguration
 
-    foreach($extension in $vm.VM.ResourceExtensionReferences)
-    {
-    if(($extension.ReferenceName -eq $referenceName) `
-    -and ($extension.Publisher -eq $publisher) `
-    -and ($extension.Name -eq $extensionName) `
-    -and ($extension.Version -eq $version))
-    {
-    $extension.ResourceExtensionParameterValues[0].Key = 'config.txt'
-    break
-    }
-    }
+foreach($extension in $vm.VM.ResourceExtensionReferences)
+{
+if(($extension.ReferenceName -eq $referenceName) `
+-and ($extension.Publisher -eq $publisher) `
+-and ($extension.Name -eq $extensionName) `
+-and ($extension.Version -eq $version))
+{
+$extension.ResourceExtensionParameterValues[0].Key = 'config.txt'
+break
+}
+}
 
-    $vm | Update-AzureVM
-	</pre>
+$vm | Update-AzureVM
+</pre>
 
 6. Importe el certificado (.pfx) en la máquina que tiene instalado Visual Studio con el SDK de Azure para .NET.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

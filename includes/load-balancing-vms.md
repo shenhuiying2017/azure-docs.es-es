@@ -1,3 +1,7 @@
+<properties title="Load Balancing for Azure Infrastructure Services" pageTitle="Equilibrio de carga para Servicios de infraestructura de Azure" description="Describe los recursos para conseguir el equilibrio de carga con el Administrador de tráfico y el equilibrador de carga." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="cherylmc" videoId="" scriptId="" manager="adinah" />
+
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="cherylmc" />
+
 #Equilibrio de carga para Servicios de infraestructura de Azure#
 
 Hay dos niveles de equilibrio de carga disponibles para Servicios de infraestructura de Azure:
@@ -58,4 +62,4 @@ Para obtener más información, consulte [Equilibrio de carga interno](../load-b
 
 <!-- LINKS -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

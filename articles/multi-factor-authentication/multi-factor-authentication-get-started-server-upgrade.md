@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Actualización de PhoneFactor Agent al Servidor Azure Multi-Factor Authentication"
-	description="En este documento se describe cómo empezar a trabajar con el Servidor Azure MFA y cómo actualizar a partir del PhoneFactor Agent anterior."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Actualización de PhoneFactor Agent al Servidor Azure Multi-Factor Authentication" 
+	description="En este documento se describe cómo empezar a trabajar con el Servidor Azure MFA y cómo actualizar a partir del PhoneFactor Agent anterior." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Actualización de PhoneFactor Agent al Servidor Azure Multi-Factor Authentication
@@ -60,4 +60,4 @@ Para la actualización de PhoneFactor Agent v5.x o anterior al Servidor Azure Mu
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

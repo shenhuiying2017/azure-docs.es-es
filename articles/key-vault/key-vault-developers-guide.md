@@ -67,4 +67,4 @@ Los artículos siguientes proporcionan orientación específica de tareas:
 
 - Esta descarga contiene la aplicación de ejemplo HelloKeyVault y un ejemplo de servicio web de Azure. [Ejemplos de código de almacén de claves de Azure](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

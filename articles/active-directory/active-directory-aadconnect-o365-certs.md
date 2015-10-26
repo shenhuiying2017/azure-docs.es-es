@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Orientación de renovación de certificado para los usuarios de Office 365 y Azure AD."
+<properties
+	pageTitle="Orientación de renovación de certificado para los usuarios de Office 365 y Azure AD | Microsoft Azure"
 	description="Este artículo explica a los usuarios de Office 365 cómo solucionar problemas con mensajes de correo electrónico que informan sobre la renovación de un certificado."
 	services="active-directory"
 	documentationCenter=""
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 
@@ -28,7 +28,7 @@ Si utiliza AD FS 2.0 o versiones posteriores, Office 365 y Azure AD actualizan a
 - La propiedad de AD FS AutoCertificateRollover debe establecerse en True, que indica que AD FS generará automáticamente nuevos certificados de descifrado y firma de tokens antes de que expiren los antiguos.
 	- Si el valor es False, está usando la configuración de certificado personalizada. Vaya [aquí](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert) para obtener instrucciones completas.
 - Los metadatos de federación deben estar disponibles para la red de Internet pública.
-	
+
 	Aquí se muestra cómo realizar la comprobación:
 
 	- Compruebe que la instalación de AD FS usa la sustitución automática de certificados ejecutando el siguiente comando en una ventana de comandos de PowerShell en el servidor de federación principal:
@@ -53,10 +53,10 @@ Si la propiedad AutoCertificateRollover se establece en False, está usando la c
 ## Si no se puede acceder a los metadatos públicamente
 Si el valor de AutocertificateRollover es True, pero los metadatos de federación no están disponibles públicamente, utilice el procedimiento siguiente para asegurarse de que los certificados se actualizan de forma local y en la nube:
 
-### Compruebe que el sistema de AD FS ha generado un nuevo certificado. 
+### Compruebe que el sistema de AD FS ha generado un nuevo certificado.
 
 - Compruebe que la sesión en el servidor de AD FS principal está iniciada.
-- Compruebe los certificados de firma actuales en AD FS abriendo una ventana de comandos de PowerShell y ejecutando el siguiente comando: 
+- Compruebe los certificados de firma actuales en AD FS abriendo una ventana de comandos de PowerShell y ejecutando el siguiente comando:
 
 `PS C:\>Get-ADFSCertificate –CertificateType token-signing.`
 
@@ -64,7 +64,7 @@ Si el valor de AutocertificateRollover es True, pero los metadatos de federació
 
 
 - Examine la salida del comando en los certificados que se muestran. Si AD FS ha generado un nuevo certificado, debería ver dos certificados en la salida: uno para el que el valor de IsPrimary es True y la fecha de NotAfter está dentro de 5 días y uno para el que IsPrimary es False y NotAfter es aproximadamente un año en el futuro.
-	
+
 - Si solo ve un certificado y la fecha de NotAfter está dentro de 5 días, deberá generar un nuevo certificado mediante la ejecución de los pasos siguientes.
 
 - Para generar un nuevo certificado, ejecute el siguiente comando en un símbolo del sistema de PowerShell: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
@@ -80,9 +80,9 @@ Ahora deben aparecer dos certificados, uno de los cuales tiene una fecha de NotA
 1.	Abra el módulo Microsoft Azure Active Directory para Windows PowerShell.
 2.	Ejecute $cred=Get-Credential. Cuando este cmdlet le solicite las credenciales, escriba sus credenciales de cuenta de administrador de servicios en la nube.
 3.	Ejecute Connect-MsolService –Credential $cred. Este cmdlet le permite conectarse al servicio en la nube. Es necesario crear un contexto que le permita conectarse con el servicio en la nube antes de ejecutar cualquiera de los cmdlets adicionales que instala la herramienta.
-4.	Si ejecuta estos comandos en un equipo que no sea el servidor de federación principal de AD FS, ejecute Set-MSOLAdfscontext -Computer <AD FS primary server>, donde <AD FS primary server> es el nombre de dominio completo interno del servidor de AD FS principal. Este cmdlet crea un contexto que le permite conectarse a AD FS. 
+4.	Si ejecuta estos comandos en un equipo que no sea el servidor de federación principal de AD FS, ejecute Set-MSOLAdfscontext -Computer <AD FS primary server>, donde <AD FS primary server> es el nombre de dominio completo interno del servidor de AD FS principal. Este cmdlet crea un contexto que le permite conectarse a AD FS.
 5.	Ejecute Update-MSOLFederatedDomain –DomainName <domain>. Este cmdlet actualiza la configuración de AD FS en el servicio en la nube y configura la relación de confianza entre los dos.
 
 >[AZURE.NOTE]Si necesita admitir varios dominios de nivel superior, por ejemplo, contoso.com y fabrikam.com, debe utilizar el modificador SupportMultipleDomain con cualquier cmdlet. Para obtener más información, vea Compatibilidad con varios dominios de nivel superior. Por último, compruebe que todos los servidores proxy de aplicación web se actualizan con el paquete acumulativo de [Windows Server de mayo de 2014](http://support.microsoft.com/kb/2955164). De lo contrario, es posible que los servidores proxy no se actualicen con el nuevo certificado y se produzca una interrupción del sistema.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

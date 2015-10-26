@@ -1,20 +1,20 @@
 
 <properties 
-    pageTitle="Uso de Office con Azure RemoteApp"
-	description="Obtenga información sobre cómo funcionan juntos Office y Azure RemoteApp."
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+    pageTitle="Uso de Office con Azure RemoteApp" 
+    description="Obtenga información sobre cómo funcionan juntos Office y Azure RemoteApp." 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/02/2015" 
+    ms.author="elizapo" />
 
 # Uso de Office con Azure RemoteApp
 
@@ -50,4 +50,4 @@ Al activar su cuenta, esto afectará a todas las colecciones de RemoteApp en su 
 Si no pasa al modo de producción en el momento de expiración de la prueba, las colecciones de RemoteApp se deshabilitarán. No se preocupe, la configuración y datos de los usuarios se guardan durante otros 90 días, por lo que puede activar el servicio y cambiar al modo de producción sin perder datos.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

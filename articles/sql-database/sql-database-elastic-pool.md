@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/23/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -19,7 +19,7 @@
 
 # Domine el crecimiento explosivo con bases de datos elásticas
 
-Si es desarrollador de SaaS con decenas, cientos o incluso miles de bases de datos, los grupos de bases de datos elásticas simplifican el proceso de creación, mantenimiento y administración del rendimiento de las bases de datos según el presupuesto que usted mismo controlará.
+Si es desarrollador de SaaS con decenas, cientos o incluso miles de bases de datos, los grupos de bases de datos elásticas simplifican el proceso de creación, mantenimiento y administración del rendimiento de las bases de datos según el presupuesto que usted mismo controlará. Los [grupos de bases de datos elásticas se pueden crear](sql-database-elastic-pool-portal.md) mediante el Portal de Microsoft Azure, PowerShell o C#.
 
 Un patrón común de aplicación SaaS es que cada base de datos tenga un cliente distinto, cada uno con un consumo de recursos distinto e imprevisible (CPU, E/S y memoria resumidos con DTU). Estos altos y bajos de demanda de cada base de dato puede hacer que resulte difícil predecir y, por lo tanto, aprovisionar los recursos. Con esta situación, existen dos opciones: puede aprovisionar en exceso los recursos para las bases de datos según los picos de demanda, con el consiguiente exceso de pago; o bien puede aprovisionar en defecto para ahorrar costes en detrimento del rendimiento y la satisfacción del cliente durante los picos.
 
@@ -36,7 +36,7 @@ Si se necesitan más eDTU para satisfacer las necesidades de un grupo (se agrega
 
 Las bases de datos que son buenos candidatos para grupos de bases de datos elásticas tienen normalmente períodos de actividad y otros períodos de inactividad. Piense e el ejemplo anterior, donde puede ver la actividad de una base de datos única, 4 bases de datos y, por último, un grupo de bases de datos elásticas con 20 bases de datos. Estas bases de datos con actividad variable con el tiempo son excelentes candidatos para grupos de bases de datos elásticas porque no están activas al mismo tiempo y pueden compartir eDTU. No todas las bases de datos se ajustan a este patrón. Existen bases de datos que tienen una demanda de recursos más constante. Estas bases de datos son las más idóneas para los niveles de servicio Basic, Standard y Premium, cuyos recursos se asignan por separado. Para obtener ayuda para determinar si las bases de datos se beneficiarían de un grupo de bases de datos elásticas, consulte [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md).
 
-Los grupos de bases de datos elásticas se pueden crear mediante el Portal de Microsoft Azure, PowerShell o C#. Para obtener más información, vea [Creación y administración de grupos de bases de datos elásticas](sql-database-elastic-pool-portal.md). Para obtener más información sobre los grupos de bases de datos elásticas, incluidos los detalles de errores y de API, vea [Referencia de grupos de bases de datos elásticas](sql-database-elastic-pool-reference.md).
+Para obtener más información sobre los grupos de bases de datos elásticas, incluidos los detalles de errores y de API, vea [Referencia de grupos de bases de datos elásticas](sql-database-elastic-pool-reference.md).
 
 
 > [AZURE.NOTE]Los grupos de bases de datos elásticas están actualmente en vista previa y solo estarán disponibles en servidores con bases de datos SQL V12.
@@ -72,4 +72,4 @@ No se admite la exportación de una base de datos desde un grupo. Actualmente, n
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

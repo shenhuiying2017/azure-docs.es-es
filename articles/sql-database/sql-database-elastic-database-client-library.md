@@ -53,4 +53,4 @@ Para obtener instrucciones sobre cómo usar la herramienta de división y combin
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

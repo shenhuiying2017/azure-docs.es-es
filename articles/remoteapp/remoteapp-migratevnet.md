@@ -1,19 +1,19 @@
 <properties 
     pageTitle="Migración de una red virtual de RemoteApp a una red virtual de Azure"
-	description="Aprenda a migrar desde una red virtual de RemoteApp a una red virtual de Azure"
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+    description="Aprenda a migrar desde una red virtual de RemoteApp a una red virtual de Azure" 
+    services="remoteapp" 
+	documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/02/2015" 
+    ms.author="elizapo" />
 
 
 
@@ -50,4 +50,4 @@ Y ahora, ¡ya ha terminado!
 Si tiene alguna pregunta o necesita ayuda especial, envíe un correo electrónico a [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

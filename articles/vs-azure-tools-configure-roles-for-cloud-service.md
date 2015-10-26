@@ -376,4 +376,4 @@ Cualquier certificado de administración que asocie a sus configuraciones de ser
 ## Pasos siguientes
 Para obtener más información sobre los proyectos de Azure en Visual Studio, consulte [Configurar un proyecto de Azure](vs-azure-tools-configuring-an-azure-project.md). Para obtener más información sobre el esquema del servicio en la nube, consulte [Referencia de esquema](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -3,8 +3,8 @@
    description="Describe los problemas comunes al implementar los recursos creados mediante el modelo de implementación del Administrador de recursos y muestra cómo detectar y corregir estos problemas."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
-   authors="squillace"
-   manager="timlt"
+   authors="tfitzmac"
+   manager="wpickett"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="09/18/2015"
-   ms.author="rasquill"/>
+   ms.date="10/14/2015"
+   ms.author="tomfitz;rasquill"/>
 
 # Solución de problemas de implementaciones de grupo de recursos en Azure
 
@@ -26,14 +26,16 @@ En este tema se muestra cómo recuperar información de solución de problemas a
 
 En este tema también se describen las soluciones a los errores comunes que los usuarios encuentran.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la solución de problemas de los grupos de recursos creados con el modelo de implementación del Administrador de recursos. No puede crear grupos de recursos con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica. No puede crear grupos de recursos con el modelo de implementación clásica.
 
 
 ## Solución de problemas de PowerShell
 
-Puede obtener el estado general de una implementación con el comando **Get-AzureResourceGroupDeployment**. En el ejemplo siguiente la implementación produjo un error.
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
 
-    PS C:\> Get-AzureResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
+Puede obtener el estado general de una implementación con el comando **Get-AzureRmResourceGroupDeployment**. En el ejemplo siguiente la implementación produjo un error.
+
+    PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
 
     DeploymentName    : ExampleDeployment
     ResourceGroupName : ExampleGroup
@@ -52,9 +54,9 @@ Puede obtener el estado general de una implementación con el comando **Get-Azur
 
     Outputs           :
 
-Cada implementación normalmente se compone de varias operaciones y cada operación representa un paso en el proceso de implementación. Para detectar qué salió mal con una implementación, normalmente es necesario ver los detalles de las operaciones de implementación. Puede ver el estado de las operaciones con **Get-AzureResourceGroupDeploymentOperation**.
+Cada implementación normalmente se compone de varias operaciones y cada operación representa un paso en el proceso de implementación. Para detectar qué salió mal con una implementación, normalmente es necesario ver los detalles de las operaciones de implementación. Puede ver el estado de las operaciones con **Get-AzureRmResourceGroupDeploymentOperation**.
 
-    PS C:\> Get-AzureResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup
+    PS C:\> Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup
     Id                        OperationId          Properties         
     -----------               ----------           -------------
     /subscriptions/xxxxx...   347A111792B648D8     @{ProvisioningState=Failed; Timestam...
@@ -64,7 +66,7 @@ Muestra dos operaciones en la implementación. En una, el estado de aprovisionam
 
 Puede recuperar el mensaje de estado con el comando siguiente:
 
-    PS C:\> (Get-AzureResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties.StatusMessage
+    PS C:\> (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties.StatusMessage
 
     Code       : Conflict
     Message    : Website with given name mysite already exists.
@@ -95,11 +97,11 @@ Puede obtener el estado general de una implementación con el comando **azure gr
     info:    group deployment show command OK
 
 
-Puede obtener más información acerca de por qué falló la implementación en los registros de auditoría. Para ver los registros de auditoría, ejecute el comando **azure group log show**. Puede incluir la opción **--last deployment** para recuperar solo el registro de la implementación más reciente.
+Puede obtener más información acerca de por qué falló la implementación en los registros de auditoría. Para ver los registros de auditoría, ejecute el comando **azure group log show**. Puede incluir la opción **--last- deployment** para recuperar solo el registro de la implementación más reciente.
 
     azure group log show ExampleGroup --last-deployment
 
-El comando **azure group log show** puede devolver mucha información. Para solucionar problemas, lo habitual es centrarse en las operaciones que produjeron un error. El script siguiente usa la opción **--json** y **jq** para buscar el registro de errores de implementación. Para obtener información sobre herramientas como **jq**, consulte [Herramientas útiles para interactuar con Azure](#useful-tools-to-interact-with-azure).
+El comando **azure group log show** puede devolver mucha información. Para solucionar problemas, lo habitual es centrarse en las operaciones que produjeron un error. El script siguiente usa la opción **--json** y **jq** para buscar el registro de errores de implementación. Para obtener información sobre herramientas como **jq**, consulte [Herramientas útiles para interactuar con Azure](#useful-tools-to-interact-with-azure)
 
     azure group log show ExampleGroup --json | jq '.[] | select(.status.value == "Failed")'
 
@@ -142,7 +144,7 @@ El comando **azure group log show** puede devolver mucha información. Para solu
 
 Puede ver que **properties** incluye información de json sobre la operación con error.
 
-Puede usar las opciones **--verbose** y **-w** para ver más información de los registros. Use la opción **--verbose** para mostrar los pasos que recorren las operaciones en `stdout`. Para ver un historial completo de la solicitud, use la opción **-vv**. Los mensajes suelen ofrecer pistas fundamentales sobre la causa de cualquier error.
+Puede usar las opciones **--verbose** y **-vv** para ver más información de los registros. Use la opción **--verbose** para mostrar los pasos que recorren las operaciones en `stdout`. Para ver un historial completo de la solicitud, use la opción **-vv**. Los mensajes suelen ofrecer pistas fundamentales sobre la causa de cualquier error.
 
 ## Solución de problemas de la API de REST
 
@@ -157,7 +159,7 @@ La API de REST de Administrador de recursos proporciona identificadores URI para
 
 La implementación producirá un error si las credenciales de Azure expiraron o si no se suscribió a su cuenta de Azure. Las credenciales pueden expirar si la sesión está abierta demasiado tiempo. Puede actualizar las credenciales con las siguientes opciones:
 
-- Para PowerShell, use el cmdlet **Add-AzureAccount**. Las credenciales de un archivo de configuración de publicación no son suficientes para los cmdlets del módulo AzureResourceManager.
+- Para PowerShell, use el cmdlet **Login-AzureRmAccount** (o **Add-AzureAccount** para las versiones de PowerShell anteriores a la versión de vista previa 1.0 de PowerShell). Las credenciales de un archivo de configuración de publicación no son suficientes para los cmdlets del módulo AzureResourceManager.
 - Para CLI de Azure, use **azure login**. Para obtener ayuda con errores de autenticación, asegúrese de que ha [configurado correctamente la CLI de Azure](../xplat-cli-connect.md).
 
 ## Comprobación del formato de plantillas y parámetros
@@ -166,9 +168,9 @@ Si el archivo de plantilla o de parámetro no está en el formato correcto, se p
 
 ### PowerShell
 
-Para PowerShell, use **Test-AzureResourceGroupTemplate**.
+Para PowerShell, use **Test-AzureRmResourceGroupDeployment** (o **Test-AzureResourceGroupTemplate** para las versiones de PowerShell anteriores a la versión de vista previa 1.0).
 
-    PS C:\> Test-AzureResourceGroupTemplate -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
+    PS C:\> Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
     VERBOSE: 12:55:32 PM - Template is valid.
 
 ### Azure CLI
@@ -198,7 +200,7 @@ Al especificar la ubicación para un recurso, debe usar una de las ubicaciones q
 
 ### PowerShell
 
-Para PowerShell, puede consultar la lista completa de recursos y ubicaciones con el comando **Get-AzureLocation**.
+Para las versiones de PowerShell anteriores a la versión de vista previa 1.0, puede consultar la lista completa de recursos y ubicaciones con el comando **Get-AzureLocation**.
 
     PS C:\> Get-AzureLocation
 
@@ -218,6 +220,33 @@ Puede especificar un determinado tipo de recurso con:
     Microsoft.Compute/virtualMachines                           East US, East US 2, West US, Central US, South Central US,
                                                                 North Europe, West Europe, East Asia, Southeast Asia,
                                                                 Japan East, Japan West
+
+Para la versión de vista previa 1.0 de PowerShell, use **Get-AzureRmResourceProvider** para obtener ubicaciones admitidas.
+
+    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
+
+    ProviderNamespace RegistrationState ResourceTypes               Locations
+    ----------------- ----------------- -------------               ---------
+    Microsoft.Web     Registered        {sites/extensions}          {Brazil South, ...
+    Microsoft.Web     Registered        {sites/slots/extensions}    {Brazil South, ...
+    Microsoft.Web     Registered        {sites/instances}           {Brazil South, ...
+    ...
+
+Puede especificar un determinado tipo de recurso con:
+
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+
+    Brazil South
+    East Asia
+    East US
+    Japan East
+    Japan West
+    North Central US
+    North Europe
+    South Central US
+    West Europe
+    West US
+    Southeast Asia
 
 ### Azure CLI
 
@@ -239,7 +268,7 @@ Para algunos recursos, sobre todo cuentas de almacenamiento, servidores de base 
 
 ## Problemas de autenticación, suscripción, rol y cuota
 
-Puede haber uno o varios problemas que impiden la correcta implementación y que guardan relación con la autenticación y la autorización y Azure Active Directory. Independientemente de cómo administre los grupos de recursos de Azure, la identidad que se use para iniciar sesión en su cuenta debe estar formada por objetos de Azure Active Directory o entidades de servicio, lo que también se denomina cuentas profesionales o educativas, o bien identificadores organizativos.
+Puede haber uno o varios problemas que impiden la correcta implementación y que guardan relación con la autenticación y la autorización y Azure Active Directory. Sin importar cómo administra sus grupos de recursos de Azure, la identidad que usa para iniciar sesión en su cuenta debe ser un objeto de Azure Active Directory. Esta identidad puede ser una cuenta profesional o educativa que ha creado o que se le ha asignado, o puede crear una entidad de servicio para aplicaciones.
 
 Sin embargo, Azure Active Directory permite al usuario o al administrador controlar qué identidades pueden tener acceso a qué recursos con un alto grado de precisión. Si se producen errores en las implementaciones, examine las propias solicitudes en busca de indicios de problemas de autenticación o autorización, y examine también los registros de implementación para el grupo de recursos. Observará que, aunque tiene permisos para algunos recursos, no tiene permisos para otros. Con la CLI de Azure, puede examinar los inquilinos de Azure Active Directory y los usuarios que usen los comandos `azure ad`. (Para obtener una lista completa de los comandos de CLI de Azure, consulte [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure](azure-cli-arm-commands.md)).
 
@@ -272,7 +301,7 @@ Los recursos son administrados por los proveedores de recursos, y es posible que
 
 ### PowerShell
 
-Para obtener una lista de proveedores de recursos y su estado de registro, use **Get-AzureProvider**.
+Para obtener una lista de proveedores de recursos y su estado de registro, use **Get-AzureProvider** para las versiones de PowerShell anteriores a la versión de vista previa 1.0.
 
     PS C:\> Get-AzureProvider
 
@@ -283,7 +312,19 @@ Para obtener una lista de proveedores de recursos y su estado de registro, use *
     microsoft.cache                         Registered                              {Redis, checkNameAvailability, opera...
     ...
 
-Para registrarse para un proveedor, use **Register-AzureProvider**.
+Para registrar un proveedor, use **Register-AzureProvider**.
+
+Para la versión de vista previa 1.0 de PowerShell, use **Get-AzureRmResourceProvider**.
+
+    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+
+    ProviderNamespace               RegistrationState ResourceTypes
+    -----------------               ----------------- -------------
+    Microsoft.ApiManagement         Unregistered      {service, validateServiceName, checkServiceNameAvailability}
+    Microsoft.AppService            Registered        {apiapps, appIdentities, gateways, deploymenttemplates...}
+    Microsoft.Batch                 Registered        {batchAccounts}
+
+Para registrar un proveedor, use **Register-AzureRmResourceProvider**.
 
 ### Azure CLI
 
@@ -375,4 +416,4 @@ Para dominar la creación de plantillas, lea [Creación de plantillas del Admini
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

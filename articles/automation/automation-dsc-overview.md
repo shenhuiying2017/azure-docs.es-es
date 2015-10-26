@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="09/24/2015"
+   ms.date="10/09/2015"
    ms.author="coreyp"/>
 
 # Información general de DSC de Automatización de Azure #
@@ -107,9 +107,9 @@ Un trabajo de compilación en DSC de Automatización de Azure es una instancia d
 
 DSC de Automatización de Azure actualmente proporciona los siguientes cmdlets en el [módulo PowerShell de Administrador de recursos de Azure](https://msdn.microsoft.com/library/mt244122.aspx) para la administración de trabajos de compilación:
 
--	`Get-AzureAutomationDscCompilationJob`
--	`Get-AzureAutomationDscCompilationJobOutput`
--	`Start-AzureAutomationDscCompilationJob`
+-	`Get-AzureRmAutomationDscCompilationJob`
+-	`Get-AzureRmAutomationDscCompilationJobOutput`
+-	`Start-AzureRmAutomationDscCompilationJob`
 
 ##Ciclo de vida de DSC de Automatización de Azure##
 Ir desde una cuenta de automatización vacía a un conjunto administrado de nodos configurados correctamente implica un conjunto de procesos para definir las configuraciones, convertir esas configuraciones en configuraciones de nodo e incorporar nodos a DSC de Automatización de Azure y a las configuraciones de nodo. El siguiente diagrama ilustra el ciclo de vida de DSC de Automatización de Azure:
@@ -143,5 +143,6 @@ Ir desde una cuenta de automatización vacía a un conjunto administrado de nodo
 
 - [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Precios de DSC de Automatización de Azure](http://azure.microsoft.com/pricing/details/automation/)
+- [Implementación continua en las máquinas virtuales de IaaS mediante DSC de Automatización de Azure y Chocolatey](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

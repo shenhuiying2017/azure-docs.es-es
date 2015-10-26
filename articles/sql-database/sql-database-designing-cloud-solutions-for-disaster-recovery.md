@@ -3,7 +3,7 @@
    description="Aprenda a diseñar la solución de nube para recuperación ante desastres eligiendo el modelo correcto de conmutación por error."
    services="sql-database"
    documentationCenter="" 
-   authors="sashan" 
+   authors="anosov1960" 
    manager="jeffreyg" 
    editor="monicar"/>
 
@@ -85,8 +85,7 @@ El Administrador de tráfico tiene que configurarse para el enrutamiento de rend
 Si se detecta una interrupción de la base de datos en la región principal se inicia la conmutación por error de la base de datos principal a una de las regiones secundarias, lo que cambiará la ubicación de la base de datos principal. El Administrador de tráfico excluirá automáticamente el extremo sin conexión de la tabla de enrutamiento, pero continuará el enrutamiento del tráfico de usuario final a las instancias restantes en línea. Dado que la base de datos principal está ahora en una región distinta, todas las instancias en línea tienen que cambiar su cadena de conexión de SQL de lectura y escritura para conectarse con el nuevo elemento principal. Es importante que realice este cambio antes de iniciar la conmutación por error de la base de datos. Las cadenas de conexión de SQL de solo lectura deben permanecer sin cambios ya que siempre señalan a la base de datos en la misma región. Los pasos de conmutación por error son:
 
 1. cambie las cadenas de conexión de SQL de lectura y escritura para que apunte al nuevo elemento principal
-2. llame a la base de datos secundaria designada para [iniciar la conmutación por error de base de datos](https://msdn.microsoft.com/
-3. / library/azure/dn509573.aspx) 
+2. llame a la base de datos secundaria designada para [iniciar la conmutación por error de la base de datos](https://msdn.microsoft.com/library/azure/dn509573.aspx) 
 
 El siguiente diagrama ilustra la nueva configuración después de la conmutación por error. ![Ilustración 5.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-2.png)
 
@@ -94,7 +93,7 @@ En el caso de una interrupción en una de las regiones secundarias, el Administr
 
 ![Ilustración 6.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-3.png)
 
-La **ventaja** clave de este patrón de diseño es que se puede escalar la carga de trabajo de la aplicación a través de varios elementos secundarios para lograr el rendimiento óptimo de usuario final. Los **inconvenientes** de esta opción son:
+La **ventaja** clave de este patrón de diseño, es que se puede escalar la carga de trabajo de la aplicación a través de varios elementos secundarios para lograr el rendimiento óptimo del usuario final. Los **inconvenientes** de esta opción son:
 
 + las conexiones de lectura y escritura entre las instancias de la aplicación y la base de datos varían en latencia y costo
 + el rendimiento de la aplicación se ve afectado durante la interrupción
@@ -108,17 +107,17 @@ Esta opción es mejor para las aplicaciones con las siguientes características:
 + cualquier pérdida de datos supone un gran riesgo para la empresa, la conmutación por error de la base de datos solo puede usarse como último recurso.
 + la aplicación puede funcionar en "modo de solo lectura" durante un período de tiempo 
 
-En este patrón de la aplicación cambia al modo de solo lectura cuando se conecta a la base de datos secundaria. La lógica de aplicación en la región principal está colocalizada con la base de datos principal y funciona en modo de lectura y escritura (RW), la lógica de aplicación en la región secundaria comparte ubicación con la base de datos secundaria y está lista para funcionar en modo de solo lectura (RO). El Administrador de tráfico debe configurarse para usar [enrutamiento de conmutación por error](traffic-manager-configure-failover-load-balancing.md) con la [supervisión de extremo](traffic-manager-monitoring.md) habilitada para ambas instancias de aplicación.
+En este patrón de la aplicación cambia al modo de solo lectura cuando se conecta a la base de datos secundaria. La lógica de aplicación en la región principal está colocalizada con la base de datos principal y funciona en modo de lectura y escritura (RW), la lógica de aplicación en la región secundaria comparte ubicación con la base de datos secundaria y está lista para funcionar en modo de solo lectura (RO). El Administrador de tráfico debe configurarse para usar el [enrutamiento de conmutación por error](traffic-manager-configure-failover-load-balancing.md) con la [supervisión del extremo](traffic-manager-monitoring.md) habilitada para ambas instancias de aplicación.
 
-El diagrama siguiente muestra esta configuración antes de una interrupción.![Ilustración 7.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-1.png)
+El siguiente diagrama muestra esta configuración antes de una interrupción.![Ilustración 7.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-1.png)
 
-Cuando el Administrador de tráfico detecta un error de conectividad en la región principal cambiará automáticamente el tráfico de usuario a la instancia de aplicación en la región secundaria. Con este patrón es importante **no** iniciar la conmutación por error de base de datos tras la detección de la interrupción. La aplicación de la región secundaria está activada y funciona en modo de solo lectura con la base de datos secundaria. Esto se ilustra en el diagrama siguiente
+Cuando el Administrador de tráfico detecta un error de conectividad en la región principal cambiará automáticamente el tráfico de usuario a la instancia de aplicación en la región secundaria. Con este patrón, es importante que **no** inicie la conmutación por error de la base de datos tras la detección de la interrupción. La aplicación de la región secundaria está activada y funciona en modo de solo lectura con la base de datos secundaria. Esto se ilustra en el diagrama siguiente
 
 ![Ilustración 8.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-2.png)
 
 Una vez que se reduce la interrupción de la región principal, el Administrador de tráfico detectará la restauración de conectividad en la región principal y cambiará el tráfico de usuario a la instancia de aplicación en la región principal. Esa instancia de aplicación se reanuda y funciona en modo de lectura y escritura con la base de datos principal.
 
-> [AZURE.NOTE]Puesto que este patrón requiere acceso de solo lectura a la base de datos secundaria, necesita [replicación geográfica activa](https://msdn.microsoft.com/library/azure/dn741339.aspx).
+> [AZURE.NOTE]Puesto que este patrón requiere un acceso de solo lectura a la base de datos secundaria, necesitará la [replicación geográfica activa](https://msdn.microsoft.com/library/azure/dn741339.aspx).
 
 En el caso de una interrupción en la región secundaria el Administrador de tráfico marcará el extremo de la aplicación en la región principal como degradado y se suspenderá el canal de replicación. Sin embargo no afectará al rendimiento de la apliación durante la interrupción. Una vez que se reduce la interrupción, la base de datos secundaria se sincronizará inmediatamente con la principal. Durante la sincronización el rendimiento de la principal podría verse afectado ligeramente dependiendo de la cantidad de datos que haya que sincronizar.
 
@@ -146,6 +145,6 @@ Su estrategia específica de recuperación ante desastres puede combinar o ampli
 | :--- |:--- | :--- 
 | Implementación activa-pasiva para la recuperación ante desastres con acceso a base de datos colocalizada | Acceso de lectura y escritura < 5 s | Tiempo de detección de errores + llamada de API de conmutación por error + prueba de verificación de aplicación 
 | Implementación activa-activa para el equilibrio de carga de aplicación | Acceso de lectura y escritura < 5 s | Tiempo de detección de errores + llamada de API de conmutación por error + cadena de conexión SQL + cambio de prueba de verificación de aplicación
-| Implementación activa-pasiva para la conservación de datos | Acceso de solo lectura < 5 s acceso de lectura y escritura = cero | Acceso de solo lectura = tiempo de detección de errores de conectividad + prueba de comprobación de la aplicación <br>acceso de lectura y escritura = tiempo para mitigar la interrupción 
+| Implementación activa-pasiva para la conservación de datos | Acceso de solo lectura < 5 s acceso de lectura y escritura = cero | Acceso de solo lectura = tiempo de detección de errores de conectividad + prueba de comprobación de la aplicación <br>Acceso de lectura y escritura = tiempo para mitigar la interrupción 
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

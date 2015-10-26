@@ -64,11 +64,11 @@ Las ráfagas de datos pueden ser asumidas por los Centros de eventos de Azure, y
 
 Para ver una solución de IoT de ejemplo utilizando DocumentDB, EventHubs y Storm, consulte el [repositorio de ejemplos de hdinsight-storm en GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
-Para obtener más información sobre las posibilidades de Azure para IoT, consulte [Cree el Internet de sus cosas](http://www.microsoft.com/es-es/server-cloud/internet-of-things.aspx).
+Para obtener más información sobre las posibilidades de Azure para IoT, consulte [Cree el Internet de sus cosas](http://www.microsoft.com/es-ES/server-cloud/internet-of-things.aspx).
 
 ## Pasos siguientes
  
-Para empezar a usar DocumentDB, puede crear una [cuenta](http://azure.microsoft.com/pricing/free-trial/) y, a continuación, seguir nuestra [guía de aprendizaje](documentdb-learning-map.md) para obtener información sobre DocumentDB y buscar la información que necesita.
+Para empezar a usar DocumentDB, puede crear una [cuenta](http://azure.microsoft.com/pricing/free-trial/) y, a continuación, seguir nuestra [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para obtener información sobre DocumentDB y buscar la información que necesita.
 
 O bien, si desea leer más acerca de los usuarios que emplean DocumentDB, tiene a su disposición los siguientes testimonios de clientes:
 
@@ -79,4 +79,4 @@ O bien, si desea leer más acerca de los usuarios que emplean DocumentDB, tiene 
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). El almacén del futuro se ejecuta con la rapidez en la búsqueda y la sencillez en el flujo de datos.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

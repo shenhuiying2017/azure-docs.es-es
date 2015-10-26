@@ -20,7 +20,7 @@
 
 # Automatización con el Administrador de recursos de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos. No puede crear este recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica. No puede crear este recurso con el modelo de implementación clásica.
 
 El Administrador de recursos de Azure simplifica la implementación y administración de aplicaciones complejas que se ejecutan en los servicios de infraestructura de Azure. Muchas aplicaciones requieren una combinación de recursos de proceso, red y almacenamiento de información, como la red virtual, la cuenta de almacenamiento y las máquinas virtuales con interfaces de red. El Administrador de recursos de Azure permite usar o crear una plantilla JSON para implementar y administrar todos estos recursos como una sola aplicación.
 
@@ -74,4 +74,4 @@ El Administrador de recursos de Azure simplifica la implementación y administra
 
 [Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

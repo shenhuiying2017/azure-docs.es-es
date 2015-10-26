@@ -126,4 +126,4 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 [Xamarin Android: habilitar la sincronización sin conexión]: ../app-service-mobile-xamarin-ios-get-started-offline-data-preview.md
 [Windows 8.1: habilitar la sincronización sin conexión]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data-preview.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

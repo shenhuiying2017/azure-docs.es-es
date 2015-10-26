@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS"
-	description="En esta página de Azure Multi-Factor Authentication se describe cómo empezar a trabajar con Azure MFA y AD FS 2.0 en la nube."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS" 
+	description="En esta página de Azure Multi-Factor Authentication se describe cómo empezar a trabajar con Azure MFA y AD FS 2.0 en la nube." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS
@@ -93,4 +93,4 @@ Ahora que las notificaciones están listas, podemos configurar IP de confianza.
 
 ¡Ya está! En este punto, los usuarios federados de Office 365 solo deberán usar MFA cuando una notificación se origine fuera de la intranet corporativa.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

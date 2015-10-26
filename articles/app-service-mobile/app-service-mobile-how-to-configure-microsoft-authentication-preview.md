@@ -70,4 +70,4 @@ De este modo ya estará listo para usar la cuenta Microsoft para realizar la aut
 [Portal de administración de Azure]: https://portal.azure.com/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

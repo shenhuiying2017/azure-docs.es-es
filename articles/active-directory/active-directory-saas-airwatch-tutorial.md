@@ -114,13 +114,13 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Atributo](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Atributo")
 
-    1.  En el cuadro de texto **Object Identifier** (Identificador de objeto), escriba **http://schemas.microsoft.com/identity/claims/objectidentifier**.
-    2.  En el cuadro de texto **Username** (Nombre de usuario), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    3.  En el cuadro de texto **Display Name** (Nombre para mostrar), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    4.  En el cuadro de texto **First Name** (Nombre), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    5.  En el cuadro de texto **Last Name** (Apellido), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-    6.  En el cuadro de texto **Email** (Correo electrónico), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    7.  Haga clic en **Guardar**.
+    1.  En el cuadro de texto **Object Identifier** (Identificador de objeto), escriba ****http://schemas.microsoft.com/identity/claims/objectidentifier**.
+2.  En el cuadro de texto **Username** (Nombre de usuario), escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+3.  En el cuadro de texto **Display Name** (Nombre para mostrar), escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+4.  En el cuadro de texto **First Name** (Nombre), escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+5.  En el cuadro de texto **Last Name** (Apellido), escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+6.  En el cuadro de texto **Email** (Correo electrónico), escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+7.  Haga clic en **Guardar**.
 
 14. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
@@ -168,4 +168,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

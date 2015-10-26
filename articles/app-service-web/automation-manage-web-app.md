@@ -43,4 +43,4 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 * Consulte el [Tutorial de introducción](../automation-intro.md) de Automatización de Azure.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

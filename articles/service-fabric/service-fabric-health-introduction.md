@@ -336,4 +336,4 @@ El modelo de estado se usa mucho para la supervisión y el diagnóstico, para ev
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

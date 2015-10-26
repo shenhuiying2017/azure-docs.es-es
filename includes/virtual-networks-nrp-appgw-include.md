@@ -10,4 +10,4 @@ La puerta de enlace de aplicaciones contiene los siguientes recursos secundarios
 - **Agente de escucha**: la escucha tiene un puerto front-end, un protocolo (http o https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL). 
 - **Regla:** enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se redirigirá el tráfico cuando se seleccione un agente de escucha concreto. Actualmente, solo se admite la regla básica. La regla básica es la distribución de carga round robin.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

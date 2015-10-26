@@ -665,4 +665,4 @@ Para controlar a qué sitios web se les permite interactuar con solicitudes y en
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [referencia de opciones de consulta del sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

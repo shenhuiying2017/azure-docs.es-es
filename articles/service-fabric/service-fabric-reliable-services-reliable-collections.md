@@ -54,8 +54,8 @@ Colecciones fiables elige automáticamente el nivel de aislamiento que se usará
 
 Hay dos niveles de aislamiento que se admiten en Colecciones confiables:
 
-- **Repeatable Read**: "Especifica que las instrucciones no pueden leer datos que han sido modificados pero aún no confirmados por otras transacciones y que ninguna otra transacción puede modificar los datos leídos por la transacción actual hasta que esta finalice. (https://msdn.microsoft.com/es-es/library/ms173763.aspx)"
-- **Snapshot**: "Especifica que los datos leídos por cualquier instrucción de una transacción sean la versión coherente, desde el punto de vista transaccional, de los datos existentes al comienzo de la transacción. La transacción solo puede reconocer las modificaciones de datos que se confirmaron antes del inicio de la transacción. Las modificaciones de datos realizadas por otras transacciones después del inicio de la transacción actual no son visibles para las instrucciones que se ejecutan en la transacción actual. El efecto es como si las instrucciones de una transacción obtienen una instantánea de los datos confirmados tal como se encontraban al inicio de la transacción. (https://msdn.microsoft.com/es-es/library/ms173763.aspx)"
+- **Repeatable Read**: "Especifica que las instrucciones no pueden leer datos que han sido modificados pero aún no confirmados por otras transacciones y que ninguna otra transacción puede modificar los datos leídos por la transacción actual hasta que esta finalice. (https://msdn.microsoft.com/es-ES/library/ms173763.aspx)"
+- **Snapshot**: "Especifica que los datos leídos por cualquier instrucción de una transacción sean la versión coherente, desde el punto de vista transaccional, de los datos existentes al comienzo de la transacción. La transacción solo puede reconocer las modificaciones de datos que se confirmaron antes del inicio de la transacción. Las modificaciones de datos realizadas por otras transacciones después del inicio de la transacción actual no son visibles para las instrucciones que se ejecutan en la transacción actual. El efecto es como si las instrucciones de una transacción obtienen una instantánea de los datos confirmados tal como se encontraban al inicio de la transacción. (https://msdn.microsoft.com/es-ES/library/ms173763.aspx)"
 
 El diccionario fiable y la cola fiable admiten la lectura de las escrituras. En otras palabras, cualquier escritura dentro de una transacción será visible en una lectura posterior que pertenezca a la misma transacción.
 
@@ -118,4 +118,4 @@ Algunos aspectos que debe tener en cuenta:
 - [Uso avanzado del modelo de programación de servicios fiables](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)
 - [Referencia para desarrolladores de colecciones confiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

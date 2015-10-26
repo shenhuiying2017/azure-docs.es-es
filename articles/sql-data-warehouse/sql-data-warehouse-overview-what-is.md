@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/08/2015"
    ms.author="barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
 
@@ -68,6 +68,8 @@ Almacenamiento de datos SQL se implementa fácilmente en cuestión de segundos. 
 ## Pasos siguientes
 Obtenga información sobre [carga de trabajo del almacenamiento de datos]. [Aprovisionar]y cargar[datos de ejemplo] para comenzar.
 
+>[AZURE.NOTE]Queremos mejorar este artículo. Si elige responder que no a la pregunta de si le resultó útil este artículo, incluya una sugerencia breve sobre lo que falta o cómo piensa que se podría mejorar el artículo. Gracias de antemano.
+
 <!--Image references-->
 
 <!--Article references-->
@@ -79,4 +81,4 @@ Obtenga información sobre [carga de trabajo del almacenamiento de datos]. [Apro
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

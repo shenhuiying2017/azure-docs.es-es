@@ -70,4 +70,4 @@ Las principales ventajas de los actores de Fabric de Azure son: 1) **la producti
 
 * *Asincronía explícita.* El modelo de programación de los actores de Fabric de Azure hace que la naturaleza asincrónica de una aplicación distribuida sea explícita y ayuda a los programadores a escribir código asincrónico sin bloqueo. Esto permite un alto grado de paralelismo distribuido y de rendimiento general sin el uso explícito de subprocesamiento múltiple.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -242,4 +242,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

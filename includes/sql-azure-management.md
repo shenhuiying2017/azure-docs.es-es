@@ -3,7 +3,7 @@
 
 Puede usar SQL Server Management Studio (SSMS) para administrar las bases de datos y los servidores lógicos de Base de datos SQL de Azure. Este tema le guía a través de las tareas comunes con SSMS. Ya debería tener una base de datos y un servidor lógico creados en la Base de datos SQL de Azure antes de comenzar. Para empezar, lea [Crear la primera base de datos SQL de Azure](sql-database-get-started.md) y vuelva luego.
 
-Se recomienda usar la versión más reciente de SSMS siempre que trabaje con la Base de datos SQL de Azure. Visite [Descargar SQL Server Management Studio](https://msdn.microsoft.com/es-es/library/mt238290.aspx) para obtenerla.
+Se recomienda usar la versión más reciente de SSMS siempre que trabaje con la Base de datos SQL de Azure. Visite [Descargar SQL Server Management Studio](https://msdn.microsoft.com/es-ES/library/mt238290.aspx) para obtenerla.
 
 
 ## Conectarse a un servidor lógico de Base de datos SQL
@@ -22,9 +22,9 @@ Para conectarse a Base de datos SQL, debe saber el nombre del servidor de Azure.
 
 2.  Haga clic en **Configurar** en la parte superior de la página.
 
-3.  Copie la dirección IP en CURRENT CLIENT IP ADDRESS.
+3.  Copie la dirección IP en DIRECCIÓN IP DEL CLIENTE ACTUAL.
 
-4.  En la página Configurar, la sección **Direcciones IP permitidas** incluye tres cuadros donde puede especificar un nombre de regla y un intervalo de direcciones IP como valores iniciales y finales. Para un nombre de regla, puede escribir el nombre del PC. Para el intervalo inicial y final, pegue la dirección IP del PC en ambos cuadros y, a continuación, haga clic en la casilla que aparece.
+4.  En la página Configurar, la sección **Direcciones IP permitidas** incluye tres cuadros donde puede especificar un nombre de regla y un intervalo de direcciones IP como valores iniciales y finales. Para un nombre de regla, puede escribir el nombre de su PC. Para el intervalo inicial y final, pegue la dirección IP de su PC en ambos cuadros y, a continuación, haga clic en la casilla que aparece.
 
 	El nombre de regla debe ser exclusivo. Si se trata de un equipo de desarrollo, puede escribir la dirección IP en el cuadro de inicio de intervalo de IP y en el cuadro de final de intervalo de IP. De lo contrario, puede que tenga que escribir un intervalo más amplio de direcciones IP para tener en cuenta conexiones de equipos adicionales de la organización.
  
@@ -62,7 +62,7 @@ Para abrir una ventana de consulta en Management Studio, abra la carpeta Bases d
 
 Haga clic en **Ejecutar** para ejecutar la consulta.
 
--   Use la instrucción **ALTER DATABASE** para modificar una base de datos existente, por ejemplo, si desea cambiar el nombre y la edición de la base de datos. Para obtener más información, consulte [ALTER DATABASE (Base de datos SQL)](https://msdn.microsoft.com/library/ms174269.aspx). La instrucción siguiente modifica la base de datos creada en el paso anterior para cambiar para cambiar a la edición Standard S1.
+-   Use la instrucción **ALTER DATABASE** para modificar una base de datos existente, por ejemplo, si desea cambiar el nombre y la edición de la base de datos. Para obtener más información, consulte [ALTER DATABASE (Base de datos SQL)](https://msdn.microsoft.com/library/ms174269.aspx). La instrucción siguiente modifica la base de datos creada en el paso anterior para cambiar a la edición Standard S1.
 
         ALTER DATABASE myTestDB
         MODIFY
@@ -103,7 +103,7 @@ La base de datos **maestra** realiza un seguimiento de los inicios de sesión y 
 
             CREATE USER login1User FROM LOGIN login1;
 
--   Use el procedimiento almacenado **sp\_addrolemember** para conceder a la cuenta de usuario el nivel apropiado de permisos para la base de datos. Para obtener más información, consulte[ sp\_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). La instrucción siguiente concede a **login1User** permisos de solo lectura a la base de datos mediante la adición de **login1User** al rol **db\\\_datareader**.
+-   Use el procedimiento almacenado **sp\_addrolemember** para conceder a la cuenta de usuario el nivel apropiado de permisos para la base de datos. Para obtener más información, consulte[ sp\_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). La instrucción siguiente concede a **login1User** permisos de solo lectura a la base de datos mediante la adición de **login1User** al rol **db\\_datareader**.
 
         exec sp_addrolemember 'db_datareader', 'login1User';    
 
@@ -119,7 +119,7 @@ La base de datos **maestra** realiza un seguimiento de los inicios de sesión y 
 
         DROP LOGIN login1;
 
--   La base de datos maestra tiene la vista **sys.sql\\\_logins**, que puede usar para ver los inicios de sesión. Para ver todos los inicios de sesión existentes, ejecute la siguiente instrucción:
+-   La base de datos maestra tiene la vista **sys.sql\\_logins**, que puede usar para ver los inicios de sesión. Para ver todos los inicios de sesión existentes, ejecute la siguiente instrucción:
 
         SELECT * FROM sys.sql_logins;
 
@@ -166,4 +166,4 @@ Base de datos SQL admite varias vistas de administración dinámica que puede us
         GROUP BY query_stats.query_hash
         ORDER BY 2 DESC;
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

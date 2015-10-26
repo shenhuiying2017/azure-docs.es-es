@@ -94,7 +94,8 @@ Ahora que ha creado su repositorio local, puede realizar cambios en los scripts 
 
 	Aparecerá una serie de comandos que indica que la confirmación se ha implementado en el servicio móvil.
 
-6. Nuevamente en el Portal de administración, haga clic en la pestaña **Datos**, en la tabla **TodoItem** y en **Script**; a continuación, seleccione la operación **Insert**. Observe que el script de operación de inserción que se muestra es el mismo que el del código de JavaScript que acaba de cargar en el repositorio.
+6. Nuevamente en el Portal de administración, haga clic en la pestaña **Datos**, haga clic en la tabla **TodoItem** y en **Script**; a continuación, seleccione la operación **Insert**.
+7. Observe que el script de operación de inserción que se muestra es el mismo que el del código de JavaScript que acaba de cargar en el repositorio.
 
 ##<a name="use-npm"></a>Aprovechamiento del código compartido y de módulos Node.js en los scripts del servidor
 
@@ -102,7 +103,7 @@ Servicios móviles proporciona acceso a todo el conjunto de módulos Node.js bá
 
 La manera recomendada de agregar módulos Node.js al servicio móvil es agregando referencias al archivo package.json del servicio. A continuación, agregará el módulo Node.js [node-uuid] al servicio móvil a través de la actualización del archivo package.json. Cuando la actualización se inserte en Azure, el servicio móvil se reiniciará y se instalará el módulo. Este módulo se usará después para generar un nuevo valor de GUID para la propiedad **uuid** en los elementos insertados.
 
-2. Navegue a la carpeta `.\service` del repositorio Git local y abra el archivo package.json en un editor de texto; agregue el siguiente campo al objeto **dependencies**:
+2. Desplácese a la carpeta `.\service` del repositorio Git local y abra el archivo package.json en un editor de texto; agregue el siguiente campo al objeto **dependencies**:
 
 		"node-uuid": "~1.4.3"
 
@@ -155,4 +156,4 @@ Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el
 [Módulos]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

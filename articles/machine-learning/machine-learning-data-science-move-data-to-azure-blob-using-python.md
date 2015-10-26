@@ -121,4 +121,4 @@ El siguiente código de ejemplo descarga todos los blobs de un contenedor. Usa l
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

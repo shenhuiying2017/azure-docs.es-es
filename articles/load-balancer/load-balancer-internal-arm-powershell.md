@@ -245,4 +245,4 @@ Encontrará instrucciones paso a paso para crear una máquina virtual y asignarl
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

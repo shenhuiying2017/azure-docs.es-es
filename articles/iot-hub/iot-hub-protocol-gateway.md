@@ -1,10 +1,10 @@
 <properties
    pageTitle="Puerta de enlace de protocolos de IoT de Azure | Microsoft Azure"
-   description="Describe cómo usar la puerta de enlace de protocolos de IoT de Azure para ampliar las capacidades del Centro de IoT de Azure."
+   description="Describe cómo usar la puerta de enlace de protocolos de IoT de Azure para ampliar las capacidades y la compatibilidad con el protocolo del Centro de IoT de Azure."
    services="iot-hub"
    documentationCenter=""
    authors="kdotchkoff"
-   manager="kevinmil"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na"
+   ms.workload="nana"
    ms.date="09/29/2015"
-   ms.author="kdotchkoff"/>
+   ms.author="kdotchko"/>
 
 # Compatibilidad con protocolos adicionales para Centro de IoT
 
@@ -27,14 +27,14 @@ La puerta de enlace de protocolos de IoT de Azure es un marco para la adaptació
 La puerta de enlace de protocolos se puede implementar en Azure de una manera altamente escalable con roles de trabajo de servicios en la nube. Además, la puerta de enlace de protocolos puede implementarse en entornos locales como puertas de enlace de campo.
 
 La puerta de enlace de protocolos de IoT de Azure incluye un adaptador de MQTT para facilitar la comunicación con dispositivos a través del protocolo MQTT v3.1.1. La puerta de enlace de protocolos y la implementación de MQTT se proporcionan como proyecto OSS con flexibilidad para permitir la personalización de la implementación según sea necesario.
-   
+
 El adaptador de MQTT también muestra el modelo de programación para la creación de adaptadores de protocolo para otros protocolos. Además, el modelo de programación de puerta de enlace de protocolo de IoT permite conectar componentes personalizados para su procesamiento especializado como, por ejemplo, autenticación personalizada, transformaciones de mensajes, compresión y descompresión o cifrado y descifrado de tráfico entre los dispositivos y el Centro de IoT.
 
-## Pasos siguientes 
+## Pasos siguientes
 
 Para obtener más información sobre la puerta de enlace de protocolos de IoT de Azure y cómo usarlo e implementarlo como parte de su solución de IoT, vea:
 
 * [Repositorio de puerta de enlace de protocolos de IoT de Azure en GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
 * [Guía para desarrolladores de puerta de enlace de protocolos de IoT de Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Migración de grupos de afinidad a una red virtual regional"
-	description="Más información acerca de la migración de grupos de afinidad a una red virtual regional"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Más información acerca de la migración de grupos de afinidad a una red virtual regional"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/02/2015"
+   ms.author="telmos" />
 
 # Migración de grupos de afinidad a una red virtual regional
 
@@ -66,4 +66,4 @@ No es necesario quitar las máquinas virtuales que están en un grupo de afinida
 Una vez implementada una máquina virtual, se implementa en una sola unidad de escalado. Los grupos de afinidad pueden restringir el conjunto de tamaños de máquina virtual disponibles para una nueva implementación de máquina virtual, pero cualquier máquina virtual existente que esté implementa ya está restringida al conjunto de tamaños de máquina virtual disponible en la unidad de escalado en el que se implementa la máquina virtual. Por este motivo, quitar una máquina virtual del grupo de afinidad no tendrá ningún efecto.
  
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

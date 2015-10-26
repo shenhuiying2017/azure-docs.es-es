@@ -193,8 +193,8 @@ Antes de poder habilitar y utilizar la escritura diferida, debe asegurarse de co
 ### Paso 1: descargar la versión más reciente de Azure AD Connect
 La escritura diferida de contraseñas está disponible en las versiones de Azure AD Connect o en la herramienta Sincronización de Azure AD con el número de versión **1.0.0419.0911** o posterior. La escritura diferida de contraseñas con desbloqueo automático de cuenta está disponible en las versiones de Azure AD Connect o en la herramienta Sincronización de Azure AD con el número de versión **1.0.0485.0222** o posterior. Si ejecuta una versión anterior, al menos actualice a esta versión antes de continuar. [Haga clic aquí para descargar la versión más reciente de Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
 
-####  Para comprobar la versión de Sincronización de Azure AD
-1.	Vaya a **%ProgramFiles%\Azure Active Directory Sync**. 
+#### Para comprobar la versión de Sincronización de Azure AD
+1.	Vaya a **%ProgramFiles%\\Azure Active Directory Sync**.
 2.	Busque el archivo ejecutable **ConfigWizard.exe**.
 3.	Haga clic con el botón derecho en el archivo ejecutable y seleccione la opción **Propiedades** del menú contextual.
 4.	Haga clic en la pestaña **Detalles**.
@@ -344,4 +344,4 @@ Ahora que la escritura diferida de contraseñas está habilitada, para saber si 
 [030]: ./media/active-directory-passwords-getting-started/030.jpg "Image_030.jpg"
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

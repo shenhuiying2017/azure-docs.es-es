@@ -1,3 +1,20 @@
+<properties
+   pageTitle="Tabla de límites de Visión operativa"
+   description="Describe los límites del sistema para Información operativa."
+   services="operational-insights"
+   documentationCenter="NA"
+   authors="bandersmsft"
+   manager="jwhit"
+   editor="" />
+<tags
+   ms.service="operational-insights"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="07/01/2015"
+   ms.author="banders" />
+
 
 Los límites siguientes se aplican a las suscripciones de Visión operativa.
 
@@ -11,4 +28,4 @@ Los límites siguientes se aplican a las suscripciones de Visión operativa.
 
 <sup>1</sup>Cuando los clientes alcanzan su límite de transferencia de datos diarios de 500 MB, el análisis de datos se detiene y se reanuda al comienzo del día siguiente. Un día se basa en UTC.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

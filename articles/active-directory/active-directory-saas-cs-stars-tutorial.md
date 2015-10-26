@@ -205,4 +205,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 
 [400]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_403.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

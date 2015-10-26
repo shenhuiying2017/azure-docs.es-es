@@ -100,4 +100,4 @@ Es posible que necesite el IQN de destino del dispositivo para configurar el Pro
 - [Obtenga más información sobre el panel del servicio StorSimple Manager](storsimple-service-dashboard.md).
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -88,4 +88,4 @@ En este artículo, ha aprendido a usar Power Query para recuperar datos de HDIns
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

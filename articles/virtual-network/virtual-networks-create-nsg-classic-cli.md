@@ -239,4 +239,4 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

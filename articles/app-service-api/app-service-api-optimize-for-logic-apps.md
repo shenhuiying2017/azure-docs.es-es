@@ -235,4 +235,4 @@ Para las aplicaciones de API que usan metadatos dinámicos, puede hacer uso de a
 En este artículo, ha visto cómo mejorar la experiencia del usuario de la aplicación de API cuando se utiliza en el Diseñador de aplicaciones lógicas. Como práctica recomendada, se pueden proporcionar nombres descriptivos adecuados para todas las propiedades y los parámetros de las operaciones (acciones y desencadenadores). También se recomienda que proporcione 5 operaciones básicas como máximo. En cuanto a los parámetros de entrada, la recomendación es restringir el número de propiedades básicas a 4 como máximo. Para las propiedades, la recomendación es 5 o menos. Las demás operaciones y propiedades deberían marcarse como avanzadas.
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

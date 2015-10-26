@@ -19,4 +19,4 @@ Los desarrolladores pueden crear grandes aplicaciones web escalables con Servici
 
 Tal como muestra la [figura](#appservice_diagram) anterior, hay diversas formas de publicar código y otro contenido web en Servicio de aplicaciones de Azure. Puede utilizar la tecnología WebDeploy de Microsoft, FTPS o FTP. Servicio de aplicaciones de Azure también es compatible con la publicación de código a partir de sistemas de control de código fuente, incluido Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server y el Team Foundation Service basado en la nube.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

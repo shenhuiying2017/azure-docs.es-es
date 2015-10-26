@@ -55,4 +55,4 @@ Para más información, consulte [Administrar un área de trabajo de Aprendizaje
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -109,4 +109,4 @@ Cuando se crea un runbook, debe asegurarse de que el tiempo para ejecutar las ac
 
 - [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

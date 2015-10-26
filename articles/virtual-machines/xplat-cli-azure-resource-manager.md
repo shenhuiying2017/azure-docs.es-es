@@ -16,7 +16,8 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la administración de recursos con el modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+
 
 Este artículo describe cómo crear, administrar y eliminar los recursos y las máquinas virtuales de Azure con la CLI de Azure para Mac, Linux y Windows con el modo Administrador de recursos de Azure.
 
@@ -341,4 +342,4 @@ Para ver información registrada sobre operaciones realizadas en un grupo, utili
 [clisetup]: ../xplat-cli-install.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

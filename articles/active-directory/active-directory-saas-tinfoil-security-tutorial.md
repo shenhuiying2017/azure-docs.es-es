@@ -39,7 +39,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
     ![Agregar aplicación](./media/active-directory-saas-tinfoil-security-tutorial/IC749321.png "Agregar aplicación")
 
-5.  En el cuadro de diálogo **Qué desea hacer**, haga clic en **Agregar una aplicación de la galería**.
+5.  En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
 
     ![Agregar una aplicación de la galería](./media/active-directory-saas-tinfoil-security-tutorial/IC749322.png "Agregar una aplicación de la galería")
 
@@ -99,7 +99,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
     5.  Copie **Su id. de cuenta**.
     6.  Haga clic en **Guardar**.
 
-9.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-tinfoil-security-tutorial/IC798974.png "Configurar inicio de sesión único")
 
@@ -107,7 +107,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Atributos](./media/active-directory-saas-tinfoil-security-tutorial/IC795920.png "Atributos")
 
-11. Para agregar las asignaciones de los atributos requeridos, realice los pasos siguientes:
+11. Para agregar las asignaciones de los atributos necesarios, realice los pasos siguientes:
 
     ![Atributos](./media/active-directory-saas-tinfoil-security-tutorial/IC798975.png "Atributos")
 
@@ -146,6 +146,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Sí](./media/active-directory-saas-tinfoil-security-tutorial/IC767830.png "Sí")
   
-Si quiere probar su configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

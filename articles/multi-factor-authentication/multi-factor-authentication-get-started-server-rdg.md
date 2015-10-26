@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Puerta de enlace de Escritorio remoto y Servidor Azure Multi-Factor Authentication con RADIUS"
-	description="Se trata de la página de Azure Multi-Factor Authentication que le ayudará en la implementación de la puerta de enlace de escritorio remoto (RD) y el servidor Azure Multi-Factor Authentication mediante RADIUS."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Puerta de enlace de Escritorio remoto y Servidor Azure Multi-Factor Authentication con RADIUS" 
+	description="Se trata de la página de Azure Multi-Factor Authentication que le ayudará en la implementación de la puerta de enlace de escritorio remoto (RD) y el servidor Azure Multi-Factor Authentication mediante RADIUS." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Puerta de enlace de Escritorio remoto y Servidor Azure Multi-Factor Authentication con RADIUS
@@ -59,4 +59,4 @@ El servidor Azure Multi-Factor Authentication se configura como un proxy RADIUS 
 
 ![Autenticación Radius](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

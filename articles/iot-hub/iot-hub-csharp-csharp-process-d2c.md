@@ -4,7 +4,7 @@
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -12,11 +12,11 @@
      ms.devlang="csharp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# Procesamiento de mensajes de dispositivo a nube del centro de IoT
+# Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT
 
 ## Introducción
 
@@ -41,13 +41,13 @@ Al final de este tutorial ejecutará tres aplicaciones de consola de Windows:
 * **ProcessDeviceToCloudMessages**, que usa [EventProcessorHost] para almacenar de manera fiable mensajes de *punto de datos* en un blob de Azure y reenvía mensajes *interactivos* a una cola de Bus de servicio.
 * **ProcessD2cInteractiveMessages**, que quita los mensajes de la cola.
 
-> [AZURE.NOTE]El centro de IoT ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes (incluido C, Java y Javascript), mediante los SDK del dispositivo de IoT de Azure. Consulte el [Centro para desarrolladores de IoT de Azure] para obtener instrucciones paso a paso sobre cómo conectar el dispositivo al código de este tutorial y, en general, al centro de IoT de Azure.
+> [AZURE.NOTE]El centro de IoT ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes (incluido C, Java y Javascript), mediante los SDK del dispositivo de IoT de Azure. Consulte el [Centro para desarrolladores de IoT de Azure] para obtener instrucciones paso a paso sobre cómo conectar el dispositivo al código de este tutorial y, en general, al Centro de IoT de Azure.
 
 > [AZURE.NOTE]El contenido de este tutorial es directamente aplicable a otras formas de consumir mensajes compatibles con centros de eventos como, por ejemplo, proyectos de [Hadoop] como Storm. Consulte [IoT Hub Guidance - Event Hubs compatibility] (Directrices sobre el centro de IoT - Compatibilidad con centros de eventos).
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Microsoft Visual Studio 2015,
++ Microsoft Visual Studio 2015
 
 + Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
 
@@ -73,17 +73,17 @@ Ya está preparado para ejecutar las aplicaciones.
 
 ## Pasos siguientes
 
-En este tutorial, ha aprendido a procesar de manera fiable *puntos de datos* y mensajes de dispositivo a nube *interactivos* mediante [EventProcessorHost]. Es posible implementar una lógica de procesamiento de mensajes analógica con
+En este tutorial, ha aprendido a procesar de manera fiable *puntos de datos* y mensajes de dispositivo a nube *interactivos* mediante [EventProcessorHost]. Es posible implementar una lógica de procesamiento de mensajes analógica con:
 
 - [Uploading files from devices] (Carga de archivos desde dispositivos) describe un patrón que hace uso de los mensajes de nube a dispositivo para facilitar la carga de archivos desde los dispositivos.
 
-Información adicional sobre el centro de IoT:
+Información adicional sobre el Centro de IoT:
 
 * [Información general sobre el centro de IoT]
 * [Guía del desarrollador del centro de IoT]
 * [Directrices sobre el centro de IoT]
 * [Lenguajes y plataformas de dispositivos compatibles][Supported devices]
-* [Centro para desarrolladores de Azure]
+* [Centro para desarrolladores de IoT de Azure]
 
 <!-- Images. -->
 [50]: ./media/iot-hub-csharp-csharp-process-d2c/run1.png
@@ -118,11 +118,6 @@ Información adicional sobre el centro de IoT:
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Introducción al centro de IoT]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Centro para desarrolladores de Azure]: http://www.azure.com/iotdev
-[Centro para desarrolladores de IoT de Azure]: http://www.azure.com/iotdev
+[Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

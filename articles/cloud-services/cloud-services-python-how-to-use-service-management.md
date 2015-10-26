@@ -445,4 +445,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

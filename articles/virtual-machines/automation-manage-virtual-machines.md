@@ -22,7 +22,6 @@
 
 Esta guía le ofrece el servicio Automatización de Azure y cómo se puede usar para simplificar la administración de máquinas virtuales de Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## ¿Qué es Automatización de Azure?
 
@@ -44,4 +43,4 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 
 [Introducción a la Automatización de Azure](../automation-create-runbook-from-samples.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -44,4 +44,4 @@ Puede utilizar herramientas de línea de comandos como PowerShell para administr
 Para obtener más información acerca de cómo administrar Bases de datos SQL de Azure con las herramientas de línea de comandos, [haga clic aquí](sql-database-command-line-tools.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

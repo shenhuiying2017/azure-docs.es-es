@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="10/06/2015"
+   ms.date="10/07/2015"
    ms.author="brjohnst"/>
 
 # Cómo usar Búsqueda de Azure desde una aplicación .NET #
@@ -337,7 +337,7 @@ Lo primero que debe tener en cuenta es que cada propiedad pública de `Hotel` co
 
 La segunda cosa importante acerca de la clase `Hotel` son los tipos de datos de las propiedades públicas. Los tipos .NET de esas propiedades se asignan a los tipos de campo equivalentes de la definición del índice. Por ejemplo, la propiedad de cadena `Category` se asigna al campo `category`, que es de tipo `Edm.String`. Se dan asignaciones de tipos semejantes entre `bool?` y `Edm.Boolean`, `DateTimeOffset?` y `Edm.DateTimeOffset`, etc. Las reglas específicas para la asignación de tipos se documentan con el método `Documents.Get` en [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
  
-> [AZURE.NOTE]Al diseñar sus propias clases de modelo para asignar a un índice de Búsqueda de Azure, asegúrese de declarar propiedades de tipos de valor como `bool` y `int` que aceptan valores null (p. ej.: `bool?` en lugar de `bool`). Esto es necesario porque todos los tipos primitivos de campo en la búsqueda de Azure admiten valores NULL. Si se usan tipos que no aceptan valores NULL, puede obtener resultados inesperados al indexar valores predeterminados como `0` y `false`.
+> [AZURE.NOTE]Al diseñar sus propias clases de modelo para asignar a un índice de Búsqueda de Azure, asegúrese de declarar propiedades de tipos de valor como `bool` y `int` que aceptan valores null (por ejemplo: `bool?` en lugar de `bool`). Esto es necesario porque todos los tipos primitivos de campo en la búsqueda de Azure admiten valores NULL. Si usa tipos que no aceptan valores NULL, obtendrá resultados inesperados al indexar valores predeterminados como `0` y `false`. En concreto, estos valores predeterminados se convertirán en valores NULL durante la indexación. En una futura versión de SDK, si usa tipos que no aceptan valores NULL, se generará una excepción en su lugar.
 
 Esta posibilidad de usar sus propias clases como documentos funciona en ambas direcciones: también puede recuperar los resultados de la búsqueda y hacer que el SDK los deserialice automáticamente a un tipo de su elección, como veremos en la siguiente sección.
 
@@ -627,4 +627,4 @@ Hotel.cs:
     }
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

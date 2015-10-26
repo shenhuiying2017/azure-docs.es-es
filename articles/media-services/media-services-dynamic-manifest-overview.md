@@ -233,4 +233,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -77,4 +77,4 @@ En este artículo se describen los distintos parámetros que se aplican durante 
 [Serialización de datos](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -2,7 +2,7 @@
  pageTitle="Información del Centro de IoT de Azure para profesionales de TI | Microsoft Azure"
  description="Información de ayuda para que los profesionales de TI trabajen con el Centro de IoT de Azure como, por ejemplo, requisitos de puerto e información de seguridad."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
@@ -12,8 +12,8 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
- ms.date="09/04/2015"
+ ms.workload="na"
+ ms.date="09/28/2015"
  ms.author="dobett"/>
 
 # Configuración y administración del acceso al Centro de IoT
@@ -49,4 +49,4 @@ Este artículo contiene información específica para que los desarrolladores y 
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

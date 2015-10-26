@@ -8,4 +8,4 @@ En este escenario creará una VM denominada **DNS01** en la subred **front-end**
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

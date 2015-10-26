@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Administración de las máquinas virtuales de Azure con la CLI de Azure | Microsoft Azure"
-   description="Describe cómo administrar las máquinas virtuales de Azure con la CLI de Azure para Mac, Linux y Windows"
+   pageTitle="Administrar máquinas virtuales con la CLI | Microsoft Azure"
+   description="Automatizar la administración de las máquinas virtuales del Administrador de recursos de Azure mediante la Interfaz de la línea de comandos (CLI) de Azure."
    services="virtual-machines"
-   documentationCenter="virtual-machines"
+   documentationCenter=""
    authors="dlepow"
    manager="timlt"
    editor=""
-   tags="azure-service-management"/>
+   tags="azure-resource-manager"/>
 
    <tags
    ms.service="virtual-machines"
@@ -14,16 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="06/09/2015"
+   ms.date="10/07/2015"
    ms.author="danlep"/>
 
-# Administración de Máquinas virtuales mediante la CLI de Azure para Mac, Linux y Windows
+# Administre las máquinas virtuales del Administrador de recursos mediante la CLI de Azure para Mac, Linux y Windows
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se describe la administración de un recurso creado con el modelo de implementación clásico. También puede administrar un recurso creado con el [modelo de implementación del Administrador de recursos](virtual-machines-how-to-automate-azure-resource-manager.md).
 
-Con la CLI de Azure se pueden automatizar muchas de las tareas cotidianas para administrar las máquinas virtuales. En este artículo se proporcionan comandos de ejemplo para las tareas más sencillas, así como vínculos a artículos que muestran los comandos para tareas más complejas.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-how-to-automate-azure-resource-manager.md).
 
->[AZURE.NOTE]Si no ha instalado y configurado la CLI de Azure, puede obtener instrucciones [aquí](../xplat-cli-install.md). Si desea un tutorial rápido de las mismas tareas en PowerShell, consulte [Administración de máquinas virtuales con Azure PowerShell](virtual-machines-manage-vms-powershell.md).
+Puede automatizar muchas de las tareas cotidianas para administrar las máquinas virtuales gracias a la Interfaz de la línea de comandos (CLI) de Azure para Mac, Linux y Windows. En este artículo se proporcionan comandos de ejemplo para las tareas más sencillas, así como vínculos a artículos que muestran los comandos para tareas más complejas.
+
+>[AZURE.NOTE]Si aún no ha instalado la CLI de Azure, puede obtener instrucciones para hacerlo [aquí](../xplat-cli-install.md); asimismo, puede aprender a conectarse a su suscripción [aquí](../xplat-cli-connect.md). También debe configurar la CLI en el modo de Administrador de recursos de Azure (arm).
 
 ## Utilización de los comandos de ejemplo
 Tendrá que reemplazar parte del texto en los comandos con texto que sea adecuado para su entorno. Los símbolos < and > indican texto que se debe reemplazar. Al reemplazar el texto, quite los símbolos pero deje las comillas en su lugar.
@@ -81,6 +82,8 @@ Por supuesto, si ya dispone de esos valores, puede encontrar los modificadores a
 
 ## Pasos siguientes
 
-Para consultar más ejemplos de uso de la CLI de Azure con el modo **arm**, consulte [Uso de la CLI de Microsoft Azure para Mac, Linux y Windows con administración de recursos de Azure](../xplat-cli-resource-manager.md). Para obtener más información acerca de los recursos de Azure y sus conceptos, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).
+* Para conseguir más ejemplos acerca del uso de la CLI de Azure con el modo de Administrador de recursos de Azure, consulte [Usar la CLI de Microsoft Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](xplat-cli-azure-resource-manager.md).
 
-<!---HONumber=Oct15_HO1-->
+* Para obtener más información acerca de los recursos de Azure y sus conceptos, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).
+
+<!---HONumber=Oct15_HO3-->

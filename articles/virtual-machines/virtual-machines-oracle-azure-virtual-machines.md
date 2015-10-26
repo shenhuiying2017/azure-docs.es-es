@@ -19,7 +19,8 @@
 
 # Software Oracle hospedado en máquinas virtuales de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+ 
 
 Configure la primera o siguiente base de datos Oracle de desarrollo o prueba, o producción en una máquina virtual en servicios de infraestructura de Azure. Aproveche la facilidad de configuración y la capacidad para ampliar rápidamente la carga de trabajo de la base de datos de Oracle para incluir nueva capacidad.
 
@@ -55,4 +56,4 @@ Vea [Consideraciones variadas sobre las imágenes de máquina virtual de Oracle]
 
 [Configuración de Oracle GoldenGate para Azure](virtual-machines-configuring-oracle-goldengate.md) sirve de guía para la configuración de bases de datos y replicación.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -377,4 +377,4 @@ El módulo AzureResourceManager incluye cmdlets que le ayudan a prevenir errores
 - Para obtener información sobre cómo implementar plantillas, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](./resource-group-template-deploy.md).
 - Si desea obtener un ejemplo detallado de cómo implementar un proyecto, consulte [Implementación predecible de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -252,7 +252,7 @@ Cuando se aprovisiona un clúster de HDInsight, se designan una cuenta de almace
 
 > [AZURE.NOTE] La sintaxis *wasb://* es la única compatible con la versión 3.0 del clúster de HDInsight. La antigua sintaxis *asv://* es compatible con los clústeres de HDInsight 2.1 y 1.6, pero no es compatible con los clústeres de HDInsight 3.0.
 
-> [AZURE.NOTE] La ruta de acceso wasb:// es una ruta de acceso virtual. Para obtener más información, consulte [Uso de Almacenamiento de blobs de Azure con HDInsight][hdinsight-storage].
+> [AZURE.NOTE]La ruta de acceso wasb:// es una ruta de acceso virtual. Para obtener más información, consulte [Uso de Almacenamiento de blobs de Azure con HDInsight][hdinsight-storage].
 
 Para acceder a un archivo almacenado en el contenedor del sistema de archivos predeterminado desde HDInsight se puede usar cualquiera de los URI siguientes (uso workflow.xml como ejemplo):
 
@@ -554,7 +554,7 @@ Azure PowerShell no proporciona actualmente cmdlets para la definición de traba
 		    return $oozieJobId
 		}
 
-	> [AZURE.NOTE] Al enviar una tarea del flujo de trabajo, debe realizar otra llamada de servicio web para iniciar la tarea una vez que esta se haya creado. En este caso, el trabajo de coordinador se desencadena por tiempo. El trabajo se iniciará automáticamente.
+	> [AZURE.NOTE]Al enviar una tarea del flujo de trabajo, debe realizar otra llamada de servicio web para iniciar la tarea una vez que esta se haya creado. En este caso, el trabajo de coordinador se desencadena por tiempo. El trabajo se iniciará automáticamente.
 
 6. Agregue lo siguiente al script. En esta parte se comprueba el estado del trabajo de Oozie:
 
@@ -738,4 +738,4 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y un coordi
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

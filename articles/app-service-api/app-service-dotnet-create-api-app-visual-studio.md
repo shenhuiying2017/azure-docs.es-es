@@ -83,4 +83,4 @@ Esta sección muestra cómo configurar un proyecto de Web API existente como apl
 La aplicación de API ya está lista para implementarse. Para ello, puede seguir el tutorial [Implementación de una aplicación de API](app-service-dotnet-deploy-api-app.md).
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

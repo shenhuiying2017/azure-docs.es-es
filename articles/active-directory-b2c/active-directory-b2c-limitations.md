@@ -88,4 +88,4 @@ Si restablece la contraseña para un consumidor basado en una cuenta local en el
 
 No podrá eliminar un inquilino de Azure AD B2C en el Portal de Azure.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

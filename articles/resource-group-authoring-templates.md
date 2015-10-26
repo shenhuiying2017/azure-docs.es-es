@@ -103,7 +103,11 @@ Defina recursos con la estructura siguiente:
        "<parameterName>" : {
          "type" : "<type-of-parameter-value>",
          "defaultValue": "<optional-default-value-of-parameter>",
-         "allowedValues": [ "<optional-array-of-allowed-values>" ]
+         "allowedValues": [ "<optional-array-of-allowed-values>" ],
+         "minValue": <optional-minimum-value-for-int-parameters>,
+         "maxValue": <optional-maximum-value-for-int-parameters>,
+         "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
+         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>
        }
     }
 
@@ -113,6 +117,10 @@ Defina recursos con la estructura siguiente:
 | type | Sí | Tipo del valor del parámetro. Consulte la lista siguiente de tipos permitidos.
 | defaultValue | No | Valor predeterminado del parámetro, si no se proporciona ningún valor.
 | allowedValues | No | Matriz de valores permitidos para el parámetro para asegurarse de que se proporciona el valor correcto.
+| minValue | No | El valor mínimo de parámetros de tipo int, este valor es inclusivo.
+| maxValue | No | El valor máximo de parámetros de tipo int, este valor es inclusivo.
+| minLength | No | La longitud mínima de los parámetros de tipo cadena, secureString y matriz, este valor es inclusivo.
+| maxLength | No | La longitud máxima de los parámetros de tipo cadena, secureString y matriz, este valor es inclusivo.
 
 Los valores y tipos permitidos son los siguientes:
 
@@ -130,10 +138,13 @@ En el ejemplo siguiente se muestra cómo definir los parámetros.
 
     "parameters": {
        "siteName": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 60
        },
        "siteLocation": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2
        },
        "hostingPlanName": {
           "type": "string"
@@ -148,6 +159,14 @@ En el ejemplo siguiente se muestra cómo definir los parámetros.
             "Premium"
           ],
           "defaultValue": "Free"
+       },
+       "instancesCount": {
+          "type": "int",
+          "maxValue": 10
+       },
+       "numberOfWorkers": {
+          "type": "int",
+          "minValue": 1
        }
     }
 
@@ -410,4 +429,4 @@ La siguiente plantilla implementa una aplicación web y aprovisiona con código 
 - Para obtener un ejemplo en profundidad de la implementación de una aplicación, vea [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para ver los esquemas disponibles, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

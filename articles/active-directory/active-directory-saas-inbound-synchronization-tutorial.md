@@ -171,4 +171,4 @@ El objetivo de esta sección es describir cómo configurar Microsoft Azure AD pa
 
 Ahora puede ir a la sección **Usuarios** y comprobar si se importó el usuario de Workday.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

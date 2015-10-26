@@ -19,7 +19,8 @@
 
 # Fase 4 de la carga de trabajo de la granja de servidores de intranet de SharePoint: Configuración de servidores de SharePoint
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+ 
 
 En esta fase de la implementación de una granja de servidores de SharePoint 2013 de solo intranet con grupos de disponibilidad AlwaysOn de SQL Server en servicios de infraestructura de Azure, creará los niveles web y de aplicaciones de la granja de servidores de SharePoint y creará la granja de servidores con el Asistente para configuración de SharePoint.
 
@@ -197,4 +198,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 5: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

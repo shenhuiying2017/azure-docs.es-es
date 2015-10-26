@@ -151,4 +151,4 @@ Para informar al servicio de Administrador de StorSimple del cambio, tendrá que
 - Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-security.md).
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -148,4 +148,4 @@ Para obtener más información acerca de cómo trabajar con los productos, vea e
 [Creación y uso de grupos para administrar cuentas de desarrollador en Administración de API de Azure]: api-management-howto-create-groups.md
 [Creación y definición de configuraciones de productos avanzadas en Administración de API de Azure]: api-management-howto-product-with-rules.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

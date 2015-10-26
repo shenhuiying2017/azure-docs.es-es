@@ -147,4 +147,4 @@ Sí. No hay ningún cargo de conexión por el envío de eventos mediante HTTP, i
 
 [P+F de precios de Bus de servicio](service-bus-pricing-faq.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -118,7 +118,7 @@ Al publicar el servicio móvil en Azure, se carga en el entorno de hospedaje de 
 
 A veces se pueden introducir conflictos de versiones al hacer referencia a *diferentes versiones principales* de los ensamblados necesarios (se permiten versiones *secundarias* diferentes). Esto ocurre a menudo cuando NuGet le insta a actualizar a la última versión de uno de los paquetes que utiliza el backend .NET de Servicios móviles.
 
->[AZURE.NOTE]Los Servicios móviles actualmente solo son compatibles con ASP.NET 5.1; ASP.NET 5.2 no es compatible actualmente. La actualización de los paquetes de NuGet de ASP.NET a 5.2.\* puede producir un error después de la implementación.
+>[AZURE.NOTE]Los Servicios móviles actualmente solo son compatibles con ASP.NET 5.1; ASP.NET 5.2 no es compatible actualmente. La actualización de los paquetes de NuGet de ASP.NET a 5.2.* puede producir un error después de la implementación.
 
 Si actualiza estos paquetes, cuando publique el servicio actualizado en Azure, verá una página de advertencia donde se indica el conflicto:
 
@@ -154,4 +154,4 @@ Las migraciones pueden ser complejas y pueden requerir que se mantenga el estado
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

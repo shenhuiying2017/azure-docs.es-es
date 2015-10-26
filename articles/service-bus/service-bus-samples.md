@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="service-bus-samples"
+   pageTitle="Información general sobre los ejemplos del Bus de servicio | Microsoft Azure"
    description="Clasifica y describe los ejemplos del Bus de servicio con vínculos a cada uno."
    services="service-bus"
    documentationCenter="na"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="10/08/2015"
    ms.author="sethm" />
 
 # Ejemplos del Bus de servicio
 
-Los ejemplos del Bus de servicio muestran las principales características del Bus de servicio (servicio en la nube) y el Bus de servicio para Windows Server. En este tema se categorizan y describen los ejemplos disponibles, con vínculos a cada uno.
+Los ejemplos del Bus de servicio muestran las principales características del Bus de servicio (servicio en la nube) y el Bus de servicio para Windows Server. En este artículo se categorizan y describen los ejemplos disponibles, con vínculos a cada uno.
 
->[AZURE.NOTE]Los ejemplos del Bus de servicio no se instalan con el SDK. Para obtener los ejemplos, visite la [página de ejemplos del SDK de Azure](https://code.msdn.microsoft.com/windowsazure).
+>[AZURE.NOTE]Los ejemplos del Bus de servicio no se instalan con el SDK. Para obtener los ejemplos, visite la [página de ejemplos del SDK de Azure](https://code.msdn.microsoft.com).
 
 ## Mensajería asíncrona del Bus de servicio
 
@@ -57,7 +57,7 @@ Estos ejemplos describen la funcionalidad básica de mensajería y retransmisió
 |---|---|---|---|
 |[Introducción: mensajería con colas](http://code.msdn.microsoft.com/Getting-Started-Brokered-aa7a0ac3)|Muestra cómo usar el Bus de servicio de Microsoft Azure para enviar y recibir mensajes de una cola.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
 |[Introducción: mensajería con temas](http://code.msdn.microsoft.com/Getting-Started-Brokered-614d42e5)|Muestra cómo usar el Bus de servicio de Microsoft Azure para enviar y recibir mensajes desde un tema con varias suscripciones.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
-|[Introducción a los Centros de eventos](http://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097)|Muestra las capacidades básicas de los Centros de eventos, como la creación de un Centro de eventos, el envío de eventos a un Centro de eventos y el consumo de eventos con el procesador de eventos.|2\.4|Bus de servicio de Microsoft Azure|
+|[Introducción a los Centros de eventos](http://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)|Muestra las capacidades básicas de los Centros de eventos, como la creación de un Centro de eventos, el envío de eventos a un Centro de eventos y el consumo de eventos con el procesador de eventos.|2\.4|Bus de servicio de Microsoft Azure|
 
 ### Exploración de las características
 
@@ -65,9 +65,9 @@ Los ejemplos siguientes muestran diversas características del Bus de servicio.
 
 |Nombre del ejemplo|Descripción|Versión mínima del SDK|Disponibilidad|
 |---|---|---|---|
-|[Proveedores de tokens HTTP](http://code.msdn.microsoft.com/windowsazure/Service-Bus-HTTP-Token-38f2cfc5)|Muestra las distintas formas de autenticar a un cliente HTTP/REST con el Bus de servicio.|2\.1|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
-|[Cliente HTTP del Bus de servicio](http://code.msdn.microsoft.com/windowsazure/Service-Bus-HTTP-client-fe7da74a)|Muestra cómo enviar y recibir mensajes del Bus de servicio mediante HTTP/REST.|2\.3|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
-|[Reenvío automático del Bus de servicio](http://code.msdn.microsoft.com/windowsazure/Service-Bus-Autoforwarding-b9df470b)|Muestra cómo reenviar automáticamente los mensajes de una cola, suscripción o cola de mensajes fallidos en otra cola o tema. También muestra cómo enviar un mensaje a una cola o tema mediante una cola de transferencia.|2\.3|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
+|[Proveedores de tokens HTTP](http://code.msdn.microsoft.com/Service-Bus-HTTP-Token-38f2cfc5)|Muestra las distintas formas de autenticar a un cliente HTTP/REST con el Bus de servicio.|2\.1|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
+|[Cliente HTTP del Bus de servicio](http://code.msdn.microsoft.com/Service-Bus-HTTP-client-fe7da74a)|Muestra cómo enviar y recibir mensajes del Bus de servicio mediante HTTP/REST.|2\.3|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
+|[Reenvío automático del Bus de servicio](http://code.msdn.microsoft.com/Service-Bus-Autoforwarding-b9df470b)|Muestra cómo reenviar automáticamente los mensajes de una cola, suscripción o cola de mensajes fallidos en otra cola o tema. También muestra cómo enviar un mensaje a una cola o tema mediante una cola de transferencia.|2\.3|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
 |[Mensajería asíncrona: ejemplo de sesión de canal de WCF](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-0a526451)|Muestra cómo usar el Bus de servicio de Microsoft Azure mediante canales de Windows Communication Foundation (WCF). El ejemplo muestra el uso de canales WCF para enviar y recibir mensajes mediante una cola del Bus de servicio. El ejemplo muestra la sesión y comunicación no de la sesión en el Bus de servicio.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
 |[Mensajería asíncrona: transacciones](http://code.msdn.microsoft.com/Brokered-Messaging-8cd41d1e)|Muestra cómo usar las características de mensajería del Bus de servicio de Microsoft Azure dentro de un ámbito de transacción para garantizar que las operaciones de mensajería se confirman atómicamente.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
 |[Mensajería asíncrona: operaciones de administración con REST](http://code.msdn.microsoft.com/Brokered-Messaging-569cff88)|Muestra cómo realizar operaciones de administración del Bus de servicio con REST.|1\.8|Bus de servicio de Microsoft Azure; Bus de servicio para Windows Server|
@@ -132,4 +132,4 @@ Consulte los temas siguientes para más información general del Bus de servicio
 - [Arquitectura del Bus de servicio](service-bus-architecture.md)
 - [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

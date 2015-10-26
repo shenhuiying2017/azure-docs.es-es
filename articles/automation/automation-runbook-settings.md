@@ -60,4 +60,4 @@ Los siguientes comandos de ejemplo muestran cómo establecer las propiedades de 
 - [Salida y mensajes de los runbooks](../automation-runbook-output-and-messages) 
 - [Creación o importación de un runbook](https://msdn.microsoft.com/library/dn643637.aspx) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -62,4 +62,4 @@ En Administración de API, un producto contiene una o varias API, así como una 
 [Importación de la definición de una API con operaciones]: api-management-howto-import-api.md
 [Creación y definición de configuraciones de productos avanzadas]: api-management-howto-product-with-rules.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

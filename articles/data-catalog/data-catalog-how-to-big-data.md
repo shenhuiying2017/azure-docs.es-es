@@ -1,20 +1,20 @@
 <properties
    pageTitle="Trabajo con orígenes de ";macrodatos";"
-	description="Artículo de procedimientos que resalta los patrones necesarios para usar Catálogo de datos de Azure con orígenes de ";macrodatos";, incluyendo Almacenamiento de blobs de Azure y Hadoop HDFS."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Artículo de procedimientos que resalta los patrones necesarios para usar Catálogo de datos de Azure con orígenes de ";macrodatos";, incluyendo Almacenamiento de blobs de Azure y Hadoop HDFS."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/25/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="08/25/2015"
+   ms.author="maroche"/>
 
 
 # Trabajo con orígenes de macrodatos en el Catálogo de datos de Azure
@@ -68,4 +68,4 @@ Los patrones descritos anteriormente son solo dos formas posibles en que un alma
 ## Resumen
 El registro de orígenes de datos en **Catálogo de datos de Azure** facilita su detección y comprensión. Mediante el registro y anotación de los archivos y directorios de macrodatos que representan conjuntos de datos lógicos, puede facilitar a los usuarios la búsqueda y el uso de los orígenes de macrodatos que necesitan.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

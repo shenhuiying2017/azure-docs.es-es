@@ -41,4 +41,4 @@ Los dispositivos de provisiones de registro de dispositivos de Azure AD con una 
 * [Identidad de Azure](fundamentals-identity.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

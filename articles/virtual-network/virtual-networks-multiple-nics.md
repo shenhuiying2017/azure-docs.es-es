@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Creación de una máquina virtual con varias NIC"
-	description="Aprenda a crear y configurar máquinas virtuales con varias tarjetas NIC"
-	services="virtual-network, virtual-machines"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Aprenda a crear y configurar máquinas virtuales con varias tarjetas NIC"
+   services="virtual-network, virtual-machines"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/10/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/10/2015"
+   ms.author="telmos" />
 
 # Creación de una máquina virtual con varias NIC
 
@@ -249,4 +249,4 @@ Para agregar una ruta predeterminada en la NIC secundaria, siga estos pasos:
 
 En cuanto a las máquinas virtuales de Linux, puesto que el comportamiento predeterminado está usando el enrutamiento del host no seguro, le recomendamos restrinja el flujo de tráfico de las NIC secundarias para que permanezca dentro de la misma subred. Sin embargo, si ciertos escenarios exigen que tenga conectividad fuera de la subred, los usuarios deben habilitar el enrutamiento basado en las directivas para asegurarse de que el tráfico de entrada y salida utiliza la misma NIC.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

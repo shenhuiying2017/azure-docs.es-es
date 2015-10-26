@@ -37,6 +37,7 @@ La siguiente es una lista de ejemplos creada y mantenida por Microsoft para su u
 | [Proyecto de topología de Storm en C# para plantillas para trabajar con servicios de Azure desde Storm en HDInsight][ce0c02a2] | Centros de eventos, DocumentDb, Base de datos SQL, HBase, SignalR | C#, Java |
 | [Pruebas comparativas de escalabilidad para leer desde Centros de eventos de Azure usando Storm en HDInsight][d6c540e3] | Rendimiento de mensajes, Centros de eventos, Base de datos SQL | C#, Java |
 | [Poner en correlación eventos con Storm y HBase en HDInsight](hdinsight-storm-correlation-topology.md) | HBase | C# |
+| [Usar Python con Storm en HDInsight](hdinsight-storm-develop-python-topology.md) | Componentes de Python con topologías de Storm basadas en Java y Clojure | Python |
 
 ## Pasos siguientes
 
@@ -59,4 +60,4 @@ La siguiente es una lista de ejemplos creada y mantenida por Microsoft para su u
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Este proyecto contiene plantillas para spouts, bolts y topologías para interactuar con distintos servicios de Azure como Centros de eventos, DocumentDB y Base de datos SQL."
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -167,4 +167,4 @@ Ahora que ha aprendido conceptos sobre los Centros de eventos, puede continuar c
 [solución de mensajería en cola]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

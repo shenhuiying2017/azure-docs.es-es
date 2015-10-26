@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Operaciones comunes en la API de recomendaciones de Aprendizaje automático | Microsoft Azure"
-	description="Aplicación de ejemplo de recomendación de aprendizaje automático de Azure"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="Operaciones comunes en la API de recomendaciones de Aprendizaje automático | Microsoft Azure" 
+	description="Aplicación de ejemplo de recomendación de aprendizaje automático de Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="luisca"/>
 
 
@@ -89,4 +89,4 @@ Para obtener una descripción completa de la API, consulte la documentación de 
 La aplicación de ejemplo no está diseñada para ejecutarse en un entorno de producción. Los datos proporcionados en el catálogo son muy pequeños y no constituyen un modelo de recomendación significativo. Los datos se proporcionan como una demostración.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

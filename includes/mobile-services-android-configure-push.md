@@ -9,4 +9,4 @@
 
 El servicio móvil y la aplicación están ahora configurados para funcionar con GCM y los Centros de notificaciones.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

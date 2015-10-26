@@ -54,4 +54,4 @@ Antes de usar Emulator Express, debe tener en cuenta algunas limitaciones:
 
 [Depuración de Servicios en la nube](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

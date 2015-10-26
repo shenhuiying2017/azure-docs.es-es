@@ -154,4 +154,4 @@ Para obtener más información sobre los Centros de eventos, visite los siguient
 [solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

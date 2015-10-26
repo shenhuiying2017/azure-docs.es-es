@@ -20,7 +20,8 @@
 
 # Captura de una máquina virtual de Linux para usar como plantilla
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la captura de una imagen con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 En este artículo se muestra cómo puede capturar una máquina virtual de Azure con Linux para usarla como plantilla en la creación de otras máquinas virtuales. Esta plantilla incluye el disco del sistema operativo y cualquier otro disco de datos conectado a la máquina virtual. No incluye la configuración de red, por lo que deberá configurarla usted mismo cuando cree las otras máquinas virtuales que utilicen la plantilla.
 
@@ -99,4 +100,4 @@ La imagen está lista para ser utilizada como plantilla para crear máquinas vir
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Creación de una máquina virtual que ejecuta Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

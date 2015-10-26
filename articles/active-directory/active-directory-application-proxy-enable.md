@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="msStevenPo"
+	manager="StevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="10/12/2015"
 	ms.author="rkarlin"/>
 
 # Habilitación del proxy de la aplicación de Azure AD
@@ -49,7 +49,7 @@ Si el firewall fuerza el tráfico según los usuarios que se originan, abra esto
 2. Vaya a Active Directory y seleccione el directorio en el que desea habilitar el proxy de la aplicación.
 3. Haga clic en Configurar, desplácese hasta el proxy de la aplicación y cambie Habilitar servicios de proxy de la aplicación para este directorio a Habilitado.
 
-	![Habilitación del proxy de la aplicación](http://i.imgur.com/87woFzq.png) <p>
+	![Habilitación del proxy de la aplicación](./media/active-directory-application-proxy-enable/app_proxy_enable.png) <p>
 4. Haga clic en Descargar ahora en la parte inferior de la pantalla. Esto le llevará a la página de descarga. Lea y acepte los términos de licencia y haga clic en Descargar para guardar el archivo de Windows Installer (.exe) para el conector del proxy de la aplicación. 
 
 ##Paso 2: Instalar y registrar el conector
@@ -61,12 +61,27 @@ Si el firewall fuerza el tráfico según los usuarios que se originan, abra esto
 - Si la configuración de seguridad mejorada de Internet Explorer está activada en el servidor donde va a instalar el conector de Azure AD, podría bloquearse la pantalla de registro. Si esto ocurre, siga las instrucciones del mensaje de error para permitir el acceso. Asegúrese de que la seguridad mejorada de Internet Explorer está desactivada.
 - Si el registro del conector no se completa correctamente, vea Solución de problemas del proxy de la aplicación.
 
-4. Cuando finalice la instalación, se agregan dos nuevos servicios a su servidor, como se muestra a continuación. Se trata del servicio del conector, que permite la conectividad, y un servicio de actualización automatizada, que comprueba periódicamente las nuevas versiones del conector y actualiza el conector según sea necesario. Haga clic en Finalizar en la ventana de instalación para completar la instalación. ![Servicio de conector del proxy de la aplicación](http://i.imgur.com/zsVJKOz.png) <p>
+4. Cuando finalice la instalación, se agregan dos nuevos servicios a su servidor, como se muestra a continuación. Se trata del servicio del conector, que permite la conectividad, y un servicio de actualización automatizada, que comprueba periódicamente las nuevas versiones del conector y actualiza el conector según sea necesario. Haga clic en Finalizar en la ventana de instalación para completar la instalación. ![Servicio de conector del proxy de la aplicación](./media/active-directory-application-proxy-enable/app_proxy_services.png) <p>
 5. Ahora está listo para publicar aplicaciones con el proxy de la aplicación.
 
 Si desea desinstalar el conector, después de desinstalar el servicio de conector y el servicio de actualización, asegúrese de reiniciar el equipo para quitar completamente el servicio. <p>Si quiere disfrutar de una alta disponibilidad, debe implementar al menos un conector adicional. Para implementar un conector adicional, repita los pasos 2 y 3 explicados anteriormente. Cada conector debe estar registrado de manera independiente.
 
 
+
+## Consulte también
+Hay mucho más que puede hacer con el proxy de la aplicación:
+
+- [Publicar aplicaciones con Proxy de aplicación](active-directory-application-proxy-publish.md)
+- [Publicar aplicaciones mediante su propio nombre de dominio](active-directory-application-proxy-custom-domains.md)
+- [Habilitar el inicio de sesión único](active-directory-application-proxy-sso-using-kcd.md)
+- [Habilitar el acceso condicional](active-directory-application-proxy-conditional-access.md)
+- [Trabajar con las aplicaciones para notificaciones](active-directory-application-proxy-claims-aware-apps.md)
+- [Solucionar los problemas que tiene con el proxy de aplicación](active-directory-application-proxy-troubleshoot.md)
+
+## Obtenga más información acerca del proxy de la aplicación
+- [Eche un vistazo aquí para ver nuestra ayuda en línea](active-directory-application-proxy-enable.md)
+- [Consulte el blog del proxy de la aplicación](http://blogs.technet.com/b/applicationproxyblog/)
+- [Vea nuestros vídeos de Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Recursos adicionales
 
@@ -74,4 +89,4 @@ Si desea desinstalar el conector, después de desinstalar el servicio de conecto
 * [Identidad de Azure](..fundamentals-identity.md)
 * [Publicación de aplicaciones con el proxy de la aplicación](active-directory-application-proxy-publish.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -85,4 +85,4 @@ Las empresas que usan tanto dispositivos móviles como tradicionales, o que util
 
 Puede obtener más información acerca de cómo implementar el registro de dispositivos con AD FS [aquí](https://technet.microsoft.com/es-ES/library/dn486831.aspx).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

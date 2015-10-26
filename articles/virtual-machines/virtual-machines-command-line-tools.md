@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Usar de la interfaz de la línea de comandos de Azure con Administración de servicios | Microsoft Azure"
-	description="Obtenga información sobre cómo usar las herramientas de línea de comandos para Mac, Linux y Windows para administrar Azure usando la CLI de Azure en el modo de implementación clásico (administración de servicios)."
+	description="Obtenga más información acerca de la manera de usar las herramientas de la línea de comandos de Mac, Linux y Windows, para administrar Azure mediante la CLI de Azure en el modo de implementación clásico (Administración de servicios de Azure)."
 	services="virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
 	authors="dlepow"
@@ -14,24 +14,26 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica. También puede crear un recurso con el [modelo de implementación del Administrador de recursos](virtual-machines-deploy-rmtemplates-azure-cli.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación y administración de un recurso mediante comandos CLI del modelo de implementación clásica. Asimismo, también puede crear y administrar un recurso mediante comandos CLI en el [modelo de implementación del Administrador de recursos](azure-cli-arm-commands.md).
 
-Este tema describe cómo utilizar la CLI de Azure en modo **asm** para crear, administrar y eliminar servicios en la línea de comandos de equipos Mac, Linux y Windows. Su funcionalidad es parecida a la proporcionada por los cmdlets de Administración del servicio de Windows PowerShell que se instalan con los SDK de Azure para .NET, Node.JS y PHP.
+Este artículo describe la manera de usar la CLI de Azure en el modo de Administrador de servicios (modo asm) para crear, administrar y eliminar los servicios de la línea de comandos de equipos Mac, Linux y Windows. Puede realizar muchas de las mismas tareas mediante las diversas bibliotecas de los SDK de Azure, Azure PowerShell y el Portal de Azure. El uso de los servicios de Azure con el modo de Administración de servicios es básicamente similar a la creación y administración de conceptos y servicios individuales de Azure como sitios web, máquinas virtuales, redes virtuales, almacenamiento, etc.
 
-> [AZURE.NOTE]El uso de los servicios de Azure con el modo **asm** es conceptualmente similar a pensar en los conceptos y servicios individuales de Azure como sitios web, máquinas virtuales, redes virtuales, almacenamiento, etc. En la línea de comandos está disponible una mayor funcionalidad con un modelo agrupado de forma lógica y jerárquica de los recursos utilizando el modo **arm**. Para cambiar a ese modo, consulte [Uso de la interfaz de la línea de comandos de Azure con el Administrador de recursos](xplat-cli-azure-resource-manager.md).
+> [AZURE.NOTE]Para comenzar, primero necesitará [instalar la CLI de Azure](../xplat-cli-install.md) e [iniciar sesión para usar los recursos de Azure asociados a su cuenta](../xplat-cli-connect.md).
 
-Para obtener instrucciones de instalación, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli-install.md).
+## Ámbito del artículo
+
+En este artículo se ofrecen sintaxis y opciones para los comandos de CLI de Azure usados habitualmente en el modelo de implementación (Administrador de recursos) clásica. Tenga en cuenta que esta no es una referencia completa, y que la versión de CLI puede mostrar algunos comandos o parámetros diferentes. Para obtener las opciones y la sintaxis de comando actuales de la línea de comandos en el modo de Administrador de servicios, escriba `azure help` o, para mostrar la ayuda de un comando específico, escriba `azure help [command]`. También encontrará ejemplos de CLI en la documentación para crear y administrar servicios de Azure concretos.
 
 Se muestran parámetros opcionales entre corchetes (por ejemplo, [parameter]). Los demás parámetros son obligatorios.
 
 Además de los parámetros opcionales específicos de los comandos documentados aquí, existen tres parámetros opcionales que pueden usarse para mostrar el resultado detallado como opciones de solicitud y códigos de estado. El parámetro -v ofrece un resultado detallado y el parámetro -w ofrece un resultado incluso más detallado. La opción --json mostrará el resultado en formato json sin procesar.
 
-## Establecimiento del modo **asm**
+## Configurar el modo de Administrador de servicios
 
 Actualmente, el modo de Administración del servicio está habilitado de forma predeterminada cuando se instala por primera vez la CLI. Si es necesario, use el siguiente comando para habilitar los comandos de Administración del servicio de la CLI de Azure.
 
@@ -2348,4 +2350,4 @@ Permite eliminar una entrada del servidor DNS de la configuración de red.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

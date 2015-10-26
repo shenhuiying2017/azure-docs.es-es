@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/04/2015"
+   ms.date="10/09/2015"
    ms.author="larryfr"/>
 
 #Desarrollo de programas de streaming para HDInsight
@@ -205,4 +205,4 @@ Ahora que aprendió a usar los trabajos de transmisión de MapReduce con HDInsig
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

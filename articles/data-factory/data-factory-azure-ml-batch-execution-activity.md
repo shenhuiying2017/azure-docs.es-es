@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Creación de canalizaciones predictivas con la actividad Ejecución de lotes de Aprendizaje automático de Azure | Microsoft Azure"
-	description="Describe cómo crear canalizaciones predictivas con Factoría de datos de Azure y Aprendizaje automático de Azure"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Creación de canalizaciones predictivas con la actividad Ejecución de lotes de Aprendizaje automático de Azure | Microsoft Azure" 
+	description="Describe cómo crear canalizaciones predictivas con Factoría de datos de Azure y Aprendizaje automático de Azure" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="spelluru"/>
 
 # Creación de canalizaciones predictivas con la actividad Ejecución de lotes de Aprendizaje automático de Azure   
@@ -262,7 +262,7 @@ También puede usar [Funciones de Factoría de datos](https://msdn.microsoft.com
 
 	"typeProperties": {
     	"globalParameters": {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(WindowStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
     	}
   	}
  
@@ -349,7 +349,9 @@ Si desea seguir usando la actividad AzureMLBatchScoring, consulte el artículo [
 **R:** Sí. Consulte **Uso de un módulo lector para leer datos de varios archivos de blob de Azure** para obtener más información.
 
 
+## Otras referencias
 
+- [Entrada de blog de Azure: Introducción a la factoría de datos de Azure y al Aprendizaje automático de Azure](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 
 
@@ -362,4 +364,4 @@ Si desea seguir usando la actividad AzureMLBatchScoring, consulte el artículo [
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

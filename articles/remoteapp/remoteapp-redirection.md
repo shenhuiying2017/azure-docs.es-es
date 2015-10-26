@@ -104,4 +104,4 @@ También puede utilizar la herramienta de administración de directivas de grupo
 7. Seleccione **Habilitado** y, a continuación, seleccione **Administradores y usuarios en los derechos de acceso de redireccionamiento USB RemoteFX**.
 8. Haga clic en **Aceptar**.  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

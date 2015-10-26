@@ -21,7 +21,8 @@
 
 Una pila "LAMP" es un grupo de software de código abierto que normalmente se instala junto para permitir a un servidor hospedar sitios web dinámicos y aplicaciones web. Este término es en realidad un acrónimo que representa al sistema operativo Linux con el servidor web Apache. Los datos del sitio se almacenan en una base de datos MySQL y PHP procesa contenido dinámico.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se describe la creación de recursos con el modelo de implementación del Administrador de recursos o el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 En esta guía, instalaremos una pila LAMP en una imagen Linux y la implementaremos en Microsoft Azure.
 
@@ -455,4 +456,4 @@ Una vez que haya configurado la pila LAMP correctamente, puede implementar la ap
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

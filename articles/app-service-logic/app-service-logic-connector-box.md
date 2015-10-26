@@ -78,7 +78,7 @@ Una vez creada la aplicación de API, puede usar el conector de Box como acción
 
 1. En la aplicación lógica, abra **Desencadenadores y acciones** para abrir el diseñador de Aplicaciones lógicas y configure el flujo. El conector de Box se muestra en la galería. Selecciónelo para agregarlo automáticamente al diseñador de Aplicaciones lógicas.
 
-	> [AZURE.NOTE]Si se selecciona el conector de Box al principio de la aplicación lógica, actúa como desencadenador. De lo contrario, podrían realizarse acciones en la cuenta de Box mediante el conector. El conector de Box no tiene ningún desencadenador en el momento en que se redacta este artículo.
+	> [AZURE.NOTE] Si se selecciona el conector de Box al principio de la aplicación lógica, actúa como desencadenador. De lo contrario, podrían realizarse acciones en la cuenta de Box mediante el conector. El conector de Box no tiene ningún desencadenador en el momento en que se redacta este artículo.
 
 2. Autentique y autorice las aplicaciones lógicas para realizar operaciones en su nombre. Seleccione **Autorizar** en el conector de Box: 
 	![][2]
@@ -108,4 +108,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

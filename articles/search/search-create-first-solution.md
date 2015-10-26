@@ -206,4 +206,4 @@ También puede revisar la [API de REST de Búsqueda de Azure](http://msdn.micros
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

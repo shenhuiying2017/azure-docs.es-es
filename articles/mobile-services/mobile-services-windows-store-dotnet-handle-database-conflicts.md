@@ -366,4 +366,4 @@ Este tutorial le ha mostrado cómo habilitar la aplicación de Tienda Windows pa
 [propiedades del sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

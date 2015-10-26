@@ -79,4 +79,4 @@ Por ejemplo, si usa dos sufijos UPN en la organización denominados @contoso.com
 
 Puede registrar los dispositivos Windows 7 y Windows 8.1 unidos a un dominio en el Registro de dispositivos de Azure AD. En el siguiente tema se ofrece más información sobre los requisitos previos y los pasos necesarios para configurar el Registro de dispositivos en dispositivos Windows 7 y Windows 8.1. Registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

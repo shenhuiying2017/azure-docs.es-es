@@ -20,4 +20,4 @@
 
 1. En la casilla **Puerto**, especifique el número del puerto del agente de escucha del grupo de disponibilidad mediante el $EndpointPort usado anteriormente (en este tutorial, 1433 era el valor predeterminado) y después haga clic en **Aceptar**.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

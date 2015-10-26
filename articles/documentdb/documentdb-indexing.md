@@ -67,4 +67,4 @@ La indexación de DocumentDB está diseñada en función de la eficacia de almac
 - Más información sobre cómo personalizar el índice de DocumentDB [aquí](documentdb-indexing-policies.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

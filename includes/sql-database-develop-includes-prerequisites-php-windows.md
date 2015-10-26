@@ -8,7 +8,7 @@ Para ejecutar el ejemplo de código PHP que se proporciona en este tema, el equi
 - [Controladores de Microsoft para PHP para Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=20098)
  - `SQLSRV32.EXE` contiene los bits más recientes.
 - [Microsoft SQL Server Native Client 11.0](http://www.microsoft.com/download/details.aspx?id=36434)
-- [Microsoft ODBC Driver](https://www.microsoft.com/es-es/download/details.aspx?id=36434)
+- [Microsoft ODBC Driver](https://www.microsoft.com/es-ES/download/details.aspx?id=36434)
 - IIS Express
 - [PHP 5.6 para IIS Express](http://www.microsoft.com/web/downloads/platform.aspx)
  - Descargar mediante el instalador de plataforma.
@@ -29,4 +29,4 @@ DateOfLatestFreshnessVerification = 2015-07-10
 DateOfLatestContentUpdate = 2015-07-10
 -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

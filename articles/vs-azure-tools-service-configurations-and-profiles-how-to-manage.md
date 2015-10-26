@@ -131,4 +131,4 @@ Al ejecutar el asistente por primera vez, se crea un perfil predeterminado. Visu
 
 Para obtener información acerca de cómo configurar otras partes de su proyecto de Azure desde Visual Studio, consulte [Configurar un proyecto de Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

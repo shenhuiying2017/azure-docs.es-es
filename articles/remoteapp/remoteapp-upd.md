@@ -126,4 +126,4 @@ No, eso no es compatible con Azure RemoteApp, que usa RDSH, que a su vez tampoco
 
 No, no es compatible con Azure RemoteApp.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

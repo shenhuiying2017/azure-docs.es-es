@@ -63,4 +63,4 @@ En este escenario, un desarrollador tiene una aplicación en ejecución en un se
 
 [Ejemplos de código de Azure Active Directory](active-directory-code-samples.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

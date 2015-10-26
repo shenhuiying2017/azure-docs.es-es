@@ -18,7 +18,7 @@
 
 # Autenticación de identidades sin contraseñas a través de Microsoft Passport
 
-Los métodos actuales de autenticación con contraseña, por sí solos, no son suficientes para proteger a los usuarios. Los usuarios reutilizan y olvidan las contraseñas. Las contraseñas se pueden violar, son susceptibles a la suplantación de identidad (phishing), son propensas al descifrado y se pueden adivinar. También son difíciles de recordar y tienden a ataques del tipo "pass the hash".
+Los métodos actuales de autenticación con contraseña, por sí solos, no son suficientes para proteger a los usuarios. Los usuarios reutilizan y olvidan las contraseñas. Las contraseñas se pueden violar, son susceptibles a la suplantación de identidad (phishing), son propensas al descifrado y se pueden adivinar. También son difíciles de recordar y tienden a ataques del tipo "pass the hash". pass-the-hash es una técnica de piratería que permite a un atacante autenticarse a un servidor o servicio remoto mediante hasta LanMan y/o NTLM subyacente de una contraseña de usuario, en lugar de requerir la contraseña de texto sin formato asociado, como suele ser habitual. Para obtener más información sobre pass-the-hash, vea [pass-the-hash](https://technet.microsoft.com/es-ES/dn785092.aspx).
 
 ## Qué es Microsoft Passport
 Microsoft Passport es un nuevo enfoque de autenticación basado en certificado o clave pública/privada dirigido a las organizaciones y los clientes que no se limitan a las contraseñas. Esta forma de autenticación se basa en estas credenciales de par de claves que pueden sustituir a las contraseñas y pueden ser resistente a infracciones, robos y suplantación de identidad (phishing). Microsoft Passport permite a los usuarios autenticarse en una cuenta Microsoft, de Active Directory y de Microsoft Azure Active Directory (AD), o en servicios que no son de Microsoft compatibles con la autenticación Fast ID Online (FIDO). Después de una comprobación inicial de dos pasos durante la inscripción en Microsoft Passport, ya hay una cuenta de Microsoft Passport configurada en el dispositivo del usuario y el usuario define un gesto, que puede ser Windows Hello o un PIN. El usuario proporciona el gesto para comprobar la identidad; Windows usa entonces Microsoft Passport para autenticar a los usuarios y ayudarles a obtener acceso a los recursos y servicios protegidos.
@@ -38,7 +38,7 @@ Con Microsoft Passport, las empresas pueden proteger sus recursos incluso más g
 ## ¿Cómo funciona?
 1. Las claves se generan en el hardware. Muchos equipos tienen un chip integrado de Módulo de plataforma segura (TPM) que protege el hardware mediante la integración de claves criptográficas en los dispositivos. El TPM 1.2 o TPM 2.0 se utiliza para generar claves o certificados que estarán codificados con las claves generadas.
 
-2. Estas claves enlazadas al hardware se certifican mediante el TPM y las empresas pueden
+2. Estas claves enlazadas al hardware se certifican mediante el TPM.
 
 3. Con un solo gesto de desbloqueo se desbloquea el dispositivo, y con este gesto se permitirá el acceso a varios recursos si el dispositivo se ha unido a un dominio o a Azure AD Join.
 
@@ -68,5 +68,6 @@ En el nivel de usuario
 
 * [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-overview.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
+* [Administrar la comprobación de identidad mediante Microsoft Passport] (https://technet.microsoft.com/library/mt219735(v=vs.85).aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

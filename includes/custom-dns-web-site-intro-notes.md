@@ -4,4 +4,4 @@ Este artículo se refiere al Servicio de aplicaciones (aplicaciones web, aplicac
 >
 > **Con la aplicación web gratuita no se pueden usar nombres de dominio personalizados**. Debe configurar la aplicación web para que use los modos **Compartido**, **Básico** o **Estándar**, ya que el uso de un modo u otro puede cambiar el precio de la suscripción. Consulte <a href=/pricing/details/web-sites/">Detalles de precios de aplicaciones web</a> para obtener más información.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

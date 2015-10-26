@@ -326,7 +326,7 @@ Abra el archivo *Controllers\\HomeController.cs* en el **Explorador de solucione
 	}
 
 ## Configuración de estilos ##
-Para cambiar el título en la parte superior de la página, abra el archivo *Views\\Shared\\\_Layout.cshtml* en el **Explorador de soluciones** y reemplace "Application name" en el encabezado de la barra de exploración por "My Task List Application" de manera que tenga la siguiente apariencia:
+Para cambiar el título en la parte superior de la página, abra el archivo *Views\\Shared\\_Layout.cshtml* en el **Explorador de soluciones** y reemplace "Application name" en el encabezado de la barra de exploración por "My Task List Application" de manera que tenga la siguiente apariencia:
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
@@ -499,4 +499,4 @@ Para obtener más información sobre el desarrollo de aplicaciones C# en relaci�
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

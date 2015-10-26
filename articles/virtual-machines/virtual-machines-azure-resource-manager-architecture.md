@@ -19,7 +19,9 @@
 
 # Arquitectura de administrador de recursos de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+
+
 
 Este artículo proporciona una visión general de las arquitecturas de administración de servicios y administrador de recursos para crear aplicaciones y cargas de trabajo basadas en infraestructuras.
 
@@ -81,4 +83,4 @@ También puede ver la creación de componentes y relaciones de dependencia entre
 
 [Información general del Administrador de recursos de Azure](resource-group-overview.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

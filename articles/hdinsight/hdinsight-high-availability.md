@@ -98,4 +98,4 @@ Para el SDK, la historia es similar. La creación y aprovisionamiento de un clú
 - [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Uso del SDK .NET de HDInsight](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

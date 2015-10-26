@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Notas de la versión de Application Insights"
-	description="Las actualizaciones más recientes."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Notas de la versión de Application Insights" 
+	description="Las actualizaciones más recientes." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/11/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/11/2015" 
 	ms.author="awills"/>
  
 # Notas de la versión del SDK: Application Insights
@@ -33,4 +33,4 @@ Obtenga información también sobre nuestras [Actualizaciones del servicio](http
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

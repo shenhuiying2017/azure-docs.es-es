@@ -41,7 +41,7 @@ En Inicio rápido, obtenga el script para páginas web:
 
 ![](./media/app-insights-sharepoint/02-monitor-web-page.png)
 
-Inserte el script justo antes de la etiqueta &lt;/head&gt; de cada página de la que quiera realizar el seguimiento. Si su sitio web tiene una página maestra, puede colocar el script allí. Por ejemplo, en un proyecto de ASP.NET MVC, lo colocaría en View\\Shared\\\_Layout.cshtml
+Inserte el script justo antes de la etiqueta &lt;/head&gt; de cada página de la que quiera realizar el seguimiento. Si su sitio web tiene una página maestra, puede colocar el script allí. Por ejemplo, en un proyecto de ASP.NET MVC, lo colocaría en View\\Shared\\_Layout.cshtml
 
 El script contiene la clave de instrumentación que dirige los datos de telemetría al recurso de Application Insights.
 
@@ -102,10 +102,10 @@ Haga clic en Usuarios para ver los detalles acerca de los nuevos usuarios y sus 
 
 * [Pruebas web](app-insights-monitor-web-app-availability.md) para supervisar la disponibilidad de su sitio.
 
-* [Application Insights](app-insights-get-started.md) para otros tipos de aplicación.
+* [Application Insights](app-insights-overview.md) para otros tipos de aplicación.
 
 
 
 <!--Link references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

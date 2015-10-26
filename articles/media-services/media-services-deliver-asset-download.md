@@ -47,7 +47,7 @@ En este ejemplo se muestra cómo descargar recursos multimedia desde los Servici
 	        ParallelTransferThreadCount = 20
 	    };
 	
-	    var downloadTasks = new List&lt;Task&gt;();
+	    var downloadTasks = new List<Task>();
 	    foreach (IAssetFile outputFile in outputAsset.AssetFiles)
 	    {
 	        // Use the following event handler to check download progress.
@@ -85,4 +85,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 [contenido por secuencias](media-services-deliver-streaming-content.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -112,4 +112,4 @@ Para actualizar el servicio web, abra el experimento predictivo original que us�
 
 Una opción para actualizar el servicio web es volver a entrenar el modelo mediante programación. Para obtener más información, consulte [Volver a entrenar modelos de aprendizaje automático mediante programación](machine-learning-retrain-models-programmatically.md).
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

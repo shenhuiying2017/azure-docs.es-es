@@ -177,4 +177,4 @@ El archivo de configuración de servicio se crea por cada servicio en la nube qu
 
 [Configuración de una red virtual con un archivo de configuración de red](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

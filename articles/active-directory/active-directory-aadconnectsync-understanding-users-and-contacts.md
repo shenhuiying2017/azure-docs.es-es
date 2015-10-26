@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Descripción de los usuarios y los contactos en Azure Active Directory Sync"
+	pageTitle="Sincronización de Azure AD Connect: descripción de usuarios y contactos | Microsoft Azure"
 	description="Explica los usuarios y los contactos en Azure AD Connect Sync."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi"/>
 
 
@@ -72,7 +72,7 @@ Si se ha exportado un objeto a Azure AD, ya no se permite cambiar el valor de so
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
- 
+
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

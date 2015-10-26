@@ -92,7 +92,7 @@ Los pasos de esta sección son necesarios, pero es probable que no aborden todos
 
 ![Desactivación de los miembros de la federación para las particiones][3]
 
-Una vez que se ha modificado la aplicación con la inclusión de las API de herramientas de Base de datos elástica, el último paso de la migración de una aplicación de Federaciones es emitir **SWITCH OUT** para los miembros de la federación (para obtener más información, consulte la referencia de MSDN para [ALTER FEDERATION (Base de datos SQL de Azure)](http://msdn.microsoft.com/library/dn269988(v=sql.120).aspx). El resultado final de emitir **SWITCH OUT** contra un miembro de federación determinado es la eliminación de todas las restricciones de la federación y los metadatos que presentan al miembro de la federación como una Base de datos SQL de Azure normal, no diferente de ninguna otra Base de datos SQL de Azure.
+Una vez que se ha modificado la aplicación con la inclusión de las API de herramientas de Base de datos elástica, el último paso de la migración de una aplicación de Federaciones es emitir **SWITCH OUT** para los miembros de la federación (para obtener más información, consulte la referencia de MSDN para [ALTER FEDERATION (Base de datos SQL de Azure)](http://msdn.microsoft.com/library/dn269988(v=sql.120).aspx))). El resultado final de emitir **SWITCH OUT** contra un miembro de federación determinado es la eliminación de todas las restricciones de la federación y los metadatos que presentan al miembro de la federación como una Base de datos SQL de Azure normal, no diferente de ninguna otra Base de datos SQL de Azure.
 
 Tenga en cuenta que la emisión de **SWITCH OUT** contra un miembro de la federación es una operación irreversible y no se puede deshacer. Una vez que se realiza, la base de datos resultante no se puede volver a agrear a una federación y los comandos USE FEDERATION dejarán de funcionar para esta base de datos.
 
@@ -150,4 +150,4 @@ Si la aplicación aún no está lista para trabajar sin las federaciones, pónga
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

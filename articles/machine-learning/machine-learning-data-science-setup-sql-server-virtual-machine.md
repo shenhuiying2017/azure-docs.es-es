@@ -3,9 +3,9 @@
 	description="Configurar una máquina virtual de ciencia de datos con SQL Server y IPython Server."
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev" 
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun" />
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mohabib;xibingao;bradsev"/>
+	ms.date="10/13/2015"
+	ms.author="mohabib;xibingao;bradsev" />
 
 # Configuración de una máquina virtual de Azure SQL Server como servidor del Bloc de notas de IPython para realizar análisis avanzados
 
@@ -225,7 +225,7 @@ Para conectarse al motor de base de datos de SQL Server desde otro equipo, debe 
 
 1.  En el Portal de administración de Azure (o desde el paso anterior), seleccione **MÁQUINAS VIRTUALES**.
 
-2.  En la página **INSTANCIAS DE MÁQUINA VIRTUAL**, en la columna **NOMBRE DNS**, encuentre y copie el nombre DNS de la máquina virtual que aparece precedido por **http://**. (Puede que la interfaz de usuario no muestre todo el nombre, pero puede hacer clic con el botón secundario en él y seleccionar Copiar).
+2.  En la página **INSTANCIAS DE MÁQUINA VIRTUAL**, en la columna **NOMBRE DNS**, encuentre y copie el nombre DNS de la máquina virtual que aparece precedido por ****http://**. (Puede que la interfaz de usuario no muestre todo el nombre, pero puede hacer clic con el botón secundario en él y seleccionar Copiar).
 
 ##<a name="cde"></a>Conexión al motor de base de datos desde otro equipo
 
@@ -277,7 +277,7 @@ Se desasignará la máquina virtual, pero no se eliminará. Puede reiniciar la m
 
 ## La máquina virtual de Azure SQL Server ya está lista para su uso: ¿qué es lo siguiente?
 
-La máquina virtual ya está lista para su uso en los ejercicios de ciencia de datos. La máquina virtual también está preparada para su uso como un servidor de Bloc de notas de IPython para la exploración y procesamiento de datos, y otras tareas junto con el Aprendizaje automático de Azure y la Tecnología y procesos de análisis avanzado (ADAPT).
+La máquina virtual ya está lista para su uso en los ejercicios de ciencia de datos. La máquina virtual también está preparada para su uso como un servidor de Notebook de IPython para la exploración y el procesamiento de datos, y otras tareas junto con el Aprendizaje automático de Azure y el proceso de análisis de Cortana (CAP).
 
 Los pasos siguientes del proceso de ciencia de datos se asignan en la [Guía de aprendizaje: procesamiento avanzado de datos en Azure](machine-learning-data-science-advanced-data-processing.md) y pueden incluir pasos que muevan datos a HDInsight, los procese y muestree allí como preparación para el aprendizaje a partir de los datos con Aprendizaje automático de Azure.
 
@@ -298,4 +298,4 @@ Los pasos siguientes del proceso de ciencia de datos se asignan en la [Guía de 
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

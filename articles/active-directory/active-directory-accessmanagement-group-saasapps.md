@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na" 
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="10/09/2015"
 	ms.author="femila"/>
 
 
@@ -30,7 +30,7 @@ Esta función se puede utilizar con cientos de aplicaciones que puede agregar de
 1. Abra el explorador que prefiera y vaya al Portal de administración de Azure. En el Portal de administración de Azure, busque la extensión de Active Directory en la barra de navegación de la izquierda. En la pestaña **Directorio**, haga clic en el directorio en el que desea asignar el acceso para un grupo a una aplicación Saas.
 
 
-2. Haga clic en la pestaña Aplicaciones del directorio. Haga clic en una aplicación que ha agregado desde la Galería de aplicaciones y, a continuación, haga clic en la pestaña Usuarios y grupos.
+2. Haga clic en la pestaña Aplicaciones del directorio. Haga clic en una aplicación que ha agregado desde la Galería de aplicaciones y, a continuación, haga clic en la pestaña **Usuarios y grupos**.
 
 3. En la pestaña Usuarios y grupos, en el campo Comenzando con, escriba el nombre del grupo al que desea asignar acceso y haga clic en la marca de verificación en la esquina superior derecha. Solo necesita escribir la primera parte del nombre del grupo. Haga clic en el grupo para destacarlo y, a continuación, haga clic en el botón **Asignar acceso** y haga clic en**Sí**cuando aparezca el mensaje de confirmación.
 
@@ -48,4 +48,4 @@ A continuación presentamos algunos temas que proporcionarán información adici
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

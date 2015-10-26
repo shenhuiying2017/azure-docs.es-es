@@ -19,7 +19,8 @@
 
 # DataStax Enterprise en Ubuntu con una plantilla del Administrador de recursos
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+
 
 DataStax es un reconocido líder del sector en el desarrollo y la entrega de soluciones basadas en Apache Cassandra™ comercialmente admitido y preparado para el ámbito empresarial, la tecnología de bases de datos distribuida NoSQL ampliamente reconocida por ser ágil, siempre activada y escalable de forma predecible a cualquier tamaño. DataStax ofrece las versiones Enterprise (DSE) y Community (DSC). Además de todo lo que proporciona la versión Community, DataStax Enterprise incluye Cassandra certificado para la producción, con capacidades como informática en memoria, seguridad a nivel empresarial, análisis integrados rápidos y potentes y administración empresarial.
 
@@ -503,4 +504,4 @@ Este enfoque sugiere:
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

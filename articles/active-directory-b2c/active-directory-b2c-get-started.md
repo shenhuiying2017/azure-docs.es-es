@@ -70,4 +70,4 @@ Use los pasos siguientes para crear un nuevo inquilino de Azure AD B2C. Actualme
 
 Para continuar, [registre una aplicación con Azure AD B2C y cree una aplicación de inicio rápido](active-directory-b2c-app-registration.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

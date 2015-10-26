@@ -253,4 +253,4 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 [Implementación del dispositivo StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

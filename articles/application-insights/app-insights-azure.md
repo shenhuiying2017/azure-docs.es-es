@@ -28,7 +28,7 @@ La configuración es muy sencilla y obtendrá resultados en cuestión de minutos
 
 * [Aplicación web de Azure: roles web y de trabajo](app-insights-cloudservices.md)
 * [Aplicación web en IIS en máquina virtual de Azure](../insights-perf-analytics.md)
-* [Aplicación fuera de Azure](app-insights-get-started.md)
+* [Aplicación fuera de Azure](app-insights-overview.md)
 
 
 
@@ -39,4 +39,4 @@ La configuración es muy sencilla y obtendrá resultados en cuestión de minutos
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

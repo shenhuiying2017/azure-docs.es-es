@@ -254,4 +254,4 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

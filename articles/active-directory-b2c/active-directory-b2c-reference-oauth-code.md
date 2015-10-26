@@ -272,4 +272,4 @@ Si desea probar estas solicitudes por sí mismo, primero debe realizar estos tre
 - [Crear una aplicación](active-directory-b2c-app-registration.md) para obtener un Id. de aplicación y un redirect\_uri. Es posible que desee incluir un **cliente nativo** en la aplicación.
 - [Crear directivas](active-directory-b2c-reference-policies.md) para obtener los nombres de las directivas.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -20,4 +20,4 @@
 
 Para solicitar un aumento del número de colecciones de pagadas o de conexiones simultáneas, envíe un correo electrónico a [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com) e indique en él lo que necesita, incluido el Id. de suscripción.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

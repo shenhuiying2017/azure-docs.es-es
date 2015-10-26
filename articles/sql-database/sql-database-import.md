@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Importar un BACPAC en una Base de datos SQL de Azure"
-	description="Importar un BACPAC en una Base de datos SQL de Azure"
+	pageTitle="Importar un archivo BACPAC para crear una base de datos SQL de Azure"
+	description="Crear una base de datos SQL de Azure importando un archivo BACPAC ya existente."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -10,14 +10,15 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/05/2015"
+	ms.date="10/13/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Importar un BACPAC en una base de datos SQL
+# Importar un archivo BACPAC para crear una base de datos SQL de Azure
+
 
 **Base de datos única**
 
@@ -25,11 +26,11 @@
 - [Azure Preview Portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-En este artículo se muestra cómo crear una Base de datos SQL importando un BACPAC con el [Portal de vista previa de Azure](https://portal.azure.com).
+Este artículo proporciona instrucciones para crear una base de datos SQL de Azure a partir de un archivo BACPAC mediante el [portal de vista previa de Azure](https://portal.azure.com).
 
 Un BACPAC es un archivo .bacpac que contiene datos y un esquema de base de datos. Para obtener detalles, vea el paquete de copia de seguridad (.bacpac) en [Aplicaciones del nivel de datos](https://msdn.microsoft.com/library/ee210546.aspx).
 
-La base de datos se crea a partir de un BACPAC importado de un contenedor de blobs de almacenamiento de Azure. Si no dispone de un archivo .bacpac en el almacenamiento de Azure, puede crear uno siguiendo los pasos descritos en [Crear y exportar un BACPAC de una base de datos SQL de Azure](sql-database-backup.md).
+La base de datos se crea a partir de un BACPAC importado de un contenedor de blobs de almacenamiento de Azure. Si no dispone de un archivo .bacpac en el almacenamiento de Azure, puede crear uno siguiendo los pasos descritos en [Crear y exportar un archivo BACPAC de una base de datos SQL de Azure](sql-database-export.md).
 
 
 > [AZURE.NOTE]La Base de datos SQL de Azure crea y mantiene automáticamente copias de seguridad para cada base de datos de usuario. Para obtener detalles, vea [Información general sobre la continuidad del negocio](sql-database-business-continuity.md).
@@ -109,4 +110,4 @@ Al hacer clic en **Crear** se envía una solicitud de importación de base de da
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

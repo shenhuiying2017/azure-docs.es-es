@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # Usar el servicio de Administrador de StorSimple para administrar plantillas de ancho de banda de StorSimple
@@ -174,7 +174,6 @@ Siga estas prácticas recomendadas para el dispositivo StorSimple:
 
 ## Pasos siguientes
 
-- Obtenga más información sobre los [componentes de StorSimple](storsimple-components.md). 
-- Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
+Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

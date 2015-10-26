@@ -2,4 +2,4 @@ Puede usar un grupo de seguridad de red para controlar el tráfico a una o más 
 
 Para obtener más información acerca de NSG, visite [¿Qué es un NSG](virtual-networks-nsg).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

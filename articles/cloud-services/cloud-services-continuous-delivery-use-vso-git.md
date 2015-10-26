@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Entrega continua con Git y Visual Studio Online en Azure"
+	pageTitle="Entrega continua con Git y Visual Studio Online en Azure" 
 	description="Aprenda a configurar los proyectos de equipo de Visual Studio Online para que usen Git para compilarse e implementarse automáticamente en la característica aplicación web de Servicio de aplicaciones de Azure o en los servicios en la nube."
 	services="cloud-services"
 	documentationCenter=".net"
@@ -273,4 +273,4 @@ Para ver más sugerencias sobre el uso de Git con Visual Studio Online, consulte
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -40,7 +40,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
     ![Agregar aplicación](./media/active-directory-saas-work-com-tutorial/IC749321.png "Agregar aplicación")
 
-5.  En el cuadro de diálogo **Qué desea hacer**, haga clic en **Agregar una aplicación de la galería**.
+5.  En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
 
     ![Agregar una aplicación de la galería](./media/active-directory-saas-work-com-tutorial/IC749322.png "Agregar una aplicación de la galería")
 
@@ -165,7 +165,7 @@ Para que los usuarios de Azure Active Directory puedan iniciar sesión, deben ap
 
 5.  En la sección Edición de usuario, lleve a cabo estos pasos:
 
-    ![Edición de usuario](./media/active-directory-saas-work-com-tutorial/IC794118.png "Edición de usuario")
+    ![Edición de usuarios](./media/active-directory-saas-work-com-tutorial/IC794118.png "Edición de usuarios")
 
     1.  Escriba los atributos **Apellido**, **Alias**, **Correo electrónico**, **Nombre de usuario** y **Sobrenombre** de una cuenta de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados.
     2.  Seleccione **Rol**, **Licencia de usuario** y **Perfil**.
@@ -195,4 +195,4 @@ Ahora debería esperar 10 minutos y comprobar si la cuenta se ha sincronizado en
   
 Si quiere probar su configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

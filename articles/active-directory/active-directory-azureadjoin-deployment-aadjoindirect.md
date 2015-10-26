@@ -87,4 +87,4 @@ Puede configurar a los usuarios y empleados para que usen sus dispositivos perso
 * [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-overview.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

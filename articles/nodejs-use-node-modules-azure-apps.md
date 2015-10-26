@@ -78,4 +78,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Node
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Scripts de implementación de sitios web personalizados con Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

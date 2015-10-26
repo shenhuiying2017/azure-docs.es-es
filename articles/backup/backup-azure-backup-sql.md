@@ -165,4 +165,4 @@ Los pasos siguientes son necesarios para recuperar una entidad protegida (base d
 
 • [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

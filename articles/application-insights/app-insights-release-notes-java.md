@@ -68,4 +68,4 @@ Compare los archivos ApplicationInsights.xml antiguo y nuevo. Muchos de los camb
 - Posibilidad de etiquetar un elemento de telemetría como sintético agregando una propiedad ```SyntheticSource``` al elemento de informe.
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

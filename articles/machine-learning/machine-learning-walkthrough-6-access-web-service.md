@@ -42,4 +42,4 @@ La página de ayuda de API incluye ejemplos para los lenguajes de programación 
 
 Para obtener más información acerca de cómo acceder al servicio web y usarlo, consulte [Cómo consumir un servicio web de aprendizaje automático de Azure publicado](machine-learning-consume-web-services.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -65,4 +65,4 @@ Este tema contiene vínculos a las notas de la versión de SDK de Azure para .NE
 [Notas de la versión del SDK de Azure en MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

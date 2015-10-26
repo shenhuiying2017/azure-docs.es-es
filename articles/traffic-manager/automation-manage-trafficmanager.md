@@ -42,4 +42,4 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 * Consulte la [Guía de introducción](http://go.microsoft.com/fwlink/?LinkId=390560) a Automatización de Azure.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->
