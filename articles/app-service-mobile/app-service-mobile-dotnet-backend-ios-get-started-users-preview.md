@@ -22,7 +22,7 @@
 &nbsp;  
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-En este tutorial podrá agregar la autenticación al proyecto de [inicio rápido de iOS] mediante un proveedor de identidades compatible. Este tutorial está basado en el tutorial de [inicio rápido de iOS], que debe completar primero. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar el paquete de extensión de autenticación al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [￼Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure￼](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+En este tutorial podrá agregar la autenticación al proyecto de [inicio rápido de iOS] mediante un proveedor de identidades compatible. Este tutorial está basado en el tutorial de [inicio rápido de iOS], que debe completar primero. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar el paquete de extensión de autenticación al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ##<a name="create-gateway"></a>Creación de una puerta de enlace de Servicio de aplicaciones
 
