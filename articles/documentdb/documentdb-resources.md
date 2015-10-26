@@ -35,7 +35,8 @@ Tal y como muestra el siguiente diagrama, el **modelo de recursos** jerárquico 
 
 >[AZURE.NOTE]DocumentDB ofrece un protocolo de TCP sumamente eficaz que también es RESTful en su modelo de comunicación; disponible a través del [SDK de cliente de .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-![Modelo jerárquico de recursos de DocumentDB][1] **Modelo de recursos jerárquicos en una cuenta de base de datos**
+![Modelo jerárquico de recursos de DocumentDB][1]
+**Modelo de recursos jerárquicos en una cuenta de base de datos**
 
 Para empezar a trabajar con los recursos, debe [crear una cuenta de base de datos para DocumentDB](documentdb-create-account.md) mediante su suscripción a Azure. Una cuenta de base de datos puede constar de un grupo de **bases de datos**, cada una con varias **colecciones**, que a su vez pueden contener **procedimientos almacenados, desencadenadores, UDF, documentos** y **datos adjuntos** relacionados (característica de vista previa). Una base de datos también tiene **usuarios** asociados, cada uno con un conjunto de **permisos** para obtener acceso a las colecciones, procedimientos almacenados, desencadenadores, UDF, documentos o datos adjuntos. Mientras las bases de datos, usuarios, permisos y colecciones son recursos definidos por el sistema con esquemas, documentos y datos adjuntos conocidos con contenido arbitrario JSON definido por el usuario.
 
@@ -61,7 +62,11 @@ Los recursos (por ejemplo, las cuentas de bases de datos, las bases de datos, la
 
 Propiedad |¿Configurable por el usuario o generado por el sistema?|Propósito
 ---|---|---
-_\_rid|Generado por el sistema|Generado por el sistema, identificador único y jerárquico del recurso. \_etag|Generado por el sistema|etag del recurso requerido para el control de simultaneidad optimista. \_ts|Generado por el sistema|Última actualización de marca de tiempo del recurso. \_self|Generado por el sistema|URI direccionable único del recurso. id|Configurable por el usuario|Nombre único del recurso definido por el usuario.
+_rid|Generado por el sistema|Generado por el sistema, identificador único y jerárquico del recurso.
+_etag|Generado por el sistema|etag del recurso requerido para el control de simultaneidad optimista.
+_ts|Generado por el sistema|Última actualización de marca de tiempo del recurso.
+_self|Generado por el sistema|URI direccionable único del recurso.
+id|Configurable por el usuario|Nombre único del recurso definido por el usuario.
 
 ###Representación de conexión de los recursos
 DocumentDB no exige ninguna extensión propietaria a la norma JSON ni codificaciones especiales; funciona con documentos JSON según la norma.
@@ -69,13 +74,22 @@ DocumentDB no exige ninguna extensión propietaria a la norma JSON ni codificaci
 ###Direccionamiento de un recurso
 Todos los recursos se pueden diseccionar mediante URI. El valor de la propiedad **\_self** de un recurso representa la URI relativa del recurso. El formato del URI consta de los segmentos de ruta /<feed>/{\_rid}:
 
-|Valor de \_self |Descripción |-------------------|----------- |/dbs |Fuente de las bases de datos en una cuenta de bases de datos. |/dbs/{\_rid-db} |Base de datos con la propiedad de identificador único con el valor {\_rid-db}. |/dbs/{\_rid-db}/colls/ |Fuente de recopilaciones en una base de datos. |/dbs/{\_rid-db}/colls/{\_rid-coll} |Recopilación con la propiedad de identificador único con el valor {\_rid-coll}. |/dbs/{\_rid-db}/users/ |Fuente de usuarios en una base de datos. |/dbs/{\_rid-db}/users/{\_rid-user} |Usuario con la propiedad de identificador único con el valor {\_rid-user}. |/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Fuente de permisos en una base de datos. |/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Permiso con la propiedad de identificador único con el valor {\_rid-permission}.
+|Valor de _self |Descripción |
+-------------------|----------- 
+|/dbs |Fuente de las bases de datos en una cuenta de bases de datos. 
+|/dbs/{_rid-db} |Base de datos con la propiedad de identificador único con el valor {_rid-db}. 
+|/dbs/{_rid-db}/colls/ |Fuente de recopilaciones en una base de datos. 
+|/dbs/{_rid-db}/colls/{_rid-coll} |Recopilación con la propiedad de identificador único con el valor {_rid-coll}. 
+|/dbs/{_rid-db}/users/ |Fuente de usuarios en una base de datos. 
+|/dbs/{_rid-db}/users/{_rid-user} |Usuario con la propiedad de identificador único con el valor {_rid-user}. 
+|/dbs/{_rid-db}/users/{_rid-user}/permissions |Fuente de permisos en una base de datos. 
+|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Permiso con la propiedad de identificador único con el valor {_rid-permission}. 
   
 Un recurso también tiene un nombre único definido por el usuario expuesto a través de la propiedad del identificador del recurso. El identificador es una cadena definida por el usuario formada por 256 caracteres como máximo y que es única dentro del contexto de un recurso principal específico. Por ejemplo, el valor de la propiedad del identificador de todos los documentos en una recopilación dada es único, pero no está garantizado para que sea único en otras recopilaciones. De igual manera, el valor de la propiedad del identificador de todos los permisos de un usuario dado es único, pero no está garantizado para que sea único en todos los usuarios. La propiedad \_rid se usa para construir el vínculo direccionable \_self de un recurso.
 
 Cada recurso tiene también un identificador de recursos jerárquico generado por el sistema (también denominado RID), que está disponible a través de la propiedad \_rid. El RID codifica toda la jerarquía de un recurso dado y es una representación interna muy conveniente que se usa para imponer una integridad referencial de manera distribuida. El RID es único en una cuenta de base de datos y se usa internamente a través de la Base de datos de documentos para un enrutamiento eficaz, sin necesidad de búsquedas en las particiones.
 
-Los valores de las propiedades \_self y \_rid son representaciones alternativas y canónicas de un recurso.
+Los valores de las propiedades _self y _rid son representaciones alternativas y canónicas de un recurso.
 
 ##Cuentas de la base de datos
 Puede aprovisionar una o más cuentas de la base de datos de DocumentDB mediante su suscripción a Azure. A cada cuenta de base de datos de nivel Standard se otorgará una capacidad mínima de una colección S1.
@@ -97,7 +111,8 @@ Tenga en cuenta que, además del aprovisionamiento, la configuración y la admin
 ##Bases de datos
 Una base de datos de DocumentDB es un contenedor lógico de una o varias colecciones o usuarios, como se muestra en el diagrama siguiente. Puede crear cualquier número de bases de datos en la cuenta de base de datos de DocumentDB en función de los límites de la oferta.
 
-![Modelo jerárquico de colecciones y cuenta de base de datos][2] **Una base de datos es un contenedor lógico de usuarios y colecciones**
+![Modelo jerárquico de colecciones y cuenta de base de datos][2] 
+**Una base de datos es un contenedor lógico de usuarios y colecciones**
 
 Una base de datos puede contener almacenamiento de documentos prácticamente ilimitado particionado por colecciones, que forman los dominios de transacción para los documentos que las contienen.
 
@@ -378,7 +393,8 @@ A medida que sus aplicaciones necesiten escalar con el crecimiento de su usuario
 
 Independientemente de la estrategia de partición específica que seleccione, puede modelar a los usuarios reales como usuarios de base de datos de DocumentDB y asociar permisos detallados a cada usuario.
 
-![Colecciones de usuario][3] **Estrategias de partición y modelado de usuarios**
+![Colecciones de usuario][3] 
+**Estrategias de partición y modelado de usuarios**
 
 Como con el resto de recursos, los usuarios de DocumentDB se pueden crear, reemplazar, eliminar, leer o enumerar fácilmente mediante las API REST o con cualquier SDK de cliente. DocumentDB siempre proporciona una alta coherencia para leer o consultar los metadatos de un recurso de usuario. Es importante señalar que eliminar un usuario garantiza automáticamente que no podrá obtener acceso a ningún permiso contenido en el mismo. Incluso aunque DocumentDB reclame la cuota de permisos como parte del usuario eliminado en segundo plano, los permisos eliminados estarán de nuevo disponibles al instante para su uso.
 

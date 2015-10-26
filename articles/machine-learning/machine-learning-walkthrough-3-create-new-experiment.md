@@ -50,11 +50,12 @@ Podemos agregar encabezados de columna mediante el módulo [Editor de metadatos]
 
 1.	En la paleta de módulos, escriba "metadatos" en el cuadro **Buscar**. Verá [Editor de metadatos][metadata-editor] en la lista de módulos.
 2.	Haga clic en el módulo [Editor de metadatos][metadata-editor], arrástrelo al lienzo y colóquelo bajo el conjunto de datos.
-3.	Conecte el conjunto de datos al [Editor de metadatos][metadata-editor]\: haga clic en el puerto de salida del conjunto de datos, arrastre el puerto de entrada del [Editor de metadatos][metadata-editor] y, a continuación, suelte el botón del mouse. El conjunto de datos y el módulo permanecerán conectados incluso si se desplaza por el lienzo.
+3.	Conecte el conjunto de datos al [Editor de metadatos][metadata-editor]: haga clic en el puerto de salida del conjunto de datos, arrastre el puerto de entrada del [Editor de metadatos][metadata-editor] y, a continuación, suelte el botón del mouse. El conjunto de datos y el módulo permanecerán conectados incluso si se desplaza por el lienzo.
 4.	Con el [Editor de metadatos][metadata-editor] aún seleccionado, en el panel **Propiedades** situado a la derecha del lienzo, haga clic en **Iniciar el selector de columnas**.
 5.	En el cuadro de diálogo **Seleccionar columnas**, establezca el campo **Empieza por** en "Todas las columnas".
-6.	La fila bajo **Empieza por** permite incluir o excluir columnas específicas para que el [Editor de metadatos][metadata-editor] las modifique. Puesto que deseamos modificar todas las columnas, elimine esta fila haciendo clic en el signo menos ("-") a la derecha de la fila. El cuadro de diálogo debe ser similar al siguiente: ![Selector de columnas con todas las columnas seleccionadas][4]
-7.	Haga clic en la marca de verificación **Aceptar**.
+6.	La fila bajo **Empieza por** permite incluir o excluir columnas específicas para que el [Editor de metadatos][metadata-editor] las modifique. Puesto que deseamos modificar todas las columnas, elimine esta fila haciendo clic en el signo menos ("-") a la derecha de la fila. El cuadro de diálogo debe ser similar al siguiente:  
+    ![Selector de columnas con todas las columnas seleccionadas][4]
+7.	Haga clic en la marca de verificación **Aceptar**. 
 8.	En el panel **propiedades**, busque el parámetro **Nuevo nombre de columna**. En este campo, escriba la lista de nombres de las 21 columnas del conjunto de datos, separadas por comas y en el orden de las columnas. Puede obtener los nombres de las columnas en la documentación del conjunto de datos en el sitio web de UCI o, para mayor comodidad, puede copiar y pegar lo siguiente:  
 
 <!-- try the same thing without upper-case

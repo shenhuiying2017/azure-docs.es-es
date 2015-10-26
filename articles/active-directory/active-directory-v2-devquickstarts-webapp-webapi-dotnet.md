@@ -18,7 +18,8 @@
 
 # Vista previa del modelo de aplicaciones v2.0: llamar a una API web desde una aplicación web de .NET
 
-> [AZURE.NOTE]Esta información se aplica a la vista previa pública del extremo v2.0. Para obtener instrucciones acerca de la integración con el servicio de Azure AD, disponible con carácter general, consulte la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Esta información se aplica a la vista previa pública del extremo v2.0. Para obtener instrucciones acerca de la integración con el servicio de Azure AD, disponible con carácter general, consulte la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
 
 Con el modelo de aplicaciones v2.0 puede agregar rápidamente la autenticación para sus aplicaciones web y API web compatibles tanto con las cuentas personales de Microsoft como con las cuentas profesionales o educativas. En este caso, vamos a crear una aplicación web MVC:
 
@@ -200,6 +201,8 @@ Como referencia, [aquí puede ver](https://github.com/AzureADQuickStarts/AppMode
 
 ## Pasos siguientes
 
-Para obtener recursos adicionales, consulte: - [la vista previa del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) - [la etiqueta "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Para obtener recursos adicionales, consulte:
+- [la vista previa del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [la etiqueta "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
 <!---HONumber=Oct15_HO3-->

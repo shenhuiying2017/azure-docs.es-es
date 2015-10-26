@@ -215,7 +215,8 @@ Las siguientes son las distribuciones de Linux que se validan con Almacenamiento
 	<td></td>
 	<td>Póngase en contacto con soporte técnico para obtener más información</td>
 </tr>
-</tbody> </table>
+</tbody> 
+</table>
 
 
 ### Controladores de LIS para CentOS Openlogic

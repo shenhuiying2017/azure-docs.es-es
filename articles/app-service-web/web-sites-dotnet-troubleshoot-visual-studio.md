@@ -125,7 +125,7 @@ Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Int
 
 1. Abra el proyecto web que creó en [Introducción a Azure y ASP.NET][GetStarted].
 
-1. Abra *Controllers\\HomeController.cs*.
+1. Abra *Controllers\HomeController.cs*.
 
 2. Elimine el método `About()` e inserte el siguiente código en su lugar.
 
@@ -300,7 +300,7 @@ Para obtener información acerca de cómo crear registros de aplicaciones en Web
 
 ### Adición de instrucciones de seguimiento a la aplicación
 
-1. Abra *Controllers\\HomeController.cs* y reemplace el contenido del archivo por el siguiente código para agregar instrucciones `Trace` y una instrucción `using` para `System.Diagnostics`:
+1. Abra *Controllers\HomeController.cs* y reemplace el contenido del archivo por el siguiente código para agregar instrucciones `Trace` y una instrucción `using` para `System.Diagnostics`:
 
 		using System;
 		using System.Collections.Generic;
@@ -569,7 +569,8 @@ Las cuentas de almacenamiento ofrecen más almacenamiento y retención más prol
 
 1. En la ventana **Aplicación web de Azure** de Visual Studio, haga clic en la pestaña **Registros** y a continuación, haga clic en **Configurar registro en el Portal de administración**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![registro](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
+	![registro](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	Esto abre la pestaña **Configurar** en el Portal de Azure de su aplicación web.
 
@@ -643,7 +644,7 @@ Puede ver los registros de seguimiento de solicitudes en un explorador directame
 
 	![Nuevo nombre de usuario y contraseña de FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
-	****Cuando inicie sesión, debe utilizar el nombre de usuario completo, con el nombre de la aplicación como prefijo. Por ejemplo, si escribe "myid" como nombre de usuario y el sitio es "myexample", inicie sesión como "myexample\\myid".
+	Cuando **inicie sesión**, debe utilizar el nombre de usuario completo, con el nombre de la aplicación como prefijo. Por ejemplo, si escribe "myid" como nombre de usuario y el sitio es "myexample", inicie sesión como "myexample\\myid".
 
 5. En una ventana nueva del explorador, vaya a la dirección URL que aparece en **Nombre de host de FTP** o **Nombre de host de FTPS** en la hoja del portal **Aplicación web** para la aplicación web.
 
@@ -738,7 +739,7 @@ También antiguo, pero incluye cierta información adicional que el artículo de
 
 Para el registro de errores, una alternativa a escribir su propio código de seguimiento es utilizar un marco de registro de código abierto, como [ELMAH](http://nuget.org/packages/elmah/). Para obtener más información, consulte [Publicaciones de blog de Scott Hanselman sobre ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
-Además, tenga en cuenta que no tiene que utilizar el seguimiento de System.Diagnostics o ASP.NET si desea obtener registros de streaming de Azure. El servicio de registros de streaming de la aplicación web de Azure transmitirá todo archivo *.txt*, *.html* o *.log* que encuentre en la carpeta *LogFiles*. Por lo tanto, podría crear su propio sistema de registro que escriba en el sistema de archivos de la aplicación web y su archivo se transmitirá y descargará automáticamente. Todo lo que tiene que hacer es escribir código de aplicación que cree archivos en la carpeta *d:\\home\\logfiles*.
+Además, tenga en cuenta que no tiene que utilizar el seguimiento de System.Diagnostics o ASP.NET si desea obtener registros de streaming de Azure. El servicio de registros de streaming de la aplicación web de Azure transmitirá todo archivo *.txt*, *.html* o *.log* que encuentre en la carpeta *LogFiles*. Por lo tanto, podría crear su propio sistema de registro que escriba en el sistema de archivos de la aplicación web y su archivo se transmitirá y descargará automáticamente. Todo lo que tiene que hacer es escribir código de aplicación que cree archivos en la carpeta *d:\home\logfiles*.
 
 ### Análisis de registros de servidor web
 

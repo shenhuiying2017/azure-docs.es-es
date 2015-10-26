@@ -286,9 +286,9 @@ Puede llamar a **acquireTokenSilent** para controlar el almacenamiento en caché
 
  El manifiesto de aplicación debe tener permisos para usar cuentas del administrador de cuentas: http://developer.android.com/reference/android/accounts/AccountManager.html
 
- * GET\_ACCOUNTS
- * USE\_CREDENTIALS
- * MANAGE\_ACCOUNTS
+ * GET_ACCOUNTS
+ * USE_CREDENTIALS
+ * MANAGE_ACCOUNTS
 
 
 Con procedimiento, debe contar con todo lo necesario para lograr una integración correcta con Azure Active Directory. Para obtener más ejemplos de este trabajo, visite el repositorio AzureADSamples/ en GitHub.
@@ -384,7 +384,8 @@ El nivel de registro se define de la siguiente forma: ```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
- Todos los mensajes de registro se envían a logcat, además de las devoluciones de llamada de registro personalizadas. Un registro de logcat se puede obtener en formato de archivo de la siguiente forma:
+ Todos los mensajes de registro se envían a logcat, además de las devoluciones de llamada de registro personalizadas. 
+Un registro de logcat se puede obtener en formato de archivo de la siguiente forma:
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"

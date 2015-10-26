@@ -51,7 +51,9 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
     ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo habilitar la autenticación de usuarios en Jobscience con su cuenta de Azure AD mediante federación basada en el protocolo SAML. La configuración de un inicio de sesión único para Jobscience requiere la recuperación de un valor de huella digital de un certificado. Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+El objetivo de esta sección es describir cómo habilitar la autenticación de usuarios en Jobscience con su cuenta de Azure AD mediante federación basada en el protocolo SAML.  
+La configuración de un inicio de sesión único para Jobscience requiere la recuperación de un valor de huella digital de un certificado.  
+Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 

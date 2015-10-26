@@ -1,7 +1,7 @@
 
 Para proteger los extremos, debe restringir el acceso a solo los clientes autenticados.
 
-1. En el [Portal de administración de Azure](https://manage.windowsazure.com/), vaya al servicio móvil, haga clic en **Datos** > el nombre de la tabla (**￼TodoItem￼**) > **Permisos**. 
+1. En el [Portal de administración de Azure](https://manage.windowsazure.com/), vaya al servicio móvil, haga clic en **Datos** > el nombre de la tabla (**TodoItem**) > **Permisos**. 
 
 2. Establezca todos los permisos de operación de la tabla en **Solo usuarios autenticados**.
 

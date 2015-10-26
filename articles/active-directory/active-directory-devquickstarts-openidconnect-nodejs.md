@@ -242,9 +242,9 @@ app.post('/auth/openid/return',
   });
   ```
 
-## 4. Use Passport to issue sign-in and sign-out requests to Azure AD
+## 4. Uso de Passport para emitir solicitudes de inicio y cierre de sesión en Azure AD
 
-Your app is now properly configured to communicate with the v2.0 endpoint using the OpenID Connect authentication protocol.  `passport-azure-ad` has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in, sign out, and gather additional info on the logged in user.
+Ahora la aplicación está correctamente configurada para comunicarse con el extremo v2.0 mediante el protocolo de autenticación de OpenID Connect.  `passport-azure-ad`  se ha ocupado de todos los detalles feos de la creación de mensajes de autenticación, validación de tokens de Azure AD y mantenimiento de la sesión de usuario.  Ya solo falta ofrecer a los usuarios una forma de iniciar sesión, cerrar sesión y recopilar información adicional sobre el usuario con la sesión iniciada.
 
 - First, lets add the default, login, account, and logout methods to our `app.js` file:
 
@@ -262,11 +262,11 @@ app.get('/logout', function(req, res){ req.logout(); res.redirect('/'); });
 
 ```
 
--	Let's review these in detail:
-    -	The `/` route will redirect to the index.ejs view passing the user in the request (if it exists)
-    - The `/account` route will first ***ensure we are authenticated*** (we implement that below) and then pass the user in the request so that we can get additional information about the user.
-    - The `/login` route will call our azuread-openidconnect authenticator from `passport-azuread` and if that doesn't succeed will redirect the user back to /login
-    - The `/logout` will simply call the logout.ejs (and route) which clears cookies and then return the user back to index.ejs
+-	Analicemos esto con detalle:
+    -	La ruta `/` realizará la redirección a la vista index.ejs pasando el usuario en la solicitud (si existe).
+    - La ruta `/account` primero ***se asegurará de que estamos autenticados*** (lo que se implementará a continuación) y, seguidamente, pasará el usuario en la solicitud para que podamos obtener información adicional sobre él.
+    - La ruta `/login` llamará al autenticador azuread-openidconnect desde `passport-azuread`  y, si esto no produce un resultado satisfactorio, redirigirá el usuario a /login.
+    - `/logout` simplemente llamará a logout.ejs (y a la ruta), que borra las cookies y devuelve el usuario a index.ejs.
 
 
 - For the last part of `app.js`, let's add the EnsureAuthenticated method that is used in `/account` above.

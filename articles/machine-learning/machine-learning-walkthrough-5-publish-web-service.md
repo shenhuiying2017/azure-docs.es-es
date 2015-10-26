@@ -89,7 +89,8 @@ Es cierto que el servicio no necesita los datos originales de la tarjeta de cré
 
 Ejecute el experimento por última vez (haga clic en **Ejecutar**). Si desea comprobar que el modelo sigue funcionando, haga clic en la salida del módulo [Puntuar modelo][score-model] y seleccione **Ver resultados**. Verá que aparecen los datos originales, junto con el valor de riesgo de crédito ("Etiquetas puntuadas") y el valor de probabilidad de la puntuación ("Probabilidades puntuadas").
 
-## Implementación del servicio web
+##
+Implementación del servicio web
 
 Para implementar un servicio web derivado de nuestro experimento, haga clic en **Implementar servicio web** debajo del lienzo. Estudio de aprendizaje automático implementa el experimento como servicio web y le dirige al panel de servicios.
 

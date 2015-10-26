@@ -238,7 +238,8 @@ Para conectarse a Windows PowerShell para StorSimple, deberá usar software de e
 
 ## Búsqueda y aplicación de actualizaciones
 
-La actualización del dispositivo puede tardar varias horas. Realice los pasos siguientes para detectar y aplicar las actualizaciones en el dispositivo.<!--can take 1-4 hours-->
+La actualización del dispositivo puede tardar varias horas. Realice los pasos siguientes para detectar y aplicar las actualizaciones en el dispositivo.
+<!-- > can take 1-4 hours-->
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 

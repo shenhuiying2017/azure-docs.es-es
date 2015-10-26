@@ -1,5 +1,5 @@
 
-1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, en su servicio móvil.
+1. Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com/), haga clic en **Servicios móviles** y, a continuación, en su servicio móvil.
 
 2. Haz clic en la pestaña **Insertar**, selecciona **Solo usuarios autenticados** para **Permisos**, haz clic en **Guardar** y después haz clic en **Edit Script**.
 	

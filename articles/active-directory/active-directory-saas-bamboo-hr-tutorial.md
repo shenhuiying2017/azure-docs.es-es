@@ -3,7 +3,8 @@
 #Tutorial: Integración de Azure Active Directory con Bamboo HR
 >[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=529837).
 
-El objetivo de este tutorial es mostrar la integración de Azure y BambooHR. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y BambooHR.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para inicio de sesión único en BambooHR
@@ -51,7 +52,9 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
     ![BambooHR](./media/active-directory-saas-bamboo-hr-tutorial/IC796687.png "BambooHR")
 ##Configuración del inicio de sesión único
 
-El objetivo de esta sección es describir cómo se habilita la autenticación de usuarios en BambooHR con su cuenta de Azure AD mediante la federación basada en el protocolo SAML. Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+El objetivo de esta sección es describir cómo se habilita la autenticación de usuarios en BambooHR con su cuenta de Azure AD mediante la federación basada en el protocolo SAML.  
+Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64.  
+Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
@@ -93,12 +96,13 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     3.  Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado X.509**.
     4.  Haga clic en **Guardar**.
 
-8.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+8.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-bamboo-hr-tutorial/IC796693.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
 
-Para permitir que los usuarios de Azure AD inicien sesión en BambooHR, deben aprovisionarse a BambooHR. En el caso de BambooHR, el aprovisionamiento es una tarea manual.
+Para permitir que los usuarios de Azure AD inicien sesión en BambooHR, deben aprovisionarse a BambooHR.  
+En el caso de BambooHR, el aprovisionamiento es una tarea manual.
 
 ###Para aprovisionar cuentas de usuario, realice estos pasos:
 

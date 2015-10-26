@@ -51,7 +51,9 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
     ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.png "NetDocuments")
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en NetDocuments con su cuenta de Azure AD usando el protocolo SAML basado en la federación. La configuración de un inicio de sesión único para NetDocuments requiere la recuperación de un valor de huella digital de un certificado. Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en NetDocuments con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
+La configuración de un inicio de sesión único para NetDocuments requiere la recuperación de un valor de huella digital de un certificado.  
+Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
@@ -67,8 +69,8 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-netdocuments-tutorial/IC795045.png "Configurar dirección URL de la aplicación")
 
-    1.  En el cuadro de texto **Dirección URL de inicio de sesión**, escriba su dirección URL que usan los usuarios para iniciar sesión en la aplicación NetDocuments (por ejemplo, "**https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
-2.  En el cuadro de texto **URL de respuesta de NetDocuments**, escriba el mismo valor que ha escrito en el cuadro de texto **URL de inicio de sesión**.  
+    1.  En el cuadro de texto **Dirección URL de inicio de sesión**, escriba su dirección URL que usan los usuarios para iniciar sesión en la aplicación NetDocuments (por ejemplo, "*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
+    2.  En el cuadro de texto **URL de respuesta de NetDocuments**, escriba el mismo valor que ha escrito en el cuadro de texto **URL de inicio de sesión**.  
 
         >[AZURE.NOTE]Puede encontrar el valor correcto al final del cuadro de diálogo **Identidad federada** (consulte la captura de pantalla para el paso 9).
 

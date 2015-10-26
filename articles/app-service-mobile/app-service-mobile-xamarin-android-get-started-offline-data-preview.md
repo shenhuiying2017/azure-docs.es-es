@@ -18,7 +18,9 @@
 
 # Activación de la sincronización sin conexión para la aplicación móvil Xamarin.Android
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 ## Información general
 
@@ -145,7 +147,7 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 
 * [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]
 
-* [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure] (nota: el vídeo trata sobre Servicios móviles, pero la sincronización sin conexión funciona de forma similar en Aplicaciones móviles de Azure)
+* [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure] \(nota: el vídeo trata sobre Servicios móviles, pero la sincronización sin conexión funciona de forma similar en Aplicaciones móviles de Azure\)
 
 <!-- ##Summary
 

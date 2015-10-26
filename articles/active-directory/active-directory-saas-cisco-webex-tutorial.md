@@ -51,7 +51,9 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
     ![Cisco Webex](./media/active-directory-saas-cisco-webex-tutorial/IC777616.png "Cisco Webex")
 ##Configuración del inicio de sesión único
 
-El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en Cisco Webex con su cuenta de Azure AD mediante federación basada en el protocolo SAML. Como parte de este procedimiento, es necesario crear un certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en Cisco Webex con su cuenta de Azure AD mediante federación basada en el protocolo SAML.  
+Como parte de este procedimiento, es necesario crear un certificado codificado en base 64.  
+Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 

@@ -41,7 +41,8 @@ Para instalar las bibliotecas de clientes PHP para Azure mediante el compositor,
 
 1. [Instalación de Git][install-git]
 
-	> [AZURE.NOTE]En Windows, también tendrá que agregar el archivo ejecutable Git a la variable de entorno PATH.
+> [AZURE.NOTE]
+> En Windows, también tendrá que agregar el archivo ejecutable Git a la variable de entorno PATH.
 
 2. Cree un archivo con el nombre **composer.json** en la raíz del proyecto y agréguele el código siguiente:
 
@@ -280,7 +281,7 @@ La aplicación de lista de tareas tiene la capacidad de marcar un elemento como 
 
 * El primer paso para actualizar una entidad es capturarla de la tabla:
 		
-		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');		
+		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq ''.$_GET['pk'].'' and RowKey eq ''.$_GET['rk'].''');		
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 

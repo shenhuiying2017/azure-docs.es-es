@@ -39,7 +39,7 @@
 
 Para completar este tutorial, necesitará lo siguiente:
 
-- una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Evaluación gratuita de Azure￼</a>.
+- una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Evaluación gratuita de Azure</a>.
 
 
 - el [SDK de Android para Servicios móviles]

@@ -54,7 +54,7 @@ Los planes de recuperación se crean como se indica a continuación:
 	- Si va a realizar una réplica de VMM a VMM con SAN, seleccione VMM en **Tipo de origen** y los servidores VMM de origen y destino. Haga clic en **SAN** para ver las nubes configuradas para la replicación de SAN.
 	- Si va a realizar una réplica de VMM a Azure, seleccione VMM en **Tipo de origen**. Seleccione el servidor VMM de origen y **Azure** como destino.
 	- Si va a realizar una réplica de un sitio de Hyper-V, seleccione Sitio de Hyper-V en Tipo de origen. Seleccione el sitio como origen y **Azure **como destino.
-- Si va a realizar una réplica de VMware o un servidor físico de local a Azure, seleccione un servidor de configuración como el origen y **Azure** como destino.
+	- Si va a realizar una réplica de VMware o un servidor físico de local a Azure, seleccione un servidor de configuración como el origen y **Azure** como destino.
 
 2\. En **Seleccionar máquinas virtuales**, seleccione las máquinas virtuales (o un grupo de replicación) que desea agregar al grupo predeterminado (Grupo 1) del plan de recuperación.
 

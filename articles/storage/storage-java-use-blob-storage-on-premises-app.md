@@ -358,7 +358,7 @@ Siga estos vínculos para obtener más información acerca de las tareas de alma
 - [API de REST de almacenamiento de Azure][]
 - [Blog del equipo de almacenamiento de Azure][]
 
-  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+  [Descarga del SDK de Azure para Java]: http://go.microsoft.com/fwlink/?LinkID=525671
   [Creación de una cuenta de almacenamiento]: storage-create-storage-account.md#create-a-storage-account
   [Administración de cuentas de almacenamiento]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
   [Uso del servicio de almacenamiento de blobs desde Java]: storage-java-how-to-use-blob-storage.md

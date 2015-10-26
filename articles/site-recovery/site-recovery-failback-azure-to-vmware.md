@@ -152,7 +152,7 @@ Para obtener los Id. de SCSI de los discos duros SCSI de en una máquina virtual
 
 Nota: asegúrese de que el sistema tiene conectividad a Internet antes de descargar e instalar los paquetes adicionales.
 
-# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+\# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
 El comando anterior descargará los quince paquetes siguientes del repositorio de CentOS 6.6 y los instalará.
 

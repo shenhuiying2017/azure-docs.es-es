@@ -10,12 +10,12 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="08/07/2015"
-   ms.author="jgao"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/07/2015"
+	ms.author="jgao"/>
 
 # Aprovisionamiento de clústeres de HBase en Red virtual de Azure
 
@@ -127,13 +127,15 @@ Al igual que otros clústeres de HDInsight, el clúster de HBase requiere una cu
 	![Proporcionar detalles para el clúster de HBase](./media/hdinsight-hbase-provision-vnet/hbasewizard2.png)
 
 	<table border='1'>
-	<tr><th>Propiedad</th><th>Valor</th></tr>
-	<tr><td>Nodos de datos</td><td>Seleccione el número de nodos de datos que desea implementar. Para propósitos de prueba, cree un clúster de un solo nodo. <br />El límite de tamaño del clúster varía según las suscripciones a Azure. Póngase en contacto con el servicio de soporte relacionado con la facturación de Azure para aumentar el límite.</td></tr>
-	<tr><td>Región/Red virtual</td><td><p>Seleccione una región o una red virtual de Azure, si ha creado ya una. Para este tutorial, seleccione la red que creó anteriormente y, a continuación, seleccione una subred correspondiente. El nombre predeterminado es <b>Subred-1</b>.</p></td></tr>
-	<tr><td>Tamaño de nodo principal</td><td><p>Seleccione un tamaño de máquina virtual para el nodo principal.</p></td></tr>
-	<tr><td>Tamaño de nodo de datos</td><td><p>Seleccione un tamaño de máquina virtual para los nodos de datos.</p></td></tr>
-	<tr><td>Tamaño de Zookeeper</td><td><p>Seleccione un tamaño de máquina virtual para el nodo Zookeeper.</p></td></tr>
-</table>>[AZURE.NOTE]En función de la elección de máquinas virtuales, su coste puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
+		<tr><th>Propiedad</th><th>Valor</th></tr>
+		<tr><td>Nodos de datos</td><td>Seleccione el número de nodos de datos que desea implementar. Para propósitos de prueba, cree un clúster de un solo nodo. <br />El límite de tamaño del clúster varía según las suscripciones a Azure. Póngase en contacto con el servicio de soporte relacionado con la facturación de Azure para aumentar el límite.</td></tr>
+		<tr><td>Región/Red virtual</td><td><p>Seleccione una región o una red virtual de Azure, si ha creado ya una. Para este tutorial, seleccione la red que creó anteriormente y, a continuación, seleccione una subred correspondiente. El nombre predeterminado es <b>Subred-1</b>.</p></td></tr>
+		<tr><td>Tamaño de nodo principal</td><td><p>Seleccione un tamaño de máquina virtual para el nodo principal.</p></td></tr>
+		<tr><td>Tamaño de nodo de datos</td><td><p>Seleccione un tamaño de máquina virtual para los nodos de datos.</p></td></tr>
+		<tr><td>Tamaño de Zookeeper</td><td><p>Seleccione un tamaño de máquina virtual para el nodo Zookeeper.</p></td></tr>
+	</table>
+
+	>[AZURE.NOTE]En función de la elección de máquinas virtuales, su coste puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
 
 	Haga clic en el botón derecho.
 
@@ -142,43 +144,45 @@ Al igual que otros clústeres de HDInsight, el clúster de HBase requiere una cu
 	![Proporcionar la cuenta de almacenamiento del clúster de HDInsight de Hadoop](./media/hdinsight-hbase-provision-vnet/hbasewizard3.png)
 
 	<table border='1'>
-	<tr><th>Propiedad</th><th>Valor</th></tr>
-	<tr><td>Nombre de usuario HTTP</td>
-		<td>Especifique el nombre del usuario del clúster de HDInsight.</td></tr>
-	<tr><td>Contraseña HTTP/Confirmar contraseña</td>
-		<td>Especifique la contraseña del usuario del clúster de HDInsight.</td></tr>
-	<tr><td>Habilitar Escritorio remoto para un clúster</td>
-		<td>Active esta casilla para especificar un nombre de usuario, una contraseña y una fecha de caducidad para un usuario de Escritorio remoto que puede conectarse en remoto a los nodos del clúster, cuando esté aprovisionado. También puede habilitar Escritorio remoto más adelante, cuando el clúster esté aprovisionado. Para obtener instrucciones, vea <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.</td></tr>
-</table>
+		<tr><th>Propiedad</th><th>Valor</th></tr>
+		<tr><td>Nombre de usuario HTTP</td>
+			<td>Especifique el nombre del usuario del clúster de HDInsight.</td></tr>
+		<tr><td>Contraseña HTTP/Confirmar contraseña</td>
+			<td>Especifique la contraseña del usuario del clúster de HDInsight.</td></tr>
+		<tr><td>Habilitar Escritorio remoto para un clúster</td>
+			<td>Active esta casilla para especificar un nombre de usuario, una contraseña y una fecha de caducidad para un usuario de Escritorio remoto que puede conectarse en remoto a los nodos del clúster, cuando esté aprovisionado. También puede habilitar Escritorio remoto más adelante, cuando el clúster esté aprovisionado. Para obtener instrucciones, vea <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.</td></tr>
+	</table>
 
 6. En la página **Cuenta de almacenamiento**, proporcione los siguientes valores:
 
     ![Proporcionar la cuenta de almacenamiento del clúster de HDInsight de Hadoop](./media/hdinsight-hbase-provision-vnet/hbasewizard4.png)
 
 	<table border='1'>
-	<tr><th>Propiedad</th><th>Valor</th></tr>
-	<tr><td>Cuenta de almacenamiento</td>
-		<td>Especifique la cuenta de almacenamiento de Azure que se usará como sistema de archivos predeterminado para el clúster de HDInsight. Puede elegir una de las tres opciones siguientes:
-		<ul>
-			<li><strong>Usar almacenamiento existente</strong></li>
-			<li><strong>Crear nuevo almacenamiento</strong></li>
-			<li><strong>Usar almacenamiento de otra suscripción</strong></li>
-		</ul>
-		</td></tr>
-	<tr><td>Nombre de cuenta</td>
-		<td><ul>
-			<li>Si decidió utilizar almacenamiento existente, en <strong>Nombre de cuenta</strong>, seleccione una cuenta de almacenamiento existente. En la lista desplegable solamente aparecen las cuentas de almacenamiento ubicadas en el mismo centro de datos en el que eligió aprovisionar el clúster.</li>
-			<li>Si eligió la opción <strong>Crear nuevo almacenamiento</strong> o  <strong>Usar almacenamiento de otra suscripción</strong>, debe proporcionar el nombre de la cuenta de almacenamiento.</li>
-		</ul></td></tr>
-	<tr><td>Clave de cuenta</td>
-		<td>Si eligió la opción <strong>Usar almacenamiento de otra suscripción</strong>, especifique la clave de cuenta para esa cuenta de almacenamiento.</td></tr>
-	<tr><td>Contenedor predeterminado</td>
-		<td><p>Especifique el contenedor predeterminado en la cuenta de almacenamiento que se utiliza como sistema de archivos predeterminado para el clúster de HDInsight. Si eligió <strong>Usar almacenamiento existente</strong> para el campo <strong>Cuenta de almacenamiento</strong> y no existen contenedores en esa cuenta, el contenedor se creará de forma predeterminada con el mismo nombre que el del clúster. Si ya existe un contenedor con el nombre del clúster, se anexará un número de secuencia al nombre del contenedor. Por ejemplo, mycontainer1, mycontainer2 y así sucesivamente. Sin embargo, si la cuenta de almacenamiento existente tiene un contenedor con un nombre diferente al del clúster especificado, también puede usar ese contenedor.</p>
-        <p>Si eligió crear un almacenamiento nuevo o usar almacenamiento de otra suscripción de Azure, debe especificar el nombre del contenedor predeterminado.</p>
-    </td></tr>
-	<tr><td>Cuentas de almacenamiento adicionales</td>
-		<td>Si es necesario, especifique cuentas de almacenamiento adicionales para el clúster. HDInsight admite varias cuentas de almacenamiento. No hay límite en el número de cuentas de almacenamiento adicionales que un clúster puede usar. No obstante, si crea un clúster mediante el Portal de Azure, tendrá un límite de siete debido a las restricciones de la interfaz de usuario. Por cada cuenta de almacenamiento adicional que especifique, se agregará una página <strong>Cuenta de almacenamiento</strong> adicional al asistente donde podrá especificar la información de la cuenta. Por ejemplo, en la captura de pantalla anterior, se selecciona una cuenta de almacenamiento adicional y, por tanto, se agrega una página adicional al asistente.</td></tr>
-</table>Haga clic en la flecha derecha.
+		<tr><th>Propiedad</th><th>Valor</th></tr>
+		<tr><td>Cuenta de almacenamiento</td>
+			<td>Especifique la cuenta de almacenamiento de Azure que se usará como sistema de archivos predeterminado para el clúster de HDInsight. Puede elegir una de las tres opciones siguientes:
+			<ul>
+				<li><strong>Usar almacenamiento existente</strong></li>
+				<li><strong>Crear nuevo almacenamiento</strong></li>
+				<li><strong>Usar almacenamiento de otra suscripción</strong></li>
+			</ul>
+			</td></tr>
+		<tr><td>Nombre de cuenta</td>
+			<td><ul>
+				<li>Si decidió utilizar almacenamiento existente, en <strong>Nombre de cuenta</strong>, seleccione una cuenta de almacenamiento existente. En la lista desplegable solamente aparecen las cuentas de almacenamiento ubicadas en el mismo centro de datos en el que eligió aprovisionar el clúster.</li>
+				<li>Si eligió la opción <strong>Crear nuevo almacenamiento</strong> o  <strong>Usar almacenamiento de otra suscripción</strong>, debe proporcionar el nombre de la cuenta de almacenamiento.</li>
+			</ul></td></tr>
+		<tr><td>Clave de cuenta</td>
+			<td>Si eligió la opción <strong>Usar almacenamiento de otra suscripción</strong>, especifique la clave de cuenta para esa cuenta de almacenamiento.</td></tr>
+		<tr><td>Contenedor predeterminado</td>
+			<td><p>Especifique el contenedor predeterminado en la cuenta de almacenamiento que se utiliza como sistema de archivos predeterminado para el clúster de HDInsight. Si eligió <strong>Usar almacenamiento existente</strong> para el campo <strong>Cuenta de almacenamiento</strong> y no existen contenedores en esa cuenta, el contenedor se creará de forma predeterminada con el mismo nombre que el del clúster. Si ya existe un contenedor con el nombre del clúster, se anexará un número de secuencia al nombre del contenedor. Por ejemplo, mycontainer1, mycontainer2 y así sucesivamente. Sin embargo, si la cuenta de almacenamiento existente tiene un contenedor con un nombre diferente al del clúster especificado, también puede usar ese contenedor.</p>
+	        <p>Si eligió crear un almacenamiento nuevo o usar almacenamiento de otra suscripción de Azure, debe especificar el nombre del contenedor predeterminado.</p>
+	    </td></tr>
+		<tr><td>Cuentas de almacenamiento adicionales</td>
+			<td>Si es necesario, especifique cuentas de almacenamiento adicionales para el clúster. HDInsight admite varias cuentas de almacenamiento. No hay límite en el número de cuentas de almacenamiento adicionales que un clúster puede usar. No obstante, si crea un clúster mediante el Portal de Azure, tendrá un límite de siete debido a las restricciones de la interfaz de usuario. Por cada cuenta de almacenamiento adicional que especifique, se agregará una página <strong>Cuenta de almacenamiento</strong> adicional al asistente donde podrá especificar la información de la cuenta. Por ejemplo, en la captura de pantalla anterior, se selecciona una cuenta de almacenamiento adicional y, por tanto, se agrega una página adicional al asistente.</td></tr>
+	</table>
+
+	Haga clic en la flecha derecha.
 
 7. En la página **Acciones de scripts**, seleccione la marca de verificación en la esquina inferior derecha. No haga clic en el botón para **agregar acción de script**, ya que este tutorial no requiere una configuración de clúster personalizada.
 

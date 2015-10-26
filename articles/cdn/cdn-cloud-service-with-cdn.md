@@ -48,7 +48,9 @@ Este tutorial cuenta con los siguientes requisitos previos:
 -	Una [cuenta de Microsoft Azure activa](/account/)
 -	Visual Studio 2013 con el [SDK de Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
-> [AZURE.NOTE]Necesita una cuenta de Azure para completar este tutorial: + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Sitios web. + Puede [activar los beneficios de suscriptores de MSDN](/pricing/member-offers/msdn-benefits-details/): su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
+> [AZURE.NOTE]Necesita una cuenta de Azure para completar este tutorial:
+> + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Sitios web.
+> + Puede [activar los beneficios de suscriptores de MSDN](/pricing/member-offers/msdn-benefits-details/): su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
 
 <a name="deploy"></a>
 ## Implementación de un servicio en la nube con un extremo de red CDN integrado ##
@@ -198,7 +200,7 @@ Una vez realizado esto, todos los archivos estáticos del servicio en la nube ob
 	  </system.webServer>
 	</configuration>
 
-Esta configuración hace que todos los archivos estáticos de la carpeta *\\Content* se almacenen en la caché durante 15 días.
+Esta configuración hace que todos los archivos estáticos de la carpeta *\Content* se almacenen en la caché durante 15 días.
 
 Para obtener más información sobre cómo configurar el elemento `<clientCache>`, vea [Caché de cliente clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
 
@@ -217,7 +219,7 @@ Tiene una acción `Index` sencilla que permite a los clientes especificar los su
 
 Siga los pasos anteriores para configurar esta acción de controlador:
 
-1. En la carpeta *\\Controllers*, cree un nuevo archivo .cs llamado *MemeGeneratorController.cs* y sustituya el contenido por el siguiente código. Asegúrese de sustituir la parte resaltada por su nombre de red CDN.  
+1. En la carpeta *\Controllers*, cree un nuevo archivo .cs llamado *MemeGeneratorController.cs* y sustituya el contenido por el siguiente código. Asegúrese de sustituir la parte resaltada por su nombre de red CDN.  
 
 		using System;
 		using System.Collections.Generic;
@@ -323,7 +325,7 @@ Siga los pasos anteriores para configurar esta acción de controlador:
 
 	![](media/cdn-cloud-service-with-cdn/cdn-7-configureview.PNG)
 
-4. Abra el nuevo archivo *Views\\MemeGenerator\\Index.cshtml* y sustituya el contenido por el siguiente HTML simple para enviar los superlativos:
+4. Abra el nuevo archivo *Views\MemeGenerator\Index.cshtml* y sustituya el contenido por el siguiente HTML simple para enviar los superlativos:
 
 		<h2>Meme Generator</h2>
 		
@@ -398,7 +400,7 @@ En el proyecto **WebRole1** que creó en [Integración de un extremo de la red C
 		...
     }
 
-La primera instrucción `bundles.Add()` agrega un paquete de scripts en el directorio virtual `~/bundles/jquery`. A continuación, abra *Views\\Shared\_Layout.cshtml* para ver cómo se procesa la etiqueta del paquete de scripts. Encontrará la siguiente línea de código Razor:
+La primera instrucción `bundles.Add()` agrega un paquete de scripts en el directorio virtual `~/bundles/jquery`. A continuación, abra *Views\Shared_Layout.cshtml* para ver cómo se procesa la etiqueta del paquete de scripts. Encontrará la siguiente línea de código Razor:
 
     @Scripts.Render("~/bundles/jquery")
 
@@ -457,8 +459,8 @@ Siga estos pasos para la integración de la unión y minificación de ASP.NET co
 	
 	-	El origen de esta URL de red CDN es `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`, que es realmente el directorio virtual del paquete de scripts en su servicio en la nube.
 	-	Como está usando el constructor de red CDN, la etiqueta de script de red CDN del paquete ya no contiene la cadena de versión generada automáticamente en la URL procesada. Debe generar manualmente una cadena de versión única cada vez que se modifique el paquete de scripts con el fin de forzar un error de caché en la red CDN de Azure. Al mismo tiempo, esta cadena de versión única debe permanecer constante lo que dure la implementación para aumentar los aciertos de la caché en la red CDN de Azure después de implementarse el paquete.
-	-	La cadena de consulta v=<W.X.Y.Z> se extrae de *Properties\\AssemblyInfo.cs* en el proyecto de rol web. Puede tener un flujo de trabajo de implementación que incluya incrementar la versión de ensamblado cada vez que publica en Azure. O bien, puede modificar *Properties\\AssemblyInfo.cs* en su proyecto para incrementar automáticamente la cadena de versión cada vez que compila, mediante el carácter comodín '*'. Por ejemplo:
-
+	-	La cadena de consulta v=<W.X.Y.Z> se extrae de *Properties\AssemblyInfo.cs* en el proyecto de rol web. Puede tener un flujo de trabajo de implementación que incluya incrementar la versión de ensamblado cada vez que publica en Azure. O bien, puede modificar *Properties\AssemblyInfo.cs* en su proyecto para incrementar automáticamente la cadena de versión cada vez que compila, mediante el carácter comodín '*'. Por ejemplo:
+	
 			[assembly: AssemblyVersion("1.0.0.*")]
 	
 		Cualquier otra estrategia para optimizar la generación de una cadena única durante una implementación funcionará aquí.
@@ -553,9 +555,9 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 	
 	Sin embargo, existe una buena [solución de reserva de paquetes de estilo](https://github.com/EmberConsultingGroup/StyleBundleFallback) que ofrece [Ember Consulting Group](https://github.com/EmberConsultingGroup).
 
-2. Para usar la solución alternativa para CSS, cree un nuevo archivo .cs en la carpeta *App\_Start* del proyecto de rol web llamada *StyleBundleExtensions.cs*, y sustituya su contenido por el [código de GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
+2. Para usar la solución alternativa para CSS, cree un nuevo archivo .cs en la carpeta *App_Start* del proyecto de rol web llamada *StyleBundleExtensions.cs*, y sustituya su contenido por el [código de GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
 
-4. En *App\_Start\\StyleFundleExtensions.cs*, cambie el nombre del espacio de nombres por el nombre del rol web (por ejemplo, **WebRole1**).
+4. En *App_Start\StyleFundleExtensions.cs*, cambie el nombre del espacio de nombres por el nombre del rol web (por ejemplo, **WebRole1**).
 
 3. Vuelva a `App_Start\BundleConfig.cs` y modifique la última instrucción `bundles.Add` con el siguiente código resaltado:
 
@@ -609,7 +611,7 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 	Observe que el script inyectado para el paquete de CSS contiene aún el residuo errante de la propiedad `CdnFallbackExpression` en la línea:
 
-        }())||document.write('<script src="/Content/css"><\/script>');</script>
+        }())||document.write('<script src="/Content/css"></script>');</script>
 
 	Pero como la primera parte de la expresión || siempre devolverá true (en la línea directamente encima de esa), la función document.write() nunca se ejecutará.
 

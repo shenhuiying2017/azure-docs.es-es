@@ -88,10 +88,10 @@ Aquí configuraremos el middleware Express para usar el protocolo de autenticaci
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Add some logging
-var log = bunyan.createLogger({
-    name: 'Microsoft OIDC Example Web Application'
-});
+// Agregar registro 
+var log = bunyan.createLogger({ 
+	name: 'Microsoft OIDC Example Web Application' 
+}); 
 ```
 
 - Después, use la estrategia a la que acabamos de hacer referencia para administrar las solicitudes de inicio de sesión

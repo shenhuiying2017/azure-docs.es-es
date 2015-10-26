@@ -500,7 +500,9 @@ En este paso, descargará un archivo que contiene información acerca de su susc
 
 	Este comando inicia un explorador y se desplaza a la página de descarga. Si se le solicita, inicie sesión con la cuenta asociada a su suscripción de Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->La descarga del archivo se inicia automáticamente; si esto no ocurre, puede hacer clic en el vínculo al comienzo de la página para descargar el archivo manualmente. Guarde el archivo y anote la ruta de acceso del archivo.
+	<!-- ![The download page][download-publishing-settings] -->
+
+	La descarga del archivo debe iniciarse automáticamente; si esto no ocurre, puede hacer clic en el vínculo al comienzo de la página para descargar el archivo manualmente. Guarde el archivo y anote la ruta de acceso del archivo.
 
 2. Escriba el siguiente comando para importar la configuración.
 
@@ -520,7 +522,9 @@ En este paso, descargará un archivo que contiene información acerca de su susc
 
 	Se le pedirá que especifique el nombre de la aplicación web y la ubicación. Proporcione un nombre único y seleccione la misma ubicación geográfica que la cuenta de Almacenamiento de Azure.
 
-	El parámetro `--git` crea un repositorio Git en Azure para esta aplicación web. También inicializa un repositorio Git en el directorio actual si no existe y agrega un [Git remoto] denominado 'azure', que se usa para publicar la aplicación en Azure. Finalmente, crea un archivo **web.config**, que contiene la configuración usada por Azure para hospedar aplicaciones Node. Si se omite el parámetro `--git`, pero el directorio contiene un repositorio de Git, el comando creará el “azure” remoto.
+	El parámetro `--git` crea un repositorio Git en Azure para esta aplicación web. También inicializa un repositorio Git en el directorio actual si no existe y agrega un [Git remoto] denominado 'azure', que se usa para publicar la aplicación en Azure. Finalmente, crea un archivo **web.config**, que contiene la configuración usada por Azure para hospedar aplicaciones Node.
+
+	> [AZURE.NOTE]Si el directorio ya contiene un repositorio de Git, el comando no reinicializará el directorio. Si se omite el parámetro `--git`, pero el directorio contiene un repositorio de Git, el comando creará el 'azure' remoto.
 
 	Después de que este comando se haya completado, verá un resultado similar al siguiente. Observe que la línea que comienza por **Website created at** contiene la dirección URL de la aplicación web.
 

@@ -20,11 +20,11 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
+> [AZURE.NOTE]
+	Este artículo no trata de la implementación de la administración de registros, inicios de sesión y perfiles con Azure AD B2C. Se centra en la llamada a las API web después de que el usuario ya está autenticado.
+Si no lo ha hecho ya, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para obtener información sobre los conceptos básicos de Azure AD B2C.
 
-> [AZURE.NOTE]Este artículo no trata de la implementación de la administración de registros, inicios de sesión y perfiles con Azure AD B2C. Se centra en la llamada a las API web después de que el usuario ya está autenticado. Si no lo ha hecho ya, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para obtener información sobre los conceptos básicos de Azure AD B2C.
-
-
-> [AZURE.NOTE]Este ejemplo se escribió para estar conectados con nuestra [aplicación de ejemplo B2C para iOS.](active-directory-b2c-devquickstarts-ios.md) Primero realice este tutorial y luego continúe con ese ejemplo.
+> [AZURE.NOTE]	Este ejemplo se escribió para estar conectados con nuestra [aplicación de ejemplo B2C para iOS.](active-directory-b2c-devquickstarts-ios.md) Primero realice este tutorial y luego continúe con ese ejemplo.
 
 **Passport** es middleware de autenticación para Node.js. Muy flexible y modular, Passport puede pasar discretamente a cualquier aplicación web basada en Express o Restify. Un conjunto completo de estrategias admite la autenticación mediante un nombre de usuario y contraseña, Facebook, Twitter y mucho más. Hemos desarrollado una estrategia para Microsoft Azure Active Directory. Instalaremos este módulo y, luego, agregaremos el complemento `passport-azure-ad` de Microsoft Azure Active Directory.
 

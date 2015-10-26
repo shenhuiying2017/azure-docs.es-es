@@ -20,9 +20,13 @@
 
 Con el modelo de aplicaciones v2.0 puede agregar rápidamente la autenticación para sus aplicaciones web compatibles tanto con las cuentas personales de Microsoft como con las cuentas profesionales o educativas. En las aplicaciones web ASP.NET puede realizar esto con el OWIN middleware de Microsoft incluido en .NET Framework 4.5.
 
-  >[AZURE.NOTE]Esta información se aplica a la vista previa pública del modelo de aplicaciones v2.0. Para obtener instrucciones sobre cómo integrarse en el servicio de Azure AD, disponible con carácter general, consulte la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
+  >[AZURE.NOTE]
+	Esta información se aplica a la vista previa pública del modelo de aplicaciones v2.0. Para obtener instrucciones sobre cómo integrarse en el servicio de Azure AD, disponible con carácter general, consulte la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
 
- Aquí usaremos OWIN para: - Iniciar la sesión del usuario en la aplicación con Azure AD y el modelo de aplicaciones v2.0. -Mostrar alguna información sobre el usuario. - Cerrar la sesión del usuario en la aplicación.
+ Aquí usaremos OWIN para: 
+- Iniciar la sesión del usuario en la aplicación con Azure AD y el modelo de aplicaciones v2.0. 
+- Mostrar alguna información sobre el usuario. 
+- Cerrar la sesión del usuario en la aplicación.
 
 Para ello, deberá hacer lo siguiente:
 
@@ -203,6 +207,8 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 [Proteger una API web con el modelo de aplicaciones v2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Para obtener recursos adicionales, consulte: - [la vista previa del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) - [la etiqueta "azure-active-directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory).
+Para obtener recursos adicionales, consulte: 
+- [la vista previa del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) 
+- [la etiqueta "azure-active-directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 <!---HONumber=Oct15_HO3-->

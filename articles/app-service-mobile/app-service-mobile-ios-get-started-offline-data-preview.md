@@ -18,7 +18,9 @@
 
 # Activación de la sincronización sin conexión para la aplicación móvil iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 ## Información general
 
@@ -158,7 +160,9 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
     | id | Cadena, marcado obligatorio | primary key in remote store |
     | complete | Booleano | todo item field |
     | text | Cadena | todo item field |
-    | ms\_createdAt | Date | (opcional) maps to \_\_createdAt system property | | ms\_updatedAt | Date | (opcional) maps to \_\_updatedAt system property | | ms\_version | String | (opcional) used to detect conflicts, maps to \_\_version |
+    | ms\_createdAt | Date | (opcional) maps to \_\_createdAt system property | 
+	| ms\_updatedAt | Date | (opcional) maps to \_\_updatedAt system property | 
+	| ms\_version | String | (opcional) used to detect conflicts, maps to \_\_version |
 
 
 ## <a name="setup-sync"></a>Cambio del comportamiento de sincronización de la aplicación
@@ -222,14 +226,14 @@ Cuando quisimos sincronizar el almacén local con el servidor, usamos los métod
 
     Si desea cancelar la sincronización incremental, pase `nil` como identificador de consulta. En este caso, se recuperarán todos los registros en cada llamada a `pullWithQuery`, que es potencialmente ineficaz.
 
-<!-- * To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
+<!-- * Para quitar registros del almacén local del dispositivo cuando se han eliminado de la base de datos del servicio móvil, debe habilitar la [eliminación temporal]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
  -->
 
 ## Recursos adicionales
 
 * [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]
 
-* [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure] (nota: el vídeo trata sobre Servicios móviles, pero la sincronización sin conexión funciona de forma similar en Aplicaciones móviles de Azure)
+* [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure] \(nota: el vídeo trata sobre Servicios móviles, pero la sincronización sin conexión funciona de forma similar en Aplicaciones móviles de Azure)
 
 <!-- URLs. -->
 

@@ -67,7 +67,7 @@ Vamos a usar la API de Mapas de Bing para dos cosas.
 
 En este paso, usaremos la API DataFlow de Mapas de Bing para obtener las coordenadas geográficas de las direcciones de varias tiendas de bicicletas de todo el mundo.
 
-Estos datos provienen de un archivo CSV llamado store\_locations.csv que se encuentra en el origen que se descargó antes. Si abre este archivo en un editor de texto o en Excel, verá que tiene una columna de identificador para cada tienda, el nombre de la tienda y su dirección.
+Estos datos provienen de un archivo CSV llamado store_locations.csv que se encuentra en el origen que se descargó antes. Si abre este archivo en un editor de texto o en Excel, verá que tiene una columna de identificador para cada tienda, el nombre de la tienda y su dirección.
 
 Analicemos el código que explica cómo funciona esto.
 
@@ -75,13 +75,13 @@ Analicemos el código que explica cómo funciona esto.
 
 2. Vaya a la función **Main** y fíjese en que llama a **ApplyStoreData**. Pase a esta función y explore el código.
 
-3. **ApplyStoreData** carga datos de un archivo CSV llamado "store\_locations.csv" en una System.Data.DataTable.
+3. **ApplyStoreData** carga datos de un archivo CSV llamado "store_locations.csv" en una System.Data.DataTable.
 
     Este archivo contiene todas las tiendas, incluidas las direcciones que queremos cargar en Búsqueda de Azure. Al procesar una iteración en todas las filas del archivo, podemos crear un conjunto de **indexOperations** que luego se insertan en un índice de Búsqueda de Azure (creado anteriormente en la función **CreateStoresIndex()**).
 
     Si luego se fija en el índice, verá que el campo **GeoPt** que contendrá la longitud y la latitud de cada tienda está vacío. Esto nos lleva al paso siguiente de la función **Main**.
 
-5. Pase a la función **ExtractAddressInfoToXML()**. Esta función extrae la información de las direcciones del archivo store\_locations.csv y la carga en un archivo XML que tiene un formato que Mapas de Bing puede aceptar para obtener las coordenadas geográficas. Cuando se ha creado el archivo, se envía para su procesamiento a DataFlow de Mapas de Bing llamando a la función **GeoCoding.CreateJob**.
+5. Pase a la función **ExtractAddressInfoToXML()**. Esta función extrae la información de las direcciones del archivo store_locations.csv y la carga en un archivo XML que tiene un formato que Mapas de Bing puede aceptar para obtener las coordenadas geográficas. Cuando se ha creado el archivo, se envía para su procesamiento a DataFlow de Mapas de Bing llamando a la función **GeoCoding.CreateJob**.
 
 6. Como el proceso de obtención de coordenadas geográficas puede llevar tiempo, existe un bucle que llama a **GeoCoding.CheckStatus** cada 10 segundos para ver si se ha completado el trabajo. Una vez completado, los resultados se descargan llamando a **GeoCoding.DownloadResults** en una clase de direcciones.
 
@@ -127,8 +127,7 @@ El proyecto **AdventureWorksWebGeo** nos muestra cómo se puede usar ASP.NET MVC
 
 +	La función **Buscar** recupera las ubicaciones de las tiendas, que luego se reciben y agregan como marcadores en el Mapa de Bing.
 
-4.	Abra HomeController.cs en **Controladores** y fíjese en la función **Buscar**. Vea que hace una llamada a \_storeSearch.Search(lat, lon, 10000). Esto hará que se ejecute una consulta para buscar todas las tiendas que se encuentren a 10.000 km de la latitud (lat) y la longitud (lon) especificadas. Los resultados de esta consulta se procesan y luego se envían de vuelta a la vista índice para que se procesen como marcadores superpuestos en el mapa de Bing.
-
+4.	Abra HomeController.cs en **Controladores** y fíjese en la función **Buscar**. Vea que hace una llamada a _storeSearch.Search(lat, lon, 10000). Esto hará que se ejecute una consulta para buscar todas las tiendas que se encuentren a 10.000 km de la latitud (lat) y la longitud (lon) especificadas. Los resultados de esta consulta se procesan y luego se envían de vuelta a la vista índice para que se procesen como marcadores superpuestos en el Mapa de Bing.
 Con esto finaliza la demostración. Ya ha visto las operaciones principales que necesitará conocer para elaborar una aplicación de ASP.NET MVC4 basada en mapas usando Búsqueda de Azure.
 
 
