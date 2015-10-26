@@ -71,7 +71,7 @@ Después de obtener el espacio de nombres del servicio y las credenciales en el 
 	using System.Xml;
 	```
 
-1. Si fuera necesario, cambie el nombre del espacio de nombres del programa del valor predeterminado de Visual Studio a `Microsoft.ServiceBus.Samples`￼.
+1. Si fuera necesario, cambie el nombre del espacio de nombres del programa del valor predeterminado de Visual Studio a `Microsoft.ServiceBus.Samples`.
 
 1. En la clase `Program`, agregue las variables globales siguientes:
 	
