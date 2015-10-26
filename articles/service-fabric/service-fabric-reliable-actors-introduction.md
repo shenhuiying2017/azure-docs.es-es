@@ -198,4 +198,4 @@ Las devoluciones de llamada de temporizador se pueden marcar con el atributo `Re
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -114,4 +114,4 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 
 Como se indicó anteriormente, el método `UnregisterReminder` acepta una interfaz `IActorReminder`. La clase base del actor admite un método `GetReminder` que puede usarse para recuperar la interfaz `IActorReminder` pasándole el nombre del recordatorio. Esto resulta útil porque el actor no necesita conservar la interfaz `IActorReminder` que devuelve la llamada al método `RegisterReminder`.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

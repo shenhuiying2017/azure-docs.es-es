@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Copia de seguridad de Azure - Preguntas más frecuentes
 A continuación se muestra una lista de las preguntas más frecuentes acerca de la Copia de seguridad de Azure. Si tiene alguna pregunta adicional sobre Copia de seguridad de Azure, vaya al [foro de discusión](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) y publique sus preguntas. Alguien de nuestra comunidad le ayudará a obtener respuestas. Si una pregunta es frecuente, se agregará a este artículo para que se pueda encontrar de forma rápida y sencilla.
@@ -46,7 +46,7 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 
 **P9. ¿Cómo registro mi servidor en otro centro de datos?**<br/> R9. En general, los datos de copia de seguridad se envían al centro de datos del servicio de copia de seguridad en el que está registrado. La forma más sencilla de cambiar el centro de datos es desinstalar el agente y volver a instalarlo y registrarlo en un nuevo centro de datos.
 
-**P10. ¿Qué ocurre si cambio el nombre de un servidor de Windows de cuyos datos se está realizando una copia de seguridad en Azure?** <br/> R10. Las copias de seguridad configuradas actualmente se detendrán. Tendrá que volver a registrar el servidor con el almacén de copia de seguridad y Servicios de recuperación lo considerará un nuevo servidor, por lo que la primera operación de copia de seguridad que se produce después del registro será una copia de seguridad completa de todos los datos incluidos en la copia de seguridad, en lugar de solo los cambios desde la última copia de seguridad. Sin embargo, si necesita realizar una operación de recuperación, puede recuperar los datos de los que se ha hecho copia de seguridad mediante la recuperación desde otra opción de recuperación de servidores. Para más información, vea Cambiar nombre de un servidor.
+**P10. ¿Qué ocurre si cambio el nombre de un servidor de Windows de cuyos datos se está realizando una copia de seguridad en Azure?** <br/> R10. Las copias de seguridad configuradas actualmente se detendrán. Tendrá que volver a registrar el servidor con el almacén de copia de seguridad y se considerará un nuevo servidor de servicios de recuperación, por lo que la primera operación de copia de seguridad que se produce después del registro será una copia de seguridad completa de todos los datos incluidos en la copia de seguridad, en lugar de solo los cambios desde la última copia de seguridad. Sin embargo, si necesita realizar una operación de recuperación, puede recuperar los datos de los que se ha hecho copia de seguridad mediante la recuperación desde otra opción de recuperación de servidores.
 
 **P11. ¿Desde qué tipos de unidades puedo realizar copias de seguridad de archivos y carpetas?** <br/> R11. La copia de seguridad no se puede realizar del siguiente conjunto de unidades/volúmenes de disco:
 
@@ -99,10 +99,10 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 |S.No |	Sistema operativos |	Tamaño máximo del origen de datos |
 | :-------------: |:-------------| :-----|
 |1| Windows Server 2012 o superior| 54400 GB|
-|2| Windows Server 8 o superior| 54400 GB|
+|2| Windows 8 o superior| 54400 GB|
 |3| Windows Server 2008, Windows Server 2008 R2 | 1700 GB|
 |4| Windows 7 | 1700 GB|
- 
+
 El tamaño de origen de datos se mide según se menciona a continuación
 
 |	Origen de datos |	Detalles |
@@ -120,7 +120,7 @@ El tamaño de origen de datos se mide según se menciona a continuación
 
 **P4. ¿Hay alguna diferencia entre la directiva de retención de DPM y la de Copia de seguridad de Azure (es decir, en Windows Server sin DPM)?**<br/> R4. No, tienen las mismas capacidades. Puede especificar directivas de retención diaria, semanal, mensual y anual.
 
-**P5. ¿Puedo configurar de forma selectiva mis directivas de retención (es decir, configurar semanal y diariamente, pero no anual y mensualmente)?**<br/> R5. Tiene todo el conjunto de mecanismos para tener acceso a las directivas que mejor definen sus requisitos de cumplimiento y retención.
+**P5. ¿Puedo configurar de forma selectiva mis directivas de retención (es decir, configurar semanal y diariamente, pero no anual y mensualmente)?**<br/> R5. Sí, la estructura de retención de la Copia de seguridad de Azure permite tener una flexibilidad completa en la definición de la directiva de retención según sus requisitos.
 
 **P6. ¿Puedo "programar una copia de seguridad" a las 6 p.m. y especificar "directivas de retención" en un momento diferente?**<br/> R6. No. Las directivas de retención pueden aplicarse solo en puntos de copia de seguridad. En la imagen siguiente, la directiva de retención se especifica en las copias de seguridad realizadas a las 12:00 y las 18:00 horas. <br/>
 
@@ -175,4 +175,4 @@ El tamaño de origen de datos se mide según se menciona a continuación
 
 Una vez que las copias de seguridad se realizan correctamente con la nueva ubicación de caché, puede quitar la carpeta de la memoria caché original.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

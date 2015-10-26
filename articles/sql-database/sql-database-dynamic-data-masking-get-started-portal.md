@@ -100,4 +100,4 @@ Consulte [Cmdlets de Base de datos SQL de Azure](https://msdn.microsoft.com/libr
 
 Consulte [Operaciones para Bases de datos SQL de Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -83,4 +83,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Servicios móviles de Azure]: http://components.xamarin.com/view/azure-mobile-services/
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -34,7 +34,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 + Microsoft Visual Studio Express 2013 para Windows.
 
-+ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
++ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure￼</a>.
 
 ## Creación de un centro de eventos
 
@@ -119,4 +119,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [solución de mensajería en cola]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!-----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

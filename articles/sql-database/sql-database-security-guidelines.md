@@ -111,4 +111,4 @@ Tenga en cuenta los siguientes puntos para que las aplicaciones de Base de datos
 
 [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

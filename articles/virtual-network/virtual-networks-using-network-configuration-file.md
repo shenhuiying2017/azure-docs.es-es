@@ -48,4 +48,4 @@ Al exportar, todos los ajustes de las redes virtuales en su suscripción se escr
 3. En la página **Importar el archivo de configuración de red**, busque el archivo de configuración de red y, a continuación, haga clic en la flecha **Siguiente**.
 4. En la página **Creando su red**, verá información en pantalla que muestra las secciones de la configuración de red que cambiarán o se crearán. Si está de acuerdo con los cambios, haga clic en la marca de verificación para continuar con la actualización o la creación de la red virtual. 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

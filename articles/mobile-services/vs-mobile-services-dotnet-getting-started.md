@@ -85,4 +85,4 @@ Elimine una fila en la base de datos. El elemento de parámetro es el objeto Tod
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -88,9 +88,7 @@ Crea una solicitud "crear modelo".
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
-|	modelName |	Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_).<br>Longitud máxima: 20 |
-|	apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+|	modelName |	Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_).<br>Longitud máxima: 20 || apiVersion | 1.0 | | | Cuerpo de la solicitud | NONE |
 
 
 **Respuesta**:
@@ -202,8 +200,7 @@ Recupera todos los modelos del usuario actual.
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-|||
-| Cuerpo de la solicitud | NONE |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -258,7 +255,7 @@ OData XML
 		</entry>
 	</feed>
 
-###5.4. Actualizar modelo
+###5\.4. Actualizar modelo
 
 Puede actualizar la descripción del modelo o el Id. de compilación activa.<br> <ins>Id. de compilación activa</ins>: cada compilación para cada modelo tiene un Id. de compilación. El Id. de compilación activa es la primera compilación correcta de cada nuevo modelo. Una vez que tiene un Id. de compilación activa y realiza compilaciones adicionales para el mismo modelo, necesitará establecerlo explícitamente como el Id. de compilación predeterminado si lo desea. Cuando se usan recomendaciones, si no se especifica el Id. de compilación que desea usar, se utilizará automáticamente el predeterminado.<br> Este mecanismo le permite tener un modelo de recomendación en producción para compilar nuevos modelos y probarlos antes de promoverlos a producción.
 
@@ -270,9 +267,8 @@ Puede actualizar la descripción del modelo o el Id. de compilación activa.<br>
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	id | El identificador único del modelo (distingue mayúsculas de minúsculas) |
-|	apiVersion | 1.0 |
-||| 
-| Cuerpo de la solicitud | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Tenga en cuenta que Description y ActiveBuildId son opcionales. Si no desea establecer Description o ActiveBuildId, elimine la etiqueta entera.|
+|	apiVersion | 1\.0 |
+||| | Cuerpo de la solicitud | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Tenga en cuenta que Description y ActiveBuildId son opcionales. Si no desea establecer Description o ActiveBuildId, elimine la etiqueta entera.|
 
 **Respuesta**:
 
@@ -288,9 +284,8 @@ Elimina un modelo existente por el Id.
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	id |	El identificador único del modelo (distingue mayúsculas de minúsculas) |
-|	apiVersion | 1.0 |
-|||
-| Cuerpo de la solicitud | NONE |
+|	apiVersion | 1\.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -945,11 +940,7 @@ Nota: el tamaño máximo de archivo es de 200 MB.
 
 | Nombre | Obligatorio | Tipo | Descripción |
 |:---|:---|:---|:---|
-| Id. de elemento |Sí | [A-z], [a-z], [0-9], [\_] &#40;Carácter de subrayado&#41;, [-] &#40;Guion&#41;<br> Longitud máxima: 50 | Identificador único de un elemento. |
-| Nombre del elemento | Sí | Cualquier carácter alfanumérico<br> Longitud máxima: 255 | Nombre del elemento. | 
-| Categoría del elemento | Sí | Cualquier carácter alfanumérico <br> Longitud máxima: 255 | La categoría a la que pertenece este elemento (por ejemplo, Libros de cocina, Drama...); puede estar vacía. |
-| Descripción | No, a menos que haya características (pero puede estar vacía) | Cualquier carácter alfanumérico <br> Longitud máxima: 4000 | Descripción de este elemento. |
-| Lista de características | No | Cualquier carácter alfanumérico <br> Longitud máxima: 4000 | Lista separada de nombre de característica = valor de característica separados por coma que puede utilizarse para mejorar la recomendación del modelo; consulte la sección [Temas avanzados](#2-advanced-topics). |
+| Id. de elemento |Sí | [A-z], [a-z], [0-9], [\_] &#40;Carácter de subrayado&#41;, [-] &#40;Guión&#41;<br> Longitud máxima: 50 | Identificador único de un elemento. | | Nombre del elemento | Sí | Cualquier carácter alfanumérico<br> Longitud máxima: 255 | Nombre del elemento. | | Categoría de elemento | Sí | Cualquier carácter alfanumérico<br> Longitud máxima: 255 | Categoría a la que pertenece este elemento (por ejemplo, Libros de cocina, Arte dramático...); puede estar vacía. | | Descripción | No, a menos que las características estén presentes (pero pueden estar vacías) | Cualquier carácter alfanumérico<br> Longitud máxima: 4000 | Descripción de este elemento. | | Lista de características | No | Cualquier carácter alfanumérico<br> Longitud máxima: 4000 | Lista separada por comas de nombre de característica=valor de característica que puede usarse para mejorar la recomendación del modelo; vea la sección [Temas avanzados](#2-advanced-topics). |
 
 
 | Método HTTP | URI |
@@ -960,10 +951,7 @@ Nota: el tamaño máximo de archivo es de 200 MB.
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
-| filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y carácter de subrayado (\_).<br>Longitud máxima: 50 |
-|	apiVersion | 1.0 |
-||| 
-| Cuerpo de la solicitud | Ejemplo (con características):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+| filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_).<br>Longitud máxima: 50 | | apiVersion | 1.0 | ||| | Cuerpo de la solicitud | Ejemplo (con características):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **Respuesta**:
@@ -1162,9 +1150,7 @@ En esta sección se muestra cómo cargar datos de uso mediante un archivo. Puede
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
-| filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y carácter de subrayado (\_).<br>Longitud máxima: 50 |
-|	apiVersion | 1.0 |
-| Cuerpo de la solicitud | Datos de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nombre</th><th>Obligatorio</th><th>Tipo</th><th>Descripción</th></tr><tr><td>Id. de usuario</td><td>Sí</td><td>[a-z], [a-z], [0-9], [\_] & #40;Carácter de subrayado& #41; [-] & #40;Guion& #41;<br> Longitud máxima: 255 </td><td>Identificador único de un usuario.</td></tr><tr><td>Id. de elemento</td><td>Sí</td><td>[a-z], [a-z], [0-9], [& #95;] & #40;Carácter de subrayado& #41; [-] & #40;Guion& #41;<br> Longitud máxima: 50</td><td>Identificador único de un elemento.</td></tr><tr><td>Hora</td><td>No</td><td>Fecha con formato: AAAA/MM/DDTHH:MM:SS (p. ej., 2013/06/20T10:00:00)</td><td>Hora de datos.</td></tr><tr><td>Evento</td><td>No; si también se debe colocar la fecha proporcionada</td><td>Uno de los siguientes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamaño máximo de archivo: 200MB<br><br>Ejemplo:<br><pre>149452, 1b3d95e2 84e4 414c bb38 be9cf461c347<br>6360, 1b3d95e2 84e4 414c bb38 be9cf461c347<br>50321, 1b3d95e2 84e4 414c bb38 be9cf461c347<br>71285, 1b3d95e2 84e4 414c bb38 be9cf461c347<br>224450, 1b3d95e2 84e4 414c bb38 be9cf461c347<br>236645, 1b3d95e2 84e4 414c bb38 be9cf461c347<br>107951, 1b3d95e2 84e4 414c bb38 be9cf461c347</pre> |
+| filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_) (_).<br>Longitud máxima: 50 | | apiVersion | 1.0 | ||| | Cuerpo de la solicitud | Datos de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nombre</th><th>Obligatorio</th><th>Tipo</th><th>Descripción</th></tr><tr><td>Id. de usuario</td><td>Sí</td><td>[A-z], [a-z], [0-9], [_] &#40;Carácter de subrayado&#41;, [-] &#40;Guión&#41;<br> Longitud máxima: 255 </td><td>Identificador único de un usuario.</td></tr><tr><td>Id. de elemento</td><td>Sí</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Carácter de subrayado&#41;, [-] &#40;Guión&#41;<br> Longitud máxima: 50</td><td>Identificador único de un elemento.</td></tr><tr><td>Hora</td><td>No</td><td>Fecha con formato: AAAA/MM/DDTHH:MM:SS (por ejemplo. 2013/06/20T10:00:00)</td><td>Hora de datos.</td></tr><tr><td>Evento</td><td>No; también se debe indicar la fecha cuando se proporciona</td><td>Uno de los siguientes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamaño máximo de archivo: 200MB<br><br>Ejemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Respuesta**:
 
@@ -1835,8 +1821,7 @@ XML de OData
 | userDescription | Identificador textual del catálogo. Tenga en cuenta que si usa espacios debe codificarlo en su lugar con un 20 %. Vea el ejemplo anterior.<br>Longitud máxima: 50 |
 | buildType | Tipo de la compilación que se invocará: <br/> - 'Recomendación' para compilación de recomendación <br> - 'Rango' para compilación de rango <br/> - 'Fbt' para compilación FBT
 | apiVersion | 1\.0 |
-||| 
-| Cuerpo de la solicitud | Si se deja vacío, la compilación se ejecutará con los parámetros de compilación predeterminados.<br><br>Si desea establecer los parámetros de compilación, envíelos como XML en el cuerpo como en el ejemplo siguiente. (Consulte la sección "Parámetros de compilación" para obtener una explicación de los parámetros).`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
+||| | Cuerpo de la solicitud | Si se deja vacío, la compilación se ejecutará con los parámetros de compilación predeterminados.<br><br>Si desea establecer los parámetros de compilación, envíelos como XML en el cuerpo del mismo modo que en el ejemplo siguiente. (Vea la sección "Parámetros de compilación" para obtener una explicación de los parámetros).`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **Respuesta**:
 
@@ -2800,8 +2785,7 @@ Recupera todas las notificaciones para todos los modelos o para un solo modelo.
 |:--------			|:--------								|
 | modelId | Parámetro opcional. Cuando se omite, obtendrá todas las notificaciones para todos los modelos. <br>Valor válido: identificador único del modelo.|
 | apiVersion | 1\.0 |
-|||
-| Cuerpo de la solicitud | NONE |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta:**
 
@@ -2852,8 +2836,7 @@ Elimina todas las notificaciones de lectura para un modelo.
 |:--------			|:--------								|
 | modelId | Identificador único del modelo |
 | apiVersion | 1\.0 |
-|||
-| Cuerpo de la solicitud | NONE |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -2869,9 +2852,8 @@ Elimina todas las notificaciones para todos los modelos.
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
-| apiVersion | 1.0 |
-|||
-| Cuerpo de la solicitud | NONE |
+| apiVersion | 1\.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -2884,4 +2866,4 @@ código de estado HTTP: 200
 Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso.<br><br> Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse.<br><br> Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia.<br><br> © 2015 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

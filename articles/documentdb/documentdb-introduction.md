@@ -110,4 +110,4 @@ A continuación, cuando esté listo para obtener más información, visite nuest
 [1]: ./media/documentdb-introduction/resources1.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

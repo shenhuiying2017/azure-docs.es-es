@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Pasos siguientes para Azure Multi-Factor Authentication"
-	description="Esta es la página de Azure Multi-Factor Authentication que describe los pasos siguientes a realizar con MFA. Esto incluye informes, alertas de fraude, omisión por única vez, mensajes de voz personalizados, almacenamiento en caché, direcciones IP de confianza y contraseñas de aplicación."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Pasos siguientes para Azure Multi-Factor Authentication" 
+	description="Esta es la página de Azure Multi-Factor Authentication que describe los pasos siguientes a realizar con MFA. Esto incluye informes, alertas de fraude, omisión por única vez, mensajes de voz personalizados, almacenamiento en caché, direcciones IP de confianza y contraseñas de aplicación." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Configuración de Azure Multi-Factor Authentication
@@ -365,4 +365,4 @@ Para asegurarse de que se protegen las cuentas de usuario, debe restaurar Multi-
 <li>En la página Configuración del servicio, en administrar la configuración de dispositivo de usuario, seleccione o anule la selección de la opción para **permitir a los usuarios suspender la autenticación multifactor haciendo que se recuerde el dispositivo **.</li>
 ![Suspender dispositivos](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Establezca el número de días que desea permitir la suspensión. El valor predeterminado es 14 días.</li> <li>Haga clic en Guardar.</li> <li>Haga clic en Cerrar.</li>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

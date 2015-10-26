@@ -40,4 +40,4 @@ En esta sección vamos a modificar el modelo de nuestra base de datos mediante l
 
 A continuación, actualice la aplicación cliente para mostrar los datos nuevos de **CompleteDate**.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

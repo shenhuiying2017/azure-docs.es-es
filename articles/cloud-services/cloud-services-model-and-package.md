@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Qué es un modelo y un paquete de servicio en la nube en Azure"
+    pageTitle="Qué es un modelo y un paquete de servicio en la nube en Azure | Microsoft Azure"
     description="Describe el modelo (.csdef, .cscfg) y el paquete (.cspkg) de servicio en la nube en Azure"
     services="cloud-services"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/06/2015"
+    ms.date="10/09/2015"
     ms.author="adegeo"/>
 
 # ¿Qué es el modelo de servicio en la nube y cómo se empaqueta?
@@ -251,11 +251,7 @@ Donde las variables se definen como de la manera siguiente:
 
 Voy a crear un paquete de servicio en la nube y quiero...
 
-<!--
-* [Configure Sizes for Cloud Services](!!!!!https://msdn.microsoft.com/library/azure/ee814754.aspx)  
-* [Configure Local Storage Resources](!!!!!https://azure.microsoft.com/documentation/articles/cloud-services-configure-local-storage-resources/)
--->
-
+* [Configuración de recursos de almacenamiento local](cloud-services-configure-local-storage-resources.md)
 * [Configurar Escritorio remoto para una instancia de servicio en la nube][remotedesktop]
 * [Implementar un proyecto de servicio en la nube][deploy]
 
@@ -269,9 +265,9 @@ Estoy usando Visual Studio y quiero...
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/es-ES/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/es-ES/library/ee460772.aspx
+[vs_remote]: https://msdn.microsoft.com/library/gg443832.aspx
+[vs_deploy]: https://msdn.microsoft.com/library/ee460772.aspx
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/es-ES/library/ee405487.aspx
+[vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

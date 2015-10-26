@@ -144,4 +144,4 @@ La versión `2015-02-28` de la API responde a un Contrato de nivel de servicio (
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

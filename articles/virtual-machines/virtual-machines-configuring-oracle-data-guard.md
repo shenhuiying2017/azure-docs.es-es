@@ -16,7 +16,8 @@
 
 #Configuración de la protección de datos de Oracle para Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se describe la administración de un recurso creado con el modelo de implementación clásico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 En este tutorial se muestra cómo instalar e implementar la protección de datos de Oracle en un entorno de máquinas virtuales de Azure para obtener una alta disponibilidad y recuperación ante desastres. El tutorial se centra en la replicación unidireccional para bases de datos de Oracle distintas de RAC.
 
@@ -624,4 +625,4 @@ Es recomendable habilitar la base de datos flashback en las bases de datos princ
 ##Recursos adicionales
 [Imágenes de máquina virtual de Oracle para Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

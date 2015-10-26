@@ -46,4 +46,4 @@ El panel de acceso en Azure AD permite publicar aplicaciones locales en Azure AD
 1. Habilite el proxy de aplicación en Azure AD e instale y registre el conector. Para obtener instrucciones detalladas, consulte la página sobre cómo [habilitar el proxy de aplicación de Azure AD](active-directory-application-proxy-enable/#step-1-enable-application-proxy-in-azure-ad.md).
 2. Publique las aplicaciones mediante el proxy de aplicación de Azure AD. Para obtener instrucciones detalladas, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](active-directory-application-proxy-publish.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

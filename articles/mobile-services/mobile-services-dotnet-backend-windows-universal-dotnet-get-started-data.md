@@ -111,14 +111,14 @@ Este tutorial muestra los aspectos básicos de la habilitación de un proyecto d
 [Introducción a la autenticación]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Introducción a las notificaciones de inserción]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[Introducción a la sincronización de datos sin conexión]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[sitio de ejemplos de código para desarrolladores]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

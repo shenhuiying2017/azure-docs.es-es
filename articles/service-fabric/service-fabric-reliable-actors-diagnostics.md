@@ -155,4 +155,4 @@ El tiempo de ejecución de Actores confiables emite los siguientes eventos relac
 |ActorActivated|5|Informativo|0x1|Se activó un actor.|
 |ActorDeactivated|6|Informativo|0x1|Se desactivó un actor.|
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

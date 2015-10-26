@@ -16,4 +16,4 @@ Ahora ha configurado la aplicación y el servicio móvil para funcionar con su p
 
 > [AZURE.IMPORTANT]Compruebe que ha establecido el URI de redirección correcto en el sitio para desarrolladores del proveedor de identidades. Como se describe en las instrucciones vinculadas para cada proveedor anterior, el URI de redirección puede ser diferente para un servicio de back-end de .NET frente a un servicio de back-end de JavaScript. Es posible que un URI de redirección configurado incorrectamente en la pantalla de inicio de sesión no se muestre correctamente y que la aplicación funcione mal de maneras inesperadas.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

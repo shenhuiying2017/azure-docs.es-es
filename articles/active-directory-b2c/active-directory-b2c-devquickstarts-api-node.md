@@ -20,9 +20,9 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-> [AZURE.NOTE]
-	Este artículo no trata de la implementación de la administración de registros, inicios de sesión y perfiles con Azure AD B2C. Se centra en la llamada a las API web después de que el usuario ya está autenticado.
-Si no lo ha hecho ya, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para obtener información sobre los conceptos básicos de Azure AD B2C.
+
+> [AZURE.NOTE]Este artículo no trata de la implementación de la administración de registros, inicios de sesión y perfiles con Azure AD B2C. Se centra en la llamada a las API web después de que el usuario ya está autenticado. Si no lo ha hecho ya, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para obtener información sobre los conceptos básicos de Azure AD B2C.
+
 
 > [AZURE.NOTE]Este ejemplo se escribió para estar conectados con nuestra [aplicación de ejemplo B2C para iOS.](active-directory-b2c-devquickstarts-ios.md) Primero realice este tutorial y luego continúe con ese ejemplo.
 
@@ -36,37 +36,31 @@ Para llevar a cabo esta tarea, deberá hacer lo siguiente:
 
 El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs). Para continuar, puede [descargar el esqueleto de la aplicación como un archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/skeleton.zip) o clonar el esqueleto:
 
-```
-git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
-```
+```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
 
 La aplicación completa se ofrece también al final de este tutorial.
 
-> [AZURE.WARNING] 	Para nuestra vista previa de B2C debe usar el mismo identificador de aplicación o de cliente, así como directivas tanto para el servidor de tareas de API web como para el cliente que se conecta a él. Esto se aplica a nuestros tutoriales de iOS y Android. Si previamente ha creado una aplicación en cualquiera de estos tutoriales, use los valores siguientes en lugar de crear otros nuevos.
+> [AZURE.WARNING]Para nuestra vista previa de B2C debe usar el mismo identificador de aplicación o de cliente, así como directivas tanto para el servidor de tareas de API web como para el cliente que se conecta a él. Esto se aplica a nuestros tutoriales de iOS y Android. Si previamente ha creado una aplicación en cualquiera de estos tutoriales, use los valores siguientes en lugar de crear otros nuevos.
 
 
-## 1. Obtener un directorio de Azure AD B2C
+## 1\. Obtener un directorio de Azure AD B2C
 
-Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directorio es un contenedor para todos los usuarios, aplicaciones, grupos, etc. Si no tiene uno 
-todavía, vaya a [crear un directorio de B2C](active-directory-b2c-get-started.md) antes de continuar.
+Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directorio es un contenedor para todos los usuarios, aplicaciones, grupos, etc. Si no tiene uno todavía, vaya a [crear un directorio de B2C](active-directory-b2c-get-started.md) antes de continuar.
 
-## 2. Creación de una aplicación
+## 2\. Creación de una aplicación
 
-Ahora debe crear una aplicación en su directorio de B2C, que ofrece a Azure AD información que necesita para comunicarse de forma segura con su aplicación. Tanto la aplicación cliente como la API web se representarán mediante un **identificador de aplicación** único en este caso, ya que conforman una aplicación lógica. Para crear una aplicación, 
-siga [estas instrucciones](active-directory-b2c-app-registration.md). Asegúrese de
+Ahora debe crear una aplicación en su directorio de B2C, que ofrece a Azure AD información que necesita para comunicarse de forma segura con su aplicación. Tanto la aplicación cliente como la API web se representarán mediante un **identificador de aplicación** único en este caso, ya que conforman una aplicación lógica. Para crear una aplicación, siga [estas instrucciones](active-directory-b2c-app-registration.md). Asegúrese de
 
 - Incluir una **aplicación web/API web** en la aplicación.
 - Escribir `http://localhost/TodoListService` como **dirección URL de respuesta**: es la dirección URL predeterminada para este ejemplo de código.
-- Crear un **secreto de aplicación ** para la aplicación y copiarlo. Lo necesitará en breve.
-- Escribir el **identificador de aplicación** asignado a la aplicación. También lo necesitará en breve.
+- Crear un **Secreto de aplicación ** para la aplicación y copiarlo. Lo necesitará en breve.
+- Escribir el **Id. de aplicación** asignado a la aplicación. También lo necesitará en breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## 3. Crear sus directivas
+## 3\. Crear sus directivas
 
-En Azure AD B2C, cada experiencia del usuario se define mediante una 
-[**directiva**](active-directory-b2c-reference-policies.md). Esta aplicación contiene tres experiencias de identidad: registro, inicio de sesión e inicio de sesión con Facebook. Debe crear una directiva de cada tipo, como se describe en el 
-[artículo de referencia de directiva](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Al crear sus tres directivas, asegúrese de:
+En Azure AD B2C, cada experiencia del usuario se define mediante una [**directiva**](active-directory-b2c-reference-policies.md). Esta aplicación contiene tres experiencias de identidad: registro, inicio de sesión e inicio de sesión con Facebook. Debe crear una directiva de cada tipo, como se describe en el [artículo de referencia de directiva](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Al crear sus tres directivas, asegúrese de:
 
 - Seleccionar **Nombre para mostrar** y algunos otros atributos de registro en la directiva de registro.
 - Elegir las notificaciones de aplicación **Nombre para mostrar** e **Id. de objeto** en todas las directivas. Puede elegir también otras notificaciones.
@@ -89,7 +83,7 @@ Para usar correctamente este ejemplo, debe disponer de una instalación en funci
 
 Instale MongoDB desde [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE] En este tutorial se asume que usa la instalación predeterminada y los extremos de servidor de MongoDB, que en el momento de escribir este artículo es: mongodb://localhost
+> [AZURE.NOTE]En este tutorial se asume que usa la instalación predeterminada y los extremos de servidor de MongoDB, que en el momento de escribir este artículo es: mongodb://localhost.
 
 ## Paso 6: Instalación de los módulos Restify en su API web
 
@@ -884,9 +878,7 @@ Si solo buscaba información sobre cómo implementar una API de REST mediante Re
 
 Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se proporciona en forma de archivo .zip aquí](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip), aunque también puede clonarlo desde GitHub:
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
 
 
 ## Pasos siguientes
@@ -895,4 +887,4 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 [Conexión a una API web mediante iOS con B2C >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

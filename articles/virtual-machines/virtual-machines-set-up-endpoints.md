@@ -96,4 +96,4 @@ Para usar un cmdlet de Azure PowerShell para configurar esto, consulte [Administ
 
 [Equilibrio de carga para servicios de infraestructura de Azure](virtual-machines-load-balance.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -207,9 +207,9 @@ Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportar
 <!--Link references-->
 
 [alerts]: app-insights-alerts.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [track]: app-insights-api-custom-events-metrics.md
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

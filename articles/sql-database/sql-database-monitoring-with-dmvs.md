@@ -33,9 +33,7 @@ Para obtener información detallada sobre las vistas de administración dinámic
 
 En Base de datos SQL, para realizar consultas en una vista de administración dinámica se requiere disponer de permisos **VIEW DATABASE STATE**. El permiso **VIEW DATABASE STATE** devuelve información sobre todos los objetos de la base de datos actual. Para conceder el permiso **VIEW DATABASE STATE** a un usuario de base de datos en concreto, ejecute la consulta siguiente:
 
-```
-GRANT VIEW DATABASE STATE TO database_user;
-```
+```GRANT VIEW DATABASE STATE TO database_user; ```
 
 En una instancia de SQL Server local, las vistas de administración dinámica devuelven la información de estado del servidor. En Base de datos SQL, devuelven información relativa únicamente a la base de datos lógica actual.
 
@@ -44,9 +42,9 @@ En una instancia de SQL Server local, las vistas de administración dinámica de
 La siguiente consulta devuelve el tamaño de la base de datos en megabytes:
 
 ```
--- Calcula el tamaño de la base de datos. SELECT 
-SUM(reserved\_page\_count)*8.0/1024
-FROM sys.dm\_db\_partition\_stats; 
+-- Calculates the size of the database. 
+SELECT SUM(reserved_page_count)*8.0/1024
+FROM sys.dm_db_partition_stats; 
 GO
 ```
 
@@ -107,11 +105,11 @@ ORDER BY 2 DESC;
 
 ### Supervisión de consultas bloqueadas
 
-Las consultas lentas o de larga ejecución pueden contribuir al consumo excesivo de recursos y ser la consecuencia de consultas bloqueadas. La causa del bloqueo puede ser un diseño deficiente de las aplicaciones, los planes de consulta incorrectos, la falta de índices útiles, etc. Puede usar la vista sys.dm\_tran\_locks para obtener información sobre la actividad de bloqueo actual en el servidor de Base de datos SQL de Azure. Para obtener un ejemplo de código, vea [sys.dm\_tran\_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) en los libros en pantalla de SQL Server.
+Las consultas lentas o de larga ejecución pueden contribuir al consumo excesivo de recursos y ser la consecuencia de consultas bloqueadas. La causa del bloqueo puede ser un diseño deficiente de las aplicaciones, los planes de consulta incorrectos, la falta de índices útiles, etc. Puede usar la vista sys.dm\_tran\_locks para obtener información sobre la actividad de bloqueo actual en el servidor de Base de datos SQL de Azure. Para obtener un ejemplo de código, consulte [sys.dm\_tran\_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) en los Libros en pantalla de SQL Server.
 
 ### Supervisión de planes de consulta
 
-Un plan de consulta ineficaz también puede aumentar el consumo de CPU. En el ejemplo siguiente se usa la vista [sys.dm\_exec\_query\_stats](https://msdn.microsoft.com/library/ms189741.aspx) para determinar qué consulta emplea la mayor cantidad acumulativa de CPU.
+Un plan de consulta ineficaz también puede aumentar el consumo de CPU. En el ejemplo siguiente, se usa la vista [sys.dm\_exec\_query\_stats](https://msdn.microsoft.com/library/ms189741.aspx) para determinar qué consulta emplea la mayor cantidad acumulativa de CPU.
 
 ```
 SELECT 
@@ -137,4 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [Introducción a Base de datos SQL](sql-database-technical-overview.md)
 
-<!------HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

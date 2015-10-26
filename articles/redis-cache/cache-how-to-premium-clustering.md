@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="10/09/2015" 
 	ms.author="sdanie"/>
 
 # Cómo configurar la agrupación en clústeres de Redis para una Caché en Redis de Azure Premium
@@ -97,7 +97,7 @@ Puede conectarse a su memoria caché con los mismos [extremos, puertos y claves]
 
 ## ¿Puedo conectarme directamente a las particiones individuales de mi memoria caché?
 
-Esto no se admite oficialmente. Dicho esto, cada partición consta de un par de caché principal/réplica que se conoce colectivamente como una instancia de caché. Puede conectarse a estas instancias de caché mediante redis-cli.exe usando el siguiente patrón.
+Esto no se admite oficialmente. Dicho esto, cada partición consta de un par de caché principal/réplica que se conoce colectivamente como una instancia de caché. Puede conectarse a estas instancias de caché mediante la utilidad redis-cli en la rama [inestable](http://redis.io/download) del repositorio de Redis en GitHub. Esta versión implementa compatibilidad básica cuando se inicia con el conmutador `-c`. Para obtener más información, vea [Jugar con el clúster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) en [http://redis.io](http://redis.io) en el [tutorial del clúster de Redis](http://redis.io/topics/cluster-tutorial).
 
 Cuando no sea ssl, use los siguientes comandos:
 
@@ -120,7 +120,7 @@ La agrupación en clústeres solo está disponible para las memorias cachés pre
 ## ¿Puedo usar la agrupación en clústeres con los proveedores de estado de sesión y de almacenamiento en caché de salida de ASP.NET de Redis?.
 
 -	**Proveedor de caché de salida de Redis**: no se requieren cambios.
--	**Proveedor de estado de sesión de Redis** : para usar la agrupación en clústeres, debe usar [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.0 o superior o se iniciará una excepción. Esto es un cambio brusco; para obtener más información, consulte [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details) (Detalles de cambios bruscos de v2.0.0).
+-	**Proveedor de estado de sesión de Redis**: para usar la agrupación en clústeres, debe usar [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.0 o superior o se iniciará una excepción. Esto es un cambio brusco; para obtener más información, consulte [Detalles de cambios bruscos de v2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 ## Pasos siguientes
 Obtenga información acerca de cómo usar más características de la memoria caché del nivel Premium.
@@ -146,4 +146,4 @@ Obtenga información acerca de cómo usar más características de la memoria ca
 
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

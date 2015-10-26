@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr"/>
+	ms.author="MehrdadMzfr" />
 
 #Procedimientos de actualización
 
@@ -72,4 +72,4 @@ Ejemplos:
 -   La clase `CapptainUtils` cambia su nombre a `EngagementUtils`.
 -   La clase `CapptainViewController` cambia su nombre a `EngagementViewController`.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

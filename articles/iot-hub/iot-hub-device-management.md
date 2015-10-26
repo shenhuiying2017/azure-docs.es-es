@@ -1,8 +1,8 @@
 <properties
- pageTitle="Administración de dispositivos IoT | Microsoft Azure"
- description="Una descripción general de la administración de dispositivos con Centro de IoT de Azure"
+ pageTitle="Administrar sus dispositivos de IoT | Microsoft Azure"
+ description="Visión general del uso del Centro de IoT y el Conjunto de IoT para administrar sus dispositivos IoT"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="juanjperez"
  manager="timlt"
  editor=""/>
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="juanpere"/>
 
@@ -118,4 +118,4 @@ Se puede entregar el paquete de actualización a través de un servicio de almac
 
 Después de completar una actualización del firmware, el dispositivo debe poder comprobar e identificar un estado correcto. Si el dispositivo no alcanzó ese estado correcto, el software del dispositivo debe iniciar una reversión hasta un estado válido conocido. El estado correcto conocido puede ser el último conocido o una imagen de firmware del dispositivo a la que se conoce como "estado dorado" que se guarda en una partición de almacenamiento.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

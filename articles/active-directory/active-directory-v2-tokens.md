@@ -163,4 +163,4 @@ Las siguientes vigencias de tokens solo se ofrecen para tu conocimiento, ya que 
 | Códigos de autorización (cuentas profesionales o educativas) | 10 minutos | Los códigos de autorización son de corta duración a propósito y se deben canjear inmediatamente por access\_tokens y refresh\_tokens cuando se reciben. |
 | Códigos de autorización (cuentas personales) | 5 minutos | Los códigos de autorización son de corta duración a propósito y se deben canjear inmediatamente por access\_tokens y refresh\_tokens cuando se reciben. Los códigos de autorización emitidos en nombre de las cuentas personales también son de un solo uso. |
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

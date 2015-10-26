@@ -19,7 +19,8 @@
 
 # Información general sobre SQL Server en máquinas virtuales de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 ## Introducción
 Puede hospedar [SQL Server en Máquinas virtuales Azure](http://azure.microsoft.com/services/virtual-machines/sql-server/) en una variedad de configuraciones, que van desde un servidor de base de datos única para una configuración de varios equipo mediante grupos de disponibilidad AlwaysOn y red Virtual de Azure.
@@ -150,4 +151,4 @@ Si crea una máquina virtual mediante una imagen de SQL Server ofrecida por la p
 - [Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Máquinas virtuales de Azure](virtual-machines-about.md) 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

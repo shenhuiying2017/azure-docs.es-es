@@ -19,7 +19,8 @@
 
 # Solución de problemas de los errores de la extensión de máquina virtual de Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+
 
 ## Información general de las plantillas del Administrador de recursos de Azure
 
@@ -84,4 +85,4 @@ Donde "publisher-name" se corresponde con el tipo de extensión de la salida de 
 
 Cuando se ha quitado la extensión, la plantilla puede volver a ejecutarse para ejecutar los scripts en la máquina virtual.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,1 +1,3 @@
-> [AZURE.NOTE] Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using both models, but Microsoft recommends that most new deployments use the Resource Manager model.
+> [AZURE.NOTE]Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../resource-manager-deployment-model.md). En este artículo se trata el uso de ambos modelos, pero Microsoft recomienda que la mayoría de las nuevas implementaciones usen el modelo del Administrador de recursos.
+
+<!---HONumber=Oct15_HO3-->

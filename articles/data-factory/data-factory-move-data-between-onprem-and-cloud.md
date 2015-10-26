@@ -578,4 +578,4 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

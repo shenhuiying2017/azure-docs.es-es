@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Incorporación de recursos a un grupo de recursos de Azure"
-	description="Obtenga información sobre cómo agregar recursos a un grupo de recursos de Azure mediante Visual Studio."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="Obtenga información sobre cómo agregar recursos a un grupo de recursos de Azure mediante Visual Studio."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags 
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # Incorporación de recursos a un grupo de recursos de Azure
 
@@ -61,4 +61,4 @@ Si necesita agregar más recursos a un grupo de recursos, puede hacerlo en la ve
 
 [Vídeo de Channel9: Administrador de recursos de Azure](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

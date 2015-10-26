@@ -308,4 +308,4 @@ Cuando haya devuelto los blobs a las bases de datos de contenido de SQL Server, 
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/es-ES/library/ff943565.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

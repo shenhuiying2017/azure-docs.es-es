@@ -96,8 +96,7 @@ Para más información sobre el acceso a un servicio web de Aprendizaje automát
 
 En el Portal de administración de Azure, puede administrar los servicios web haciendo clic en el servicio **Aprendizaje automático**, abriendo el área de trabajo de Aprendizaje automático y, a continuación, abriendo el servicio web desde la pestaña **SERVICIOS WEB**. Desde esta página, puede supervisar el servicio web, actualizarlo y eliminarlo. También puede agregar un segundo extremo para el servicio web además del extremo predeterminado que se crea cuando se publica.
 
-Para más información, vea [Administrar un área de trabajo de Aprendizaje automático de Azure](machine-learning-manage-workspace.md).
-<!-- When this article gets published, fix the link and uncomment
+Para más información, vea [Administrar un área de trabajo de Aprendizaje automático de Azure](machine-learning-manage-workspace.md). <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 
@@ -112,4 +111,4 @@ Para actualizar el servicio web, abra el experimento predictivo original que us�
 
 Una opción para actualizar el servicio web es volver a entrenar el modelo mediante programación. Para obtener más información, consulte [Volver a entrenar modelos de aprendizaje automático mediante programación](machine-learning-retrain-models-programmatically.md).
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -384,4 +384,4 @@ En este tutorial, ha aprendido a aprovisionar un clúster de HBase. Para obtener
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

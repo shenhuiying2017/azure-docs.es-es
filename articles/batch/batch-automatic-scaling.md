@@ -612,4 +612,4 @@ Otro ejemplo que ajusta el tamaño del grupo en función del número de tareas, 
         * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx): este cmdlet de PowerShell obtiene el archivo RDP del nodo de ejecución especificado y lo guarda en la ubicación del archivo especificada o en un flujo.
 2.	Algunas aplicaciones generan grandes cantidades de datos que pueden ser difíciles de procesar. Una manera de resolverlo es a través de [consultas de lista eficaces](batch-efficient-list-queries.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

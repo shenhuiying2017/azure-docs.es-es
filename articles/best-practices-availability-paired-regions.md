@@ -84,4 +84,4 @@ Como se indica en la ilustración 2.
 
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **Residencia de datos**: una región reside dentro de la misma ubicación geográfica que su pareja (a excepción del Sur de Brasil) con el objeto de cumplir los requisitos de residencia de datos para fines de jurisdicción de impuestos y aplicación de la ley.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

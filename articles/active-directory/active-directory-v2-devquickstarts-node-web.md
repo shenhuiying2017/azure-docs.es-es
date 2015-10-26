@@ -43,14 +43,14 @@ El código de este tutorial se mantiene [en GitHub](https://github.com/AzureADQu
 
 La aplicación completa se ofrece también al final de este tutorial.
 
-## 1. Registrar una aplicación
-Crea una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md).  Asegúrese de que:
+## 1\. Registrar una aplicación
+Cree una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md). Asegúrese de que:
 
-- Copia el **Id. de aplicación** asignado a la aplicación, lo necesitará pronto.
-- Agrega la plataforma **web** para su aplicación.
-- Escribe el **URI de redireccionamiento** correcto. El uri de redirección indica a Azure AD a dónde se deben dirigir las respuestas de autenticación: el valor predeterminado para este tutorial es `http://localhost:3000/auth/openid/return`.
+- Anotar el **Id. de aplicación** asignado a su aplicación; lo necesitará pronto.
+- Agregar la plataforma **web** para su aplicación.
+- Escribir el **URI de redireccionamiento** correcto. El identificador URI de redirección indica a Azure AD a dónde se deben dirigir las respuestas de autenticación; el valor predeterminado para este tutorial es `http://localhost:3000/auth/openid/return`.
 
-## 2. Incorporación de requisitos previos al directorio
+## 2\. Incorporación de requisitos previos al directorio
 
 En la línea de comandos, cambie los directorios a la carpeta raíz si aún no está ahí y ejecute los siguientes comandos:
 
@@ -74,24 +74,24 @@ En la línea de comandos, cambie los directorios a la carpeta raíz si aún no e
 
 Esto instalará las bibliotecas de las que depende passport-azure-ad.
 
-## 3. Configuración de la aplicación para que use la estrategia passport-node-js
-Aquí configuraremos el middleware Express para usar el protocolo de autenticación OpenID Connect.  Passport se usará para emitir solicitudes de inicio y cierre de sesión, administrar la sesión del usuario y obtener información sobre el usuario, entre otras cosas.
+## 3\. Configuración de la aplicación para que use la estrategia passport-node-js
+Aquí configuraremos el middleware Express para usar el protocolo de autenticación OpenID Connect. Passport se usará para emitir solicitudes de inicio y cierre de sesión, administrar la sesión del usuario y obtener información sobre el usuario, entre otras cosas.
 
--	Para comenzar, abra el archivo `config.js` en la raíz del proyecto e introduzca los valores de configuración de la aplicación en la sección `exports.creds`.
-    -	El `clientID:` es el **Id. de aplicación** asignado a lsu aplicación en el portal de registro.
-    -	El `returnURL` es el **uri de redireccionamiento** que escribió en el portal.
+-	Para comenzar, abra el archivo `config.js` en la raíz del proyecto y escriba los valores de configuración de la aplicación en la sección `exports.creds`.
+    -	El `clientID:` es el **identificador de aplicación** asignado a su aplicación en el portal de registro.
+    -	El `returnURL` es el **identificador URI de redireccionamiento** que escribió en el portal.
     - `clientSecret` es el secreto generado en el portal.
 
-- Abra `app.js` en la raíz del proyecto y agregue la llamada siguiente para invocar la estrategia `OIDCStrategy` que viene con `passport-azure-ad`.
+- Después, abra `app.js` en la raíz del proyecto y agregue la llamada siguiente para invocar la estrategia `OIDCStrategy` que viene con `passport-azure-ad`.
 
 
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Agregar registro 
-var log = bunyan.createLogger({ 
-	name: 'Microsoft OIDC Example Web Application' 
-}); 
+// Add some logging
+var log = bunyan.createLogger({
+    name: 'Microsoft OIDC Example Web Application'
+});
 ```
 
 - Después, use la estrategia a la que acabamos de hacer referencia para administrar las solicitudes de inicio de sesión
@@ -248,9 +248,9 @@ app.post('/auth/openid/return',
 
 ## 4\. Uso de Passport para emitir solicitudes de inicio y cierre de sesión en Azure AD
 
-La aplicación ya está configurada correctamente para comunicarse con el extremo v2.0 mediante el protocolo de autenticación OpenID Connect. `passport-azure-ad` se ha ocupado de todos los detalles poco atractivos de la elaboración de mensajes de autenticación, validación de tokens de Azure AD y mantenimiento de la sesión del usuario. Ya solo falta ofrecer a los usuarios una forma de iniciar sesión, cerrar sesión y recopilar información adicional sobre el usuario con la sesión iniciada.
+La aplicación ya está configurada correctamente para comunicarse con el punto de conexión v2.0 mediante el protocolo de autenticación OpenID Connect. `passport-azure-ad` se ha ocupado de todos los detalles poco atractivos de la elaboración de mensajes de autenticación, validación de tokens de Azure AD y mantenimiento de la sesión del usuario. Ya solo falta ofrecer a los usuarios una forma de iniciar sesión, cerrar sesión y recopilar información adicional sobre el usuario con la sesión iniciada.
 
-- En primer lugar, se agregan los métodos predeterminado, de inicio de sesión, de cuenta y de cierre de sesión al archivo `app.js`:
+- En primer lugar, se agregan el método predeterminado, el de inicio de sesión, el de cuenta y el de cierre de sesión al archivo `app.js`:
 
 ```JavaScript
 
@@ -281,7 +281,7 @@ app.get('/logout', function(req, res){
 -	Analicemos esto con detalle:
     -	La ruta `/` realizará la redirección a la vista index.ejs pasando el usuario en la solicitud (si existe).
     - La ruta `/account` primero ***se asegurará de que estamos autenticados*** (lo que se implementará a continuación) y, seguidamente, pasará el usuario en la solicitud para que podamos obtener información adicional sobre él.
-    - La ruta `/login` llamará al autenticador azuread-openidconnect desde `passport-azuread` y, si esto no produce un resultado satisfactorio, redirigirá el usuario a /login.
+    - La ruta `/login` llamará al autenticador azuread-openidconnect desde `passport-azuread` y, si no tiene éxito, redirigirá al usuario a /login.
     - `/logout` simplemente llamará a logout.ejs (y a la ruta), que borra las cookies y devuelve el usuario a index.ejs.
 
 
@@ -419,6 +419,6 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 [Proteger una API web con el modelo de aplicaciones v2.0 en Node.js >>](active-directory-v2-devquickstarts-webapi-nodejs.md)
 
-Para obtener recursos adicionales, consulte: - [Versión preliminar del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) - [Etiqueta "azure-active-directory" en StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Para obtener recursos adicionales, consulte: - [la vista previa del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) - [la etiqueta "azure-active-directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory).
 
-<!-----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

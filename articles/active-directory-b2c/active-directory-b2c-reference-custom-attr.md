@@ -46,4 +46,4 @@ El atributo personalizado ahora está disponible en la lista de **Atributos de u
 
 Puede usar la característica "Ejecutar ahora" en la directiva para comprobar la experiencia del consumidor. Ahora debe ver "ShoeSize" en la lista de atributos que se recopilan durante el registro del consumidor y en el token enviado de vuelta a la aplicación.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

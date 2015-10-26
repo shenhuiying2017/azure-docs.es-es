@@ -36,8 +36,7 @@ Para completar este tutorial, ya debe haber creado un servicio móvil tras compl
 
 	Los pasos requeridos para instalar Git varían según los sistemas operativos. Consulte [Installing Git] para obtener una guía sobre la instalación y las distribuciones específicas del sistema operativo.
 
-	> [AZURE.NOTE]
-	> Algunos sistemas operativos disponen de versiones de Git en línea de comandos y de GUI. Las instrucciones proporcionadas en este artículo utilizan la versión en línea de comandos.
+	> [AZURE.NOTE]Algunos sistemas operativos disponen de versiones de Git en línea de comandos y de GUI. Las instrucciones proporcionadas en este artículo utilizan la versión en línea de comandos.
 
 2. Abra una línea de comandos, como **GitBash** (Windows) o **Bash** (shell de Unix). En los sistemas OS X puede tener acceso a la línea de comandos mediante la aplicación **Terminal**.
 
@@ -100,4 +99,4 @@ Ahora, el proyecto de servicio móvil se mantiene en el control de código fuent
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Modificación del modelo de datos de un servicio móvil back-end de .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

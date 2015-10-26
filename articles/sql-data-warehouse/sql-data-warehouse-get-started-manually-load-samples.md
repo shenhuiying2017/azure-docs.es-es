@@ -83,4 +83,4 @@ Ahora que le hemos dado algún tiempo para */*entusiasmarse con los datos de eje
 <!--Other Web references-->
 [Scripts de datos de ejemplo]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

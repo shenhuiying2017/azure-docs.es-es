@@ -351,4 +351,4 @@ Para que un administrador de la compañía quite el acceso de una aplicación a 
 
 - Visite la [Guía del desarrollador de Active Directory](active-directory-developer's guide.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -18,7 +18,8 @@
 #Creación de una máquina virtual Oracle WebLogic Server 12c en Azure
 En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada en una imagen Oracle WebLogic Server 12c que se ejecuta en Microsoft con Windows Server 2012 en Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se describe la creación de un servidor Oracle WebLogic Server con el modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+
 
 
 ##Para crear una máquina virtual Oracle WebLogic Server 12c en Azure
@@ -186,4 +187,4 @@ Ahora que ha configurado la máquina virtual que se está ejecutando en el Oracl
 
 -	[Imágenes de máquina virtual de Oracle para Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

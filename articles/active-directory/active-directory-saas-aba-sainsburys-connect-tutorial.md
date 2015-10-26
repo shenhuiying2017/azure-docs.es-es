@@ -68,7 +68,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
     ![Configurar las opciones de la aplicación](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807728.png "Configurar las opciones de la aplicación")
 
     1.  En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en la aplicación ABa Sainsburys Connect (p. ej.: **https://myaba.co.uk/client-access/sainsburys/saml.php*).
-    2.  Haga clic en **Siguiente**.
+2.  Haga clic en **Siguiente**.
 
 4.  En la página **Configurar inicio de sesión único en ABa Sainsburys Connect**, para descargar los metadatos, haga clic en **Descargar metadatos** y, a continuación, guarde el archivo de metadatos en el equipo.
 
@@ -99,10 +99,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807731.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en haga clic en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!------HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -980,4 +980,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

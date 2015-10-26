@@ -18,7 +18,8 @@
 
 # Usar ReportViewer en un sitio web hospedado en Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 Puede crear un sitio web de Microsoft Azure con el control ReportViewer de Visual Studio que muestre un informe guardado en una máquina virtual de Microsoft Azure. El control ReportViewer se encuentra en una aplicación web que se crea con la plantilla de aplicación web ASP.NET.
 
@@ -108,4 +109,4 @@ Para obtener instrucciones sobre cómo publicar una aplicación web ASP.NET en A
 
 [Control Visor de informes de Reporting Services y servidores de informes basados en máquinas virtuales de Microsoft Azure](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

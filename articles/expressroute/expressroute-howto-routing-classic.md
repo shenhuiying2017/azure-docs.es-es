@@ -312,4 +312,4 @@ Puede quitar el establecimiento de configuración entre pares ejecutando el sigu
 -  Para obtener más información sobre los flujos de trabajo, consulte [Flujos de trabajo de ExpressRoute](expressroute-workflows.md).
 -  Para obtener más información sobre el emparejamiento de circuitos, consulte [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

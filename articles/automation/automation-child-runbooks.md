@@ -94,4 +94,4 @@ En la siguiente tabla se resumen las diferencias entre los dos métodos para lla
 - [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md)
 - [Salidas de runbook y mensajes en la Automatización de Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

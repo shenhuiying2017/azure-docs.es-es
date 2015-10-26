@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Azure AD Connect: inicio de sesión de usuarios"
+<properties
+	pageTitle="Azure AD Connect: inicio de sesión de usuarios | Microsoft Azure"
 	description="Inicio de sesión de usuarios de Azure AD Connect para la configuración personalizada."
 	services="active-directory"
 	documentationCenter=""
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 
@@ -62,6 +62,5 @@ Para la mayoría de las organizaciones que simplemente desean habilitar el inici
 	- Multi-Factor Authentication a nivel local mediante un proveedor de terceros o tarjetas inteligentes (obtenga información acerca de los proveedores de MFA de terceros para AD FS en Windows Server 2012 R2).
 	- Características de integración de Active Directory, como el bloqueo de cuenta no rígido o la directiva de horas de trabajo y contraseña de AD.
 	- Acceso condicional a los recursos locales y en la nube mediante el registro de dispositivos, la unión a Azure AD o las directivas MDM de Intune.
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

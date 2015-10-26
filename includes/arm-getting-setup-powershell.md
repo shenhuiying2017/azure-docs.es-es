@@ -1,5 +1,5 @@
 ## Configuración de PowerShell para plantillas del Administrador de recursos
- 
+
 Para poder usar Azure PowerShell con el Administrador de recursos, debe tener las versiones adecuadas de Windows PowerShell y PowerShell de Azure.
 
 ### Comprobar las versiones de PowerShell
@@ -23,7 +23,7 @@ Recibirá el siguiente tipo de información:
 
 Compruebe que el valor de **PSVersion** es 3.0 o 4.0. Si no es así, consulte [Windows Management Framework](http://www.microsoft.com/download/details.aspx?id=34595) 3.0 o [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
-También debe disponer de Azure PowerShell, versión 0.9.0 o posterior. Si no ha instalado y configurado Azure PowerShell, haga clic en [aquí](powershell-install-configure.md) para obtener instrucciones.
+También debe disponer de Azure PowerShell, versión 1.0.0 o posterior. Si no ha instalado y configurado Azure PowerShell, haga clic en [aquí](powershell-install-configure.md) para obtener instrucciones.
 
 Puede comprobar la versión de Azure PowerShell que ha instalado con este comando en el símbolo del sistema de Azure PowerShell.
 
@@ -33,9 +33,9 @@ Recibirá el siguiente tipo de información:
 
 	Version
 	-------
-	0.9.0
+	1.0.0
 
-Si no tiene la versión 0.9.0 o posterior, debe quitar Azure PowerShell mediante la opción Programas y características del Panel de control y, a continuación, instalar la versión más reciente. Para obtener más información, vea [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
+Si no tiene la versión 1.0.0 o posterior, debe quitar Azure PowerShell mediante la opción Programas y características del Panel de control y, a continuación, instalar la versión más reciente. Para obtener más información, vea [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
 
 ### Establecer su cuenta y suscripción de Azure
 
@@ -43,11 +43,11 @@ Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de
 
 Abra un símbolo del sistema de Azure PowerShell e inicie sesión en Azure con este comando.
 
-	Add-AzureAccount
+	Login-AzureRmAccount
 
 Si tiene varias suscripciones de Azure, puede enumerarlas con este comando.
 
-	Get-AzureSubscription
+	Get-AzureRmSubscription
 
 Recibirá el siguiente tipo de información:
 
@@ -59,22 +59,14 @@ Recibirá el siguiente tipo de información:
 	Accounts                  : {johndoe@contoso.com}
 	IsDefault                 : True
 	IsCurrent                 : True
-	CurrentStorageAccountName : 
+	CurrentStorageAccountName :
 	TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
 
 Puede establecer la suscripción actual de Azure ejecutando estos comandos en el símbolo del sistema de Azure PowerShell. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < and >, por el nombre correcto.
 
-	$subscr="<SubscriptionName from the display of Get-AzureSubscription>"
-	Select-AzureSubscription -SubscriptionName $subscr -Current	
+	$subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
+	Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
 Para obtener más información acerca de las cuentas y suscripciones de Azure, vea [Conexión a su suscripción](powershell-install-configure.md#Connect).
 
-### Cambiar al módulo Administrador de recursos de Azure
-
-Para poder usar el módulo Administrador de recursos de Azure necesitará cambiar desde el conjunto predeterminado de comandos de Azure al conjunto de comandos de Administrador de recursos de Azure. Ejecute este comando.
-
-	Switch-AzureMode AzureResourceManager
-
-> [AZURE.NOTE]Puede volver al conjunto predeterminado de comandos con el comando **Switch-AzureMode AzureServiceManagement**.
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

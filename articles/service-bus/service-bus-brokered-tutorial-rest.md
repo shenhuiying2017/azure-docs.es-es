@@ -71,7 +71,7 @@ Después de obtener el espacio de nombres del servicio y las credenciales en el 
 	using System.Xml;
 	```
 
-1. Si fuera necesario, cambie el nombre del espacio de nombres del programa del valor predeterminado de Visual Studio a `Microsoft.ServiceBus.Samples`.
+1. Si fuera necesario, cambie el nombre del espacio de nombres del programa del valor predeterminado de Visual Studio a `Microsoft.ServiceBus.Samples`￼.
 
 1. En la clase `Program`, agregue las variables globales siguientes:
 	
@@ -180,7 +180,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 
 El siguiente paso es escribir un método que use el comando PUT de HTTP de estilo REST para crear una cola.
 
-Pegue el código siguiente directamente después del código de `GetToken()` que agregó en el paso anterior:
+Pegue el código siguiente directamente después del código `GetSASToken()` que agregó en el paso anterior:
 
 ```
 // Uses HTTP PUT to create the queueprivatestaticstring CreateQueue(string queueName, string token)
@@ -629,4 +629,4 @@ Para obtener más información, consulte los artículos siguientes:
 - [Elementos fundamentales del Bus de servicio](fundamentals-service-bus-hybrid-solutions.md)
 - [Tutorial de REST de Bus de servicio](service-bus-relay-rest-tutorial.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

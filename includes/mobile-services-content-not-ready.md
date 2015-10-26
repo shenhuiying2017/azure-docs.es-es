@@ -1,3 +1,3 @@
 >[AZURE.NOTE]Parece que aún no tenemos este contenido listo, pero queríamos que lo conociera. Si está especialmente interesado en este tema, cuéntenoslo en nuestro Twitter [@AzureMobile](https://twitter.com/AzureMobile) o publique en los [foros](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuremobile), los [comentarios](http://feedback.azure.com/forums/216254-mobile-services) o en la conversación Disqus de este tema.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

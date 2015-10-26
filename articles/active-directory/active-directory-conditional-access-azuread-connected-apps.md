@@ -86,4 +86,4 @@ En el ejemplo siguiente se muestra cómo habilitar MFA local mediante el cmdlet 
 
 Además de establecer esta marca, la instancia de AD FS de inquilinos federados debe configurarse para llevar a cabo Multi-Factor Authentication. Siga las instrucciones para implementar Azure Multi-Factor Authentication en modo local.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

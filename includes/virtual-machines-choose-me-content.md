@@ -1,8 +1,8 @@
 | Opciones de proceso | Público |
 | ------------------ | --------   |
-| [Servicio de aplicaciones](app-service-choose-me.md) | Aplicaciones web, aplicaciones móviles, aplicaciones de API y aplicaciones lógicas escalables para cualquier dispositivo |
-| [Servicios en la nube](cloud-services-choose-me.md) | Aplicaciones en la nube de n niveles escalables y altamente disponibles con mayor control del sistema operativo |
-| [Máquinas virtuales](#tellmevm) | Máquinas virtuales Linux y Windows personalizadas con un control completo del sistema operativo |
+| [Servicio de aplicaciones] | Aplicaciones web, aplicaciones móviles, aplicaciones de API y aplicaciones lógicas escalables para cualquier dispositivo |
+| [Servicios en la nube] | Aplicaciones en la nube de n niveles escalables y altamente disponibles con mayor control del sistema operativo |
+| [Máquinas virtuales] | Máquinas virtuales Linux y Windows personalizadas con un control completo del sistema operativo |
 
 <a name="tellmevm"></a>
 ## Información sobre las máquinas virtuales en Azure
@@ -42,4 +42,4 @@ Entre otras ventajas que deben tenerse en cuenta con respecto a las máquinas vi
 
 **Resistencia**: Azure supervisa el hardware físico donde se hospeda cada máquina virtual en ejecución. Si se produce un error en un servidor físico que ejecuta una máquina virtual, Azure lo detecta, mueve la máquina virtual a un nuevo hardware y reinicia la máquina virtual. En ocasiones este proceso se denomina recuperación del servicio. Azure también protege los datos de una máquina virtual, ya que mantiene copias redundantes de los discos duros virtuales en el almacenamiento de blobs.
 
-<!-------HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -51,9 +51,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
     ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo habilitar la autenticación de usuarios en Jobscience con su cuenta de Azure AD mediante federación basada en el protocolo SAML.  
-La configuración de un inicio de sesión único para Jobscience requiere la recuperación de un valor de huella digital de un certificado.  
-Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+El objetivo de esta sección es describir cómo habilitar la autenticación de usuarios en Jobscience con su cuenta de Azure AD mediante federación basada en el protocolo SAML. La configuración de un inicio de sesión único para Jobscience requiere la recuperación de un valor de huella digital de un certificado. Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
@@ -67,7 +65,7 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
 
     ![Mi dominio](./media/active-directory-saas-jobscience-tutorial/IC767825.png "Mi dominio")
 
-4.  Para comprobar que el dominio ha sido configurado correctamente, asegúrese de que está en "**Paso 4 Implementación para usuarios**" y revise "**Mi configuración de dominio**".
+4.  Para comprobar que el dominio se ha configurado correctamente, asegúrese de que está en el "**Paso 4 Implementación para usuarios**" y revise "**Mi configuración de dominio**".
 
     ![Dominio implementado al usuario](./media/active-directory-saas-jobscience-tutorial/IC784377.png "Dominio implementado al usuario")
 
@@ -184,4 +182,4 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!------HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

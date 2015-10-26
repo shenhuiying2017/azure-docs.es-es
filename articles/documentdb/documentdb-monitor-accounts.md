@@ -90,4 +90,4 @@ Ahora puede tratar esta parte como otra parte de métricas y personalizar las m�
 Para obtener más información acerca de la capacidad de DocumentDB, consulte [Administración de la capacidad de DocumentDB](documentdb-manage.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

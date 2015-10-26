@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Administración del Administrador de instantáneas StorSimple | Microsoft Azure"
-	description="Proporciona infomación general y vínculos para obtener más información acerca de las tareas de administración y flujos de trabajo de la solución Administrador de instantáneas StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Proporciona infomación general y vínculos para obtener más información acerca de las tareas de administración y flujos de trabajo de la solución Administrador de instantáneas StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/28/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/28/2015"
+   ms.author="v-sharos" />
 
 # Uso del Administrador de instantáneas StorSimple para administrar la solución de StorSimple
 
@@ -60,4 +60,4 @@ Administrador de instantáneas StorSimple se puede usar para supervisar y admini
 
 [Descarga de Administrador de instantáneas StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

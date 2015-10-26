@@ -62,4 +62,4 @@ Para obtener más información, vea [función reference](../resource-group-templ
 - Para obtener más información sobre la creación de plantillas del Administrador de recursos de Azure, vea [Creación de plantillas](resource-group-authoring-templates.md). 
 - Para obtener una lista de las funciones disponibles en una plantilla, vea [Funciones de plantilla](resource-group-template-functions.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Procedimientos recomendados para cambiar la configuración predeterminada | Microsoft Azure"
+	pageTitle="Procedimientos recomendados para cambiar la configuración predeterminada | Microsoft Azure | Microsoft Azure"
 	description="Proporciona procedimientos recomendados para cambiar la configuración predeterminada de Azure AD Connect Sync."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -55,11 +55,11 @@ Si necesita cambiar la configuración predeterminada, haga lo siguiente:
 
 
 
-## Recursos adicionales
+## Pasos siguientes
+Obtenga más información sobre la configuración de [sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-* [Azure AD Connect Sync: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
-* [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
+Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
 <!--Image references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -325,4 +325,4 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v√
   [Aplicaci√≥n web de Node.js con almacenamiento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

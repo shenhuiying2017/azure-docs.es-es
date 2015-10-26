@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Migración con Visual Studio y SSDT"
-	description="Base de datos SQL de Microsoft Azure, migración de base de datos, importación de base de datos, exportación de base de datos, asistente para migración"
-	services="sql-database"
-	documentationCenter=""
-	authors="carlrabeler"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="Migración con Visual Studio y SSDT" 
+   description="Base de datos SQL de Microsoft Azure, migración de base de datos, importación de base de datos, exportación de base de datos, asistente para migración" 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="carlrabeler" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="08/24/2015"
-	ms.author="carlrab"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="08/24/2015"
+   ms.author="carlrab"/>
 
 #Actualización de la base de datos in situ para su posterior implementación en Base de datos SQL de Azure
 
@@ -82,4 +82,4 @@ Con esta opción:
 
 14.	Implemente el esquema de base de datos compatible con Azure SQL V12 y los datos a Base de datos SQL de Azure mediante SSMS. Consulte [Migración de una base de datos compatible con SSMS](sql-database-migrate-ssms.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

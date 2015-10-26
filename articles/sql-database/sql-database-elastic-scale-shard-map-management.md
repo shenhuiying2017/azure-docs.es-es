@@ -253,4 +253,4 @@ Sin embargo, para escenarios que requieren movimiento de datos, se necesita la h
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

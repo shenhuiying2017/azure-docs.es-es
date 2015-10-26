@@ -48,4 +48,4 @@ En este caso de uso de ejemplo, se usa Factoría de datos de Azure para coordina
 
 Al optimizar el análisis de su perfil de usuario y alinearlo con los objetivos empresariales, la empresa de juegos puede recopilar rápidamente los patrones de uso y analizar la eficacia de sus campañas de marketing para todos sus productos de juegos diferentes.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

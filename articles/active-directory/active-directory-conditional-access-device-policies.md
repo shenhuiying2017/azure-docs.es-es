@@ -44,4 +44,4 @@ P: ¿Cuándo se ampliará la directiva de acceso condicional a los servicios de 
 
 R: En este momento, el acceso condicional a los servicios de Office365 se limita a las aplicaciones enriquecidas en el dispositivo. Se ha previsto ampliar la directiva de acceso condicional a los usuarios que tengan acceso a los servicios desde exploradores.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -196,7 +196,7 @@ Este tutorial utiliza los archivos .txt ubicados en el directorio %hadoop\_home%
 
 2. Ejecute el comando siguiente para copiar algunos archivos de texto en la carpeta de entrada en HDFS:
 
-		hadoop fs -copyFromLocal %hadoop_home%\share\doc\hadoop\common\*.txt \WordCount\Input
+		hadoop fs -copyFromLocal %hadoop_home%\share\doc\hadoop\common*.txt \WordCount\Input
 
 3. Ejecute el comando siguiente para incluir los archivos cargados:
 
@@ -273,7 +273,7 @@ Este tutorial utiliza los archivos .txt ubicados en el directorio %hadoop\_home%
 
 **Para comprobar el estado del trabajo**
 
-1. En el escritorio, haga clic en **Estado de Hadoop YARN** o vaya a \*\***http://localhost:50030/jobtracker.jsp**.
+1. En el escritorio, haga clic en **Estado de Hadoop YARN** o vaya a ****http://localhost:50030/jobtracker.jsp**.
 2. Encuentre el trabajo mediante el identificador de trabajo en la categoría **EN EJECUCIÓN** o **FINALIZADO**.
 3. Si un trabajo tiene errores, puede encontrarlo en la categoría **CON ERROR**. También puede abrir los detalles del trabajo y encontrar información útil para la depuración.
 
@@ -555,4 +555,4 @@ En este tutorial aprendió a desarrollar un trabajo de MapReduce de streaming de
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "Flujo de la aplicación de recuento de palabras de MapReduce"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

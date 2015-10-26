@@ -43,4 +43,4 @@ Cuenta profesional o educativa | Una cuenta de usuario asignada por una organiza
 - [Cómo se asocian las suscripciones a Azure con Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Restricciones y límites del servicio Azure AD](active-directory-service-limits-restrictions.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

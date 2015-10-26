@@ -33,4 +33,4 @@
 
 	Usará este valor de clave de API para permitir que Azure lleve a cabo la autenticación con GCM y envíe notificaciones de inserción en nombre de su aplicación.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Recursos de Application Insights independientes para desarrollo, pruebas y producción"
-	description="Supervisar el rendimiento y el uso de la aplicación en diferentes fases de desarrollo"
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Recursos de Application Insights independientes para desarrollo, pruebas y producción" 
+	description="Supervisar el rendimiento y el uso de la aplicación en diferentes fases de desarrollo" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/02/2015" 
 	ms.author="awills"/>
 
 # Recursos de Application Insights independientes para desarrollo, pruebas y producción
@@ -94,8 +94,8 @@ La iKey también se usa en las páginas web de su aplicación, en el [script que
 [api]: app-insights-api-custom-events-metrics.md
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

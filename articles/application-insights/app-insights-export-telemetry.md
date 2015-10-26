@@ -217,4 +217,4 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

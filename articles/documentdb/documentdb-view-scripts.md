@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="article" 
 	ms.date="09/02/2015"
 	ms.author="stbaro"/>
 
@@ -106,4 +106,4 @@ El Explorador de scripts le permite llevar a cabo con facilidad operaciones de C
 Para obtener más información sobre DocumentDB, haga clic [aquí](http://azure.com/docdb).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

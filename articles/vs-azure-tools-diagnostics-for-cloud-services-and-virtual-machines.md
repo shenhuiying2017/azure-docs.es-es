@@ -357,4 +357,4 @@ En la ventana **Propiedades**, establezca la propiedad **Copiar en el directorio
 
 Para obtener más información sobre el registro de diagnósticos de Azure, consulte [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](cloud-services-dotnet-diagnostics.md) y [Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure](web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

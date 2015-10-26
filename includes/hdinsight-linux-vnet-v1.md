@@ -2,4 +2,4 @@
 > 
 > Si tiene recursos en una red v1 y quiere que dichos recursos puedan acceder directamente a HDInsight a través de una red virtual, vea [Conexión de redes virtuales clásicas con nuevas redes virtuales](../virtual-network/virtual-networks-arm-asm-s2s.md) para obtener información sobre cómo conectar una Red virtual v2 a una Red virtual v1. Una vez establecida la conexión, puede crear el clúster de HDInsight en la Red Virtual v2.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

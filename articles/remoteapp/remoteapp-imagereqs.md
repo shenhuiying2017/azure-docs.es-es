@@ -44,4 +44,4 @@ Los requisitos para la imagen que se pueden cargar para usarse con RemoteApp de 
  
 Consulte [Creación de una imagen de Azure RemoteApp](remoteapp-imageoptions.md) para obtener más información sobre la creación de imágenes para Azure RemoteApp.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

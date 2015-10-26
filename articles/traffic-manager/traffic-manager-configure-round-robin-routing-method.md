@@ -1,19 +1,19 @@
 <properties
    pageTitle="Configuración del método de enrutamiento del tráfico round robin del Administrador de tráfico| Microsoft Azure"
-	description="Este artículo le ayuda a configurar el equilibrio de carga Round Robin para los extremos del Administrador de tráfico."
-	services="traffic-manager"
-	documentationCenter=""
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Este artículo le ayuda a configurar el equilibrio de carga Round Robin para los extremos del Administrador de tráfico."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Configuración del método de enrutamiento round robin
 
@@ -52,4 +52,4 @@ Un patrón del método de enrutamiento del tráfico es proporcionar un conjunto 
 [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

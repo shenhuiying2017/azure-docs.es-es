@@ -21,7 +21,7 @@
 
 # Desacoplamiento de un disco de una máquina virtual de Windows
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se explica cómo desconectar un disco mediante el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
@@ -32,4 +32,4 @@
 
 [Acoplamiento de un disco de datos a una máquina virtual de Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

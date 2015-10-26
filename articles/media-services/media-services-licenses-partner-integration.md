@@ -44,6 +44,6 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 [Uso de cifrado dinámico común de PlayReady o Widevine](media-services-protect-with-drm.md).
 
-[Blog de Mingfei](https://azure.microsoft.com/es-es/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
+[Blog de Mingfei](https://azure.microsoft.com/es-ES/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -306,4 +306,4 @@ En este artículo, ha aprendido cómo utilizar Phoenix Apache en HDInsight. Para
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="10/08/2015" 
 	ms.author="tdykstra"/>
 
 # Depuración de una aplicación de API en el Servicio de aplicaciones de Azure
 
 ## Información general
 
-En este tutorial, aprenderá a depurar código de API de web de ASP.NET que se ha configurado para ejecutarse en una [aplicación de API](app-service-api-apps-why-best-platform.md) en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md). Realizará depuraciones locales y remotas (mientras se ejecuta en Azure).
+En este tutorial, depurará código de API de web de ASP.NET que se ha configurado para ejecutarse en una [aplicación de API](app-service-api-apps-why-best-platform.md) en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md). Depure el código mientras se está ejecutando localmente y mientras se ejecuta de forma remota en Azure.
 
 El tutorial funciona con la aplicación de la API que ha [creado](app-service-dotnet-create-api-app.md) e [implementado](app-service-dotnet-deploy-api-app.md) en los tutoriales anteriores de esta serie.
 
@@ -132,8 +132,8 @@ Puede haber ocasiones en que desee depurar la aplicación de API de manera local
 
 ## Pasos siguientes
 
-En este tutorial, vio cómo depurar las aplicaciones de API. Para obtener más información sobre cómo solucionar problemas, consulte [Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). Debido a que las aplicaciones de API son aplicaciones web que tienen características adicionales para el hospedaje de servicios web, puede utilizar las mismas herramientas de depuración y de solución de problemas para aplicaciones de API que se usan para las aplicaciones web.
+En este tutorial, vio cómo depurar las aplicaciones de API.
 
- 
+Para obtener más información sobre cómo solucionar problemas, consulte [Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). Debido a que las aplicaciones de API son aplicaciones web que tienen características adicionales para el hospedaje de servicios web, puede utilizar las mismas herramientas de depuración y de solución de problemas para aplicaciones de API que se usan para las aplicaciones web.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

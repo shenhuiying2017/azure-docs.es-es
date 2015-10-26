@@ -19,7 +19,8 @@
 
 # Restablecimiento de una contraseña o de SSH para máquinas virtuales de Linux #
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 Si no puede conectarse a una máquina virtual Linux debido a una contraseña olvidada, una clave incorrecta de Shell seguro (SSH) o un problema con la configuración de SSH, utilice el Portal de vista previa de Azure o la extensión VMAccessForLinux para restablecer la contraseña o la clave SSH, o para corregir la configuración de SSH. Tenga en cuenta que este artículo se aplica a las máquinas virtuales creadas con el modelo de implementación **clásico**.
 
@@ -265,4 +266,4 @@ Para mostrar el estado de la extensión VMAccess, ejecute este comando.
 [Características y extensiones de máquina virtual de Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Conexión a una máquina virtual de Azure con RDP o SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

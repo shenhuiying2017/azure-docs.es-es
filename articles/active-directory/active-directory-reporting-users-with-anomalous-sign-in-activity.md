@@ -22,4 +22,4 @@ Se trata de un informe agregado que combina inicios de sesión sospechoso de los
 
 ![Usuarios con actividad de inicio de sesión erróneo.](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Preguntas más frecuentes sobre Máquinas virtuales de Azure con el modelo de implementación clásica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se obtiene respuesta a las preguntas sobre los recursos creados con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 Se resuelven algunas preguntas comunes que algunos usuarios formulan sobre máquinas virtuales de Azure creadas con el modelo de implementación clásica, según la información del equipo de soporte técnico de máquinas virtuales de Azure, además de foros, grupos de noticias y comentarios de otros artículos. Para obtener información básica, empiece con [Acerca de las máquinas virtuales](virtual-machines-about.md).
 
@@ -150,4 +151,4 @@ Para proporcionar redundancia, coloque dos o más máquinas virtuales configurad
 
 [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

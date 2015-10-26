@@ -123,7 +123,7 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 
 ##Reproducción de pruebas
   
-1. Navegue a la herramienta AMSE y haga clic con el botón derecho en el canal que se va a probar. En el menú, mantenga el puntero sobre **Reproducir la vista previa** y seleccione **con el Reproductor multimedia de Azure**.  
+1. Vaya a la herramienta AMSE y haga clic con el botón derecho en el canal que se va a probar. En el menú, mantenga el puntero sobre **Reproducir la vista previa** y seleccione **con el Reproductor multimedia de Azure**.  
 
 	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
 
@@ -160,4 +160,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 - [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

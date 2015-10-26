@@ -56,4 +56,4 @@ Para crear reglas en un grupo de seguridad de red existente desde el portal de v
 
 ![Portal de vista previa - Nueva regla](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

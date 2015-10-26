@@ -94,4 +94,4 @@ Esta sección proporciona vínculos a temas de ejemplo de código para programas
 - [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md)
 - [Entity Framework 6 aquí, EF 7 en GitHub](http://entityframework.codeplex.com/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

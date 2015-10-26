@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Exploradores y dispositivos compatibles"
-	description=""
-	services=""
-	documentationCenter=""
-	authors="flanakin"
-	manager="lwelicki"
+	pageTitle="Exploradores y dispositivos compatibles" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="flanakin" 
+	writer="flanakin" 
+	manager="lwelicki" 
 	editor=""/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/23/2015"
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/23/2015" 
 	ms.author="micflan"/>
 
 #Exploradores y dispositivos compatibles
@@ -33,4 +34,4 @@ Son compatibles las últimas versiones de los siguientes exploradores:
 
 *Safari 6 y versiones anteriores no son compatibles. Si usa OS X, puede usar Chrome, Firefox o actualizar a OS X Mavericks para obtener Safari 7.*
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

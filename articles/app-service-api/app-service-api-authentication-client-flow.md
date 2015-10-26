@@ -227,4 +227,4 @@ Aprendió a realizar la autenticación de flujo de cliente para aplicaciones de 
 [Portal de Azure]: https://manage.windowsazure.com/
 [Portal de vista previa de Azure]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

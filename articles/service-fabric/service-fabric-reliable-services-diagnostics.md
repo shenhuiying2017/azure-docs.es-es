@@ -46,4 +46,4 @@ StatefulRunAsyncFailure se genera cada vez que la tarea RunAsync() del servicio 
 
 StatefulRunAsyncSlowCancellation se genera cada vez que una solicitud de cancelación de la tarea RunAsync tarda más de 4 segundos. Cuando un servicio tarda demasiado en completar la cancelación, afecta a la capacidad del servicio de reiniciarse rápidamente en otro nodo y puede afectar a la disponibilidad general del servicio.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

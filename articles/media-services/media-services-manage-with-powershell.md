@@ -28,7 +28,7 @@
 
 En este artículo se muestra cómo usar los cmdlets de PowerShell para administrar las cuentas de Servicios multimedia de Azure.
 
->[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Evaluación gratuita de Azure</a>.
+>[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Evaluación gratuita de Azure￼</a>.
 
 ##Instalación de los cmdlets de PowerShell de Microsoft Azure
 
@@ -118,4 +118,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

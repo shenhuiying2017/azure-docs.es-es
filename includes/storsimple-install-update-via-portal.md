@@ -65,4 +65,4 @@
 
 > [AZURE.NOTE]En determinados casos, el mensaje que indica que las actualizaciones del modo de mantenimiento están disponibles pueden mostrarse hasta 24 horas después de que las actualizaciones del modo de mantenimiento se apliquen correctamente en el dispositivo.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

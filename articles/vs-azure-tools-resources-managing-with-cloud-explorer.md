@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Administración de recursos de Azure con Cloud Explorer"
-	description="Obtenga más información sobre cómo usar Cloud Explorer para examinar y administrar recursos de Azure en Visual Studio."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="Obtenga más información sobre cómo usar Cloud Explorer para examinar y administrar recursos de Azure en Visual Studio."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags 
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # Administración de recursos de Azure con Cloud Explorer
 
@@ -95,4 +95,4 @@ Para buscar recursos con un nombre específico en las suscripciones de cuenta de
 
 A medida que escribe caracteres en el cuadro de búsqueda, solo los recursos que coinciden con los caracteres aparecen en el árbol de recursos.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

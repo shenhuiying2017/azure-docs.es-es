@@ -19,7 +19,8 @@
 
 # Etiquetado de una máquina virtual en Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata el etiquetado de una máquina virtual creada con el modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+
 
 En este artículo se describen diferentes maneras de etiquetar una máquina virtual en Azure por medio del Administrador de recursos de Azure. Las etiquetas son pares clave-valor definidos por el usuario que se pueden colocar directamente en un recurso o un grupo de recursos. Actualmente, Azure admite un máximo de 15 etiquetas por recurso y grupo de recursos. Las etiquetas se pueden colocar en un recurso en el momento de su creación, o bien se pueden agregar a un recurso existente. Tenga en cuenta que las etiquetas solamente son compatibles para los recursos creados mediante el Administrador de recursos de Azure.
 
@@ -189,4 +190,4 @@ Mediante el análisis de estas junto con el uso, las organizaciones podrán obte
 [Comprender la factura de Azure]: ../billing-understand-your-bill.md
 [Obtención de información sobre el consumo de recursos de Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

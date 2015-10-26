@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="10/13/2015"
    ms.author="cherylmc"/>
 
 # Creación y modificación de un circuito ExpressRoute
@@ -322,6 +322,6 @@ Si el proveedor de servicios ha desaprovisionado el circuito (el estado de aprov
 ## Pasos siguientes
 
 - [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
-- [Vinculación de una red virtual a un circuito ExpressRoute](expresssroute-howto-linkvnet-classic.md) 
+- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

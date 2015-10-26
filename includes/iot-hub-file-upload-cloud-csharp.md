@@ -70,4 +70,4 @@ En esta sección, modificará la aplicación de consola **SendCloudtoDevice** qu
 
 <!-- Images -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

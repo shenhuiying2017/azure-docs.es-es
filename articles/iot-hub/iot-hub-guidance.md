@@ -1,10 +1,10 @@
 <properties
- pageTitle="Orientación sobre el Centro de IoT de Azure | Microsoft Azure"
- description="Una colección de temas de orientación para soluciones que usan el Centro de IoT de Azure."
+ pageTitle="Temas de guía para usar el Centro de IoT de Azure | Microsoft Azure"
+ description="Colección de temas de orientación para desarrollar soluciones que usan el Centro de IoT de Azure."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
@@ -88,4 +88,4 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

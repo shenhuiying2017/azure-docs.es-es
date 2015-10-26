@@ -189,4 +189,4 @@ El archivo de configuración JSON especifica los detalles de lo que va a impleme
 
 Puede editar el archivo de configuración de JSON para cambiar lo que se aprovisiona. Se necesitan una máquina virtual y un servicio en la nube, pero la sección de la base de datos es opcional.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

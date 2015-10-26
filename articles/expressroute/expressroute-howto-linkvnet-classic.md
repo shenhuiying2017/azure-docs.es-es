@@ -145,4 +145,4 @@ El usuario del circuito puede ejecutar el siguiente cmdlet para canjear una auto
 
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

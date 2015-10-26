@@ -13,12 +13,13 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="10/08/2015"
  ms.author="danlep"/>
 
 # Opciones para crear y administrar un clúster de computación de alto rendimiento (HPC) en Azure con Microsoft HPC Pack
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo se aplica a la creación de un recurso con el modelo de implementación del Administrador de recursos o el modelo de implementación clásico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Aproveche los servicios de infraestructura y proceso de Microsoft HPC Pack para crear y administrar un clúster de informática de alto rendimiento (HPC) basado en la nube. [HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) es la solución HPC gratuita de Microsoft que se basa en las tecnologías de Microsoft Azure y Windows Server y admite cargas de trabajo HPC tanto de Windows como de Linux. Un clúster de HPC Pack basado en la nube proporciona un administrador de clústeres o un proveedor de software independiente (ISV) a una plataforma flexible y escalable para ejecutar aplicaciones de proceso intensivo reduciendo al mismo tiempo la inversión en una infraestructura de clúster de proceso local.
 
@@ -46,7 +47,7 @@ Aproveche los servicios de infraestructura y proceso de Microsoft HPC Pack para 
 
 ### Script de implementación de PowerShell
 
-* [Creación de un clúster de HPC con el script de implementación de HPC Pack IaaS](virtual-machines-hpcpackcluster-powershell-script.md).
+* [Creación de un clúster de HPC con el script de implementación de HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md).
 
 ### Tutoriales
 
@@ -94,4 +95,4 @@ Aproveche los servicios de infraestructura y proceso de Microsoft HPC Pack para 
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

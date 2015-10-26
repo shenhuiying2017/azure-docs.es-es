@@ -70,4 +70,4 @@ Ahora imaginemos que John Doe necesita iniciar sesión en el Portal de administr
 ##Pasos siguientes
 Para obtener más información sobre la relación entre suscripciones y directorios, vea [Asociación de una suscripción con un directorio](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

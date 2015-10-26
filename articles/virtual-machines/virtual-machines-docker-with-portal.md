@@ -20,7 +20,8 @@
 
 # Uso de la extensión de VM Docker con el portal de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 [Docker](https://www.docker.com/) es uno de los enfoques de virtualización más populares que utilizan los [contenedores de Linux](http://en.wikipedia.org/wiki/LXC) en lugar de máquinas virtuales como una forma de aislar datos y calcular recursos compartidos. Puede usar la extensión de máquina virtual Docker que administra el [agente Linux de Azure] para crear una máquina virtual Docker que hospede un número cualquiera de contenedores para sus aplicaciones en Azure.
 
@@ -147,4 +148,4 @@ Está preparado para ir a la [Guía del usuario de Docker] y usar su VM Docker. 
 [Ejecución de Docker con https]: http://docs.docker.com/articles/https/
 [Guía del usuario de Docker]: https://docs.docker.com/userguide/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

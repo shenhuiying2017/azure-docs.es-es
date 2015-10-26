@@ -146,4 +146,4 @@ Para obtener información acerca de tareas de almacenamiento más complejas, sig
 - [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

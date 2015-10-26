@@ -19,7 +19,8 @@
 
 # Fase 5 de carga de trabajo de granja de intranet de SharePoint: Creación del grupo de disponibilidad y adición de las bases de datos de SharePoint
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+ 
 
 En esta fase final de la implementación de una granja solo de intranet de SharePoint 2013 con grupos de disponibilidad AlwaysOn de SQL Server en los servicios de infraestructura de Azure, creará un nuevo grupo de disponibilidad AlwaysOn y agregará las bases de datos de la granja de SharePoint.
 
@@ -129,4 +130,4 @@ Para obtener información adicional acerca de SharePoint con grupos de disponibi
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

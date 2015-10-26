@@ -933,4 +933,4 @@ Este método general se puede usar siempre que tengamos un objeto complejo que n
 [Introducción a Servicios móviles]: mobile-services-android-get-started.md
 [Códigos de control ASCII C0 y C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -68,4 +68,4 @@ Ahora debe actualizarse la contraseña del administrador de dispositivos. Puede 
 
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -81,4 +81,4 @@ Asegúrese de que los detalles de dominio proporcionados son válidos y de que s
 
 El nombre de dominio que creó o agregó debe ser un nombre de dominio interno (no un nombre de dominio de Azure AD) y debe utilizar el formato DNS que se puede resolver (contoso.local). Por ejemplo, si tiene un nombre interno de Active Directory (contoso.local) y un UPN de Active Directory (contoso.com), debe utilizar el nombre interno al crear la colección.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

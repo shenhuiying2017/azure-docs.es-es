@@ -6,4 +6,4 @@
 
 Puedes solicitar la actualización de los límites flexibles abriendo una incidencia de soporte técnico.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

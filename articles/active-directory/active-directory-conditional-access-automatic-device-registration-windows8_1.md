@@ -52,4 +52,4 @@ El registro de eventos de Windows en el equipo con Windows 8.1 mostrará mensaje
 
 La Directiva de grupo habilita una tarea programada en el sistema que se ejecuta en el contexto del usuario y se desencadena en el inicio de sesión de usuario. La tarea registra silenciosamente el usuario y dispositivo en Azure AD después de completarse el inicio de sesión. La tarea programada se puede encontrar en dispositivos Windows 8.1 en la Biblioteca del Programador de tareas en **Microsoft** > **Windows** > **Unión al área de trabajo**. La tarea ejecutará y registrará todos los usuarios de Active Directory que inicien sesión.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

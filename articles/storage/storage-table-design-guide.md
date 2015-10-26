@@ -1550,4 +1550,4 @@ También nos gustaría dar las gracias a los siguientes MVP de Microsoft por sus
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

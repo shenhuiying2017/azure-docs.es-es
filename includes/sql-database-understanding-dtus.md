@@ -10,4 +10,4 @@ DTU para bases de datos únicas se convierte directamente en eDTU para bases de 
 
 Un ejemplo sencillo ayuda. Utilice un grupo de bases de datos elásticas de tipo Básico con 1000 DTU y coloque 800 bases de datos en él. Siempre y cuando se usen solamente 200 de las 800 bases de datos en un momento dado (5 DTU X 200 = 1000), no se alcanzará la capacidad del grupo y el rendimiento de la base de datos no se degradará. Este es un ejemplo simplificado para mayor claridad. Los cálculos matemáticos reales son un poco más complicados. El portal realiza los cálculos matemáticos y hace una recomendación basándose en el uso histórico de la base de datos. Vea [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](../articles/sql-database/sql-database-elastic-pool-guidance.md) para saber cómo funcionan las recomendaciones o para realizar los cálculos matemáticos por su cuenta.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

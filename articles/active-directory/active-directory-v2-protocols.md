@@ -475,4 +475,4 @@ Se describe la concesión de credenciales en nombre del flujo o del portador JWT
 
 La vista previa del modelo de aplicaciones v2.0 no admite actualmente este flujo. Para ver cómo funciona en el servicio Azure AD, disponible con carácter general, consulte [este ejemplo de código de Azure AD](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

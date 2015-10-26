@@ -19,7 +19,8 @@
 
 # Fase 5 de la carga de trabajo de aplicación de línea de negocio: Creación del grupo de disponibilidad y adición de las bases de datos de la aplicación
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+
 
 En esta fase final de la implementación de una aplicación de línea de negocio de alta disponibilidad en servicios de infraestructura de Azure, creará un nuevo grupo de disponibilidad AlwaysOn de SQL Server y agregará las bases de datos de la aplicación.
 
@@ -128,4 +129,4 @@ Una vez configurado el agente de escucha, tendrá que configurar todas las máqu
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

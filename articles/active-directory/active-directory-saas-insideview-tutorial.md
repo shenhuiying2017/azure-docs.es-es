@@ -94,7 +94,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 8.  En el cuadro de texto **Crm lastName Mapping** (Asignación de apellido de Crm), escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 9.  Haga clic en **Guardar**.
 
-8.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+8.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-insideview-tutorial/IC794137.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -123,4 +123,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

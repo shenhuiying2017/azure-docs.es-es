@@ -29,7 +29,7 @@ Una ventaja relacionada es la "nivelación de la carga", que permite a los produ
 
 El uso de colas para intermediar entre los consumidores y productores de mensajes proporciona un acoplamiento no estricto inherente entre los componentes. Dado que los productores y consumidores no están relacionados entre sí, un consumidor puede actualizarse sin tener ningún efecto en el productor.
 
-La creación de una cola es un proceso de varios pasos. Las operaciones de administración de las entidades de mensajería del Bus de servicio (colas y temas) se realizan mediante la clase [Microsoft.ServiceBus.NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx), que se construye al suministrar la dirección base del espacio de nombres del Bus de servicio y las credenciales de usuario. La clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) proporciona métodos para crear, enumerar y eliminar entidades de mensajes. Después de crear un objeto [Microsoft.ServiceBus.TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) a partir del nombre y la clave SAS y un objeto de administración del espacio de nombres del servicios, puede usar el método [Microsoft.ServiceBus.NamespaceManager.CreateQueue](https://msdn.microsoft.com/library/azure/hh293157.aspx) para crear la cola. Por ejemplo:
+La creación de una cola es un proceso de varios pasos. Las operaciones de administración de las entidades de mensajería del Bus de servicio (colas y temas) se realizan mediante la clase [Microsoft.ServiceBus.NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx), que se construye al suministrar la dirección base del espacio de nombres del Bus de servicio y las credenciales de usuario. La clase [￼NamespaceManager￼](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) proporciona métodos para crear, enumerar y eliminar entidades de mensajes. Después de crear un objeto [Microsoft.ServiceBus.TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) a partir del nombre y la clave SAS y un objeto de administración del espacio de nombres del servicios, puede usar el método [Microsoft.ServiceBus.NamespaceManager.CreateQueue](https://msdn.microsoft.com/library/azure/hh293157.aspx) para crear la cola. Por ejemplo:
 
 ```
 // Create management credentials
@@ -171,4 +171,4 @@ Consulte los siguientes temas avanzados para obtener más información y ejemplo
 - [Guía de desarrolladores de Centros de eventos](../event-hubs-programming-guide.md)
 - [Mensajería asíncrona: filtros avanzados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

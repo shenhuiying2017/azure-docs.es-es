@@ -73,4 +73,4 @@ Ahora ya puede habilitar el uso del inicio de sesión de Facebook para autentica
 [Servicios móviles de Azure]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -38,8 +38,7 @@ Puede incluir emoticonos Emoji en las notificaciones push. Actualmente, Azure Mo
 
 7. Al ejecutar una prueba o activar el anuncio, verá una notificación con el emoticono tal y como lo especificó.
 
-	![][3] 
-	![][4]
+	![][3] ![][4]
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-use-emoji-with-push/emoji.png
@@ -48,4 +47,4 @@ Puede incluir emoticonos Emoji en las notificaciones push. Actualmente, Azure Mo
 [4]: ./media/mobile-engagement-use-emoji-with-push/notification_ios.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

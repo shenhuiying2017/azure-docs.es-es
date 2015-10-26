@@ -1,19 +1,19 @@
 <properties
    pageTitle="P+F de ExpressRoute"
-	description="P+F de ExpressRoute contiene información sobre servicios de Azure compatibles, costes, datos y conexiones, SLA, proveedores y ubicaciones, ancho de banda e información técnica adicional."
-	documentationCenter="na"
-	services="expressroute"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   description="P+F de ExpressRoute contiene información sobre servicios de Azure compatibles, costes, datos y conexiones, SLA, proveedores y ubicaciones, ancho de banda e información técnica adicional."
+   documentationCenter="na"
+   services="expressroute"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""/>
 <tags
    ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article" 
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/02/2015"
+   ms.author="cherylmc"/>
 
 # P+F de ExpressRoute
 
@@ -287,4 +287,4 @@ Se admite la conectividad con los servicios de Office 365 a través de los NSP y
 Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a través de Internet a pesar de que se haya configurado ExpressRoute para su red. Si está en una ubicación que está configurada para conectarse a servicios de Office 365 a través de ExpressRoute, se conectará a través de ExpressRoute.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -276,10 +276,9 @@ En este ejemplo, cambiaremos el filtrado de manera que se sincronicen solo los u
 7. Realice una sincronización completa: en la pestaña Conectores, haga clic con el botón secundario en SourceAD, haga clic en Ejecutar, en Sincronización completa y en Aceptar.
 
 
+## Pasos siguientes
+Obtenga más información sobre la configuración de [sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-## Recursos adicionales
+Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-* [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
-* [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

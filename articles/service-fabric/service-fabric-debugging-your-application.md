@@ -1,20 +1,20 @@
 <properties
    pageTitle="Depuración de la aplicación de Service Fabric en Visual Studio con F5"
-	description="Mejore la confiabilidad y el rendimiento de los servicios mediante Visual Studio y un clúster de desarrollo local."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="jessebenson"
-	manager="timlt"
-	editor=""/>
+   description="Mejore la confiabilidad y el rendimiento de los servicios mediante Visual Studio y un clúster de desarrollo local."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="jessebenson"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/26/2015"
-	ms.author="jesseb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/26/2015"
+   ms.author="jesseb"/>
 
 # Depuración de la aplicación de Service Fabric en Visual Studio con F5
 
@@ -66,4 +66,4 @@ Puede ahorrar tiempo y dinero implementando y depurando la aplicación de Servic
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

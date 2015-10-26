@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="CDN - Códigos de país"
-	description="La función Filtrado por país usa códigos de país para definir los países desde los que se permitirá o bloqueará una solicitud para un directorio protegido."
-	services="cdn"
-	documentationCenter=".NET"
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="CDN - Códigos de país" 
+	description="La función Filtrado por país usa códigos de país para definir los países desde los que se permitirá o bloqueará una solicitud para un directorio protegido." 
+	services="cdn" 
+	documentationCenter=".NET" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="juliako"/>
 
 #Códigos de país
@@ -268,4 +268,4 @@ La función **Filtrado por país** usa códigos de país para definir los paíse
 | ZM | Zambia | |
 | ZW | Zimbabue | |
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

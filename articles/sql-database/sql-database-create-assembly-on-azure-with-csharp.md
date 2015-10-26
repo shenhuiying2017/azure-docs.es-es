@@ -328,4 +328,4 @@ El bloque de código de Transact-SQL anterior finaliza con una instrucción SELE
 
 <!-- EndOfFile -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

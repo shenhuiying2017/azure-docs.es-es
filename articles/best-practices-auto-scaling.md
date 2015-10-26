@@ -133,4 +133,4 @@ Los siguientes patrones y orientación también pueden ser pertinentes para su e
 - [Espacio de nombres Microsoft.WindowsAzure.Management.Monitoring.Autoscale](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.monitoring.autoscale.aspx)
 - Documentación y escenarios clave de [Autoscaling Application Block](http://msdn.microsoft.com/library/hh680892%28v=pandp.50%29.aspx) en MSDN.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

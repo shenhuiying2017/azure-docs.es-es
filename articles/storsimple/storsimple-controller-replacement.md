@@ -266,4 +266,4 @@ Si este LED parpadea, el controlador está activo y el otro controlador está en
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

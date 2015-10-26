@@ -228,4 +228,4 @@ Ahora el usuario ha iniciado sesión en el portal para desarrolladores para la i
 
 [Inicio de sesión en el portal para desarrolladores con una cuenta de Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

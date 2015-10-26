@@ -21,18 +21,18 @@ En la tabla siguiente aparece una descripción y vínculos a la página de refer
 
 |Cmdlet|Descripción del cmdlet|
 |---|---|
-|**[Get-AzureSchedulerJob](https://msdn.microsoft.com/es-es/library/azure/dn722516.aspx)**|Obtiene una lista de los trabajos programados o de un trabajo de programador determinado.|
-|**[Get-AzureSchedulerJobCollection](https://msdn.microsoft.com/es-es/library/azure/dn722471.aspx)**|Obtiene colecciones de trabajo del programador.|
-|**[Get-AzureSchedulerJobHistory](https://msdn.microsoft.com/es-es/library/azure/dn722514.aspx)**|Obtiene el historial de un trabajo del programador.|
-|**[Get-AzureSchedulerLocation](https://msdn.microsoft.com/es-es/library/azure/dn722505.aspx)**|Obtiene las ubicaciones disponibles del programador.|
-|**[New-AzureSchedulerHttpJob](https://msdn.microsoft.com/es-es/library/azure/dn722492.aspx)**|Crea un trabajo del programador con una acción HTTP.|
-|**[New-AzureSchedulerJobCollection](https://msdn.microsoft.com/es-es/library/azure/dn759640.aspx)**|Crea una colección de trabajos del programador.|
-|**[New-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/es-es/library/azure/dn722518.aspx)**|Crea un trabajo del programador con una acción de almacenamiento.|
-|**[Remove-AzureSchedulerJob](https://msdn.microsoft.com/es-es/library/azure/dn722477.aspx)**|Elimina un trabajo del programador.|
-|**[Remove-AzureSchedulerJobCollection](https://msdn.microsoft.com/es-es/library/azure/dn722530.aspx)**|Elimina una colección de trabajos del programador.|
-|**[Set-AzureSchedulerHttpJob](https://msdn.microsoft.com/es-es/library/azure/dn722474.aspx)**|Actualiza un trabajo del programador con una acción HTTP.|
-|**[Set-AzureSchedulerJobCollection](https://msdn.microsoft.com/es-es/library/azure/dn759626.aspx)**|Actualiza una colección de trabajos del programador.|
-|**[Set-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/es-es/library/azure/dn722476.aspx)**|Actualiza un trabajo del programador con una acción de almacenamiento.|
+|**[Get-AzureSchedulerJob](https://msdn.microsoft.com/es-ES/library/azure/dn722516.aspx)**|Obtiene una lista de los trabajos programados o de un trabajo de programador determinado.|
+|**[Get-AzureSchedulerJobCollection](https://msdn.microsoft.com/es-ES/library/azure/dn722471.aspx)**|Obtiene colecciones de trabajo del programador.|
+|**[Get-AzureSchedulerJobHistory](https://msdn.microsoft.com/es-ES/library/azure/dn722514.aspx)**|Obtiene el historial de un trabajo del programador.|
+|**[Get-AzureSchedulerLocation](https://msdn.microsoft.com/es-ES/library/azure/dn722505.aspx)**|Obtiene las ubicaciones disponibles del programador.|
+|**[New-AzureSchedulerHttpJob](https://msdn.microsoft.com/es-ES/library/azure/dn722492.aspx)**|Crea un trabajo del programador con una acción HTTP.|
+|**[New-AzureSchedulerJobCollection](https://msdn.microsoft.com/es-ES/library/azure/dn759640.aspx)**|Crea una colección de trabajos del programador.|
+|**[New-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/es-ES/library/azure/dn722518.aspx)**|Crea un trabajo del programador con una acción de almacenamiento.|
+|**[Remove-AzureSchedulerJob](https://msdn.microsoft.com/es-ES/library/azure/dn722477.aspx)**|Elimina un trabajo del programador.|
+|**[Remove-AzureSchedulerJobCollection](https://msdn.microsoft.com/es-ES/library/azure/dn722530.aspx)**|Elimina una colección de trabajos del programador.|
+|**[Set-AzureSchedulerHttpJob](https://msdn.microsoft.com/es-ES/library/azure/dn722474.aspx)**|Actualiza un trabajo del programador con una acción HTTP.|
+|**[Set-AzureSchedulerJobCollection](https://msdn.microsoft.com/es-ES/library/azure/dn759626.aspx)**|Actualiza una colección de trabajos del programador.|
+|**[Set-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/es-ES/library/azure/dn722476.aspx)**|Actualiza un trabajo del programador con una acción de almacenamiento.|
 
 
 ## Otras referencias
@@ -55,4 +55,4 @@ En la tabla siguiente aparece una descripción y vínculos a la página de refer
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

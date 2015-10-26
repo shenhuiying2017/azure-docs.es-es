@@ -1,20 +1,21 @@
-<properties 
-  pageTitle="Replicación de almacenamiento de Azure | Microsoft Azure" 
-  description="Los datos de su cuenta de almacenamiento de Microsoft Azure se replican para garantizar la durabilidad y la alta disponibilidad. Entre las opciones de replicación se incluyen el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona (ZRS), el almacenamiento con redundancia geográfica (GRS) y el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)." 
-  services="storage" 
-  documentationCenter="" 
-  authors="tamram" 
-  manager="adinah" 
-  editor=""/>
 
-<tags 
-  ms.service="storage" 
-  ms.workload="storage" 
-  ms.tgt_pltfrm="na" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.date="09/01/2015" 
-  ms.author="tamram"/>
+<properties 
+  pageTitle="Replicación de almacenamiento de Azure | Microsoft Azure" 
+  description="Los datos de su cuenta de almacenamiento de Microsoft Azure se replican para garantizar la durabilidad y la alta disponibilidad. Entre las opciones de replicación se incluyen el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona (ZRS), el almacenamiento con redundancia geográfica (GRS) y el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)." 
+  services="storage" 
+  documentationCenter="" 
+  authors="tamram" 
+  manager="adinah" 
+  editor=""/>
+
+<tags 
+  ms.service="storage" 
+  ms.workload="storage" 
+  ms.tgt_pltfrm="na" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.date="10/07/2015" 
+  ms.author="tamram"/>
 
 # Replicación de almacenamiento de Azure
 
@@ -55,7 +56,7 @@ A pesar que el almacenamiento con redundancia geográfica (GRS) se recomienda pa
 El almacenamiento con redundancia de zona (ZRS) replica sus datos entre dos o tres instalaciones, ya sea dentro de una sola región o entre dos regiones, lo que proporciona una mayor durabilidad que LRS. Si su cuenta de almacenamiento tiene habilitado ZRS, sus datos se conservan incluso ante un error en una de las instalaciones.
 
 
->[AZURE.NOTE]ZRS solo está disponible actualmente para blobs en bloques. Tenga en cuenta que una vez que haya creado la cuenta de almacenamiento y haya seleccionado la replicación con redundancia de zona, no podrá convertirla para usar cualquier otro tipo de aplicación (o viceversa).
+>[AZURE.NOTE]Actualmente, el ZRS solo está disponible para los blobs en bloques y únicamente se admite en las versiones del 14/02/2014 y posteriores. Tenga en cuenta que una vez que haya creado la cuenta de almacenamiento y haya seleccionado la replicación con redundancia de zona, no podrá convertirla para usar cualquier otro tipo de aplicación (o viceversa).
 
 
 ## Almacenamiento con redundancia geográfica
@@ -103,4 +104,4 @@ Cuando habilita el acceso de solo lectura a los datos en la región secundaria, 
 - [Emulador de almacenamiento de Microsoft Azure 3.1 con RA-GRS ](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Documento de SOSP de Almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

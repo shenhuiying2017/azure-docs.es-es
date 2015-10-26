@@ -106,8 +106,8 @@ Si el usuario de su elección no está en el directorio, puede invitar a cualqui
 [account]: https://account.microsoft.com
 [group]: ../azure-preview-portal-using-resource-groups.md
 [portal]: http://portal.azure.com/
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -223,4 +223,4 @@ Puede encontrar una referencia para el lenguaje de la expresión de plantilla en
 [Introducción a los centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procedimientos de los Centros de notificaciones para iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

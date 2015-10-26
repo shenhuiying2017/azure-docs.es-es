@@ -1,20 +1,20 @@
 <properties
    pageTitle="Acción de la capacidad de prueba | Microsoft Azure"
-	description="En este artículo se habla sobre las acciones de capacidad de prueba que se encuentra en el servicio de Microsoft Azure Fabric."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="heeldin"
-	manager="timlt"
-	editor=""/>
+   description="En este artículo se habla sobre las acciones de capacidad de prueba que se encuentra en el servicio de Microsoft Azure Fabric."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="heeldin"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/31/2015"
-	ms.author="heeldin;motanv"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/31/2015"
+   ms.author="heeldin;motanv"/>
 
 # Acciones de Testability
 Para simular una infraestructura no confiable, Service Fabric proporciona a los desarrolladores distintas formas de simular varios errores y transiciones de estados que se producen en escenarios reales. Dichas formas se exponen como acciones de Testability. Las acciones son las API de bajo nivel que provocan una inserción de errores específicos, una transición de estado o una validación. Mediante la combinación de estas acciones, los programadores del servicio pueden escribir escenarios de prueba completos para los servicios.
@@ -234,4 +234,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Errores de comunicación entre servicios](service-fabric-testability-scenarios-service-communication.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -35,4 +35,4 @@ Hasta hace poco, solo era posible registrarse para obtener una suscripción a Mi
 * [¿Qué es Azure AD?](active-directory-whatis.md)
 * [Uso de la infraestructura de identidad local en la nube](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

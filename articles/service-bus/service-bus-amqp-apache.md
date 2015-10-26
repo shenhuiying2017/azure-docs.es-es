@@ -105,10 +105,6 @@ Después de realizar estos pasos, Proton estará instalado en el equipo y listo 
 ¿Listo para obtener más información? Consulte los siguientes vínculos:
 
 - [Información general sobre AMQP para el Bus de servicio]
-- [Uso del Bus de servicio desde .NET con AMQP]
-- [Uso del Bus de servicio desde Java con AMQP]
-- [Uso del Bus de servicio desde Python con AMQP]
-- [Uso del Bus de servicio desde PHP con AMQP]
 
 [Información general sobre AMQP para el Bus de servicio]: service-bus-amqp-overview.md
 [0]: ./media/service-bus-amqp-apache/amqp-apache-1.png
@@ -117,9 +113,5 @@ Después de realizar estos pasos, Proton estará instalado en el equipo y listo 
 [3]: ./media/service-bus-amqp-apache/amqp-apache-4.png
 
 [Portal de Azure]: http://manage.windowsazure.com
-[Uso del Bus de servicio desde .NET con AMQP]: service-bus-amqp-dotnet.md
-[Uso del Bus de servicio desde Java con AMQP]: service-bus-amqp-java.md
-[Uso del Bus de servicio desde Python con AMQP]: service-bus-amqp-python.md
-[Uso del Bus de servicio desde PHP con AMQP]: service-bus-amqp-php.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

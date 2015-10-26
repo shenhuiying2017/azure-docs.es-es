@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Inicio de sesión mediante un método alternativo con Azure Multi-Factor Authentication"
-	description="Esta página describe cómo un usuario puede iniciar sesión con un método alternativo con Azure MFA."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Inicio de sesión mediante un método alternativo con Azure Multi-Factor Authentication" 
+	description="Esta página describe cómo un usuario puede iniciar sesión con un método alternativo con Azure MFA." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Inicio de sesión mediante un método alternativo con Azure Multi-Factor Authentication
@@ -33,4 +33,4 @@ En la siguiente sección se mostrará cómo iniciar sesión con un método alter
 
 <li>Elija un método alternativo e inicie sesión.</li>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

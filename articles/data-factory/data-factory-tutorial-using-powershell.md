@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Desplazamiento y procesamiento de archivos de registro mediante la factoría de datos de Azure (Azure PowerShell)"
-	description="En este tutorial avanzado se describe un escenario casi real y se implementa el escenario con el servicio Factoría de datos de Azure y Azure PowerShell."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Desplazamiento y procesamiento de archivos de registro mediante la factoría de datos de Azure (Azure PowerShell)" 
+	description="En este tutorial avanzado se describe un escenario casi real y se implementa el escenario con el servicio Factoría de datos de Azure y Azure PowerShell." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: mover y procesar archivos de registro con Factoría de datos [PowerShell]
@@ -297,26 +297,26 @@ El Portal de Azure no admite crear conjuntos de datos y tablas, por lo que deber
 ### Para crear las tablas
 
 1.	En Azure PowerShell, vaya a la carpeta **Tablas** (**C:\\ADFWalkthrough\\Tables**) desde la ubicación donde extrajo los ejemplos.
-2.	Use el cmdlet **New-AzureDataFactoryTable** para crear las tablas para **RawGameEventsTable**.json de la manera siguiente.	
+2.	Use el cmdlet **New-AzureDataFactoryDataset** para crear los conjuntos de datos para **RawGameEventsTable**.json de la manera siguiente.	
 
 
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
 
 	Si está utilizando otro nombre para ResourceGroupName y DataFactoryName, indíquelo en el cmdlet anterior. Además, proporcione la ruta de acceso completa del archivo JSON de la tabla si no se encuentra el archivo mediante el cmdlet.
 
 3. Repita el paso anterior para crear las tablas siguientes:
 		
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionedGameEventsTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionedGameEventsTable.json
 		
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RefGeoCodeDictionaryTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefGeoCodeDictionaryTable.json
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RefMarketingCampaignTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefMarketingCampaignTable.json
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichedGameEventsTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichedGameEventsTable.json
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessSQLTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessSQLTable.json
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessBlobTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessBlobTable.json
 
 
 
@@ -326,7 +326,7 @@ El Portal de Azure no admite crear conjuntos de datos y tablas, por lo que deber
 
 	También puede utilizar el siguiente comando de Azure PowerShell:
 			
-		Get-AzureDataFactoryTable –ResourceGroupName ADF –DataFactoryName $df
+		Get-AzureDataFactoryDataset –ResourceGroupName ADF –DataFactoryName $df
 
 	
 
@@ -558,4 +558,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises-us
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

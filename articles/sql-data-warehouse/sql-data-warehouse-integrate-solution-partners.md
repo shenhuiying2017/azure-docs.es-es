@@ -101,4 +101,4 @@ Para obtener más información acerca de la integración con Almacenamiento de d
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

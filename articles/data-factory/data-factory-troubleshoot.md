@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Solución de problemas de la Factoría de datos de Azure"
-	description="Obtenga información acerca de la solución de problemas relacionados con la factoría de datos de Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Solución de problemas de la Factoría de datos de Azure" 
+	description="Obtenga información acerca de la solución de problemas relacionados con la factoría de datos de Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # Solución de problemas de la factoría de datos
@@ -382,4 +382,4 @@ En este escenario, el conjunto de datos está en estado de error debido a un err
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

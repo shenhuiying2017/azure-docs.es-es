@@ -57,4 +57,4 @@ Para obtener más información, consulte los temas siguientes:
 [Referencia de la API de REST de administración de servicios](https://msdn.microsoft.com/library/azure/ee460799.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

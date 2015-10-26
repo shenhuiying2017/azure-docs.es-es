@@ -65,4 +65,4 @@ Por supuesto, puede editar esta regla de alerta y elegir **Deshabilitar** o **Ha
 * [Realice el seguimiento del estado del servicio](insights-service-health.md) para averiguar cuándo ha sufrido Azure interrupciones del servicio o degradación del rendimiento.
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

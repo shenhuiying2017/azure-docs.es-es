@@ -11,4 +11,4 @@ Los equilibradores de carga contienen los siguientes recursos secundarios:
 - **Sondeos**: los sondeos permiten realizar un seguimiento del estado de las instancias de máquina virtual. Si se produce un error en un sondeo de estado, la instancia de VM se sacará automáticamente de la rotación.
 - **Reglas NAT entrantes**: las reglas NAT que definen el tráfico entrante que fluye a través de la dirección IP de front-end y se distribuye a la dirección IP de back-end.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

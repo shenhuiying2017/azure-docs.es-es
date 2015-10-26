@@ -145,4 +145,4 @@ Una vez que los clientes han tenido la oportunidad de recibir estas actualizacio
 [Envío de notificaciones push multiplataforma]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
 [Cómo usar el SDK de servidor de .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

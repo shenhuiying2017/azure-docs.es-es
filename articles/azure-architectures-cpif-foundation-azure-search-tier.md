@@ -46,4 +46,4 @@ Este documento describe un patrón de núcleo para usar Búsqueda de Azure con d
 
 [Nivel de procesamiento por lotes](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

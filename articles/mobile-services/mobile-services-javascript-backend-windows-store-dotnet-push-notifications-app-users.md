@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Envío de notificaciones de inserción a usuarios autenticados" 
-	description="Obtenga información acerca de cómo enviar notificaciones de inserción a específicos" 
+	pageTitle="Envío de notificaciones push a usuarios de aplicaciones universales de Windows autenticados." 
+	description="Obtenga información sobre cómo enviar notificaciones de inserción desde Servicios móviles de Azure a usuarios específicos de su aplicación universal C# de Windows." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -48,7 +48,7 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 &nbsp;&nbsp;5. Reemplace la función de inserción por el siguiente código y, a continuación, haga clic en **Guardar**:
 
 	function insert(item, user, request) {
-    // Definir una carga para la notificación del sistema de la Tienda Windows.
+    // Define a payload for the Windows Store toast notification.
     var payload = '<?xml version="1.0" encoding="utf-8"?><toast><visual>' +    
     '<binding template="ToastText01"><text id="1">' +
     item.text + '</text></binding></visual></toast>';
@@ -58,8 +58,8 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 
     request.execute({
         success: function() {
-            // Si la inserción se realiza correctamente, enviar una notificación a todos los dispositivos 
-	    	// registrados en el usuario que ha iniciado sesión como una etiqueta.
+            // If the insert succeeds, send a notification to all devices 
+	    	// registered to the logged-in user as a tag.
             	push.wns.send(userId, payload, 'wns/toast', {
                 success: function(pushResponse) {
                     console.log("Sent push:", pushResponse);
@@ -95,7 +95,7 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 [Incorporación de autenticación a su aplicación]: ../mobile-services-windows-store-dotnet-get-started-users.md
 [Incorporación de notificaciones de inserción a la aplicación]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -385,4 +385,4 @@ Cada nodo de un grupo tiene un nombre único y el nodo en el que se ejecuta una 
 
 [Información general de Lote de Azure]: batch-technical-overview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

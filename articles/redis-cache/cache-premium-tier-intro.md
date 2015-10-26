@@ -54,4 +54,4 @@ Cree una memoria caché y explore las nuevas características del nivel Premium.
 -	[Cómo configurar la agrupación en clústeres para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md)
   
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

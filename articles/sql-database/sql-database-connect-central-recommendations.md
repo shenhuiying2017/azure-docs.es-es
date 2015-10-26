@@ -167,4 +167,4 @@ Se proporcionan varios ejemplos de código para clientes que se ejecutan en Wind
 
 - [Bibliotecas de conexiones para la base de datos SQL y SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

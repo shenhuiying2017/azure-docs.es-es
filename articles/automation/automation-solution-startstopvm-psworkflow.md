@@ -193,4 +193,4 @@ Las líneas siguientes recorren cada máquina virtual. Primero se comprueba el *
 - [Runbooks secundarios en la Automatización de Azure](automation-child-runbooks.md) 
 - [Salidas de runbook y mensajes en la Automatización de Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

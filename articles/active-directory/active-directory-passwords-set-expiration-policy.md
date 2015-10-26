@@ -64,4 +64,4 @@ Para usar los cmdlets de Windows PowerShell, primero debe instalarlos.
 
 	- Para configurar las contraseñas de todos los usuarios de una organización para que nunca caduquen, ejecute el siguiente cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

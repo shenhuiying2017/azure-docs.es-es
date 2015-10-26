@@ -119,4 +119,4 @@ Si se restablece la configuración de fábrica de un dispositivo, se pierden tod
 - Obtenga más información sobre el [uso de Windows PowerShell para StorSimple administrar el dispositivo StorSimple](storsimple-windows-powershell-administration.md).
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

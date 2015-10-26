@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/21/2015" 
+	ms.date="10/09/2015" 
 	ms.author="femila"/>
 
 # Administración de propietarios de un grupo
@@ -43,4 +43,4 @@ A continuación presentamos algunos temas que proporcionarán información adici
 * [¿Qué es Azure Active Directory?](active-directory-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

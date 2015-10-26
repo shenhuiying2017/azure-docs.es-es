@@ -4,4 +4,4 @@
 > 
 > Los servicios y los recursos creados en el Portal de vista previa de Azure no son visibles en el Portal de Azure, ya que usan un nuevo modelo de recursos.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

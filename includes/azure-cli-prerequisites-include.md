@@ -3,4 +3,4 @@ Para seguir los pasos de este artículo, necesitará [instalar la interfaz de l�
 
 > [AZURE.NOTE]Si no tiene una cuenta de Azure, necesitará una. Regístrese para [obtener una prueba gratuita aquí](sign-up-organization.md). Además, para seguir el tutorial por completo necesitará disponer de [jq](https://stedolan.github.io/jq/) o de alguna otra herramienta de análisis o biblioteca de JSON instalada.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

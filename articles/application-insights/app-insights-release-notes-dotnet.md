@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Notas de la versión de Application Insights para .NET"
-	description="Las actualizaciones más recientes."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Notas de la versión de Application Insights para .NET" 
+	description="Las actualizaciones más recientes." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2015" 
 	ms.author="sergkanz"/>
  
 # Notas de la versión del SDK de Application Insights para .NET
@@ -31,6 +31,17 @@ Consulte [Introducción a Application Insights para .NET](app-insights-start-mon
 * Seleccione **Microsoft.ApplicationInsights.Web** y elija **Actualizar**. (Esto actualizará todos los paquetes dependientes).
 * Compare ApplicationInsights.config con la copia anterior. La mayoría de los cambios que verá se deben a que hemos quitado algunos módulos y hemos hecho que otros se puedan parametrizar. Restablezca las personalizaciones realizadas en el archivo anterior.
 * Vuelva a generar la solución.
+
+## Version 2.0.0-beta1
+- TrackDependency producirá JSON válido cuando no se especificaron todos los campos obligatorios.
+- La propiedad redundante ```RequestTelemetry.ID``` solo es ahora un proxy para ```RequestTelemetry.Operation.Id```.
+- Nueva interfaz ```ISupportSampling``` e implementación explícita de ella por la mayoría de los tipos de elementos de datos.
+- Propiedad ```Count``` en DependencyTelemetry marcada como obsoleta. Use ```SamplingPercentage``` en su lugar.
+- Nuevo ```CloudContext``` introducido y propiedades ```RoleName``` y ```RoleInstance``` movidas a él desde ```DeviceContext```.
+- Nueva propiedad ```AuthenticatedUserId``` en ```UserContext``` para especificar la identidad del usuario autenticada.
+- Se ha agregado `Microsoft.ApplicationInsights.Web.AccountIdTelemetryInitializer`, `Microsoft.ApplicationInsights.Web.AuthenticatedUserIdTelemetryInitializer` que inicializa el contexto del usuario autenticado según se establece por el SDK de Javascript.
+- Se han agregado la compatibilidad de `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor` y del soporte técnico de muestreo de tipo fijo como una implementación del mismo.
+- Se ha agregado `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.TelemetryChannelBuilder`, que permite la creación de un `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` con un conjunto de `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor`.
 
 ## Versión 1.2
 
@@ -86,4 +97,4 @@ No existen notas de la versión para versiones anteriores.
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

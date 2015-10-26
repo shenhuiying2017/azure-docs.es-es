@@ -34,49 +34,44 @@ Para llevar a cabo esta tarea, deberá hacer lo siguiente:
 
 El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS). Para continuar, puede [descargar el esqueleto de la aplicación como un archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) o clonar el esqueleto:
 
-```
-git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git
-```
+```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
 
 La aplicación completa se ofrece también al final de este tutorial.
 
-> [AZURE.WARNING] 	Para nuestra vista previa de B2C debe usar el mismo identificador de aplicación o de cliente, así como directivas tanto para el servidor de tareas de API web como para el cliente que se conecta a él. Esto se aplica a nuestros tutoriales de iOS y Android. Si previamente ha creado una aplicación en cualquiera de estos tutoriales, use los valores siguientes en lugar de crear otros nuevos.
+> [AZURE.WARNING]Para nuestra vista previa de B2C debe usar el mismo identificador de aplicación o de cliente, así como directivas tanto para el servidor de tareas de API web como para el cliente que se conecta a él. Esto se aplica a nuestros tutoriales de iOS y Android. Si previamente ha creado una aplicación en cualquiera de estos tutoriales, use los valores siguientes en lugar de crear otros nuevos.
 
-## 1. Obtener un directorio de Azure AD B2C
+## 1\. Obtener un directorio de Azure AD B2C
 
 Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directorio es un contenedor para todos los usuarios, aplicaciones, grupos, etc. Si no tiene uno todavía, vaya a [crear un directorio de B2C](active-directory-b2c-get-started.md) antes de continuar.
 
-## 2. Creación de una aplicación
+## 2\. Creación de una aplicación
 
-Ahora debe crear una aplicación en su directorio de B2C, que ofrece a Azure AD información que necesita para comunicarse de forma segura con su aplicación. Tanto la aplicación cliente como la API web se representarán mediante un **identificador de aplicación** único en este caso, ya que conforman una aplicación lógica. Para crear una aplicación,
-siga [estas instrucciones](active-directory-b2c-app-registration.md). Asegúrese de
+Ahora debe crear una aplicación en su directorio de B2C, que ofrece a Azure AD información que necesita para comunicarse de forma segura con su aplicación. Tanto la aplicación cliente como la API web se representarán mediante un **identificador de aplicación** único en este caso, ya que conforman una aplicación lógica. Para crear una aplicación, siga [estas instrucciones](active-directory-b2c-app-registration.md). Asegúrese de
 
 - Incluir una **aplicación web/API web** en la aplicación.
 - Escribir `http://localhost/TodoListService` como **dirección URL de respuesta**: es la dirección URL predeterminada para este ejemplo de código.
-- Crear un **secreto de aplicación ** para la aplicación y copiarlo. Lo necesitará en breve.
-- Escribir el **identificador de aplicación** asignado a la aplicación. También lo necesitará en breve.
+- Crear un **Secreto de aplicación ** para la aplicación y copiarlo. Lo necesitará en breve.
+- Escribir el **Id. de aplicación** asignado a la aplicación. También lo necesitará en breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## 3. Crear sus directivas
+## 3\. Crear sus directivas
 
-En Azure AD B2C, cada experiencia del usuario se define mediante una 
-[**directiva**](active-directory-b2c-reference-policies.md). Esta aplicación contiene tres experiencias de identidad: registro, inicio de sesión e inicio de sesión con Facebook. Debe crear una directiva de cada tipo, como se describe en el [artículo de referencia de directiva](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Al crear sus tres directivas, asegúrese de:
+En Azure AD B2C, cada experiencia del usuario se define mediante una [**directiva**](active-directory-b2c-reference-policies.md). Esta aplicación contiene tres experiencias de identidad: registro, inicio de sesión e inicio de sesión con Facebook. Debe crear una directiva de cada tipo, como se describe en el [artículo de referencia de directiva](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Al crear sus tres directivas, asegúrese de:
 
-- Elija el **Nombre para mostrar** y algunos otros atributos de registro en la directiva de registro.
-- Elija las notificaciones de aplicación **Nombre para mostrar** e **Id. de objeto** en todas las directivas. Puede elegir también otras notificaciones.
-- Copie el **Nombre** de cada directiva después de crearla. Debe tener el prefijo `b2c_1_`. Necesitará esos nombres de directivas en breve. 
+- Seleccionar **Nombre para mostrar** y algunos otros atributos de registro en la directiva de registro.
+- Elegir las notificaciones de aplicación **Nombre para mostrar** e **Id. de objeto** en todas las directivas. Puede elegir también otras notificaciones.
+- Copiar el **Nombre** de cada directiva después de crearla. Debe tener el prefijo `b2c_1_`. Necesitará esos nombres de directivas en breve. 
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Cuando tenga tres directivas creadas correctamente, estará listo para crear su aplicación.
 
-Note that this article does not cover how to use the policies you just created.  If you want to learn about how policies work in Azure AD B2C,
-you should start with the [.NET Web App getting started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md).
+Tenga en cuenta que este artículo no trata de cómo usar las directivas que acaba de crear. Si quiere aprender cómo funcionan las directivas en Azure AD B2C, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 
 
-## 4. Incorporación de requisitos previos al directorio
+## 4\. Incorporación de requisitos previos al directorio
 
 En la línea de comandos, cambie los directorios a la carpeta raíz si aún no está ahí y ejecute los siguientes comandos:
 
@@ -100,7 +95,7 @@ En la línea de comandos, cambie los directorios a la carpeta raíz si aún no e
 
 Esto instalará las bibliotecas de las que depende passport-azure-ad.
 
-## 5. Configuración de la aplicación para que use la estrategia passport-node-js
+## 5\. Configuración de la aplicación para que use la estrategia passport-node-js
 Aquí configuraremos el middleware Express para usar el protocolo de autenticación OpenID Connect. Passport se usará para emitir solicitudes de inicio y cierre de sesión, administrar la sesión del usuario y obtener información sobre el usuario, entre otras cosas.
 
 -	Para comenzar, abra el archivo `config.js` en la raíz del proyecto y escriba los valores de configuración de la aplicación en la sección `exports.creds`.
@@ -275,7 +270,7 @@ app.post('/auth/openid/return',
 
 ## 4\. Uso de Passport para emitir solicitudes de inicio y cierre de sesión en Azure AD
 
-La aplicación ya está configurada correctamente para comunicarse con el extremo v2.0 mediante el protocolo de autenticación OpenID Connect. `passport-azure-ad` se ha ocupado de todos los detalles poco atractivos de la elaboración de mensajes de autenticación, validación de tokens de Azure AD y mantenimiento de la sesión del usuario. Ya solo falta ofrecer a los usuarios una forma de iniciar sesión, cerrar sesión y recopilar información adicional sobre el usuario con la sesión iniciada.
+La aplicación ya está configurada correctamente para comunicarse con el punto de conexión v2.0 mediante el protocolo de autenticación OpenID Connect. `passport-azure-ad` se ha ocupado de todos los detalles poco atractivos de la elaboración de mensajes de autenticación, validación de tokens de Azure AD y mantenimiento de la sesión del usuario. Ya solo falta ofrecer a los usuarios una forma de iniciar sesión, cerrar sesión y recopilar información adicional sobre el usuario con la sesión iniciada.
 
 - En primer lugar, se agregan el método predeterminado, el de inicio de sesión, el de cuenta y el de cierre de sesión al archivo `app.js`:
 
@@ -417,9 +412,7 @@ Regístrese o inicie sesión en la aplicación mediante su correo electrónico o
 
 Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se proporciona en forma de archivo .zip aquí](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip), aunque también puede clonarlo desde GitHub:
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-nodejs.git
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-nodejs.git```
 
 Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
@@ -436,4 +429,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

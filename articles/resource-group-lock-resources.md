@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # Bloqueo de recursos con el Administrador de recursos de Azure
@@ -93,16 +93,18 @@ Para obtener ejemplos, consulte la [API de REST para bloqueos de administración
 
 ## Creación de un bloqueo con Azure PowerShell
 
-Puede bloquear los recursos implementados con Azure PowerShell con **New-AzureResourceLock**, como se muestra a continuación. Mediante PowerShell, solo puede establecer **LockLevel** en **CanNotDelete**.
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-    PS C:\> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
+Puede bloquear los recursos implementados con Azure PowerShell mediante **New-AzureRmResourceLock**, como se muestra a continuación. Mediante PowerShell, solo puede establecer **LockLevel** en **CanNotDelete**.
 
-PowerShell proporciona otros comandos para trabajar con bloqueos, como **Set-AzureResourceLock** para actualizar un bloqueo y **Remove-AzureResourceLock** para eliminarlo.
+    PS C:\> New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites
+
+Azure PowerShell proporciona otros comandos para bloqueos de trabajo, como **Set-AzureRmResourceLock** para actualizar un bloqueo y **Remove-AzureRmResourceLock** para eliminarlo.
 
 ## Pasos siguientes
 
-- Para obtener más información sobre cómo trabajar con bloqueos de recursos, consulte la página sobre el [bloqueo de los recursos de Azure](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx).
-- Para saber cómo organizar de manera lógica los recursos, consulte [Uso de etiquetas para organizar los recursos de Azure](resource-group-using-tags.md).
-- Para cambiar el grupo de recursos en que reside un recurso, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](resource-group-move-resources.md).
+- Para obtener más información sobre cómo trabajar con bloqueos de recursos, consulte [Bloqueo de los recursos de Azure](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx).
+- Para aprender a organizar de manera lógica los recursos, consulte [Uso de etiquetas para organizar sus recursos](resource-group-using-tags.md).
+- Para cambiar el grupo de recursos en que reside un recurso, consulte [Traslado de los recursos a un nuevo grupo de recursos](resource-group-move-resources.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -70,17 +70,17 @@ Como parte de este procedimiento, es necesario cargar un certificado codificado 
 
 3.  En la página **Configurar dirección URL de la aplicación**, realice los pasos siguientes:
 
-     3.1. Inicio de sesión en el inquilino de Dropbox para Empresas. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769509.png "Configurar inicio de sesión único")
+     3\.1. Inicio de sesión en el inquilino de Dropbox para Empresas. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769509.png "Configurar inicio de sesión único")
 
-     3.2. En el panel de navegación de la izquierda, haga clic en **Admin Console**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769510.png "Configurar inicio de sesión único")
+     3\.2. En el panel de navegación de la izquierda, haga clic en **Admin Console**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769510.png "Configurar inicio de sesión único")
 
-     3.3. En la **Admin Console**, haga clic en **Authentication** en el panel de navegación izquierdo. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769511.png "Configurar inicio de sesión único")
+     3\.3. En la **Admin Console**, haga clic en **Authentication** en el panel de navegación izquierdo. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769511.png "Configurar inicio de sesión único")
 
-     3.4. En la sección **Single sign-on**, seleccione **Enable single sign-on** y haga clic en **More** para expandir esta sección. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769512.png "Configurar inicio de sesión único")
+     3\.4. En la sección **Single sign-on**, seleccione **Enable single sign-on** y haga clic en **More** para expandir esta sección. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769512.png "Configurar inicio de sesión único")
 
-     3.5. Copie la dirección URL a continuación de **Users can sign in by entering their email address or they can go directly to**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769513.png "Configurar inicio de sesión único")
+     3\.5. Copie la dirección URL a continuación de **Users can sign in by entering their email address or they can go directly to**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769513.png "Configurar inicio de sesión único")
 
-     3.6. En el portal de Azure, en el cuadro de texto de la dirección URL de **Inicio de sesión de Dropbox para Empresas**, pegue la dirección URL. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769514.png "Configurar inicio de sesión único")
+     3\.6. En el portal de Azure, en el cuadro de texto de la dirección URL de **Inicio de sesión de Dropbox para Empresas**, pegue la dirección URL. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769514.png "Configurar inicio de sesión único")
 
 
 
@@ -89,18 +89,18 @@ Como parte de este procedimiento, es necesario cargar un certificado codificado 
 
 5. En su inquilino de Dropbox para Empresas, en la sección **Single sign-on** de la página **Authentication**, realice los pasos siguientes: <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769516.png "Configurar inicio de sesión único")
 
-     5.1. Haga clic en **Required**.
+     5\.1. Haga clic en **Required**.
 
-     5.2. En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Dropbox para Empresas**, copie el valor de **Dirección URL de la página de inicio de sesión** y péguelo en el cuadro de texto **URL de inicio de sesión**.
-
-
-     5.3. Cree un archivo **codificado en Base 64** a partir del certificado descargado. >[AZURE.TIP]Para obtener más información, vea [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+     5\.2. En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Dropbox para Empresas**, copie el valor de **Dirección URL de la página de inicio de sesión** y péguelo en el cuadro de texto **URL de inicio de sesión**.
 
 
-     5.4. Haga clic en **Elegir certificado** y vaya a su **archivo de certificado codificado en Base 64**.
+     5\.3. Cree un archivo **codificado en Base 64** a partir del certificado descargado. >[AZURE.TIP]Para obtener más información, vea [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 
-     5.5. Haga clic en **Guardar cambios** para completar la configuración en el inquilino de Dropbox para Empresas.
+     5\.4. Haga clic en **Elegir certificado** y vaya a su **archivo de certificado codificado en Base 64**.
+
+
+     5\.5. Haga clic en **Guardar cambios** para completar la configuración en el inquilino de Dropbox para Empresas.
 
 
 6. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749329.png "Configurar inicio de sesión único")
@@ -173,4 +173,4 @@ Si desea probar la configuración de inicio de sesión único, abra el Panel de 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

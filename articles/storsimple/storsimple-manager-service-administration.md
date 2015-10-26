@@ -57,11 +57,7 @@ En la tabla siguiente se muestra la jerarquía de navegación de la IU del servi
 |Página de aterrizaje|Páginas de nivel de servicio|Páginas de nivel de dispositivo|Páginas de nivel de dispositivo|
 |---|---|---|---|
 |Servicio StorSimple Manager|Panel del servicio|Panel del dispositivo||
-|| Dispositivos →| Supervisión|| 
-|| Catálogo de copias de seguirdad| Contenedores→| de volúmenes| 
-|| Configurar (servicio) | Directivas de copia de seguridad|| 
-|| Trabajos| Configurar (dispositivo) || 
-|| Alerts| Mantenimiento||
+|| Dispositivos →| Supervisión| || Catálogo de copias de seguirdad| Contenedores→| de volúmenes| || Configurar (servicio) | Directivas de copia de seguridad|| || Trabajos| Configurar (dispositivo) | || Alerts| Mantenimiento|
 
 
 ## Administrar el dispositivo StorSimple mediante el servicio de Administrador de StorSimple
@@ -116,4 +112,4 @@ Si no puede resolver los problemas y necesita crear una solicitud de servicio, c
 
 -  [Contactar al servicio técnico de Microsoft](storsimple-contact-microsoft-support.md)
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -137,7 +137,7 @@ Obtendrá la siguiente confirmación:
 	Command(s) completed successfully.
 
 ## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/ES-ES/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 
@@ -193,4 +193,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

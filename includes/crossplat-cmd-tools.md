@@ -171,7 +171,7 @@ Se crea una Máquina virtual de Azure a partir de una imagen de máquina virtual
 
 Puede aprovisionar e iniciar una máquina virtual desde una de las imágenes disponibles con el comando `vm create`. El ejemplo siguiente muestra cómo crear una máquina virtual Linux (de nombre `myVM`) desde una imagen en la Galería de imágenes (CentOS 6.2). El nombre de usuario raíz y la contraseña para la máquina virtual son `myusername` y `Mypassw0rd` respectivamente. (Tenga en cuenta que el parámetro `--location` especifica el centro de datos en el que se crea la máquina virtual. Si omite el parámetro `--location`, se le solicitará que elija una ubicación).
 
-	azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-es-es-30GB.vhd myusername --location "West US"
+	azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-es-ES-30GB.vhd myusername --location "West US"
 
 Puede considerar pasar la marca `--ssh` (Linux) o la marca `--rdp` (Windows) a `vm create` para habilitar conexiones remotas para la máquina virtual recién creada.
 
@@ -220,4 +220,4 @@ Para conocer una lista completa de comandos para crear y administrar máquinas v
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -107,4 +107,4 @@ Para obtener más información sobre Almacenamiento de Azure, consulte los sigui
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

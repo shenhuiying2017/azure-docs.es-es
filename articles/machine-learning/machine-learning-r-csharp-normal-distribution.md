@@ -265,4 +265,4 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

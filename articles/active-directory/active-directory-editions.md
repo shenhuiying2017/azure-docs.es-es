@@ -58,7 +58,7 @@ La edición Premium de Active Directory es una oferta de pago de Azure Active Di
 
 - **Microsoft Identity Manager (MIM)**: la versión Premium incorpora la opción de garantizar los derechos de uso de un servidor MIM (y CAL) en la red local para admitir cualquier combinación de soluciones de identidad híbrida. Esto es una buena opción si tiene una variación de bases de datos y directorios locales que desea sincronizar directamente con Azure Active Directory. No hay ningún límite en el número de servidores MIM que puede usar, sin embargo, las CAL de MIM se conceden basándose en la asignación de una licencia de usuario de Azure Active Directory Premium.
 
-    Para obtener más información, vea [Microsoft Identity Manager](http://www.microsoft.com/es-es/server-cloud/products/microsoft-identity-manager/default.aspx).
+    Para obtener más información, vea [Microsoft Identity Manager](http://www.microsoft.com/es-ES/server-cloud/products/microsoft-identity-manager/default.aspx).
 
 - **SLA empresarial del 99,9 %**: garantizamos al menos una disponibilidad del 99,9 % del servicio Azure Active Directory Premium.
 
@@ -396,7 +396,7 @@ La edición Premium de Active Directory es una oferta de pago de Azure Active Di
 	<tr>
 		<td>
 		<p>
-		<a href="https://msdn.microsoft.com/es-es/library/azure/dn906722.aspx">Azure Active Directory Connect Health</a>: permite supervisar el mantenimiento de la infraestructura de Active Directory local y obtener análisis de uso.</p>
+		<a href="https://msdn.microsoft.com/es-ES/library/azure/dn906722.aspx">Azure Active Directory Connect Health</a>: permite supervisar el mantenimiento de la infraestructura de Active Directory local y obtener análisis de uso.</p>
 		</td>
 		<td>
 		<p></p>
@@ -450,4 +450,4 @@ Las siguientes características están actualmente en versión de vista previa p
 - [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 - [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

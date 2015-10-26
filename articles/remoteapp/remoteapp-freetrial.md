@@ -30,4 +30,4 @@ Mientras se encuentra en el modo de prueba, puede crear dos colecciones con un l
 
 ¿Tiene comentarios? Publique sus preguntas en los [foros de discusión](http://feedback.azure.com/forums/247748-azure-remoteapp). Si tiene un [plan de soporte técnico de Azure](http://azure.microsoft.com/support/plans/), puede enviar una incidencia. Todos pueden enviar comentarios en nuestro [foro de comentarios](http://feedback.azure.com/forums/247748-azure-remoteapp).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

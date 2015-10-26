@@ -117,4 +117,4 @@ Incluso si intenta tolerar algunos errores, la [API de obtención del estado de 
 Eso es todo por ahora. Si tiene ideas o sugerencias para futuras ideas de contenido, envíenos un mensaje de Twitter con el hashtag #AzureSearch o envíe sus ideas a nuestra [página de UserVoice](http://feedback.azure.com/forums/263029-azure-search).
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

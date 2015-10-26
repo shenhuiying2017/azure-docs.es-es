@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Directrices del conjunto de IoT de Microsoft Azure de personalización de soluciones preconfiguradas | Microsoft Azure"
-	description="Proporciona directrices sobre la personalización de soluciones preconfiguradas del conjunto de IoT de Azure."
+	pageTitle="Personalización de las soluciones preconfiguradas | Microsoft Azure"
+	description="Proporciona directrices sobre la personalización de ñas soluciones preconfiguradas del Conjunto de aplicaciones de IoT de Azure."
 	services=""
 	documentationCenter=".net"
 	authors="stevehob"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="na"
-     ms.devlang="na"
+     ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="stevehob"/>
 
@@ -69,4 +69,4 @@ Para obtener más información sobre los dispositivos de IoT, consulte el [sitio
 
 [SDK de dispositivo de IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

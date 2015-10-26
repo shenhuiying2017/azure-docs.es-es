@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="10/14/2015"
    ms.author="tomfitz"/>
 
 # Implementación de una aplicación con la plantilla del Administrador de recursos de Azure
@@ -27,27 +27,37 @@ Al implementar una aplicación con una plantilla, puede proporcionar valores de 
 
 ## Implementación con PowerShell
 
-Puede descargar e instalar los módulos de Azure PowerShell mediante la ejecución del [Instalador de plataforma web de Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+
 
 1. Inicie sesión en su cuenta de Azure. Después de proporcionar sus credenciales, el comando devuelve información acerca de su cuenta.
 
+    Antes de la vista previa de Azure PowerShell 1.0:
+
+        PS C:\> Switch-AzureMode AzureResourceManager
+        ...
         PS C:\> Add-AzureAccount
 
         Id                             Type       ...
         --                             ----    
         someone@example.com            User       ...   
 
-2. Si tiene varias suscripciones, proporcione el identificador de suscripción que desea usar para la implementación.
+    Vista previa de Azure PowerShell 1.0:
 
-        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+         PS C:\> Login-AzureRmAccount
 
-3. Cambie al módulo Administrador de recursos de Azure.
+         Evironment : AzureCloud
+         Account    : someone@example.com
+         ...
 
-        PS C:\> Switch-AzureMode AzureResourceManager
 
-4. Si no tiene un grupo de recursos existente, cree uno nuevo. Proporcione el nombre del grupo de recursos y la ubicación que necesita para la solución. Se devuelve un resumen del grupo de recursos nuevo.
+2. Si tiene varias suscripciones, proporcione el identificador de suscripción que desee usar para la implementación con el comando **Select-AzureRmSubscription**.
 
-        PS C:\> New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
+        PS C:\> Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
+
+3. Si no tiene un grupo de recursos existente, cree uno nuevo con el comando **New-AzureRmResourceGroup**. Proporcione el nombre del grupo de recursos y la ubicación que necesita para la solución. Se devuelve un resumen del grupo de recursos nuevo.
+
+        PS C:\> New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
         ResourceGroupName : ExampleResourceGroup
         Location          : westus
@@ -59,22 +69,22 @@ Puede descargar e instalar los módulos de Azure PowerShell mediante la ejecuci�
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. Para crear una implementación nueva para el grupo de recursos, ejecute el comando **New-AzureResourceGroupDeployment** y proporcione los parámetros necesarios. Los parámetros incluirán un nombre para la implementación, el nombre del grupo de recursos, la ruta de acceso o dirección URL a la plantilla que creó y cualquier otro parámetro necesario para el escenario.
+5. Para crear una implementación nueva para el grupo de recursos, ejecute el comando **New-AzureRmResourceGroupDeployment** y proporcione los parámetros necesarios. Los parámetros incluirán un nombre para la implementación, el nombre del grupo de recursos, la ruta de acceso o dirección URL a la plantilla que creó y cualquier otro parámetro necesario para el escenario.
    
      Tiene las opciones siguientes para proporcionar valores de parámetro:
    
      - Use parámetros en línea.
 
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
+            PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
      - Use un objeto de parámetro.
 
             PS C:\> $parameters = @{"<ParameterName>"="<Parameter Value>"}
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
+            PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
 
      - Uso de un archivo de parámetro. Para obtener información sobre el archivo de plantilla, consulte [Archivo de parámetros](./#parameter-file).
 
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
+            PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
 
      Una vez implementado el grupo de recursos, verá un resumen de la implementación.
 
@@ -87,11 +97,8 @@ Puede descargar e instalar los módulos de Azure PowerShell mediante la ejecuci�
 
 6. Para obtener información acerca de los errores de la implementación.
 
-        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
+        PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -Name ExampleDeployment
 
-7. Para obtener información detallada acerca de los errores de la implementación.
-
-        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
         
 ### Vídeo
 
@@ -246,4 +253,4 @@ El tamaño del archivo de parámetros no puede ser superior a 64 KB.
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

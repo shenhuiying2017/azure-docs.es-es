@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="10/07/2015"
    ms.author="tomfitz"/>
 
 # Descripción de la implementación del Administrador de recursos y la implementación clásica
@@ -46,13 +46,17 @@ Los recursos creados a través del Administrador de recursos comparten las sigui
 
         ![preview portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Para recursos de proceso, almacenamiento y red, puede usar el Administrador de recursos o la implementación clásica. Seleccionar **Administrador de recursos**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resourece Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-  - Los comandos PowerShell se ejecutan en el modo **AzureResourceManager**.
+  - Para las versiones de Azure PowerShell anteriores a la versión de vista previa 1.0, los comandos se ejecutan en el modo **AzureResourceManager**.
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
+
+  - Para la vista previa de Azure PowerShell 1.0, utilice la versión del Administrador de recursos de comandos. Estos comandos tienen el formato *verb-AzureRm*, tal como se muestra a continuación.
+
+            PS C:\> Get-AzureRmResourceGroupDeployment
 
   - [API de REST del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) para operaciones REST.
   - Los comandos de la CLI de Azure se ejecutan en el modo **arm**.
@@ -73,16 +77,20 @@ Los recursos creados en el modelo de implementación clásica comparten las sigu
 
         ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        O bien, el portal de vista previa y el usuario deben especificar la implementación **clásica** (para cálculo, almacenamiento y redes).
+        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-  - Los comandos PowerShell se ejecutan en el modo **AzureServiceManagement** (que es el modo predeterminado, por lo que si no cambia de forma específica a AzureResourceManager, ejecuta el modo AzureServiceManagement).
+  - Para las versiones de Azure PowerShell anteriores a la versión de vista previa 1.0, los comandos PowerShell se ejecutan en el modo **AzureServiceManagement** (que es el modo predeterminado, por lo que si no cambia de forma específica a AzureResourceManager, ejecuta el modo AzureServiceManagement).
 
             PS C:\> Switch-AzureMode -Name AzureServiceManagement
 
-  - [API de REST de administración del servicio](https://msdn.microsoft.com/library/azure/ee460799.aspx) para operaciones REST.
-  - Los comandos de la CLI de Azure se ejecutan en modo **asm** o modo predeterminado.
+  - Para la vista previa de Azure PowerShell 1.0, utilice la versión de Administración de servicios de comandos. Estos nombres de comandos **no** tienen el formato *verb-AzureRm*, tal como se muestra a continuación.
+
+            PS C:\> Get-AzureDeployment
+
+  - [API de REST de Administración de servicios](https://msdn.microsoft.com/library/azure/ee460799.aspx) para operaciones REST.
+  - Los comandos de la CLI de Azure se ejecutan en modo **asm** o predeterminado.
 - El tipo de recurso incluye **(clásico)** en el nombre. La imagen siguiente muestra el tipo como **cuenta de almacenamiento (clásica)**.
 
     ![tipo clásico](./media/resource-manager-deployment-model/classic-type.png)
@@ -101,7 +109,7 @@ El Administrador de recursos agregó el concepto del grupo de recursos. Cada rec
 - Puede aplicar etiquetas a los recursos para organizar de manera lógica todos los recursos en su suscripción.
 
 
-Antes del Administrador de recursos, cada recurso creado a través de la implementación clásica no existía dentro de un grupo de recursos. Al agregarse el Administrador de recursos, todos los recursos se agregaron retroactivamente a los grupos de recursos predeterminados. Si crea un recurso a través de la implementación clásica ahora, el recurso se crea automáticamente dentro de un grupo de recursos vacío, incluso si no especificó dicho grupo de recursos durante la implementación. Sin embargo, solo el hecho de existir dentro de un grupo de recursos no significa que el recurso se haya convertido al modelo del Administrador de recursos. Si el recurso se creó a través de la implementación clásica, debe continuar trabajando en él a través de operaciones clásicas.
+Antes del Administrador de recursos, cada recurso creado a través de la implementación clásica no existía dentro de un grupo de recursos. Al agregarse el Administrador de recursos, todos los recursos se agregaron retroactivamente a los grupos de recursos predeterminados. Si ahora crea un recurso a través de la implementación clásica, el recurso se crea automáticamente dentro de un grupo de recursos predeterminado para el servicio, aunque no se especifique dicho grupo de recursos durante la implementación. Sin embargo, solo el hecho de existir dentro de un grupo de recursos no significa que el recurso se haya convertido al modelo del Administrador de recursos. En el caso de las máquinas virtuales, el almacenamiento y las redes virtuales, si el recurso se creó a través de la implementación clásica, debe continuar trabajando en él a través de operaciones clásicas.
 
 Puede mover recursos a un grupo de recursos distinto y agregar nuevos recursos a un grupo de recursos existente. Por tanto, su grupo de recursos puede contener una combinación de recursos creados a través del Administrador de recursos y la implementación clásica. Esta combinación de recursos puede crear resultados inesperados porque los recursos no son compatibles con las mismas operaciones.
 
@@ -117,7 +125,7 @@ Para obtener más información sobre el uso de las etiquetas en el Administrador
 
 Los recursos creados en el modelo de implementación clásica no son compatibles con las operaciones del Administrador de recursos. En algunos casos, un comando del Administrador de recursos puede recuperar información sobre un recurso creado a través de la implementación clásica, o puede realizar tareas administrativas como mover un recurso clásico a otro grupo de recursos, pero estos casos no deben dar la impresión de que el tipo es compatible con las operaciones del Administrador de recursos. Por ejemplo, suponga que tiene un grupo de recursos que contiene las máquinas virtuales que se crearon con el Administrador de recursos y el modelo clásico. Si ejecuta el siguiente comando PowerShell, verá todas las máquinas virtuales:
 
-    PS C:\> Get-AzureResourceGroup -Name ExampleGroup
+    PS C:\> Get-AzureRmResourceGroup -Name ExampleGroup
     ...
     Resources :
      Name                 Type                                          Location
@@ -158,4 +166,4 @@ Para obtener información sobre cómo conectar redes virtuales de diferentes mod
 - Para obtener información sobre cómo crear plantillas de implementación declarativas, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para ver los comandos para implementar una plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

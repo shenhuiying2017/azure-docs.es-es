@@ -23,14 +23,12 @@
 En esta guía se describe cómo agregar la supervisión del rendimiento de primer nivel de New Relic a sus aplicaciones hospedadas en Azure. Veremos cómo agregar de forma fácil y sencilla New Relic a la aplicación y le mostraremos algunas de las características de New Relic. Para obtener más información sobre el uso de New Relic, consulte [Uso de New Relic](#using-new-relic).
 
 ¿Qué es New Relic?
---
 
 New Relic es una herramienta para desarrolladores que supervisa las aplicaciones de producción y proporciona un conocimiento profundo de su rendimiento y confiabilidad. Está diseñado para ahorrar tiempo al identificar y diagnosticar problemas de rendimiento, poniendo al alcance de la mano toda la información necesaria para solucionar estos problemas.
 
 New Relic realiza el seguimiento del tiempo de carga y de la capacidad de proceso de su transacción web, tanto para los exploradores del servidor como de los usuarios. Muestra cuánto tiempo pasa en la base de datos, analiza las consultas lentas y las solicitudes web, proporciona supervisión y alertas del tiempo de actividad, realiza el seguimiento de excepciones de la aplicación y mucho más.
 
-Precios especiales de New Relic en la Tienda de Azure 
---
+Precios especiales de New Relic en la Tienda de Azure --
 
 Los usuarios de Azure pueden obtener la versión estándar de New Relic de manera gratuita, mientras que New Relic Pro se ofrece por tamaño de instancia para los Servicios en la nube de Azure.
 
@@ -40,8 +38,7 @@ Para obtener información sobre precios, consulte la [página de New Relic en la
 
 Los clientes de Azure reciben una suscripción de prueba a New Relic Pro de dos semanas de duración cuando implementan el agente de New Relic.
 
-Suscripción a New Relic a través de la Tienda de Azure 
---
+Suscripción a New Relic a través de la Tienda de Azure --
 
 New Relic se integra perfectamente con los roles web y de trabajo de Azure.
 
@@ -176,4 +173,4 @@ Consulte estos recursos adicionales para obtener más información:
  * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): información general sobre cómo detalla RUM el tiempo que tardan los exploradores de sus usuarios en cargar las páginas web, de dónde proceden y qué exploradores usan.
  * [Buscar ayuda](https://newrelic.com/docs/site/finding-help): recursos disponibles en el centro de ayuda en línea de New Relic.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -30,4 +30,4 @@
 La página **Directivas de copia de seguridad** se actualizará para guardar los cambios en la directiva.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

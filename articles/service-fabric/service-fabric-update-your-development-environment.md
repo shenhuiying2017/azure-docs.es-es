@@ -53,4 +53,4 @@ Eso es todo. Ahora puede iniciar Visual Studio y continuar creando aplicaciones 
 
  [1]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Vínculo de WebPI"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

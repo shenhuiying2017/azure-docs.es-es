@@ -168,7 +168,7 @@ En cada rol se indica el tamaño de VM deseado que las instancias de dicho rol d
 
 </td>
 <td>
-\~5 Mbps
+~5 Mbps
 
 </td>
 </tr>
@@ -190,7 +190,7 @@ En cada rol se indica el tamaño de VM deseado que las instancias de dicho rol d
 
 </td>
 <td>
-\~100 Mbps
+~100 Mbps
 
 </td>
 </tr>
@@ -212,7 +212,7 @@ En cada rol se indica el tamaño de VM deseado que las instancias de dicho rol d
 
 </td>
 <td>
-\~200 Mbps
+~200 Mbps
 
 </td>
 </tr>
@@ -234,7 +234,7 @@ En cada rol se indica el tamaño de VM deseado que las instancias de dicho rol d
 
 </td>
 <td>
-\~400 Mbps
+~400 Mbps
 
 </td>
 </tr>
@@ -256,7 +256,7 @@ En cada rol se indica el tamaño de VM deseado que las instancias de dicho rol d
 
 </td>
 <td>
-\~800 Mbps
+~800 Mbps
 
 </td>
 </tr>
@@ -346,4 +346,4 @@ Para obtener más información acerca de cómo implementar, actualizar y volver 
   [Migración de aplicaciones a Azure]: http://msdn.microsoft.com/library/gg186051.aspx
   [Configurar un proyecto de Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

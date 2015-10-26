@@ -21,7 +21,7 @@
 
 En este artículo se muestra cómo usar las plantillas del Administrador de recursos de Azure y la línea de comandos (CLI) de Azure para realizar tareas comunes de implementación y administración de máquinas virtuales de Azure. Para obtener más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](http://azure.microsoft.com/documentation/templates/) y [Marcos de aplicaciones mediante el uso de plantillas](virtual-machines-app-frameworks.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se describe la implementación y la administración de una máquina virtual mediante plantillas en el modelo de implementación del Administrador de recursos. No puede usar plantillas en el modelo de implementación clásico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica. No puede usar plantillas en el modelo de implementación clásico.
 
 
 - [Creación rápida de una máquina virtual en Azure](#quick-create-a-vm-in-azure)
@@ -1306,4 +1306,4 @@ Para consultar más ejemplos de uso de la CLI de Azure con el modo **arm**, cons
 
 Para obtener más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](http://azure.microsoft.com/documentation/templates/) y [Marcos de aplicaciones mediante el uso de plantillas](virtual-machines-app-frameworks.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

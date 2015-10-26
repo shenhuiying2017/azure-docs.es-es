@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Reemplazar un disco duro en un dispositivo StorSimple | Microsoft Azure"
-	description="Explica cómo reemplazar una unidad de disco en un dispositivo principal de StorSimple o un gabinete EBOD."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Explica cómo reemplazar una unidad de disco en un dispositivo principal de StorSimple o un gabinete EBOD."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # Reemplazar un disco duro en el dispositivo StorSimple
 
@@ -124,4 +124,4 @@ Después de que se ha producido un error en la unidad de su dispositivo StorSimp
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

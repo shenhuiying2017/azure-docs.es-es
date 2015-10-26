@@ -29,4 +29,4 @@ Valor de tiempo de espera de reintento | 1 segundo | 1 segundo
 
 El Administrador de recursos de Azure tiene límites para las llamadas API. Se pueden realizar llamadas API a un ritmo que esté dentro de los [límites de la API del Administrador de recursos de Azure](azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

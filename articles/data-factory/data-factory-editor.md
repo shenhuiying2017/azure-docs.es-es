@@ -221,4 +221,4 @@ Consulte el tema [Introducción a la Factoría de datos de Azure][data-factory-g
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

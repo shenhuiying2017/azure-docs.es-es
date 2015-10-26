@@ -90,4 +90,4 @@ En este artículo y en los artículos en cada una de las muestras, ha obtenido i
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

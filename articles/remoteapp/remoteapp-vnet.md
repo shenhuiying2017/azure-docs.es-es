@@ -38,4 +38,4 @@ Para obtener más información sobre el flujo de trabajo completo de la colecci�
 - [Implementación de la colección Azure RemoteApp en la Red virtual de Azure (con compatibilidad para ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

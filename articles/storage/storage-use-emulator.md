@@ -232,4 +232,4 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 - La versión 2013-08-15 de los servicios de almacenamiento de Azure ahora es totalmente compatible. (Anteriormente esta versión solo era compatible con versión la versión 2.2.1 Preview del emulador de almacenamiento.)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

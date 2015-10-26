@@ -110,4 +110,4 @@ Para configurar los valores que se aplican a todo un proyecto de servicio en la 
 |Desarrollo|Desde esta página, puede especificar las instrucciones de la configuración de compilación y las condiciones bajos las cuales se ejecutan los eventos posteriores a la compilación.|
 |Web|Desde esta página, puede configurar los valores relacionados con el servidor web.|
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -94,4 +94,4 @@ Al volver a registrar un origen de datos ya registrado se realiza una operación
 ## Resumen
 Al registrar un origen de datos con el **Catálogo de datos de Azure** se facilita la detección y comprensión de ese origen de datos, copiando los metadatos estructurales y descriptivos del origen de datos en el servicio Catálogo. Una vez registrado un origen de datos, se puede anotar, administrar y detectar mediante el portal **Catálogo de datos de Azure**.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -14,13 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="10/12/2015"
 	ms.author="garye;bradsev" />
 
 
 # Importación de datos de entrenamiento en Estudio de aprendizaje automático de Azure desde varios orígenes de datos
 
-[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
+Este **menú** vincula a temas en los que se describe cómo introducir datos en los entornos de destino en que se pueden almacenar y procesar los datos durante el proceso de análisis de Cortana (CAPS).
+
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+
+
+## Introducción
 
 Para usar sus propios datos en Estudio de aprendizaje automático para desarrollar y entrenar una solución de análisis predictivo, puede:
 
@@ -28,9 +33,11 @@ Para usar sus propios datos en Estudio de aprendizaje automático para desarroll
 - acceder a los datos desde cualquiera de los **orígenes de datos en línea** mientras su experimento se ejecuta con el módulo [Lector][reader]. 
 - usar datos de otro experimento de Aprendizaje automático de Azure guardado como un **conjunto de datos**. 
 
+[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
+
 Cada una de estas opciones se describen en uno de los temas del menú superior. Estos temas muestran cómo importar datos desde estos diversos orígenes de datos para usarlos en Estudio de aprendizaje automático.
 
-> [AZURE.NOTE]Existe una gran variedad de conjuntos de datos de ejemplo disponibles en Estudio de aprendizaje automático que puede usar con este fin. Para obtener información al respecto, consulte [Uso de los conjuntos de datos de ejemplo en Estudio de aprendizaje automático de Azure](machine-learning-use-sample-datasets.md)).
+> [AZURE.NOTE]Existe una gran variedad de conjuntos de datos de ejemplo disponibles en Estudio de aprendizaje automático que puede usar con este fin. Para obtener información al respecto, consulte [Uso de los conjuntos de datos de ejemplo en Estudio de aprendizaje automático de Azure](machine-learning-use-sample-datasets.md).
 
 Este tema de introducción también muestra cómo obtener datos listos para su uso en Estudio de aprendizaje automático y describe qué tipos y formatos de datos son compatibles.
 
@@ -89,4 +96,4 @@ En caso de ser necesario, puede convertir el formato Tabla de datos de vuelta al
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

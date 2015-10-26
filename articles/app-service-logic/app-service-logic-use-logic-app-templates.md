@@ -40,4 +40,4 @@ Las plantillas simples que se integran con los servicios de redes sociales como 
 Después de seleccionar una de las plantillas, complete la implementación como lo haría si creara su propia aplicación lógica. Consulte [Creación de una aplicación lógica](app-service-logic-create-a-logic-app.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

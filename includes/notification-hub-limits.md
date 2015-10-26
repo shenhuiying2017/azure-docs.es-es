@@ -8,4 +8,4 @@
 
 Para obtener más información acerca de estos límites y los precios, consulte [Precios de los Centros de notificaciones](http://azure.microsoft.com/pricing/details/notification-hubs/).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Preguntas frecuentes sobre la puerta de enlace VPN de Virtual Network | Microsoft Azure"
-	description="Preguntas más frecuentes sobre la puerta de enlace de VPN Preguntas más frecuentes sobre las conexiones entre locales de Virtual Network de Microsoft Azure, las conexiones híbridas de configuración y puertas de enlace VPN"
-	services="vpn-gateway"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   description="Preguntas más frecuentes sobre la puerta de enlace de VPN Preguntas más frecuentes sobre las conexiones entre locales de Virtual Network de Microsoft Azure, las conexiones híbridas de configuración y puertas de enlace VPN"
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/20/2015"
+   ms.author="cherylmc" />
 
 # Preguntas más frecuentes sobre la puerta de enlace de VPN
 
@@ -252,4 +252,4 @@ Ver más P+F sobre redes para obtener detalles adicionales:
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

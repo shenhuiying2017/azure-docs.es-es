@@ -119,4 +119,4 @@ En la tabla siguiente se describe el comportamiento de la supervisión del Admin
 [Solución de problemas de estado degradado en Administrador de tráfico de Azure](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

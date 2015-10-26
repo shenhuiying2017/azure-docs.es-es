@@ -77,7 +77,7 @@ Los siguientes paquetes de extensión basados en NuGet proporcionan diversas car
 
 - [Microsoft.Azure.Mobile.Server.Quickstart] admite la configuración básica de Aplicaciones móviles. Se agrega a la configuración mediante una llamada al método de extensión **UseDefaultConfiguration** durante la inicialización. Esta extensión incluye las siguientes extensiones: notificaciones, autenticación, entidad, tablas y paquetes principales y entre dominios . Esto es equivalente al proyecto de servidor de inicio rápido que se descarga desde el Portal de Azure.
 
-- [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) agrega una página principal sencilla a la raíz del sitio web. Se agrega a la configuración mediante una llamada al método de extensión **AddMobileAppHomeController**.
+- [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) Implementa el valor predeterminado de *esta página de aplicación móvil está funcionando* para la raíz del sitio web. Se agrega a la configuración mediante una llamada al método de extensión **AddMobileAppHomeController**.
 
 - [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) incluye clases para trabajar con datos y configura la canalización de datos. Se agrega a la configuración mediante una llamada al método de extensión **AddTables**.
 
@@ -85,7 +85,7 @@ Los siguientes paquetes de extensión basados en NuGet proporcionan diversas car
 
 - [Microsoft.Azure.Mobile.Server.Authentication] habilita la autenticación y configura el middleware OWIN que se usa para validar los tokens. Se agrega a la configuración mediante una llamada a los métodos de extensión **AddAppServiceAuthentication** y **IAppBuilder**.**UseMobileAppAuthentication**.
 
-- [Microsoft.Azure.Mobile.Server.Notifications] habilita las notificaciones push y define un extremo de registro de inserción. Se agrega a la configuración mediante una llamada al método de extensión **AddPushNotifications**.
+- [Microsoft.Azure.Mobile.Server.Notifications] habilita las notificaciones push y define un punto de conexión de registro de inserción. Se agrega a la configuración mediante una llamada al método de extensión **AddPushNotifications**.
 
 - [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) crea un controlador que sirve datos de la aplicación móvil a los exploradores web heredados. Se agrega a la configuración mediante una llamada al método de extensión **MapLegacyCrossDomainController**.
 
@@ -205,4 +205,4 @@ Siga los pasos que se indican a continuación para publicar el proyecto de servi
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

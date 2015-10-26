@@ -13,4 +13,4 @@ De forma predeterminada, se pueden invocar API en un back-end de aplicación mó
    
 3. Vuelva a publicar el proyecto del servidor.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

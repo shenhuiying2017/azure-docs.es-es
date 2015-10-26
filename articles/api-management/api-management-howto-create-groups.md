@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="10/13/2015" 
 	ms.author="sdanie"/>
 
 # Creación y uso de grupos para administrar cuentas de desarrollador en Administración de API de Azure
@@ -29,6 +29,8 @@ Administración de API tiene los siguientes grupos invariables del sistema.
 Además de estos grupos del sistema, los administradores pueden crear grupos personalizados o [aprovechar los grupos externos en inquilinos de Azure Active Directory asociados][]. Los grupos personalizados y externos pueden usarse junto con grupos del sistema en la concesión a los desarrolladores de visibilidad y acceso a productos de la API. Por ejemplo, podría crear un grupo personalizado para los desarrolladores afiliados a una organización asociada específica y permitirles el acceso a las API a partir de un producto que contenga solo las API relevantes. Un usuario puede ser miembro de más de un grupo.
 
 En esta guía se muestra cómo los administradores de una instancia de Administración de API pueden agregar nuevos grupos y asociarlos a productos y desarrolladores.
+
+>[AZURE.NOTE]Además de crear y administrar grupos en el portal del editor, puede crear y administrar sus grupos mediante la entidad de [grupo](https://msdn.microsoft.com/library/azure/dn776329.aspx) de la API de REST de administración.
 
 ## <a name="create-group"> </a>Creación de un grupo
 
@@ -80,9 +82,11 @@ Una vez seleccionados los desarrolladores que desee, haga clic en el grupo que d
 
 Una vez agregada, la asociación entre el desarrollador y el grupo se puede ver en la pestaña **Usuarios**.
 
+
 ## <a name="next-steps"> </a>Pasos siguientes
 
-Una vez agregado a un grupo, un desarrollador puede ver los productos asociados al grupo y suscribirse a ellos. Para obtener más información, consulte [Creación y publicación de un producto en Administración de API de Azure][].
+-	Una vez agregado a un grupo, un desarrollador puede ver los productos asociados al grupo y suscribirse a ellos. Para obtener más información, consulte [Creación y publicación de un producto en Administración de API de Azure][].
+-	Además de crear y administrar grupos en el portal del editor, puede crear y administrar sus grupos mediante la entidad de [grupo](https://msdn.microsoft.com/library/azure/dn776329.aspx) de la API de REST de administración.
 
 
 [api-management-management-console]: ./media/api-management-howto-create-groups/api-management-management-console.png
@@ -107,4 +111,4 @@ Una vez agregado a un grupo, un desarrollador puede ver los productos asociados 
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
 [aprovechar los grupos externos en inquilinos de Azure Active Directory asociados]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

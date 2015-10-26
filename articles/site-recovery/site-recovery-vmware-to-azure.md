@@ -273,12 +273,12 @@ El servidor de configuración se implementa en un servicio en la nube de Azure c
 	- Si hace clic en **Siguiente**, se ejecutará una prueba para comprobar la conexión del proxy.
 	- Si utiliza a un proxy personalizado o el proxy predeterminado requiere autenticación, tendrá que especificar los detalles del proxy, incluida la dirección, el puerto y las credenciales.
 	- Las siguientes direcciones URL deben ser accesibles a través del proxy:
-		- *.hypervrecoverymanager.windowsazure.com 
-		- *.accesscontrol.windows.net 
-		- *.backup.windowsazure.com 
-		- *.blob.core.windows.net 
-		- *.store.core.windows.net 
-	- Si dispone de reglas de firewall basadas en direcciones IP, asegúrese de que están configuradas para permitir la comunicación desde el servidor de configuración hasta las direcciones IP descritas en [Intervalos de direcciones IP de los centros de datos de Azure](https://msdn.microsoft.com/es-es/library/azure/dn175718.aspx) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- Si dispone de reglas de firewall basadas en direcciones IP, asegúrese de que están configuradas para permitir la comunicación desde el servidor de configuración hasta las direcciones IP descritas en [Intervalos de direcciones IP de los centros de datos de Azure](https://msdn.microsoft.com/es-ES/library/azure/dn175718.aspx) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
 
 	![Registro de proxy](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationProxy.png)
 
@@ -379,7 +379,7 @@ Tenga en cuenta que las cuatro primeras direcciones IP en las subredes están re
 	![Servidor de destino principal de Windows](./media/site-recovery-vmware-to-azure/ASRVMWare_TSRegister.png)
 
 8. Si ejecuta Linux:
-	1. Asegúrese de que ha instalado los Linux Integration Services (LIS) más recientes antes de instalar el software de servidor de destino maestro. Encontrará la versión más reciente de LIS junto con instrucciones sobre cómo instalar [aquí](https://www.microsoft.com/ES-ES/download/details.aspx?id=46842). Reinicie el equipo después de instalar LIS.
+	1. Asegúrese de que ha instalado los Linux Integration Services (LIS) más recientes antes de instalar el software de servidor de destino maestro. Encontrará la versión más reciente de LIS junto con instrucciones sobre cómo instalar [aquí](https://www.microsoft.com/es-ES/download/details.aspx?id=46842). Reinicie el equipo después de instalar LIS.
 	2. En **Preparar los recursos de destino (Azure)**, haga clic en **Descargar e instalar software adicional (solo para el servidor de destino principal de Linux)** para descargar el paquete de servidor de destino principal de Linux. Copie el archivo tar descargado en la máquina virtual mediante un cliente sftp. También puede iniciar sesión en el servidor de destino principal de Linux implementado y usar *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* para descargar el archivo.
 2. Inicie sesión en el servidor mediante un cliente de Secure Shell. Tenga en cuenta que si está conectado a la red de Azure a través de VPN, utilice la dirección IP interna. En caso contrario, utilice la dirección IP externa y el extremo público SSH.
 	3. Extraiga los archivos del instalador comprimidos con gzip ejecutando: **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Servidor de destino principal de Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
@@ -405,12 +405,12 @@ Tenga en cuenta que las cuatro primeras direcciones IP en las subredes están re
 
 2.  Copie el archivo comprimido descargado en el servidor en el que va a instalar al servidor de proceso. El archivo comprimido contiene dos archivos de instalación:
 
-	- Microsoft-ASR_CX_TP_8.4.0.0_Windows*
-	- Microsoft-ASR_CX_8.4.0.0_Windows*
+	- Microsoft-ASR\_CX\_TP\_8.4.0.0\_Windows*
+	- Microsoft-ASR\_CX\_8.4.0.0\_Windows*
 
 3. Descomprima el archivo y copie los archivos de instalación en una ubicación en el servidor.
-4. Ejecute el archivo de instalación **Microsoft-ASR_CX_TP_8.4.0.0_Windows*** y siga las instrucciones. Se instalan los componentes de terceros necesarios para la implementación.
-5. A continuación, ejecute **Microsoft-ASR_CX_8.4.0.0_Windows***.
+4. Ejecute el archivo de instalación **Microsoft-ASR\_CX\_TP\_8.4.0.0\_Windows*** y siga las instrucciones. Se instalan los componentes de terceros necesarios para la implementación.
+5. A continuación, ejecute **Microsoft-ASR\_CX\_8.4.0.0\_Windows***.
 6. En la página **Modo servidor**, seleccione **Servidor de proceso**.
 
 	![Modo de selección de servidor](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerSelection.png)
@@ -455,7 +455,7 @@ Tenga en cuenta que las cuatro primeras direcciones IP en las subredes están re
 
 Si no deshabilita la comprobación de firmas para Mobility Service al registrar el servidor de proceso, puede hacerlo más adelante de la forma siguiente:
 
-1. Inicie sesión en el servidor de proceso como administrador y abra el archivo C:\pushinstallsvc\pushinstaller.conf para modificarlo. En la sección **[PushInstaller.transport]** agregue esta línea: **SignatureVerificationChecks=”0”**. Guarde y cierre el archivo.
+1. Inicie sesión en el servidor de proceso como administrador y abra el archivo C:\\pushinstallsvc\\pushinstaller.conf para modificarlo. En la sección **[PushInstaller.transport]** agregue esta línea: **SignatureVerificationChecks=”0”**. Guarde y cierre el archivo.
 2. Reinicie el servicio InMage PushInstall.
 
 
@@ -561,10 +561,10 @@ Al agregar equipos a un grupo de protección, el servicio de movilidad se insert
 4. Asegúrese de que el archivo /etc/hosts del servidor Linux de origen contiene entradas que asignan el nombre de host local a las direcciones IP asociadas con todas las tarjetas NIC.
 5. Instale los paquetes openssh, openssh-server, openssl más recientes en el equipo que desea proteger.
 6. Asegúrese de que SSH está habilitado y ejecutándose en el puerto 22. 
-7. Habilite la autenticación de la contraseña y del subsistema SFTP en el archivo sshd_config: 
+7. Habilite la autenticación de la contraseña y del subsistema SFTP en el archivo sshd\_config: 
 
 	- a) Inicie sesión como root.
-	- b) En el archivo /etc/ssh/sshd_config, busque la línea que comienza con **PasswordAuthentication**.
+	- b) En el archivo /etc/ssh/sshd\_config, busque la línea que comienza con **PasswordAuthentication**.
 	- c) Quite el comentario de la línea y cambie el valor de “no” a “yes”.
 
 		![Movilidad de Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_LinuxPushMobility1.png)
@@ -577,7 +577,7 @@ Al agregar equipos a un grupo de protección, el servicio de movilidad se insert
  
 ### Instalación manual de Mobility Service
 
-Los paquetes de software que se usan para instalar Mobility Service están en el servidor de procesos en C:\pushinstallsvc\repository. Inicie sesión en el servidor de procesos y copie el paquete de instalación correspondiente a la máquina de origen basándose en la tabla siguiente:-
+Los paquetes de software que se usan para instalar Mobility Service están en el servidor de procesos en C:\\pushinstallsvc\\repository. Inicie sesión en el servidor de procesos y copie el paquete de instalación correspondiente a la máquina de origen basándose en la tabla siguiente:-
 
 | Sistema operativo de origen | Paquete de Mobility Service en el servidor de procesos |
 |---------------------------------------------------	|------------------------------------------------------------------------------------------------------	|
@@ -589,7 +589,7 @@ Los paquetes de software que se usan para instalar Mobility Service están en el
 
 **Para instalar Mobility Service manualmente en un servidor Windows**, haga lo siguiente:
 
-1. Copie el paquete **Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe** de la ruta de acceso al directorio del servidor de procesos indicada en la tabla anterior para la máquina de origen.
+1. Copie el paquete **Microsoft-ASR\_UA\_8.4.0.0\_Windows\_GA\_28Jul2015\_release.exe** de la ruta de acceso al directorio del servidor de procesos indicada en la tabla anterior para la máquina de origen.
 2. Instale Mobility Service mediante la ejecución del archivo ejecutable en el equipo de origen.
 3. Siga las instrucciones del instalador.
 4. Seleccione **Mobility Service** como el rol y haga clic en **Siguiente**.
@@ -608,7 +608,7 @@ Los paquetes de software que se usan para instalar Mobility Service están en el
 
 **Para ejecutar desde la línea de comandos**:
 
-1. Copie la frase de contraseña desde el CX en el archivo "C:\connection.passphrase" en el servidor y ejecute este comando. En nuestro ejemplo CX i 104.40.75.37 y el puerto HTTPS es 62519:
+1. Copie la frase de contraseña desde el CX en el archivo "C:\\connection.passphrase" en el servidor y ejecute este comando. En nuestro ejemplo CX i 104.40.75.37 y el puerto HTTPS es 62519:
 
     `C:\Microsoft-ASR_UA_8.2.0.0_Windows_PREVIEW_20Mar2015_Release.exe" -ip 104.40.75.37 -port 62519 -mode UA /LOG="C:\stdout.txt" /DIR="C:\Program Files (x86)\Microsoft Azure Site Recovery" /VERYSILENT  /SUPPRESSMSGBOXES /norestart  -usesysvolumes  /CommunicationMode https /PassphrasePath "C:\connection.passphrase"`
 
@@ -755,8 +755,7 @@ Si un servidor de procesos está en un estado crítico, se mostrará una adverte
 1. Vaya a la página **SERVIDORES DE CONFIGURACIÓN** debajo de **SERVIDORES**.
 2. Haga clic en el nombre del servidor de configuración y vaya a **Detalles del servidor**.
 3. En la lista **Servidores de procesos**, haga clic en **Cambiar servidor de procesos** junto al servidor que desea modificar. ![Cambiar servidor de proceso 1](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS1.png)
-4. En el cuadro de diálogo **Cambiar servidor de procesos**, seleccione el servidor nuevo en **Servidor de proceso de destino** y después seleccione las máquinas virtuales que se van a replicar en el nuevo servidor. Haga clic en el icono de información junto al nombre del servidor para obtener información sobre él, como el espacio libre o la memoria utilizada. El espacio medio que será necesario para replicar cada máquina virtual seleccionada en el nuevo servidor de procesos se muestra para ayudarle a tomar decisiones de carga.
-	![Cambiar servidor de proceso 2](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
+4. En el cuadro de diálogo **Cambiar servidor de procesos**, seleccione el servidor nuevo en **Servidor de proceso de destino** y después seleccione las máquinas virtuales que se van a replicar en el nuevo servidor. Haga clic en el icono de información junto al nombre del servidor para obtener información sobre él, como el espacio libre o la memoria utilizada. El espacio medio que será necesario para replicar cada máquina virtual seleccionada en el nuevo servidor de procesos se muestra para ayudarle a tomar decisiones de carga. ![Cambiar servidor de proceso 2](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
 5. Haga clic en la marca de verificación para empezar a replicar en un nuevo servidor de procesos. Si quita todas las máquinas virtuales de un servidor de procesos que era fundamental, ya no debe mostrarse una advertencia crítica en el panel.
 
 
@@ -772,4 +771,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 Se puede encontrar el archivo completo en el [Centro de descarga de Microsoft](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft se reserva todos los derechos no otorgados expresamente en este documento, ya sea por implicación, desestimación o de otro modo.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

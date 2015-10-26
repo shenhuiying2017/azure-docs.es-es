@@ -19,7 +19,8 @@
 
 # Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 En este tema se le guiará en el proceso de creación de un entorno de nube híbrida para probar una aplicación de línea de negocio (LOB) de intranet hospedada en Microsoft Azure. Aquí está la configuración resultante.
 
@@ -198,4 +199,4 @@ Este entorno ya está preparado para implementar su aplicación basada en web en
 [Instrucciones de implementación de los servicios de infraestructura de Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

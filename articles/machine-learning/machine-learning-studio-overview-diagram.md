@@ -47,4 +47,4 @@ Descargue el diagrama **Información general de las funcionalidades de Estudio d
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

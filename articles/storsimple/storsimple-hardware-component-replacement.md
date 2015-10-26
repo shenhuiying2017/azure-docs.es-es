@@ -142,4 +142,4 @@ Las siguientes unidades reemplazables en campo (FRU) están disponibles para el 
 
 Revise toda [la información de seguridad](storsimple-safety.md) antes de intentar reemplazar un componente de hardware de StorSimple.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

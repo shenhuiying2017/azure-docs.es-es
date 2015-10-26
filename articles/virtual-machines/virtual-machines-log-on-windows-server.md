@@ -26,7 +26,8 @@ En el Portal de Azure, usará el botón **Conectar** para iniciar una sesión de
 
 ¿Desea conectarse a una máquina virtual Linux? Consulte [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la administración de recursos con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 ## Tutorial en vídeo
 
@@ -60,4 +61,4 @@ A continuación se indican algunas cosas que puede probar:
 
 Si esas sugerencias no funcionan o no son lo que necesita, vea [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). En este artículo se le guiará a través del diagnóstico y la resolución de problemas comunes.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

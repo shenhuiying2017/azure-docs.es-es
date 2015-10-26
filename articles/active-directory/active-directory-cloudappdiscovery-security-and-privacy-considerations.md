@@ -177,4 +177,4 @@ Con el fin de proteger los datos recopilados, de forma predeterminada, solo los 
 
 * [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -42,4 +42,4 @@ Para obtener más información, vea [Configuración de directivas de autenticaci
 ## Suscripción de Azure
 Las suscripciones de Azure le ayudan a organizar el acceso a los recursos de servicio en la nube como Catálogo de datos de Azure. También le ayudan a controlar cómo se informa, factura y paga el uso de recursos. Cada suscripción puede tener una configuración de facturación y pago diferente, por lo que puede tener varias suscripciones y planes diferentes por departamento, proyecto, oficina regional, etc. Cada servicio en la nube pertenece a una suscripción, y debe tener una suscripción para poder configurar el Catálogo de datos de Azure. Para obtener más información, vea [Administrar cuentas, suscripciones y roles administrativos](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

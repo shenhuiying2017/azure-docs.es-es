@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="10/08/2015"
 	ms.author="davidmu"/>
 
 # Implementar un servidor de WordPress en Ubuntu con una plantilla de Administrador de recursos de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos. No puede crear este recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica. No puede crear este recurso con el modelo de implementación clásica.
 
 Siga las instrucciones de este artículo para implementar un servidor WordPress que se ejecute en Ubuntu mediante una plantilla de administrador de recursos. Esta plantilla crea una única máquina virtual en una red virtual nueva.
 
@@ -53,8 +53,8 @@ Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y 
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/wordpress-single-vm-ubuntu/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup -Name $RGName -Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Aquí tiene un ejemplo.
 
@@ -62,12 +62,12 @@ Aquí tiene un ejemplo.
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/wordpress-single-vm-ubuntu/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup -Name $RGName -Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 A continuación, ejecute el bloque de comandos en el símbolo del sistema de Azure PowerShell.
 
-Al ejecutar el comando **New-AzureResourceGroupDeployment**, se le solicitará que proporcione los valores para una serie de parámetros. Cuando haya especificado todos los valores de parámetro, **New-AzureResourceGroupDeployment** crea y configura las máquinas virtuales.
+Al ejecutar el comando **New-AzureRmResourceGroupDeployment**, se le pedirá que proporcione los valores de una serie de parámetros. Una vez especificados todos los valores de parámetro, **New-AzureRmResourceGroupDeployment** crea y configura las máquinas virtuales.
 
 Una vez completada la ejecución de la plantilla, ahora dispondrá del servidor WordPress ejecutándose en Ubuntu en su nuevo grupo de recursos.
 
@@ -106,4 +106,4 @@ Una vez completada la ejecución de la plantilla, ahora dispondrá del servidor 
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

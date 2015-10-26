@@ -93,4 +93,4 @@ Los dispositivos virtuales dependen de las [rutas definidas por el usuario y ree
 - [Reserva de una dirección IP pública](../virtual-networks-reserved-public-ip.md).
 - Obtención de más información sobre [rutas definidas por el usuario y reenvío IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,6 @@
 
 # Preparación de una máquina virtual SLES u openSUSE para Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [Preparación de una máquina virtual SLES 11 SP3 para Azure](#sles11)
 - [Preparación de una máquina virtual openSUSE 13.1+ para Azure](#osuse)
@@ -179,4 +178,4 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 13. Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

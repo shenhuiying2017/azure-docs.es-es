@@ -69,13 +69,7 @@ Para obtener más información sobre los servicios admitidos, los costos y los d
 
 La tabla siguiente comparan los tres dominios de enrutamiento.
 
-||**Emparejamiento privado**|**Emparejamiento público**|**Emparejamiento de Microsoft**|
-|---|---|---|---|
-|**N.º máx. de prefijos compatibles por emparejamiento**|4000 de manera predeterminada, 10 000 con ExpressRoute Premium|200 |200|
-|**Intervalos de direcciones IP compatibles**|Direcciones IPv4 públicas suyas o del proveedor de conectividad|Direcciones IPv4 públicas suyas o del proveedor de conectividad|
-|**Requisitos de número de AS**|Números de AS privados y públicos. El cliente debe poseer un número de AS público. | Números de AS privados y públicos. El cliente debe poseer un número de AS público. | Solo números de AS públicos. El número de AS debe validarse con los registros de enrutamiento para validar la propiedad.|
-|**Direcciones IP de la interfaz de enrutamiento**|RFC1918 y direcciones IP públicas|Direcciones IP públicas registradas para los clientes en registros de enrutamiento.| Direcciones IP públicas registradas para los clientes en registros de enrutamiento.|
-|**Compatibilidad con hash MD5**| Sí|Sí|Sí|
+||**Emparejamiento privado**|**Emparejamiento público**|**Emparejamiento de Microsoft**| |---|---|---|---| |**N.º máx. de prefijos compatibles por emparejamiento**|4000 de manera predeterminada, 10 000 con ExpressRoute Premium|200 |200| |**Intervalos de direcciones IP compatibles**|Direcciones IPv4 públicas suyas o del proveedor de conectividad|Direcciones IPv4 públicas suyas o del proveedor de conectividad| |**Requisitos de número de AS**|Números de AS privados y públicos. El cliente debe poseer un número de AS público. | Números de AS privados y públicos. El cliente debe poseer un número de AS público. | Solo números de AS públicos. El número de AS debe validarse con los registros de enrutamiento para validar la propiedad.| |**Direcciones IP de la interfaz de enrutamiento**|RFC1918 y direcciones IP públicas|Direcciones IP públicas registradas para los clientes en registros de enrutamiento.| Direcciones IP públicas registradas para los clientes en registros de enrutamiento.| |**Compatibilidad con hash MD5**| Sí|Sí|Sí|
 
 Puede elegir habilitar uno o varios de los dominios de enrutamiento como parte de su circuito ExpressRoute. Puede elegir colocar todos los dominios de enrutamiento en la misma VPN si quiere combinarlos en un único dominio de enrutamiento. También puede colocarlos en diferentes dominios de enrutamiento, como en el diagrama. La configuración recomendada es que el emparejamiento privado esté conectado directamente a la red principal y que los vínculos de emparejamiento público y de Microsoft estén conectados a la red perimetral.
  
@@ -90,4 +84,4 @@ Si decide tener las tres sesiones de emparejamiento, necesita tres pares de sesi
 	- [Configuración del enrutamiento (emparejamientos de circuitos)](expressroute-howto-routing-classic.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

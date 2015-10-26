@@ -61,4 +61,4 @@ En este artículo ha aprendido a usar io.js con Aplicaciones web del Servicio de
 [script de implementación de io.js]: https://github.com/felixrieseberg/iojs-azure
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

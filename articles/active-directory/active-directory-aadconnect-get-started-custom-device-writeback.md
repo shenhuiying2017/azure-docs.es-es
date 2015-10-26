@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Habilitación de escritura diferida de dispositivos en Azure AD Connect" 
-	description="En este documento se describe cómo habilitar la escritura diferida de dispositivo con Azure AD Connect" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="msStevenPo" 
+<properties
+	pageTitle="Habilitación de escritura diferida de dispositivos en Azure AD Connect | Microsoft Azure"
+	description="En este documento se describe cómo habilitar la escritura diferida de dispositivo con Azure AD Connect"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="StevenPo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"  
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="09/15/2015"
 	ms.author="billmath"/>
 
@@ -62,7 +62,7 @@ Description:
 Parámetros:
 
 
-- DomainName: dominio de Active Directory donde se crearán los objetos de dispositivo. Nota: todos los dispositivos para un bosque de Active Directory determinado se creará en un dominio único. 
+- DomainName: dominio de Active Directory donde se crearán los objetos de dispositivo. Nota: todos los dispositivos para un bosque de Active Directory determinado se creará en un dominio único.
 
 
 - AdConnectorAccount: la cuenta de Active Directory que usará Azure AD Connect para administrar objetos en el directorio.
@@ -83,17 +83,18 @@ Encontrará a su disposición instrucciones detalladas para habilitar este escen
 
 ## Comprobar que los dispositivos están sincronizados con Active Directory
 La reescritura de dispositivos debería funcionar ahora correctamente. Tenga en cuenta que se puede tardar hasta tres horas en que los objetos de dispositivos se vuelvan a escribir en AD. Para comprobar que los dispositivos que se están sincronizados correctamente, siga este procedimiento después de completar las reglas de sincronización:
- 
-1.	Inicie el Centro de administración de Active Directory. 
+
+1.	Inicie el Centro de administración de Active Directory.
 2.	Expanda RegisteredDevices dentro del dominio que se está federando. ![Instalación personalizada](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback5.png)
-3.	Los dispositivos registrados actuales aparecerá en la lista. 
+3.	Los dispositivos registrados actuales aparecerá en la lista.
 
 ![Instalación personalizada](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback6.png)
 
-## Información adicional 
-
-
+## Información adicional
 - [Administración de riesgos con el acceso condicional](active-directory-conditional-access.md)
 - [Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn788908.aspx)
 
-<!---HONumber=Sept15_HO3-->
+## Pasos siguientes
+Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
+
+<!---HONumber=Oct15_HO3-->

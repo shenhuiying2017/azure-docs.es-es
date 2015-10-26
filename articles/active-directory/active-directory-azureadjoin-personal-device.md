@@ -35,4 +35,4 @@ Para unir un dispositivo de Windows 10 a su organización
 * [Conozca los escenarios de uso y las consideraciones de implementación de Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

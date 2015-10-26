@@ -20,8 +20,9 @@
 
 # Conectar máquinas virtuales creadas con el modelo de implementación clásica con un servicio en la nube o red virtual
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la administración de recursos con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 [AZURE.INCLUDE [howto-connect-vm-cloud-service](../../includes/howto-connect-vm-cloud-service.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

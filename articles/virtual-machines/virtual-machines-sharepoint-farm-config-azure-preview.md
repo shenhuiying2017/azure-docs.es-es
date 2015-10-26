@@ -19,7 +19,8 @@
 
 # Detalles de configuración de Granja de servidores SharePoint
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+ 
 
 Granja de servidores SharePoint es una característica del Portal de vista previa de Azure que crea automáticamente una granja preconfigurada de SharePoint Server 2013. Hay dos configuraciones de granja:
 
@@ -141,4 +142,4 @@ La función Granja de servidores SharePoint del Portal de vista previa de Azure 
 
 [Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

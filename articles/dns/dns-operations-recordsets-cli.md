@@ -34,7 +34,7 @@ Los conjuntos de registros se crean con el comando `azure network dns record-set
 
 >Para un conjunto de registros del vértice de la zona, utilice "@" como nombre de conjunto de registro, incluidas las comillas.Para un conjunto de registros del vértice de la zona, utilice "@" como nombre de conjunto de registro, incluidas las comillas. El nombre completo del conjunto de registros es igual al nombre de zona, en este caso "contoso.com".
 
-DNS de Azure es compatible con todos los tipos de registro siguientes: A, AAAA, CNAME, MX, NS, SOA, SRV y TXT. Los conjuntos de registros de tipo SOA se crean automáticamente con cada zona; no se pueden crear por separado.
+DNS de Azure es compatible con todos los tipos de registro siguientes: A, AAAA, CNAME, MX, NS, SOA, SRV y TXT. Los conjuntos de registros de tipo SOA se crean automáticamente con cada zona; no se pueden crear por separado. Tenga en cuenta que [el tipo de registro SPF está en desuso por los estándares DNS en favor de la creación de registros SPF mediante el tipo de registro TXT](http://tools.ietf.org/html/rfc7208#section-3.1).
 
 	azure network dns record-set create myresourcegroup contoso.com  www  A --ttl 300
 
@@ -239,4 +239,4 @@ Se puede usar el modificador opcional “-q” para suprimir el mensaje de confi
 [Introducción sobre la creación de registros y conjuntos de registros](dns-getstarted-create-recordset-cli.md)<BR> [Realización de operaciones en zonas DNS](dns-operations-dnszones-cli.md)<BR> [Automatización de operaciones con el SDK de .NET](dns-sdk.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Creación y administración Base de datos SQL de Azure con C#"
-	description="En este artículo se muestra cómo crear y administrar una base de datos SQL de Azure con C# usando la biblioteca de bases de datos SQL de Azure para. NET."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="Creación y administración Base de datos SQL de Azure con C#" 
+   description="En este artículo se muestra cómo crear y administrar una base de datos SQL de Azure con C# usando la biblioteca de bases de datos SQL de Azure para. NET." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="stevestein" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="data-management"
-	ms.date="08/25/2015"
-	ms.author="sstein"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="data-management" 
+   ms.date="08/25/2015"
+   ms.author="sstein"/>
 
 # Creación y administración de bases de datos SQL con C&#x23;
 
@@ -798,4 +798,4 @@ Para eliminar un grupo de recursos:
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

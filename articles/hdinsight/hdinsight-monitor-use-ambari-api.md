@@ -175,4 +175,4 @@ Ahora sabe cómo usar las llamadas de API de supervisión de Ambari. Para obtene
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

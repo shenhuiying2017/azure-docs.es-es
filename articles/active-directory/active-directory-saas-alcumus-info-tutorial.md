@@ -204,4 +204,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [205]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_205.png
 [400]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_alcumus_402.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

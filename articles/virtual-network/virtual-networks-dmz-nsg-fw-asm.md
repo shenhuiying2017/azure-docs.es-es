@@ -566,4 +566,4 @@ Si desea instalar una aplicación de ejemplo para este y otros ejemplos de red p
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

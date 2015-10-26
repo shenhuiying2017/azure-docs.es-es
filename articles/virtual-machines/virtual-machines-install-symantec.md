@@ -19,7 +19,8 @@
 
 # Instalación y configuración de Endpoint Protection en una máquina virtual de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo trata la instalación de aplicaciones en una máquina virtual creada con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 En este artículo se muestra cómo instalar y configurar el cliente Symantec Endpoint Protection en una máquina virtual nueva o existente con Windows Server. Este es el cliente completo, que incluye servicios como protección contra virus y spyware, firewall y prevención de intrusiones.
 
@@ -97,4 +98,4 @@ Para comprobar que la extensión de seguridad de Symantec se ha instalado y est�
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

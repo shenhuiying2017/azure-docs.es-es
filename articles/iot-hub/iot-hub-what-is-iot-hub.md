@@ -1,10 +1,10 @@
 <properties
- pageTitle="¿Qué es el centro de IoT de Azure? | Microsoft Azure"
+ pageTitle="Información general del Centro de IoT de Azure | Microsoft Azure"
  description="Información general del servicio del centro de IoT de Azure que aborda la conectividad de dispositivos, los patrones de comunicación y el patrón de comunicación asistida por servicios"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,13 +12,13 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
 # ¿Qué es el centro de IoT de Azure?
 
- El centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y una aplicación back-end. El centro de IoT de Azure permite el envío a gran escala de mensajes de dispositivo a nube y viceversa. Asimismo, permite establecer comunicaciones seguras mediante el uso de credenciales de seguridad por cada dispositivo y funciones de control de acceso; además, incluye bibliotecas de dispositivos para las plataformas y los lenguajes más populares.
+El centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y una aplicación back-end. El centro de IoT de Azure permite el envío a gran escala de mensajes de dispositivo a nube y viceversa. Asimismo, permite establecer comunicaciones seguras mediante el uso de credenciales de seguridad por cada dispositivo y funciones de control de acceso; además, incluye bibliotecas de dispositivos para las plataformas y los lenguajes más populares.
 
 ![El centro de IoT como puerta de enlace de nube][img-architecture]
 
@@ -92,11 +92,11 @@ Para obtener más información sobre el Centro de IoT de Azure, consulte estos v
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Introducción al centro de IoT]: iot-hub-csharp-csharp-getstarted.md
 [Lenguajes y plataformas de dispositivos compatibles]: iot-hub-sdks-summary.md#os-platforms-and-hardware-compatibility
-[Centro para desarrolladores de IoT de Azure]: http://www.azure.com/iotdev
+[Centro para desarrolladores de IoT de Azure]: https://azure.microsoft.com/develop/iot/
 
 [img-why-use]: media/iot-hub-what-is-iot-hub/image1.png
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
 
 [lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "Comunicación asistida por servicios, publicación de blog de Clemens Vasters"
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -5,4 +5,4 @@ Implementaciones por grupo de recursos|800|800
 Recursos por implementación|800|800
 Bloqueos de administración (por ámbito único)|20|20
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -52,4 +52,4 @@ Una vez que tenga un certificado de administración creado, (archivo .cer con so
 
 Ahora que tiene un certificado de administración asociado a una suscripción, puede conectarse mediante programación (después de haber instalado localmente el certificado correspondiente) a la [API de REST de administración de servicios](https://msdn.microsoft.com/library/azure/mt420159.aspx) y automatizar los distintos recursos de Azure que también están asociados a esa suscripción.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

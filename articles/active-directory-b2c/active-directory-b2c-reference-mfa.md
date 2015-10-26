@@ -53,4 +53,4 @@ Puede usar la característica "Ejecutar ahora" en la directiva para comprobar la
 
 Cuando el consumidor inicia la sesión (mediante una cuenta local o social), si un número de teléfono comprobado está asociado a su cuenta, se le pide que lo compruebe. Si no hay ningún número de teléfono adjunto, se pide al consumidor que proporcione uno y que lo compruebe; tras una correcta comprobación, el número de teléfono se adjunta a la cuenta de consumidor para su uso posterior.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

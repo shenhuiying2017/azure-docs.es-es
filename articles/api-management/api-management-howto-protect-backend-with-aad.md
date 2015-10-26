@@ -547,4 +547,4 @@ Para ver otra demostración de cómo configurar y usar esta directiva, vea [Clou
 [Creación de una instancia del servicio de administración de API]: api-management-get-started.md#create-service-instance
 [Administrar tu primera API]: api-management-get-started.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

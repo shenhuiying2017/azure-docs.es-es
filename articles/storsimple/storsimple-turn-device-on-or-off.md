@@ -241,4 +241,4 @@ Puede conectarse a Windows PowerShell para StorSimple mediante la consola serie 
 
 Si encuentra problemas al encender o apagar un dispositivo de StorSimple, [póngase en contacto con el soporte técnico de Microsoft Support](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

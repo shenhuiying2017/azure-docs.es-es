@@ -33,15 +33,15 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
 3. Desplácese hasta el sitio web para [desarrolladores de Twitter], inicie sesión con las credenciales de la cuenta de Twitter y haga clic en **Crear nueva aplicación**.
 
-4. Escriba el **Name** y una **Description** para la nueva aplicación. Pegue la **URL de aplicación móvil** en el valor de **Website**. Después, en **Callback URL**, pegue la **Callback URL** que copió anteriormente. Se trata de la puerta de enlace de la aplicación móvil anexada a la ruta de acceso, _/signin-twitter_. Por ejemplo: `https://contosogateway.azurewebsites.net/signin-twitter`. Asegúrese de que está utilizando el esquema HTTPS.
+4. Escriba el **Nombre** y una **Descripción** para la nueva aplicación. Pegue la **URL de aplicación móvil** en el valor de **Sitio web**. Después, en **URL de devolución de llamada**, pegue la **URL de devolución de llamada** que copió anteriormente. Se trata de la puerta de enlace de la aplicación móvil anexada a la ruta de acceso, _/signin-twitter_. Por ejemplo: `https://contosogateway.azurewebsites.net/signin-twitter`. Asegúrese de que está utilizando el esquema HTTPS.
 
     ![][0]
 
-3.  En la parte inferior de la página, lea y acepte los términos. A continuación, haga clic en **Create your Twitter application**. De esta forma, la aplicación se registra y se muestran los detalles correspondientes.
+3.  En la parte inferior de la página, lea y acepte los términos. A continuación, haga clic en **Crear aplicación de Twitter**. De esta forma, la aplicación se registra y se muestran los detalles correspondientes.
 
-4. Haga clic en la pestaña **Settings**, active **Allow this application to be used to sign in with Twitter** y, a continuación, haga clic en **Update Settings**.
+4. Haga clic en la pestaña **Configuración**, active **Permitir que esta aplicación se use para iniciar sesión en Twitter** y, a continuación, haga clic en **Actualizar la configuración de esta aplicación de Twitter**.
 
-5. Seleccione la pestaña **Keys and Access Tokens**. Tome nota de los valores de **Consumer Key (API Key)** y **Consumer secret (API Secret)**.
+5. Seleccione la pestaña **Claves y tokens de acceso**. Tome nota de los valores de **Clave de consumidor (clave de API)** y **Secreto del consumidor (secreto de API)**.
 
     > [AZURE.NOTE]El secreto de consumidor es una credencial de seguridad importante, por lo que no debe compartirlo con nadie ni distribuirlo con su aplicación.
 
@@ -72,4 +72,4 @@ De este modo ya estará listo para usar Twitter para realizar la autenticación 
 [xamarin]: ../app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

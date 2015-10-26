@@ -532,4 +532,4 @@ public class BlogsController : Controller
 
 Para obtener más información sobre cómo optimizar y solucionar problemas de Aplicaciones de Azure, consulte [Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

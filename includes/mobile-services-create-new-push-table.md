@@ -20,4 +20,4 @@ Después, podrá modificar su aplicación para habilitar las notificaciones push
 <!-- URLs -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

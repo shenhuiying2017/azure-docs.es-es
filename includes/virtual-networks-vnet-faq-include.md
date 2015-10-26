@@ -265,4 +265,4 @@ Sí. Existen API de REST para administrar redes virtuales y la conectividad entr
 
 Sí. Puede usar herramientas de la línea de comandos y PowerShell para diferentes plataformas. Puede encontrar más información [aquí](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

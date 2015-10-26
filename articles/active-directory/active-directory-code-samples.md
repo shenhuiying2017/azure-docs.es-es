@@ -151,4 +151,4 @@ PHP | [Aplicación de ejemplo de PHP para la API Graph de Azure AD](http://code.
 
 [Desarrollo de aplicaciones modernas mediante OAuth y los Servicios de federación de Active Directory](http://msdn.microsoft.com/library/dn633593.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

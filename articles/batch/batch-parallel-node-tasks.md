@@ -127,4 +127,4 @@ El explorador de Lote, o [Batch Explorer][batch_explorer], una de las [aplicacio
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

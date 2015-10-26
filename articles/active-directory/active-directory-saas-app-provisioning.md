@@ -100,7 +100,7 @@ Haga clic en una aplicación para ver un tutorial sobre cómo configurar el apro
 - [Salesforce](http://go.microsoft.com/fwlink/?LinkId=286017)
 - [Salesforce Sandbox](http://go.microsoft.com/fwlink/?LinkId=327869)
 - [ServiceNow](http://go.microsoft.com/fwlink/?LinkId=309587)
-- [Workday](https://msdn.microsoft.com/library/azure/dn762434.aspx) (aprovisionamiento de entrada)
+- [Workday](http://go.microsoft.com/fwlink/?LinkId=690250) (aprovisionamiento de entrada)
 
 Para que una aplicación admita el aprovisionamiento automático de usuarios, primero debe proporcionar los extremos necesarios que permitan a los programas externos automatizar la creación, el mantenimiento y la eliminación de usuarios. Por lo tanto, no todas las aplicaciones SaaS son compatibles con esta característica. En el caso de las aplicaciones que sí son compatibles, el equipo de ingeniería de Azure AD podrá crear un conector de aprovisionamiento para esas aplicaciones, y las prioridades para realizar este trabajo se basan en las necesidades de los clientes actuales y potenciales.
 
@@ -108,4 +108,4 @@ Si desea ponerse en contacto con el equipo de ingeniería de Azure AD para solic
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

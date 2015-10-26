@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # Operaciones de auditoría con el Administrador de recursos
@@ -26,7 +26,9 @@ Puede recuperar información de los registros de auditoría a través de Azure P
 
 ## PowerShell
 
-Para recuperar las entradas del registro, ejecute el comando **AzureRmLog Get** (o **Get-AzureResourceGroupLog** para versiones anteriores a la versión 1.0 de vista previa de PowerShell). Ofrezca parámetros adicionales para filtrar la lista de entradas.
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+
+Para recuperar las entradas del registro, ejecute el comando **Get-AzureRmLog** (o **Get-AzureResourceGroupLog** para versiones anteriores a la vista previa de PowerShell 1.0). Ofrezca parámetros adicionales para filtrar la lista de entradas.
 
 En el ejemplo siguiente se muestra cómo usar el registro de auditoría para investigar acciones llevadas a cabo durante el ciclo de vida de la solución. Puede ver cuándo se produjo la acción y quién la solicitó.
 
@@ -148,7 +150,7 @@ Puede seleccionar cualquier operación para obtener más detalles sobre ella.
 ## Pasos siguientes
 
 - Para obtener información sobre cómo establecer directivas de seguridad, vea [Administración del acceso a los recursos](./azure-portal/resource-group-rbac.md).
-- Para obtener información sobre la concesión del acceso a una entidad de servicio, vea [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
+- Para obtener información sobre la concesión del acceso a una entidad de seguridad de servicio, vea [Autenticación de una entidad de seguridad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
 - Para aprender a realizar acciones en un recurso para todos los usuarios, vea [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

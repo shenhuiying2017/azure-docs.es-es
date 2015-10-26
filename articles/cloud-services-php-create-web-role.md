@@ -211,4 +211,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [sqlsrv drivers]: http://php.net/sqlsrv
 [instalador sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

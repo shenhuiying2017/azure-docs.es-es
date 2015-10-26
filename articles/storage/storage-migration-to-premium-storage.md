@@ -41,7 +41,7 @@ Siga los pasos especificados en la sección correspondiente en función de su es
 ### Consideraciones
 
 #### Tamaños de VM
-Las especificaciones de tamaño de las máquinas virtuales de Azure se muestran en [Tamaños de máquinas virtuales](https://azure.microsoft.com/es-es/documentation/articles/virtual-machines-size-specs/). Repase las características de rendimiento de las máquinas virtuales que trabajan con Almacenamiento premium y elija el tamaño de máquina virtual que se mejor se ajuste a su carga de trabajo. Procure que haya suficiente ancho de banda disponible en la máquina virtual para dirigir el tráfico de disco.
+Las especificaciones de tamaño de las máquinas virtuales de Azure se muestran en [Tamaños de máquinas virtuales](https://azure.microsoft.com/es-ES/documentation/articles/virtual-machines-size-specs/). Repase las características de rendimiento de las máquinas virtuales que trabajan con Almacenamiento premium y elija el tamaño de máquina virtual que se mejor se ajuste a su carga de trabajo. Procure que haya suficiente ancho de banda disponible en la máquina virtual para dirigir el tráfico de disco.
 
 
 #### Tamaños de disco
@@ -61,7 +61,7 @@ Aparte de los [objetivos de escalabilidad y rendimiento del almacenamiento de Az
 |:--|:---|
 |Capacidad de disco: 35 TB<br />Capacidad de instantánea: 10 TB|Hasta 50 gigabits por segundo de entrada y salida|
 
-Para más información sobre las especificaciones del Almacenamiento premium, consulte [Objetivos de escalabilidad y rendimiento al usar Almacenamiento premium](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whes-esing-premium-storage).
+Para más información sobre las especificaciones del Almacenamiento premium, consulte [Objetivos de escalabilidad y rendimiento al usar Almacenamiento premium](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whes-ESing-premium-storage).
 
 #### Discos de datos adicionales
 Dependiendo de la carga de trabajo, decida si son necesarios más discos de datos para la máquina virtual. Puede conectar varios discos de datos persistentes a la máquina virtual. Si es necesario, puede crear bandas en los discos para aumentar la capacidad y el rendimiento del volumen. Si secciona discos de datos Almacenamiento premium usando [Espacios de almacenamiento](http://technet.microsoft.com/library/hh831739.aspx), será necesario configurarlo con una columna por cada disco que use. De lo contrario, el rendimiento general del volumen seccionado puede ser inferior al esperado debido a la distribución desigual de tráfico entre los discos. En las máquinas virtuales de Linux, esto se logra con la utilidad *mdadm*. Vea el artículo [Configuración del software RAID en Linux](../virtual-machines-linux-configure-raid.md) para más información.
@@ -668,4 +668,4 @@ Vea también los siguientes recursos para obtener más información sobre Almace
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

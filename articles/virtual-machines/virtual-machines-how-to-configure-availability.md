@@ -19,7 +19,8 @@
 
 # Configuración de un conjunto de disponibilidad para máquinas virtuales en el modelo de implementación clásica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 Un conjunto de disponibilidad ayuda a mantener las máquinas virtuales disponibles durante períodos de inactividad, como por ejemplo mientras se realiza mantenimiento. Colocar dos o más máquinas virtuales similarmente configuradas en un conjunto de disponibilidad crea la redundancia necesaria para mantener la disponibilidad de las aplicaciones o servicios que ejecuta su máquina virtual. Para obtener información detallada sobre cómo funciona esto, vea [Administración de la disponibilidad de las máquinas virtuales][].
 
@@ -111,4 +112,4 @@ Para utilizar los comandos de Azure PowerShell, abra una sesión de Azure PowerS
 [Información general sobre redes virtuales de Azure]: virtual-networks-overview.md
 [Artículos para máquinas virtuales en la administración de servicios]: virtual-machines-service-management-articles.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

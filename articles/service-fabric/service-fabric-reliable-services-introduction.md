@@ -1,20 +1,20 @@
 <properties
    pageTitle="Información general sobre el modelo de programación de un servicio fiable de Service Fabric"
-	description="Obtenga información sobre el modelo de programación de un servicio fiable de Service Fabric y comience a escribir sus propios servicios."
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="masnider"
-	manager="timlt"
-	editor="jessebenson; mani-ramaswamy"/>
+   description="Obtenga información sobre el modelo de programación de un servicio fiable de Service Fabric y comience a escribir sus propios servicios."
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="masnider"
+   manager="timlt"
+   editor="jessebenson; mani-ramaswamy"/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="masnider;jesseb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="masnider;jesseb"/>
 
 # Información general sobre los servicios fiables
 Service Fabric simplifica la escritura y la administración de servicios con y sin estado fiables. En este documento se hablará acerca de:
@@ -130,4 +130,4 @@ Si cualquiera de las siguientes caracterizan sus necesidades de servicio de apli
 + [Lea el modelo de programación de actores fiables](service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

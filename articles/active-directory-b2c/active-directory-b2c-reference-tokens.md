@@ -155,4 +155,4 @@ Las siguientes vigencias de tokens solo se ofrecen para tu conocimiento, ya que 
 | Tokens de actualización | Hasta 14 días | Un token de actualización solo es válido durante un máximo de 14 días. Sin embargo, el token de actualización puede dejar de ser válido en cualquier momento por varias razones, por lo que tu aplicación tiene que continuar probando y usando un token de actualización hasta que se produzca un error o hasta que la aplicación lo sustituya por un nuevo token de actualización. Un token de actualización también dejará de ser válido si han pasado 90 días desde que el usuario introdujo sus credenciales. |
 | Códigos de autorización | 5 minutos | Los códigos de autorización son de corta duración a propósito, y se deben canjear inmediatamente por access\_tokens, id\_tokens y refresh\_tokens cuando se reciben. |
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

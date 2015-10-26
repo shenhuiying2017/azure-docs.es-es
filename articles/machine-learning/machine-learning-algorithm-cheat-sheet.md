@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="10/13/2015"
 	ms.author="brohrer;garye" />
 
 
@@ -42,6 +42,8 @@ Descargue la hoja de referencia rápida de algoritmos de aprendizaje automático
 * Para obtener más información sobre los distintos tipos de algoritmos de aprendizaje automático, cómo se usan y cómo usar esta hoja de referencia rápida para elegir el algoritmo correcto, consulte [Elección de algoritmos de Aprendizaje automático de Azure para la agrupación en clústeres, clasificación o regresión](machine-learning-algorithm-choice.md).
 * Para ver una lista por categoría de todos los algoritmos disponibles de aprendizaje automático en Estudio de aprendizaje automático, consulte [Inicializar modelo][initialize-model] en la Ayuda de módulos y algoritmos de Estudio de aprendizaje automático.
 * Para ver una lista completa de todos los algoritmos de Estudio de aprendizaje automático, consulte [Lista de la A a la Z de módulos de Estudio de aprendizaje automático][a-z-list] en la Ayuda de módulos y algoritmos de Estudio de aprendizaje automático.
+* Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, consulte [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
+
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -85,4 +87,4 @@ Descargue la hoja de referencia rápida de algoritmos de aprendizaje automático
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

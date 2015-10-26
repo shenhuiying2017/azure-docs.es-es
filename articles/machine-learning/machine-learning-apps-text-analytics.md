@@ -205,4 +205,4 @@ En la respuesta siguiente, obtendrá la lista de las frases clave asociadas a su
 Los identificadores especificados en el sistema son los identificadores que devuelve el sistema. El servicio web no comprueba que los identificadores sean únicos. Es responsabilidad del autor de la llamada hacerlo.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

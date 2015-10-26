@@ -82,4 +82,4 @@ Especifique el recuento de núcleos de servidor Thrift y la memoria de ejecució
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

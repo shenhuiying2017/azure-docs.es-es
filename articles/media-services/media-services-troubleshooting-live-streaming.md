@@ -67,4 +67,4 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 	
 >[AZURE.NOTE]Si después de seguir los pasos de solución de problemas, todavía no puede realizar correctamente el streaming, envíe una incidencia de soporte técnico mediante el Portal de administración de Azure.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -22,16 +22,12 @@
 
 Antes, un desarrollador de aplicaciones que deseara admitir cuentas de Microsoft y Azure Active Directory debía realizar la integración con dos sistemas independientes. Con el modelo de aplicaciones v2.0, ahora puede iniciar sesión de usuarios con ambos tipos de cuentas. Una integración sencilla le permite llegar a una audiencia que abarca millones de usuarios con cuentas personales, así como profesionales y educativas.
 
-Las aplicaciones también pueden consumir un [conjunto de API de REST de Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) que usen cualquier tipo de cuenta. Actualmente, estas API incluyen las API de calendarios, contactos y correo electrónico de Outlook. Se agregarán servicios adicionales en un futuro próximo.
-<!-- TODO: customer reference article -->
-<!-- Several apps have already begun to bridge the gap between consumer and enterprise accounts, including: [Boomerang](), [TripIt](), & [Uber](). -->
+Las aplicaciones también pueden consumir un [conjunto de API de REST de Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) que usen cualquier tipo de cuenta. Actualmente, estas API incluyen las API de calendarios, contactos y correo electrónico de Outlook. Se agregarán servicios adicionales en un futuro próximo. <!-- TODO: customer reference article --> <!-- Several apps have already begun to bridge the gap between consumer and enterprise accounts, including: [Boomerang](), [TripIt](), & [Uber](). -->
 
-El modelo de aplicaciones v2.0 se encuentra en su versión preliminar. Durante el período de versión preliminar, nos interesa conocer su opinión y experiencia con el nuevo modelo de aplicaciones, según vaya probándolo. En función de estos comentarios, podemos hacer cambios importantes con el fin de mejorar el servicio. No debe lanzar ninguna aplicación de producción que use el modelo de aplicaciones v2.0 durante este período.
-<!-- TODO: Get approval on how it looks  -->
+El modelo de aplicaciones v2.0 se encuentra en su versión preliminar. Durante el período de versión preliminar, nos interesa conocer su opinión y experiencia con el nuevo modelo de aplicaciones, según vaya probándolo. En función de estos comentarios, podemos hacer cambios importantes con el fin de mejorar el servicio. No debe lanzar ninguna aplicación de producción que use el modelo de aplicaciones v2.0 durante este período. <!-- TODO: Get approval on how it looks  -->
 
 ## Introducción
-Hay dos maneras de poner en funcionamiento su propia aplicación con el modelo de aplicaciones v2.0. Puede elegir enviar mensajes de protocolo directamente, con [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) o [Open ID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). También puede usar nuestras bibliotecas para que trabajen en su nombre: elija a continuación su plataforma favorita y ya puede comenzar.
-<!-- TODO: Finalize this table  -->
+Hay dos maneras de poner en funcionamiento su propia aplicación con el modelo de aplicaciones v2.0. Puede elegir enviar mensajes de protocolo directamente, con [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) o [Open ID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). También puede usar nuestras bibliotecas para que trabajen en su nombre: elija a continuación su plataforma favorita y ya puede comenzar. <!-- TODO: Finalize this table  -->
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
@@ -57,4 +53,4 @@ Estos vínculos le servirán para explorar la plataforma en profundidad:
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

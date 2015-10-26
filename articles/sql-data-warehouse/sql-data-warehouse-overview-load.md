@@ -189,4 +189,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [Documentación de Almacenamiento de Azure]: https://azure.microsoft.com/es-ES/documentation/articles/storage-create-storage-account/
 [Documentación de ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

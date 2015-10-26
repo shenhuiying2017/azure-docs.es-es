@@ -21,7 +21,7 @@
 
 Apache Spark es un motor rápido para el procesamiento de datos a gran escala. Spark tiene un motor de ejecución DAG avanzado que admite el flujo de datos cíclico y capacidades de informática en memoria, y pueden acceder a diversos orígenes de datos incluyendo HDFS, Spark, HBase y S3.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se describe la implementación de un recurso con el modelo de implementación del Administrador de recursos. También puede implementar este recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica. También puede implementar este recurso con el modelo de implementación clásica.
 
 
 Además de ejecutar en los administradores de clústeres de Mesos o YARN, Spark proporciona un modo de implementación independiente simple. Este tutorial le explicará cómo usar una plantilla de ejemplo del Administrador de recursos de Azure para implementar un clúster Spark en máquinas virtuales de Ubuntu mediante [Azure PowerShell](../powershell-install-configure.md) o la [CLI de Azure](../xplat-cli-install.md).
@@ -847,4 +847,4 @@ Descubra más [marcos de aplicaciones](virtual-machines-app-frameworks.md).
 
 [Solución de problemas de las implementaciones de plantillas](resource-group-deploy-debug.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

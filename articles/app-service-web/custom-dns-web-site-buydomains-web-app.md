@@ -98,4 +98,4 @@ Siga los pasos siguientes para adquirir nombres de dominio y asignarlos a su apl
 En este punto, debería poder escribir el nombre de dominio personalizado en el explorador y ver que le lleva sin problemas a la aplicación web.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

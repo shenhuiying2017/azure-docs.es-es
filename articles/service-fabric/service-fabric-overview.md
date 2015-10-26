@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Información general de Service Fabric | Microsoft Azure"
-	description="Información general de Service Fabric donde las aplicaciones se componen de microservicios. Service Fabric es una plataforma de sistemas distribuidos que se usa para crear aplicaciones escalables, confiables y fáciles de administrar para la nube."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="msfussell"
-	manager="timlt"
-	editor="masnider"/>
+   pageTitle="Información general de Service Fabric | Microsoft Azure" 
+   description="Información general de Service Fabric donde las aplicaciones se componen de microservicios. Service Fabric es una plataforma de sistemas distribuidos que se usa para crear aplicaciones escalables, confiables y fáciles de administrar para la nube." 
+   services="service-fabric" 
+   documentationCenter=".net" 
+   authors="msfussell" 
+   manager="timlt" 
+   editor="masnider"/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/25/2015"
-	ms.author="mfussell"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA" 
+   ms.date="08/25/2015"
+   ms.author="mfussell"/>
 
 # Información general de Service Fabric
 Service Fabric es una plataforma de sistemas distribuidos que se usa para crear aplicaciones escalables, confiables y fáciles de administrar para la nube. Service Fabric aborda los desafíos importantes en el desarrollo y la administración de aplicaciones en la nube. Mediante el uso de Service Fabric, los desarrolladores y administradores pueden evitar solucionar problemas complejos de infraestructura y centrarse en su lugar en la implementación de cargas de trabajo exigentes y críticas, sabiendo que son escalables, confiables y fáciles de administrar. Service Fabric representa la plataforma middleware de próxima generación para crear y administrar estos servicios de clase empresarial, de escala de nube de nivel 1.
@@ -98,4 +98,4 @@ Usando Service Fabric, puede:
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

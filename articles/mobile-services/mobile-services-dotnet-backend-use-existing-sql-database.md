@@ -615,4 +615,4 @@ Observe que ambas implementaciones de controlador hacen un uso exclusivo de los 
 
 Para continuar, ya puede compilar la aplicación de cliente para acceder al servicio.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

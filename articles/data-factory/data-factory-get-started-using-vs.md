@@ -230,10 +230,10 @@ Para actualizar las herramientas de Factoría de datos de Azure para Visual Stud
 2. Seleccione **Actualizaciones** en el panel izquierdo y, a continuación, seleccione **Galería de Visual Studio**.
 4. Seleccione **Herramientas de Factoría de datos de Azure para Visual Studio** y haga clic en **Actualizar**. Si no ve esta entrada, ya tiene la versión más reciente de las herramientas. 
 
-Consulte [Supervisión de los conjuntos de datos y canalización](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline) para obtener instrucciones sobre cómo usar el Portal de vista previa de Azure para supervisar la canalización y los conjuntos de datos que ha creado en este tutorial.
+Consulte [Supervisión de los conjuntos de datos y canalización](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) para obtener instrucciones sobre cómo usar el Portal de vista previa de Azure para supervisar la canalización y los conjuntos de datos que creó en este tutorial.
 
 
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

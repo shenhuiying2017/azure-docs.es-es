@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Tutorial: Supervisión de Microsoft Dynamics CRM con Application Insights"
-	description="Obtenga la telemetría de Microsoft Dynamics CRM Online con Application Insights. Tutorial sobre configuración, obtención de datos, visualización y exportación."
-	services="application-insights"
-	documentationCenter=""
-	authors="mazharmicrosoft"
+	pageTitle="Tutorial: Supervisión de Microsoft Dynamics CRM con Application Insights" 
+	description="Obtenga la telemetría de Microsoft Dynamics CRM Online con Application Insights. Tutorial sobre configuración, obtención de datos, visualización y exportación." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="mazharmicrosoft" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Tutorial: Habilitar la telemetría para Microsoft Dynamics CRM Online con Application Insights
@@ -60,7 +60,7 @@ Para supervisar la aplicación, agregue un SDK de Application Insights a la apli
 
     ![](./media/app-insights-sample-mscrm/08.png)
     
-4. Copie el código de Application Insights.
+4. Copie el código de Application Insights. Al copiar, asegúrese de que ignora las etiquetas <script>. Consulte la siguiente captura de pantalla:
 
     ![](./media/app-insights-sample-mscrm/09.png)
 
@@ -161,4 +161,4 @@ Puede realizar un análisis todavía más exhaustivo si [exporta los datos a Mic
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

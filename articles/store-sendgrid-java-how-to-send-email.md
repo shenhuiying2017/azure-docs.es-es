@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso del servicio de correo electrónico SendGrid (Java) | Microsoft Azure"
-	description="Obtenga información acerca de cómo enviar correo electrónico con el servicio de correo electrónico SendGrid en Azure. Ejemplos de código escritos en Java."
-	services=""
-	documentationCenter="java"
-	authors="thinkingserious"
-	manager="sendgrid"
+	pageTitle="Uso del servicio de correo electrónico SendGrid (Java) | Microsoft Azure" 
+	description="Obtenga información acerca de cómo enviar correo electrónico con el servicio de correo electrónico SendGrid en Azure. Ejemplos de código escritos en Java." 
+	services="" 
+	documentationCenter="java" 
+	authors="thinkingserious" 
+	manager="sendgrid" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="10/30/2014"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 # Envío de correo electrónico con SendGrid desde Java
 
@@ -124,7 +124,7 @@ El siguiente código muestra cómo agregar un archivo adjunto.
 
     // Local file name and path.
     String attachmentName = "myfile.zip";
-    String attachmentPath = "c:\\myfiles"; 
+    String attachmentPath = "c:\\myfiles\"; 
     MimeBodyPart attachmentPart = new MimeBodyPart();
     // Specify the local file to attach.
     DataSource source = new FileDataSource(attachmentPath + attachmentName);
@@ -205,4 +205,4 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
   [servicio de correo electrónico basado en la nube]: https://sendgrid.com/email-solutions
   [entrega de correos electrónicos transaccional]: https://sendgrid.com/transactional-email
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

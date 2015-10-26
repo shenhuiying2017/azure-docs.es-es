@@ -103,4 +103,4 @@ Para conectarse a un servicio web de Aprendizaje automático de Azure, use la bi
 2. Asigne una clave de API con la clave de un servicio web. Consulte cómo obtener una clave de autorización de Aprendizaje automático de Azure.
 3. Asigne la URI de servicio a la URI de solicitud. Consulte cómo obtener un URI de solicitud.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

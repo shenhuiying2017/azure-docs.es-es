@@ -71,4 +71,4 @@ Con Azure AD Join, obtendrá lo siguiente:
 * [Conozca los escenarios de uso y las consideraciones de implementación de Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

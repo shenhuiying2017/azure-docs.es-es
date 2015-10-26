@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Configuración de una puerta de enlace de VPN en el portal de Azure | Microsoft Azure"
-	description="Este artículo le guiará a través de la configuración de la puerta de enlace VPN de red virtual y el cambio de un tipo de enrutamiento de la puerta de enlace VPN de estático a dinámico o de dinámico a estático."
-	services="vpn-gateway"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   description="Este artículo le guiará a través de la configuración de la puerta de enlace VPN de red virtual y el cambio de un tipo de enrutamiento de la puerta de enlace VPN de estático a dinámico o de dinámico a estático."
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/25/2015"
+   ms.author="cherylmc" />
 
 # Configuración de una puerta de enlace de VPN en el portal de Azure
 
@@ -151,4 +151,4 @@ Si desea configurar una conexión VPN de punto a sitio, consulte [Configurar una
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

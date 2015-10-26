@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="10/13/2015"
 	ms.author="jeffstok"/>
 
 # Descripción de entradas de Análisis de transmisiones
@@ -94,15 +94,15 @@ Cuando los datos proceden de un origen de Centro de IoT, puede acceder a algunos
 
 | PROPIEDAD | DESCRIPCIÓN |
 |------|------|
-| System.Input.EventProcessedUtcTime | Fecha y la hora en que se produjo el evento. |
-| System.Input.EventEnqueuedUtcTime | La fecha y la hora en que el evento se recibió por el Centro de IoT. |
-| System.Input.PartitionId | Identificador de partición de base cero para el adaptador de entrada. |
-| System.Input.MessageId | Se usa para correlacionar la comunicación bidireccional en el Centro de IoT. |
-| System.Input.CorrelationId | Se usa en las respuestas a mensajes y en los comentarios en el Centro de IoT. |
-| System.Input.ConnectionDeviceId | El id. autenticado usado para enviar este mensaje, marcado en los mensajes servicebound por el Centro de IoT. |
-| System.Input.ConnectionDeviceGenerationId | El generationId del dispositivo autenticado usado para enviar este mensaje, marcado en los mensajes servicebound por el Centro de IoT. |
-| System.Input.EnqueuedTime | Hora en la que se recibió el mensaje por el Centro de IoT. |
-| System.Input.StreamId | Propiedad de evento personalizado agregado por el dispositivo remitente. |
+| EventProcessedUtcTime | Fecha y la hora en que se produjo el evento. |
+| EventEnqueuedUtcTime | La fecha y la hora en que el evento se recibió por el Centro de IoT. |
+| PartitionId | Identificador de partición de base cero para el adaptador de entrada. |
+| IoTHub.MessageId | Se usa para correlacionar la comunicación bidireccional en el Centro de IoT. |
+| IoTHub.CorrelationId | Se usa en las respuestas a mensajes y en los comentarios en el Centro de IoT. |
+| IoTHub.ConnectionDeviceId | El id. autenticado usado para enviar este mensaje, marcado en los mensajes servicebound por el Centro de IoT. |
+| IoTHub.ConnectionDeviceGenerationId | El generationId del dispositivo autenticado usado para enviar este mensaje, marcado en los mensajes servicebound por el Centro de IoT. |
+| IoTHub.EnqueuedTime | Hora en la que el Centro de IoT se recibió el mensaje. |
+| IoTHub.StreamId | Propiedad de evento personalizado agregado por el dispositivo remitente. |
 
 ## Creación de una entrada de flujo de datos de Almacenamiento de blobs ##
 
@@ -201,4 +201,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

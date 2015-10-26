@@ -128,4 +128,4 @@ Puede usar el menú **Ayuda** para ver la Ayuda en línea disponible para Admini
 - Obtenga más información sobre la [interfaz de usuario de Snapshot Manager de StorSimple](storsimple-use-snapshot-manager.md).
 - Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Prácticas recomendadas para mejorar el rendimiento para SQL Server en máquinas virtuales de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+ 
 
 ## Información general
 
@@ -133,4 +134,4 @@ Para ver prácticas recomendadas de seguridad, consulte [Consideraciones de segu
 
 Revise otros temas de la máquina virtual de SQL Server en [Información general sobre SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

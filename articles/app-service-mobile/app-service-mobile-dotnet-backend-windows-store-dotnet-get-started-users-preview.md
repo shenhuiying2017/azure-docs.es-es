@@ -3,7 +3,7 @@
 	description="Obtenga información acerca de cómo usar las Aplicaciones móviles del Servicio de aplicaciones de Azure para autenticar a los usuarios de su aplicación de Windows en una variedad de proveedores de identidades, incluidos Google, Facebook, Twitter y Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="mattchenderson"
+	authors="mattchenderson" 
 	manager="dwrede"
 	editor=""/>
 
@@ -18,9 +18,7 @@
 
 # Incorporación de la autenticación a la aplicación de Windows
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 En este tema se muestra cómo autenticar usuarios de una Aplicación móvil del Servicio de aplicaciones desde la aplicación cliente. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicio de aplicaciones. Una vez que la aplicación móvil haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
@@ -62,4 +60,4 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 [Introducción a su aplicación móvil]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

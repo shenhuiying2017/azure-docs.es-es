@@ -20,7 +20,8 @@
 
 #Cambio de la letra de la unidad del disco temporal de Windows en una máquina virtual creada con el modelo de implementación clásica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 Si necesita utilizar la unidad D para almacenar datos, siga estas instrucciones para usar una unidad distinta para el disco temporal. Nunca use el disco temporal para almacenar los datos que desee conservar.
 
@@ -74,4 +75,4 @@ Si desea usar un disco de datos existente en la unidad D, asegúrese de que tamb
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

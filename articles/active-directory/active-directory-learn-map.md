@@ -37,4 +37,4 @@ Para entender las restricciones de uso y otros límites de servicio para el serv
 * [Registro en Azure como una organización](sign-up-organization.md)
 * [Identidad de Azure](fundamentals-identity.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

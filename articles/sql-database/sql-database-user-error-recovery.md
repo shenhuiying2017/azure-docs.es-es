@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Recuperación de errores de usuario en Base de datos SQL"
-	description="Obtenga información acerca de cómo recuperarse de errores de los usuarios, datos dañados accidentalmente o una base de datos eliminada con la característica Restauración a un momento dado (PITR) de Base de datos SQL de Azure."
-	services="sql-database"
-	documentationCenter=""
-	authors="elfisher"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="Recuperación de errores de usuario en Base de datos SQL" 
+   description="Obtenga información acerca de cómo recuperarse de errores de los usuarios, datos dañados accidentalmente o una base de datos eliminada con la característica Restauración a un momento dado (PITR) de Base de datos SQL de Azure." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="07/23/2015"
-	ms.author="elfish"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="10/08/2015"
+   ms.author="elfish"/>
 
 # Recuperar una base de datos SQL de Azure de un error de usuario
 
@@ -44,6 +44,8 @@ Las bases de datos de la versión Basic tienen 7 días de retención, las de la 
 Una vez finalizada la restauración, puede configurar la base de datos recuperada para su uso siguiendo la guía [Finalización de una base de datos recuperada](sql-database-recovered-finalize.md).
 ###PowerShell
 Use PowerShell para realizar la restauración de la base de datos mediante programación.
+
+> [AZURE.IMPORTANT]Este artículo contiene comandos para las versiones de Azure PowerShell, hasta la versión 1.0 (*sin incluir esta ni las posteriores*). Puede comprobar la versión de Azure PowerShell con el comando **Get-Module azure | format-table version**.
 
 Para restaurar una base de con Restauración a un momento dado, use el cmdlet [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Para ver un tutorial detallado, vea el [vídeo de procedimientos](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
 
@@ -113,4 +115,4 @@ Use REST para realizar la restauración de la base de datos mediante programaci�
 Una vez finalizada la restauración, puede configurar la base de datos recuperada para su uso siguiendo la guía [Finalización de una base de datos recuperada](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

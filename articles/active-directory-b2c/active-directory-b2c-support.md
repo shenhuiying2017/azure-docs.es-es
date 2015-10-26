@@ -50,4 +50,4 @@ Si el paso 2 descrito anteriormente no le ha salido e intenta crear una solicitu
 
 ![Soporte técnico - sin suscripción](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

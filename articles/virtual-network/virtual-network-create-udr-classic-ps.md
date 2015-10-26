@@ -119,4 +119,4 @@ Para habilitar el reenvío IP en la VM FW1, siga estos pasos.
 		Get-AzureVM -Name FW1 -ServiceName TestRGFW `
 			| Set-AzureIPForwarding -Enable
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

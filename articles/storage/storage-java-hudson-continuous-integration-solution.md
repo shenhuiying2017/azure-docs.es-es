@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="10/12/2015" 
 	ms.author="robmcm"/>
 
 # Uso del almacenamiento de Azure con una solución de integración continua Hudson
-
-*Por [Microsoft Open Technologies Inc.][ms-open-tech]*
 
 ## Información general
 
 La siguiente información describe cómo usar el servicio BLOB de Azure como repositorio de artefactos de compilación creados por una solución de integración continua Hudson, o como origen de archivos descargables para su uso en un proceso de compilación. Uno de los escenarios en que esto le puede resultar útil es para codificar en un entorno de desarrollo ágil (con el uso de Java o de otros lenguajes), cuando las compilaciones se ejecutan según una integración continua y si necesita un repositorio para los artefactos de compilación, a fin de que, por ejemplo, pueda compartirlos con otros miembros de la organización, con los clientes o para mantener un archivo. Otro es cuando su trabajo de compilación propiamente dicho requiere otros archivos, por ejemplo, la descarga de dependencias como parte de la entrada de compilación.
 
-En este tutorial va a usar el complemento de almacenamiento de Azure para la integración continua Hudson habilitada por Microsoft Open Technologies, Inc.
+En este tutorial usará el complemento del Almacenamiento de Azure de la integración continua Hudson habilitada por Microsoft.
 
 ## Introducción a Hudson ##
+
 Hudson permite la integración continua de un proyecto de software al hacer posible que los desarrolladores integren fácilmente los cambios de su código y cuenten con compilaciones generadas de manera automática y frecuente, lo que les permite aumentar la productividad. Las compilaciones tienen varias versiones y los artefactos de compilación se pueden cargar en varios repositorios. En este artículo se describe cómo usar el almacenamiento de blobs de Azure como repositorio de los artefactos de compilación. También se mostrará cómo descargar dependencias del almacenamiento de blobs de Azure.
 
 Puede encontrar más información acerca de Hudson en [Meet Hudson][].
@@ -74,20 +73,20 @@ Para usar el servicio BLOB con Hudson, necesitará instalar el complemento de al
 ## Instalación del complemento de almacenamiento de Azure ##
 
 1. En el panel de Hudson, haga clic en **Manage Hudson** (Administrar Hudson).
-2. En la página **Manage Hudson** (Administrar Hudson), haga clic en **Manage Plugins** (Administrar complementos).
+2. En la página **Administrar Hudson**, haga clic en **Administrar complementos**.
 3. Haga clic en la pestaña **Available** (Disponible).
 4. Haga clic en **Others** (Otros).
-5. En la sección **Artifact Uploaders** (Cargadores de artefactos), seleccione **Microsoft Azure Storage plugin** (Complemento de almacenamiento de Microsoft Azure).
+5. En la sección **Cargadores de artefactos**, seleccione **Complemento del Almacenamiento de Microsoft Azure**.
 6. Haga clic en **Instalar**.
 7. Después de que la instalación se haya completado, reinicie Hudson.
 
 ## Configuración del complemento de almacenamiento de Azure para usar la cuenta de almacenamiento ##
 
 1. En el panel de Hudson, haga clic en **Manage Hudson** (Administrar Hudson).
-2. En la página **Manage Hudson** (Administrar Hudson), haga clic en **Configure System** (Configurar sistema).
+2. En la página **Administrar Hudson**, haga clic en **Configurar sistema**.
 3. En la sección **Microsoft Azure Storage Account Configuration** (Configuración de la cuenta de almacenamiento de Microsoft Azure):
 
-    a. Escriba el nombre de la cuenta de almacenamiento, que puede obtener en el [portal de Azure](https://manage.windowsazure.com).
+    a. Escriba el nombre de la cuenta de almacenamiento; puede obtenerla en el [portal de Azure](https://manage.windowsazure.com).
 
     b. Escriba la clave de la cuenta de almacenamiento, que también puede obtener en el portal de Azure.
 
@@ -95,7 +94,7 @@ Para usar el servicio BLOB con Hudson, necesitará instalar el complemento de al
 
     d. Haga clic en **Validate storage credentials** (Validar credenciales de almacenamiento) para validar la cuenta de almacenamiento.
 
-    e. [Opcional] Si tiene más cuentas de almacenamiento que desea que estén disponibles para la integración continua Hudson, haga clic en **Add more storage accounts** (Agregar más cuentas de almacenamiento).
+    e. [Opcional] Si tiene más cuentas de almacenamiento y desea que estén disponibles para la integración continua Hudson, haga clic en **Agregar más cuentas de almacenamiento**.
 
     f. Haga clic en **Save** (Guardar) para guardar la configuración.
 
@@ -140,7 +139,7 @@ Con el fin de facilitar instrucciones, primero necesitaremos crear un trabajo qu
 
     e. Haga clic en el contenedor llamado **myjob**, que es la versión en minúscula del nombre del trabajo asignado cuando ha creado el trabajo de Hudson. Los nombres de los contenedores y los nombres de los blobs se guardan en minúscula en el almacenamiento de Azure y, además, distinguen mayúsculas de minúsculas. En la lista de blobs del contenedor llamado **myjob**, deben aparecer **hello.txt** y **date.txt**. Copie la URL de cualquiera de estos elementos y ábrala en el explorador. A continuación, verá el archivo de texto cargado como un artefacto de compilación.
 
-Solo se puede crear una acción posterior a la compilación que cargue artefactos en el almacenamiento de blobs de Azure por cada trabajo. Tenga en cuenta que la acción posterior a la compilación para cargar artefactos en el almacenamiento de blobs de Azure puede especificar diferentes archivos (comodines incluidos) y rutas de acceso a los archivos en **List of Artifacts to upload** (Lista de artefactos para cargar) con el uso del punto y coma como separador. Por ejemplo, si su proceso de compilación Hudson produce archivos JAR y TXT en la carpeta **build** (compilar) del área de trabajo, y desea cargar ambos en el almacenamiento de blobs de Azure, use el siguiente código para el valor **List of Artifacts to upload** (Lista de artefactos para cargar): **build/*.jar;build/*.txt**. También puede usar sintaxis de dos puntos dobles para especificar una ruta de acceso dentro del nombre del blob. Por ejemplo, si desea que los archivos JAR se carguen mediante archivos **binaries** (binarios) en la ruta de acceso del blob y que los TXT lo hagan por medio de **notices** (notificaciones) en esta misma ruta, use lo siguiente para el valor **List of Artifacts to upload** (Lista de artefactos para cargar): **build/*.jar::binaries;build/*.txt::notices**.
+Solo se puede crear una acción posterior a la compilación que cargue artefactos en el almacenamiento de blobs de Azure por cada trabajo. Tenga en cuenta que, después de la compilación, la siguiente acción será cargar los artefactos en el almacenamiento de blobs de Azure; esta acción puede especificar diferentes archivos (comodines incluidos) y rutas de acceso a los archivos de la **Lista de artefactos para cargar**, mediante el uso del punto y coma como separador. Por ejemplo, si su proceso de compilación Hudson crea archivos JAR y TXT en la carpeta **compilar** del área de trabajo y desea cargar ambos en el almacenamiento de blobs de Azure, deberá usar el siguiente código para el valor **Lista de artefactos para cargar**: **build/*.jar;build/*.txt**. También puede usar sintaxis de dos puntos dobles para especificar una ruta de acceso dentro del nombre del blob. Por ejemplo, si desea que los archivos JAR se carguen mediante archivos **binaries** (binarios) en la ruta de acceso del blob y que los TXT lo hagan por medio de **notices** (notificaciones) en esta misma ruta, use lo siguiente para el valor **List of Artifacts to upload** (Lista de artefactos para cargar): **build/*.jar::binaries;build/*.txt::notices**.
 
 ## Creación de un paso de compilación que descarga del almacenamiento de blobs de Azure ##
 
@@ -150,7 +149,7 @@ En los siguientes pasos se muestra cómo configurar un paso de compilación para
 2. En **Storage account name** (Nombre de cuenta de almacenamiento), seleccione la cuenta de almacenamiento que desea usar.
 3. En **Container name** (Nombre de contenedor), especifique el nombre del contenedor que tiene los blobs que desea descargar. Puede usar variables de entorno.
 4. En **Blob name** (Nombre de blob), especifique el nombre del blob. Puede usar variables de entorno. Además, puede usar un asterisco como comodín después de especificar las letras iniciales del nombre del blob. Por ejemplo, **project*** especificaría todos los blobs cuyos nombres comiencen por **project**.
-5. [Opcional] En**Download path** (Ruta de acceso de la descarga), especifique la ruta de acceso de la máquina de Hudson en la que desea descargar los archivos del almacenamiento de blobs de Azure. También se pueden usar variables de entorno. (Si no proporciona un valor para **Download path**, los archivos del almacenamiento de blobs de Azure se descargarán en el área de trabajo del trabajo).
+5. [Opcional] En la **Ruta de acceso de la descarga**, especifique la ruta de acceso de la máquina Hudson en la que desea descargar los archivos del almacenamiento de blobs de Azure. También se pueden usar variables de entorno. (Si no proporciona un valor para la **Ruta de acceso de la descarga**, los archivos del almacenamiento de blobs de Azure se descargarán en el área de trabajo de la tarea).
 
 Si tiene elementos adicionales que desea descargar del almacenamiento de blobs de Azure, puede crear pasos de compilación adicionales.
 
@@ -160,7 +159,7 @@ Después de ejecutar una compilación, puede comprobar la salida de la consola d
 
 A continuación se ofrece información general acerca de los componentes del servicio BLOB.
 
-- **Cuenta de almacenamiento:** todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Se trata del nivel superior del espacio de nombres para el acceso a los blobs. Una cuenta puede contener una cantidad ilimitada de contenedores, siempre que su tamaño total no supere los 100 TB.
+- **Cuenta de almacenamiento:** para acceder al Almacenamiento de Azure es necesaria una cuenta de almacenamiento. Se trata del nivel superior del espacio de nombres para el acceso a los blobs. Una cuenta puede contener una cantidad ilimitada de contenedores, siempre que su tamaño total no supere los 100 TB.
 - **Contenedor**: un contenedor proporciona una agrupación de un conjunto de blobs. Todos los blobs deben residir en un contenedor. Además, una cuenta puede disponer de un número ilimitado de contenedores y un contenedor puede almacenar un número ilimitado de blobs.
 - **Blob**: archivo de cualquier tipo y tamaño. Existen dos tipos de blobs que pueden almacenarse en Almacenamiento de Azure: blobs en páginas y en bloques. La mayoría de los archivos son blobs en bloques. Un blob en bloques único puede tener un tamaño de hasta 200 GB. En este tutorial se usan blobs en bloques. Los blobs en páginas, que son otro tipo de blobs, pueden tener un tamaño de hasta 1 TB y son más eficaces cuando los intervalos de bytes de un archivo se modifican con frecuencia. Para obtener más información sobre los blobs, consulte [Introducción a los blobs en bloques y a los blobs en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 - **Formato de dirección URL**: los blobs son direccionables con el siguiente formato de dirección URL:
@@ -173,8 +172,9 @@ A continuación se ofrece información general acerca de los componentes del ser
 
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
+## Pasos siguientes
+
   [Creación de una cuenta de almacenamiento]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Meet Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
-  [ms-open-tech]: http://msopentech.com
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

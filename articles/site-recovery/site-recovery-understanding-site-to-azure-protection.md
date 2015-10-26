@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Protección de sitios con Azure"
-	description="Use este artículo para comprender los conceptos técnicos que le ayudará a instalar, configurar y administrar correctamente Azure Site Recovery."
-	services="site-recovery"
-	documentationCenter=""
-	authors="anbacker"
-	manager="mkjain"
+	pageTitle="Protección de sitios con Azure" 
+	description="Use este artículo para comprender los conceptos técnicos que le ayudará a instalar, configurar y administrar correctamente Azure Site Recovery." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="anbacker" 
+	manager="mkjain" 
 	editor=""/>
 
 <tags 
-	ms.service="site-recovery"
+	ms.service="site-recovery" 
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="09/01/2015"
+	ms.workload="storage-backup-recovery" 
+	ms.date="09/01/2015" 
 	ms.author="anbacker"/>
 
 
@@ -79,4 +79,4 @@ Cuando se producen errores de replicación, existe una lógica de reintento inte
 - [Contacto con el soporte técnico de Microsoft](./site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
 - [Errores de ASR comunes y sus soluciones](./site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -128,4 +128,4 @@ Visualice el siguiente vídeo acerca de expresiones de directivas.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

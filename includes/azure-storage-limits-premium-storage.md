@@ -14,4 +14,4 @@ Tamaño del disco | 128 GB | 512 GB | 1024 GB (1 TB)
 IOPS por disco | 500 | 2300 | 5000
 Rendimiento de disco | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

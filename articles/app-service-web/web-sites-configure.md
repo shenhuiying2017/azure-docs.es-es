@@ -76,10 +76,10 @@ En las aplicaciones .NET, estas cadenas de conexión se insertarán en la secci�
 
 En las aplicaciones PHP, Python, Java y Node, estas configuraciones estarán disponibles como variables de entorno en tiempo de ejecución, con el tipo de conexión como prefijo. Los prefijos de variable de entorno son los siguientes:
 
-- SQL Server: SQLCONNSTR_
-- MySQL: MYSQLCONNSTR_
-- Base de datos SQL: SQLAZURECONNSTR_
-- Personalizado: CUSTOMCONNSTR_
+- SQL Server: SQLCONNSTR\_
+- MySQL: MYSQLCONNSTR\_
+- Base de datos SQL: SQLAZURECONNSTR\_
+- Personalizado: CUSTOMCONNSTR\_
 
 Por ejemplo, si una cadena de conexión de MySQL recibió el nombre de `connectionstring1`, se obtendrá acceso a ella a través de la variable de entorno `MYSQLCONNSTR_connectionString1`.
 
@@ -178,4 +178,4 @@ Para obtener más información, consulte [Supervisión de estado de extremo web]
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

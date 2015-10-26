@@ -121,4 +121,4 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-siz
 * Para los anuncios más recientes, vea el [blog del equipo de Microsoft HPC y Batch](http://blogs.technet.com/b/windowshpc/) y el [blog de Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Vea también [Novedades de Batch](http://azure.microsoft.com/updates/?service=batch) o suscríbase a la [fuente RSS](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

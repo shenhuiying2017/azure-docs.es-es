@@ -153,4 +153,4 @@ El último paso del runbook es enviar los resultados, tanto si la solicitud de i
 - [Runbooks secundarios en la Automatización de Azure](automation-child-runbooks.md) 
 - [Salidas de runbook y mensajes en la Automatización de Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Creación de una implementación de varias máquinas virtuales mediante la CLI de Azure
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+ 
 
 El siguiente script le mostrará cómo configurar una implementación de varios servicios en la nube y varias máquinas virtuales en una red virtual usando la interfaz de la línea de comandos de Azure (CLI de Azure).
 
@@ -70,4 +71,4 @@ Aunque puede encontrar más información sobre cualquiera de los comandos CLI de
 * [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

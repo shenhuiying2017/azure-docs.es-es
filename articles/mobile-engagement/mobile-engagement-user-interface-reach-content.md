@@ -50,7 +50,7 @@ Cualquier dirección URL que puede ser interpretada por el sistema operativo de 
 
 - **Acciones de Android + iOS**
     - Abrir una página web
-    - http://[web-site-domain] 
+    - http://[web-site-domain\] 
     - Ejemplo:http://www.azure.com
     - Enviar un correo electrónico
     - mailto:[e-mail-recipient]?subject=[subject]&body=[message] 
@@ -74,7 +74,7 @@ Cualquier dirección URL que puede ser interpretada por el sistema operativo de 
     - Ejemplo:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Acciones de Windows
     - Abrir una página web
-    - http://[web-site-domain] 
+    - http://[web-site-domain\] 
     - Ejemplo:http://www.azure.com
     - Enviar un correo electrónico
     - mailto:[e-mail-recipient]?subject=[subject]&body=[message] 
@@ -230,4 +230,4 @@ La carga de mosaicos es el texto que se mostrará en el mosaico de la aplicació
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

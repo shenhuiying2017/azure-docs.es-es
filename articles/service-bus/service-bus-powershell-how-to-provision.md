@@ -179,4 +179,4 @@ Además, puede descargar algunos scripts listos para usar: - [Scripts de PowerSh
 [API de .NET para el Bus de servicio]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

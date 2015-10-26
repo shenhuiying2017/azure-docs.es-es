@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Hardware para interfaces StorSimple de 10 GbE | Microsoft Azure"
-	description="Describe los transceptores acoplables de factor de forma pequeño (SFP), cables y conmutadores admitidos para interfaces de red de 10 GbE en el dispositivo StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Describe los transceptores acoplables de factor de forma pequeño (SFP), cables y conmutadores admitidos para interfaces de red de 10 GbE en el dispositivo StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/27/2015"
+   ms.author="alkohli" />
 
 # Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple
 
@@ -112,4 +112,4 @@ En la tabla siguiente se enumeran los conmutadores y módulos compatibles con Me
 
 [Obtenga más información sobre los componentes de hardware de StorSimple y su estado](storsimple-monitor-hardware-status.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

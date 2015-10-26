@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # Conectarse de forma remota al dispositivo StorSimple
@@ -25,7 +25,7 @@ Para obtener más información acerca del uso de la conexión remota de Windows 
 
 Este tutorial explica cómo configurar el dispositivo para la administración remota y, a continuación, cómo conectarse a Windows PowerShell para StorSimple. Puede utilizar HTTP o HTTPS para conectarse a través de la conexión remota de Windows PowerShell. Sin embargo, cuando decide cómo conectarse a Windows PowerShell para StorSimple, tenga en cuenta lo siguiente:
 
-- Conectarse directamente a la consola en serie del dispositivo es seguro, pero la conexión a la consola en serie a través conmutadores de red no lo es. Tenga presente los riesgos de seguridad al conectarse a la consola en serie del dispositivo a través de los conmutadores de red. 
+- Es seguro conectarse directamente a la consola en serie del dispositivo, pero la conexión a la consola en serie a través conmutadores de red no lo es. Tenga presente los riesgos de seguridad al conectarse a la consola en serie del dispositivo a través de los conmutadores de red. 
 
 - Conectarse a través de una sesión HTTP puede ofrecer más seguridad que la conexión a través de la consola en serie a través de la red. Aunque este no es el método más seguro, es aceptable en redes de confianza.
 
@@ -234,7 +234,7 @@ Use Windows PowerShell y SSL para iniciar una sesión de SSAdmin en el dispositi
 
 Realice el procedimiento siguiente en el equipo desde el que desea realizar la conexión remota de Windows PowerShell.
 
-### Para iniciar una sesión de SSAdmin en el dispositivo mediante el uso de Windows PowerShell y SSL
+#### Para iniciar una sesión de SSAdmin en el dispositivo mediante el uso de Windows PowerShell y SSL
 
 1. Iniciar una sesión de Windows PowerShell como administrador.
 
@@ -256,7 +256,7 @@ Realice el procedimiento siguiente en el equipo desde el que desea realizar la c
 
      `$session = new-pssession -usessl -CN <Serial number of target device> -credential $cred -configurationname "SSAdminConsole"`
 
-    El nombre CN en cmdlet, proporcione la *<serial number of target device>*. Este número de serie se asigna a la dirección IP de DATA 0 en el archivo de hosts en el host remoto; Por ejemplo, **SHX0991003G44MT** tal como se muestra en la siguiente imagen.
+    Proporcione el <*número de serie del dispositivo de destino*> para el nombre CN del cmdlet. Este número de serie se asigna a la dirección IP de DATA 0 en el archivo de hosts del host remoto; Por ejemplo, **SHX0991003G44MT** tal como se muestra en la siguiente imagen.
 
 5. Escriba:
 
@@ -268,8 +268,8 @@ Realice el procedimiento siguiente en el equipo desde el que desea realizar la c
 
 ## Pasos siguientes
 
-- Más información acerca del [uso de Windows PowerShell para administrar el dispositivo StorSimple](storsimple-windows-powershell-administration.md).
+- Obtenga más información acerca del [uso de Windows PowerShell para administrar el dispositivo StorSimple](storsimple-windows-powershell-administration.md).
 
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

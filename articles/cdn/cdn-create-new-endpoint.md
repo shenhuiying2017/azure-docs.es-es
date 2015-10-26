@@ -1,19 +1,19 @@
 <properties 
-	 pageTitle="Habilitar la Red de entrega de contenido (CDN) para Azure"
-	description="En este tema se muestra cómo habilitar la Red de entrega de contenido (CDN) para Azure."
-	services="cdn"
-	documentationCenter=""
-	authors="zhangmanling"
-	manager="dwrede"
-	editor=""/>
+	 pageTitle="Habilitar la Red de entrega de contenido (CDN) para Azure" 
+	 description="En este tema se muestra cómo habilitar la Red de entrega de contenido (CDN) para Azure." 
+	 services="cdn" 
+	 documentationCenter="" 
+	 authors="zhangmanling" 
+	 manager="dwrede" 
+	 editor=""/>
 <tags 
-	 ms.service="cdn"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mazha"/>
+	 ms.service="cdn" 
+	 ms.workload="media" 
+	 ms.tgt_pltfrm="na" 
+	 ms.devlang="na" 
+	 ms.topic="article" 
+	 ms.date="09/01/2015" 
+	 ms.author="mazha"/>
 
 
 
@@ -54,4 +54,4 @@ Tenga en cuenta que ahora también puede crear un origen personalizado y no tien
 [customorigin]: ./media/cdn-create-new-endpoint/cdn-custom-origin.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Bottle y Almacenamiento de tablas de Azure en Azure con Python Tools 2.2 para Visual Studio"
-	description="Obtenga información acerca de cómo usar las herramientas de Python para Visual Studio para crear una aplicación de Bottle que almacene los datos en el almacenamiento de tabla de Azure e implemente la aplicación web en Aplicaciones web del Servicio de aplicaciones de Azure."
-	services="app-service\web"
-	documentationCenter="python"
-	authors="huguesv"
-	manager="wpickett"
+	pageTitle="Bottle y Almacenamiento de tablas de Azure en Azure con Python Tools 2.2 para Visual Studio" 
+	description="Obtenga información acerca de cómo usar las herramientas de Python para Visual Studio para crear una aplicación de Bottle que almacene los datos en el almacenamiento de tabla de Azure e implemente la aplicación web en Aplicaciones web del Servicio de aplicaciones de Azure." 
+	services="app-service\web" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -71,9 +71,7 @@ Necesita una cuenta de almacenamiento de Azure para usar operaciones de almacena
 
 2. Haga clic en el icono **Nuevo** situado en la parte inferior izquierda del portal y haga clic en **Datos + Almacenamiento** > **Almacenamiento**. Asigne un nombre único a la cuenta de almacenamiento y cree un [grupo de recursos](../resource-group-overview.md) nuevo para ella.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
-
-	Una vez creada la cuenta de almacenamiento, el botón **Notificaciones** emitirá el mensaje **CORRECTO** en color verde y la hoja de la cuenta de almacenamiento se abrirá para mostrar que pertenece al nuevo grupo de recursos que ha creado.
+  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->Una vez creada la cuenta de almacenamiento, el botón **Notificaciones** emitirá el mensaje **CORRECTO** en color verde y la hoja de la cuenta de almacenamiento se abrirá para mostrar que pertenece al nuevo grupo de recursos que ha creado.
 
   	<!-- ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png) -->
 
@@ -216,4 +214,4 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 [SDK de Azure para Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -165,4 +165,4 @@ Para obtener información sobre cómo controlar el procesamiento de tablas desen
 
 En este artículo se han proporcionado ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con tablas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

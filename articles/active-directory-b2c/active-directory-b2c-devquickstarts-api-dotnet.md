@@ -219,10 +219,8 @@ Por último, compile y ejecute tanto `TaskWebApp` como `TaskService`. Regístres
 
 ## 8\. Editar sus directivas
 
-Ahora que tiene una API protegida con Azure AD B2C, puede jugar con las directivas de la aplicación y ver cómo afectan (en caso de hacerlo) en la API. Puede manipular las **notificaciones de aplicación** en las directivas y cambiar la información del usuario que está disponible en la API web. Las notificaciones adicionales que agregue estarán disponibles para su API web de .NET MVC en el objeto `ClaimsPrincipal`, como se describió anteriormente.
-<!--add **identity providers**
-to the policies, allowing you users to sign into the Task Client using social accounts.  You can also 
--->
+Ahora que tiene una API protegida con Azure AD B2C, puede jugar con las directivas de la aplicación y ver cómo afectan (en caso de hacerlo) en la API. Puede <!--add **identity providers**
+to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->manipular las **notificaciones de aplicación** de las directivas y modificar la información de usuario que está disponible en la API web. Las notificaciones adicionales que agregue estarán disponibles para su API web de .NET MVC en el objeto `ClaimsPrincipal`, como se describió anteriormente.
 
 <!--
 
@@ -236,4 +234,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

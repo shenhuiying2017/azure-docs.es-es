@@ -25,7 +25,8 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+ 
 
 Estos pasos muestran cómo usar un conjunto de comandos de Azure PowerShell para crear y preconfigurar una máquina virtual con Linux con el modelo clásico de administración. Puede utilizar este proceso para crear un conjunto de comandos para una nueva máquina virtual basada en Linux rápidamente y expandir una implementación existente, o para crear varios conjuntos de comandos que creen rápidamente un entorno de profesionales de TI, o de desarrollo o pruebas.
 
@@ -264,4 +265,4 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

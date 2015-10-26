@@ -40,4 +40,4 @@ Cuando se especifica la propiedad compression en un conjunto de datos de entrada
 - Leer datos de un archivo de texto sin formato del sistema de archivos local, comprimirlos con formato GZip y escribir los datos comprimidos en un blob de Azure. Defina un conjunto de datos de blob de Azure de salida con la propiedad JSON compression en este caso.  
 - Leer datos comprimidos con GZIP de un blob de Azure, descomprimirlos, comprimirlos con BZIP2 y escribir los datos de resultado en un blob de Azure. Defina el conjunto de datos de blob de Azure de entrada con el tipo de compresión establecido en GZIP y el conjunto de datos de salida con el tipo de compresión establecido en BZIP2 en este caso.   
 
-<!----HONumber=Sept15_HO1-->
+<!---HONumber=Oct15_HO3-->

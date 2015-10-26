@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Recuperación de una base de datos SQL tras un desastre"
-	description="Obtenga información acerca de cómo recuperar una base de datos tras un fallo o error en el centro de datos regional con las capacidades de replicación geográfica y restauración geográfica de bases de datos SQL de Azure."
-	services="sql-database"
-	documentationCenter=""
-	authors="elfisher"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="Recuperación de una base de datos SQL tras un desastre" 
+   description="Obtenga información acerca de cómo recuperar una base de datos tras un fallo o error en el centro de datos regional con las capacidades de replicación geográfica y restauración geográfica de bases de datos SQL de Azure." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="07/14/2015"
-	ms.author="elfish"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="07/14/2015"
+   ms.author="elfish"/>
 
 # Recuperación de una base de datos SQL de Azure tras una interrupción
 
@@ -103,4 +103,4 @@ Use REST para realizar la recuperación de la base de datos mediante programaci�
 Una vez recuperada la base de datos, podrá configurarla para el uso. Para ello siga los pasos descritos en la guía [Finalización de una base de datos recuperada](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

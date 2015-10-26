@@ -1,6 +1,6 @@
 <properties
- pageTitle="Guía del desarrollador del Centro de IoT de Azure | Microsoft Azure"
- description="Guía de desarrollador del Centro de IoT de Azure que abarca los extremos del Centro de IoT, seguridad, registro de identidad del dispositivo y mensajería"
+ pageTitle="Temas de la guía del desarrollador para el centro de IoT | Microsoft Azure"
+ description="Guía de desarrollador del Centro de IoT de Azure que incluye los extremos del Centro de IoT, seguridad, registro de identidad del dispositivo y mensajería"
  services="iot-hub"
  documentationCenter=".net"
  authors="fsautomata"
@@ -9,10 +9,10 @@
 
 <tags
  ms.service="iot-hub"
- ms.devlang="na"
+ ms.devlang="multiple"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
@@ -488,6 +488,7 @@ Ahora que vio información general sobre el desarrollo del Centro de IoT, siga e
 
 - [Introducción a los Centros de IoT (tutorial)][lnk-get-started]
 - [Compatibilidad de hardware y de plataformas de sistema operativo][lnk-compatibility]
+- [Centro para desarrolladores de IoT de Azure][lnk-iotdev]
 - [Planeación de la implementación de IoT][lnk-guidance]
 
 [host del procesador de eventos de los centros de eventos]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
@@ -531,5 +532,6 @@ Ahora que vio información general sobre el desarrollo del Centro de IoT, siga e
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
 [lnk-servicebus]: http://azure.microsoft.com/services/service-bus/
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
+[lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

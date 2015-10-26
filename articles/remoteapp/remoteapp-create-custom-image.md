@@ -142,4 +142,4 @@ Ahora que ya tiene su imagen de plantilla personalizada, es necesario que la car
 - [Creación de una colección en la nube de RemoteApp](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

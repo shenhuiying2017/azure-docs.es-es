@@ -337,4 +337,4 @@ La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tr�
 - Para obtener más información sobre cómo configurar el enrutamiento y el reenvío IP, consulte [Creación de rutas y habilitación del reenvío IP en Azure](virtual-network/virtual-networks-udr-how-to.md). 
 - Para obtener información general sobre el control de acceso basado en rol, consulte [Control de acceso basado en roles en el Portal de Microsoft Azure](role-based-access-control-configure.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

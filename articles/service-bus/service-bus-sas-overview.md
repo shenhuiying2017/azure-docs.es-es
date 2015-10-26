@@ -255,4 +255,4 @@ Para obtener más información sobre la autenticación de Bus de servicio, vea [
 
 Puede encontrar más ejemplos de SAS en C# y Java Script en [esta entrada de blog](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

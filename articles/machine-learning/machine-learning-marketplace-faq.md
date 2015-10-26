@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Preguntas frecuentes: Publicación y uso de aplicaciones de Aprendizaje automático en Azure Marketplace | Microsoft Azure"
-	description="Preguntas frecuentes"
-	services="machine-learning"
-	documentationCenter=""
-	authors="LuisCabrer"
-	manager="paulettm"
+	pageTitle="Preguntas frecuentes: Publicación y uso de aplicaciones de Aprendizaje automático en Azure Marketplace | Microsoft Azure" 
+	description="Preguntas frecuentes" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="LuisCabrer" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="luisca"/>
 
 #Publicación y uso de aplicaciones de Aprendizaje automático en Azure Marketplace: preguntas frecuentes
@@ -77,4 +77,4 @@ Póngase en contacto con el equipo de Azure Marketplace en <datamarketbd@microso
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

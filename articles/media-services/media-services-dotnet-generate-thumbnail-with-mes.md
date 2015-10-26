@@ -382,4 +382,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 [Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

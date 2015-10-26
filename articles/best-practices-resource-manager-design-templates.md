@@ -383,4 +383,4 @@ Si desea publicar la plantilla en Marketplace, simplemente establezca distintas 
 - Para obtener recomendaciones sobre cómo controlar la seguridad en el Administrador de recursos de Azure, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
 - Para obtener información sobre cómo compartir el estado dentro y fuera de las plantillas, consulte [Uso compartido del estado en las plantillas del Administrador de recursos de Azure](best-practices-resource-manager-state.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

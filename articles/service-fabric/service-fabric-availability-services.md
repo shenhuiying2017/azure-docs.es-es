@@ -1,20 +1,20 @@
 <properties
    pageTitle="Disponibilidad de los servicios de Service Fabric"
-	description="Describe la detección de errores, la conmutación por error, la recuperación para los servicios"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="appi101"
-	manager="timlt"
-	editor=""/>
+   description="Describe la detección de errores, la conmutación por error, la recuperación para los servicios"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="appi101"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="aprameyr"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="aprameyr"/>
 
 # Disponibilidad de los servicios de Service Fabric
 Los servicios de Service Fabric pueden ser con o sin estado. En este artículo se ofrece una visión general de cómo Service Fabric mantiene la disponibilidad de un servicio en caso de errores.
@@ -51,4 +51,4 @@ Para obtener información sobre los conceptos de Service Fabric, vea lo siguient
 - [Definición y administración del estado](service-fabric-concepts-state.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

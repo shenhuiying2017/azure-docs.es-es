@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Tutorial: Crear una canalización con la actividad de copia mediante el editor de la factoría de datos"
-	description="En este tutorial, creará una canalización de la factoría de datos de Azure con una actividad de copia mediante el Editor de la factoría de datos en el Portal de Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Tutorial: Crear una canalización con la actividad de copia mediante el editor de la factoría de datos" 
+	description="En este tutorial, creará una canalización de la factoría de datos de Azure con una actividad de copia mediante el Editor de la factoría de datos en el Portal de Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Crear una canalización con la actividad de copia mediante el editor de la factoría de datos
@@ -501,4 +501,4 @@ Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar 
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

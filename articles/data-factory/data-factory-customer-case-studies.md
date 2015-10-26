@@ -48,4 +48,4 @@ Factoría de datos es un servicio de administración de información basado en l
 
 [Búsqueda de una mejor conexión con los clientes a través del aprendizaje automático en la nube](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Información general del modelo de comunicación de servicio"
-	description="Este artículo describe los aspectos básicos del modelo de comunicación compatibles con la api del servicio fiable."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="BharatNarasimman"
-	manager="vipulm"
-	editor=""/>
+   description="Este artículo describe los aspectos básicos del modelo de comunicación compatibles con la api del servicio fiable."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="BharatNarasimman"
+   manager="vipulm"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="required"
-	ms.date="08/27/2015"
-	ms.author="bharatn@microsoft.com"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="required"
+   ms.date="08/27/2015"
+   ms.author="bharatn@microsoft.com"/>
 
 # Modelo de comunicación de servicio
 
@@ -230,4 +230,4 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 * [Escribir un servicio mediante la API de servicios fiables que usa la pila de comunicación de WebAPI](service-fabric-reliable-services-communication-webapi.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

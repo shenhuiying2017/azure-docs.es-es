@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Creación del nodo principal de un clúster de HPC Pack en una máquina virtual de Azure con una imagen de Marketplace
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo se aplica a la creación de un recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 En este artículo se muestra cómo usar la [imagen de máquina virtual de Microsoft HPC Pack](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) en Azure Marketplace para crear el nodo principal de un clúster de Windows HPC en Azure en el modelo de implementación clásico (administración de servicios). El nodo principal debe estar unido a un dominio de Active Directory en una red virtual de Azure. Puede usar este nodo principal para realizar una prueba de implementación del concepto de HPC Pack en Azure y agregar recursos de proceso al clúster para ejecutar cargas de trabajo de HPC.
 
@@ -101,4 +102,4 @@ Estos son los pasos de nivel superior para crear una máquina virtual de Azure p
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

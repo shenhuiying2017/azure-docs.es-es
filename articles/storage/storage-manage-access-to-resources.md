@@ -81,4 +81,4 @@ En la siguiente tabla, se indican las operaciones a las que pueden llamar los us
 - [Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md)
 - [Delegación de acceso con una firma de acceso compartido](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

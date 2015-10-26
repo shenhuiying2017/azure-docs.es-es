@@ -204,4 +204,4 @@ Para conocer con mayor profundidad las opciones que ha elegido para su aplicaci√
   [Almacenamiento]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

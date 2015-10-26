@@ -58,4 +58,4 @@ Una vez creada una máquina virtual, esta arrancará automáticamente. Cuando el
 - [Inicio de sesión en una máquina virtual con Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Inicio de sesión en una máquina virtual con Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

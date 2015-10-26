@@ -21,7 +21,8 @@
 
 Con Azure puede utilizar una máquina virtual para controlar tareas de proceso intensivo. Por ejemplo, una máquina virtual puede controlar tareas y ofrecer los resultados a equipos cliente o a aplicaciones móviles. Después de completar el tutorial, habrá aprendido a crear una máquina virtual que ejecuta una aplicación .NET de proceso intensivo que otra aplicación .NET puede supervisar.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 En este tutorial se da por hecho que sabe cómo crear aplicaciones de consola .NET. Se presupone que no tiene conocimiento sobre Azure.
 
@@ -549,4 +550,4 @@ En lugar de usar TSPSolver para crear o eliminar la cola, puede crear o eliminar
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

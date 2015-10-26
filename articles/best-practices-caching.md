@@ -94,7 +94,7 @@ En la mayoría de los casos, los datos almacenados en una memoria caché son una
 
 Cuando los datos almacenados en caché expiran, se quitan de la memoria caché y la aplicación debe recuperar los datos del almacén de datos original (puede volver a colocar la información recién capturada en la caché). Puede establecer una directiva de expiración predeterminada al configurar la memoria caché. En muchos servicios de caché también puede estipular el período de expiración para objetos individuales cuando los almacena mediante programación en la memoria caché (algunas memorias caché le permiten especificar el período de expiración como un valor absoluto o como un valor de variable que hace que se quite el elemento de la memoria caché si no es accesible dentro del tiempo especificado. Esta configuración invalida cualquier directiva de expiración de toda la memoria caché, pero solo para los objetos especificados.
 
-> [AZURE.NOTE] Considere detenidamente el período de expiración de la memoria caché y los objetos que contiene. Si hace que sea demasiado breve, los objetos expirarán con demasiada rapidez y reducirá las ventajas del uso de la memoria caché. Si hace que el periodo sea demasiado largo, se arriesgan a que los datos se vuelvan obsoletos.
+> [AZURE.NOTE]Considere detenidamente el período de expiración de la memoria caché y los objetos que contiene. Si hace que sea demasiado breve, los objetos expirarán con demasiada rapidez y reducirá las ventajas del uso de la memoria caché. Si hace que el periodo sea demasiado largo, se arriesgan a que los datos se vuelvan obsoletos.
 
 También es posible que se pueda rellenar la memoria caché si se permite que los datos permanezcan residentes durante mucho tiempo. En este caso, las solicitudes para agregar nuevos elementos a la memoria caché podrían provocar que se forzara la eliminación de algunos elementos en un proceso conocido como expulsión. Los servicios de caché normalmente expulsan los datos menos usados recientemente (LRU), pero normalmente puede invalidar esta directiva y evitar que se expulsen los elementos. Sin embargo, si adopta este enfoque se arriesga a que la memoria caché supere la memoria caché que tiene disponible y se producirá un error con una excepción de una aplicación que intenta agregar un elemento a la caché.
 
@@ -123,8 +123,7 @@ Tenga cuidado de no introducir dependencias críticas en la disponibilidad de un
 
 Sin embargo, retroceder al almacén de datos original si la memoria caché no está disponible temporalmente puede tener un impacto de escalabilidad en el sistema; mientras se está recuperando el almacén de datos, el almacén de datos original podría inundarse de solicitudes de datos, lo que daría lugar a tiempos de espera y conexiones con errores. Una estrategia que debería considerar es implementar una memoria caché local y privada en cada instancia de una aplicación junto con la memoria caché compartida a la que tienen acceso todas las instancias de la aplicación. Cuando la aplicación recupera un elemento, puede comprobar primero en su memoria caché local, a continuación, en la memoria caché compartida y finalmente en el almacén de datos originales. La memoria caché local se pueden rellenar con los datos de la memoria caché compartida, o la base de datos si la memoria caché compartida no está disponible. Este enfoque requiere una cuidadosa configuración para evitar que la memoria caché local se vuelva demasiado obsoleta con respecto a la memoria caché compartida, pero actúa como un búfer si la memoria caché compartida es inaccesible. En la Figura 3 se muestra esta estructura.
 
-![Uso de una memoria caché local y privada con una caché compartida\_](media/best-practices-caching/Caching3.png)
-_Figura 3: Uso de una memoria caché local y privada con una memoria caché compartida_
+![Uso de una memoria caché local y privada con una caché compartida\_](media/best-practices-caching/Caching3.png) _Figura 3: Uso de una memoria caché local y privada con una memoria caché compartida_
 
 Para admitir cachés de gran tamaño con datos de duración relativamente larga, algunos servicios de caché ofrecen una opción de alta disponibilidad que implementa la conmutación automática por error si la memoria caché dejar de estar disponible. Este enfoque normalmente implica la réplica de los datos en caché que se almacenan en un servidor de caché principal en un servidor de caché secundario y el cambio al servidor secundario si el servicio principal genera error o se pierde la conectividad. Para reducir la latencia asociada a la escritura en varios destinos, cuando se escriben datos en la memoria caché del servidor principal, la replicación en el servidor secundario puede producirse de forma asincrónica. Este enfoque lleva a la posibilidad de que se pueda perder parte de la información almacenada en caché en el caso de un error, pero la proporción de estos datos debe ser pequeña en comparación con el tamaño total de la memoria caché.
 
@@ -162,7 +161,7 @@ Redis es una solución de almacenamiento en caché de alto rendimiento que ofrec
 
 La caché en Redis de Azure es compatible con muchas de las distintas API que se usan por las aplicaciones cliente. Si tiene aplicaciones existentes que ya usan Redis localmente, la Caché en Redis de Azure ofrece una ruta de acceso de migración rápida para el almacenamiento en caché en la nube.
 
-> [AZURE.NOTE] Azure también ofrece el servicio de caché administrado. Este servicio se basa en el motor de la caché de AppFabric de Microsoft. Le permite crear una caché distribuida que se puede compartir entre aplicaciones de acoplamiento flexible. La memoria caché se hospeda en servidores de alto rendimiento que se ejecutan en un centro de datos de Azure. Sin embargo, ya no se recomienda esta opción y solo se proporciona para admitir aplicaciones existentes que se han creado para usarla. Para todo el desarrollo nuevo, use la Caché en Redis de Azure.
+> [AZURE.NOTE]Azure también ofrece el servicio de caché administrado. Este servicio se basa en el motor de la caché de AppFabric de Microsoft. Le permite crear una caché distribuida que se puede compartir entre aplicaciones de acoplamiento flexible. La memoria caché se hospeda en servidores de alto rendimiento que se ejecutan en un centro de datos de Azure. Sin embargo, ya no se recomienda esta opción y solo se proporciona para admitir aplicaciones existentes que se han creado para usarla. Para todo el desarrollo nuevo, use la Caché en Redis de Azure.
 >
 > Además, Azure admite el almacenamiento en caché en rol. Esta característica le permite crear una memoria caché específica para un servicio en la nube. La caché se hospeda en instancias de un rol web o de trabajo y solo se puede acceder a ella mediante roles que funcionan como parte de la misma unidad de implementación del servicio en la nube (una unidad de implementación es el conjunto de instancias de rol implementadas como un servicio en la nube para una región específica). La memoria caché está agrupada y todas las instancias del rol dentro de la misma unidad de implementación que hospedan la memoria caché se convierten en parte del mismo clúster de caché. Las aplicaciones existentes que usan el almacenamiento en caché en rol pueden seguir haciéndolo, pero la migración a la caché en Redis de Azure puede conllevar más beneficios. Para obtener más información acerca de si usar una caché en Redis de Azure o una caché en rol, visite la página [¿Qué oferta de caché de Azure es adecuada para mí?](http://msdn.microsoft.com/library/azure/dn766201.aspx) en el sitio web de Microsoft.
 
@@ -175,7 +174,7 @@ Redis es más que un servidor de caché simple; ofrece una base de datos en memo
 
 Redis admite las operaciones de lectura y escritura. A diferencia de muchas memorias caché (que se deben considerar como almacenes de datos transitorios), se pueden protegerse la escrituras del error del sistema haciendo que se almacenan periódicamente en un archivo de instantánea local o en un archivo de registro de solo anexión. Todas las escrituras son asincrónicas y no bloquean a los clientes de la lectura y escritura de datos. Cuando Redis empieza a ejecutarse, lee los datos del archivo de registro o de instantánea y lo usa para construir la caché en memoria. Para obtener más información, vea [Persistencia de Redis](http://redis.io/topics/persistence) en el sitio web de Redis.
 
-> [AZURE.NOTE] Redis no garantiza que todas las escrituras se guardarán en el caso de un error grave, pero en el peor de los casos solo debería perder unos segundos de datos. Recuerde que una memoria caché no está diseñada para actuar como un origen de datos autoritativo y que es responsabilidad de las aplicaciones que usan la memoria caché asegurarse de que los datos críticos se guardan correctamente en un almacén de datos adecuado. Para obtener más información, vea el patrón de Cache-Aside.
+> [AZURE.NOTE]Redis no garantiza que todas las escrituras se guardarán en el caso de un error grave, pero en el peor de los casos solo debería perder unos segundos de datos. Recuerde que una memoria caché no está diseñada para actuar como un origen de datos autoritativo y que es responsabilidad de las aplicaciones que usan la memoria caché asegurarse de que los datos críticos se guardan correctamente en un almacén de datos adecuado. Para obtener más información, vea el patrón de Cache-Aside.
 
 #### Tipos de datos de Redis
 
@@ -187,7 +186,7 @@ Redis admite la replicación de maestro/subordinado para ayudar a garantizar la 
 
 Redis también ofrece agrupación en clústeres, lo que le permite crear particiones de datos de manera transparente en particiones entre servidores y distribuir la carga. Esta característica mejora la escalabilidad puesto que permite agregar nuevos servidores de Redis y la creación de particiones de los datos a medida que aumenta el tamaño de la caché. Además, cada servidor del clúster se puede replicar mediante la replicación de maestro/subordinado para garantizar la disponibilidad en cada nodo del clúster. Para obtener más información sobre la agrupación en clústeres y el particionamiento, visite la [página del Tutorial del clúster de Redis](http://redis.io/topics/cluster-tutorial) en el sitio web de Redis.
 
-> [AZURE.NOTE] Caché en Redis de Azure no admite actualmente la agrupación en clústeres. Si desea crear un clúster de Redis, puede crear su propio servidor Redis personalizado. Para obtener más información, vea la sección Creación de una caché en Redis personalizada más adelante en este documento.
+> [AZURE.NOTE]Caché en Redis de Azure no admite actualmente la agrupación en clústeres. Si desea crear un clúster de Redis, puede crear su propio servidor Redis personalizado. Para obtener más información, vea la sección Creación de una caché en Redis personalizada más adelante en este documento.
 
 ### Uso de la memoria Redis
 
@@ -211,7 +210,7 @@ Redis no admite directamente ninguna forma de cifrado de datos, por lo que toda 
 
 Para obtener más información, visite la página [Seguridad de Redis](http://redis.io/topics/security) en el sitio web de Redis.
 
-> [AZURE.NOTE] Caché en Redis de Azure proporciona su propio nivel de seguridad a través del cual se conectan los clientes; los servidores de Redis subyacentes no se exponen a la red pública.
+> [AZURE.NOTE]Caché en Redis de Azure proporciona su propio nivel de seguridad a través del cual se conectan los clientes; los servidores de Redis subyacentes no se exponen a la red pública.
 
 ### Uso de la caché en Redis de Azure
 
@@ -225,7 +224,7 @@ El portal de administración de Azure incluye una visualización gráfica adecua
 
 También puede supervisar la CPU, la memoria y el uso de la red para la memoria caché.
 
-> [AZURE.NOTE] Caché en Redis de Azure está diseñado para actuar puramente como una memoria caché en lugar de una base de datos. Como resultado, no implementa actualmente las persistencia de Redis.
+> [AZURE.NOTE]Caché en Redis de Azure está diseñado para actuar puramente como una memoria caché en lugar de una base de datos. Como resultado, no implementa actualmente las persistencia de Redis.
 
 Para obtener más información y ejemplos en los que se muestra cómo crear y configurar una caché en Redis de Azure, visite la página [En torno a Caché en Redis de Azure](http://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) en el blog de Azure.
 
@@ -241,7 +240,7 @@ El uso del proveedor de estados de sesión con Caché en Redis de Azure ofrece v
 
 Para obtener más información, visite la página [Proveedor de estados de sesión de ASP.NET para Caché en Redis de Azure](http://msdn.microsoft.com/library/azure/dn690522.aspx) en el sitio web de Microsoft.
 
-> [AZURE.NOTE] No use el proveedor de estados de sesión para Caché en Redis de Azure para las aplicaciones ASP.NET que se ejecutan fuera del entorno de Azure. La latencia del acceso a la memoria caché desde fuera de Azure puede eliminar las ventajas del rendimiento del almacenamiento en caché de los datos.
+> [AZURE.NOTE]No use el proveedor de estados de sesión para Caché en Redis de Azure para las aplicaciones ASP.NET que se ejecutan fuera del entorno de Azure. La latencia del acceso a la memoria caché desde fuera de Azure puede eliminar las ventajas del rendimiento del almacenamiento en caché de los datos.
 
 De forma similar, el proveedor de caché de resultados para caché en Redis de Azure permite guardar las respuestas HTTP generadas por una aplicación web ASP.NET. El uso del proveedor de caché de resultados con caché en Redis de Azure puede mejorar los tiempos de respuesta de las aplicaciones que representan salida HTML compleja; las instancias de aplicación que generan respuestas similares pueden usar los fragmentos de salida compartidos en la memoria caché en lugar de generar este código HTML de salida nuevo. Para obtener más información, visite la página [Proveedor de cachés de resultados de ASP.NET para Caché en Redis de Azure](http://msdn.microsoft.com/library/azure/dn798898.aspx) en el sitio web de Microsoft.
 
@@ -432,20 +431,9 @@ Redis admite una serie de operaciones atómicas de get y set en valores de caden
 
 - `INCR`, `INCRBY`, `DECR`, y `DECRBY` que realizan las operaciones atómicas de incremento y decremento en valores de datos numéricos enteros. La biblioteca de StackExchange ofrece versiones sobrecargadas de los métodos `IDatabase.StringIncrementAsync` y `IDatabase.StringDecrementAsync` para realizar estas operaciones y devuelven el valor resultante almacenado en la memoria caché. El siguiente fragmento de código muestra cómo usar estos métodos:
 
-   ```csharp
-  ConnectionMultiplexer redisHostConnection = ...;
-  IDatabase cache = redisHostConnection.GetDatabase();
-  ...
-  await cache.StringSetAsync("data:counter", 99);
-  ...
-  long oldValue = await cache.StringIncrementAsync("data:counter");
-  // Increment by 1 (the default)
-  // oldValue should be 100
+  ```csharp ConnectionMultiplexer redisHostConnection = ...; IDatabase cache = redisHostConnection.GetDatabase(); ... await cache.StringSetAsync("data:counter", 99); ... long oldValue = await cache.StringIncrementAsync("data:counter"); // Increment by 1 (the default) // oldValue should be 100
 
-  long newValue = await cache.StringDecrementAsync("data:counter", 50);
-  // Decrement by 50
-  // newValue should be 50
-  ```
+  long newValue = await cache.StringDecrementAsync("data:counter", 50); // Decrement by 50 // newValue should be 50 ```
 
 - `GETSET` que recupera el valor asociado a una clave y lo cambia a un nuevo valor. La biblioteca de StackExchange hace que esta operación esté disponible a través del método `IDatabase.StringGetSetAsync`. El siguiente fragmento de código muestra un ejemplo de este método. Este código devuelve el valor actual asociado a la clave "data:counter" del ejemplo anterior y restablece el valor para esta clave en cero, todo ello como parte de la misma operación:
 
@@ -458,28 +446,9 @@ Redis admite una serie de operaciones atómicas de get y set en valores de caden
 
 - `MGET` y `MSET`, que pueden devolver o cambiar un conjunto de valores de cadena como una sola operación. Los métodos `IDatabase.StringGetAsync` y `IDatabase.StringSetAsync` están sobrecargados para admitir esta funcionalidad, como se muestra en el ejemplo siguiente:
 
-  ```csharp
-  ConnectionMultiplexer redisHostConnection = ...;
-  IDatabase cache = redisHostConnection.GetDatabase();
-  ...
-  // Create a list of key/value pairs
-  var keysAndValues =
-      new List<KeyValuePair<RedisKey, RedisValue>>()
-      {
-          new KeyValuePair<RedisKey, RedisValue>("data:key1", "value1"),
-          new KeyValuePair<RedisKey, RedisValue>("data:key99", "value2"),
-          new KeyValuePair<RedisKey, RedisValue>("data:key322", "value3")
-      };
+  ```csharp ConnectionMultiplexer redisHostConnection = ...; IDatabase cache = redisHostConnection.GetDatabase(); ... // Create a list of key/value pairs var keysAndValues = new List<KeyValuePair<RedisKey  RedisValue>>() { new KeyValuePair<RedisKey  RedisValue>("data:key1", "value1"), new KeyValuePair<RedisKey  RedisValue>("data:key99", "value2"), new KeyValuePair<RedisKey  RedisValue>("data:key322", "value3") };
 
-  // Store the list of key/value pairs in the cache
-  cache.StringSet(keysAndValues.ToArray());
-  ...
-  // Find all values that match a list of keys
-  RedisKey[] keys = { "data:key1", "data:key99", "data:key322"};
-  RedisValue[] values = null;
-  values = cache.StringGet(keys);
-  // values should contain { "value1", "value2", "value3" }
-  ```
+  // Store the list of key/value pairs in the cache cache.StringSet(keysAndValues.ToArray()); ... // Find all values that match a list of keys RedisKey keys = { "data:key1", "data:key99", "data:key322"}; RedisValue values = null; values = cache.StringGet(keys); // values should contain { "value1", "value2", "value3" } ```
 
 También puede combinar varias operaciones en una sola transacción de Redis como se describe en la sección Lotes y transacciones de Redis de esta guía. La biblioteca de StackExchange ofrece compatibilidad para las transacciones a través de la interfaz de `ITransaction`. Puede crear un objeto ITransaction mediante el método IDatabase.CreateTransaction e invocar comandos para la transacción mediante el objeto `ITransaction` proporcionado por los métodos. La interfaz `ITransaction` ofrece acceso a un conjunto similar de métodos como la interfaz `IDatabase` con la excepción de que todos los métodos son asincrónicos; solo se llevan a cabo cuando se invoca el método `ITransaction.Execute`. El valor devuelto por el método execute indica si la transacción se creó correctamente (true) o no (false).
 
@@ -713,7 +682,7 @@ foreach (var post in await cache.SortedSetRangeByRankWithScoresAsync(redisKey))
 }
 ```
 
-> [AZURE.NOTE] La biblioteca de StackExchange también ofrece el método IDatabase.SortedSetRangeByRankAsync que devuelve los datos en orden de puntuación, pero no devuelve las puntuaciones.
+> [AZURE.NOTE]La biblioteca de StackExchange también ofrece el método IDatabase.SortedSetRangeByRankAsync que devuelve los datos en orden de puntuación, pero no devuelve las puntuaciones.
 
 También puede recuperar los elementos en orden descendente de puntuaciones y limitar el número de elementos devueltos proporcionando parámetros adicionales al método IDatabase.SortedSetRangeByRankWithScoresAsync. En el ejemplo siguiente se muestran los títulos y las puntuaciones de las 10 entradas de blog clasificadas en primer lugar:
 
@@ -770,8 +739,7 @@ Hay varios puntos que deben comprender acerca del mecanismo de publicación o su
 
 - Varios suscriptores pueden suscribirse al mismo canal y todos recibirán los mensajes publicados en ese canal.
 - Los suscriptores solo reciben mensajes que se han publicado después de haberse suscrito. Los canales no se almacenan en búfer y cuando se publica un mensaje, la infraestructura de Redis envía el mensaje a cada suscriptor y luego lo elimina.
-- De forma predeterminada, los suscriptores reciben los mensajes en el orden en que se envían. En un sistema muy activo, con un gran número de mensajes y muchos suscriptores y publicadores, la entrega secuencial garantizada de mensajes puede ralentizar el rendimiento del sistema. Si cada mensaje es independiente y el orden es irrelevante, puede habilitar el procesamiento simultáneo por el sistema de Redis que puede ayudar a mejorar la capacidad de respuesta. Puede lograrlo en un cliente de StackExchange estableciendo la PreserveAsyncOrder de la conexión usada por el suscriptor en false:
-  ```csharp
+- De forma predeterminada, los suscriptores reciben los mensajes en el orden en que se envían. En un sistema muy activo, con un gran número de mensajes y muchos suscriptores y publicadores, la entrega secuencial garantizada de mensajes puede ralentizar el rendimiento del sistema. Si cada mensaje es independiente y el orden es irrelevante, puede habilitar el procesamiento simultáneo por el sistema de Redis que puede ayudar a mejorar la capacidad de respuesta. Puede lograrlo en un cliente de StackExchange estableciendo la PreserveAsyncOrder de la conexión usada por el suscriptor en false: ```csharp
   ConnectionMultiplexer redisHostConnection = ...;
   redisHostConnection.PreserveAsyncOrder = false;
   ISubscriber subscriber = redisHostConnection.GetSubscriber();
@@ -809,4 +777,4 @@ El siguiente patrón también puede ser pertinente para su escenario al implemen
 - La página [Transacciones en Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) del repositorio de StackExchange.Redis.
 - La [Guía de creación de particiones de datos](http://msdn.microsoft.com/library/dn589795.aspx) del sitio web de Microsoft.
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

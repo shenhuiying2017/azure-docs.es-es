@@ -25,7 +25,8 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 En este tutorial se describe cómo hospedar un sitio web basado en Django en Microsoft Azure con una máquina virtual de Linux. En este tutorial se asume que no tiene ninguna experiencia previa con Azure. Al término de esta guía, tendrá una aplicación basada en Django funcionando en la nube.
 
@@ -132,4 +133,4 @@ Cuando finalice este tutorial, apague o quite la máquina virtual de Azure reci�
 [portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

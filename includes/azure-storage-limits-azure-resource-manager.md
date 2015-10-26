@@ -5,4 +5,4 @@ Recurso|Límite predeterminado
 Operaciones de administración de la cuenta de almacenamiento (lectura)|800 por cada 5 minutos
 Operaciones de administración de la cuenta de almacenamiento (escritura)|200 por hora
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -205,4 +205,4 @@ Compruebe que el extremo de Escritorio remoto para la máquina virtual de Azure 
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -260,4 +260,4 @@ Así es como un equipo usa Application Insights no solo para solucionar problema
 [usage]: app-insights-web-track-usage.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

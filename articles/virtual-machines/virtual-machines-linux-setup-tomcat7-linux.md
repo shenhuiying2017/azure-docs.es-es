@@ -21,7 +21,8 @@
 
 Apache Tomcat (o simplemente Tomcat, anteriormente denominado Jakarta Tomcat) es un servidor web y contenedor de servlet de código abierto desarrollado por Apache Software Foundation (ASF). Tomcat implementa los servlets de Java y las especificaciones de JavaServer Pages (JSP) de Sun Microsystems. Asimismo, proporciona un entorno de servidor web de Java HTTP en el que se ejecuta código de Java. En la configuración más sencilla, Tomcat se ejecuta en un proceso de sistema operativo único. Este proceso ejecuta una máquina virtual de Java (JVM). Todas las solicitudes HTTP desde un explorador para Tomcat se procesan como un subproceso independiente en el proceso de Tomcat.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 En esta guía, se proporciona información acerca de la instalación de tomcat7 en una imagen de Linux así como sobre la implementación en Microsoft Azure.
 
@@ -305,4 +306,4 @@ Después de conectarse, debería ver algo parecido a lo siguiente: ![][18]
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Muestreo de datos en SQL Server en Azure | Microsoft Azure"
-	description="Muestreo de datos en SQL Server en Azure"
-	services="machine-learning"
-	documentationCenter=""
-	authors="fashah"
-	manager="paulettm"
-	editor="cgronlun"/>
+	pageTitle="Muestreo de datos en SQL Server en Azure | Microsoft Azure" 
+	description="Muestreo de datos en SQL Server en Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="fashah" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="fashah;garye;bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
+	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Muestreo de datos en SQL Server en Azure
 
@@ -113,4 +113,4 @@ Para obtener un ejemplo de tutorial de extremo a extremo sobre la Tecnología y 
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

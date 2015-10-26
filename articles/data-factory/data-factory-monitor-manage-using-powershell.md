@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Tutorial: Crear una canalización con la actividad de copia con Azure PowerShell"
-	description="En este tutorial, creará una canalización de la factoría de datos de Azure con una actividad de copia mediante Azure PowerShell."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Tutorial: Crear una canalización con la actividad de copia con Azure PowerShell" 
+	description="En este tutorial, creará una canalización de la factoría de datos de Azure con una actividad de copia mediante Azure PowerShell." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Crear y supervisar una factoría de datos mediante PowerShell de Azure
@@ -229,9 +229,9 @@ Una tabla es un conjunto de datos rectangular y tiene un esquema. En este paso, 
 
 	Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](http://go.microsoft.com/fwlink/?LinkId=516971).
 
-2.	Ejecute el comando siguiente para crear la tabla Factoría de datos.
+2.	Ejecute el comando siguiente para crear el conjunto de datos de Factoría de datos.
 
-		New-AzureDataFactoryTable $df -File .\EmpBlobTable.json
+		New-AzureDataFactoryDataset $df -File .\EmpBlobTable.json
 
 ### Creación de la tabla de salida
 En esta parte del paso, creará una tabla de salida denominada **EmpSQLTable** que apunta a una tabla SQL (**emp**) de la base de datos SQL de Azure que está representada por el servicio vinculado **AzureSqlLinkedService**. La canalización copia los datos del blob de entrada a la tabla **emp**.
@@ -271,9 +271,9 @@ En esta parte del paso, creará una tabla de salida denominada **EmpSQLTable** q
 	* Hay tres columnas: **ID**, **FirstName** y **LastName**: en la tabla emp de la base de datos, pero el id. es una columna de identidad, por lo que deberá especificar solo **FirstName** y **LastName** aquí.
 	* El elemento **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval**, en **1**). El servicio Factoría de datos generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos SQL de Azure.
 
-2.	Ejecute el comando siguiente para crear la tabla Factoría de datos.
+2.	Ejecute el comando siguiente para crear el conjunto de datos de Factoría de datos.
 	
-		New-AzureDataFactoryTable $df -File .\EmpSQLTable.json
+		New-AzureDataFactoryDataset $df -File .\EmpSQLTable.json
 
 
 ## <a name="CreateAndRunAPipeline"></a>Paso 4: Crear y ejecutar una canalización
@@ -432,4 +432,4 @@ Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar 
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

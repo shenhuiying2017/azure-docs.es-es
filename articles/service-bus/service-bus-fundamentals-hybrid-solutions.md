@@ -130,4 +130,4 @@ Ahora que conoce los fundamentos del Bus de servicio de Azure, siga estos víncu
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

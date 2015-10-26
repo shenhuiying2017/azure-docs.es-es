@@ -50,7 +50,7 @@ Siga estos pasos obligatorios para configurar el dispositivo StorSimple y conect
 | Paso 4: Completar el programa de instalación mínima del dispositivo </br>Opcional: actualización del dispositivo StorSimple. | Use el servicio de administración para realizar la instalación del dispositivo y habilitarlo para proporcionar almacenamiento. |
 | Paso 5: Crear un contenedor de volúmenes. | Cree un contenedor para aprovisionar los volúmenes. Un contenedor de volúmenes tiene la configuración de la cuenta de almacenamiento, el ancho de banda y el cifrado de todos los volúmenes que contiene. |
 | Paso 6: Crear un volumen. | Aprovisione volúmenes de almacenamiento en el dispositivo StorSimple para los servidores. |
-| Paso 7: Montar, inicializar y formatear un volumen.</br>Opcional: configurar MPIO. | Conecte los servidores al almacenamiento iSCSI proporcionado por el dispositivo. Opcionalmente, configure MPIO para asegurarse de que los servidores pueden tolerar errores de vínculo, red e interfaz. |
+| Paso 7: Montar, inicializar y formatear un volumen.</br>Opcional: configurar MPIO. | Conecte los servidores al almacenamiento iSCSI proporcionado por el dispositivo. De forma opcional, puede configurar MPIO para asegurarse de que los servidores pueden tolerar errores de vínculo, red e interfaz. |
 | Paso 8: Realizar una copia de seguridad. | Configure la directiva de copia de seguridad para proteger los datos. |
 | | |
 | **OTROS PROCEDIMIENTOS** | Puede que necesite hacer referencia a estos procedimientos mientras implementa la solución. |
@@ -238,8 +238,7 @@ Para conectarse a Windows PowerShell para StorSimple, deberá usar software de e
 
 ## Búsqueda y aplicación de actualizaciones
 
-La actualización del dispositivo puede tardar varias horas. Realice los pasos siguientes para detectar y aplicar las actualizaciones en el dispositivo.
-<!-- > can take 1-4 hours-->
+La actualización del dispositivo puede tardar varias horas. Realice los pasos siguientes para detectar y aplicar las actualizaciones en el dispositivo.<!--can take 1-4 hours-->
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
@@ -273,7 +272,7 @@ Siga estos pasos en el Portal de administración para crear una copia de segurid
 
 E/S de múltiples rutas (MPIO) es una característica opcional y no está instalada de forma predeterminada en Windows Server. Se debe instalar como una característica a través del Administrador del servidor. Para obtener instrucciones de instalación de MPIO, vaya a [Configurar MPIO para el dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
 
-Para obtener instrucciones de instalación de MPIO para un dispositivo StorSimple conectado a un host Linux, vaya a [Configurar MPIO para el host Linux](storsimple-configure-mpio-linux.md)
+Para obtener instrucciones de instalación de MPIO para un dispositivo StorSimple conectado a un host Linux, vaya a [Configurar MPIO para el host Linux](storsimple-configure-mpio-on-linux.md)
 
 
 > [AZURE.NOTE]No se admite MPIO en un dispositivo virtual de StorSimple.
@@ -287,4 +286,4 @@ Configure un [dispositivo virtual](storsimple-virtual-device.md).
 Use el [servicio de Administrador de StorSimple](storsimple-manager-service-administration.md) para administrar el dispositivo StorSimple.
  
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

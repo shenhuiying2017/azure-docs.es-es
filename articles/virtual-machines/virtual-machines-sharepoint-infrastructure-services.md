@@ -19,7 +19,8 @@
 
 # Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación del Administrador de recursos o el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Configure la primera o siguiente granja de servidores de desarrollo/prueba de SharePoint en los servicios de infraestructura de Microsoft Azure, donde puede aprovecharse de la facilidad de configuración y de la capacidad ampliar rápidamente la granja de servidores para incluir la nueva capacidad o la optimización de funcionalidad clave.
 
@@ -67,4 +68,4 @@ Consulte estos recursos para obtener información y configuraciones adicionales 
 
 - [Implementación de la sincronización de directorios de Office 365 (DirSync) en Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

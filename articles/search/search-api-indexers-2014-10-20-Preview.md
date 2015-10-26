@@ -1,4 +1,4 @@
-<properties pageTitle="Operaciones de indexador (API de REST del servicio de Búsqueda de Azure: 2014-10-20-Preview)" description="Operaciones de indexador (API de REST del servicio de Búsqueda de Azure: 2014-10-20-Preview)" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" />
+<properties title="" pageTitle="Operaciones de indexador (API de REST del servicio de Búsqueda de Azure: 2014-10-20-Preview)" description="Operaciones de indexador (API de REST del servicio de Búsqueda de Azure: 2014-10-20-Preview)" metaKeywords="" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" />
 
 <tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
 
@@ -657,4 +657,4 @@ Código de estado: 204 Sin contenido para obtener una respuesta correcta.
 </tr>
 </table>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

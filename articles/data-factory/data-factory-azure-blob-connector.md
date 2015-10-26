@@ -484,7 +484,7 @@ Por otro lado, las propiedades disponibles en la sección typeProperties de la a
 | blobWriterAddHeader | Especifica si se debe agregar el encabezado de definiciones de columna. | TRUE<br/>FALSE (valor predeterminado) | No |
 | copyBehavior | Define el comportamiento de copia cuando el origen es BlobSource o FileSystem. | <p>Hay tres valores posibles para la propiedad copyBehavior. </p><ul><li>**PreserveHierarchy:** conserva la jerarquía de archivos en la carpeta de destino, es decir, la ruta de acceso relativa del archivo de origen a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino a la carpeta de destino.</li><li>**FlattenHierarchy:** todos los archivos de la carpeta de origen estarán en el primer nivel de la carpeta de destino. Los archivos de destino tendrán un nombre generado automáticamente. </li><li>**MergeFiles: (valor predetermina)** combina todos los archivos de la carpeta de origen a un archivo. Si se especifica el nombre de archivo/blob, el nombre de archivo combinado sería el nombre especificado; de lo contrario, sería el nombre de archivo generado automáticamente.</li></ul> | No |
 
-### ejemplos de recursive y copyBehavior
+### Ejemplos de recursive y copyBehavior
 En esta sección se describe el comportamiento resultante de la operación de copia para diferentes combinaciones de valores recursive y copyBehavior.
 
 recursive | copyBehavior | Comportamiento resultante
@@ -510,4 +510,4 @@ false | mergeFiles | <p>Para una carpeta de origen Folder1 con la siguiente estr
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

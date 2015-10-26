@@ -22,4 +22,4 @@ Este informe indica los usuarios que han iniciado sesión correctamente después
 
 ![Inicios de sesión tras varios errores](./media/active-directory-reporting-sign-ins-after-multiple-failures/signInsAfterMultipleFailures.PNG)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

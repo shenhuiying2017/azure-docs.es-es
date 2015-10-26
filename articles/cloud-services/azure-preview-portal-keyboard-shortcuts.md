@@ -24,7 +24,7 @@
 |--------|----------|
 | N | Notificaciones |
 | / | Examinar servicios |
-| A | Sesiones activas |
+| Encontrará | Sesiones activas |
 | B | Facturación |
 | C | Crear |
 
@@ -37,17 +37,11 @@
 | J | Hoja abierta anterior |
 | K | Siguiente hoja abierta |
 | L | Última hoja abierta |
-| - | Minimizar hoja o restaurar desde maximizada |
-| + | Maximizar hoja o restaurar desde minimizada |
-| # | Cerrar hoja actual |
-| ¦ | Cerrar todos los módulos |
-| , | Mover foco a la barra de comandos |
-|. | Mover el foco a la barra de navegación |
-|? | Ver métodos abreviados de teclado |
+| - | Minimizar hoja o restaurar desde maximizada || + | Maximizar hoja o restaurar desde minimizada || # | Cerrar hoja actual || ¦ | Cerrar todos los módulos || , | Mover foco a la barra de comandos ||. | Mover el foco a la barra de navegación ||? | Ver métodos abreviados de teclado |
 
 
 ## Pasos siguientes
 
 Conocer mejor el Portal de Azure: http://azure.microsoft.com
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

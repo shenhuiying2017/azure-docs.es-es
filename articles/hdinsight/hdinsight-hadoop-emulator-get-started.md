@@ -498,4 +498,4 @@ En este tutorial de MapReduce, ha instalado un Emulador de HDInsight (un espacio
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

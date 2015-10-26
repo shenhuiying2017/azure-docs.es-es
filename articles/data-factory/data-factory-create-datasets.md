@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="10/12/2015" 
 	ms.author="spelluru"/>
 
 # Conjuntos de datos
@@ -103,13 +103,13 @@ Los orígenes de datos admitidos y los tipos de conjunto de datos están alinead
 
 ## <a name="Availability"></a> Disponibilidad del conjunto de datos
 
-En la sección Availability de un conjunto de datos se define la ventana de procesamiento o el modelo de segmentación para la producción del conjunto de datos. Consulte el tema sobre segmentos del conjunto de datos para obtener más detalles sobre el modelo de segmentación y dependencia del conjunto de datos.
+En la sección Availability de un conjunto de datos se define la ventana de procesamiento o el modelo de segmentación para la producción del conjunto de datos. Consulte el artículo [Programación y ejecución](data-factory-scheduling-and-execution.md) para obtener más detalles sobre el modelo de segmentación y dependencia del conjunto de datos.
 
 | Propiedad | Descripción | Obligatorio | Valor predeterminado |
 | -------- | ----------- | -------- | ------- |
 | frequency | Especifica la unidad de tiempo para la producción de segmento del conjunto de datos.<p>**Frecuencia admitida**: Minute, Hour, Day, Week, Month</p> | Sí | N/D |
 | interval | Especifica un multiplicador para frecuencia<p>"Frequency x interval" determina la frecuencia con la que se genera el segmento.</p><p>Si necesita segmentar el conjunto de datos cada hora, establezca **Frequency** en **Hour** e **interval** en **1**.</p><p>**Nota:** Si especifica Frequency en Minute, se recomienda establecer interval en menos de 15</p> | Sí | N/D |
-| style | Especifica si se debe generar el segmento al principio/final del intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><p>Si se establece Frequency en Month y style se establece en EndOfInterval, se genera el segmento en el último día del mes. Si style está establecido en StartOfInterval, se genera el segmento en el primer día del mes..</p><p>Si se establece Frequency en Day y style se establece en EndOfInterval, el segmento se produce en la última hora del día.</p>Si se establece Frequency en Hour y style se establece en EndOfInterval, el segmento se produce al final de la hora. Por ejemplo, para un segmento para el período de 1 p.m. – 2 p.m., el segmento se produce a las 2 p.m.</p> | No | EndOfInterval |
+| style | Especifica si se debe generar el segmento al principio/final del intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><p>Si se establece Frequency en Month y style se establece en EndOfInterval, se genera el segmento en el último día del mes. Si style está establecido en StartOfInterval, se genera el segmento en el primer día del mes.</p><p>Si se establece Frequency en Day y style se establece en EndOfInterval, el segmento se produce en la última hora del día.</p>Si se establece Frequency en Hour y style se establece en EndOfInterval, el segmento se produce al final de la hora. Por ejemplo, para un segmento para el período de 1 p.m. – 2 p.m., el segmento se produce a las 2 p.m.</p> | No | EndOfInterval |
 | anchorDateTime | Define la posición absoluta en tiempo usada por el programador para calcular los límites de los segmentos del conjunto de datos.<p>**Nota:** si AnchorDateTime tiene partes de fecha más detalladas que frequency, se ignorarán las partes más detalladas. Por ejemplo, si **interval**es**hourly** (frequency: hour e interval: 1) y **AnchorDateTime** contiene **minutes and seconds** las partes **minutes and seconds** de AnchorDateTime se omitirán.</p>| No | 01/01/0001 |
 | Offset | Intervalo de tiempo mediante el que se desplaza el inicio y el final de todos los segmentos del conjunto de datos.<p>**Nota:** si se especifican anchorDateTime y offset, el resultado es el desplazamiento combinado.</p> | No | N/D |
 
@@ -121,7 +121,7 @@ En la sección Availability de un conjunto de datos se define la ventana de proc
 	{	
 		"frequency": "Hour",		
 		"interval": "23",	
-		"anchorDataTime":"2007-04-19T08:00:00"	
+		"anchorDateTime":"2007-04-19T08:00:00"	
 	}
 
 
@@ -217,4 +217,4 @@ Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar 
 
   
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -450,4 +450,4 @@ Para obtener más información, consulte los siguientes recursos:
   [Aplicación web Node.js con almacenamiento.]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

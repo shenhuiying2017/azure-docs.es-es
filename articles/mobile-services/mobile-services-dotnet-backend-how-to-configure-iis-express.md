@@ -24,4 +24,4 @@ Para realizar una prueba de un servicio móvil localmente con los clientes que s
 
 [AZURE.INCLUDE [mobile-services-how-to-configure-iis-express](../../includes/mobile-services-how-to-configure-iis-express.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

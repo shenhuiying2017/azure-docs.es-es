@@ -53,4 +53,4 @@ Si tiene máquinas virtuales hospedadas por Azure, puede acceder a ellas en el E
 
 Para obtener más información sobre los roles de Azure en Visual Studio, consulte [Uso de Escritorio de remoto con los roles de Azure](vs-azure-tools-remote-desktop-roles.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -48,7 +48,7 @@ Los datos de carreras de taxi de Nueva York son aproximadamente 20 GB de archiv
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-La clave única para unir trip\_data y trip\_fare se compone de los campos: medallion, hack\_licence y pickup\_datetime.
+La clave única para unir trip\\_data y trip\\_fare se compone de los campos: medallion, hack\\_licence y pickup\\_datetime.
 
 Para obtener todos los detalles correspondientes a una carrera concreta, es suficiente combinar tres claves: "medallion", "hack\_license" y "pickup\_datetime".
 
@@ -794,9 +794,7 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos bajo la licen
 
 ## Referencias
 
-•	[Página de descarga de NYC Taxi Trips de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
-•	[FOILing NYC's Taxi Trip Data de Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[Estadísticas e investigación de la Comisión de taxis y limusinas de la Ciudad de Nueva York](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Página de descarga de NYC Taxi Trips de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) • [FOILing NYC's Taxi Trip Data de Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Estadísticas e investigación de la Comisión de taxis y limusinas de la Ciudad de Nueva York](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -810,4 +808,4 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos bajo la licen
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

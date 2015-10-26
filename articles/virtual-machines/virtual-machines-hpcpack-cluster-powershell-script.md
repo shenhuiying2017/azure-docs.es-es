@@ -18,7 +18,8 @@
 
 # Creación de un clúster de informática de alto rendimiento (HPC) en máquinas virtuales de Azure con el script de implementación de HPC Pack IaaS
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo se aplica a la creación de un recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 
 Ejecute el script de PowerShell de implementación de HPC Pack IaaS en un equipo cliente para implementar un clúster de HPC Pack completo en servicios de infraestructura (IaaS) de Azure. El script proporciona varias opciones de implementación y puede agregar nodos de proceso del clúster, que ejecutan distribuciones de Linux compatibles o sistemas operativos Windows Server.
@@ -389,4 +390,4 @@ El archivo de configuración siguiente implementa un clúster de HPC Pack en un 
 
 * Pruebe las herramientas de HPC Pack para iniciar, detener, agregar y quitar nodos de proceso de un clúster creado. Consulte [Administración de nodos de proceso en un clúster de HPC Pack en Azure](virtual-machines-hpcpack-cluster-node-manage.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

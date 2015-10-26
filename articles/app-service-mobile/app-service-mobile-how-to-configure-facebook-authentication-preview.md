@@ -77,8 +77,8 @@ De este modo ya estará listo para usar Facebook para realizar la autenticación
 <!-- URLs. -->
 [Desarrolladores de Facebook]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
-[Get started with authentication]: /es-es/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with authentication]: /es-ES/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Portal de administración de Azure]: https://portal.azure.com/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

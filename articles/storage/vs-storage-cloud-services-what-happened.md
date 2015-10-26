@@ -43,4 +43,4 @@ Se han creado elementos con la cadena y la clave de conexión de la cuenta de al
 - **ServiceConfiguration.Cloud.cscfg**
 - **ServiceConfiguration.Local.cscfg**
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

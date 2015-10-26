@@ -238,4 +238,4 @@ Además, una propiedad de unicidad con la clave de particionamiento como la colu
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

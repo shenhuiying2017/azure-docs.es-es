@@ -226,4 +226,4 @@ Ahora puede ir a la sección **Usuarios** y comprobar si se importó el usuario 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

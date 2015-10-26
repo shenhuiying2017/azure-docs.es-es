@@ -71,4 +71,4 @@ Esto es lo necesita antes de empezar:
 
 Publique comentarios o preguntas en el [foro de Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

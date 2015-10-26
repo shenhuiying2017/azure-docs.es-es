@@ -51,4 +51,4 @@ Para obtener información general sobre la integración, consulte [Información 
 [documentación sobre Factoría de datos de Azure]: https://azure.microsoft.com/documentation/services/data-factory/
 [Copy data with Azure Data Factory]: https://azure.microsoft.com/es-ES/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

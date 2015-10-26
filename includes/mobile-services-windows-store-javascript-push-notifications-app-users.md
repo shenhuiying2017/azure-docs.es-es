@@ -78,4 +78,4 @@ En este método, agregó un código de registro desde el tutorial directamente e
 		    });
 		}  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -73,4 +73,4 @@ Para obtener más información, consulte los temas siguientes:
 
 [Copia de seguridad y restauración de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/jj650016.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -156,4 +156,4 @@ Para obtener más información sobre las puertas de enlace de VPN, consulte [Inf
 
 Para configurar una VPN de sitio a sitio, consulte [Creación de una red virtual con una conexión VPN sitio a sitio](vpn-gateway-site-to-site-create.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

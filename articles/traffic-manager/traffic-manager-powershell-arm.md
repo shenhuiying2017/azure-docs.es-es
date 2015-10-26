@@ -6,7 +6,7 @@
    authors="joaoma"
    manager="adinah"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"
@@ -211,4 +211,4 @@ Se puede canalizar igualmente esta secuencia:
 [Introducción a los cmdlets de Azure](https://msdn.microsoft.com/library/jj554332.aspx)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

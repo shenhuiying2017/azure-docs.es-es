@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Sincronización de Azure AD Connect: conocimiento de expresiones de aprovisionamiento declarativo"
+	pageTitle="Sincronización de Azure AD Connect: conocimiento de expresiones de aprovisionamiento declarativo | Microsoft Azure"
 	description="Explica las expresiones declarativas de aprovisionamiento."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi"/>
 
 
@@ -66,9 +66,9 @@ Un parámetro se define por un conector o por un administrador mediante PowerShe
 
 El conector de Active Directory proporcionó los siguientes parámetros para las reglas de sincronización entrantes:
 
- 
+
 | Domain.Netbios | Domain.FQDN | Domain.LDAP | | Forest.Netbios | Forest.FQDN | Forest.LDAP |
- 
+
 
 El sistema proporciona el parámetro siguiente:
 
@@ -132,7 +132,7 @@ Para obtener una lista completa de funciones, vea [Sincronización de Azure AD C
 
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
- 
+
 <!--Image references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

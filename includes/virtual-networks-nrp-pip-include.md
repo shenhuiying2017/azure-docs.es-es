@@ -1,5 +1,5 @@
 ## Dirección IP pública
-Un recurso de dirección IP pública proporciona una dirección IP pública reservada o dinámica. Aunque puede crear una dirección IP pública como un objeto independiente, debe asociarlo a otro objeto para usar la dirección realmente. Puede asociar una dirección IP pública a un equilibrador de carga, puerta de enlace de aplicaciones o una NIC para proporcionar acceso a Internet a esos recursos.
+Un recurso de dirección IP pública le proporciona una dirección IP de Internet reservada o dinámica. Aunque puede crear una dirección IP pública como un objeto independiente, debe asociarlo a otro objeto para usar la dirección realmente. Puede asociar una dirección IP pública a un equilibrador de carga, puerta de enlace de aplicaciones o una NIC para proporcionar acceso a Internet a esos recursos.
 
 |Propiedad|Descripción|Valores de ejemplo|
 |---|---|---|
@@ -40,4 +40,4 @@ Dirección IP pública de ejemplo en formato JSON:
 - Obtenga más información sobre las [direcciones IP públicas de nivel de instancia](virtual-networks-instance-level-public-ip.md).
 - Lea la [documentación de referencia de API de REST](https://msdn.microsoft.com/library/azure/mt163638.aspx) para obtener información sobre direcciones IP públicas.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

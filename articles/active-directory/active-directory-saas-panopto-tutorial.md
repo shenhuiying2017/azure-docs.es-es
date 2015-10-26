@@ -1,5 +1,5 @@
 <properties pageTitle="Tutorial: Integración de Azure Active Directory con Panopto | Microsoft Azure" description="Aprenda cómo usar Panopto con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi"/>
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
 #Tutorial: Integración de Azure Active Directory con Panopto
 >[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=524766).
   
@@ -124,4 +124,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

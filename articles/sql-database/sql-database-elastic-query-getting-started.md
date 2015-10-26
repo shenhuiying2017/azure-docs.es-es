@@ -1,6 +1,8 @@
 <properties
+	title="Getting started with elastic database query"
 	pageTitle="Introducción a la consulta de base de datos elástica"
 	description="Uso de la consulta de base de datos elástica"
+	metaKeywords="azure sql database elastic queries"
 	services="sql-database"
 	documentationCenter=""  
 	manager="jeffreyg"
@@ -142,4 +144,4 @@ Para obtener información sobre los precios, consulte [Detalles de precios de Ba
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

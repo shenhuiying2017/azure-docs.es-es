@@ -960,4 +960,4 @@ En esta sección creará y configurará un proyecto de aplicación de consola de
 
 Ahora puede usar un administrador de tráfico para enrutar las solicitudes entre los dos centros de datos y, por consiguiente, la conmutación por error si se produce cualquier interrupción.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

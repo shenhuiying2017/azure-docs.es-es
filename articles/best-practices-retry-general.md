@@ -115,4 +115,4 @@ Las directrices siguientes le ayudarán a diseñar un mecanismo de control de er
 * [Patrón de transacción de compensación](http://msdn.microsoft.com/library/dn589804.aspx)
 * [Patrones de idempotencia](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

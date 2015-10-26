@@ -2,8 +2,8 @@
 	title="How to add a users to an elastic database pool" 
 	pageTitle="Cómo agregar usuarios a un grupo de bases de datos elásticas" 
 	description="Debe agregar un usuario con privilegios para cada base de datos del grupo." 
-	services="sql-database" 
-	documentationCenter=""  
+	metaKeywords="azure sql database elastic databases credentials" 
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -45,4 +45,4 @@ Para crear y administrar trabajos, vea [Creación y administración de trabajos 
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

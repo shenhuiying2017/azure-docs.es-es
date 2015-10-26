@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Creación de una aplicación web en el Servicio de aplicaciones de Azure mediante el SDK de Azure para Java"
-	description="Obtenga información acerca de cómo crear una aplicación web en el Servicio de aplicaciones de Azure mediante programación usando el SDK de Azure para Java."
+	pageTitle="Creación de una aplicación web en el Servicio de aplicaciones de Azure mediante el SDK de Azure para Java" 
+	description="Obtenga información acerca de cómo crear una aplicación web en el Servicio de aplicaciones de Azure mediante programación usando el SDK de Azure para Java." 
 	tags="azure-classic-portal"
-	services="app-service\web"
-	documentationCenter="Java"
-	authors="donntrenton"
-	manager="wpickett"
+	services="app-service\web" 
+	documentationCenter="Java" 
+	authors="donntrenton" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/12/2015" 
 	ms.author="v-donntr"/>
 
 
@@ -432,7 +432,7 @@ Para obtener más información sobre cómo implementar archivos WAR, consulte [A
 
 Elija un cliente FTP de terceros para publicar la aplicación. En este procedimiento, se describen dos opciones: la consola Kudu integrada en Azure y FileZilla, una herramienta popular con una cómoda interfaz de usuario gráfica.
 
-> **Nota:** el complemento de Azure para Eclipse con Java 2.4 admite la implementación en cuentas de almacenamiento y servicios en la nube, pero no admite actualmente la implementación en aplicaciones web. Puede realizar implementaciones en cuentas de almacenamiento y servicios en la nube mediante un proyecto de implementación de Azure, tal y como se describe en [Creación de una aplicación Hola a todos para Azure en Eclipse](http://msdn.microsoft.com/library/azure/hh690944.aspx), pero no en aplicaciones web. Utilice otros métodos, como GitHub o FTP, para transferir archivos a su aplicación web.
+> **Nota:** el Kit de herramientas de Azure para Eclipse admite la implementación en cuentas de almacenamiento y servicios en la nube, pero no admite actualmente la implementación en aplicaciones web. Puede realizar implementaciones en cuentas de almacenamiento y servicios en la nube mediante un proyecto de implementación de Azure, tal y como se describe en [Creación de una aplicación Hola a todos para Azure en Eclipse](http://msdn.microsoft.com/library/azure/hh690944.aspx), pero no en aplicaciones web. Utilice otros métodos, como GitHub o FTP, para transferir archivos a su aplicación web.
 
 > **Nota:** no se recomienda utilizar FTP desde el símbolo del sistema de Windows (la utilidad línea de comandos FTP.EXE que se incluye con Windows). Los clientes FTP que utilizan FTP activo, como FTP.EXE, a menudo no funcionan a través de firewalls. El FTP activo especifica una dirección interna basada en LAN a la que es difícil que pueda conectarse un servidor FTP.
 
@@ -600,4 +600,4 @@ Este procedimiento crea una aplicación web de Servicio de aplicaciones. Se le f
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
 [Portal Azure]: https://portal.azure.com
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

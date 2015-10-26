@@ -1,20 +1,21 @@
 <properties 
-	pageTitle="Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL | Microsoft Azure"
-	description="Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL"
-	services="machine-learning"
-	documentationCenter=""
+	pageTitle="Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL | Microsoft Azure" 
+	description="Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL" 
+	services="machine-learning" 
+	solutions="" 
+	documentationCenter="" 
 	authors="msolhab"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="paulettm" 
+	editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="msolhab"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
+	ms.author="msolhab" />
 
 # Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL
 
@@ -184,4 +185,4 @@ o bien,
 Para obtener un ejemplo de tutorial de extremo a extremo sobre el uso de la Tecnología y procesos de análisis avanzado (ADAPT) con un conjunto de datos público, consulte [Tecnología y procesos de análisis avanzado en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -27,7 +27,8 @@
 
 En este artículo se ofrecen los pasos para crear una máquina virtual de SQL Server en Azure mediante los cmdlets de PowerShell.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica. Si quiere crear una máquina virtual de SQL Server con el Administrador de recursos en PowerShell, vea las instrucciones generales para las máquinas virtuales del Administrador de recursos en el siguiente tema: [Crear y preconfigurar una máquina virtual de Windows con el Administrador de recursos y Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 ## Instalar y configurar PowerShell
 
@@ -65,20 +66,20 @@ La máquina virtual de SQL Server se hospedará en un servicio en la nube que re
 
 		(Get-AzureStorageAccount | where { $_.GeoPrimaryLocation -eq $dcLocation }).StorageAccountName
 
-	>[AZURE.NOTE]Si necesita una nueva cuenta de almacenamiento, cree primero un nombre de cuenta de almacenamiento totalmente en minúsculas con el comando New-AzureStorageAccount como en el siguiente ejemplo: **New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**
+	>[AZURE.NOTE]Si necesita una nueva cuenta de almacenamiento, cree primero un nombre de cuenta de almacenamiento en minúsculas con el comando New-AzureStorageAccount, tal y como se muestra en el siguiente ejemplo: **New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**
 
-1. Asigne el nombre de la cuenta de almacenamiento de destino en **$staccount**. Luego use **Set-AzureSubscription** para establecer la suscripción y la cuenta de almacenamiento actual.
+1. Asigne el nombre de la cuenta de almacenamiento de destino en **$staccount**. A continuación, use **Set-AzureSubscription** para establecer la suscripción y la cuenta de almacenamiento actual.
 
 		$staccount="<storage account name>"
 		Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
 ## Seleccionar una imagen de máquina virtual de SQL Server
 
-1. Averigüe la lista de imágenes de máquinas virtuales de SQL Server disponibles de la galería. Todas estas imágenes tendrá una propiedad **ImageFamily** que empiece por "SQL". La consulta siguiente muestra la familia de imágenes que tiene a su disposición que tiene SQL Server preinstalado.
+1. Averigüe la lista de imágenes de máquinas virtuales de SQL Server disponibles de la galería. Todas estas imágenes tendrán una propiedad **ImageFamily** que empieza por "SQL". La consulta siguiente muestra la familia de imágenes que tiene a su disposición que tiene SQL Server preinstalado.
 
 		Get-AzureVMImage | where { $_.ImageFamily -like "SQL*" } | select ImageFamily -Unique | Sort-Object -Property ImageFamily
 
-1. Cuando encuentre la familia de imágenes de la máquina virtual, podría haber varias imágenes publicadas en esta familia. Use el siguiente script para buscar el nombre de la imagen máquina virtual publicada más reciente para su familia de imágenes seleccionada (como **SQL Server 2014 SP1 Enterprise en Windows Server 2012 R2**):
+1. Cuando encuentre la familia de imágenes de la máquina virtual, podría haber varias imágenes publicadas en esta familia. Use el siguiente script para buscar el nombre de la última imagen publicada de la máquina virtual de su familia de imágenes seleccionada (como por ejemplo, **SQL Server 2014 SP1 Enterprise en Windows Server 2012 R2**):
 
 		$family="<ImageFamily value>"
 		$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -110,7 +111,7 @@ Por último, cree la máquina virtual con la PowerShell:
 
 		New-AzureVM –ServiceName $svcname -VMs $vm1
 
->[AZURE.NOTE]Para obtener una explicación adicional y opciones de configuración, vea la sección **Generar su conjunto de comandos** en [Usar Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
+>[AZURE.NOTE]Para obtener una explicación adicional y opciones de configuración, consulte la sección **Cree su propio conjunto de comandos** en [Usar Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
 ## Script de PowerShell de ejemplo
 
@@ -161,16 +162,16 @@ El siguiente script ofrece un ejemplo de un script completo que crea una máquin
 
 ## Completar la configuración de la máquina de SQL Server para acceso remoto
 
-Después de iniciar sesión en el equipo con Escritorio remoto, configure SQL Server según las instrucciones de [Pasos para configurar la conectividad de SQL Server en una máquina virtual de Azure](virtual-machines-sql-server-connectivity.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
+Después de iniciar sesión en el equipo con el escritorio remoto, configure SQL Server según las instrucciones de los [Pasos para configurar la conectividad de SQL Server en una máquina virtual de Azure](virtual-machines-sql-server-connectivity.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
 ## Pasos siguientes
 
-Puede encontrar instrucciones adicionales para el aprovisionamiento de máquinas virtuales con PowerShell en la [documentación de máquinas virtuales](virtual-machines-ps-create-preconfigure-windows-vms.md). Para scripts adicionales relacionados con SQL Server y el Almacenamiento Premium, consulte [Uso del almacenamiento de Azure Premium con SQL Server en máquinas virtuales](virtual-machines-sql-server-use-premium-storage.md).
+Puede encontrar instrucciones adicionales para el aprovisionamiento de máquinas virtuales con PowerShell en la [documentación de máquinas virtuales](virtual-machines-ps-create-preconfigure-windows-vms.md). Para scripts adicionales relacionados con SQL Server y el Almacenamiento Premium, consulte [Uso del almacenamiento Premium de Azure con SQL Server en máquinas virtuales](virtual-machines-sql-server-use-premium-storage.md).
 
 En muchos casos, el siguiente paso es migrar las bases de datos a esta nueva VM de SQL Server. Para obtener instrucciones sobre la migración de bases de datos, consulte [Migración de una base de datos a SQL Server en una máquina virtual de Azure](virtual-machines-migrate-onpremises-database.md).
 
-Si también está interesado en ver cómo llevar a cabo estos pasos desde el Portal de administración de Azure, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines-provision-sql-server.md).
+Si además también está interesado en saber cómo llevar a cabo estos pasos desde el Portal de administración de Azure, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines-provision-sql-server.md).
 
-Además de estos recursos, se recomienda que revise [Otros temas relacionados con la ejecución de SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
+Además de estos recursos, le recomendamos que revise [otros temas relacionados con la ejecución de SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

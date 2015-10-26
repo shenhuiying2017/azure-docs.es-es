@@ -19,13 +19,11 @@
 
 # Incorporación de notificaciones push a la aplicación iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-En este tutorial, agregará notificaciones push al proyecto de [inicio rápido de iOS] para que cada vez que se inserte un registro, se envíe una notificación push. Este tutorial está basado en el tutorial de [inicio rápido de iOS], que debe completar primero. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar el paquete de extensión de notificaciones push al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+En este tutorial, agregará notificaciones push al proyecto de [inicio rápido de iOS] para que cada vez que se inserte un registro, se envíe una notificación push. Este tutorial está basado en el tutorial de [inicio rápido de iOS], que debe completar primero. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar el paquete de extensión de notificaciones push al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [￼Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure￼](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-El [simulador de iOS no admite notificaciones push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), por lo que, para este tutorial, necesita un dispositivo iOS físico y una [suscripción al programa para desarrolladores de Apple](https://developer.apple.com/programs/ios/).
+El [￼simulador de iOS no admite notificaciones push￼](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), por lo que, para este tutorial, necesita un dispositivo iOS físico y una [￼suscripción al programa para desarrolladores de Apple￼](https://developer.apple.com/programs/ios/).
 
 ## <a id="register"></a>Registro de aplicaciones para notificaciones push
 
@@ -111,4 +109,4 @@ El [simulador de iOS no admite notificaciones push](https://developer.apple.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
  
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->
