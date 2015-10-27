@@ -23,7 +23,7 @@ Las siguientes características están disponibles en la versión de vista previ
 
 - **Experiencia de implementación sencilla:** puede habilitar Servicios de dominio de Azure AD para el inquilino de Azure AD mediante unos cuantos clics. Independientemente de si el inquilino de Azure AD es un inquilino en la nube o sincronizado con el directorio local, el dominio administrado se puede aprovisionar rápidamente.
 
-- **Compatibilidad para la unión a dominio:** le resultará muy simple unir a dominios equipos de la red virtual de Azure en la que Servicios de dominio de Azure AD está disponible. La experiencia de unión a dominio en sistemas operativos de cliente y servidor de Windows funciona sin problemas en dominios ofrecidos por Servicios de dominio de Azure AD. También puede utilizar herramientas automatizadas de unión a dominio en esos dominios.
+- **Compatibilidad para la unión a dominio:** le resultará muy fácil unir a dominios equipos de la red virtual de Azure en la que Servicios de dominio de Azure AD está disponible. La experiencia de unión a dominio en sistemas operativos de cliente y servidor de Windows funciona sin problemas en dominios ofrecidos por Servicios de dominio de Azure AD. También puede utilizar herramientas automatizadas de unión a dominio en esos dominios.
 
 - **Instancia de un dominio por directorio de Azure AD:** puede crear un único dominio de Active Directory para cada directorio de Azure AD.
 
@@ -45,4 +45,4 @@ Las siguientes características están disponibles en la versión de vista previ
 
 - **Usar herramientas de administración familiares:** puede utilizar herramientas de administración familiares de Windows Server Active Directory, como Centro de administración de Active Directory o Active Directory PowerShell, para administrar dominios proporcionados por Servicios de dominio de Azure AD.
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
