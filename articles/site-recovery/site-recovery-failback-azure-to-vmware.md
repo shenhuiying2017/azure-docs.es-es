@@ -188,17 +188,21 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 Nota: si la máquina de origen utiliza los sistemas de archivos Reiser o XFS para el dispositivo raíz o de inicio, los siguientes paquetes deben descargarse e instalarse en el sistema de destino maestro Linux antes de la protección.
 
-# cd /usr/local
+\# cd /usr/local
 
-# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+\# wget 
+<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+\# wget 
+<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm 
+reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+\# wget 
+<http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### Aplicación de cambios en la configuración personalizada
 
@@ -214,7 +218,7 @@ Para aplicar los cambios realizados en la configuración personalizada, siga los
 
 3. Ejecute el siguiente comando para conceder permisos.
 
-# **chmod 755 ./ApplyCustomChanges.sh**
+\# **chmod 755 ./ApplyCustomChanges.sh**
 
 4. Ejecute el siguiente comando para ejecutar el script.
 
@@ -554,4 +558,4 @@ Una vez completada la conmutación por recuperación, es aconsejable volver a pr
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
