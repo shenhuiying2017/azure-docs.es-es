@@ -49,11 +49,11 @@ Asegúrese de que tiene todo colocado antes de comenzar.
 - En el sitio local de origen necesitará al menos un servidor que ejecute Windows Server 2012 R2 con el rol de Hyper-V.
 - Hyper-V Server debe contener una o más máquinas virtuales.
 - Los servidores de Hyper-V deben estar conectados a Internet, directamente o a través de un proxy.
-- Los servidores de Hyper-V deben tener correcciones que se mencionan en el [KB2961977](https://support.microsoft.com/es-ES/kb/2961977 "KB2961977") instalado.
+- Los servidores de Hyper-V deben tener correcciones que se mencionan en el [KB2961977](https://support.microsoft.com/es-es/kb/2961977 "KB2961977") instalado.
 
 ### Requisitos previos de las máquinas virtuales
 
-Las máquinas virtuales que quiera proteger deben cumplir los [requisitos previos de máquinas virtuales](site-recovery-best-practices.md#virtual-machines).
+Las máquinas virtuales que quiera proteger deben cumplir los [requisitos previos de máquinas virtuales](site-recovery-best-practices.md/#virtual-machines).
 
 ### Requisitos previos del proveedor y del agente
 
@@ -192,7 +192,7 @@ Instale el proveedor y el agente. Si va a instalar en un clúster de Hyper-V, re
 	> - **/proxyUsername**: parámetro opcional que especifica el nombre de usuario del proxy (si el proxy requiere autenticación).
 	> - **/proxyPassword**: parámetro opcional que especifica la contraseña para autenticarse con el servidor proxy (si el proxy requiere autenticación).
 
->[AZURE.TIP]Puede configurar cada uno de los host de Hyper-V individual para usar la configuración de ancho de banda de red diferente para replicar máquinas virtuales en Azure. Obtenga más información sobre [Administración del uso de ancho de banda de red de protección de instalaciones locales a Azure](https://support.microsoft.com/es-ES/kb/3056159).
+>[AZURE.TIP]Puede configurar cada uno de los host de Hyper-V individual para usar la configuración de ancho de banda de red diferente para replicar máquinas virtuales en Azure. Obtenga más información sobre [Administración del uso de ancho de banda de red de protección de instalaciones locales a Azure](https://support.microsoft.com/es-es/kb/3056159).
 
 
 ## Paso 4: Creación de recursos de Azure
@@ -305,4 +305,4 @@ Para ejecutar una conmutación por error de prueba, realice lo siguiente:
 
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) acerca de la conmutación por error.
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
