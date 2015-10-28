@@ -9,4 +9,4 @@
 
 4. (Opcional) Repita los pasos 1 a 3 en otro dispositivo cliente y use otra cuenta para iniciar sesión. Compruebe que la notificación solo ha sido recibida por dispositivos autenticados con la misma cuenta de usuario.
 
-<!--HONumber=54-->
+<!---HONumber=Oct15_HO3-->

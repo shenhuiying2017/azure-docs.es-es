@@ -33,7 +33,8 @@ En esta sección agregará dos nuevos usuarios a su directorio junto con el nuev
    
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id.png)
 
-4. Vuelva a la página de configuración de su servicio móvil y agregue el Id. de objeto en forma de valor de la aplicación llamado **AAD_SALES_GROUP_ID**. Este tutorial usa el Id. de objeto del grupo como un valor de la aplicación, en lugar de buscar el Id. basándose en el nombre del grupo. Esto se debe a que el nombre del grupo puede cambiar, mientras que el Id. no varía.
+4. Vuelva a la página de configuración de su servicio móvil y agregue el Id. de objeto en forma de valor de la aplicación llamado **AAD\_SALES\_GROUP\_ID**. Este tutorial usa el Id. de objeto del grupo como un valor de la aplicación, en lugar de buscar el Id. basándose en el nombre del grupo. Esto se debe a que el nombre del grupo puede cambiar, mientras que el Id. no varía.
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id-app-setting.png)
-<!--HONumber=54-->
+
+<!---HONumber=Oct15_HO3-->

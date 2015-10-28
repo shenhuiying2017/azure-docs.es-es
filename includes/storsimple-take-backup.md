@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Realizar una copia de seguridad"
-   description="Se describe cómo definir una directiva de copia de seguridad de StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" /> 
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
+<!--author=alkohli last changed: 9/17/15-->
 
 ### Para realizar una copia de seguridad
 
@@ -40,6 +25,8 @@
 
 Ahora ya acabó de configurar el dispositivo.
 
+![Vídeo disponible](./media/storsimple-take-backup/Video_icon.png) **Vídeo disponible**
 
+Para ver un vídeo que muestra cómo tomar una copia de seguridad de StorSimple, haga clic [aquí](http://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
 
-<!--HONumber=52-->
+<!---HONumber=Oct15_HO3-->

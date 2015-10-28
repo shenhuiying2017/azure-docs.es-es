@@ -1,7 +1,7 @@
 
-##<a name="update-app"></a>Actualización de la aplicación para llamar a la API personalizada
+###<a name="update-app"></a>Actualización de la aplicación para llamar a la API personalizada
 
-1. Agregaremos un botón llamado "Complete All" al lado del botón existente y moveremos ambos botones una línea hacia abajo. En Eclipse, abra el archivo *res\\layout\\activity_to_do.xml* en su proyecto de inicio rápido, busque el elemento **LinearLayout** que contiene el elemento **Button** llamado `buttonAddToDo`. Copie **LinearLayout** y péguelo inmediatamente después del original. Elimine el elemento **Button** del primer **LinearLayout**.
+1. Agregaremos un botón llamado "Complete All" al lado del botón existente y moveremos ambos botones una línea hacia abajo. En Eclipse, abra el archivo *res\\layout\\activity\_to\_do.xml* en su proyecto de inicio rápido, busque el elemento **LinearLayout** que contiene el elemento **Button** llamado `buttonAddToDo`. Copie **LinearLayout** y péguelo inmediatamente después del original. Elimine el elemento **Button** del primer **LinearLayout**.
 
 2. En el segundo **LinearLayout**, elimine el elemento **EditText** y agregue el siguiente código inmediatamente después del elemento **Button** existente:
 
@@ -95,7 +95,7 @@
 	
 	Este método controla el evento **Click** del botón nuevo. El método **invokeApi** se llama en el cliente, el cual envía una solicitud de POST a la nueva API personalizada. El resultado devuelto por la API personalizada se muestra en un cuadro de diálogo de mensaje, al igual que todos los errores.
 
-## Prueba de la aplicación
+### Prueba de la aplicación
 
 1. En el menú **Ejecutar**, haga clic en **Ejecutar aplicación** para iniciar el proyecto en el emulador de Android o en un dispositivo Android conectado.
 
@@ -111,4 +111,5 @@
   	![](./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png)
 
 	Aparece un cuadro de diálogo de mensaje que indica el número de elementos marcados como completos y la consulta filtrada se vuelve a ejecutar, con lo que se borran todos los elementos de la lista.
-<!--HONumber=54-->
+
+<!---HONumber=Oct15_HO3-->

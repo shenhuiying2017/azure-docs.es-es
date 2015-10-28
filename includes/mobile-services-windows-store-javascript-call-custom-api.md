@@ -1,13 +1,13 @@
-﻿
+
 ##<a name="update-app"></a>Actualización de la aplicación para llamar a la API personalizada
 
-1. En Visual Studio, abra el archivo default.html en el proyecto de inicio rápido, busque el elemento **button** llamado  `buttonRefresh` y agregue el siguiente elemento nuevo inmediatamente después: 
+1. En Visual Studio, abra el archivo default.html en el proyecto de inicio rápido, busque el elemento **button** llamado `buttonRefresh` y agregue el siguiente elemento nuevo inmediatamente después: 
 
 		<button id="buttonCompleteAll" style="margin-left: 5px">Complete All</button>
 
-	Esta acción agrega un nuevo botón a la página. 
+	Esta acción agrega un nuevo botón a la página.
 
-2. Abra el archivo de código default.js de la carpeta de proyecto  `js`, busque la función **refreshTodoItems** y asegúrese de que esta función contenga el siguiente código:
+2. Abra el archivo de código default.js de la carpeta de proyecto `js`, busque la función **refreshTodoItems** y asegúrese de que esta función contenga el siguiente código:
 
 	    todoTable.where({ complete: false })
 	       .read()
@@ -50,7 +50,7 @@
 
 ## <a name="test-app"></a>Prueba de la aplicación
 
-1. En Visual Studio, presione la tecla **F5** para recompilar el proyecto e iniciar la aplicación.
+1. En Visual Studio, presione la tecla **F5** para recopilar el proyecto e iniciar la aplicación.
 
 2. En la aplicación, escriba algo de texto en **Insertar TodoItem** y, a continuación, haga clic en **Guardar**.
 
@@ -62,5 +62,4 @@
 
 	Aparece un cuadro de diálogo de mensaje que indica el número de elementos marcados como completos y la consulta filtrada se vuelve a ejecutar, con lo que se borran todos los elementos de la lista.
 
-
-<!--HONumber=52-->
+<!---HONumber=Oct15_HO3-->

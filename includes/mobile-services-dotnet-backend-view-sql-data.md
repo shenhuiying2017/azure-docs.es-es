@@ -11,5 +11,6 @@ El último paso opcional de este tutorial es comprobar en la Base de datos SQL a
 
     ![consultar en la Base de datos SQL los elementos almacenados](./media/mobile-services-dotnet-backend-view-sql-data/sql-azure-query.png)
 
-	La tabla incluye las columnas Id, __createdAt, __updatedAt y __version. Estas columnas admiten la sincronización de datos sin conexión y se implementan en la clase base [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx). Para obtener más información, vea [Introducción a la sincronización de datos sin conexión].
-<!--HONumber=54-->
+	La tabla incluye las columnas Id, \_\_createdAt, \_\_updatedAt y \_\_version. Estas columnas admiten la sincronización de datos sin conexión y se implementan en la clase base [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx). Para más información, vea [Introducción a la sincronización de datos sin conexión].
+
+<!---HONumber=Oct15_HO3-->

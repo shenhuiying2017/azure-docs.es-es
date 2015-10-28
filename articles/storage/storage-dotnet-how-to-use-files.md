@@ -1,0 +1,543 @@
+<properties
+			pageTitle="Uso del almacenamiento de archivos de Azure con Windows | Microsoft Azure"
+            description="Creación de un recurso compartido de archivos en la nube y administración del contenido de los archivos. Montaje de un recurso compartido de archivos desde una máquina virtual de Azure o desde una aplicación local."
+            services="storage"
+            documentationCenter=".net"
+            authors="tamram"
+            manager="adinah"
+            editor="" />
+
+<tags ms.service="storage"
+      ms.workload="storage"
+      ms.tgt_pltfrm="na"
+      ms.devlang="dotnet"
+      ms.topic="hero-article"
+      ms.date="09/28/2015"
+      ms.author="tamram" />
+
+# Uso del almacenamiento de archivos de Azure con Windows
+
+## Información general
+
+El almacenamiento de archivos de Azure ofrece recursos compartidos de archivos en la nube mediante el protocolo SMB estándar. El almacenamiento de archivos ya está disponible y es compatible con SMB 2.1 y SMB 3.0.
+
+Puede crear recursos compartidos de archivos de Azure mediante el portal de vista previa de Azure, los cmdlets de PowerShell de Almacenamiento de Azure, las bibliotecas de cliente de Almacenamiento de Azure o la API de REST de Almacenamiento de Azure. Además, dado que los recursos compartidos de archivos son recursos compartidos de SMB, puede tener acceso a ellos a través de la API del sistema de archivos estándar y familiar.
+
+Las aplicaciones que se ejecutan en Azure pueden montar fácilmente recursos compartidos de archivos de máquinas virtuales de Azure. Y con la última versión del almacenamiento de archivos, también se puede montar un recurso compartido de archivos desde una aplicación local que sea compatible con SMB 3.0.
+
+El almacenamiento de archivos se basa en la misma tecnología que el almacenamiento de blobs, tablas y colas, por lo que el almacenamiento de archivos puede aprovechar la disponibilidad, durabilidad, escalabilidad y redundancia geográfica existentes que están integradas en la plataforma de Almacenamiento de Azure.
+
+Para obtener más información sobre el almacenamiento de archivos con Linux, consulte [Uso del almacenamiento de archivos de Azure con Linux](storage-how-to-use-files-linux.md).
+
+Para obtener más información acerca de los objetivos de escalabilidad del almacenamiento de archivos, consulte [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts).
+
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
+
+[AZURE.INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
+
+## Acerca de este tutorial
+
+En este tutorial introductorio se muestran los conceptos básicos del uso de Almacenamiento de archivos de Microsoft Azure. En este tutorial, veremos lo siguiente:
+
+- El uso de Azure PowerShell para mostrar cómo crear un nuevo recurso compartido de archivos de Azure, agregar un directorio, cargar un archivo local en el recurso compartido y mostrar los archivos del directorio.
+- Monte el recurso compartido de archivos desde una máquina virtual de Azure exactamente igual que si fuera cualquier recurso compartido SMB.
+- Use la Biblioteca de cliente de almacenamiento de Azure para .NET para tener acceso al recurso compartido de archivos desde una aplicación local. Cree una aplicación de consola y lleve a cabo estas acciones con el recurso compartido de archivos:
+	- Escriba el contenido de un archivo del recurso compartido en la ventana de la consola.
+	- Establezca la cuota (tamaño máximo) para el recurso compartido de archivos.
+	- Cree una firma de acceso compartido para un archivo que utiliza una directiva de acceso compartido definida en el recurso compartido.
+	- Copie un archivo en otro en la misma cuenta de almacenamiento.
+	- Copie un archivo en un blob en la misma cuenta de almacenamiento.
+
+El almacenamiento de archivos ahora es compatible con todas las cuentas de almacenamiento, por lo que se puede usar una cuenta de almacenamiento existente o crear una cuenta de almacenamiento nueva. Para obtener información acerca de cómo crear una cuenta de almacenamiento nueva, consulte [Creación, administración o eliminación de cuentas de almacenamiento](storage-create-storage-account.md#create-a-storage-account).
+
+## Uso del Portal de vista previa de Azure para administrar un recurso compartido de archivos
+
+El [Portal de vista previa de Azure](https://ms.portal.azure.com/) proporciona una interfaz de usuario para que los clientes administren el almacenamiento de archivos. En el Portal de vista previa puede:
+
+- Cargar y descargar archivos al recurso compartido de archivos y desde este.
+- Supervisar el uso real de cada recurso compartido de archivos.
+- Ajustar la cuota de tamaño del recurso compartido.
+- Obtener el comando `net use` que se usa para montar el recurso compartido de archivos desde un cliente Windows. 
+
+## Uso de PowerShell para administrar un recurso compartido de archivos
+
+A continuación, utilizaremos Azure PowerShell para crear un recurso compartido de archivos. Una vez que se ha creado el recurso compartido de archivos, se puede montar desde cualquier sistema de archivos que admita SMB 2.1 o SMB 3.0.
+
+### Instalación de cmdlets de PowerShell para Almacenamiento de Azure
+
+Para prepararse para usar PowerShell, descargue e instale los cmdlets de Azure PowerShell. Consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md) para obtener instrucciones sobre el punto de instalación y la instalación.
+
+> [AZURE.NOTE]Es recomendable descargar e instalar el módulo más reciente de Azure PowerShell o actualizar a dicho módulo.
+
+Abra una ventana de Azure PowerShell haciendo clic en **Inicio** y escribiendo **Azure PowerShell**. La ventana de Azure PowerShell cargará el módulo de Azure Powershell.
+
+### Creación de un contexto para la cuenta y clave de almacenamiento
+
+Ahora, cree el contexto de la cuenta de almacenamiento. El contexto encapsula el nombre y la clave de cuenta de almacenamiento. Para obtener instrucciones sobre la copia de la clave de cuenta desde el portal de Azure, consulte [Vista, copia y regeneración de las claves de acceso de almacenamiento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+
+Sustituya `storage-account-name` y `storage-account-key` por el nombre y clave de su cuenta de almacenamiento en el siguiente ejemplo.
+
+	# create a context for account and key
+	$ctx=New-AzureStorageContext storage-account-name storage-account-key
+
+### Creación de un nuevo recurso compartido de archivos
+
+A continuación, cree el nuevo recurso compartido, denominado `logs`.
+
+	# create a new share
+	$s = New-AzureStorageShare logs -Context $ctx
+
+Ahora tiene un recurso compartido de archivos en Almacenamiento de archivos. A continuación, agregaremos un directorio y un archivo.
+
+> [AZURE.IMPORTANT]El nombre del recurso compartido de archivos debe estar en minúsculas. Para obtener todos los detalles sobre cómo asignar un nombre a recursos compartidos y archivos, consulte [Dar nombre y hacer referencia a recursos compartidos, directorios, archivos y metadatos](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+
+### Creación de un directorio en el recurso compartido de archivos
+
+Seguidamente, crearemos un directorio en el recurso compartido. En el siguiente ejemplo, el directorio se llama `CustomLogs`.
+
+    # create a directory in the share
+    New-AzureStorageDirectory -Share $s -Path CustomLogs
+
+### Carga de un archivo local al directorio
+
+Ahora cargará un archivo local al directorio. El siguiente ejemplo carga un archivo desde `C:\temp\Log1.txt`. Edite la ruta de acceso al archivo de forma que apunte a un archivo válido situado en su equipo local.
+
+    # upload a local file to the new directory
+    Set-AzureStorageFileContent -Share $s -Source C:\temp\Log1.txt -Path CustomLogs
+
+### Visualización de los archivos del directorio en una lista
+
+Para ver el archivo en el directorio, puede mostrar los archivos de este en una lista. Este comando también mostrará subdirectorios, pero en este ejemplo, no hay ningún subdirectorio, por lo que solamente se mostrará el archivo.
+
+	# list files in the new directory
+	Get-AzureStorageFile -Share $s -Path CustomLogs
+
+### Copiar archivos
+
+A partir de la versión 0.9.7 de Azure PowerShell, puede copiar un archivo en otro, un archivo en un blob o un blob en un archivo. A continuación se muestra cómo realizar estas operaciones de copia mediante cmdlets de PowerShell.
+
+	# copy a file to the new directory
+    Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt -DestShareName destshare -DestFilePath destdir/hellocopy.txt -Context $srcCtx -DestContext $destCtx
+
+    # copy a blob to a file directory
+    Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
+
+## Montaje del recurso compartido de archivos 
+
+Dada su compatibilidad con SMB 3.0, el almacenamiento de archivos admite el cifrado y los identificadores persistentes de los clientes SMB 3.0. La compatibilidad con el cifrado significa que los clientes SMB 3.0 pueden montar un recurso compartido de archivos desde cualquier lugar, incluyendo desde:
+
+- Una máquina virtual de Azure de la misma región (también compatible con SMB 2.1)
+- Una máquina virtual de Azure de otra región (solo SMB 3.0)
+- Una aplicación cliente local (solo SMB 3.0) 
+
+Cuando un cliente accede al almacenamiento de archivos, la versión SMB que se usa depende de la versión de SMB compatible con el sistema operativo. La tabla siguiente proporciona un resumen de la compatibilidad de los clientes de Windows. Para obtener más información, consulte << Which version of the SMB protocol blog post>>.
+
+| Cliente Windows | Versión de SMB que admite |
+|------------------------|----------------------|
+| Windows 7 | SMB 2.1 |
+| Windows Server 2008 R2 | SMB 2.1 |
+| Windows 8 | SMB 3.0 |
+| Windows Server 2012 | SMB 3.0 |
+| Windows Server 2012 R2 | SMB 3.0 |
+
+### Montaje del recurso compartido de archivos desde una máquina virtual de Azure en la que se ejecute Windows
+
+Para mostrar cómo montar un recurso compartido de archivos de Azure, ahora crearemos una máquina virtual de Azure en la que se ejecuta Windows y accederemos a ella de forma remota para montar el recurso compartido.
+
+1. En primer lugar, cree una máquina virtual de Azure nueva según las instrucciones de [Creación de una máquina virtual que ejecuta Windows en el Portal de vista previa de Azure](../virtual-machines-windows-tutorial.md).
+2. A continuación, acceda a la máquina virtual de forma remota siguiendo las instrucciones de [Inicio de sesión en una máquina virtual con Windows Server](../virtual-machines-log-on-windows-server.md).
+3. Abra una ventana de PowerShell en la máquina virtual.
+
+### Persistencia de las credenciales de la cuenta de almacenamiento para la máquina virtual
+
+Antes de montar el recurso compartido de archivos, primero haga persistir las credenciales de la cuenta de almacenamiento en la máquina virtual. Este paso permite a Windows reconectarse automáticamente con el recurso compartido de archivos cuando la máquina virtual se reinicia. Para que las credenciales de la cuenta sean persistentes, ejecute el comando `cmdkey` desde la ventana de PowerShell de la máquina virtual. Reemplace `<storage-account-name>` por el nombre de la cuenta de almacenamiento y `<storage-account-key>` por la clave de la cuenta de almacenamiento.
+
+	cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+
+Windows se reconectará al recurso compartido de archivos cuando la máquina virtual se reinicie. Para comprobar que el recurso compartido se volvió a conectar, ejecute el comando `net use` desde una ventana de PowerShell.
+
+Tenga en cuenta que las credenciales solo persisten en el contexto en el que `cmdkey` se ejecuta. Si va a desarrollar una aplicación que se ejecute como servicio, será preciso que conserve las credenciales en ese contexto también.
+
+### Montaje del recurso compartido de archivos usando credenciales de persistencia
+
+Una vez que tenga una conexión remota con la máquina virtual, puede ejecutar el comando `net use` para montar el recurso compartido de archivos, para lo que usará la sintaxis siguiente. Reemplace `<storage-account-name>` por el nombre de su cuenta de almacenamiento y `<share-name>` por el nombre del recurso compartido de Almacenamiento de archivos:
+
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name>
+
+	example :
+	net use z: \\samples.file.core.windows.net\logs
+
+Dado que hizo persistir las credenciales de la cuenta de almacenamiento en el paso anterior, no necesita proporcionarlas con el comando `net use`. Si aún no conservó las credenciales, inclúyalas como parámetro, que se pasará al comando `net use`, como se muestra en el siguiente ejemplo.
+
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
+
+	example :
+	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
+
+Ahora puede trabajar con el recurso compartido de Almacenamiento de archivos desde la máquina virtual como lo haría con cualquier otra unidad. Puede emitir comandos de archivo estándar desde el símbolo del sistema o ver el recurso compartido montado y su contenido desde el explorador de archivos. También puede ejecutar código desde la máquina virtual que accede al recurso compartido de archivos usando las API de E/S de archivos Windows estándar, como por ejemplo las proporcionadas por los [espacios de nombres System.IO](http://msdn.microsoft.com/library/gg145019.aspx) en .NET Framework.
+
+También puede montar el recurso compartido de archivos desde un rol que se ejecute en un servicio en la nube de Azure mediante una conexión remota con el rol.
+
+### Montaje del recurso compartido de archivos desde un cliente local con Windows 
+
+Para montar el recurso compartido de archivos desde un cliente local, es preciso seguir estos pasos:
+
+- Instale una versión de Windows compatible con SMB 3.0. Windows aprovechará el cifrado SMB 3.0 para transferir datos de forma segura entre el cliente local y el recurso compartido de archivos de Azure en la nube. 
+- Abra el acceso a Internet para el puerto 445 (salida TCP) en la red local, ya que es necesario para el protocolo SMB. 
+
+[AZURE.NOTE]Algunos proveedores de servicios de Internet pueden bloquear el puerto 445, por lo que es posible que deba ponerse en contacto con su proveedor de servicios.
+
+## Desarrollo con almacenamiento de archivos
+
+Para trabajar mediante programación con el almacenamiento de archivos, puede usar las bibliotecas del cliente de almacenamiento para .NET y Java, o la API de REST de Almacenamiento de Azure. El ejemplo de esta sección muestra cómo trabajar con un recurso compartido de archivos mediante el uso de la [Biblioteca del cliente de almacenamiento de Azure .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409) desde una aplicación de consola simple que se ejecuta en el escritorio.
+
+### Creación de la aplicación de consola y obtención del ensamblado
+
+Para crear una nueva aplicación de consola en Visual Studio e instalar el paquete NuGet de Almacenamiento de Azure:
+
+1. En Visual Studio, elija **Archivo > Proyecto nuevo** y, a continuación, elija **Windows > Aplicación de consola** en la lista de plantillas de Visual C#.
+2. Asigne un nombre a la aplicación de consola y, a continuación, haga clic en **Aceptar**.
+3. Una vez creado el proyecto, haga clic con el botón derecho en el Explorador de soluciones y elija **Administrar paquetes de NuGet**. Busque "WindowsAzure.Storage" en línea y haga clic en **Instalar** para instalar el paquete y las dependencias de Almacenamiento de Azure.
+
+### Guardar las credenciales de la cuenta de almacenamiento en el archivo app.config
+
+A continuación, guardará las credenciales en el archivo app.config del proyecto. Edite el archivo app.config de forma que su aspecto sea similar al del siguiente ejemplo, pero reemplace `myaccount` por el nombre de su cuenta de almacenamiento y `mykey` por la clave de su cuenta de almacenamiento.
+
+	<?xml version="1.0" encoding="utf-8" ?>
+	<configuration>
+	    <startup>
+	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+	    </startup>
+	    <appSettings>
+	        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=StorageAccountKeyEndingIn==" />
+	    </appSettings>
+	</configuration>
+
+> [AZURE.NOTE]La versión más reciente del emulador de Almacenamiento de Azure no admite Almacenamiento de archivos. Para trabajar con el almacenamiento de archivos, el objetivo de la cadena de conexión debe ser una cuenta de almacenamiento de Azure en la nube.
+
+### Incorporación de declaraciones de espacio de nombres
+
+Abra el archivo program.cs desde el Explorador de soluciones y agregue las siguientes declaraciones de espacio de nombres en la parte superior del archivo.
+
+	using Microsoft.WindowsAzure;
+	using Microsoft.WindowsAzure.Storage;
+	using Microsoft.WindowsAzure.Storage.Blob;
+	using Microsoft.WindowsAzure.Storage.File;
+
+### Recuperación de la cadena de conexión mediante programación
+
+Puede recuperar las credenciales guardadas desde el archivo app.config usando una de estas dos clases: `Microsoft.WindowsAzure.CloudConfigurationManager` o `System.Configuration.ConfigurationManager `. El paquete del Administrador de configuración de Microsoft Azure, que incluye la clase `Microsoft.WindowsAzure.CloudConfigurationManager`, está disponible en [Nuget](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager).
+
+El siguiente ejemplo muestra cómo recuperar las credenciales usando la clase `CloudConfigurationManager` y cómo encapsularlas con la clase `CloudStorageAccount`. Agregue el siguiente código al método `Main()` en program.cs.
+
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    	CloudConfigurationManager.GetSetting("StorageConnectionString")); 
+
+### Obtener acceso al recurso compartido de archivos mediante programación
+
+A continuación, agregue el siguiente código al método `Main()` (después del código mostrado anteriormente) para recuperar la cadena de conexión. Este código obtiene una referencia al archivo que creamos anteriormente y envía su contenido a la ventana de consola.
+
+	// Create a CloudFileClient object for credentialed access to File storage.
+	CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+	// Get a reference to the file share we created previously.
+	CloudFileShare share = fileClient.GetShareReference("logs");
+
+	// Ensure that the share exists.
+	if (share.Exists())
+	{
+	    // Get a reference to the root directory for the share.
+	    CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+
+	    // Get a reference to the directory we created previously.
+	    CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+
+	    // Ensure that the directory exists.
+	    if (sampleDir.Exists())
+	    {
+	        // Get a reference to the file we created previously.
+	        CloudFile file = sampleDir.GetFileReference("Log1.txt");
+
+	        // Ensure that the file exists.
+	        if (file.Exists())
+	        {
+	            // Write the contents of the file to the console window.
+	            Console.WriteLine(file.DownloadTextAsync().Result);
+	        }
+	    }
+	}
+
+Ejecute la aplicación de consola para ver la salida.
+
+### Establecer el tamaño máximo para un recurso compartido de archivos
+
+A partir de la versión 5.x de la biblioteca de cliente de almacenamiento de Azure, puede establecer la cuota (o el tamaño máximo) para un recurso compartido de archivos, en gigabytes. También puede comprobar cuántos datos se almacenan actualmente en el recurso compartido.
+
+Al establecer la cuota para un recurso compartido, puede limitar el tamaño total de los archivos almacenados en el recurso compartido. Si el tamaño total de archivos del recurso compartido supera la cuota establecida en el recurso compartido, los clientes no podrán aumentar el tamaño de los archivos existentes ni crear nuevos archivos, a menos que estén vacíos.
+
+En el ejemplo siguiente se muestra cómo comprobar el uso actual de un recurso compartido y cómo establecer la cuota para el recurso compartido.
+
+    // Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    // Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    // Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("logs");
+
+    // Ensure that the share exists.
+    if (share.Exists())
+    {
+        // Check current usage stats for the share.
+		// Note that the ShareStats object is part of the protocol layer for the File service.
+        Microsoft.WindowsAzure.Storage.File.Protocol.ShareStats stats = share.GetStats();
+        Console.WriteLine("Current share usage: {0} GB", stats.Usage.ToString());
+
+        // Specify the maximum size of the share, in GB.
+        // This line sets the quota to be 10 GB greater than the current usage of the share.
+        share.Properties.Quota = 10 + stats.Usage;
+        share.SetProperties();
+
+        // Now check the quota for the share. Call FetchAttributes() to populate the share's properties.
+        share.FetchAttributes();
+        Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
+    }
+
+### Generar una firma de acceso compartido para un archivo o recurso compartido de archivos
+
+A partir de la versión 5.x de la biblioteca de cliente de almacenamiento de Azure, puede generar una firma de acceso compartido (SAS) para un recurso compartido de archivos o para un archivo individual. También puede crear una directiva de acceso compartido en un recurso compartido de archivos para administrar firmas de acceso compartido. Se recomienda la creación de una directiva de acceso compartido, ya que ofrece un medio de revocar la SAS si esta se encuentra en peligro.
+
+En el ejemplo siguiente se crea una directiva de acceso compartido en un recurso compartido y luego se usa esa directiva para ofrecer las restricciones para una SAS en un archivo del recurso compartido.
+
+    // Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    // Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    // Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("logs");
+
+    // Ensure that the share exists.
+    if (share.Exists())
+    {
+        string policyName = "sampleSharePolicy" + DateTime.UtcNow.Ticks;
+
+        // Create a new shared access policy and define its constraints.
+        SharedAccessFilePolicy sharedPolicy = new SharedAccessFilePolicy()
+            {
+                SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
+                Permissions = SharedAccessFilePermissions.Read | SharedAccessFilePermissions.Write
+            };
+
+        // Get existing permissions for the share.
+        FileSharePermissions permissions = share.GetPermissions();
+
+        // Add the shared access policy to the share's policies. Note that each policy must have a unique name.
+        permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
+        share.SetPermissions(permissions);
+
+        // Generate a SAS for a file in the share and associate this access policy with it.
+        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+        CloudFile file = sampleDir.GetFileReference("Log1.txt");
+        string sasToken = file.GetSharedAccessSignature(null, policyName);
+        Uri fileSasUri = new Uri(file.StorageUri.PrimaryUri.ToString() + sasToken);
+
+        // Create a new CloudFile object from the SAS, and write some text to the file.
+        CloudFile fileSas = new CloudFile(fileSasUri);
+        fileSas.UploadText("This write operation is authenticated via SAS.");
+        Console.WriteLine(fileSas.DownloadText());
+    }
+
+Para obtener más información sobre la creación y uso de firmas de acceso compartido, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) y [Firmas de acceso compartido, Parte 2: Creación y uso de una firma de acceso compartido con el servicio BLOB](storage-dotnet-shared-access-signature-part-2.md).
+
+### Copiar archivos
+
+A partir de la versión 5.x de la biblioteca de cliente de almacenamiento de Azure, puede copiar un archivo en otro, un archivo en un blob o un blob en un archivo. En las siguientes secciones, mostramos cómo realizar estas operaciones de copia mediante programación.
+
+También puede usar AzCopy para copiar un archivo en otro o para copiar un blob en un archivo o viceversa. Para obtener más información sobre la copia de archivos con AzCopy, consulte [Uso de AzCopy con Almacenamiento de Microsoft Azure](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy-preview-version-only).
+
+> [AZURE.NOTE]Si va a copiar un blob en un archivo, o un archivo en un blob, debe usar una firma de acceso compartido (SAS) para autenticar el objeto de origen, incluso si está copiando en la misma cuenta de almacenamiento.
+
+**Copiar un archivo en otro**
+
+En el ejemplo siguiente se copia un archivo en otro en el mismo recurso compartido. Dado que en esta operación de copia se copia entre archivos de la misma cuenta de almacenamiento, puede usar la autenticación de clave compartida para realizar la copia.
+
+    // Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    // Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    // Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("logs");
+
+    // Ensure that the share exists.
+    if (share.Exists())
+    {
+        // Get a reference to the root directory for the share.
+        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+
+        // Get a reference to the directory we created previously.
+        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+
+        // Ensure that the directory exists.
+        if (sampleDir.Exists())
+        {
+            // Get a reference to the file we created previously.
+            CloudFile sourceFile = sampleDir.GetFileReference("Log1.txt");
+
+            // Ensure that the source file exists.
+            if (sourceFile.Exists())
+            {
+                // Get a reference to the destination file.
+                CloudFile destFile = sampleDir.GetFileReference("Log1Copy.txt");
+
+                // Start the copy operation.
+                destFile.StartCopy(sourceFile);
+
+                // Write the contents of the destination file to the console window.
+                Console.WriteLine(destFile.DownloadText());
+            }
+        }
+    }
+
+
+**Copiar un archivo en un blob**
+
+En el ejemplo siguiente se crea un archivo y se copia en un blob de la misma cuenta de almacenamiento. El ejemplo se crea una SAS para el archivo de origen, que el servicio usa para autenticar el acceso al archivo de origen durante la operación de copia.
+
+    // Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    // Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    // Create a new file share, if it does not already exist.
+    CloudFileShare share = fileClient.GetShareReference("sample-share");
+    share.CreateIfNotExists();
+
+    // Create a new file in the root directory.
+    CloudFile sourceFile = share.GetRootDirectoryReference().GetFileReference("sample-file.txt");
+    sourceFile.UploadText("A sample file in the root directory.");
+
+    // Get a reference to the blob to which the file will be copied.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
+    container.CreateIfNotExists();
+    CloudBlockBlob destBlob = container.GetBlockBlobReference("sample-blob.txt");
+
+    // Create a SAS for the file that's valid for 24 hours.
+    // Note that when you are copying a file to a blob, or a blob to a file, you must use a SAS
+    // to authenticate access to the source object, even if you are copying within the same
+    // storage account.
+    string fileSas = sourceFile.GetSharedAccessSignature(new SharedAccessFilePolicy()
+    {
+        // Only read permissions are required for the source file.
+        Permissions = SharedAccessFilePermissions.Read,
+        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24)
+    });
+
+    // Construct the URI to the source file, including the SAS token.
+    Uri fileSasUri = new Uri(sourceFile.StorageUri.PrimaryUri.ToString() + fileSas);
+
+    // Copy the file to the blob.
+    destBlob.StartCopy(fileSasUri);
+
+    // Write the contents of the file to the console window.
+    Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
+    Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
+
+Puede copiar un blob en un archivo de la misma manera. Si el objeto de origen es un blob, cree una SAS para autenticar el acceso a dicho blob durante la operación de copia.
+
+## Solución de problemas de almacenamiento de archivos mediante métricas
+
+Análisis de almacenamiento de Azure admite métricas para el almacenamiento de archivos. Con los datos de las métricas, es posible seguir paso a paso las solicitudes y diagnosticar problemas.
+
+En el Portal de Azure es posible habilitar las métricas para el almacenamiento compartido. También se puede habilitar mediante programación, para lo que hay que llamar a la operación establecer propiedades del servicio de archivos a través de la API de REST o una de sus análogas de la Biblioteca del cliente de almacenamiento.
+
+## Preguntas más frecuentes sobre el almacenamiento de archivos
+
+1. **¿Admite el almacenamiento de archivos la autenticación basada en Active Directory?** 
+
+	En la actualidad no se admite la autenticación basada en AD ni las ACL, pero se admitirá en un futuro cercano. Por ahora, las claves de las cuentas de Almacenamiento de Azure se usan para proporcionar autenticación al recurso compartido de archivos. La solución alternativa es usar las firmas de acceso compartido (SAS) a través de la API de REST o de las bibliotecas de cliente. Con SAS se pueden generar tokens con permisos específicos que son válidos durante un intervalo especificado. Por ejemplo, se puede generar un token con acceso de solo lectura a un archivo dado. Todos los usuarios que posean dicho token, mientras tenga validez, tendrán acceso de solo lectura al archivo.
+
+	SAS solo se admite a través de la API de REST o de las bibliotecas de cliente. Si el recurso compartido de archivos se monta a través del protocolo SMB, no se puede usar una SAS para delegar el acceso a su contenido.
+
+2. **¿Se pueden ver los recursos compartidos de archivos de Azure públicamente en Internet o solos se puede acceder a ellos desde Azure?**
+ 
+	Mientras el puerto 445 (salida TCP) esté abierto y el cliente admita el protocolo SMB 3.0 (*p. ej.*, Windows 8 o Windows Server 2012), el recurso compartido de archivos estará disponible a través de Internet.
+
+3. **¿Cuenta el tráfico de red entre una máquina virtual de Azure y un número de recursos compartidos de archivos como ancho de banda externo que se carga a la suscripción?**
+
+	Si el recurso compartido de archivos y la máquina virtual se encuentran en distintas regiones, el tráfico entre ellos se cargará como ancho de banda externo.
+ 
+4. **Si el tráfico de red se produce entre una máquina virtual y un recurso compartido de archivos de la misma región, ¿es gratuito?**
+
+	Sí. Es gratis si el tráfico se produce en la misma región.
+
+5. **¿Depende la conexión entre máquinas virtuales locales y el almacenamiento de archivos de Azure de Azure ExpressRoute?**
+
+	No. Aunque no se disponga ExpressRoute, es posible acceder al recurso compartido de archivos de forma local, siempre que el puerto 445 (salida TCP) esté abierto para el acceso a Internet. Sin embargo, si se desea, es posible usar ExpressRoute con el almacenamiento de archivos.
+
+6. **¿Es un "testigo del recurso compartido de archivos" para un clúster de conmutación por error uno de los casos de uso del almacenamiento de archivos de Azure?**
+
+	En la actualidad no se admite.
+ 
+7. **En la actualidad, el almacenamiento de archivos solo se replica a través de LRS o GRS, ¿es así?**
+
+	Está previsto que RA-GRS se admite, pero aún no se puede indicar ninguna fecha.
+
+8. **¿Cuándo se podrán usar las cuentas de almacenamiento existentes con el almacenamiento de archivos de Azure?**
+
+	El almacenamiento de archivos de Azure ya está habilitado para todas las cuentas de almacenamiento.
+
+9. **¿Se agregará también una operación de cambio de nombre a la API de REST?**
+
+	La operación de cambio de nombre aún no se admite en la API de REST.
+
+10. **¿Es posible tener recursos compartidos anidados, es decir, un recurso compartido en un recurso compartido?**
+
+	No. El recurso compartido de archivos es el controlador virtual que se puede montar, por lo que no se admiten recursos compartidos anidados.
+
+11. **¿Es posible especificar permisos de solo lectura o solo escritura en las carpetas del recurso compartido?**
+
+	Si el recurso compartido de archivos se monta a través de SMB, no se tiene este nivel de control sobre los permisos. Sin embargo, se puede lograr. Para ello, es preciso crear una firma de acceso compartido (SAS) mediante la API de REST o las bibliotecas de cliente.
+
+12. **Mi rendimiento era lento al intentar descomprimir archivos en el almacenamiento de archivos, ¿qué debo hacer?**
+
+	Para transferir una gran cantidad de archivos al almacenamiento de archivos es aconsejable usar AzCopy, Azure Powershell (Windows) o la CLI de Azure (Linux/Unix), ya que estas herramientas se optimizaron para la transferencia a través de red.
+
+## Pasos siguientes
+
+Consulte los vínculos siguientes para obtener más información acerca de Almacenamiento de archivos de Azure.
+
+### Artículos conceptuales
+
+- [Uso del almacenamiento de archivos de Azure con Linux](storage-how-to-use-files-linux.md)
+
+### Compatibilidad de herramientas con el almacenamiento de archivos
+
+- [Usar Azure PowerShell con Almacenamiento de Azure](storage-powershell-guide-full.md)
+- [Uso de AzCopy con Almacenamiento de Microsoft Azure](storage-use-azcopy.md)
+- [Uso de la CLI de Azure con Almacenamiento de Azure](storage-azure-cli.md#create-and-manage-file-shares)
+
+### Referencia
+
+- [Referencia de la biblioteca de clientes de almacenamiento para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+- [Referencia de la API REST del servicio de archivos](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+
+### Publicaciones de blog
+
+- [El almacenamiento de archivos de Azure ya está disponible de manera general](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
+- [Profundización en el almacenamiento de archivos de Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
+- [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx) (Introducción al servicio de archivos de Microsoft Azure)
+- [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx) (Persistencia de conexiones en archivos de Microsoft Azure)
+
+<!---HONumber=Oct15_HO3-->

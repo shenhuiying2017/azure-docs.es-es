@@ -1,22 +1,6 @@
-<properties 
-   pageTitle="Obtener la clave de registro del servicio"
-   description="Se explica cómo obtener la clave de registro que se usa para registrar todos los dispositivos StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" /> 
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
+<!--author=alkohli last changed: 9/17/15-->
 
-
-### Para obtener la clave de registro del servicio de StorSimple
+#### Para obtener la clave de registro del servicio de StorSimple
 
 1. En la página **Servicio de Administrador de StorSimple**, haga clic en el servicio que creó. Esto le llevará a la página **Inicio rápido**. (Puede hacer clic en el icono de inicio rápido ![Icono de inicio rápido de StorSimple](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png) para acceder a la página **Inicio rápido** en cualquier momento).
 
@@ -34,5 +18,8 @@
 
 > [AZURE.NOTE]La clave de registro del servicio se usa para registrar todos los dispositivos que se deben registrar con el servicio de Administrador de StorSimple.
 
- 
-<!--HONumber=52-->
+![Vídeo disponible](./media/storsimple-get-service-registration-key/Video_icon.png) **Vídeo disponible**
+
+Para ver un vídeo que muestra cómo obtener la clave de registro del servicio, haga clic [aquí](http://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
+
+<!---HONumber=Oct15_HO3-->

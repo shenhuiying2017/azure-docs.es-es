@@ -1,5 +1,5 @@
-﻿
-En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere que el cliente se ponga en contacto con el proveedor de identidades y con el servicio móvil cada vez que se inicia la aplicación. Este método no solo es ineficaz, sino que también puede enfrentarse a problemas relacionados con el uso si varios clientes inician la aplicación al mismo tiempo. Un método mejor es almacenar en caché el token de autorización devuelto por los servicios móviles e intentar usarlo primero antes de utilizar un inicio de sesión basado en proveedores. 
+
+En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere que el cliente se ponga en contacto con el proveedor de identidades y con el servicio móvil cada vez que se inicia la aplicación. Este método no solo es ineficaz, sino que también puede enfrentarse a problemas relacionados con el uso si varios clientes inician la aplicación al mismo tiempo. Un método mejor es almacenar en caché el token de autorización devuelto por los servicios móviles e intentar usarlo primero antes de utilizar un inicio de sesión basado en proveedores.
 
 >[AZURE.NOTE]Puede almacenar en caché el token emitido por los servicios móviles con independencia de si es una autenticación administrada por el cliente o por el servicio. Este tutorial utiliza la autenticación administrada por el servicio.
 
@@ -85,12 +85,12 @@ En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere q
             }
         }
 
-	En esta versión de **AuthenticateAsync**, la aplicación intenta usar las credenciales almacenadas cifradas en el almacenamiento local para acceder al servicio móvil. Se envía una consulta simple para verificar que el token almacenado no ha expirado. Si se devuelve un error 401, se intenta un inicio de sesión normal basado en el proveedor. También se realiza un inicio de sesión normal cuando no hay ninguna credencial almacenada.	
+	En esta versión de **AuthenticateAsync**, la aplicación intenta usar las credenciales almacenadas cifradas en el almacenamiento local para acceder al servicio móvil. Se envía una consulta simple para verificar que el token almacenado no ha expirado. Cuando se devuelve un 401, se intenta llevar a cabo un inicio de sesión normal basado en proveedor. También se realiza un inicio de sesión normal cuando no hay ninguna credencial almacenada.
 
-	>[AZURE.NOTE]Esta aplicación comprueba si hay tokens expirados durante el inicio de sesión, pero la expiración del token puede ocurrir después de la autenticación cuando la aplicación está en uso. Para obtener una solución a los errores de gestión de autorizaciones relativas a la expiración de tokens, vea la publicación [Almacenamiento en caché y gestión de los tokens expirados en el SDK administrado de Servicios móviles de Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx) (en inglés). 
+	>[AZURE.NOTE]Esta aplicación comprueba si hay tokens expirados durante el inicio de sesión, pero la expiración del token puede ocurrir después de la autenticación cuando la aplicación está en uso. Para obtener una solución a los errores de gestión de autorizaciones relativas a la expiración de tokens, vea la publicación [Almacenamiento en caché y gestión de los tokens expirados en el SDK administrado de Servicios móviles de Azure)](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx).
 	
 3. Reinicie la aplicación dos veces.
 
-	Tenga en cuenta que cuando se inicia la primera vez, se requiere de nuevo un inicio de sesión con el proveedor. Sin embargo, la segunda vez se usan las credenciales almacenadas en caché y se omite el inicio de sesión. 
+	Tenga en cuenta que cuando se inicia la primera vez, se requiere de nuevo un inicio de sesión con el proveedor. Sin embargo, la segunda vez se usan las credenciales almacenadas en caché y se omite el inicio de sesión.
 
-<!--HONumber=49-->
+<!---HONumber=Oct15_HO3-->

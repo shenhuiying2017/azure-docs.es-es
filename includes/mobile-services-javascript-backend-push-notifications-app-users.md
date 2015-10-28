@@ -1,11 +1,11 @@
 
-1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, en su servicio móvil.
+1. Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com/), haga clic en **Servicios móviles** y, a continuación, en su servicio móvil.
 
-2. Haga clic en la pestaña **Insertar**, seleccione **Solo usuarios autenticados** para **Permisos** y, a continuación, haga clic en **Editar script**.
+2. Haz clic en la pestaña **Insertar**, selecciona **Solo usuarios autenticados** para **Permisos**, haz clic en **Guardar** y después haz clic en **Edit Script**.
 	
 	Esto permite personalizar la función de devolución de llamada de registro de la notificación de inserción. Si usa Git para editar el código de origen, esta misma función de registro se encuentra en `.\service\extensions\push.js`.
 
-3. Reemplace la función **register** existente por el siguiente código:
+3. Reemplaza la función de **registro** existente por el siguiente código y después haz clic en **Save**:
 
 		exports.register = function (registration, registrationContext, done) {   
 		    // Get the ID of the logged-in user.
@@ -40,5 +40,6 @@
 
 	Esto agrega una etiqueta al registro que es el identificador del usuario que inició sesión. Se validan las etiquetas suministradas para evitar que un usuario se registre con el identificador de otro usuario Cuando se envía una notificación a este usuario, se recibe en este y otros dispositivos registrados que el usuario haya registrado.
 
-4. Haga clic en la flecha atrás, en la pestaña **Datos**, haga clic en **TodoItem**, haga clic en **Script** y seleccione **Insertar**.
-<!--HONumber=54-->
+4. Haz clic en la flecha atrás, luego haz clic en la pestaña **Datos**, haz clic en **TodoItem**, haz clic en **Script** y selecciona **Insertar**.
+
+<!---HONumber=Oct15_HO3-->

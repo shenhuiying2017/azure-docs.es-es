@@ -5,7 +5,7 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
 		compile 'com.android.support:support-v4:21.0.3'
     	compile 'com.google.code.gson:gson:2.2.2'
 	    compile 'com.google.guava:guava:18.0'
-	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2-beta'
+	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2+'
 
 
 2. Ahora vuelva a generar el proyecto haciendo clic en **Sincronizar proyecto con archivos de Gradle**.
@@ -15,11 +15,7 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
 		<uses-permission android:name="android.permission.INTERNET" />
 
 
-6. Abra el archivo AndroidManifest.xml y agregue la línea siguiente, que permite a la aplicación obtener acceso a los Servicios móviles de Azure.
-
-		<uses-permission android:name="android.permission.INTERNET" />
-
-5. En el Explorador de proyectos, abra el archivo TodoActivity.java, que se encuentra en la carpeta **GetStartedWithData => app => src => java**, y elimine los comentarios de las siguientes líneas de código:
+4. En el Explorador de proyectos, abra el archivo TodoActivity.java, que se encuentra en la carpeta **GetStartedWithData => app => src => java**, y elimine los comentarios de las siguientes líneas de código:
 
 
 
@@ -58,7 +54,7 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
 
 10. En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
 
-11. Haga clic en la pestaña **Panel** y anote la dirección **URL del sitio**; a continuación, haga clic en **Administrar claves** y anote la **clave de la aplicación**.
+11. Haga clic en la pestaña **Panel** y anote la **dirección URL del sitio**; a continuación, haga clic en **Administrar claves** y anote la **clave de la aplicación**.
 
    	![](./media/download-android-sample-code/mobile-dashboard-tab.png)
 
@@ -165,4 +161,5 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
-<!--HONumber=54-->
+
+<!---HONumber=Oct15_HO3-->

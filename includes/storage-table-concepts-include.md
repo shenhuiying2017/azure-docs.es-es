@@ -13,9 +13,9 @@ Puede usar el servicio Tabla para almacenar grandes conjuntos de datos estructur
 
 El servicio Tabla contiene los siguientes componentes:
 
-![Tabla1][Table1]
+![Table1][Table1]
 
--   **Formato de dirección URL:** el código trata las tablas en una cuenta con este formato de dirección: http://`<storage account>`.table.core.windows.net/`<table>\`  
+-   **Formato de dirección URL:** el código trata las tablas en una cuenta con este formato de dirección: http://`<storage account>`.table.core.windows.net/`<table>`  
       
     Puede desviar las tablas de Azure directamente mediante esta dirección con el protocolo OData. Para obtener más información, consulte [OData.org][].
 
@@ -29,7 +29,7 @@ El servicio Tabla contiene los siguientes componentes:
 
 
   
-[Table1]: ./media/storage-table-concepts-include/table1.png
-[OData.org]: http://www.odata.org/
+  [Table1]: ./media/storage-table-concepts-include/table1.png
+  [OData.org]: http://www.odata.org/
 
-<!--HONumber=52-->
+<!---HONumber=Oct15_HO3-->

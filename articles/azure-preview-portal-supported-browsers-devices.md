@@ -3,9 +3,9 @@
 	description="" 
 	services="" 
 	documentationCenter="" 
-	authors="JustinBeckwith" 
-	writer="" 
-	manager="carolz" 
+	authors="flanakin" 
+	writer="flanakin" 
+	manager="lwelicki" 
 	editor=""/>
 
 <tags 
@@ -14,24 +14,24 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2014" 
-	ms.author="justbe"/>
+	ms.date="07/23/2015" 
+	ms.author="micflan"/>
 
-# Exploradores y dispositivos compatibles
-El Portal de Microsoft Azure Preview se puede ejecutar en todos los exploradores y dispositivos modernos como tabletas y equipos de escritorio.
+#Exploradores y dispositivos compatibles
+El Portal de Microsoft Azure se puede ejecutar en todos los exploradores y dispositivos modernos como tabletas y equipos de escritorio.
 
 ### Dispositivos compatibles
-El Portal de Preview se ejecutará en tabletas, Mac y PC modernos. Los teléfonos móviles no son compatibles actualmente.
+El portal se ejecutará de manera excelente en tabletas, Mac y PC modernos. Los teléfonos móviles no son compatibles actualmente.
 
 ### Exploradores compatibles
 Son compatibles las últimas versiones de los siguientes exploradores:
 
-- Internet Explorer (10 y versiones posteriores)
+- Edge (última versión)
+- Internet Explorer (11 y versiones posteriores)
 - Safari (7 y versiones posteriores)
 - Chrome (última versión)
 - Firefox (última versión)
 
-*No son compatibles Safari 6 y versiones anteriores. Si usa OS X, puede usar Chrome, Firefox o actualizar a OS X Mavericks para obtener Safari 7.*
+*Safari 6 y versiones anteriores no son compatibles. Si usa OS X, puede usar Chrome, Firefox o actualizar a OS X Mavericks para obtener Safari 7.*
 
-
-<!--HONumber=47-->
+<!---HONumber=Oct15_HO3-->

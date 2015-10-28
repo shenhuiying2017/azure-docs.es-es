@@ -1,0 +1,5 @@
+> [AZURE.NOTE]En este tema se incluyen los cmdlets de PowerShell de la vista previa de Azure PowerShell 1.0, que es una versión preliminar y no está diseñada para aplicaciones críticas. Si está ejecutando aplicaciones críticas, siga usando Azure PowerShell 0.9.8. En la mayoría de los casos, la única diferencia entre las dos versiones es que el nombre del cmdlet de la versión de vista previa 1.0 sigue el patrón {verbo}-AzureRm{nombre}, mientras que el nombre de la versión 0.9.8 no incluye **Rm** (por ejemplo, New-AzureRmResourceGroup en lugar de New-AzureResourceGroup). En este tema se muestran ejemplos de ambas versiones cuando la diferencia entre ellas es más significativa.
+>
+> Para obtener más información acerca de la instalación y el uso de la vista previa de Azure PowerShell 1.0, consulte [Cmdlets del Administrador de recursos de Azure](https://msdn.microsoft.com/library/mt125356.aspx).
+
+<!---HONumber=Oct15_HO3-->

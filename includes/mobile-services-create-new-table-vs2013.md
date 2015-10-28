@@ -13,9 +13,6 @@ Para poder almacenar datos en su nuevo servicio móvil, debe crear antes una tab
 
 	>[AZURE.NOTE]La clave de aplicación se distribuye con la aplicación. Puesto que esta clave no se distribuye de forma segura, no se puede considerar un token de seguridad. Para proteger el acceso a los datos de su servicio móvil, los usuarios se deben autenticar antes del acceso. Para obtener más información, consulte [Permisos](http://msdn.microsoft.com/library/windowsazure/jj193161.aspx).
 	>
-	>Las tablas nuevas se crean con las columnas Id, __createdAt, __updatedAt y __version. Cuando está habilitado el esquema dinámico, Servicios móviles genera automáticamente columnas nuevas basadas en el objeto JSON en la solicitud de inserción o actualización. Para obtener más información, consulte [Esquema dinámico](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
+	>Las tablas nuevas se crean con las columnas Id, \_\_createdAt, \_\_updatedAt y \_\_version. Cuando está habilitado el esquema dinámico, Servicios móviles genera automáticamente columnas nuevas basadas en el objeto JSON en la solicitud de inserción o actualización. Para obtener más información, consulte [Esquema dinámico](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
 
-
-
-
-<!--HONumber=54-->
+<!---HONumber=Oct15_HO3-->

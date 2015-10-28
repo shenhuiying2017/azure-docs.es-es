@@ -4,7 +4,7 @@
 
    ![](./media/app-service-mobile-adal-register-app/app-service-navigate-aad.png)
 
-3. Seleccione el directorio y, a continuación, seleccione la pestaña  **Aplicaciones** en la parte superior. Haga clic en **AGREGAR** en la parte inferior para crear un nuevo registro de aplicación. 
+3. Seleccione el directorio y, a continuación, seleccione la pestaña **Aplicaciones** en la parte superior. Haga clic en **AGREGAR** en la parte inferior para crear un nuevo registro de aplicación. 
 
 4. Haga clic en **Agregar una aplicación que mi organización está desarrollando**.
 
@@ -22,9 +22,9 @@
 
    ![](./media/app-service-mobile-adal-register-app/aad-native-client-add-permissions.png)
 
-La aplicación ya está configurada en AAD para que los usuarios puedan iniciar sesión con el inicio de sesión único de AAD.
+La aplicación ya está configurada en AAD para que los usuarios puedan iniciar sesión con el inicio de sesión de AAD.
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Configuración de aplicaciones móviles con Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
 
-<!--HONumber=54-->
+<!---HONumber=Oct15_HO3-->

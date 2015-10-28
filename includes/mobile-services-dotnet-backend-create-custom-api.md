@@ -52,6 +52,6 @@
             }
         }
 
-	> [AZURE.NOTE]Con los permisos predeterminados, cualquier usuario con la clave de la aplicación puede llamar a la API personalizada. Sin embargo, la clave de aplicación no se considera una credencial segura porque no se puede distribuir o almacenar de manera segura. Considere la posibilidad de restringir el acceso únicamente a usuarios autenticados para mayor seguridad.
+	> [AZURE.TIP]Con los permisos predeterminados, cualquier usuario con la clave de la aplicación puede llamar a la API personalizada. Sin embargo, la clave de aplicación no se considera una credencial segura porque no se puede distribuir o almacenar de manera segura. Considere la posibilidad de restringir el acceso únicamente a usuarios autenticados para mayor seguridad.
 
-<!--HONumber=54-->
+<!---HONumber=Oct15_HO3-->

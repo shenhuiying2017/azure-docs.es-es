@@ -1,5 +1,5 @@
 <!---
-Don't use this file. It's deprecated and will be removed. Instead use, virtual-machines-Linux-tutorial-log-on-attach-disk.md
+Don't use this file. It's deprecated and will be removed. Instead use, virtual-machines-linux-tutorial-log-on-attach-disk.md
 -->
 
 ## <a id="logon"> </a>Inicio de sesión en una máquina virtual después de su creación ##
@@ -159,8 +159,6 @@ El disco de datos que acaba de adjuntar a la máquina virtual permanecerá desco
 	Si el segundo comando genera un error, compruebe la sintaxis correcta del archivo /etc/fstab.
 
 
-	>[AZURE.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, then most distributions provide either the `nofail` and/or `nobootwait` fstab options that will allow a system to boot even if the disk is not present. Please consult your distribution's documentation for more information on these parameters.
+	>[AZURE.NOTE]Posteriormente, la eliminación de un disco de datos sin editar fstab podría provocar un error en el inicio de la máquina virtual. Si ocurre habitualmente, la mayoría de las distribuciones proporcionan las opciones de fstab `nofail` o `nobootwait` que permitirán que el sistema se inicie, incluso si el disco no está presente. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
 
-
-
-<!--HONumber=52-->
+<!---HONumber=August15_HO6-->

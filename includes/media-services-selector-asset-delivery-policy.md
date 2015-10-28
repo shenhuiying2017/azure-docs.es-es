@@ -1,5 +1,6 @@
 > [AZURE.SELECTOR]
-- [.NET SDK](../articles/media-services-dotnet-configure-asset-delivery-policy.md)
-- [REST API](../articles/media-services-rest-configure-asset-delivery-policy.md)
+- [.NET](../articles/media-services/media-services-dotnet-configure-asset-delivery-policy.md)
+- [REST API](../articles/media-services/media-services-rest-configure-asset-delivery-policy.md)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
-<!--HONumber=52-->
+<!---HONumber=Oct15_HO3-->

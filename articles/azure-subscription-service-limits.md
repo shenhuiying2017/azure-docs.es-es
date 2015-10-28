@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure" 
+<properties
+	pageTitle="Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure"
 	description="Proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Esto incluye información acerca de cómo aumentar los límites junto con los valores máximos."
-	services="" 
-	documentationCenter="" 
-	authors="rothja" 
-	manager="jeffreyg" 
-	editor="mollybos"/>
+	services=""
+	documentationCenter=""
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/29/2015"
 	ms.author="jroth"/>
 
 # Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
@@ -22,313 +22,241 @@
 
 En este documento se especifican algunos de los límites más comunes de Microsoft Azure. Tenga en cuenta que actualmente esto no cubre todos los servicios de Azure. Con el tiempo, estos límites se expandirán y actualizarán para abarcar más de la plataforma.
 
-> [AZURE.NOTE] Si desea aumentar el límite por encima del **Límite predeterminado**, puede [abrir una solicitud de servicio al cliente en línea sin cargo alguno][azurelimitsblogpost]. Los límites no se pueden subir por encima del valor de **Límite máximo** que figura en las tablas siguientes. Si la columna **Límite máximo** no existe, el recurso especificado no tiene límites ajustables.
+> [AZURE.NOTE]Si desea aumentar el límite por encima del **Límite predeterminado**, [abra una solicitud de servicio al cliente en línea sin cargo alguno](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Los límites no se pueden subir por encima del valor de **Límite máximo** que figura en las tablas siguientes. Si la columna **Límite máximo** no existe, el recurso especificado no tiene límites ajustables.
 
-## Límites de suscripción
+## Límites y Administrador de recursos de Azure
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Recurso</th>
-   <th align="left" valign="middle">Límite predeterminado</th>
-   <th align="left" valign="middle">Límite máximo</th>
-</tr>
-<tr>
-   <td valign="middle"><p>Núcleos por <a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">suscripción</a><sup>1</sup></p></td>
-   <td valign="middle"><p>20</p></td>
-   <td valign="middle"><p>10.000</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/gg456328.aspx">Coadministradores</a> por suscripción</p></td>
-   <td valign="middle"><p>200</p></td>
-   <td valign="middle"><p>200</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/storage-create-storage-account/">Cuentas de almacenamiento</a> por suscripción</p></td>
-   <td valign="middle"><p>100</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Servicios en la nube</a> por suscripción</p></td>
-   <td valign="middle"><p>20</p></td>
-   <td valign="middle"><p>200</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Redes virtuales</a> por suscripción<sup>2</sup></p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/jj157100.aspx">Redes locales</a> por suscripción</p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Servidores de base de datos SQL por suscripción</p></td>
-   <td valign="middle"><p>6</p></td>
-   <td valign="middle"><p>150</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Bases de datos SQL por servidor</p></td>
-   <td valign="middle"><p>150</p></td>
-   <td valign="middle"><p>500</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Servidores DNS por suscripción</p></td>
-   <td valign="middle"><p>9</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Direcciones IP reservadas por suscripción</p></td>
-   <td valign="middle"><p>5</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Certificados de servicio hospedados por suscripción</p></td>
-   <td valign="middle"><p>400</p></td>
-   <td valign="middle"><p>400</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156085.aspx">Grupos de afinidad</a> por suscripción</p></td>
-   <td valign="middle"><p>256</p></td>
-   <td valign="middle"><p>256</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/">Grupos de recursos</a> por suscripción</p></td>
-   <td valign="middle"><p>300</p></td>
-   <td valign="middle"><p>300</p></td>
-</tr>
+Ahora es posible combinar varios recursos de Azure en un único grupo de recursos de Azure. Al utilizar grupos de recursos, los límites que una vez fueron globales se convierten en administrados a nivel regional con el Administrador de recursos de Azure. Para obtener más información sobre los grupos de recursos de Azure, consulte [Uso de grupos de recursos para administrar los recursos de Azure](resource-group-portal.md).
 
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/services/batch/">Cuentas de vista previa de lotes</a> por región y por suscripción</p></td>
-   <td valign="middle"><p>1</p></td>
-   <td valign="middle"><p>50</p></td>   
-</tr>
-</table>
+En los límites siguientes, se ha agregado una nueva tabla para reflejar las diferencias en los límites cuando se usa el Administrador de recursos de Azure. Por ejemplo, hay una tabla de **Límites de suscripción** y una tabla de **Límites de suscripción - Administrador de recursos de Azure**. Cuando un límite se aplica a ambos escenarios, solo se muestra en la primera tabla. A menos que se indique lo contrario, los límites son globales en todas las regiones.
 
-<sup>1</sup>Recuento de instancias extrapequeñas como un núcleo hacia el límite de núcleos a pesar de utilizar un núcleo parcial.
+> [AZURE.NOTE] Es importante destacar que las cuotas de los recursos de los grupos de recursos de Azure son accesibles para su suscripción en función de la región y no en función de la suscripción, como las cuotas de administración de servicios. Usemos las cuotas de núcleo como ejemplo. Si necesita solicitar un aumento de cuota con compatibilidad para núcleos, deberá decidir el número de núcleos que desea usar en las distintas regiones y, a continuación, realizar una solicitud específica para las cuotas principales del grupo de recursos de Azure para las cantidades y regiones que desee. Por lo tanto, si necesita usar 30 núcleos en Europa Occidental para ejecutar la aplicación, deberá solicitar específicamente 30 núcleos en Europa Occidental. Pero no tendrá un aumento de la cuota de núcleos en ninguna otra región: solo Europa Occidental tendrá la cuota de 30 núcleos.
+<!-- -->
+Como resultado, puede que le resulte útil considerar el decidir cuáles deben ser sus cuotas de grupos de recursos de Azure para su carga de trabajo en cada región, y solicitar esa cantidad en cada región en la que está considerando efectuar la implementación. Consulte [solucionar problemas de implementación](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues) para obtener más ayuda para descubrir las cuotas actuales para regiones específicas.
 
-<sup>2</sup>Cada red virtual admite una sola puerta de enlace de red virtual.
+## Límites específicos del servicio
 
-## Límites de servicios en la nube
+- [Active Directory](#active-directory-limits)
+- [Administración de API](#api-management-limits)
+- [Servicio de aplicaciones](#app-service-limits)
+- [Application Insights](#application-insights-limits)
+- [Caché en Redis de Azure](#azure-redis-cache-limits)
+- [Azure RemoteApp](#azure-remoteapp-limits)
+- [Copia de seguridad](#backup-limits)
+- [Lote](#batch-limits)
+- [Servicios de BizTalk](#biztalk-services-limits)
+- [SERVICIO CDN](#cdn-limits)
+- [Servicios en la nube](#cloud-services-limits)
+- [Factoría de datos](#data-factory-limits)
+- [DNS](#dns-limits)
+- [DocumentDB](#documentdb-limits)
+- [Almacén de claves](#key-vault-limits)
+- [Servicios multimedia](#media-services-limits)
+- [Mobile Engagement](#mobile-engagement-limits)
+- [Servicios móviles](#mobile-services-limits)
+- [Multi-Factor Authentication](#multi-factor-authentication)
+- [Redes](#networking-limits)
+- [Servicio Centro de notificaciones](#notification-hub-service-limits)
+- [Visión operativa](#operational-insights-limits)
+- [Grupo de recursos](#resource-group-limits)
+- [Programador](#scheduler-limits)
+- [Search](#search-limits)
+- [Bus de servicio](#service-bus-limits)
+- [Recuperación de sitios](#site-recovery-limits)
+- [Base de datos SQL](#sql-database-limits)
+- [Almacenamiento](#storage-limits)
+- [Sistema de StorSimple](#storsimple-system-limits)
+- [Análisis de transmisiones](#stream-analytics-limits)
+- [Suscripción](#subscription-limits)
+- [Administrador de tráfico](#traffic-manager-limits)
+- [Máquinas virtuales](#virtual-machines-limits)
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Recurso</th>
-   <th align="left" valign="middle">Límite predeterminado</th>
-   <th align="left" valign="middle">Límite máximo</th>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Roles web y de trabajo por implementación<sup>1</sup></a></p></td>
-   <td valign="middle"><p>25</p></td>
-   <td valign="middle"><p>25</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint">Extremos de entrada de instancia</a> por implementación</p></td>
-   <td valign="middle"><p>25</p></td>
-   <td valign="middle"><p>25</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint">Extremos de entrada</a> por implementación</p></td>
-   <td valign="middle"><p>25</p></td>
-   <td valign="middle"><p>25</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint">Extremos internos</a> por implementación</p></td>
-   <td valign="middle"><p>25</p></td>
-   <td valign="middle"><p>25</p></td>
-</tr>
-</table>
 
-<sup>1</sup>Cada servicio en la nube con roles web y de trabajo puede tener dos implementaciones, una para producción y otra para ensayo. Tenga en cuenta también que este límite hace referencia al número de roles (configuración) y no al número de instancias por rol (escalado). 
+### Límites de suscripción
+#### Límites de suscripción
+[AZURE.INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
-## Límites de máquinas virtuales
+#### Límites de suscripción - Administrador de recursos de Azure
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Recurso</th>
-   <th align="left" valign="middle">Límite predeterminado</th>
-   <th align="left" valign="middle">Límite máximo</th>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/services/virtual-machines/">Máquinas virtuales</a> por servicio en la nube<sup>1</sup></p></td>
-   <td valign="middle"><p>50</p></td>
-   <td valign="middle"><p>50</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Extremos de entrada por servicio en la nube<sup>2</sup></p></td>
-   <td valign="middle"><p>150</p></td>
-   <td valign="middle"><p>150</p></td>
-</tr>
-</table>
+Los límites siguientes se aplican al usar el Administrador de recursos de Azure y los grupos de recursos de Azure. Los límites que no han cambiado con el Administrador de recursos de Azure no se enumeran a continuación. Consulte la tabla anterior para obtener información acerca de esos límites.
 
-<sup>1</sup>Cuando crea una máquina virtual, se crea automáticamente un servicio en la nube para dar cabida a esa máquina. Después puede agregar varias máquinas virtuales en ese mismo servicio en la nube.
+[AZURE.INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-<sup>2</sup>Los extremos de entrada se usan para permitir la comunicación con las máquinas virtuales externas al servicio en la nube contenedor. Las máquinas virtuales dentro del mismo servicio en la nube permiten la comunicación automáticamente entre todos los puertos UDP y TCP para comunicación interna.
 
-## Límites de Sitios web
+### Límites de Grupos de recursos
+
+[AZURE.INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
+
+
+### Límites de máquinas virtuales
+#### Límites de máquinas virtuales
+[AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
+
+
+#### Límites de máquinas virtuales - Administrador de recursos de Azure
+
+Los límites siguientes se aplican al usar el Administrador de recursos de Azure y los grupos de recursos de Azure. Los límites que no han cambiado con el Administrador de recursos de Azure no se enumeran a continuación. Consulte la tabla anterior para obtener información acerca de esos límites.
+
+[AZURE.INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
+
+
+### Límites de red
+
+[AZURE.INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
+
+#### Límites de red
+[AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
+
+#### Límites del Administrador de tráfico
+
+[AZURE.INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
+
+#### Límites de DNS
+
+[AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
+
+### Límites de almacenamiento
+
+#### Límites de almacenamiento estándar
+
+[AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+
+Para obtener más información sobre los límites de la cuenta de almacenamiento, vea [Objetivos de escalabilidad y rendimiento de Almacenamiento de Azure](../articles/storage/storage-scalability-targets.md).
+
+
+#### Límites de Almacenamiento premium
+
+[AZURE.INCLUDE [azure-storage-limits-premium-storage](../includes/azure-storage-limits-premium-storage.md)]
+
+
+#### Límites de almacenamiento - Administrador de recursos de Azure
+
+[AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
+
+
+### Límites de Servicios en la nube
+
+[AZURE.INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
+
+
+### Límites del servicio de RemoteApp
+Entre los siguientes límites del Servicio de aplicaciones se incluyen límites para aplicaciones web, aplicaciones móviles, aplicaciones de la API y aplicaciones lógicas.
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
-## Límites de red
+### Límites de Programador
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Recurso</th>
-   <th align="left" valign="middle">Límite predeterminado</th>
-   <th align="left" valign="middle">Límite máximo</th>
-</tr>
-<tr>
-   <td valign="middle"><p>Total de máquinas<sup>1</sup> por <a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">red virtual</a><sup>2</sup></p></td>
-   <td valign="middle"><p>2048</p></td>
-   <td valign="middle"><p>2048</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Conexiones TCP concurrentes para una máquina virtual o instancia de rol</p></td>
-   <td valign="middle"><p>500K</p></td>
-   <td valign="middle"><p>500K</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Listas de control de acceso (ACL) por extremo<sup>3</sup></p></td>
-   <td valign="middle"><p>50</p></td>
-   <td valign="middle"><p>50</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Sitios de red local por red virtual</p></td>
-   <td valign="middle"><p>de</p></td>
-   <td valign="middle"><p>10</p></td>
-</tr>
-</table>
+[AZURE.INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
-<sup>1</sup>El número total de máquinas incluye las máquinas virtuales y las instancias de rol de trabajo y web.
-
-<sup>2</sup>Cada red virtual admite una sola [puerta de enlace][de red virtual].
-
-<sup>3</sup>ACL se admite en extremos de entrada para máquinas virtuales. Para roles de trabajo y web, se admite en extremos de entrada y de entrada de instancia.
-
-## Límites de almacenamiento
-
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Recurso<sup>1</sup></th>
-   <th align="left" valign="middle">Límite predeterminado</th>
-</tr>
-<tr>
-   <td valign="middle"><p>TB por cuenta de almacenamiento</p></td>
-   <td valign="middle"><p>500 TB</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Tamaño máximo de un contenedor de blobs, una tabla o una cola</p></td>
-   <td valign="middle"><p>500 TB</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Número máximo de contenedores de blobs, blobs, recursos compartidos de archivos, tablas, colas, entidades o mensajes por cuenta de almacenamiento</p></td>
-   <td valign="middle"><p>El único límite es los 500 TB de capacidad de la cuenta de almacenamiento</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Tamaño máximo de un recurso compartido de archivos</p></td>
-   <td valign="middle"><p>5 TB</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Número máximo de archivos en un recurso compartido de archivos</p></td>
-   <td valign="middle"><p>El único límite es la capacidad total de 5 TB del recurso compartido de archivos</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Máximo de 8 KB IOPS por disco persistente (nivel Básico)</p></td>
-   <td valign="middle"><p>300<sup>2</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Máximo de 8 KB IOPS por disco persistente (nivel Estándar)</p></td>
-   <td valign="middle"><p>500<sup>2</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Velocidad de solicitudes (suponiendo un tamaño de objeto de 1 KB) por cuenta de almacenamiento</p></td>
-   <td valign="middle"><p>Hasta 20.000 entidades o mensajes por segundo</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Rendimiento de un blob</p></td>
-   <td valign="middle"><p>Hasta 60 MB por segundo o hasta 500 solicitudes por segundo</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Rendimiento de una cola (mensajes de 1 KB)</p></td>
-   <td valign="middle"><p>Hasta 2000 mensajes por segundo</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Rendimiento de una partición de tabla (entidades de 1 KB)</p></td>
-   <td valign="middle"><p>Hasta 2000 entidades por segundo</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Entrada máxima por cuenta de almacenamiento (regiones de EE. UU.)</p></td>
-   <td valign="middle"><p>10 GB/s si GRS<sup>3</sup> habilitado, 20 GB/s para LRS</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Salida máxima por cuenta de almacenamiento (regiones de EE. UU.)</p></td>
-   <td valign="middle"><p>20 GB/s si GRS<sup>3</sup> habilitado, 30 GB/s para LRS</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Entrada máxima por cuenta de almacenamiento (regiones de Europa y Asia)</p></td>
-   <td valign="middle"><p>5 GB/s si GRS<sup>3</sup> habilitado, 10 GB/s para LRS</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Salida máxima por cuenta de almacenamiento (regiones de Europa y Asia)</p></td>
-   <td valign="middle"><p>10 GB/s si GRS<sup>3</sup> habilitado, 15 GB/s para LRS</p></td>
-</tr>
-</table>
-
-<sup>1</sup>Para obtener más información sobre estos límites, consulte [Objetivos de escalabilidad y rendimiento del Almacenamiento de Azure][storagelimits]. 
-
-<sup>2</sup>Para máquinas virtuales del nivel Básico, no ponga más de 66 VHD de uso intensivo en una cuenta de almacenamiento para evitar el límite de velocidad de solicitudes de 20.000 (20.000/300). Para máquinas virtuales del nivel Estándar, no ponga más de 40 VHD de uso intensivo en una cuenta de almacenamiento (20.000/500). Para obtener más información, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure][vmsizes]. 
-
-<sup>3</sup>GRS es [Almacenamiento con redundancia geográfica][georedundantstorage]. LRS es [Almacenamiento con redundancia local][locallyredundantstorage]. Tenga en cuenta que GRS incluye también redundancia local.
-
-## Límites de la vista previa de lote
+### Límites de lote
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-## Límites de DocumentDB (vista previa)
+###Límites de los servicios de BizTalk:
+La tabla siguiente muestra los límites de los servicios de Biztalk de Azure.
+
+[AZURE.INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
+
+
+### Límites de DocumentDB
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
-## Límites de Base de datos SQL
 
-Para los límites de Base de datos SQL, vea los temas siguientes:
+### Límites de Mobile Engagement
 
- - [Niveles de servicio de base de datos SQL de Azure (ediciones)][sqltiers]
- - [Niveles de servicio y niveles de rendimiento de la Base de datos SQL de Azure][sqltiersperflevels]
- - [Cuotas de unidades de rendimiento de base de datos (DTU)][sqlDTU]
- - [Límites de recursos de base de datos de SQL][sqldblimits]
+[AZURE.INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
-## Límites de Servicios multimedia
+
+### Límites de búsqueda
+
+[AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
+
+Para obtener más detalles sobre los límites de Búsqueda de Azure, vea [Límites y restricciones](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+
+### Límites de Servicios multimedia
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
-## Límites de Bus de servicio
+### Límites de red CDN
 
-[AZURE.INCLUDE [azure-servicebus-limits](../includes/azure-servicebus-limits.md)]
+[AZURE.INCLUDE [cdn-limits](../includes/cdn-limits.md)]
 
-## Límites de Active Directory
+### Límites de Servicios móviles
 
-Para Azure Active Directory (AD), consulte el tema siguiente:
+[AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
- - [Restricciones y límites del servicio Azure Active Directory][adlimitsandrestrictions]
+### Límites del servicio Centro de notificaciones
+
+[AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
+
+
+### Límites de Bus de servicio
+
+[AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
+
+### Límites de Factoría de datos
+
+[AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
+
+
+### Límites de Análisis de transmisiones
+
+[AZURE.INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
+
+### Límites de Active Directory
+
+[AZURE.INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
+
+
+### Límites de Azure RemoteApp
+
+[AZURE.INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
+
+### Límites del sistema de StorSimple
+
+[AZURE.INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
+
+
+### Límites de Visión operativa
+
+[AZURE.INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
+
+### Límites de Copia de seguridad
+
+[AZURE.INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
+
+### Límites de Site Recovery
+
+[AZURE.INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
+
+### Límites de Application Insights
+
+[AZURE.INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
+
+### Límites de Administración de API
+
+[AZURE.INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
+
+### Límites de Caché en Redis de Azure
+
+[AZURE.INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
+
+### Límites del Almacén de claves
+
+[AZURE.INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
+
+### Multi-Factor Authentication
+[AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
+
+### Límites de Base de datos SQL
+
+Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Base de datos SQL](sql-database/sql-database-resource-limits.md).
 
 ## Otras referencias
 
-[Concepto de límites de Azure y aumento de los mismos][azurelimitsblogpost]
+[Concepto de límites de Azure y aumento de los mismos](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Tamaños de máquinas virtuales y servicios en la nube de Azure][vmsizes]
+[Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-[customersupportfaq]: http://azure.microsoft.com/support/faq/
-[azurelimitsblogpost]: http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-[de red virtual]: http://msdn.microsoft.com/library/azure/jj156210.aspx 
-[storagelimits]: http://msdn.microsoft.com/library/azure/dn249410.aspx
-[georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
-[sqldblimits]: http://msdn.microsoft.com/library/azure/dn338081.aspx
-[sqltiers]: http://msdn.microsoft.com/library/azure/dn741340.aspx
-[sqltiersperflevels]: http://msdn.microsoft.com/library/azure/dn741336.aspx
-[sqlDTU]: http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs
-[vmsizes]: http://msdn.microsoft.com/library/azure/dn197896.aspx
-[georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
-  [locallyredundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx
-  [adlimitsandrestrictions]: http://msdn.microsoft.com/library/azure/dn764971.aspx
-
-<!--HONumber=47-->
+<!---HONumber=Oct15_HO3-->

@@ -1,11 +1,9 @@
 
-A continuación, debe cambiar la manera en que se registran las notificaciones de inserción para asegurarse de que el usuario se autentique antes de que se intente el registro. Las actualizaciones de la aplicación cliente dependen de la forma en que haya implementado las notificaciones de inserción.
+A continuación, debe cambiar la manera en que se registran las notificaciones de inserción para asegurarse de que el usuario se autentique antes de que se intente el registro. Las actualizaciones de la aplicación cliente dependen de la forma en que haya implementado las notificaciones push.
 
-###Utilización del Asistente de notificaciones de inserción en Visual Studio 2013 Update 2 o una versión posterior.
+###Utilización del Asistente de notificaciones push en Visual Studio 2013 Update 2 o una versión posterior.
 
 En este método, el asistente generó nuevos archivos push.register.cs y service.js en su proyecto.
-
->[AZURE.NOTE] El asistente para agregar notificaciones de inserción actualmente solo se admite en un servicio móvil de backend de .NET.
 
 1. En el Explorador de soluciones de Visual Studio, abra el archivo de proyecto push.register.js y convierta en comentario o elimine la llamada a **addEventListener**. 
 
@@ -37,7 +35,7 @@ En este método, el asistente generó nuevos archivos push.register.cs y service
 		    });
 		}  
 
-###Notificaciones de inserción activadas manualmente		
+###Notificaciones push activadas manualmente		
 
 En este método, agregó un código de registro desde el tutorial directamente en el archivo de proyecto default.js.
 
@@ -80,4 +78,4 @@ En este método, agregó un código de registro desde el tutorial directamente e
 		    });
 		}  
 
-<!--HONumber=42-->
+<!---HONumber=Oct15_HO3-->

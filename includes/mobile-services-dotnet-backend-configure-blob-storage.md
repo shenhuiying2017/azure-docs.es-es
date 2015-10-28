@@ -1,5 +1,5 @@
 
-##<a name="storage-client-server"></a>Instalación del cliente de almacenamiento en el proyecto de servicio móvil
+##Instalación del cliente de almacenamiento en el proyecto de servicio móvil
 
 Para poder generar una SAS para cargar imágenes en el almacenamiento de blobs, primero debe agregar el paquete de NuGet que instala la biblioteca de clientes de almacenamiento en el proyecto de servicio móvil.
 
@@ -11,7 +11,7 @@ Para poder generar una SAS para cargar imágenes en el almacenamiento de blobs, 
 
   	Con esto se agrega la biblioteca de clientes para servicios de almacenamiento de Azure al proyecto de servicio móvil.
 
-##<a name="update-data-model"></a>Actualización de la definición de TodoItem en el modelo de datos
+##Actualización de la definición de TodoItem en el modelo de datos
 
 La clase TodoItem define el objeto de datos, y tiene que agregar las mismas propiedades a esta clase que las que añadió al cliente.
 
@@ -28,7 +28,7 @@ La clase TodoItem define el objeto de datos, y tiene que agregar las mismas prop
 
 	>[AZURE.NOTE]Al usar el inicializador de base de datos predeterminado, Entity Framework eliminará la base de datos y la volverá a crear cuando detecte un cambio del modelo de datos en la definición de Code First. Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe usar Migraciones de Code First. El inicializador predeterminado no se puede usar con una base de datos SQL en Azure. Para obtener más información, vea [Uso de Migraciones de Code First para actualizar el modelo de datos](../articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
-##<a name="update-scripts"></a>Actualización del controlador TodoItem para generar una firma de acceso compartido 
+##Actualización del controlador TodoItem para generar una firma de acceso compartido 
 
 El elemento **TodoItemController** existente se actualiza de manera que el método **PostTodoItem** genera una SAS cuando se inserta un nuevo TodoItem. También puede
 
@@ -127,20 +127,9 @@ A continuación, actualizará la aplicación de inicio rápido para agregar la f
 <!-- Anchors. -->
 
 <!-- Images. -->
-[0]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
-[1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png
-
-[3]: ./media/mobile-services-configure-blob-storage/mobile-portal-data-tables.png
-[4]: ./media/mobile-services-configure-blob-storage/mobile-insert-script-blob.png
-
-
-
-
-
-[10]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
 
 <!-- URLs. -->
-[Creación de una cuenta de almacenamiento]: /manage/services/storage/how-to-create-a-storage-account
+[Creación de una cuenta de almacenamiento]: ../articles/storage/storage-create-storage-account.md
 [Configuración de aplicación]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=54-->
+<!---HONumber=Oct15_HO3-->

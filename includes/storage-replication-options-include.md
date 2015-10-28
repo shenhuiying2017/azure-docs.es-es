@@ -1,23 +1,29 @@
-Los datos de la cuenta de almacenamiento se replican para garantizar la durabilidad y una alta disponibilidad y deben cumplir los [contratos de nivel de servicio para Almacenamiento de Azure](http://azure.microsoft.com/support/legal/sla/), incluso en caso de errores transitorios del hardware. Almacenamiento de Azure se implementó en 15 regiones de todo el mundo e incluye también soporte para la replicación de datos entre regiones. Tiene diversas opciones para replicar los datos en la cuenta de almacenamiento:
+Los datos de la cuenta de almacenamiento de Microsoft Azure siempre se replican para garantizar la durabilidad y la alta disponibilidad, y cumplen el [contrato de nivel de servicio de Almacenamiento de Azure](http://azure.microsoft.com/support/legal/sla/) incluso en caso de errores de hardware transitorios. Cuando cree una cuenta de almacenamiento, debe seleccionar una de las siguientes opciones de replicación:
 
-- El *almacenamiento con redundancia local (LRS)* mantiene tres copias de sus datos. LRS se replica tres veces dentro de una única instalación de una sola región. LRS protege los datos frente a errores comunes del hardware, pero no frente a errores de una única instalación.
+- **Almacenamiento con redundancia local (LRS).** El almacenamiento con redundancia local mantiene tres copias de sus datos. LRS se replica tres veces dentro de una única instalación de una sola región. LRS protege los datos frente a errores comunes del hardware, pero no frente a errores de una única instalación.  
+  
+	LRS se ofrece con un descuento. Para la máxima durabilidad, es recomendable utilizar el almacenamiento con redundancia geográfica, que se describe a continuación.
 
-	LRS se ofrece con un descuento. Para la máxima durabilidad, es recomendable usar el almacenamiento con redundancia geográfica, que se describe a continuación.
 
-- El *Almacenamiento con redundancia de zona (ZRS)* mantiene tres copias de los datos. ZRS se replica tres veces entre dos o tres instalaciones, ya sea dentro de una sola región o entre dos regiones, proporcionando mayor durabilidad que LRS. ZRS garantiza la durabilidad de sus datos dentro de una sola región.
- 
+- **Almacenamiento con redundancia de zona (ZRS).** El almacenamiento con redundancia de zona mantiene tres copias de los datos. ZRS se replica tres veces entre dos o tres instalaciones, ya sea dentro de una sola región o entre dos regiones, proporcionando mayor durabilidad que LRS. ZRS garantiza la durabilidad de sus datos dentro de una sola región.
+
 	ZRS ofrece un mayor nivel de durabilidad que LRS; sin embargo, para disfrutar de la máxima durabilidad, es recomendable usar el almacenamiento con redundancia geográfica, que se describe a continuación.
 
-	> [AZURE.NOTE]ZRS solo está disponible actualmente para blobs en bloques. Tenga en cuenta que una vez que haya creado la cuenta de almacenamiento y haya seleccionado la replicación con redundancia de zona, no podrá convertirla para usar cualquier otro tipo de aplicación (o viceversa).
+	> [AZURE.NOTE]Actualmente, el ZRS solo está disponible para los blobs en bloques y únicamente se admite en las versiones del 14/02/2014 y posteriores.
+	> 
+	> Una vez haya creado su cuenta de almacenamiento y seleccionado el ZRS, no es posible convertirla para usar ningún otro tipo de replicación o viceversa.
 
-- El *almacenamiento con redundancia geográfica (GRS)* está habilitado para su cuenta de almacenamiento de manera predeterminada cuando la crea. GRS mantiene seis copias de sus datos. Con GRS, sus datos se replican tres veces dentro de la región primaria, y se replican también tres veces en una región secundaria a cientos de kilómetros de distancia de la región primaria, proporcionando el nivel más alto de durabilidad. En caso de que se produzca un error en la región primaria, Almacenamiento de Azure conmutará por error a la región secundaria. GRS garantiza la durabilidad de sus datos en dos regiones independientes.
+- **Almacenamiento con redundancia geográfica (GRS)**. El almacenamiento con redundancia geográfica está habilitado para su cuenta de almacenamiento de manera predeterminada cuando la crea. GRS mantiene seis copias de sus datos. Con GRS, sus datos se replican tres veces dentro de la región primaria, y se replican también tres veces en una región secundaria a cientos de kilómetros de distancia de la región primaria, proporcionando el nivel más alto de durabilidad. En caso de que se produzca un error en la región primaria, Almacenamiento de Azure conmutará por error a la región secundaria. GRS garantiza la durabilidad de sus datos en dos regiones independientes.
 
-	> [AZURE.NOTE]GRS se recomienda sobre ZRS o LRS para una máxima durabilidad.
 
-- El *almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)* ofrece todas las ventajas del almacenamiento con redundancia geográfica indicado anteriormente pero, además, permite el acceso de lectura a los datos de la región secundaria en caso de que la región primaria deje de estar disponible. Para una disponibilidad y durabilidad máximas se recomienda el almacenamiento con redundancia geográfica con acceso de lectura.
+- **Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)**. El almacenamiento con redundancia geográfica con acceso de lectura replica sus datos a una ubicación geográfica secundaria y, además, proporciona acceso de lectura a sus datos en la ubicación secundaria. El almacenamiento con redundancia geográfica con acceso de lectura le permite tener acceso a los datos desde la ubicación principal o la secundaria, ante la eventualidad de que alguna de las ubicaciones deje de estar disponible.
 
-Para obtener más detalles acerca de las opciones de replicación, consulte el [Blog del equipo de Almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/) y [Opciones de redundancia del Almacenamiento de Azure](storage-redundancy.md).
-	
-Las diferencias de precio entre las diversas opciones de replicación pueden encontrarse en la página de [Detalles de precios de Almacenamiento](http://azure.microsoft.com/pricing/details/storage/).
+	> [AZURE.IMPORTANT]Si no especificó ZRS cuando creó la cuenta, puede cambiar cómo se replican los datos después de haber creado su cuenta. Sin embargo, tenga en cuenta que cambiar de LRS a GRS o RA-GRS puede suponer un coste adicional único de transferencia de datos.
+ 
+Consulte [Replicación de Almacenamiento de Azure](../articles/storage/storage-redundancy.md) para obtener más información acerca de las opciones de replicación de almacenamiento.
 
-<!--HONumber=52-->
+Para obtener información de precios para la replicación de cuentas de almacenamiento, consulte [Detalles de precios de almacenamiento](http://azure.microsoft.com/pricing/details/storage/).
+
+Para obtener detalles de arquitectura sobre la durabilidad con Almacenamiento de Azure, consulte el [ Documento de SOSP de Almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
+
+<!---HONumber=Oct15_HO3-->

@@ -1,0 +1,3 @@
+> [AZURE.NOTE]Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../resource-manager-deployment-model.md). En este artículo se describe el uso del modelo de implementación de Administrador de recursos, que recomienda Microsoft para la mayoría de las nueva implementaciones en lugar del
+
+<!---HONumber=Oct15_HO3-->

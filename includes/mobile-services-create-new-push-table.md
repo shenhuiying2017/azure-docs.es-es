@@ -1,4 +1,4 @@
-﻿
+
 1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, en su aplicación.
 
 	![](./media/mobile-services-create-new-push-table/mobile-services-selection.png)
@@ -13,11 +13,11 @@
 
 	![](./media/mobile-services-create-new-push-table/mobile-create-registrations-table.png)
 
-  Esto crea la tabla **Registrations**, la cual almacena los URI de canal que se usan para enviar notificaciones de inserción.
+  Esto crea la tabla **Registros**, la cual almacena los URI de canal que se usan para enviar notificaciones push.
 
-Después, podrá modificar su aplicación para habilitar las notificaciones de inserción.
+Después, podrá modificar su aplicación para habilitar las notificaciones push.
 
 <!-- URLs -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=42-->
+<!---HONumber=Oct15_HO3-->

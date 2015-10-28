@@ -22,7 +22,7 @@ El código incluido se difunde tanto a los dispositivos de la Tienda Windows com
 
 ## Para enviar notificaciones mediante una aplicación de consola de C# ##
 
-Simplemente modificaremos su método  *SendNotificationAsync* enviando una sola notificación de plantilla.
+Simplemente modificaremos su método *SendNotificationAsync* mediante el envío de una sola notificación de plantilla.
 
 	var hub = NotificationHubClient.CreateClientFromConnectionString("<connection string>", "<hub name>");
     var notification = new Dictionary<string, string>() {
@@ -31,7 +31,7 @@ Simplemente modificaremos su método  *SendNotificationAsync* enviando una sola 
                             {"News_Mandarin", "World News in Mandarin!"}};
     await hub.SendTemplateNotificationAsync(notification, "World");
 
-Tenga en cuenta que esta simple llamada entregará la noticia localizada correcta a **todos** os dispositivos, con independencia de la plataforma, puesto que el Centro de notificaciones crea y entrega la carga nativa correcta a todos los dispositivos suscritos a una etiqueta específica.
+Tenga en cuenta que esta simple llamada entregará la noticia localizada correcta a **todos** los dispositivos, con independencia de la plataforma, puesto que el Centro de notificaciones crea y entrega la carga nativa correcta a todos los dispositivos suscritos a una etiqueta específica.
 
 ### Servicios móviles
 
@@ -52,4 +52,4 @@ En su programador de Servicios móviles, sobrescriba el script con:
 	
 Vea cómo en este caso no hay necesidad de enviar varias notificaciones para diferentes configuraciones regionales y plataformas.
 
-<!--HONumber=49-->
+<!---HONumber=Oct15_HO3-->

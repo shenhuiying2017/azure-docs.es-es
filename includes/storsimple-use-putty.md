@@ -1,21 +1,6 @@
-<properties 
-   pageTitle="Uso de PuTTY para conectarse a la consola serie del dispositivo"
-   description="Explica cómo utilizar el software de emulación de terminales PuTTY para conectarse al dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" /> 
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
-### Para conectarse a través de la consola serie
+#### Para conectarse a través de la consola serie
 
 1. Conecte el cable serie al dispositivo (directamente o a través de un adaptador USB-serie).
 
@@ -36,12 +21,13 @@
   - Paridad: ninguno
   - Control de flujo: ninguno
 
-     Esta configuración se muestra en la siguiente ilustración.
+    Esta configuración se muestra en la siguiente ilustración.
 
-     ![Configuración de PuTTY](./media/storsimple-use-putty/HCS_ConnectingViaPutty-include.png)
+     ![Configuración de PuTTY](./media/storsimple-use-putty/HCS_PuttyConfig-include.png)
 
     > [AZURE.NOTE]Si la opción de control de flujo predeterminado no funciona, pruebe a establecer el control de flujo en XON/XOFF.
 
 7. Haga clic en **Abrir** para iniciar una sesión en serie.
  
-<!--HONumber=52-->
+
+<!---HONumber=Oct15_HO3-->

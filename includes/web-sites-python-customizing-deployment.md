@@ -14,15 +14,15 @@ Puede controlar ciertos aspectos de los pasos de implementación predeterminados
 
 Si desea omitir todos los pasos de implementación específicos de Python, puede crear este archivo vacío:
 
-    .skipPythonDeployment
+    \.skipPythonDeployment
 
 Si desea omitir la recopilación de archivos estáticos de la aplicación Django:
 
-    .skipDjango 
+    \.skipDjango 
 
 Para obtener más control sobre la implementación, puede invalidar el script de implementación predeterminado mediante la creación de los archivos siguientes:
 
-    .deployment
+    \.deployment
     \deploy.cmd
 
 Puede utilizar la [interfaz de línea de comandos de Azure][] para crear los archivos. Use este comando desde la carpeta del proyecto:
@@ -33,4 +33,4 @@ Cuando estos archivos no existen, Azure crea un script de implementación tempor
 
 [interfaz de línea de comandos de Azure]: http://azure.microsoft.com/downloads/
 
-<!--HONumber=54-->
+<!---HONumber=Oct15_HO3-->

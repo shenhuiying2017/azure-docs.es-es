@@ -41,13 +41,13 @@ Si desea incluir todas las dependencias en la carpeta \\wheelhouse y no utilizar
 
 ### Personalizar la instalación
 
-Puede personalizar el script de implementación para instalar un paquete en el entorno virtual mediante un instalador alternativo, como easy_install. Consulte deploy.cmd para obtener un ejemplo comentado. Asegúrese de que estos paquetes no aparezcan en requirements.txt, para evitar que pip los instale.
+Puede personalizar el script de implementación para instalar un paquete en el entorno virtual mediante un instalador alternativo, como easy\_install. Consulte deploy.cmd para obtener un ejemplo comentado. Asegúrese de que estos paquetes no aparezcan en requirements.txt, para evitar que pip los instale.
 
 Agregue lo siguiente al script de implementación:
 
     env\scripts\easy_install somepackage
 
-También es posible que pueda utilizar easy_install para instalar desde un instalador exe (algunos son compatibles con zip, por lo que easy_install los admite). Agregue el instalador al repositorio e invoque easy_install pasando la ruta de acceso al archivo ejecutable.
+También es posible que pueda utilizar easy\_install para instalar desde un instalador exe (algunos son compatibles con zip, por lo que easy\_install los admite). Agregue el instalador al repositorio e invoque easy\_install pasando la ruta de acceso al archivo ejecutable.
 
 Agregue lo siguiente al script de implementación:
 
@@ -69,4 +69,4 @@ Se recomienda eliminar el entorno virtual existente en la aplicación para evita
 [compilador de Microsoft Visual C++ para Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
-<!--HONumber=54-->
+<!---HONumber=Oct15_HO3-->

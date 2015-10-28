@@ -65,11 +65,13 @@ En los pasos siguientes se agrega código para un método HTTP Get simple que de
 
 ## Habilitación de la IU de Swagger
 
-De forma predeterminada, los proyectos de aplicaciones de API se habilitan con la generación automática de metadatos [Swagger](http://swagger.io/ "Información oficial de Swagger"). Además, si ha usado la entrada de menú **Agregar SDK de aplicaciones de API** para convertir un proyecto de API web, también se habilita de forma predeterminada una página de prueba de API.
+De forma predeterminada, los proyectos de aplicaciones de API se habilitan con la generación automática de metadatos [Swagger](http://swagger.io/ "Información oficial de Swagger"); además, cuando se usa la entrada de menú **Agregar SDK de aplicaciones de API** para convertir un proyecto de API web, también se habilita de forma predeterminada una página de prueba de API.
 
 Sin embargo, la plantilla de proyecto nuevo de la aplicación de API de Azure deshabilita la página de prueba de la API. Si para crear el proyecto de aplicación de API ha usado la plantilla de proyecto Aplicación de API, debe realizar los pasos siguientes para habilitar la página de prueba.
 
-1. Abra el archivo *App_Start/SwaggerConfig.cs* y busque **EnableSwaggerUI**:
+**Nota:** si implementa la aplicación de API como *public anonymous* y con Swagger UI activado, cualquier persona podrá usar dicha Swagger UI para detectar las API y hacer llamadas a ellas.
+
+1. Abra el archivo *App\_Start/SwaggerConfig.cs* y busque **EnableSwaggerUI**:
 
 	![](./media/app-service-api-define-api-app/12-enable-swagger-ui-with-box.png)
 
@@ -87,12 +89,18 @@ Sin embargo, la plantilla de proyecto nuevo de la aplicación de API de Azure de
 
 Para ver la página de prueba de la API, realice los pasos siguientes.
 
-1. Ejecute la aplicación de forma local (CTRL+F5) y navegue a `/swagger`. 
+1. Ejecute la aplicación de forma local (CTRL+F5)
 
-	![](./media/app-service-api-define-api-app/14-swagger-ui.png)
+	El explorador se abre y muestra un error HTTP 403 porque la dirección URL base no es una página web o una URL de método de API válida para este proyecto.
+ 
+3.  Para ir a la página Swagger, agregue `/swagger` al final de la dirección URL base.
 
-2. Haga clic en el botón **Probarlo**. Verá que la API funciona y devuelve el resultado esperado.
+	![](./media/app-service-api-define-api-app/swaggerhome.png)
 
-	![](./media/app-service-api-define-api-app/15-swagger-ui-post-test.png)
+2. Haga clic en **Contacts (Contactos) > Get (Obtener) > Try it out (Probarlo)**. Verá que la API funciona y devuelve el resultado esperado.
 
-<!--HONumber=54-->
+	![](./media/app-service-api-define-api-app/swaggertry.png)
+
+3. En Visual Studio, haga clic en **Depurar > Detener depuración**.
+
+<!---HONumber=Oct15_HO3-->

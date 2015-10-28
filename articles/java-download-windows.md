@@ -1,11 +1,11 @@
-﻿<properties 
+<properties 
 	pageTitle="Descarga del SDK de Azure para Java (Windows)" 
-	description="Descargue el SDK de Azure para Java. Se proporciona código para Maven. Instale los pasos proporcionados para el complemento de Azure para Eclipse con Java." 
+	description="Descargue el SDK de Azure para Java. Se proporciona código para Maven. Instale los pasos que se proporcionan para el Kit de herramientas de Azure para Eclipse." 
 	services="" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="multiple" 
@@ -13,15 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="10/12/2015" 
 	ms.author="robmcm"/>
 
+#Descarga del SDK de Azure para Java
 
-[WACOM.INCLUDE [download_libraries](../includes/download_libraries.md)]
+[AZURE.INCLUDE [download\_libraries](../includes/download_libraries.md)]
 
+[AZURE.INCLUDE [download\_eclipse](../includes/download_eclipse.md)]
 
-[WACOM.INCLUDE [download_eclipse](../includes/download_eclipse.md)]
+## Pasos siguientes
 
-<!--HONumber=46--> 
+Para obtener más información, consulte el [Centro para desarrolladores de Java](/develop/java/).
 
-<!--HONumber=46--> 
+<!---HONumber=Oct15_HO3-->

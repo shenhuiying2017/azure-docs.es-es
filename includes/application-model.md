@@ -284,7 +284,7 @@ El archivo de definición de servicio (CSDEF) es también el lugar en el que se 
 
 El archivo de configuración de servicio (CSCFG) es un archivo XML que describe las opciones que se pueden cambiar sin tener que volver a implementar la aplicación. Puede encontrar el esquema completo para el archivo XML aquí: [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][]. El archivo CSCFG contiene un elemento Role para cada rol de la aplicación. Estos son algunos de los elementos que se pueden especificar en el archivo CSCFG:
 
--   **Versión de SO**. Este atributo permite seleccionar la versión del sistema operativo que se desea que se use en todas las instancias de rol que ejecutan un código de aplicación. Este SO se conoce como *SO invitado* y cada versión nueva incluye las revisiones de seguridad y actualizaciones más recientes disponibles en el momento en que publica el SO invitado. Si establece el valor del atributo osVersion en "*", Azure actualiza automáticamente el SO invitado en todas las instancias de rol cuando hay nuevas versiones del SO invitado disponibles. Sin embargo, puede cancelar las actualizaciones automáticas, para lo que debe seleccionar una versión concreta del SO invitado. Por ejemplo, si se establece el valor "WA-GUEST-OS-2.8_201109-01" en el atributo osVersion, todas las instancias de rol obtienen lo que se describe en esta página web: [http://msdn.microsoft.com/library/hh560567.aspx][]. Para obtener más información sobre las versiones del SOL invitado, consulte [Administrar las actualizaciones del SO invitado de Azure].
+-   **Versión de SO**. Este atributo permite seleccionar la versión del sistema operativo que se desea que se use en todas las instancias de rol que ejecutan un código de aplicación. Este SO se conoce como *SO invitado* y cada versión nueva incluye las revisiones de seguridad y actualizaciones más recientes disponibles en el momento en que publica el SO invitado. Si establece el valor del atributo osVersion en "*", Azure actualiza automáticamente el SO invitado en todas las instancias de rol cuando hay nuevas versiones del SO invitado disponibles. Sin embargo, puede cancelar las actualizaciones automáticas, para lo que debe seleccionar una versión concreta del SO invitado. Por ejemplo, si se establece el valor "WA-GUEST-OS-2.8\_201109-01" en el atributo osVersion, todas las instancias de rol obtienen lo que se describe en esta página web: [http://msdn.microsoft.com/library/hh560567.aspx][]. Para obtener más información sobre las versiones del SOL invitado, consulte [Administrar las actualizaciones del SO invitado de Azure].
 
 -   **Instancias**. El valor de este elemento indica el número de instancias de rol que desea que se aprovisionen ejecutando el código para un rol concreto. Dado que puede cargar un archivo CSCFG nuevo en Azure (sin tener que volver a implementar su aplicación), es muy sencillo cambiar el valor de este elemento y cargar un archivo CSCFG nuevo para aumentar o reducir dinámicamente el número de instancias de rol que ejecutan su código de aplicación. Esto le permite escalar verticalmente su aplicación para satisfacer las demandas reales de carga de trabajo, al mismo tiempo que controla cuánto le cuesta ejecutar las instancias de rol.
 
@@ -316,33 +316,34 @@ Para obtener más información acerca de cómo implementar, actualizar y volver 
 
 </div>
 
-[Beneficios del modelo de aplicación de Azure]: #benefits
-[Conceptos básicos de los servicios hospedados]: #concepts
-[Consideraciones acerca del diseño de servicios hospedados]: #considerations
-[Diseño de aplicaciones para escala]: #scale
-[Definición y configuración de servicios hospedados]: #defandcfg
-[El archivo de definición de servicio]: #def
-[El archivo de configuración de servicio]: #cfg
-[Creación e implementación de servicios hospedados]: #hostedservices
-[Referencias]: #references
-[0]: ./media/application-model/application-model-3.jpg
-[1]: ./media/application-model/application-model-4.jpg
-[2]: ./media/application-model/application-model-5.jpg
-[Configuración de un nombre de dominio personalizado en Azure]: http://www.windowsazure.com/develop/net/common-tasks/custom-dns/
-[Ofertas para el almacenamiento de datos en Azure]: http://www.windowsazure.com/develop/net/fundamentals/cloud-storage/
-[3]: ./media/application-model/application-model-6.jpg
-[4]: ./media/application-model/application-model-7.jpg
-[Precios de Azure]: http://www.windowsazure.com/pricing/calculator/
-[Managing Certificates in Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
-[http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
-[http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
-[Administrar las actualizaciones del SO invitado de Azure]: http://msdn.microsoft.com/library/ee924680.aspx
-[Portal de administración de Azure]: http://manage.windowsazure.com/
-[5]: ./media/application-model/application-model-8.jpg
-[Implementación y actualización de aplicaciones de Azure]: http://www.windowsazure.com/develop/net/fundamentals/deploying-applications/
-[Creación de un servicio hospedado para Azure]: http://msdn.microsoft.com/library/gg432967.aspx
-[Administración de servicios hospedados en Azure]: http://msdn.microsoft.com/library/gg433038.aspx
-[Migración de aplicaciones a Azure]: http://msdn.microsoft.com/library/gg186051.aspx
-[Configurar un proyecto de Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
+  [Beneficios del modelo de aplicación de Azure]: #benefits
+  [Conceptos básicos de los servicios hospedados]: #concepts
+  [Consideraciones acerca del diseño de servicios hospedados]: #considerations
+  [Diseño de aplicaciones para escala]: #scale
+  [Definición y configuración de servicios hospedados]: #defandcfg
+  [El archivo de definición de servicio]: #def
+  [El archivo de configuración de servicio]: #cfg
+  [Creación e implementación de servicios hospedados]: #hostedservices
+  [Referencias]: #references
+  [0]: ./media/application-model/application-model-3.jpg
+  [1]: ./media/application-model/application-model-4.jpg
+  [2]: ./media/application-model/application-model-5.jpg
+  [Configuración de un nombre de dominio personalizado en Azure]: http://www.windowsazure.com/develop/net/common-tasks/custom-dns/
+  [Ofertas para el almacenamiento de datos en Azure]: http://www.windowsazure.com/develop/net/fundamentals/cloud-storage/
+  [3]: ./media/application-model/application-model-6.jpg
+  [4]: ./media/application-model/application-model-7.jpg
+  
+  [Precios de Azure]: http://www.windowsazure.com/pricing/calculator/
+  [Managing Certificates in Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
+  [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+  [http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
+  [Managing Upgrades to the Azure Guests OS]: http://msdn.microsoft.com/library/ee924680.aspx
+  [Portal de administración de Azure]: http://manage.windowsazure.com/
+  [5]: ./media/application-model/application-model-8.jpg
+  [Implementación y actualización de aplicaciones de Azure]: http://www.windowsazure.com/develop/net/fundamentals/deploying-applications/
+  [Creación de un servicio hospedado para Azure]: http://msdn.microsoft.com/library/gg432967.aspx
+  [Administración de servicios hospedados en Azure]: http://msdn.microsoft.com/library/gg433038.aspx
+  [Migración de aplicaciones a Azure]: http://msdn.microsoft.com/library/gg186051.aspx
+  [Configurar un proyecto de Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
-<!--HONumber=52-->
+<!---HONumber=Oct15_HO3-->

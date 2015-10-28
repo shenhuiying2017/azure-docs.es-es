@@ -48,4 +48,5 @@
         GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
 
 Ahora la **ToDoActivity** estará preparada para agregar notificaciones de inserción.
-<!--HONumber=54-->
+
+<!---HONumber=Oct15_HO3-->

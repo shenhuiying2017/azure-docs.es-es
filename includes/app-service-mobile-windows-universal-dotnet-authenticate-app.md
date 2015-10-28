@@ -1,9 +1,5 @@
 
-1. Abra el archivo de proyecto compartido MainPage.cs y agregue la siguiente instrucción using:
-
-        using Windows.UI.Popups;
-
-2. Agregue el siguiente fragmento de código a la clase MainPage:
+1. Abra el archivo de proyecto compartido MainPage.cs y agregue el siguiente fragmento de código a la clase MainPage:
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -35,13 +31,11 @@
             }
         }
 
-    Este usuario se autentica con el inicio de sesión en Facebook. Si está usando un proveedor de identidades diferente al de Facebook, cambie el valor de **MobileServiceAuthenticationProvider** anterior por el valor de su proveedor.
+    Este código autentica al usuario con un inicio de sesión de Facebook. Si está usando un proveedor de identidades diferente al de Facebook, cambie el valor de **MobileServiceAuthenticationProvider** anterior por el valor de su proveedor.
 
 3. Elimine o convierta en comentario la llamada al método **RefreshTodoItems** en el reemplazo del método **OnNavigatedTo** existente.
 
-	Esto impide que los datos se carguen antes de que el usuario se haya autenticado.
-
-	>[AZURE.NOTE]Para autenticarse correctamente desde una aplicación de la Tienda Windows Phone 8.1, debe llamar a LoginAsync después de llamar al método **OnNavigated** y después de que el evento **Loaded** de la página se haya generado. En este tutorial, esto se hace agregando un botón **Iniciar sesión** a la aplicación.
+	Esto impide que los datos se carguen antes de que el usuario se haya autenticado. A continuación, agregará un botón **Iniciar sesión** a la aplicación que desencadena la autenticación.
 
 4. Agregue el siguiente fragmento de código a la clase MainPage:
 
@@ -60,13 +54,12 @@
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. Repita el paso anterior para el proyecto de aplicación de la Tienda de Windows Phone, pero esta vez agregue el **Botón** en el  **TitlePanel**, después del elemento **TextBlock**.
+6. En el proyecto de la aplicación de la Tienda de Windows Phone, agregue el siguiente elemento **Button** a **ContentPanel**, después del elemento **TextBlock**:
 
-7. Abra el archivo de proyecto compartido App.xaml.cs y agregue la siguiente instrucción using si no existe ya:
+        <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
+        	Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
 
-        using Microsoft.WindowsAzure.MobileServices;  
- 
-8. En el archivo de proyecto App.xaml.cs, agregue el siguiente código:
+8. Abra el archivo de proyecto App.xaml.cs compartido y agregue el siguiente código:
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
@@ -90,4 +83,5 @@
    	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores, y podrá consultar su aplicación móvil y realizar actualizaciones de los datos.
 
 10. Haga clic con el botón secundario en el proyecto de aplicación de la Tienda Windows Phone, haga clic en **Establecer como proyecto de inicio** y repita el paso anterior para comprobar que la aplicación de la Tienda Windows Phone también se ejecuta correctamente.
-<!--HONumber=54-->
+
+<!---HONumber=Oct15_HO3-->

@@ -1,28 +1,25 @@
-<properties writer="kathydav" editor="tysonn" manager="timlt" />
+
+#Desacoplamiento de un disco de datos de una máquina virtual con la interfaz de la línea de comandos
+
+Cuando ya no necesite un disco de datos conectado a una máquina virtual, podrá desacoplarlo fácilmente. Esto quita el disco de la máquina virtual, pero no lo quita del almacenamiento. Si desea volver a usar los datos existentes en el disco, puede acoplarlo de nuevo a la misma máquina virtual (o a otra).
+
+> [AZURE.NOTE]Una máquina virtual en Azure utiliza distintos tipos de discos, como un disco del sistema operativo, un disco temporal local y discos de datos opcionales. Se recomienda utilizar discos de datos para almacenar datos para una máquina virtual. Para obtener más información sobre los discos, consulte [Acerca de discos e imágenes](http://go.microsoft.com/fwlink/p/?LinkId=263439). Actualmente no es posible desacoplar un disco del sistema operativo.
 
 
-
-#How to Detach a Data Disk from a Virtual Machine with the CLI
-
-When you no longer need a data disk that is attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.
-
-> [AZURE.NOTE] A virtual machine in Azure uses different types of disks: an operating system disk, a local temporary disk, and optional data disks. Data disks are the recommended way to store data for a virtual machine. For details about disks, see [About disks and images](http://go.microsoft.com/fwlink/p/?LinkId=263439). It is not currently possible to detach an operating system disk.
-
-
-1. Get the list of disks attached to your VM:
+1. Obtenga la lista de los discos acoplados a su máquina virtual:
 
         vm disk list <vm-name>
 
-    If you omit `<vm-name>`, you will get a list of all disks in your subscription.
+    Si se omite `<vm-name>`, obtendrá una lista de todos los discos en su suscripción.
 
 
-2. Detach a disk:
+2. Desacople un disco:
 
         vm disk detach <vm-name> <lun>
 
-    `lun` identifies the disk to be detached, and will be a number which can be found in your VM's disk list.
+    `lun` identifica el disco que se va a desacoplar, y deberá ser un número que se encuentre en la lista de discos de la máquina virtual.
 
-Sample walkthrough including terminal output:
+Tutorial de ejemplo, incluida la salida de terminal:
 
     ~$ azure vm disk list kmlinux
     info:    Executing command vm disk list
@@ -50,3 +47,5 @@ Sample walkthrough including terminal output:
     data:         30        kmlinux-kmlinux-2015-02-05.vhd          Linux
     data:    1    5         kmlinux-f8ef0006ab182209.vhd
     info:    vm disk list command OK
+
+<!---HONumber=August15_HO6-->

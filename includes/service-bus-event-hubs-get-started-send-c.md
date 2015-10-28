@@ -1,7 +1,7 @@
 ## Envío de mensajes a Centros de eventos
 En esta sección se escribirá una aplicación C para enviar eventos al centro de eventos. Usaremos la biblioteca Proton AMQP del [proyecto Apache Qpid](http://qpid.apache.org/). Esto es parecido a usar temas y colas de Bus de servicio con AMQP a través de C como se muestra [aquí](https://code.msdn.microsoft.com/windowsazure/Using-Apache-Qpid-Proton-C-afd76504). Para más información, consulte la [documentación de Qpid Proton](http://qpid.apache.org/proton/index.html).
 
-1. En la página [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html), haga clic en el vínculo **Installing Qpid Proton** (Instalación de Qpid Proton) y siga las instrucciones dependiendo de su entorno. Consideraremos un entorno de Linux, por ejemplo, una [máquina virtual Linux de Azure](../articles/virtual-machines-linux-tutorial.md) con Ubuntu 14.04.
+1. En la página [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html), haga clic en el vínculo **Instalación de Qpid Proton** y siga las instrucciones dependiendo de su entorno. Consideraremos un entorno de Linux, por ejemplo, una [máquina virtual Linux de Azure](../articles/virtual-machines/virtual-machines-linux-tutorial.md) con Ubuntu 14.04.
 
 2. Para compilar la biblioteca Proton, instale los paquetes siguientes:
 
@@ -20,7 +20,7 @@ En esta sección se escribirá una aplicación C para enviar eventos al centro d
 		cmake -DCMAKE_INSTALL_PREFIX=/usr ..
 		sudo make install
 
-5. En su directorio de trabajo, cree un nuevo archivo denominado **sender.c** con el siguiente contenido. No olvide sustituir el valor para el nombre del centro de eventos y el espacio de nombres (este último suele ser `{event hub name}-ns`). También debe sustituir una versión con codificación URL de la clave para la regla **SendRule** creada anteriormente. Puede codificar con URL [aquí](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. En su directorio de trabajo, cree un nuevo archivo denominado **sender.c** con el siguiente contenido. No olvide sustituir el valor para el nombre del Centro de eventos y el espacio de nombres (este último suele ser `{event hub name}-ns`). También debe sustituir una versión con codificación URL de la clave para la regla **SendRule** creada anteriormente. Puede codificar con URL [aquí](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 		#include "proton/message.h"
 		#include "proton/messenger.h"
@@ -105,7 +105,6 @@ En esta sección se escribirá una aplicación C para enviar eventos al centro d
 
 		gcc sender.c -o sender -lqpid-proton
 
-> [AZURE.NOTE] En el código anterior, usamos una ventana de salida de 1 para forzar que los mensajes salgan tan pronto como sea posible. En general la aplicación debe probar con los mensajes por lotes para aumentar el rendimiento. Consulte la [página Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) para obtener más información sobre cómo usar la biblioteca de Qpid Proton en este y otros entornos y desde las plataformas para las que se proporcionan enlaces (actualmente, Perl, PHP, Python y Ruby).
+> [AZURE.NOTE]En el código anterior, usamos una ventana de salida de 1 para forzar que los mensajes salgan tan pronto como sea posible. En general la aplicación debe probar con los mensajes por lotes para aumentar el rendimiento. Consulte la [página Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) para obtener más información sobre cómo usar la biblioteca de Qpid Proton en este y otros entornos y desde las plataformas para las que se proporcionan enlaces (actualmente, Perl, PHP, Python y Ruby).
 
-
-<!--HONumber=52--> 
+<!---HONumber=Oct15_HO3-->

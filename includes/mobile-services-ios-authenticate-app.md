@@ -1,8 +1,6 @@
+* Abra **QSTodoListViewController.m** y agregue el siguiente método. Cambie _facebook_ a _microsoftaccount_, _twitter_, _google_ o _windowsazureactivedirectory_ si no usa Facebook como su proveedor de identidades.
 
-
-1. Abra **QSTodoListViewController.m** y agregue el siguiente código:
-
-
+```
         - (void) loginAndGetData
         {
             MSClient *client = self.todoService.client;
@@ -14,15 +12,14 @@
                 [self refresh];
             }];
         }
+```
 
+* Reemplace `[self refresh]` en `viewDidLoad` por lo siguiente:
 
-    > [AZURE.NOTE]Si usa un proveedor de identidades que no sea Facebook, cambie el valor pasado a **loginWithProvider**. Los valores compatibles son: _microsoftaccount_, _facebook_, _twitter_, _google_ o _windowsazureactivedirectory_.
-
-
-2. Modifique `viewDidLoad` reemplazando `[self refresh]` al final por lo siguiente:
-
+```
         [self loginAndGetData];
+```
 
-3. Presione **Ejecutar** para iniciar la aplicación y, a continuación, inicie sesión en el proveedor de identidades elegido. Una vez que haya iniciado sesión, debería poder ver la lista de tareas pendientes y realizar actualizaciones en ella.
+* Presione **Ejecutar** para iniciar la aplicación y, a continuación, inicie sesión. Una vez que haya iniciado sesión, debería poder ver la lista de tareas pendientes y realizar actualizaciones en ella.
 
-<!--HONumber=54-->
+<!---HONumber=Oct15_HO3-->

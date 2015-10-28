@@ -6,7 +6,7 @@
 
 3. Escriba _completeall_ en el **nombre de la API** y, a continuación, haga clic en el botón de comprobación para crear la nueva API.
 
-	> [AZURE.NOTE]Con los permisos predeterminados, cualquier usuario con la clave de la aplicación puede llamar a la API personalizada. Sin embargo, la clave de aplicación no se considera una credencial segura porque no se puede distribuir o almacenar de manera segura. Considere la posibilidad de restringir el acceso únicamente a usuarios autenticados para mayor seguridad.
+	> [AZURE.TIP]Con los permisos predeterminados, cualquier usuario con la clave de la aplicación puede llamar a la API personalizada. Sin embargo, la clave de aplicación no se considera una credencial segura porque no se puede distribuir o almacenar de manera segura. Considere la posibilidad de restringir el acceso únicamente a usuarios autenticados para mayor seguridad.
 
 4. Haga clic en **completeall** en la tabla de la API.
 
@@ -26,8 +26,7 @@
 		};
 
 
-
-> [AZURE.NOTE]Los objetos <a href="http://msdn.microsoft.com/library/windowsazure/jj554218.aspx" target="_blank">request</a> y <a href="http://msdn.microsoft.com/library/windowsazure/dn303373.aspx" target="_blank">response</a> que se proporcionan a las funciones de API personalizada se implementan mediante la <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">biblioteca de Express.js</a>. Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/windowsazure/dn280974.aspx" target="_blank">API personalizada</a>.
+> [AZURE.NOTE]Los objetos [request](http://msdn.microsoft.com/library/windowsazure/jj554218.aspx) y [response](http://msdn.microsoft.com/library/windowsazure/dn303373.aspx) que se proporcionan a las funciones de API personalizada se implementan mediante la [biblioteca de Express.js](http://go.microsoft.com/fwlink/p/?LinkId=309046).
 
 <!-- Anchors. -->
 
@@ -36,4 +35,4 @@
 <!-- URLs. -->
 [objeto mssql]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
 
-<!--HONumber=54-->
+<!---HONumber=Oct15_HO3-->

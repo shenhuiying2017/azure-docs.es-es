@@ -5,9 +5,8 @@
 
    	![](./media/mobile-services-android-configure-push/mobile-push-tab-android.png)
 
-    >[AZURE.NOTE] Al configurar las credenciales de GCM para las notificaciones de inserción mejoradas en la pestaña Push del portal, se comparten con los Centros de notificaciones para configurar el centro de notificaciones con la aplicación.
+    >[AZURE.NOTE]Al configurar las credenciales de GCM para las notificaciones de inserción mejoradas en la pestaña Push del portal, se comparten con los Centros de notificaciones para configurar el centro de notificaciones con la aplicación.
 
-El servicio móvil y la aplicación están ahora configurados para funcionar con GCM y los Centros de notificaciones. 
+El servicio móvil y la aplicación están ahora configurados para funcionar con GCM y los Centros de notificaciones.
 
-
-<!--HONumber=52-->
+<!---HONumber=Oct15_HO3-->

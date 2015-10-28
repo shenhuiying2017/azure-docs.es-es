@@ -1,7 +1,7 @@
 
 1. Presione la tecla F5 para recompilar el proyecto e iniciar la aplicación de la Tienda Windows.
 
-2. En la aplicación, escriba un texto significativo, como *Complete the tutorial*, en **Insertar un TodoItem**y, a continuación, haga clic en **Guardar**.
+2. En la aplicación, escriba texto significativo, como *Realice el tutorial*, en **Insertar TodoItem** y, a continuación, haga clic en **Guardar**.
 
 	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png)
 
@@ -13,5 +13,4 @@
 	
 	Tenga en cuenta que los datos guardados en el paso anterior se cargan del servicio móvil después de que se inicie la aplicación.
 
-
-<!--HONumber=52--> 
+<!---HONumber=Oct15_HO3-->

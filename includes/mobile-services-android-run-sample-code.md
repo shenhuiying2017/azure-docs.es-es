@@ -1,4 +1,4 @@
-1. En el Explorador de proyectos, expanda **app** => **java** => **com.example.GetStartedWithData**, **src** y **.com.example.GetStartedWithData** y, a continuación, abra el archivo *ToDoActivity.java*.
+1. En el Explorador de proyectos, expanda **app** => **src** => **main** => **java** => **com.example.GetStartedWithData** y luego abra el archivo *ToDoActivity.java*.
 
    	![](./media/download-android-sample-code/mobile-services-android-studio-project.png)
 
@@ -24,4 +24,5 @@
    	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
    	Tenga en cuenta que el texto guardado se almacena en una colección de la memoria y se muestra en la lista de abajo.
-<!--HONumber=54-->
+
+<!---HONumber=Oct15_HO3-->

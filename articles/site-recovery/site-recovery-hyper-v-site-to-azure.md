@@ -1,0 +1,308 @@
+<properties
+	pageTitle="Configuración de la protección entre un sitio de Hyper-V local y Azure"
+	description="Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales que se encuentran en servidores de Hyper-V locales en Azure."
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
+	editor=""/>
+
+<tags
+	ms.service="site-recovery"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="storage-backup-recovery"
+	ms.date="10/12/2015"
+	ms.author="raynew"/>
+
+
+# Configuración de la protección entre un sitio de Hyper-V local y Azure
+
+
+## Información general
+
+Azure Site Recovery contribuye a su estrategia de continuidad de negocio y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores virtuales. Obtenga información acerca de los escenarios de implementación posibles en [Información general sobre Site Recovery](site-recovery-overview.md).
+
+En este artículo se describe cómo implementar la recuperación del sitio para replicar máquinas virtuales ubicadas en servidores de Hyper-V local que ejecutan Windows Server 2012 R2. Azure Site Recovery controla la replicación de almacenamiento de Azure. Esta implementación es especialmente útil si ejecuta servidores de Hyper-V pero System Center Virtual Machine Manager (VMM) no está implementado.
+
+
+## Información acerca de este artículo
+
+El artículo resume los requisitos previos de implementación, ayuda a configurar la replicación y habilita la protección para máquinas virtuales. Finaliza comprobando la conmutación por error para asegurarse de que todo funciona según lo esperado.
+
+Si tiene problemas, envíe sus preguntas al [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+
+
+## Antes de comenzar
+
+Asegúrese de que tiene todo colocado antes de comenzar.
+
+### Requisitos previos de Azure
+
+- Necesitará una cuenta de [Microsoft Azure](http://azure.microsoft.com/). Puede comenzar con una [evaluación gratuita](pricing/free-trial/).
+- Necesitará una cuenta de almacenamiento de Azure para almacenar los datos replicados. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el almacén de Azure Site Recovery y estar asociada a la misma suscripción. Para obtener más información, consulte [Introducción al almacenamiento de Microsoft Azure](../storage/storage-introduction.md).
+- Necesitará una red virtual para que las máquinas virtuales replicadas se conecten a una red después de una conmutación por error.
+
+### Requisitos previos de Hyper-V
+
+- En el sitio local de origen necesitará al menos un servidor que ejecute Windows Server 2012 R2 con el rol de Hyper-V.
+- Hyper-V Server debe contener una o más máquinas virtuales.
+- Los servidores de Hyper-V deben estar conectados a Internet, directamente o a través de un proxy.
+- Los servidores de Hyper-V deben tener correcciones que se mencionan en el [KB2961977](https://support.microsoft.com/es-ES/kb/2961977 "KB2961977") instalado.
+
+### Requisitos previos de las máquinas virtuales
+
+Las máquinas virtuales que quiera proteger deben cumplir los [requisitos previos de máquinas virtuales](site-recovery-best-practices.md#virtual-machines).
+
+### Requisitos previos del proveedor y del agente
+
+Como parte de la implementación de Azure Site Recovery, instalará el proveedor de Azure Site Recovery y el agente de Servicios de recuperación de Azure en cada servidor de Hyper-V que ejecute las máquinas virtuales que desea proteger. Observe lo siguiente:
+
+- Debe ejecutar las versiones más recientes del proveedor y del agente.
+- Todos los servidores de Hyper-V de un almacén de credenciales deben tener las mismas versiones.
+- El proveedor necesitará conectarse a Azure Site Recovery a través de Internet. Puede seleccionar hacerlo sin un proxy, utilizando la configuración de proxy que ya está definida en el servidor VMM o la configuración de proxy personalizada que estableció durante la instalación del proveedor. Para usar un servidor proxy existente, asegúrese de que están permitidas las direcciones URL para conectarse a Azure a través del firewall:
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net
+ 
+- Para usar un proxy personalizado, configúrelo antes de instalar el proveedor. Durante la configuración del proveedor, deberá especificar la dirección y el puerto del servidor proxy, y las credenciales que pueden utilizarse para el acceso. Tenga en cuenta que no se admite el proxy basado en HTTPS.
+
+La siguiente imagen muestra los distintos canales y puertos de comunicación utilizados por Azure Site Recovery para la orquestación y la replicación
+
+![Topología B2A](./media/site-recovery-hyper-v-site-to-azure/B2ATopology.png)
+
+
+## Paso 1: Creación de un almacén
+
+1. Inicie sesión en el [Portal de administración](https://portal.azure.com).
+
+
+2. Expanda **Servicios de datos** > **Servicios de recuperación** y haga clic en **Almacén de Site Recovery**.
+
+
+3. Haga clic en **Crear nuevo** > **Creación rápida**.
+
+4. En **Nombre**, escriba un nombre descriptivo para identificar el almacén.
+
+5. En **Región**, seleccione la región geográfica del almacén. Para comprobar las regiones admitidas, consulte Disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](pricing/details/site-recovery/).
+
+6. Haga clic en **Crear almacén**.
+
+	![Almacén nuevo](./media/site-recovery-hyper-v-site-to-azure/SR_HvVault.png)
+
+Compruebe la barra de estado para confirmar que el almacén se ha creado correctamente. El almacén aparecerá como **Activo** en la página principal de Servicios de recuperación.
+
+
+## Paso 2: Creación de un sitio de Hyper-V
+
+1. En la página Servicios de recuperación, haga clic en el almacén para abrir la página de inicio rápido. El inicio rápido también se puede abrir en cualquier momento mediante el icono.
+
+	![Inicio rápido](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_QuickStartIcon.png)
+
+2. En la lista desplegable, seleccione **Entre un sitio de Hyper-V local y Azure**.
+
+	![Escenario de sitio de Hyper-V](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_SelectScenario.png)
+
+3. En **Crear un sitio de Hyper-V** haga clic en **Crear sitio de Hyper-V**. Especifique un nombre de sitio y guarde.
+
+	![Sitio de Hyper-V](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_CreateSite2.png)
+
+
+## Paso 3: Instalación del proveedor y del agente
+Instale el proveedor y el agente. Si va a instalar en un clúster de Hyper-V, realice los pasos 5-11 en cada nodo del clúster de conmutación por error. Una vez registrados todos los nodos y habilitada la protección, las máquinas virtuales estarán protegidas incluso si migran a través de los nodos del clúster de conmutación por error.
+
+1. En **Preparar servidores Hyper-V**, haga clic en **Descargar una clave de registro**.
+2. En la página **Descargar clave de registro**, haga clic en **Descargar junto al sitio**. Descargue la clave en una ubicación segura a la que Hyper-V pueda acceder con facilidad. La clave será válida para 5 días a partir del momento en que se genera.
+
+	![Clave de registro](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_DownloadKey2.png)
+
+4. Haga clic en **Descargar proveedor** para obtener la versión más reciente.
+5. Ejecute el archivo en cada servidor de Hyper-V que desee registrar en el almacén. El archivo instala dos componentes:
+	- **Proveedor de Azure Site Recovery**: controla la comunicación y la coordinación entre el servidor de Hyper-V y el portal de Azure Site Recovery.
+	- **Agente de los Servicios de recuperación de Azure**: controla el transporte de datos entre las máquinas virtuales que se ejecutan en el servidor de Hyper-V de origen y el almacenamiento de Azure.
+6. En **Microsoft Update** puede optar por recibir actualizaciones. Con esta opción habilitada, las actualizaciones del proveedor y del agente se instalarán según la directiva de Microsoft Update.
+
+	![Microsoft Updates](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider1.png)
+
+7. En **Instalación** especifique dónde desea instalar el proveedor y el agente en el servidor de Hyper-V.
+
+	![Ubicación de instalación](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider2.png)
+
+8. Una vez se complete la instalación, continúe con la instalación para registrar el servidor en el almacén.
+
+	![Instalación completada](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider3.png)
+
+
+9. En la página **Conexión a Internet**, especifique cómo se conecta el proveedor a Azure Site Recovery. Seleccione **Utilizar la configuración proxy del sistema predeterminado** para usar la configuración predeterminada de conexión a Internet establecida en el servidor. Si no especifica un valor, se utilizará la configuración predeterminada.
+
+	![Configuración de Internet](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider4.png)
+
+	Observe lo siguiente:
+
+	- Si el proxy predeterminado en el servidor de Hyper-V requiere autenticación, debe utilizar un servidor proxy personalizado. Escriba los detalles del proxy predeterminado y especifique las credenciales.
+	- Si desea utilizar un servidor proxy personalizado, debe configurarlo antes de instalar el proveedor.
+	- Las siguientes direcciones URL deben ser accesibles desde el host de Hyper-v
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
+
+	- Permita las direcciones IP que se describen en [Intervalos de direcciones IP de los centros de datos de Azure](http://go.microsoft.com/fwlink/?LinkId=511094) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
+
+9. En la página **Configuración de almacén**, haga clic en **Examinar** para seleccionar el archivo de clave. Especifique la suscripción de Azure Site Recovery, el nombre del almacén y el sitio de Hyper-V al que pertenece el servidor Hyper-V.
+
+	![Registro de servidor](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_SelectKey.png)
+
+
+11. El registro empieza a registrar el servidor en el almacén.
+
+	![Registro de servidor](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider6.png)
+
+11. Después de que finalice el registro, los metadatos de Hyper-V Server se recuperan mediante Azure Site Recovery y el servidor se muestra en la pestaña **Sitios de Hyper-V** de la página **Servidores** del almacén.
+
+	![Registro de servidor](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider7.png)
+
+	> [AZURE.NOTE]El proveedor de Azure Site Recovery también puede instalarse mediante la siguiente línea de comandos. Este método se puede usar para instalar el proveedor en un Server CORE para Windows Server 2012 R2.
+	>
+	>1. Descargue el archivo de instalación del proveedor y la clave de registro en una carpeta, por ejemplo, C:\\ASR.
+	>2. Ejecute los siguientes comandos con privilegios de **Administrador** desde el símbolo del sistema para extraer el instalador del proveedor:
+	>
+	    	C:\Windows\System32> CD C:\ASR
+	    	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
+	>4. Ejecute el comando siguiente para instalar el proveedor:
+	>
+			C:\ASR> setupdr.exe /i
+	>5. Ejecute el comando siguiente para registrar el proveedor:
+	>
+	    	CD C:\Program Files\Microsoft Azure Site Recovery Provider\
+	    	C:\Program Files\Microsoft Azure Site Recovery Provider> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file>
+
+
+	>----------
+          
+	>####Lista de parámetros de instalación de la línea de comandos####
+	>- **/Credentials**: parámetro obligatorio que especifica la ubicación donde se encuentra el archivo de clave de registro.  
+	> - **/FriendlyName**: parámetro obligatorio para el nombre del servidor host Hyper-V que aparece en el portal de Azure Site Recovery.
+	> - **/proxyAddress**: parámetro opcional que especifica la dirección del servidor proxy.
+	> - **/proxyport**: parámetro opcional que especifica el puerto del servidor proxy.
+	> - **/proxyUsername**: parámetro opcional que especifica el nombre de usuario del proxy (si el proxy requiere autenticación).
+	> - **/proxyPassword**: parámetro opcional que especifica la contraseña para autenticarse con el servidor proxy (si el proxy requiere autenticación).
+
+>[AZURE.TIP]Puede configurar cada uno de los host de Hyper-V individual para usar la configuración de ancho de banda de red diferente para replicar máquinas virtuales en Azure. Obtenga más información sobre [Administración del uso de ancho de banda de red de protección de instalaciones locales a Azure](https://support.microsoft.com/es-ES/kb/3056159).
+
+
+## Paso 4: Creación de recursos de Azure
+
+1. En **Preparar recursos**, seleccione **Crear cuenta de almacenamiento** para crear una cuenta de almacenamiento de Azure si no tiene una. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el almacén de Azure Site Recovery y estar asociada a la misma suscripción.
+
+	![Crear una cuenta de almacenamiento](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_CreateResources1.png)
+
+## Paso 5: Creación y configuración de grupos de protección
+
+Los grupos de protección son agrupaciones lógicas de máquinas virtuales que desea proteger con la misma configuración de protección. Aplique la configuración de protección a un grupo de protección y esa configuración se aplicará a todas las máquinas virtuales que agregue al grupo. 1. En **Crear y configurar grupos de protección**, haga clic en **Crear un grupo de protección**. Si no están establecidos los requisitos previos, se emitirá un mensaje y podrá hacer clic en **Ver detalles** para obtener más información.
+
+2. En la pestaña **Grupos de protección**, agregue un grupo de protección. Especifique un nombre, el sitio de Hyper-V de origen, el **Azure** de destino, el nombre de la suscripción de Azure Site Recovery y la cuenta de almacenamiento de Azure.
+
+	![Grupo de protección](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_ProtectionGroupCreate3.png)
+
+
+2. En **Configuración de la replicación**, establezca **Copiar frecuencia** para que especifique la frecuencia a la que se deben sincronizar los datos delta entre el origen y el destino. Puede establecerlo en 30 segundos, 5 minutos o 15 minutos.
+3. En **Conservar puntos de recuperación**, especifique el número de horas del historial de recuperación que se deben almacenar.
+4. En **Frecuencia de las instantáneas coherentes con la aplicación**, puede especificar si desea tomar instantáneas que utilizan el Servicio de instantáneas de volumen (VSS) para asegurarse de que las aplicaciones se encuentren en un estado coherente al capturar la instantánea. De forma predeterminada, estas no se capturan. Asegúrese de que el valor establecido es menor que el número de puntos de recuperación adicionales configurados. Esto solo se admite si la máquina virtual está ejecutándose en un sistema operativo Windows.
+5. En **Hora de inicio de la replicación inicial**, especifique cuándo se debe enviar la replicación inicial de máquinas virtuales del grupo de protección a Azure.
+
+	![Grupo de protección](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_ProtectionGroup4.png)
+
+
+## Paso 6: Habilitación de la protección de máquinas virtuales
+
+
+Agregue máquinas virtuales a grupos de protección para habilitar su protección.
+
+1. En la pestaña **Máquinas** del grupo de protección, haga clic en **Agregar máquinas virtuales a grupos de protección para habilitar protección**.
+2. En la página **Habilitar protección de máquina virtual**, seleccione las máquinas virtuales que desea proteger.
+
+	![Enable virtual machine protection](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_AddVM3.png)
+
+	Comienzan los trabajos de Habilitar protección. Puede realizar un seguimiento del progreso en la pestaña **Trabajos**. La máquina virtual estará preparada para la conmutación por error después de que finalice el trabajo de Finalizar protección.
+3. Una vez configurada la protección, puede:
+
+	- Ver máquinas virtuales en **Elementos protegidos** > **Grupos de protección** > *nombre\_grupo\_protección* > **Máquinas virtuales**. Puede desplazarse hasta los detalles de la máquina en la pestaña **Propiedades**.
+	- Configurar las propiedades de conmutación por error de una máquina virtual en **Elementos protegidos** > **Grupos de protección** > *nombre\_grupo\_protección* > **Máquinas virtuales** *nombre\_máquina\_virtual* > **Configurar**. Puede configurar:
+		- **Nombre**: el nombre de la máquina virtual en Azure.
+		- **Tamaño**: el tamaño de destino de la máquina virtual que conmuta por error.
+
+		![Configuración de propiedades de la máquina virtual](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
+	- Establecer la configuración de una máquina virtual adicional en *Elementos protegidos* > **Grupos de protección** > *nombre\_grupo\_protección* > **Máquinas virtuales** *nombre\_máquina\_virtual* > **Configurar**, incluidos:
+
+		- **Adaptadores de red**: el número de adaptadores de red viene determinado por el tamaño que especifique para la máquina virtual de destino.
+			- Grande (A3) y A6: 2
+			- Extra grande (A4) y A7:
+			- A9: 2
+			- D3: 2
+			- D4: 4
+			- D13: 4
+
+			Al modificar el tamaño de una máquina virtual y guardar la configuración, la próxima vez que abra la página **Configurar** se mostrarán los adaptadores de red. El número de adaptadores para una máquina virtual se determinará como sigue:
+
+
+			- Si el número de adaptadores de red en el equipo de origen es menor o igual al número de adaptadores permitido para el tamaño de la máquina de destino, el destino tendrá el mismo número de adaptadores que el origen.
+			- Si el número de adaptadores para la máquina virtual de origen supera el número permitido para el tamaño de destino, entonces se utilizará el tamaño máximo de destino.
+			- Por ejemplo, si una máquina de origen tiene dos adaptadores de red y el tamaño de la máquina de destino es compatible con cuatro, el equipo de destino tendrá dos adaptadores. Si el equipo de origen tiene dos adaptadores pero el tamaño de destino compatible solo admite uno, el equipo de destino tendrá solo un adaptador. 	
+		- **Red de Azure**: especifique la red a la que la máquina virtual debe conmutar por error. Si la máquina virtual tiene varios adaptadores de red, todos ellos deben conectarse a la misma red de Azure.
+		- **Subred**: para cada adaptador de red de la máquina virtual, seleccione la subred en la red de Azure a la que debe conectarse el equipo después de una conmutación por error.
+		- **Dirección IP de destino**: si el adaptador de red de la máquina virtual de origen está configurado para usar una dirección IP estática, puede especificar la dirección IP de la máquina virtual de destino para asegurarse de que el equipo tiene la misma dirección IP después de la conmutación por error. Si no especifica una dirección IP, se asignará cualquier dirección disponible en el momento de la conmutación por error. Si especifica una dirección que está en uso, se producirá un error en la conmutación por error.
+
+		![Configuración de propiedades de la máquina virtual](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_VMMultipleNic.png)
+
+## Paso 7: Creación de un plan de recuperación
+
+Para probar la implementación, puede ejecutar una conmutación por error de prueba para una sola máquina virtual o un plan de recuperación que contenga una o varias máquinas virtuales. Para crear un plan de recuperación, [siga estas instrucciones](site-recovery-create-recovery-plans.md)
+
+## Paso 8: Prueba de la implementación
+
+Hay dos maneras de ejecutar una prueba de conmutación por error en Azure.
+
+- Probar la conmutación por error sin una red de Azure: este tipo de conmutación por error de prueba comprueba que la máquina virtual incluye correctamente en Azure. La máquina virtual no estará conectada a ninguna red de Azure después de la conmutación por error.
+- Probar la conmutación por error con una red de Azure: este tipo de conmutación por error comprueba que todo el entorno de replicación se incluye como se esperaba y que conmutan las máquinas virtuales se conectarán al red de Azure de destino especificada. En el caso del control de subredes, para probar la conmutación por error de la subred se averiguará la máquina virtual de prueba de acuerdo con la subred de la máquina virtual de réplica. Esto es diferente a la replicación normal cuando la subred de una máquina virtual de réplica se basa en la subred de la máquina virtual de origen.
+
+Si desea ejecutar una conmutación por error de prueba para una máquina virtual habilitada para protección en Azure sin especificar una red de Azure de destino, no es necesario preparar nada. Para ejecutar una conmutación por error de prueba con una red de Azure de destino, es necesario crear una nueva red de Azure que esté aislada de su red de Azure de producción (el comportamiento predeterminado cuando se crea una nueva red de Azure). Veamos cómo [ejecutar una conmutación por error de prueba](site-recovery-failover.md#run-a-test-failover) para obtener más detalles.
+
+
+También necesitará configurar la infraestructura de la máquina virtual replicada para que funcione según lo previsto. Por ejemplo, una máquina virtual con controlador de dominio y DNS se pueden replicar en Azure con Azure Site Recovery y se puede crear en la red de prueba mediante pruebas de conmutación por error. Consulte la sección [Consideraciones sobre la conmutación por error de prueba para Active Directory](site-recovery-active-directory.md#considerations-for-test-failover) para obtener más información.
+
+Para ejecutar una conmutación por error de prueba, realice lo siguiente:
+
+1. En la pestaña **Planes de recuperación**, seleccione el plan y haga clic en **Conmutación por error de prueba**.
+2. En la página **Confirmar conmutación por error de prueba**, seleccione **Ninguna** o una red de Azure concreta. Tenga en cuenta que si selecciona **Ninguna**, la conmutación por error de prueba comprueba que la máquina virtual se ha replicado correctamente en Azure, pero no comprueba la configuración de red de replicación.
+
+	![Conmutación por error de prueba](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_TestFailoverNoNetwork.png)
+
+3. En la pestaña **Trabajos** puede seguir el progreso de la conmutación por error. También debe poder ver la réplica de prueba de la máquina virtual en el Portal de Azure. Si está configurando para acceder a máquinas virtuales desde la red local puede iniciar una conexión de Escritorio remoto a la máquina virtual.
+4. Cuando la conmutación por error alcance la fase **Completar pruebas**, haga clic en **Completar prueba** para terminar la conmutación por error de prueba. Puede profundizar hasta la pestaña **Trabajo** para realizar un seguimiento de la conmutación por error del progreso y el estado, y llevar a cabo las acciones necesarias.
+5. Después de la conmutación por error, podrá ver la réplica de prueba de la máquina virtual en el Portal de Azure. Si está configurando para acceder a máquinas virtuales desde la red local puede iniciar una conexión de Escritorio remoto a la máquina virtual.
+
+	1. Compruebe que las máquinas virtuales se inician correctamente.
+    2. Si después de la conmutación por error desea conectarse a la máquina virtual de Azure mediante Escritorio remoto, habilite Conexión a Escritorio remoto en la máquina virtual antes de ejecutar la prueba. También necesitará agregar un extremo RDP a la máquina virtual. Puede aprovechar un [Runbooks de automatización de Azure](site-recovery-runbook-automation.md) para hacerlo.
+    3. Después de conmutación por error, si usa una dirección IP pública para conectarse a la máquina virtual en Azure mediante Escritorio remoto, asegúrese de no tener directivas de dominio que le impidan conectarse a una máquina virtual con una dirección pública.
+
+6. Cuando se complete la prueba, haga lo siguiente:
+
+	- Haga clic en **La conmutación por error de prueba se ha completado**. Limpie el entorno de prueba para apagar y eliminar automáticamente las máquinas virtuales de prueba.
+	- Haga clic en **Notas** para registrar y guardar las observaciones asociadas a la conmutación por error de prueba.
+7. Cuando la conmutación por error alcance la fase **Completar pruebas**, complete la comprobación de la siguiente manera:
+	1. Vea la máquina virtual de réplica en el portal de Azure. Compruebe que la máquina virtual se inicia correctamente.
+	2. Si está configurando para acceder a máquinas virtuales desde la red local puede iniciar una conexión de Escritorio remoto a la máquina virtual.
+	3. Haga clic en **Completar la prueba** para terminarla.
+	4. Haga clic en **Notas** para registrar y guardar las observaciones asociadas a la conmutación por error de prueba.
+	5.  Haga clic en **La conmutación por error de prueba se ha completado**. Limpie el entorno de prueba para apagar y eliminar automáticamente la máquina virtual de prueba.
+
+## Pasos siguientes
+
+Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) acerca de la conmutación por error.
+
+<!---HONumber=Oct15_HO3-->

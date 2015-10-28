@@ -1,20 +1,15 @@
-Una vez que haya registrado la aplicación en APNS y haya configurado el proyecto, debe configurar la aplicación móvil para que se integre con APNS.
 
-1. En Acceso a llaves, haga clic con el botón secundario en el nuevo certificado de la aplicación de inicio rápido en **Llaves** o **Mis certificados**, haga clic en  **Exportar**, asigne como nombre de archivo QuickstartPusher, seleccione el formato **.p12** y haga clic en **Guardar**.
+1.  En el equipo Mac, inicie **Acceso a llaves**. Abra **Categoría** > **Mis certificados**. Busque el certificado SSL para exportar (que descargó anteriormente) y muestre su contenido. Seleccione solo el certificado sin seleccionar la llave privada y [expórtelo](https://support.apple.com/kb/PH20122?locale=en_US).
 
-   	![](./media/mobile-services-apns-configure-push/mobile-services-ios-push-step18.png)
+2. En el Portal de Azure, haga clic en **Examinar todo** > **Aplicaciones móviles** > el back-end > **Configuración** > **Aplicación móvil** > **Insertar** > **Configurar los valores obligatorios** > **+ Centro de notificaciones**, proporcione un nombre y un espacio de nombres para el centro de notificaciones y después haga clic en el botón **Aceptar**.
 
-    Anote el nombre de archivo y la ubicación del certificado exportado.
+  ![][1]
 
->[AZURE.NOTE]Con este tutorial se crea un archivo QuickstartPusher.p12. El nombre del archivo y la ubicación pueden ser diferentes.
+3. En la hoja **Creación de un Centro de notificaciones**, haga clic en el botón **Crear**.
+     
+    Antes de continuar con el paso siguiente, haga clic en **Notificaciones**, para asegurarse de que la configuración del centro de notificaciones está completa. 
+4. En el Portal de Azure, haga clic en **Examinar todo** > **Aplicaciones móviles** > su back-end > **Configuración** > **Aplicación móvil** > **Insertar** > **Servicios de notificaciones de inserción de Apple** > **Cargar certificado**. Cargue el archivo .p12 y seleccione el **modo** correcto (dependerá si generó un certificado SSL de cliente de Desarrollo o Distribución). El servicio ahora está configurado para trabajar con las notificaciones push en iOS.
 
-2. Inicie sesión en el  [Portal de vista previa de Azure], seleccione **Examinar**, **Aplicaciones móviles** y, a continuación, haga clic en la aplicación. Haga clic en los servicios de notificaciones de inserción.
+[1]: ./media/app-service-mobile-apns-configure-push-preview/mobile-push-notification-hub.png
 
-3. En el Servicio de notificaciones push de Apple, cargue el certificado con el archivo **.p12** y la contraseña asociada con él, y seleccione el modo deseado.
-
-La aplicación móvil del Servicio de aplicaciones ya está configurada para poder funcionar con APNS.
-
-<!-- URLs. -->
-[Portal de vista previa de Azure]: https://portal.azure.com/
-
-<!--HONumber=54-->
+<!---HONumber=Oct15_HO3-->

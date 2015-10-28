@@ -21,5 +21,8 @@ El contenido predeterminado del archivo *apiapp.json* es similar al ejemplo sigu
 		    }
 		}
 
+Observe el `apiDefinition` extremo `/swagger/docs/v1`: de forma predeterminada, los proyectos de aplicación de API usan el paquete NuGet [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) para ofrecer la generación automática de metadatos de [Swagger](http://swagger.io/).
+
 Para este tutorial, puede aceptar los valores predeterminados. En la sección [Metadatos de la aplicación de API](#api-app-metadata), más adelante en este tutorial, se explica cómo personalizar estos metadatos.
-<!--HONumber=54-->
+
+<!---HONumber=Oct15_HO3-->

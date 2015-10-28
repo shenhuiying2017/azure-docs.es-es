@@ -5,7 +5,7 @@
 	services=""
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"
+	editor="jimbe"
 	tags="mysql"/>
 
 <tags
@@ -14,12 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="02/24/2015"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
+
+#Creación una base de datos MySQL en Azure
 
 [AZURE.INCLUDE [crear-mysql-db](../includes/create-mysql-db.md)]
 
-
 En <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql> hay un ejemplo que indica cómo usar MySQL con PHP en Azure.
 
-<!--HONumber=52-->
+## Pasos siguientes
+
+Para obtener más información, consulte el [Centro para desarrolladores de PHP](/develop/php/).
+
+<!---HONumber=Oct15_HO3-->
