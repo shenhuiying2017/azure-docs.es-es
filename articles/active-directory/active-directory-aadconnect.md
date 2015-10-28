@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="active-directory"
-	ms.workload="identity"
+	ms.workload="identityÃ"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
