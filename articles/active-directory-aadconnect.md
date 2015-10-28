@@ -4,7 +4,7 @@
 
 <h1 id="vnettut1">Azure Active Directory Connect</h1>
 
-El asistente de Azure Active Directory Connect es la única tool y experiencia guiada para la conexión de sus directorios locales con Azure Active Directory.  El asistente implementa y configura todos los componentes necesarios para preparar la integración de directorios, incluidos los servicios de sincronización, la sincronización de contraseñas o los Servicios de federación de Active Directory (ADFS) y los requisitos previos, como el módulo de Azure AD PowerShell.
+El asistente de Azure Active Directory Connect es la única herramienta y experiencia guiada para la conexión de sus directorios locales con Azure Active Directory.  El asistente implementa y configura todos los componentes necesarios para preparar la integración de directorios, incluidos los servicios de sincronización, la sincronización de contraseñas o los Servicios de federación de Active Directory (ADFS) y los requisitos previos, como el módulo de Azure AD PowerShell.
 
 >[AZURE.NOTE] **Azure Active Directory Connect incluye funcionalidad publicada anteriormente como la sincronización de directorios y la sincronización de AAD. Estas herramientas no se volverán a publicar individualmente.** 
 
