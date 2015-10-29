@@ -2,7 +2,7 @@
 Don't use this file. It's deprecated and will be removed. Instead use, virtual-machines-linux-tutorial-log-on-attach-disk.md
 -->
 
-## <a id="logon"> </a>Login to a virtual machine after creation ##
+## <a id="logon"> </a>Inicio de sesión en una máquina virtual después de su creación ##
 
 Para administrar la configuración de la máquina virtual y las aplicaciones que se ejecutan en la máquina, puede usar un cliente de SSH. Para ello, debe instalar un cliente de SSH en el equipo que desea usar para tener acceso a la máquina virtual. Existen muchos programas cliente de SSH donde elegir. Las siguientes son algunas posibles opciones:
 
