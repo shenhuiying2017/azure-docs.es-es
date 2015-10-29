@@ -222,7 +222,7 @@ Para aplicar los cambios realizados en la configuración personalizada, siga los
 
 4. Ejecute el siguiente comando para ejecutar el script.
 
-**# ./ApplyCustomChanges.sh**
+**\# ./ApplyCustomChanges.sh**
 
 Nota: ejecute el script sólo una vez en el servidor. **REINICIE** el servidor cuando el script anterior se haya ejecutado correctamente.
 

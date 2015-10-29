@@ -40,7 +40,7 @@ El código de este tutorial se mantiene [en GitHub](https://github.com/AzureADQu
 
 La aplicación completa se ofrece también al final de este tutorial.
 
-## 1\. Registrar una aplicación
+## 1. Registrar una aplicación
 - Inicie sesión en el Portal de administración de Azure.
 - En el panel de navegación izquierdo, haga clic en **Active Directory**.
 - Seleccione el inquilino donde desea registrar la aplicación.
@@ -51,7 +51,7 @@ La aplicación completa se ofrece también al final de este tutorial.
     - El **URI de id. de aplicación** es un identificador único de su aplicación. La convención consiste en usar `https://<tenant-domain>/<app-name>`, p. ej. `https://contoso.onmicrosoft.com/my-first-aad-app`
 - Una vez que haya completado el registro, AAD asignará a su aplicación un identificador de cliente único. Necesitará este valor en las secciones siguientes, de modo que cópielo desde la pestaña Configurar.
 
-## 2\. Incorporación de requisitos previos al directorio
+## 2. Incorporación de requisitos previos al directorio
 
 En la línea de comandos, cambie los directorios a la carpeta raíz si aún no está ahí y ejecute los siguientes comandos:
 
@@ -70,7 +70,7 @@ En la línea de comandos, cambie los directorios a la carpeta raíz si aún no e
 
 Esto instalará las bibliotecas de las que depende passport-azure-ad.
 
-## 3\. Configuración de la aplicación para que use la estrategia passport-node-js
+## 3. Configuración de la aplicación para que use la estrategia passport-node-js
 Aquí configuraremos el middleware Express para usar el protocolo de autenticación OpenID Connect. Passport se usará para emitir solicitudes de inicio y cierre de sesión, administrar la sesión del usuario y obtener información sobre el usuario, entre otras cosas.
 
 -	Por último, abra el archivo `config.js` en la raíz del proyecto y escriba los valores de configuración de su aplicación en la sección `exports.creds`.
@@ -252,13 +252,25 @@ Ahora la aplicación está correctamente configurada para comunicarse con el ext
 
 //Rutas (Sección 4)
 
-app.get('/', function(req, res){ res.render('index', { user: req.user }); });
+app.get('/', function(req, res){
+  res.render('index', { user: req.user });
+});
 
-app.get('/account', ensureAuthenticated, function(req, res){ res.render('account', { user: req.user }); });
+app.get('/account', ensureAuthenticated, function(req, res){
+  res.render('account', { user: req.user });
+});
 
-app.get('/login', passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }), function(req, res) { log.info('Login was called in the Sample'); res.redirect('/'); });
+app.get('/login',
+  passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+  function(req, res) {
+    log.info('Login was called in the Sample');
+    res.redirect('/');
+});
 
-app.get('/logout', function(req, res){ req.logout(); res.redirect('/'); });
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 
 ```
 
@@ -275,7 +287,15 @@ app.get('/logout', function(req, res){ req.logout(); res.redirect('/'); });
 
 // Middleware de rutas sencillo para asegurarse de que el usuario está autenticado. (Sección 4)
 
-// Use este middleware de ruta en cualquier recurso que se tenga que proteger. Si / / la se autentica la solicitud (normalmente a través de una sesión de inicio de sesión persistente), // se llevará a cabo la solicitud. De lo contrario, se redirigirá al usuario a la función // login page. function ensureAuthenticated(req, res, next) { if (req.isAuthenticated()) { return next(); } res.redirect('/login') } ```
+// Use este middleware de ruta en cualquier recurso que se tenga que proteger.  Si
+//   la se autentica la solicitud (normalmente a través de una sesión de inicio de sesión persistente),
+//   se llevará a cabo la solicitud. De lo contrario, se redirigirá al usuario a la función
+//   login page.
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  res.redirect('/login')
+}
+```
 
 - Por último, crearemos el propio servidor en `app.js`:
 
@@ -286,7 +306,7 @@ app.listen(3000);
 ```
 
 
-## 5\. Creación de las vistas y las rutas en Express para mostrar el usuario en el sitio web
+## 5. Creación de las vistas y las rutas en Express para mostrar el usuario en el sitio web
 
 `app.js` está finalizado. Ahora solo es preciso agregar las rutas y vistas que mostrarán la información obtenida al usuario, así como administrar las rutas `/logout` y `/login` creadas.
 
@@ -354,7 +374,28 @@ Estas sencillas rutas solo pasarán la solicitud a nuestras vistas, incluido el 
 
 ```HTML
 
-<!DOCTYPE html> <html> <head> <title>Ejemplo de Passport-OpenID</title> </head> <body> <% if (!user) { %> <p> <a href="/">Inicio</a> | <a href="/login">Iniciar sesión</a> </p> <% } else { %> <p> <a href="/">Inicio</a> | <a href="/account">Cuenta</a> | <a href="/logout">Cerrar sesión</a> </p> <% } %> <%- body %> </body> </html>```
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Passport-OpenID Example</title>
+	</head>
+	<body>
+		<% if (!user) { %>
+			<p>
+			<a href="/">Home</a> | 
+			<a href="/login">Log In</a>
+			</p>
+		<% } else { %>
+			<p>
+			<a href="/">Home</a> | 
+			<a href="/account">Account</a> | 
+			<a href="/logout">Log Out</a>
+			</p>
+		<% } %>
+		<%- body %>
+	</body>
+</html>
+```
 
 Por último, compile y ejecute su aplicación.
 
