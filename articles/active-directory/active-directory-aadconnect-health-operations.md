@@ -22,7 +22,7 @@ El tema siguiente describe las distintas operaciones que se pueden realizar con 
 
 ## Habilitación de notificaciones de correo electrónico
 Puede configurar el Servicio de Azure AD Connect Health para enviar notificaciones por correo electrónico cuando se generen alertas que indiquen que el estado de la infraestructura de identidad no es correcto. Esto ocurrirá cuando se genere una alerta y también cuando se marque como resuelta. Siga las instrucciones que aparecen a continuación para configurar las notificaciones de correo electrónico.
->[AZURE.NOTE]Las notificaciones de correo electrónico están deshabilitadas de forma predeterminada.
+>[AZURE.NOTE] Las notificaciones de correo electrónico están deshabilitadas de forma predeterminada.
 
 
 ### Para habilitar las notificaciones de correo electrónico de Azure AD Connect Health
@@ -72,10 +72,11 @@ Cuando elimine una instancia de servicio, tenga en cuenta lo siguiente:
 1. Seleccione el identificador del servicio (nombre de la granja) que desea quitar para abrir la Hoja Servicio en la hoja Lista de Servicios.
 2. En la hoja Servidor, haga clic en el botón "Eliminar" de la barra de acciones.
 3. Confirme el nombre del servicio; para ello, escríbalo en el cuadro de confirmación (por ejemplo: sts.contoso.com).
-4. Haga clic en el botón "Eliminar". <br><br>
+4. Haga clic en el botón "Eliminar".
+<br><br>
 
 
-[//]: # "Inicio de la sección RBAC"
+[//]: # (Start of RBAC section)
 ## Administración del acceso con control de acceso basado en rol
 ### Información general
 El [control de acceso basado en rol](role-based-access-control-configure.md) para Azure AD Connect Health proporciona acceso al servicio Azure AD Connect Health a usuarios y/o grupos fuera de los administradores globales. Esto se logra mediante la asignación de roles a los usuarios y/o grupos previstos y proporciona un mecanismo para limitar los administradores globales dentro del directorio.
@@ -85,7 +86,7 @@ Azure AD Connect Health admite los siguientes roles integrados.
 
 | Rol | Permisos |
 | ----------- | ---------- |
-| Propietario | Los propietarios pueden ***administrar el acceso*** (por ejemplo, asignar roles a un usuario y/o grupo), ***ver toda la información*** (por ejemplo, ver las alertas) desde el portal y ***cambiar la configuración*** (por ejemplo, notificaciones de correo electrónico) dentro de Azure AD Connect Health. <br>De forma predeterminada, a los administradores globales de Azure AD se les asigna este rol y esto no se puede cambiar. |
+| Propietario | Los propietarios pueden ***administrar el acceso*** (por ejemplo, asignar roles a un usuario y/o grupo), ***ver toda la información*** (por ejemplo, ver las alertas) desde el portal y ***cambiar la configuración*** (por ejemplo, notificaciones de correo electrónico) dentro de Azure AD Connect Health. <br>De forma predeterminada, a los administradores globales de Azure AD se les asigna este rol y esto no se puede cambiar.  |
 |Colaborador| Los colaboradores pueden ***ver toda la información*** (por ejemplo, ver las alertas) desde el portal y ***cambiar la configuración*** (por ejemplo, notificaciones de correo electrónico) dentro de Azure AD Connect Health.|
 |Lector| Los lectores pueden ***ver toda la información*** (por ejemplo, ver las alertas) desde el portal dentro de Azure AD Connect Health.|
 
@@ -97,36 +98,44 @@ Azure AD Connect admite la administración de acceso a dos niveles:
 
 - ***Directorio***: este es el modo recomendado para la mayoría de los clientes y controla el acceso para todas las instancias de servicio (por ejemplo, una granja de servidores ADFS) en todos los tipos de rol que está supervisando Azure AD Connect Health.
 
-- ***Instancia de servicio***: en algunos casos, puede que necesite separar el acceso según los tipos de rol o por una instancia de servicio. En este caso, puede administrar el acceso en el nivel de instancia de servicio.
+- ***Instancia de servicio***: en algunos casos, puede que necesite separar el acceso según los tipos de rol o por una instancia de servicio. En este caso, puede administrar el acceso en el nivel de instancia de servicio.  
 
 El permiso se concede si un usuario final tiene acceso al nivel de directorio o de instancia de servicio.
 
 
 ### Cómo permitir el acceso a los usuarios o grupos a Azure AD Connect Health
 #### Paso 1: Seleccionar el ámbito de acceso adecuado
-Para permitir a un usuario acceder al nivel de *directorio* dentro de Azure AD Connect Health, abra la hoja principal en Azure AD Connect Health.<br> [//]\: # (RBAC\_MainBladeSS)
+Para permitir a un usuario acceder al nivel de *directorio* dentro de Azure AD Connect Health, abra la hoja principal en Azure AD Connect Health.<br>
+[//]: # (RBAC_MainBladeSS)
 #### Paso 2: Agregar usuarios, grupos y asignar roles
-1. Haga clic en la parte "Usuarios" de la sección Configurar.<br> [/ /]\: # (RBAC\_MainBladeUserPart)
+1. Haga clic en la parte "Usuarios" de la sección Configurar.<br>
+[//]: # (RBAC_MainBladeUserPart)
 2. Seleccione "Agregar".
-3. Seleccione el "Rol"<br> [/ /]\: # (RBAC\_AddRole)
+3. Seleccione el "Rol"<br>
+[//]: # (RBAC_AddRole)
 4. Escriba el nombre o identificador del usuario o grupo de destino. Puede seleccionar uno o más usuarios o grupos al mismo tiempo.
-5. Seleccione "Aceptar".<br> [/ /]\: # (RBAC\_LastStep)
-6. Una vez completada la asignación de roles, los usuarios y/o grupos aparecerán en la lista.<br> [/ /]\: # (RBAC\_ListofUsersAndGroups)
+5. Seleccione "Aceptar".<br>
+[//]: # (RBAC_LastStep)
+6. Una vez completada la asignación de roles, los usuarios y/o grupos aparecerán en la lista.<br>
+[//]: # (RBAC_ListofUsersAndGroups)
 
-Estos pasos permitirán a los usuarios y grupos enumerados el acceso según sus roles asignados.
->[AZURE.NOTE]- Los administradores globales siempre tienen acceso total a todas las operaciones, pero las cuentas de los administradores globales no estarán presentes en la lista anterior. La característica "Invitar a usuarios" NO se admite dentro de Azure AD Connect Health.
+<p>Estos pasos permitirán a los usuarios y grupos enumerados el acceso según sus roles asignados.</p>
+>[AZURE.NOTE]
+- Los administradores globales siempre tienen acceso total a todas las operaciones, pero las cuentas de los administradores globales no estarán presentes en la lista anterior.
+- La característica "Invitar a usuarios" NO se admite dentro de Azure AD Connect Health.
 
 #### Paso 3: Compartir la ubicación de la hoja con usuarios o grupos
 1. Después de asignar permisos, un usuario puede acceder a Azure AD Connect Health yendo a [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
-2. Una vez en la hoja, el usuario puede anclar dicha hoja o diferentes partes al panel simplemente haciendo clic en "Anclar al panel"<br> [/ /]\: # (RBAC\_PinBlade)
+2. Una vez en la hoja, el usuario puede anclar dicha hoja o diferentes partes al panel simplemente haciendo clic en "Anclar al panel"<br>
+[//]: # (RBAC_PinBlade)
 
->[AZURE.NOTE]Un usuario con el rol de "Lector" asignado no podrá realizar la operación "crear" para obtener la extensión de Azure AD Connect Health de Azure Marketplace. Este usuario todavía puede obtener la hoja visitando el vínculo anterior. Para usos posteriores, el usuario puede anclar la hoja en el panel.
+>[AZURE.NOTE] Un usuario con el rol de "Lector" asignado no podrá realizar la operación "crear" para obtener la extensión de Azure AD Connect Health de Azure Marketplace. Este usuario todavía puede obtener la hoja visitando el vínculo anterior. Para usos posteriores, el usuario puede anclar la hoja en el panel.
 
 ### Eliminación de usuarios y/o grupos
-Puede quitar un usuario o grupo agregado a la parte Control de acceso basado en rol de Azure AD Connect Health haciendo clic con el botón derecho y seleccionando Quitar.<br> [//]\: # (RBAC\_RemoveUser)
+Puede quitar un usuario o grupo agregado a la parte Control de acceso basado en rol de Azure AD Connect Health haciendo clic con el botón derecho y seleccionando Quitar.<br>
+[//]: # (RBAC_RemoveUser)
 
-[//]: # "Fin de la sección RBAC"
-[/ /]: # "Fin de la sección RBAC"
+[//]: # (End of RBAC section)
 
 ## Vínculos relacionados
 
@@ -135,4 +144,4 @@ Puede quitar un usuario o grupo agregado a la parte Control de acceso basado en 
 * [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Oct15_HO3-->
+<!------HONumber=Oct15_HO3-->
