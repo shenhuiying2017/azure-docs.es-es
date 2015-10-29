@@ -10,10 +10,10 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2015"
+   ms.date="10/20/2015"
    ms.author="lodipalm"/>
 
 # Creación de Almacenamiento de datos SQL con Powershell
@@ -71,4 +71,4 @@ Si está interesado en obtener más información sobre cómo administrar el Alma
 [firewall rules]: https://azure.microsoft.com/es-ES/documentation/articles/sql-database-configure-firewall-settings/
 [Instalación y configuración de Azure PowerShell]: powershell-install-configure.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

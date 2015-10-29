@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/05/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # Implementación de granjas de servidores SharePoint con plantillas del Administrador de recursos de Azure
@@ -31,9 +31,11 @@ En una granja de servidores de SharePoint Server 2013 básica, una plantilla de 
 
 Puede ejecutar la plantilla con el Portal de vista previa de Azure, Azure PowerShell o la CLI de Azure.
 
+> [AZURE.NOTE]También puede crear esta configuración mediante el elemento [Granja de SharePoint 2013 sin alta disponibilidad](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) en Azure Marketplace del Portal de vista previa de Azure.
+
 ### Portal de vista previa de Azure
 
-Para implementar esta carga de trabajo mediante una plantilla del Administrador de recursos y el portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
+Para implementar esta carga de trabajo mediante una plantilla del Administrador de recursos y el Portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
@@ -41,16 +43,14 @@ Para implementar esta carga de trabajo mediante una plantilla del Administrador 
 2.	Si es necesario, haga clic en **Suscripción** y seleccione la suscripción de Azure correcta.
 3.	Haga clic en **Grupo de recursos** y seleccione un grupo de recursos existente. Como alternativa, haga clic en **O crear nuevo** para crear uno nuevo para esta carga de trabajo.
 4.	Si es necesario, haga clic en **Ubicación del grupo de recursos** y seleccione la ubicación correcta de Azure.
-6.	Haga clic en **Términos legales** para revisar los términos y el contrato para usar la plantilla.
+6.	Haga clic en **Condiciones legales** para revisar los términos y el contrato para usar la plantilla y después haga clic en **Comprar**.
 7.	Haga clic en **Crear**.
 
 Dependiendo de la plantilla, es posible que Azure tarde algún tiempo en generar la carga de trabajo. Cuando haya finalizado, tendrá una nueva granja SharePoint de tres servidores en el grupo de recursos nuevo o existente.
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]Este artículo contiene comandos para versiones de Azure PowerShell hasta, *pero sin incluir*, las versiones 1.0.0 y versiones posteriores. Puede comprobar la versión de Azure PowerShell con el comando **Get-Module azure | format-table version**. Los bloques de comandos de Azure PowerShell de este artículo están en proceso de prueba y actualización para admitir los nuevos cmdlets de las versiones 1.0.0, y posteriores, de Azure PowerShell. Gracias por su paciencia.
-
-Antes de comenzar, asegúrese de tener la versión correcta de Azure PowerShell instalada, de haber iniciado sesión y de haber cambiado al nuevo modo de Administrador de recursos. Para obtener detalles, haga clic [aquí](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates).
+> [AZURE.NOTE]Este artículo contiene comandos para la versión de vista previa de Azure PowerShell 1.0. Para ejecutar estos comandos en Azure PowerShell 0.9.8 y versiones anteriores, reemplace **New-AzureRMResourceGroup** por **New-AzureResourceGroup**, reemplace **New-AzureResourceGroupDeployment** por **New-AzureResourceGroupDeployment** y agregue el comando **Switch-AzureMode AzureResourceManager** antes del comando **New-AzureResourceGroup**. Para obtener más información, consulte la [versión de vista previa de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y una ubicación de centro de datos de Azure en el siguiente conjunto de comandos. Elimine todo el contenido dentro de las comillas, incluidos los caracteres < and >.
 
@@ -58,8 +58,8 @@ Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y 
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRMResourceGroup -Name $RGName -Location $locName
+	New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Aquí tiene un ejemplo.
 
@@ -67,12 +67,12 @@ Aquí tiene un ejemplo.
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRMResourceGroup -Name $RGName -Location $locName
+	New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 A continuación, ejecute el bloque de comandos en el símbolo del sistema de Azure PowerShell.
 
-Al ejecutar el comando **New-AzureResourceGroupDeployment**, se le solicitará que proporcione los valores para una serie de parámetros. Cuando haya especificado todos los valores de parámetro, **New-AzureResourceGroupDeployment** crea y configura las máquinas virtuales.
+Al ejecutar el comando **New-AzureRMResourceGroupDeployment**, se le pedirá que proporcione los valores de una serie de parámetros. Una vez especificados todos los valores de parámetro, **New-AzureRmResourceGroupDeployment** crea y configura las máquinas virtuales.
 
 Cuando haya finalizado la ejecución de la plantilla, tendrá una nueva granja SharePoint de tres servidores en el grupo de recursos nuevo.
 
@@ -103,24 +103,26 @@ En una granja de servidores de SharePoint Server 2013 de alta disponibilidad, un
 
 ![](./media/virtual-machines-workload-template-sharepoint/nine-server-sharepoint-farm.png)
 
+> [AZURE.NOTE]También puede crear esta configuración mediante el elemento [Granja de alta disponibilidad de SharePoint 2013](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) en Azure Marketplace del Portal de vista previa de Azure.
+
 ### Portal de vista previa de Azure
 
-Para implementar esta carga de trabajo mediante una plantilla del Administrador de recursos y el portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
+Para implementar esta carga de trabajo mediante una plantilla del Administrador de recursos y el Portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Haga clic en **Parámetros**. En el panel **Parámetros**, escriba nuevos valores, seleccione de valores permitidos o acepte los valores predeterminados y después haga clic en **Aceptar**.
+1.	Haga clic en **Parámetros**. En el panel **Parámetros**, escriba nuevos valores, seleccione de valores permitidos o acepte los valores predeterminados y, a continuación, haga clic en **Aceptar**.
 2.	Si es necesario, haga clic en **Suscripción** y seleccione la suscripción de Azure correcta.
 3.	Haga clic en **Grupo de recursos** y seleccione un grupo de recursos existente. Como alternativa, haga clic en **O crear nuevo** para crear uno nuevo para esta carga de trabajo.
 4.	Si es necesario, haga clic en **Ubicación del grupo de recursos** y seleccione la ubicación correcta de Azure.
-5.	Haga clic en **Términos legales** para revisar los términos y el contrato para usar la plantilla.
+5.	Haga clic en **Condiciones legales** para revisar los términos y el contrato para usar la plantilla y después haga clic en **Comprar**.
 6.	Haga clic en **Crear**.
 
 Dependiendo de la plantilla, es posible que Azure tarde algún tiempo en generar la carga de trabajo. Cuando haya finalizado, tendrá una nueva granja SharePoint de nueve servidores en el grupo de recursos nuevo o existente.
 
 ### Azure PowerShell
 
-Antes de comenzar, asegúrese de tener la versión correcta de Azure PowerShell instalada, de haber iniciado sesión y de haber cambiado al nuevo modo de Administrador de recursos. Para obtener detalles, haga clic [aquí](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates).
+> [AZURE.NOTE]Este artículo contiene comandos para la versión de vista previa de Azure PowerShell 1.0. Para ejecutar estos comandos en Azure PowerShell 0.9.8 y versiones anteriores, reemplace **New-AzureRMResourceGroup** por **New-AzureResourceGroup**, reemplace **New-AzureResourceGroupDeployment** por **New-AzureResourceGroupDeployment** y agregue el comando **Switch-AzureMode AzureResourceManager** antes del comando **New-AzureResourceGroup**. Para obtener más información, consulte la [versión de vista previa de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y una ubicación de centro de datos de Azure en el siguiente conjunto de comandos. Elimine todo el contenido dentro de las comillas, incluidos los caracteres < and >.
 
@@ -128,8 +130,8 @@ Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y 
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRMResourceGroup -Name $RGName -Location $locName
+	New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Aquí tiene un ejemplo.
 
@@ -137,12 +139,12 @@ Aquí tiene un ejemplo.
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRMResourceGroup -Name $RGName -Location $locName
+	New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 A continuación, ejecute el bloque de comandos en el símbolo del sistema de Azure PowerShell.
 
-Al ejecutar el comando **New-AzureResourceGroupDeployment**, se le solicitará que proporcione los valores para una serie de parámetros. Cuando haya especificado todos los valores de parámetro, **New-AzureResourceGroupDeployment** crea y configura las máquinas virtuales.
+Al ejecutar el comando **New-AzureRMResourceGroupDeployment**, se le pedirá que proporcione los valores de una serie de parámetros. Una vez especificados todos los valores de parámetro, **New-AzureRmResourceGroupDeployment** crea y configura las máquinas virtuales.
 
 Cuando haya finalizado la ejecución de la plantilla, tendrá una nueva granja SharePoint de nueve servidores en el grupo de recursos nuevo.
 
@@ -184,4 +186,4 @@ Cuando haya finalizado la ejecución de la plantilla, tendrá una nueva granja S
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

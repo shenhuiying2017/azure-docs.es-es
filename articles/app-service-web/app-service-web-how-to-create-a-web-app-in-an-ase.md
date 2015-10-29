@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Creación de una aplicación web en un entorno del Servicio de aplicaciones"
 	description="Flujo de creación de aplicaciones web y planes del Servicio de aplicaciones examinados para un entorno del Servicio de aplicaciones"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="ccompy"
 	manager="stefsch"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -100,4 +100,4 @@ Después de crear la aplicación web y el ASP, es una buena idea para escalarla 
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

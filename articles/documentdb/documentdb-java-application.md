@@ -14,7 +14,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="07/21/2015" 
+	ms.date="10/20/2015" 
 	ms.author="andrl"/>
 
 # Creación de una aplicación web de Java mediante DocumentDB
@@ -25,7 +25,7 @@
 - [Java](documentdb-java-application.md)
 - [Python](documentdb-python-application.md)
 
-En este tutorial de aplicación web de Java aprenderá a usar el servicio [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) para almacenar datos y obtener acceso a ellos desde una aplicación Java hospedada en Sitios web Azure. En este tema, aprenderá:
+En este tutorial de aplicación web de Java aprenderá a usar el servicio [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) para almacenar datos y obtener acceso a ellos desde una aplicación Java hospedada en Sitios web de Azure. En este tema, aprenderá:
 
 - Cómo crear una aplicación de JSP básica en Eclipse.
 - Uso del servicio de Azure DocumentDB mediante el [SDK de Java de DocumentDB](https://github.com/Azure/azure-documentdb-java).
@@ -34,7 +34,7 @@ Este tutorial de aplicación Java muestra cómo crear una aplicación de adminis
 
 ![Aplicación Java My ToDo List](./media/documentdb-java-application/image1.png)
 
-> [AZURE.TIP]En este tutorial de desarrollo de aplicaciones se supone que tiene experiencia anterior en el uso de Java. Si no está familiarizado con Java o con las herramientas de [requisitos previos](#Prerequisites), se recomienda que descargue el proyecto del tutorial [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) completo de [GitHub](https://github.com/Azure/azure-documentdb-java) y lo cree mediante las [instrucciones que se encuentran al final de este artículo](#GetProject). Una vez compilado, puede revisar el artículo para obtener información sobre el código en el contexto del proyecto.
+> [AZURE.TIP]En este tutorial de desarrollo de aplicaciones se supone que tiene experiencia anterior en el uso de Java. Si no está familiarizado con Java o con las herramientas de [requisitos previos](#Prerequisites), se recomienda que descargue el proyecto completo [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) de GitHub y lo compile mediante [las instrucciones que se encuentran al final de este artículo](#GetProject). Una vez compilado, puede revisar el artículo para obtener información sobre el código en el contexto del proyecto.
 
 ##<a id="Prerequisites"></a>Requisitos previos para este tutorial de aplicación web de Java
 Antes de comenzar este tutorial de desarrollo de aplicaciones, debe disponer de lo siguiente:
@@ -95,7 +95,7 @@ Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pas
 4. En la ventana **Seleccionar dependencia**, haga lo siguiente:
  - En **GroupId**, escriba com.microsoft.azure.
  - En **Id. de artefacto**, escriba azure-documentdb.
- - En el cuadro **Versión**, escriba 1.1.0.
+ - En el cuadro **Versión**, escriba 1.4.0.
 
 	![Instalación del SDK de la aplicación Java en DocumentDB](./media/documentdb-java-application/image13.png)
 
@@ -104,7 +104,7 @@ Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pas
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.1.0</version>
+		    <version>1.4.0</version>
 	    </dependency>
 
 5. Haga clic en **Aceptar** y Maven instalará el SDK de Java de DocumentDB.
@@ -364,7 +364,7 @@ Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pas
 	    }
 
 
-##<a id="Wire"></a>Paso 5: Reunión del resto del proyecto de desarrollo de aplicación en Java
+##<a id="Wire"></a>Paso 5: Reunión del resto del proyecto de desarrollo de la aplicación Java
 
 Ahora que hemos terminado la parte divertida, todo lo que queda por hacer es crear una interfaz de usuario rápida y conectarla a nuestro DAO.
 
@@ -758,14 +758,14 @@ Sitios web de Azure hace que la implementación de aplicaciones de Java sean tan
 
 ##<a id="GetProject"></a>Obtenga el proyecto desde GitHub
 
-Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) en GitHub, que forma parte del repositorio [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java). Para importar el proyecto todo en Eclipse, asegúrese de disponer del software y los recursos que aparecen en la sección [Requisitos previos](#Prerequisites) y haga lo siguiente:
+Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) en GitHub. Para importar el proyecto todo en Eclipse, asegúrese de disponer del software y los recursos que aparecen en la sección [Requisitos previos](#Prerequisites) y haga lo siguiente:
 
 1. Instale [Project Lombok](http://projectlombok.org/). Lombok se utiliza para generar constructores, captadores y establecedores en el proyecto. Una vez haya descargado el archivo lombok.jar, haga doble clic en él para instalarlo o instálelo desde la línea de comandos. 
 2. Si Eclipse está abierto, ciérrelo y reinícielo para cargar Lombok.
 3. En Eclipse, en el menú **Archivo** , haga clic en **Importación**.
 4. En la ventana **Importación**, haga clic en **Git**, en **Proyectos de Git** y, a continuación, en **Siguiente**. 
 5. En la pantalla **Seleccionar origen de repositorio**, haga clic en **Clonar URI**.
-6. En la pantalla **Repositorio Git de origen**, en el cuadro **URI**, escriba https://github.com/Azure/azure-documentdb-java.git y, a continuación, haga clic en **Siguiente**.
+6. En la pantalla **Repositorio Git de origen**, en el cuadro **URI**, escriba https://github.com/Azure-Samples/documentdb-java-todo-app.git y, a continuación, haga clic en **Siguiente**.
 7. En la pantalla **Selección de rama**, asegúrese de que está seleccionado **principal** y, a continuación, haga clic en **Siguiente**.
 8. En la pantalla **Destino local**, haga clic en **Examinar** para seleccionar una carpeta donde se pueda copiar el repositorio y, a continuación, haga clic en **Siguiente**.
 9. En la pantalla **Seleccionar un asistente que utilizar para la importación de proyectos**, asegúrese de que está seleccionada la opción **Importar proyectos existentes** y, a continuación, haga clic en **Siguiente**.
@@ -786,4 +786,4 @@ Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://gi
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -170,6 +170,8 @@ Utilice Visual Studio Enterprise o Ultimate para grabar una sesión web.
 
     ![Seleccione la prueba web de varios pasos.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
+    Establezca las ubicaciones de prueba, la frecuencia y los parámetros de alerta de la misma manera que para las pruebas de ping.
+
 Vea los resultados y los errores de la prueba igual que hace con las pruebas de una sola dirección URL.
 
 Un motivo habitual de error es que la prueba se ejecuta durante demasiado tiempo. No deben ejecutar durante más de dos minutos.
@@ -244,4 +246,4 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

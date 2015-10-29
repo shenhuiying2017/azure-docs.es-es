@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="08/04/2015"
+	ms.date="10/21/2015"
 	ms.author="tamram"/>
 
 # Uso del almacenamiento de colas de .NET
@@ -123,9 +123,9 @@ Puede cambiar el contenido de un mensaje local en la cola. Si el mensaje represe
 
 	// Get the message from the queue and update the message contents.
     CloudQueueMessage message = queue.GetMessage();
-    message.SetMessageContent("Updated contents.") ;
+    message.SetMessageContent("Updated contents.");
     queue.UpdateMessage(message,
-        TimeSpan.FromSeconds(0.0),  // Make it visible immediately.
+        TimeSpan.FromSeconds(60.0),  // Make it visible for another 60 seconds.
         MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 
 ## Eliminación de la cola del siguiente mensaje
@@ -199,7 +199,7 @@ Hay dos formas de personalizar la recuperación de mensajes de una cola. En prim
 
 ## la longitud de la cola
 
-Puede obtener una estimación del número de mensajes existentes en una cola. El método **FetchAttributes** solicita al servicio de cola la recuperación de los atributos de la cola, incluido el número de mensajes. La propiedad **ApproximateMethodCount** devuelve el último valor recuperado por el método **FetchAttributes**, sin llamar al servicio de cola.
+Puede obtener una estimación del número de mensajes existentes en una cola. El método **FetchAttributes** solicita al servicio de cola la recuperación de los atributos de la cola, incluido el número de mensajes. La propiedad **ApproximateMethodCount** devuelve el último valor recuperado por el método **FetchAttributes**, sin llamar al servicio Cola.
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -263,4 +263,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

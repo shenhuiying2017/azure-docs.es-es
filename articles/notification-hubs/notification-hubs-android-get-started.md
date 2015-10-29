@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/15/2015"
+	ms.date="10/21/2015"
 	ms.author="wesmc"/>
 
 # Introducción a Centros de notificaciones para aplicaciones Android
@@ -51,7 +51,17 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
 
 ##Configuración de un centro de notificaciones nuevo
 
-[AZURE.INCLUDE [notification-hubs-android-configure-push](../../includes/notification-hubs-android-configure-push.md)]
+
+[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
+
+
+<ol start="7">
+<li><p>Haga clic en la pestaña <b>Configurar</b> en la parte superior, escriba el valor <b>Clave de API</b> que obtuvo en la sección anterior y, a continuación, haga clic en <b>Guardar</b>.</p>
+</li>
+</ol>
+&emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hub-configure-android.png)
+
+El centro de notificaciones ya está configurado para funcionar con GCM y dispone de las cadenas de conexión para registrar la aplicación para que reciba notificaciones y para enviar notificaciones de inserción.
 
 ##<a id="connecting-app"></a>Conexión de la aplicación al Centro de notificaciones
 
@@ -76,7 +86,7 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
 1. Descargue el <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">SDK de Android para Centros de notificaciones</a>. Extraiga el archivo .zip y copie **notificationhubs\\notification-hubs-0.3.jar** y **notifications\\notifications-1.0.1.jar** en el directorio **app\\libs** del proyecto. Para hacerlo, arrastre los archivos directamente a la carpeta **libs** en la ventana Vista del proyecto de Android Studio. Actualice la carpeta **libs**.
 
 
-    > [AZURE.NOTE] Los números que aparecen al final del nombre del archivo pueden cambiar en versiones de SDK posteriores.
+    > [AZURE.NOTE]Los números que aparecen al final del nombre del archivo pueden cambiar en versiones de SDK posteriores.
 
 2. Configure la aplicación para obtener un Id. de registro desde GCM y úselo para registrar la instancia de la aplicación en el centro de notificaciones.
 
@@ -110,10 +120,7 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
 	    private static Boolean isVisible = false;
 
 
-	Asegúrese de actualizar los tres marcadores de posición:
-	* **SENDER\_ID**: defina `SENDER_ID` en el número de proyecto que obtuvo anteriormente desde el proyecto que creó en la [Consola de la nube de Google](http://cloud.google.com/console).
-	* **HubListenConnectionString**: defina `HubListenConnectionString` en la cadena de conexión **DefaultListenAccessSignature** correspondiente a su centro. Puede copiar esa cadena de conexión con un clic en **Ver cadena de conexión** en la pestaña **Panel** del centro en el [Portal de Azure].
-	* **HubName**: el nombre del centro de notificaciones que aparece en la parte superior de la página en Azure correspondiente a su centro (**no** la dirección URL completa). Por ejemplo, use `"myhub"`.
+	Asegúrese de actualizar los tres marcadores de posición: * **SENDER\_ID**: establezca `SENDER_ID` en el número de proyecto que obtuvo anteriormente del proyecto que creó en la [Consola de Google Cloud](http://cloud.google.com/console). * **HubListenConnectionString**: establezca `HubListenConnectionString` en la cadena de conexión **DefaultListenAccessSignature** correspondiente a su centro. Puede copiar esa cadena de conexión haciendo clic en **Ver cadena de conexión** en la pestaña **Panel** de su centro en el [Portal de Azure]. * **HubName**: use el nombre del centro de notificaciones que aparece en la parte superior de la página de Azure correspondiente a su centro (**no** la dirección URL completa). Por ejemplo, use `"myhub"`.
 
 
 
@@ -146,7 +153,7 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
     	}
 
 
-7. Agregue el método **DialogNotify** a la actividad para mostrar la notificación cuando la aplicación se está ejecutando y visible. Invalide también **onStart** y **onStop** para determinar si la actividad está visible para mostrar el cuadro de diálogo.
+7. Agregue el método **DialogNotify** a la actividad para mostrar la notificación cuando la aplicación se está ejecutando y es visible. Invalide también **onStart** y **onStop** para determinar si la actividad está visible para mostrar el cuadro de diálogo.
 
 	    @Override
 	    protected void onStart() {
@@ -197,7 +204,7 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
 
 8. Puesto que Android no muestra las notificaciones, debe escribir su propio receptor. En **AndroidManifest.xml**, agregue el siguiente elemento dentro del elemento `<application>`.
 
-	> [AZURE.NOTE] Reemplace el marcador de posición por el nombre del paquete.
+	> [AZURE.NOTE]Reemplace el marcador de posición por el nombre del paquete.
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -306,7 +313,7 @@ Para probar la recepción de notificaciones en su aplicación, envíe notificaci
         android:layout_marginBottom="42dp"
         android:hint="@string/notification_message_hint" />
 
-2. En la vista de proyecto de Android Studio, expanda **App** -> **src** -> **main** -> **res** -> **values**. Abra el archivo **strings.xml** y agregue los valores de cadena a los que los nuevos controles `Button` y `EditText` hacen referencia. Agréguelos al final del archivo, justo antes de `</resources>`.
+2. En la vista del proyecto de Android Studio, expanda **App** > **src** > **main** > **res** > **values**. Abra el archivo **strings.xml** y agregue los valores de cadena a los que los nuevos controles `Button` y `EditText` hacen referencia. Agréguelos al final del archivo, justo antes de `</resources>`.
 
         <string name="send_button">Send Notification</string>
         <string name="notification_message_hint">Enter notification message text</string>
@@ -338,7 +345,7 @@ Para probar la recepción de notificaciones en su aplicación, envíe notificaci
 	    private String HubSasKeyValue = null;
 		private String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
 
-4. La actividad contiene el nombre del centro y la cadena de conexión de acceso compartido correspondiente al centro. Debe crear un token de firma de acceso a software (SaS) para autenticar una solicitud POST para enviar mensajes a su centro de notificaciones. Para hacerlo, analice los datos de clave de la cadena de conexión y, luego, cree el token SAS como se menciona en la referencia de API de REST de [Conceptos comunes](http://msdn.microsoft.com/library/azure/dn495627.aspx).
+4. La actividad contiene el nombre del centro y la cadena de conexión de acceso compartido correspondiente al centro. Debe crear un token de firma de acceso a software (SaS) para autenticar una solicitud POST para enviar mensajes a su centro de notificaciones. Para ello, analice los datos de clave de la cadena de conexión y, luego, cree el token SaS como se menciona en la referencia de API de REST de [Conceptos comunes](http://msdn.microsoft.com/library/azure/dn495627.aspx).
 
 	En **MainActivity.java**, agregue el método siguiente a la clase `MainActivity` para analizar la cadena de conexión.
 
@@ -506,11 +513,6 @@ Para obtener más información sobre los Centros de notificaciones, consulte [In
 
 
 <!-- Images. -->
-[1]: ./media/notification-hubs-android-get-started/mobile-services-google-new-project.png
-[2]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png
-[3]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png
-[4]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png
-[5]: ./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png
 [6]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
 
 [12]: ./media/notification-hubs-android-get-started/notification-hub-connection-strings.png
@@ -544,4 +546,4 @@ Para obtener más información sobre los Centros de notificaciones, consulte [In
 [Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-android-notify-users.md
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -18,7 +18,7 @@
 	ms.date="07/24/2015" 
 	ms.author="ryancraw"/>
 
-#<a name="_Toc395809351"></a>Desarrollo de una aplicación Web ASP.NET MVC usando DocumentDB
+#<a name="_Toc395809351"></a>Desarrollo de una aplicación web ASP.NET MVC usando DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -499,7 +499,7 @@ Agreguemos algo de código a DocumentDBRepository e ItemController para mantener
 		}
 	Este código llama a DocumentDBRepository y usa el método CreateItemAsync para conservar el nuevo elemento todo en la base de datos.
  
-	**Security Note**: el atributo **ValidateAntiForgeryToken** se usa aquí para ayudarle a proteger esta aplicación contra ataques de falsificación de solicitud entre sitios. Es más que solo agregar este atributo, sus vistas también necesitan trabajar con este token antifalsificación. Para obtener más información acerca del tema, así como ejemplos de cómo implementarlo correctamente, consulte [Prevención de la falsificación de solicitud entre sitios][]. El código fuente proporcionado en [GitHub][] ya tiene la implementación completa.
+	**Security Note**: el atributo **ValidateAntiForgeryToken** se usa aquí para ayudarle a proteger esta aplicación contra ataques de falsificación de solicitud entre sitios. Es más que solo agregar este atributo, sus vistas también necesitan trabajar con este token antifalsificación. Para obtener más información sobre el tema, así como ejemplos de cómo implementarlo correctamente, consulte [Prevención de la falsificación de solicitud entre sitios][]. El código fuente proporcionado en [GitHub][] ya tiene la implementación completa.
 
 	**Nota de seguridad**: también usamos el atributo **Bind** en el parámetro de método para ayudar a proteger contra ataques de publicación en exceso. Para obtener más información, consulte [Operaciones CRUD básicas en ASP.NET MVC][].
 
@@ -540,19 +540,6 @@ Hay una última cosa que tenemos que hacer, que es agregar la capacidad de edita
 
 2. Agregue lo siguiente a la clase **ItemController**.
 
-    	[HttpPost]
-   		[ValidateAntiForgeryToken]
-    	public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Completed")] Item item)
-    	{
-     	   if (ModelState.IsValid)
-    	    {
-    	        await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
-    	        return RedirectToAction("Index");
-    	    }
-
-  	      return View(item);
- 	   	}
-		
 		public ActionResult Edit(string id)
 		{
 		    if (string.IsNullOrEmpty(id))
@@ -569,6 +556,19 @@ Hay una última cosa que tenemos que hacer, que es agregar la capacidad de edita
 		 	
 		    return View(item);
 		}
+		
+    	[HttpPost]
+   		[ValidateAntiForgeryToken]
+    	public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Completed")] Item item)
+    	{
+     	   if (ModelState.IsValid)
+    	    {
+    	        await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
+    	        return RedirectToAction("Index");
+    	    }
+
+  	      return View(item);
+ 	   	}
 		
 	
 	El primer método controla el Http GET que ocurrirá cuando el usuario haga clic en el vínculo de **edición** en la vista de **índice**. Este método captura un [**documento**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) de DocumentDB y lo pasa a la vista de **edición**.
@@ -633,4 +633,4 @@ Para agregar la funcionalidad adicional a la aplicación, revise las API disponi
 [Operaciones CRUD básicas en ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

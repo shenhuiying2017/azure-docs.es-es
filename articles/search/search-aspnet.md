@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Conexión de Búsqueda de Azure con aplicaciones web de ASP.NET | Microsoft Azure"
+	pageTitle="Conexión de la Búsqueda de Azure con aplicaciones web de ASP.NET | Microsoft Azure"
 	description="Conexión de una aplicación web de ASP.NET con Búsqueda de Azure. Aprenda a conectar, consultar y representar los resultados mediante la biblioteca .Net o la API de REST."
 	services="search"
 	documentationCenter=""
@@ -16,9 +16,9 @@
 	ms.date="08/26/2015"
 	ms.author="heidist"/>
 
-#Integración de Búsqueda de Azure con aplicaciones web de ASP.NET
+#Integración de la Búsqueda de Azure con aplicaciones web de ASP.NET
 
-ASP.NET es el marco de aplicaciones web predominante en soluciones personalizadas que se integran con Búsqueda de Azure. En este artículo, aprenderá a conectar la aplicación web de ASP.NET con Búsqueda de Azure, a iniciarse en los patrones de diseño para operaciones comunes y a revisar algunas prácticas de codificación que pueden ayudarle a facilitar su experiencia de desarrollo.
+ASP.NET es el marco de aplicaciones web predominante en soluciones personalizadas que se integran con la Búsqueda de Azure. En este artículo, aprenderá a conectar la aplicación web de ASP.NET con Búsqueda de Azure, a iniciarse en los patrones de diseño para operaciones comunes y a revisar algunas prácticas de codificación que pueden ayudarle a facilitar su experiencia de desarrollo.
 
 ##Ejemplos y demostraciones con ASP.NET y Búsqueda de Azure
 
@@ -462,4 +462,4 @@ Para fomentar el conocimiento de Búsqueda de Azure y la integración con ASP.NE
 - [Caso práctico para desarrolladores de Búsqueda de Azure](search-dev-case-study-whattopedia.md)
 - [Flujo de trabajo de desarrollo típico para Búsqueda de Azure](search-workflow.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

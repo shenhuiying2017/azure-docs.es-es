@@ -4,8 +4,9 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="jdial"
-   editor="tysonn"/>
+   manager="carolz"
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="vpn-gateway"
@@ -13,23 +14,24 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/11/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc"/>
 
 # Configuración de una conexión VPN de punto a sitio a una red virtual de Azure
 
 
->[AZURE.NOTE]En este artículo se hace referencia a las conexiones de punto a sitio para redes virtuales que se crean en el modo de implementación clásica. En este momento, no se admiten las conexiones de punto a sitio mediante una red virtual creada en el modo de implementación del Administrador de recursos de Azure.
+>[AZURE.NOTE]Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información acerca de los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
+
+En este artículo se hace referencia a las conexiones de punto a sitio para redes virtuales que se crean usando el modo de implementación clásica (Administración de servicios). En este momento, no se admiten las conexiones de punto a sitio mediante una red virtual creada en el modo de implementación del Administrador de recursos de Azure.
 
 El siguiente procedimiento le guiará paso a paso para crear una conexión de punto a sitio segura mediante una red virtual. Aunque la configuración de una conexión de punto a sitio conlleva varios pasos, es una excelente forma de tener una conexión segura desde su equipo a la red virtual sin adquirir ni configurar un dispositivo VPN. Hay tres partes principales en la configuración de una VPN de punto a sitio: la red virtual y la puerta de enlace de VPN, los certificados usados para la autenticación y el cliente VPN que se utiliza para conectarse a la red virtual. El orden en el que se configura cada una de ellas es importante, por lo que no debe omitir pasos ni adelantarse.
 
 
 1. [Cree una red virtual y una puerta de enlace de VPN](#create-a-virtual-network-and-a-vpn-gateway).
-2. [Cree los certificados](#create-your-certificates).
+2. [Cree sus certificados](#create-your-certificates).
 3. [Configure el cliente VPN](#configure-your-vpn-client).
 
 ## Crear una red virtual y una puerta de enlace de VPN
-
 
 
 Una conexión de punto a sitio requiere una red virtual con una puerta de enlace de enrutamiento dinámico. Los siguientes pasos le guiarán para que pueda crear ambos componentes.
@@ -74,7 +76,7 @@ Los certificados se utilizan para autenticar a los clientes VPN para VPN de punt
 1. Una forma de crear un certificado X.509 es mediante la herramienta de creación de certificados (makecert.exe). Para utilizar makecert, descargue e instale [Microsoft Visual Studio Express 2013 para escritorio de Windows](https://www.visualstudio.com/products/visual-studio-express-vs.aspx), que es gratuito.
 2. Vaya a la carpeta de Visual Studio Tools e inicie el símbolo del sistema como administrador.
 3. El comando del ejemplo siguiente creará e instalará un certificado raíz en el almacén de certificados personales de su equipo y también creará un archivo *.cer* correspondiente que podrá cargar más adelante en el portal de Azure.
-4. Cambie al directorio en el que desee que se encuentre el archivo .cer y ejecute el comando mostrado a continuación, donde *NombreCertificadoRaíz* es el nombre que desea usar para el certificado. Si ejecuta el ejemplo siguiente sin realizar ningún cambio, el resultado será un certificado raíz y el archivo *NombreCertificadoRaíz.cer* correspondiente.
+4. Cambie al directorio en el que el archivo .cer se va a ubicar y ejecute el comando siguiente, donde *RootCertificateName* es el nombre que desea usar para el certificado. Si ejecuta el ejemplo siguiente sin realizar ningún cambio, el resultado será un certificado raíz y el archivo *NombreCertificadoRaíz.cer* correspondiente.
 
 >[AZURE.NOTE]Puesto que ha creado un certificado raíz desde el que se generarán los certificados de cliente, puede que desee exportar este certificado junto con su clave privada y guardarlo en una ubicación segura donde se pueda recuperar.
 
@@ -162,4 +164,4 @@ Si desea configurar una conexión VPN de sitio a sitio, consulte [Configurar una
 
 Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

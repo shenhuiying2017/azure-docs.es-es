@@ -24,6 +24,10 @@
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
+<br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+
+
+
 Este tutorial muestra lo fácil que resulta crear una máquina virtual de Azure en unos minutos en el Portal de vista previa. Usaremos una imagen de Windows Server 2012 R2 Datacenter como ejemplo para crear la máquina virtual, pero esa es solo una de las muchas imágenes que Azure ofrece. Las imágenes disponibles dependen de su suscripción. Por ejemplo, las imágenes de escritorio pueden estar disponibles para los suscriptores MSDN.
 
 También puede crear máquinas virtuales con sus propias imágenes, con plantillas del Administrador de recursos o con herramientas de automatización. Para obtener información sobre los diferentes métodos, consulte [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-choices-create-vm.md).
@@ -46,7 +50,7 @@ Se trata del tutorial en formato de vídeo.
 
 	![Marketplace](./media/virtual-machines-windows-tutorial/marketplace_new.png)
 
-	>[AZURE.TIP]Para buscar imágenes adicionales, haga clic en **Marketplace** y, a continuación, búsquelas o filtre las que hay disponibles.
+	>[AZURE.TIP]Para buscar imágenes adicionales, haga clic en **Marketplace** y, a continuación, búsquelas o filtre las que haya disponibles.
 
 3. En la página **Windows Server 2012 R2 Datacenter**, en **Seleccionar un modelo de implementación**, seleccione **Administrador de recursos**. Haga clic en **Crear**.
 
@@ -107,4 +111,4 @@ Una vez creada la máquina virtual, podrá iniciar sesión en ella para administ
 * Use Azure PowerShell y la CLI de Azure para [buscar y seleccionar imágenes de máquina virtual](resource-groups-vm-searching.md).
 * Automatice la implementación y administración de máquinas virtuales y cargas de trabajo con el [Administrador de recursos de Azure](virtual-machines-how-to-automate-azure-resource-manager.md) y las [plantillas de Administrador de recursos de Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

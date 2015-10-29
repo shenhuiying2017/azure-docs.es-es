@@ -185,11 +185,11 @@ Para montar el recurso compartido de archivos desde un cliente local, es preciso
 - Instale una versión de Windows compatible con SMB 3.0. Windows aprovechará el cifrado SMB 3.0 para transferir datos de forma segura entre el cliente local y el recurso compartido de archivos de Azure en la nube. 
 - Abra el acceso a Internet para el puerto 445 (salida TCP) en la red local, ya que es necesario para el protocolo SMB. 
 
-[AZURE.NOTE]Algunos proveedores de servicios de Internet pueden bloquear el puerto 445, por lo que es posible que deba ponerse en contacto con su proveedor de servicios.
+> [AZURE.NOTE]Algunos proveedores de servicios de Internet pueden bloquear el puerto 445, por lo que es posible que deba ponerse en contacto con su proveedor de servicios.
 
 ## Desarrollo con almacenamiento de archivos
 
-Para trabajar mediante programación con el almacenamiento de archivos, puede usar las bibliotecas del cliente de almacenamiento para .NET y Java, o la API de REST de Almacenamiento de Azure. El ejemplo de esta sección muestra cómo trabajar con un recurso compartido de archivos mediante el uso de la [Biblioteca del cliente de almacenamiento de Azure .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409) desde una aplicación de consola simple que se ejecuta en el escritorio.
+Para trabajar mediante programación con el almacenamiento de archivos, puede usar las bibliotecas del cliente de almacenamiento para .NET y Java, o la API de REST de Almacenamiento de Azure. El ejemplo de esta sección muestra cómo trabajar con un recurso compartido de archivos mediante el uso de la [Biblioteca del cliente de Almacenamiento de Azure .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409) desde una aplicación de consola simple que se ejecuta en el escritorio.
 
 ### Creación de la aplicación de consola y obtención del ensamblado
 
@@ -510,7 +510,7 @@ En el Portal de Azure es posible habilitar las métricas para el almacenamiento 
 
 	Si el recurso compartido de archivos se monta a través de SMB, no se tiene este nivel de control sobre los permisos. Sin embargo, se puede lograr. Para ello, es preciso crear una firma de acceso compartido (SAS) mediante la API de REST o las bibliotecas de cliente.
 
-12. **Mi rendimiento era lento al intentar descomprimir archivos en el almacenamiento de archivos, ¿qué debo hacer?**
+12. **Mi rendimiento era lento al intentar descomprimir archivos en el almacenamiento de archivos. ¿qué debo hacer?**
 
 	Para transferir una gran cantidad de archivos al almacenamiento de archivos es aconsejable usar AzCopy, Azure Powershell (Windows) o la CLI de Azure (Linux/Unix), ya que estas herramientas se optimizaron para la transferencia a través de red.
 
@@ -540,4 +540,4 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 - [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx) (Introducción al servicio de archivos de Microsoft Azure)
 - [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx) (Persistencia de conexiones en archivos de Microsoft Azure)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

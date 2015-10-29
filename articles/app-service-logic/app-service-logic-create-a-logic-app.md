@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Crear una aplicación lógica | Microsoft Azure"
-	description="Aprenda a crear una aplicación lógica básica de Servicios de aplicaciones"
+	description="Aprenda a crear una aplicación lógica mediante la conexión de servicios de SaaS"
 	authors="stepsic-microsoft-com"
 	manager="dwrede"
 	editor=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2015"
+	ms.date="10/16/2015"
 	ms.author="stepsic"/>
 
-# Creación de una nueva aplicación lógica
+# Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS
 
 | Referencia rápida |
 | --------------- |
@@ -94,15 +94,19 @@ Los desencadenadores son los que permiten que la aplicación lógica se ejecute.
 
 1. Todavía en la hoja **Crear aplicación lógica**, haga clic en **Desencadenadores y acciones**.
 
-	Esto muestra un diseñador de pantalla completa que muestra el flujo. En el lado derecho hay una lista de todos los servicios que podrían tener desencadenadores.
+	Se muestra un diseñador de pantalla completa con el flujo y algunas plantillas con las que comenzar.
+	
+2. En este tutorial vamos a **partir de cero**. Siempre puede usar una plantilla si cree que puede resultar útil.
+    
+    Ahora, en el lado derecho hay una lista de todos los servicios que podrían tener desencadenadores.
 
-2. En la sección superior, haga clic en **Periodicidad**.
+3. En la sección superior, haga clic en **Periodicidad**.
 
 	Esto agrega un cuadro donde puede especificar la configuración de periodicidad.
 
 	![Periodicidad](./media/app-service-logic-create-a-logic-app/recurrence.png)
 
-3.  Elija una opción de periodicidad en **Frecuencia** e **Intervalo** (por ejemplo, una vez cada hora) y, a continuación, haga clic en la marca de verificación verde.
+4.  Elija una opción de periodicidad en **Frecuencia** e **Intervalo** (por ejemplo, una vez cada hora) y, a continuación, haga clic en la marca de verificación verde.
 
 Ahora, agregará una acción al flujo.
 
@@ -184,4 +188,4 @@ En menos de 5 minutos ha sido capaz de configurar una aplicación lógica sencil
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Uso de las características de aplicaciones lógicas]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

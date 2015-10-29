@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Creación de un Almacenamiento de datos SQL con el Portal de vista previa de Azure#
@@ -48,12 +48,7 @@ En este tutorial, aprenderá lo siguiente:
 ## Paso 2: Configurar y crear un servidor
 En la base de datos SQL y Almacenamiento de datos SQL, cada base de datos se asigna a un servidor y cada servidor se asigna a una ubicación geográfica. El servidor se llama a un servidor lógico de SQL.
 
-> [AZURE.NOTE]<a name="note"></a>Un servidor lógico de SQL:
-  >
-  > + proporciona una manera coherente para configurar varias bases de datos dentro de la misma ubicación geográfica.
-  > + No es un hardware físico como en un servidor local. Forma parte del software de servicio. Por eso lo llamamos un *servidor lógico*.
-  > + Puede hospedar varias bases de datos sin afectar a su rendimiento.
-  > + Usa una minúscula *s* en su nombre. Un **s**ervidor SQL es un servidor lógico de Azure, mientras que SQL **S**server es un producto de la base de datos local de Microsoft.
+> [AZURE.NOTE]<a name="note"></a>Un servidor lógico de SQL: >> + proporciona una manera coherente para configurar varias bases de datos dentro de la misma ubicación geográfica. > + No es un hardware físico como en un servidor local. Forma parte del software de servicio. Por eso lo llamamos un *servidor lógico*. > + Puede hospedar varias bases de datos sin afectar a su rendimiento. > + Usa una minúscula *s* en su nombre. Un **s**ervidor SQL es un servidor lógico de Azure, mientras que SQL **S**server es un producto de la base de datos local de Microsoft.
 
 1. Haga clic en **Servidor** > **Crear un nuevo servidor**. No se aplica ningún cargo por el servidor. Si ya dispone de un servidor SQL lógico V12 que desee usar, elija el servidor existente y vaya al paso siguiente. 
 
@@ -126,6 +121,6 @@ Una vez configurado el firewall, podrá establecer conexiones desde su escritori
 
 ## Pasos siguientes
 
-Ahora que creó una base de datos de ejemplo para Almacenamiento de datos SQL, obtenga información sobre cómo usar Almacenamiento de datos SQL en [Conexión y consultas](./sql-data-warehouse-get-started-connect-query.md).
+Ahora que ha creado una base de datos de ejemplo para Almacenamiento de datos SQL, está listo para [Conectar](./sql-data-warehouse-get-started-connect.md) la base de datos.
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

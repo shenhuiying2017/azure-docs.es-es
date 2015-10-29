@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/13/2015"
+	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
 # Creación de una máquina virtual que ejecuta Linux
@@ -22,6 +22,9 @@
 > [AZURE.SELECTOR]
 - [Azure Portal](virtual-machines-linux-tutorial-portal-rm.md)
 - [Azure CLI](virtual-machines-linux-tutorial.md)
+
+<br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+
 
 Crear una máquina virtual de Azure (VM) que ejecuta Linux es fácil de hacer desde la línea de comandos o desde el portal. Este tutorial muestra cómo utilizar la interfaz de la línea de comandos de Azure para Mac, Linux y Windows (CLI de Azure) a fin de crear rápidamente una máquina virtual de servidor Ubuntu que se ejecuta en Azure, conectarse a ella mediante **ssh**, y crear y montar un disco nuevo. (Este tema utiliza una máquina virtual de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](virtual-machines-linux-create-upload-vhd.md).)
 
@@ -39,9 +42,9 @@ El primer paso es [instalar la CLI de Azure](../xplat-cli-install.md).
 
 Bien. Ahora, asegúrese de que está en el modo de administrador de recursos escribiendo `azure config mode arm`.
 
-Mejor aún. [Inicie sesión con su Id. profesional o educativo](../xplat-cli-connect.md#use-the-log-in-method) escribiendo `azure login` y siga las indicaciones.
+Mejor aún. Ahora [inicie sesión con su identificador profesional o educativo](../xplat-cli-connect.md#use-the-log-in-method) escribiendo `azure login` y siga las indicaciones para una experiencia de inicio de sesión interactiva a su cuenta de Azure.
 
-> [AZURE.NOTE]Si recibe un error de inicio de sesión, es posible que deba [crear un identificador profesional o educativo desde su cuenta personal de Microsoft](resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE]Si tiene un identificador profesional o educativo y sabe que no tiene habilitada la autenticación en dos fases, puede usar `azure login -u` junto con el identificador profesional o educativo para iniciar una sesión sin una sesión interactiva. Si no tiene un identificador profesional o educativo, puede [crear uno desde su cuenta personal de Microsoft](resource-group-create-work-id-from-personal.md).
 
 ## Creación de la máquina virtual de Azure
 
@@ -60,94 +63,30 @@ Escriba `azure group create <my-group-name> westus` reemplazando _&lt;mi-nombre-
 	data:
 	info:    group create command OK
 
-Ahora cree la máquina virtual escribiendo `azure vm quick-create`, y recibirá indicaciones para especificar el resto de parámetros. Utilice el nombre del grupo de recursos que ha creado anteriormente y para el valor **ImageURN**, utilice `canonical:ubuntuserver:14.04.2-LTS:latest`, de modo que su experiencia se parezca a esto:
+Ahora cree la máquina virtual escribiendo `azure vm quick-create`, y recibirá indicaciones para especificar el resto de parámetros. Utilice el nombre del grupo de recursos que ha creado anteriormente y para el valor **ImageURN**, utilice `canonical:ubuntuserver:14.04.2-LTS:latest`, de modo que su experiencia se parezca a lo siguiente. Tenga en cuenta que el `azure vm quick-create` símbolos del sistema para obtener información básica necesaria para crear, alojar y conectarse a una VM de Linux, incluido:
 
-	azure vm quick-create
-	info:    Executing command vm quick-create
-	Resource group name: myuniquegroupname
-	Virtual machine name: myuniquevmname
-	Location name: westus
-	Operating system Type [Windows, Linux]: Linux
-	ImageURN (format: "publisherName:offer:skus:version"): canonical:ubuntuserver:14.04.2-LTS:latest
-	User name: ops
-	Password: *********
-	Confirm password: *********
-	+ Looking up the VM "myuniquevmname"
-	info:    Using the VM Size "Standard_D1"
-	info:    The [OS, Data] Disk or image configuration requires storage account
-	+ Retrieving storage accounts
-	info:    Could not find any storage accounts in the region "westus", trying to create new one
-	+ Creating storage account "cli3c0464f24f1bf4f014323" in "westus"
-	+ Looking up the storage account cli3c0464f24f1bf4f014323
-	+ Looking up the NIC "myuni-westu-1432328437727-nic"
-	info:    An nic with given name "myuni-westu-1432328437727-nic" not found, creating a new one
-	+ Looking up the virtual network "myuni-westu-1432328437727-vnet"
-	info:    Preparing to create new virtual network and subnet
-	/ Creating a new virtual network "myuni-westu-1432328437727-vnet" [address prefix: "10.0.0.0/16"] with subnet "myuni-westu-1432328437727-snet"+[address prefix: "10.0.1.0/24"]
-	+ Looking up the virtual network "myuni-westu-1432328437727-vnet"
-	+ Looking up the subnet "myuni-westu-1432328437727-snet" under the virtual network "myuni-westu-1432328437727-vnet"
-	info:    Found public ip parameters, trying to setup PublicIP profile
-	+ Looking up the public ip "myuni-westu-1432328437727-pip"
-	info:    PublicIP with given name "myuni-westu-1432328437727-pip" not found, creating a new one
-	+ Creating public ip "myuni-westu-1432328437727-pip"
-	+ Looking up the public ip "myuni-westu-1432328437727-pip"
-	+ Creating NIC "myuni-westu-1432328437727-nic"
-	+ Looking up the NIC "myuni-westu-1432328437727-nic"
-	+ Creating VM "myuniquevmname"
-	+ Looking up the VM "myuniquevmname"
-	+ Looking up the NIC "myuni-westu-1432328437727-nic"
-	+ Looking up the public ip "myuni-westu-1432328437727-pip"
-	data:    Id                              :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myuniquegroupname/providers/Microsoft.Compute/virtualMachines/myuniquevmname
-	data:    ProvisioningState               :Succeeded
-	data:    Name                            :myuniquevmname
-	data:    Location                        :westus
-	data:    FQDN                            :myuni-westu-1432328437727-pip.westus.cloudapp.azure.com
-	data:    Type                            :Microsoft.Compute/virtualMachines
-	data:
-	data:    Hardware Profile:
-	data:      Size                          :Standard_D1
-	data:
-	data:    Storage Profile:
-	data:      Image reference:
-	data:        Publisher                   :canonical
-	data:        Offer                       :ubuntuserver
-	data:        Sku                         :14.04.2-LTS
-	data:        Version                     :latest
-	data:
-	data:      OS Disk:
-	data:        OSType                      :Linux
-	data:        Name                        :cli3c0464f24f1bf4f0-os-1432328438224
-	data:        Caching                     :ReadWrite
-	data:        CreateOption                :FromImage
-	data:        Vhd:
-	data:          Uri                       :https://cli3c0464f24f1bf4f014323.blob.core.windows.net/vhds/cli3c0464f24f1bf4f0-os-1432328438224.vhd
-	data:
-	data:    OS Profile:
-	data:      Computer Name                 :myuniquevmname
-	data:      User Name                     :ops
-	data:      Linux Configuration:
-	data:        Disable Password Auth       :false
-	data:
-	data:    Network Profile:
-	data:      Network Interfaces:
-	data:        Network Interface #1:
-	data:          Id                        :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myuniquegroupname/providers/Microsoft.Network/networkInterfaces/myuni-westu-1432328437727-nic
-	data:          Primary                   :true
-	data:          MAC Address               :00-0D-3A-31-55-31
-	data:          Provisioning State        :Succeeded
-	data:          Name                      :myuni-westu-1432328437727-nic
-	data:          Location                  :westus
-	data:            Private IP alloc-method :Dynamic
-	data:            Private IP address      :10.0.1.4
-	data:            Public IP address       :191.239.51.1
-	data:            FQDN                    :myuni-westu-1432328437727-pip.westus.cloudapp.azure.com
-	info:    vm quick-create command OK
+- el nombre del grupo de recursos y el nombre de la máquina virtual,
+- una ubicación de implementación,
+- el tipo de sistema operativo y la cadena URN de imagen,
+- un nombre de usuario y una contraseña
+
+y finalmente crea la infraestructura necesaria para hospedar la máquina virtual. Esto incluye:
+
+- Una cuenta de Almacenamiento de Azure para el almacenamiento de disco duro virtual y los discos adicionales
+- Una NIC para la máquina virtual
+- Una red virtual con una subred
+- Una dirección IP pública
+- Un subdominio
+
+	azure vm quick-create info: Executing command vm quick-create Resource group name: myuniquegroupname Virtual machine name: myuniquevmname Location name: westus Operating system Type [Windows, Linux]: Linux ImageURN (format: "publisherName:offer:skus:version"): canonical:ubuntuserver:14.04.2-LTS:latest User name: ops Password: ********* Confirm password: ********* + Looking up the VM "myuniquevmname" info: Using the VM Size "Standard\_D1" info: The [OS, Data] Disk or image configuration requires storage account + Retrieving storage accounts info: Could not find any storage accounts in the region "westus", trying to create new one + Creating storage account "cli3c0464f24f1bf4f014323" in "westus" + Looking up the storage account cli3c0464f24f1bf4f014323 + Looking up the NIC "myuni-westu-1432328437727-nic" info: An nic with given name "myuni-westu-1432328437727-nic" not found, creating a new one + Looking up the virtual network "myuni-westu-1432328437727-vnet" info: Preparing to create new virtual network and subnet / Creating a new virtual network "myuni-westu-1432328437727-vnet" [address prefix: "10.0.0.0/16"] with subnet "myuni-westu-1432328437727-snet"+[address prefix: "10.0.1.0/24"] + Looking up the virtual network "myuni-westu-1432328437727-vnet" + Looking up the subnet "myuni-westu-1432328437727-snet" under the virtual network "myuni-westu-1432328437727-vnet" info: Found public ip parameters, trying to setup PublicIP profile + Looking up the public ip "myuni-westu-1432328437727-pip" info: PublicIP with given name "myuni-westu-1432328437727-pip" not found, creating a new one + Creating public ip "myuni-westu-1432328437727-pip" + Looking up the public ip "myuni-westu-1432328437727-pip" + Creating NIC "myuni-westu-1432328437727-nic" + Looking up the NIC "myuni-westu-1432328437727-nic" + Creating VM "myuniquevmname" + Looking up the VM "myuniquevmname" + Looking up the NIC "myuni-westu-1432328437727-nic" + Looking up the public ip "myuni-westu-1432328437727-pip" data: Id :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myuniquegroupname/providers/Microsoft.Compute/virtualMachines/myuniquevmname data: ProvisioningState :Succeeded data: Name :myuniquevmname data: Location :westus data: FQDN :myuni-westu-1432328437727-pip.westus.cloudapp.azure.com data: Type :Microsoft.Compute/virtualMachines data: data: Hardware Profile: data: Size :Standard\_D1 data: data: Storage Profile: data: Image reference: data: Publisher :canonical data: Offer :ubuntuserver data: Sku :14.04.2-LTS data: Version :latest data: data: OS Disk: data: OSType :Linux data: Name :cli3c0464f24f1bf4f0-os-1432328438224 data: Caching :ReadWrite data: CreateOption :FromImage data: Vhd: data: Uri :https://cli3c0464f24f1bf4f014323.blob.core.windows.net/vhds/cli3c0464f24f1bf4f0-os-1432328438224.vhd data: data: OS Profile: data: Computer Name :myuniquevmname data: User Name :ops data: Linux Configuration: data: Disable Password Auth :false data: data: Network Profile: data: Network Interfaces: data: Network Interface #1: data: Id :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myuniquegroupname/providers/Microsoft.Network/networkInterfaces/myuni-westu-1432328437727-nic data: Primary :true data: MAC Address :00-0D-3A-31-55-31 data: Provisioning State :Succeeded data: Name :myuni-westu-1432328437727-nic data: Location :westus data: Private IP alloc-method :Dynamic data: Private IP address :10.0.1.4 data: Public IP address :191.239.51.1 data: FQDN :myuni-westu-1432328437727-pip.westus.cloudapp.azure.com info: vm quick-create command OK
 
 Su máquina virtual está en ejecución y esperando a que se conecte.
 
 ## Conexión a la máquina virtual
 
-Con máquinas virtuales Linux, normalmente se conecta con **ssh**. En este tema se conecta a una máquina virtual mediante nombres de usuario y contraseñas. Para utilizar pares de claves públicas y privadas para comunicarse con la máquina virtual, consulte [Utilización de SSH con Linux en Azure](virtual-machines-linux-use-ssh-key.md).
+Con máquinas virtuales Linux, normalmente se conecta con **ssh**.
+
+> [AZURE.NOTE]En este tema se conecta a una máquina virtual mediante nombres de usuario y contraseñas. Para utilizar pares de claves públicas y privadas para comunicarse con la máquina virtual, consulte [Utilización de SSH con Linux en Azure](virtual-machines-linux-use-ssh-key.md). Puede modificar la conectividad de **SSH** de las máquinas virtuales creadas con el comando `azure vm quick-create` mediante el comando `azure vm reset-access` para restablecer completamente el acceso de **SSH**, agregar o quitar usuarios o agregar archivos de claves públicas para proteger el acceso. Este artículo usa el nombre de usuario y la contraseña con **SSH** para mayor brevedad.
 
 Si no está familiarizado con la conexión con **ssh**, el comando toma la forma `ssh <username>@<publicdnsaddress> -p <the ssh port>`. En este caso, usamos el nombre de usuario y la contraseña del paso anterior y el puerto 22, que es el puerto **ssh** predeterminado.
 
@@ -293,7 +232,7 @@ El disco de datos está ahora listo para usarse como `/datadrive`.
 
 ## Pasos siguientes
 
-Recuerde que el nuevo disco no estará disponible normalmente en la máquina virtual si esta se reinicia a menos que escriba dicha información en su archivo [fstab](http://en.wikipedia.org/wiki/Fstab).
+Recuerde que el nuevo disco no estará disponible normalmente en la máquina virtual si esta se reinicia a menos que escriba dicha información en su archivo [fstab](http://en.wikipedia.org/wiki/Fstab). Si lo desea, puede agregar varios discos más y [configurar RAID](virtual-machines-linux-configure-raid.md).
 
 Para obtener más información sobre Linux en Azure, consulte:
 
@@ -305,4 +244,4 @@ Para obtener más información sobre Linux en Azure, consulte:
 
 - [Extensión de máquina virtual Docker para Linux en Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
