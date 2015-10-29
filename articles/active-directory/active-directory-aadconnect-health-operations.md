@@ -119,7 +119,7 @@ Para permitir a un usuario acceder al nivel de *directorio* dentro de Azure AD C
 6. Una vez completada la asignación de roles, los usuarios y/o grupos aparecerán en la lista.<br>
 [//]: # (RBAC_ListofUsersAndGroups)
 
-Estos pasos permitirán a los usuarios y grupos enumerados el acceso según sus roles asignados.<br>
+<p>Estos pasos permitirán a los usuarios y grupos enumerados el acceso según sus roles asignados.</p>
 >[AZURE.NOTE]
 - Los administradores globales siempre tienen acceso total a todas las operaciones, pero las cuentas de los administradores globales no estarán presentes en la lista anterior.
 - La característica "Invitar a usuarios" NO se admite dentro de Azure AD Connect Health.
@@ -144,4 +144,4 @@ Puede quitar un usuario o grupo agregado a la parte Control de acceso basado en 
 * [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!----HONumber=Oct15_HO3-->
+<!------HONumber=Oct15_HO3-->
