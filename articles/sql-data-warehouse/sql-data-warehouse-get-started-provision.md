@@ -48,7 +48,12 @@ En este tutorial, aprenderá lo siguiente:
 ## Paso 2: Configurar y crear un servidor
 En la base de datos SQL y Almacenamiento de datos SQL, cada base de datos se asigna a un servidor y cada servidor se asigna a una ubicación geográfica. El servidor se llama a un servidor lógico de SQL.
 
-> [AZURE.NOTE]<a name="note"></a>Un servidor lógico de SQL: >> + proporciona una manera coherente para configurar varias bases de datos dentro de la misma ubicación geográfica. > + No es un hardware físico como en un servidor local. Forma parte del software de servicio. Por eso lo llamamos un *servidor lógico*. > + Puede hospedar varias bases de datos sin afectar a su rendimiento. > + Usa una minúscula *s* en su nombre. Un **s**ervidor SQL es un servidor lógico de Azure, mientras que SQL **S**server es un producto de la base de datos local de Microsoft.
+> [AZURE.NOTE]<a name="note"></a>Un servidor lógico de SQL:
+  >
+  > + proporciona una manera coherente para configurar varias bases de datos dentro de la misma ubicación geográfica.
+  > + No es un hardware físico como en un servidor local. Forma parte del software de servicio. Por eso lo llamamos un *servidor lógico*.
+  > + Puede hospedar varias bases de datos sin afectar a su rendimiento.
+  > + Usa una minúscula *s* en su nombre. Un **s**ervidor SQL es un servidor lógico de Azure, mientras que SQL **S**server es un producto de la base de datos local de Microsoft.
 
 1. Haga clic en **Servidor** > **Crear un nuevo servidor**. No se aplica ningún cargo por el servidor. Si ya dispone de un servidor SQL lógico V12 que desee usar, elija el servidor existente y vaya al paso siguiente. 
 
