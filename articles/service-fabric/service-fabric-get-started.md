@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Configurar el entorno de desarrollo de Service Fabric | Microsoft Azure"
-   description="Instalar las herramientas, el SDK y el motor en tiempo de ejecución de Service Fabric y cree un clúster de desarrollo local."
+   pageTitle="Configuración del entorno de desarrollo | Microsoft Azure"
+   description="Instale las herramientas, el SDK y el motor en tiempo de ejecución y cree un clúster de desarrollo local. Después de completar esta instalación, estará listo para crear aplicaciones."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="samgeo"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/07/2015"
+   ms.date="10/15/2015"
    ms.author="seanmck"/>
 
-# Configurar el entorno de desarrollo de Service Fabric
- Este artículo abarca todo lo que necesita para empezar a crear las aplicaciones de [Service Fabric][1], incluida la instalación del tiempo de ejecución, el SDK y las herramientas, y la configuración de un clúster local.
+# Preparación del entorno de desarrollo
+ Para compilar y ejecutar [aplicaciones de Service Fabric][1] en la máquina de desarrollo, debe instalar el motor en tiempo de ejecución, el SDK y las herramientas y configurar un clúster local.
 
- >[AZURE.NOTE]Estas instrucciones están pensadas para configurar nuevos equipos. Si ha instalado una versión anterior de Service Fabric en su PC, siga las [instrucciones para actualizar su entorno de desarrollo](service-fabric-update-your-development-environment.md).
+ >[AZURE.NOTE]Estas instrucciones están pensadas para configurar nuevas máquinas. Si ha instalado una versión anterior de Service Fabric, siga las [instrucciones para actualizar su entorno de desarrollo](service-fabric-update-your-development-environment.md).
 
 ## Requisitos previos
 ### Versiones de sistema operativo compatibles
@@ -33,7 +33,7 @@ Se admiten las siguientes versiones de sistemas operativos:
 
 Las herramientas de Service Fabric dependen de Visual Studio 2015, que encontrará [aquí][2].
 
-> [AZURE.NOTE]Si no está ejecutando una de las versiones de sistema operativo compatibles o prefiere no instalar Visual Studio 2015 en su PC, puede configurar una máquina virtual de Azure con Windows Server 2012 R2 y Visual Studio 2015 preinstalados usando una imagen de la Galería de máquinas virtuales.
+> [AZURE.NOTE]Si no está ejecutando una de las versiones de sistema operativo compatibles o prefiere no instalar Visual Studio 2015 en su PC, puede configurar una máquina virtual de Azure con Windows Server 2012 R2 y Visual Studio 2015 preinstalados usando una imagen de la galería de máquinas virtuales de Azure.
 
 ## Instalar el motor en tiempo de ejecución, el SDK y las herramientas
 
@@ -106,4 +106,4 @@ Ahora que está configurado su entorno de desarrollo, puede iniciar la creación
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Vínculo de WebPI"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

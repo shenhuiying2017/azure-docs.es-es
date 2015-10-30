@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Creación de un Almacenamiento de datos SQL con el Portal de vista previa de Azure#
@@ -126,6 +126,6 @@ Una vez configurado el firewall, podrá establecer conexiones desde su escritori
 
 ## Pasos siguientes
 
-Ahora que creó una base de datos de ejemplo para Almacenamiento de datos SQL, obtenga información sobre cómo usar Almacenamiento de datos SQL en [Conexión y consultas](./sql-data-warehouse-get-started-connect-query.md).
+Ahora que ha creado una base de datos de ejemplo para Almacenamiento de datos SQL, está listo para [Conectar](./sql-data-warehouse-get-started-connect.md) la base de datos.
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

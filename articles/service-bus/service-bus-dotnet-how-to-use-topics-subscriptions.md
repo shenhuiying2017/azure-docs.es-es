@@ -9,14 +9,16 @@
 
 <tags
     ms.service="service-bus"
-    ms.workload="tbd"
+    ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="10/06/2015"
+    ms.date="10/15/2015"
     ms.author="sethm"/>
 
-# Uso de temas/suscripciones del Bus de servicio de Azure
+# Uso de temas/suscripciones del Bus de servicio
+
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 En este artículo se describe cómo usar los temas y las suscripciones del Bus de servicio. Los ejemplos están escritos en C# y utilizan las API de .NET. Entre los escenarios tratados se incluye la creación de temas y suscripciones, la creación de filtros de suscripción, el envío de mensajes a un tema, la recepción de mensajes de una suscripción y la eliminación de temas y suscripciones. Para obtener más información acerca de los temas y las suscripciones, consulte la sección [Pasos siguientes](#Next-steps).
 
@@ -35,7 +37,7 @@ El paquete NuGet del bus de servicio es la forma más sencilla de obtener la API
 Realice los pasos siguientes para instalar el paquete NuGet en su aplicación:
 
 1.  En el Explorador de soluciones, haga clic con el botón secundario en **References** y, a continuación, en **Manage NuGet Packages**.
-2.  Busque "Bus de servicio" y seleccione el elemento **Bus de servicio de Microsoft Azure**. Haga clic en **Install** para completar la instalación y, a continuación, cierre este cuadro de diálogo.
+2.  Busque "Bus de servicio" y seleccione el elemento **Bus de servicio de Microsoft Azure**. Haga clic en **Instalar** para completar la instalación y, a continuación, cierre este cuadro de diálogo.
 
     ![][7]
 
@@ -48,7 +50,7 @@ El bus de servicio usa una cadena de conexión para almacenar extremos y credenc
 - Si usa Servicios en la nube de Azure, es aconsejable que almacene la cadena de conexión con el sistema de configuración de servicios de Azure (archivos *.csdef y *.cscfg).
 - Al usar Sitios web Azure o Máquinas virtuales de Azure, es recomendable que almacene su cadena de conexión con el sistema de configuración .NET (por ejemplo, el archivo Web.config).
 
-En ambos casos, puede recuperar la cadena de conexión utilizando el método `CloudConfigurationManager.GetSetting`, como se muestra más adelante en este artículo.
+En ambos casos, puede recuperar la cadena de conexión usando el método `CloudConfigurationManager.GetSetting`, como se muestra más adelante en este artículo.
 
 ### Configuración de la cadena de conexión si usa Servicios en la nube
 
@@ -85,7 +87,7 @@ Use el nombre y los valores de clave de la firma de acceso compartido (SAS) recu
 
 ### Configuración de la cadena de conexión al usar Sitios web de Azure o Máquinas virtuales de Azure
 
-Al usar Sitios web o Máquinas virtuales, se recomienda usar el sistema de configuración de .NET (por ejemplo, Web.config). Almacene la cadena de conexión usando el elemento `<appSettings>`.
+Al usar Sitios web o Máquinas virtuales, se recomienda usar el sistema de configuración de .NET (por ejemplo, Web.config). Almacene la cadena de conexión mediante el elemento `<appSettings>`.
 
 ```
 <configuration>
@@ -124,7 +126,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 }
 ```
 
-Hay sobrecargas del método [CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) que le permiten ajustar las propiedades del tema, por ejemplo, para establecer el valor predeterminado del período de vida (TTL) a fin de que se aplique a los mensajes enviados al tema. Estas opciones de configuración se aplican usando la clase [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). En el ejemplo siguiente se muestra cómo crear un tema denominado **TestTopic** con un tamaño máximo de 5 GB y un período de vida predeterminado de mensaje de un minuto.
+Hay sobrecargas del método [CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) que le permiten ajustar las propiedades del tema, por ejemplo, para configurar el valor predeterminado del período de vida (TTL) a fin de que se aplique a los mensajes enviados al tema. Estas opciones de configuración se aplican usando la clase [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). En el ejemplo siguiente se muestra cómo crear un tema denominado **TestTopic** con un tamaño máximo de 5 GB y un período de vida predeterminado de mensaje de un minuto.
 
 ```
 // Configure Topic Settings.
@@ -174,7 +176,7 @@ También puede configurar filtros que le permitan especificar qué mensajes envi
 
 El tipo de filtro más flexible compatible con suscripciones es la clase [SqlFilter][], que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información acerca de las expresiones que se pueden usar con un filtro de SQL, consulte la sintaxis de [SqlFilter.SqlExpression][].
 
-En el ejemplo siguiente, se crea una suscripción llamada **HighMessages** con un objeto [SqlFilter][] que solo selecciona los mensajes con una propiedad **MessageNumber** personalizada con un valor superior a 3:
+En el ejemplo siguiente, se crea una suscripción denominada **HighMessages** con un objeto [SqlFilter][] que solo selecciona los mensajes con una propiedad **MessageNumber** personalizada con un valor superior a 3:
 
 ```
 // Create a "HighMessages" filtered subscription.
@@ -186,7 +188,7 @@ namespaceManager.CreateSubscription("TestTopic",
    highMessagesFilter);
 ```
 
-Del mismo modo, el ejemplo siguiente crea una suscripción llamada **LowMessages** con [SqlFilter][] que solo selecciona los mensajes que tengan una propiedad **MessageNumber** cuyo valor sea menor o igual a 3:
+Del mismo modo, en el ejemplo que aparece a continuación, se crea una suscripción denominada **LowMessages** con [SqlFilter][] que solo selecciona los mensajes que tengan una propiedad **MessageNumber** cuyo valor sea menor o igual a 3:
 
 ```
 // Create a "LowMessages" filtered subscription.
@@ -234,7 +236,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Los temas del Bus de servicio admiten un [tamaño máximo de mensaje de 256 KB](service-bus-quotas.md) (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener un tamaño máximo de 64 KB). No hay límite para el número de mensajes que contiene un tema, pero hay un tope para el tamaño total de los mensajes contenidos en un tema. El tamaño de los temas se define en el momento de la creación (el límite máximo es de 5 GB). Si está habilitada la división en particiones, el límite superior es más elevado. Para obtener más información, consulte [Particionamiento de entidades de mensajería](https://msdn.microsoft.com/library/azure/dn520246.aspx).
+Los temas del Bus de servicio admiten un [tamaño máximo de mensaje de 256 KB](service-bus-quotas.md) (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener un tamaño máximo de 64 KB). No hay límite para el número de mensajes que contiene un tema, pero hay un tope para el tamaño total de los mensajes contenidos en un tema. El tamaño de los temas se define en el momento de la creación (el límite máximo es de 5 GB). Si está habilitada la división en particiones, el límite superior es más elevado. Para obtener más información, consulte [Entidades de mensajería con particiones](https://msdn.microsoft.com/library/azure/dn520246.aspx).
 
 ## Recepción de mensajes de una suscripción
 
@@ -281,7 +283,7 @@ Client.OnMessage((message) =>
 }, options);
 ```
 
-Este ejemplo configura la devolución de llamada [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) usando un objeto [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) se establece en **false** para permitir controlar manualmente cuándo llamar a [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) en el mensaje recibido. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) se establece en un minuto, lo que hace que el cliente espere un mensaje durante un minuto antes de que se agote el tiempo de espera de la llamada de que el cliente realice una nueva llamada para comprobar los mensajes. Este valor de propiedad reduce el número de veces que el cliente hace llamadas facturables que no recuperan mensajes.
+Este ejemplo configura la devolución de llamada [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) usando un objeto [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) se establece en **false** para permitir controlar manualmente cuándo llamar a [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) en el mensaje recibido. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) se establece en un minuto, lo que hace que el cliente espere durante un minuto por un mensaje antes de que se agote el tiempo de espera de la llamada y el cliente realice una nueva llamada para comprobar los mensajes. Este valor de propiedad reduce el número de veces que el cliente hace llamadas facturables que no recuperan mensajes.
 
 ## Actuación ante errores de la aplicación y mensajes que no se pueden leer
 
@@ -289,7 +291,7 @@ El Bus de servicio proporciona una funcionalidad que le ayuda a superar sin prob
 
 También hay otro tiempo de espera asociado con un mensaje bloqueado en la suscripción y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación se bloquea), entonces el bus de servicio desbloquea en mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
 
-Si la aplicación se bloquea después de procesar el mensaje y antes de emitir la solicitud [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Esto se suele denominar *Al menos un procesamiento*; es decir, cada mensaje se procesa al menos una vez, aunque en determinadas situaciones se puede volver a entregar el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue usando la propiedad [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) del mensaje, que permanecerá constante en todos los intentos de entrega.
+Si la aplicación se bloquea después de procesar el mensaje y antes de emitir la solicitud [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Esta posibilidad habitualmente se denomina *Al menos un procesamiento*, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue usando la propiedad [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) del mensaje, que permanecerá constante en todos los intentos de entrega.
 
 ## Eliminación de temas y suscripciones
 
@@ -312,7 +314,7 @@ Ahora que conoce los fundamentos de los temas y las suscripciones del bus de ser
 
 -   Consulte [Colas, temas y suscripciones][].
 -   Referencia de API para [Clase SqlFilter][].
--   Compilación de una aplicación que envíe y reciba mensajes desde una cola del Bus de servicio y hacia ella: [Tutorial de .NET de mensajería asincrónica de Bus de servicio][].
+-   Compile una aplicación que envíe y reciba mensajes desde una cola del Bus de servicio y hacia ella: [Tutorial de .NET de mensajería asincrónica del Bus de servicio][].
 -   Ejemplos de Bus de servicio: descárguelos desde [Ejemplos de Azure][] o consulte la [información general](service-bus-samples.md).
 
   [Azure portal]: http://manage.windowsazure.com
@@ -323,7 +325,7 @@ Ahora que conoce los fundamentos de los temas y las suscripciones del bus de ser
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Clase SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Tutorial de .NET de mensajería asincrónica de Bus de servicio]: service-bus-brokered-tutorial-dotnet.md
+  [Tutorial de .NET de mensajería asincrónica del Bus de servicio]: service-bus-brokered-tutorial-dotnet.md
   [Ejemplos de Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

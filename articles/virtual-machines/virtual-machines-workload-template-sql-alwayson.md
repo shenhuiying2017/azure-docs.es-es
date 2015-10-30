@@ -45,7 +45,7 @@ Dependiendo de la plantilla, es posible que Azure tarde algún tiempo en generar
 
 ## Azure PowerShell
 
-Antes de comenzar, asegúrese de tener la versión correcta de Azure PowerShell instalada, de haber iniciado sesión y de haber cambiado al nuevo modo de Administrador de recursos. Para obtener detalles, haga clic [aquí](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates).
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y una ubicación de centro de datos de Azure en el siguiente conjunto de comandos. Elimine todo el contenido dentro de las comillas, incluidos los caracteres < and >.
 
@@ -67,7 +67,7 @@ Aquí tiene un ejemplo.
 
 A continuación, ejecute el bloque de comandos en el símbolo del sistema de Azure PowerShell.
 
-Al ejecutar el comando **New-AzureRmResourceGroupDeployment**, se le pedirá que proporcione los valores de una serie de parámetros. Una vez especificados todos los valores de parámetro, **New-AzureRmResourceGroupDeployment** crea y configura las máquinas virtuales.
+Al ejecutar el comando **New-AzureRMResourceGroupDeployment**, se le pedirá que proporcione los valores de una serie de parámetros. Una vez especificados todos los valores de parámetro, **New-AzureRmResourceGroupDeployment** crea y configura las máquinas virtuales.
 
 Una vez completada la ejecución de la plantilla, tendrá una nueva configuración de SQL Server AlwaysOn de cinco servidores en el nuevo grupo de recursos.
 
@@ -107,4 +107,4 @@ Una vez completada la ejecución de la plantilla, tendrá una nueva configuraci�
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

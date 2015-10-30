@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
-	manager="adinah"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="08/04/2015"
+	ms.date="10/16/2015"
 	ms.author="tamram"/>
 
 
@@ -338,25 +338,7 @@ Consulte [Descripción Blobs en bloques, en anexos y en páginas](https://msdn.m
 
 ## Pasos siguientes
 
-Ahora que está familiarizado con los aspectos básicos del almacenamiento de blobs, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas. 
-<ul>
-<li>Consulte la documentación de referencia del servicio de blobs para obtener información detallada acerca de las API disponibles:
-  <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Referencia de la biblioteca de clientes de almacenamiento para .NET</a>
-    </li>
-    <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Referencia de la API REST</a></li>
-  </ul>
-</li>
-<li>Obtenga información acerca de las tareas más avanzadas que se pueden realizar con Almacenamiento de Azure en <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Almacenamiento y acceso a datos en Azure</a>.</li>
-<li>Aprenda a simplificar el código que escriba para trabajar con Almacenamiento de Azure mediante el <a href="../websites-dotnet-webjobs-sdk/">SDK de WebJobs de Azure.</li>
-<li>Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
-  <ul>
-    <li> Utilice <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">Almacenamiento de tablas</a> para almacenar datos estructurados.</li>
-    <li>Utilice <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">Almacenamiento en cola</a> para almacenar datos no estructurados.</li>
-    <li>Utilice <a href="/documentation/articles/sql-database-dotnet-how-to-use/">Base de datos SQL</a> para almacenar datos relacionales.</li>
-  </ul>
-</li>
-</ul>
+Ahora que está familiarizado con los aspectos básicos del almacenamiento de blobs, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas. <ul> <li>Consulte la documentación de referencia del servicio de blobs para obtener información detallada acerca de las API disponibles: <ul> <li>Referencia de la biblioteca de clientes de almacenamiento para .NET<a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409"></a> </li> <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Referencia de la API REST</a></li> </ul> </li> Obtenga información acerca de las tareas más avanzadas que se pueden realizar con Almacenamiento de Azure en <li><a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Almacenamiento y acceso a datos en Azure</a>.</li> <li>Aprenda a simplificar el código que escriba para trabajar con Almacenamiento de Azure mediante el <a href="../websites-dotnet-webjobs-sdk/">SDK de WebJobs de Azure</li>. <li>Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure. <ul> <li> Utilice <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">Almacenamiento de tablas</a> para almacenar datos estructurados.</li> <li>Utilice <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">Almacenamiento en cola</a> para almacenar datos no estructurados.</li> <li>Utilice <a href="/documentation/articles/sql-database-dotnet-how-to-use/">Base de datos SQL</a> para almacenar datos relacionales.</li> </ul> </li> </ul>
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -371,4 +353,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -134,4 +134,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

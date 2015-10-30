@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Creación de un WebJob .NET en el Servicio de aplicaciones de Azure | Microsoft Azure"
 	description="Cree una aplicación de varios niveles utilizando ASP.NET MVC y Azure. El front-end se ejecuta en una aplicación web del Servicio de aplicaciones de Azure y el back-end se ejecuta como un WebJob. La aplicación usa Entity Framework, base de datos SQL, y colas y blobs de almacenamiento de Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=".net"
 	authors="tdykstra"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -240,7 +240,7 @@ Después de crear algunos anuncios mientras ejecuta la aplicación en la nube, c
 
 12. Escriba un nombre para el servidor de base de datos, por ejemplo, contosoadsserver + un número o su nombre para que el nombre de servidor sea único.
 
-	El nombres de servidor debe ser único. Puede contener letras minúsculas, números y guiones. No puede contener un guion al final.
+	El nombres de servidor debe ser único. Puede contener minúsculas, números y guiones, No puede contener un guion al final.
 
 	Asimismo, si su suscripción ya tiene un servidor, puede seleccionarlo en la lista desplegable.
 
@@ -480,7 +480,7 @@ Ahora puede generar, ejecutar e implementar la aplicación como se indicó anter
 
 En la siguiente sección se explica el código relacionado para trabajar con el SDK de WebJobs y los blobs y las colas de Azure.
 
-> [AZURE.NOTE] Para obtener el código específico del SDK de WebJobs, consulte las secciones [Program.cs y Functions.cs](#programcs).
+> [AZURE.NOTE]Para obtener el código específico del SDK de WebJobs, consulte las secciones [Program.cs y Functions.cs](#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -812,4 +812,4 @@ Para obtener más información, consulte [Obtención de un panel para desarrollo
 
 Para obtener más información, consulte [Recursos de documentación de WebJobs de Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

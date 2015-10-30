@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/08/2015"
+	ms.date="10/21/2015"
 	ms.author="wesmc"/>
 
 # Introducción a Centros de notificaciones para Windows Phone
@@ -40,33 +40,16 @@ La realización de este tutorial es un requisito previo para todos los demás tu
 
 ##Creación de su centro de notificaciones
 
-1. Inicie sesión en el [Portal de Azure] y, luego, haga clic en **+NUEVO** en la parte inferior de la pantalla.
+[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-2. Haga clic en **Servicios de aplicaciones**, haga clic en **Bus de servicio**, haga clic en **Centro de notificaciones** y, luego, haga clic en **Creación rápida**.
+<ol start="7">
+<li><p>Haga clic en la pestaña <b>Configurar</b> y, luego, active la casilla <b>Habilite las notificaciones de inserción no autenticadas</b> en la sección <b>Configuración de notificaciones de Windows Phone</b>.</p>
+</li>
+</ol>
 
-   	![][7]
+&emsp;&emsp;![](./media/notification-hubs-windows-phone-get-started/notification-hub-pushauth.png)
 
-3. Escriba un nombre para su centro de notificaciones, seleccione la región deseada y, luego, haga clic en **Crear una nueva base de datos central de notificaciones**.
-
-   	![][8]
-
-4. Haga clic en el espacio de nombres que acaba de crear (por lo general ***notification hub name*-ns**) y, luego, haga clic en la pestaña **Configurar** en la parte superior.
-
-   	![][9]
-
-5. Haga clic en la pestaña **Centros de notificaciones** en la parte superior y, luego, haga clic en el centro de notificaciones que acaba de crear.
-
-   	![][10]
-
-6. Haga clic en **Información de conexión** en la parte inferior. Anote las dos cadenas de conexión.
-
-   	![][12]
-
-7. Haga clic en la pestaña **Configurar** y, luego, active la casilla **Habilite las notificaciones de inserción no autenticadas** en la sección **Configuración de notificaciones en Windows Phone**.
-
-   	![][15]
-
-Ahora tiene las cadenas de conexión necesarias para registrar su aplicación de Windows Phone 8 y enviar notificaciones.
+El concentrador se crea y configura ahora para enviar una notificación sin autenticar para Windows Phone.
 
 > [AZURE.NOTE]Este tutorial usa MPNS en modo sin autenticar. El modo sin autenticar de MPNS viene con restricciones sobre las notificaciones que puede enviar a cada canal. Centros de notificaciones admite el [modo sin autenticar de MPNS](http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx).
 <!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
@@ -83,13 +66,13 @@ Ahora tiene las cadenas de conexión necesarias para registrar su aplicación de
 
 2. En Visual Studio, haga clic con el botón derecho en la solución y, luego, haga clic en **Administrar paquetes de NuGet**.
 
-	De este modo aparece el cuadro de diálogo **Administrar paquetes de NuGet**.
+	Se muestra el cuadro de diálogo **Administrar paquetes de NuGet**.
 
 3. Busque `WindowsAzure.Messaging.Managed`, haga clic en **Instalar** y acepte los términos de uso.
 
 	![][20]
 
-	A continuación, se descarga, instala y agrega una referencia a la biblioteca de Mensajería de Azure para Windows usando el <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">paquete de NuGet WindowsAzure.Messaging.Managed</a>.
+	A continuación, se descarga, instala y agrega una referencia a la biblioteca de Mensajería de Azure para Windows mediante el <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">paquete de NuGet WindowsAzure.Messaging.Managed</a>.
 
 4. Abra el archivo App.xaml.cs y agregue las siguientes instrucciones `using`:
 
@@ -128,9 +111,9 @@ Ahora tiene las cadenas de conexión necesarias para registrar su aplicación de
 
 ##Envío de notificaciones desde su back-end
 
-Puede enviar notificaciones mediante Centros de notificaciones desde cualquier back-end a través de nuestra <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfaz de REST</a>. En este tutorial enviará notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un back-end de Servicios móviles de Azure integrado en Centros de notificaciones, consulte "Introducción a las notificaciones push en Servicios móviles" ([back-end de .NET](../mobile-services-javascript-backend-windows-phone-get-started-push.md) | [back-end de JavaScript](../mobile-services-javascript-backend-windows-phone-get-started-push.md)). Para ver un ejemplo de cómo enviar notificaciones con las API de REST, consulte "Uso de Centros de notificaciones desde Java o PHP" ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
+Puede enviar notificaciones mediante Centros de notificaciones desde cualquier back-end a través de nuestra <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfaz de REST</a>. En este tutorial enviará notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un back-end de Servicios móviles de Azure que esté integrado en Centros de notificaciones, consulte "Introducción a las notificaciones push en Servicios móviles" ([back-end de .NET](../mobile-services-javascript-backend-windows-phone-get-started-push.md) | [back-end de JavaScript](../mobile-services-javascript-backend-windows-phone-get-started-push.md)). Para ver un ejemplo de cómo enviar notificaciones con las API de REST, consulte "Uso de los Centros de notificaciones desde Java o PHP" ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
-1. Haga clic con el botón derecho en la solución, seleccione **Agregar** y **Nuevo proyecto...**, luego, en **Visual C#** haga clic en **Windows**, **Aplicación de consola** y en **Aceptar**.
+1. Haga clic con el botón derecho en la solución, seleccione **Agregar** y **Nuevo proyecto...**; luego, en **Visual C#**, haga clic en **Windows**, **Aplicación de consola** y en **Aceptar**.
 
    	![][6]
 
@@ -140,11 +123,11 @@ Puede enviar notificaciones mediante Centros de notificaciones desde cualquier b
 
 	Esto muestra la Consola del Administrador de paquetes.
 
-5.  En la ventana de la Consola del administrador de paquetes, establezca el **Proyecto predeterminado** como el nuevo proyecto de aplicación de consola y, después, ejecute el siguiente comando en la ventana de la consola:
+5.  En la ventana de la Consola del administrador de paquetes, establezca el nuevo proyecto de aplicación de consola como **Proyecto predeterminado** y, después, ejecute el siguiente comando en la ventana de la consola:
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-	Esto agrega una referencia al SDK de los Centros de notificaciones de Azure mediante el <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">paquete de NuGet de concentradores Microsoft.Azure.Notification</a>.
+	Se agrega una referencia al SDK de Centros de notificaciones de Azure mediante el <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">paquete de NuGet Microsoft.Azure.Notification Hubs</a>.
 
 6. Abra el archivo Program.cs y agregue la siguiente instrucción `using`:
 
@@ -165,7 +148,7 @@ Puede enviar notificaciones mediante Centros de notificaciones desde cualquier b
             await hub.SendMpnsNativeNotificationAsync(toast);
         }
 
-	Asegúrese de reemplazar el marcador de posición "hub name" por el nombre del centro de notificaciones que aparece en el portal en la pestaña **Centros de notificaciones**. Reemplace también el marcador de posición de la cadena de conexión por la cadena de conexión llamada **DefaultFullSharedAccessSignature** que obtuvo en la sección "Configuración del centro de notificaciones".
+	Asegúrese de reemplazar el marcador de posición "hub name" por el nombre del centro de notificaciones que aparece en el portal en la pestaña **Centros de notificaciones**. Reemplace también el marcador de posición de la cadena de conexión por la cadena de conexión llamada **DefaultFullSharedAccessSignature** que obtuvo en la sección "Configuración del Centro de notificaciones".
 
 	>[AZURE.NOTE]Asegúrese de usar la cadena de conexión con acceso **Total**, no con acceso **Escuchar**. La cadena de acceso de escucha no tiene permisos para enviar notificaciones.
 
@@ -207,7 +190,7 @@ En este sencillo ejemplo, ha difundido notificaciones a todos los dispositivos W
 
 <!-- URLs. -->
 [Visual Studio 2012 Express para Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
-[Portal de Azure]: https://manage.windowsazure.com/
+[Azure portal]: https://manage.windowsazure.com/
 [Orientación sobre los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 [MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
@@ -216,4 +199,4 @@ En este sencillo ejemplo, ha difundido notificaciones a todos los dispositivos W
 [catálogo de iconos]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

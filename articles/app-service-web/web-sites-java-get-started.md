@@ -25,83 +25,126 @@
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
-En este tutorial se muestra cómo crear una aplicación web en Microsoft Azure mediante Java a través de Azure Marketplace o la interfaz de usuario de configuración en la [Característica de aplicaciones web del Servicio de aplicaciones de Azure][].
+En este tutorial se muestra cómo crear una [aplicación web de Java en el Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) mediante el Portal de vista previa de Azure. Puede elegir una plantilla de aplicación web de Azure Marketplace o crear una aplicación web genérica y configurarla manualmente para Java.
 
 Si no desea usar ninguna de estas técnicas y, por ejemplo, desea personalizar el contenedor de aplicaciones, consulte [Carga de una aplicación web de Java personalizada en Azure](web-sites-java-custom-upload.md).
 
 > [AZURE.NOTE]Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN][] o bien [registrarse para obtener una evaluación gratuita][].
+>
+> Si desea empezar a usar Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita de Servicio de aplicaciones][]. Ahí puede crear de forma inmediata una aplicación web de corta duración para iniciarse en Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
 
-Si desea empezar a usar Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita de Servicio de aplicaciones][]. Ahí puede crear de forma inmediata una aplicación web de corta duración para iniciarse en Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
+## Selección de una plantilla de aplicación web en Azure Marketplace
 
-## Creación de una aplicación web de Java con Azure Marketplace
+En esta sección se muestra cómo usar Azure Marketplace para crear una aplicación web de Java.
 
-Esta información muestra cómo usar Azure Marketplace para seleccionar un contenedor de aplicaciones Java, Apache Tomcat o Jetty, para la aplicación web.
+1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com/).
 
-A continuación se muestra cuál sería el aspecto de una aplicación web creada mediante Tomcat desde Azure Marketplace:
+2. Haga clic en **Nuevo > Marketplace**.
 
-<!--todo:![Web app using Apache Tomcat](./media/web-sites-java-get-started/tomcat.png)-->
+	![](./media/web-sites-java-get-started/newmarketplace.png)
 
-A continuación se muestra cuál sería el aspecto de una aplicación web creada mediante Jetty desde Azure Marketplace:
+5. Haga clic en **Web y móvil**.
 
-<!--todo:![Web app using Jetty](./media/web-sites-java-get-started/jetty.png)-->
+	Puede que tenga que desplazarse a la izquierda para ver la hoja **Marketplace** donde puede seleccionar **Web y móvil**.
 
-1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
-2. En la parte inferior izquierda de la página, haga clic en **Nuevo**.
-3. Haga clic en la hoja **Web + móvil**.
-4. Haga clic en **Azure Marketplace** en la parte inferior de la hoja **Web + móvil**.
-5. Haga clic en **Web**.
-6. La parte superior de la página **Web** contiene un cuadro de texto de búsqueda. En este cuadro de texto, escriba el servidor de aplicaciones Java deseado, como **Apache Tomcat** o **Jetty**.
-4. Haga clic en el servidor de aplicaciones Java deseado.
-5. Haga clic en **Crear**.
-6. Especifique el nombre de la dirección URL.
-6. Seleccione una región. Por ejemplo, seleccione **Oeste de EE. UU.**
-7. Haga clic en **Crear**.
+6. En el cuadro de texto Buscar, escriba el nombre de un servidor de aplicaciones Java, como **Apache Tomcat** o **Jetty** y luego presione Entrar.
 
-Se creará la aplicación web en un momento. Para ver la aplicación web, en el Portal de Azure, en la hoja **Aplicaciones web**, haga clic en la aplicación web y, a continuación, haga clic en la dirección URL de esta.
+4. En los resultados de búsqueda, haga clic en el servidor de aplicaciones Java.
 
-Ahora que ha creado la aplicación web con un contenedor de aplicaciones, consulte la sección **Pasos siguientes** para obtener información sobre la carga de la aplicación en la aplicación web.
+	![](./media/web-sites-java-get-started/webmobilejetty.png)
 
-## Creación de una aplicación web de Java con la interfaz de usuario de configuración de Azure
+5. En la primera hoja **Apache Tomcat** o **Jetty**, haga clic en **Crear**.
 
-Esta información muestra cómo usar la interfaz de usuario de configuración de Azure para seleccionar un contenedor de aplicaciones Java, Apache Tomcat o Jetty, para la aplicación web.
+	![](./media/web-sites-java-get-started/jettyblade.png)
 
-1. Inicie sesión en el Portal de Azure.
-2. En la parte inferior izquierda de la página, haga clic en **Nuevo**.
-3. Haga clic en la hoja **Web + móvil**.
-4. Haga clic en **Azure Marketplace** en la parte inferior de la hoja **Web + móvil**.
-5. Haga clic en **Web**.
+4. En la siguiente hoja **Apache Tomcat** o **Jetty**, escriba un nombre para la aplicación web en el cuadro **Aplicación web**.
+
+	Este nombre debe ser único en el dominio azurewebsites.net porque la dirección URL de la aplicación web será {nombre}.azurewebsites.net. Si el nombre especificado no es único, se muestra un signo de exclamación rojo en el cuadro de texto.
+
+5. Seleccione un **Grupo de recursos** o cree uno nuevo.
+
+	Para obtener más información sobre los grupos de recursos, consulte [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](../resource-group-portal.md).
+
+5. Seleccione un **plan de servicio de aplicaciones/ubicación** o cree uno nuevo.
+
+	Para obtener más información sobre los planes del Servicio de aplicaciones, consulte [Información general sobre los planes del Servicio de aplicaciones de Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md).
+
+6. Haga clic en **Crear**.
+
+	![](./media/web-sites-java-get-started/jettyportalcreate2.png)
+
+	En poco tiempo, normalmente menos de un minuto, Azure termina de crear la nueva aplicación web.
+
+7. Haga clic en **Aplicaciones web > {su nueva aplicación web}**.
+
+8. Haga clic en la **URL** para buscar el nuevo sitio.
+
+	![](./media/web-sites-java-get-started/jettyurl.png)
+
+	Si eligió Tomcat, verá una página similar al ejemplo siguiente.
+
+	![Aplicación web con Apache Tomcat](./media/web-sites-java-get-started/tomcat.png)
+
+	Si eligió Jetty, verá una página similar al ejemplo siguiente.
+
+	![Aplicación web con Jetty](./media/web-sites-java-get-started/jetty.png)
+
+Ahora que ha creado la aplicación web con un contenedor de aplicaciones, consulte la sección [Pasos siguientes](#next-steps) para obtener información sobre cómo cargar la aplicación en la aplicación web.
+
+## Creación de una aplicación web y su configuración manual para Java
+
+En esta sección se muestra cómo crear una aplicación web y configurarla manualmente para Java.
+
+1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com/).
+
+2. Haga clic en **Nuevo > Web y móvil**.
+
 6. Haga clic en **Aplicación web**.
-7. Haga clic en **Crear**.
-8. Especifique el nombre de la dirección URL.
-9. Seleccione una región. Por ejemplo, seleccione **Oeste de EE. UU.**
-10. Haga clic en **Crear**.
-11. Cuando se ha creado la aplicación web, haga clic en **Toda la configuración**.
+
+4. Escriba un nombre para la aplicación web en el cuadro **Aplicación web**.
+
+	Este nombre debe ser único en el dominio azurewebsites.net porque la dirección URL de la aplicación web será {nombre}.azurewebsites.net. Si el nombre especificado no es único, se muestra un signo de exclamación rojo en el cuadro de texto.
+
+5. Seleccione un **Grupo de recursos** o cree uno nuevo.
+
+	Para obtener más información sobre los grupos de recursos, consulte [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](../resource-group-portal.md).
+
+5. Seleccione un **plan de servicio de aplicaciones/ubicación** o cree uno nuevo.
+
+	Para obtener más información sobre los planes del Servicio de aplicaciones, consulte [Información general sobre los planes del Servicio de aplicaciones de Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md).
+
+6. Haga clic en **Crear**.
+ 
+11. Cuando se haya creado la aplicación web, haga clic en **Aplicaciones web > {su aplicación web}**.
+ 
+13. En la hoja **Aplicación web**, haga clic en **Configuración**.
+
 12. Haga clic en **Configuración de la aplicación**.
-13. Haga clic en la versión de Java deseada.
-14. Se muestran las opciones para el contenedor web, por ejemplo, Tomcat y Jetty. Seleccione el **Contenedor web** deseado.
+
+13. Elija la **versión Java** deseada.
+
+14. Elija el **contenedor web** deseado.
+
 15. Haga clic en **Guardar**.
 
-En un momento, la aplicación web se convertirá en una aplicación basada en Java. Para confirmar que está basado en Java, haga clic en su dirección URL. Tenga en cuenta que la página proporcionará el texto que indica que la aplicación nueva es una aplicación web basada en Java.
+	En un momento, la aplicación web se convertirá en una aplicación basada en Java.
 
-Ahora que ha creado la aplicación web con un contenedor de aplicaciones, consulte la sección **Pasos siguientes** para obtener información sobre la carga de la aplicación en la aplicación web.
+7. Haga clic en **Aplicaciones web > {su nueva aplicación web}**.
+
+8. Haga clic en la **URL** para buscar el nuevo sitio.
+
+	La página web confirma que ha creado una aplicación web basada en Java.
 
 ## Pasos siguientes
 
-En este momento, dispone de un servidor de aplicaciones Java ejecutándose como aplicación web de Java en Azure. Para agregar su propia aplicación o página web, consulte [Incorporación de una aplicación o página web a la aplicación web de Java](web-sites-java-add-app.md).
+En este momento, dispone de un servidor de aplicaciones Java que se ejecuta en la aplicación web en el Servicio de aplicaciones de Azure. Para implementar su propio código en la aplicación web, consulte [Incorporación de una aplicación o página web a la aplicación web de Java](web-sites-java-add-app.md).
 
-Para obtener más información, consulte el [Centro para desarrolladores de Java](/develop/java/).
-
-## Lo que ha cambiado
-
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y servicios de Azure existentes][].
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de Azure][].
+Para obtener más información sobre el desarrollo de aplicaciones Java en Azure, consulte el [Centro de desarrolladores de Java](/develop/java/).
 
 <!-- External Links -->
 [activar los beneficios de suscripción a MSDN]: http://go.microsoft.com/fwlink/?LinkId=623901
 [registrarse para obtener una evaluación gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
-[Característica de aplicaciones web del Servicio de aplicaciones de Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
-[prueba gratuita de Servicio de aplicaciones]: http://go.microsoft.com/fwlink/?LinkId=523751
-[Servicio de aplicaciones de Azure y servicios de Azure existentes]: http://go.microsoft.com/fwlink/?LinkId=529714
-[Referencia para navegar en el portal de Azure]: http://go.microsoft.com/fwlink/?LinkId=529715
 
-<!---HONumber=Oct15_HO3-->
+[prueba gratuita de Servicio de aplicaciones]: http://go.microsoft.com/fwlink/?LinkId=523751
+
+<!---HONumber=Oct15_HO4-->

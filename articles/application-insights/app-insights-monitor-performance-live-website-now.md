@@ -174,6 +174,7 @@ Esta lista puede cambiar de forma esporádica.
   * En el servidor, si ve en un mensaje acerca de "permisos insuficientes", intente lo siguiente:
     * En el Administrador de IIS, seleccione el grupo de aplicaciones, abra **Configuración avanzada** y en **Modelo de proceso**, anote la identidad.
     * En el panel de control de administración del equipo, agregue esta identidad al grupo Usuarios del monitor de sistema.
+  * Si tiene instalado MMA/SCOM en el servidor, algunas versiones pueden entrar en conflicto. Desinstale SCOM y el Monitor de estado y vuelva a instalar las versiones más recientes.
   * Vea [Solución de problemas][qna].
 
 ## Requisitos del sistema
@@ -215,4 +216,4 @@ La compatibilidad de IIS es: IIS 7, 7.5, 8 y 8.5 (se requiere IIS)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

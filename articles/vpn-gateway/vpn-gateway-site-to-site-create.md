@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/10/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc"/>
 
 # Crear una red virtual con una conexión VPN de sitio a sitio mediante el portal de Azure
@@ -25,7 +25,7 @@
 
 Este artículo le guiará a través de la creación de una red virtual y una conexión VPN de sitio a sitio con la red local. Este artículo se aplica al modelo de implementación clásico.
 
->[AZURE.IMPORTANT]Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información acerca de los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
+>[AZURE.NOTE]Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información acerca de los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
 
 Puede seleccionar el artículo para el modelo de implementación y la herramienta de implementación mediante las pestañas situadas encima. Por ejemplo, si desea crear una conexión de puerta de enlace de VPN de sitio a sitio mediante el modelo del Administrador de recursos de Azure en lugar de usar el modelo clásico, haga clic en la pestaña **PowerShell - Administrador de recursos** (anterior) para ir a [Crear una conexión VPN de sitio a sitio mediante el Administrador de recursos de Azure y PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
 
@@ -34,11 +34,12 @@ Puede seleccionar el artículo para el modelo de implementación y la herramient
 
 Antes de comenzar con la configuración, comprueba que dispones de los elementos siguientes:
 
-- Un dispositivo VPN compatible y alguien que pueda configurarlo. Consulta [Acerca de los dispositivos VPN](vpn-gateway-about-vpn-devices.md).
-- Una dirección IP pública externa para el dispositivo VPN. Esta dirección IP no puede estar detrás de un NAT.
+- Un dispositivo VPN compatible y alguien que pueda configurarlo. Consulta [Acerca de los dispositivos VPN](vpn-gateway-about-vpn-devices.md). Si no estás familiarizado con la configuración de tu dispositivo VPN o con los intervalos de direcciones IP, ubicados en la configuración de la red local, tendrás que trabajar con alguien que pueda proporcionar estos detalles por ti.
+
+-  Una dirección IP pública externa para el dispositivo VPN. Esta dirección IP no puede estar detrás de un NAT.
+
 - Una suscripción de Azure. Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
->[AZURE.IMPORTANT]Si no está familiarizado con la configuración de su dispositivo VPN o con los intervalos de direcciones IP, ubicados en la configuración de la red local, necesitará trabajar con alguien que pueda proporcionar estos detalles.
 
 ## Creación de la red virtual
 
@@ -83,7 +84,9 @@ Escriba la información siguiente y, a continuación, haga clic en la marca de v
 - **Agregar subred**: incluidas la dirección IP de inicio y el recuento de direcciones. No se necesitan subredes adicionales, pero puede que desee crear una subred independiente para las máquinas virtuales que tendrán DIP estáticas. O bien, puede que desee que las máquinas virtuales se encuentren en una subred independiente de las demás instancias de rol.
 - **Agregar subred de puerta de enlace**: haga clic para agregar la subred de puerta de enlace. La subred de puerta de enlace solo se usa para la puerta de enlace de red virtual y es obligatoria para esta configuración.
 
-Haga clic en la marca de verificación de la parte inferior derecha de la página y se empezará a crear la red virtual. Cuando finalice, verá **creado** listado bajo **estado** en la página **Redes** del portal de Azure. Una vez creada la red virtual, puede configurar la puerta de enlace de red virtual.
+Haga clic en la marca de verificación de la parte inferior derecha de la página y se empezará a crear la red virtual. Cuando finalice, verá **Creado** listado bajo **Estado** en la página **Redes** del Portal de Azure. Una vez creada la red virtual, puede configurar la puerta de enlace de red virtual.
+
+[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## Configuración de la puerta de enlace de la red virtual
 
@@ -93,10 +96,10 @@ A continuación, configurará la puerta de enlace de la red virtual con el fin d
 
 Puede obtener más información acerca de la conectividad de red virtual entre locales en este artículo: [Información sobre la conectividad segura entre locales de redes virtuales](vpn-gateway-cross-premises-options.md).
 
-Si desea configurar una conexión VPN de punto a sitio, consulte [Configurar una conexión VPN de punto a sitio](vpn-gateway-point-to-site-create.md)
+Si desea configurar una conexión VPN de punto a sitio, consulte [Configurar una conexión VPN de punto a sitio](vpn-gateway-point-to-site-create.md).
 
 Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
 
 Si desea configurar una conexión entre una red virtual clásica y una red virtual creada con el modo de Administrador de recursos de Azure, consulte [Conectar redes virtuales clásicas con redes virtuales del Administrador de recursos de Azure](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

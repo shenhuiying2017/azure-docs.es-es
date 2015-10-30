@@ -29,6 +29,8 @@ La Factoría de datos funciona transversalmente en orígenes de datos locales y 
 
 Puede usar la Factoría de datos cada vez que tenga que recopilar datos de diferentes formas y tamaños, transformarlos y publicarlos para extraer conocimientos profundos: todo en una programación confiable. La Factoría de datos se usa para crear canalizaciones de flujo de datos de alta disponibilidad para muchos escenarios en diferentes sectores para sus necesidades de canalización de análisis. Los distribuidores en línea la usan para generar [recomendaciones de producto](data-factory-product-reco-usecase.md) personalizadas en función del comportamiento de exploración del cliente. Los estudios de juegos la usan para comprender la [eficacia de sus campañas de marketing](data-factory-customer-profiling-usecase.md). Sepa directamente de nuestros clientes cómo y por qué usan la Factoría de datos revisando[casos prácticos de clientes](data-factory-customer-case-studies.md).
 
+> [AZURE.VIDEO azure-data-factory-overview]
+
 ## Conceptos clave
 
 Factoría de datos de Azure tiene algunas entidades clave que funcionan conjuntamente para definir la entrada y salida de datos, los eventos de procesamiento, así como la programación y los recursos necesarios para ejecutar el flujo de datos que quiera.
@@ -55,7 +57,4 @@ Los servicios vinculados definen la información necesaria para que Factoría de
 
 Con los cuatro conceptos sencillos de conjuntos de datos, actividades, canalizaciones y servicios vinculados, está listo para comenzar. Puede [compilar su primera canalización](data-factory-build-your-first-pipeline.md) desde el principio o implementar una muestra lista para usar siguiendo las instrucciones que se ofrecen en nuestro artículo [Ejemplos de la Factoría de datos](data-factory-samples.md).
 
-## Enviar comentarios
-Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-introduction.md).
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

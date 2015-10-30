@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm"/>
 
 # Creación de una base de datos de Almacenamiento de datos SQL mediante Transact-SQL (TSQL)
@@ -54,11 +54,11 @@ SERVICE\_OBJECTIVE indicará el número de DWU con las que se iniciará la insta
 Después de que su Almacenamiento de datos SQL termine el aprovisionamiento, puede [cargar datos de ejemplo][] o averiguar cómo [desarrollar][], [cargar][] o [migrar][].
 
 [tutorial del Portal de vista previa de Azure]: ./sql-data-warehouse-get-started-provision.md
-[Conexión y consultas]: ./sql-data-warehouse-get-started-connect-query.md
-[migrar]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-overview-migrate/
-[desarrollar]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-overview-develop/
-[cargar]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-overview-load/
-[cargar datos de ejemplo]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[página de precios]: https://azure.microsoft.com/es-ES/pricing/details/sql-data-warehouse/
+[Conexión y consultas]: ./sql-data-warehouse-get-started-connect.md
+[migrar]: ./sql-data-warehouse-overview-migrate.md
+[desarrollar]: ./sql-data-warehouse-overview-develop.md
+[cargar]: ./sql-data-warehouse-overview-load.md
+[cargar datos de ejemplo]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[página de precios]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

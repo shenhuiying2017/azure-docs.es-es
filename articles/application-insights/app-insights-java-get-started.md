@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="10/15/2015"
 	ms.author="awills"/>
 
 # Introducción a Application Insights en un proyecto web de Java
@@ -25,7 +25,7 @@
 
 ![datos de ejemplo](./media/app-insights-java-get-started/5-results.png)
 
-[Las pruebas web de Application Insights][availability] supervisan la disponibilidad de la aplicación.
+Application Insights es compatible con aplicaciones Java que se ejecutan en Linux, Unix o Windows.
 
 Necesitará:
 
@@ -80,7 +80,7 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
     </dependencies>
 
 
-* *¿Errores de validación de suma de comprobación o de compilación?* Utilice en su lugar una versión específica, como:`<version>1.0.n</version>`. Encontrará la versión más reciente en las [notas de la versión de SDK](app-insights-release-notes-java.md) o en nuestros [artefactos de Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *¿Errores de validación de suma de comprobación o de compilación?* Pruebe en su lugar una versión específica, como:`<version>1.0.n</version>`. Encontrará la versión más reciente en las [notas de la versión de SDK](app-insights-release-notes-java.md) o en nuestros [artefactos de Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *¿Necesita actualizar a un nuevo SDK?* Actualice las dependencias del proyecto.
 
 #### Si está usando Gradle...
@@ -117,7 +117,7 @@ Agregue manualmente el SDK:
  * `applicationinsights-web` proporciona métricas que realizan el seguimiento de recuentos de solicitud HTTP y tiempos de respuesta. Lo puede omitir si no desea que se recopile automáticamente esta telemetría. Por ejemplo, si desea escribir la suya propia.
 
 * *Para actualizar el SDK cuando publicamos cambios*
- * Descargue el [SDK más reciente de Application Insights para Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) y reemplácelo por los antiguos.
+ * Descargue el [SDK más reciente de Application Insights para Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) y sustituya los antiguos.
  * Los cambios se describen en las [notas de la versión de SDK](app-insights-release-notes-java.md).
 
 
@@ -271,7 +271,7 @@ Las excepciones no controladas se recopilan automáticamente:
 
 Para recopilar datos de otras excepciones, tiene dos opciones:
 
-* [Insertar llamadas a trackException() en el código][apiexceptions]. 
+* [Insertar llamadas en TrackException() en el código][apiexceptions]. 
 * [Instalar el agente de Java en el servidor](app-insights-java-agent.md). Debe especificar los métodos que desee ver.
 
 
@@ -383,7 +383,7 @@ Obtendrá gráficos de tiempos de respuesta, junto con notificaciones por correo
 
 ## Pasos siguientes
 
-Para obtener más información, consulte el [Centro para desarrolladores de Java](/develop/java/).
+Para obtener más información, consulte el [Centro de desarrolladores de Java](/develop/java/).
 
 <!--Link references-->
 
@@ -396,4 +396,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Java
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

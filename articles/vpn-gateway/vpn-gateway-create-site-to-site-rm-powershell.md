@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="cherylmc"/>
 
 # Crear una red virtual con una conexión VPN de sitio a sitio mediante PowerShell
@@ -25,23 +25,24 @@
 
 Este artículo te guiará por la creación de una red virtual y una conexión VPN de sitio a sitio a tu red local mediante el modelo de implementación del Administrador de recursos de Azure. Puedes seleccionar el artículo para el modelo de implementación y la herramienta de implementación usando las pestañas superiores.
 
->[AZURE.NOTE]Es importante saber que, actualmente, Azure funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, consulta [Modelos de implementación de Azure](../azure-classic-rm.md).
+>[AZURE.NOTE]Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, consulta [Modelos de implementación de Azure](../azure-classic-rm.md).
 
 ## Antes de comenzar
 
 Antes de comenzar con la configuración, comprueba que dispones de los elementos siguientes:
 
-- Un dispositivo VPN compatible y alguien que pueda configurarlo. Consulte [Acerca de los dispositivos VPN](vpn-gateway-about-vpn-devices.md).
+- Un dispositivo VPN compatible y alguien que pueda configurarlo. Consulte [Acerca de los dispositivos VPN](vpn-gateway-about-vpn-devices.md). Si no estás familiarizado con la configuración de tu dispositivo VPN o con los intervalos de direcciones IP, ubicados en la configuración de la red local, tendrás que trabajar con alguien que pueda proporcionar estos detalles por ti.
 
 - Una dirección IP pública externa para el dispositivo VPN. Esta dirección IP no puede estar detrás de un NAT.
-
->[AZURE.IMPORTANT]Si no estás familiarizado con la configuración de tu dispositivo VPN o con los intervalos de direcciones IP, ubicados en la configuración de la red local, tendrás que trabajar con alguien que pueda proporcionar estos detalles por ti.
 	
 - Una suscripción de Azure. Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-- La versión más reciente de los cmdlets de Azure PowerShell Puede descargar e instalar la versión más reciente desde la sección Windows PowerShell de la [Página de descarga](http://azure.microsoft.com/downloads/). Este artículo está escrito para Azure PowerShell *0.9.8*.
+- Cmdlets de Azure PowerShell 0.9.8. Puede descargar e instalar esta versión desde la sección Windows PowerShell de la [Página de descargas](http://azure.microsoft.com/downloads/). Este artículo se escribió para la versión 0.9.8, aunque se pueden usar estos pasos (con pequeñas modificaciones para los cmdlets) con la versión de vista previa de PowerShell 1.0.
 
->[AZURE.NOTE]Si está ejecutando aplicaciones críticas, siga usando Azure PowerShell 0.9.8. En la mayoría de los casos, la única diferencia entre las dos versiones es que el nombre del cmdlet de la versión 1.0 Preview sigue el patrón {verbo}-AzureRm {nombre}, mientras que el nombre de la versión 0.9.8 no incluye RM. Por ejemplo, New-AzureRmResourceGroup en lugar de New-AzureResourceGroup. Para obtener información acerca de Azure PowerShell 1.0 Preview, consulte esta [entrada de blog](https://azure.microsoft.com/blog/azps-1-0-pre/). Para obtener más información acerca de los cmdlets de Azure PowerShell 1.0 Preview, consulte [Cmdlets de Administrador de recursos de Azure](https://msdn.microsoft.com/library/mt125356.aspx).
+**Acerca del uso de estos pasos con la versión de vista previa de Azure PowerShell 1.0**
+
+	[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)] 
+	
 
 
 ## 1\. su suscripción 
@@ -173,7 +174,7 @@ Pasado un momento, se establecerá la conexión.
 
 En este momento, las conexiones VPN de sitio a sitio creadas con el Administrador de recursos no están visibles en el Portal de vista previa. Sin embargo, se puede comprobar que la conexión se realizó correctamente mediante *Get-AzureVirtualNetworkGatewayConnection –Debug*. En el futuro, tendremos un cmdlet para esto, así como la capacidad para ver la conexión en el Portal de vista previa.
 
-Puedes usar el siguiente ejemplo de cmdlet, configurando los valores para que coincidan con los tuyos. Cuando se le pida, seleccione *A* para poder ejecutar Todo.
+Puedes usar el siguiente ejemplo de cmdlet, configurando los valores para que coincidan con los tuyos. Cuando se le pida, seleccione *A* para ejecutar Todo.
 
 		Get-AzureVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
 
@@ -251,6 +252,6 @@ Puedes usar el ejemplo siguiente como guía.
 
 ## Pasos siguientes
 
-Agregue una máquina virtual a una red virtual. [Creación de una máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md).
+Agregue una máquina virtual a una red virtual. [Cree una máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
