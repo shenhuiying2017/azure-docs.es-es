@@ -1,28 +1,26 @@
-1. Open the Android SDK Manager by clicking the icon on the toolbar of Android Studio or by clicking **Tools** -> **Android** -> **SDK Manager** on the menu. Locate the target version of the Android SDK that is used in your project , open it, and choose **Google APIs**, if it is not already installed.
+1. Abra el Administrador de SDK de Android haciendo clic en el icono de la barra de herramientas de Android Studio o haciendo clic en **Herramientas** -> **Android** -> **Administrador de SDK** en el menú. Busque la versión de destino del SDK de Android que se utiliza en el proyecto, ábralo y elija **API de Google**, en caso de que no se haya instalado todavía.
 
-2. Scroll down to **Extras**, expand it, and choose **Google Play Services**, as shown below. Click **Install Packages**. Note the SDK path, for use in the following step. 
+2. Desplácese hacia abajo hasta **Extras**, expándalo y seleccione **Google Play Services**, como se muestra a continuación. Haga clic en **Install Packages**. Tome nota de la ruta de acceso del SDK para usarla en el paso siguiente.
 
    	![](./media/notification-hubs-android-get-started/notification-hub-create-android-app4.png)
 
 
-3. Open the **build.gradle** file in the app directory.
+3. Abra el archivo **build.gradle** en el directorio de aplicaciones.
 
 	![](./media/mobile-services-android-get-started-push/android-studio-push-build-gradle.png)
 
-4. Add this line under *dependencies*: 
+4. Agregue esta línea en *dependencias*:
 
    		compile 'com.google.android.gms:play-services-base:6.5.87'
 
-5. Under *defaultConfig*, change *minSdkVersion* to 9.
+5. En *defaultConfig*, cambie *minSdkVersion* a 9.
  
-6. Click the **Sync Project with Gradle Files** icon in the tool bar.
+6. Haga clic en el botón **Sincronizar proyecto con archivos de Gradle** en la barra de herramientas.
 
-7. Open **AndroidManifest.xml** and add this tag to the *application* tag.
+7. Abra **AndroidManifest.xml** y agregue esta etiqueta a la etiqueta *application*.
 
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
  
 
-
-
-
+<!---HONumber=Oct15_HO3-->
