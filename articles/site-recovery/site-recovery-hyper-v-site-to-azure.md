@@ -305,4 +305,4 @@ Para ejecutar una conmutación por error de prueba, realice lo siguiente:
 
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) acerca de la conmutación por error.
 
-<!----HONumber=Oct15_HO3-->
+<!-----HONumber=Oct15_HO3-->

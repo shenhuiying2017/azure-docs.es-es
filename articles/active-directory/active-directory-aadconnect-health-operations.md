@@ -72,11 +72,10 @@ Cuando elimine una instancia de servicio, tenga en cuenta lo siguiente:
 1. Seleccione el identificador del servicio (nombre de la granja) que desea quitar para abrir la Hoja Servicio en la hoja Lista de Servicios.
 2. En la hoja Servidor, haga clic en el botón "Eliminar" de la barra de acciones.
 3. Confirme el nombre del servicio; para ello, escríbalo en el cuadro de confirmación (por ejemplo: sts.contoso.com).
-4. Haga clic en el botón "Eliminar".
-<br><br>
+4. Haga clic en el botón "Eliminar". <br><br>
 
 
-[//]: # (Start of RBAC section)
+[//]: # "Inicio de la sección RBAC"
 ## Administración del acceso con control de acceso basado en rol
 ### Información general
 El [control de acceso basado en rol](role-based-access-control-configure.md) para Azure AD Connect Health proporciona acceso al servicio Azure AD Connect Health a usuarios y/o grupos fuera de los administradores globales. Esto se logra mediante la asignación de roles a los usuarios y/o grupos previstos y proporciona un mecanismo para limitar los administradores globales dentro del directorio.
@@ -86,7 +85,7 @@ Azure AD Connect Health admite los siguientes roles integrados.
 
 | Rol | Permisos |
 | ----------- | ---------- |
-| Propietario | Los propietarios pueden ***administrar el acceso*** (por ejemplo, asignar roles a un usuario y/o grupo), ***ver toda la información*** (por ejemplo, ver las alertas) desde el portal y ***cambiar la configuración*** (por ejemplo, notificaciones de correo electrónico) dentro de Azure AD Connect Health. <br>De forma predeterminada, a los administradores globales de Azure AD se les asigna este rol y esto no se puede cambiar.  |
+| Propietario | Los propietarios pueden ***administrar el acceso*** (por ejemplo, asignar roles a un usuario y/o grupo), ***ver toda la información*** (por ejemplo, ver las alertas) desde el portal y ***cambiar la configuración*** (por ejemplo, notificaciones de correo electrónico) dentro de Azure AD Connect Health. <br>De forma predeterminada, a los administradores globales de Azure AD se les asigna este rol y esto no se puede cambiar. |
 |Colaborador| Los colaboradores pueden ***ver toda la información*** (por ejemplo, ver las alertas) desde el portal y ***cambiar la configuración*** (por ejemplo, notificaciones de correo electrónico) dentro de Azure AD Connect Health.|
 |Lector| Los lectores pueden ***ver toda la información*** (por ejemplo, ver las alertas) desde el portal dentro de Azure AD Connect Health.|
 
@@ -98,7 +97,7 @@ Azure AD Connect admite la administración de acceso a dos niveles:
 
 - ***Directorio***: este es el modo recomendado para la mayoría de los clientes y controla el acceso para todas las instancias de servicio (por ejemplo, una granja de servidores ADFS) en todos los tipos de rol que está supervisando Azure AD Connect Health.
 
-- ***Instancia de servicio***: en algunos casos, puede que necesite separar el acceso según los tipos de rol o por una instancia de servicio. En este caso, puede administrar el acceso en el nivel de instancia de servicio.  
+- ***Instancia de servicio***: en algunos casos, puede que necesite separar el acceso según los tipos de rol o por una instancia de servicio. En este caso, puede administrar el acceso en el nivel de instancia de servicio.
 
 El permiso se concede si un usuario final tiene acceso al nivel de directorio o de instancia de servicio.
 
@@ -135,7 +134,7 @@ Para permitir a un usuario acceder al nivel de *directorio* dentro de Azure AD C
 Puede quitar un usuario o grupo agregado a la parte Control de acceso basado en rol de Azure AD Connect Health haciendo clic con el botón derecho y seleccionando Quitar.<br>
 [//]: # (RBAC_RemoveUser)
 
-[//]: # (End of RBAC section)
+[//]: # "Fin de la sección RBAC"
 
 ## Vínculos relacionados
 
@@ -144,4 +143,4 @@ Puede quitar un usuario o grupo agregado a la parte Control de acceso basado en 
 * [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!------HONumber=Oct15_HO3-->
+<!-------HONumber=Oct15_HO3-->

@@ -178,4 +178,4 @@ Para obtener información detallada de la planeación acerca de estos componente
 
 Comience a configurar los componentes para el escenario de implementación. [Más información](site-recovery-overview.md).
 
-<!----HONumber=Oct15_HO3-->
+<!-----HONumber=Oct15_HO3-->

@@ -65,4 +65,4 @@ Ahora que tiene una aplicación de Microsoft registrada en Azure AD B2C, puede r
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!-----HONumber=Oct15_HO3-->

@@ -198,4 +198,4 @@ Después de revisar estas prácticas recomendadas, puede iniciar la implementaci
 - [Configuración de la protección con un único servidor VMM](site-recovery-single-vmm.md)
  
 
-<!----HONumber=Oct15_HO3-->
+<!-----HONumber=Oct15_HO3-->

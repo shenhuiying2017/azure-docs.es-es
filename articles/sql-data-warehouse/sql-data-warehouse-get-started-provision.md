@@ -48,7 +48,7 @@ En este tutorial, aprenderá lo siguiente:
 ## Paso 2: Configurar y crear un servidor
 En la base de datos SQL y Almacenamiento de datos SQL, cada base de datos se asigna a un servidor y cada servidor se asigna a una ubicación geográfica. El servidor se llama a un servidor lógico de SQL.
 
-> [AZURE.NOTE]<a name="note"></a>Un servidor lógico de SQL:
+> [AZURE.NOTE] <a name="note"></a>Un servidor lógico de SQL:
   >
   > + proporciona una manera coherente para configurar varias bases de datos dentro de la misma ubicación geográfica.
   > + No es un hardware físico como en un servidor local. Forma parte del software de servicio. Por eso lo llamamos un *servidor lógico*.
@@ -68,7 +68,7 @@ En la base de datos SQL y Almacenamiento de datos SQL, cada base de datos se asi
 	- **Crear servidor V12**. SÍ, es la opción para Almacenamiento de datos SQL. 
 	- **Permitir que los servicios de Azure accedan al servidor**. Esto siempre está seleccionado para Almacenamiento de datos SQL
 
-    >[AZURE.NOTE]Asegúrese de almacenar el nombre del servidor, el nombre del administrador y la contraseña en algún lugar. Necesitará esta información para iniciar sesión en el servidor.
+    >[AZURE.NOTE] Asegúrese de almacenar el nombre del servidor, el nombre del administrador y la contraseña en algún lugar. Necesitará esta información para iniciar sesión en el servidor.
 
 1. Haga clic en **Aceptar** para guardar la configuración del servidor SQL lógico y volver a la hoja Almacenamiento de datos SQL.
 
@@ -83,7 +83,7 @@ Ahora que seleccionó el servidor SQL lógico, está listo para terminar de crea
     
     - **Rendimiento**: se recomienda empezar con 400 DWU. Puede mover el control deslizante hacia la izquierda o la derecha para ajustar el nivel de rendimiento de la base de datos, tanto ahora como después de crearla. 
 
-        > [AZURE.NOTE]El Almacenamiento de datos SQL mide el rendimiento en Unidades de almacenamiento de datos (DWU). A medida que aumentan las DWU, Almacenamiento de datos SQL aumenta los recursos informáticos disponibles para las operaciones de bases de datos. Cuando ejecute la carga de trabajo, podrá ver cómo se relacionan las DWU con el rendimiento de la carga de trabajo.
+        > [AZURE.NOTE] El Almacenamiento de datos SQL mide el rendimiento en Unidades de almacenamiento de datos (DWU). A medida que aumentan las DWU, Almacenamiento de datos SQL aumenta los recursos informáticos disponibles para las operaciones de bases de datos. Cuando ejecute la carga de trabajo, podrá ver cómo se relacionan las DWU con el rendimiento de la carga de trabajo.
         > 
         > Puede modificar de manera rápida y sencilla el nivel de rendimiento después de crear la base de datos. Por ejemplo, si no está usando la base de datos, mueva el control deslizante hacia la izquierda para reducir los costes. O bien, puede aumentar el rendimiento cuando sean necesarios más recursos. Para incurrir en costos 0, puede pausar la base de datos. Estas son las ventajas de escalabilidad que ofrece el almacenamiento de datos SQL.
 
@@ -115,7 +115,7 @@ Para conectarse al servidor desde la dirección IP actual, agregue su dirección
 
 1. Crear una regla de firewall con un intervalo de direcciones IP. Puede hacerlo ahora o más tarde.
 
-	>[AZURE.IMPORTANT]Probablemente su dirección IP cambie de vez en cuando, y es posible que no pueda tener acceso al servidor hasta que cree una nueva regla de firewall. Para garantizar un acceso constante, se recomienda agregar un intervalo de direcciones IP. Para obtener información adicional, consulte [Configuración del firewall](../sql-database/sql-database-configure-firewall-settings.md).
+	>[AZURE.IMPORTANT] Probablemente su dirección IP cambie de vez en cuando, y es posible que no pueda tener acceso al servidor hasta que cree una nueva regla de firewall. Para garantizar un acceso constante, se recomienda agregar un intervalo de direcciones IP. Para obtener información adicional, consulte [Configuración del firewall](../sql-database/sql-database-configure-firewall-settings.md).
 
     Para crear una regla, escriba un nombre y el intervalo de direcciones IP y haga clic en **Guardar**.
 
@@ -128,4 +128,4 @@ Una vez configurado el firewall, podrá establecer conexiones desde su escritori
 
 Ahora que ha creado una base de datos de ejemplo para Almacenamiento de datos SQL, está listo para [Conectar](./sql-data-warehouse-get-started-connect.md) la base de datos.
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
