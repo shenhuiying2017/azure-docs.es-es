@@ -772,4 +772,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 Se puede encontrar el archivo completo en el [Centro de descarga de Microsoft](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft se reserva todos los derechos no otorgados expresamente en este documento, ya sea por implicación, desestimación o de otro modo.
 
-<!----HONumber=Oct15_HO3-->
+<!-----HONumber=Oct15_HO3-->

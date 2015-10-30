@@ -86,7 +86,7 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
 1. Descargue el <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">SDK de Android para Centros de notificaciones</a>. Extraiga el archivo .zip y copie **notificationhubs\\notification-hubs-0.3.jar** y **notifications\\notifications-1.0.1.jar** en el directorio **app\\libs** del proyecto. Para hacerlo, arrastre los archivos directamente a la carpeta **libs** en la ventana Vista del proyecto de Android Studio. Actualice la carpeta **libs**.
 
 
-    > [AZURE.NOTE]Los números que aparecen al final del nombre del archivo pueden cambiar en versiones de SDK posteriores.
+    > [AZURE.NOTE] Los números que aparecen al final del nombre del archivo pueden cambiar en versiones de SDK posteriores.
 
 2. Configure la aplicación para obtener un Id. de registro desde GCM y úselo para registrar la instancia de la aplicación en el centro de notificaciones.
 
@@ -207,7 +207,7 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
 
 8. Puesto que Android no muestra las notificaciones, debe escribir su propio receptor. En **AndroidManifest.xml**, agregue el siguiente elemento dentro del elemento `<application>`.
 
-	> [AZURE.NOTE]Reemplace el marcador de posición por el nombre del paquete.
+	> [AZURE.NOTE] Reemplace el marcador de posición por el nombre del paquete.
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -549,4 +549,4 @@ Para obtener más información sobre los Centros de notificaciones, consulte [In
 [Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-android-notify-users.md
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
