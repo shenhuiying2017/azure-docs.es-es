@@ -52,8 +52,8 @@ También puede encontrar el vínculo **Administrar la configuración B2C** (de l
 3. El **Nombre** de la aplicación servirá de descripción de la aplicación para los consumidores. Por ejemplo, escriba "Contoso B2C app".
 4. Si va a escribir una aplicación basada en web, mueva el conmutador **Incluir aplicación web/API web** a **Sí**. Las **Direcciones URL de respuesta** son extremos en los que Azure AD B2C devolverá los tokens que solicite su aplicación. Por ejemplo, escriba: `https://localhost:44321/`. Si la aplicación incluye un componente de servidor (API) que se debe proteger, es conveniente que cree (y copie) también un **Secreto de aplicación** haciendo clic en el botón **Generar clave**.
 
-    > [AZURE.NOTE]
-    El **secreto de aplicación** es una credencial de seguridad importante.
+> [AZURE.NOTE]
+El **secreto de aplicación** es una credencial de seguridad importante.
 
 5. Si va a escribir una aplicación móvil, mueva el conmutador **Incluir cliente nativo** a **Sí**. Copie el **URI de redirección** predeterminado creado automáticamente para usted.
 6. Haga clic en **Crear** para registrar la aplicación.
@@ -65,4 +65,4 @@ Ahora que tiene una aplicación de Microsoft registrada en Azure AD B2C, puede r
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!------HONumber=Oct15_HO3-->
+<!-------HONumber=Oct15_HO3-->
