@@ -92,7 +92,7 @@ Estas instrucciones realizan las acciones siguientes:
 
 * **CREATE TABLE IF NOT EXISTS**: crea una tabla, si todavía no existe. Dado que no se usa la palabra clave **EXTERNAL**, se trata de una tabla interna, que se almacena en el almacenamiento de datos de Hive y es administrada completamente por Hive.
 * **STORED AS ORC**: almacena los datos en el formato Optimized Row Columnar (ORC). Se trata de un formato altamente optimizado y eficiente para almacenar datos de Hive.
-* **INSERT OVERWRITE ... SELECT**: selecciona filas de la tabla **log4jLogs** que contiene **[ERROR]** y, a continuación, inserta los datos en la tabla **errorLogs**.
+* **INSERT OVERWRITE ... SELECT**: selecciona filas de la tabla **log4jLogs** que contiene **[ERROR]** y luego inserta los datos en la tabla **errorLogs**.
 
 > [AZURE.NOTE]A diferencia de las tablas externas, la eliminación de una tabla interna también eliminará los datos subyacentes.
 
@@ -183,4 +183,4 @@ Ahora que aprendió qué es Hive y cómo usarlo con Hadoop en HDInsight, use los
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

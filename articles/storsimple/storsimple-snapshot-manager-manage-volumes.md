@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/21/2015"
+   ms.date="10/15/2015"
    ms.author="v-sharos" />
 
 # Uso de Administrador de instantáneas StorSimple para ver y administrar volúmenes
@@ -39,21 +39,21 @@ Este tutorial explica cómo puede montar, inicializar y dar formato a volúmenes
  
 ## Montaje de volúmenes
 
-Utilice el procedimiento siguiente para montar, inicializar y dar formato a volúmenes de Azure StorSimple.
+Utilice el procedimiento siguiente para montar, inicializar y dar formato a volúmenes de Azure StorSimple. Este procedimiento usa Administración de discos, una utilidad del sistema para administrar discos duros y los volúmenes o particiones que contienen. Para obtener más información sobre Administración de discos, vaya a [Administración de discos](https://technet.microsoft.com/library/cc770943.aspx) en el sitio web de Microsoft TechNet.
 
 #### Para montar volúmenes
 
 1. En el equipo host, inicie el iniciador iSCSI de Microsoft.
 
-2. Proporcione una de las direcciones IP de interfaz como el portal de destino o la dirección IP de detección y conéctese al dispositivo. Una vez conectado el dispositivo, los volúmenes estarán accesibles para el sistema Windows. Para obtener más información sobre el uso del iniciador iSCSI de Microsoft, vaya a la sección "Conectar a un dispositivo de destino iSCSI" en [Instalar y configurar el iniciador iSCSI de Microsoft][1].
+2. Proporcione una de las direcciones IP de interfaz como el portal de destino o la dirección IP de detección y conéctese al dispositivo. Una vez conectado el dispositivo, los volúmenes estarán accesibles para el sistema Windows. Para obtener más información acerca del uso del iniciador iSCSI de Microsoft, vaya a la sección "Conectar a un dispositivo de destino iSCSI" en [Instalar y configurar el iniciador iSCSI de Microsoft][1].
 
-3. Utilice cualquiera de las siguientes opciones para iniciar el complemento Administración de discos:
+3. Utilice cualquiera de las siguientes opciones para iniciar Administración de discos:
 
     - Escriba Diskmgmt.msc en el cuadro **Ejecutar**.
 
-    - Inicie el Administrador del servidor, expanda el nodo **Almacenamiento** y, luego, seleccione **Administración de discos**.
+    - Inicie el Administrador del servidor, expanda el nodo **Almacenamiento** y, a continuación, seleccione **Administración de discos**.
 
-    - Inicie **Herramientas administrativas**, expanda el nodo **Administración de equipos** y, luego, seleccione **Administración de discos**.
+    - Inicie **Herramientas administrativas**, expanda el nodo **Administración de equipos** y, a continuación, seleccione **Administración de discos**.
 
     >[AZURE.NOTE]Debe usar privilegios de administrador para ejecutar Administración de discos.
  
@@ -61,7 +61,7 @@ Utilice el procedimiento siguiente para montar, inicializar y dar formato a vol�
 
    1. En Administración de discos, haga clic con el botón derecho en cualquier volumen marcado **Sin conexión**.
 
-   2. Haga clic en **Reactivar disco**. El disco debería estar marcado como **En línea** después de que se vuelva a activar.
+   2. Haga clic en **Reactivar disco**. El disco debería estar marcado como **En línea** después de que se vuelva a activar el disco.
 
 5. Inicialice el volumen:
 
@@ -69,7 +69,7 @@ Utilice el procedimiento siguiente para montar, inicializar y dar formato a vol�
 
    2. En el menú, seleccione **Inicializar disco**.
 
-   3. En el cuadro de diálogo **Inicializar disco**, seleccione los discos que quiera inicializar y, luego, haga clic en **Aceptar**.
+   3. En el cuadro de diálogo **Inicializar disco**, seleccione los discos que desea inicializar y, a continuación, haga clic en **Aceptar**.
 
 6. Dé formato a volúmenes simples:
 
@@ -95,7 +95,7 @@ Utilice el procedimiento siguiente para ver información acerca de volúmenes lo
 
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple. 
 
-2. En el panel **Ámbito**, haga clic en el nodo **Volúmenes**. Aparecerá una lista de los volúmenes locales y montados, incluidos todos los volúmenes de Azure StorSimple, en el panel **Resultados**. Las columnas del panel **Resultados** son configurables. (Haga clic con el botón derecho en el nodo **Volúmenes**, seleccione **Ver** y, luego, seleccione **Agregar o quitar columnas**).
+2. En el panel **Ámbito**, haga clic en el nodo **Volúmenes**. Aparecerá una lista de los volúmenes locales y montados, incluidos todos los volúmenes de Azure StorSimple, en el panel **Resultados**. Las columnas del panel **Resultados** son configurables. (Haga clic con el botón derecho en el nodo **Volúmenes**, seleccione **Ver** y, a continuación, seleccione **Agregar o quitar columnas**.)
 
     ![Configurar las columnas](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
 
@@ -110,7 +110,9 @@ Utilice el procedimiento siguiente para ver información acerca de volúmenes lo
 
 Utilice el procedimiento siguiente para eliminar un volumen en Administrador de instantáneas StorSimple.
 
->[AZURE.NOTE]No se puede eliminar un volumen si forma parte de un grupo de volúmenes. (La opción Eliminar no está disponible para los volúmenes que son miembros de un grupo de volúmenes). Debe eliminar el grupo de volúmenes completo para eliminar el volumen. <br>
+>[AZURE.NOTE]No se puede eliminar un volumen si forma parte de un grupo de volúmenes. (La opción Eliminar no está disponible para los volúmenes que son miembros de un grupo de volúmenes). Debe eliminar el grupo de volúmenes completo para eliminar el volumen.
+
+
 #### Para eliminar un volumen
 
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple.
@@ -123,7 +125,7 @@ Utilice el procedimiento siguiente para eliminar un volumen en Administrador de 
 
     ![Eliminar un volumen](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Delete_volume.png)
 
-5. Aparece el cuadro de diálogo **Eliminar volumen**. Escriba **Confirmar** en el cuadro de texto y, luego, haga clic en **Aceptar**.
+5. Aparece el cuadro de diálogo **Eliminar volumen**. Escriba **Confirmar** en el cuadro de texto y, a continuación, haga clic en **Aceptar**.
 
 6. De forma predeterminada, Administrador de instantáneas StorSimple realiza una copia de seguridad de un volumen antes de eliminarlo. Esta precaución puede protegerle frente a pérdidas de datos si la eliminación es accidental. Snapshot Manager de StorSimple muestra un mensaje de progreso de una **Instantánea automática** mientras hace una copia de seguridad del volumen.
 
@@ -247,9 +249,9 @@ Utilice el siguiente procedimiento para configurar un volumen reflejado dinámic
 
 2. En el panel **Ámbito**, haga clic con el botón derecho en el nodo **Volúmenes** y seleccione **Volver a examinar volúmenes**. Cuando termine el examen, debe aparecer una lista de volúmenes en el panel **Resultados**. El volumen reflejado dinámico se muestra como un único volumen.
 
-3. En el panel **Resultados**, haga clic con el botón derecho en el volumen reflejado dinámico y después haga clic en **Crear grupo de volúmenes**.
+3. En el panel **Resultados**, haga clic con el botón derecho en el volumen reflejado dinámico y, a continuación, haga clic en **Crear grupo de volúmenes**.
 
-4. En el cuadro de diálogo **Crear grupo de volúmenes**, escriba un nombre para el grupo de volúmenes, asigne el volumen reflejado dinámico a este grupo y después haga clic en **Aceptar**.
+4. En el cuadro de diálogo **Crear grupo de volúmenes**, escriba un nombre para el grupo de volúmenes, asígnele el volumen reflejado dinámico a este grupo y, a continuación, haga clic en**Aceptar**.
 
 5. En el panel **Ámbito**, expanda el nodo **Grupos de volúmenes**. El nuevo grupo de volúmenes debe aparecer bajo el nodo **Grupos de volúmenes**.
 
@@ -259,7 +261,7 @@ Utilice el siguiente procedimiento para configurar un volumen reflejado dinámic
 
     - Para programar una copia de seguridad automática, haga clic en **Crear directiva de copia de seguridad**. En la página **General**, seleccione el grupo de volúmenes de la lista. En la página **Programación**, escriba los detalles de la programación. Cuando haya terminado, haga clic en **Aceptar**.
 
-7. Puede supervisar el trabajo de copia de seguridad mientras se ejecuta. En el panel **Ámbito**, expanda el nodo **Trabajos** y después haga clic en **En ejecución**. Aparecerán los detalles del trabajo en el panel **Resultados**. Cuando finaliza el trabajo de copia de seguridad, los detalles se transfieren a la lista de trabajos de **Últimas 24 horas**.
+7. Puede supervisar el trabajo de copia de seguridad mientras se ejecuta. En el panel **Ámbito**, expanda el nodo **Trabajos** y, a continuación, haga clic en **En ejecución**. Aparecerán los detalles del trabajo en el panel **Resultados**. Cuando finaliza el trabajo de copia de seguridad, los detalles se transfieren a la lista de trabajos de **Últimas 24 horas**.
 
 ## Pasos siguientes
 
@@ -269,4 +271,4 @@ Utilice el siguiente procedimiento para configurar un volumen reflejado dinámic
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

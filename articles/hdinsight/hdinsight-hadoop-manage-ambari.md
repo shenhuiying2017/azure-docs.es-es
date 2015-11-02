@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="10/20/2015"
    ms.author="larryfr"/>
 
 #Administración de clústeres de HDInsight con Ambari (vista previa)
@@ -29,11 +29,15 @@ Aprenda a usar Ambari para administrar y supervisar clústeres de HDInsight de A
 
 De manera predeterminada, Ambari viene con los clústeres de HDInsight basado en Linux. Los clústeres de HDInsight basado en Windows proporcionan la funcionalidad de supervisión a través de las API de REST de Ambari.
 
+##Conectividad
+
+La conexión a Ambari en el clúster de HDInsight requiere el uso de HTTPS. También debe autenticarse en Ambari mediante el nombre de la cuenta de administrador (el valor predeterminado es __admin__,) y la contraseña que proporcionó cuando se creó el clúster.
+
 ##Proxy SSH
 
 > [AZURE.NOTE]A pesar de que es posible tener acceso directamente a través de Internet a Ambari para su clúster, algunos vínculos de la interfaz de usuario web de Ambari (como JobTracker) no estarán expuestos en Internet. Por lo tanto, recibirá errores de "servidor no encontrado" al intentar tener acceso a estas características, a menos que utilice un túnel de Shell seguro (SSH) para canalizar el tráfico web para el nodo principal del clúster.
 
-Para obtener información sobre cómo crear un túnel SSH para trabajar con Ambari, vea [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
+Para obtener información sobre cómo crear un túnel SSH para trabajar con Ambari, consulte [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ##Interfaz de usuario web de Ambari
 
@@ -137,7 +141,7 @@ Seleccione cualquiera de estos vínculos para abrir una pestaña nueva del explo
 
 > [AZURE.NOTE]Al seleccionar un vínculo **Quick Links** para cualquier servicio se generará un error de "servidor no encontrado", a menos que use un túnel de Capa de sockets seguros (SSL) para autorizar el tráfico web al clúster. Esto es porque las aplicaciones web que se usan para mostrar esta información no se exponen en Internet.
 >
-> Para obtener información sobre cómo usar un túnel SSH con HDInsight, vea [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
+> Para obtener información sobre cómo usar un túnel SSH con HDInsight, consulte [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ##Administración
 
@@ -183,11 +187,11 @@ La página **Hosts** muestra todos los hosts existentes en el clúster. Siga est
 
 ###<a id="service"></a>Servicios
 
-Desde la página **Panel** o **Servicios**, use el botón **Acciones** que se encuentra en la parte inferior de la lista de servicios para detener e iniciar todos los servicios.
+En la página **Panel** o **Servicios**, use el botón **Acciones** que se encuentra en la parte inferior de la lista de servicios para detener e iniciar todos los servicios.
 
 ![acciones de servicio](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-> [AZURE.WARNING]Aunque __Agregar servicio__ aparece en este menú, no debe usarse para agregar servicios al clúster de HDInsight. Se deben agregar nuevos servicios deben mediante una acción de script durante el aprovisionamiento del clúster. Para obtener más información sobre el uso de las acciones de script, vea [Personalización de clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.WARNING]Aunque __Agregar servicio__ aparece en este menú, no debe usarse para agregar servicios al clúster de HDInsight. Se deben agregar nuevos servicios deben mediante una acción de script durante el aprovisionamiento del clúster. Para obtener más información sobre el uso de las acciones de script, consulte [Personalización de clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 
 A pesar de que el botón **Actions** puede reiniciar todos los servicios, con frecuencia se desea iniciar, detener o reiniciar un servicio específico. Use los siguientes pasos para realizar acciones sobre un servicio individual:
@@ -224,8 +228,8 @@ Ambari Web se basa en una API de REST subyacente, que puede aprovechar para crea
 
 * **Direcciones IP**: no es posible tener acceso a la dirección devuelta para los hosts dentro de un clúster desde afuera del clúster, a menos que este sea miembro de una Red virtual de Azure. De este modo, otros miembros de la red virtual podrán tener acceso a la dirección IP, pero no desde fuera de la red.
 
-* **Alguna funcionalidad no está habilitada**: alguna funcionalidad de Ambari está deshabilitada, puesto que está administrada por el servicio en la nube de HDInsight; por ejemplo, agregar o quitar hosts desde el clúster o agregar nuevos servicios. Es posible que no se implemente completamente otra funcionalidad durante la vista previa de HDInsight basado en Linux.
+* **Alguna funcionalidad no está habilitada**: alguna funcionalidad de Ambari está deshabilitada, puesto que está administrada por el servicio en la nube de HDInsight; por ejemplo, agregar o quitar hosts del clúster o agregar nuevos servicios. Es posible que no se implemente completamente otra funcionalidad durante la vista previa de HDInsight basado en Linux.
 
 Para obtener una referencia completa de la API de REST, consulte [Referencia de API de Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

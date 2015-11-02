@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="10/16/2015"
 	ms.author="markusvi"/>
 
 
@@ -64,8 +64,7 @@ Para configurar la integración de QuickHelp en Azure AD, deberá agregar QuickH
 4. Haga clic en **Agregar** en la parte inferior de la página. <br><br>![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
 6. En el cuadro de búsqueda, escribs **QuickHelp**.<br><br> ![Aplicaciones][5]<br>
-7. En el panel de resultados, seleccione **QuickHelp** y luego haga clic en **Completar** para agregar la aplicación.<br>
-
+7. En el panel de resultados, seleccione **QuickHelp** y luego haga clic en **Completar** para agregar la aplicación. <br><br>![Aplicaciones][500]<br>
 
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
@@ -87,9 +86,9 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 **Para configurar el inicio de sesión único de Azure AD con QuickHelp, realice los pasos siguientes:**
 
-1. En el Portal de Azure AD, en la página de integración de aplicaciones de **QuickHelp**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6]<br>
+1. En el Portal de Azure AD, en la página de integración de aplicaciones de **QuickHelp**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6] <br>
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en QuickHelp?**, seleccione **Inicio de sesión único de Windows Azure AD** y, luego , haga clic en **Siguiente**.<br><br> ![Inicio de sesión único de Azure AD][7] <br>
+2. En la página **¿Cómo desea que los usuarios inicien sesión en QuickHelp?**, seleccione **Inicio de sesión único de Windows Azure AD** y, luego, haga clic en **Siguiente**. <br><br> ![Inicio de sesión único de Azure AD][7] <br>
 
 3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes: <br><br>![Configurar las opciones de la aplicación][8] <br>
  
@@ -110,17 +109,17 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 2. En el menú de la parte superior, haga clic en **Admin** (Administrador). <br><br>![Configurar inicio de sesión único][21]<br>
 
 
-1. En el menú **QuickHelp Admin** (Administrador de QuickHelp), haga clic en **Settings** (Configuración). <br><br>![Configurar inicio de sesión único][22]<br>
+1. En el menú **Administrador de QuickHelp**, haga clic en **Configuración**. <br><br>![Configurar inicio de sesión único][22]<br>
 
-1. Haga clic en **Authentication Settings** (Configuración de autenticación).
+1. Haga clic en **Configuración de autenticación**.
 
-1. En la página **Authentication Settings** (Configuración de autenticación), realice los siguientes pasos <br><br>![Configurar inicio de sesión único][23]<br>
+1. En la página **Configuración de autenticación**, realice los siguientes pasos. <br><br>![Configurar inicio de sesión único][23]<br>
 
-    a. En **SSO Type** (Tipo de SSO), seleccione **WSFederation**.
+    a. En **Tipo de SSO**, seleccione **WSFederation**.
 
-    b. Para cargar el archivo de metadatos de Azure descargado, haga clic en **Browse** (Examinar), navegue hasta el archivo y luego haga clic en **Upload Metadata** (Cargar metadatos).
+    b. Para cargar el archivo de metadatos de Azure descargado, haga clic en **Examinar**, navegue hasta el archivo y luego haga clic en **Cargar metadatos**.
 
-    d. En el cuadro de texto **Email** (Correo electrónico), escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    d. En el cuadro de texto **Correo electrónico**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
 6. En el Portal de Azure AD, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. <br><br>![Qué es Azure AD Connect][10]<br>
 
@@ -130,7 +129,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 
 ### Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure llamado Britta Simon.<br> En la lista Usuarios, seleccione **Britta Simon**.<br><br>![Creación de un usuario de Azure AD][20]<br>.
+El objetivo de esta sección es crear un usuario de prueba en el portal de Azure llamado Britta Simon.<br> En la lista Usuarios, seleccione **Britta Simon**.<br><br>![Creación de un usuario de Azure AD][20]<br>
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
@@ -160,7 +159,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     d. En la lista **Rol**, seleccione **Usuario**. Haga clic en **Siguiente**.
 
-7. En la página del cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**. <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_07.png) <br>
+7. En la página del cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_07.png) <br>
  
 8. En la página del cuadro de diálogo **Obtener contraseña temporal**, realice los pasos siguientes: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_08.png) <br>
   
@@ -193,14 +192,14 @@ Debe crear un archivo CSV con esta estructura que tenga como valores los valores
 2. Inicie sesión en el sitio de la empresa de QuickHelp como administrador. <br><br>![Creación de un usuario de prueba de QuickHelp][21]<br>
 
 
-3. En el menú **QuickHelp Admin** (Administrador de QuickHelp), haga clic en **Users** (Usuarios) y luego en **New** (Nuevo). <br><br>![Creación de un usuario de prueba de QuickHelp][24]<br>
+3. En el menú **Administrador de QuickHelp**, haga clic en **Usuarios** y luego en **Nuevo**. <br><br>![Creación de un usuario de prueba de QuickHelp][24]<br>
 
 
-4. En **Content** (Contenido), seleccione **Users** (Usuarios) y luego haga clic en **Import**(Importar). <br><br>![Creación de un usuario de prueba de QuickHelp][25]<br>
+4. En **Contenido**, seleccione **Usuario** y luego haga clic en **Importar**. <br><br>![Creación de un usuario de prueba de QuickHelp][25]<br>
 
-5. Para importar el archivo CSV, haga clic en **Browse** (Examinar), desplácese al archivo y luego haga clic en **Next** (Siguiente). <br><br>![Creación de un usuario de prueba de QuickHelp][26]<br>
+5. Para importar el archivo CSV, haga clic en **Examinar**, desplácese al archivo y luego haga clic en **Siguiente**. <br><br>![Creación de un usuario de prueba de QuickHelp][26]<br>
 
-6. En la página de resumen, revise el estado y luego haga clic en **Finish** (Finalizar). <br><br>![Creación de un usuario de prueba de QuickHelp][27]<br>
+6. En la página de resumen, revise el estado y luego haga clic en **Finalizar**. <br><br>![Creación de un usuario de prueba de QuickHelp][27]<br>
 
 
 Si Britta se importó correctamente, la verá en la lista de usuarios. <br><br>![Creación de un usuario de prueba de QuickHelp][28]<br>
@@ -209,7 +208,7 @@ Si Britta se importó correctamente, la verá en la lista de usuarios. <br><br>!
 
 ### Asignación del usuario de prueba de Azure AD
 
-El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a QuickHelp. <br><br>![Asignar usuario][200]<br>
+El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a QuickHelp. <br><br>![Asignar usuario][200] <br>
 
 **Para asignar a Britta Simon a QuickHelp, realice los pasos siguientes:**
 
@@ -217,7 +216,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 2. En la lista de aplicaciones, seleccione **QuickHelp**. <br><br>![Asignar usuario][202]<br>
 
-1. En el menú de la parte superior, haga clic en **Usuarios**.<br> <br>![Asignar usuario][203] <br>
+1. En el menú de la parte superior, haga clic en **Usuarios**. <br><br>![Asignar usuario][203] <br>
 
 1. En la lista Usuarios, seleccione **Britta Simon**.
 
@@ -243,6 +242,8 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [3]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_general_04.png
 [5]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_01.png
+[500]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_14.png
+
 
 [6]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_general_05.png
 [7]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_02.png
@@ -272,4 +273,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

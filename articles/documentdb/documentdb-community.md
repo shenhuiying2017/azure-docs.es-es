@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="10/12/2015"
+  ms.date="10/20/2015"
   ms.author="andrl"/>
 
 # Portal de la Comunidad
@@ -126,7 +126,8 @@ Para mantenerse al día en las novedades y características más recientes de Do
 | ------------------------------------------- | ------------------ | ------- |
 | Integration User Group | 5 de octubre de 2015 | [Azure DocumentDB for Healthcare Integration](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) (Azure DocumentDB para la integración sanitaria) |
 | DX Italy - #TecHeroes | 2 de octubre de 2015 | [#TecHeroes - DocumentDB](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
-| .NET rocks! Podcast | 29 de septiembre de 2015 | [Data on DocumentDB with Ryan CrawCour](https://www.dotnetrocks.com/?show=1197) (Datos sobre DocumentDB con Ryan CrawCour) |
+| Presentación de Microsoft Cloud: podcast | 30 de septiembre de 2015 | [Episodio 099: Azure DocumentDB con Andrew Liu](http://www.microsoftcloudshow.com/podcast/Episodes/099-azure-documentdb-with-andrew-liu) |
+| .NET Rocks!: podcast | 29 de septiembre de 2015 | [Data on DocumentDB with Ryan CrawCour](https://www.dotnetrocks.com/?show=1197) (Datos sobre DocumentDB con Ryan CrawCour) |
 | Exposición de datos | 28 de septiembre de 2015 | [What's New with Azure DocumentDB Since GA](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-with-Azure-DocumentDB-Since-GA) (Novedades de Azure DocumentDB desde GA) |
 | The Azure Podcast | 17 de septiembre de 2015 | [Episode 94: azpodcast.com re-architecture](http://azpodcast.azurewebsites.net/post/Episode-94-azpodcastcom-re-architecture) (Episodio 94: reestructuración de la arquitectura de azpodcast.com) |
 | Descripción de la nube | 4 de septiembre de 2015 | [Episode 185: DocumentDB Updates with Ryan CrawCour](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-185-DocDB-Updates-with-Ryan-CrawCour) (Episodio 185: actualizaciones de DocumentDB con Ryan CrawCour) |
@@ -213,4 +214,4 @@ El equipo de Azure DocumentDB desarrolla estos proyectos activamente en colabora
 | Conector de Hadoop | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | Herramienta de migración de datos | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Centro de descarga de Microsoft](http://www.microsoft.com/es-ES/download/details.aspx?id=46436) |
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

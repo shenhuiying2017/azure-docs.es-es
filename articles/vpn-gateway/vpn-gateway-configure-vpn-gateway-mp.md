@@ -5,25 +5,31 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="" />
+   editor=""
+   tags="azure-service-management"/>
+
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/25/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # Configuración de una puerta de enlace de VPN en el portal de Azure
 
-Si desea crear una conexión segura entre entornos Azure y la ubicación local, necesita configurar una puerta de enlace de red virtual. Hay diferentes tipos de puertas de enlace y el tipo de puerta de enlace que se va a crear depende tanto del plan de diseño de la red y el dispositivo VPN local que desee utilizar. Por ejemplo, algunas opciones de conectividad, como una conexión punto a sitio, requieren una puerta de enlace de enrutamiento dinámico. Si desea configurar la puerta de enlace para admitir conexiones punto a sitio (P2S) y una conexión de sitio a sitio (S2S), tendrá que configurar una puerta de enlace de enrutamiento dinámico, aunque se puede configurar el sitio a sitio con cualquier tipo de enrutamiento de puerta de enlace. Además, tendrá que asegurarse de que el dispositivo que desea utilizar para la conexión de sitio a sitio será compatible con el tipo de puerta de enlace que se va a crear. Consulte [Información acerca de las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md).
+>[AZURE.NOTE]Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
+
+Este artículo se escribió pensando en el modelo de implementación clásica y el Portal de Azure (no el Portal de vista previa). En este momento, si quiere configurar una puerta de enlace de VPN para el modelo de implementación clásica con un portal, debe usar el Portal de Azure.
+
+Si desea crear una conexión segura entre entornos Azure y la ubicación local, necesita configurar una puerta de enlace de red virtual. Hay diferentes tipos de puertas de enlace y el tipo de puerta de enlace que se va a crear depende tanto del plan de diseño de la red y el dispositivo VPN local que desee utilizar. Por ejemplo, algunas opciones de conectividad, como una conexión punto a sitio, requieren una puerta de enlace de enrutamiento dinámico. Si desea configurar la puerta de enlace para admitir conexiones punto a sitio (P2S) y una conexión de sitio a sitio (S2S), tendrá que configurar una puerta de enlace de enrutamiento dinámico, aunque se puede configurar el sitio a sitio con cualquier tipo de enrutamiento de puerta de enlace. Además, tendrá que asegurarse de que el dispositivo que desea utilizar para la conexión de sitio a sitio será compatible con el tipo de puerta de enlace que se va a crear. Vea [Acerca de las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md).
 
 ## Información general sobre la configuración
 
-El siguiente procedimiento le guiará a través de la configuración de una puerta de enlace de VPN en el portal de Azure. Estos pasos se aplican a las puertas de enlace de redes virtuales que se crearon usando el modo de administración de servicios y están visibles en el portal de Azure. No son los pasos para usar el portal de vista previa o para redes virtuales configuradas mediante el modo del Administrador de recursos. Puede encontrar información acerca de cómo crear puertas de enlace de red virtual para las redes virtuales creadas mediante el modo del Administrador de recursos en [Crear una red virtual con una conexión de sitio a sitio mediante el Administrador de recursos de Azure y PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
+El siguiente procedimiento le guiará a través de la configuración de una puerta de enlace de VPN en el portal de Azure. Estos pasos se aplican a las puertas de enlace de redes virtuales que se crearon usando el modo de administración de servicios y están visibles en el portal de Azure. No son los pasos para usar el portal de vista previa o para redes virtuales configuradas mediante el modo del Administrador de recursos. Encontrará información sobre cómo crear puertas de enlace de red virtual para las redes virtuales creadas con el modo del Administrador de recursos en [Creación de una red virtual con una conexión de sitio a sitio mediante el Administrador de recursos de Azure y PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
 
-Antes de configurar la puerta de enlace, primero deberá crear la red virtual. Para ver los pasos para crear una red virtual para conectividad entre entornos, consulte [Configuración de una red virtual con una conexión VPN de sitio a sitio](vpn-gateway-site-to-site-create.md) o [Configuración de una red virtual con una conexión VPN de punto a sitio](vpn-gateway-point-to-site-create.md). A continuación, utilice los pasos siguientes para configurar la puerta de enlace de VPN y recopilar la información necesaria para configurar el dispositivo VPN.
+Antes de configurar la puerta de enlace, primero deberá crear la red virtual. Para ver los pasos para crear una red virtual para conectividad entre entornos, vea [Configuración de una red virtual con una conexión VPN de sitio a sitio](vpn-gateway-site-to-site-create.md) o [Configuración de una red virtual con una conexión VPN de punto a sitio](vpn-gateway-point-to-site-create.md). A continuación, utilice los pasos siguientes para configurar la puerta de enlace de VPN y recopilar la información necesaria para configurar el dispositivo VPN.
 
 Si ya tiene una puerta de enlace de VPN y desea cambiar el tipo de enrutamiento, consulte [Cambio del tipo de puerta de enlace de VPN](#how-to-change-your-vpn-gateway-type).
 
@@ -37,7 +43,7 @@ Si ya tiene una puerta de enlace de VPN y desea cambiar el tipo de enrutamiento,
 
 ## Creación de una puerta de enlace de VPN
 
-1. En la página **Redes** del portal de Azure, compruebe que la columna de estado de la red virtual sea **Creada**.
+1. En la página **Redes** del Portal de Azure, compruebe que la columna de estado de la red virtual muestra **Creado**.
 
 1. En la columna **Nombre**, haga clic en el nombre de la red virtual.
 
@@ -143,12 +149,12 @@ Antes de cambiar el tipo de puerta de enlace, asegúrese de comprobar que el dis
 
 ## Pasos siguientes
 
-Puede obtener más información acerca de la conectividad de red virtual entre locales en este artículo: [Información sobre la conectividad segura entre locales de redes virtuales](vpn-gateway-cross-premises-options.md).
+Puede obtener más información sobre conectividad entre entornos de red virtual en este artículo: [Información acerca de la conectividad entre entornos de red virtual](vpn-gateway-cross-premises-options.md).
 
-Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
+Puede agregar máquinas virtuales a la red virtual. Vea [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
 
-Si desea configurar una conexión VPN de punto a sitio, consulte [Configurar una conexión VPN de punto a sitio](vpn-gateway-point-to-site-create.md).
+Si quiere configurar una conexión VPN de punto a sitio, vea [Configuración de una conexión VPN de punto a sitio](vpn-gateway-point-to-site-create.md).
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

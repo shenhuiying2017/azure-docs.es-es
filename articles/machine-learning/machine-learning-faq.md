@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Preguntas frecuentes de Aprendizaje automático de Azure | Microsoft Azure"
 	description="Introducción a Aprendizaje automático Azure: preguntas más frecuentes sobre facturación, capacidades y limitaciones de un servicio de nube para un modelado de predicción optimizado."
-	keywords="machine learning introduction,predictive modeling,what is machine learning"
+	keywords="introducción de aprendizaje automático, modelo predictivo, qué es el aprendizaje automático"
 	services="machine-learning"
 	documentationCenter=""
 	authors="pablissima"
@@ -93,8 +93,9 @@ En el caso de conjuntos de datos que tengan más de dos gigas, hay que cargar lo
 
 **¿Se pueden leer datos de Amazon S3?**
 
-Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo de [lectura][reader]. Para transferir grandes cantidades de datos al almacenamiento de Azure, en primer lugar, hay que realizar la transferencia y, a continuación, utilizar el módulo de [lectura][reader] para incluirlos en el experimento. 
-<!--<SEE CLOUD DS PROCESS>-->
+Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo de [lectura][reader]. Para transferir grandes cantidades de datos al almacenamiento de Azure, en primer lugar, hay que realizar la transferencia y, a continuación, utilizar el módulo de [lectura][reader] para incluirlos en el experimento. <!--
+<SEE CLOUD DS PROCESS>
+-->
 
 **¿Hay una capacidad integrada para usar una entrada de imagen?**
 
@@ -177,7 +178,7 @@ Actualmente no, pero con el módulo de Python estándar, o con un conjunto de el
 
 **¿Hay un entorno de REPL para Python?**
 
-Puede usar los Jupyter Notebooks en el Estudio de aprendizaje automático de Azure. Para obtener más información, consulte [Presentación de Jupyter Notebooks en Azure ML Studio](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)
+Puede usar los Jupyter Notebooks en el Estudio de aprendizaje automático de Azure. Para obtener más información, consulte [Presentación de Jupyter Notebooks en Estudio de aprendizaje automático de Azure](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)
 
 ## Servicio web
 ###Reentrenamiento de modelos mediante programación
@@ -306,4 +307,4 @@ El Aprendizaje automático de Azure cuenta también con un foro de la comunidad 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

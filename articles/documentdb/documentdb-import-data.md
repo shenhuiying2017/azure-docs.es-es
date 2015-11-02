@@ -2,7 +2,7 @@
 	pageTitle="Importación de datos en DocumentDB | Microsoft Azure" 
 	description="Obtenga información sobre cómo utilizar la herramienta de migración de datos de código abierto DocumentDB para importar datos a DocumentDB desde diversos orígenes, incluidos archivos JSON, archivos CSV, SQL, MongoDB, almacenamiento de tablas de Azure, Amazon DynamoDB y colecciones de DocumentDB." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="andrewhoh" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
-	ms.author="stbaro"/>
+	ms.date="10/16/2015" 
+	ms.author="anhoh"/>
 
 # Importación de datos en DocumentDB #
 
@@ -35,7 +35,7 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 
 Antes de seguir las instrucciones del presente artículo, asegúrese de tener instalados los siguientes elementos:
 
-- [Microsoft .NET Framework 4.51](http://www.microsoft.com/net/downloads) o superior.
+- [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) o superior.
 
 ##<a id="Overviewl"></a>Información general sobre la herramienta de migración de datos de DocumentDB ##
 
@@ -57,8 +57,8 @@ Aunque la herramienta de importación incluye una interfaz gráfica de usuario (
 
 El código fuente de la herramienta de migración está disponible en GitHub en [este repositorio](https://github.com/azure/azure-documentdb-datamigrationtool) y una versión compilada se encuentra disponible en el [Centro de descarga de Microsoft](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). Puede compilar la solución o simplemente descargar y extraer la versión compilada en un directorio de su elección. A continuación, ejecute:
 
-- Dtui.exe: versión de interfaz gráfica de la herramienta
-- Dt.exe: versión de línea de comandos de la herramienta
+- **Dtui.exe**: versión de interfaz gráfica de la herramienta
+- **Dt.exe**: versión de línea de comandos de la herramienta
 
 ##<a id="JSON"></a>Importación de archivos JSON ##
 
@@ -201,7 +201,7 @@ A continuación se muestra un ejemplo de línea de comandos para importar desde 
 
 	dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:metrics /t.CollectionTier:S3
 
-##<a id="DynamoDBSource"></a>Importar desde Amazon DynamoDB ##
+##<a id="DynamoDBSource"></a>Importación desde Amazon DynamoDB ##
 
 La opción de importador de origen Amazon DynamoDB permite importar de una tabla individual de Amazon DynamoDB individual y, opcionalmente, filtrar las entidades que desea importar. Se proporcionan varias plantillas para que configurar una importación resulte lo más fácil posible.
 
@@ -219,7 +219,7 @@ A continuación se muestra un ejemplo de línea de comandos para importar desde 
 
 	dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:catalogCollection /t.CollectionTier:S3
 
-##<a id="BlobImport"></a>Importar archivos desde el Almacenamiento de blobs de Azure##
+##<a id="BlobImport"></a>Importación de archivos desde el almacenamiento de blobs de Azure##
 
 El archivo JSON, archivo de exportación de MongoDB y opciones de importador de origen de archivo CSV permiten importar uno o más archivos del almacenamiento de blobs de Azure. Después de especificar una dirección URL de contenedor de blobs y una clave de cuenta, basta con proporcionar una expresión regular para seleccionar los archivos para importar.
 
@@ -477,4 +477,4 @@ En la pantalla Configuración avanzada, especifique la ubicación del archivo de
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

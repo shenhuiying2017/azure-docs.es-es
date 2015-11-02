@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Solución de problemas de Application Insights en dispositivos Windows" 
-	description="Guía de solución de problemas, preguntas y respuestas." 
+	description="Guía de solución de problemas y preguntas y respuestas para Application Insights en dispositivos Windows." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -120,4 +120,4 @@ Consulte [Privacidad y retención de los datos][data].
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

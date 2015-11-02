@@ -13,13 +13,13 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="10/12/2015"
+  ms.date="10/16/2015"
   ms.author="stevenpo"/>
 
 
 # Administración del acceso a las aplicaciones
 
-El acceso continuo a las aplicaciones, la evaluación del uso y la generación de informes siguen siendo un desafío después de que una aplicación se integra en el sistema de identidad de su organización. En muchos casos, el administrador de TI o el departamento de soporte técnico deben asumir un papel activo en la administración del acceso a las aplicaciones. En ocasiones, la asignación la realiza un equipo de TI general o departamental. En muchos casos, se pretende que la decisión de asignación se elimine para el responsable de la toma de decisiones, lo que requiere su aprobación antes de que TI realice la asignación. Otras organizaciones invierten en integración con un sistema automatizado existente de administración de identidades y acceso, como Control de acceso basado en rol (RBAC) o Control de acceso basado en atributos (ABAC). Tanto la integración como el desarrollo de reglas tienden a ser procesos especializados y caros. La supervisión o la generación de informes en cualquier enfoque de administración requieren su propia inversión aparte que resulta costosa y compleja.
+El acceso continuo a las aplicaciones, la evaluación del uso y la generación de informes siguen siendo un desafío después de que una aplicación se integra en el sistema de identidad de su organización. En muchos casos, el administrador de TI o el departamento de soporte técnico deben asumir un papel activo en la administración del acceso a las aplicaciones. En ocasiones, la asignación la realiza un equipo de TI general o departamental. En ocasiones, se pretende que la decisión de asignación se delegue en el responsable de la toma de decisiones, lo que requiere su aprobación antes de que TI realice la asignación. Otras organizaciones invierten en integración con un sistema automatizado existente de administración de identidades y acceso, como Control de acceso basado en rol (RBAC) o Control de acceso basado en atributos (ABAC). Tanto la integración como el desarrollo de reglas tienden a ser procesos especializados y caros. La supervisión o la generación de informes en cualquier enfoque de administración requieren su propia inversión aparte que resulta costosa y compleja.
 
 ## ¿Cómo ayuda Azure Active Directory?
 
@@ -28,7 +28,10 @@ El acceso continuo a las aplicaciones, la evaluación del uso y la generación d
  - [Agregar nuevas aplicaciones](active-directory-sso-newly-acquired-saas-apps.md)
  - [Agregar aplicaciones existentes](active-directory-sso-integrate-existing-apps)
 
- La asignación de aplicaciones de Azure AD se centra en dos modos de asignación principales: - Asignación individual: un administrador de TI con privilegios globales, de usuario o AU puede seleccionar cuentas de usuario individuales y otorgarles acceso a la aplicación. - Asignación basada en grupo (solo Azure AD de pago): un administrador de TI con privilegios globales, de usuario o AU puede asignar un grupo a la aplicación. El acceso de usuarios específicos se determina en función de si son miembros del grupo en el momento de intentar el acceso a la aplicación. En este modo, un administrador puede crear en la práctica una regla de asignación que diga "cualquier miembro actual del grupo asignado tiene acceso a la aplicación". Con esta opción de asignación, los administradores pueden beneficiarse de cualquier opción de administración de grupos de Azure AD, como grupos dinámicos basados en atributos, grupos externos del sistema (por ejemplo, AD local o Workday), administrador o grupos administrados de autoservicio. Un único grupo se puede asignar fácilmente a varias aplicaciones, lo que garantiza que las aplicaciones con afinidad de asignación puedan compartir reglas de asignación y así reducirse la complejidad de la administración en general.
+ La asignación de aplicaciones de Azure AD se centra en dos modos de asignación principales:
+
+- **Asignación individual**: un administrador de TI con privilegios globales, de usuario o AU puede seleccionar cuentas de usuario individuales y concederles acceso a la aplicación.
+- **Asignación basada en grupo (solo Azure AD de pago)**: un administrador de TI con privilegios globales, de usuario o AU puede asignar un grupo a la aplicación. El acceso de usuarios específicos se determina en función de si son miembros del grupo en el momento de intentar el acceso a la aplicación. En este modo, un administrador puede crear en la práctica una regla de asignación que diga "cualquier miembro actual del grupo asignado tiene acceso a la aplicación". Con esta opción de asignación, los administradores pueden beneficiarse de cualquier opción de administración de grupos de Azure AD, como grupos dinámicos basados en atributos, grupos externos del sistema (por ejemplo, AD local o Workday), administrador o grupos administrados de autoservicio. Un único grupo se puede asignar fácilmente a varias aplicaciones, lo que garantiza que las aplicaciones con afinidad de asignación puedan compartir reglas de asignación y así reducirse la complejidad de la administración en general.
 
 Con estos dos modos de asignación, los administradores pueden conseguir cualquier enfoque deseable de administración de asignaciones.
 
@@ -49,7 +52,6 @@ En este caso, todos los usuarios asignados se aprovisionarían automáticamente 
 
  Los administradores pueden emplear el [acceso condicional de Azure AD](active-directory-conditional-access.md) para establecer directivas de acceso para roles específicos. Estas directivas pueden incluir si se permite el acceso fuera del entorno corporativo e incluso los requisitos de Multi-Factor Authentication o de los dispositivo para obtener acceso en diversos casos.
 
-
 ## ¿Cómo puedo comenzar?
 
 En primer lugar, si aún no usa Azure AD y es un administrador de TI:
@@ -69,4 +71,4 @@ Entre las características de Azure AD que permiten el uso compartido de las cue
 - [Protección de aplicaciones con acceso condicional](active-directory-conditional-access.md)
 - [Administración de grupos de autoservicio/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

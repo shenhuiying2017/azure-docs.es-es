@@ -19,6 +19,8 @@
 
 # Diferentes formas de crear una máquina virtual Linux
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Azure ofrece varias formas de crear una máquina virtual porque las máquinas virtuales son adecuadas para distintos usuarios y objetivos. Esto significa que deberá tomar algunas decisiones acerca de la máquina virtual y cómo se creará. Este artículo ofrece un resumen de estas opciones y vínculos a instrucciones.
 
 Recientemente se han incluido plantillas del Administrador de recursos de Azure como una manera de crear y administrar una máquina virtual y sus distintos recursos como una sola unidad de implementación lógica. Las instrucciones de este enfoque se incluyen a continuación, cuando sea posible. Para obtener más información acerca del Administrador de recursos de Azure y cómo administrar los recursos como una sola unidad, consulte la [Información general][].
@@ -27,13 +29,13 @@ Recientemente se han incluido plantillas del Administrador de recursos de Azure 
 
 ### Interfaz gráfica de usuario: El Portal de Azure o el Portal de vista previa
 
-La interfaz gráfica de usuario del Portal de Azure es una manera fácil de probar una máquina virtual, especialmente si no tiene experiencia con Azure. Use el [Portal de Azure](http://manage.windowsazure.com) o el [Portal de vista previa de Azure](http://portal.azure.com) para crear la máquina virtual. Para obtener instrucciones generales, consulte [Crear una máquina virtual personalizada][] y seleccione cualquier imagen de Linux en la **Galería**. Tenga en cuenta que el [Portal de Azure](http://manage.windowsazure.com) crea máquinas virtuales solo con el modelo de implementación clásica.
+La interfaz gráfica de usuario del Portal de Azure es una manera fácil de probar una máquina virtual, especialmente si no tiene experiencia con Azure. Use el [Portal de Azure](http://manage.windowsazure.com) o el [Portal de vista previa de Azure](http://portal.azure.com) para crear la máquina virtual. Para obtener instrucciones generales, vea [Creación de una máquina virtual personalizada][] y seleccione cualquier imagen de Linux en la **Galería**. Tenga en cuenta que el [Portal de Azure](http://manage.windowsazure.com) solo crea máquinas virtuales con el modelo de implementación clásica.
 
 ### Shell de comandos: CLI de Azure o Azure PowerShell
 
 Si prefiere trabajar en un shell de comandos, elija entre la interfaz de la línea de comandos (CLI) de Azure para usuarios de Mac y Linux o Azure PowerShell, que tiene los cmdlets de Windows PowerShell para Azure y una consola personalizada.
 
-Para la CLI de Azure, consulte [Creación de una máquina virtual que ejecuta Linux][] Para utilizar una plantilla, consulte [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y la CLI de Azure][].
+Para la CLI de Azure, vea [Creación de una máquina virtual que ejecuta Linux][] Para utilizar una plantilla, consulte [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y la CLI de Azure][].
 
 Para Azure PowerShell, consulte [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Linux][]. Para utilizar una plantilla, consulte [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y PowerShell][].
 
@@ -99,6 +101,6 @@ Para usar una imagen basada en una máquina virtual de Azure existente *capture*
 [Entornos de prueba de nube híbrida de Azure]: virtual-machines-hybrid-cloud-test-environments.md
 
 [Creación de una máquina virtual que ejecuta Linux]: virtual-machines-linux-tutorial.md
-[Crear una máquina virtual personalizada]: virtual-machines-create-custom.md
+[Creación de una máquina virtual personalizada]: virtual-machines-create-custom.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

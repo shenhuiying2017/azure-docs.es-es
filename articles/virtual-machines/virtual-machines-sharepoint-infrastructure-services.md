@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="09/08/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
+[AZURE.INCLUDE [learn-about-deployment-models-both-include](../../includes/learn-about-deployment-models-both-include.md)]
 
 Configure la primera o siguiente granja de servidores de desarrollo/prueba de SharePoint en los servicios de infraestructura de Microsoft Azure, donde puede aprovecharse de la facilidad de configuración y de la capacidad ampliar rápidamente la granja de servidores para incluir la nueva capacidad o la optimización de funcionalidad clave.
 
@@ -28,19 +27,25 @@ Configure la primera o siguiente granja de servidores de desarrollo/prueba de Sh
 
 ## Granja de servidores de desarrollo/prueba básica de SharePoint
 
-Para las máquinas virtuales creadas usando el modelo de implementación clásica, use la función [Granja de servidores de SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) del Portal de vista previa de Azure para crear una granja de servidores de desarrollo/prueba básica para un sitio web de SharePoint orientado a Internet.
+En el caso de máquinas virtuales creadas con el modelo de implementación del Administrador de recursos, vea el elemento [Granja de SharePoint 2013 no de alta disponibilidad](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) en Azure Marketplace del Portal de vista previa de Azure. Esto crea una granja de servidores de desarrollo y prueba básica para un sitio web de SharePoint a través de Internet.
+
+También puede usar una plantilla del Administrador de recursos de Azure. Vea [Implementación de una granja de tres servidores de SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
 
 El entorno creado automáticamente consta de tres servidores para un controlador de dominio, un servidor SQL Server y el servidor de SharePoint en una red virtual de Azure solo en la nube.
 
-Para crear una configuración similar con el modelo de implementación del Administrador de recursos, use una plantilla. Vea [Implementar una granja de tres servidores de SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
+Para crear una configuración similar con el modelo de implementación clásica, use el elemento [Granja de SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md) en Azure Marketplace del Portal de vista previa de Azure.
+
 
 ## Granja de desarrollo/prueba de SharePoint de alta disponibilidad
 
-Para las máquinas virtuales clásicas, use la función [Granja de servidores de SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) del Portal de vista previa de Azure para crear una granja de servidores de desarrollo/prueba de SharePoint de alta disponibilidad para un sitio web de SharePoint orientado a Internet.
+En el caso de máquinas virtuales creadas con el modelo de implementación del Administrador de recursos, vea el elemento [Granja de SharePoint 2013 de alta disponibilidad](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) en Azure Marketplace del Portal de vista previa de Azure. Así crea una granja de servidores de alta disponibilidad para un sitio web de SharePoint a través de Internet.
+
+También puede usar una plantilla del Administrador de recursos de Azure. Vea [Implementación de una granja de nueve servidores de SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
 
 El entorno creado automáticamente que consta de nueve servidores en una red virtual de Azure solo en la nube: dos para los controladores de dominio, tres para un clúster de SQL Server, dos servidores de SharePoint de capa de aplicación y dos servidores de SharePoint de capa de web.
 
-Para crear una configuración similar con máquinas virtuales del Administrador de recursos, use una plantilla. Vea [Implementar una granja de nueve servidores de SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
+Para crear una configuración similar con el modelo de implementación clásica, use el elemento [Granja de SharePoint Server](virtual-machines-sharepoint-farm-azure-preview.md) en Azure Marketplace del Portal de vista previa de Azure.
+
 
 ## Granja de servidores de desarrollo/prueba de nube híbrida
 
@@ -56,16 +61,14 @@ Esta configuración utiliza máquinas virtuales clásicas.
 
 ## Recursos adicionales
 
-Consulte estos recursos para obtener información y configuraciones adicionales acerca de SharePoint en Azure:
+[Arquitecturas de Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-- [Arquitecturas de Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
+[Sitios de Internet de Microsoft Azure mediante SharePoint Server 2013](https://technet.microsoft.com/library/dn635307.aspx)
 
-- [Sitios de Internet de Microsoft Azure mediante SharePoint Server 2013](https://technet.microsoft.com/library/dn635307.aspx)
+[Recuperación ante desastres de SharePoint Server 2013 en Microsoft Azure](https://technet.microsoft.com/library/dn635313.aspx)
 
-- [Recuperación ante desastres de SharePoint Server 2013 en Microsoft Azure](https://technet.microsoft.com/library/dn635313.aspx)
+[Uso de Microsoft Azure Active Directory para la autenticación de SharePoint 2013](https://technet.microsoft.com/library/dn635311.aspx)
 
-- [Uso de Microsoft Azure Active Directory para la autenticación de SharePoint 2013](https://technet.microsoft.com/library/dn635311.aspx)
+[Implementación de la sincronización de directorios de Office 365 (DirSync) en Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-- [Implementación de la sincronización de directorios de Office 365 (DirSync) en Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

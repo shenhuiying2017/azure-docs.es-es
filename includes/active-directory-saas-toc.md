@@ -15,10 +15,10 @@ Este artículo forma parte de una serie acerca de cómo administrar aplicaciones
 - [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
 	- [Integración de Salesforce](active-directory-saas-salesforce-tutorial.md)
 	- [Integración de Aplicaciones de Google](active-directory-saas-google-apps-tutorial.md)
-	- [Integración de Box](https://msdn.microsoft.com/library/azure/dn308589.aspx)
-	- [Integración de ServiceNow](https://msdn.microsoft.com/library/azure/dn510971.aspx)
-	- [Integración de Dropbox para empresas](https://msdn.microsoft.com/library/azure/dn510978.aspx)
-	- [Integración de Workday](http://go.microsoft.com/fwlink/?LinkId=690250) 
+	- [Integración de Box](active-directory-saas-box-tutorial.md)
+	- [Integración de ServiceNow](active-directory-saas-servicenow-tutorial.md)
+	- [Integración de Dropbox para empresas](active-directory-saas-dropboxforbusiness-tutorial.md)
+	- [Integración de Workday](active-directory-saas-workday-tutorial.md) 
 	- [Más tutoriales de aplicaciones SaaS...](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Aprenda a administrar los servicios web de AzureML con Administración de API | Microsoft Azure"
 	description="Una guía que muestra cómo administrar los servicios web de AzureML mediante la Administración de API."
-	keywords="machine learning,api management"
+	keywords="aprendizaje automático, administración de api"
 	services="machine-learning"
 	documentationCenter=""
 	authors="roalexan"
@@ -30,15 +30,15 @@ Administración de API de Azure es un servicio de Azure que le permite administr
 
 ##¿Qué es AzureML?
 
-AzureML es un servicio de Azure para el aprendizaje automático que permite crear, implementar y compartir fácilmente las soluciones de análisis avanzado. Haga clic en [aquí](http://azure.microsoft.com/services/machine-learning/) para obtener información detallada sobre AzureML.
+AzureML es un servicio de Azure para el aprendizaje automático que permite crear, implementar y compartir fácilmente las soluciones de análisis avanzado. Haga clic [aquí](http://azure.microsoft.com/services/machine-learning/) para obtener información detallada sobre Aprendizaje automático de Azure.
 
 ##Requisitos previos
 
 Para completar a esta guía, necesita:
 
 * Una cuenta de Azure. Si no tiene una cuenta de Azure, haga clic [aquí](http://azure.microsoft.com/pricing/free-trial/) para obtener más información sobre cómo crear una cuenta de evaluación gratuita.
-* Una cuenta de AzureML. Si no dispone de una cuenta de AzureML, haga clic [aquí](https://studio.azureml.net/) para obtener más información sobre cómo crear una cuenta de evaluación gratuita.
-* El área de trabajo, el servicio y la api\_key para un experimento de Aprendizaje automático de Azure implementado como un servicio web. Haga clic [aquí](machine-learning/machine-learning-create-experiment.md) para obtener más información sobre cómo crear un experimento de AzureML. Haga clic [aquí](machine-learning/machine-learning-publish-a-machine-learning-web-service.md) para obtener más información sobre cómo implementar un experimento de Aprendizaje automático de Azure como un servicio web. Además, el Apéndice A contiene instrucciones sobre cómo crear y probar un experimento de Aprendizaje automático de Azure sencillo e implementarlo como un servicio web.
+* Una cuenta de AzureML. Si no dispone de una cuenta de Aprendizaje automático de Azure, haga clic [aquí](https://studio.azureml.net/) para obtener más información sobre cómo crear una cuenta de evaluación gratuita.
+* El área de trabajo, el servicio y la api\_key para un experimento de Aprendizaje automático de Azure implementado como un servicio web. Haga clic [aquí](machine-learning/machine-learning-create-experiment.md) para obtener más información sobre cómo crear un experimento de Aprendizaje automático de Azure. Haga clic [aquí](machine-learning/machine-learning-publish-a-machine-learning-web-service.md) para obtener más información sobre cómo implementar un experimento de Aprendizaje automático de Azure como un servicio web. Además, el Apéndice A contiene instrucciones sobre cómo crear y probar un experimento de Aprendizaje automático de Azure sencillo e implementarlo como un servicio web.
 
 ##Creación de una instancia de Administración de API
 
@@ -46,11 +46,11 @@ A continuación se muestran los pasos para usar Administración de API para admi
 
 ![create-instance](./media/machine-learning-manage-web-service-endpoints-using-api-management/create-instance.png)
 
-Especifique una **dirección URL** única. Esta guía usa **demoazureml** por lo que deberá elegir algo diferente. Elija la **Suscripción** y la **Región** deseadas para la instancia de servicio. Después de realizar las selecciones pertinentes, haga clic en el botón Siguiente.
+Especifique una **dirección URL** única. Esta guía usa **demoazureml**, por lo que deberá elegir algo diferente. Elija la **Suscripción** y la **Región** deseadas para la instancia de servicio. Después de realizar las selecciones pertinentes, haga clic en el botón Siguiente.
 
 ![create-service-1](./media/machine-learning-manage-web-service-endpoints-using-api-management/create-service-1.png)
 
-Especifique un valor para **Nombre de la organización**. Esta guía usa **demoazureml** por lo que deberá elegir algo diferente. Escriba su dirección de correo electrónico en el campo **correo electrónico del administrador**. Esta dirección de correo electrónico se utiliza para notificaciones por parte del sistema Administración de API.
+Especifique un valor para **Nombre de la organización**. Esta guía usa **demoazureml**, por lo que deberá elegir algo diferente. Escriba su dirección de correo electrónico en el campo **correo electrónico del administrador**. Esta dirección de correo electrónico se utiliza para notificaciones por parte del sistema Administración de API.
 
 ![create-service-2](./media/machine-learning-manage-web-service-endpoints-using-api-management/create-service-2.png)
 
@@ -72,7 +72,7 @@ Haga clic en **API** en el menú **Administración de API** de la izquierda y ha
 
 ![api-management-menu](./media/machine-learning-manage-web-service-endpoints-using-api-management/api-management-menu.png)
 
-Escriba **API demo de AzureML** como el **nombre de API web**. Escriba ****https://ussouthcentral.services.azureml.net** como la **URL del Servicio web**. Escriba **azureml-demo** como **sufijo de la URL de API web**. Seleccione **HTTPS** como el esquema de **URL de API web**. Seleccione **Starter** en **Productos**. Cuando haya finalizado, haga clic en **Guardar** para crear la API.
+Escriba **API de demostración de Aprendizaje automático de Azure** como el **nombre de API web**. Escriba ****https://ussouthcentral.services.azureml.net** como la **dirección URL del Servicio web**. Escriba **azureml-demo** como **sufijo de la URL de API web**. Seleccione **HTTPS** como el esquema de **URL de API web**. Seleccione **Starter** en **Productos**. Cuando haya finalizado, haga clic en **Guardar** para crear la API.
 
 ![add-new-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png)
 
@@ -128,7 +128,7 @@ Seleccione **Ejecución de RRS** para la operación. Haga clic en **Pruébelo**.
 
 ![try-it](./media/machine-learning-manage-web-service-endpoints-using-api-management/try-it.png)
 
-Para los parámetros de solicitud, escriba su **área de trabajo**, **servicio**, **2.0** para **apiversion** y **true** para **detalles**. Puede encontrar el **área de trabajo** y el **servicio** en el panel del servicio web de AzureML (consulte **Prueba del servicio web** en el apéndice A).
+Para los parámetros de solicitud, escriba su **área de trabajo**, **servicio**, **2.0** para **apiversion** y **true** para **detalles**. Puede encontrar el **área de trabajo** y el **servicio** en el panel del servicio web de AzureML (consulte **Prueba del servicio web** en el Apéndice A).
 
 Para los encabezados de solicitud, haga clic en **Agregar encabezado** y escriba **Content-Type** y **application/json**, después haga clic en **Agregar encabezado** y escriba **Autorización** y **Portador<YOUR AZUREML SERVICE API-KEY>**. Puede encontrar su **clave de API** en el panel del servicio web AzureML (consulte **Prueba del servicio web** en el apéndice A).
 
@@ -140,7 +140,7 @@ Haga clic en **Send** (Enviar).
 
 ![send](./media/machine-learning-manage-web-service-endpoints-using-api-management/send.png)
 
-Después de invocar una operación, el portal para desarrolladores mostrará el campo **Dirección URL solicitada** en el servicio, así como los campos **Estado de respuesta**, **Encabezados de respuesta** y los **contenidos de respuesta**.
+Después de invocar una operación, el portal para desarrolladores mostrará el campo **Dirección URL solicitada** en el servicio de back-end, así como los campos **Estado de respuesta**, **Encabezados de respuesta** y **Contenido de respuesta**.
 
 ![response-status](./media/machine-learning-manage-web-service-endpoints-using-api-management/response-status.png)
 
@@ -384,4 +384,4 @@ Esta guía muestra un ejemplo de Python en funcionamiento. Debe modificarlo con 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

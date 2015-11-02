@@ -1,8 +1,7 @@
 <properties
-	pageTitle="Tecnología y procesos de análisis avanzado: uso de SQL Server | Microsoft Azure"
+	pageTitle="Proceso de análisis de Cortana en acción: uso de SQL Server | Microsoft Azure"
 	description="Tecnología y procesos de análisis avanzado en acción"  
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
@@ -14,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015" 
+	ms.date="10/18/2015" 
 	ms.author="mohabib;fashah;bradsev"/>
 
 
-# Tecnología y procesos de análisis avanzado: uso de SQL Server
+# Proceso de análisis de Cortana en acción: uso de SQL Server
 
 En este tutorial, se describe la creación e implementación de un modelo con un conjunto de datos disponible públicamente, el conjunto de datos [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). El procedimiento sigue la guía Tecnología y procesos de análisis avanzado de Azure (ADAPT).
 
@@ -715,4 +714,4 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

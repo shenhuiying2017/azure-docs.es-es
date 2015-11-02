@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Cifrado dinámico: configuración de la directiva de autorización de claves de contenido mediante .NET" 
-	description="Aprenda a configurar una directiva de autorización para una clave de contenido." 
+	pageTitle="Configuración de la directiva de autorización de claves mediante el SDK de Servicios multimedia para .NET" 
+	description="Aprenda a configurar una directiva de autorización para una clave de contenido mediante .NET SDK de Servicios multimedia." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,Mingfeiy" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015"
+	ms.date="10/18/2015"
 	ms.author="juliako"/>
 
 
@@ -403,4 +403,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 Ahora que ha configurado la directiva de autorización de la clave de contenido, consulte el tema [Configuración de la directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

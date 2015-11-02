@@ -2,7 +2,6 @@
 	pageTitle="Proceso de datos de SQL Azure | Azure" 
 	description="Procesar datos de SQL Azure" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="fashah" 
 	manager="paulettm" 
@@ -127,7 +126,7 @@ La característica recién generada se puede agregar como una columna a una tabl
 
 ##<a name="python"></a>Uso de un lenguaje de programación como Python
 
-El uso de Python para explorar datos y generar características cuando los datos están en SQL Server es similar al procesamiento de los datos en blobs de Azure mediante Python, como se documenta [aquí](machine-learning-data-science-process-data-blob.md). Los datos deben cargarse desde la base de datos en una trama de datos de Pandas y, a continuación, se pueden procesar aún más. Se documenta el proceso de conexión a la base de datos y carga de los datos en la trama de datos de esta sección.
+Usar Python para generar explorar datos y generar características cuando los datos están en SQL Server es parecido a procesar los datos en Blob de Azure mediante Python, como se documenta en [Proceso de datos de Blob de Azure en su entorno de ciencia de datos](machine-learning-data-science-process-data-blob.md). Los datos deben cargarse desde la base de datos en una trama de datos de Pandas y, a continuación, se pueden procesar aún más. Se documenta el proceso de conexión a la base de datos y carga de los datos en la trama de datos de esta sección.
 
 El formato de cadena de conexión siguiente puede usarse para conectarse a una base de datos de SQL Server desde Python mediante pyodbc (reemplace servername, dbname, username y password con sus valores específicos):
 
@@ -153,4 +152,4 @@ Para obtener un ejemplo de tutorial completo del Proceso de ciencia de datos de 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configuración de la directiva de autorización de claves de contenido mediante REST" 
-	description="Aprenda a configurar una directiva de autorización para una clave de contenido." 
+	pageTitle="Configuración de la directiva de autorización de claves mediante la API de REST de Servicios multimedia" 
+	description="Aprenda a configurar una directiva de autorización para una clave de contenido mediante la API de REST de Servicios multimedia." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 
@@ -481,4 +481,4 @@ Ahora que ha configurado la directiva de autorización de la clave de contenido,
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -3,7 +3,7 @@
     description="En este artículo se muestra cómo usar el indizador de Búsqueda de Azure con DocumentDB como origen de datos."
     services="documentdb" 
     documentationCenter="" 
-    authors="aliuy" 
+    authors="AndrewHoh" 
     manager="jhubbard" 
     editor="mimig"/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
     ms.date="06/16/2015" 
-    ms.author="andrl"/>
+    ms.author="anhoh"/>
 
 #Conexión de DocumentDB con Búsqueda de Azure mediante indizadores
 
@@ -270,4 +270,4 @@ El historial de ejecución contiene como máximo las 50 ejecuciones completadas 
  - Para obtener más información sobre Búsqueda de Azure, haga clic [aquí](/services/search/).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

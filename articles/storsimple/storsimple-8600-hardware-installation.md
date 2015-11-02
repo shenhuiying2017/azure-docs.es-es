@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/23/2015"
+   ms.date="10/13/2015"
    ms.author="alkohli" />
 
 # Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600.
@@ -22,25 +22,25 @@ Su Microsoft Azure StorSimple 8600 es un dispositivo de receptáculo dual que co
 
 ## Desempaquete el dispositivo StorSimple 8600
 
-En los pasos siguientes se proporcionan instrucciones claras y detalladas sobre cómo desempaquetar el dispositivo de almacenamiento StorSimple 8600. Este dispositivo se distribuye en dos cajas independientes, una para el receptáculo principal y otra para el de EBOD.
+En los pasos siguientes se proporcionan instrucciones claras y detalladas sobre cómo desempaquetar el dispositivo de almacenamiento StorSimple 8600. Este dispositivo se distribuye en dos cajas, una para el receptáculo principal y otra para el de EBOD. Después, estas dos cajas se colocan en un una sola caja.
 
 ### Preparación para desempaquetar el dispositivo
 
 Antes de desempaquetar el dispositivo, revise la información siguiente.
 
->[AZURE.WARNING]![icono de peso elevado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)
->
-> 1. Asegúrese de que haya dos personas disponibles para administrar el peso del dispositivo si lo está manejando de forma manual. Un dispositivo totalmente configurado puede pesar hasta 32 kg.
->
-> 2. Coloque la caja en una superficie plana y nivelada.
+
+![Icono Advertencia](./media/storsimple-safety/IC740879.png)![icono de peso elevado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **¡ADVERTENCIA!**
+
+1. Asegúrese de que haya dos personas disponibles para administrar el peso del dispositivo si lo está manejando de forma manual. Un receptáculo totalmente montado puede pesar hasta 32 kg.
+1. Coloque la caja en una superficie plana y nivelada.
 
 A continuación, complete los pasos siguientes para desempaquetar el dispositivo.
 
 #### Para desempaquetar el dispositivo
 
-1. Compruebe si las cajas y la espuma del embalaje presentan golpes, cortes, daños por agua o cualquier otro daño evidente. Si la caja o el embalaje están muy dañados, no abra la caja. Póngase en contacto con el soporte técnico de Microsoft para ayudarle a determinar si el dispositivo está en buen estado.
+1. Compruebe si la caja y la espuma del embalaje presentan golpes, cortes, daños por agua o cualquier otro daño evidente. Si la caja o el embalaje están muy dañados, no abra la caja. Póngase en contacto con el [soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) para ayudarle a determinar si el dispositivo está en buen estado.
 
-2. Abra las dos cajas y desempaquete los receptáculos EBOD y principal. En la siguiente ilustración se muestra una vista del dispositivo de almacenamiento desempaquetado.
+2. Abra la caja exterior y extraiga las dos cajas correspondiente a los receptáculos principal y EBOD. Ahora puede desempaquetar los receptáculos principal y EBOD. En la siguiente ilustración se muestra una vista desempaquetada de uno de los receptáculos.
 
     ![Desempaquetar el dispositivo de almacenamiento](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
  
@@ -68,7 +68,7 @@ A continuación, complete los pasos siguientes para desempaquetar el dispositivo
   - 2 kits de montaje en bastidor (4 guías laterales con herramientas de montaje, 2 para el receptáculos y el EBOD), 1 en cada caja
   - Documentación de introducción
 
-    Si no recibió alguno de los elementos enumerados anteriormente, póngase en contacto con el soporte técnico de Microsoft.
+    Si no recibió alguno de los elementos enumerados anteriormente, póngase en contacto con el [soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
 El paso siguiente es el montaje en bastidor del dispositivo.
 
@@ -90,9 +90,9 @@ Los receptáculos deben instalarse en un bastidor estándar de 19 pulgadas con p
 
 3. Asegúrese de que haya disponible una ranura 4U (2 X 2U) en el bastidor en el que desea montar los receptáculos.
 
->[AZURE.WARNING]![icono de peso elevado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)
-> 
-> Asegúrese de que haya dos personas disponibles para administrar el peso del dispositivo si está instalando el dispositivo de forma manual. Un receptáculo totalmente montado puede pesar hasta 32 kg.
+![Icono Advertencia](./media/storsimple-safety/IC740879.png)![icono de peso elevado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **¡ADVERTENCIA!**
+
+ Asegúrese de que haya dos personas disponibles para administrar el peso del dispositivo si está instalando el dispositivo de forma manual. Un receptáculo totalmente montado puede pesar hasta 32 kg.
 
 ### Requisitos previos del bastidor
 
@@ -108,9 +108,7 @@ Se proporcionará un conjunto de guías de montaje para utilizar con el armario 
 
 #### Para instalar el receptáculo EBOD en las guías
 
-1. Con el receptáculo en la superficie de trabajo, quite los topes de las bridas delantera derecha e izquierda extrayendo los topes. Los topes de las bridas simplemente encajan en las bridas.
-
-2. Normalmente, estas guías vienen instaladas de fábrica. En caso contrario, instale las guías del lado izquierdo y derecho en los laterales del chasis del receptáculo. Estas se instalan mediante seis tornillos métricos en cada lado. Para ayudarle con la orientación, las guías disponen de las marcas **LH – Front** y **RH – Front**, y el extremo que se fija en la parte trasera del receptáculo tiene un extremo ahusado.
+2. Realice este paso únicamente si las guías internas no están instaladas en el dispositivo. Normalmente, las guías internas vienen instaladas de fábrica. En caso contrario, instale las guías del lado izquierdo y derecho en los laterales del chasis del receptáculo. Estas se instalan mediante seis tornillos métricos en cada lado. Para ayudarle con la orientación, las guías disponen de las marcas **LH – Front** y **RH – Front**, y el extremo que se fija en la parte trasera del receptáculo tiene un extremo ahusado.
 
     ![Fijación de las guías al chasis del receptáculo](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
@@ -139,7 +137,7 @@ Se proporcionará un conjunto de guías de montaje para utilizar con el armario 
      2 | Tornillo del poste del bastidor delantero de orificio cuadrado
      3 | Pasadores de ubicación de la guía delantera izquierda
      4 | Tornillo de fijación
-     5 | Pasadores de ubicación de la guía delantera derecha
+     5 | Pasadores de ubicación de la guía trasera izquierda
 
 ### Montaje del receptáculo EBOD en el bastidor 
 
@@ -155,7 +153,9 @@ Con las guías de bastidor que acaba de instalar, realice los pasos siguientes p
 
     **Montaje de la caja en el bastidor**
 
-3. Fije el receptáculo en el bastidor mediante la instalación de un tornillo de cabeza compatible con un tornillo de cabeza Phillips proporcionado a través de cada brida, izquierda y derecha.
+3. Quite los topes de las bridas delantera derecha e izquierda extrayendo los topes. Los topes de las bridas simplemente encajan en las bridas.
+
+4. Fije el receptáculo en el bastidor mediante la instalación de un tornillo de cabeza compatible con un tornillo de cabeza Phillips proporcionado a través de cada brida, izquierda y derecha.
 
 4. Presione los topes de las bridas en su posición para ajustarlos.
 
@@ -195,7 +195,7 @@ Antes de comenzar a pasar los cables del dispositivo, necesitará:
 - Cables de red
 - Cables serie suministrados
 - Convertidor USB serie con el controlador apropiado instalado en su equipo (si es necesario)
-- Los adaptadores QSFP a SFP + para su uso con interfaces de red de 10 GbE
+- Se proporcionan 4 adaptadores QSFP a SFP+ para su uso con interfaces de red de 10 GbE.
 - [Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md) 
 
 ### SAS y cables de alimentación
@@ -228,16 +228,9 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
      2,3 | Interfaces de red de 10 GbE
      6 | Puertos serie
 
-2. Para lograr una alta disponibilidad, el dispositivo requiere un mínimo de dos conexiones para cada controlador.
-    1. El puerto DATA 0 se habilita y configura automáticamente mediante la consola serie del dispositivo. Además del puerto DATA 0, también es necesario configurar otro puerto de datos a través del Portal de administración.
-    2. Identifique interfaces de red idénticas en cada controlador. Por ejemplo, si decide conectar los puertos DATA 0 y DATA 3 para uno de los controladores, necesitará conectar los puertos DATA 0 y DATA 3 correspondientes en el otro controlador. 
 
-3. Para lograr una alta disponibilidad, asegúrese de conectar:
-   1. Interfaces idénticas en cada controlador de la red relevante para garantizar la disponibilidad si se produce un error en el controlador.
-   2. Interfaces de cada controlador a al menos dos conmutadores diferentes para garantizar la disponibilidad si se produce un error de conmutador.
-   3. El puerto DATA 0 a la LAN principal (red con acceso a Internet). Los demás puertos de datos pueden conectarse al segmento de la LAN SAN/iSCSI (VLAN) de la red, dependiendo del rol deseado.
 
-Como mínimo, configure una interfaz de red para el acceso a la nube y otro para iSCSI. Para obtener una alta disponibilidad y rendimiento, configure dos pares de interfaces de red en cada controlador. Consulte el siguiente diagrama de cableado de red. (La configuración de red mínima se muestra mediante líneas azules continuas. Para obtener un alto rendimiento y disponibilidad, la configuración adicional requerida se muestra mediante líneas de puntos).
+1. Consulte el siguiente diagrama de cableado de red. (La configuración de red mínima se muestra mediante líneas azules continuas. Para obtener un alto rendimiento y disponibilidad, la configuración adicional requerida se muestra mediante líneas de puntos).
 
 ![Colocación del cable de red del dispositivo 4U](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
 
@@ -256,6 +249,22 @@ H,I | Hosts (por ejemplo, servidores de archivos)
 0-5 | Interfaces de red
 6 | Receptáculo principal
 7 | Receptáculo EBOD
+
+Cuando se realiza el cableado del dispositivo, la configuración mínima requiere:
+
+
+- Al menos dos interfaces de red conectadas en cada controlador con una para el acceso a la nube y otra para iSCSI. El puerto DATA 0 se habilita y configura automáticamente mediante la consola serie del dispositivo. Además del puerto DATA 0, también es necesario configurar otro puerto de datos a través del Portal de administración. En este caso, conecte el puerto DATA 0 a la LAN principal (red con acceso a Internet). Los demás puertos de datos pueden conectarse al segmento de la LAN SAN/iSCSI (VLAN) de la red, dependiendo del rol deseado.
+
+- Interfaces idénticas en cada controlador conectadas a la misma red para garantizar la disponibilidad si se produce conmutación por error en un controlador. Por ejemplo, si decide conectar los puertos DATA 0 y DATA 3 para uno de los controladores, necesitará conectar los puertos DATA 0 y DATA 3 correspondientes en el otro controlador.
+	
+Tenga en cuenta lo siguiente para alta disponibilidad y rendimiento:
+
+
+- Cuando sea posible, configure un par de interfaz de red para el acceso a la nube (1 GbE) y otro par para iSCSI (se recomiendan 10 GbE) en cada controlador. 
+
+- Cuando sea posible, conecte las interfaces de red desde cada controlador a dos conmutadores diferentes para garantizar la disponibilidad frente al error de un conmutador. La ilustración muestra las dos interfaces de red de 10 GbE, DATA 2 y DATA 3, desde cada controlador conectado a dos conmutadores distintos. Para obtener más información, consulte las **interfaces de red** en los [Requisitos de alta disponibilidad para el dispositivo StorSimple](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md).
+
+>[AZURE.NOTE]Si utiliza transceptores SFP+ con las interfaces de red de 10 GbE, utilice los adaptadores QSFP-SFP+ proporcionados. Puede encontrar más información en [Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
 ### Cableado del puerto serie
 
@@ -289,4 +298,4 @@ Ha completado el cableado de alimentación, acceso a la red y conexión en serie
 Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

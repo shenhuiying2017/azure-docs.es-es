@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="10/20/2015" 
 	ms.author="spelluru"/>
 
 # Programación y ejecución con Factoría de datos
@@ -676,4 +676,4 @@ De forma similar a los conjuntos de datos que produce Factoría de datos, los se
 
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

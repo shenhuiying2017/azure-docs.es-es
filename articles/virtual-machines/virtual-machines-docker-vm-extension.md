@@ -13,10 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="06/29/2015"
+	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
 # Extensión de máquina virtual Docker para Linux en Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 [Docker](https://www.docker.com/) es uno de los enfoques de virtualización más populares que usan los [contenedores de Linux](http://en.wikipedia.org/wiki/LXC), en lugar de máquinas virtuales, como una forma de aislar datos de aplicación y calcular recursos compartidos. Puede usar la [extensión de VM Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) del [agente Linux de Azure](virtual-machines-linux-agent-user-guide.md) para crear una máquina virtual de Docker que hospede cualquier número de contenedores para sus aplicaciones de Azure.
 
 En este tema se describe:
@@ -80,6 +83,5 @@ Para obtener una lista completa, consulte [Extensiones de VM de Azure](http://ms
 [Contenedores Docker y Linux]: #Docker-and-Linux-Containers
 [Uso de la extensión de VM Docker con Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Extensiones de máquina virtual para Linux y Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

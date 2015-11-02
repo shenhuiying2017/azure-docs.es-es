@@ -20,6 +20,26 @@
 
 # Notas de la versión de los componentes de Hadoop en HDInsight de Azure
 
+## Notas de la versión del 20/10/2015 de HDinsight
+
+Los números de versión completos de los clústeres de HDInsight implementados con esta versión son:
+
+* HDInsight 2.1.10.716.1846990 (Windows) (HDP 1.3.12.0-01795 - sin cambios)
+* HDInsight 3.0.6.716.1846990 (Windows) (HDP 2.0.13.0-2117 - sin cambios)
+* HDInsight 3.1.4.716.1846990 (Windows) (HDP 2.1.16.0-2374)
+* HDInsight 3.2.7.716.1846990 (Windows) (HDP 2.2.7.1-0004)
+* HDInsight 3.2.1000.0.5930166 (Linux) (HDP 2.2.7.1-0004)
+* SDK 1.5.8
+
+Esta versión contiene las siguientes actualizaciones.
+
+| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Se ha cambiado la versión de HDP predeterminada a HDP 2.2. | La versión predeterminada para los clústeres de Windows de HDInsight se cambia a HDP 2.2. HDInsight versión 3.2 (HDP 2.2) ha estado disponible con carácter general desde febrero de 2015. Este cambio solo invierte la versión del clúster predeterminada, cuando no se ha realizado una selección explícita durante el aprovisionamiento del clúster mediante el portal de Azure, los cmdlets de PowerShell o el SDK. | Servicio | Todo| N/D |
+|Cambios en el formato de nombre de máquina virtual para la implementación de múltiples clústeres de HDInsight en Linux en una red virtual única | En esta versión se agrega compatibilidad para implementar varios clústeres de Linux de HDInsight en una red virtual única. Como parte de esto, el formato de nombres de máquina virtual en el clúster ha cambiado desde headnode*, workernode* y zookeepernode* a hn*, wn* y zk*, respectivamente. No se recomienda tomar una dependencia directa en el formato de nombres de máquina virtual, ya que esto está sujeto a cambios. Use "hostname -f" en la máquina local o API de Ambari para determinar la lista de hosts y la asignación de componentes a hosts. Encontrará más información en [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) y [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). | Servicio | Clústeres de HDInsight en Linux | N/D |
+| Cambios en la configuración | Para los clústeres de HDInsight 3.1, ahora están habilitadas las siguientes configuraciones: <ul><li>tez.yarn.ats.enabled y yarn.log.server.url. Esto permite al servidor de escala de tiempo de aplicación y al servidor de registro poder servir registros.</li></ul>Para los clústeres de HDInsight 3.2, se han modificado las siguientes configuraciones: <ul><li>mapreduce.fileoutputcommitter.algorithm.version se ha establecido en 2. Esto permite el uso de la versión V2 de FileOutputCommitter.</li></ul> | Servicio | Todo | N/D |
+
+
 ## Notas de la versión del 09/09/2015 de HDinsight
 
 Los números de versión completos de los clústeres de HDInsight implementados con esta versión son:
@@ -1346,4 +1366,4 @@ Las notas de la versión de las Hortonworks Data Platforms (HD) que se usan en l
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

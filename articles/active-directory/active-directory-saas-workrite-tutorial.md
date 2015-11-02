@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="10/16/2015"
 	ms.author="markusvi"/>
 
 
@@ -64,14 +64,13 @@ Para configurar la integración de Workrite en Azure AD, deberá agregar Workrit
 4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
 6. En el cuadro de búsqueda, escriba **Workrite**.<br><br> ![Aplicaciones][5]<br>
-7. En el panel de resultados, seleccione **Workrite** y, a continuación, haga clic en **Completar** para agregar la aplicación.<br>
-
+7. En el panel de resultados, seleccione **Workrite** y, a continuación, haga clic en **Completar** para agregar la aplicación. <br><br>![Aplicaciones][500]<br>
 
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Workrite con una usuaria de prueba llamada "Britta Simon".
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Workrite para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Workrite.<br> Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en Workrite.
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Workrite para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Workrite.<br> Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como el valor del **Nombre de usuario** en Workrite.
  
 Para configurar y probar el inicio de sesión único de Azure AD con Workrite, es preciso completar los siguientes bloques de creación:
 
@@ -87,7 +86,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 **Para configurar el inicio de sesión único de Azure AD con Workrite, realice los pasos siguientes:**
 
-1. En el Portal de Azure AD, en la página de integración de aplicaciones de **Workrite**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6]<br>
+1. En el Portal de Azure AD, en la página de integración de aplicaciones de **Workrite**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6] <br>
 
 2. En la página **¿Cómo desea que los usuarios inicien sesión en Workrite?**, seleccione **Inicio de sesión único de Azure AD** y haga clic en **Siguiente**.<br><br> ![Inicio de sesión único de Azure AD][7]<br>
 
@@ -99,7 +98,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
      b. Haga clic en **Siguiente**.
  
-4. En la página **Configurar inicio de sesión único en Workrite**, siga estos pasos:<br><br>![Inicio de sesión único de Azure AD][9] <br>
+4. En la página **Configurar inicio de sesión único en Workrite**, siga estos pasos: <br><br>![Inicio de sesión único de Azure AD][9] <br>
 
     a. Haga clic en Descargar certificado y después guarde el archivo en el equipo.
 
@@ -116,7 +115,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 
 ### Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear una usuaria de prueba en el Portal de Azure llamada Britta Simon.<br> En la lista Usuarios, seleccione **Britta Simon**. <br><br>![Creación de un usuario de Azure AD][20]<br>
+El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure llamado Britta Simon.<br> En la lista Usuarios, seleccione **Britta Simon**.<br><br>![Creación de un usuario de Azure AD][20]<br>
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
@@ -124,11 +123,11 @@ El objetivo de esta sección es crear una usuaria de prueba en el Portal de Azur
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_03.png) <br>
+3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_03.png) <br>
  
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_04.png)<br>
+4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_04.png) <br>
 
-5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes: <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_05.png)<br>
+5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes: <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_05.png) <br>
 
     a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
 
@@ -136,7 +135,7 @@ El objetivo de esta sección es crear una usuaria de prueba en el Portal de Azur
 
     c. Haga clic en **Siguiente**.
 
-6.  En la página del cuadro de diálogo **Perfil de usuario**, realice los siguientes pasos: <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_06.png)<br>
+6.  En la página del cuadro de diálogo **Perfil de usuario**, realice los siguientes pasos: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_06.png) <br>
  
     a. En el cuadro de texto **Nombre**, escriba **Britta**.
 
@@ -146,9 +145,9 @@ El objetivo de esta sección es crear una usuaria de prueba en el Portal de Azur
 
     d. En la lista **Rol**, seleccione **Usuario**. Haga clic en **Siguiente**.
 
-7. En la página del cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_07.png)<br>
+7. En la página del cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_07.png) <br>
  
-8. En la página del cuadro de diálogo **Obtener contraseña temporal**, realice los pasos siguientes: <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_08.png)<br>
+8. En la página del cuadro de diálogo **Obtener contraseña temporal**, realice los pasos siguientes: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_08.png) <br>
   
     a. Anote el valor del campo **Nueva contraseña**.
 
@@ -166,26 +165,26 @@ El objetivo de esta sección es crear una usuaria de prueba llamada Britta Simon
 
 2. En el panel de navegación, haga clic en **Admin**. <br><br>![Asignar usuario][400]<br>
 
-3. Vaya a Vínculos rápidos y, a continuación, haga clic en **Create user** (Crear usuario). <br><br>![Asignar usuario][401]<br>
+3. Vaya a Vínculos rápidos y, a continuación, haga clic en **Crear usuario**. <br><br>![Asignar usuario][401]<br>
 
 4. En el cuadro de diálogo **Crear usuario**, realice los pasos siguientes: <br><br>![Asignar usuario][402]<br>
 
-    a. Escriba los valores de **Email** (correo electrónico), **First name** (nombre) y **Last name** (apellido) de un usuario válido de Azure AD que desee aprovisionar.
+    a. Escriba los valores de **Correo electrónico**, **Nombre** y **Apellido** de un usuario válido de Azure AD que quiera aprovisionar.
 
-    b. Seleccione **Client Administrator** (Administrador de cliente) como **Choose Role** (Elegir rol).
+    b. Seleccione **Administrador de cliente** como **Elegir rol**.
 
     c. Haga clic en **Guardar**.
 
 
 ### Asignación del usuario de prueba de Azure AD
 
-El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Workrite. <br><br>![Asignar usuario][200]<br>
+El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Workrite. <br><br>![Asignar usuario][200] <br>
 
 **Para asignar a Britta Simon a Workrite, realice los pasos siguientes:**
 
 1. En el Portal de Azure, abra la vista de aplicaciones; para ello, en la vista de directorio, haga clic en **Aplicaciones** en el menú de la parte superior. <br><br>![Asignar usuario][201] <br>
-2. En la lista de aplicaciones, seleccione **Workrite**. <br><br>![Asignar usuario][202]<br>
-1. En el menú de la parte superior, haga clic en **Usuarios**.<br> <br>![Asignar usuario][203] <br>
+2. En la lista de aplicaciones, seleccione **Workrite**. <br><br>![Asignar usuario][202] <br>
+1. En el menú de la parte superior, haga clic en **Usuarios**. <br><br>![Asignar usuario][203] <br>
 1. En la lista Usuarios, seleccione **Britta Simon**.
 
 2. En la barra de herramientas de la parte inferior, haga clic en **Asignar**. <br><br>![Asignar usuario][205]
@@ -194,7 +193,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 ### Prueba del inicio de sesión único
 
-El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el Panel de acceso.<br> Al hacer clic en el icono de Workrite en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Workrite.
+El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.<br> Al hacer clic en el icono de Workrite en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Workrite.
 
 
 ## Recursos adicionales
@@ -210,6 +209,7 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [3]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_04.png
 [5]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_01.png
+[500]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_05.png
 
 [6]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_05.png
 [7]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_02.png
@@ -231,4 +231,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [401]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_401.png
 [402]: ./media/active-directory-saas-workrite-tutorial/tutorial_workrite_402.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

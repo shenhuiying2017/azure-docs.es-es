@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="10/20/2015" 
 	ms.author="josephd"/>
 
 # Fase 1 de la carga de trabajo de aplicación de línea de negocio: Configuración de Azure
  
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
+[AZURE.INCLUDE [learn-about-deployment-models-rm-include](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
  
 En esta fase de la implementación de una aplicación de línea de negocio de alta disponibilidad solo de intranet en los servicios de infraestructura de Azure, creará la infraestructura de red y almacenamiento de Azure. Debe completar esta fase antes de pasar a la [fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md). Vea [Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) en todas las fases.
 
@@ -46,7 +45,6 @@ Elemento | Elemento configuración | Descripción | Valor
 6\. | Primer servidor DNS para la red virtual | Cuarta dirección IP posible para el espacio de direcciones de la segunda subred de la red virtual (vea la tabla S). Trabaje con su departamento de TI para determinar esta dirección. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 7\. | Segundo servidor DNS para la red virtual | Quinta dirección IP posible para el espacio de direcciones de la subred de la red virtual (vea la tabla S). Trabaje con su departamento de TI para determinar esta dirección. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 8\. | Clave compartida de IPsec | Cadena alfanumérica aleatoria de 32 caracteres que se usará para autenticar ambos lados de la conexión VPN de sitio a sitio. Trabaje con el departamento de seguridad o de TI para determinar el valor de esta clave. Como alternativa, vea [Creación de una cadena aleatoria para una clave previamente compartida IPsec](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx).| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
 
 **Tabla V: Configuración de red virtual entre locales**
 
@@ -87,37 +85,21 @@ Elemento | Espacio de direcciones de la red local
 
 **Tabla L: Prefijos de dirección de la red local**
 
-> [AZURE.NOTE]Este artículo contiene comandos para versiones de Azure PowerShell desde la 0.9.5 hasta, *pero sin incluir*, las versiones 1.0.0 y versiones posteriores. Puede comprobar la versión de Azure PowerShell con el comando **Get-Module azure | format-table version**. Los bloques de comandos de Azure PowerShell de este artículo están en proceso de prueba y actualización para admitir los nuevos cmdlets de las versiones 1.0.0, y posteriores, de Azure PowerShell. Gracias por su paciencia.
+> [AZURE.NOTE]Este artículo contiene comandos para la versión preliminar de Azure PowerShell 1.0. Para ejecutar estos comandos en Azure PowerShell 0.9.8 y versiones anteriores, reemplace todas las instancias de "-AzureRM" por "-Azure" y agregue el comando **Switch-AzureMode AzureResourceManager** antes de ejecutar ningún comando. Para obtener más información, consulte [Versión preliminar de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 Abra un símbolo del sistema de Azure PowerShell.
-
-En primer lugar, seleccione la suscripción de Azure correcta con estos comandos. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < and >, por los nombres correctos.
-
-	$subscr="<Subscription name>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current
-
-Puede obtener el nombre de suscripción con la propiedad **SubscriptionName** de la salida del comando **Get-AzureSubscription**.
-
-A continuación, cambie Azure PowerShell al modo Administrador de recursos con este comando.
-
-	Switch-AzureMode AzureResourceManager 
 
 Cree un grupo de recursos para la aplicación de línea de negocio.
 
 Para determinar el nombre único del grupo de recursos, utilice este comando para enumerar los grupos de recursos existente.
 
-	Get-AzureResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
-
-Para obtener una lista de las ubicaciones de Azure donde puede crear máquinas virtuales basadas en Administrador de recursos, utilice estos comandos.
-
-	$loc=Get-AzureLocation | where { $_.Name –eq "Microsoft.Compute/virtualMachines" }
-	$loc.Locations
+	Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
 
 Cree un nuevo grupo de recursos con estos comandos.
 
 	$rgName="<resource group name>"
 	$locName="<an Azure location, such as West US>"
-	New-AzureResourceGroup -Name $rgName -Location $locName
+	New-AzureRMResourceGroup -Name $rgName -Location $locName
 
 Las máquinas virtuales basadas en Administrador de recursos requieren una cuenta de almacenamiento basada en Administrador de recursos.
 
@@ -132,30 +114,19 @@ Necesitará estos nombres al crear las máquinas virtuales en las fases 2, 3 y 4
 
 Debe seleccionar un nombre único global para cada cuenta de almacenamiento que contenga solo letras minúsculas y números. Puede usar este comando para enumerar las cuentas de almacenamiento existentes.
 
-	Get-AzureStorageAccount | Sort Name | Select Name
-
-Para probar si la cuenta de almacenamiento elegida tiene un nombre único global, necesitará ejecutar el comando **Test-AzureName** en el modo de administración de servicios de Azure de PowerShell. Use estos comandos.
-
-	Switch-AzureMode AzureServiceManagement
-	Test-AzureName -Storage <Proposed storage account name>
-
-Si el comando Test-AzureName muestra **False**, el nombre propuesto es único. Una vez determinado un nombre único para las dos cuentas de almacenamiento, actualice la tabla ST y vuelva a cambiar Azure PowerShell al modo Administrador de recursos con este comando.
-
-	Switch-AzureMode AzureResourceManager 
+	Get-AzureRMStorageAccount | Sort Name | Select Name
 
 Para crear la primera cuenta de almacenamiento, ejecute estos comandos.
 
 	$rgName="<your new resource group name>"
 	$locName="<the location of your new resource group>"
 	$saName="<Table ST – Item 1 - Storage account name column>"
-	New-AzureStorageAccount -Name $saName -ResourceGroupName $rgName –Type Premium_LRS -Location $locName
+	New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Premium_LRS -Location $locName
 
 Para crear la segunda cuenta de almacenamiento, ejecute estos comandos.
 
-	$rgName="<your new resource group name>"
-	$locName="<the location of your new resource group>"
 	$saName="<Table ST – Item 2 - Storage account name column>"
-	New-AzureStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
+	New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
 
 Cree la red virtual de Azure que hospedará la aplicación de línea de negocio.
 
@@ -167,42 +138,42 @@ Cree la red virtual de Azure que hospedará la aplicación de línea de negocio.
 	$lobSubnetPrefix="<Table S – Item 2 – Subnet address space column>"
 	$gwSubnetPrefix="<Table S – Item 1 – Subnet address space column>"
 	$dnsServers=@( "<Table D – Item 1 – DNS server IP address column>", "<Table D – Item 2 – DNS server IP address column>" )
-	$gwSubnet=New-AzureVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $gwSubnetPrefix
-	$lobSubnet=New-AzureVirtualNetworkSubnetConfig -Name $lobSubnetName -AddressPrefix $lobSubnetPrefix
-	New-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix $vnetAddrPrefix -Subnet $gwSubnet,$lobSubnet -DNSServer $dnsServers
+	$gwSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $gwSubnetPrefix
+	$lobSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name $lobSubnetName -AddressPrefix $lobSubnetPrefix
+	New-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix $vnetAddrPrefix -Subnet $gwSubnet,$lobSubnet -DNSServer $dnsServers
 
 Use estos comandos para crear las puertas de enlace para la conexión VPN de sitio a sitio.
 
 	$vnetName="<Table V – Item 1 – Value column>"
-	$vnet=Get-AzureVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 	
 	# Attach a virtual network gateway to a public IP address and the gateway subnet
 	$publicGatewayVipName="LOBAppPublicIPAddress"
 	$vnetGatewayIpConfigName="LOBAppPublicIPConfig"
-	New-AzurePublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
-	$publicGatewayVip=Get-AzurePublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName
-	$vnetGatewayIpConfig=New-AzureVirtualNetworkGatewayIpConfig -Name $vnetGatewayIpConfigName -PublicIpAddressId $publicGatewayVip.Id -SubnetId $vnet.Subnets[0].Id
+	New-AzureRMPublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$publicGatewayVip=Get-AzureRMPublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName
+	$vnetGatewayIpConfig=New-AzureRMVirtualNetworkGatewayIpConfig -Name $vnetGatewayIpConfigName -PublicIpAddressId $publicGatewayVip.Id -SubnetId $vnet.Subnets[0].Id
 
 	# Create the Azure gateway
 	$vnetGatewayName="LOBAppAzureGateway"
-	$vnetGateway=New-AzureVirtualNetworkGateway -Name $vnetGatewayName -ResourceGroupName $rgName -Location $locName -GatewayType Vpn -VpnType RouteBased -IpConfigurations $vnetGatewayIpConfig
+	$vnetGateway=New-AzureRMVirtualNetworkGateway -Name $vnetGatewayName -ResourceGroupName $rgName -Location $locName -GatewayType Vpn -VpnType RouteBased -IpConfigurations $vnetGatewayIpConfig
 	
 	# Create the gateway for the local network
 	$localGatewayName="LOBAppLocalNetGateway"
 	$localGatewayIP="<Table V – Item 4 – Value column>"
 	$localNetworkPrefix=@( <comma-separated, double-quote enclosed list of the local network address prefixes from Table L, example: "10.1.0.0/24", "10.2.0.0/24"> )
-	$localGateway=New-AzureLocalNetworkGateway -Name $localGatewayName -ResourceGroupName $rgName -Location $locName -GatewayIpAddress $localGatewayIP -AddressPrefix $localNetworkPrefix
+	$localGateway=New-AzureRMLocalNetworkGateway -Name $localGatewayName -ResourceGroupName $rgName -Location $locName -GatewayIpAddress $localGatewayIP -AddressPrefix $localNetworkPrefix
 	
 	# Define the Azure virtual network VPN connection
 	$vnetConnectionName="LOBAppS2SConnection"
 	$vnetConnectionKey="<Table V – Item 8 – Value column>"
-	$vnetConnection=New-AzureVirtualNetworkGatewayConnection -Name $vnetConnectionName -ResourceGroupName $rgName -Location $locName -ConnectionType IPsec -SharedKey $vnetConnectionKey -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localGateway
+	$vnetConnection=New-AzureRMVirtualNetworkGatewayConnection -Name $vnetConnectionName -ResourceGroupName $rgName -Location $locName -ConnectionType IPsec -SharedKey $vnetConnectionKey -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localGateway
 
-Configure el dispositivo VPN local para conectarse a la puerta de enlace de VPN de Azure. Para obtener más información, vea [Configuración del dispositivo VPN](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
+Configure el dispositivo VPN local para conectarse a la puerta de enlace de VPN de Azure. Para obtener más información, consulte [Configuración del dispositivo VPN](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
 
 Para configurar el dispositivo VPN local, necesitará lo siguiente:
 
-- La dirección IPv4 pública de la puerta de enlace de VPN para la red virtual (en la presentación del comando **Get-AzurePublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName**)
+- La dirección IPv4 pública de la puerta de enlace de VPN para la red virtual (en la presentación del comando **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName**)
 - Clave precompartida de IPsec para la conexión VPN de sitio a sitio (Tabla V– Elemento 8 – Columna Valor)
 
 A continuación, asegúrese de que el espacio de direcciones de la red virtual sea accesible desde la red local. Esto se hace normalmente agregando una ruta correspondiente al espacio de direcciones de la red virtual a su dispositivo VPN y, a continuación, anunciando esa ruta al resto de la infraestructura de enrutamiento de la red de su organización. Trabaje con su departamento de TI para determinar cómo hacerlo.
@@ -224,11 +195,11 @@ Cree estos nuevos conjuntos de disponibilidad con estos comandos de Azure PowerS
 	$rgName="<your new resource group name>"
 	$locName="<the Azure location for your new resource group>"
 	$avName="<Table A – Item 1 – Availability set name column>"
-	New-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
 	$avName="<Table A – Item 2 – Availability set name column>"
-	New-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
 	$avName="<Table A – Item 3 – Availability set name column>"
-	New-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
 
 Esta es la configuración resultante de la realización correcta de esta fase.
 
@@ -250,4 +221,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 2: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

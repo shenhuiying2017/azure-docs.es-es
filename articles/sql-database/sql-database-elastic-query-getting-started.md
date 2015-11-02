@@ -1,8 +1,6 @@
 <properties
-	title="Getting started with elastic database query"
-	pageTitle="Introducción a la consulta de base de datos elástica"
-	description="Uso de la consulta de base de datos elástica"
-	metaKeywords="azure sql database elastic queries"
+	pageTitle="Introducción a consultas elásticas para particionamiento horizontal | Microsoft Azure"
+	description="cómo utilizar consultas de bases de datos cruzadas"
 	services="sql-database"
 	documentationCenter=""  
 	manager="jeffreyg"
@@ -14,10 +12,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2015"
-	ms.author="sidneyh" />
+	ms.date="10/15/2015"
+	ms.author="SilviaDoomra" />
 
-# Introducción a la consulta de base de datos elástica
+# Introducción a consultas elásticas para particionamiento horizontal
 
 La consulta de base de datos elástica (vista previa) para Base de datos SQL de Azure le permite ejecutar consultas T-SQL que distribuyen varias bases de datos con un único punto de conexión. Para obtener más información sobre la característica de base de datos elástica, consulte la [página de introducción de la característica](sql-database-elastic-query-overview.md).
 
@@ -126,7 +124,7 @@ Observará que la consulta agrega resultados de todas las particiones y proporci
 Todas las filas de la tabla **Clientes**, almacenadas en distintas particiones, completan la hoja de Excel.
 
 ## Pasos siguientes
-Ahora puede usar las funciones de datos decisivas de Excel. Puede usar la cadena de conexión con el nombre de servidor, el nombre de base de datos y las credenciales para conectar su BI y las herramientas de integración de datos a la base de datos de consulta elástica. Asegúrese de que SQL Server se admite como origen de datos para la herramienta. Puede consultar la base de datos de consulta elástica y las tablas externas como cualquier otra base de datos SQL Server y las tablas de SQL Server que quiera conectar con la herramienta.
+Ahora puede usar las funciones de visualización de datos decisivas de Excel. Puede usar la cadena de conexión con el nombre de servidor, el nombre de base de datos y las credenciales para conectar su BI y las herramientas de integración de datos a la base de datos de consulta elástica. Asegúrese de que SQL Server se admite como origen de datos para la herramienta. Puede consultar la base de datos de consulta elástica y las tablas externas como cualquier otra base de datos SQL Server y las tablas de SQL Server que quiera conectar con la herramienta.
 
 ### Coste
 No hay ningún cargo adicional por usar la característica de consulta de base de datos elástica. Sin embargo, en este momento la característica está solo disponible en bases de datos premium como extremo, pero las particiones pueden ser de cualquier nivel de servicio.
@@ -144,4 +142,4 @@ Para obtener información sobre los precios, consulte [Detalles de precios de Ba
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

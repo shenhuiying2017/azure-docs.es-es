@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="10/20/2015"
    ms.author="mmercuri"/>
 
 # Definición de dependencias en plantillas del Administrador de recursos de Azure
@@ -43,13 +43,15 @@ Si bien puede que se sienta tentado a usar dependsOn para asignar dependencias e
 
 Este elemento no es necesario si se usa la función reference para obtener una representación de un recurso, ya que un objeto de referencia implica una dependencia del recurso. De hecho, si hay una opción para usar reference frente a dependsOn, lo aconsejable es usar la función reference y tener referencias implícitas. De nuevo, la razón fundamental es el rendimiento. Las referencias definen dependencias implícitas que se sabe que son necesarias dado que se hace referencia a ellas dentro de la plantilla. Por su presencia, son relevantes, para evitar nuevamente la optimización del rendimiento y el riesgo potencial de que el motor de implementación no evite paralelismos innecesariamente.
 
+Si necesita definir una dependencia entre un recurso y recursos que se crean a través de un bucle copy, puede establecer el elemento dependsOn en el nombre del bucle. Para ver un ejemplo, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md)
+
 ## resources
 
 La propiedad resources permite especificar los recursos secundarios que están relacionados con el recurso que se está definiendo. Los recursos secundarios solo se pueden definir en cinco niveles de profundidad. Es importante tener en cuenta que no se crea una dependencia implícita entre un recurso secundario y el recurso primario. Si necesita que el recurso secundario se implemente después del recurso primario, debe declarar explícitamente esa dependencia con la propiedad dependsOn.
 
 ## función reference
 
-La función reference permite que una expresión derive su valor de otros pares de valor y nombre JSON o de recursos en tiempo de ejecución. Las expresiones de referencia declaran implícitamente que un recurso depende de otro. La propiedad representada por **propertyPath** a continuación es opcional, si no se especifica, la referencia es al recurso.
+La función reference permite que una expresión derive su valor de otros pares de valor y nombre JSON o de recursos en tiempo de ejecución. Las expresiones de referencia declaran implícitamente que un recurso depende de otro. La propiedad representada por **propertyPath** a continuación es opcional, de manera que si no se especifica, la referencia es al recurso.
 
     reference('resourceName').propertyPath
 
@@ -62,4 +64,4 @@ Para obtener más información, vea [función reference](../resource-group-templ
 - Para obtener más información sobre la creación de plantillas del Administrador de recursos de Azure, vea [Creación de plantillas](resource-group-authoring-templates.md). 
 - Para obtener una lista de las funciones disponibles en una plantilla, vea [Funciones de plantilla](resource-group-template-functions.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

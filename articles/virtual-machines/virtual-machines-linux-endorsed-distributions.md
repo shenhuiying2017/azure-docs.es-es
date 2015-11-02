@@ -24,6 +24,8 @@
 
 Varios asociados proporcionan las imágenes de Linux de la Galería de Azure; además, trabajamos con distintas comunidades de Linux para agregar aun más tipos a la lista de distribuciones aprobadas. Mientras tanto, para distribuciones no disponibles desde la galería, siempre puede ofrecer su propio Linux siguiendo las directrices de [esta página](virtual-machines-linux-create-upload-vhd.md).
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 ## Distribuciones y versiones admitidas ##
 
@@ -39,7 +41,7 @@ Ubuntu de Canonical|Ubuntu 12.04, 14.04, 14.10 y 15.04|En kernel|Paquete: en el 
 CentOS de OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3: [Descarga de LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4+: en kernel|Paquete: en el repositorio <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic, en "WALinuxAgent"<p><p>Código fuente: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0+ |En kernel|Origen: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
 Oracle Linux| 6\.4+, 7.0+|En kernel|Paquete: en el repositorio, en "WALinuxAgent" <p><p>Código fuente: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-SUSE Linux Enterprise |SLES 11 SP3+, SLES 12+ y<p><p> SLES para SAP 11.3+ |En kernel|Paquete: en el repositorio [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools), en "WALinuxAgent"<p><p>Código fuente: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+SUSE Linux Enterprise |SLES 11 SP3+, SLES 12+ y <p><p> SLES para SAP 11.3+ |En kernel|Paquete: en el repositorio [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools), en "WALinuxAgent"<p><p>Código fuente: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 openSUSE |openSUSE 13.1+|En kernel|Paquete: en el repositorio [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools), en "WALinuxAgent" <p><p>Código fuente: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 
 ## Asociados
@@ -79,4 +81,4 @@ SUSE Linux Enterprise Server en Azure es una plataforma probada que brinda confi
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

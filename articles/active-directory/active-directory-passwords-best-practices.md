@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Procedimientos recomendados: Administración de contraseñas de Azure AD | Microsoft Azure"
-	description="Procedimientos recomendados de implementación y uso, ejemplo de documentación de usuario final y guías de formación para Administración de contraseñas en Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="Procedimientos recomendados: Administración de contraseñas de Azure AD | Microsoft Azure" 
+	description="Procedimientos recomendados de implementación y uso, ejemplo de documentación de usuario final y guías de aprendizaje para la administración de contraseñas en Azure Active Directory." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Implementación de la Administración de contraseñas y formación a los usuarios para que la utilicen
@@ -24,6 +24,7 @@ Después de habilitar el restablecimiento de contraseña, la siguiente tarea es 
   * [Maneras de rellenar los datos de autenticación personalmente](#ways-to-populate-authentication-data)
 * [**Las mejores maneras de aplicar el restablecimiento de contraseña por toda su organización**](#what-is-the-best-way-to-roll-out-password-reset-for-users)
   * [Implementación basada en correo electrónico + ejemplo de comunicaciones por correo electrónico](#email-based-rollout)
+  * [Creación de su propio portal personalizado de administración de contraseñas para los usuarios](#creating-your-own-password-portal)
   * [Uso del registro exigido para obligar a los usuarios a registrarse en el inicio de sesión](#using-enforced-registration)
   * [Carga de datos de autenticación para cuentas de usuario](#uploading-data-yourself)
 * [**Ejemplo de usuario y materiales de formación de soporte técnico (disponible próximamente)**](#sample-training-materials)
@@ -71,7 +72,18 @@ Quizás el enfoque más sencillo para informar a los usuarios sobre el registro 
 
   ![][001]
 
-Puede descargar la plantilla de correo electrónico [aquí](http://1drv.ms/1xWFtQM).
+Puede [ descargar la plantilla de correo electrónico aquí](http://1drv.ms/1xWFtQM).
+
+### Creación de su propio portal de contraseñas
+Una estrategia que funciona bien con grandes clientes que implementan funcionalidades de administración de contraseñas es crear un único "portal de contraseñas" que los usuarios pueden usar para administrar todos los aspectos relacionados con sus contraseñas en un solo lugar.
+
+Muchos de nuestros clientes más grandes eligen crear una entrada DNS raíz, como https://passwords.contoso.com con vínculos al portal de restablecimiento de contraseñas de Azure AD, el portal de registro de restablecimiento de contraseñas y las páginas de cambio de contraseña. De este modo, en las comunicaciones por correo electrónico o los folletos que envía, puede incluir una única dirección URL fácil de recordar que los usuarios pueden visitar cuando tienen un momento para empezar a usar el servicio.
+
+Para comenzar aquí, hemos creado una página sencilla que usa los últimos paradigmas de diseño UI que funcionan, y que sirve para todos los exploradores y dispositivos móviles.
+
+  ![][007]
+  
+Puede [descargar la plantilla del sitio web aquí](https://github.com/kenhoff/password-reset-page). Se recomienda personalizar el logotipo y los colores de acuerdo con las necesidades de su organización.
 
 ### Uso del registro exigido
 Si desea que sean los usuarios quienes se registren para el restablecimiento de contraseña, también puede obligarles a registrarse al iniciar sesión en el panel de acceso, en [http://myapps.microsoft.com](http://myapps.microsoft.com). Puede habilitar esta opción desde la pestaña **Configurar** del directorio habilitando la opción **Requerir que los usuarios se registren al iniciar sesión en el panel de acceso** .
@@ -98,12 +110,12 @@ Puede cargar los datos de autenticación a través del [Portal de administració
 1.	Diríjase a su directorio en la **extensión de Active Directory** en el [Portal de administración de Azure](https://manage.windowsazure.com).
 2.	Haga clic en la pestaña **Usuarios**.
 3.	Seleccione en la lista el usuario que le interese.
-4.	En la primera pestaña, verá **Correo electrónico alternativo**, que puede utilizarse como una propiedad para habilitar el restablecimiento de contraseña.
+4.	En la primera pestaña, verá **Correo electrónico alternativo**, que puede utilizarse como una propiedad para habilitar el restablecimiento de contraseña. 
 
     ![][005]
 
 5.	Haga clic en la pestaña **Información laboral**.
-6.	En esta página, encontrará el **Teléfono de la oficina**, el **Teléfono móvil**, el **Teléfono de autenticación** y el **Correo electrónico de autenticación**. Estas propiedades también se pueden establecer para permitir a un usuario restablecer su contraseña.
+6.	En esta página, encontrará el **Teléfono de la oficina**, el **Teléfono móvil**, el **Teléfono de autenticación** y el **Correo electrónico de autenticación**. Estas propiedades también se pueden establecer para permitir a un usuario restablecer su contraseña. 
 
     ![][006]
 
@@ -136,5 +148,6 @@ Estamos trabajando en materiales de formación de ejemplo que puede utilizar par
 [004]: ./media/active-directory-passwords-best-practices/004.jpg "Image_004.jpg"
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
+[007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="cherylmc"/>
 
 # Configurar una conexión de red virtual a red virtual mediante el Administrador de recursos de Azure y PowerShell
@@ -78,9 +78,11 @@ Antes de empezar, compruebe que tiene lo siguiente:
 
 - Una suscripción de Azure. Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-- La versión más reciente de los cmdlets de Azure PowerShell Puede descargar e instalar la versión más reciente en la sección Windows PowerShell de la [Página de descargas](http://azure.microsoft.com/downloads/). Este artículo está escrito para Azure PowerShell *0.9.8*.
+- Cmdlets de Azure PowerShell 0.9.8. Puede descargar e instalar esta versión desde la sección Windows PowerShell de la [página de descarga](http://azure.microsoft.com/downloads/). Este artículo se escribió pensando en la versión 0.9.8, aunque se pueden usar estos pasos (con pequeñas modificaciones en los cmdlets) con la versión de vista previa de PowerShell 1.0.
 
->[AZURE.NOTE]Si está ejecutando aplicaciones críticas, siga usando Azure PowerShell 0.9.8. En la mayoría de los casos, la única diferencia entre las dos versiones es que el nombre del cmdlet de la versión de vista previa 1.0 sigue el patrón {verbo}-AzureRm{nombre}, mientras que el nombre de la versión 0.9.8 no incluye RM. Por ejemplo, New-AzureRmResourceGroup en lugar de New-AzureResourceGroup. Para obtener información acerca de la versión de vista previa de Azure PowerShell 1.0, consulte esta [entrada de blog](https://azure.microsoft.com/blog/azps-1-0-pre/). Para obtener más información acerca de los cmdlets de la versión de vista previa de Azure PowerShell 1.0, consulte [Cmdlets de Administrador de recursos de Azure](https://msdn.microsoft.com/library/mt125356.aspx).
+**Acerca del uso de estos pasos con la versión de vista previa de Azure PowerShell 1.0**
+
+	[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)] 
 
 
 ## 1\. Planear los intervalos de direcciones IP
@@ -113,9 +115,7 @@ Valores para VNet2:
 
 ## 2\. su suscripción 
 
-Abre la consola de PowerShell y conéctate a tu cuenta. Las siguientes instrucciones usan la versión 0.9.8 de Azure PowerShell. Puede descargar e instalar esta versión desde la sección Windows PowerShell de la [Página de descargas](http://azure.microsoft.com/downloads/).
-
-Use el siguiente ejemplo para ayudarle a conectarse:
+Abre la consola de PowerShell y conéctate a tu cuenta. Use el siguiente ejemplo para ayudarle a conectarse:
 
 		Add-AzureAccount
 
@@ -172,7 +172,7 @@ En este paso, creará la puerta de enlace de red virtual para la VNet. Las confi
 ## 7\. Crear VNet2
 
 
-Tras haber configurado VNet1, repita los pasos anteriores para configurar VNet2 junto con su configuración de puerta de enlace. Una vez completada la configuración de las redes virtuales y de sus respectivas puertas de enlace, continúe al **Paso 8. Conectar las puertas de enlace**.
+Tras haber configurado VNet1, repita los pasos anteriores para configurar VNet2 junto con su configuración de puerta de enlace. Una vez completada la configuración de las redes virtuales y de sus respectivas puertas de enlace, continúe en el **Paso 8. Conectar las puertas de enlace**.
 
 ## 8\. Conectar las puertas de enlace
 
@@ -200,13 +200,13 @@ Después de unos minutos, se debe establecer la conexión. Tenga en cuenta que e
 
 ## Comprobar las conexiones
 
-En este momento, las conexiones VPN creadas con el Administrador de recursos no están visibles en el Portal de vista previa. Sin embargo, se puede comprobar que la conexión se realizó correctamente mediante *Get-AzureVirtualNetworkGatewayConnection –Debug*. En el futuro, tendremos un cmdlet para esto, así como la capacidad para ver la conexión en el Portal de vista previa.
+En este momento, las conexiones VPN creadas con el Administrador de recursos no están visibles en el Portal de vista previa. Pero se puede comprobar que la conexión se realizó correctamente mediante *Get-AzureVirtualNetworkGatewayConnection –Debug*. En el futuro, tendremos un cmdlet para esto, así como la capacidad para ver la conexión en el Portal de vista previa.
 
 Puede utilizar el siguiente ejemplo de cmdlet. Asegúrese de cambiar los valores para que coincidan con cada conexión que desea comprobar. Cuando se le pida, seleccione *A* para ejecutar Todo.
 
 		Get-AzureVirtualNetworkGatewayConnection -Name vnet2connection -ResourceGroupName vnet2vnetrg -Debug 
 
- Cuando el cmdlet haya finalizado, desplázate para ver los valores. En el ejemplo siguiente, se muestra el estado de conexión como *Conectado* y puede ver los bytes de entrada y salida.
+ Cuando el cmdlet haya finalizado, desplázate para ver los valores. En el ejemplo siguiente, el estado de conexión aparece como *Conectado* y pueden verse los bytes de entrada y salida.
 
 	Body:
 	{
@@ -244,13 +244,13 @@ Si necesita agregar subredes de puerta de enlace a sus redes virtuales, utilice 
 		Add-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
 		Set-AzureVirtualNetwork -VirtualNetwork $vnet
 
-Después de comprobar que las subredes de la puerta de enlace están configuradas correctamente, continúe con el **Paso 4. Solicite una dirección IP pública** y siga los pasos.
+Después de comprobar que las subredes de la puerta de enlace están configuradas correctamente, continúe en el **Paso 4. Solicite una dirección IP pública** y siga los pasos.
 
 
 ## Pasos siguientes
 
 Puede agregar máquinas virtuales a las redes virtuales. [Creación de una máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-Para obtener más información sobre las Puertas de enlace de VPN, consulte [Preguntas más frecuentes sobre las Puertas de enlace de VPN](vpn-gateway-faq.md).
+Para obtener más información sobre las puertas de enlace de VPN, vea [Preguntas más frecuentes sobre las puertas de enlace de VPN](vpn-gateway-faq.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

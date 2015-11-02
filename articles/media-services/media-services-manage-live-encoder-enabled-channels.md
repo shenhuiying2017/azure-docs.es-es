@@ -3,7 +3,7 @@
 	description="En este tema se describe cómo configurar un canal que recibe una secuencia de streaming en vivo de una sola velocidad de bits desde un codificador local y, a continuación, realiza la codificación en directo a una secuencia de velocidad de bits adaptable con Servicios multimedia. Posteriormente, la secuencia se puede enviar a aplicaciones de reproducción cliente a través de uno o más extremos de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Stream, MPEG DASH o HDS." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,9 +11,9 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015"
+	ms.date="10/20/2015"  
 	ms.author="juliako"/>
 
 #Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure
@@ -29,10 +29,37 @@ A partir de la versión 2.10 de Servicios multimedia, al crear un canal, puede e
 
 - **Ninguna**: especifique este valor si piensa usar un codificador en directo local que genere una secuencia de varias velocidades de bits. En este caso, el flujo entrante pasa hasta la salida sin codificación alguna. Este es el comportamiento de un canal antes de la versión 2.10. Para obtener información más detallada sobre cómo trabajar con los canales de este tipo, consulte [Trabajo con canales que reciben streams en vivo de varias velocidades de bits de codificadores locales](media-services-manage-channels-overview.md).
 
-- **Estándar**: elija este valor si piensa usar Servicios multimedia para codificar secuencias en directo con una sola velocidad de bits como secuencias de varias velocidades de bits.
+- **Estándar**: elija este valor si piensa usar Servicios multimedia para codificar secuencias en directo con una sola velocidad de bits como secuencias de varias velocidades de bits. Tenga en cuenta que hay un impacto en la facturación para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" supondrá un coste adicional de facturación. Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales.
 
 >[AZURE.NOTE]En este tema se describen los atributos de los canales habilitados para realizar la codificación en directo (tipo de codificación **Estándar**). Para obtener información sobre cómo trabajar con los canales no habilitados para realizar la codificación en directo, consulte [Trabajo con canales que reciben streams en vivo de varias velocidades de bits de codificadores locales](media-services-manage-channels-overview.md).
 
+
+##Implicaciones de facturación
+
+Un canal de codificación en directo comienza la facturación tan pronto como su estado realiza la transición a "En ejecución" a través de la API. También puede ver el estado en el Portal de Azure o en la herramienta del Explorador de Servicios multimedia de Azure (http://aka.ms/amse).
+
+En la tabla siguiente se muestra cómo se asignan los estados del canal a los estados de facturación en la API y el portal. Tenga en cuenta que los estados son ligeramente diferentes entre la API y la experiencia de usuario del portal. Tan pronto como un canal se encuentre en el estado "En ejecución" a través de la API, o en el estado "Listo" o "Streaming" en el Portal de Azure, la facturación estará activa. Para hacer que el canal deje de facturarle, tendrá que detener el canal a través de la API o en el Portal de Azure. Usted es responsable de detener sus canales cuando haya terminado con el canal de codificación en directo. Si no se detiene un canal de codificación, la facturación continuará.
+
+###<a id="states"></a>Estados del canal y cómo se asignan al modo de facturación 
+
+El estado actual de un canal. Los valores posibles son:
+
+- **Detenido**. Este es el estado inicial del canal después de su creación (a menos que seleccionara el inicio automático en el portal.) No se produce ninguna facturación en este estado. En este estado, se pueden actualizar las propiedades del canal pero no se permite el streaming.
+- **Iniciando**. El canal se está iniciando. No se produce ninguna facturación en este estado. No se permiten actualizaciones ni streaming durante este estado. Si se produce un error, el canal vuelve al estado Detenido.
+- **En ejecución**. El canal es capaz de procesar secuencias en directo. Está ahora el uso de facturación. Debe detener el canal para evitar más facturación. 
+- **Deteniéndose**. El canal se está deteniendo. No se produce facturación en este estado transitorio. No se permiten actualizaciones ni streaming durante este estado.
+- **Eliminando**. El canal se está eliminando. No se produce facturación en este estado transitorio. No se permiten actualizaciones ni streaming durante este estado.
+
+En la tabla siguiente se muestra cómo se asignan los estados del canal al modo de facturación.
+ 
+Estado del canal|Indicadores IU del portal|¿Es la facturación?
+---|---|---
+Iniciando|Iniciando|No (estado transitorio)
+Ejecución|Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución)|SÍ
+Deteniéndose|Deteniéndose|No (estado transitorio)
+Detenido|Detenido|No
+
+##Flujo de trabajo de la codificación en directo
 El siguiente diagrama representa un flujo de trabajo de streaming en vivo donde un canal recibe una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). A continuación, la codifica como secuencia de varias velocidades de bits.
 
 ![Flujo de trabajo activo][live-overview]
@@ -49,7 +76,7 @@ El siguiente diagrama representa un flujo de trabajo de streaming en vivo donde 
 
 A continuación se indican los pasos generales para crear aplicaciones comunes de streaming en vivo.
 
->[AZURE.NOTE]Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Póngase en contacto con amslived en Microsoft punto com si necesita ejecutar un canal durante largos períodos de tiempo.
+>[AZURE.NOTE]Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Póngase en contacto con amslived en Microsoft.com si necesita ejecutar un canal durante períodos de tiempo más largos. Tenga en cuenta que hay un impacto en la facturación para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" incurrirá en cargos por hora. Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales.
 
 1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una **sola** velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
@@ -76,6 +103,9 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 2. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
 1. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
 1. Elimine el programa (y, opcionalmente, elimine el recurso).   
+
+>[AZURE.NOTE]Es muy importante no olvidar detener un canal de codificación en directo de Live. Tenga en cuenta que hay un impacto en la facturación por hora para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" supondrá un coste adicional de facturación. Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales.
+
 
 La sección de [tareas de streaming en vivo](media-services-manage-channels-overview.md#tasks) incluye vínculos a temas que demuestran cómo realizar las tareas descritas anteriormente.
 
@@ -324,7 +354,7 @@ La duración de la pizarra en segundos. Para iniciar la pizarra, este debe ser u
 
 Cuando está establecido en true, este valor configura el codificador en directo para insertar una imagen de pizarra durante una pausa de anuncio. El valor predeterminado es true.
 
-###<a id="default_slate"></a>Identificador de activo de la careta predeterminada
+###<a id="default_slate"></a>Identificador de activo de activo de tableta táctil predeterminado
 
 Opcional. Especifica el identificador del recurso de Servicios multimedia que contiene la imagen de pizarra. El valor predeterminado es null.
 
@@ -378,12 +408,12 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 Estado del canal|Indicadores IU del portal|¿Facturado?
 ---|---|---
 Iniciando|Iniciando|No (estado transitorio)
-Ejecución|Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos hay un programa en ejecución)|Sí
+Ejecución|Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución)|Sí
 Deteniéndose|Deteniéndose|No (estado transitorio)
 Detenido|Detenido|No
 
 
->[AZURE.NOTE]Actualmente, el inicio del canal puede tardar hasta más 20 minutos. El restablecimiento de canal puede tardar hasta 5 minutos.
+>[AZURE.NOTE]Actualmente, el promedio de inicio de canal es de aproximadamente 2 minutos, pero a veces puede tardar hasta más de 20 minutos. Los restablecimientos de canal pueden tardar hasta 5 minutos.
 
 
 ##<a id="Considerations"></a>Consideraciones
@@ -397,12 +427,14 @@ Detenido|Detenido|No
 - Solo se le cobrará cuando el canal esté en estado **En ejecución**. Para obtener más información, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) sección.
 - Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Póngase en contacto con amslived en Microsoft punto com si necesita ejecutar un canal durante largos períodos de tiempo.
 - Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
+- No olvide DETENER SUS CANALES cuando haya terminado. Si no lo hace, la facturación continuará. 
 
 ##Problemas conocidos
 
-- El inicio del canal puede tardar más de 20 minutos.
+- El tiempo de inicio del canal se ha mejorado en un promedio de 2 minutos, pero cuando se produce mayor demanda, podría tardar hasta más de 20 minutos.
 - La compatibilidad con RTP está dirigida a los operadores de radiodifusión profesionales. Revise las notas sobre RTP en [este](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
 - Las imágenes de careta deben cumplir las restricciones descritas [aquí](media-services-manage-live-encoder-enabled-channels.md#default_slate). Si intenta crear un canal con una pizarra predeterminada que sea superior a 1920x1080, la solicitud terminará por producir un error.
+- Una vez más... no se olvide de DETENER SUS CANALES cuando haya terminado de realizar el streaming. Si no lo hace, la facturación continuará.
 
 ###Creación de canales que realizan la codificación en directo desde una secuencia de una sola velocidad de bits a una secuencia de velocidad de bits adaptable 
 
@@ -432,4 +464,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

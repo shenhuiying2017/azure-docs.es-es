@@ -40,9 +40,9 @@ Puede configurar el nivel de coherencia predeterminado en la cuenta de la base d
  
 La coherencia alta proporciona garantías absolutas con relación a la coherencia de datos, pero ofrece el nivel más bajo de rendimiento de lectura y escritura.
 
-**Uso vinculado**: el uso vinculado garantiza el orden total de propagación de las escrituras con la posibilidad de que las lecturas se queden atrás con respecto a las escrituras en al menos K prefijos. La lectura siempre se confirma por cuórums de réplicas mayoritarios. La respuesta de una consulta de lectura especifica su relativa actualización (en términos de K).
+**Uso vinculado**: el uso vinculado garantiza el orden total de propagación de las escrituras con la posibilidad de que las lecturas se queden atrás con respecto a las escrituras en al menos K prefijos. La lectura siempre se confirma por cuórums de réplicas mayoritarios. La respuesta de una consulta de lectura especifica su relativa actualización (en términos de K). Con el uso vinculado puede establecer un umbral configurable de uso (como prefijos u hora) para lecturas de latencia de equilibrio y coherencia en estado estable.
 
-La coherencia de uso vinculado proporciona un comportamiento más predecible para la coherencia de lectura mientras ofrece las escrituras de latencia más bajas. Como las lecturas se confirman por un cuórum mayoritario, la latencia de lecturas no es la más baja ofrecida por el sistema.
+La coherencia de uso vinculado proporciona un comportamiento más predecible para la coherencia de lectura mientras ofrece las escrituras de latencia más bajas. Como las lecturas se confirman por un cuórum mayoritario, la latencia de lecturas no es la más baja ofrecida por el sistema. El uso vinculado es una opción para escenarios donde se busca una gran homogeneidad aun no resultando práctica. Si configura el "intervalo de uso" para que la coherencia del uso vinculado sea arbitrariamente grande, aún se mantendrá el orden total global de las escrituras. Esto proporciona una garantía más segura que Sesión u Ocasional.
 
 >[AZURE.NOTE]El uso vinculado garantiza lecturas monotónicas solo en las solicitudes de lectura explícitas. La respuesta de eco reflejada para las solicitudes de escritura no ofrece garantías de uso vinculado.
 
@@ -88,4 +88,4 @@ Si desea leer más sobre los niveles de coherencia y los compromisos, recomendam
 -	Werner Vogels. Coherencia ocasional - Revisión. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

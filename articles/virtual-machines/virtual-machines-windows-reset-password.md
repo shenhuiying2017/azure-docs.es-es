@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
-# Cómo restablecer una contraseña o el servicio de Escritorio remoto para máquinas virtuales de Windows
+# Restablecimiento de una contraseña o del servicio de Escritorio remoto para máquinas virtuales de Windows
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
@@ -114,4 +114,4 @@ Si no fue posible ejecutar el paquete de diagnóstico de Azure IaaS (Windows) o 
 
 [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Obtener información sobre los informes de administración de contraseñas de Azure AD | Microsoft Azure"
-	description="En este artículo se describe cómo usar los informes para obtener información sobre las operaciones de administración de contraseñas en su organización."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="Obtener información sobre los informes de administración de contraseñas de Azure AD | Microsoft Azure" 
+	description="En este artículo se describe cómo usar los informes para obtener información sobre las operaciones de administración de contraseñas en su organización." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Visión operativa con los informes de la administración de contraseñas
@@ -47,6 +47,16 @@ Para buscar los informes de administración de contraseñas, siga estos pasos:
 5.	Seleccione el informe **Actividad de restablecimiento de contraseña** o el informe **Actividad de registro de restablecimiento de contraseña**.
 
     ![][001]
+
+## Cómo obtener acceso a los informes de administración de contraseñas desde una API
+A partir de agosto de 2015, los informes y eventos de Azure AD admiten ahora la recuperación de toda la información incluida en los informes de restablecimiento de contraseña y del registro de restablecimiento de contraseña.
+
+Para obtener acceso a estos datos, deberá escribir una pequeña aplicación o un script para recuperarlos de nuestros servidores. [Obtenga información sobre cómo empezar con la API de informes de Azure AD](active-directory-reporting-api-getting-started.md).
+
+Cuando tenga un script de trabajo, querrá examinar los eventos de registro y el restablecimiento de contraseña que puede recuperar para cumplir con sus escenarios.
+
+- [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): muestra las columnas disponibles para los eventos de restablecimiento de contraseña.
+- [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): muestra las columnas disponibles para los eventos de registro de restablecimiento de contraseña.
 
 ## Visualización de la actividad de registro de restablecimiento de contraseña en su organización
 
@@ -95,7 +105,6 @@ La siguiente lista explica en detalle cada una de las columnas del informe:
 
 ### Descripción de los valores del informe
 En la tabla siguiente se describen los distintos valores permitidos para cada columna:
-
 
 Columna|Valores permitidos y su significado
 ---|---
@@ -163,4 +172,4 @@ El usuario restableció la contraseña correctamente.|Succeeded
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

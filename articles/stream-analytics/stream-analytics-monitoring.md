@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Descripción de la supervisión del trabajo de Análisis de transmisiones | Microsoft Azure" 
 	description="Descripción de la supervisión del trabajo de Análisis de transmisiones" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="análisis de macrodatos,servicio en la nube,internet de las cosas,servicio administrado, procesamiento de transmisiones,streaming de datos"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -64,7 +64,7 @@ Puede establecer reglas que pueden enviarle una notificación por correo electr�
 
 ## Personalización de la supervisión en el Portal de vista previa de Azure ##
 
-Puede ajustar el tipo de gráfico, las métricas que se muestran y el intervalo de tiempo en la configuración de Editar gráfico. Para obtener detalles, vea [Personalización de la supervisión](./azure-portal/insights-how-to-customize-monitoring.md)
+Puede ajustar el tipo de gráfico, las métricas que se muestran y el intervalo de tiempo en la configuración de Editar gráfico. Para obtener detalles, vea [Personalización de la supervisión](./azure-portal/insights-how-to-customize-monitoring.md).
 
   ![Portal de vista previa de Azure - Escala de tiempo](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)
 
@@ -104,4 +104,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

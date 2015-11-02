@@ -3,7 +3,7 @@
 	description="En este artículo se describe cómo puede usar Servicios multimedia de Azure (AMS) para entregar una secuencia que se cifra dinámicamente por AMS con DRM tanto de PlayReady como Widevine. La licencia de PlayReady procede del servidor de licencias PlayReady de Servicios multimedia y la licencia de Widevine se entrega al servidor de licencias de Axinom." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="willzhan,Juliako" 
+	authors="willzhan,Mingfeiy,rajputam,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015"  
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Uso de Axinom para entregar licencias de Widevine a Servicios multimedia de Azure  
@@ -196,9 +196,6 @@ Inicialización de clave|Se debe usar para generar la clave de contenido con cua
 Dirección URL de adquisición de licencias de Widevine|Se debe usar en la configuración de la directiva de entrega de activos para el streaming de DASH (vea [esta](media-services-axinom-integration.md#content-protection) sección).
 Id. de clave de contenido|Se debe incluir como parte del valor de notificación del mensaje de derechos de token JWT (consulte [esta](media-services-axinom-integration.md#jwt-token-generation) sección). 
 
-
-
-
 ##Rutas de aprendizaje de Servicios multimedia
 
 Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
@@ -206,4 +203,8 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 - [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+###Agradecimientos 
+
+Nos gustaría mencionar a las siguientes personas que han contribuido a crear este documento: Kristjan Jõgi de Axinom, Mingfei Yan y Amit Rajput.
+
+<!---HONumber=Oct15_HO4-->

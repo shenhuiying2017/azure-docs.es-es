@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/16/2015"
+   ms.date="10/17/2015"
    ms.author="jehollan"/>
 
 #Aplicación de API de C#
-La aplicación de API de C# proporciona una manera fácil de ejecutar expresiones de C# simples*mientras se ejecuta la aplicación lógica*.
+La aplicación de API de C# proporciona una manera fácil de ejecutar expresiones de C# simples *mientras se ejecuta la aplicación lógica*.
 
 ##¿Cuándo debe usar esta aplicación de API?
-El escenario clave para esta aplicación de API es cuando se desea que el ciclo de vida del código que escribe sea el mismo que el de la aplicación lógica, y *no* desea que se llame el código en otros escenarios.
+El escenario clave para el uso de esta aplicación de API es cuando quiere que el ciclo de vida del código que escribe sea el mismo que el de la aplicación lógica, y *no* quiere que se llame al código en otros escenarios.
 
 Por otro lado, si desea un fragmento de código reutilizable que tenga un ciclo de vida independiente de la aplicación lógica, debe usar la aplicación de API de WebJobs para crear expresiones de código simples y llamarlas desde la aplicación lógica.
 
@@ -96,7 +96,7 @@ return YammerAttachments;
 La acción devuelve el objeto que usted devolvió a partir de la función en un objeto de resultados. Por lo tanto, en la aplicación de API de Yammer, puede hacer referencia a `@body('csapi').results` para la propiedad **Datos adjuntos**.
 
 ## Aplicaciones adicionales del conector
-Una vez creado el conector, puede agregarlo a un flujo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
+Después de crear el conector, puede agregarlo a un flujo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
 También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de conectores y aplicaciones de API](../app-service-api/app-service-api-manage-in-portal.md).
 
@@ -105,4 +105,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

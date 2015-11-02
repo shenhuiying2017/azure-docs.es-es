@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Implementación de una aplicación de API con una nueva puerta de enlace" 
 	description="Use una plantilla del Administrador de recursos de Azure para implementar una aplicación de API con una nueva puerta de enlace y un nuevo plan del Servicio de aplicaciones." 
-	services="app-service\api" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-api" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -99,7 +99,7 @@ Crea el plan de hospedaje del servicio para la aplicación de API.
 
 Crea una aplicación web que hospeda la puerta de enlace.
 
-Observe que **kind** está configurado como **gateway** que notifica al portal de Azure que esta aplicación web hospeda una puerta de enlace. El portal ocultará la aplicación web en la hoja Aplicaciones web del explorador. Se define un vínculo entre la aplicación web de hospedaje y la puerta de enlace. La sección de configuración de la aplicación incluye los valores necesarios para hospedar la aplicación de API.
+Observe que **kind** está configurado como **gateway** que notifica al portal de Azure que esta aplicación web hospeda una puerta de enlace. El portal ocultará la aplicación web en la hoja Aplicaciones web del explorador. Se define un vínculo entre la aplicación web de hospedaje y la puerta de enlace. La sección de configuración de la aplicación incluye los valores necesarios para hospedar la aplicación de API. **serverFarmId** contiene el nombre del plan del Servicio de aplicaciones que proporcionó en el parámetro **hostingPlanName**.
 
 
     {
@@ -134,7 +134,7 @@ Observe que **kind** está configurado como **gateway** que notifica al portal d
             },
             {
               "name": "EmaStorage",
-              "value": "D:\home\data\apiapps"
+              "value": "D:\\home\\data\\apiapps"
             },
             {
               "name": "WEBSITE_START_SCM_ON_SITE_CREATION",
@@ -186,7 +186,7 @@ La aplicación web de hospedaje se define como una propiedad de la puerta de enl
 
 Crea una aplicación web que hospeda la aplicación de API.
 
-Observe que **kind** se establece en **apiApp**, lo que notifica al Portal de Azure que esta aplicación web hospeda una aplicación de API. El portal ocultará la aplicación web en la hoja Aplicaciones web del explorador. La aplicación incluye una extensión para instalar el paquete de la aplicación de API vacío predeterminado. Se establece un vínculo entre la aplicación de API y la aplicación web de hospedaje. La sección de configuración de la aplicación incluye los valores necesarios para hospedar la aplicación de API.
+Observe que **kind** se establece en **apiApp**, lo que notifica al Portal de Azure que esta aplicación web hospeda una aplicación de API. El portal ocultará la aplicación web en la hoja Aplicaciones web del explorador. La aplicación incluye una extensión para instalar el paquete de la aplicación de API vacío predeterminado. Se establece un vínculo entre la aplicación de API y la aplicación web de hospedaje. La sección de configuración de la aplicación incluye los valores necesarios para hospedar la aplicación de API. **serverFarmId** contiene el nombre del plan del Servicio de aplicaciones que proporcionó en el parámetro **hostingPlanName**.
 
     {
       "type": "Microsoft.Web/sites",
@@ -308,4 +308,4 @@ Observe que los nombres de la aplicación web de hospedaje y la puerta de enlace
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

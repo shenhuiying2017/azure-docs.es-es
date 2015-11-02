@@ -19,6 +19,8 @@
 
 # Administración de la disponibilidad de las máquinas virtuales
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ## Descripción del mantenimiento planeado frente al no planeado
 Existen dos tipos de eventos de la plataforma Microsoft Azure que pueden afectar a la disponibilidad de sus máquinas virtuales: el mantenimiento planeado y el mantenimiento no planeado.
 
@@ -35,7 +37,7 @@ Para reducir el impacto del tiempo de parada debido a uno o más de estos evento
 * [Evite las máquinas virtuales de instancia única en los conjuntos de disponibilidad]
 
 ### Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia
-Para proporcionar redundancia a la aplicación, recomendamos que agrupe dos máquinas virtuales o más en un conjunto de disponibilidad. Esta configuración garantiza que durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual estará disponible y cumplirá el 99,95% de los niveles de servicio contratados de Azure. Para obtener más información sobre los contratos de nivel de servicio, consulte la sección "Servicios en la nube, máquinas virtuales y red virtual" en [Contratos de nivel de servicio](../../../support/legal/sla/).
+Para proporcionar redundancia a la aplicación, recomendamos que agrupe dos máquinas virtuales o más en un conjunto de disponibilidad. Esta configuración garantiza que durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual estará disponible y cumplirá el 99,95% de los niveles de servicio contratados de Azure. Para obtener más información sobre los contratos de nivel de servicio, vea la sección "Servicios en la nube, máquinas virtuales y red virtual" en [Contratos de nivel de servicio](../../../support/legal/sla/).
 
 La plataforma Azure subyacente asigna a cada máquina virtual del conjunto de disponibilidad un dominio de actualización (UD) y un dominio de error (FD). Para un conjunto de disponibilidad determinado, se asignan cinco UD, que el usuario no puede configurar, para indicar grupos de máquinas virtuales y hardware físico subyacente que se pueden reiniciar simultáneamente. Cuando se configuran más de cinco máquinas virtuales dentro de un único conjunto de disponibilidad, la sexta máquina virtual se colocará en el mismo UD que la primera, la séptima en el mismo que la segunda y así sucesivamente. El orden en que los UD se reiniciarán tal vez no siga una secuencia durante un mantenimiento planeado, pero solo se reiniciarán uno por uno.
 
@@ -44,7 +46,7 @@ FD definen un grupo de máquinas virtuales que comparten un origen de alimentaci
 <!--Image reference-->
    ![Configuración de UD y FD](./media/virtual-machines-manage-availability/ud-fd-configuration.png)
 
->[AZURE.NOTE]Para obtener instrucciones, consulte [Configuración de un conjunto de disponibilidad para máquinas virtuales][].
+>[AZURE.NOTE]Para obtener instrucciones, vea [Configuración de un conjunto de disponibilidad para máquinas virtuales][].
 
 ### Configure cada nivel de aplicación en conjuntos separados de disponibilidad
 Si las máquinas virtuales en su conjunto de disponibilidad son casi idénticas y tienen la misma función en su aplicación, recomendamos que configure un conjunto de disponibilidad para cada nivel de la aplicación. Si coloca dos niveles diferentes en el mismo conjunto de disponibilidad, todas las máquinas virtuales en un mismo nivel de aplicación se podrían reiniciar simultáneamente. Al configurar al menos dos máquinas virtuales para cada nivel, se garantiza que al menos una máquina virtual en cada nivel estará disponible.
@@ -70,4 +72,4 @@ Evite dejar una máquina virtual de instancia única sola en un conjunto de disp
 [Evite las máquinas virtuales de instancia única en los conjuntos de disponibilidad]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Configuración de un conjunto de disponibilidad para máquinas virtuales]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

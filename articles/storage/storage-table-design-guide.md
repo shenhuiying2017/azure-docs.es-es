@@ -3,8 +3,8 @@
    description="Diseño escalable y tablas de rendimiento en el almacenamiento de tablas de Azure"
    services="storage"
    documentationCenter="na"
-   authors="tamram" 
-   manager="carolz"
+   authors="jasonnewyork" 
+   manager="tadb"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage"
    ms.date="08/03/2015"
-   ms.author="tamram"/>
+   ms.author="jahogg"/>
 
 # Guía de diseño de la tabla de almacenamiento de Azure: diseño escalable y tablas de rendimiento
 
@@ -1550,4 +1550,4 @@ También nos gustaría dar las gracias a los siguientes MVP de Microsoft por sus
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

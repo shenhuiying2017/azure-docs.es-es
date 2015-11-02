@@ -14,19 +14,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="07/02/2015"
+   ms.date="10/21/2015"
    ms.author="rasquill"/>
 
 # Creación de marcos de aplicaciones mediante el uso de plantillas
 
-Utilice este material para crear grandes cosas rápidamente.
+Utilice este material para crear grandes cosas rápidamente. Además de estas plantillas, puede buscar a través de plantillas](https://azure.microsoft.com/documentation/templates/).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
 
 | Plantilla | Descripción | Ver la plantilla | Implementarla ahora |
 |:---|:---|:---:|:---:|
-| Implementación de *n* máquinas virtuales rápidamente | Esta es una plantilla creada por Microsoft que implementa hasta *n* nuevas máquinas virtuales (junto con una nueva cuenta de almacenamiento y red virtual). | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/resource-loop-vms-vnet-aset/) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresource-loop-vms-vnet-aset%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| Implementación de *n* VM rápidamente | Esta es una plantilla creada por Microsoft que implementa hasta *n* nuevas VM (junto con una nueva cuenta de almacenamiento y red virtual). | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/resource-loop-vms-vnet-aset/) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresource-loop-vms-vnet-aset%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Bosque y dominio de Active Directory | Esta plantilla implementa dos nuevas máquinas virtuales nuevas (junto con una red virtual nueva, un equilibrador de carga y una cuenta de almacenamiento) y crea un nuevo bosque y dominio de Active Directory. Cada máquina virtual se crea como un controlador de dominio para el nuevo dominio y se coloca en un conjunto de disponibilidad. Cada máquina virtual también tendrá un extremo RDP agregado con una dirección IP pública de equilibrio de carga. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Servidor web Apache | Esta plantilla usa la extensión de Linux CustomScript de Azure para implementar un servidor web Apache. La plantilla crea una máquina virtual de Ubuntu, instala Apache2 y crea un archivo HTML simple.| [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/apache2-on-ubuntu-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapache2-on-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 | Clúster Couchbase | Esta plantilla implementa un clúster Couchbase en máquinas virtuales de Ubuntu. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/couchbase-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcouchbase-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
@@ -53,4 +53,4 @@ Descubra todas las plantillas que están a su disposición en [GitHub](https://g
 
 Obtenga más información sobre [Administrador de recursos de Azure](../resource-group-template-deploy.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="andkjell"/>
 
 # Evitar eliminaciones accidentales
@@ -39,13 +39,13 @@ Si no es lo esperado, investigue y tome las medidas correctivas oportunas. Para 
 
 Si se desean todas las eliminaciones, haga lo siguiente:
 
-1. Para deshabilitar temporalmente esta protección y permitir realizar estas eliminaciones, ejecute el cmdlet de PowerShell: `Disable-ADSyncExportDeletionThreshold`
+1. Para deshabilitar temporalmente esta protección y permitir realizar estas eliminaciones, ejecute el cmdlet de PowerShell: `Disable-ADSyncExportDeletionThreshold` Cuando se le pidan las credenciales, proporcione una cuenta y una contraseña de administrador global de Azure AD. ![Credenciales](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
 2. Con el Conector Azure Active Directory aún seleccionado, seleccione la acción **Ejecutar** y **Exportar**.
 3. Para volver a habilitar la protección, ejecute el cmdlet de PowerShell: `Enable-ADSyncExportDeletionThreshold`
 
 ## Pasos siguientes
-Obtenga más información sobre la configuración de [sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

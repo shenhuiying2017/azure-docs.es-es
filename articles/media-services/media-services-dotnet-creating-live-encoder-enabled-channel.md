@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Uso del SDK de .NET para crear canales que realicen la codificación en directo de secuencias de una sola velocidad de bits a secuencias de varias velocidades de bits" 
-	description="Este tutorial le guía por los pasos para crear un canal que reciba una secuencia en directo de una sola velocidad de bits y la codifique como secuencia de varias velocidades de bits." 
+	pageTitle="Creación de canales que realizan la codificación en directo de transmisiones de una sola velocidad de bits a transmisiones de varias velocidades de bits con .NET SDK" 
+	description="Este tutorial le guía por los pasos para crear un canal que reciba una secuencia en directo de una sola velocidad de bits y la codifique como secuencia de varias velocidades de bits con .NET SDK." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,13 +11,13 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015"
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
 
-#Uso del SDK de .NET para crear canales que realicen la codificación en directo de secuencias de una sola velocidad de bits a secuencias de varias velocidades de bits
+#Creación de canales que realizan la codificación en directo de transmisiones de una sola velocidad de bits a transmisiones de varias velocidades de bits con .NET SDK
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -517,4 +517,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna forma sus necesidades, háganos llegar sus comentarios mediante el subproceso de Disqus siguiente.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Uso de Hive de Hadoop y SSH en HDInsight | Microsoft Azure"
-   description="Aprenda a usar SSH para conectarse a un clúster de Hadoop en HDInsight y, a continuación, envíe interactivamente consultas de Hive usando la interfaz de línea de comandos (CLI) de Hive."
+   pageTitle="Uso del shell de Hive en HDInsight (Hadoop) | Microsoft Azure"
+   description="Obtenga información acerca de cómo usar el shell de Hive con un clúster de HDInsight basado en Linux. Aprenderá a conectarse al clúster de HDInsight mediante SSh y usar el shell de Hive para ejecutar consultas de forma interactiva."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -147,4 +147,4 @@ Para obtener información sobre otras formas en que puede trabajar con Hadoop en
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

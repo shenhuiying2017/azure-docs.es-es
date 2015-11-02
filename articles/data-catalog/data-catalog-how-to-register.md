@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="10/12/2015"
    ms.author="maroche"/>
 
 
@@ -52,7 +52,7 @@ En la vista previa actual, el **Catálogo de datos de Azure** admite el registro
 ## Metadatos estructurales
 Al registrar un origen de datos, la herramienta de registro extrae información sobre la estructura de los objetos seleccionados, lo que se conoce como metadatos estructurales.
 
-Para todos los objetos, estos metadatos estructurales incluirán la ubicación del objeto, para que las herramientas del cliente detecten los datos. Entre otros metadatos estructurales se incluyen el nombre y tipo del objeto, así como el nombre de atributo/columna y el tipo de datos.
+En todos los objetos, estos metadatos estructurales incluirán la ubicación del objeto, de modo que los usuarios que detecten los datos pueden usar esa información para conectar con el objeto en las herramientas de cliente de su elección. Entre otros metadatos estructurales se incluyen el nombre y tipo del objeto, así como el nombre de atributo/columna y el tipo de datos.
 
 ## Metadatos descriptivos
 Además de los metadatos estructurales de núcleo extraídos del origen de datos, la herramienta de registro de orígenes de datos también extraerá metadatos descriptivos. En el caso de SQL Server Analysis Services y SQL Server Reporting Services, esto procede de las propiedades de descripción expuestas por estos servicios. En SQL Server, se extraerán los valores especificados mediante la propiedad extendida ms\_description. En el caso de Base de datos de Oracle, la herramienta de registro de orígenes de datos extraerá la columna COMMENTS de la vista ALL\_TAB\_COMMENTS.
@@ -94,4 +94,4 @@ Al volver a registrar un origen de datos ya registrado se realiza una operación
 ## Resumen
 Al registrar un origen de datos con el **Catálogo de datos de Azure** se facilita la detección y comprensión de ese origen de datos, copiando los metadatos estructurales y descriptivos del origen de datos en el servicio Catálogo. Una vez registrado un origen de datos, se puede anotar, administrar y detectar mediante el portal **Catálogo de datos de Azure**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="¿Qué es el Estudio de aprendizaje automático de Azure? | Microsoft Azure"
 	description="Información general de Estudio de aprendizaje automático, una herramienta de arrastrar y colocar para crear rápidamente modelos desde una biblioteca lista para usar de algoritmos y módulos."
-	keywords="azure machine learning,azure ml, ml studio"
+	keywords="aprendizaje automático de azure, estudio de aprendizaje automático"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -31,7 +31,7 @@ Para desarrollar un modelo de análisis predictivo, normalmente se utilizan dato
 
 **Estudio de aprendizaje automático de Azure** le proporciona un área de trabajo visual e interactiva para generar, probar e iterar con toda facilidad sobre un modelo de análisis predictivo. Se arrastran y colocan ***conjuntos de datos*** y ***módulos*** de análisis en un ***lienzo*** interactivo, conectándolos todos para formar un ***experimento*** que se ***ejecuta*** en Estudio de aprendizaje automático. Para iterar su diseño de modelo, se puede ***editar*** el experimento, ***guardar*** una copia si así se desea y ejecutarlo de nuevo. Cuando esté listo, puede convertir el ***experimento de entrenamiento*** en un ***experimento predictivo***, y luego ***publicarlo*** como ***servicio web*** para que otros usuarios puedan acceder al modelo.
 
->[AZURE.TIP]Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, vea [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP]Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, consulte [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
 
 No se requiere ningún tipo de programación, basta con conectar visualmente conjuntos de datos y módulos para construir el modelo de análisis predictivo.
 
@@ -70,7 +70,7 @@ Un experimento consta de conjuntos de datos que proporcionan datos a módulos an
 - Todos los puertos de entrada de los módulos deben tener alguna conexión al flujo de datos.
 - Deben establecerse todos los parámetros necesarios para cada módulo.
 
-Puede crear un experimento desde cero, o puede usar un experimento de ejemplo existente como plantilla. Para obtener más información, vea [Uso de experimentos de ejemplo para crear nuevos experimentos](machine-learning-sample-experiments.md).
+Puede crear un experimento desde cero, o puede usar un experimento de ejemplo existente como plantilla. Para obtener más información, consulte [Uso de experimentos de ejemplo para crear nuevos experimentos](machine-learning-sample-experiments.md).
 
 Para obtener un ejemplo de creación de un experimento simple, consulte [Creación de un experimento sencillo en el Estudio de aprendizaje automático de Azure](machine-learning-create-experiment.md).
 
@@ -101,7 +101,7 @@ Cuando crea un experimento, puede elegir un módulo en la lista de módulos disp
 
 Un módulo puede tener un conjunto de parámetros que puede utilizar para configurar los algoritmos internos del módulo. Al seleccionar un módulo en el lienzo, los parámetros del módulo se muestran en el panel **Propiedades** a la derecha del lienzo. Puede modificar los parámetros en ese panel para ajustar su modelo.
 
-Para que le resulte más fácil navegar por la gran biblioteca de algoritmos de aprendizaje automático, vea [Elección de algoritmos para Aprendizaje automático de Microsoft Azure](machine-learning-algorithm-choice.md).
+Para que le resulte más fácil navegar por la gran biblioteca de algoritmos de aprendizaje automático, vea [Selección de algoritmos para Aprendizaje automático de Microsoft Azure](machine-learning-algorithm-choice.md).
 
 ## Implementación del servicio web de análisis predictivo
 
@@ -115,4 +115,4 @@ Cuando el modelo de análisis predictivo esté listo, puede implementarlo como s
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties
    	pageTitle="Creación de clústeres Hadoop, HBase o Storm en Linux en HDInsight con cURL y la API de REST de Azure | Microsoft Azure"
-   	description="Aprenda a crear clústeres Hadoop, HBase o Storm en Linux para HDInsight con cURL y la API de REST de Azure."
+   	description="Aprenda a crear clústeres de HDInsight basados en Linux mediante cURL, plantillas del Administrador de recursos de Azure y la API de REST de Azure. Puede especificar el tipo de clúster (Hadoop, HBase o Storm) o usar scripts para instalar componentes personalizados."
    	services="hdinsight"
    	documentationCenter=""
    	authors="Blackmist"
@@ -351,4 +351,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

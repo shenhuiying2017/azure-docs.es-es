@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Notas de la versión de Application Insights para Java" 
-	description="Las actualizaciones más recientes." 
+	description="Las actualizaciones más recientes del SDK de Java." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -68,4 +68,4 @@ Compare los archivos ApplicationInsights.xml antiguo y nuevo. Muchos de los camb
 - Posibilidad de etiquetar un elemento de telemetría como sintético agregando una propiedad ```SyntheticSource``` al elemento de informe.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

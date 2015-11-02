@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Introducción al Panel de acceso"
+	pageTitle="Introducción al panel de acceso | Microsoft Azure"
 	description="Aprenda a usar las diferentes variantes del Panel de acceso (explorador Web, aplicación Android, aplicación iPhone y iPad) para acceder a las aplicaciones SaaS que tiene asignadas."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -181,4 +181,4 @@ Al configurar un inicio de sesión único para una aplicación, el portal de adm
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

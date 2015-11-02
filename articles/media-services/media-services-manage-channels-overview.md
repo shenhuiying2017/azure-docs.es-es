@@ -3,7 +3,7 @@
 	description="En este tema se describe cómo configurar un canal que recibe una secuencia en directo de velocidad de bits múltiple desde un codificador local. Posteriormente, la secuencia se puede enviar a aplicaciones de reproducción cliente a través de uno o más extremos de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Stream, MPEG DASH o HDS." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="cenkdin,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
@@ -266,4 +266,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

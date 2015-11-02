@@ -18,13 +18,15 @@
 
 # Uso de temas/suscripciones del Bus de servicio
 
-En esta guía se describe cómo usar los temas y las suscripciones del Bus de servicio. Los ejemplos están escritos en Java y utilizan el [SDK de Azure para Java][]. Entre los escenarios tratados se incluye la **creación de temas y suscripciones**, la **creación de filtros de suscripción**, el **envío de mensajes a un tema**, la **recepción de mensajes de una suscripción** y la **eliminación de temas y suscripciones**.
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+
+En esta guía se describe cómo usar los temas y las suscripciones del Bus de servicio. Los ejemplos están escritos en Java y utilizan el [SDK de Azure para Java][]. Entre los escenarios tratados se incluyen **la creación de temas y suscripciones**, **la creación de filtros de suscripción**, **el envío de mensajes a un tema**, **la recepción de mensajes de una suscripción** y **la eliminación de temas y suscripciones**.
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-topic](../../includes/service-bus-java-how-to-create-topic.md)]
 
 ## Configuración de la aplicación para usar el Bus de servicio
 
-Asegúrese de que ha instalado el [SDK de Azure para Java][] antes de compilar este ejemplo. Si está usando Eclipse, puede instalar el [Kit de herramientas de Azure para Eclipse][], que incluye el SDK de Azure para Java. Después puede agregar las **Bibliotecas de Microsoft Azure para Java** al proyecto:
+Asegúrese de que ha instalado el [SDK de Azure para Java][] antes de compilar este ejemplo. Si usa Eclipse, puede instalar el [Kit de herramientas de Azure para Eclipse][], que incluye el SDK de Azure para Java. Después puede agregar las **Bibliotecas de Microsoft Azure para Java** al proyecto:
 
 ![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
@@ -64,7 +66,7 @@ La clase **ServiceBusService** proporciona métodos para crear, enumerar y elimi
 		System.exit(-1);
 	}
 
-En **TopicInfo** hay métodos que permiten ajustar las propiedades del tema (por ejemplo, establecer el valor de "período de vida" (TTL) predeterminado que se aplicará a los mensajes enviados al tema). El ejemplo siguiente muestra cómo crear un tema llamado `TestTopic` con un tamaño máximo de 5 GB:
+En **TopicInfo** hay métodos que permiten ajustar las propiedades del tema, por ejemplo, establecer el valor de período de vida (TTL) predeterminado que se aplicará a los mensajes enviados al tema. El ejemplo siguiente muestra cómo crear un tema llamado `TestTopic` con un tamaño máximo de 5 GB:
 
     long maxSizeInMegabytes = 5120;  
 	TopicInfo topicInfo = new TopicInfo("TestTopic");  
@@ -91,7 +93,7 @@ También puede configurar filtros que le permitan especificar qué mensajes envi
 
 El tipo de filtro más flexible compatible con las suscripciones es [SqlFilter][], que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información acerca de las expresiones que se pueden usar con un filtro de SQL, revise la sintaxis de [SqlFilter.SqlExpression][].
 
-En el ejemplo siguiente, se crea una suscripción denominada `HighMessages` con un objeto [SqlFilter][] que solo selecciona los mensajes con una propiedad **MessageNumber** personalizada cuyo valor sea mayor que 3:
+En el ejemplo siguiente, se crea una suscripción denominada `HighMessages` con [SqlFilter][] que solo selecciona los mensajes con una propiedad **MessageNumber** personalizada cuyo valor sea mayor que 3:
 
     // Create a "HighMessages" filtered subscription  
 	SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
@@ -122,7 +124,7 @@ Cuando ahora se envía un mensaje a `TestTopic`, siempre se entregará a los des
 
 ## de mensajes a un tema
 
-Para enviar un mensaje a una tema de bus de servicio, la aplicación va a obtener un objeto **ServiceBusContract**. El código siguiente muestra cómo enviar un mensaje al tema `TestTopic` que creamos anteriormente en el espacio de nombres de `HowToSample`.
+Para enviar un mensaje a una tema de bus de servicio, la aplicación va a obtener un objeto **ServiceBusContract**. El código siguiente muestra cómo enviar un mensaje al tema `TestTopic` creado anteriormente en el espacio de nombres de `HowToSample`.
 
     BrokeredMessage message = new BrokeredMessage("MyMessage");
     service.sendTopicMessage("TestTopic", message);
@@ -225,7 +227,7 @@ La principal manera de eliminar temas y suscripciones es usar un objeto **Servic
 
 ## Pasos siguientes
 
-Ahora que ya conoce los aspectos básicos de las colas del Bus de servicio, vea [Colas, temas y suscripciones del Bus de servicio][] para obtener más información.
+Ahora que ya conoce los aspectos básicos de las colas de Bus de servicio, vea [Colas, temas y suscripciones del Bus de servicio][] para obtener más información.
 
   [SDK de Azure para Java]: http://azure.microsoft.com/develop/java/
   [Kit de herramientas de Azure para Eclipse]: https://msdn.microsoft.com/es-ES/library/azure/hh694271.aspx
@@ -235,4 +237,4 @@ Ahora que ya conoce los aspectos básicos de las colas del Bus de servicio, vea 
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

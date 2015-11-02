@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Inicio de sesión único con el Proxy de aplicación"
+	pageTitle="Inicio de sesión único con el proxy de aplicación | Microsoft Azure"
 	description="Explica cómo proporcionar el inicio de sesión único mediante el Proxy de aplicación de Azure AD."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 
@@ -89,9 +89,7 @@ La configuración de Active Directory varía, dependiendo de si su conector del 
 
 1. Publique la aplicación según las instrucciones de [Publicación de aplicaciones mediante el Proxy de aplicación](active-directory-application-proxy-publish.md). Asegúrese de seleccionar **Azure Active Directory** como **Método de autenticación previa**.
 2. Cuando su aplicación aparezca en la lista de aplicaciones, selecciónela y haga clic en **Configurar**.
-3. En **Propiedades**, establezca **Método de autenticación interno** en **Autenticación de Windows integrada**.
-
-![Configuración avanzada de aplicaciones](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)
+3. En **Propiedades**, establezca **Método de autenticación interno** en **Autenticación integrada de Windows**.<br>![Configuración avanzada de aplicaciones](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)
 
 4. Escriba el **SPN de la aplicación interno** del servidor de aplicaciones. En este ejemplo, el SPN para nuestra aplicación publicada es http/lob.contoso.com.
 
@@ -99,7 +97,7 @@ La configuración de Active Directory varía, dependiendo de si su conector del 
 
 | | |
 | --- | --- |
-| Método de autenticación interno | Si utiliza Azure AD para la autenticación previa, puede establecer un método de autenticación interno para permitir a los usuarios beneficiarse de inicio de sesión único (SSO) para esta aplicación. <br><br> Seleccione **Autenticación integrada de Windows** (IWA) si su aplicación usa IWA y podrá configurar la delegación limitada de Kerberos (KCD) para habilitar SSO en esta aplicación. Las aplicaciones que usan IWA deben configurarse mediante KCD; en caso contrario, Proxy de aplicación no podrá publicar estas aplicaciones. <br><br> Seleccione **Ninguno** si la aplicación no usa IWA. |
+| Método de autenticación interno | Si utiliza Azure AD para la autenticación previa, puede establecer un método de autenticación interno para permitir a los usuarios beneficiarse de inicio de sesión único (SSO) para esta aplicación. <br><br> Seleccione **Autenticación integrada de Windows** (IWA) si su aplicación usa IWA y puede configurar la delegación limitada de Kerberos (KCD) para habilitar SSO en esta aplicación. Las aplicaciones que usan IWA deben configurarse mediante KCD; en caso contrario, Proxy de aplicación no podrá publicar estas aplicaciones. <br><br> Seleccione **Ninguno** si la aplicación no usa IWA. |
 | SPN de la aplicación interno | Este es el nombre principal del servicio (SPN) de la aplicación interna como está configurado en Azure AD local. El conector del proxy de aplicación utiliza el SPN para obtener los tokens de Kerberos para la aplicación que usa KCD. |
 
 <!--Image references-->
@@ -108,14 +106,14 @@ La configuración de Active Directory varía, dependiendo de si su conector del 
 
 
 ## SSO para las aplicaciones no son de Windows
-El flujo de la delegación de Kerberos del Proxy de aplicación de Azure AD se inicia cuando Azure AD autentica al usuario en la nube. Una vez que la solicitud se recibe en local, el conector de Proxy de aplicación de Azure AD emite un vale Kerberos en nombre del usuario mediante la interacción con Active Directory local. Este proceso se conoce como Delegación limitada de Kerberos (KCD). En la fase siguiente, se envía una solicitud a la aplicación back-end con este vale Kerberos. Existen números de protocolo que definen cómo enviar estas solicitudes. La mayoría de los servidores que no son Windows esperan Negotiate/SPNego, que ahora se admite en el Proxy de aplicación de Azure AD. ![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
+El flujo de la delegación de Kerberos del Proxy de aplicación de Azure AD se inicia cuando Azure AD autentica al usuario en la nube. Una vez que la solicitud se recibe en local, el conector de Proxy de aplicación de Azure AD emite un vale Kerberos en nombre del usuario mediante la interacción con Active Directory local. Este proceso se conoce como Delegación limitada de Kerberos (KCD). En la fase siguiente, se envía una solicitud a la aplicación back-end con este vale Kerberos. Existen números de protocolo que definen cómo enviar estas solicitudes. La mayoría de los servidores que no son Windows esperan Negotiate/SPNego, que ahora se admite en el proxy de aplicación de Azure AD. <br>![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
 ### Identidad delegada parcial
-Las aplicaciones que no son de Windows suelen obtener la identidad del usuario en forma de un nombre de usuario o un nombre de cuenta SAM, no como una dirección de correo electrónico (username@domain). Esto es diferente de la mayoría de los sistemas basados en Windows, que prefieren un UPN que es más concluyente y garantiza que no haya ninguna duplicación entre dominios. Por este motivo, el Proxy de aplicación permite seleccionar qué identidad aparece en el vale Kerberos, por aplicación. Algunas de estas opciones son adecuadas para los sistemas que no aceptan el formato de dirección de correo electrónico. ![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png) Si se usa la identidad parcial, y esta identidad pudiera no ser única para todos los dominios o bosques de la organización, puede que le interese publicar estas aplicaciones dos veces usando dos grupos distintos de conectores; puesto que cada aplicación tiene una audiencia de usuarios diferente, puede combinar sus conectores en un dominio diferente.
+Las aplicaciones que no son de Windows suelen obtener la identidad del usuario en forma de un nombre de usuario o un nombre de cuenta SAM, no como una dirección de correo electrónico (username@domain). Esto es diferente de la mayoría de los sistemas basados en Windows, que prefieren un UPN que es más concluyente y garantiza que no haya ninguna duplicación entre dominios. Por este motivo, el Proxy de aplicación permite seleccionar qué identidad aparece en el vale Kerberos, por aplicación. Algunas de estas opciones son adecuadas para sistemas que no aceptan el formato de dirección de correo electrónico.<br>![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png) Si se usa la identidad parcial, y esta identidad pudiera no ser única para todos los dominios o bosques de la organización, puede que le interese publicar estas aplicaciones dos veces usando dos grupos distintos de conectores; puesto que cada aplicación tiene una audiencia de usuarios diferente, puede combinar sus conectores en un dominio diferente.
 
  
 ## Trabajar con SSO cuando las identidades locales y en la nube no son idénticas
-A menos que se configuren de otra manera, el Proxy de aplicación supone que los usuarios tienen exactamente la misma identidad en la nube y en local. Para cada aplicación, puede configurar qué identidad se debe utilizar al realizar el inicio de sesión único. Esta capacidad permite a muchas organizaciones que tengan identidades locales y en la nube diferentes disponer de inicio de sesión único desde aplicaciones en la nube a locales sin que los usuarios tengan que escribir nombres de usuario y contraseñas diferentes. Esto incluye las organizaciones que:
+A menos que se configuren de otra manera, el Proxy de aplicación supone que los usuarios tienen exactamente la misma identidad en la nube y en local. Para cada aplicación, puede configurar qué identidad se debe utilizar al realizar el inicio de sesión único. Esta funcionalidad permite a muchas organizaciones que tienen identidades locales y en la nube diferentes disponer de inicio de sesión único en aplicaciones locales desde aplicaciones en la nube sin que los usuarios tengan que escribir nombres de usuario y contraseñas diferentes. Esto incluye las organizaciones que:
 
 
 - Tienen varios dominios internamente (joe@us.contoso.com, joe@eu.contoso.com) y un único dominio en la nube (joe@contoso.com).
@@ -127,11 +125,10 @@ A menos que se configuren de otra manera, el Proxy de aplicación supone que los
 - No utilizan nombres de dominio internamente (joe)
 
 
-- Usan distintos alias locales y en la nube. Por ejemplo, joe-johns@contoso.com vs. joej@contoso.com También le ayudará con aplicaciones que no aceptan direcciones en forma de dirección de correo electrónico, que es un escenario muy común para los servidores back-end que no son Windows.
+- Usan distintos alias locales y en la nube. Por ejemplo, joe-johns@contoso.com frente a joej@contoso.com también le ayudará con aplicaciones que no aceptan direcciones en forma de dirección de correo electrónico, que es un escenario muy común en servidores back-end que no son Windows.
 ### Configuración de SSO para diferentes identidades en la nube y locales diferentes
-1. Defina la configuración de Azure AD Connect para que la identidad principal sea la dirección de correo electrónico (correo). Esto se realiza como parte del proceso de personalización, cambiando el campo Nombre principal del usuario en la configuración de sincronización.
-
-![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png) Nota: esta configuración también determina cómo los usuarios inician sesión en dispositivos Office365, Windows10 y otras aplicaciones que usan Azure AD como su almacén de identidades. 2. En las opciones de Configuración de la aplicación correspondientes a la aplicación que desea modificar, seleccione la información en **Identidad de inicio de sesión delegada** que desee usar:
+1. Defina la configuración de Azure AD Connect para que la identidad principal sea la dirección de correo electrónico (correo). Esto se realiza como parte del proceso de personalización, cambiando el campo Nombre principal del usuario en la configuración de sincronización.<br>![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png) NOTA: esta configuración también determina cómo los usuarios inician sesión en dispositivos de Office365, Windows10 y otras aplicaciones que usan Azure AD como su almacén de identidades.
+2. En las opciones de Configuración de la aplicación correspondientes a la aplicación que quiere modificar, seleccione la información en **Identidad de inicio de sesión delegada** que quiere usar: 
 
 
 - Nombre principal del usuario: joe@contoso.com
@@ -172,4 +169,4 @@ Hay mucho más que puede hacer con el proxy de la aplicación:
 - [Consulte el blog del proxy de la aplicación](http://blogs.technet.com/b/applicationproxyblog/)
 - [Vea nuestros vídeos de Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/16/2015"
 	ms.author="maheshu"/>
 
 # Vista previa de Servicios de dominio de Active Directory: preguntas más frecuentes
 
 Esta página responde a las preguntas más frecuentes acerca de la vista previa de Servicios de dominio de Azure Active Directory. Siga comprobando si hay actualizaciones.
 
-### 1\. Configuración
+### Guía de solución de problemas
+Consulte nuestra [Guía de solución de problemas](active-directory-ds-troubleshooting.md) para obtener soluciones para los problemas habituales detectados al configurar o administrar los Servicios de dominio de Azure AD.
+
+
+### Configuración
 
 #### ¿Se pueden crear varios dominios para un único directorio de Azure AD?
 No. Solo se puede crear un único dominio atendido por Servicios de dominio de Azure AD para un único directorio de Azure AD.
@@ -32,10 +36,10 @@ El propio servicio no admite directamente este escenario. Servicios de dominio d
 PowerShell y la implementación automatizada de Servicios de dominio de Azure AD no están disponible actualmente.
 
 #### ¿Está Servicios de dominio de Azure AD disponible en el nuevo portal de Azure?
-No. Servicios de dominio de Azure AD puede configurarse únicamente en el portal de administración de Azure anterior (es decir, https://manage.windowsazure.com). Esperamos ampliar la compatibilidad para el nuevo portal de administración de Microsoft Azure (es decir, https://portal.azure.com) en el futuro.
+No. Los Servicios de dominio de Azure AD pueden configurarse únicamente en el Portal de administración de Azure anterior (es decir, https://manage.windowsazure.com). Esperamos ampliar la compatibilidad para el nuevo Portal de administración de Microsoft Azure (es decir, https://portal.azure.com) en el futuro.
 
 
-### 2\. Administración y operaciones
+### Administración y operaciones
 
 #### He habilitado Servicios de dominio de Azure AD ¿Qué cuenta de usuario utilizo para unir máquinas a este dominio?
 Las cuentas de usuario que ha agregado al grupo administrativo (es decir, ‘Administradores de controladores de dominio de AAD’) podrían unir máquinas al domino. Además, a los usuarios de este grupo se les concede acceso mediante Escritorio remoto a las máquinas que se han unido al dominio.
@@ -47,7 +51,7 @@ No. Puesto que se trata de un servicio administrado, no se le proporcionarán pr
 No. Las pertenencias a grupos en dominios ofrecidos por Servicios de dominio de Azure AD no se pueden modificar. Lo mismo se aplica para los atributos de usuario. Sin embargo, puede cambiar las pertenencias a grupos o los atributos de usuario en Azure AD o en el dominio local. Dichos cambios se sincronizarán automáticamente con Servicios de dominio de Azure AD.
 
 
-### 3\. Facturación y disponibilidad
+### Facturación y disponibilidad
 
 #### ¿Es un servicio de pago?
 El servicio está disponible a un precio reducido especial durante el período de vista previa pública. La facturación comenzará a practicarse a precio completo una vez que el servicio esté disponible con carácter general (GA). Consulte la página de precios para obtener más información.
@@ -59,9 +63,9 @@ Este servicio se incluye en evaluación gratuita de Azure. Puede suscribirse a u
 No, Servicios de dominio de Azure AD es un servicio de Azure de pago por uso y no forma parte de EMS. Servicios de dominio de Azure AD está disponibles para todos los SKU de Azure AD (es decir, Gratis, Básico y Premium) y se facturan por hora en función del uso.
 
 #### ¿En qué regiones de Azure está disponible el servicio?
-Consulte nuestra [página de regiones](active-directory-ds-regions.md) para obtener una lista de las regiones de Azure donde Servicios de dominio de Azure AD está disponible.
+Consulte nuestra [página de regiones](active-directory-ds-regions.md) para obtener una lista de las regiones de Azure donde están disponibles los Servicios de dominio de Azure AD.
 
 #### ¿Cuándo está disponible Servicios de dominio de Azure AD con carácter general?
 Actualmente no podemos compartir escalas de tiempo sobre cuándo estará disponible el servicio con carácter general.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

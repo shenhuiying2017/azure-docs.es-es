@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Patrones de consulta de Análisis de transmisiones de Azure | Microsoft Azure"
 	description="Patrones de consulta de Análisis de transmisiones de Azure comunes"
-	keywords="stream analytics, sample, query, language, guide, patterns"
+	keywords="análisis de transmisiones, muestra, consulta, idioma, guía, patrones"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -185,7 +185,7 @@ Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje 
 ## Patrones ##
 
 ## Recuento de valores únicos
-¿**Descripción**: cuente el número de valores de campo únicos que aparecen en la transmisión dentro de una ventana de tiempo, p. ej., ¿cuántas marcas únicas de vehículo pasaron por el peaje en una ventana de 2 segundos?
+**Descripción**: cuente el número de valores de campo únicos que aparecen en la transmisión dentro de una ventana de tiempo, por ejemplo, ¿cuántas marcas únicas de vehículo pasaron por el peaje en una ventana de 2 segundos?
 
 **Entrada**:
 
@@ -228,7 +228,7 @@ Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje 
 **Explicación:** hacemos una agregación inicial para obtener marcas únicas con su recuento en la ventana. A continuación, hacemos una agregación de todas las ventanas que tenemos; dado que todos los valores únicos en una ventana obtienen la misma marca de tiempo, la segunda ventana de agregación debe ser mínima para no agregar las dos ventanas del primer paso.
 
 ## Determinar si un valor ha cambiado ##
-**Descripción**: mire el valor anterior para determinar si es diferente del valor actual, p. ej., ¿el automóvil anterior en Carretera con peaje es de la misma marca que el automóvil actual?
+**Descripción**: mire el valor anterior para determinar si es diferente del valor actual, por ejemplo, ¿el automóvil anterior en Carretera con peaje es de la misma marca que el automóvil actual?
 
 **Entrada**:
 
@@ -310,7 +310,7 @@ Ahora vamos a cambiar el problema y buscaremos el primer vehículo de una marca 
 		IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
 ## Buscar el último evento en una ventana ##
-**Descripción**: ¿desea buscar el último vehículo en un intervalo de cada 10 minutos?
+**Descripción**: buscar el último vehículo en un intervalo de cada 10 minutos.
 
 **Entrada**:
 
@@ -355,7 +355,7 @@ Ahora vamos a cambiar el problema y buscaremos el primer vehículo de una marca 
 **Explicación**: hay dos pasos en la consulta, el primero busca la marca de tiempo más reciente en ventanas de 10 minutos. El segundo paso combina los resultados de la primera consulta con la transmisión original para buscar eventos que coinciden con las últimas marcas de tiempo en cada ventana.
 
 ## Detectar la ausencia de eventos ##
-**Descripción**: compruebe que una transmisión no tiene valores que coinciden con un criterio determinado, p. ej., ¿han entrado dos vehículos consecutivos de la misma marca en la carretera con peaje en un plazo de 90 segundos?
+**Descripción**: compruebe que una transmisión no tiene valores que coinciden con un criterio determinado, por ejemplo, ¿han entrado dos vehículos consecutivos de la misma marca en la carretera con peaje en un plazo de 90 segundos?
 
 **Entrada**:
 
@@ -455,4 +455,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

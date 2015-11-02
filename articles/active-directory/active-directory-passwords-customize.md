@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Personalización de la administración de contraseñas para ajustarse a las necesidades de su organización
@@ -361,7 +361,7 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
             <tr>
               <td>
-                <p>Número de preguntas necesarias para el restablecimiento </p>
+                <p>Número de preguntas necesarias para restablecimiento </p>
               </td>
               <td>
                 <p>Determina el número mínimo de preguntas que debe responder el usuario cuando restablece una contraseña.</p>
@@ -393,7 +393,56 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
             <tr>
               <td>
-                <p>Pregunta de seguridad</p>
+                <p>Preguntas de seguridad basadas en el conocimiento</p>
+              </td>
+              <td>
+                <p>Define las preguntas de seguridad predefinidas que los usuarios pueden elegir al registrarse para el restablecimiento de contraseña y al restablecer sus contraseñas.</p>
+                <p>
+                  
+                </p>
+                <p>(Solo visible si está activada la casilla <strong>Preguntas de seguridad</strong>).</p>
+              </td>
+              <td>
+                <p>
+                  <strong>Nota:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Todas las preguntas basadas en el conocimiento se adaptarán al conjunto completo de idiomas de O365 según la configuración regional del explorador del usuario.<br><br></li>
+                  <li class="unordered">
+												Se puede definir hasta un total de 20 preguntas (la suma de las preguntas personalizadas y basadas en el conocimiento).<br><br></li>
+                 <li class="unordered">
+												El límite mínimo de caracteres para las respuestas es de 3 caracteres.<br><br></li>
+                  <li class="unordered">
+												El límite máximo de caracteres para las respuestas es de 40 caracteres.<br><br></li>
+                  <li class="unordered">
+												Los usuarios no pueden responder a la misma pregunta dos veces.<br><br></li>
+                  <li class="unordered">
+												Los usuarios no pueden proporcionar dos veces la misma respuesta a dos preguntas diferentes.<br><br></li>
+                  <li class="unordered">
+												Se puede usar cualquier juego de caracteres para definir las respuestas (incluidos caracteres Unicode).<br><br></li>
+                  <li class="unordered">
+												El número de preguntas definidas debe ser mayor o igual que el número de preguntas necesarias para registrarse.<br><br></li>
+                </ul>
+                <p>
+                  <strong>Portal de registro:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Determina qué preguntas puede responder un usuario cuando se registra para el restablecimiento de contraseña.<br><br></li>
+                </ul>
+                <p>
+                  <strong>Portal de restablecimiento de contraseña:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Determina qué preguntas puede utilizar un usuario para restablecer una contraseña.<br><br></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Preguntas de seguridad personalizadas</p>
               </td>
               <td>
                 <p>Define las preguntas de seguridad entre las que los usuarios pueden elegir al registrarse para el restablecimiento de contraseña y al restablecer sus contraseñas.</p>
@@ -408,7 +457,7 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
                 </p>
                 <ul>
                   <li class="unordered">
-												Se pueden definir hasta 20 preguntas.<br><br></li>
+												Se puede definir hasta un total de 20 preguntas (la suma de las preguntas personalizadas y basadas en el conocimiento).<br><br></li>
                   <li class="unordered">
 												El límite máximo de caracteres para las preguntas es de 200 caracteres.<br><br></li>
                   <li class="unordered">
@@ -420,11 +469,11 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
                   <li class="unordered">
 												Los usuarios no pueden proporcionar dos veces la misma respuesta a dos preguntas diferentes.<br><br></li>
                   <li class="unordered">
-												Puede utilizarse cualquier conjunto de caracteres para definir las preguntas y respuestas (incluidos los caracteres Unicode).<br><br></li>
+												Se puede usar cualquier juego de caracteres para definir las preguntas y respuestas (incluidos caracteres Unicode).<br><br></li>
                   <li class="unordered">
 												El número de preguntas definidas debe ser mayor o igual que el número de preguntas necesarias para registrarse.<br><br></li>
                   <li class="unordered">
-												La definición de preguntas diferentes para distintas configuraciones regionales no se admite aún, pero se admitirá en el futuro.<br><br></li>
+												No se admite la definición de preguntas diferentes para distintas configuraciones regionales en el caso de preguntas personalizadas. Todas las preguntas personalizadas se mostrarán en el idioma en que las escriba en la interfaz de usuario administrativa, incluso si la configuración regional del explorador del usuario es diferente. Si necesita adaptar estas preguntas, use en su lugar las preguntas "basadas en el conocimiento".<br><br></li>
                 </ul>
                 <p>
                   <strong>Portal de registro:</strong>
@@ -727,6 +776,6 @@ En la tabla siguiente se describe cómo afecta cada control a la experiencia de 
 * [Preguntas más frecuentes sobre la administración de contraseñas](active-directory-passwords-faq.md)
 * [Solución de problemas de administración de contraseñas](active-directory-passwords-troubleshoot.md)
 * [Más información](active-directory-passwords-learn-more.md)
-* [Administración de contraseñas en MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
+* [Administración de contraseñas en MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

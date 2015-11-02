@@ -17,6 +17,8 @@ ms.author="diviso"/>
 
 # Automatización de la implementación de la máquina virtual de Azure con Chef
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Chef es una fantástica herramienta para ofrecer automatización y las configuraciones de estado que desee.
 
 Con nuestra versión de api de nube más reciente, Chef proporciona una perfecta integración con Azure, lo que da la capacidad de aprovisionar e implementar los estados de configuración a través de un único comando.
@@ -182,7 +184,7 @@ Ahora navegue al archivo C:\\chef\\cookbooks\\webserver\\templates\\default\\Def
 
 ## Cargar la guía en el servidor Chef
 
-En este paso, tomamos una copia de la guía que hemos creado en nuestra máquina local y la cargamos en el servidor hospedado de Chef. Una vez cargado, la guía aparecerá en la pestaña **Directiva**.
+En este paso, tomamos una copia de la guía que hemos creado en nuestra máquina local y la cargamos en el servidor hospedado de Chef. Cuando se cargue, la guía aparecerá en la pestaña **Directiva**.
 
 	knife cookbook upload webserver
 
@@ -237,4 +239,4 @@ Espero que esto les haya resultado útil. Empiece hoy su viaje de su infraestruc
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

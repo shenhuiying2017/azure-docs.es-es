@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Información general sobre consulta de bases de datos elásticas de Base de datos SQL de Azure"
+    pageTitle="Información general sobre la consulta de bases de datos elásticas de Base de datos SQL de Azure | Microsoft Azure"
     description="Información general de la característica de consultas elásticas"    
     services="sql-database"
     documentationCenter=""  
@@ -12,249 +12,131 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/09/2015"
-    ms.author="sidneyh;torsteng" />
+    ms.date="10/15/2015"
+    ms.author="torsteng" />
 
-# Información general sobre consulta de bases de datos elásticas de Base de datos SQL de Azure (vista previa)
+# Información general sobre la consulta de bases de datos elásticas de Base de datos SQL de Azure (vista previa)
 
-La **característica de consulta de Base de datos elástica**, en vista previa, le permite ejecutar una consulta de Transact-SQL que abarca varias bases de datos en Base de datos SQL de Azure. Permite conectar herramientas de Microsoft y de terceros (Excel, PowerBI, Tableau, etc.) a capas de datos con varias bases de datos, especialmente cuando esas bases de datos comparten un esquema común (lo que también se conoce como creación de partición horizontal o particionamiento). Con esta característica, puede escalar consultas horizontalmente a capas de datos de gran tamaño en Base de datos SQL y visualizar los resultados en los informes de inteligencia empresarial (BI).
+La característica de consulta de bases de datos elásticas, en vista previa, le permite ejecutar una consulta Transact-SQL que abarca varias bases de datos en Base de datos SQL de Azure (SQLDB). Permite realizar consultas entre bases de datos para acceder a tablas remotas, así como conectar herramientas de Microsoft y de terceros (Excel, PowerBI, Tableau, etc.) para hacer consultas en capas de datos con varias bases de datos. Con esta característica, puede escalar consultas horizontalmente a capas de datos de gran tamaño en Base de datos SQL y visualizar los resultados en los informes de inteligencia empresarial (BI). Para empezar a crear una aplicación de consulta de bases de datos elásticas, consulte [Introducción a la consulta de base de datos elástica](sql-database-elastic-query-getting-started.md).
 
-Para empezar a crear una aplicación de consulta de bases de datos elásticas, vea [Introducción a la consulta de Base de datos elástica](sql-database-elastic-query-getting-started.md).
+## Novedades de la consulta de bases de datos elásticas
+
+* Los escenarios de consulta entre bases de datos con bases de datos remotas únicas ahora se pueden definir en su totalidad en T-SQL, lo que permite realizar consultas de solo lectura en bases de datos remotas. Esto proporciona una opción para que los clientes actuales de SQL Server local migren las aplicaciones que usan nombres de tres y cuatro partes o un servidor vinculado a la base de datos SQL. 
+* Ahora se admite la consulta elástica en el nivel de rendimiento Estándar además de en el Premium. Consulte la sección Limitaciones de vista previa más adelante, que trata sobre las limitaciones del rendimiento para los niveles de rendimiento inferiores.
+* Ahora las consultas elásticas pueden insertar parámetros SQL en las bases de datos remotas para su ejecución.
+* Las llamadas a procedimientos remotos almacenados o las invocaciones de funciones remotas que usan sp\_execute\_fanout ahora pueden usar parámetros parecidos a [sp\_executesql](https://msdn.microsoft.com/library/ms188001.aspx).
+* Se mejoró el rendimiento para recuperar grandes conjuntos de resultados de la base de datos remota.
+* Las tablas externas con consulta elástica ahora pueden hacer referencia a tablas remotas con un nombre de tabla o un esquema diferente.
 
 ## Escenarios de consulta de base de datos elásticas
 
-El objetivo de la consulta de Base de datos elástica es el de proporcionar escenarios de informes en los que varias bases de datos aportan filas a un único resultado global. La consulta puede estar compuesta por el usuario o por la aplicación directa o indirectamente a través de herramientas que están conectadas a la base de datos de consultas. Esto resulta especialmente útil cuando se crean informes, mediante herramientas de integración de datos o BI comerciales, o cualquier software que no se puede cambiar. Con una consulta de base de datos elástica, puede consultar fácilmente varias bases de datos utilizando la conocida experiencia de conectividad de SQL Server en herramientas como Excel, PowerBI, Tableau o Cognos.
+El objetivo es facilitar escenarios de consulta en los que varias bases de datos aportan filas a un único resultado global. El usuario o la aplicación pueden componer la consulta directamente, o también se puede conseguir de forma indirecta mediante las herramientas que están conectadas a la base de datos. Esto resulta especialmente útil cuando se crean informes, mediante herramientas de integración de datos o de BI comerciales, o bien cualquier aplicación que no se pueda cambiar. Con una consulta elástica, puede consultar varias bases de datos por medio de la conocida experiencia de conectividad de SQL Server en herramientas como Excel, PowerBI, Tableau o Cognos. Una consulta elástica facilita el acceso a toda una colección de bases de datos a través de las consultas emitidas por SQL Server Management Studio o Visual Studio. Asimismo, permite las consultas entre bases de datos desde Entity Framework u otros entornos de ORM. En la ilustración 1, se muestra un escenario donde una aplicación en la nube existente (que usa la [biblioteca de cliente de bases de datos elásticas](sql-database-elastic-database-client-library.md)) se basa en una capa de datos escalada horizontalmente y se usa una consulta elástica para los informes entre bases de datos.
 
-Una consulta de bases de datos elásticas también facilita el acceso a toda una colección de bases de datos a través de las consultas emitidas por SQL Server Management Studio o Visual Studio. Asimismo, facilita las consultas entre bases de datos de Entity Framework u otros entornos de ORM. La ilustración 1 muestra un escenario donde una aplicación en la nube existente (que utiliza la biblioteca de herramientas de Base de datos elástica) se basa en una capa de datos escalada horizontalmente y se usa una consulta de bases de datos elásticas para informes entre bases de datos.
-
-**Ilustración 1**
+**Ilustración 1** Consulta de bases de datos elásticas usada en la capa de datos de escala horizontal
 
 ![Consulta de bases de datos elásticas usada en la capa de datos de escala horizontal][1]
 
-La capa de datos se escala horizontalmente entre muchas bases de datos mediante un esquema común. Este enfoque también se conoce como partición horizontal o particionamiento. Las particiones se pueden realizar y administrar mediante (1) la [biblioteca de cliente de Base de datos elástica](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) o (2) usando un modelo específico de la aplicación para distribuir los datos entre varias bases de datos. Con esta topología, los informes a menudo tienen que abarcan varias bases de datos. Con una consulta de bases de datos elásticas, ahora puede conectarse a una base de datos SQL y los resultados de la consulta de la base de datos remota aparecerán como si se generaran a partir de una sola base de datos virtual.
+Los escenarios de clientes para la consulta elástica se caracterizan por las siguientes topologías:
 
-> [AZURE.NOTE]Consulta de Base de datos elástica funciona mejor para escenarios de informes ocasionales, en los que la mayor parte del procesamiento se puede realizar en la capa de datos. Para grandes cargas de trabajo de informes o situaciones de almacenamiento de datos con consultas más complejas, considere también el uso de [Almacenamiento de datos SQL de Azure](http://azure.microsoft.com/services/sql-data-warehouse/).
+* **Particiones verticales: consultas entre bases de datos** (topología 1): los datos se particionan en vertical entre varias bases de datos en una capa de datos. Normalmente, los distintos conjuntos de tablas residen en bases de datos diferentes. Esto significa que el esquema es diferente en las distintas bases de datos. Por ejemplo, todas las tablas de inventario se encuentran en una base de datos mientras que todas las relacionadas con la contabilidad se encuentran en otra. En los casos de uso habituales con esta topología, se requiere uno para realizar una consulta o compilar informes en todas las tablas de varias bases de datos.
+* **Particiones horizontales: Particionamiento** (topología 2): los datos se particionan en horizontal para distribuir las filas en una capa de datos de escala horizontal. Con este enfoque, el esquema es idéntico en todas las bases de datos participantes. Este enfoque también se denomina simplemente "particionamiento". El particionamiento se puede realizar y administrar mediante 1) las bibliotecas de herramientas de bases de datos elásticas o 2) el particionamiento automático. Se usa una consulta elástica para realizar consultas o compilar informes en muchas particiones. 
 
-
-## Topología de la consulta de Base de datos elástica
-
-El uso de una consulta de bases de datos elásticas para realizar tareas de informes sobre una capa de datos con particiones horizontales requiere un mapa de particiones de escalado elástico para representar las bases de datos de la capa de datos. Normalmente, solo se usa un mapa de particiones en este escenario y una base de datos dedicada con capacidades de consulta de bases de datos elásticas que sirve como punto de entrada para las consultas de informes. Solo esta base de datos dedicada debe configurarse con objetos de consulta de bases de datos elásticas, como se describe a continuación. La ilustración 2 muestra esta topología y su configuración con la base de datos de consulta de bases de datos elástica y el mapa de particiones.
-
-> [AZURE.NOTE]La base de datos de consulta de bases de datos elásticas dedicada debe ser una base de datos de SQL DB v12 e inicialmente solo se admite el nivel Premium. No existen restricciones en propias particiones.
-
-**Ilustración 2**
-
-![Usar consulta de Base de datos elástica para informes sobre capas particionadas][2]
-
-(Un **shardlet** es todos los datos asociados con un valor único de una clave de particionamiento en una partición. Una **clave de particionamiento** es un valor de columna que determina cómo se distribuyen los datos entre particiones. Por ejemplo, los datos distribuidos por regiones pueden tener identificadores de región como clave de particionamiento. Para obtener más detalles, consulte el [glosario de escalado elástico](sql-database-elastic-scale-glossary.md)).
+> [AZURE.NOTE]Consulta de Base de datos elástica funciona mejor para escenarios de informes ocasionales, en los que la mayor parte del procesamiento se puede realizar en la capa de datos. Para grandes cargas de trabajo de informes o escenarios de almacenamiento de datos con consultas más complejas, considere también usar [Almacenamiento de datos SQL de Azure](http://azure.microsoft.com/services/sql-data-warehouse/).
 
 
-Con el tiempo, la característica de consulta de Base de datos elástica admitirá topologías adicionales. En este artículo se actualizará para reflejar nuevas características a medida que estén disponibles.
+## Topologías de consulta de Base de datos elástica
 
-## Habilitar consultas elásticas mediante la configuración de un mapa de particiones
+### Topología 1: Particionamiento vertical: consultas entre bases de datos
 
-La creación de una solución de consulta de bases de datos elásticas requiere las herramientas de Base de datos elástica [**mapa de particiones**](sql-database-elastic-scale-shard-map-management.md) para representar las bases de datos remotas en una consulta de bases de datos elásticas. Si ya utiliza la biblioteca de cliente de Base de datos flexible, puede usar el mapa de particiones existente. De lo contrario, deberá crear un mapa de particiones mediante las herramientas de Base de datos elástica.
+Para empezar a codificar, consulte la [introducción a la consulta entre bases de datos (creación de particiones verticales)](sql-database-elastic-query-getting-started-vertical.md).
 
-El siguiente código de ejemplo de C# muestra cómo crear un mapa de particiones con una sola base de datos remota agregada como una partición.
+Se puede usar una consulta elástica para hacer que los datos en una base de datos SQLDB estén disponibles para otras bases de datos SQLDB. Esto permite que las consultas desde una base de datos hagan referencia a las tablas de cualquier otra base de datos SQLDB remota. El primer paso consiste en definir un origen de datos externo para cada base de datos remota. El origen de datos externo se define en la base de datos local desde la que desee obtener acceso a las tablas que residen en la base de datos remota. No es necesario realizar cambios en la base de datos remota. En los escenarios típicos de particionamiento vertical en los que las diferentes bases de datos tienen esquemas distintos, se pueden usar consultas elásticas para implementar casos de uso habituales, como el acceso a datos de referencia y la consulta entre bases de datos.
 
-    ShardMapManagerFactory.CreateSqlShardMapManager(
-      "yourconnectionstring",
-      ShardMapManagerCreateMode.ReplaceExisting, RetryBehavior.DefaultRetryBehavior);
-    smm = ShardMapManagerFactory.GetSqlShardMapManager(
-      "yourconnectionstring",
-      ShardMapManagerLoadPolicy.Lazy,
-      RetryBehavior.DefaultRetryBehavior);
-    map = smm.CreateRangeShardMap<int>("yourshardmapname");
-    shard = map.CreateShard(new ShardLocation("yoursqldbserver", "yoursqldbdatabasename"));
+**Datos de referencia**: la topología 1 se usa para la administración de datos de referencia. En la ilustración siguiente, se mantienen dos tablas (T1 y T2) con datos de referencia en una base de datos dedicada. Con una consulta elástica, ahora puede acceder a las tablas T1 y T2 de forma remota desde otras bases de datos, como se muestra en la ilustración. Use la topología 1 si las tablas de referencia son pequeñas o si las consultas remotas en la tabla de referencia tienen predicados selectivos.
 
-Para obtener más detalles sobre mapas de particiones, consulte [Administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md).
+**Ilustración 2** Particionamiento vertical: usar una consulta elástica para consultar datos de referencia
 
-Para utilizar la característica de consulta de Base de datos elástica, primero debe crear el mapa de particiones y registrar las bases de datos remotas como particiones. Esta operación solo se realiza una vez. Solo necesita cambiar el mapa de particiones cuando agregue o quite bases de datos remotas, que son operaciones incrementales en un mapa de particiones existente.
+![Particionamiento vertical: usar una consulta elástica para consultar datos de referencia][3]
 
+**Consulta entre bases de datos**: las consultas elásticas hacen posibles los casos de uso que requieren realizar consultas en varias bases de datos SQLDB. En la ilustración 3, se muestran cuatro bases de datos diferentes: CRM, Inventory, HR y Products. Las consultas realizadas en una de las bases de datos también necesitan acceder a una de las otras bases de datos o a todas ellas. Mediante una consulta elástica, puede configurar la base de datos para este caso ejecutando unas pocas instrucciones DDL sencillas en cada una de las cuatro bases de datos. Después de esta configuración única, el acceso a una tabla remota es tan sencillo como hacer referencia a una tabla local desde las consultas T-SQL o las herramientas de BI. Se recomienda este enfoque si las consultas remotas no devuelven resultados de gran tamaño.
 
-## Creación de objetos de base de datos de consulta de bases de datos elásticas
+**Ilustración 3** Particionamiento vertical: usar una consulta elástica para consultar en varias bases de datos
 
-Para describir las tablas remotas a las que se puede tener acceso desde un extremo de consulta de bases de datos elásticas, presentamos la capacidad para definir tablas externas que aparecerán en su aplicación y en herramientas de terceros como si fueran tablas locales. Las consultas se pueden realizar en estos objetos de base de datos implícitamente a través de herramientas o explícitamente desde SQL Server Management Studio, Visual Studio Data Tools o desde una aplicación. La consulta de bases de datos elásticas se ejecuta como cualquier otra instrucción de Transact-SQL, con la significativa diferencia de que esa consulta distribuirá el procesamiento entre las posibles bases de datos remotas que subyacen en los objetos externos.
+![Particionamiento vertical: usar una consulta elástica para consultar en varias bases de datos][4]
 
-La característica de consulta de Base de datos elástica se basa en estas cuatro instrucciones de DDL. Normalmente, estas instrucciones de DDL se utilizan una vez o casi nunca cuando se cambia el esquema de la aplicación.
+### Topología 2: Particiones horizontales (particionamiento)
 
-*    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-*    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
-*    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
-*    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
+Para empezar a codificar, consulte [Introducción a la consulta de base de datos elástica](sql-database-elastic-query-getting-started.md).
 
-### Clave maestra y credenciales de ámbito de base de datos
+El uso de una consulta elástica para realizar tareas de informes en una capa de datos particionada, es decir, con particiones horizontales, requiere un [mapa de particiones de bases de datos elásticas](sql-database-elastic-scale-shard-map-management.md) para representar las bases de datos de la capa de datos. Normalmente, se usa un solo mapa de particiones en este escenario y una base de datos dedicada con capacidades de consulta elástica sirve de punto de entrada para las consultas de informes. Esta base de datos dedicada es la única que necesita acceder al mapa de particiones. En la ilustración 2, se muestra esta topología y su configuración con la base de datos de consulta elástica y el mapa de particiones. Tenga en cuenta que la base de datos de consulta elástica es la única que debe ser una Base de datos SQL v12 de Azure. Las bases de datos en la capa de datos pueden ser de cualquier edición o versión de Base de datos SQL de Azure. Para obtener más información acerca de la biblioteca de cliente de bases de datos elásticas y crear mapas de particiones, consulte [Administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md).
 
-Una credencial representa el identificador y la contraseña de usuario que usará la consulta de bases de datos elásticas para conectarse al mapa de particiones de escalado elástico y a las bases de datos remotas de Base de datos SQL de Azure. Puede crear la clave maestra y la credencial necesarias utilizando la sintaxis siguiente:
+**Ilustración 4** Particionamiento horizontal: usar una consulta elástica para informes en capas de datos particionadas
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';  
-    CREATE DATABASE SCOPED CREDENTIAL <credential_name>
-    WITH IDENTITY = '<shard_map_username>',
-    SECRET = '<shard_map_password>'
-     [;]
-Asegúrese de que &lt; shard\_map\_username > no incluye ningún sufijo "@servername".
+![Particionamiento horizontal: usar una consulta elástica para informes en capas de datos particionadas][5]
 
-La información sobre las credenciales está visible en la vista de catálogo de sys.database\_scoped\_credentials.
-
-Puede usar la siguiente sintaxis para quitar la clave maestra y las credenciales:
-
-    DROP DATABASE SCOPED CREDENTIAL <credential_name>;
-    DROP MASTER KEY;  
-
-### Orígenes de datos externos
-
-En el siguiente paso, deberá registrar su mapa de particiones como origen de datos externo. La sintaxis para crear y quitar orígenes de datos externos se define como sigue:
-
-      CREATE EXTERNAL DATA SOURCE <data_source_name> WITH
-                     (TYPE = SHARD_MAP_MANAGER,
-                     LOCATION = '<fully_qualified_server_name>',
-                     DATABASE_NAME = '<shardmap_database_name>',
-                     CREDENTIAL = <credential_name>,
-                     SHARD_MAP_NAME = '<shardmapname>'
-    ) [;]
-
-Puede utilizar la instrucción siguiente para quitar un origen de datos externo:
-
-    DROP EXTERNAL DATA SOURCE <data_source_name>[;]
-
-El usuario debe poseer el permiso ALTER ANY EXTERNAL DATA SOURCE. Este permiso está incluido en el permiso ALTER DATABASE.
-
-**Ejemplo**
-
-En el ejemplo siguiente se ilustra el uso de la instrucción CREATE para orígenes de datos externos.
-
-    CREATE EXTERNAL DATA SOURCE MyExtSrc
-    WITH
-    (
-    TYPE=SHARD_MAP_MANAGER,
-    LOCATION='myserver.database.windows.net',
-    DATABASE_NAME='ShardMapDatabase',
-    CREDENTIAL= SMMUser,
-    SHARD_MAP_NAME='ShardMap'
-    );
-
-Puede recuperar la lista de orígenes de datos externos actuales a partir de la vista de catálogo siguiente:
-
-    select * from sys.external_data_sources;
-
-Tenga en cuenta que se utilizan las mismas credenciales para leer el mapa de particiones y tener acceso a los datos de las bases de datos remotas durante el procesamiento de la consulta.
+> [AZURE.NOTE]La base de datos dedicada para la consulta de bases de datos elásticas debe ser una base de datos SQL v12. No existen restricciones en propias particiones.
 
 
-### Tablas externas
+## Implementación de consultas de bases de datos elásticas
 
-Con la consulta de Base de datos elástica, ampliaremos la sintaxis de la tabla externa existente para hacer referencia a las tablas que están particionadas en (varias) bases de datos remotas en Base de datos SQL de Azure. Con el concepto de origen de datos externo anterior, la sintaxis para crear y quitar las tablas externas se define como sigue:
+En las siguientes secciones, se describen los pasos necesarios para implementar una consulta elástica para los escenarios de particionamiento vertical y horizontal. También hacen referencia a documentación más detallada acerca de los distintos escenarios de particionamiento.
 
-    CREATE EXTERNAL TABLE [ database_name . [ dbo ] . | dbo. ] table_name
-        ( { <column_definition> } [ ,...n ])
-        { WITH ( <sharded_external_table_options> ) }
-    )[;]
+### Particionamiento vertical: consultas entre bases de datos
 
-    <sharded_external_table_options> ::=
-          DATA_SOURCE = <External_Data_Source>,
-          DISTRIBUTION = SHARDED(<sharding_column_name>) | REPLICATED | ROUND_ROBIN
+Con los siguientes pasos, se configuran consultas de bases de datos elásticas para escenarios de particionamiento vertical que requieren acceso a una tabla ubicada en una base de datos SQLDB remota:
 
-La directiva de particionamiento controla si una tabla se trata como una tabla particionada o como una tabla replicada. Con una tabla particionada, los datos de diferentes particiones no se superponen. Las tablas replicadas tienen los mismos datos en cada partición. El procesador de consultas se basa en esta información para llevar a cabo un procesamiento de consultas correcto y más eficaz. La distribución round robin indica que se usa un método específico de la aplicación para distribuir los datos de esa tabla.
+*    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) miClaveMaestra 
+*    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) miCredencial
+*    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) miOrigenDeDatos de tipo **RDBMS**
+*    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) miTabla
 
-    DROP EXTERNAL TABLE [ database_name . [ dbo ] . | dbo. ] table_name[;]
+Después de ejecutar las instrucciones DDL, puede acceder a la tabla remota "miTabla" como si fuera una tabla local. Base de datos SQL de Azure abre automáticamente una conexión con la base de datos remota, procesa la solicitud en la base de datos remota y devuelve los resultados. Obtenga más información sobre los pasos necesarios para el escenario de particionamiento vertical en [Consulta de bases de datos elásticas para consultas entre bases de datos (particionamiento vertical)](sql-database-elastic-query-vertical-partitioning.md).
 
-Permisos para **CREATE/DROP EXTERNAL TABLE**: se necesitan permisos ALTER ANY EXTERNAL DATA SOURCE que también son necesarios para hacer referencia al origen de datos subyacente.
+### Particiones horizontales (particionamiento) 
 
-**Ejemplo**: en el ejemplo siguiente se muestra cómo crear una tabla externa:
+Con los siguientes pasos, se configuran consultas de bases de datos elásticas para escenarios de particionamiento horizontal que requieren acceso a un conjunto de tablas ubicadas, por lo general, en varias bases de datos SQLDB remotas:
 
-    CREATE EXTERNAL TABLE [dbo].[order_line](
-        [ol_o_id] [int] NOT NULL,
-        [ol_d_id] [tinyint] NOT NULL,
-        [ol_w_id] [int] NOT NULL,
-        [ol_number] [tinyint] NOT NULL,
-        [ol_i_id] [int] NOT NULL,
-        [ol_delivery_d] [datetime] NOT NULL,
-        [ol_amount] [smallmoney] NOT NULL,
-        [ol_supply_w_id] [int] NOT NULL,
-        [ol_quantity] [smallint] NOT NULL,
-        [ol_dist_info] [char](24) NOT NULL
-    )
-    WITH
-    (
-        DATA_SOURCE = MyExtSrc,
-        DISTRIBUTION=SHARDED(ol_w_id)
-    );
+*    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) miClaveMaestra
+*    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) miCredencial 
+*    Cree un [mapa de particiones](sql-database-elastic-scale-shard-map-management.md) que represente su capa de datos mediante la biblioteca de cliente de bases de datos elásticas.   
+*    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) miOrigenDeDatos de tipo **SHARD\_MAP\_MANAGER**
+*    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) miTabla
 
-En el ejemplo siguiente se muestra cómo recuperar la lista de tablas externas de la base de datos actual:
+Una vez que realice estos pasos, puede acceder a la tabla con partición horizontal "miTabla" como si fuera una tabla local. Base de datos SQL de Azure abre automáticamente varias conexiones paralelas con las bases de datos remotas donde se almacenan las tablas, procesa las solicitudes en las bases de datos remotas y devuelve los resultados. Obtenga más información sobre los pasos necesarios para el escenario de particionamiento horizontal en [Consulta de bases de datos elásticas para particionamiento horizontal](sql-database-elastic-query-horizontal-partitioning.md).
 
-    select * from sys.external_tables;
-
-
-## Informes y consultas
-
-### Consultas
-Una vez que ha definido los orígenes de datos externos y las tablas, puede utilizar conocidas cadenas de conexión de Base de datos SQL para conectarse a la base de datos que tenga habilitada la característica de consulta de Base de datos elástica. Ahora puede ejecutar consultas de solo lectura completas sobre las tablas externas, con algunas limitaciones que se explica en la [sección de limitaciones](#preview-limitations) a continuación.
-
-**Ejemplo**: la consulta siguiente realiza una combinación en tres direcciones entre almacenes, pedidos y líneas de pedido y utiliza varios agregados y un filtro selectivo. Suponiendo que los almacenes, los pedidos y las líneas de pedido están particionadas por la columna de identificador de almacén, una consulta de base de datos elástica puede colocar las combinaciones en las bases de datos remotas y escalar horizontalmente el procesamiento de la parte costosa de la consulta.
-
-    select
-        w_id as warehouse,
-        o_c_id as customer,
-        count(*) as cnt_orderline,
-        max(ol_quantity) as max_quantity,
-        avg(ol_amount) as avg_amount,
-        min(ol_delivery_d) as min_deliv_date
-    from warehouse
-    join orders
-    on w_id = o_w_id
-    join order_line
-    on o_id = ol_o_id and o_w_id = ol_w_id
-    where w_id > 100 and w_id < 200
-    group by w_id, o_c_id
-
-### Procedimiento almacenado SP\_ EXECUTE\_FANOUT
-
-SP\_EXECUTE\_FANOUT es un procedimiento almacenado que proporciona acceso a las bases de datos representadas por un mapa de particiones. El procedimiento almacenado toma los parámetros siguientes:
-
--    **Nombre del servidor** (nvarchar): nombre completo del servidor lógico que hospeda el mapa de particiones.
--    **Nombre de la base de datos del mapa de particiones** (nvarchar): nombre de la base de datos del mapa de particiones.
--    **Nombre del usuario** (nvarchar): nombre del usuario para iniciar sesión en la base de datos del mapa de particiones y las bases de datos remotas.
--    **Contraseña** (nvarchar): contraseña del usuario.
--    **Nombre del mapa de particiones** (nvarchar): nombre del mapa de particiones que se va a usar para la consulta.
--    **Consulta**: consulta que se va a ejecutar en cada partición.
-
-Utiliza la información del mapa de particiones proporcionada en los parámetros de invocación para ejecutar la instrucción dada en todas las particiones registradas con el mapa de particiones. Los resultados se combinan con la semántica UNION ALL similar a las consultas de varias particiones. El resultado también incluye la columna ‘virtual’ adicional con el nombre de la base de datos remota.
-
-Tenga en cuenta que se usan las mismas credenciales para conectarse a la base de datos del mapa de particiones y para las particiones.
-
-**Ejemplo**:
-
-    sp_execute_fanout 'myserver.database.windows.net', N'ShardMapDb', N'myuser', N'MyPwd', N'ShardMap', N'select count(w_id) as foo from warehouse'
+## Consultas T-SQL
+Una vez que defina los orígenes de datos externos y las tablas externas, puede usar cadenas de conexión de SQL Server normales para conectarse a las bases de datos en las que definió las tablas externas. A continuación, puede ejecutar instrucciones T-SQL en las tablas externas de esa conexión, con las limitaciones que se describen a continuación. Puede encontrar más información y ejemplos de consultas T-SQL en los temas de documentación sobre [particionamiento horizontal](sql-database-elastic-query-horizontal-partitioning.md) y [particionamiento vertical](sql-database-elastic-query-vertical-partitioning.md).
 
 ## Conectividad para herramientas
-Puede utilizar cadenas de conexión de Base de datos SQL conocidas en la consulta de Base de datos elástica para conectar las herramientas de integración de datos y BI. Asegúrese de que SQL Server se admite como origen de datos para la herramienta. A continuación, use objetos externos en la base de datos de consulta de Base de datos elástica exactamente igual que con cualquier base datos SQL Server a la se que conectaría con la herramienta.
-
-## Prácticas recomendadas
-*    Asegúrese de que la base de datos de administrador del mapa de particiones y las bases de datos definidas en el mapa de particiones permiten el acceso desde Microsoft Azure en sus reglas de firewall. Esto es necesario para que la base de datos de consulta de Base de datos elástica pueda conectarse a ellas. Para obtener más información, consulte [Firewall de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx).
-*    Una consulta de base de datos elástica no valida o exige la distribución de datos definida por la tabla externa. Si la distribución de datos real es diferente de la distribución especificada en la definición de tabla, las consultas pueden arrojar resultados inesperados.
-*    Una consulta de bases de datos elásticas funciona mejor para consultas donde la mayor parte del cálculo se puede realizar en las particiones. Normalmente el máximo rendimiento de consultas se obtiene con predicados de filtros selectivos que se puede evaluar en las particiones o combinaciones sobre las claves de particiones que se pueden realizar en consonancia con la partición en todas las particiones. Otros patrones de consulta puede que necesiten cargar grandes cantidades de datos desde las particiones al nodo principal y pueden experimentar un rendimiento deficiente.
+Puede usar cadenas de conexión de SQL Server normales para conectar sus aplicaciones y herramientas de integración de datos o de BI a bases de datos con tablas externas. Asegúrese de que SQL Server se admite como origen de datos para la herramienta. Una vez conectadas, consulte la base de datos de consulta elástica y las tablas externas de esa base de datos como haría con cualquier otra base de datos de SQL Server a la que se conecte con su herramienta.
 
 ## Coste
 
-La consulta de Base de datos elástica se incluye con el costo de las bases de datos de Base de datos SQL de Azure. Tenga en cuenta que las topologías se admiten donde las bases de datos remotas se encuentran en un centro de datos diferente al extremo de consulta de bases de datos elásticas, pero la salida de datos de las bases de datos remotas se cobra a tarifas de salida normal de Azure.
+La consulta elástica se incluye en el costo de las bases de datos de Base de datos SQL de Azure. Tenga en cuenta que se admiten las topologías en las que las bases de datos remotas se encuentran en un centro de datos diferente al punto de conexión de la consulta elástica, pero la salida de datos de las bases de datos remotas se cobra a [tarifas de Azure](https://azure.microsoft.com/pricing/details/data-transfers/) normales.
 
 ## Limitaciones de vista previa
-
-Hay algunas cosas que se deben tener en cuenta con la vista previa:
-
-*    La característica de consulta de Base de datos elástica inicialmente solo estará disponible en el nivel de rendimiento Premium de SQL DB v12, aunque las bases de datos remotas a las que tiene acceso una consulta de bases de datos elásticas puede ser de cualquier nivel.
-* Las tablas externas a las que hace referencia el origen de datos externo solo admiten operaciones de lectura en las bases de datos remotas. Sin embargo, puede señalar toda la funcionalidad de Transact-SQL en la base de datos de consulta de bases de datos elásticas donde reside la propia definición de tabla externa. Esto puede ser útil, por ejemplo, para conservar los resultados temporales mediante SELECT lista\_columnas INTO tabla\_local o para definir procedimientos almacenados en la base de datos de consulta de bases de datos elásticas que hacen referencia a tablas externas.
-*    Los parámetros de consultas actualmente no se pueden trasladar a bases de datos remotas. Las consultas parametrizadas, necesitarán poner todos los datos en el nodo principal y pueden sufrir un mal rendimiento en función del tamaño de datos. Una solución temporal es evitar parámetros en las consultas o usar la opción RECOMPILE para tener parámetros reemplazados automáticamente por sus valores actuales.
-* Actualmente las estadísticas de nivel de columna a través de tablas externas no se admiten.
-* La consulta de Base de datos elástica actualmente no realiza eliminación de particiones cuando los predicados de la clave de particiones permitirían excluir de forma segura determinadas bases de datos remotas del procesamiento. Por lo tanto, las consultas siempre tocarán todas las bases de datos remotas representadas por los orígenes de datos externos de la consulta.
-* Todas las consultas que impliquen combinaciones entre tablas de bases de datos diferentes pueden devolver gran cantidad de filas a la base de datos de consulta de bases de datos elásticas para su procesamiento, lo que da lugar a un costo de rendimiento. Es mejor desarrollar consultas que se puedan procesar localmente en cada base de datos remota, o usar cláusulas WHERE para restringir filas afectadas de cada base de datos antes de realizar la combinación.
-*    La sintaxis usada para la definición de metadatos de la consulta de Base de datos elástica cambiará durante la vista previa.
-*    La funcionalidad de scripts de Transact-SQL en SSMS o SSDT actualmente no funciona con objetos de consulta de bases de datos elásticas.
+* Ejecutar una consulta elástica por primera vez puede tardar unos minutos en el nivel de rendimiento Estándar. Esta vez es necesario cargar la funcionalidad de consulta elástica; el rendimiento de carga mejora con niveles superiores de rendimiento.
+* Aún no se admite el scripting de orígenes de datos externos o tablas externas desde SSMS o SSDT.
+* La función Importación/Exportación para bases de datos SQL aún no admite orígenes de datos externos ni tablas externas. Si necesita usar Importación/Exportación, quite estos objetos antes de exportar y después vuelva a crearlos después de importar. 
+* Actualmente, la consulta de bases de datos elásticas solo es compatible con el acceso de solo lectura a tablas externas. Sin embargo, puede usar toda la funcionalidad de T-SQL en la base de datos donde se define la tabla externa. Esto puede ser útil, por ejemplo, para conservar resultados temporales mediante SELECT <column_list> INTO <local_table> o para definir procedimientos almacenados en la base de datos de consulta elástica que hacen referencia a tablas externas.
+* A excepción de nvarchar(max), los tipos LOB no se admiten en las definiciones de tabla externa. Como alternativa, cree una vista en la base de datos remota que convierta el tipo LOB en nvarchar(max), defina la tabla externa en la vista en lugar de la tabla base y después conviértala en el tipo LOB original en las consultas.
+* Actualmente no se admiten estadísticas de columna con tablas externas. Se admiten las estadísticas de tabla, pero se deben crear manualmente.
 
 ## Comentarios
-Comparta sus comentarios sobre su experiencia con nosotros en Disqus o Stackoverflow. Estamos interesados en todo tipo de comentarios sobre el servicio (defectos, particularidades, deficiencias de característica, etc.).
+Comparta sus comentarios sobre su experiencia con las consultas elásticas en Disqus más abajo, los foros de MSDN o Stackoverflow. Estamos interesados en todo tipo de comentarios sobre el servicio (defectos, particularidades, deficiencias de característica, etc.).
 
-## Pasos siguientes
-Para comenzar a explorar la consulta de Base de datos elástica, pruebe nuestro tutorial paso a paso para disponer de un completo ejemplo de trabajo en funcionamiento en minutos: [Introducción a la consulta de Base de datos elástica](sql-database-elastic-query-getting-started.md).
+## Más información
+
+Puede encontrar más información sobre las consultas entre bases de datos y los escenarios de particionamiento vertical en los siguientes documentos:
+
+* [Introducción a las consultas entre bases de datos y el particionamiento vertical](sql-database-elastic-query-vertical-partitioning.md)
+* Para disponer de un completo ejemplo de trabajo que estará en funcionamiento en solo unos minutos, pruebe nuestro tutorial paso a paso en la [introducción a la consulta entre bases de datos (particionamiento vertical)](sql-database-elastic-query-getting-started-vertical.md).
+
+
+Aquí dispone de más información acerca de los escenarios de particionamiento horizontal y vertical:
+
+* [Introducción al particionamiento horizontal y vertical](sql-database-elastic-query-horizontal-partitioning.md) 
+* Pruebe nuestro tutorial paso a paso para disponer de un completo ejemplo de trabajo que estará en funcionamiento en solo unos minutos: [Introducción a la consulta de base de datos elástica](sql-database-elastic-query-getting-started.md).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -262,7 +144,10 @@ Para comenzar a explorar la consulta de Base de datos elástica, pruebe nuestro 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-overview/overview.png
 [2]: ./media/sql-database-elastic-query-overview/topology1.png
+[3]: ./media/sql-database-elastic-query-overview/vertpartrrefdata.png
+[4]: ./media/sql-database-elastic-query-overview/verticalpartitioning.png
+[5]: ./media/sql-database-elastic-query-overview/horizontalpartitioning.png
 
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

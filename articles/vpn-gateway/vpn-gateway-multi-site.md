@@ -5,17 +5,23 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="tysonn" />
+   editor=""
+   tags="azure-service-management"/>
+
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # Conexión de varios sitios locales a una red virtual
+
+>[AZURE.NOTE]Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
+
+Este artículo se aplica a las redes virtuales y las puertas de enlace de VPN creadas con el modelo de implementación clásico (Administración de servicios).
 
 Puede conectar varios sitios locales a una única red virtual. Esto resulta especialmente atractivo para crear soluciones híbridas en la nube. La creación de una conexión de varios sitios en la puerta de enlace de red virtual de Azure es muy similar a la creación de otras conexiones de sitio a sitio. De hecho, puede usar una puerta de enlace de VPN de Azure existente. Se proporciona una puerta de enlace de VPN basada en ruta (o enrutamiento dinámico) configurada para la red virtual.
 
@@ -33,7 +39,7 @@ Antes de comenzar la configuración, compruebe que dispone de lo siguiente:
 
 - Una suscripción de Azure. Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-- Hardware VPN compatible para cada ubicación local. Vea [Acerca de dispositivos VPN para la conectividad de red virtual](http://go.microsoft.com/fwlink/p/?linkid=615099) para comprobar si el dispositivo que desea usar es un dispositivo que sabe que es compatible.
+- Hardware VPN compatible para cada ubicación local. Consulte [Acerca de los dispositivos VPN para conectividad de red virtual](http://go.microsoft.com/fwlink/p/?linkid=615099) para comprobar si el dispositivo que quiere usar es un dispositivo que se sabe que es compatible.
 
 - Una dirección IP IPv4 pública orientada externamente para cada dispositivo VPN. La dirección IP no se puede ubicar detrás de un NAT. Esto es un requisito.
 
@@ -49,13 +55,13 @@ Antes de comenzar la configuración, compruebe que dispone de lo siguiente:
 
 1. **Cree una VPN de sitio a sitio con una puerta de enlace de enrutamiento dinámico.** Si ya tiene una, estupendo. Puede pasar a [Exportación de la configuración de la red virtual](#export). De lo contrario, haga lo siguiente:
 
-	**Si ya dispone de una red virtual de sitio a sitio, pero tiene una puerta de enlace de enrutamiento estático:** **1.** Cambie el tipo de puerta de enlace a enrutamiento dinámico. Una VPN de varios sitios requiere una puerta de enlace de enrutamiento dinámico. Para cambiar el tipo de puerta de enlace, tendrá que eliminar primero la puerta de enlace existente y, a continuación, crear una nueva. Para obtener instrucciones, vea [Cambio de un tipo de enrutamiento de puerta de enlace de VPN](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type). **2.** Configure la nueva puerta de enlace y cree un túnel de VPN. Para obtener instrucciones, vea [Configuración de la puerta de enlace de VPN en el Portal de administración](vpn-gateway-configure-vpn-gateway-mp.md).
+	**Si ya dispone de una red virtual de sitio a sitio, pero tiene una puerta de enlace de enrutamiento estático:** **1.** Cambie el tipo de puerta de enlace a enrutamiento dinámico. Una VPN de varios sitios requiere una puerta de enlace de enrutamiento dinámico. Para cambiar el tipo de puerta de enlace, tendrá que eliminar primero la puerta de enlace existente y, a continuación, crear una nueva. Para obtener instrucciones, vea [Cambio de un tipo de enrutamiento de puerta de enlace de VPN](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type). **2.** Configure la nueva puerta de enlace y cree un túnel de VPN. Para obtener instrucciones, vea [Configuración de una puerta de enlace de VPN en el Portal de administración](vpn-gateway-configure-vpn-gateway-mp.md).
 	
-	**Si no dispone de una red virtual de sitio a sitio:** **1.** Cree una red virtual de sitio a sitio con estas instrucciones: [Creación de una red virtual con una conexión de VPN de sitio a sitio en el Portal de administración](vpn-gateway-site-to-site-create.md). **2.** Configure una puerta de enlace de enrutamiento dinámico con estas instrucciones: [Configuración de una puerta de enlace de VPN en el Portal de administración](vpn-gateway-configure-vpn-gateway-mp.md). Asegúrese de seleccionar **enrutamiento dinámico** para el tipo de puerta de enlace.
+	**Si no dispone de una red virtual de sitio a sitio:** **1.** Cree una red virtual de sitio a sitio con estas instrucciones: [Creación de una red virtual con una conexión de VPN de sitio a sitio en el Portal de administración](vpn-gateway-site-to-site-create.md). **2.** Configure una puerta de enlace de enrutamiento dinámico con estas instrucciones: [Configuración de una puerta de enlace de VPN en el Portal de administración](vpn-gateway-configure-vpn-gateway-mp.md). Asegúrese de seleccionar **enrutamiento dinámico** como tipo de puerta de enlace.
 
 
 
-1. **<a name="export"></a>Exporte la configuración de la red virtual.** Para exportar el archivo de configuración de red, vea [Para exportar la configuración de red](../virtual-network/virtual-networks-using-network-configuration-file.md#export-and-import-virtual-network-settings-using-the-management-portal). El archivo que exporte se usará para configurar los ajustes de varios sitios.
+1. **<a name="export"></a>Exportación de la configuración de la red virtual.** Para exportar el archivo de configuración de red, vea [Para exportar la configuración de red](../virtual-network/virtual-networks-using-network-configuration-file.md#export-and-import-virtual-network-settings-using-the-management-portal). El archivo que exporte se usará para configurar los ajustes de varios sitios.
 
 1. **Abra el archivo de configuración de red.** Abra el archivo de configuración de red que descargó en el último paso. Use el editor xml que desee. El archivo debe tener un aspecto similar al siguiente:
 
@@ -139,7 +145,7 @@ Antes de comenzar la configuración, compruebe que dispone de lo siguiente:
 
 ## Comprobación de las conexiones
 
-**Compruebe el estado del túnel de varios sitios.** Después de descargar las claves para cada túnel, querrá comprobar las conexiones. Use *Get-AzureVnetConnection* para obtener una lista de túneles de redes virtuales, como se muestra en el siguiente ejemplo. VNet1 es el nombre de la red virtual.
+**Compruebe el estado del túnel de varios sitios.** Después de descargar las claves para cada túnel, querrá comprobar las conexiones. Use *Get-AzureVnetConnection* para obtener una lista de túneles de redes virtuales, tal como se muestra en el siguiente ejemplo. VNet1 es el nombre de la red virtual.
 
 		PS C:\Users\yushwang\Azure> Get-AzureVnetConnection -VNetName VNET1
 		
@@ -169,6 +175,6 @@ Antes de comenzar la configuración, compruebe que dispone de lo siguiente:
 
 ## Pasos siguientes
 
-Para obtener más información sobre puertas de enlace de VPN, consulte [Acerca de puertas de enlace de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Para obtener más información sobre las puertas de enlace de VPN, vea [Acerca de las puertas de enlace de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

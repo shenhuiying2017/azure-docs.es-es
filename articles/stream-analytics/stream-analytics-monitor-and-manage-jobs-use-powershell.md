@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Supervisar y administrar los trabajos de Análisis de transmisiones con PowerShell | Microsoft Azure" 
 	description="Aprenda a usar los cmdlets de Azure PowerShell para supervisar y administrar trabajos de Análisis de transmisiones." 
-	keywords="azure powershell,azure powershell cmdlets,powershell command"	
+	keywords="azure powershell,cmdlets de azure powershell,comando de powershell"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -287,4 +287,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

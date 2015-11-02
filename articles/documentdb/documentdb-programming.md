@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Programación de DocumentDB: procedimientos almacenados, desencadenadores de base de datos y UDF | Microsoft Azure" 
 	description="Obtenga información sobre cómo usar DocumentDB para escribir procedimientos almacenados, desencadenadores de base de datos y funciones definidas por el usuario (UDF) en JavaScript. Obtenga sugerencias de programación de base de datos y mucho más." 
-	keywords="Database triggers, stored procedure, stored procedure, database program, sproc, documentdb, azure, Microsoft azure"
+	keywords="Desencadenadores de base de datos, procedimiento almacenado, procedimiento almacenado, programa de base de datos, sproc, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="aliuy" 
@@ -36,7 +36,7 @@ A continuación, vuelva a este artículo, donde conocerá las respuestas a las p
 
 ## Introducción a la programación con UDF y procedimientos almacenados
 
-Este enfoque de *“JavaScript como un T-SQL moderno”* libera a los desarrolladores de aplicaciones de las complejidades de los errores de coincidencia del sistema de tipo y de las tecnologías de asignación relacional de objetos. También cuenta con un número de ventajas intrínsecas que se pueden utilizar para generar sofisticadas aplicaciones:
+Este enfoque de *"JavaScript como un T-SQL moderno"* libera a los desarrolladores de aplicaciones de las complejidades de los errores de coincidencia del sistema de tipo y de las tecnologías de asignación relacional de objetos. También cuenta con un número de ventajas intrínsecas que se pueden utilizar para generar sofisticadas aplicaciones:
 
 -	**Lógica de procedimientos:** JavaScript como un lenguaje de programación de alto nivel, proporciona una interfaz completa y familiar para expresar la lógica empresarial. Puede realizar secuencias complejas de operaciones acercándose más a los datos.
 
@@ -50,7 +50,7 @@ Este enfoque de *“JavaScript como un T-SQL moderno”* libera a los desarrolla
 	-	Agrega una capa de abstracción en la parte superior de los datos sin procesar, lo cual permite a los arquitectos de datos desarrollar sus aplicaciones de forma independiente de los datos. Esto supone una especial ventaja cuando los datos no tienen esquema, debido a débiles suposiciones que se deben integrar en la aplicación si tienen que tratar directamente con los datos.  
 	-	Esta abstracción permite a las empresas mantener seguros sus datos simplificando el acceso desde los scripts.  
 
-Se admite la creación y ejecución de operadores de consulta personalizada, procedimientos almacenados y desencadenadores de base de datos a través de la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) y los [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx) en muchas plataformas: .NET, Node.js y JavaScript, entre otras. <b>Este tutorial utiliza el [SDK de Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)</b> para ilustrar la sintaxis y el uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF).
+Se admite la creación y ejecución de operadores de consulta personalizada, procedimientos almacenados y desencadenadores de base de datos a través de la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) y los [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx) en muchas plataformas: .NET, Node.js y JavaScript, entre otras. **Este tutorial utiliza el [SDK de Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** para ilustrar la sintaxis y el uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF).
 
 ## Procedimientos almacenados
 
@@ -475,9 +475,7 @@ La UDF se puede utilizar de forma consecuente en consultas como en el ejemplo si
 ## API de consulta integradas en lenguajes JavaScript
 Además de emitir consultas mediante la gramática de SQL del DocumentDB, el SDK del lado servidor permite realizar consultas optimizadas a través de una interfaz fluida de JavaScript sin necesitar conocimientos de SQL. La API de consulta de JavaScript permite crear mediante programación las consultas al pasar las funciones de predicado a función encadenada, con una sintaxis familiar para los elementos integrados de matriz de ECMAScript5 y las bibliotecas populares de JavaScript, como lodash. Las consultas se analizan con el tiempo de ejecución de JavaScript para que se ejecuten eficazmente mediante índices de DocumentDB.
 
-> [AZURE.NOTE]`__` (subrayado doble) es un alias para `getContext().getCollection()`.
-> <br/>
-> En otras palabras, puede utilizar `__` o `getContext().getCollection()` para obtener acceso a la API de consulta de JavaScript.
+> [AZURE.NOTE]`__` (subrayado doble) es un alias para `getContext().getCollection()`. <br/> En otras palabras, puede utilizar `__` o `getContext().getCollection()` para obtener acceso a la API de consulta de JavaScript.
 
 Entre las funciones compatibles se encuentran: <ul> <li> <b>chain() ... .value([devolución de llamada] [, opciones])</b> <ul> <li> Inicia una llamada encadenada que debe terminarse con value(). </li> </ul> </li> <li> <b>filter(predicateFunction [, opciones] [, devolución de llamada])</b> <ul> <li> Filtra la entrada con una función de predicado que devuelve verdadero o falso para filtrar la entrada y salida de documentos de entrada en el conjunto resultante. Este comportamiento es similar al de una cláusula WHERE de SQL. </li> </ul> </li> <li> <b>map(transformationFunction [, opciones] [, devolución de llamada])</b> <ul> <li> Aplica una proyección dada una función de transformación que asigna cada elemento de entrada a un valor o un objeto de JavaScript. Este comportamiento es similar al de una cláusula SELECT de SQL. </li> </ul> </li> <li> <b>pluck([nombrePropiedad] [, opciones] [, devolución de llamada])</b> <ul> <li> Se trata de un método abreviado de una asignación que extrae el valor de una propiedad única de cada elemento de entrada. </li> </ul> </li> <li> <b>flatten([isShallow] [, opciones] [, devolución de llamada])</b> <ul> <li> Combina y aplana las matrices de cada elemento de entrada en una sola matriz. Este comportamiento es similar al de SelectMany en LINQ. </li> </ul> </li> <li> <b>sortBy([predicado] [, opciones] [, devolución de llamada])</b> <ul> <li> Produce un nuevo conjunto de documentos al ordenar los documentos en la secuencia de documentos de entrada en orden ascendente según el predicado especificado. Este comportamiento es similar al de una cláusula ORDER BY en SQL. </li> </ul> </li> <li> <b>sortByDescending([predicado] [, opciones] [, devolución de llamada])</b> <ul> <li> Produce un nuevo conjunto de documentos al ordenar los documentos en la secuencia de documentos de entrada en orden descendente según el predicado especificado. Este comportamiento es similar al de una cláusula ORDER BY x DESC en SQL. </li> </ul> </li> </ul>
 
@@ -663,8 +661,7 @@ Todas las operaciones de la Base de datos de documentos se realizan de forma RES
 	}
 
 
-El procedimiento almacenado se registra ejecutando una solicitud POST con la URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs conteniendo en el cuerpo el procedimiento almacenado que se va a crear. Los desencadenadores y las UDF se pueden registrar de forma similar mediante la emisión de una solicitud POST con respecto a /triggers y /udfs, respectivamente.
-Este procedimiento almacenado se puede ejecutar mediante la emisión de una solicitud POST en su vínculo de recursos:
+El procedimiento almacenado se registra ejecutando una solicitud POST con la URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs conteniendo en el cuerpo el procedimiento almacenado que se va a crear. Los desencadenadores y las UDF se pueden registrar de forma similar mediante la emisión de una solicitud POST con respecto a /triggers y /udfs, respectivamente. Este procedimiento almacenado se puede ejecutar mediante la emisión de una solicitud POST en su vínculo de recursos:
 
 	POST https://<url>/sprocs/<sproc> HTTP/1.1
 	authorization: <<auth>>
@@ -729,4 +726,4 @@ También puede encontrar útiles las siguientes referencias y recursos en su rut
 -	[Arquitectura de base de datos orientada a servicios](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hospedaje de runtime de .NET en Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="10/16/2015"
    ms.author="joaoma" />
 
 
@@ -99,4 +99,4 @@ Puede tener más de una dirección IP pública con equilibrio de carga asignada 
 [Introducción al equilibrador de carga accesible desde Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

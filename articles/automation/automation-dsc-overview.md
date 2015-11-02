@@ -76,7 +76,7 @@ DSC de Automatización de Azure le permite importar, crear y compilar configurac
 
 ###Configuración de nodo###
 
-Cuando se compila una configuración de DSC, se generan una o más configuraciones de nodo, dependiendo de los bloques de nodo en la configuración. Una configuración de nodo es lo mismo que un "MOF" o un "documento de configuración" (si está familiarizado con esos términos de DSC de PS) y representa un "rol", como servidor web o de trabajo, cuyo estado deseado deben asumir uno o más nodos. Los nombres de las configuraciones de nodo en DSC de Automatización de Azure adoptan la forma de "<Configuration-name>.<Node configuration-block-name>".
+Cuando se compila una configuración de DSC, se generan una o más configuraciones de nodo, dependiendo de los bloques de nodo en la configuración. Una configuración de nodo es lo mismo que un "MOF" o un "documento de configuración" (si está familiarizado con esos términos de DSC de PS) y representa un "rol", como servidor web o de trabajo, cuyo estado deseado deben asumir uno o más nodos. Los nombres de las configuraciones de nodo en DSC de Automatización de Azure adoptan la forma de "Configuration Name.NodeConfigurationBlockName".
 
 Los nodos de DSC de PS descubren las configuraciones de nodo que deben aplicar a través de métodos de inserción o extracción de DSC. DSC de Automatización de Azure se basa en el método de extracción de DSC, donde los nodos solicitan configuraciones de nodo que deben aplicar desde el servidor de extracción de DSC de Automatización de Azure. Debido a que los nodos realizan la solicitud a DSC de Automatización de Azure, pueden encontrarse detrás de firewalls, tener cerrados todos los puertos de entrada, etc. Lo único que necesitan es acceso de salida a Internet.
 
@@ -97,7 +97,7 @@ DSC de Automatización de Azure incluye los mismos recursos integrados de DSC qu
 
 
 ###Trabajo de compilación###
-Un trabajo de compilación en DSC de Automatización de Azure es una instancia de compilación de una configuración, para crear una o más configuraciones de nodo. Son similares a los trabajos de runbook de Automatización de Azure, excepto en que no realizan realmente ninguna tarea, salvo la creación de configuraciones de nodo. Toda configuración creada por un trabajo de compilación se coloca automáticamente en el servidor de extracción de DSC de Automatización de Azure y sobrescriben las versiones anteriores de configuraciones de nodo, si existían para esta configuración. El nombre de una configuración de nodo generada por un trabajo de compilación toma el formato de "<Configuration-name>.<Node configuration-block-name>". Por ejemplo, al compilar la siguiente configuración se generará una configuración de nodo único llamada "MyConfiguration.webserver".
+Un trabajo de compilación en DSC de Automatización de Azure es una instancia de compilación de una configuración, para crear una o más configuraciones de nodo. Son similares a los trabajos de runbook de Automatización de Azure, excepto en que no realizan realmente ninguna tarea, salvo la creación de configuraciones de nodo. Toda configuración creada por un trabajo de compilación se coloca automáticamente en el servidor de extracción de DSC de Automatización de Azure y sobrescriben las versiones anteriores de configuraciones de nodo, si existían para esta configuración. El nombre de una configuración de nodo producida por un trabajo de compilación adopta la forma de "ConfigurationName.NodeConfigurationBlockName". Por ejemplo, al compilar la siguiente configuración se generará una configuración de nodo único llamada "MyConfiguration.webserver".
 
 
 ![texto alternativo](./media/automation-dsc-overview/AADSC_5.png)
@@ -121,7 +121,7 @@ Ir desde una cuenta de automatización vacía a un conjunto administrado de nodo
 
 - En este momento, DSC de Automatización de Azure no es compatible con configuraciones parciales o compuestas de DSC.
 
-- La versión más reciente de WMF 5 debe estar instalada para el agente DSC de PowerShell para que Windows pueda comunicarse con Automatización de Azure. En este momento, el agente DSC de PowerShell para Linux no admite comunicación con Automatización de Azure. Esto se actualizará pronto.
+- La versión más reciente de WMF 5 debe estar instalada para el agente DSC de PowerShell para que Windows pueda comunicarse con Automatización de Azure. La versión más reciente de agente DSC de PowerShell para Linux debe estar instalada para que sea posible la comunicación con el servicio Automatización de Azure.
 
 - Automatización de Azure no admite el uso en paralelo de módulos PowerShell. Esto significa que todas las configuraciones dentro de una cuenta de Automatización deben funcionar con la versión más reciente de un módulo PowerShell importado a una cuenta de Automatización y con cualquier recurso de DSC de PowerShell que un módulo contiene y que la configuración usa.
 
@@ -135,7 +135,7 @@ Ir desde una cuenta de automatización vacía a un conjunto administrado de nodo
 
 - Cuando se incorpora una máquina virtual de Azure para la administración con DSC de Automatización de Azure mediante el uso de `Register-AzureAutomationDscNode`, `Set-AzureVMExtension` o la extensión de máquina virtual de DSC de Automatización de Azure en el Portal de vista previa de Azure, si el registro muestra el error **No se especificó el nombre del equipo, y el directorio de configuración no tiene ningún archivo de configuración**, se trata de una falsa alarma y el registro de la máquina virtual se realizó correctamente. Para comprobar si el registro se realizó de manera correcta, puede usar el cmdlet `Get-AzureAutomationDscNode`.
 
-- Al incorporar una máquina virtual de Azure para la administración con DSC de Automatización de Azure usando `Register-AzureAutomationDscNode`, `Set-AzureVMExtension` o la extensión de máquina virtual de DSC de Automatización de Azure en el Portal de vista previa de Azure, la máquina virtual puede tardar hasta una hora en aparecer como nodo DSC en Automatización de Azure. Esto se debe a la instalación de Windows Management Framework 5.0 en la máquina virtual por la extensión de DSC de la máquina virtual de Azure, que es necesario para incorporar la máquina a DSC de Automatización de Azure.
+- Al incorporar una máquina virtual de Azure para la administración con DSC de Automatización de Azure mediante `Register-AzureAutomationDscNode`, `Set-AzureVMExtension` o la extensión de máquina virtual de DSC de Automatización de Azure en el Portal de vista previa de Azure, la máquina virtual puede tardar hasta una hora en aparecer como nodo DSC en Automatización de Azure. Esto se debe a la instalación de Windows Management Framework 5.0 en la máquina virtual por la extensión de DSC de la máquina virtual de Azure, que es necesario para incorporar la máquina a DSC de Automatización de Azure.
 
 - Tras el registro, cada nodo negocia automáticamente un certificado único para la autenticación que expira después de un año. En la actualidad, el protocolo de registro DSC de PowerShell no puede renovar automáticamente los certificados que vayan a expirar, por lo que tendrá que volver a registrar los nodos transcurrido un año. Antes de volver a registrar, asegúrese de que cada nodo ejecute Windows Management Framework 5.0 RTM. Si el certificado de autenticación de un nodo expira y el nodo no se registra de nuevo, este no podrá comunicarse con la Automatización de Azure y se marcará como "No responde". La actualización del registro se realiza de la misma forma que se registró el nodo inicialmente. Si dicha actualización se realiza en un plazo de 90 días o menos desde la fecha de expiración del certificado o en cualquier momento después de dicha fecha, se generará y usará un certificado nuevo.
 
@@ -145,4 +145,4 @@ Ir desde una cuenta de automatización vacía a un conjunto administrado de nodo
 - [Precios de DSC de Automatización de Azure](http://azure.microsoft.com/pricing/details/automation/)
 - [Implementación continua en las máquinas virtuales de IaaS mediante DSC de Automatización de Azure y Chocolatey](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Importación de datos en Estudio de aprendizaje automático desde un archivo local | Microsoft Azure"
 	description="Cómo importar datos de aprendizaje en Estudio de aprendizaje automático de Azure desde un archivo local."
-	keywords="import data,data format,data types,data sources,training data"
+	keywords="importar datos, formato de datos, tipos de datos, orígenes de datos, datos de entrenamiento"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -40,4 +40,4 @@ Durante la carga, verá un mensaje que le indica que se está cargando el archiv
 
 Una vez que los datos estén cargados, se almacenan en un módulo de conjunto de datos y se encontrarán disponibles para cualquier experimento que se realice en su área de trabajo. Puede encontrar la base de datos, junto con todos los conjuntos de datos de muestra cargados previamente, en la lista de **conjuntos de datos guardados** en la paleta de módulos cuando edita un experimento. Puede arrastrar y colocar el conjunto de datos en el lienzo de experimento cuando desee usarlo para profundizar en su análisis o para el aprendizaje automático.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

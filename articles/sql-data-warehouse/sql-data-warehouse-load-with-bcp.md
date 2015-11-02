@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"
-   editor="JRJ@BigBangData.co.uk"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/21/2015"
    ms.author="mausher;barbkess"/>
 
 
@@ -22,12 +22,22 @@
 
 bcp es una forma rápida y sencilla de realizar operaciones de introducción y extracción de datos en una base de datos de Almacenamiento de datos SQL. La cantidad exacta de datos que se recomienda para la carga o extracción mediante bcp dependerá de la conexión de red con el centro de datos de Azure. Por lo general, se pueden cargar y extraer tablas de dimensiones, pero es posible que las tablas de hechos bastante grandes tarden una cantidad considerable de tiempo en cargarse o extraerse.
 
-Con bcp puede: - Usar una utilidad sencilla de línea de comandos para cargar datos en Almacenamiento de datos SQL. - Usar una utilidad sencilla de línea de comandos para extraer datos de Almacenamiento de datos SQL.
+Con bcp puede:
 
-Este tutorial le mostrará cómo: - Importar datos en una tabla con el comando in de bcp - Exportar datos de una tabla con el comando out de bcp
+- Usar una utilidad de línea de comandos sencilla para cargar datos en Almacenamiento de datos SQL.
+- Usar una utilidad de línea de comandos sencilla para extraer datos de Almacenamiento de datos SQL.
+
+Este tutorial le mostrará cómo:
+ 
+- Importar datos en una tabla mediante el comando in de bcp
+- Importar datos en una tabla mediante el comando out de bcp
 
 ## Requisitos previos
-Para seguir paso a paso este tutorial, necesita: - Una base de datos de Almacenamiento de datos SQL - La utilidad de línea de comandos bcp instalada - La utilidad de línea de comandos SQLCMD instalada
+Para seguir paso a paso este tutorial, necesita:
+
+- Una base de datos de Almacenamiento de datos SQL
+- La utilidad de línea de comandos bcp instalada
+- La utilidad de línea de comandos SQLCMD instalada
 
 >[AZURE.NOTE]Puede descargar las utilidades bcp y SQLCMD del [Centro de descarga de Microsoft][].
 
@@ -152,4 +162,4 @@ Para obtener información general sobre la carga, vea [Carga de datos en Almacen
 <!--Other Web references-->
 [Centro de descarga de Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

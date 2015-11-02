@@ -2,7 +2,7 @@
 	pageTitle="Solicitud de aumento de los límites de la cuenta de DocumentDB | Microsoft Azure" 
 	description="Obtenga información acerca de cómo solicitar un ajuste en los límites de DocumentDB, como el número de colecciones permitidas, los procedimientos almacenados y las cláusulas de consulta." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/28/2015" 
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # Solicitud de aumento de los límites de la cuenta de DocumentDB
 
@@ -91,4 +91,4 @@ Una vez creada la incidencia de soporte técnico, debería recibir el número de
 - Para obtener más información acerca de DocumentDB, haga clic [aquí](http://azure.com/docdb).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

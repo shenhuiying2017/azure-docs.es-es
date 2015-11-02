@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="10/15/2015" 
 	ms.author="nitinme"/>
 
 # Instalación y uso de Hue en clústeres de Hadoop para HDInsight
@@ -49,10 +49,11 @@ La acción de script [https://hdiconfigactions.blob.core.windows.net/linuxhuecon
 	* __PRINCIPAL__: active esta opción.
 	* __TRABAJO__: déjelo en blanco.
 	* __ZOOKEEPER__: déjelo en blanco.
-	* __PARÁMETROS__: el script espera la **contraseña de administrador del clúster** como un parámetro. Se trata de la contraseña que especificó al aprovisionar el clúster. Debe especificar la contraseña entre comillas simples.
+	* __PARÁMETROS__: el script espera la **contraseña de administrador del clúster** como un parámetro. Se trata de la contraseña que especificó al aprovisionar el clúster. Consideraciones importantes al proporcionar la contraseña:
+		* Si el nombre de usuario del clúster es "admin", solo deberá especificar la contraseña entre comillas simples.
+		* Si el nombre de usuario del clúster no es "admin", debe especificar el parámetro como `-u [username] [password in single quotes]`
 
-
-3. En la parte inferior de **Acciones de script**, use el botón **Seleccionar** para guardar la configuración. Por último, use el botón **Seleccionar** situado en la parte inferior de la hoja **Configuración opcional** para guardar la información de configuración opcional.
+3. En la parte inferior de **Acciones de scripts**, use el botón **Seleccionar** para guardar la configuración. Por último, use el botón **Seleccionar** situado en la parte inferior de la hoja **Configuración opcional** para guardar la información de configuración opcional.
 
 4. Continúe aprovisionando el clúster tal como se describe en [Aprovisionamiento de clústeres de HDInsight n Linux](hdinsight-hadoop-provision-linux-clusters.md#portal).
 
@@ -62,7 +63,7 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
 
 1. Consulte la información de [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md) para crear un túnel SSH desde el sistema cliente al clúster de HDInsight y luego configurar el explorador web para usar el túnel SSH como proxy.
 
-2. Tras crear un túnel SSH y configurar el explorador para canalizar el tráfico proxy a través de él, use el explorador para abrir el portal de Hue en http://headnode0:8888.
+2. Después de crear un túnel SSH y configurar el explorador para redirigir el tráfico mediante proxy a través de él, use el explorador para abrir el portal de Hue en http://headnode0:8888.
 
     > [AZURE.NOTE]Al iniciar sesión por primera vez, se le pedirá que cree una cuenta para iniciar sesión en el portal de Hue. Las credenciales que especifique aquí se limitarán al portal y no están relacionadas con las credenciales de administrador o de usuario SSH que especificó al aprovisionar el clúster.
 
@@ -70,27 +71,27 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
 
 ### Ejecución de una consulta de Hive
 
-1. En el portal de Hue, haga clic en **Query Editors** y luego en **Hive** para abrir el editor de Hive.
+1. En el portal de Hue, haga clic en **Query Editors** (editores de consultas), y, a continuación, haga clic en **Hive** para abrir el editor de Hive.
 
 	![Uso de Hive](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.png "Uso de Hive")
 
-2. En la pestaña **Assist**, en **Database**, debe verse **hivesampletable**. Se trata de una tabla de ejemplo que se incluye con todos los clústeres de Hadoop en HDInsight. Escriba una consulta de ejemplo en el panel derecho y vea el resultado en la pestaña **Results** en el panel que hay debajo, tal y como se muestra en la captura de pantalla.
+2. En la pestaña **Assist** (asistencia) , en **Database** (base de datos), debería de ver **hivesampletable**. Se trata de una tabla de ejemplo que se incluye con todos los clústeres de Hadoop en HDInsight. Escriba una consulta de ejemplo en el panel derecho y vea el resultado en la pestaña **Results** (resultados) en el panel debajo, como se muestra en la captura de pantalla.
 
 	![Ejecución de consultas de Hive](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.Query.png "Ejecución de consultas de Hive")
 
-	También puede usar la pestaña **Chart** para ver una representación visual del resultado.
+	También puede usar la pestaña **Chart** (gráfico) para ver una representación visual del resultado.
 
 ### Examinar el almacenamiento del clúster
 
-1. En el portal de Hue, haga clic en **File Browser** en la esquina superior derecha de la barra de menús.
+1. En el portal de Hue, haga clic en **File Browser** (explorador de archivos) en la esquina superior derecha de la barra de menús.
 
-2. El explorador de archivos se abre de forma predeterminada en el directorio **/user/myuser**. Haga clic en la barra oblicua que se encuentra antes del directorio del usuario en la ruta de acceso para ir a la raíz del contenedor de Almacenamiento de Azure asociado con el clúster.
+2. De forma predeterminada se abre el explorador de archivos en el directorio **/user/myuser**. Haga clic en la barra oblicua que se encuentra antes del directorio del usuario en la ruta de acceso para ir a la raíz del contenedor de Almacenamiento de Azure asociado con el clúster.
 
 	![Uso del explorador de archivos](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.File.Browser.png "Uso del explorador de archivos")
 
-3. Haga clic con el botón derecho en un archivo o carpeta para ver las operaciones disponibles. Use el botón **Cargar** situado en la esquina derecha para cargar archivos en el directorio actual. Use el botón **Nuevo** para crear otros archivos o directorios.
+3. Haga clic con el botón derecho en un archivo o carpeta para ver las operaciones disponibles. Use el botón **Cargar** situado en la esquina derecha para cargar archivos en el directorio actual. Use el botón **Nuevo** para crear nuevos archivos o directorios.
 
-> [AZURE.NOTE]El explorador de archivos de Hue solo puede mostrar el contenido del contenedor predeterminado asociado con el clúster de HDInsight. Cualquier cuenta o contenedor de almacenamiento adicional asociados con el clúster no serán accesibles mediante el explorador de archivos. Sin embargo, los contenedores adicionales asociados con el clúster siempre serán accesibles para los trabajos de Hive. Por ejemplo, si escribe el comando `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` en el editor de Hive, también podrá ver el contenido de otros contenedores. En este comando, **newcontainer** no es el contenedor predeterminado asociado a un clúster.
+> [AZURE.NOTE]El explorador de archivos de Hue solo puede mostrar el contenido del contenedor predeterminado asociado con el clúster de HDInsight. Cualquier cuenta o contenedor de almacenamiento adicional asociados con el clúster no serán accesibles mediante el explorador de archivos. Sin embargo, los contenedores adicionales asociados con el clúster siempre serán accesibles para los trabajos de Hive. Por ejemplo, si escribe el comando `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` en el editor de Hive, también podrá ver el contenido de los contenedores adicionales. En este comando, **newcontainer** no es el contenedor predeterminado asociado a un clúster.
 
 ## Consideraciones importantes
 
@@ -108,7 +109,7 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
 
 	Este es un problema conocido. Como alternativa, modifique Ambari para que el Administrador de recursos que está activo también se ejecute en HEADNODE0.
 
-5.	Hue entiende WebHDFS, mientras que los clústeres de HDInsight usan Almacenamiento de Azure mediante `wasb://`. Por lo tanto, el script personalizado que se usa con la acción de script instala WebWasb, que es un servicio compatible con WebHDFS para hablar con WASB. Así que aunque el portal de Hue indique HDFS en algunos lugares (por ejemplo, al mover el puntero sobre **File Browser**), se debe interpretar como WASB.
+5.	Hue entiende WebHDFS, mientras que los clústeres de HDInsight usan Almacenamiento de Azure mediante `wasb://`. Por lo tanto, el script personalizado que se usa con la acción de script instala WebWasb, que es un servicio compatible con WebHDFS para hablar con WASB. Así que aunque el portal de Hue dice HDFS en lugares (como cuando se mueve el mouse sobre el **explorador de archivos**), se debe interpretar como WASB.
 
 
 ## Pasos siguientes
@@ -126,4 +127,4 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.date="10/20/2015" 
 	ms.author="tdykstra"/>
 
 # Llamada a una aplicación de API de Azure desde un cliente de aplicación web autenticado por Azure Active Directory
@@ -227,4 +227,4 @@ Aprendió a realizar la autenticación de flujo de cliente para aplicaciones de 
 [Portal de Azure]: https://manage.windowsazure.com/
 [Portal de vista previa de Azure]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

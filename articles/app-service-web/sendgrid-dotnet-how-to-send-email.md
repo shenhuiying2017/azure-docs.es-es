@@ -52,9 +52,13 @@ El [paquete NuGet de SendGrid](https://www.nuget.org/packages/Sendgrid) es la fo
 
 Realice los pasos siguientes para instalar el paquete NuGet de SendGrid en su aplicación:
 
-1.  Se creó un proyecto nuevo. ![Crear un nuevo proyecto][create-new-project]
+1.  Se creó un proyecto nuevo.
 
-2.  Seleccione una plantilla: ![Seleccione una plantilla:][select-a-template]
+    ![Crear un nuevo proyecto][create-new-project]
+
+2.  Seleccione una plantilla.
+
+    ![Seleccione una plantilla:][select-a-template]
 
 3.  En el **Explorador de soluciones**, haga clic con el botón secundario en **Referencias** y luego en **Administrar paquetes de NuGet**.
 
@@ -110,7 +114,7 @@ Para obtener más información sobre las propiedades y los métodos que admite e
 
 Después de crear un mensaje de correo electrónico, puede enviarlo con la API web que proporciona SendGrid. También puede [usar la biblioteca integrada de .NET](https://sendgrid.com/docs/Code_Examples/csharp.html).
 
-El envío de correos electrónicos requiere que proporcione las credenciales de su cuenta de SendGrid (nombre de usuario y contraseña) o la clave de API de SendGrid. La clave de API es el método preferido. Si desea obtener información sobre cómo configurar las claves de API, visite nuestra [documentación](https://sendgrid.com/docs/Classroom/Send/api_keys.html)
+El envío de correos electrónicos requiere que proporcione las credenciales de su cuenta de SendGrid (nombre de usuario y contraseña) o la clave de API de SendGrid. La clave de API es el método preferido. Si desea obtener detalles sobre cómo configurar claves de API, visite nuestra [documentación](https://sendgrid.com/docs/Classroom/Send/api_keys.html).
 
 Puede almacenar estas credenciales en el portal de Azure haciendo clic en CONFIGURAR y agregando pares clave-valor en "configuración de la aplicación".
 
@@ -257,4 +261,4 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
   [entrega de correos electrónicos transaccional]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

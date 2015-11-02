@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Acceso a los registros de aplicación de YARN de Hadoop mediante programación| Microsoft Azure"
-	description="La aplicación de Access se registra mediante programación en un clúster de Hadoop en HDInsight."
+	pageTitle="Acceso a registros de aplicación de YARN de Hadoop en HDInsight basado en Linux | Microsoft Azure"
+	description="Obtenga información acerca de cómo tener acceso a los registros de aplicaciones de YARN en un clúster de HDInsight (Hadoop) basado en Linux, mediante la línea de comandos y un explorador web."
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/19/2015"
 	ms.author="larryfr"/>
 
 # Acceso a registros de aplicación de YARN en HDInsight basado en Linux
@@ -96,4 +96,4 @@ Una vez creado un túnel SSH, siga estos pasos para ver los registros de YYARN:
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/15/2015" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde DocumentDB mediante Factoría de datos de Azure
@@ -411,9 +411,9 @@ En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionS
 3. **Pregunta:** ¿Admite la factoría de datos el [intervalo o las particiones de datos basadas en hash](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
 
 	**Respuesta:** No. 
-4. **Pregunta:** ¿Puedo específicamente más de una colección de DocumentDB para una tabla?
+4. **Pregunta:** ¿Puedo especificar más de una colección de DocumentDB para una tabla?
 	
 	**Respuesta:** No. Solo se puede especificar una colección cada vez.
      
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

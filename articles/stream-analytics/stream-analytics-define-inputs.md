@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Definición de entradas | Microsoft Azure" 
 	description="Descripción de entradas de Análisis de transmisiones" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="análisis de macrodatos,servicio en la nube,internet de las cosas,servicio administrado, procesamiento de transmisiones,streaming de datos"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -21,7 +21,7 @@
 
 Las entradas de Análisis de transmisiones se definen como una conexión a un origen de datos. Análisis de transmisiones cuenta con integración de primera clase con el Centro de eventos de orígenes de Azure, el Centro de IoT y el almacenamiento de blobs desde dentro y fuera de la suscripción en la que se está ejecutando el trabajo. A medida que los datos se insertan en ese origen de datos, el trabajo de Análisis de transmisiones los consume y los procesa en tiempo real. Las entradas se dividen en dos tipos distintos: entradas de flujo de datos y entradas de datos de referencia.
 
-- **Entrada de flujo de datos**: un flujo de datos es una secuencia ilimitada de eventos que llegan a lo largo del tiempo. Los trabajos de Análisis de transmisiones deben incluir, al menos, una entrada de secuencia de datos para que el trabajo la consuma y transforme. Almacenamiento de blobs, Centros de eventos y Centros de IoT se admiten como orígenes de entrada de flujos de datos. Centros de eventos se usan para recopilar flujos de eventos desde varios dispositivos y servicios, como fuentes de actividades de medios sociales, información sobre acciones o datos de sensores. Los Centros de IoT están optimizados para recopilar datos de dispositivos conectados en escenarios del Internet de las cosas (IoT). El almacenamiento de blobs puede usarse como origen de entrada para la introducción de datos en masa como flujo.  
+- **Entradas de transmisión de datos**: una transmisión de datos es una secuencia ilimitada de eventos que llegan a lo largo del tiempo. Los trabajos de Análisis de transmisiones deben incluir, al menos, una entrada de secuencia de datos para que el trabajo la consuma y transforme. Almacenamiento de blobs, Centros de eventos y Centros de IoT se admiten como orígenes de entrada de flujos de datos. Centros de eventos se usan para recopilar flujos de eventos desde varios dispositivos y servicios, como fuentes de actividades de medios sociales, información sobre acciones o datos de sensores. Los Centros de IoT están optimizados para recopilar datos de dispositivos conectados en escenarios del Internet de las cosas (IoT). El almacenamiento de blobs puede usarse como origen de entrada para la introducción de datos en masa como flujo.  
 - **Datos de referencia**: Análisis de transmisiones también admite un segundo tipo de entrada, conocido como datos de referencia. Se trata de datos auxiliares que son estáticos o que cambian con poca frecuencia y se usan normalmente para realizar correlaciones y búsquedas. Almacenamiento de blobs de Azure es el único origen de entrada admitido actualmente para los datos de referencia. Los blobs de origen de datos de referencia están limitados a 50 MB de tamaño. Para obtener información sobre cómo crear entradas de datos de referencia, consulte [Uso de datos de referencia](stream-analytics-use-reference-data.md).  
 
 ## Creación de una secuencia de entrada de datos de Centro de eventos
@@ -106,7 +106,7 @@ Cuando los datos proceden de un origen de Centro de IoT, puede acceder a algunos
 
 ## Creación de una entrada de flujo de datos de Almacenamiento de blobs ##
 
-El almacenamiento de blobs ofrece una solución rentable y escalable para aquellos escenarios con grandes cantidades de datos no estructurados para almacenar en la nube. Los datos del [almacenamiento de blobs](http://azure.microsoft.com/services/storage/blobs/) generalmente se consideran como datos "en reposo", pero Análisis de transmisiones puede procesarlos como un flujo de datos. Un escenario común para las entradas de Almacenamiento de blobs con Análisis de transmisiones es el procesamiento de registros, donde la telemetría se captura desde un sistema y es necesario analizarla y procesarla para extraer datos significativos.
+El almacenamiento de blobs ofrece una solución rentable y escalable para aquellos escenarios con grandes cantidades de datos no estructurados para almacenar en la nube. Los datos del [almacenamiento de blobs](http://azure.microsoft.com/services/storage/blobs/) generalmente se consideran como datos "en reposo", pero Análisis de transmisiones puede procesarlos como una transmisión de datos. Un escenario común para las entradas de Almacenamiento de blobs con Análisis de transmisiones es el procesamiento de registros, donde la telemetría se captura desde un sistema y es necesario analizarla y procesarla para extraer datos significativos.
 
 Es importante tener en cuenta que la marca de tiempo predeterminada de los eventos del almacenamiento de blobs en Análisis de transmisiones es la marca de tiempo cuando se modificó el blob por última vez, que es *isBlobLastModifiedUtcTime*. Para procesar los datos como una transmisión mediante una marca de tiempo en la carga del evento, se debe usar la palabra clave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
@@ -201,4 +201,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

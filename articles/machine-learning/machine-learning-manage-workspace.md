@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Administración de un área de trabajo de aprendizaje automático | Microsoft Azure" 
-	description="Administrar el acceso a las áreas de trabajo del aprendizaje automático de Azure, e implementar y administrar servicios web de la API del aprendizaje automático" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Administración de un área de trabajo de aprendizaje automático | Microsoft Azure"
+	description="Administrar el acceso a las áreas de trabajo del aprendizaje automático de Azure, e implementar y administrar servicios web de la API del aprendizaje automático"
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/15/2015"
 	ms.author="garye"/>
 
 
-# Administración de un área de trabajo de Aprendizaje automático de Azure 
+# Administración de un área de trabajo de Aprendizaje automático de Azure
 Mediante el Portal de administración de Azure, puede administrar sus áreas de trabajo de Aprendizaje automático para realizar las siguientes tareas:
 
 - Supervisar el uso del área de trabajo
@@ -43,7 +43,7 @@ La página del área de trabajo tiene tres pestañas:
 - **Configurar**: permite administrar el acceso al área de trabajo.
 - **Servicios web**: permite administrar los servicios web que se han publicado desde esta área de trabajo.
 
-  
+
 ## Para supervisar el uso del área de trabajo
 
 Haga clic en la pestaña **Panel**.
@@ -62,11 +62,11 @@ En el panel, puede ver el uso general del área de trabajo y obtener una vista r
 Haga clic en la pestaña **Configurar**.
 
 Desde la pestaña de configuración, puede realizar las siguientes acciones:
- 
-- Suspender el acceso al área de trabajo de Aprendizaje automático haciendo clic en Denegar. Los usuarios ya no podrán abrir el área de trabajo en Estudio de aprendizaje automático. Para restaurar el acceso, haga clic en Permitir.
-- Cambiar el propietario del área de trabajo especificando otra cuenta de Microsoft. 
 
-Para administrar quién tiene acceso al área de trabajo en Estudio de aprendizaje automático, haga clic en **Iniciar sesión en estudio de aprendizaje automático** en la pestaña **PANEL** (consulte la nota anterior respecto a **Iniciar sesión en estudio de aprendizaje automático**). De esta manera, se abre el área de trabajo en Estudio de aprendizaje automático. Desde aquí, haga clic en la pestaña **Configuración** y, a continuación, en **Usuarios**. Puede hacer clic en **Invitar más usuarios** para proporcionar acceso a otros usuarios al área de trabajo. También puede seleccionar un usuario y hacer clic en **Quitar**.
+- Suspender el acceso al área de trabajo de Aprendizaje automático haciendo clic en Denegar. Los usuarios ya no podrán abrir el área de trabajo en Estudio de aprendizaje automático. Para restaurar el acceso, haga clic en Permitir.
+- Cambiar el propietario del área de trabajo especificando otra cuenta de Microsoft.
+
+Para administrar cuentas adicionales que dispongan de acceso al área de trabajo en Estudio de aprendizaje automático, haga clic en **Iniciar sesión en estudio de aprendizaje automático** en la pestaña **PANEL** (consulte la nota anterior respecto a **Iniciar sesión en estudio de aprendizaje automático**). De esta manera, se abre el área de trabajo en Estudio de aprendizaje automático. Desde aquí, haga clic en la pestaña **Configuración** y, a continuación, en **Usuarios**. Puede hacer clic en **Invitar más usuarios** para proporcionar acceso a otros usuarios al área de trabajo. También puede seleccionar un usuario y hacer clic en **Quitar**.
 
 
 ## Para administrar servicios web en esta área de trabajo
@@ -77,10 +77,10 @@ Esto muestra una lista de servicios web publicados desde esta área de trabajo. 
 
 Un servicio web puede tener uno o varios extremos definidos.
 
-- Puede definir extremos adicionales, además del extremo "predeterminado". Para agregar un extremo, haga clic en **Agregar extremo** en la parte inferior de la página.
+- Puede definir más puntos de conexión, además del punto de conexión "predeterminado". Para agregar un extremo, haga clic en **Agregar extremo** en la parte inferior de la página.
 
 - Para eliminar un extremo (no se puede eliminar el extremo "predeterminado"), haga clic en cualquier parte en la fila del extremo (excepto en el nombre) y haga clic en **Eliminar extremo** en la parte inferior de la página. De esta manera, se elimina el extremo del servicio web.
- 
+
     > [AZURE.NOTE]Si una aplicación está utilizando el extremo del servicio web cuando se elimina dicho extremo, la aplicación recibirá un error la próxima vez que intente acceder al servicio.
 
 Haga clic en el nombre de un extremo de servicio web para abrirlo. El gráfico de uso muestra los recursos de proceso y de predicción que está utilizando el extremo del servicio web. Puede cambiar la vista para mostrar valores relativos o absolutos, y puede cambiar el período de tiempo que se muestra en el gráfico.
@@ -89,9 +89,9 @@ Esta página también proporciona la información que necesita para acceder al e
 
 También puede publicar el servicio web en el mercado de datos de Azure desde esta página. Para obtener más información, consulte [Publicación de los servicios web de Aprendizaje automático de Azure en Azure Marketplace][marketplace].
 
+Haga clic en la pestaña **CONFIGURAR** para modificar la descripción, controlar el número de conexiones simultáneas que permite que el servicio web o configurar un seguimiento de diagnóstico.
+
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

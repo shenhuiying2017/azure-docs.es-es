@@ -14,10 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
 # Instrucciones de implementación de los servicios de infraestructura de Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Azure es una excelente plataforma para implementar configuraciones de desarrollo o pruebas o de prueba de concepto, ya que requiere muy poca inversión para probar un determinado enfoque para la implementación de las soluciones. Sin embargo, debe ser capaz de distinguir las prácticas fáciles para un entorno de desarrollo y pruebas de las prácticas más difíciles y detalladas para una implementación completamente funcional y lista para la producción de una carga de trabajo de TI.
 
@@ -25,7 +27,7 @@ En esta guía se identifican muchas áreas en las que la planificación es la cl
 
 Este artículo está adaptado del contenido de la entrada de blog [Azure Implementation Guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) (Directrices de implementación de Azure). Gracias a Santiago Cánepa (Director de desarrollo de aplicaciones de Microsoft) y Hugo Salcedo (Director de desarrollo de aplicaciones de Microsoft) por su material original.
 
-> [AZURE.NOTE]Los grupos de afinidad han quedado en desuso. Aquí no se describe su uso. Para obtener más información, vea [Redes virtuales regionales y grupos de afinidad](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+> [AZURE.NOTE]Los grupos de afinidad han quedado en desuso. Aquí no se describe su uso. Para obtener más información, consulte [Acerca de las redes virtuales regionales y los grupos de afinidad](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 ## 1\. Convenciones de nomenclatura
 
@@ -94,7 +96,7 @@ Se recomienda que el nombre de la máquina virtual de Azure sea el mismo que el 
 
 ### Nombres de cuentas de almacenamiento
 
-Las cuentas de almacenamiento tienen reglas especiales que regulan sus nombres. Sólo puede utilizar minúsculas y números. Para obtener más información, consulte [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account). Además, el nombre de la cuenta de almacenamiento, en combinación con core.windows.net, debe ser un nombre DNS único y válido globalmente. Por ejemplo, si la cuenta de almacenamiento se llama mystorageaccount, los siguientes nombres DNS deben ser únicos:
+Las cuentas de almacenamiento tienen reglas especiales que regulan sus nombres. Sólo puede utilizar minúsculas y números. Para obtener más información, vea [Creación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account). Además, el nombre de la cuenta de almacenamiento, en combinación con core.windows.net, debe ser un nombre DNS único y válido globalmente. Por ejemplo, si la cuenta de almacenamiento se llama mystorageaccount, los siguientes nombres DNS deben ser únicos:
 
 - mystorageaccount.blob.core.windows.net
 - mystorageaccount.table.core.windows.net
@@ -163,7 +165,7 @@ Las cuentas de almacenamiento están vinculadas a objetivos de escalabilidad. Ve
 
 Azure crea máquinas virtuales con un disco del sistema operativo, un disco temporal y ninguno o varios discos de datos opcionales. Tanto el disco del sistema operativo como los discos de datos son blobs en páginas de Azure, mientras que el disco temporal se almacena localmente en el nodo en que reside el equipo. Esto hace que el disco temporal no sea apto para datos que deben mantenerse durante un reciclaje del sistema, ya que el equipo podría migrarse en modo silencioso de un nodo a otro, con lo que se perderían los datos de dicho disco. No almacene nada en la unidad temporal.
 
-Los discos del sistema operativo y los discos de datos tienen un tamaño máximo de 1023 GB, ya que el tamaño máximo de un blob es de 1024 gigabytes (GB) y debe contener los metadatos (pie de página) del archivo VHD (un GB son 1024<sup>3</sup> bytes). Puede implementar la creación de bandas en el disco en Windows para superar este límite.
+Los discos del sistema operativo y los discos de datos tienen un tamaño máximo de 1023 GB, ya que el tamaño máximo de un blob es de 1024 gigabytes (GB) y debe contener los metadatos (pie de página) del archivo VHD (un GB equivale a 1024<sup>3</sup> bytes). Puede implementar la creación de bandas en el disco en Windows para superar este límite.
 
 ### Discos con bandas
 Además de ofrecer la posibilidad de crear discos de más de 1023 GB, en muchos casos la creación de bandas en los discos de datos mejorará el rendimiento, ya que permite que varios blobs respalden el almacenamiento de un solo volumen. Con la creación de bandas, las operaciones de E/S necesarias para escribir y leer datos de un único disco lógico se realizan en paralelo.
@@ -178,7 +180,7 @@ Si usa la creación de bandas en discos de datos de Azure, tenga en cuenta las s
 - Use la configuración de creación de bandas de almacenamiento
 - Evite el uso de opciones de almacenamiento en caché del disco de datos de Azure (directiva de almacenamiento en caché = ninguna)
 
-Para obtener más información, vea [Espacios de almacenamiento - Diseño para el rendimiento](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
+Para obtener más información, consulte [Espacios de almacenamiento - Diseño para el rendimiento](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
 
 ### Cuentas de almacenamiento múltiples
 
@@ -210,7 +212,7 @@ Los servicios en la nube son un pilar fundamental en la administración de servi
 
 En el caso de IaaS, los servicios en la nube ofrecen una funcionalidad similar, aunque en la mayoría de los casos la funcionalidad de equilibrador de carga se usa para reenviar el tráfico de los puertos TCP o UDP específicos desde Internet a las diversas máquinas virtuales dentro de ese servicio en la nube.
 
-> [AZURE.NOTE]Los servicios en la nube no existen en el Administrador de recursos de Azure. Para obtener una introducción a las ventajas del Administrador de recursos, consulte [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+> [AZURE.NOTE]Los servicios en la nube no existen en el Administrador de recursos de Azure. Para obtener una introducción a las ventajas del Administrador de recursos, vea [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
 Los nombres del servicio en la nube son especialmente importantes en IaaS, ya que Azure los usa como parte de la convención predeterminada de nomenclatura de los discos. El nombre del servicio en la nube solo puede contener letras, números y guiones. El primer y el último carácter del campo deben ser una letra o un número.
 
@@ -440,4 +442,4 @@ Esta configuración incluye:
 
 [Proveedores de proceso, red y almacenamiento de Azure en el Administrador de recursos de Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -57,12 +57,11 @@ En la tabla siguiente se muestra la jerarquía de navegación de la IU del servi
 |Página de aterrizaje|Páginas de nivel de servicio|Páginas de nivel de dispositivo|Páginas de nivel de dispositivo|
 |---|---|---|---|
 |Servicio StorSimple Manager|Panel del servicio|Panel del dispositivo||
-|| Dispositivos →| Supervisión|| 
-|| Catálogo de copias de seguirdad| Contenedores→| de volúmenes| 
-|| Configurar (servicio) | Directivas de copia de seguridad|| 
-|| Trabajos| Configurar (dispositivo) || 
-|| Alerts| Mantenimiento||
+|| Dispositivos →| Supervisión| || Catálogo de copias de seguirdad| Contenedores→| de volúmenes| || Configurar (servicio) | Directivas de copia de seguridad|| || Trabajos| Configurar (dispositivo) | || Alerts| Mantenimiento|
 
+![Vídeo disponible](./media/storsimple-manager-service-administration/Video_icon.png) **Vídeo disponible**
+
+Para ver un vídeo que le guiará a través de la interfaz de usuario del servicio StorSimple Manager, haga clic [aquí](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ## Administrar el dispositivo StorSimple mediante el servicio de Administrador de StorSimple
 
@@ -78,7 +77,7 @@ Para obtener más información sobre cada flujo de trabajo, haga clic en el proc
 |Cambiar la clave de cifrado de datos del servicio</br>Ver los registros de operaciones|Servicio de Administrador de StorSimple → Panel|[Uso del panel del servicio StorSimple Manager](storsimple-service-dashboard.md)|
 |Desactivar un dispositivo</br>Eliminar un dispositivo|Servicio de Administrador de StorSimple → Dispositivos|[Desactivar o eliminar un dispositivo](storsimple-deactivate-and-delete-device.md)|
 |Obtener información sobre recuperación ante desastres y conmutación por error</br>Conmutación por error a un dispositivo físico</br>Conmutación por error a un dispositivo virtual</br>Recuperación ante desastres y continuidad empresarial (BCDR)|Servicio de Administrador de StorSimple → Dispositivos|[Conmutación por error y recuperación ante desastres para el dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md)|
-|Listar copias de seguridad de un volumen</br>Seleccionar un conjunto de copias de seguridad</br>Eliminar un conjunto de copias de seguridad|Servicio de Administrador de StorSimple → Catálogo de copias de seguridad|[Administrar copias de seguridad](storsimple-manage-backup-catalog.md)|
+|Enumerar copias de seguridad para un volumen</br>Seleccionar un conjunto de copias de seguridad</br>Eliminar un conjunto de copias de seguridad|Servicio de Administrador de StorSimple → Catálogo de copias de seguridad|[Administrar copias de seguridad](storsimple-manage-backup-catalog.md)|
 |Clonar un volumen|Servicio de Administrador de StorSimple → Catálogo de copias de seguridad|[Clonar un volumen](storsimple-clone-volume.md)|
 |Restaurar un conjunto de copias de seguridad|Servicio de Administrador de StorSimple → Catálogo de copias de seguridad|[Restaurar un conjunto de copias de seguridad](storsimple-restore-from-backup-set.md)|
 |Acerca de las cuentas de almacenamiento</br>Agregar una cuenta de almacenamiento</br>Editar una cuenta de almacenamiento</br>Eliminar una cuenta de almacenamiento</br>Rotación de claves de las cuentas de almacenamiento|Servicio de Administrador de StorSimple → Configurar|[Administrar cuentas de almacenamiento](storsimple-manage-storage-accounts.md)|
@@ -92,7 +91,7 @@ Para obtener más información sobre cada flujo de trabajo, haga clic en el proc
 |Agregar un volumen</br>Modificar un volumen</br>Desconectar un volumen</br>Eliminar un volumen</br>Supervisar un volumen|Servicio de Administrador de StorSimple → Dispositivos → Contenedores de volúmenes → Volúmenes|[Administrar volúmenes](storsimple-manage-volumes.md)|
 |Modificar la configuración de dispositivo</br>Modificar la configuración de tiempo</br>Modificar la configuración DNS.md</br>Configurar interfaces de red|Servicio de Administrador de StorSimple → Dispositivos → Configurar|[Modificar la configuración de dispositivo de su dispositivo StorSimple device](storsimple-modify-device-config.md)|
 |Ver la configuración de proxy web|Servicio de Administrador de StorSimple → Dispositivos → Configurar|[Configurar el proxy web para el dispositivo](storsimple-configure-web-proxy.md)|
-|Modificar la contraseña del administrador de dispositivos</br>Modificar la contraseña del Administrador de instantáneas de StorSimple|Servicio de Administrador de StorSimple → Dispositivos → Configurar|[Cambiar las contraseñas de StorSimple](storsimple-change-passwords.md)|
+|Modificar la contraseña del administrador de dispositivos</br>Modificar la contraseña de Snapshot Manager de StorSimple|Servicio de Administrador de StorSimple → Dispositivos → Configurar|[Cambiar las contraseñas de StorSimple](storsimple-change-passwords.md)|
 |Configuración de la administración remota|Servicio de Administrador de StorSimple → Dispositivos → Configurar|[Conectarse de forma remota al dispositivo StorSimple](storsimple-remote-connect.md)|
 |Configurar alertas|Servicio de Administrador de StorSimple → Dispositivos → Configurar|[Ver y administrar alertas de StorSimple](storsimple-manage-alerts.md)|
 |Configurar CHAP para el dispositivo StorSimple|Servicio de Administrador de StorSimple → Dispositivos → Configurar|[Configurar CHAP para el dispositivo StorSimple](storsimple-configure-chap.md)|
@@ -102,9 +101,6 @@ Para obtener más información sobre cada flujo de trabajo, haga clic en el proc
 |Crear un paquete de soporte|Servicio de Administrador de StorSimple → Dispositivos → Mantenimiento|[Crear y administrar paquetes de soporte técnico](storsimple-create-manage-support-package.md)|
 |Instalación de actualizaciones de software|Servicio de Administrador de StorSimple → Dispositivos → Mantenimiento|[Actualizar su dispositivo](storsimple-update-device.md)|
 
-![Vídeo disponible](./media/storsimple-manager-service-administration/Video_icon.png) **Vídeo disponible**
-
-Para ver un vídeo que le guiará a través de la interfaz de usuario del servicio StorSimple Manager, haga clic [aquí](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ##Pasos siguientes
 Si tiene algún problema con la operación diaria de su dispositivo StorSimple o con cualquiera de sus componentes de hardware, consulte:
@@ -116,4 +112,4 @@ Si no puede resolver los problemas y necesita crear una solicitud de servicio, c
 
 -  [Contactar al servicio técnico de Microsoft](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

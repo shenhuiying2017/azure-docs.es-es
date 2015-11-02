@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Introducción a la autenticación de Aplicaciones móviles en Xamarin iOS" 
 	description="Obtenga información acerca de cómo utilizar Aplicaciones móviles para autenticar usuarios de su aplicación Xamarin iOS a través de una variedad de proveedores de identidad, incluidos AAD, Google, Facebook, Twitter y Microsoft." 
-	services="app-service" 
+	services="app-service\mobile" 
 	documentationCenter="xamarin" 
 	authors="mattchenderson" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-mobile" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
@@ -18,9 +18,7 @@
 
 # Adición de la autenticación a la aplicación Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 En este tema se muestra cómo autenticar usuarios de una Aplicación móvil del Servicio de aplicaciones desde la aplicación cliente. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicio de aplicaciones. Una vez que la aplicación móvil haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
@@ -120,4 +118,4 @@ En esta sección, modificará la aplicación para mostrar una pantalla de inicio
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

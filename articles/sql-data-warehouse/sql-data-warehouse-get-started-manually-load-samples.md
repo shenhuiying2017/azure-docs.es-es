@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
 #Carga de datos de ejemplo en Almacenamiento de datos SQL
@@ -42,7 +42,7 @@ Ahora que ha configurado una instancia del Almacenamiento de datos SQL puede car
 
 ## Conexión a su ejemplo y consulta
 
-Como se describe la documentación de [conexión y consulta][], puede conectarse a esta base de datos mediante Visual Studio y SSDT. Ahora que ha cargado algunos datos de ejemplo en el Almacenamiento de datos SQL, puede ejecutar rápidamente algunas consultas para empezar.
+Como se describe en la documentación de [conexión][], puede conectarse a esta base de datos mediante Visual Studio y SSDT. Ahora que ha cargado algunos datos de ejemplo en el Almacenamiento de datos SQL, puede ejecutar rápidamente algunas consultas para empezar.
 
 Podemos ejecutar una instrucción select simple para obtener toda la información de los empleados:
 
@@ -63,24 +63,24 @@ Incluso podemos usar la cláusula WHERE para filtrar órdenes desde antes de una
 	GROUP BY OrderDateKey
 	ORDER BY OrderDateKey;
 
-De hecho, el Almacenamiento de datos SQL admite casi todas las construcciones de T-SQL que SQL Server realiza, y se pueden encontrar algunas de las diferencias en nuestra documentación para [migrar código][].
+De hecho, Almacenamiento de datos SQL admite casi todas las construcciones de T-SQL que SQL Server realiza, y se pueden encontrar algunas de las diferencias en nuestra documentación para [migrar código][].
 
 ## Pasos siguientes
-Ahora que le hemos dado algún tiempo para */*entusiasmarse con los datos de ejemplo, consulte como [desarrollar][], [cargar][] o [migrar][].
+Ahora que le hemos dado algún tiempo para familiarizarse con los datos de ejemplo, consulte como [desarrollar][], [cargar][] o [migrar][].
 
 <!--Image references-->
 
 <!--Article references-->
-[migrar]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-overview-migrate/
-[desarrollar]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-overview-develop/
-[cargar]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-overview-load/
-[conexión y consulta]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-get-started-connect-query/
-[migrar código]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-migrate-code/
+[migrar]: ./sql-data-warehouse-overview-migrate.md
+[desarrollar]: ./sql-data-warehouse-overview-develop.md
+[cargar]: ./sql-data-warehouse-overview-load.md
+[conexión]: ./sql-data-warehouse-get-started-connect.md
+[migrar código]: ./sql-data-warehouse-migrate-code.md
 
 <!--MSDN references-->
-[Utilidades de la línea de comandos de Microsoft para SQL Server]: http://www.microsoft.com/es-ES/download/details.aspx?id=36433
+[Utilidades de la línea de comandos de Microsoft para SQL Server]: http://www.microsoft.com/download/details.aspx?id=36433/
 
 <!--Other Web references-->
-[Scripts de datos de ejemplo]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
+[Scripts de datos de ejemplo]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

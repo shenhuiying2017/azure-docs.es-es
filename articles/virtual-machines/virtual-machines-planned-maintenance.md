@@ -20,6 +20,8 @@
 
 # Planeación del mantenimiento de máquinas virtuales de Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ## Por qué Azure realiza mantenimiento planeado
 
 Microsoft Azure realiza periódicamente actualizaciones en todo el planeta para mejorar la fiabilidad, el rendimiento y la seguridad de infraestructuras host que subyacen bajo las máquinas virtuales. Muchas de esas actualizaciones se realizan sin que afecten a las máquinas virtuales o a los servicios en la nube, incluidas las actualizaciones de conservación de memoria.
@@ -44,11 +46,11 @@ Hay dos tipos de configuraciones de máquinas virtuales: instancias múltiples y
 
 La configuración de instancias múltiples proporciona redundancia y se recomienda para garantizar la disponibilidad de la aplicación. Todas las máquinas virtuales del conjunto de disponibilidad deben ser prácticamente idénticas y prestar el mismo servicio a la aplicación.
 
-Para obtener más información sobre la configuración de sus máquinas virtuales para ofrecer alta disponibilidad, consulte [Administración de la disponibilidad de las máquinas virtuales](virtual-machines-manage-availability.md).
+Para obtener más información sobre la configuración de las máquinas virtuales para ofrecer alta disponibilidad, vea [Administración de la disponibilidad de las máquinas virtuales](virtual-machines-manage-availability.md).
 
 Por el contrario, se usa una configuración de una sola instancia se usa para máquinas virtuales independientes no colocadas en un conjunto de disponibilidad. Por sí mismas, estas máquinas virtuales no tienen derecho al contrato de nivel de servicio (SLA) que requiere la implementación de dos o más máquinas virtuales en el mismo conjunto de disponibilidad.
 
-Para obtener más información sobre los contratos de nivel de servicio, consulte la sección "Servicios en la nube, máquinas virtuales y red virtual" de [Contratos de nivel de servicio](http://azure.microsoft.com/support/legal/sla/).
+Para obtener más información sobre los contratos de nivel de servicio, vea la sección "Servicios en la nube, máquinas virtuales y red virtual" de [Contratos de nivel de servicio](http://azure.microsoft.com/support/legal/sla/).
 
 
 ## Actualizaciones de una configuración de instancias múltiples
@@ -59,7 +61,7 @@ En una configuración de instancias múltiples, las máquinas virtuales se actua
 
 La plataforma Azure subyacente asigna a cada máquina virtual del conjunto de disponibilidad un dominio de actualización y un dominio de error. Cada dominio de actualización es un grupo de máquinas virtuales que se reiniciará en la misma ventana de tiempo. Cada dominio de error es un grupo de máquinas virtuales que comparten una fuente de alimentación común y un conmutador de red.
 
-Para obtener más información acerca de dominios de actualización y dominios de error, consulte [Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia](virtual-machines-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+Para obtener más información sobre dominios de actualización y dominios de error, vea [Configuración de varias máquinas virtuales en un conjunto de disponibilidad para redundancia](virtual-machines-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
 Para evitar que los dominios de actualización se queden sin conexión al mismo tiempo, al realizar el mantenimiento, se cierra cada máquina virtual en un dominio de actualización, se aplica la actualización a los equipos host, se reinician las máquinas virtuales y se pasa al siguiente dominio de actualización. El evento de mantenimiento planeado termina cuando todos los dominios de actualización se han actualizado.
 
@@ -118,4 +120,4 @@ Por ejemplo, durante un mantenimiento planeado, Azure no implementará ninguna a
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

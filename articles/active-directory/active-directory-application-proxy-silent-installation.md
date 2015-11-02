@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Cómo instalar de forma silenciosa el conector de Proxy de aplicación de Azure AD"
+	pageTitle="Instalación silenciosa del conector del proxy de aplicación de Azure AD | Microsoft Azure"
 	description="Explica cómo realizar una instalación silenciosa del conector de Proxy de aplicación de Azure AD para proporcionar acceso remoto seguro a las aplicaciones locales."
 	services="active-directory"
 	documentationCenter=""
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 # Cómo instalar de forma silenciosa el conector de Proxy de aplicación de Azure AD
 
-Desea poder enviar un script de instalación en varios servidores o servidores de Windows Server que no tienen la interfaz de usuario habilitada. En este tema se explica cómo crear un script de Windows PowerShell que permite instalación desatendida e instala y registra el conector de Proxy de aplicación de Azure AD.
+Quiere poder enviar un script de instalación a varios servidores de Windows o servidores de Windows Server que no tienen habilitada la interfaz de usuario. En este tema se explica cómo crear un script de Windows PowerShell que permite instalación desatendida e instala y registra el conector de Proxy de aplicación de Azure AD.
 
 ## Habilitación del acceso
-El proxy de la aplicación funciona mediante la instalación de un pequeño servicio de Windows Server denominado conector dentro de la red. Para que el conector de Proxy de aplicación funcione debe estar registrado con el directorio de Azure AD mediante un administrador global y una contraseña. Normalmente esto se especifica durante la instalación del conector en un cuadro de diálogo emergente. En su lugar, puede usar Windows PowerShell para crear un objeto de credenciales y usar el token que crea para escribir la información de registro. También puede crear su propio token que se usará para escribir la información de registro.
+El proxy de la aplicación funciona mediante la instalación de un pequeño servicio de Windows Server denominado conector dentro de la red. Para que el conector de Proxy de aplicación funcione debe estar registrado con el directorio de Azure AD mediante un administrador global y una contraseña. Normalmente esto se especifica durante la instalación del conector en un cuadro de diálogo emergente. En su lugar, puede usar Windows PowerShell para crear un objeto de credenciales para escribir la información de registro, o puede crear su propio token y usarlo con esta finalidad.
 
 ## Paso 1: Instalar el conector sin registro
 
@@ -30,34 +30,49 @@ Instale los MSI del conector sin registrar el conector de la siguiente manera:
 
 
 1. Abra el símbolo del sistema.
-2. Ejecute el siguiente comando en el que el modificador /q significa instalación completa (la instalación no le pedirá que acepte el contrato de licencia de usuario final).
+2. Ejecute el siguiente comando en el que el modificador /q significa instalación desatendida (la instalación no le pedirá que acepte el contrato de licencia de usuario final).
 
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
 ## Paso 2: Seleccionar el conector con Azure Active Directory
-Esto puede realizarse mediante cualquiera de los métodos siguientes: -Registrar el conector mediante un objeto de credenciales de Windows PowerShell - Registrar el conector utilizando un token creado sin conexión
+Para ello, puede usar cualquiera de los métodos siguientes:
+
+
+- Registro del conector mediante un objeto de credenciales de Windows PowerShell
+- Registrar el conector utilizando un token creado sin conexión
 
 ### Registro del conector mediante un objeto de credenciales de Windows PowerShell
 
 
-1. Crear el objeto de credenciales de Windows PowerShell ejecutando lo siguiente, donde <username> y <password> deben reemplazarse por el nombre de usuario y la contraseña para el directorio:
+1. Cree el objeto de credenciales de Windows PowerShell ejecutando el siguiente código, donde "username" y "password" se deben sustituir por el nombre de usuario y la contraseña del directorio:
 
         $User = "<username>" 
         $PlainPassword = '<password>' 
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force 
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword 
     
-2. 	Vaya a **C:\\Archivos de programa\\Microsoft AAD App Proxy Connector** y ejecute el archivo **Register Connector.PS1** en Windows PowerShell.
-3. Use el objeto de credenciales de PowerShell que ha creado para introducir el nombre de usuario y la contraseña de registro del conector en el script ejecutando lo siguiente, donde $cred es el nombre del objeto de credenciales de PowerShell que creó:
+2. Vaya a **C:\\Program Files\\Microsoft AAD App Proxy Connector** y ejecute el script con el objeto de credenciales de PowerShell que creó: donde $cred es el nombre de dicho objeto:
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred 
 
 
 ### Registrar el conector utilizando un token creado sin conexión
 
-1. Crear un token sin conexión mediante la clase AuthenticationContext, por ejemplo:
+1. Cree un token sin conexión mediante la clase AuthenticationContext con los valores del código, por ejemplo:
 
-        #region constants /// /// The AAD authentication endpoint uri /// static readonly Uri AadAuthenticationEndpoint = new Uri("https://login.windows.net/common/oauth2/token?api-version=1.0");
+        
+        using System;
+        using System.Diagnostics;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+
+        class Program
+        {
+        #region constants
+        /// <summary>
+        /// The AAD authentication endpoint uri
+        /// </summary>
+        static readonly Uri AadAuthenticationEndpoint = new Uri("https://login.windows.net/common/oauth2/token?api-version=1.0");
+
         /// <summary>
         /// The application ID of the connector in AAD
         /// </summary>
@@ -66,37 +81,45 @@ Esto puede realizarse mediante cualquiera de los métodos siguientes: -Registrar
         /// <summary>
         /// The reply address of the connector application in AAD
         /// </summary>
-		static readonly Uri ConnectorRedirectAddress = new Uri("urn:ietf:wg:oauth:2.0:oob");
-		
-		/// <summary>
-		/// The AppIdUri of the registration service in AAD
-		/// </summary>
-		static readonly Uri RegistrationServiceAppIdUri = new Uri("https://proxy.cloudwebappproxy.net/registerapp");
+        static readonly Uri ConnectorRedirectAddress = new Uri("urn:ietf:wg:oauth:2.0:oob");
 
-		#endregion
+        /// <summary>
+        /// The AppIdUri of the registration service in AAD
+        /// </summary>
+        static readonly Uri RegistrationServiceAppIdUri = new Uri("https://proxy.cloudwebappproxy.net/registerapp");
 
+        #endregion
 
-		public static void GetAuthenticationToken()
-		{
-    		AuthenticationContext authContext = new AuthenticationContext(AadAuthenticationEndpoint.AbsoluteUri);
-	    AuthenticationResult authResult = authContext.AcquireToken(RegistrationServiceAppIdUri.AbsoluteUri,
+        #region private members
+        private string token;
+        private string tenantID;
+        #endregion
+
+        public void GetAuthenticationToken()
+        {
+            AuthenticationContext authContext = new AuthenticationContext(AadAuthenticationEndpoint.AbsoluteUri);
+
+            AuthenticationResult authResult = authContext.AcquireToken(RegistrationServiceAppIdUri.AbsoluteUri,
                 ConnectorAppId,
                 ConnectorRedirectAddress,
                 PromptBehavior.Always);
 
+            if (authResult == null || string.IsNullOrEmpty(authResult.AccessToken) || string.IsNullOrEmpty(authResult.TenantId))
+            {
+                Trace.TraceError("Authentication result, token or tenant id returned are null");
+                throw new InvalidOperationException("Authentication result, token or tenant id returned are null");
+            }
 
-	        if (authResult == null || string.IsNullOrEmpty(authResult.AccessToken) || string.IsNullOrEmpty(authResult.TenantId))
-    	    {
-          Trace.TraceError("Authentication result, token or tenant id returned are null");
-          throw new InvalidOperationException("Authentication result, token or tenant id returned are null");
-    	}
+            token = authResult.AccessToken;
+            tenantID = authResult.TenantId;
+        }
 
-    	string token = authResult.AccessToken;
-    	string tenantID = authResult.TenantId;
-		}
+
+
+
 
 2. Una vez que tenga el token cree SecureString con dicho token: <br> `$SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force`
-3. Ejecute el siguiente comando de Windows PowerShell, donde SecureToken es el nombre del token que acaba de crear: <br> `RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID>`
+3. Ejecute el siguiente comando de Windows PowerShell, donde SecureToken es el nombre del token que acaba de crear y tenanID es el GUID de su inquilino: <br> `RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID>`
 
 
 
@@ -116,7 +139,7 @@ Hay mucho más que puede hacer con el proxy de la aplicación:
 - [Vea nuestros vídeos de Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Recursos adicionales
-* [Registro en Azure como una organización](../sign-up-organization.md)
-* [Identidad de Azure](../fundamentals-identity.md)
+* [Registro en Azure como una organización](sign-up-organization.md)
+* [Identidad de Azure](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Escalar los trabajos de Análisis de transmisiones para incrementar el rendimiento | Microsoft Azure"
 	description="Aprenda a escalar los trabajos de Análisis de transmisiones mediante la configuración de particiones de entrada, la optimización de la definición de consulta y el ajuste de las unidades de streaming del trabajo."
-	keywords="analytics jobs,data stream,data streaming"
+	keywords="trabajos de análisis,transmisión de datos, streaming de datos"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -19,7 +19,7 @@
 
 # Escalar los trabajos de Análisis de transmisiones de Azure para incrementar el rendimiento #
 
-Aprenda a calcular las *unidades de streaming* para un trabajo de Análisis de transmisiones, y a escalar trabajos de Análisis de transmisiones mediante la configuración de particiones de entrada, la optimización de la definición de consulta y el ajuste de las unidades de streaming del trabajo.
+Aprenda a calcular las *unidades de streaming* para un trabajo de Análisis de transmisiones y a escalar trabajos de Análisis de transmisiones mediante la configuración de particiones de entrada, la optimización de la definición de consulta y el ajuste de las unidades de streaming del trabajo.
 
 ## ¿Cuáles son las partes de un trabajo de Análisis de transmisiones? ##
 Una definición de trabajo de Análisis de transmisiones de Azure incluye entradas, una consulta y la salida. Las entradas proceden del lugar en el cual el trabajo lee el flujo de datos, la consulta se usa para transformar el flujo de entrada de datos y la salida es el lugar al que el trabajo envía los resultados.
@@ -265,4 +265,4 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

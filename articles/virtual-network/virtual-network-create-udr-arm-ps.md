@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="10/21/2015"
    ms.author="telmos" />
 
 #Crear rutas definidas por el usuario (UDR) en PowerShell
@@ -34,25 +34,33 @@ En los siguientes comandos de PowerShell de ejemplo se presupone que ya se ha cr
 ## Creación de la ruta definida por el usuario para la subred front-end
 Para crear la tabla de rutas y la ruta necesaria para la subred front-end según el escenario anterior, siga estos pasos.
 
-3. Cree una ruta que se use para enviar todo el tráfico destinado a la subred de back-end (192.168.2.0/24), para que así pueda enrutarse a la aplicación virtual **FW1** (192.168.0.4).
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-		$route = New-AzureRMRouteConfig -Name RouteToBackEnd `
+3. Cree una ruta que se use para enviar todo el tráfico destinado a la subred de back-end (192.168.2.0/24) para enrutarse a la aplicación virtual **FW1** (192.168.0.4).
+
+		$route = New-AzureRouteConfig -Name RouteToBackEnd `
 		    -AddressPrefix 192.168.2.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
 4. Cree una tabla de ruta llamada **UDR-FrontEnd** en la región **westus** que contenga la ruta creada anteriormente.
 
-		$routeTable = New-AzureRMRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-FrontEnd -Route $route
 
 5. Cree una variable que contenga la red virtual donde está la subred. En nuestro escenario, la red virtual se llama **TestVNet**.
 
-		$vnet = Get-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 
 6. Asocie la tabla de ruta creada anteriormente a la subred **FrontEnd**.
 		
-		Set-AzureRMVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
+
+>[AZURE.WARNING]La salida del comando anterior muestra el contenido del objeto de configuración de red virtual, que solo existe en el equipo donde se ejecuta PowerShell. Debe ejecutar el cmdlet **AzureVirtualNetwork Set** para guardar esta configuración en Azure.
+
+7. Guarde la nueva configuración de subred de Azure.
+
+		Set-AzureVirtualNetwork -VirtualNetwork $vnet
 
 	Resultado esperado:
 
@@ -92,7 +100,7 @@ Para crear la tabla de rutas y la ruta necesaria para la subred front-end según
 		                          }
 		                        ],
 		                        "NetworkSecurityGroup": {
-		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd"
+		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
 		                        },
 		                        "RouteTable": {
 		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-FrontEnd"
@@ -100,26 +108,30 @@ Para crear la tabla de rutas y la ruta necesaria para la subred front-end según
 		                        "ProvisioningState": "Succeeded"
 		                      },
 								...
-		                    ]
+		                    ]	
 
 ## Creación de la ruta definida por el usuario para la subred back-end
 Para crear la tabla de rutas y la ruta necesaria para la subred back-end según el escenario anterior, siga estos pasos.
 
-1. Cree una ruta que se use para enviar todo el tráfico destinado a la subred de front-end (192.168.1.0/24), para que así pueda enrutarse a la aplicación virtual **FW1** (192.168.0.4).
+1. Cree una ruta que se use para enviar todo el tráfico destinado a la subred de front-end (192.168.1.0/24) para enrutarse a la aplicación virtual **FW1** (192.168.0.4).
 
-		$route = New-AzureRMRouteConfig -Name RouteToFrontEnd `
+		$route = New-AzureRouteConfig -Name RouteToFrontEnd `
 		    -AddressPrefix 192.168.1.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
 4. Cree una tabla de ruta llamada **UDR-BackEnd** en la región **uswest** que contenga la ruta creada anteriormente.
 
-		$routeTable = New-AzureRMRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-BackEnd -Route $route
 
 5. Asocie la tabla de ruta creada anteriormente a la subred **BackEnd**.
 
-		Set-AzureRMVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
+		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -RouteTable $routeTable
+
+7. Guarde la nueva configuración de subred de Azure.
+
+		Set-AzureVirtualNetwork -VirtualNetwork $vnet
 
 	Resultado esperado:
 
@@ -159,7 +171,7 @@ Para crear la tabla de rutas y la ruta necesaria para la subred back-end según 
 		                          }
 		                        ],
 		                        "NetworkSecurityGroup": {
-		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BacEnd"
 		                        },
 		                        "RouteTable": {
 		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd"
@@ -169,16 +181,16 @@ Para crear la tabla de rutas y la ruta necesaria para la subred back-end según 
 		                    ]
 
 ## Habilitación del reenvío IP en FW1
-Para habilitar el reenvío IP en la NIC usada por **FW1**, siga estos pasos.
+Para habilitar el reenvío IP de la NIC que se usa en **FW1**, siga estos pasos.
 
 1. Cree una variable que contenga la configuración de la NIC usada por FW1. En nuestro escenario, la NIC se llama **NICFW1**.
 
-		$nicfw1 = Get-AzureRMNetworkInterface -ResourceGroupName TestRG -Name NICFW1
+		$nicfw1 = Get-AzureNetworkInterface -ResourceGroupName TestRG -Name NICFW1
 
 2. Habilite el reenvío IP y guarde la configuración de NIC.
 
 		$nicfw1.EnableIPForwarding = 1
-		Set-AzureRMNetworkInterface -NetworkInterface $nicfw1
+		Set-AzureNetworkInterface -NetworkInterface $nicfw1
 
 	Resultado esperado:
 
@@ -224,4 +236,4 @@ Para habilitar el reenvío IP en la NIC usada por **FW1**, siga estos pasos.
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

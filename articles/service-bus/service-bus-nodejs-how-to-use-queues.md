@@ -18,13 +18,15 @@
 
 # Utilización de las colas del Bus de servicio
 
+[AZURE.INCLUDE [servicio de bus de selector de colas](../../includes/service-bus-selector-queues.md)]
+
 Este artículo describe cómo usar las colas del Bus de servicio. Los ejemplos están escritos en JavaScript y usan el módulo Node.js de Azure. Entre los escenarios proporcionados se incluyen los siguientes: **creación de colas**, **envío y recepción de mensajes** y **eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][].
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## Creación de una aplicación Node.js
 
-Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure][] o [Servicio en la nube Node.js][] (con Windows PowerShell).
+Cree una aplicación Node.js vacía. Para obtener instrucciones sobre cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure][] o [Servicio en la nube Node.js][] (con Windows PowerShell).
 
 ## Configuración de la aplicación para usar el Bus de servicio
 
@@ -70,13 +72,13 @@ Para ver un ejemplo de configuración de las variables de entorno en el Portal d
 
 ## Creación de una cola
 
-El objeto **ServiceBusService** le permite trabajar con colas del Bus de servicio. El siguiente código crea un objeto **ServiceBusService**. Agréguelo cerca de la parte superior del archivo **server.js**, tras la instrucción para importar el módulo Azure:
+El objeto **ServiceBusService** le permite trabajar con colas de Bus de servicio. El siguiente código crea un objeto **ServiceBusService**. Agréguelo cerca de la parte superior del archivo **server.js**, tras la instrucción para importar el módulo Azure:
 
 ```
 var serviceBusService = azure.createServiceBusService();
 ```
 
-Al llamar a **createQueueIfNotExists** en el objeto **ServiceBusService**, se obtiene la cola especificada (si existe) o se crea una nueva con el nombre especificado. El código siguiente utiliza **createQueueIfNotExists** para crear una cola llamada `myqueue` o conectarse a ella.
+Al llamar a **createQueueIfNotExists** en el objeto **ServiceBusService**, se obtiene la cola especificada (si existe) o se crea una nueva con el nombre especificado. El código siguiente utiliza **createQueueIfNotExists** para crear una cola llamada `myqueue` o conectarse a ella:
 
 ```
 serviceBusService.createQueueIfNotExists('myqueue', function(error){
@@ -86,7 +88,7 @@ serviceBusService.createQueueIfNotExists('myqueue', function(error){
 });
 ```
 
-**createServiceBusService** también admite opciones adicionales, que permiten sobrescribir la configuración de cola predeterminada, como el tiempo que dura la transmisión de un mensaje o el tamaño máximo de la cola. En el siguiente ejemplo se establece el tamaño máximo de las colas en 5 GB y el valor del período de vida (TTL) en 1 minuto:
+**createServiceBusService** también admite opciones adicionales, que permiten invalidar la configuración de cola predeterminada, como el tiempo que dura la transmisión de un mensaje o el tamaño máximo de la cola. En el siguiente ejemplo se establece el tamaño máximo de las colas en 5 GB y el valor del período de vida (TTL) en 1 minuto:
 
 ```
 var queueOptions = {
@@ -109,7 +111,7 @@ Las operaciones de filtrado opcionales pueden aplicarse a las tareas realizadas 
 function handle (requestOptions, next)
 ```
 
-Después de realizar el preprocesamiento en las opciones de solicitud, el método tiene que llamar a `next`, pasando una devolución de llamada con la firma siguiente:
+Después de realizar su preprocesamiento en las opciones de solicitud, el método tiene que llamar a `next`, pasando una devolución de llamada con la firma siguiente:
 
 ```
 function (returnObject, finalCallback, next)
@@ -126,7 +128,7 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 
 ## mensajes a una cola
 
-Para enviar un mensaje a una cola del Bus de servicio, la aplicación debe llamar al método **sendQueueMessage** del objeto **ServiceBusService**. Los mensajes enviados a las colas del Bus de servicio (y recibidos de ellas) son objetos **BrokeredMessage** y cuentan con un conjunto de propiedades estándar (como **Label** y **TimeToLive**), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede establecer el cuerpo del mensaje pasando una cadena como el mensaje. Las propiedades estándar requeridas se rellenan con valores predeterminados.
+Para enviar un mensaje a una cola del Bus de servicio, la aplicación debe llamar al método **sendQueueMessage** del objeto **ServiceBusService**. Los mensajes enviados a las colas del bus de servicio (y recibidos de ellas) son objetos **BrokeredMessage** y cuentan con un conjunto de propiedades estándar (como **Label** y **TimeToLive**), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede establecer el cuerpo del mensaje pasando una cadena como el mensaje. Las propiedades estándar requeridas se rellenan con valores predeterminados.
 
 En el ejemplo siguiente se demuestra cómo enviar un mensaje de prueba a la cola `myqueue` mediante **sendQueueMessage**:
 
@@ -143,7 +145,7 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Para obtener más información sobre las cuotas, consulte [Colas del Bus de servicio y de Azure][].
+Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Para obtener más información sobre las cuotas, consulte [Colas de Bus de servicio y colas de Azure][].
 
 ## mensajes de una cola
 
@@ -153,7 +155,7 @@ El funcionamiento predeterminado por el que los mensajes se eliminan tras leerlo
 
 Si el parámetro **isPeekLock** está establecido en **true**, el proceso de recepción se convierte en una operación en dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma fiable para su futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método **deleteMessage** y facilitando el mensaje que se va a eliminar a modo de parámetro. El método **deleteMessage** marcará el mensaje como consumido y lo eliminará de la cola.
 
-En el ejemplo siguiente se muestra cómo recibir y procesar mensajes mediante **receiveQueueMessage**. En primer lugar, el ejemplo recibe y elimina un mensaje, después, recibe un mensaje con **isPeekLock** establecido en **true** y luego lo elimina mediante **deleteMessage**:
+En el ejemplo siguiente se muestra cómo recibir y procesar mensajes mediante **receiveQueueMessage**. En primer lugar, el ejemplo recibe y elimina un mensaje, después recibe un mensaje con **isPeekLock** establecido en **true** y luego lo elimina mediante **deleteMessage**:
 
 ```
 serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
@@ -197,7 +199,7 @@ Para obtener más información, consulte los recursos siguientes.
   [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Servicio de nube de Node.js con almacenamiento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Aplicación web Node.js con almacenamiento]: ../storage/storage-nodejs-how-to-use-table-storage.md
-  [Colas del Bus de servicio y de Azure]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
+  [Colas de Bus de servicio y colas de Azure]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -19,7 +19,9 @@
 
 # Uso de temas/suscripciones del Bus de servicio
 
-En esta guía se describe cómo usar los temas y las suscripciones del Bus de servicio desde aplicaciones Node.js. Entre los escenarios tratados se incluyen: **creación de temas y suscripciones**, **creación de filtros de suscripción**, **envío de mensajes** a un tema, **recepción de mensajes de una suscripción** y **eliminación de temas y suscripciones**. Para obtener más información sobre los temas y las suscripciones, vea la sección [Pasos siguientes](#next-steps).
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+
+En esta guía se describe cómo usar los temas y las suscripciones del Bus de servicio desde aplicaciones Node.js. Entre los escenarios tratados se incluyen: **creación de temas y suscripciones**, **creación de filtros de suscripción**, **envío de mensajes** a un tema, **recepción de mensajes de una suscripción** y **eliminación de temas y suscripciones**. Para obtener más información acerca de los temas y las suscripciones, consulte la sección [Pasos siguientes](#next-steps).
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
@@ -150,9 +152,9 @@ El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter*
 
 Es posible agregar filtros a una suscripción utilizando el método **createRule** del objeto **ServiceBusService**. Este método le permite agregar nuevos filtros a una suscripción existente.
 
-> [AZURE.NOTE]Ya que el filtro predeterminado se aplica automáticamente a todas las nuevas suscripciones, debe eliminar primero el filtro predeterminado **MatchAll** si no quiere que este anule los demás filtros que especifique. Puede eliminar el filtro predeterminado utilizando el método **deleteRule** del objeto **ServiceBusService**.
+> [AZURE.NOTE]Debido a que el filtro predeterminado se aplica automáticamente a todas las suscripciones nuevas, debe eliminar primero el filtro predeterminado **MatchAll** si no quiere que este invalide a los demás filtros que especifique. Puede eliminar el filtro predeterminado utilizando el método **deleteRule** del objeto **ServiceBusService**.
 
-En el ejemplo siguiente, se crea una suscripción denominada `HighMessages` con un objeto **SqlFilter** que solo selecciona los mensajes con una propiedad **messagenumber** personalizada cuyo valor sea mayor que 3:
+En el ejemplo siguiente, se crea una suscripción denominada `HighMessages` con **SqlFilter** que solo selecciona los mensajes con una propiedad **messagenumber** personalizada cuyo valor sea mayor que 3:
 
 ```
 serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error){
@@ -187,7 +189,7 @@ var rule={
 }
 ```
 
-Del mismo modo, en el ejemplo que aparece a continuación, se crea una suscripción llamada `LowMessages` con un **SqlFilter** que solo selecciona los mensajes con una propiedad **messagenumber** cuyo valor sea menor o igual a 3:
+Del mismo modo, en el ejemplo que aparece a continuación, se crea una suscripción llamada `LowMessages` con **SqlFilter** que solo selecciona los mensajes con una propiedad **messagenumber** cuyo valor sea menor o igual a 3:
 
 ```
 serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
@@ -226,7 +228,7 @@ Cuando ahora se envía un mensaje a `MyTopic`, siempre se entregará a los desti
 
 ## Envío de mensajes a un tema
 
-Para enviar un mensaje a un tema del bus de servicio, la aplicación debe utilizar el método **sendTopicMessage** del objeto **ServiceBusService**. Los mensajes enviados a los temas del Bus de servicio son objetos **BrokeredMessage**. Los objetos **BrokeredMessage** cuentan con un conjunto de propiedades estándar (como **Label** y **TimeToLive**), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos de cadenas. Una aplicación puede establecer el cuerpo del mensaje pasando un valor de cadena al método **sendTopicMessage**, con lo que las propiedades estándar requeridas adquieren valores predeterminados.
+Para enviar un mensaje a un tema del bus de servicio, la aplicación debe utilizar el método **sendTopicMessage** del objeto **ServiceBusService**. Los mensajes enviados a los temas de Bus de servicio son objetos **BrokeredMessage**. Los objetos **BrokeredMessage** cuentan con un conjunto de propiedades estándar (como **Label** y **TimeToLive**), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos de cadenas. Una aplicación puede establecer el cuerpo del mensaje pasando un valor de cadena al método **sendTopicMessage**, con lo que las propiedades estándar requeridas adquieren valores predeterminados.
 
 En el siguiente ejemplo se demuestra cómo enviar cinco mensajes de prueba a "MyTopic". Fíjese en cómo el valor de la propiedad **messagenumber** de cada mensaje varía en función de la iteración del bucle (así se determinará qué suscripciones lo reciben):
 
@@ -290,7 +292,7 @@ En caso de que la aplicación sufra un error después de procesar el mensaje y a
 
 ## Eliminación de temas y suscripciones
 
-Los temas y suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del Portal de administración de Azure o mediante programación. En el siguiente ejemplo se muestra cómo eliminar el tema denominado `MyTopic`:
+Los temas y suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del Portal de administración de Azure o mediante programación. En el siguiente ejemplo se muestra cómo eliminar el tema llamado `MyTopic`:
 
     serviceBusService.deleteTopic('MyTopic', function (error) {
         if (error) {
@@ -298,7 +300,7 @@ Los temas y suscripciones son permanentes, por lo que deben eliminarse explícit
         }
     });
 
-Al eliminar un tema también se eliminan todas las suscripciones que estén registradas con él. También se pueden eliminar las suscripciones de forma independiente. El código siguiente muestra cómo eliminar una suscripción llamada `HighMessages` del tema `MyTopic`:
+Al eliminar un tema también se eliminan todas las suscripciones que estén registradas con él. También se pueden eliminar las suscripciones de forma independiente. El ejemplo siguiente muestra cómo eliminar una suscripción llamada `HighMessages` del tema `MyTopic`:
 
     serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
         if(error) {
@@ -310,7 +312,7 @@ Al eliminar un tema también se eliminan todas las suscripciones que estén regi
 
 Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos vínculos para obtener más información.
 
--   Vea [Colas, temas y suscripciones][].
+-   Consulte [Colas, temas y suscripciones][].
 -   Referencia de API para [Clase SqlFilter][].
 -   Visite el repositorio del [SDK de Azure para Node][] en GitHub.
 
@@ -325,4 +327,4 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
   [Aplicación web de Node.js con almacenamiento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

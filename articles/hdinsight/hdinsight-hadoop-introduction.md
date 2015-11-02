@@ -61,7 +61,7 @@ Categoría | Hadoop en Linux | Hadoop en Windows
 
 ### Clústeres Hadoop, HBase, Storm, Spark y personalizados
 
-HDInsight proporciona configuraciones de clúster para Hadoop, HBase o Storm. También puede [personalizar clústeres con acciones de scripts](hdinsight-hadoop-customize-cluster-linux.md).
+HDInsight proporciona configuraciones de clúster para Hadoop, HBase o Storm. O, puede [personalizar clústeres con acciones de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 * **Hadoop** (la carga de trabajo "Query"): proporciona almacenamiento de datos confiable con [HDFS](#HDFS) y un modelo de programación de [MapReduce](#mapreduce) simple para procesar y analizar datos en paralelo.
 
@@ -78,7 +78,7 @@ Los siguientes scripts de ejemplo los ofrece el equipo de HDInsight:
 * [Hue](hdinsight-hadoop-hue-linux.md)
 
 	> [AZURE.NOTE]El script de Hue solo está disponible para clústeres basados en Linux.
-	
+
 * [Giraph.](hdinsight-hadoop-giraph-install-linux.md)
 
 * [R](hdinsight-hadoop-r-scripts-linux.md)
@@ -87,7 +87,7 @@ Los siguientes scripts de ejemplo los ofrece el equipo de HDInsight:
 
 * [Spark](hdinsight-hadoop-spark-install-linux.md)
 
-Para obtener información sobre el desarrollo de sus propias acciones de script, vea [Desarrollo de acciones de script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
+Para obtener información sobre el desarrollo de sus propias acciones de script, consulte [Desarrollo de acciones de script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 ## ¿Cuáles son los componentes de Hadoop?
 
@@ -229,7 +229,7 @@ Básese en esta introducción a Hadoop en HDInsight y en el análisis de Big Dat
 
 * <a target="_blank" href="http://hadoop.apache.org/">Apache Hadoop</a>: obtenga más información acerca de la biblioteca de software Apache Hadoop, un marco que permite efectuar el procesamiento distribuido de grandes conjuntos de datos en clústeres de equipos.
 
-* <a target="_blank" href="http://hadoop.apache.org/docs/r0.18.1/hdfs_design.html">HDFS</a>: obtenga más información acerca de la arquitectura y el diseño del Sistema de archivos distribuidos Hadoop, el sistema de almacenamiento principal de las aplicaciones de Hadoop.
+* <a target="_blank" href="http://hadoop.apache.org/docs/r1.0.4/hdfs_design.html">HDFS</a>: obtenga más información acerca de la arquitectura y el diseño del Sistema de archivos distribuidos Hadoop, el sistema de almacenamiento principal de las aplicaciones de Hadoop.
 
 * <a target="_blank" href="http://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html">Tutorial de MapReduce</a>: obtenga más información acerca del marco de programación para escribir aplicaciones de Hadoop con el fin de procesar rápidamente enormes cantidades de datos, en paralelo, en grandes clústeres de nodos de proceso.
 
@@ -272,6 +272,5 @@ Utilice el análisis de Big Data sobre los datos de su organización para obtene
 [marketing-page]: ../services/hdinsight/
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

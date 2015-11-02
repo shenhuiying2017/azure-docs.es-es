@@ -73,7 +73,7 @@ Para comprenderlo mejor, veamos un ejemplo:
 
 Cuando se llama a **IoTHubClient\_SendEventAsync** lo que realmente se está haciendo es colocar el evento en un búfer. El subproceso en segundo plano creado cuando se llama a **IoTHubClient\_CreateFromConnectionString** supervisa continuamente este búfer y envía los datos que contiene a Centro de IoT. Esto sucede en segundo plano al mismo tiempo que el subproceso principal está realizando otro trabajo.
 
-De forma similar al registrar una función de devolución de llamada para mensajes con **IoTHubClient\_SetMessageCallback**, deja preparado el SDK para que el subproceso en segundo plano invoque la función de devolución de llamada cuando se recibe un mensaje, independientemente del subproceso principal.
+De forma similar al registrar una función de devolución de llamada para mensajes con **IoTHubClient\_SetMessageCallback**, indica al SDK que el subproceso en segundo plano invoque la función de devolución de llamada cuando se recibe un mensaje, independientemente del subproceso principal.
 
 Las API "LL" no crean un subproceso en segundo plano. En su lugar, debe llamarse una nueva API para enviar y recibir datos a y desde Centro de IoT de forma explícita. Una vez más, echemos un vistazo a un ejemplo...
 
@@ -276,4 +276,4 @@ Es importante tener conocimientos sobre la opción de procesamiento por lotes. D
 
 Este artículo brinda detalles sobre el comportamiento de la biblioteca **IoTHubClient** que se encuentra en el **SDK de dispositivo IoT de Azure para C**. Con esta información debe tener una buena comprensión de las capacidades de la biblioteca **IoTHubClient**. En el [siguiente artículo](iot-hub-device-sdk-c-serializer.md) le proporcionamos detalles similares en la biblioteca del **serializador**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

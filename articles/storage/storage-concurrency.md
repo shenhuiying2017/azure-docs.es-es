@@ -3,8 +3,8 @@
 	description="Administración de la simultaneidad para los servicios BLOB, Cola, Tabla y Archivo" 
 	services="storage" 
 	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
+	authors="jasonnewyork" 
+	manager="tadb" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/03/2015" 
-	ms.author="tamram"/>
+	ms.author="jahogg"/>
 
 # Administración de la simultaneidad en Almacenamiento de Microsoft Azure
 
@@ -273,4 +273,4 @@ Para obtener más información acerca de Almacenamiento de Azure, consulte:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

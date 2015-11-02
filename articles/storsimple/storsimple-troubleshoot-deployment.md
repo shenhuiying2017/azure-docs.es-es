@@ -257,6 +257,8 @@ A continuación se puede ver la salida del controlador 1 (el controlador activo)
 
 Puede usar el cmdlet `Test-Connection` para determinar si el dispositivo StorSimple puede conectarse a la red externa. Si todos los parámetros de redes, incluidos los de DNS, están configurados correctamente en el Asistente para instalación, puede usar el cmdlet `Test-Connection` para hacer ping a una dirección conocida fuera de la red (por ejemplo, outlook.com).
 
+Debe habilitar ping para solucionar problemas de conectividad con este cmdlet si ping se deshabilita.
+
 Consulte los siguientes ejemplos de salida del cmdlet `Test-Connection`.
 
 > [AZURE.NOTE]En el primer ejemplo, el dispositivo está configurado con un DNS incorrecto. En el segundo ejemplo, el DNS es correcto.
@@ -447,7 +449,7 @@ Por ejemplo, si tiene dos interfaces de red, DATA 2 y DATA 3, conectadas a Inter
 
 Si ejecuta la actualización número 1 en el dispositivo StorSimple, la interfaz de red DATA 0 tendrá mayor preferencia para el tráfico de la nube. Esto implica que, incluso si hay otras interfaces habilitadas en la nube, el tráfico de nube se enrutaría a través de DATA 0.
 
-Si ejecuta el cmdlet `Get-HcsRoutingTable` sin especificar ningún parámetro (tal y como se muestra en el ejemplo siguiente), el cmdlet dará como resultado las tablas de enrutamiento de IPv4 e IPv6. Como alternativa, puede especificar `Get-HcsRoutingTable -IPv4` o `Get-HcsRoutingTable -IPv6` para obtener una tabla de enrutamiento relevante.
+Si ejecuta el cmdlet `Get-HcsRoutingTable` sin especificar ningún parámetro (tal y como se muestra en el ejemplo siguiente), el cmdlet dará como resultado las tablas de enrutamiento de IPv4 e IPv6. Como alternativa, puede especificar `Get-HcsRoutingTable -IPv4` o `Get-HcsRoutingTable -IPv6` para obtener una tabla de enrutamiento pertinente.
 
       Controller0>
       Controller0>Get-HcsRoutingTable
@@ -537,7 +539,7 @@ El error puede deberse a alguna de las siguientes causas:
 
      >[AZURE.NOTE]El Asistente para instalación se debe ejecutar en el controlador activo. Para comprobar que está conectado al controlador activo, observe el banner que aparece en la consola serie. Este banner indica si está conectado al controlador 0 o al 1, y si es el controlador activo o pasivo. Para más información, vaya a [Identificación de un controlador activo en el dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
  
-2. Asegúrese de que los cables del dispositivo están conectados correctamente: compruebe el cableado de red en la parte posterior del dispositivo. Los cables son específicos del modelo de dispositivo. Para obtener más información, consulte [Instalar el dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md) o [nstalar el dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
+2. Asegúrese de que los cables del dispositivo están conectados correctamente: compruebe el cableado de red en la parte posterior del dispositivo. Los cables son específicos del modelo de dispositivo. Para obtener más información, consulte [Instalación del dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md) o [Instalación del dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
 
      >[AZURE.NOTE]Si utiliza puertos de red de 10 GbE, deberá usar los adaptadores QSFP-SFP y los cables SFP suministrados. Para obtener más información, consulte la [lista de cables, conmutadores y transceptores recomendados por el proveedor OEM para puertos Mellanox](http://www.mellanox.com/page/cables?mtag=cable_overview).
  
@@ -575,4 +577,4 @@ El error puede deberse a alguna de las siguientes causas:
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

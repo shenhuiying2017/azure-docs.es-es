@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/15/2015"
+   ms.date="10/20/2015"
    ms.author="liviodlc"/>
 
 #Tutorial: Integración de NetSuite con Azure Active Directory
@@ -66,13 +66,13 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
 
 	> [AZURE.NOTE]Para conocer más acerca de los diferentes opciones de inicio de sesión único, [haga clic aquí](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
-3. En la página **Configurar las opciones de la aplicación**, para el campo **Dirección URL de inicio de sesión**, escriba la dirección URL del inquilino de NetSuite con uno de los formatos siguientes:
-	- `https://<tenant-name>.netsuite.com`
-	- `https://<tenant-name>.na1.netsuite.com`
-	- `https://<tenant-name>.na2.netsuite.com`
-	- `https://<tenant-name>.sandbox.netsuite.com`
-	- `https://<tenant-name>.na1.sandbox.netsuite.com`
-	- `https://<tenant-name>.na2.sandbox.netsuite.com`
+3. En la página **Configurar las opciones de la aplicación**, en el campo **URL de respuesta**, escriba la dirección URL del inquilino de NetSuite con uno de los formatos siguientes:
+	- `https://<tenant-name>.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na1.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na2.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.sandbox.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
 	![Especificación de la dirección URL de inquilino][8]
 
@@ -142,55 +142,57 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
 
 	- En el menú de navegación superior, haga clic en **Configuración** y, a continuación, haga clic en **Administrador de instalación**.
 
-	![Vaya al Administrador de instalación][10]
+		![Vaya al Administrador de instalación][10]
 
-	- En el menú de navegación izquierdo, seleccione **Usuarios/Roles** y, a continuación, haga clic en**Administrar roles**.
+	- En el menú de navegación izquierdo, seleccione **Usuarios/Roles** y luego haga clic en **Administrar roles**.
 
-	![Vaya a Administrar roles][22]
+		![Vaya a Administrar roles][22]
 
 	- Haga clic en **Nuevo rol**.
 
-	- Escriba un **nombre** para el nuevo rol y, a continuación, seleccione la casilla **Solo inicio de sesión único**.
+	- Escriba un **nombre** para el nuevo rol y luego active la casilla **Solo inicio de sesión único**.
 
-	![Ponga un nombre al nuevo rol.][23]
-
-	- Haga clic en **Guardar**.
-
-	- En el menú en la parte superior, haga clic en **Permisos**. A continuación, haga clic en **Configuración**.
-
-	![Vaya a Permisos][24]
-
-	- Seleccione **Configurar inicio de sesión único de SAM** y, a continuación, haga clic en **Agregar**.
+		![Ponga un nombre al nuevo rol.][23]
 
 	- Haga clic en **Guardar**.
 
-	- En el menú de navegación superior, haga clic en **Configuración** y, a continuación, haga clic en **Administrador de instalación**.
+	- En el menú de la parte superior, haga clic en **Permisos**. A continuación, haga clic en **Configuración**.
 
-	![Vaya al Administrador de instalación][10]
+		![Vaya a Permisos][24]
 
-	- En el menú de navegación izquierdo, seleccione **Usuarios/Roles** y, a continuación, haga clic en**Administrar usuarios**.
+	- Seleccione **Configurar inicio de sesión único de SAM** y luego haga clic en **Agregar**.
 
-	![Vaya a Administrar usuarios][25]
+	- Haga clic en **Guardar**.
+
+	- En el menú de navegación superior, haga clic en **Configuración** y luego haga clic en **Administrador de instalación**.
+
+		![Vaya al Administrador de instalación][10]
+
+	- En el menú de navegación izquierdo, seleccione **Usuarios/Roles** y luego haga clic en **Administrar usuarios**.
+
+		![Vaya a Administrar usuarios][25]
 
 	- Seleccione un usuario de prueba. A continuación, haga clic en **Editar**.
 
-	![Vaya a Administrar usuarios][26]
+		![Vaya a Administrar usuarios][26]
 
 	- En el cuadro de diálogo Roles, seleccione el rol que se ha creado y haga clic en **Agregar**.
 
-	![Vaya a Administrar usuarios][27]
+		![Vaya a Administrar usuarios][27]
 
 	- Haga clic en **Guardar**.
 
-19. Para probar la configuración, vea la sección siguiente titulada [Asignación de usuarios a NetSuite](#step-4-assign-users-to-netsuite).
+19. Para probar la configuración, consulte la sección siguiente titulada [Asignación de usuarios a NetSuite](#step-4-assign-users-to-netsuite).
 
 ##Paso 3: Habilitación del aprovisionamiento automático de usuarios
+
+> [AZURE.NOTE]De forma predeterminada, los usuarios aprovisionados se agregarán a la subsidiaria raíz del entorno NetSuite.
 
 1. En Azure Active Directory, en la página de inicio rápido de NetSuite, haga clic en **Configurar aprovisionamiento de usuarios**.
 
 	![Configuración de aprovisionamiento de usuario][28]
 
-2. En el cuadro de diálogo que se abre, escriba las credenciales de administrador para NetSuite y, a continuación, haga clic en **Siguiente**.
+2. En el cuadro de diálogo que se abre, escriba las credenciales de administrador para NetSuite y luego haga clic en **Siguiente**.
 
 	![Escriba las credenciales de administrador de NetSuite.][29]
 
@@ -216,7 +218,7 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
 
  - Si ha habilitado el aprovisionamiento automático de usuarios, verá un símbolo del sistema para definir qué tipo de rol debe tener el usuario en NetSuite. Los usuarios recién aprovisionados deberían aparecer en su entorno NetSuite después de unos minutos.
 
-4. Para probar la configuración de inicios de sesión únicos, abra el Panel de acceso en [https://myapps.microsoft.com](https://myapps.microsoft.com/), inicie sesión en la cuenta de prueba y haga clic en **NetSuite**.
+4. Para probar la configuración de inicios de sesión únicos, abra el panel de acceso en [https://myapps.microsoft.com](https://myapps.microsoft.com/), inicie sesión en la cuenta de prueba y haga clic en **NetSuite**.
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
@@ -254,4 +256,4 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -535,133 +535,47 @@ Las llamadas de telemetría individuales pueden invalidar los valores predetermi
     // ...
 
 
+## Datos de vaciado
 
-## Inicializadores de telemetría
-
-Use inicializadores de telemetría para definir las propiedades globales que se envían con toda la telemetría; y para invalidar el comportamiento seleccionado de los módulos de telemetría estándar.
-
-Por ejemplo, para el paquete Application Insights para web recopila telemetría acerca de las solicitudes HTTP. De forma predeterminada, marca como errónea cualquier solicitud con un código de respuesta >= 400. Pero si desea tratar 400 como un éxito, puede proporcionar un inicializador de telemetría que establece la propiedad Éxito.
-
-Si se proporciona un inicializador de telemetría, se llama cada vez que se llama a cualquiera de los métodos Track*(). Esto incluye los métodos llamados por los módulos de telemetría estándar. Por convención, estos módulos no establecen ninguna propiedad que ya haya sido establecida por un inicializador.
-
-**Defina su inicializador**
+Normalmente el SDK envía datos en momentos elegidos para minimizar el impacto en el usuario. Sin embargo, en algunos casos puede que desee vaciar el búfer: por ejemplo, si usa el SDK en una aplicación que se apaga.
 
 *C#*
 
-```C#
+    telemetry.Flush();
 
-    using System;
-    using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.DataContracts;
-    using Microsoft.ApplicationInsights.Extensibility;
+    // Allow some time for flushing before shutdown.
+    System.Threading.Thread.Sleep(1000);
 
-    namespace MvcWebRole.Telemetry
-    {
-      /*
-       * Custom TelemetryInitializer that overrides the default SDK 
-       * behavior of treating response codes >= 400 as failed requests
-       * 
-       */
-      public class MyTelemetryInitializer : ITelemetryInitializer
-      {
-        public void Initialize(ITelemetry telemetry)
-        {
-            var requestTelemetry = telemetry as RequestTelemetry;
-            // Is this a TrackRequest() ?
-            if (requestTelemetry == null) return;
-            int code;
-            bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
-            if (!parsed) return;
-            if (code >= 400 && code < 500)
-            {
-                // If we set the Success property, the SDK won't change it:
-                requestTelemetry.Success = true;
-                // Allow us to filter these requests in the portal:
-                requestTelemetry.Context.Properties["Overridden400s"] = "true";
-            }
-            // else leave the SDK to set the Success property      
-        }
-      }
-    }
-```
-
-**Cargue su inicializador**
-
-En ApplicationInsights.config:
-
-    <ApplicationInsights>
-      <TelemetryInitializers>
-        <!-- Fully qualified type name, assembly name: -->
-        <Add Type="MvcWebRole.Telemetry.MyTelemetryInitializer, MvcWebRole"/> 
-        ...
-      </TelemetryInitializers>
-    </ApplicationInsights>
-
-*Alternativamente,* se pueden crear instancias del inicializador en el código, por ejemplo en Global.aspx.cs:
+Tenga en cuenta que la función es asincrónica para canales en memoria, pero sincrónica si decide usar el [canal persistente](app-insights-windows-desktop.md#persistence-channel).
 
 
-```C#
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.TelemetryInitializers
-        .Add(new MyTelemetryInitializer());
-    }
-```
+
+## Inicializadores y procesadores de telemetría
+
+Puede escribir y configurar complementos para el SDK de Application Insights con el fin de personalizar cómo se captura y se procesa la telemetría antes de enviarla al servicio de Application Insights.
+
+[Más información](app-insights-telemetry-processors.md)
 
 
-[Obtenga más información de este ejemplo.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
+## Deshabilitación de los datos de telemetría estándar
 
-<a name="js-initializer"></a>
-### Inicializadores de telemetría de JavaScript
+También puede [deshabilitar partes seleccionadas de los datos de telemetría estándar][config] editando `ApplicationInsights.config`. Podría hacer esto, por ejemplo, si quiere enviar sus propios datos de TrackRequest.
 
-*JavaScript*
-
-Inserte un inicializador de telemetría inmediatamente después del código de inicialización que obtuvo del portal:
-
-```JS
-
-    <script type="text/javascript">
-        // ... initialization code
-        ...({
-            instrumentationKey: "your instrumentation key"
-        });
-        window.appInsights = appInsights;
+[Más información][config].
 
 
-        // Adding telemetry initializer.
-        // This is called whenever a new telemetry item
-        // is created.
+## <a name="debug"></a>Modo de programador
 
-        appInsights.queue.push(function () {
-            appInsights.context.addTelemetryInitializer(function (envelope) {
-                var telemetryItem = envelope.data.baseData;
+Durante la depuración, resulta útil enviar los datos de telemetría por la canalización para así poder ver los resultados inmediatamente. También puede recibir mensajes adicionales que le ayuden a realizar el seguimiento de los posibles problemas con la telemetría. Desactívelo en producción, ya que puede ralentizar la aplicación.
 
-                // To check the telemetry item’s type - for example PageView:
-                if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
-                    // this statement removes url from all page view documents
-                    telemetryItem.url = "URL CENSORED";
-                }
 
-                // To set custom properties:
-                telemetryItem.properties = telemetryItem.properties || {};
-                telemetryItem.properties["globalProperty"] = "boo";
+*C#*
+    
+    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 
-                // To set custom metrics:
-                telemetryItem.measurements = telemetryItem.measurements || {};
-                telemetryItem.measurements["globalMetric"] = 100;
-            });
-        });
+*VB*
 
-        // End of inserted code.
-
-        appInsights.trackPageView();
-    </script>
-```
-
-Para obtener un resumen de las propiedades no personalizadas disponibles en telemetryItem, consulte el [modelo de datos](app-insights-export-data-model.md/#lttelemetrytypegt).
-
-Puede agregar tantos inicializadores como desee.
+    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 ## <a name="dynamic-ikey"></a> Copia de la clave de instrumentación
 
@@ -700,42 +614,6 @@ En páginas web, podría configurarla a partir del estado del servidor web, en l
     }) // ...
 
 
-
-## Datos de vaciado
-
-Normalmente el SDK envía datos en momentos elegidos para minimizar el impacto en el usuario. Sin embargo, en algunos casos puede que desee vaciar el búfer: por ejemplo, si usa el SDK en una aplicación que se apaga.
-
-*C#*
-
-    telemetry.Flush();
-
-    // Allow some time for flushing before shutdown.
-    System.Threading.Thread.Sleep(1000);
-
-Tenga en cuenta que la función es asincrónica para canales en memoria, pero sincrónica si decide usar el [canal persistente](app-insights-windows-desktop.md#persistence-channel).
-
-
-
-## Deshabilitación de los datos de telemetría estándar
-
-También puede [deshabilitar partes seleccionadas de los datos de telemetría estándar][config] editando `ApplicationInsights.config`. Podría hacer esto, por ejemplo, si quiere enviar sus propios datos de TrackRequest.
-
-[Más información][config].
-
-
-## <a name="debug"></a>Modo de programador
-
-Durante la depuración, resulta útil enviar los datos de telemetría por la canalización para así poder ver los resultados inmediatamente. También puede recibir mensajes adicionales que le ayuden a realizar el seguimiento de los posibles problemas con la telemetría. Desactívelo en producción, ya que puede ralentizar la aplicación.
-
-
-*C#*
-    
-    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
-
-*VB*
-
-    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
-
 ## TelemetryContext
 
 TelemetryClient tiene una propiedad de Context, que contiene un número de valores que se envían junto con todos los datos de telemetría. Normalmente, se establecen mediante los módulos de telemetría estándar, pero también los puede establecer usted mismo. Por ejemplo:
@@ -755,92 +633,6 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 * **Properties** Propiedades que se envían con todos los datos de telemetría. Se pueden invalidar en llamadas de seguimiento* individuales.
 * **Session** Identifica la sesión del usuario. El id. se establece en un valor generado, que cambia cuando el usuario lleva un tiempo sin estar activo.
 * **User**: información del usuario. 
-
-
-## <a name="default-properties"></a>Inicializadores de contexto: establecimiento de las propiedades predeterminadas para todos los datos de telemetría
-
-Puede configurar un inicializador universal para que todos los TelemetryClients nuevos usen automáticamente el contexto. Aquí se incluyen los datos de telemetría estándar enviados por los módulos de telemetría específicos de la plataforma, como el seguimiento de solicitudes de servidor web.
-
-Un uso típico consiste en identificar telemetría procedente de distintas versiones o componentes de la aplicación. En el portal, puede filtrar o agrupar resultados por la propiedad "Versión de la aplicación".
-
-En general, [se recomienda usar inicializadores de telemetría en lugar de los inicializadores de contexto](http://apmtips.com/blog/2015/06/09/do-not-use-context-initializers/).
-
-#### Definir un inicializador de contexto
-
-
-*C#*
-
-```C#
-
-    using System;
-    using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.DataContracts;
-    using Microsoft.ApplicationInsights.Extensibility;
-
-    namespace MyNamespace
-    {
-      // Context initializer class
-      public class MyContextInitializer : IContextInitializer
-      {
-        public void Initialize (TelemetryContext context)
-        {
-            if (context == null) return;
-
-            context.Component.Version = "v2.1";
-        }
-      }
-    }
-```
-
-*Java*
-
-```Java
-
-    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
-    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
-
-    public class MyContextInitializer implements ContextInitializer {
-      @Override
-      public void initialize(TelemetryContext context) {
-        context.Component.Version = "2.1";
-      }
-    }
-```
-
-#### Cargar su inicializador de contexto
-
-En ApplicationInsights.config:
-
-    <ApplicationInsights>
-      <ContextInitializers>
-        <!-- Fully qualified type name, assembly name: -->
-        <Add Type="MyNamespace.MyContextInitializer, MyAssemblyName"/> 
-        ...
-      </ContextInitializers>
-    </ApplicationInsights>
-
-*Alternativamente,* se pueden crear instancias del inicializador en el código:
-
-*C#*
-
-```C#
-
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.ContextInitializers
-        .Add(new MyContextInitializer());
-    }
-```
-
-*Java*
-
-```Java
-
-    // load the context initializer
-    TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
-```
-
 
 
 
@@ -916,4 +708,4 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,9 +1,7 @@
 <properties 
-	pageTitle="Proceso analítico avanzado y tecnología en acción: uso de clústeres de Hadoop de HDInsight en un conjunto de datos de 1 TB de Criteo | Microsoft Azure" 
+	pageTitle="Proceso de análisis de Cortana: uso de clústeres de Hadoop de HDInsight en un conjunto de datos de 1 TB de Criteo | Microsoft Azure" 
 	description="Uso del proceso analítico avanzado y tecnología (ADAPT) para un escenario integral con un clúster de Hadoop de HDInsight para crear e implementar un modelo con un conjunto de datos disponible públicamente de gran tamaño (1 TB)" 
-	metaKeywords="" 
 	services="machine-learning,hdinsight" 
-	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -15,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
-	ms.author="ginathan;mohabib;bradsev" />
+	ms.date="10/18/2015" 
+	ms.author="ginathan;bradsev" />
 
-# Proceso analítico avanzado y tecnología en acción: uso de clústeres de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB
+# Proceso de análisis de Cortana en acción: uso de clústeres de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB
 
-En este tutorial, se describe cómo utilizar todo el proceso analítico avanzado y tecnología (ADAPT) con un [clúster de Hadoop de HDInsight de Azure](http://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y estudiar sus características desde el punto de vista de los ingenieros y reducir el tamaño de los datos de uno de los conjuntos de datos de [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) que están disponibles públicamente. Usamos Aprendizaje automático de Azure para crear un modelo de clasificación binaria con estos datos. Asimismo, se muestra cómo publicar uno de estos modelos como un servicio web.
+En este tutorial, se describe cómo utilizar todo el proceso de análisis de Cortana con un [clúster de Hadoop de HDInsight de Azure](http://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y estudiar sus características desde el punto de vista de los ingenieros y reducir el tamaño de los datos de uno de los conjuntos de datos de [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) que están disponibles públicamente. Usamos Aprendizaje automático de Azure para crear un modelo de clasificación binaria con estos datos. Asimismo, se muestra cómo publicar uno de estos modelos como un servicio web.
 
 También es posible usar un cuaderno de iPython para realizar las tareas que se presentan en este tutorial. Los usuarios que deseen probar este método deben consultar el tema sobre el [tutorial de Criteo con una conexión de ODBC de Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
@@ -78,7 +76,7 @@ Configure su entorno de ciencia de datos de Azure para crear soluciones de anál
 
 Para acceder al conjunto de datos de [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/), haga clic en el vínculo, acepte las condiciones de uso y especifique un nombre. A continuación, se muestra una instantánea de esta pantalla:
 
-![Aceptar los términos de Criteo](http://i.imgur.com/hLxfI2E.png)
+![Aceptar los términos de Criteo](./media/machine-learning-data-science-process-hive-criteo-walkthrough/hLxfI2E.png)
 
 Haga clic en **Continue to download** (Continuar para descarga) para obtener más información sobre el conjunto de datos y su disponibilidad.
 
@@ -100,7 +98,8 @@ Para iniciar sesión en el nodo principal del clúster, utilice el [Portal de ad
 
 Esto es lo que se ve normalmente al iniciar sesión por primera vez en el nodo principal del clúster:
 
-![Iniciar sesión en el clúster](http://i.imgur.com/Yys9Vvm.png)
+![Iniciar sesión en el clúster](./media/machine-learning-data-science-process-hive-criteo-walkthrough/Yys9Vvm.png)
+
 
 A la izquierda, vemos el icono de "Hadoop Command Line" (Línea de comandos de Hadoop), que será nuestra herramienta de trabajo para explorar los datos. También vemos dos direcciones URL útiles: "Hadoop Yarn Status" (Estado de Hadoop Yarn) y "Hadoop Name Node" (Nombre del nodo de Hadoop). La dirección URL del estado de Yarn muestra el progreso del trabajo, mientras que la URL del nombre del nodo proporciona detalles sobre la configuración del clúster.
 
@@ -447,7 +446,7 @@ Para empezar, seleccione **+ NUEVO** -> **EXPERIMENTO** -> **Experimento en blan
 
 Este es el aspecto del módulo **Lector** al obtener los datos de la tabla de Hive:
 
-![Obtener los datos del lector](http://i.imgur.com/i3zRaoj.png)
+![Obtener los datos del lector](./media/machine-learning-data-science-process-hive-criteo-walkthrough/i3zRaoj.png)
 
 Para el módulo **Lector**, los valores de los parámetros que se proporcionan en el gráfico son solo algunos ejemplos de la ordenación de los valores que deberá proporcionar. Aquí se proporcionan algunas instrucciones generales acerca de cómo rellenar el conjunto de parámetros para el módulo **Lector**.
 
@@ -464,14 +463,13 @@ Para el módulo **Lector**, los valores de los parámetros que se proporcionan e
 
 Una vez que el módulo **Lector** finaliza la obtención de datos (se muestra una marca de verificación verde en el módulo), guarde estos datos como un conjunto de datos (con el nombre que desee). Este es el aspecto:
 
-![Guardar los datos del lector](http://i.imgur.com/oxM73Np.png)
-
+![Guardar los datos del lector](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oxM73Np.png)
 
 Haga clic con el botón derecho en el puerto de salida del módulo **Lector**. Se muestran las opciones **Save as dataset** (Guardar como conjunto de datos) y **Visualize** (Visualizar). Si se hace clic en la opción **Visualize** (Visualizar), se muestran 100 filas de los datos, junto con un panel derecho que es útil para algunas estadísticas de resumen. Para guardar los datos, simplemente seleccione **Save as dataset** (Guardar como conjunto de datos) y siga las instrucciones.
 
 Para seleccionar el conjunto de datos guardado para usarlo en un experimento de Aprendizaje automático, busque los conjuntos de datos usando el cuadro **Búsqueda** que se muestra a continuación. A continuación, escriba parcialmente el nombre que asignó al conjunto de datos para acceder a él y arrastre el conjunto de datos hasta el panel principal. Al depositarlo en el panel principal, se selecciona para su uso en el modelado de Aprendizaje automático.
 
-![](http://i.imgur.com/cl5tpGw.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/cl5tpGw.png)
 
 ***NOTA IMPORTANTE:*** **Realice esta acción para los conjuntos de datos "test" y "train". Además, recuerde usar el nombre de la base de datos y los nombres de tabla que ha asignado para este propósito. Los valores usados en la ilustración son únicamente con fines ilustrativos.**
  
@@ -479,7 +477,7 @@ Para seleccionar el conjunto de datos guardado para usarlo en un experimento de 
 
 Nuestro experimento de Aprendizaje automático de Azure es similar al siguiente:
 
-![](http://i.imgur.com/xRpVfrY.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xRpVfrY.png)
 
 Ahora examinaremos los componentes clave de este experimento. Como recordatorio, tenemos que arrastrar nuestros conjuntos de datos train y test a nuestro lienzo de experimento antes.
 
@@ -487,7 +485,7 @@ Ahora examinaremos los componentes clave de este experimento. Como recordatorio,
 
 El módulo **Limpiar datos que faltan** hace justo lo que sugiere su nombre: limpia los datos siguiendo el método que especifique el usuario. En este módulo, veremos estos datos:
 
-![Limpiar datos que faltan (Limpiar datos que faltan)](http://i.imgur.com/0ycXod6.png)
+![Limpiar datos que faltan (Limpiar datos que faltan)](./media/machine-learning-data-science-process-hive-criteo-walkthrough/0ycXod6.png)
 
 Aquí, hemos optado por reemplazar todos los valores que faltan por un 0. Hay otras opciones, que se pueden ver al mirar las listas desplegables del módulo.
 
@@ -499,20 +497,22 @@ Puede haber millones de valores únicos para algunas características de categor
 
 Para crear características de recuento, usamos el módulo **Crear transformación de recuento**, que está disponible en Aprendizaje automático de Azure. El módulo tiene este aspecto:
 
-![](http://i.imgur.com/e0eqKtZ.png) ![](http://i.imgur.com/OdDN0vw.png)
+
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/e0eqKtZ.png) ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OdDN0vw.png)
+
 
 **Nota importante**: en el cuadro **Recuento de columnas**, especificamos las columnas en las que deseamos realizar recuentos. Normalmente, son columnas de categorías con una alta dimensionalidad (tal y como se mencionó). Al principio, hemos mencionado que el conjunto de datos de Criteo tiene 26 columnas de categorías: de Col15 a Col40. En este caso, contamos en todas ellas y les damos sus índices (de 15 a 40 separados por comas, como se muestra).
 
 Para usar el módulo en el modo MapReduce (adecuado para grandes conjuntos de datos), se necesita acceso a un clúster de Hadoop de HDInsight (el que se usa para la exploración de categorías anterior se puede reutilizar para este propósito) y sus credenciales. En las ilustraciones anteriores se muestra el aspecto de los valores rellenados (reemplace los valores proporcionados para ilustración por los que son relevantes para su propio caso de uso).
 
-![](http://i.imgur.com/05IqySf.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/05IqySf.png)
 
 En la ilustración anterior, se muestra cómo especificar la ubicación del blob de entrada. Esta ubicación tiene los datos reservados para la creación de tablas de recuento.
 
 
 Cuando finalice este módulo, podemos guardar la transformación para más adelante; haga clic en el módulo y seleccione la opción **Guardar como transformación**:
 
-![](http://i.imgur.com/IcVgvHR.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IcVgvHR.png)
 
 En nuestra arquitectura de experimento antes mostrada, el conjunto de datos "ytransform2" corresponde exactamente a una transformación de recuento guardada. Para el resto de este experimento, se considera que el lector usó un módulo **Crear transformación de recuento** con algunos datos para generar recuentos y, a continuación, puede usar estos recuentos para generar características de recuento en los conjuntos de datos train y test.
 
@@ -520,7 +520,7 @@ En nuestra arquitectura de experimento antes mostrada, el conjunto de datos "ytr
 
 Una vez que tenemos una transformación de recuento lista, el usuario puede elegir las características que desea incluir en los conjuntos de datos train y test mediante el módulo **Modificar parámetros de la tabla de recuentos**. Mostramos este módulo a continuación solo para que esté completo, pero por razones de simplicidad en realidad no la usamos en nuestro experimento.
 
-![](http://i.imgur.com/PfCHkVg.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/PfCHkVg.png)
 
 En este caso, como se puede ver, hemos elegido usar solo las probabilidades e ignorar la columna de retroceso. También podemos establecer parámetros como el umbral de ubicación de elementos no utilizados, cuántos ejemplos anteriores agregar para el suavizado y si se usa cualquier ruido Laplacian o no. Todas estas son características avanzadas y es conveniente tener en cuenta que los valores predeterminados son un buen punto de partida para los usuarios que no están familiarizados con este tipo de generación de características.
 
@@ -528,17 +528,18 @@ En este caso, como se puede ver, hemos elegido usar solo las probabilidades e ig
 
 Ahora nos centraremos en un punto importante acerca de cómo transformar los datos de train y test antes de generar realmente las características de recuento. Tenga en cuenta que hay dos módulos **Ejecutar script R** usados antes de aplicar la transformación de recuentos a nuestros datos.
 
-![](http://i.imgur.com/aF59wbc.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/aF59wbc.png)
 
 Este es el primer script R:
 
-![](http://i.imgur.com/3hkIoMx.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/3hkIoMx.png)
+
 
 En este script R, cambiamos nuestras columnas a los nombres de "Col1" a "Col40". Esto es así porque la transformación de recuentos espera nombres con este formato.
 
 En el segundo script R, para equilibrar la distribución entre clases positivas y negativas (clases 1 y 0 respectivamente) reducimos la resolución de la clase negativa. El siguiente script R muestra cómo hacerlo:
 
-![](http://i.imgur.com/91wvcwN.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/91wvcwN.png)
 
 En este script R simple, se usa "pos\_neg\_ratio" para establecer la cantidad de equilibrio entre clases positiva y negativa. Es importante hacerlo, ya que mejorar el desequilibrio entre clases normalmente tiene ventajas de rendimiento para los problemas de clasificación en los que la distribución de las clases se había sesgado (recuerde que en nuestro caso, tenemos una clase positiva del 3,3% y una clase negativa del 96,7%).
 
@@ -546,13 +547,13 @@ En este script R simple, se usa "pos\_neg\_ratio" para establecer la cantidad de
 
 Por último, podemos usar el módulo **Aplicar transformación** para aplicar las transformaciones de recuentos a nuestros conjuntos de datos train y test. Este módulo toma la transformación de recuentos guardada como una entrada y los conjuntos de datos train o test como la otra entrada, y devuelve datos con características de recuento. Se muestra a continuación:
 
-![](http://i.imgur.com/xnQvsYf.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xnQvsYf.png)
 
 ##### Un extracto del aspecto de las características de recuento
 
 Es instructivo para ver el aspecto de las características de recuento en nuestro caso. A continuación, se muestra un extracto de esto:
 
-![](http://i.imgur.com/FO1nNfw.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/FO1nNfw.png)
 
 En este extracto, se muestra que para las columnas en las que se ha hecho el recuento, se obtienen los recuentos y probabilidades, además de cualquier retroceso pertinente.
 
@@ -564,7 +565,7 @@ Ahora estamos listos para crear un modelo de Aprendizaje automático de Azure co
 
 En primer lugar, tenemos que elegir un aprendiz. Vamos a usar como nuestro aprendiz un árbol de decisiones incrementado de dos clases. Aquí están las opciones predeterminadas para este aprendiz:
 
-![](http://i.imgur.com/bH3ST2z.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
 
 Para nuestro experimento, simplemente elegiremos los valores predeterminados. Tenemos en cuenta que los valores predeterminados son normalmente significativos y una buena forma de obtener las líneas base rápidas del rendimiento. Puede mejorar el rendimiento mediante el barrido de parámetros si elige hacerlo una vez que tenga una línea base.
 
@@ -572,23 +573,25 @@ Para nuestro experimento, simplemente elegiremos los valores predeterminados. Te
 
 Para el entrenamiento, simplemente invocamos un módulo **Entrenar modelo**. Las dos entradas son el aprendiz de árbol de decisión incrementado de dos clases y nuestro conjunto de datos train. Esto se muestra a continuación:
 
-![](http://i.imgur.com/2bZDZTy.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/2bZDZTy.png)
+
 
 #### Puntuación del modelo
 
 Una vez que tenemos un modelo entrenado, estamos preparados para puntuar el conjunto de datos test y evaluar su rendimiento. Lo hacemos mediante el módulo **Puntuar modelo** mostrado a continuación, junto con un módulo **Evaluar modelo**:
 
-![](http://i.imgur.com/fydcv6u.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
+
 
 ### <a name="step5"></a> Paso 5: evaluación del modelo
 
 Por último, vamos a analizar el rendimiento del modelo. Normalmente, para los problemas de clasificación (binarios) de dos clases, una buena medida es AUC. Para visualizar esto, conectamos el módulo **Puntuar modelo** con un módulo **Evaluar modelo**. Al hacer clic en **Visualize** (Visualizar) en el módulo **Evaluar modelo**, se genera un gráfico como el siguiente:
 
-![Módulo Evaluación del modelo de BDT](http://i.imgur.com/0Tl0cdg.png)
+![Módulo Evaluación del modelo de BDT](./media/machine-learning-data-science-process-hive-criteo-walkthrough/0Tl0cdg.png)
 
 En los problemas de clasificación binarios (o de dos clases), una buena medida de la exactitud de la predicción es Área bajo curva (AUC). A continuación, mostramos nuestros resultados al usar este modelo en nuestro conjunto de datos "test". Para ver los resultados, haga clic con el botón derecho en el puerto del módulo **Evaluar modelo** y seleccione **Visualize** (Visualizar).
 
-![Visualización del módulo Evaluar modelo](http://i.imgur.com/IRfc7fH.png)
+![Visualización del módulo Evaluar modelo](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IRfc7fH.png)
 
 ### <a name="step6"></a> Paso 6: publicación del modelo como un servicio web
 La capacidad de publicar un modelo de Aprendizaje automático de Azure como servicios web con una complicación mínima es una característica valiosa para que esté ampliamente disponible. Una vez hecho esto, cualquier persona puede realizar llamadas al servicio web con los datos de entrada para los que necesitan predicciones, y el servicio web usa el modelo para devolver dichas predicciones.
@@ -604,7 +607,7 @@ A continuación, necesitamos crear puertos de entrada y salida para nuestro serv
 
 Es cómodo usar una **Transformación de aplicación de SQL** para seleccionar solo 10 filas que sirvan como los datos del puerto de entrada. Seleccione estas filas de datos para el puerto de entrada mediante la consulta SQL que se muestra a continuación.
 
-![Datos del puerto de entrada](http://i.imgur.com/XqVtSxu.png)
+![Datos del puerto de entrada](./media/machine-learning-data-science-process-hive-criteo-walkthrough/XqVtSxu.png)
 
 #### Servicio web
 Ahora estamos preparados para realizar un pequeño experimento que puede utilizarse para publicar el servicio web.
@@ -613,7 +616,7 @@ Ahora estamos preparados para realizar un pequeño experimento que puede utiliza
 
 Como paso inicial, ya que la tabla de recuento es grande, tomamos unas pocas líneas de datos de prueba y generamos datos de salida a partir de ellos con características de recuento. Esto puede servir como formato de datos de entrada para nuestro servicio web. Vea la siguiente imagen:
 
-![Creación de datos de entrada de BDT](http://i.imgur.com/OEJMmst.png)
+![Creación de datos de entrada de BDT](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OEJMmst.png)
 
 Nota: para el formato de datos de entrada, utilizaremos ahora la salida del módulo **Caracterizador de recuento**. Una vez que este experimento termina de ejecutarse, guarde la salida del módulo **Caracterizador de recuento** como un conjunto de datos.
 
@@ -623,19 +626,20 @@ Nota: para el formato de datos de entrada, utilizaremos ahora la salida del mód
 
 En primer lugar, veamos el aspecto que tiene. La estructura fundamental es un módulo **Puntuar modelo** que acepta el objeto del modelo entrenado y unas pocas líneas de datos de entrada que hemos generado en los pasos anteriores mediante el módulo **Caracterizador de recuento**. Utilizamos "Columnas del proyecto" para proyectar las etiquetas puntuadas y las probabilidades de puntuación.
 
-![Columnas del proyecto](http://i.imgur.com/kRHrIbe.png)
+![Columnas del proyecto](./media/machine-learning-data-science-process-hive-criteo-walkthrough/kRHrIbe.png)
 
 Observe cómo el módulo **Columnas del proyecto** puede usarse para 'filtrar' datos de un conjunto de datos. El contenido se muestra a continuación:
 
-![Filtrar con el módulo Columnas del proyecto](http://i.imgur.com/oVUJC9K.png)
+![Filtrar con el módulo Columnas del proyecto](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oVUJC9K.png)
 
 Para obtener los puertos de salida y entrada azules, basta con hacer clic en **Preparar servicio web** en la esquina inferior derecha. Al realizar este experimento también podemos publicar el servicio web haciendo clic en el icono **Publish webservice** (Publicar servicio web) situado en la esquina inferior derecha, como se muestra a continuación.
 
-![Publicar servicio web](http://i.imgur.com/WO0nens.png)
+![Publicar servicio web](./media/machine-learning-data-science-process-hive-criteo-walkthrough/WO0nens.png)
+
 
 Una vez publicado el servicio web, accedemos a una página como esta:
 
-![](http://i.imgur.com/YKzxAA5.png)
+![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/YKzxAA5.png)
 
 Podemos ver los dos vínculos a los servicios web en el lado izquierdo:
 
@@ -648,14 +652,15 @@ Se aconseja copiar este código python en una celda nueva en el cuaderno de IPyt
 
 A continuación, se muestra un fragmento de código python con la clave de API correcta.
 
-![Código de Python](http://i.imgur.com/f8N4L4g.png)
+![Código de Python](./media/machine-learning-data-science-process-hive-criteo-walkthrough/f8N4L4g.png)
+
 
 Tenga en cuenta que reemplazamos la clave de API predeterminada por la clave de API de nuestros servicios web. Al hacer clic en **Ejecutar** en esta celda de un cuaderno de IPython, se obtiene la siguiente respuesta:
 
-![Respuesta de IPython](http://i.imgur.com/KSxmia2.png)
+![Respuesta de IPython](./media/machine-learning-data-science-process-hive-criteo-walkthrough/KSxmia2.png)
 
 Podemos ver que para los dos ejemplos de prueba por los que hemos preguntado (en el marco JSON del script de python), obtenemos respuestas con el formato "Scored Labels, Scored Probabilities" (Etiquetas puntuadas, Probabilidades puntuadas). Tenga en cuenta que, en este caso, elegimos los valores predeterminados que proporciona el código predefinido (0 para todas las columnas numéricas y la cadena "value" para todas las columnas de categorías).
 
 Esto concluye nuestro tutorial completo que muestra cómo controlar un conjunto de datos grande mediante Aprendizaje automático de Azure. Hemos empezado con un terabyte de datos, hemos creado un modelo de predicción y lo hemos implementado como un servicio web en la nube.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

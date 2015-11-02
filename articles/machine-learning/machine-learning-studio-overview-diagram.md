@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure | Microsoft Azure"
 	description="Diagrama imprimible de las funcionalidades de Estudio de aprendizaje automático de Azure, que muestra cómo usar dicha aplicación para desarrollar un experimento de análisis predictivo y ponerlo en marcha en la nube de Azure."
-	keywords="machine learning studio,overview diagram,download"
+	keywords="estudio de aprendizaje automático, introducción, diagrama, descarga"
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
@@ -22,7 +22,7 @@
 
 El diagrama **Información general de las funcionalidades de Estudio de aprendizaje automático de Microsoft Azure** proporciona una descripción general de cómo puede usar Estudio de aprendizaje automático para desarrollar un modelo de análisis predictivo y ponerlo en marcha en la nube de Azure.
 
-[Estudio de aprendizaje automático](https://studio.azureml.net/) dispone de un gran número de algoritmos de aprendizaje automático, junto con módulos que ayudan con la entrada, la salida, la preparación y la visualización de los datos. Mediante estos componentes puede desarrollar un experimento de análisis predictivo, realizar iteraciones sobre él y usarlo para entrenar su modelo. Luego, con un solo clic puede poner en marcha su modelo en la nube de Azure de forma que se pueda usar para puntuar nuevos datos.
+[Estudio de aprendizaje automático de Azure](https://studio.azureml.net/) dispone de un gran número de algoritmos de aprendizaje automático, junto con módulos que ayudan con la entrada, la salida, la preparación y la visualización de los datos. Mediante estos componentes puede desarrollar un experimento de análisis predictivo, realizar iteraciones sobre él y usarlo para entrenar su modelo. Luego, con un solo clic puede poner en marcha su modelo en la nube de Azure de forma que se pueda usar para puntuar nuevos datos.
 
 En este diagrama se muestra cómo encajan todas esas piezas juntas.
 
@@ -41,10 +41,10 @@ Descargue el diagrama **Información general de las funcionalidades de Estudio d
 
 ## Más ayuda con Estudio de aprendizaje automático
 
-* Para obtener información general sobre Aprendizaje automático de Microsoft Azure, consulte [Introducción al aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md)
-* Para obtener información general sobre Estudio de aprendizaje automático, consulte [¿Qué es Estudio de aprendizaje automático de Microsoft Azure?](machine-learning-what-is-ml-studio.md)
+* Para obtener información general sobre Aprendizaje automático de Microsoft Azure, consulte [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md)
+* Para obtener información general sobre Estudio de aprendizaje automático, consulte [¿Qué es Estudio de aprendizaje automático de Azure?](machine-learning-what-is-ml-studio.md)
 * Para obtener una explicación detallada de los algoritmos de aprendizaje automático disponibles en Estudio de aprendizaje automático, consulte [Selección de algoritmos para Aprendizaje automático de Microsoft Azure](machine-learning-algorithm-choice.md).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Integración de Azure Active Directory con SciQuest Spend Director"
+	pageTitle="Tutorial: Integración de Azure Active Directory con SciQuest Spend Director | Microsoft Azure"
 	description="Aprenda a configurar el inicio de sesión único entre Azure Active Directory y SciQuest Spend Director."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -195,4 +195,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

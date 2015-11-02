@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Comparación: Apache Storm frente al Análisis de transmisiones de Azure | Microsoft Azure"
 	description="Aprenda a usar Análisis de transmisiones para el análisis en tiempo real de opinión de Twitter. Pasos desde la generación de eventos a los datos en un panel dinámico."
-	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
+	keywords="twitter en tiempo real,análisis de opiniones,análisis de los medios sociales,herramientas de análisis de los medios sociales"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -590,4 +590,4 @@ Aunque ambos proporcionan las ventajas de una solución PaaS, hay algunas capaci
     </tbody>
 </table>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

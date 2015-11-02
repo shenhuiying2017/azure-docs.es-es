@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Administración de datos de Automatización de Azure"
+   pageTitle="Administración de datos de Automatización de Azure | Microsoft Azure"
    description="Este artículo contiene varios temas para administrar un entorno de Automatización de Azure. Actualmente incluye la retención de datos y la realización de copias de seguridad de la recuperación ante desastres en Automatización de Azure."
    services="automation"
    documentationCenter=""
@@ -62,14 +62,9 @@ No es posible exportar certificados desde Automatización de Azure. Debe asegura
 
 ##Replicación geográfica en Automatización de Azure
 
-Automatización de Azure admite la replicación geográfica. Con la replicación geográfica, Automatización de Azure ahora mantiene los datos en dos regiones. Al crear una cuenta de Automatización en el Portal de Azure, elija una región donde se debe crear, que es la región primaria. La región donde los datos se replican geográficamente se conoce como región secundaria. Las regiones primaria y secundaria se comunican entre sí para replicar geográficamente las actualizaciones realizadas en la cuenta de Automatización. Como la región secundaria almacena una copia de la información, si se produce una conmutación por error de una cuenta de Automatización de la región primaria a la secundaria, toda la información de cuenta de Automatización sigue disponible en la región secundaria.
+La replicación geográfica, una función estándar de las cuentas de Automatización de Azure, realiza una copia de seguridad de los datos de la cuenta en una región geográfica diferente con fines de redundancia. Puede elegir una región primaria al configurar la cuenta, y entonces se le asigna automáticamente a esta una región secundaria. Los datos secundarios, copiados de la región primaria, se actualizan continuamente en caso de pérdida de los datos.
 
-La replicación geográfica está integrada en las cuentas de Automatización y se ofrece sin costo adicional. No tiene control para elegir la región secundaria, se determina automáticamente en función de donde elija la región primaria.
-
- 
-###Ubicación de las réplicas geográficas
-
-Actualmente las cuentas de Automatización se pueden crear en las cinco regiones siguientes y un futuro se admitirán más regiones. La siguiente tabla muestra los emparejamientos de la región principal y la secundaria.
+La siguiente tabla muestra los emparejamientos de la región primaria y secundaria.
 
 |Principal |Secundario
 | ---------------   |----------------
@@ -79,9 +74,6 @@ Actualmente las cuentas de Automatización se pueden crear en las cinco regiones
 |Sudeste de Asia |Asia oriental
 |Este de Japón |Oeste de Japón
 
+En el improbable caso de que se pierdan datos de una región primaria, Microsoft intenta recuperarlos. Cuando no es posible recuperar los datos principales, se lleva a cabo la conmutación por error geográfica y se notificará a los clientes afectados al respecto a través de su suscripción.
 
-###Recuperación ante desastres de Automatización de Azure
-
-Cuando un desastre importante afecta a la región primaria, lo primero que intenta el equipo de Automatización es restaurar la región primaria. En algunos casos, cuando no es posible restaurar la región primaria, se lleva a cabo la conmutación por error geográfica y se notificará a los clientes afectados sobre esto a través de su suscripción.
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -3,17 +3,17 @@
 	description="Este tutorial le guiará por los pasos necesarios para implementar una aplicación básica de streaming en vivo de Servicios multimedia donde un canal recibe una secuencia en vivo de velocidades de bits múltiples desde un codificador en directo local."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	authors="Juliako,cenkdin" 
+	manager="dwrede" 
 	editor=""/>
 
-<tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ne"
-	ms.topic="get-started-article"
-	ms.date="09/07/2015"  
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ne" 
+	ms.topic="article" 
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 
@@ -212,4 +212,4 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
 
 <!-- Images -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

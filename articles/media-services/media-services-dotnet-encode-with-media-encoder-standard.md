@@ -3,7 +3,7 @@
 	description="En este tema se muestra cómo usar .NET para codificar sus recursos con Codificador multimedia estándar." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015"    
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 
@@ -125,4 +125,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 [Cómo generar la miniatura mediante Media Encoder Estándar con .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Información general de la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

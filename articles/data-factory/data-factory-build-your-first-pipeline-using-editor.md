@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="10/06/2015"
+	ms.date="10/15/2015"
 	ms.author="spelluru"/>
 
 # Compilación de la primera canalización mediante el Editor de la Factoría de datos (Portal de Azure)
@@ -47,7 +47,10 @@ Este artículo no ofrece información general conceptual sobre el servicio Facto
 
 	![Hoja Nueva Factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT]Los nombres de la Factoría de datos de Azure son únicos globalmente. Deberá agregar su nombre como prefijo al nombre de la factoría de datos para permitir la creación correcta de la factoría. 
+	> [AZURE.IMPORTANT]El nombre del generador de datos de Azure debe ser único global. Si recibe el error: **El nombre de la factoría de datos "DataFactoryMyFirstPipeline" no está disponible**, cambie el nombre de la factoría de datos (por ejemplo, yournameDataFactoryMyFirstPipeline) e intente crearlo de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
+	>  
+	> El nombre de la factoría de datos se puede registrar como nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
+
 3.	Si no creó ningún grupo de recursos, tendrá que crearlo. Para ello, siga estos pasos:
 	1.	Haga clic en **NOMBRE DEL GRUPO DE RECURSOS**.
 	2.	Seleccione **Crear un nuevo grupo de recursos** en la hoja **Grupo de recursos**.
@@ -125,7 +128,7 @@ Ahora, va a crear el conjunto de datos de salida que representa los datos almace
 1. En el **Editor de la Factoría de datos**, haga clic en **Nuevo conjunto de datos** en la barra de comandos y seleccione **Almacenamiento de blobs de Azure**.  
 
 	![Nuevo conjunto de datos](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
-2. Copie y pegue el fragmento de código siguiente en la ventana Borrador 1. En el fragmento de código JSON, se crea un conjunto de datos llamado **AzureBlobOutput** y se especifica la estructura de los datos que generará el script de Hive. Además, se especifica que los resultados se almacenan en el contenedor de blobs llamado **data** y la carpeta llamada **partitioneddata**. La sección **availability** especifica que el conjunto de datos de salida se genera mensualmente.
+2. Copie y pegue el fragmento de código siguiente en la ventana Borrador 1. En el fragmento de código JSON, se crea un conjunto de datos llamado **AzureBlobOutput** y se especifica la estructura de los datos que generará el script de Hive. Además, se especifica que los resultados se almacenan en el contenedor de blobs llamado **data** y en la carpeta llamada **partitioneddata**. La sección **availability** especifica que el conjunto de datos de salida se genera mensualmente.
 	
 		{
 		  "name": "AzureBlobOutput",
@@ -199,11 +202,11 @@ En este paso, creará la primera canalización:
  
 	En el fragmento de código JSON, se crea una canalización que consta de una sola actividad que usa Hive para procesar los datos en un clúster de HDInsight.
 	
-	El archivo de script de Hive, **partitionweblogs.hql**, se almacena en la cuenta de almacenamiento de Azure (especificada mediante scriptLinkedService, denominada **StorageLinkedService**), y en un contenedor llamado **script**.
+	El archivo de script de Hive, **partitionweblogs.hql**, se almacena en la cuenta de almacenamiento de Azure (especificada mediante scriptLinkedService, denominada **StorageLinkedService**) y en un contenedor llamado **script**.
 
 	La sección **extendedProperties** se usa para especificar la configuración de tiempo de ejecución que se pasará al script de Hive como valores de configuración de Hive (por ejemplo, ${hiveconf:PartitionedData}).
 
-	Las propiedades **start** y **end** de la canalización especifican el período activo de la canalización.
+	Las propiedades **start** y **end** de la canalización especifican el período activo de esta.
 
 	En el JSON de actividad, se especifica que el script de Hive se ejecuta en el proceso especificado por el servicio vinculado: **HDInsightOnDemandLinkedService**.
 3. Haga clic en **Implementar** en la barra de comandos para implementar la canalización.
@@ -211,7 +214,7 @@ En este paso, creará la primera canalización:
 
 	![Vista de árbol con canalización](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 5. Enhorabuena, ya creó correctamente su primera canalización.
-6. Haga clic en **X** para cerrar las hojas del Editor de la Factoría de datos y volver a la hoja Factoría de datos, y haga clic en **Diagrama**.
+6. Haga clic en **X** para cerrar las hojas del Editor de la Factoría de datos y volver a la hoja Factoría de datos y, después, haga clic en **Diagrama**.
   
 	![Icono Diagrama](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
 7. En la Vista de diagrama, verá información general de las canalizaciones y conjuntos de datos empleados en este tutorial.
@@ -229,10 +232,10 @@ En este paso, creará la primera canalización:
  
 
 ## Pasos siguientes
-En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Si desea ver cómo se usa una actividad de copia para copiar datos de un blob de Azure a SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](./data-factory-get-started.md).
+En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte el [Tutorial: Copia de datos de un blob de Azure a SQL Azure](./data-factory-get-started.md).
   
 
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

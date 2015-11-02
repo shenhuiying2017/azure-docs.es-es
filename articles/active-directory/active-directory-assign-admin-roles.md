@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="10/19/2015"
 	ms.author="curtand"/>
 
 # Asignación de roles de administrador en Azure AD
@@ -28,8 +28,7 @@ Los roles de administrador disponibles son los siguientes:
 - **Administrador global**: tiene acceso a todas las características administrativas. La persona que se suscribe a la cuenta de Azure se convierte en un administrador global. Los administradores globales son los únicos que pueden asignar otros roles de administrador. Puede haber más de un administrador global en su empresa.
 - **Administrador de contraseñas**: restablece las contraseñas, administra las solicitudes de servicio y supervisa el estado del servicio. Los administradores de contraseñas pueden restablecer contraseñas solo para los usuarios y otros administradores de contraseñas.
 - **Administrador de servicios**: administra las solicitudes de servicio y supervisa el estado del servicio.
-    > [AZURE.NOTE]
-    > Para asignar el rol de administrador de servicios a un usuario, el administrador global debe asignar primero permisos administrativos al usuario en el servicio, como Exchange Online, y después asignar el rol de administrador de servicios al usuario en el Portal de administración de Azure. 
+    > [AZURE.NOTE]Para asignar el rol de administrador de servicios a un usuario, el administrador global debe asignar primero permisos administrativos al usuario en el servicio, como Exchange Online, y después asignar el rol de administrador de servicios al usuario en el Portal de administración de Azure.
 - **Administrador de usuarios**: restablece las contraseñas, supervisa el estado del servicio y administra cuentas de usuario, grupos de usuarios y solicitudes de servicio. Existen algunas limitaciones en los permisos de un administrador de usuarios. Por ejemplo, este no puede eliminar a un administrador global ni puede crear otros administradores. Tampoco puede restablecer las contraseñas de los administradores de facturación, globales y de servicio.
 
 ## Permisos de administrador
@@ -44,7 +43,7 @@ Puede hacer | No puede hacer
 
 Puede hacer | No puede hacer
 ------------- | -------------
-<p>Ver información de empresas y usuarios</p><p>Administrar incidencias de soporte técnico de Office</p><p>Hacer operaciones de facturación y compra para los productos de Office</p> <p>Restablecer contraseñas de usuario</p><p>Crear y administrar vistas de usuarios</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuarios</p><p>Administrar dominios</p><p>Administrar información de la empresa</p><p>Delegar roles administrativos a otros</p><p>Utilizar la sincronización de directorios</p> | N/D
+<p>Ver información de empresas y usuarios</p><p>Administrar incidencias de soporte técnico de Office</p><p>Realizar operaciones de facturación y compra para los productos de Office</p> <p>Restablecer contraseñas de usuario</p><p>Crear y administrar vistas de usuarios</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuarios</p><p>Administrar dominios</p><p>Administrar información de la empresa</p><p>Delegar roles administrativos a otros</p><p>Usar la sincronización de directorios</p><p>Habilitar o deshabilitar la autenticación multifactor</p> | N/D
 
 ### Administrador de contraseñas
 
@@ -62,7 +61,7 @@ Puede hacer | No puede hacer
 
 Puede hacer | No puede hacer
 ------------- | -------------
-<p>Ver información de empresas y usuarios</p><p>Administrar incidencias de soporte técnico de Office</p><p>Restablecer contraseñas de usuarios, con limitaciones. No puede restablecer las contraseñas para los administradores de facturación, globales y de servicios</p><p>Crear y administrar vistas de usuarios</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuarios, con limitaciones. No puede eliminar un administrador global ni crear otros administradores.</p> | <p>Hacer operaciones de facturación y compra para los productos de Office</p><p>Administrar dominios</p><p>Administrar información de la empresa</p><p>Delegar roles administrativos a otros</p><p>Utilizar la sincronización de directorios</p>
+<p>Ver información de empresas y usuarios</p><p>Administrar incidencias de soporte técnico de Office</p><p>Restablecer contraseñas de usuarios, con limitaciones. No puede restablecer las contraseñas para los administradores de facturación, globales y de servicios</p><p>Crear y administrar vistas de usuarios</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuarios, con limitaciones. No puede eliminar un administrador global ni crear otros administradores.</p> | <p>Realizar operaciones de facturación y compra para los productos de Office</p><p>Administrar dominios</p><p>Administrar información de la empresa</p><p>Delegar roles administrativos a otros</p><p>Usar la sincronización de directorios</p><p>Habilitar o deshabilitar la autenticación multifactor</p>
 
 ## Detalles acerca del rol de administrador global
 
@@ -85,4 +84,4 @@ El administrador global tiene acceso a todos los roles administrativos. De forma
 - [Administrar contraseñas](active-directory-manage-passwords.md)
 - [Administrar grupos](active-directory-manage-groups.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -2,7 +2,7 @@
 	pageTitle="Implementación de DocumentDB y aplicaciones web del Servicio de aplicaciones de Azure mediante una plantilla del Administrador de recursos de Azure | Microsoft Azure" 
 	description="Aprenda a implementar una cuenta de DocumentDB, aplicaciones web del Servicio de aplicaciones de Azure y una aplicación web de ejemplo mediante una plantilla del Administrador de recursos de Azure." 
 	services="documentdb, app-service\web" 
-	authors="stephbaron" 
+	authors="ryancrawcour" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
-	ms.author="stbaro"/>
+	ms.date="10/16/2015" 
+	ms.author="ryancraw"/>
 
 # Implementación de DocumentDB y aplicaciones web de servicio de aplicación de Azure mediante una plantilla del Administrador de recursos de Azure #
 
@@ -33,7 +33,7 @@ Antes de seguir las instrucciones de este tutorial, asegúrese de contar con lo 
 
 - Una suscripción de Azure. Azure es una plataforma basada en suscripción. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra](http://azure.microsoft.com/pricing/purchase-options/), [Ofertas para miembros](http://azure.microsoft.com/pricing/member-offers/) o [Prueba gratuita](http://azure.microsoft.com/pricing/free-trial/).
 - Una cuenta de almacenamiento de Azure. Para obtener instrucciones, vea [Acerca de las cuentas de almacenamiento de Azure](../storage-whatis-account.md).
-- Una estación de trabajo con Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md).
+- Una estación de trabajo con Azure PowerShell 0.9.8. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md). Este tutorial aún no se ha actualizado para la versión preliminar de Azure PowerShell 1.0. 
 
 ##<a id="CreateDB"></a>Paso 1: Descarga y extracción de los archivos de ejemplo ##
 Vamos a empezar descargando los archivos de ejemplo que usaremos en este tutorial.
@@ -210,4 +210,4 @@ Ahora implementaremos nuestra segunda plantilla.
 >[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

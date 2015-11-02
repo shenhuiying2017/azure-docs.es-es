@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Tutorial: exportación de telemetría a Base de datos SQL desde Application Insights" 
-	description="Codifique su propio análisis de telemetría en Application Insights de código mediante la característica de exportación continua." 
+	description="Exportación continua de datos de Application Insights a mediante el Análisis de transmisiones" 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -314,4 +314,4 @@ Después de unos minutos, vuelva a las herramientas de administración de SQL Se
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

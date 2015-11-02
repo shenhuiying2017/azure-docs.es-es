@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Más información: Administración de contraseñas de Azure AD | Microsoft Azure"
-	description="Temas avanzados sobre administración de contraseñas de Azure AD, entre otros, el funcionamiento de la escritura diferida de contraseñas, la seguridad de la escritura diferida de contraseñas, el funcionamiento del portal de restablecimiento de contraseñas y los datos que sirven para el restablecimiento de contraseñas."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="Más información: Administración de contraseñas de Azure AD | Microsoft Azure" 
+	description="Temas avanzados sobre administración de contraseñas de Azure AD, entre otros, el funcionamiento de la escritura diferida de contraseñas, la seguridad de la escritura diferida de contraseñas, el funcionamiento del portal de restablecimiento de contraseñas y los datos que sirven para el restablecimiento de contraseñas." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Más información sobre la administración de contraseñas
@@ -73,7 +73,7 @@ En la tabla siguiente se describe qué escenarios se admiten para las versiones 
 La escritura diferida de contraseñas es un servicio sumamente seguro y sólido. Para asegurarse de que su información está protegida, habilitamos un modelo de seguridad de cuatro niveles que describimos a continuación.
 
 - **Retransmisión de Bus de servicio específica de inquilino**: al configurar el servicio, configuramos una retransmisión de Bus de servicio específica del inquilino que está protegida por una contraseña segura generada aleatoriamente a la que Microsoft nunca tiene acceso.
-- **Clave de cifrado de contraseñas bloqueadas y criptográficamente segura**: una vez creada la retransmisión de Bus de servicio, creamos una clave simétrica segura que se utiliza para cifrar la contraseña tal como se transfiere a través de la red. Esta clave reside sólo en el almacén secreto del inquilino en la nube, que se bloquea y audita de forma estricta como cualquier contraseña en el directorio.
+- **Clave de cifrado de contraseñas bloqueadas y criptográficamente segura**: una vez creada la retransmisión de Bus de servicio, creamos una clave simétrica segura que se utiliza para cifrar la contraseña tal como se transfiere a través de la red. Esta clave reside solo en el almacén secreto de la compañía en la nube, que se bloquea y audita de forma estricta como cualquier contraseña en el directorio.
 - **TLS estándar del sector**: cuando se produce una operación de restablecimiento o cambio de contraseña, ciframos la contraseña de texto no cifrado con la clave pública. A continuación, la insertamos en un mensaje HTTPS que se envía a través de un canal cifrado con certificados SSL de Microsoft para la retransmisión de Bus de servicio. Después de que ese mensaje llega al Bus de servicio, el agente local se activa, se autentica en el Bus de servicio con la contraseña segura que se había generado previamente, recoge el mensaje cifrado, lo descifra con la clave privada generada y, a continuación, intenta establecer la contraseña a través de la API SetPassword de AD DS. Este paso nos permite aplicar la directiva de contraseñas local de AD (complejidad, edad, historial, filtros, etc.) en la nube.
 - **Directivas de expiración de mensajes**: por último, si por alguna razón el mensaje espera en el Bus de servicio porque el servicio local no funciona, se agotará el tiempo de espera y se eliminará transcurridos unos minutos para aumentar aún más la seguridad.
 
@@ -281,4 +281,4 @@ En la tabla siguiente se describe dónde y cómo se usan estos datos durante el 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

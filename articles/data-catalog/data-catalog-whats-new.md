@@ -13,18 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/09/2015"
+   ms.date="10/16/2015"
    ms.author="maroche"/>
 
 # Novedades en el Catálogo de datos de Azure
 
 De forma periódica se publican actualizaciones al **Catálogo de datos de Azure**. No todas las versiones incluirán nuevas características de cara al usuario, algunas se centran en la funcionalidad del servicio back-end. En esta página se resaltan las nuevas funcionalidades de cara al usuario que se han agregado al servicio **Catálogo de datos de Azure** .
 
+## Novedades de la versión correspondiente a la semana del 16 de octubre de 2015
+
+Desde la semana del 16 de octubre de 2015, se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
+
+- Compatibilidad con orígenes de datos de Hive locales. Los usuarios ahora pueden registrarse y detectar tablas de Hive de Apache Hive en orígenes de datos locales de Hadoop.
+- Compatibilidad con las búsquedas guardadas en el portal del **Catálogo de datos de Azure**. Los usuarios pueden guardar términos de búsqueda y filtrar selecciones para repetir con facilidad búsquedas anteriores y definir vistas útiles del contenido del Catálogo. El usuario puede marcar una búsqueda guardada como su búsqueda predeterminada. Cuando un usuario hace clic en el icono de búsqueda de "lupa" en la página principal del portal del **Catálogo de datos de Azure** o en la página de "introducción", al usuario se le llevará directamente a la búsqueda guardada marcada como predeterminada.
+
+
 ## Novedades de la versión correspondiente a la semana del 9 de octubre de 2015
 
 Desde la semana del 9 de octubre de 2015, se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
 
-- Compatibilidad para la documentación de texto enriquecido para los activos de datos registrados y contenedores en el portal de Catálogo de datos de Azure. Los usuarios ahora pueden proporcionar documentación para los activos de datos como tablas, vistas e informes y para contenedores, como bases de datos y modelos, para escenarios donde las etiquetas y descripciones no sean suficientes. 
+- Compatibilidad para la documentación de texto enriquecido para los activos de datos registrados y contenedores en el portal de Catálogo de datos de Azure. Los usuarios ahora pueden proporcionar documentación para los activos de datos como tablas, vistas e informes y para contenedores, como bases de datos y modelos, para escenarios donde las etiquetas y descripciones no sean suficientes.
 
 ## Novedades de la versión correspondiente a la semana del 2 de octubre de 2015
 
@@ -90,4 +98,4 @@ Desde la semana del 21 de agosto de 2015, se agregaron las siguientes funcionali
 - Solo en la edición estándar: al agregar propietarios a los activos de datos, el **Catálogo de datos de Azure** ahora admite tanto cuentas de usuario como grupos de seguridad como propietarios. Para agregar un grupo de seguridad como propietario de los activos de datos seleccionados, puede especificar el nombre para mostrar del grupo o la dirección de correo electrónico UPN del grupo, si tiene alguna.
 - Compatibilidad con orígenes de datos de almacenamiento de blobs de Azure. Los usuarios pueden registrarse ahora y detectar el almacenamiento de blobs de Azure y los directorios.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

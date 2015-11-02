@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 
 
@@ -288,7 +288,7 @@ En las operaciones de desarrollo, la repetibilidad y previsión son claves para 
 
 ## Pasos siguientes ##
 
-Obtenga información sobre cómo [aplicar metodologías ágiles y publicar continuamente la aplicación de microservicios con facilidad](app-service-agile-software-development.md).
+Obtenga información sobre cómo [aplicar con facilidad metodologías ágiles y publicar continuamente la aplicación de microservicios](app-service-agile-software-development.md). Conozca además técnicas de impementación avanzadas como la [implementación de la distribución de paquetes piloto](app-service-web-test-in-production-controlled-test-flight.md).
 
 <a name="resources"></a>
 ## Más recursos ##
@@ -305,4 +305,4 @@ Obtenga información sobre cómo [aplicar metodologías ágiles y publicar conti
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

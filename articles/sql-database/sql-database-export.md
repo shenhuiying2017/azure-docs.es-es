@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/13/2015"
+	ms.date="10/20/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -41,9 +41,11 @@ Para completar este artículo, necesitará lo siguiente:
 - Una [cuenta de almacenamiento de Azure](storage-create-storage-account.md) con un contenedor de blobs para almacenar la copia de seguridad de la base de datos. Actualmente la cuenta de almacenamiento debe usar el modelo de implementación clásico; por tanto, elija **Clásica** al crear una cuenta de almacenamiento. 
 
 
-## Exportar la base de datos
+## Exportación de la base de datos
 
-Abra la hoja de la Base de datos SQL para la base de datos que desea exportar como archivo .bacpac:
+Abra la hoja de la Base de datos SQL para la base de datos que desea exportar como archivo .bacpac.
+
+> [AZURE.IMPORTANT]Para garantizar un archivo BACPAC transaccionalmente coherente, primero debe [crear una copia de la base de datos](sql-database-copy.md) y después exportar dicha copia.
 
 1.	Vaya al [Portal de vista previa de Azure](https://portal.azure.com).
 2.	Haga clic en **EXAMINAR TODO**.
@@ -53,11 +55,11 @@ Abra la hoja de la Base de datos SQL para la base de datos que desea exportar co
 
     ![botón Exportar][1]
 
-1.  Haga clic en **Almacenamiento** y seleccione su cuenta de almacenamiento y contenedor de blobs donde se almacenará el BACPAC:
+1.  Haga clic en **Almacenamiento** y seleccione su cuenta de almacenamiento y contenedor de blobs donde se almacenará el archivo BACPAC:
 
     ![exportar base de datos][2]
 
-1.  Escriba el **Inicio de sesión de administrador de servidor** y **Contraseña** para el servidor SQL de Azure que contiene la base de datos de la que está realizando la copia de seguridad.
+1.  Escriba la información correspondiente en **Inicio de sesión de administrador de servidor** y **Contraseña** para el servidor SQL de Azure que contiene la base de datos de la que está realizando la copia de seguridad.
 1.  Haga clic en **Crear** para exportar la base de datos.
 
 Al hacer clic en **Crear** se crea una solicitud de base de datos de exportación y se envía al servicio. Según el tamaño de la base de datos, la operación de exportación puede tardar algún tiempo en completarse.
@@ -101,4 +103,4 @@ Al hacer clic en **Crear** se crea una solicitud de base de datos de exportació
 [4]: ./media/sql-database-export/export-status.png
 [5]: ./media/sql-database-export/bacpac-details.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

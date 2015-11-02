@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/15/2015"
    ms.author="sahajs"/>
 
 # Proteger una base de datos en Almacenamiento de datos SQL
@@ -78,7 +78,7 @@ La administración bases de datos y servidores lógicos desde el Portal de admin
 
 ## Cifrado
 
-Almacenamiento de datos SQL de Azure puede ayudar a proteger los datos mediante el cifrado de los mismos cuando estén "en reposo" o almacenados en archivos de base de datos y copias de seguridad, con el [cifrado de datos transparente][]. Para cifrar una base de datos, conéctese como propietario de la base de datos y ejecute:
+Almacenamiento de datos SQL de Azure puede ayudar a proteger los datos mediante el cifrado de los mismos cuando estén "en reposo" o almacenados en archivos de base de datos y copias de seguridad, con el [cifrado de datos transparente][]. Para cifrar la base de datos, conéctese a la base de datos maestra en el servidor y ejecute:
 
 
 ```
@@ -119,4 +119,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Other Web references-->
 [Control de acceso basado en roles en el Portal de vista previa de Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

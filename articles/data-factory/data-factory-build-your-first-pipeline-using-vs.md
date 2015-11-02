@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="10/09/2015"
+	ms.date="10/15/2015"
 	ms.author="spelluru"/>
 
 # Compilación de la primera canalización mediante Visual Studio
@@ -205,7 +205,11 @@ Al publicar la solución en el paso siguiente, se carga el archivo HQL en el con
 
 21. En la página Configurar la factoría de datos, haga lo siguiente:
 	1. Seleccione la opción **Crear nueva factoría de datos**.
-	2. Escriba **FirstPipelineUsingVS** para **Nombre**.
+	2. Escriba **FirstPipelineUsingVS** para **Nombre**. 
+	
+		> [AZURE.IMPORTANT]El nombre de la Factoría de datos de Azure debe ser único de forma global. Si recibe el error **El nombre de la factoría de datos "FirstPipelineUsingVS" no está disponible** al publicar, cambie el nombre (por ejemplo, a sunombreFirstPipelineUsingVS). Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
+		> 
+		> El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
 	3. Seleccione la suscripción correcta para el campo **Suscripción**. 
 	4. Seleccione el **Grupo de recursos** para la factoría de datos que se va a crear. 
 	5. Seleccione la **Región** de la factoría de datos. 
@@ -237,9 +241,9 @@ Consulte [Supervisión de los conjuntos de datos y la canalización](data-factor
  
 
 ## Pasos siguientes
-En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Si desea ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte el [Tutorial: Copia de datos de un blob de Azure a SQL Azure](data-factory-get-started.md).
+En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte el [Tutorial: Copia de datos de un blob de Azure en SQL Azure](data-factory-get-started.md).
   
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

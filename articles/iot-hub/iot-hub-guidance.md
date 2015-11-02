@@ -69,7 +69,7 @@ El modelo de servicio de token es el método recomendado para implementar un esq
 
 Siga estos vínculos para obtener más información sobre el Centro de IoT de Azure:
 
-- [Introducción a los Centros de IoT (Tutorial)][lnk-get-started]
+- [Introducción al Centro de IoT (Tutorial)][lnk-get-started]
 - [¿Qué es el Centro de IoT de Azure?][]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
@@ -88,4 +88,4 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

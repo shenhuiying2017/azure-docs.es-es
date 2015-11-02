@@ -19,6 +19,8 @@
 
 #Utilización de SSH con Linux en Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 La versión actual del Portal de administración de Azure solo acepta claves públicas SSH que estén encapsuladas en un certificado X509. Siga los pasos a continuación para generar y utilizar claves SSH con Azure.
 
 ## Generación de claves compatibles con Azure en Linux ##
@@ -177,4 +179,4 @@ Existen varias utilidades que incluyen un `openssl` para Windows. A continuació
 5.	Haga clic en **Abrir** para conectarse a su máquina virtual.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

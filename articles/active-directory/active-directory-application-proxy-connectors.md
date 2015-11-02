@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Trabajo con conectores de Proxy de aplicación de Azure AD"
+	pageTitle="Uso de conectores del proxy de aplicación de Azure AD | Microsoft Azure"
 	description="Explica cómo crear y administrar grupos de conectores en el Proxy de aplicación de Azure AD."
 	services="active-directory"
 	documentationCenter=""
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 
 # Publicación de aplicaciones en redes independientes y ubicaciones mediante grupos de conectores
 
-> [AZURE.NOTE]Proxy de aplicación es una característica que solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-edition.md).
+> [AZURE.NOTE]Proxy de aplicación es una característica que solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
 
 Los grupos de conectores son útiles para diversos escenarios, por ejemplo:
 
@@ -38,7 +38,7 @@ Para agrupar los conectores, debe asegurarse de que [instaló varios conectores]
 ## Paso 1: Crear grupos de conectores
 Puede crear tantos grupos de conectores como desee. La creación de grupos de conectores se lleva a cabo en el portal de Azure. Seleccione el directorio y haga clic en **Configurar**. Después, en el Proxy de aplicación, haga clic en **Administrar grupos de conectores** y cree un nuevo grupo de conectores proporcionando un nombre al grupo: ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_creategroup.png) ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_namegroup.png)
 ## Paso 2: Asignar conectores a los grupos
-Una vez creados los grupos de conectores, mueva los conectores al grupo adecuado. Bajo **Proxy de aplicación**, haga clic en **Administrar conectores** y, en **Grupo**, seleccione el grupo que desee para cada conector. Tenga en cuenta que los conectores pueden tardar en activarse hasta 10 minutos en el nuevo grupo. ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_connectorlist.png)
+Después de crear los grupos de conector, mueva los conectores al grupo adecuado. En **Proxy de aplicación**, haga clic en **Administrar conectores** y, en **Grupo**, seleccione el grupo que prefiera para cada conector. Tenga en cuenta que los conectores pueden tardar en activarse hasta 10 minutos en el nuevo grupo. ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_connectorlist.png)
 ## Paso 3: Asignar aplicaciones a los grupos de conectores
 El último paso es establecer cada aplicación en el grupo de conectores que la servirá. En el portal de Azure, en el directorio, seleccione la aplicación que desea asignar al grupo y haga clic en **Configurar**. En **Grupo conectores**, seleccione el grupo que desee que utilice la aplicación. Este cambio se aplica inmediatamente. ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_newgroup.png) Para obtener más información sobre la publicación de aplicaciones, vea [Publicación de aplicaciones mediante su propio nombre de dominio](active-directory-application-proxy-custom-domains.md)
 ## Consulte también
@@ -59,4 +59,4 @@ Hay mucho más que puede hacer con el proxy de la aplicación:
 
 * [Sobre la delegación limitada de Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

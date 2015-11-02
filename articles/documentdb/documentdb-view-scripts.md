@@ -2,7 +2,7 @@
 	pageTitle="Ver procedimientos almacenados, desencadenadores y funciones definidas por el usuario mediante el Explorador de scripts de DocumentDB | Microsoft Azure"
 	description="Obtenga información sobre el Explorador de scripts de Microsoft Azure DocumentDB, una herramienta del portal de vista previa de Azure para ver los artefactos de programación del lado servidor de DocumentDB, incluidos procedimientos almacenados, desencadenadores y funciones definidas por el usuario."
 	services="documentdb"
-	authors="stephbaron"
+	authors="AndrewHoh"
 	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article" 
 	ms.date="09/02/2015"
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # Ver, editar y crear procedimientos almacenados, desencadenadores y funciones definidas por el usuario mediante el Explorador de scripts de DocumentDB
 
@@ -106,4 +106,4 @@ El Explorador de scripts le permite llevar a cabo con facilidad operaciones de C
 Para obtener más información sobre DocumentDB, haga clic [aquí](http://azure.com/docdb).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
