@@ -105,28 +105,35 @@ El permiso se concede si un usuario final tiene acceso al nivel de directorio o 
 ### Cómo permitir el acceso a los usuarios o grupos a Azure AD Connect Health
 #### Paso 1: Seleccionar el ámbito de acceso adecuado
 Para permitir a un usuario acceder al nivel de *todas las instancias de servicio* dentro de Azure AD Connect Health, abra la hoja principal en Azure AD Connect Health.<br>
+[//]: # (RBAC\_MainBladeSS)
 #### Paso 2: Agregar usuarios, grupos y asignar roles
 1. Haga clic en la parte "Usuarios" de la sección Configurar.<br> ![Hoja principal de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+[//]: # (RBAC\_MainBladeUserPart)
 2. Seleccione "Agregar".
 3. Seleccione "Rol" como "Propietario"<br> ![Agregar usuario de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
+[//]: # (RBAC\_AddRole)
 4. Escriba el nombre o identificador del usuario o grupo de destino. Puede seleccionar uno o más usuarios o grupos al mismo tiempo. Haga clic en "Seleccionar". ![Seleccionar usuario de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Seleccione "Aceptar".<br>
-
+[//]: # (RBAC\_LastStep)
 6. Después de finalizar la asignación de roles, los usuarios y grupos aparecerán en la lista.<br> ![Lista de usuarios de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_user_list.png)
+[//]: # (RBAC\_ListofUsersAndGroups)
 
 Estos pasos permitirán a los usuarios y grupos enumerados el acceso según sus roles asignados.
->[AZURE.NOTE]- Los administradores globales siempre tienen acceso total a todas las operaciones, pero las cuentas de los administradores globales no estarán presentes en la lista anterior. La característica "Invitar a usuarios" NO se admite dentro de Azure AD Connect Health.
+>[AZURE.NOTE]
+- Los administradores globales siempre tienen acceso total a todas las operaciones, pero las cuentas de los administradores globales no estarán presentes en la lista anterior. La característica "Invitar a usuarios" NO se admite dentro de Azure AD Connect Health.
 
 #### Paso 3: Compartir la ubicación de la hoja con usuarios o grupos
 1. Después de asignar permisos, un usuario puede acceder a Azure AD Connect Health yendo a [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
 2. Una vez en la hoja, el usuario puede anclar dicha hoja o diferentes partes al panel simplemente haciendo clic en "Anclar al panel"<br> ![Anclar hoja de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
-
+[//]: # (RBAC\_PinBlade)
 
 >[AZURE.NOTE]Un usuario con el rol de "Lector" asignado no podrá realizar la operación "crear" para obtener la extensión de Azure AD Connect Health de Azure Marketplace. Este usuario todavía puede obtener la hoja visitando el vínculo anterior. Para usos posteriores, el usuario puede anclar la hoja en el panel.
 
 ### Eliminación de usuarios y/o grupos
 Puede quitar un usuario o grupo agregado a la parte Control de acceso basado en rol de Azure AD Connect Health si hace clic con el botón derecho y selecciona Quitar.<br> ![Quitar usuario de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_remove.png)
+[//]: # (RBAC\_RemoveUser)
 
+[//]: # "Fin de la sección RBAC"
 [//]: # "Fin de la sección RBAC"
 
 ## Vínculos relacionados

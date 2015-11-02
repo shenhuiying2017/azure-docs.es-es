@@ -52,7 +52,7 @@ En el modo de aplicación web **Estándar** puede recibir alertas basadas en las
 
 ##<a name="howtoviewusage"></a>Visualización de cuotas de uso para una aplicación web
 
-Las aplicaciones web pueden configurarse para ejecutarse en modo **Compartido** o **Estándar** en la página de administración **Escala** de la aplicación web en el [Portal de Azure](https://manage.windowsazure.com). Cada suscripción a Azure tiene acceso a un conjunto de recursos que tienen como finalidad la ejecución de hasta 100 aplicaciones web por región en el modo **Compartido**. El grupo de recursos disponibles para cada suscripción de aplicaciones web con este fin es compartido por otras aplicaciones web en la misma región geográfica que estén configuradas para ejecutarse en modo **Compartido**. Como estos recursos son compartidos para que los usen otras aplicaciones web, todas las suscripciones tienen límites en el uso que hacen de estos recursos. Los límites que se aplican al uso que una suscripción hace de estos recursos se expresan como cuotas de uso enumeradas en la sección de información general de uso de la página de administración **Panel** de cada aplicación web.
+Las aplicaciones web pueden configurarse para ejecutarse en modo **Compartido** o **Estándar** en la página de administración **Escalar** de la aplicación web en el [Portal de Azure](https://manage.windowsazure.com). Cada suscripción a Azure tiene acceso a un conjunto de recursos que tienen como finalidad la ejecución de hasta 100 aplicaciones web por región en el modo **Compartido**. El grupo de recursos disponibles para cada suscripción de aplicaciones web con este fin es compartido por otras aplicaciones web en la misma región geográfica que estén configuradas para ejecutarse en modo **Compartido**. Como estos recursos son compartidos para que los usen otras aplicaciones web, todas las suscripciones tienen límites en el uso que hacen de estos recursos. Los límites que se aplican al uso que una suscripción hace de estos recursos se expresan como cuotas de uso enumeradas en la sección de información general de uso de la página de administración **Panel** de cada aplicación web.
 
 >[AZURE.NOTE]Cuando una aplicación web está configurada para ejecutarse en modo **Estándar**, se le asignan recursos dedicados equivalentes a los tamaños de máquina virtual **Pequeña** (valor predeterminado), **Mediana** o **Grande** en la tabla de [Máquina virtual y tamaños de servicio en la nube de Azure][vmsizes]. No hay límites en los recursos que puede utilizar una suscripción para ejecutar aplicaciones web en modo **Estándar**. Sin embargo, la cantidad de aplicaciones web en modo **Estándar** que se pueden crear por región es 500.
 
@@ -140,19 +140,19 @@ Después de habilitar los diagnósticos para una aplicación web, haga clic en e
 
 Es posible seguir modificando los diagnósticos si agrega pares clave-valor a la sección **Configuración de aplicaciones** de la página de administración **Configurar**. Se pueden configurar las siguientes opciones en **Configuración de aplicaciones**:
 
-**DIAGNOSTICS\_TEXTTRACELOGDIRECTORY**
+**DIAGNOSTICS_TEXTTRACELOGDIRECTORY**
 
 - La ubicación en que se guardarán los registros de aplicaciones, en relación con la raíz web.
 
-- Valor predeterminado: ..\\..\\LogFiles\\Application
+- Valor predeterminado: ..\..\LogFiles\Application
 
-**DIAGNOSTICS\_TEXTTRACEMAXBUFFERSIZEBYTES**
+**DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 
 - El tamaño máximo de búfer que se utilizará cuando se capturen registros de aplicación. La información inicialmente se escribe en el búfer antes de vaciarla al archivo o el almacenamiento. Si se escribe información nueva en el búfer antes de poder vaciarla, es posible que pierda la información anteriormente registrada. Si la aplicación genera grandes ráfagas de información de registro, considere aumentar el tamaño del búfer.
 
 - Valor predeterminado: 10 MB
 
-**DIAGNOSTICS\_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
+**DIAGNOSTICS_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
 
 - El tamaño máximo de la carpeta de **aplicaciones**, en la que se almacenan los diagnósticos de la aplicación escritos en el archivo.
 

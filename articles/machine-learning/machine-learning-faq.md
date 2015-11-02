@@ -94,6 +94,7 @@ En el caso de conjuntos de datos que tengan más de dos gigas, hay que cargar lo
 **¿Se pueden leer datos de Amazon S3?**
 
 Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo de [lectura][reader]. Para transferir grandes cantidades de datos al almacenamiento de Azure, en primer lugar, hay que realizar la transferencia y, a continuación, utilizar el módulo de [lectura][reader] para incluirlos en el experimento. <!--
+<!--
 <SEE CLOUD DS PROCESS>
 -->
 
@@ -214,7 +215,7 @@ Cuando el modelo predictivo se ha puesto en producción, lo puede supervisar des
 
 Para RRS, en la respuesta del servicio web normalmente es donde se verá el resultado. También puede escribirlo en un blob. Para BES, el resultado se escribe en un blob de manera predeterminada. También puede escribir el resultado en una base de datos o una tabla con el módulo de escritor.
 
- **¿**Solamente puedo crear servicios web a partir de los modelos creados en el Estudio? No. También puede crear servicios web directamente desde los Jupyter Notebooks y RStudio.
+ **¿Solamente puedo crear servicios web a partir de los modelos creados en el Estudio? No. También puede crear servicios web directamente desde los Jupyter Notebooks y RStudio.
 
 
 ##Escalabilidad

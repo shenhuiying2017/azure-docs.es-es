@@ -134,7 +134,7 @@ Observe que **kind** está configurado como **gateway** que notifica al portal d
             },
             {
               "name": "EmaStorage",
-              "value": "D:\\home\\data\\apiapps"
+              "value": "D:\home\data\apiapps"
             },
             {
               "name": "WEBSITE_START_SCM_ON_SITE_CREATION",

@@ -57,9 +57,11 @@ En la tabla siguiente se muestra la jerarquía de navegación de la IU del servi
 |Página de aterrizaje|Páginas de nivel de servicio|Páginas de nivel de dispositivo|Páginas de nivel de dispositivo|
 |---|---|---|---|
 |Servicio StorSimple Manager|Panel del servicio|Panel del dispositivo||
-|| Dispositivos →| Supervisión| || Catálogo de copias de seguirdad| Contenedores→| de volúmenes| || Configurar (servicio) | Directivas de copia de seguridad|| || Trabajos| Configurar (dispositivo) | || Alerts| Mantenimiento|
-
-![Vídeo disponible](./media/storsimple-manager-service-administration/Video_icon.png) **Vídeo disponible**
+|| Dispositivos →| Supervisión|| 
+|| Catálogo de copias de seguirdad| Contenedores→| de volúmenes| 
+|| Configurar (servicio) | Directivas de copia de seguridad|| 
+|| Trabajos| Configurar (dispositivo) || 
+|| Alerts| Mantenimiento||
 
 Para ver un vídeo que le guiará a través de la interfaz de usuario del servicio StorSimple Manager, haga clic [aquí](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 

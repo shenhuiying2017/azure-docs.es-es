@@ -25,7 +25,7 @@ Para seguir paso a paso este tutorial, necesita
 
 - Almacenamiento de datos SQL con la base de datos de ejemplo AdventureWorksDW.
 
-[Creación de un Almacenamiento de datos SQL][] muestra cómo aprovisionar una base de datos con datos de ejemplo. Si ya tiene una base de datos de Almacenamiento de datos SQL, pero no tiene datos de ejemplo, puede [￼cargar manualmente los datos de ejemplo￼][].
+[Creación de un Almacenamiento de datos SQL][] muestra cómo aprovisionar una base de datos con datos de ejemplo. Si ya tiene una base de datos de Almacenamiento de datos SQL, pero no tiene datos de ejemplo, puede [cargar manualmente los datos de ejemplo][].
 
 
 ## Paso 1: Obtención de datos 
@@ -109,7 +109,7 @@ Para obtener más información, consulte [Introducción a Aprendizaje automátic
 <!--Article references-->
 [Estudio de aprendizaje automático de Microsoft Azure]: https://studio.azureml.net/
 [Introducción a Aprendizaje automático de Azure]: ../machine-learning/machine-learning-what-is-machine-learning.md
-[￼cargar manualmente los datos de ejemplo￼]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[cargar manualmente los datos de ejemplo]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [Creación de un Almacenamiento de datos SQL]: ./sql-data-warehouse-get-started-provision.md
 
 <!---HONumber=Oct15_HO4-->

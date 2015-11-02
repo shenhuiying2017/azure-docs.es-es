@@ -108,7 +108,7 @@ La aplicación web mostrará una página con el estado del trabajo. Cuando se ha
 
 Para obtener más información sobre...
 
-- La creación de un experimento de aprendizaje automático con Estudio de aprendizaje automático, consulte [￼Creación del primer experimento en Estudio de aprendizaje automático de Azure￼](machine-learning-create-experiment.md).
+- La creación de un experimento de aprendizaje automático con Estudio de aprendizaje automático, consulte [Creación del primer experimento en Estudio de aprendizaje automático de Azure](machine-learning-create-experiment.md).
 
 - Cómo implementar el experimento de aprendizaje automático como un servicio web, consulte [Implementar un servicio web de Aprendizaje automático de Azure](machine-learning-publish-a-machine-learning-web-service.md)
 
