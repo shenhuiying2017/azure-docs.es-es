@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creación de una máquina virtual de Azure con Linux en el Portal de Azure"
+	pageTitle="Creación de una máquina virtual de Azure con Linux en el Portal de Azure | Microsoft Azure"
 	description="Utilice el Portal de Azure para crear una máquina virtual (VM) de Azure en la que se ejecute Linux con los grupos de recursos de Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
 # Creación de una máquina virtual con Linux en el Portal de vista previa de Azure
@@ -23,9 +23,11 @@
 - [Azure CLI](virtual-machines-linux-tutorial.md)
 - [Azure Preview Portal](virtual-machines-linux-tutorial-portal-rm.md)
 
-Es fácil crear una máquina virtual (VM) de Azure que ejecute Linux. En este tutorial se muestra cómo usar el Portal de vista previa de Azure para crear una de forma rápida y se usa el archivo de clave pública `~/.ssh/id_rsa.pub` para proteger una conexión **SSH** a la máquina virtual. También puede crear máquinas virtuales con Linux con [sus propias imágenes como plantillas](virtual-machines-linux-create-upload-vhd.md).
+<br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
-> [AZURE.NOTE]En este tutorial se crea una máquina virtual de Azure que se administra mediante la API del grupo de recursos de Azure. Para obtener más información, consulte [Información general del grupo de recursos de Azure](resource-group-overview.md).
+Es fácil crear una máquina virtual (VM) de Azure que ejecute Linux. En este tutorial se muestra cómo usar el Portal de vista previa de Azure para crear una rápidamente y se usa el archivo de clave pública `~/.ssh/id_rsa.pub` para proteger una conexión **SSH** a la máquina virtual. También puede crear máquinas virtuales con Linux usando [sus propias imágenes como plantillas](virtual-machines-linux-create-upload-vhd.md).
+
+> [AZURE.NOTE]En este tutorial se crea una máquina virtual de Azure que se administra mediante la API del grupo de recursos de Azure. Para obtener más información, vea [Información general del grupo de recursos de Azure](resource-group-overview.md).
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -39,9 +41,9 @@ Vaya a Azure Marketplace en el Portal de vista previa para buscar la imagen de l
 
 	![elegir una imagen de VM](media/virtual-machines-linux-tutorial-portal-rm/chooseubuntuvm.png)
 
-	> [AZURE.TIP]Para buscar imágenes adicionales, haga clic en **Marketplace** y, a continuación, búsquelas o filtre las que haya disponibles.
+	> [AZURE.TIP]Para encontrar otras imágenes, haga clic en **Marketplace** y luego busque o filtre los elementos disponibles.
 
-3. En la parte inferior de la página **Servidor de Ubuntu 14.04 LTS**, seleccione **Usar la pila del Administrador de recursos** para crear la máquina virtual en el Administrador de recursos de Azure. Tenga en cuenta que para la mayoría de las cargas de trabajo nueva, se recomienda la pila del Administrador de recursos. Para obtener más información, consulte [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md).
+3. En la parte inferior de la página **Servidor de Ubuntu 14.04 LTS**, seleccione **Usar la pila del Administrador de recursos** para crear la máquina virtual en el Administrador de recursos de Azure. Tenga en cuenta que para la mayoría de las cargas de trabajo nueva, se recomienda la pila del Administrador de recursos. Para obtener más información, vea [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md).
 
 4. A continuación, haga clic en ![botón Crear](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png).
 
@@ -51,21 +53,21 @@ Vaya a Azure Marketplace en el Portal de vista previa para buscar la imagen de l
 
 Después de seleccionar la imagen, puede usar los valores predeterminados de Azure en la mayor parte de la configuración y crear rápidamente la máquina virtual.
 
-1. En la hoja **Crear máquina virtual**, haga clic en **Datos básicos**. Escriba el **nombre** que desee que tenga la máquina virtual e introduzca un archivo de clave pública (en formato **ssh rsa**, en este caso desde el archivo `~/.ssh/id_rsa.pub`). Si tiene más de una suscripción, especifique una de ellas para la nueva máquina virtual, así como un nuevo **grupo de recursos**, o uno existente, y la **ubicación** de un centro de datos de Azure.
+1. En la hoja **Crear máquina virtual**, haga clic en **Conceptos básicos**. Escriba el **nombre** que quiera que tenga la máquina virtual e introduzca un archivo de clave pública (en formato **ssh rsa**, en este caso desde el archivo `~/.ssh/id_rsa.pub`). Si tiene más de una suscripción, especifique una de ellas para la nueva máquina virtual, así como un **grupo de recursos** nuevo o existente y la **Ubicación** de un centro de datos de Azure.
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-1-thebasics.png)
 
-	> [AZURE.NOTE]También puede elegir la autenticación de usuario/contraseña aquí y escribir dicha información si no desea proteger su sesión **ssh** con un intercambio de claves público y privado.
+	> [AZURE.NOTE]Aquí, también puede elegir la autenticación de usuario/contraseña y escribir dicha información si no desea proteger la sesión **ssh** con un intercambio de claves pública y privada.
 
-2. Haga clic en **Tamaño** y seleccione un tamaño de VM apropiado para sus necesidades. Cada tamaño especifica el número de núcleos de proceso, la memoria y otras características, como la compatibilidad con el Almacenamiento premium, lo que afectará al precio. Azure recomienda automáticamente determinados tamaños según la imagen que se elija. Cuando haya terminado, haga clic en ![botón Seleccionar](media/virtual-machines-linux-tutorial-portal-rm/selectbutton-size.png).
+2. Haga clic en **Tamaño** y seleccione un tamaño de VM apropiado para sus necesidades. Cada tamaño especifica el número de núcleos de proceso, la memoria y otras características, como la compatibilidad con el Almacenamiento premium, lo que afectará al precio. Azure recomienda automáticamente determinados tamaños según la imagen que se elija. Cuando termine, haga clic en ![botón Seleccionar](media/virtual-machines-linux-tutorial-portal-rm/selectbutton-size.png).
 
 	>[AZURE.NOTE]El almacenamiento Premium está disponible para las máquinas virtuales de la serie DS en determinadas regiones. El almacenamiento Premium es la mejor opción de almacenamiento para cargas de trabajo intensivas de datos como una base de datos. Para obtener más información, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage-preview-portal.md)
 
-3. Haga clic en **Configuración** para ver la configuración de red y de almacenamiento de la nueva máquina virtual. En la primera máquina virtual, generalmente podrá aceptar la configuración predeterminada. Si ha seleccionado un tamaño de máquina virtual que lo admita, puede probar Almacenamiento premium, para lo que debe seleccionar **Premium (SSD)** en **Tipo de disco**. Cuando haya terminado, haga clic en ![botón Aceptar](media/virtual-machines-linux-tutorial-portal-rm/okbutton.png).
+3. Haga clic en **Configuración** para ver la configuración de red y de almacenamiento de la nueva máquina virtual. En la primera máquina virtual, generalmente podrá aceptar la configuración predeterminada. Si seleccionó un tamaño de máquina virtual que lo admita, puede probar Almacenamiento premium, para lo que debe seleccionar **Premium (SSD)** en **Tipo de disco**. Cuando termine, haga clic en ![botón Aceptar](media/virtual-machines-linux-tutorial-portal-rm/okbutton.png).
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-3-settings.png)
 
-6. Haga clic en **Resumen** para revisar la configuración elegida. Cuando haya terminado de revisar o actualizar la configuración, haga clic en ![botón Aceptar](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png).
+6. Haga clic en **Resumen** para revisar las opciones de configuración. Cuando termine de revisar o actualizar la configuración, haga clic en ![botón Aceptar](media/virtual-machines-linux-tutorial-portal-rm/createbutton.png).
 
 	![resumen de creación](media/virtual-machines-linux-tutorial-portal-rm/summarybeforecreation.png)
 
@@ -75,7 +77,7 @@ Después de seleccionar la imagen, puede usar los valores predeterminados de Azu
 
 ## Conexión a una máquina virtual con Linux de Azure mediante **ssh**
 
-Ahora puede conectarse a una máquina virtual con Ubuntu mediante el uso estándar de **ssh**. Sin embargo, es preciso detectar la dirección IP asignada a la máquina virtual de Azure, para lo que debe abrir el icono de máquina virtual y sus recursos. Para ello, haga clic en **Examinar**, seleccione **Reciente** y busca la máquina virtual que creó, o bien haga clic en el icono creado en el Panel de inicio. En cualquiera de los dos casos, busque y copie el valor **Dirección IP pública**, que se muestra en el gráfico siguiente.
+Ahora puede conectarse a una máquina virtual con Ubuntu mediante **ssh** de manera normal. Sin embargo, es preciso detectar la dirección IP asignada a la máquina virtual de Azure, para lo que debe abrir el icono de máquina virtual y sus recursos. Para ello, haga clic en **Examinar**, seleccione **Reciente** y busque la máquina virtual que creó, o bien haga clic en el icono creado en el Panel de inicio. En cualquiera de los dos casos, busque y copie el valor **Dirección IP pública**, que se muestra en el gráfico siguiente.
 
 ![resumen de la creación correcta](media/virtual-machines-linux-tutorial-portal-rm/successresultwithip.png)
 
@@ -114,7 +116,7 @@ Ya puede usar **ssh** en la máquina virtual de Azure.
 	ops@ubuntuvm:~$
 
 
-> [AZURE.NOTE]También puede configurar un nombre de dominio completo (FQDN) para la máquina virtual en el portal. Obtenga más información acerca de FQDN [aquí](virtual-machines-create-fqdn-on-portal.md).
+> [AZURE.NOTE]También puede configurar un nombre de dominio completo (FQDN) para la máquina virtual en el portal. Obtenga más información sobre FQDN [aquí](virtual-machines-create-fqdn-on-portal.md).
 
 ## Pasos siguientes
 
@@ -128,4 +130,4 @@ Para obtener más información sobre Linux en Azure, consulte:
 
 - [Extensión de máquina virtual Docker para Linux en Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

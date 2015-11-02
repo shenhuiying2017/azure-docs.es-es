@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/16/2015"
+   ms.date="10/15/2015"
    ms.author="stepsic"/>
 
 #Aplicación de API de JavaScript
@@ -29,7 +29,7 @@ Por último, si desea incluir paquetes adicionales, también necesitará usar la
 Utilice la [aplicación de API de C#](app-service-logic-cs-api.md) si prefiere escribir las expresiones en C#.
 
 ##Creación de una aplicación de API de JavaScript
-Para usar la aplicación de API de JavaScript, deberá crear primero una instancia de ella. Esta tarea puede realizarse en línea mediante la creación de una aplicación lógica, o bien seleccionando la aplicación de API de JavaScript Azure Marketplace.
+Para usar la aplicación de API de JavaScript, deberá crear primero una instancia de ella. Esta tarea puede realizarse en línea mediante la creación de una aplicación lógica, o bien seleccionando la aplicación de API en JavaScript Azure Marketplace.
 
 ##Uso de la aplicación de API de JavaScript en la superficie del diseñador de aplicaciones lógicas
 ###Desencadenador
@@ -91,4 +91,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

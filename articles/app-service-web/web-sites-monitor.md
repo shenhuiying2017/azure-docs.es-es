@@ -28,7 +28,7 @@
 
 - Las métricas de granularidad de **minuto** se conservan durante **24 horas**
 - Las métricas de granularidad de **hora** se conservan durante **7 días**
-- Las métricas de granularidad de **día** s conservan durante **30 días**
+- Las métricas de granularidad de **día** se conservan durante **30 días**
 
 ##<a name="websitemetrics"></a>Incorporación de métricas de aplicaciones web
 
@@ -52,7 +52,7 @@ En el modo de aplicación web **Estándar** puede recibir alertas basadas en las
 
 ##<a name="howtoviewusage"></a>Visualización de cuotas de uso para una aplicación web
 
-Las aplicaciones web pueden configurarse para ejecutarse en modo **Compartido** o **Estándar** en la página de administración **Escala** de la aplicación web en el [Portal de Azure](https://manage.windowsazure.com). Cada suscripción a Azure tiene acceso a un conjunto de recursos que tienen como finalidad la ejecución de hasta 100 aplicaciones web por región en el modo **Compartido**. El grupo de recursos disponibles para cada suscripción de aplicaciones web con este fin es compartido por otras aplicaciones web en la misma región geográfica que estén configuradas para ejecutarse en modo **Compartido**. Como estos recursos son compartidos para que los usen otras aplicaciones web, todas las suscripciones tienen límites en el uso que hacen de estos recursos. Los límites que se aplican al uso que una suscripción hace de estos recursos se expresan como cuotas de uso enumeradas en la sección de información general de uso de la página de administración **Panel** de cada aplicación web.
+Las aplicaciones web pueden configurarse para ejecutarse en modo **Compartido** o **Estándar** en la página de administración **Escalar** de la aplicación web en el [Portal de Azure](https://manage.windowsazure.com). Cada suscripción a Azure tiene acceso a un conjunto de recursos que tienen como finalidad la ejecución de hasta 100 aplicaciones web por región en el modo **Compartido**. El grupo de recursos disponibles para cada suscripción de aplicaciones web con este fin es compartido por otras aplicaciones web en la misma región geográfica que estén configuradas para ejecutarse en modo **Compartido**. Como estos recursos son compartidos para que los usen otras aplicaciones web, todas las suscripciones tienen límites en el uso que hacen de estos recursos. Los límites que se aplican al uso que una suscripción hace de estos recursos se expresan como cuotas de uso enumeradas en la sección de información general de uso de la página de administración **Panel** de cada aplicación web.
 
 >[AZURE.NOTE]Cuando una aplicación web está configurada para ejecutarse en modo **Estándar**, se le asignan recursos dedicados equivalentes a los tamaños de máquina virtual **Pequeña** (valor predeterminado), **Mediana** o **Grande** en la tabla de [Máquina virtual y tamaños de servicio en la nube de Azure][vmsizes]. No hay límites en los recursos que puede utilizar una suscripción para ejecutar aplicaciones web en modo **Estándar**. Sin embargo, la cantidad de aplicaciones web en modo **Estándar** que se pueden crear por región es 500.
 
@@ -289,4 +289,4 @@ Vea el siguiente vídeo para obtener más información sobre la supervisión de 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

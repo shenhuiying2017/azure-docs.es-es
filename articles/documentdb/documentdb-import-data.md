@@ -2,7 +2,7 @@
 	pageTitle="Importación de datos en DocumentDB | Microsoft Azure" 
 	description="Obtenga información sobre cómo utilizar la herramienta de migración de datos de código abierto DocumentDB para importar datos a DocumentDB desde diversos orígenes, incluidos archivos JSON, archivos CSV, SQL, MongoDB, almacenamiento de tablas de Azure, Amazon DynamoDB y colecciones de DocumentDB." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="andrewhoh" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
-	ms.author="stbaro"/>
+	ms.date="10/16/2015" 
+	ms.author="anhoh"/>
 
 # Importación de datos en DocumentDB #
 
@@ -35,7 +35,7 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 
 Antes de seguir las instrucciones del presente artículo, asegúrese de tener instalados los siguientes elementos:
 
-- [Microsoft .NET Framework 4.51](http://www.microsoft.com/net/downloads) o superior.
+- [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) o superior.
 
 ##<a id="Overviewl"></a>Información general sobre la herramienta de migración de datos de DocumentDB ##
 
@@ -57,8 +57,8 @@ Aunque la herramienta de importación incluye una interfaz gráfica de usuario (
 
 El código fuente de la herramienta de migración está disponible en GitHub en [este repositorio](https://github.com/azure/azure-documentdb-datamigrationtool) y una versión compilada se encuentra disponible en el [Centro de descarga de Microsoft](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). Puede compilar la solución o simplemente descargar y extraer la versión compilada en un directorio de su elección. A continuación, ejecute:
 
-- Dtui.exe: versión de interfaz gráfica de la herramienta
-- Dt.exe: versión de línea de comandos de la herramienta
+- **Dtui.exe**: versión de interfaz gráfica de la herramienta
+- **Dt.exe**: versión de línea de comandos de la herramienta
 
 ##<a id="JSON"></a>Importación de archivos JSON ##
 
@@ -137,7 +137,20 @@ Que devuelve los resultados siguientes (parciales):
 
 Tenga en cuenta los alias como Address.AddressType y Address.Location.StateProvinceName. Al especificar un separador de anidamiento de “.”, la herramienta de importación crea subdocumentos Address y Address.Location durante la importación. Este es un ejemplo de un documento resultante en DocumentDB:
 
-*{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
+*{
+  "id": "956",
+  "Name": "Finer Sales and Service",
+  "Address": {
+    "AddressType": "Main Office",
+    "AddressLine1": "#500-75 O'Connor Street",
+    "Location": {
+      "City": "Ottawa",
+      "StateProvinceName": "Ontario"
+    },
+    "PostalCode": "K4B 1S2",
+    "CountryRegionName": "Canada"
+  }
+}*
  
 Estos son algunos ejemplos de línea de comandos para importar desde SQL Server:
 
@@ -157,9 +170,20 @@ De forma similar a lo que sucede con el origen SQL, la propiedad de separador de
 
 ![Screenshot of CSV sample records](./media/documentdb-import-data/csvsample.png)
 
-Tenga en cuenta los alias como DomainInfo.Domain\_Name y RedirectInfo.Redirecting. Al especificar un separador de anidamiento de “.”, la herramienta de importación crea subdocumentos DomainInfo y RedirectInfo durante la importación. Este es un ejemplo de un documento resultante en DocumentDB:
+Tenga en cuenta los alias como DomainInfo.Domain_Name y RedirectInfo.Redirecting. Al especificar un separador de anidamiento de “.”, la herramienta de importación crea subdocumentos DomainInfo y RedirectInfo durante la importación. Este es un ejemplo de un documento resultante en DocumentDB:
 
-*{ "DomainInfo": { "Domain\_Name": "ACUS.GOV", "Domain\_Name\_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect\_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{
+  "DomainInfo": {
+    "Domain_Name": "ACUS.GOV",
+    "Domain_Name_Address": "http://www.ACUS.GOV"
+  },
+  "Federal Agency": "Administrative Conference of the United States",
+  "RedirectInfo": {
+    "Redirecting": "0",
+    "Redirect_Destination": ""
+  },
+  "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"
+}*
 
 La herramienta de importación intentará inferir la información de tipo de los valores sin comillas de los archivos CSV (los valores entre comillas se tratan siempre como cadenas). Los tipos se identifican en el siguiente orden: número, fecha y hora, booleano.
 
@@ -201,7 +225,7 @@ A continuación se muestra un ejemplo de línea de comandos para importar desde 
 
 	dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:metrics /t.CollectionTier:S3
 
-##<a id="DynamoDBSource"></a>Importar desde Amazon DynamoDB ##
+##<a id="DynamoDBSource"></a>Importación desde Amazon DynamoDB ##
 
 La opción de importador de origen Amazon DynamoDB permite importar de una tabla individual de Amazon DynamoDB individual y, opcionalmente, filtrar las entidades que desea importar. Se proporcionan varias plantillas para que configurar una importación resulte lo más fácil posible.
 
@@ -219,7 +243,7 @@ A continuación se muestra un ejemplo de línea de comandos para importar desde 
 
 	dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:catalogCollection /t.CollectionTier:S3
 
-##<a id="BlobImport"></a>Importar archivos desde el Almacenamiento de blobs de Azure##
+##<a id="BlobImport"></a>Importación de archivos desde el almacenamiento de blobs de Azure##
 
 El archivo JSON, archivo de exportación de MongoDB y opciones de importador de origen de archivo CSV permiten importar uno o más archivos del almacenamiento de blobs de Azure. Después de especificar una dirección URL de contenedor de blobs y una clave de cuenta, basta con proporcionar una expresión regular para seleccionar los archivos para importar.
 
@@ -247,7 +271,7 @@ Para realizar la importación desde una sola colección de DocumentDB, escriba e
 
 La opción del importador de origen de DocumentDB tiene las siguientes opciones avanzadas:
 
-1. Incluir campos internos: especifica si se debe o no incluir propiedades del sistema de documentos de DocumentDB en la exportación (por ejemplo, \_rid, \_ts).
+1. Incluir campos internos: especifica si se debe o no incluir propiedades del sistema de documentos de DocumentDB en la exportación (por ejemplo, _rid, _ts).
 2. Número de reintentos en caso de error: especifica el número de veces que se intentará la conexión a DocumentDB en caso de errores transitorios (por ejemplo, interrupciones de conectividad de red).
 3. Intervalo de reintento: especifica el tiempo de espera entre los reintentos de restablecimiento de conexión a DocumentDB en caso de errores transitorios (por ejemplo, interrupción de la conectividad de red).
 4. Modo de conexión: especifica el modo de conexión para utilizarlo con DocumentDB. Las opciones disponibles son DirectTcp, DirectHttps y puerta de enlace. Los modos de conexión directa son más rápidos, mientras que el modo de puerta de enlace es compatible con el firewall, ya que sólo usa el puerto 443.
@@ -322,7 +346,7 @@ Además, al importar los tipos de fecha (por ejemplo, desde SQL Server o MongoDB
 
 -	Cadena: conservar como un valor de cadena
 -	Tiempo: conservar como un valor de número de tiempo
--	Ambos: conservar los valores de cadena y de número Esta opción creará un subdocumento, por ejemplo "date\_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 } 
+-	Ambos: conservar los valores de cadena y de número Esta opción creará un subdocumento, por ejemplo "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 } 
 
 
 El importador masivo de DocumentDB tiene las siguientes opciones avanzadas adicionales:
@@ -350,7 +374,7 @@ El formato de la cadena de conexión de DocumentDB es:
 
 > [AZURE.NOTE]Utilice el comando Verify para asegurarse de que se puede tener acceso a la instancia de DocumentDB especificada en el campo de la cadena de conexión.
 
-Para realizar la importación en una sola colección, escriba el nombre de la colección en la que se van a importar los datos y haga clic en el botón Agregar. Para importar varias colecciones, escriba el nombre de cada colección individualmente o use la siguiente sintaxis para especificar varias colecciones: *collection\_prefix*[índice inicial - índice final]. Si va a especificar varias colecciones a través de esta sintaxis, tenga en cuenta lo siguiente:
+Para realizar la importación en una sola colección, escriba el nombre de la colección en la que se van a importar los datos y haga clic en el botón Agregar. Para importar varias colecciones, escriba el nombre de cada colección individualmente o use la siguiente sintaxis para especificar varias colecciones: *collection_prefix*[índice inicial - índice final]. Si va a especificar varias colecciones a través de esta sintaxis, tenga en cuenta lo siguiente:
 
 1. Solo se admiten patrones de nombre de intervalo entero. Por ejemplo, la especificación de colección [0-3] generará las siguientes colecciones: colección0, colección1, colección2, colección3.
 2. Puede usar una sintaxis abreviada: colección[3] generará el mismo conjunto de colecciones que el paso 1.
@@ -370,7 +394,7 @@ Hay una serie de opciones avanzadas disponibles durante la importación. En prim
 
 -	Cadena: conservar como un valor de cadena
 -	Tiempo: conservar como un valor de número de tiempo
--	Ambos: conservar los valores de cadena y de número Esta opción creará un subdocumento, por ejemplo "date\_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 } 
+-	Ambos: conservar los valores de cadena y de número Esta opción creará un subdocumento, por ejemplo "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 } 
 
 El importador de registros secuenciales de DocumentDB tiene estas opciones adicionales:
 
@@ -477,4 +501,4 @@ En la pantalla Configuración avanzada, especifique la ubicación del archivo de
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

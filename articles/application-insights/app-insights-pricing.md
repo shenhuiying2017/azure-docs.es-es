@@ -88,7 +88,7 @@ Hay tres depósitos que se cuentan por separado:
 * [Excepciones](app-insights-api-custom-events-metrics.md#track-exception), limitado a 50 puntos/s.
 * Toda la demás telemetría (vistas de páginas, sesiones, solicitudes, dependencias, métricas, eventos personalizados, resultados de prueba web).
 
-Si su aplicación envía más que el límite, se quitan algunos de los datos. Verá una notificación de advertencia que indica que esto ha sucedido.
+Si su aplicación envía más que el límite durante varios minutos, se pueden eliminar algunos de los datos. Verá una notificación de advertencia que indica que esto ha sucedido.
 
 ### Sugerencias para reducir la velocidad de datos
 
@@ -135,4 +135,4 @@ Los cargos de Application Insights se agregarán a la factura de Azure. Puede ve
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

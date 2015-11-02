@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="cloud-services"
+   ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -52,4 +52,4 @@ Este documento describe un patrón de procesamiento por lotes fuera del sitio me
 
 [Nivel de Búsqueda de Azure](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Obtenga información acerca de los conceptos clave de Análisis de transmisiones | Microsoft Azure" 
 	description="Obtenga información sobre los conceptos clave de Análisis de transmisiones: componentes de un trabajo de Análisis de transmisiones, incluidas entradas y salidas admitidas, configuración del trabajo y métricas." 
-	keywords="event processing,data stream,key concepts,serialization"	
+	keywords="procesamiento de eventos,transmisión de datos,conceptos clave,serialización"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -140,7 +140,7 @@ En el destino de salida se escribirán los resultados del trabajo de Análisis d
 - Base de datos SQL de Azure: este destino de salida es adecuado para datos de carácter relacional o para aplicaciones que dependen del contenido que se hospeda en una base de datos.
 
 ## Unidades de streaming
-Para poder ofrecer una experiencia de rendimiento más predecible a los clientes, Análisis de transmisiones de Azure usa Unidades de streaming (SU) para representar los recursos y la capacidad de ejecutar un trabajo. Las SU proporcionan una forma de describir el evento relativo en función de una medida que combina la CPU, la memoria, la capacidad de procesamiento y las tasas de lectura y escritura. Cada unidad de streaming corresponde aproximadamente a 1 MB por segundo de rendimiento. Cada trabajo de Análisis de transmisiones de Azure necesita como mínimo una unidad de streaming, que es el valor predeterminado de todos los trabajos. Para más información acerca de cómo seleccionar el número correcto de SU para un trabajo, consulte [Escalar trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
+Para poder ofrecer una experiencia de rendimiento más predecible a los clientes, Análisis de transmisiones de Azure usa Unidades de streaming (SU) para representar los recursos y la capacidad de ejecutar un trabajo. Las SU proporcionan una forma de describir el evento relativo en función de una medida que combina la CPU, la memoria, la capacidad de procesamiento y las tasas de lectura y escritura. Cada unidad de streaming corresponde aproximadamente a 1 MB por segundo de rendimiento. Cada trabajo de Análisis de transmisiones de Azure necesita como mínimo una unidad de streaming, que es el valor predeterminado de todos los trabajos. Para obtener más información acerca de cómo seleccionar el número correcto de SU para un trabajo, consulte [Escalar trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md).
 
 ## Trabajos de escala
 
@@ -207,4 +207,4 @@ Ahora que está familiarizado con los conceptos básicos de Análisis de transmi
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -20,7 +20,7 @@
 
 # Directivas de indexación de DocumentDB
 
-Aunque muchos clientes prefieren dejar que DocumentDB controle automáticamente [todos los aspectos de la indexación ](documentdb-indexing.md), DocumentDB también permite especificar una **directiva de indexación** personalizada para las colecciones durante la creación. Las directivas de indexación en DocumentDB son más flexibles y potentes que los índices secundarios que se ofrecen en otras plataformas de indexación de bases de datos, ya que le permiten diseñar y personalizar la forma del índice sin sacrificar la flexibilidad del esquema. Para entender cómo funciona la indexación en DocumentDB, debe comprender que, mediante la administración de una directiva de indexación, puede lograr un equilibrio específico entre la sobrecarga de almacenamiento, el rendimiento de escritura y de consulta, y la coherencia de consultas del índice.
+Aunque muchos clientes prefieren dejar que DocumentDB controle automáticamente [todos los aspectos de la indexación ](documentdb-indexing.md), esta aplicación también permite especificar una **directiva de indexación** personalizada para las colecciones durante la creación. Las directivas de indexación en DocumentDB son más flexibles y potentes que los índices secundarios que se ofrecen en otras plataformas de indexación de bases de datos, ya que le permiten diseñar y personalizar la forma del índice sin sacrificar la flexibilidad del esquema. Para entender cómo funciona la indexación en DocumentDB, debe comprender que, mediante la administración de una directiva de indexación, puede lograr un equilibrio específico entre la sobrecarga de almacenamiento, el rendimiento de escritura y de consulta, y la coherencia de consultas del índice.
 
 En este artículo, echamos un vistazo más detenido a las directivas de indexación de DocumentDB, la personalización de la directiva de indexación y las ventajas y desventajas asociadas.
 
@@ -67,11 +67,11 @@ En el siguiente fragmento de código de .NET se muestra cómo establecer una dir
 
 DocumentDB admite tres modos de indexación que se pueden configurar mediante la directiva de indexación en una colección de DocumentDB: Coherente, Diferida y Ninguna.
 
-**Coherente**: si la directiva de la colección de DocumentDB se designa como "coherente", las consultas realizadas en una colección DocumentDB determinada siguen el mismo nivel de coherencia que se especifique para las lecturas de punto (es decir, fuerte, obsolescencia entrelazada, sesión y eventual). El índice se actualiza de forma sincrónica como parte de la actualización del documento (es decir, inserción, reemplazo, actualización y eliminación de un documento en una colección de DocumentDB). La indexación coherente admite consultas coherentes a costa de una posible reducción en el rendimiento de escritura. Esta reducción depende de las rutas de acceso únicas que se deben indexar y del "nivel de coherencia". El modo de indexación coherente está diseñado para cargas de trabajo de tipo "escribir rápidamente, consultar inmediatamente".
+**Coherente**: si la directiva de la colección de DocumentDB se designa como "coherente", las consultas realizadas en una colección DocumentDB determinada siguen el mismo nivel de coherencia que se especifique para las lecturas de punto (es decir, alta, de uso vinculado, sesión y eventual). El índice se actualiza de forma sincrónica como parte de la actualización del documento (es decir, inserción, reemplazo, actualización y eliminación de un documento en una colección de DocumentDB). La indexación coherente admite consultas coherentes a costa de una posible reducción en el rendimiento de escritura. Esta reducción depende de las rutas de acceso únicas que se deben indexar y del "nivel de coherencia". El modo de indexación coherente está diseñado para cargas de trabajo de tipo "escribir rápidamente, consultar inmediatamente".
 
-**Diferida**: para permitir el rendimiento máximo de ingesta del documento, se puede configurar una colección DocumentDB con coherencia diferida; lo que significa que las consultas terminan siendo coherentes. El índice se actualiza de forma asincrónica cuando una colección DocumentDB está inactiva, es decir, cuando la capacidad de rendimiento de la colección no se usa por completo para atender las solicitudes de usuario. Para cargas de trabajo de tipo "introducir ahora, consultar más adelante" que requieran ingesta de documentos sin obstáculos, es posible que el modo de indexación "diferido" sea el adecuado.
+**Diferida**: para permitir el rendimiento máximo de ingesta de documentos, se puede configurar una colección DocumentDB con coherencia diferida; lo que significa que las consultas terminan siendo coherentes. El índice se actualiza de forma asincrónica cuando una colección DocumentDB está inactiva, es decir, cuando la capacidad de rendimiento de la colección no se usa por completo para atender las solicitudes de usuario. Para cargas de trabajo de tipo "introducir ahora, consultar más adelante" que requieran ingesta de documentos sin obstáculos, es posible que el modo de indexación "diferido" sea el adecuado.
 
-**Ninguna**: una colección marcada con el modo de indexación de “Ninguna” no tiene ningún índice asociado. La configuración de la directiva de indexación con "Ninguna" tiene el efecto secundario de quitar cualquier índice existente.
+**Ninguna**: una colección marcada con el modo de indexación de "Ninguna" no tiene ningún índice asociado. La configuración de la directiva de indexación con "Ninguna" tiene el efecto secundario de quitar cualquier índice existente.
 
 >[AZURE.NOTE]La configuración de la directiva de indexación con "Ninguna" tiene el efecto secundario de quitar cualquier índice existente. Úsela si los patrones de acceso solo requieren "id" o "vinculación automática".
 
@@ -168,7 +168,7 @@ La siguiente tabla muestra la coherencia de las consultas basadas en el modo de 
     </tbody>
 </table>
 
-De forma predeterminada, se devuelve un error para todas las consultas si la colección está configurada con el modo de indexación Ninguna para indicar que podría ser necesario realizar un examen para atender la consulta. Estas consultas se pueden realizar sin un índice de intervalo mediante el uso del encabezado `x-ms-documentdb-enable-scans` en la API de REST o la opción de solicitud `EnableScanInQuery` mediante el SDK de .NET. Por ejemplo, algunas consultas que usan ORDER BY no se permitirán con Ninguna ni siquiera con `EnableScanInQuery`.
+De forma predeterminada, se devuelve un error para todas las consultas si la colección está configurada con el modo de indexación Ninguna para indicar que podría ser necesario realizar un examen para atender la consulta. Estas consultas se pueden realizar sin un índice de intervalo mediante el uso del encabezado `x-ms-documentdb-enable-scans` en la API de REST o la opción de solicitud `EnableScanInQuery` mediante .NET SDK. Por ejemplo, algunas consultas que usan ORDER BY no se permitirán con Ninguna ni siquiera con `EnableScanInQuery`.
 
 La siguiente tabla muestra la coherencia de las consultas basadas en el modo de indexación (Coherente, Diferida y Ninguna) cuando se especifica EnableScanInQuery.
 
@@ -769,4 +769,4 @@ Siga los vínculos que aparecen a continuación para obtener ejemplos de adminis
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -57,6 +57,7 @@ Por supuesto, puede editar esta regla de alerta y elegir **Deshabilitar** o **Ha
 
 ## Pasos siguientes
 
+* [Configure enlaces web en las alertas](insights-webhooks-alerts.md) para enrutar las notificaciones a diversos canales
 * [Supervise las métricas de servicio](insights-how-to-customize-monitoring.md) para asegurarse de que el servicio está disponible y que responde adecuadamente.
 * [Habilite la supervisión y el diagnóstico](insights-how-to-use-diagnostics.md) para recopilar métricas detalladas de alta frecuencia en su servicio.
 * [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
@@ -65,4 +66,4 @@ Por supuesto, puede editar esta regla de alerta y elegir **Deshabilitar** o **Ha
 * [Realice el seguimiento del estado del servicio](insights-service-health.md) para averiguar cuándo ha sufrido Azure interrupciones del servicio o degradación del rendimiento.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

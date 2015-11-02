@@ -62,11 +62,11 @@ El SDK principal solo proporciona una API: a diferencia de los SDK web y de disp
 
     * Si solo instaló el paquete de la API principal Microsoft.ApplicationInsights, debe establecer la clave en código, por ejemplo en main(): 
 
-     `TelemetryConfiguration.Active.InstrumentationKey = "`*su clave*`";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*su clave*`";`
 
     * Si instaló uno de los otros paquetes, puede establecer la clave mediante código o establecerla en ApplicationInsights.config:
  
-     `<InstrumentationKey>`*su clave*`</InstrumentationKey>`
+    `<InstrumentationKey>`*su clave*`</InstrumentationKey>`
 
 
 
@@ -299,4 +299,4 @@ El código del canal de persistencia se encuentra en [github](https://github.com
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

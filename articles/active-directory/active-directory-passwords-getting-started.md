@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Introducción a la administración de contraseñas en Azure AD | Microsoft Azure"
-	description="Permita que los usuarios restablezcan sus propias contraseñas, descubra los requisitos previos para el restablecimiento de contraseña y permita que la escritura diferida de contraseñas administre las contraseñas locales en Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="Introducción a la administración de contraseñas en Azure AD | Microsoft Azure" 
+	description="Permita que los usuarios restablezcan sus propias contraseñas, descubra los requisitos previos para el restablecimiento de contraseña y permita que la escritura diferida de contraseñas administre las contraseñas locales en Active Directory." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Introducción a la administración de contraseñas
@@ -193,8 +193,8 @@ Antes de poder habilitar y utilizar la escritura diferida, debe asegurarse de co
 ### Paso 1: descargar la versión más reciente de Azure AD Connect
 La escritura diferida de contraseñas está disponible en las versiones de Azure AD Connect o en la herramienta Sincronización de Azure AD con el número de versión **1.0.0419.0911** o posterior. La escritura diferida de contraseñas con desbloqueo automático de cuenta está disponible en las versiones de Azure AD Connect o en la herramienta Sincronización de Azure AD con el número de versión **1.0.0485.0222** o posterior. Si ejecuta una versión anterior, al menos actualice a esta versión antes de continuar. [Haga clic aquí para descargar la versión más reciente de Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
 
-#### Para comprobar la versión de Sincronización de Azure AD
-1.	Vaya a **%ProgramFiles%\\Azure Active Directory Sync**.
+####  Para comprobar la versión de Sincronización de Azure AD
+1.	Vaya a **%ProgramFiles%\Azure Active Directory Sync**. 
 2.	Busque el archivo ejecutable **ConfigWizard.exe**.
 3.	Haga clic con el botón derecho en el archivo ejecutable y seleccione la opción **Propiedades** del menú contextual.
 4.	Haga clic en la pestaña **Detalles**.
@@ -249,7 +249,13 @@ Una vez que haya habilitado la escritura diferida de contraseñas en la herramie
 ### Paso 4: configurar los permisos adecuados de Active Directory
 Para cada bosque que contiene usuarios con contraseñas que se restablecerán, si X es la cuenta que se especificó para ese bosque en el asistente de configuración (durante la configuración inicial), X debe contar con los derechos extendidos **Restablecer contraseña**, **Cambiar contraseña**, **Escribir permisos** en `lockoutTime` y **Escribir permisos** en `pwdLastSet` sobre el objeto raíz de cada dominio del bosque en cuestión. El derecho debe estar marcado como heredado por todos los objetos de usuario.
 
-Al establecer estos permisos se permitirá que la cuenta de servicio de agente de administración de cada bosque administre las contraseñas en nombre de las cuentas de usuario dentro de ese bosque. Si olvida asignar estos permisos, y aunque la escritura diferida aparecerá como correctamente configurada, los usuarios encontrarán errores cuando intenten administrar sus contraseñas locales desde la nube. Los siguientes son los pasos detallados sobre cómo puede hacer esto con el complemento de administración de **Usuarios y equipos de Active Directory**:
+Si no está seguro de cuál es la cuenta a la que se hace referencia en el párrafo anterior, abra la UI de configuración de Azure Active Directory Connect y haga clic en la opción **Revisar su solución**. La cuenta a la que debe agregar permisos se muestra subrayada en rojo en la captura de pantalla siguiente.
+
+**<font color="red">Asegúrese de establecer este permiso para cada dominio de cada bosque del sistema, si no, la escritura diferida de contraseñas no funcionará correctamente.</font>**
+
+  ![][032]
+
+  Al establecer estos permisos se permitirá que la cuenta de servicio de agente de administración de cada bosque administre las contraseñas en nombre de las cuentas de usuario dentro de ese bosque. Si olvida asignar estos permisos, y aunque la escritura diferida aparecerá como correctamente configurada, los usuarios encontrarán errores cuando intenten administrar sus contraseñas locales desde la nube. Los siguientes son los pasos detallados sobre cómo puede hacer esto con el complemento de administración de **Usuarios y equipos de Active Directory**:
 
 >[AZURE.NOTE]Estos permisos podrían demorar hasta una hora en replicarse a todos los objetos del directorio.
 
@@ -279,7 +285,7 @@ Al establecer estos permisos se permitirá que la cuenta de servicio de agente d
 
 ### Paso 5: restablecer la contraseña de AD como usuario
 Ahora que la escritura diferida de contraseñas está habilitada, para saber si funciona, restablezca la contraseña de un usuario cuya cuenta se haya sincronizado en el inquilino de la nube.
-
+ 
 #### Para comprobar que la escritura diferida de contraseñas funciona correctamente
 1.	Vaya a [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com) o a cualquier pantalla de inicio de sesión de identificación de la organización y haga clic en el vínculo **¿No puede tener acceso a su cuenta?**
 
@@ -343,5 +349,6 @@ Ahora que la escritura diferida de contraseñas está habilitada, para saber si 
 [029]: ./media/active-directory-passwords-getting-started/029.jpg "Image_029.jpg"
 [030]: ./media/active-directory-passwords-getting-started/030.jpg "Image_030.jpg"
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
+[032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

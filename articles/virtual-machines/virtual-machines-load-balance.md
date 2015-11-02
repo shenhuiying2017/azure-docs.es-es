@@ -19,6 +19,7 @@
 
 # Equilibrio de carga para servicios de infraestructura de Azure#
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Hay dos niveles de equilibrio de carga disponibles para Servicios de infraestructura de Azure:
 
@@ -84,4 +85,4 @@ Para obtener más información, consulte [Equilibrio de carga interno](../load-b
 
 <!-- LINKS -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

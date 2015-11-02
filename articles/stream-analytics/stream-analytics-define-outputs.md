@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Definición de salidas | Microsoft Azure" 
 	description="Descripción de salidas de Análisis de transmisiones" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="análisis de macrodatos,servicio en la nube,internet de las cosas,servicio administrado, procesamiento de transmisiones,streaming de datos"
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -26,7 +26,7 @@ Para habilitar una variedad de patrones de aplicación, Análisis de transmision
 
 ## Base de datos SQL ##
 
-Puede usarse [Base de datos SQL](http://azure.microsoft.com/services/sql-database/) como salida de datos que son relacionales por naturaleza o de aplicaciones que dependen del contenido hospedado en una base de datos relacional. Los trabajos de Análisis de transmisiones se escribirán en una tabla existente en una Base de datos SQL de Azure. Tenga en cuenta que el esquema de tabla debe coincidir exactamente con los campos y los tipos de salida del trabajo. En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de Base de datos SQL.
+Puede usarse [Base de datos SQL de Azure](http://azure.microsoft.com/services/sql-database/) como salida de datos que son relacionales por naturaleza o de aplicaciones que dependen del contenido hospedado en una base de datos relacional. Los trabajos de Análisis de transmisiones se escribirán en una tabla existente en una Base de datos SQL de Azure. Tenga en cuenta que el esquema de tabla debe coincidir exactamente con los campos y los tipos de salida del trabajo. En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de Base de datos SQL.
 
 | Nombre de propiedad | Descripción |
 |---------------|-------------|
@@ -173,7 +173,7 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 
 ## Colas del Bus de servicio
 
-Las [colas del Bus de servicio](https://msdn.microsoft.com/library/azure/hh367516.aspx) ofrecen una entrega de mensajes según el modelo El primero en entrar es el primero en salir (FIFO) a uno o más consumidores de la competencia. Normalmente, se espera que los receptores reciban y procesen los mensajes en el orden temporal en el que se agregaron a la cola y solo un destinatario del mensaje recibe y procesa cada uno de los mensajes.
+Las [colas de Bus de servicio](https://msdn.microsoft.com/library/azure/hh367516.aspx) ofrecen una entrega de mensajes según el modelo El primero en entrar es el primero en salir (FIFO) a uno o más consumidores de la competencia. Normalmente, se espera que los receptores reciban y procesen los mensajes en el orden temporal en el que se agregaron a la cola y solo un destinatario del mensaje recibe y procesa cada uno de los mensajes.
 
 En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de cola.
 
@@ -191,7 +191,7 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 
 ## Temas de Bus de servicio
 
-Mientras Colas del Bus de servicio proporciona un método de comunicación individual del remitente al receptor, [Temas del Bus de servicio](https://msdn.microsoft.com/library/azure/hh367516.aspx) proporciona una forma de comunicación de uno a muchos.
+Mientras que las colas de Bus de servicio proporcionan un método de comunicación individual del remitente al receptor, los [temas de Bus de servicio](https://msdn.microsoft.com/library/azure/hh367516.aspx) proporcionan una forma de comunicación de uno a muchos.
 
 En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de tabla.
 
@@ -208,7 +208,7 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 
 ## DocumentDB
 
-[DocumentDB de Azure](http://azure.microsoft.com/services/documentdb/) es un servicio de base de datos de documentos NoSQL totalmente administrado que ofrece consultas y transacciones a través de datos sin esquema, rendimiento predecible y confiable y desarrollo rápido.
+[Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) es un servicio de base de datos de documentos NoSQL totalmente administrado que ofrece consultas y transacciones a través de datos sin esquema, rendimiento predecible y confiable y desarrollo rápido.
 
 En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de DocumentDB.
 
@@ -265,4 +265,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

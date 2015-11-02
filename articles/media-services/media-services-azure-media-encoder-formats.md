@@ -3,7 +3,7 @@
 	description="Este tema ofrece información general sobre los formatos y códecs de Azure Media Encoder." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/05/2015" 
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Formatos y códecs de Codificador multimedia de Azure
@@ -142,4 +142,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 - [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -47,7 +47,7 @@ Una vez haya habilitado el Escritorio remoto (Windows), la comunicación remota 
 
 Desde un cliente REST, siga estas instrucciones:
 
-1. Asegúrese de que tiene un certificado de cliente para conectarse al Portal de Azure. Para obtener un certificado de cliente, siga los pasos que se indican en [Instrucciones: descargar e importar la configuración de publicación y la información de suscripción] (https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx).
+1. Asegúrese de que tiene un certificado de cliente para conectarse al Portal de Azure. Para obtener un certificado de cliente, siga los pasos que se indican en [Descarga e importación de la configuración de publicación y la información de suscripción](https://msdn.microsoft.com/library/dn385850.aspx). 
 
 1. Establezca una entrada de encabezado denominada x-ms-version con un valor de 2013-11-01.
 
@@ -55,7 +55,7 @@ Desde un cliente REST, siga estas instrucciones:
 
 1. Busque el elemento **HostName** de cada elemento **RoleInstance**.
 
->[AZURE.WARNING]Asimismo, puede ver el sufijo de dominio interno del servicio en la nube desde la respuesta a la llamada REST, si comprueba el elemento **InternalDnsSuffix**, si ejecuta ipconfig/all desde un símbolo del sistema en una sesión de Escritorio remoto (Windows), o bien si ejecuta cat /etc/resolv.conf desde un terminal SSH (Linux).
+>[AZURE.WARNING]Asimismo, puede ver el sufijo de dominio interno del servicio en la nube desde la respuesta a la llamada REST comprobando el elemento **InternalDnsSuffix** o ejecutando ipconfig /all desde un símbolo del sistema en una sesión de Escritorio remoto (Windows) o cat /etc/resolv.conf desde un terminal SSH (Linux).
 
 ## Modificar un nombre de host
 
@@ -71,4 +71,4 @@ Puede modificar el nombre de host de cualquier máquina virtual o instancia de r
 
 [Especificación de la configuración de DNS usando los archivos de configuración de red](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

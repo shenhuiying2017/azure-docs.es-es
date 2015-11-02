@@ -2,9 +2,8 @@
 	pageTitle="Proceso de datos del blob de Azure con análisis avanzado | Microsoft Azure" 
 	description="Proceso de datos en Almacenamiento de blobs de Azure." 
 	services="machine-learning,storage" 
-	solutions="" 
 	documentationCenter="" 
-	authors="msolhab" 
+	authors="bradsev" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -14,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
+	ms.date="10/20/2015" 
+	ms.author="sunliangms;fashah;garye;bradsev" />
 
 #<a name="heading"></a>Proceso de datos del blob de Azure con análisis avanzado
 
@@ -189,4 +188,4 @@ Cuando haya explorado los datos y creado las características necesarias, puede 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/09/2015"
+    ms.date="10/19/2015"
     ms.author="larryfr"/>
 
 # Desarrollo de la acción de script con HDInsight
@@ -36,11 +36,14 @@ Al desarrollar un script personalizado para un clúster de HDInsight, hay varios
 
 - [Concentrarse en la versión de Hadoop](#bPS1)
 - [Proporcionar vínculos estables a los recursos de script](#bPS2)
+- [Usar recursos compilados previamente](#bPS4)
 - [Asegurarse de que el script de personalización del clúster es idempotente](#bPS3)
 - [Asegurar una alta disponibilidad de la arquitectura de clúster](#bPS5)
 - [Configurar los componentes personalizados para usar el almacenamiento de blobs de Azure](#bPS6)
 - [Escribir información en STDOUT y STDERR](#bPS7)
 - [Guardar los archivos como ASCII con el fin de línea LF](#bps8)
+
+> [AZURE.IMPORTANT]Las acciones de script se tienen que completar dentro de un periodo de 15 minutos o superarán el tiempo de espera. Durante el aprovisionamiento del nodo, el script se ejecuta a la vez con otros procesos de instalación y de configuración. La competición por los recursos, como el ancho de banda de red o el tiempo de CPU puede ocasionar que el script tarde más en terminar que en el entorno de desarrollo.
 
 ### <a name="bPS1"></a>Concentrarse en la versión de Hadoop
 
@@ -55,6 +58,10 @@ La práctica recomendada es descargar y archivar todo el contenido de una cuenta
 > [AZURE.IMPORTANT]La cuenta de almacenamiento usada tiene que ser la cuenta de almacenamiento predeterminada del clúster o un contenedor público de solo lectura en cualquier otra cuenta de almacenamiento.
 
 Por ejemplo, los ejemplos proporcionados por Microsoft se almacenan en la cuenta de almacenamiento [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/), que es un contenedor público, de solo lectura mantenido por el equipo de HDInsight.
+
+### <a name="bPS4"></a>Uso de recursos compilados previamente
+
+Para minimizar el tiempo necesario para ejecutar el script, evite las operaciones que compilan los recursos a partir del código fuente. En su lugar, compile previamente los recursos y almacene la versión binaria en el almacenamiento de blobs de Azure para que se pueda descargar rápidamente en el clúster desde el script.
 
 ### <a name="bPS3"></a>Asegurarse de que el script de personalización del clúster es idempotente
 
@@ -88,7 +95,7 @@ De forma predeterminada, `echo` enviará la cadena a STDOUT. Para dirigirla a ST
 
         >&2 echo "An error occured installing Foo"
 
-Esto redirige la información que se envía a STDOUT (1, que es el predeterminado, por lo que no se muestran aquí,) a STDERR (2). Para obtener más información sobre la redirección de E/S, vea [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+Esto redirige la información que se envía a STDOUT (1, que es el predeterminado, por lo que no se muestran aquí,) a STDERR (2). Para obtener más información sobre la redirección de E/S, consulte [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
 Para obtener más información sobre la visualización de información registrada por las acciones de script, consulte [Personalización de los clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
@@ -111,7 +118,7 @@ Esto hace que las siguientes aplicaciones auxiliares estén disponibles para su 
 | Uso de la aplicación auxiliar | Descripción |
 | ------------ | ----------- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` | Descarga un archivo de la dirección URL de origen en la ruta de acceso de archivo especificada. De forma predeterminada, no sobrescribirá un archivo existente. |
-| `untar_file TARFILE DESTDIR` | Extrae un archivo tar (mediante `-xf`,) para el directorio de destino. |
+| `untar_file TARFILE DESTDIR` | Extrae un archivo tar (mediante `-xf`,) en el directorio de destino. |
 | `test_is_headnode` | Si se ejecutaba en un nodo principal del clúster, devuelve 1; en caso contrario, es 0. |
 | `test_is_datanode` | Si el nodo actual es un nodo de datos (trabajo), devuelve un 1; en caso contrario, es 0. |
 | `test_is_first_datanode` | Si el nodo actual es el primer nodo de datos (trabajo), (llamado workernode0), devuelve un 1; en caso contrario, es 0. |
@@ -124,7 +131,7 @@ Esta sección proporciona instrucciones sobre cómo implementar algunos de los p
 
 En algunos casos, un script puede requerir parámetros. Por ejemplo, puede que necesite la contraseña de administrador para el clúster con el fin de recuperar información de la API de REST de Ambari.
 
-Los parámetros que se pasan a un script se conocen como _parámetros posicionales_, y se asignan a `$1` para el primer parámetro, `$2` para el segundo y así sucesivamente. `$0` contiene el nombre del script.
+Los parámetros que se pasan al script se conocen como _parámetros posicionales_, y se asignan a `$1` para el primer parámetro, `$2` para el segundo y así sucesivamente. `$0` contiene el nombre del script.
 
 Los valores que se pasan a un script como parámetros se deben encerrar entre comillas simples (') para que el valor pasado se trate como un valor literal y no se un tratamiento especial para incluir caracteres como '!'.
 
@@ -140,7 +147,7 @@ Donde VARIABLENAME es el nombre de la variable. Para obtener acceso a la variabl
 
 Para el acceso posterior a la información puede usar `$PASSWORD`.
 
-Las variables de entorno establecidas dentro del script solo existen en el ámbito del script. En algunos casos, puede que necesite agregar variables de entorno de todo el sistema que se conservarán una vez finalizado el script. Normalmente, esto es para que los usuarios que se conectan al clúster a través de SSH puedan usar los componentes instalados por el script. Para ello agregue la variable de entorno a `/etc/environment`. Por ejemplo, lo siguiente agrega __HADOOP\_CONF\_DIR__:
+Las variables de entorno establecidas dentro del script solo existen en el ámbito del script. En algunos casos, puede que necesite agregar variables de entorno de todo el sistema que se conservarán una vez finalizado el script. Normalmente, esto es para que los usuarios que se conectan al clúster a través de SSH puedan usar los componentes instalados por el script. Para ello, agregue la variable de entorno a `/etc/environment`. Por ejemplo, lo siguiente agrega __HADOOP\_CONF\_DIR__:
 
     echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
@@ -207,10 +214,10 @@ _Resolución_: guarde el archivo como ASCII o UTF-8 sin una marca BOM. También 
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
-Para el comando anterior, reemplace __INFILE__ con el archivo que contiene la marca BOM. __OUTFILE__ tiene que ser un nombre de archivo nuevo, que contendrá el script sin la marca BOM.
+Para el comando anterior, reemplace __INFILE__ por el archivo que contiene la marca BOM. __OUTFILE__ tiene que ser un nombre de archivo nuevo, que contendrá el script sin la marca BOM.
 
 ## <a name="seeAlso"></a>Otras referencias
 
 [Personalizar los clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

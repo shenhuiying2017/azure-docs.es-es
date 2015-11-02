@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Modelo jerárquico de recursos y conceptos de DocumentDB | Microsoft Azure" 
 	description="Obtenga información sobre el modelo jerárquico de DocumentDB de bases de datos, colecciones, funciones definidas por el usuario (UDF), documentos, permisos para administrar recursos, etc."
-	keywords="Hierarchical Model, documentdb, azure, Microsoft azure"	
+	keywords="Hierarchical model, documentdb, azure, Microsoft azure"	
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -30,7 +30,7 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 - ¿Cómo se trabaja con las colecciones?
 - ¿Cómo se trabaja con procedimientos almacenados, desencadenadores y Funciones definidas por el usuario (UDF)?
 
-##Modelo jerárquico de recursos
+## Modelo jerárquico de recursos
 Tal y como muestra el siguiente diagrama, el **modelo de recursos** jerárquico de DocumentDB consta de conjuntos de recursos en una cuenta de base de datos, cada uno de ellos direccionable mediante un URI lógico y estable. En este artículo, los conjuntos de recursos se denominan **fuentes**.
 
 >[AZURE.NOTE]DocumentDB ofrece un protocolo de TCP sumamente eficaz que también es RESTful en su modelo de comunicación; disponible a través del [SDK de cliente de .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
@@ -57,7 +57,7 @@ Para empezar a trabajar con los recursos, debe [crear una cuenta de base de dato
 ##Recursos del sistema frente a recursos definidos por el usuario
 Los recursos (por ejemplo, las cuentas de bases de datos, las bases de datos, las colecciones, los usuarios, los permisos, los procedimientos almacenados, los desencadenadores y las UDF) tienen todos un esquema fijo y se les denomina "recursos del sistema". En cambio, los recursos como documentos y datos adjuntos no tienen restricciones de esquema y son ejemplos de recursos definidos por el usuario. En DocumentDB, tanto los recursos del sistema como los definidos por el usuario se representan y controlan como JSON compatibles con el estándar. Todos los recursos ya sean definidos por el sistema o el usuario tienen las siguientes propiedades comunes.
 
->[AZURE.NOTE]Tenga en cuenta que todas las propiedades generadas por el sistema en un recurso tienen un prefijo con subrayado (\_) en su representación de JSON.
+>[AZURE.NOTE] Tenga en cuenta que todas las propiedades generadas por el sistema en un recurso tienen un prefijo con subrayado (_) en su representación de JSON.
 
 
 Propiedad |¿Configurable por el usuario o generado por el sistema?|Propósito
@@ -414,4 +414,4 @@ Obtenga más información sobre cómo trabajar con recursos usando comandos HTTP
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

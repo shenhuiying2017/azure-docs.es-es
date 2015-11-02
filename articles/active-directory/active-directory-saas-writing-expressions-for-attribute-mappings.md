@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Escritura de expresiones para la asignación de atributos en Azure Active Directory"
+	pageTitle="Escritura de expresiones para la asignación de atributos en Azure Active Directory | Microsoft Azure"
 	description="Obtenga información sobre cómo usar asignaciones de expresiones para transformar valores de atributos en un formato aceptable durante el aprovisionamiento automático de objetos de aplicaciones SaaS en Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -307,4 +307,4 @@ Debe definir la zona horaria del usuario según el código de estado almacenado 
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

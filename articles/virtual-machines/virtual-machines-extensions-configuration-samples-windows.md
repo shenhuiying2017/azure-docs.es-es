@@ -17,7 +17,11 @@
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
-# Ejemplos de configuración de la extensión de máquina virtual Windows de Azure.
+# Ejemplos de configuración de la extensión de máquina virtual de Windows de Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+
+
 
 Este artículo proporciona un ejemplo de configuración para configurar las extensiones de máquina virtual de Azure para máquinas virtuales Windows.
 
@@ -304,4 +308,4 @@ Este es un ejemplo de una plantilla de máquina virtual completa con la extensi�
 
 [Extensión de script personalizada en una máquina virtual de Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

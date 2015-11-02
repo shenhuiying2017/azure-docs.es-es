@@ -20,7 +20,7 @@ Use las redes virtuales para:
 
 ### ¿Cómo sé si necesito una red virtual?
 
-Visite [Información general sobre redes virtuales](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/) para ver una tabla de decisiones que le ayudará a decidir la mejor opción de diseño de red para usted.
+Visite [Información general sobre redes virtuales](virtual-networks-overview.md) para ver una tabla de decisiones que le ayude a decidir la mejor opción de diseño de red para usted.
 
 ### ¿Cómo empiezo?
 
@@ -265,4 +265,4 @@ Sí. Existen API de REST para administrar redes virtuales y la conectividad entr
 
 Sí. Puede usar herramientas de la línea de comandos y PowerShell para diferentes plataformas. Puede encontrar más información [aquí](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

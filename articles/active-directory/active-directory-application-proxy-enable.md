@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Habilitación del proxy de la aplicación de Azure AD"
+	pageTitle="Habilitación del proxy de la aplicación de Azure AD | Microsoft Azure"
 	description="Explica cómo poner en funcionamiento el proxy de la aplicación de Azure AD."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 # Habilitación del proxy de la aplicación de Azure AD
@@ -76,7 +76,7 @@ Hay mucho más que puede hacer con el proxy de la aplicación:
 - [Habilitar el inicio de sesión único](active-directory-application-proxy-sso-using-kcd.md)
 - [Habilitar el acceso condicional](active-directory-application-proxy-conditional-access.md)
 - [Trabajar con las aplicaciones para notificaciones](active-directory-application-proxy-claims-aware-apps.md)
-- [Solucionar los problemas que tiene con el proxy de aplicación](active-directory-application-proxy-troubleshoot.md)
+- [Solucionar los problemas que tiene con el Proxy de aplicación](active-directory-application-proxy-troubleshoot.md)
 
 ## Obtenga más información acerca del proxy de la aplicación
 - [Eche un vistazo aquí para ver nuestra ayuda en línea](active-directory-application-proxy-enable.md)
@@ -85,8 +85,8 @@ Hay mucho más que puede hacer con el proxy de la aplicación:
 
 ## Recursos adicionales
 
-* [Registro en Azure como una organización](..sign-up-organization.md)
-* [Identidad de Azure](..fundamentals-identity.md)
+* [Registro en Azure como una organización](sign-up-organization.md)
+* [Identidad de Azure](fundamentals-identity.md)
 * [Publicación de aplicaciones con el proxy de la aplicación](active-directory-application-proxy-publish.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

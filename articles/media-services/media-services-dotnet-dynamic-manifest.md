@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Creación de filtros con SDK .NET de Servicios multimedia" 
+	pageTitle="Creación de filtros con .NET SDK de Servicios multimedia de Azure" 
 	description="En este tema se describe cómo crear filtros para que su cliente pueda usarlos para el streaming de secciones específicas de una secuencia. Servicios multimedia crea manifiestos dinámicos para lograr este streaming selectivo." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="dwrede,cenkdin" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
 
-#Creación de filtros con SDK .NET de Servicios multimedia
+#Creación de filtros con .NET SDK de Servicios multimedia de Azure
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-dynamic-manifest.md)
@@ -147,4 +147,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [Información general de manifiestos dinámicos](media-services-dynamic-manifest-overview.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

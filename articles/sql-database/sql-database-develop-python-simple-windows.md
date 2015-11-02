@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
-	ms.author="mebha"/>
+	ms.date="10/20/2015" 
+	ms.author="meetb"/>
 
 
 # Conexión a la base de datos SQL mediante Python en Windows
@@ -118,4 +118,4 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 
 Para obtener más información, consulte el [Centro para desarrolladores de Python](/develop/python/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -43,11 +43,7 @@ Estas tareas solo usan PowerShell:
 - [Reinicio de una máquina virtual](#restart)
 - [Eliminación de una máquina virtual](#delete)
 
-Antes de comenzar, asegúrese de que tiene Azure PowerShell listo para usar.
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
-
-
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Plantillas y grupos de recursos del Administrador de recursos y de Azure
 
@@ -59,23 +55,23 @@ Después de definir una plantilla de recursos basada en JSON, la puedes usar con
 
 Los recursos que crea con las plantillas del Administrador de recursos de Azure se implementan en un *grupo de recursos de Azure* nuevo o ya existente. Un grupo de recursos te permite administrar varios recursos implementados conjuntamente como un grupo lógico, para que puedas administrar el ciclo de vida general del grupo o de la aplicación.
 
-Si está interesado en la creación de plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
+Si está interesado en la creación de plantillas, vea [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 
 ### Crear un grupo de recursos
 
 Si todavía no tienes un grupo de recursos, necesitarás uno para las tareas que crean un recurso.
 
-En el comando siguiente, reemplace el *nombre del grupo de recursos* por el nombre del nuevo grupo de recursos, y la *ubicación de Azure* por la ubicación del centro de datos de Azure donde quiera que se ubique el recurso; a continuación, ejecútelo:
+En el comando siguiente, reemplace el *nombre del grupo de recursos* por el nombre del nuevo grupo de recursos, y la *ubicación de Azure* por la ubicación del centro de datos de Azure donde quiera que se ubique el recurso, y ejecútelo:
 
 	New-AzureRmResourceGroup -Name "resource group name" -Location "Azure location"
 
-## <a id="windowsvm"></a>TAREA: crear una máquina virtual
+## <a id="windowsvm"></a>TAREA: Creación de una máquina virtual
 
-Esta tarea usa una plantilla de la galería de plantillas. Para obtener más información sobre la plantilla, consulte [Implementación de una máquina virtual de Windows sencilla en el oeste de EE. UU.](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
+Esta tarea usa una plantilla de la galería de plantillas. Para obtener más información sobre la plantilla, vea [Implementación de una máquina virtual de Windows sencilla en el oeste de EE. UU.](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/)
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
 
-En el comando siguiente, reemplace el *nombre de la implementación* por el nombre que quiera usar para la implementación, y el *nombre del grupo de recursos* por el nombre del grupo de recursos existente; a continuación, ejecútelo:
+En el comando siguiente, reemplace el *nombre de la implementación* por el nombre que quiera usar para la implementación, y el *nombre del grupo de recursos* por el nombre del grupo de recursos existente, y ejecútelo:
 
 	New-AzureRmResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
@@ -83,7 +79,7 @@ Este es un ejemplo:
 
 	New-AzureRmResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
-Se le pedirá que proporcione los valores de los parámetros en la sección **parámetros** del archivo JSON:
+Se le pedirá que proporcione los valores de los parámetros en la sección **parameters** del archivo JSON:
 
 	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
@@ -128,11 +124,11 @@ Si quieres ver un vídeo en el que se realiza esta tarea, mira aquí:
 
 [AZURE.VIDEO deploy-a-windows-virtual-machine-with-azure-resource-manager-templates-and-powershell]
 
-## <a id="customvm"></a>TAREA: creación de una máquina virtual con un disco especializado
+## <a id="customvm"></a>TAREA: Creación de una máquina virtual con un disco especializado
 
-Esta tarea usa una plantilla de la galería de plantillas. Para obtener más información sobre la plantilla, consulte [Crear una máquina virtual desde un disco VHD especializado](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/).
+Esta tarea usa una plantilla de la galería de plantillas. Para obtener más información sobre la plantilla, vea [Creación de una máquina virtual desde un disco VHD especializado](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/).
 
-En el comando siguiente, reemplace el *nombre de la implementación* por el nombre que quiera usar para la implementación, y el *nombre del grupo de recursos* por el nombre del grupo de recursos existente; a continuación, ejecútelo:
+En el comando siguiente, reemplace el *nombre de la implementación* por el nombre que quiera usar para la implementación, y el *nombre del grupo de recursos* por el nombre del grupo de recursos existente, y ejecútelo:
 
 	New-AzureRmResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
@@ -140,7 +136,7 @@ Este es un ejemplo:
 
 	New-AzureRmResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
-Se le pedirá que proporcione los valores de los parámetros en la sección **parámetros** del archivo JSON:
+Se le pedirá que proporcione los valores de los parámetros en la sección **parameters** del archivo JSON:
 
 	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
@@ -157,17 +153,17 @@ Si quieres ver un vídeo en el que se realiza esta tarea, mira aquí:
 
 [AZURE.VIDEO create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell]
 
-## <a id="multivm"></a>TAREA: creación de varias máquinas virtuales en una red virtual con un equilibrador de carga externo
+## <a id="multivm"></a>TAREA: Creación de varias máquinas virtuales en una red virtual con un equilibrador de carga externo
 
-Esta tarea usa una plantilla de la galería de plantillas. Para obtener más información sobre la plantilla, consulte [Crear una máquina virtual desde un disco VHD especializado](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
+Esta tarea usa una plantilla de la galería de plantillas. Para obtener más información sobre la plantilla, vea [Creación de una máquina virtual desde un disco VHD especializado](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/multivmextlb.png)
 
-En el comando siguiente, reemplace el *nombre de la implementación* por el nombre que quiera usar para la implementación, y el *nombre del grupo de recursos* por el nombre del grupo de recursos existente; a continuación, ejecútelo:
+En el comando siguiente, reemplace el *nombre de la implementación* por el nombre que quiera usar para la implementación, y el *nombre del grupo de recursos* por el nombre del grupo de recursos existente, y ejecútelo:
 
 	New-AzureRmResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
 
-Se le pedirá que proporcione los valores de los parámetros en la sección **parámetros** del archivo JSON:
+Se le pedirá que proporcione los valores de los parámetros en la sección **parameters** del archivo JSON:
 
 	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
@@ -186,7 +182,7 @@ Si quieres ver un vídeo en el que se realiza esta tarea, mira aquí:
 
 ## <a id="removerg"></a>TAREA: Eliminación de un grupo de recursos
 
-En el comando siguiente, reemplace el *nombre del grupo de recursos* por el nombre del grupo de recursos que quiera eliminar y, a continuación, ejecútelo:
+En el comando siguiente, reemplace el *nombre del grupo de recursos* por el nombre del grupo de recursos que quiera quitar, y ejecútelo:
 
 	Remove-AzureRmResourceGroup  -Name "resource group name"
 
@@ -204,7 +200,7 @@ Si quieres ver un vídeo en el que se realiza esta tarea, mira aquí:
 
 ## <a id="displayvm"></a>TAREA: Visualización de información acerca de una máquina virtual
 
-En el comando siguiente, reemplace el *nombre del grupo de recursos* por el nombre del grupo de recursos que contiene la máquina virtual, y el *nombre de la máquina virtual* por el nombre de la máquina y, a continuación, ejecútelo:
+En el comando siguiente, reemplace el *nombre del grupo de recursos* por el nombre del grupo de recursos que contiene la máquina virtual, y el *nombre de la máquina virtual* por el nombre de la máquina, y ejecútelo:
 
 	Get-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
 
@@ -275,7 +271,7 @@ Si quieres ver un vídeo en el que se realiza esta tarea, mira aquí:
 
 ## <a id="start"></a>TAREA: Inicio de una máquina virtual
 
-En el comando siguiente, reemplace el *nombre del grupo de recursos* por el nombre del grupo de recursos que contiene la máquina virtual, y el *nombre de la máquina virtual* por el nombre de la máquina y, a continuación, ejecútelo:
+En el comando siguiente, reemplace el *nombre del grupo de recursos* por el nombre del grupo de recursos que contiene la máquina virtual, y el *nombre de la máquina virtual* por el nombre de la máquina, y ejecútelo:
 
 	Start-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
 
@@ -296,7 +292,7 @@ Si quieres ver un vídeo en el que se realiza esta tarea, mira aquí:
 
 ## <a id="stop"></a>TAREA: Detención de una máquina virtual
 
-En el comando siguiente, reemplace el *nombre del grupo de recursos* por el nombre del grupo de recursos que contiene la máquina virtual, y el *nombre de la máquina virtual* por el nombre de la máquina y, a continuación, ejecútelo:
+En el comando siguiente, reemplace el *nombre del grupo de recursos* por el nombre del grupo de recursos que contiene la máquina virtual, y el *nombre de la máquina virtual* por el nombre de la máquina, y ejecútelo:
 
 	Stop-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
 
@@ -323,7 +319,7 @@ Si quieres ver un vídeo en el que se realiza esta tarea, mira aquí:
 
 ## <a id="restart"></a>TAREA: Reinicio de una máquina virtual
 
-En el comando siguiente, reemplace el *nombre del grupo de recursos* por el nombre del grupo de recursos que contiene la máquina virtual, y el *nombre de la máquina virtual* por el nombre de la máquina y, a continuación, ejecútelo:
+En el comando siguiente, reemplace el *nombre del grupo de recursos* por el nombre del grupo de recursos que contiene la máquina virtual, y el *nombre de la máquina virtual* por el nombre de la máquina, y ejecútelo:
 
 	Restart-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
 
@@ -344,7 +340,7 @@ Si quieres ver un vídeo en el que se realiza esta tarea, mira aquí:
 
 ## <a id="delete"></a>TAREA: Eliminación de una máquina virtual
 
-En el comando siguiente, reemplace el *nombre del grupo de recursos* por el nombre del grupo de recursos que contiene la máquina virtual, y el *nombre de la máquina virtual* por el nombre de la máquina y, a continuación, ejecútelo:
+En el comando siguiente, reemplace el *nombre del grupo de recursos* por el nombre del grupo de recursos que contiene la máquina virtual, y el *nombre de la máquina virtual* por el nombre de la máquina, y ejecútelo:
 
 	Remove-AzureRmVM -ResourceGroupName "resource group name" –Name "VM name"
 
@@ -372,7 +368,7 @@ Si quieres ver un vídeo en el que se realiza esta tarea, mira aquí:
 [AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
 
 ## Recursos adicionales
-[Plantillas de inicio rápido de Azure](http://azure.microsoft.com/documentation/templates/) y [Marcos de aplicación](virtual-machines-app-frameworks.md)
+[Plantillas de inicio rápido de Azure](http://azure.microsoft.com/documentation/templates/) y [Marcos de la aplicación](virtual-machines-app-frameworks.md)
 
 [Proceso, red y proveedores de almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md)
 
@@ -380,4 +376,4 @@ Si quieres ver un vídeo en el que se realiza esta tarea, mira aquí:
 
 [Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

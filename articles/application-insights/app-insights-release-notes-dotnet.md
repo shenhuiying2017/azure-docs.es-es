@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Notas de la versión de Application Insights para .NET" 
-	description="Las actualizaciones más recientes." 
+	description="Las actualizaciones más recientes de .NET SDK." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -97,4 +97,4 @@ No existen notas de la versión para versiones anteriores.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

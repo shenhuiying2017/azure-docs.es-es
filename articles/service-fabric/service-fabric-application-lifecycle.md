@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="10/15/2015"
    ms.author="ryanwi; mani-ramaswamy"/>
 
 
@@ -118,4 +118,4 @@ Para obtener más información sobre cómo desarrollar, probar y administrar apl
 - [Ejemplo de ciclo de vida de aplicaciones basadas en REST](service-fabric-rest-based-application-lifecycle-sample.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

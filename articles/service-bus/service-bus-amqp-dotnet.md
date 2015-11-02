@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/15/2015"
    ms.author="sethm" />
 
 # Uso del Bus de servicio desde .NET con AMQP 1.0
@@ -201,4 +201,4 @@ Las API de .NET exponen varias opciones para controlar el comportamiento del pro
 [Información general sobre AMQP para el Bus de servicio]: service-bus-amqp-overview.md
 [AMQP de Bus de servicio para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

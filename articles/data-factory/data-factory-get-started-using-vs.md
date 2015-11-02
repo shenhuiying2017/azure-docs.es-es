@@ -207,33 +207,37 @@ Ya ha creado las tablas y los servicios vinculados de entrada/salida. Ahora, va 
 
 21. En la página Configurar la factoría de datos, haga lo siguiente:
 	1. Seleccione la opción **Crear la nueva factoría de datos**.
-	2. Escriba **VSTutorialFactory** para **Nombre**.
-	3. Seleccione la suscripción correcta para el campo**Suscripción**. 
-	4. Seleccione el **grupo de recursos** para la factoría de datos que se va a crear. 
-	5. Seleccione la **región** para la factoría de datos. 
+	2. Escriba **VSTutorialFactory** para **Nombre**.  
+	
+		> [AZURE.NOTE]El nombre del generador de datos de Azure debe ser único global. Si recibe un error sobre el nombre de la factoría de datos cuando se publica, cámbielo (por ejemplo, sunombreVSTutorialFactory) e intente publicar de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
+		> 
+		> El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
+	3. Seleccione la suscripción correcta para el campo **Suscripción**. 
+	4. Seleccione el **Grupo de recursos** para la factoría de datos que se va a crear. 
+	5. Seleccione la **Región** de la factoría de datos. 
 	6. Haga clic en **Siguiente** para cambiar a la página **Publicar elementos**. 
-23. En la página **Publicar elementos**, asegúrese de que todas las factorías de datos están seleccionadas y haga clic en **Siguiente** para pasar a la página **Resumen**.     
+23. En la página **Publicar elementos**, asegúrese de que todas las factorías de datos están seleccionadas y haga clic en **Siguiente** para cambiar a la página **Resumen**.     
 24. Revise el resumen y haga clic en **Siguiente** para iniciar el proceso de implementación y ver el **Estado de implementación**.
 25. En la página **Estado de implementación**, debería ver el estado del proceso de implementación. Cuando se haya completado la implementación, haga clic en Finalizar. 
 
 
 ## Uso del Explorador de servidores para revisar las entidades de Factoría de datos
 
-1. En **Visual Studio** haga clic en **Vista** en el menú y haga clic en **Explorador de servidores**.
-2. En la ventana Explorador de servidores, expanda **Azure** y expanda **Factoría de datos**. Si ve **Iniciar sesión en Visual Studio**, escriba la **cuenta** asociada a su suscripción de Azure y haga clic en **Continuar**. Escriba la **contraseña** y haga clic en **Iniciar sesión**. Visual Studio intenta obtener información acerca de todas las factorías de datos de Azure en su suscripción. Verá el estado de esta operación en la ventana **Lista de tareas de Factoría de datos**. ![Explorador de servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
-3. Puede hacer clic con el botón derecho en una factoría de datos y seleccionar Exportar Factoría de datos al nuevo proyecto para crear un proyecto de Visual Studio basado en una factoría de datos existente. ![Exportar factoría de datos a un proyecto de VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
+1. En **Visual Studio**, haga clic en el menú **Ver** y en la opción **Explorador de servidores**.
+2. En la ventana Explorador de servidores, expanda **Azure** y **Factoría de datos**. Si aparece **Iniciar sesión en Visual Studio**, escriba la **cuenta** asociada a su suscripción de Azure y haga clic en **Continuar**. Escriba la **contraseña** y haga clic en **Iniciar sesión**. Visual Studio intenta obtener información acerca de todas las factorías de datos de Azure en su suscripción. Verá el estado de esta operación en la ventana **Lista de tareas de Factoría de datos**.![Explorador de servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
+3. Puede hacer clic con el botón derecho en una factoría de datos y seleccionar Exportar Factoría de datos a nuevo proyecto para crear un proyecto de Visual Studio basado en una factoría de datos existente. ![Exportar factoría de datos a un proyecto de VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Actualización de herramientas de Factoría de datos para Visual Studio
 Para actualizar las herramientas de Factoría de datos de Azure para Visual Studio, haga lo siguiente:
 
-1. Haga clic en **Herramientas** en el menú y seleccione **Extensiones y actualizaciones**. 
-2. Seleccione **Actualizaciones** en el panel izquierdo y, a continuación, seleccione **Galería de Visual Studio**.
+1. Haga clic en el menú **Herramientas** y seleccione **Extensiones y actualizaciones**. 
+2. Seleccione **Actualizaciones** en el panel izquierdo y, luego, seleccione **Galería de Visual Studio**.
 4. Seleccione **Herramientas de Factoría de datos de Azure para Visual Studio** y haga clic en **Actualizar**. Si no ve esta entrada, ya tiene la versión más reciente de las herramientas. 
 
-Consulte [Supervisión de los conjuntos de datos y canalización](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) para obtener instrucciones sobre cómo usar el Portal de vista previa de Azure para supervisar la canalización y los conjuntos de datos que creó en este tutorial.
+Consulte [Supervisión de los conjuntos de datos y la canalización](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) para obtener instrucciones sobre cómo usar el Portal de vista previa de Azure para supervisar la canalización y los conjuntos de datos que ha creado en este tutorial.
 
 
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

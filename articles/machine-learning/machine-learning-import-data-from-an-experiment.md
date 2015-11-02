@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Importación de datos en Estudio de aprendizaje automático desde otro experimento | Microsoft Azure"
 	description="Cómo guardar los datos de aprendizaje en Estudio de aprendizaje automático de Azure y usarlo en otro experimento."
-	keywords="import data,data,data sources,training data"
+	keywords="importar datos, datos, orígenes de datos, datos de entrenamiento"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -35,4 +35,4 @@ Habrá ocasiones en las que querrá tomar un resultado intermedio de un experime
 
 Cuando termine de guardar, el conjunto de datos estará disponible para usarlo dentro de cualquier experimento de su área de trabajo. Puede encontrarlo en la lista **Conjuntos de datos guardados** de la paleta de módulos.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

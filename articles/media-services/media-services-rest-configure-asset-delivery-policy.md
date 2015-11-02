@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configuración de directivas de entrega de recursos con REST" 
-	description="En este tema se muestra cómo configurar distintas directivas de entrega de recursos." 
+	pageTitle="Configuración de directivas de entrega de activos mediante la API de REST de Servicios multimedia" 
+	description="En este tema se muestra cómo configurar distintas directivas de entrega de activos mediante la API de REST de Servicios multimedia." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 #Configuración de directivas de entrega de recursos
@@ -436,4 +436,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -3,7 +3,7 @@
 	description="En este tema se proporciona información general y una comparación de los codificadores multimedia a petición de Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,22 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015"  
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Información general y comparación de codificadores multimedia a petición de Azure
 
 ##Información general sobre la codificación
 
-Los codificadores comprimen los archivos multimedia digitales mediante códecs. Los codificadores normalmente tienen varias configuraciones que le permiten especificar propiedades de multimedia generadas, por ejemplo, los códecs que se utilizan, el formato de los archivos, la resolución y la velocidad de bits. Los formatos de archivo son contenedores que contienen el vídeo comprimido, así como información sobre los códecs que se utilizaron para comprimir el video.
+Servicios multimedia de Azure ofrece varias opciones para la codificación de medios en la nube.
 
-Los códecs tienen dos componentes: uno para comprimir archivos multimedia digitales para su transmisión y el otro para descomprimir los archivos multimedia digitales para su reproducción. Existen códecs de audio que comprimen y descomprimen el audio y códecs de vídeo que comprimen y descomprimen vídeo. Los códecs pueden utilizar compresión sin pérdida de información o compresión con pérdida de información. Los códecs de compresión sin pérdida de información conservan toda la información cuando se produce la compresión. Cuando se descomprime el archivo, el resultado es un archivo idéntico al archivo multimedia de entrada, lo que hace que los códecs de compresión sin pérdida de información sean muy apropiados para el archivado y el almacenamiento. Los códecs con pérdida de información pierden parte de la información al codificar y generan archivos más pequeños (que el original) a costa de la calidad del vídeo, y son muy apropiados para la transmisión a través de Internet.
-
-Es importante comprender la diferencia entre códecs y formatos de archivo. Los códecs son el software que implementa los algoritmos de compresión/descompresión, mientras que los formatos de archivo son contenedores que contienen el vídeo comprimido. Para obtener más información, consulte [Codificación frente a empaquetado](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
+Cuando comience con Servicios multimedia, es importante comprender la diferencia entre códecs y formatos de archivo. Los códecs son el software que implementa los algoritmos de compresión/descompresión, mientras que los formatos de archivo son contenedores que contienen el vídeo comprimido.
 
 Servicios multimedia proporciona paquetes dinámicos que permiten entregar contenido codificado MP4 de velocidad de bits adaptable o Smooth Streaming en formatos admitidos por Servicios multimedia (MPEG DASH, HLS, Smooth Streaming, HDS) sin tener que volver a empaquetar en estos formatos de streaming.
 
-Para sacar provecho del [empaquetado dinámico](media-services-dynamic-packaging-overview.md), deberá hacer lo siguiente:
+Para aprovecharse de los [paquetes dinámicos](media-services-dynamic-packaging-overview.md), deberá hacer lo siguiente:
 
 - Codifique su archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable (los pasos de codificación se muestran más adelante en este tutorial).
 - Obtenga al menos la unidad de streaming a petición para el extremo de streaming desde el que planea entregar el contenido. Para obtener más información, consulte [Escalación de unidades reservadas de streaming a petición](media-services-manage-origins.md#scale_streaming_endpoints/).
@@ -76,7 +74,7 @@ Codificador multimedia estándar se configura mediante uno de los valores preest
 
 ###Miniatura
 
-Para obtener información sobre cómo generar vistas en miniatura, vea [Cómo generar vistas en miniatura con Media Encoder Estándar](media-services-dotnet-generate-thumbnail-with-mes.md).
+Para obtener información sobre cómo generar vistas en miniatura, vea [Generación de vistas en miniatura con Codificador multimedia estándar](media-services-dotnet-generate-thumbnail-with-mes.md).
 
 ###Superposiciones de vídeos y audio
 
@@ -90,7 +88,7 @@ Actualmente, no se admite.
 
 ###Información general
 
-Codificador multimedia de Azure es uno de los codificadores compatibles con Servicios multimedia. A partir de julio de 2015, se recomienda usar [Media Encoder Estándar](media-services-encode-asset.md#media_encoder_standard).
+Codificador multimedia de Azure es uno de los codificadores compatibles con Servicios multimedia. A partir de julio de 2015, se recomienda usar [Codificador multimedia estándar](media-services-encode-asset.md#media_encoder_standard).
 
 ###Modo de uso
 
@@ -116,7 +114,7 @@ El Codificador multimedia de Azure se configura con uno de los valores preestabl
 
 ###Superposiciones de vídeos y audio
 
-[Creación de superposiciones](media-services-azure-media-customize-ame-presets.md#creating-overlays).
+[Creación de superposiciones](media-services-azure-media-customize-ame-presets.md#creating-overlays)
 
 ###Convención de nomenclatura
 
@@ -145,12 +143,12 @@ El flujo de trabajo del Codificador multimedia Premium se configura mediante flu
 
 Nombre de procesador multimedia|Precios aplicables|Notas
 ---|---|---
-**Media Encoder Estándar** |ENCODER|Las tareas de codificación se cobrarán en función del tamaño de los recursos de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR.
-**Codificador multimedia de Azure** |ENCODER|Las tareas de codificación se cobrarán en función del tamaño de los recursos de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR.
-**Flujo de trabajo del Codificador multimedia** |CODIFICADOR PREMIUM|Las tareas de codificación se cobrarán en función del tamaño de los recursos de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR PREMIUM.
+**Media Encoder Estándar** |ENCODER|Las tareas de codificación se cobrarán en función del tamaño de los activos de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR.
+**Codificador multimedia de Azure** |ENCODER|Las tareas de codificación se cobrarán en función del tamaño de los activos de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR.
+**Flujo de trabajo del Codificador multimedia** |CODIFICADOR PREMIUM|Las tareas de codificación se cobrarán en función del tamaño de los activos de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR PREMIUM.
 
 
-En esta sección se comparan las capacidades de codificación de **Codificador multimedia estándar**, **Codificador multimedia de Azure** y **Flujo de trabajo premium de codificación de medios**.
+En esta sección se comparan las capacidades de codificación de **Codificador multimedia estándar**, **Codificador multimedia de Azure** y **Flujo de trabajo de Codificador multimedia premium**.
 
 
 ###Formatos de archivo/contenedor de entrada
@@ -257,4 +255,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

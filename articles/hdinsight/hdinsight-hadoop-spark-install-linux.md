@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Uso de la acción de script para instalar Spark en el clúster de Hadoop| Microsoft Azure" 
-	description="Obtenga información para personalizar un clúster de HDInsight con Spark. Va a usar una opción de configuración de la acción de script para usar un script para instalar Spark" 
+	pageTitle="Uso de acción de script para instalar Apache Spark en HDInsight basado en Linux | Microsoft Azure" 
+	description="Aprenda a instalar Spark en clústeres de HDInsight basados en Linux mediante acciones de script. Las acciones de script le permiten personalizar el clúster durante la creación; así, puede cambiar la configuración del clúster o instalar utilidades y servicios." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="Blackmist" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="10/19/2015" 
 	ms.author="larryfr"/>
 
 # Instalación y uso de Spark en clústeres Hadoop de HDInsight
@@ -40,24 +40,28 @@ Puede modificar este script o crear su propio script para instalar otras version
 
 Este script instala Spark versión 1.5.1 en `/usr/hdp/current/spark`.
 
+> [AZURE.WARNING]Es posible que detecte que algunos binarios Spark 1.3.1 se instalan de forma predeterminada en el clúster de HDInsight. Estos no se deben usar, y se quitarán de la imagen del clúster de HDInsight en una futura actualización.
+
 ## <a name="install"></a>Instalación de Spark mediante acciones de script
 
 Hay un script de ejemplo para instalar Spark en un clúster de HDInsight en un blob de almacenamiento de Azure de solo lectura que se encuentra en [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh). Esta sección proporciona instrucciones sobre cómo usar el script de ejemplo al crear el clúster mediante el Portal de Azure.
 
-> [AZURE.NOTE]También puede usar Azure PowerShell o el SDK de .NET para HDInsight para crear un clúster mediante este script. Para obtener más información sobre el uso de estos métodos, vea [Personalización de un clúster de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE]También puede usar Azure PowerShell o el SDK de .NET para HDInsight para crear un clúster mediante este script. Para obtener más información sobre el uso de estos métodos, consulte [Personalización de clústeres de HDInsight mediante acciones de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Comience a crear un clúster siguiendo los pasos que se describen en [Creación de clústeres de HDInsight basados en Linux](hdinsight-provision-linux-clusters.md#portal), pero no complete la operación.
+1. Comience a crear un clúster siguiendo los pasos que se describen en [Creación de clústeres de HDInsight basados en Linux](hdinsight-provision-linux-clusters.md#portal), pero no realice la operación.
 
-2. En la hoja **Configuración opcional**, seleccione **Acciones de scripts** y proporcione la información siguiente:
+2. En la hoja **Configuración opcional**, seleccione **Acciones de script** y proporcione la información siguiente:
 
-	* __NOMBRE__: escriba un nombre sencillo para la acción de script.
+	* __NOMBRE__: escriba un nombre descriptivo para la acción de script.
 	* __URI DE SCRIPT__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh
 	* __PRINCIPAL__: active esta opción.
-	* __TRABAJO__: active esta opción.
-	* __ZOOKEEPER__: active esta opción para instalar en el nodo Zookeeper.
+	* __TRABAJO__: desactive esta opción.
+	* __ZOOKEEPER__: desactive esta opción.
 	* __PARÁMETROS__: deje este campo en blanco.
+    
+    > [AZURE.NOTE]En el ejemplo de script de Spark solo se instalan componentes en los nodos principales, por lo que los demás tipos de nodo pueden estar desactivados.
 
-3. En la parte inferior de **Acciones de scripts**, use el botón **Seleccionar** para guardar la configuración. Por último, use el botón **Seleccionar** situado en la parte inferior de la hoja **Configuración opcional** para guardar la información de configuración opcional.
+3. En la parte inferior de **Acciones de script**, use el botón **Seleccionar** para guardar la configuración. Por último, use el botón **Seleccionar** situado en la parte inferior de la hoja **Configuración opcional** para guardar la información de configuración opcional.
 
 4. Continúe creando el clúster, tal como se describe en [Creación de clústeres de HDInsight basados en Linux](hdinsight-provision-linux-clusters.md#portal).
 
@@ -172,7 +176,7 @@ En esta sección se escribe una aplicación de Scala que cuenta el número de l�
 
 	> [AZURE.NOTE]Asegúrese de que conserva las líneas vacías entre cada entrada.
 	
-	Presione __Ctrl+X__ y, luego, __Y__ y __Entrar__ para guardar el archivo.
+	Presione __Ctrl-X__ y luego __Y__ y __Entrar__ para guardar el archivo.
 
 4. Use el siguiente comando para crear un nuevo archivo llamado __SimpleApp.scala__ en el directorio __SimpleScalaApp/src/main/scala__:
 
@@ -197,13 +201,13 @@ En esta sección se escribe una aplicación de Scala que cuenta el número de l�
 		  }
 		}
 
-	Presione __Ctrl+X__ y, luego, __Y__ y __Entrar__ para guardar el archivo.
+	Presione __Ctrl-X__ y luego __Y__ y __Entrar__ para guardar el archivo.
 
 5. En el directorio __SimpleScalaApp__, use el siguiente comando para compilar la aplicación y almacenarla en un archivo jar:
 
 		sbt package
 
-	Una vez compilada la aplicación, verá un archivo **simpleapp\_2.10-1.0.jar** creado en el directorio \_\_SimpleScalaApp/target/scala-2.10**.
+	Después de compilar la aplicación, verá un archivo **simpleapp\_2.10-1.0.jar** creado en el directorio \_\_SimpleScalaApp/target/scala-2.10**.
 
 6. Escriba el siguiente comando para ejecutar el programa de SimpleApp.scala:
 
@@ -234,4 +238,4 @@ En esta sección se escribe una aplicación de Scala que cuenta el número de l�
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Tutorial rápido del lenguaje R para Aprendizaje automático | Microsoft Azure"
 	description="Use este tutorial de programación R para empezar a utilizar rápidamente el lenguaje R con Estudio de aprendizaje automático de Azure para crear una solución de previsión."
-	keywords="quickstart,r language,r programming language,r programming tutorial"
+	keywords="inicio rápido, idioma r, lenguaje de programación r, tutorial de programación r"
 	services="machine-learning"
 	documentationCenter=""
 	authors="Blackmist"
@@ -174,7 +174,7 @@ En primer lugar, comience por cargar el archivo **csdairydata.csv** en Estudio d
 
 Ahora que tenemos algunos datos en Estudio de aprendizaje automático, debemos crear un experimento para realizar el análisis.
 
-- Haga clic en __+ NUEVO__ en la parte inferior izquierda y seleccione **Experimento** y, luego, **Experimento en blanco**.
+- Haga clic en __+ NUEVO__ en la parte inferior izquierda y seleccione **Experimento** y, a continuación, **Experimento en blanco**.
 
 - Para asignar un nombre al experimento, seleccione y modifique el título **Experimento creado el...** en la parte superior de la página. Por ejemplo, cámbielo a **Análisis de productos lácteos de CA**.
 
@@ -186,7 +186,7 @@ Ahora que tenemos algunos datos en Estudio de aprendizaje automático, debemos c
 
 - Arrastre y suelte el módulo [Ejecutar script de R][execute-r-script] en el palet.
 
-- Conecte el resultado del **conjunto de datos csdairydata.csv** a la entrada situada más a la izquierda (**Dataset1**) del módulo [Ejecutar script de R][execute-r-script].
+- Conecte el resultado del **conjunto de datos csdairydata.csv** a la entrada situada más a la izquierda (**Dataset1**) del módulo [Ejecutar script R][execute-r-script].
 
 - **¡Recuerde hacer clic en 'Guardar'!**.
 
@@ -417,7 +417,7 @@ Vamos a ejecutar este código y a examinar el registro de salida del script de R
 
 *Ilustración 9. Resumen del marco de datos con una variable de factor.*
 
-El tipo de mes debe ser ahora '**Factor con 14 niveles**'. Esto es un problema, puesto que un año solo tiene 12 meses. También puede realizar comprobaciones para ver que el tipo de **Visualizar** del puerto del conjunto de datos de salida es '**Categorical**'.
+El tipo de Month debe ser ahora '**Factor con 14 niveles**'. Esto es un problema, puesto que un año solo tiene 12 meses. También puede realizar comprobaciones para ver que el tipo de **Visualizar** del puerto del conjunto de datos de salida es '**Categorical**'.
 
 El problema es que la columna 'Month' no se ha codificado de forma sistemática. En algunos casos, un mes se denomina Abril y en otros se abrevia como Abr. Podemos resolver este problema recortando la cadena a 3 caracteres. La línea de código tendrá el aspecto siguiente:
 
@@ -1346,4 +1346,4 @@ Algunos recursos excelentes en Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

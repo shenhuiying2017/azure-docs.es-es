@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Uso de colas del Bus de servicio (Ruby) | Microsoft Azure"
+	pageTitle="Uso de colas de Bus de servicio con Ruby | Microsoft Azure"
 	description="Obtenga información acerca de cómo usar las colas del Bus de servicio en Azure. Ejemplos de código escritos en Ruby."
 	services="service-bus"
 	documentationCenter="ruby"
-	authors="tfitzmac"
-	manager="wpickett"
+	authors="sethmanheim"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -14,12 +14,11 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="08/31/2015"
-	ms.author="tomfitz"/>
-
-
-
+	ms.author="sethm"/>
 
 # Utilización de las colas del Bus de servicio
+
+[AZURE.INCLUDE [servicio de bus de selector de colas](../../includes/service-bus-selector-queues.md)]
 
 Esta guía le mostrará cómo usar las colas del Bus de servicio. Los ejemplos están escritos en Ruby y usan la gema de Azure. Entre los escenarios que abarca se incluyen la **creación de colas, el envío y recepción de mensajes** y la **eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes](#next-steps).
 
@@ -146,10 +145,10 @@ En caso de que la aplicación sufra un error después de procesar el mensaje y a
 
 Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos vínculos para obtener más información.
 
--   Información general de [Colas, temas y suscripciones](service-bus-queues-topics-subscriptions.md).
+-   Información general de [colas, temas y suscripciones](service-bus-queues-topics-subscriptions.md).
 -   Visite el repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 
 Para ver la comparación entre Colas del Bus de servicio de Azure de este artículo y Colas de Azure del artículo [Uso del servicio Cola de Azure](/develop/ruby/how-to-guides/queue-service/), consulte [Colas de Azure y Colas del Bus de servicio de Azure: comparación y diferencias](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

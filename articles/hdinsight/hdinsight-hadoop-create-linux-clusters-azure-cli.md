@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="Crear clústeres de Hadoop, HBase o Storm en Linux en HDInsight con la CLI de Azure | Microsoft Azure"
-   	description="Aprenda a crear clústeres de Hadoop, HBase o Storm en Linux para HDInsight con la CLI de Azure."
+   	pageTitle="Creación de clústeres de Hadoop, HBase o Storm basados en Linux en HDInsight mediante la CLI de Azure multiplataforma | Microsoft Azure"
+   	description="Aprenda a crear clústeres de HDInsight basados en Linux con la CLI de Azure multiplataforma, las plantillas del Administrador de recursos de Azure y la API de REST de Azure. Puede especificar el tipo de clúster (Hadoop, HBase o Storm) o usar scripts para instalar componentes personalizados..."
    	services="hdinsight"
    	documentationCenter=""
    	authors="Blackmist"
@@ -98,23 +98,23 @@ Los siguientes pasos se deben realizar desde un símbolo del sistema, el shell o
 
 ##Pasos siguientes
 
-Ahora que ha creado correctamente un clúster de HDInsight, use lo siguiente para aprender a trabajar con el clúster:
+Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para aprender a trabajar con el clúster:
 
-###Clústeres de Hadoop
+###Clústeres Hadoop
 
 * [Uso de Hive con HDInsight](hdinsight-use-hive.md)
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-###Clústeres de HBase
+###Clústeres HBase
 
 * [Introducción a HBase con HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
 * [Desarrollar aplicaciones de Java para HBase en HDInsight](hdinsight-hbase-build-java-maven-linux)
 
-###Clústeres de Storm
+###Clústeres Storm
 
 * [Desarrollo de las topologías de Java para Storm en HDInsight](hdinsight-storm-develop-java-topology.md)
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

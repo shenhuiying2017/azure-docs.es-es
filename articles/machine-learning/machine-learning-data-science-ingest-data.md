@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducir datos | Microsoft Azure" 
+	pageTitle="Carga de datos en entornos de almacenamiento para el análisis | Microsoft Azure" 
 	description="Mover datos hacia y desde el almacenamiento de blobs de Azure" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="10/19/2015" 
 	ms.author="bradsev" />
 
-# Introducir datos
+# Carga de datos en entornos de almacenamiento para el análisis
 
 ## Introducción
 
@@ -28,4 +28,4 @@ Este **menú** vincula a temas en los que se describe cómo introducir datos en 
 
 Las necesidades técnicas y empresariales, así como la ubicación inicial, el formato y el tamaño de sus datos determinarán los entornos de destino en los que deben introducirse los datos para lograr los objetivos de su análisis. No es raro que un escenario requiera que los datos se muevan entre varios entornos para lograr la variedad de las tareas necesarias para construir un modelo predictivo. En esta secuencia de tareas se puede incluir, por ejemplo, la exploración de datos, el procesamiento previo, la limpieza, el muestreo inferior y el entrenamiento del modelo.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

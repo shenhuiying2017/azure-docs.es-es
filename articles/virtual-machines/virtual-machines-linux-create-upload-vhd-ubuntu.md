@@ -19,6 +19,7 @@
 
 # Preparación de una máquina virtual Ubuntu para Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ##Requisitos previos##
 
@@ -58,7 +59,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
 		# sudo apt-get update
 
-4. Las imágenes de Azure de Ubuntu, ahora siguen el kernel de la *habilitación de hardware* (HWE). Actualice el sistema operativo con el kernel más reciente ejecutando los comandos siguientes:
+4. Las imágenes de Azure de Ubuntu ahora están siguiendo el kernel de la *habilitación de hardware* (HWE). Actualice el sistema operativo con el kernel más reciente ejecutando los comandos siguientes:
 
 	Ubuntu 12.04:
 
@@ -118,4 +119,4 @@ Kernel de habilitación de hardware (HWE) de Ubuntu
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

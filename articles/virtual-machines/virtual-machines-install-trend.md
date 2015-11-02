@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
 
@@ -87,4 +87,4 @@ El agente tarda unos minutos en empezar la ejecución cuando se instala. Despué
 [Inicio de sesión en una máquina virtual con Windows Server]: virtual-machines-log-on-windows-server.md
 [Características y extensiones de máquina virtual de Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

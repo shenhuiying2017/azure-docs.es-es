@@ -7,7 +7,7 @@
    manager="jwhit"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/13/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2015" ms.author="jimpark"; "aashishr"/>
 
 # Restaurar archivos en una máquina de Windows Server o del Cliente de Windows
 En este artículo se describen los pasos necesarios para realizar dos tipos de operaciones de restauración:
@@ -109,4 +109,4 @@ La terminología usada en estos pasos incluye:
 - [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-introduction.md)
 - [Copia de seguridad de las cargas de trabajo de Microsoft](backup-azure-dpm-introduction.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito"
+	pageTitle="Aprovisionamiento de aplicaciones basada en atributos con filtros de ámbito | Microsoft Azure"
 	description="Obtenga información sobre cómo usar los filtros de ámbito para evitar el aprovisionamiento real de los objetos de las aplicaciones que admiten el aprovisionamiento automático de usuarios, en caso de que un objeto no satisfaga los requisitos empresariales."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -77,4 +77,4 @@ Según este filtro de ámbito, los usuarios deben cumplir los siguientes criteri
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
 [3]: ./active-directory-saas-scoping-filters/ic782813.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

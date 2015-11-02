@@ -28,9 +28,9 @@ Las soluciones de IoT pueden incluir bucles de comentarios automáticos. Por eje
 
 Muchas soluciones de IoT permiten a los usuarios ver y analizar los datos recopilados desde sus dispositivos. Estas vistas pueden adoptar la forma de paneles o informes de BI.
 
-[img-solution-architecture]: media/iot-azure-and-iot/iot-reference-architecture.png
+[img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [conjunto de aplicaciones de IoT de Azure]: http://azure.microsoft.com/solutions/iot
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

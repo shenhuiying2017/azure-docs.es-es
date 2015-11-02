@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/09/2015"
+    ms.date="10/10/2015"
     ms.author="elizapo" />
 
 
@@ -28,11 +28,10 @@ En este tema, revisaremos los clientes admitidos actualmente y cómo descargarlo
 
 Puede acceder a RemoteApp mediante los siguientes pasos si el dispositivo está ejecutando uno de estos sistemas operativos:
 
- - Vista previa del 10 de Windows
+ - Windows 10 
  - Windows 8.1
  - Windows 8
  - Windows 7 Service Pack 1
- - Windows RT
  - Windows Phone 8.1
  - iOS
  - Mac OS X
@@ -208,4 +207,4 @@ Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la
 	![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

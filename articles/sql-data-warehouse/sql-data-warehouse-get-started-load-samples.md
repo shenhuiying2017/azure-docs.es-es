@@ -1,6 +1,6 @@
 <properties
    pageTitle="Carga de datos de ejemplo en Almacenamiento de datos SQL | Microsoft Azure"
-   description="Carga de datos de ejemplo en Almacenamiento de datos SQL"
+   description="Obtenga información sobre cómo cargar datos de ejemplo en Almacenamiento de datos SQL"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/23/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
-#Carga de datos de ejemplo en Almacenamiento de datos SQL
+# Carga de datos de ejemplo en Almacenamiento de datos SQL
 
-Mientras crea una instancia de Almacenamiento de datos SQL, también puede cargar fácilmente algunos datos de ejemplo en ella. Si se saltó este paso durante el aprovisionamiento, también puede [cargar manualmente los datos de ejemplo][].
+Mientras crea una instancia de Almacenamiento de datos SQL, puede cargar fácilmente algunos datos de ejemplo en ella. Si se saltó este paso durante el aprovisionamiento, también puede [cargar manualmente los datos de ejemplo][].
 
 A continuación se proporciona una vista resumida de cómo se puede cargar AdventureWorksDW en la base de datos. Este conjunto de datos modela una estructura de almacenamiento de datos de ejemplo para una compañía ficticia llamada AdventureWorks con datos que representan las ventas y los clientes de la compañía.
 
@@ -33,9 +33,9 @@ Para garantizar que los datos de ejemplo se cargan en Almacenamiento de datos SQ
 > [AZURE.NOTE]Para cargar datos de ejemplo en la instancia, debe permitir que los servicios de Azure tengan acceso al servidor (esta opción debe estar activada de forma predeterminada al crear un nuevo servidor). En caso contrario, la carga dará error, pero puede [cargar datos de ejemplo manualmente][].
 
 
-##Uso de Power BI para analizar Adventureworks
+## Uso de Power BI para analizar Adventureworks
 
-El uso del conjunto de datos de ejemplo puede ser una buena manera de comenzar con Power BI. Después de cargar los datos de ejemplo, puede abrir una conexión a Almacenamiento de datos SQL; para ello, puede hacer clic en el botón "Abrir en Power BI" en el Portal de Azure o ir a [Power BI][] y [conectarse a Almacenamiento de datos SQL][]. Después de conectarse, se debe crear un nuevo conjunto de datos con el mismo nombre que el del almacenamiento de datos. Para facilitar el análisis, se ha creado una vista denominada "AggregateSales" con algunas de las métricas que son clave para analizar las ventas de la compañía. Puede hacer clic en el nombre de esta vista para expandirla y ver las columnas que contiene, y puede crear algunas visualizaciones rápidas siguiendo estos pasos:
+El uso del conjunto de datos de ejemplo puede ser una buena manera de comenzar con Power BI. Después de cargar los datos de ejemplo, puede abrir una conexión con Almacenamiento de datos SQL; para ello, puede hacer clic en el botón "Abrir en Power BI" en el Portal de Azure o ir a [Power BI][] y [conectarse a Almacenamiento de datos SQL][]. Después de conectarse, se debe crear un nuevo conjunto de datos con el mismo nombre que el del almacenamiento de datos. Para facilitar el análisis, se ha creado una vista denominada "AggregateSales" con algunas de las métricas que son clave para analizar las ventas de la compañía. Puede hacer clic en el nombre de esta vista para expandirla y ver las columnas que contiene, y puede crear algunas visualizaciones rápidas siguiendo estos pasos:
 
 1. Para empezar, podemos crear fácilmente un mapa de todas nuestras ventas; para ello, hacemos clic en las columnas "PostalCode" y "SalesAmount". Power BI reconoce incluso automáticamente estos datos como geográficos y los coloca en un mapa. 
 
@@ -78,21 +78,21 @@ Ahora que le hemos dado algún tiempo para familiarizarse con los datos de ejemp
 <!--Image references-->
 
 <!--Article references-->
-[migrar]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-overview-migrate/
-[desarrollar]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-overview-develop/
-[cargar]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-overview-load/
-[conexión y consulta]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-get-started-connect-query/
-[migrar código]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-migrate-code/
-[cargar datos de ejemplo manualmente]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[cargar manualmente los datos de ejemplo]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[Portal de Azure]: https://portal.azure.com
-[Power BI]: http://www.powerbi.com
-[conectarse a Almacenamiento de datos SQL]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-integrate-power-bi/
+[migrar]: ./sql-data-warehouse-overview-migrate.md
+[desarrollar]: ./sql-data-warehouse-overview-develop.md
+[cargar]: ./sql-data-warehouse-overview-load.md
+[conexión y consulta]: ./sql-data-warehouse-get-started-connect.md
+[migrar código]: ./sql-data-warehouse-migrate-code.md
+[cargar datos de ejemplo manualmente]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[cargar manualmente los datos de ejemplo]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[Portal de Azure]: https://portal.azure.com/
+[Power BI]: http://www.powerbi.com/
+[conectarse a Almacenamiento de datos SQL]: ./sql-data-warehouse-integrate-power-bi.md
 
 <!--MSDN references-->
-[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/es-ES/download/details.aspx?id=36433
+[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/download/details.aspx?id=36433/
 
 <!--Other Web references-->
-[Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
+[Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

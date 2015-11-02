@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Registros de operaciones | Microsoft Azure" 
 	description="Registros de operaciones del Análisis de transmisiones" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="análisis de macrodatos,servicio en la nube,internet de las cosas,servicio administrado, procesamiento de transmisiones,streaming de datos"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -39,13 +39,13 @@ Se muestra un vínculo a los registros correspondientes de un trabajo del Análi
 Para navegar de forma manual a los registros de operación para el Análisis de transmisiones y otros servicios en el Portal de Azure:
 
 1.	Haga clic en **Servicios de administración** en el [Portal de Azure](https://manage.windowsazure.com).
-2.	Seleccione **Análisis de transmisiones** para el **Tipo** y el nombre del trabajo para el **Nombre de servicio**.  
+2.	Seleccione **Análisis de transmisiones** para **Tipo** y el nombre del trabajo para **Nombre de servicio**.  
 
   ![Seleccionar el Análisis de transmisiones](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)
 
 ## Encontrar registros de auditoría en el Portal de vista previa de Azure ##
 
-Para encontrar registros operativos para el trabajo de Análisis de transmisiones en el Portal de vista previa de Azure, haga clic en **Examinar** y, a continuación, seleccione **Registros de auditoría**.
+Para encontrar registros operativos para el trabajo de Análisis de transmisiones en el Portal de vista previa de Azure, haga clic en **Examinar** y después seleccione **Registros de auditoría**.
 
   ![Portal de vista previa de Azure - Seleccionar Análisis de transmisiones](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)
 
@@ -83,7 +83,7 @@ Puede seleccionar cualquiera de los errores y hacer clic en **Detalles** para ob
 
   ![Detalles de la operación](./media/stream-analytics-operation-logs/05-stream-analytics-operation-logs.png)
 
-En caso de que necesite ponerse en contacto con [Soporte](http://azure.microsoft.com/support/options/) u ofrecer información al equipo a través del [foro de MSDN](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics), tenga en cuenta los detalles de la operación, específicamente el **Id. de correlación**.
+En caso de que necesite ponerse en contacto con [soporte técnico](http://azure.microsoft.com/support/options/) u ofrecer información al equipo a través del [foro de MSDN](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics), tenga en cuenta los detalles de la operación, específicamente el **Id. de correlación**.
 
 ## Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
@@ -96,4 +96,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # Fase 2 de la carga de trabajo de la granja de servidores de intranet de SharePoint: Configuración de controladores de dominio
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
-
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Modelo de implementación del Administrador de recursos.
 
 En esta fase de la implementación de una granja de servidores solo de intranet de SharePoint 2013 con grupos de disponibilidad AlwaysOn de SQL Server en los servicios de infraestructura de Azure, configurará dos controladores de dominio en la red virtual de Azure en la administración de servicios. Las solicitudes web de cliente para recursos de granja de servidores de SharePoint pueden autenticarse en la red virtual de Azure, en lugar de enviar ese tráfico de autenticación a través de la conexión VPN o Azure ExpressRoute a la red local.
 
@@ -36,7 +35,7 @@ Elemento | Nombre de la máquina virtual | Imagen de la Galería | Tamaño míni
 2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (segundo controlador de dominio, ejemplo DC2) | Windows Server 2012 R2 Datacenter | A2 (mediano)
 3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primer equipo de SQL Server, ejemplo SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
 4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (segundo equipo de SQL Server, ejemplo SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (testigo de nodos de mayoría para el clúster, ejemplo MN1) | Windows Server 2012 R2 Datacenter | A1 (pequeño)
+5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (nodo de mayoría para el clúster, ejemplo MN1) | Windows Server 2012 R2 Datacenter | A1 (pequeño)
 6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primer servidor de aplicaciones de SharePoint, ejemplo APP1) | Versión de evaluación de Microsoft SharePoint Server 2013: Windows Server 2012 R2 | A4 (extragrande)
 7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (segundo servidor de aplicaciones de SharePoint, ejemplo APP2) | Versión de evaluación de Microsoft SharePoint Server 2013: Windows Server 2012 R2 | A4 (extragrande)
 8\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primer servidor web de SharePoint, ejemplo WEB1) | Versión de evaluación de Microsoft SharePoint Server 2013: Windows Server 2012 R2 | A4 (extragrande)
@@ -186,7 +185,7 @@ A continuación, inicie sesión en cualquier equipo con una cuenta de administra
 
 	New-ADUser -SamAccountName sp_install -AccountPassword (read-host "Set user password" -assecurestring) -name "sp_install" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
 
-	New-	ADUser -SamAccountName sqlservice -AccountPassword (read-host "Set user password" -assecurestring) -name "sqlservice" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
+	New-ADUser -SamAccountName sqlservice -AccountPassword (read-host "Set user password" -assecurestring) -name "sqlservice" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
 
 Para cada comando, se le solicitará que escriba una contraseña. Anote estos nombres de cuenta y contraseñas, y guárdelos en una ubicación segura.
 
@@ -249,4 +248,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 3: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

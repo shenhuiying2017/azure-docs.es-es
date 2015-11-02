@@ -1,8 +1,7 @@
 <properties 
-	pageTitle="Envío de consultas de Hive a clústeres de Hadoop en el proceso de análisis avanzado | Microsoft Azure" 
+	pageTitle="Envío de consultas de Hive a clústeres de Hadoop en el proceso de análisis de Cortana | Microsoft Azure" 
 	description="Procesar datos de tablas de subárbol" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -14,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="10/18/2015" 
 	ms.author="hangzh;bradsev" />
 
-#<a name="heading"></a> Envío de consultas de Hive en clústeres de Hadoop de HDInsights en el proceso de análisis avanzado
+#<a name="heading"></a> Envío de consultas de Hive a clústeres de Hadoop en HDInsights en el proceso de análisis de Cortana
 
 En este documento se describen distintas formas de enviar consultas de subárbol a los clústeres de Hadoop administrados por un servicio HDInsight de Azure. Las consultas de subárbol se pueden enviar mediante:
 
@@ -35,10 +34,10 @@ En la última sección, se describen los parámetros que los usuarios pueden aju
 ## Requisitos previos
 En este artículo se supone que ha:
  
-* creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de almacenamiento de Azure](../hdinsight-get-started.md#storage). 
-* aprovisionado un clúster de Hadoop con el servicio HDInsight. Si necesita instrucciones, consulte [Aprovisionamiento de un clúster de HDInsight](../hdinsight-get-started.md#provision).
-* Se han cargado los datos en tablas de subárbol en clústeres de Hadoop de HDInsight de Azure. Si no es así, siga las instrucciones proporcionadas en [Crear y cargar datos en tablas de Hive](machine-learning-data-science-hive-tables.md) para cargar los datos en tablas de Hive primero.
-* habilitado el acceso remoto al clúster. Si necesita instrucciones, consulte [Acceso al nodo principal del clúster de Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
+* Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de almacenamiento de Azure](../hdinsight-get-started.md#storage). 
+* Aprovisionado un clúster de Hadoop con el servicio HDInsight. Si necesita instrucciones, consulte [Aprovisionamiento de un clúster de HDInsight](../hdinsight-get-started.md#provision).
+* Cargado los datos en tablas de Hive en clústeres de Hadoop en HDInsight de Azure. Si no es así, siga las instrucciones proporcionadas en [Crear y cargar datos en tablas de Hive](machine-learning-data-science-hive-tables.md) para cargar los datos en tablas de Hive primero.
+* Habilitado el acceso remoto al clúster. Si necesita instrucciones, consulte [Acceso al nodo principal del clúster de Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
 
 
 ## <a name="submit"></a>Envío de consultas de Hive
@@ -326,4 +325,4 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

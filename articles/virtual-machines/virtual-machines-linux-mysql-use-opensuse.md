@@ -21,6 +21,12 @@
 
 [MySQL][MySQL] es una conocida base de datos SQL de código abierto. En este tutorial se muestra cómo crear una máquina virtual que disponga de OpenSUSE Linux y, a continuación, instale MySQL.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
+
+<br>
+
+
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## Creación de una máquina virtual que ejecuta OpenSUSE Linux
@@ -32,10 +38,10 @@
 [AZURE.INCLUDE [install-and-run-mysql-on-opensuse-vm](../../includes/install-and-run-mysql-on-opensuse-vm.md)]
 
 ## Pasos siguientes
-Para obtener más información sobre MySQL, consulte la [Documentación de MySQL][MySQLDocs].
+Para obtener más información sobre MySQL, vea la [Documentación de MySQL][MySQLDocs].
 
 [MySQLDocs]: http://dev.mysql.com/doc/index-topic.html
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

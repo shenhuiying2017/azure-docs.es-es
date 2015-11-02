@@ -3,7 +3,7 @@
    description="Sugerencias para usar las tablas temporales en el Almacenamiento de datos SQL Azure para desarrollar soluciones."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="twounder"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="10/19/2015"
+   ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
 
 # Tablas temporales en el Almacenamiento de datos SQL
 Las tablas temporales existen a nivel de sesión en el Almacenamiento de datos SQL. Se definen como tablas temporales locales y, a diferencia de las tablas de SQL Server, se puede tener acceso a ellas desde cualquier lugar dentro de la sesión.
@@ -34,7 +34,7 @@ El siguiente procedimiento almacenado genera el archivo DDL necesario para actua
 ```
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
 (   @update_type    tinyint -- 1 default 2 fullscan 3 sample 4 resample
-,   @sample_pct     tinyint
+	,@sample_pct     tinyint
 )
 AS
 
@@ -49,9 +49,10 @@ BEGIN;
 END;
 
 CREATE TABLE #stats_ddl
-WITH    (   DISTRIBUTION = HASH([seq_nmbr])
-        ,   LOCATION     = USER_DB
-        )
+WITH
+(
+	DISTRIBUTION = HASH([seq_nmbr])
+)
 AS
 (
 SELECT
@@ -146,4 +147,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

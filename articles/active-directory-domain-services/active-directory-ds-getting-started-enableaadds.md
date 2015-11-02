@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/16/2015"
 	ms.author="maheshu"/>
 
 # Servicios de dominio de Azure AD *(vista previa)*: introducción
@@ -43,11 +43,16 @@ En este paso puede habilitar los Servicios de dominio de Azure AD para su direct
 
 7. Especifique el **Nombre de dominio DNS de Servicios de dominio**.
    - El nombre de dominio predeterminado del directorio (es decir, que termina con el sufijo de dominio **. onmicrosoft.com**) se seleccionará de forma predeterminada.
-   - La lista desplegable muestra todos los dominios que se han configurado para el directorio de Azure AD, incluidos también los dominios comprobados y sin comprobar que configura en la pestaña 'Dominios'.
-   - Además, puede especificar también un nombre de dominio personalizado en esta lista desplegable que se puede editar con solo escribirlo.
+   - La lista contiene todos los dominios que se han configurado para el directorio de Azure AD, incluidos también los dominios comprobados y sin comprobar que configura en la pestaña 'Dominios'.
+   - Además, puede agregar también un nombre de dominio personalizado a esta lista con solo escribirlo.
+
+     >[AZURE.WARNING]Asegúrese de que el prefijo de dominio del nombre de dominio que especifique (por ejemplo, "contoso" en el nombre de dominio 'contoso.local') tenga menos de 15 caracteres. No se puede crear un dominio de Servicios de dominio de Azure AD con un prefijo de dominio de más de 15 caracteres.
 
 8. El siguiente paso consiste en seleccionar una red virtual en la que quiere que los Servicios de dominio de Azure AD estén disponibles. Seleccione la red virtual que acaba de crear en la lista desplegable **Conectar Servicios de dominio a esta red virtual**.
-9. Cuando haya terminado de seleccionar las opciones anteriores, haga clic en 'Guardar' en el panel de tareas de la parte inferior de la página para habilitar los Servicios de dominio de Azure AD.
+   - Asegúrese de que la red virtual que ha especificado pertenece a una región de Azure compatible con los Servicios de dominio de Azure AD.
+   - Consulte la [página de regiones](active-directory-ds-regions.md) para ver la lista de regiones de Azure admitidas.
+
+9. Cuando haya terminado de seleccionar las opciones anteriores, haga clic en **Guardar** en el panel de tareas de la parte inferior de la página para habilitar los Servicios de dominio de Azure AD.
 10. La página mostrará un estado 'Pendiente...' mientras los Servicios de dominio de Azure AD se habilitan para su directorio.
 
     ![Habilitación de los Servicios de dominio: estado pendiente](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
@@ -62,10 +67,10 @@ En este paso puede habilitar los Servicios de dominio de Azure AD para su direct
 
     ![Servicios de dominio habilitados: ambas direcciones IP aprovisionadas](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
 
-  >[AZURE.NOTE]En función del tamaño del directorio de Azure AD (número de usuarios, grupos etc.), el contenido del directorio tardará un rato en estar disponible en los Servicios de dominio de Azure AD. Este proceso de sincronización se produce en segundo plano. En el caso de directorios grandes con decenas de miles de objetos, todos los usuarios, pertenencias a grupos y credenciales tardan en sincronizarse y en estar disponibles en los Servicios de dominio de Azure AD uno o dos días.
+> [AZURE.NOTE]En función del tamaño del directorio de Azure AD (número de usuarios, grupos etc.), el contenido del directorio tardará un rato en estar disponible en los Servicios de dominio de Azure AD. Este proceso de sincronización se produce en segundo plano. En el caso de directorios grandes con decenas de miles de objetos, todos los usuarios, pertenencias a grupos y credenciales tardan en sincronizarse y en estar disponibles en los Servicios de dominio de Azure AD uno o dos días.
 
 
 ---
 [**Siguiente paso: Actualización de la configuración DNS para la red virtual de Azure.**](active-directory-ds-getting-started-dns.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

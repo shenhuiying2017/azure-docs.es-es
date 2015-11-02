@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="vm-windows-sql-server"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="10/20/2015"
 	ms.author="carlrab"/>
 
 
@@ -22,7 +22,7 @@
 
 ## Información general
 
-La característica que ofrece la posibilidad de escribir copias de seguridad de SQL Server en el servicio de almacenamiento de bobs de Azure se lanzó en SQL Server 2012 SP1 CU2. Puede usar esta funcionalidad para realizar la copia de seguridad en el servicio BLOB de Azure y restaurar desde él a partir de una base de datos SQL Server local o una base de datos SQL Server de una máquina virtual de Azure. Las copias de seguridad en la nube ofrecen ventajas de disponibilidad, almacenamiento externo ilimitado replicado geográficamente y facilidad de migración de datos en la nube y desde ella. En esta versión puede emitir instrucciones BACKUP o RESTORE mediante T-SQL o SMO.
+La característica que ofrece la posibilidad de escribir copias de seguridad de SQL Server en el servicio de almacenamiento de bobs de Azure se lanzó en SQL Server 2012 SP1 CU2. Puede usar esta funcionalidad para realizar la copia de seguridad en el servicio BLOB de Azure y restaurar desde él con una base de datos SQL Server local o una base de datos SQL Server de una máquina virtual de Azure. Las copias de seguridad en la nube ofrecen ventajas de disponibilidad, almacenamiento externo ilimitado replicado geográficamente y facilidad de migración de datos en la nube y desde ella. Puede emitir instrucciones BACKUP o RESTORE mediante T-SQL o SMO.
 
 ## Ventajas del uso del servicio BLOB de Azure para las copias de seguridad de SQL Server
 
@@ -73,4 +73,4 @@ Para ver un tutorial completo sobre cómo crear una cuenta de almacenamiento y r
 
 [Prácticas recomendadas de copia de seguridad y restauración (servicio de almacenamiento de blobs de Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

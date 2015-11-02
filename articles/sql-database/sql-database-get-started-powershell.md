@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="10/08/2015"
+    ms.date="10/20/2015"
     ms.author="sstein"/>
 
 # Creación de una Base de datos SQL con PowerShell
@@ -44,22 +44,22 @@ Ahora que está ejecutando el módulo del Administrador de recursos de Azure, te
 
 Lo primero que debe hacer es establecer el acceso a su cuenta de Azure, de modo que ejecute el siguiente cmdlet y verá una pantalla de inicio de sesión para escribir sus credenciales. Use el mismo correo electrónico y la misma contraseña que usa para iniciar sesión en el portal de Azure.
 
-	Add-AzureAccount
+	Add-AzureRMAccount
 
 Después de iniciar sesión correctamente, verá información en la pantalla que incluye el identificador con el que ha iniciado sesión y las suscripciones a Azure a las que tiene acceso.
 
 
 ### Selección de su suscripción a Azure
 
-Para seleccionar la suscripción, necesita su id. de suscripción. Puede copiar el nombre o el identificador del paso anterior, o bien, si dispone de varias suscripciones, puede ejecutar el cmdlet **Get-AzureSubscription** y copiar la información de suscripción deseada del conjunto de resultados. Cuando tenga su suscripción, ejecute el siguiente cmdlet:
+Para seleccionar la suscripción, necesita su id. de suscripción. Puede copiar el nombre o el identificador del paso anterior, o bien, si dispone de varias suscripciones, puede ejecutar el cmdlet **Get-AzureRMSubscription** y copiar la información de suscripción deseada del conjunto de resultados. Cuando tenga su suscripción, ejecute el siguiente cmdlet:
 
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	Select-AzureRMSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-Después de ejecutar correctamente **Select-AzureSubscription** volverá al símbolo del sistema de PowerShell. Si tiene más de una suscripción, puede ejecutar **Get-AzureSubscription** y comprobar que la suscripción que desea usar muestra el elemento **IsCurrent: True**.
+Después de ejecutar correctamente **Select-AzureRMSubscription** volverá al símbolo del sistema de PowerShell. Si tiene más de una suscripción, puede ejecutar **Get-AzureRMSubscription** y comprobar que la suscripción que desea usar muestra **IsCurrent: True**.
 
 ## Creación de un grupo de recursos, un servidor y una regla de firewall
 
-Ya dispone de acceso para ejecutar cmdlets en su suscripción de Azure seleccionada, por lo que el siguiente paso es establecer el grupo de recursos que contiene el servidor donde se creará la base de datos. Puede editar el comando siguiente para usar cualquier ubicación válida que elija. Ejecute **(Get-AzureLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** para obtener una lista de ubicaciones válidas.
+Ya dispone de acceso para ejecutar cmdlets en su suscripción de Azure seleccionada, por lo que el siguiente paso es establecer el grupo de recursos que contiene el servidor donde se creará la base de datos. Puede editar el comando siguiente para usar cualquier ubicación válida que elija. Ejecute **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** para obtener una lista de ubicaciones válidas.
 
 Ejecute el comando siguiente para crear un nuevo grupo de recursos:
 
@@ -88,7 +88,7 @@ Se mostrarán los detalles de la regla de firewall tras crear la regla correctam
 
 Para permitir que otros servicios de Azure tengan acceso al servidor, agregue una regla de firewall y establezca tanto StartIpAddress como EndIpAddress en 0.0.0.0. Tenga en cuenta que esto permite que el tráfico de Azure de cualquier suscripción de Azure tenga acceso al servidor.
 
-Para obtener más información, consulte [Firewall de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx).
+Para obtener más información, consulte [Firewall de Base de datos SQL de Azure](sql-database-firewall-configure.md).
 
 
 ## Creación de una Base de datos SQL
@@ -120,8 +120,8 @@ Se mostrarán los detalles de la base de datos tras crear la base de datos corre
     $DatabasePerfomanceLevel = "S1"
     
     
-    Add-AzureAccount
-    Select-AzureSubscription -SubscriptionId $SubscriptionId
+    Add-AzureRMAccount
+    Select-AzureRMSubscription -SubscriptionId $SubscriptionId
     
     $ResourceGroup = New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location
     
@@ -144,4 +144,4 @@ Se mostrarán los detalles de la base de datos tras crear la base de datos corre
 
 - [Base de datos SQL de Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/06/2015"
+   ms.date="10/16/2015"
    ms.author="kareni"/>
 
 
@@ -229,7 +229,7 @@ Además de algunos campos nuevos y cambios de nombres en la versión 2 de csv, h
 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **Etiquetas**: esta columna contiene las etiquetas de recursos especificadas por el usuario. Las etiquetas se pueden utilizar para agrupar los registros de facturación. Por ejemplo, puede utilizar etiquetas para distribuir los costos por departamento mediante el servicio. Obtenga más información sobre el [Uso de etiquetas para organizar los recursos de Azure](/resource-group-using-tags.md/). Los servicios que admiten la emisión de etiquetas son:
+- **Etiquetas**: esta columna contiene las etiquetas de recursos especificadas por el usuario. Las etiquetas se pueden utilizar para agrupar los registros de facturación. Por ejemplo, puede utilizar etiquetas para distribuir los costos por departamento mediante el servicio. Obtenga más información sobre el [Uso de etiquetas para organizar los recursos de Azure](./resource-group-using-tags.md). Los servicios que admiten la emisión de etiquetas son:  
     - Máquinas virtuales
     - Almacenamiento y
     - servicios de redes aprovisionados con la [API de Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx)
@@ -262,4 +262,4 @@ Vaya a la sección **Administrar cuentas, suscripciones y roles administrativos*
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

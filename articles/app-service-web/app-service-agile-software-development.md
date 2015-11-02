@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 
 
@@ -264,7 +264,7 @@ Dado que diseñó deliberadamente sus entornos de desarrollo y prueba para que s
 
 ## Resumen ##
 
-Agile Software Development es un componente indispensable para muchas empresas que desean adoptar Azure como su plataforma de aplicaciones. En este tutorial, aprendió a crear y eliminar cómodamente réplicas exactas o casi réplicas del entorno de producción, incluso con aplicaciones complejas. También aprendió a aprovechar esta posibilidad para crear un proceso de desarrollo capaz de compilar y probar cada una de las confirmaciones en Azure. Es de esperar que este tutorial le muestre cómo puede usar mejor el Servicio de aplicaciones de Azure y el Administrador de recursos de Azure juntos para crear una solución de DevOps que proporcione metodologías ágiles.
+Agile Software Development es un componente indispensable para muchas empresas que desean adoptar Azure como su plataforma de aplicaciones. En este tutorial, aprendió a crear y eliminar cómodamente réplicas exactas o casi réplicas del entorno de producción, incluso con aplicaciones complejas. También aprendió a aprovechar esta posibilidad para crear un proceso de desarrollo capaz de compilar y probar cada una de las confirmaciones en Azure. Es de esperar que este tutorial le muestre cómo puede usar mejor el Servicio de aplicaciones de Azure y el Administrador de recursos de Azure juntos para crear una solución de DevOps que proporcione metodologías ágiles. Luego, puede basarse en este escenario para realizar técnicas de DevOps avanzadas como [pruebas en producción](app-service-web-test-in-production-get-start.md). Para ver un escenario común de pruebas en producción, consulte [Implementación de la distribución de paquetes piloto (pruebas beta) en el Servicio de aplicaciones de Azure](app-service-web-test-in-production-controlled-test-flight.md).
 
 ## Más recursos ##
 
@@ -281,4 +281,4 @@ Agile Software Development es un componente indispensable para muchas empresas q
 -	[Creación o edición de usuarios en Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Wiki de Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

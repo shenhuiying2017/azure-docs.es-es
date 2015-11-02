@@ -3,7 +3,7 @@
 	description="Aprenda a codificar con el flujo de trabajo del Codificador multimedia Premium. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,9 +11,9 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Codificación avanzada con el flujo de trabajo del Codificador multimedia Premium
@@ -276,4 +276,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 - [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

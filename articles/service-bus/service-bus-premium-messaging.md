@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Información general de los niveles de mensajería Estándar y Premium del Bus de servicio | Microsoft Azure"
+	pageTitle="Información general de los niveles de precios de mensajería Estándar y Premium del Bus de servicio | Microsoft Azure"
 	description="Mensajería Premium y Estándar del Bus de servicio"
 	services="service-bus"
 	documentationCenter=".net"
@@ -9,12 +9,12 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
-	ms.author="sethm"/>
+	ms.date="10/15/2015"
+	ms.author="darosa"/>
 
 # Niveles de mensajería Premium y Estándar del Bus de servicio 
 
@@ -41,7 +41,7 @@ A continuación se presentan algunas diferencias existentes entre los niveles de
 
 ### Entidades con particiones
 
-Las entidades con particiones se admiten en la mensajería Premium, pero no funcionan de la misma forma que en los niveles Estándar y Básico de la mensajería del Bus de servicio. La mensajería Premium no utiliza SQL como almacén de datos y ya no tiene la posible competencia de recursos asociada a una plataforma compartida. Por consiguiente, no es necesario crear particiones. Además, se cambió la cantidad de particiones desde la cifra de 16 particiones en la mensajería Estándar a 2 particiones en Premium. Tener 2 particiones garantiza la disponibilidad y es un número más apropiado para el entorno de tiempo de ejecución Premium. Para obtener más información, consulte [Creación de particiones de entidades de mensajería](https://msdn.microsoft.com/library/dn520246.aspx).
+Las entidades con particiones se admiten en la mensajería Premium, pero no funcionan de la misma forma que en los niveles Estándar y Básico de la mensajería del Bus de servicio. La mensajería Premium no utiliza SQL como almacén de datos y ya no tiene la posible competencia de recursos asociada a una plataforma compartida. Por consiguiente, no es necesario crear particiones. Además, se cambió la cantidad de particiones desde la cifra de 16 particiones en la mensajería Estándar a 2 particiones en Premium. Tener 2 particiones garantiza la disponibilidad y es un número más apropiado para el entorno de tiempo de ejecución Premium. Para obtener más información, consulte [Entidades de mensajería con particiones](service-bus-partitioning.md).
 
 ### Entidades exprés
 
@@ -54,7 +54,7 @@ Para obtener más información sobre la mensajería de Bus de servicio, consulte
 - [Introducción a la mensajería Premium del Bus de servicio de Azure (entrada de blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introducción a la mensajería Premium del Bus de servicio de Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
-- [Información general sobre la arquitectura de Azure Service Bus](fundamentals-service-bus-hybrid-solutions.md)
+- [Información general sobre la arquitectura de Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

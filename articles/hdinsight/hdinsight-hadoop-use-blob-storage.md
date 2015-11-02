@@ -27,7 +27,7 @@ El almacenamiento de blobs de Azure es una solución de almacenamiento sólida y
 
 Almacenar los datos en un almacenamiento de blobs hace que elimine de forma segura los clústeres de HDInsight que se usan para los cálculos sin perder los datos del usuario.
 
-> [AZURE.NOTE]La sintaxis **asv://* no es compatible en los clústeres de HDInsight versión 3.0. Es decir, que los trabajos enviados a un clúster de HDInsight versión 3.0 y que usen explícitamente la sintaxis **asv://* tendrán errores. Debería usarse la sintaxis **wasb://* en lugar de la anterior. Además, los trabajos enviados a cualquier clúster de HDInsight versión 3.0 que se hayan creado con una tienda de metadatos existente que contenga referencias explícitas a recursos con la sintaxis asv:// tendrán errores. Estas tiendas de metadatos tendrán que volver a crearse usando la sintaxis wasb:// para recursos de dirección.
+> [AZURE.NOTE]La sintaxis **asv://* no se admite en los clústeres de HDInsight versión 3.0. Es decir, que los trabajos enviados a un clúster de HDInsight versión 3.0 y que usen explícitamente la sintaxis **asv://* tendrán errores. Debería usarse la sintaxis **wasb://* en lugar de la anterior. Además, los trabajos enviados a cualquier clúster de HDInsight versión 3.0 que se hayan creado con una tienda de metadatos existente que contenga referencias explícitas a recursos con la sintaxis asv:// tendrán errores. Estas tiendas de metadatos tendrán que volver a crearse usando la sintaxis wasb:// para recursos de dirección.
 
 > Actualmente HDInsight solo es compatible con blobs en bloques.
 
@@ -78,7 +78,7 @@ Hay varias ventajas asociadas al almacenamiento de datos en el almacenamiento de
 * **Archivo de datos:** almacenar los datos en un almacenamiento de blobs de Azure hace que los clústeres de HDInsight que se usan para los cálculos se eliminen de forma segura sin perder los datos del usuario.
 * **Coste de almacenamiento de datos:** almacenar datos en DFS es más caro a largo plazo que almacenarlos en el almacenamiento de blobs de Azure, ya que el coste de un clúster de cálculo es superior al de un contenedor de almacenamiento de blobs de Azure. Además, como no hay que volver a cargar los datos para cada generación de clúster de cálculo, también se ahorra en costes de carga de datos.
 * **Escalada horizontal elástica:** aunque HDFS proporciona un sistema de archivos escalable en horizontal, la escala se determina en función del número de nodos que aprovisione para su clúster. Cambiar la escala puede ser un proceso más complicado que basarse en las capacidades de escalada elástica que tiene automáticamente en el almacenamiento de blobs de Azure.
-* **Replicación geográfica:** sus contenedores de almacenamiento de blobs se pueden replicar geográficamente. Aunque esto le aporta recuperación geográfica y redundancia de datos, una conmutación por error en la ubicación replicada geográficamente afecta gravemente a su rendimiento y puede incurrir en costes adicionales. Por lo tanto, nuestra recomendación es que elija la replicación geográfica de forma inteligente y únicamente si merece la pena pagar el coste adicional por el valor de los datos.
+* **Replicación geográfica:** sus contenedores de almacenamiento de blobs de Azure se pueden replicar geográficamente. Aunque esto le aporta recuperación geográfica y redundancia de datos, una conmutación por error en la ubicación replicada geográficamente afecta gravemente a su rendimiento y puede incurrir en costes adicionales. Por lo tanto, nuestra recomendación es que elija la replicación geográfica de forma inteligente y únicamente si merece la pena pagar el coste adicional por el valor de los datos.
 
 Determinados trabajos y paquetes de MapReduce podrían crear resultados intermedios que realmente no desea almacenar en el almacenamiento de blobs de Azure. En tal caso, puede optar por almacenar los datos en el HDFS local. De hecho, HDInsight usa DFS para varios de estos resultados intermedios en los trabajos de Hive y otros procesos.
 
@@ -119,7 +119,7 @@ Para crear un contenedor, use el comando siguiente:
 
 ### Uso de Azure PowerShell
 
-Si ha [instalado y configurado Azure PowerShell][powershell-install], puede usar lo siguiente desde el símbolo del sistema de Azure PowerShell para crear una cuenta de almacenamiento y contenedor:
+Si ha [instalado y configurado Azure PowerShell][powershell-install], puede usar lo siguiente desde el símbolo del sistema de Azure PowerShell para crear un contenedor y una cuenta de almacenamiento:
 
 	$subscriptionName = "<SubscriptionName>"	# Azure subscription name
 	$storageAccountName = "<AzureStorageAccountName>" # The storage account that you will create
@@ -316,4 +316,4 @@ Para más información, consulte:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

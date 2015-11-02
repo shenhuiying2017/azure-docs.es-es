@@ -1,6 +1,6 @@
 <properties 
-pageTitle="Habilitar la comunicación para instancias de rol en los servicios en la nube | Microsoft Azure" 
-description="" 
+pageTitle="Comunicación para roles en los servicios en la nube | Microsoft Azure" 
+description="Las instancias de rol de los servicios en la nube pueden tener definidos puntos de conexión (http, https, tcp y udp) que se comunican con el exterior o entre otras instancias de rol." 
 services="cloud-services" 
 documentationCenter="" 
 authors="Thraka" 
@@ -359,4 +359,4 @@ Puede encontrar una referencia del esquema XML de los elementos usados anteriorm
 ## Pasos siguientes
 Obtenga más información sobre el [modelo](cloud-services-model-and-package.md) del servicio en la nube.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

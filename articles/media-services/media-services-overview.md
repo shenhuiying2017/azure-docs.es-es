@@ -3,7 +3,7 @@
 	description="En este tema se proporciona información general de Servicios multimedia de Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="Juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015"
+	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 #Información general y escenarios comunes de Servicios multimedia de Azure
@@ -74,7 +74,7 @@ En esta sección se describe escenarios comunes y se proporcionan vínculos a te
 	
 	Se recomienda aplicar la opción de cifrado de almacenamiento a su recurso con el fin de proteger su contenido durante la carga y mientras se encuentra en reposo en el almacenamiento.
  
-1. Codifique en conjunto de archivos MP4 de velocidad de bits adaptable.
+1. Codifique en conjunto de archivos MP4 de velocidades de bits adaptativas.
 
 	Se recomienda aplicar la opción de cifrado de almacenamiento al recurso de salida con el fin de proteger su contenido mientras se encuentra en reposo.
 	
@@ -93,7 +93,7 @@ En esta sección se describe escenarios comunes y se proporcionan vínculos a te
 Para poder usar el cifrado dinámico, primero debe obtener al menos una unidad reservada de streaming en el extremo de streaming desde la que desea transmitir el contenido cifrado.
 
 1. Cargue un archivo intermedio de alta calidad en un recurso. Aplique una opción de cifrado de almacenamiento al recurso.
-1. Codifique en conjunto de archivos MP4 de velocidad de bits adaptable. Aplique una opción de cifrado de almacenamiento al recurso de salida.
+1. Codifique en conjunto de archivos MP4 de velocidades de bits adaptativas. Aplique una opción de cifrado de almacenamiento al recurso de salida.
 1. Cree la clave de cifrado de contenido para el recurso que desee que se cifre dinámicamente durante la reproducción.
 2. Configure la directiva de autorización de claves de contenido.
 1. Configure la directiva de entrega de recursos (usada por el empaquetado y el cifrado dinámicos).
@@ -113,7 +113,7 @@ Para poder usar el cifrado dinámico, primero debe obtener al menos una unidad r
 ###Entregar la descarga progresiva 
 
 1. Cargue un archivo intermedio de alta calidad en un recurso.
-1. Codifique en un solo MP4 o en un conjunto de archivos MP4 de velocidad de bits adaptable.
+1. Codifique en un solo archivo MP4.
 1. Publique el recurso creando un localizador OnDemand o SAS.
 
 	Si utiliza el localizador OnDemand, asegúrese de tener al menos una unidad reservada de streaming en el extremo de streaming desde el que tiene pensado descargar contenido progresivamente.
@@ -227,4 +227,4 @@ El [Soporte técnico de Azure](http://azure.microsoft.com/support/options/) prop
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

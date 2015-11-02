@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Notas de la versión de Application Insights para Windows" 
-	description="Las actualizaciones más recientes." 
+	description="Las actualizaciones más recientes del SDK de la Tienda Windows." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -94,4 +94,4 @@ Vista previa del 28-04-2015
 
 No existen notas de la versión para versiones anteriores.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

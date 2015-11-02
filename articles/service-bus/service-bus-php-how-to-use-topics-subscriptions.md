@@ -19,7 +19,9 @@
 
 # Uso de temas/suscripciones del Bus de servicio
 
-En este artículo se indica cómo usar los temas y las suscripciones del Bus de servicio. Los ejemplos están escritos en PHP y utilizan el [SDK de Azure para PHP](../php-download-sdk.md). Entre los escenarios tratados se incluye la **creación de temas y suscripciones**, la **creación de filtros de suscripción**, el **envío de mensajes a un tema**, la **recepción de mensajes de una suscripción** y la **eliminación de temas y suscripciones**.
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+
+En este artículo se indica cómo usar los temas y las suscripciones del Bus de servicio. Los ejemplos están escritos en PHP y utilizan el [SDK de Azure para PHP](../php-download-sdk.md). Entre los escenarios tratados se incluyen **la creación de temas y suscripciones**, **la creación de filtros de suscripción**, **el envío de mensajes a un tema**, **la recepción de mensajes de una suscripción** y **la eliminación de temas y suscripciones**.
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
@@ -84,7 +86,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 
 ## de un tema
 
-Las operaciones de administración para los temas del Bus de servicio pueden realizarse mediante la clase **ServiceBusRestProxy**. Un objeto **ServiceBusRestProxy** se construye a través del método Factory Method **ServicesBuilder::createServiceBusService** con una cadena de conexión adecuada que encapsule los permisos de token para administrarlo.
+Las operaciones de administración para los temas del Bus de servicio pueden realizarse mediante la clase **ServiceBusRestProxy**. Un objeto **ServiceBusRestProxy** se construye a través del método Factory Method **ServicesBuilder::createServiceBusService** con una cadena de conexión adecuada que encapsula los permisos de token para administrarlo.
 
 En el ejemplo siguiente, se muestra cómo crear una instancia de **ServiceBusRestProxy** y llamar a **ServiceBusRestProxy->createTopic** para crear un tema llamado `mytopic` dentro de un espacio de nombres `MySBNamespace`:
 
@@ -150,7 +152,7 @@ catch(ServiceException $e){
 
 ### Creación de suscripciones con filtros
 
-También puede configurar filtros que le permitan especificar qué mensajes enviados a un tema deben aparecer dentro de una suscripción a un tema determinado. El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información sobre los SqlFilter, consulte [Propiedad SqlFilter.SqlExpression][sqlfilter].
+También puede configurar filtros que le permitan especificar qué mensajes enviados a un tema deben aparecer dentro de una suscripción a un tema determinado. El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información sobre los SqlFilter, consulte [SqlExpression Propiedad][sqlfilter].
 
 > [AZURE.NOTE]Cada regla en una suscripción procesa los mensajes entrantes de forma independiente, lo que agrega los mensajes de resultados a la suscripción. Además, cada nueva suscripción dispone de objeto **Regla** predeterminado con un filtro que agrega todos los mensajes del tema a la suscripción. Para recibir solo mensajes que coincidan con su filtro, debe quitar la regla predeterminada. Puede eliminar la regla predeterminada mediante el método `ServiceBusRestProxy->deleteRule`.
 
@@ -216,7 +218,7 @@ catch(ServiceException $e){
 }
 ```
 
-Los mensajes enviados a los temas de Bus de servicio son instancias de la clase **BrokeredMessage**. Los objetos **BrokeredMessage** cuentan con un conjunto de métodos y propiedades estándar (como **getLabel**, **getTimeToLive**, **setLabel** y **setTimeToLive**), así como propiedades que pueden usarse para mantener propiedades personalizadas específicas de la aplicación. En el ejemplo siguiente se muestra cómo enviar cinco mensajes de prueba al tema `mytopic` creado anteriormente. El método **setProperty** se usa para agregar una propiedad personalizada (`MessageNumber`) a cada mensaje. Tenga en cuenta que el valor de la propiedad `MessageNumber` varía en cada mensaje (puede usar este valor para determinar qué suscripciones lo reciben, como se muestra en la sección [Creación de una suscripción](#create-a-subscription)):
+Los mensajes enviados a los temas de bus de servicio son instancias de la clase **BrokeredMessage**. Los objetos **BrokeredMessage** cuentan con un conjunto de métodos y propiedades estándar (como **getLabel**, **getTimeToLive**, **setLabel** y **setTimeToLive**), así como propiedades que pueden usarse para mantener propiedades personalizadas específicas de la aplicación. En el ejemplo siguiente se muestra cómo enviar cinco mensajes de prueba al tema `mytopic` creado anteriormente. El método **setProperty** se usa para agregar una propiedad personalizada (`MessageNumber`) a cada mensaje. Tenga en cuenta que el valor de la propiedad `MessageNumber` varía en cada mensaje (puede usar este valor para determinar qué suscripciones lo reciben, como se muestra en la sección [Creación de una suscripción](#create-a-subscription)):
 
 ```
 for($i = 0; $i < 5; $i++){
@@ -232,7 +234,7 @@ for($i = 0; $i < 5; $i++){
 }
 ```
 
-Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. Este límite superior para el tamaño de la cola es de 5 GB. Para obtener más información sobre las cuotas, consulte [Colas del Bus de servicio y de Azure][].
+Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. Este límite superior para el tamaño de la cola es de 5 GB. Para obtener más información sobre las cuotas, consulte [Colas de Bus de servicio y colas de Azure][].
 
 ## de mensajes de una suscripción
 
@@ -289,7 +291,7 @@ El Bus de servicio proporciona una funcionalidad que le ayuda a superar sin prob
 
 También hay un tiempo de espera asociado con un mensaje bloqueado en la cola y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación sufre un error), entonces el Bus de servicio desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
 
-En caso de que la aplicación se bloquee después de procesar el mensaje y antes de emitir la solicitud **deleteMessage**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Esto se suele denominar **Al menos un procesamiento**; es decir, cada mensaje se procesa al menos una vez, aunque en determinadas situaciones se puede volver a entregar el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a las aplicaciones para solucionar la entrega de mensajes duplicados. Esto suele conseguirse usando el método **getMessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
+En caso de que la aplicación se bloquee después de procesar el mensaje y antes de emitir la solicitud **deleteMessage**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Esta posibilidad habitualmente se denomina **Al menos un procesamiento**, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a las aplicaciones para solucionar la entrega de mensajes duplicados. Esto suele conseguirse usando el método **getMessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
 
 ## Eliminación de temas y suscripciones
 
@@ -334,6 +336,6 @@ Ahora que ya conoce los aspectos básicos de las colas del Bus de servicio, vea 
 [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
 [sqlfilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [require-once]: http://php.net/require_once
-[Colas del Bus de servicio y de Azure]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
+[Colas de Bus de servicio y colas de Azure]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

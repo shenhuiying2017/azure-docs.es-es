@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="10/15/2015"
 	ms.author="stepsic"/>
 	
 # Implementación desde Visual Studio
@@ -31,7 +31,7 @@ Debe tener el SDK de Azure 2.7 o posterior instalado para seguir los pasos que s
 
 2. En el cuadro de diálogo, busque **Nube** y, a continuación, seleccione **Grupo de recursos de Azure**. Escriba un **nombre** y, a continuación, haga clic en **Aceptar**. ![Incorporación de proyecto nuevo](./media/app-service-logic-deploy-from-vs/addnewproject.png)
 
-3. Ahora debe seleccionar si desea una **Aplicación lógica** o **Aplicación lógica + Aplicación de API**. Seleccionar **aplicación lógica** requiere que apunte a la API existente. Si selecciona **Aplicación lógica + Aplicación de API**, también puede crear una aplicación de API nueva y vacía al mismo tiempo. ![Selección de plantilla de Azure](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
+3. Ahora debe seleccionar si desea una **Aplicación lógica** o **Aplicación lógica + Aplicación de API**. La selección de **Aplicación lógica** requiere que apunte a las API existentes. Si selecciona **Aplicación lógica + Aplicación de API**, también puede crear una aplicación de API nueva y vacía al mismo tiempo. ![Selección de plantilla de Azure](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
 
 4. Una vez haya seleccionado la **Plantilla**, elija **Aceptar**.
 
@@ -39,13 +39,13 @@ Ahora el proyecto de aplicación lógica se agregará a la solución. Debería v
 
 ## Configuración de la aplicación lógica
 
-Una vez que tenga un proyecto, puede modificar la definición de la aplicación lógica en VS. Haga clic en el archivo JSON en el Explorador de soluciones. Verá una definición de marcador de posición que puede rellenar con lógica de la aplicación.
+Una vez que tenga un proyecto, puede modificar la definición de la aplicación lógica en Visual Studio. Haga clic en el archivo JSON en el Explorador de soluciones. Verá una definición de marcador de posición que puede rellenar con lógica de la aplicación.
 
 Se recomienda que use **parámetros** en la definición. Esto es útil si desea implementar un entorno de desarrollo y uno de producción. En ese caso, debe colocar la configuración específica del entorno en el `.param` archivo y los parámetros en lugar de las cadenas reales.
 
-En la actualidad, Visual Studio no tiene un diseñador integrado, por lo que si desea usar una interfaz gráfica (en lugar de escribir JSON), deberá usar el Portal de Azure.
+En la actualidad, Visual Studio no tiene un diseñador JSON integrado, por lo que si desea usar una interfaz gráfica (en lugar de escribir JSON), deberá usar el Portal de Azure.
 
-Si previamente ha creado una aplicación lógica en el Portal de Azure y ahora desea protegerla en el control de código fuente, puede hacerlo de una de 3 maneras distintas: - Vaya a **vista Código** en el portal y copie la definición. - Use las [API de REST](https://msdn.microsoft.com/library/azure/dn948510.aspx) de las aplicaciones lógicas para obtener la definición. - Use [Administrador de recursos de Azure PowerShell](../powershell-azure-resource-manager.md), específicamente el comando [`Get-AzureResource` ](https://msdn.microsoft.com/library/dn654579.aspx)para descargar la definición.
+Si anteriormente creó una aplicación lógica en el Portal de Azure y ahora desea protegerla en el control de código fuente, puede hacerlo de tres maneras distintas: - Vaya a **Vista Código** en el portal y copie la definición. - Use la [API de REST](https://msdn.microsoft.com/library/azure/dn948510.aspx) de las aplicaciones lógicas para obtener la definición. - Use [Administrador de recursos de Azure PowerShell](../powershell-azure-resource-manager.md), específicamente el comando [`Get-AzureResource` ](https://msdn.microsoft.com/library/dn654579.aspx)para descargar la definición.
 
 ## Implementación de la aplicación lógica
 
@@ -63,6 +63,6 @@ Finalmente, después de configurar la aplicación, puede realizar la implementac
 
 En el futuro puede revisar la aplicación lógica en el control de código fuente y usar Visual Studio para implementar versiones nuevas. Tenga en cuenta que si modifica directamente la definición en el Portal de Azure, la próxima vez que realice la implementación desde Visual Studio, estos cambios se invalidarán.
 
-Si no desea usar Visual Studio, pero desea tener herramientas para implementar la aplicación lógica del control de código fuente, siempre puede usar la [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) o [Powershell](../powershell-azure-resource-manager.md) directamente para automatizar las implementaciones.
+Si no quiere usar Visual Studio, pero quiere usar herramientas para implementar la aplicación lógica del control de código fuente, siempre puede usar la [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) o [Powershell](../powershell-azure-resource-manager.md) directamente para automatizar las implementaciones.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

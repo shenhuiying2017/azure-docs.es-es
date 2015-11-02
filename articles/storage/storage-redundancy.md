@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="10/07/2015" 
+  ms.date="10/20/2015" 
   ms.author="tamram"/>
 
 # Replicación de almacenamiento de Azure
@@ -88,14 +88,16 @@ Cuando crea una cuenta de almacenamiento, selecciona la región principal de la 
 |Oeste de Japón |Este de Japón
 |Sur de Brasil |Centro-Sur de EE. UU
 |Australia Oriental |Sudeste de Australia
-|Sudeste de Australia|Australia Oriental  
-
+|Sudeste de Australia|Australia Oriental
+|Sur de India |India central
+|India central |Sur de India
+  
 
 ## Almacenamiento con redundancia geográfica con acceso de lectura
 
 El almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) maximiza la disponibilidad para la cuenta de almacenamiento al proporcionar acceso de solo lectura a los datos de la ubicación secundaria, además de la replicación entre dos regiones que proporciona GRS. Ante la eventualidad de que los datos dejen de estar disponibles en la región principal, la aplicación puede leer datos desde la región secundaria.
 
-Cuando habilita el acceso de solo lectura a los datos en la región secundaria, los datos quedan disponibles en un extremo secundario, además del extremo principal para la cuenta de almacenamiento. El extremo secundario es similar al extremo principal, pero anexa el sufijo `–secondary` al nombre de la cuenta. Por ejemplo, si el extremo principal del servicio BLOB es `myaccount.blob.core.windows.net`, el extremo secundario es `myaccount-secondary.blob.core.windows.net`. Las claves de acceso de la cuenta de almacenamiento son iguales para los extremos principal y secundario.
+Cuando habilita el acceso de solo lectura a los datos en la región secundaria, los datos quedan disponibles en un extremo secundario, además del extremo principal para la cuenta de almacenamiento. El punto de conexión secundario es similar al punto de conexión principal, pero anexa el sufijo `–secondary` al nombre de la cuenta. Por ejemplo, si el punto de conexión principal del servicio BLOB es `myaccount.blob.core.windows.net`, el punto de conexión secundario es `myaccount-secondary.blob.core.windows.net`. Las claves de acceso de la cuenta de almacenamiento son iguales para los extremos principal y secundario.
 
 ## Pasos siguientes
 
@@ -104,4 +106,4 @@ Cuando habilita el acceso de solo lectura a los datos en la región secundaria, 
 - [Emulador de almacenamiento de Microsoft Azure 3.1 con RA-GRS ](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Documento de SOSP de Almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

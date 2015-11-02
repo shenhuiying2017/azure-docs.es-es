@@ -8,7 +8,9 @@
 
         azure vm image list | grep "Linux"
 
-4. Utilice `azure vm create` para crear una nueva máquina virtual con la imagen de Linux de la lista anterior. Este paso crea un nuevo servicio én la nube, así como una cuenta de almacenamiento nueva. Esta máquina virtual también se puede conectar a un servicio de nube existente con una opción `-c`. También crea un extremo SSH para iniciar sesión en la máquina virtual de Linux con la opción `-e`.
+   En una ventana de símbolo del sistema de Windows, use find en lugar de grep.
+
+4. Use `azure vm create` para crear una máquina virtual con la imagen de Linux de la lista anterior. Este paso crea un nuevo servicio én la nube, así como una cuenta de almacenamiento nueva. Esta máquina virtual también se puede conectar a un servicio en la nube existente con una opción `-c`. También crea un punto de conexión SSH para iniciar sesión en la máquina virtual de Linux con la opción `-e`.
 
         ~$ azure vm create "MyTestVM" b4590d9e3ed742e4a1d46e5424aa335e__suse-opensuse-13.1-20141216-x86-64 "adminUser" -z "Small" -e -l "West US"
         info:    Executing command vm create
@@ -23,9 +25,9 @@
         + Creating VM
         info:    vm create command OK
 
-    >[AZURE.NOTE]En el caso de una máquina virtual Linux, es preciso especificar la opción `-e` en`vm create`; SSH no se puede habilitar después de que la máquina virtual se haya creado. Para obtener más información sobre SSH, consulte [Utilización de SSH con Linux en Azure](../articles/virtual-machines/virtual-machines-linux-use-ssh-key.md).
+    >[AZURE.NOTE]En el caso de una máquina virtual de Linux, es preciso especificar la opción `-e` en`vm create`; SSH no se puede habilitar una vez creada la máquina virtual. Para obtener más información sobre SSH, vea [Uso de SSH con Linux en Azure](../articles/virtual-machines/virtual-machines-linux-use-ssh-key.md).
 
-    Tenga en cuenta que la imagen *b4590d9e3ed742e4a1d46e5424aa335e\_\_suse-opensuse-13.1-20141216-x86-64* es la elegida en la lista en el paso anterior. *MyTestVM* es el nombre de la nueva máquina virtual, y *adminUser* es el nombre de usuario que se utilizará para SSH en la máquina virtual. Estás variables se pueden reemplazar en función de los requisitos. Para obtener más información sobre este comando, consulte [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure](../articles/virtual-machines/virtual-machines-command-line-tools.md).
+    Tenga en cuenta que la imagen *b4590d9e3ed742e4a1d46e5424aa335e\_\_suse-opensuse-13.1-20141216-x86-64* es la elegida en la lista en el paso anterior. *MyTestVM* es el nombre de la nueva máquina virtual, y *adminUser* es el nombre de usuario que se utilizará para SSH en la máquina virtual. Estás variables se pueden reemplazar en función de los requisitos. Para obtener más información sobre este comando, vaya a [Uso de la CLI de Azure con administración de servicios de Azure](../articles/virtual-machines/virtual-machines-command-line-tools.md).
 
 5. La máquina virtual con Linux recién creada aparecerá en la lista proporcionada por:
 
@@ -37,6 +39,6 @@
 
 7. La máquina virtual recién creada está lista para iniciarse con el comando `azure vm start`.
 
-Para obtener más información acerca de estos comandos de la máquina virtual de la CLI de Azure, consulte [Uso de la CLI de Azure con la API de administración de servicios](../articles/virtual-machines/virtual-machines-command-line-tools.md).
+Para obtener más información sobre estos comandos de la máquina virtual de la CLI de Azure, vea [Uso de la CLI de Azure con la API de administración de servicios](../articles/virtual-machines/virtual-machines-command-line-tools.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

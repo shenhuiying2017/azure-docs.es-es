@@ -23,6 +23,8 @@
 - [Preparación de una máquina virtual CentOS 6.x para Azure](#centos6)
 - [Preparación de una máquina virtual CentOS 7.0+ para Azure](#centos7)
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ##Requisitos previos##
 
 En este artículo se supone que ya ha instalado un sistema operativo Linux CentOS (o un derivado similar) en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
@@ -363,4 +365,4 @@ La preparación de una máquina virtual CentOS 7 para Azure es muy similar a Cen
 
 16. Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

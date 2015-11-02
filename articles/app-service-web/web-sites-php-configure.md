@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Configuración de PHP en Aplicaciones web del Servicio de aplicaciones de Azure"
 	description="Obtenga información acerca de cómo configurar la instalación de PHP predeterminada o agregar una instalación de PHP personalizada para Aplicaciones web en el Servicio de aplicaciones de Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter="php"
 	authors="tfitzmac"
 	manager="wpickett"
@@ -183,4 +183,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

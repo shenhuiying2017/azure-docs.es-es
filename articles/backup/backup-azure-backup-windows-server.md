@@ -7,7 +7,7 @@
    manager="jwhit"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/13/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2015" ms.author="jimpark"; "aashishr"/>
 
 # Cómo realizar copias de seguridad de archivos y carpetas de Windows Server o del Cliente de Windows en Azure.
 En este artículo se describen los pasos necesarios para realizar una copia de seguridad de los archivos y carpetas de Windows Server o del Cliente de Windows en Azure.
@@ -47,4 +47,4 @@ Antes de continuar, asegúrese de que se cumplen todos los [requisitos previos](
 - [Restauración de Windows Server o el cliente de Windows desde Azure](backup-azure-restore-windows-server.md)
 - [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="10/16/2015"
    ms.author="joaoma" />
 
 
@@ -77,4 +77,4 @@ Los [cmdlets de Redes de Azure](https://msdn.microsoft.com/library/azure/mt16351
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

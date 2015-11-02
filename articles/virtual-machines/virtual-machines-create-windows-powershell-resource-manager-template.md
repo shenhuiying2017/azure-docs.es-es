@@ -25,9 +25,7 @@ Puede crear fácilmente una nueva máquina virtual de Azure basada en Windows me
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template/windowsvm.png)
 
-Antes de profundizar en el tema, asegúrese de tener Azure PowerShell configurado y listo para usar.
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Creación de una máquina virtual de Windows con una plantilla del Administrador de recursos y Azure PowerShell
 
@@ -290,4 +288,4 @@ Ahora dispone de una nueva máquina virtual Windows denominada MyWindowsVM en el
 
 [Instalación y configuración de Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

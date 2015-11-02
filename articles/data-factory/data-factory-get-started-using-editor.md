@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="10/15/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Crear una canalización con la actividad de copia mediante el editor de la factoría de datos
@@ -58,9 +58,11 @@ En este paso, utilice el Portal de vista previa de Azure para crear una factorí
 7. En la hoja **Nueva factoría de datos**, observe que está seleccionada la opción **Agregar al Panel de inicio**.
 8. Haga clic en **Crear** en la hoja **Nueva factoría de datos**.
 
-	El nombre del generador de datos de Azure debe ser único global. Si recibe el error: **El nombre del generador de datos "ADFTutorialDataFactory" no está disponible**, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearlo de nuevo. Use este nombre en lugar de ADFTutorialFactory mientras lleva a cabo los pasos restantes de este tutorial. Consulte el tema [Factoría de datos: reglas de nomenclatura][data-factory-naming-rules] para las reglas de nomenclatura para los artefactos de Factoría de datos.
+	El nombre del generador de datos de Azure debe ser único global. Si recibe el error: **El nombre del generador de datos "ADFTutorialDataFactory" no está disponible**, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearlo de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
 	 
 	![Nombre de Factoría de datos no disponible][image-data-factory-name-not-available]
+	
+	> [AZURE.NOTE]El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
 
 9. Haga clic en el concentrador **NOTIFICACIONES** de la izquierda y busque las notificaciones del proceso de creación. Haga clic en **X** para cerrar la hoja **NOTIFICACIONES** si está abierta.
 10. Una vez completada la creación, verá la hoja **FACTORÍA DE DATOS** como se muestra a continuación:
@@ -98,7 +100,7 @@ En este paso, creará dos servicios vinculados: **StorageLinkedService** y **Azu
 
 	![Configuración de SQL de Azure del editor][image-editor-azure-sql-settings]
 
-2. Reemplace **servername**, **databasename**, ****username@servername** y **password** por los nombres de servidor SQL de Azure, base de datos, cuenta de usuario y contraseña.
+2. Reemplace **servername**, **databasename**, ****username@servername** y **password** por los nombres de servidor, base de datos, cuenta de usuario y contraseña de Azure SQL.
 3. Haga clic en **Implementar** en la barra de herramientas para crear e implementar AzureSqlLinkedService. 
    
 
@@ -150,7 +152,7 @@ Una tabla es un conjunto de datos rectangular y tiene un esquema. En este paso, 
 	- **folderPath** se establece en el contenedor **adftutorial**. También puede especificar el nombre de un blob en la carpeta. Puesto que no se especifica el nombre del blob, los datos de todos los blobs del contenedor se consideran datos de entrada.  
 	- el **tipo** de formato se establece en **TextFormat**
 	- Hay dos campos en el archivo de texto: **FirstName** y **LastName** separados por un carácter de coma (**columnDelimiter**)	
-	- La **disponibilidad** se establece en **cada hora** (**frecuencia** se establece en **hora** e **intervalo** se establece en **1**), por lo que el servicio de la factoría de datos buscará los datos de entrada cada hora en la carpeta raíz del contenedor de blob (**adftutorial**) especificado. 
+	- **availability** se establece en **hourly** (**frequency** se establece en **hour** e **interval** se establece en **1**), por lo que el servicio de Factoría de datos buscará los datos de entrada cada hora en la carpeta raíz del contenedor de blobs (**adftutorial**) especificado. 
 	
 
 	Si no especifica **fileName** para una **tabla** de **entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada. Consulte los archivos de muestra del [tutorial][adf-tutorial] para ver algunos ejemplos.
@@ -207,7 +209,7 @@ En esta parte del paso, creará una tabla de salida denominada **EmpSQLTable** q
 		
      Tenga en cuenta lo siguiente:
 	
-	* **type** de conjunto de datos está establecido en **AzureSQLTable**.
+	* **type** de conjunto de datos está establecido en **AzureSqlTable**.
 	* **linkedServiceName** está establecido en **AzureSqlLinkedService** (creó este servicio vinculado en el paso 2).
 	* **tablename** está establecido en **emp**.
 	* Hay tres columnas: **ID**, **FirstName** y **LastName**: en la tabla emp de la base de datos, pero el id. es una columna de identidad, por lo que deberá especificar solo **FirstName** y **LastName** aquí.
@@ -501,4 +503,4 @@ Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar 
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

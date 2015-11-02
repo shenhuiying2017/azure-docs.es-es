@@ -132,7 +132,7 @@ Si desea que el Almacén de claves de Azure cree una clave protegida mediante so
 
 Sin embargo, si tiene una clave existente en un archivo .pem guardado como archivo local en un archivo denominado softkey.pem que desea cargar en el Almacén de claves de Azure, escriba lo siguiente para importar la clave desde el archivo .PEM, que protege la clave de software en el servicio de Almacén de claves:
 
-    azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' –-password 'PaSSWORD' --destination software
+    azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' --password 'PaSSWORD' --destination software
 
 Ahora puede utilizar el URI para hacer referencia a la clave que creó o cargó en el Almacén de claves de Azure. Use ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para obtener siempre la versión actual y ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obtener esta versión específica.
 
@@ -145,7 +145,7 @@ Ahora puede hacer referencia a esta clave que agregó al Almacén de claves de A
 Veamos la clave o el secreto que acaba de crear:
 
 - Para ver la clave, escriba: `azure keyvault key list --vault-name 'ContosoKeyVault'`
-- Para ver el secreto, escriba: `azure keyvault secret list -–vault-name 'ContosoKeyVault'`
+- Para ver el secreto, escriba: `azure keyvault secret list --vault-name 'ContosoKeyVault'`
 
 
 ## Registro de una aplicación con Azure Active Directory
@@ -207,7 +207,7 @@ A este almacén, se pueden agregar claves protegidas mediante software (tal como
 
 Puede utilizar el siguiente comando para importar una clave desde un archivo .pem a su equipo. Este comando importa la clave a HSM en el servicio de Almacén de claves:
 
-    azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --destination 'HSM' –-password 'PaSSWORD'
+    azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --destination 'HSM' --password 'PaSSWORD'
 
 El comando siguiente importa un paquete BYOK ("traiga su propia clave"). Esto permite generar la clave en el HSM local y transferirla al HSM en el servicio del Almacén de claves, sin que la clave salga del límite del HSM:
 
@@ -237,7 +237,7 @@ Este comando ofrece una presentación tabular de todas las claves y las propieda
 
 Este comando muestra una lista completa de propiedades para la clave especificada.
 
-    azure keyvault key show --vault-name 'ContosoKeyVault' –-key-name 'ContosoFirstKey'
+    azure keyvault key show --vault-name 'ContosoKeyVault' --key-name 'ContosoFirstKey'
 
 Este comando muestra una presentación tabular de todos nombres de secretos y las propiedades que se elijan.
 
@@ -256,4 +256,4 @@ Ejemplo de cómo quitar un secreto específico:
 
 Para conocer las referencias de programación, consulte la [Guía del desarrollador del Almacén de claves de Azure](key-vault-developers-guide.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

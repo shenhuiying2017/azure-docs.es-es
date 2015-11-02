@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Escalación de unidades reservadas de codificación" 
+	pageTitle="Cómo escalar unidades reservadas de codificación mediante el Portal de Azure" 
 	description="Aprenda a escalar Servicios multimedia mediante la especificación del número de unidades reservadas de streaming a petición y unidades reservadas de codificación con las que desea aprovisionar la cuenta." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,milangada" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 
-#Escalación de codificación
+#Cómo escalar la codificación mediante el Portal de Azure
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
@@ -69,4 +69,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

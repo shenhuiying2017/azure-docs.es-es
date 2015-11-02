@@ -14,14 +14,14 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
+   ms.date="10/19/2015"
    ms.author="cherylmc"/>
 
 # Configurar una red virtual en ExpressRoute
 
-Estos pasos le guiarán a través de la configuración de una red virtual y una puerta de enlace para usarla con ExpressRoute mediante el modelo de implementación clásico. Esta configuración no se admite actualmente para redes virtuales y puertas de enlace creadas con el modelo del Administrador de recursos. Cuando esté disponible, proporcionaremos un vínculo desde esta página a la documentación.
- 
->[AZURE.IMPORTANT]Es importante saber que, actualmente, Azure funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, consulta [Modelos de implementación de Azure](../azure-classic-rm.md).
+Estos pasos le guiarán a través de la configuración de una red virtual y una puerta de enlace para usarla con ExpressRoute mediante el modelo de implementación clásico y la administración de servicios. Actualmente, no tenemos documentación para configurar una red virtual para ExpressRoute con el modelo de implementación del Administrador de recursos. Cuando tengamos un artículo publicado, agregaremos a él un vínculo.
+
+>[AZURE.IMPORTANT]Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, consulta [Modelos de implementación de Azure](../azure-classic-rm.md).
 
 1. Inicie sesión en el **Portal de Azure**.
 
@@ -60,14 +60,14 @@ Estos pasos le guiarán a través de la configuración de una red virtual y una 
 
 10. Cuando comience a crearse la puerta de enlace, verá un mensaje que le informa de que la puerta de enlace se inició. La puerta de enlace puede tardar hasta 15 minutos en crearse.
 
-11. Vincule la red a un circuito. Siga las instrucciones del artículo [Cómo vincular redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnets-classic.md).
+11. Vincule la red a un circuito. Siga las instrucciones del artículo [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
 ## Pasos siguientes
 
-- Si quiere agregar máquinas virtuales a la red virtual, consulte [Creación de una máquina virtual personalizada](../virtual-machines-create-custom.md).
+- Si quiere agregar máquinas virtuales a la red virtual, consulte las [rutas de aprendizaje de máquinas virtuales](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/).
 - Si quiere obtener más información sobre ExpressRoute, consulte [Descripción general técnica sobre ExpressRoute](expressroute-introduction.md).
 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="10/19/2015"
 	ms.author="curtand"/>
 
 # Asignación de roles de administrador en Azure AD
@@ -44,7 +44,7 @@ Puede hacer | No puede hacer
 
 Puede hacer | No puede hacer
 ------------- | -------------
-<p>Ver información de empresas y usuarios</p><p>Administrar incidencias de soporte técnico de Office</p><p>Hacer operaciones de facturación y compra para los productos de Office</p> <p>Restablecer contraseñas de usuario</p><p>Crear y administrar vistas de usuarios</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuarios</p><p>Administrar dominios</p><p>Administrar información de la empresa</p><p>Delegar roles administrativos a otros</p><p>Utilizar la sincronización de directorios</p> | N/D
+<p>Ver información de empresas y usuarios</p><p>Administrar incidencias de soporte técnico de Office</p><p>Realizar operaciones de facturación y compra para los productos de Office</p> <p>Restablecer contraseñas de usuario</p><p>Crear y administrar vistas de usuarios</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuarios</p><p>Administrar dominios</p><p>Administrar información de la empresa</p><p>Delegar roles administrativos a otros</p><p>Usar la sincronización de directorios</p><p>Habilitar o deshabilitar la autenticación multifactor</p> | N/D
 
 ### Administrador de contraseñas
 
@@ -62,20 +62,20 @@ Puede hacer | No puede hacer
 
 Puede hacer | No puede hacer
 ------------- | -------------
-<p>Ver información de empresas y usuarios</p><p>Administrar incidencias de soporte técnico de Office</p><p>Restablecer contraseñas de usuarios, con limitaciones. No puede restablecer las contraseñas para los administradores de facturación, globales y de servicios</p><p>Crear y administrar vistas de usuarios</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuarios, con limitaciones. No puede eliminar un administrador global ni crear otros administradores.</p> | <p>Hacer operaciones de facturación y compra para los productos de Office</p><p>Administrar dominios</p><p>Administrar información de la empresa</p><p>Delegar roles administrativos a otros</p><p>Utilizar la sincronización de directorios</p>
+<p>Ver información de empresas y usuarios</p><p>Administrar incidencias de soporte técnico de Office</p><p>Restablecer contraseñas de usuarios, con limitaciones. No puede restablecer las contraseñas para los administradores de facturación, globales y de servicios</p><p>Crear y administrar vistas de usuarios</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuarios, con limitaciones. No puede eliminar un administrador global ni crear otros administradores.</p> | <p>Realizar operaciones de facturación y compra para los productos de Office</p><p>Administrar dominios</p><p>Administrar información de la empresa</p><p>Delegar roles administrativos a otros</p><p>Usar la sincronización de directorios</p><p>Habilitar o deshabilitar la autenticación multifactor</p>
 
 ## Detalles acerca del rol de administrador global
 
 El administrador global tiene acceso a todos los roles administrativos. De forma predeterminada, a la persona que se suscribe a una suscripción de Azure se le asigna el rol de administrador global para el directorio. Los administradores globales son los únicos que pueden asignar otros roles de administrador.
 
-## Asignación o eliminación de roles de administrador
+## Asignación o eliminación de roles de administrador 
 
 
 1. En el Portal de administración, haga clic en **Active Directory** y, a continuación, haga clic en el nombre del directorio de su organización.
 2. En la página **Usuarios**, haga clic en el nombre para mostrar del usuario que desee editar.
-3. Seleccione el menú desplegable **Rol organizativo** y, a continuación, seleccione el rol de administrador que desee asignar a este usuario, o seleccione **Usuario** si desea quitar un rol de administrador existente.
+3. Seleccione el menú desplegable **Rol organizativo** y, a continuación, seleccione el rol de administrador que desee asignar a este usuario, o seleccione **Usuario** si desea quitar un rol de administrador existente. 
 4. En el cuadro **Dirección de correo electrónico alternativa**, escriba una dirección de correo electrónico. Esta dirección de correo electrónico se usa para notificaciones importantes, incluido el restablecimiento automático de contraseña, por lo que el usuario debe poder tener acceso a la cuenta de correo electrónico independientemente de si tiene acceso a Azure.
-5. Seleccione **Permitir** o **Bloquear** para especificar si se permite al usuario iniciar sesión y tener acceso a servicios.
+5. Seleccione **Permitir** o **Bloquear** para especificar si se permite al usuario iniciar sesión y tener acceso a servicios. 
 6. Especifique una ubicación en la lista desplegable **Ubicación de uso**.
 7. Cuando haya terminado, haga clic en **Guardar**.
 
@@ -85,4 +85,4 @@ El administrador global tiene acceso a todos los roles administrativos. De forma
 - [Administrar contraseñas](active-directory-manage-passwords.md)
 - [Administrar grupos](active-directory-manage-groups.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

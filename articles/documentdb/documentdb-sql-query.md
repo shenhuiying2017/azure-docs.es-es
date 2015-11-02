@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Consultas SQL en una base de datos de DocumentDB: consulta SQL | Microsoft Azure" 
 	description="Obtenga información sobre cómo DocumentDB admite consultas SQL en documentos JSON jerárquicos para indexación automática. Descubra un entorno de base de datos de consulta SQL que carece realmente de esquema." 
-	keywords="Query database, sql queries, sql query, structured query language, documentdb, azure, Microsoft azure"
+	keywords="Consultar base de datos, consultas sql, consulta sql, lenguaje de consulta estructurado, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -259,7 +259,7 @@ Aunque en el ejemplo anterior se usó una matriz como origen, también podría u
 ## Cláusula WHERE
 La cláusula WHERE (**`WHERE <filter_condition>`**) es opcional. Especifica las condiciones de que los documentos JSON proporcionados por el origen deben satisfacer para incluirse como parte del resultado. Cualquier documento JSON debe evaluar las condiciones especificadas en "true" para su consideración para el resultado. La capa de índice usa la cláusula WHERE para determinar el subconjunto más pequeño absoluto de documentos de origen que pueden formar parte del resultado.
 
-En la consulta siguiente se solicitan documentos que contienen una propiedad de nombre cuyo valor es `AndersenFamily`. Se excluye cualquier otro documento que no tenga una propiedad de nombre o en el que el valor no coincida con `AndersenFamily`.
+En la consulta siguiente se solicitan documentos que contienen una propiedad de nombre cuyo valor es `AndersenFamily`. Cualquier otro documento que no tenga una propiedad de nombre o en el que el valor no coincida con `AndersenFamily` se excluye.
 
 **Consultar**
 
@@ -309,7 +309,7 @@ También se admiten los operadores unarios +,-, ~ y NOT, y se pueden usar dentro
 
 
 
-Además de los operadores unarios y binarios, también se permiten referencias de propiedad. Por ejemplo, `SELECT * FROM Families f WHERE f.isRegistered` devuelve el documento JSON que contenga la propiedad `isRegistered` en la que el valor de la propiedad sea igual al valor `true` de JSON. Cualquier otro valor (false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>`, etc.) hace que el documento de origen se excluya del resultado.
+Además de los operadores unarios y binarios, también se permiten referencias de propiedad. Por ejemplo, `SELECT * FROM Families f WHERE f.isRegistered` devuelve el documento JSON que contenga la propiedad `isRegistered` en la que el valor de la propiedad sea igual al valor `true` JSON. Cualquier otro valor (false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>`, etc.) hace que el documento de origen se excluya del resultado.
 
 ### Operadores de igualdad y de comparación
 En la siguiente tabla se muestra el resultado de las comparaciones de igualdad en el lenguaje SQL de DocumentDB entre dos tipos JSON cualesquiera. <table style = "width:300px"> <tbody> <tr> <td valign="top"> <strong>Op</strong> </td> <td valign="top"> <strong>Undefined</strong> </td> <td valign="top"> <strong>Null</strong> </td> <td valign="top"> <strong>Boolean</strong> </td> <td valign="top"> <strong>Number</strong> </td> <td valign="top"> <strong>String</strong> </td> <td valign="top"> <strong>Object</strong> </td> <td valign="top"> <strong>Array</strong> </td> </tr> <tr> <td valign="top"> <strong>Undefined<strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> </tr> <tr> <td valign="top"> <strong>Null<strong> </td> <td valign="top"> Undefined </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> </tr> <tr> <td valign="top"> <strong>Boolean<strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> </tr> <tr> <td valign="top"> <strong>Number<strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> </tr> <tr> <td valign="top"> <strong>String<strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> </tr> <tr> <td valign="top"> <strong>Object<strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> <strong>OK</strong> </td> <td valign="top"> Undefined </td> </tr> <tr> <td valign="top"> <strong>Array<strong> </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> Undefined </td> <td valign="top"> <strong>OK</strong> </td> </tr> </tbody> </table>
@@ -2073,7 +2073,7 @@ En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servi
 2.	[Especificación de SQL de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3.	[Ejemplos de .NET de DocumentDB](https://github.com/Azure/azure-documentdb-net)
 4.	[Niveles de coherencia de Base de datos de documentos][consistency-levels]
-5.	SQL ANSI 2011 [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+5.	ANSI SQL 2011 [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)
 7.	Especificación de JavaScript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
@@ -2089,4 +2089,4 @@ En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servi
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

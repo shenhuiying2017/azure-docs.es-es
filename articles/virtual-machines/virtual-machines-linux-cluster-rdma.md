@@ -146,7 +146,7 @@ Después de que la máquina virtual complete el aprovisionamiento, SSH a la máq
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
     ```
 
-    En el directorio ~/.ssh, edite o cree el archivo ssh\_config. Proporcione el intervalo de direcciones IP de la red privada que va a usar en Azure (10.32.0.0/16 en este ejemplo):
+    En el directorio ~/.ssh, edite o cree el archivo "config". Proporcione el intervalo de direcciones IP de la red privada que va a usar en Azure (10.32.0.0/16 en este ejemplo):
 
     ```
     host 10.32.0.*
@@ -370,4 +370,4 @@ Debería ver un resultado similar al siguiente en un clúster de trabajo con dos
 
 * Consulte la [documentación de la biblioteca de Intel MPI](https://software.intel.com/es-ES/articles/intel-mpi-library-documentation/) para obtener orientación sobre Intel MPI.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

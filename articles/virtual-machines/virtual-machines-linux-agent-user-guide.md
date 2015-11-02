@@ -21,6 +21,8 @@
 
 #Guía de usuario del Agente de Linux de Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ##Introducción
 
 El agente de Linux de Azure (/usr/sbin/waagent) administra la interacción de la máquina virtual con el controlador de tejido de Azure. Hace lo siguiente:
@@ -212,7 +214,7 @@ Tipo: Boolean Predeterminado: y
 
 Esta opción permite que el usuario habilite o deshabilite la funcionalidad de aprovisionamiento en el agente. Los valores válidos son "y" o "n". Si se deshabilita el aprovisionamiento, se mantiene el host SSH y las claves de usuario en la imagen y se ignora toda configuración que se especifique en la API de aprovisionamiento de Azure.
 
-**Nota:** este parámetro toma el valor predeterminado "n" en Ubuntu Cloud Images que usan cloud-init para el aprovisionamiento.
+**Nota:** este parámetro toma el valor predeterminado "n" en imágenes Ubuntu Cloud Images que usan cloud-init para el aprovisionamiento.
 
 **Provisioning.DeleteRootPassword:**
 
@@ -318,4 +320,4 @@ Tenga en cuenta que Ubuntu Cloud Images usan [cloud-init](https://launchpad.net/
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

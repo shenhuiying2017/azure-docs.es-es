@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Panel de Power BI en Análisis de transmisiones | Microsoft Azure" 
 	description="Utilice un panel de Power BI de streaming en tiempo real para reunir información de inteligencia empresarial y analizar grandes volúmenes de datos procedentes de un trabajo de Análisis de transmisiones." 
-	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
+	keywords="herramientas de inteligencia empresarial,power bi,datos de streaming,panel de power bi"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -25,7 +25,7 @@ Utilice [Microsoft Power BI](https://powerbi.com/) para crear rápidamente un pa
 
 En este artículo, aprenderá a crear sus propias herramientas de inteligencia empresarial personalizadas utilizando Power BI como salida para los trabajos de análisis de transmisiones de Azure.
 
-> [AZURE.NOTE]La salida a Power BI es una característica de vista previa de Análisis de transmisiones de Azure.
+> [AZURE.NOTE]La salida a Power BI es una característica de vista previa de Análisis de transmisiones de Azure. En este momento, la creación y configuración de salidas de Power BI no se admite en el Portal de vista previa de Azure.
 
 ## Requisitos previos ##
 
@@ -64,9 +64,9 @@ Para este tutorial, se supone que está usando el centro de eventos como una ent
 
 > [AZURE.NOTE]En este ejemplo se utiliza el número predeterminado de particiones, que es 16.
 
-* **Nombre de centro de eventos**: seleccione el nombre del centro de eventos de Azure que tiene.
-* **Nombre de directiva de centro de eventos**: seleccione la directiva del centro de eventos para el centro de eventos que está usando. Asegúrese de que esta directiva tiene permisos de administración.
-*	**Grupo de consumidores del centro de eventos** : puede especificar un grupo de consumidores que tiene en el centro de eventos o dejarlo en blanco. Tenga en cuenta que cada grupo de consumidores de un centro de eventos solo puede tener 5 lectores a la vez. Por tanto, decida el grupo de consumidores adecuado para su trabajo según corresponda. Si deja el campo en blanco, usará el grupo de consumidores predeterminado.
+* **Nombre del centro de eventos**: seleccione el nombre del centro de eventos de Azure que tiene.
+* **Nombre de la directiva de centro de eventos**: seleccione la directiva del centro de eventos para el centro de eventos que está usando. Asegúrese de que esta directiva tiene permisos de administración.
+*	**Grupo de consumidores del Centro de eventos** : puede especificar un grupo de consumidores que tiene en el Centro de eventos o dejarlo en blanco. Tenga en cuenta que cada grupo de consumidores de un centro de eventos solo puede tener 5 lectores a la vez. Por tanto, decida el grupo de consumidores adecuado para su trabajo según corresponda. Si deja el campo en blanco, usará el grupo de consumidores predeterminado.
 
 *	Haga clic con el botón secundario.
 *	Especifique los siguientes valores:
@@ -166,7 +166,7 @@ Otro recurso útil para obtener más información acerca de la creación de pane
 ## Limitaciones y prácticas recomendadas ##
 Power BI emplea restricciones tanto de simultaneidad como de rendimiento, tal como se describe aquí: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Precios de Power BI")
 
-Gracias a ello Power BI se hace de forma natural con los casos en los que Análisis de transmisiones de Azure realiza una reducción considerable de la carga de datos. Se recomienda usar TumblingWindow o HoppingWindow para asegurarse de que la inserción de datos sea como máximo de 1 inserción/segundo, y de que la consulta entre dentro de los requisitos de rendimiento; puede usar la siguiente ecuación para calcular el valor que se debe asignar a la ventana en segundos: ![ecuación 1](./media/stream-analytics-power-bi-dashboard/equation1.png).
+Gracias a ello Power BI se hace de forma natural con los casos en los que Análisis de transmisiones de Azure realiza una reducción considerable de la carga de datos. Se recomienda usar TumblingWindow o HoppingWindow para asegurarse de que la inserción de datos sea como máximo de 1 inserción/segundo, y de que la consulta entre dentro de los requisitos de rendimiento. Puede usar la siguiente ecuación para calcular el valor que se debe asignar a la ventana en segundos: ![ecuación 1](./media/stream-analytics-power-bi-dashboard/equation1.png).
 
 Por ejemplo: si tiene 1.000 dispositivos enviando datos cada segundo, está en la SKU Power BI Pro que admite 1.000.000 de filas/hora, y desea obtener la media de datos por dispositivo en Power BI, puede usar como mucho una inserción cada 4 segundos por dispositivo (como se muestra a continuación): 
 ![ecuación 2](./media/stream-analytics-power-bi-dashboard/equation2.png)
@@ -222,4 +222,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

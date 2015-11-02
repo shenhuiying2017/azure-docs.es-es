@@ -42,6 +42,7 @@ Los números siguientes son una aproximación.
 - Consumo de CPU: aumento de ~1%
 - Consumo de memoria: hasta 10 % de la memoria total del sistema
 - Uso de ancho de banda de la red: ~1 MB por cada 1000 solicitudes de ADFS
+
 >[AZURE.NOTE]En caso de que el agente no se pueda comunicar con Azure, el agente almacenará los datos localmente, hasta un límite máximo definido. Cuando el agente alcance el límite, si el agente no ha podido cargar los datos en el servicio, las nuevas transacciones de ADFS sobrescribirán cualquier transacción "en caché" como "menos atendida recientemente".
 
 - Almacenamiento en búfer local para el agente de AD Health: ~20 MB
@@ -59,7 +60,7 @@ En Windows Server 2008 R2, por ejemplo, la instalación de .Net 4.5 Framework re
 
 **P: ¿Los Servicios de Azure AD Connect Health funcionan mediante un proxy HTTP de paso a través?**
 
-Sí. Para las operaciones en curso, puede configurar el agente de mantenimiento para reenviar las solicitudes http de salida con un proxy HTTP. Vea [Configuración de agentes de Azure AD Connect Health para usar el proxy HTTP](active-directory-aadconnect-health-agent-install-adfs.md#configure-azure-ad-connect-health-agent-to-use-http-proxy) para obtener más información.
+Sí. Para las operaciones en curso, puede configurar el agente de mantenimiento para reenviar las solicitudes http de salida con un proxy HTTP. Consulte [Configuración de agentes de Azure AD Connect Health para usar el proxy HTTP](active-directory-aadconnect-health-agent-install-adfs.md#configure-azure-ad-connect-health-agent-to-use-http-proxy) para obtener más información..
 
 Si necesita configurar a un proxy durante el registro del agente, debe modificar su configuración del proxy de Internet Explorer. <br> Abra Internet Explorer -> Configuración -> Opciones de Internet -> Conexiones -> Configuración de LAN.<br> Seleccione Usar un servidor proxy para la LAN.<br> Seleccione Opciones avanzadas si tiene distintos puertos de proxy para HTTP y HTTPS/Secure.<br>
 
@@ -98,4 +99,4 @@ Deberá abrir los puertos 80, 443 y 5671 TCP/UDP para que el agente de Azure AD 
 * [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Operaciones de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

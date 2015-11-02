@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Recuperación de una base de datos SQL tras un desastre" 
-   description="Obtenga información acerca de cómo recuperar una base de datos tras un fallo o error en el centro de datos regional con las capacidades de replicación geográfica y restauración geográfica de bases de datos SQL de Azure." 
+   pageTitle="Recuperación ante desastres de Base de datos SQL" 
+   description="Obtenga información sobre cómo recuperar una base de datos tras un corte en el suministro eléctrico o un error con las capacidades de la replicación geográfica activa, replicación geográfica estándar y restauración geográfica de Base de datos SQL de Azure." 
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="10/20/2015"
    ms.author="elfish"/>
 
 # Recuperación de una base de datos SQL de Azure tras una interrupción
 
-Las bases de datos SQL de Azure ofrecen varias capacidades de recuperación tras interrupciones:
+Base de datos SQL de Azure ofrece las siguientes capacidades para recuperarse de un corte en el suministro eléctrico:
 
 - Replicación geográfica activa [(blog)](http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/)
 - Replicación geográfica estándar [(blog)](http://azure.microsoft.com/blog/2014/09/03/azure-sql-database-standard-geo-replication/)
@@ -38,9 +38,9 @@ La operación de recuperación repercute en la aplicación. Este proceso requier
 
 Si se produce una interrupción en la base de datos principal, podrá conmutar por error a una base de datos secundaria para restaurar la disponibilidad. Para ello, deberá forzar la finalización de la relación de copia continua. Para obtener una descripción completa de cómo finalizar las relaciones de copia continua, diríjase [aquí](https://msdn.microsoft.com/library/azure/dn741323.aspx).
 
-
-
 ###Portal de Azure
+Utilice el Portal de Azure para terminar la relación de copia continua con la base de datos secundaria de replicación geográfica.
+
 1. Inicie sesión en el [Portal de Azure](https://portal.Azure.com).
 2. En el lado izquierdo de la pantalla, seleccione **EXAMINAR** y, a continuación, seleccione **Bases de datos SQL**.
 3. Desplácese hasta la base de datos y selecciónela. 
@@ -48,22 +48,23 @@ Si se produce una interrupción en la base de datos principal, podrá conmutar p
 4. En **Bases de datos secundarias**, haga clic con el botón secundario en la fila con el nombre de la base de datos que desea recuperar y seleccione **Detener**.
 
 Una vez finalizada la relación de copia continua, podrá configurar la base de datos recuperada para el uso siguiendo la guía [Finalización de una base de datos recuperada](sql-database-recovered-finalize.md).
-###PowerShell
-Use PowerShell para realizar la recuperación de la base de datos mediante programación.
 
-Para finalizar la relación de la base de datos secundaria, use el cmdlet [AzureSqlDatabaseCopy Stop](https://msdn.microsoft.com/library/dn720223).
+###PowerShell
+Usar PowerShell para terminar la relación de copia continua con la base de datos secundaria de replicación geográfica mediante el uso del cmdlet [Stop-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720223).
 		
 		$myDbCopy = Get-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName"
 		$myDbCopy | Stop-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -ForcedTermination
 		 
 Una vez finalizada la relación de copia continua, podrá configurar la base de datos recuperada para el uso siguiendo la guía [Finalización de una base de datos recuperada](sql-database-recovered-finalize.md).
+
 ###API de REST 
-Use REST para realizar la recuperación de la base de datos mediante programación.
+Utilice REST para detener la relación de copia continua mediante programación con la base de datos secundaria de replicación geográfica.
 
 1. Obtenga la copia continua de la base de datos mediante la operación [Obtener copia de la base de datos](https://msdn.microsoft.com/library/azure/dn509570.aspx).
 2. Detenga la copia continua de la base de datos mediante la operación [Detener copia de la base de datos](https://msdn.microsoft.com/library/azure/dn509573.aspx). Use el nombre del servidor secundario y el nombre de la base de datos en el URI de la solicitud de Detener copia de la base de datos.
 
  Una vez finalizada la relación de copia continua, podrá configurar la base de datos recuperada para el uso siguiendo la guía [Finalización de una base de datos recuperada](sql-database-recovered-finalize.md).
+
 ## Recuperación mediante la restauración geográfica
 
 En el caso de una interrupción en una base de datos, es posible recuperar la base de datos desde la última copia de seguridad con redundancia geográfica mediante la restauración geográfica.
@@ -71,6 +72,8 @@ En el caso de una interrupción en una base de datos, es posible recuperar la ba
 > [AZURE.NOTE]Al recuperar una base de datos se crea una nueva base de datos. Es importante asegurarse de que el servidor en el que va a efectuar la recuperación tenga suficiente capacidad DTU para la nueva base de datos. Puede solicitar un aumento de esta cuota [contactando con el soporte técnico](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portal de Azure
+Para restaurar una Base de datos SQL mediante restauración geográfica en el Portal de Azure, siga estos pasos o [vea un vídeo de este procedimiento](https://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-geo-restore/):
+
 1. Inicie sesión en el [Portal de Azure](https://portal.Azure.com).
 2. En el lado izquierdo de la pantalla, seleccione **NUEVO** y, a continuación, seleccione **Datos y almacenamiento**. Luego seleccione **Base de datos SQL**.
 2. Seleccione **COPIA DE SEGURIDAD** como origen y, a continuación, seleccione la copia de seguridad con redundancia geográfica que desea recuperar.
@@ -78,16 +81,16 @@ En el caso de una interrupción en una base de datos, es posible recuperar la ba
 4. El proceso de restauración de base de datos se iniciará y se puede supervisar mediante **NOTIFICACIONES**, en el lado izquierdo de la pantalla.
 
 Una vez recuperada la base de datos, podrá configurarla para el uso. Para ello siga los pasos descritos en la guía [Finalización de una base de datos recuperada](sql-database-recovered-finalize.md).
-###PowerShell 
-Use PowerShell para realizar la recuperación de la base de datos mediante programación.
 
-Para iniciar una solicitud de restauración geográfica, use el cmdlet [start-AzureSqlDatabaseRecovery](https://msdn.microsoft.com/library/azure/dn720224.aspx). Para ver un tutorial detallado, vea el [vídeo de procedimientos](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-geo-restore-with-microsoft-azure-powershell/).
+###PowerShell 
+Para restaurar una Base de datos SQL mediante la restauración geográfica con PowerShell, inicie una solicitud de restauración geográfica con el cmdlet [start-AzureSqlDatabaseRecovery](https://msdn.microsoft.com/library/azure/dn720224.aspx). Para disponer de un tutorial detallado, [vea un vídeo de este procedimiento](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-geo-restore-with-microsoft-azure-powershell/).
 
 		$Database = Get-AzureSqlRecoverableDatabase -ServerName "ServerName" –DatabaseName “DatabaseToBeRecovered"
 		$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –TargetServerName “TargetServerName”
 		Get-AzureSqlDatabaseOperation –ServerName "TargetServerName" –OperationGuid $RecoveryRequest.RequestID
 
 Una vez recuperada la base de datos, podrá configurarla para el uso. Para ello siga los pasos descritos en la guía [Finalización de una base de datos recuperada](sql-database-recovered-finalize.md).
+
 ###API de REST 
 
 Use REST para realizar la recuperación de la base de datos mediante programación.
@@ -103,4 +106,4 @@ Use REST para realizar la recuperación de la base de datos mediante programaci�
 Una vez recuperada la base de datos, podrá configurarla para el uso. Para ello siga los pasos descritos en la guía [Finalización de una base de datos recuperada](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

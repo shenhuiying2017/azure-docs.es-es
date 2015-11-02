@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="10/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -55,8 +55,6 @@ Los errores transitorios también se denominan a veces anomalías transitorias. 
 | Número de error | Gravedad | Descripción |
 | ---: | ---: | :--- |
 | 4060 | 16 | No se puede abrir la base de datos "%.&#x2a;ls" solicitada por el inicio de sesión. Error de inicio de sesión. |
-|10928|20|Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para obtener más información, vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>El id. de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el id. de recurso = 2.<br/><br/>*Nota:* para obtener más información sobre este error y sobre cómo resolverlo, vea:<br/>• [Regulación de recursos de base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx). |
-|10929|20|Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para obtener más información, vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). De lo contrario, vuelva a intentarlo más tarde.<br/><br/>El id. de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el id. de recurso = 2.<br/><br/>*Nota:* para obtener más información sobre este error y sobre cómo resolverlo, vea:<br/>• [Regulación de recursos de base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx).|
 |40197|17|Error en el servicio al procesar la solicitud. Vuelva a intentarlo. Código de error %d.<br/><br/>Recibirá este error cuando el servicio esté inactivo debido a actualizaciones de software o hardware, errores de hardware u otros problemas de conmutación por error. El código de error (%d) incrustado en el mensaje de error 40197 proporciona información adicional sobre el tipo de error o conmutación por error que se ha producido. Algunos ejemplos de los códigos de error que se incrustan dentro del mensaje de error 40197 son 40020, 40143, 40166 y 40540.<br/><br/>Al volver a conectarse al servidor de Base de datos SQL se conectará automáticamente a una copia correcta de su base de datos. La aplicación debe detectar el error 40197, registrar el código de error incrustado (%d) dentro del mensaje para solucionar problemas y volver a conectarse a la base de datos SQL hasta que los recursos estén disponibles; entonces, la conexión se establecerá de nuevo.|
 |40501|20|El servicio está ocupado actualmente. Vuelva a intentar la solicitud después de 10 segundos. Identificador de incidente: %ls. Código: %d.<br/><br/>*Nota:* para obtener más información acerca de este error y de cómo resolverlo, vea:<br/>• [Limitación de base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn338079.aspx).
 |40613|17|La base de datos '%.&#x2a;ls' en el servidor '%.&#x2a;ls' no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de soporte al cliente y proporcióneles el id. de seguimiento de sesión de '%. & #x2a; ls'.|
@@ -64,7 +62,7 @@ Los errores transitorios también se denominan a veces anomalías transitorias. 
 |49919|16|No se procesar, crear ni actualizar la solicitud. Hay demasiadas operaciones de creación o actualización en curso para la suscripción "%ld".<br/><br/>El servicio está ocupado procesando varias solicitudes de creación o actualización para su suscripción o servidor. Actualmente las solicitudes están bloqueadas para la optimización de recursos. Consulta [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) para las operaciones pendientes. Espere a que se completen solicitudes de creación o actualización pendientes o elimine una de las solicitudes pendientes y vuelva a intentar la solicitud más tarde. |
 |49920|16|No se puede procesar la solicitud. Hay demasiadas operaciones en curso para la suscripción "%ld".<br/><br/>El servicio está ocupado procesando varias solicitudes para esta suscripción. Actualmente las solicitudes están bloqueadas para la optimización de recursos. Consulta [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) para el estado de la operación. Espere a que las solicitudes pendientes se hayan completado o elimine una de las solicitudes pendientes y vuelva a intentar la solicitud más tarde. |
 
-**Nota:** Es posible que los errores de federación 10053 y 10054 requieran también la inclusión en su lógica de reintento.
+**Nota:** es posible que los errores de federación 10053 y 10054 requieran también la inclusión en su lógica de reintento.
 
 
 ## Errores de copia de base de datos
@@ -99,17 +97,19 @@ En la tabla siguiente se muestran los errores causados por un uso excesivo de re
 - Es posible que su transacción haya estado abierta demasiado tiempo.
 - Puede que su transacción contenga demasiados bloqueos.
 - Es posible que el programa está consumiendo demasiada memoria.
-- Puede que el programa está consumiendo demasiado `TempDb` espacio.
+- Puede que el programa está consumiendo demasiado espacio `TempDb`.
 
 
-**Sugerencia:** el vínculo siguiente ofrece más información que se aplica a la mayoría de los errores de esta sección o todos ellos:
+**Sugerencia:** el vínculo siguiente ofrece más información que se aplica a la mayoría de los errores de esta sección o a todos ellos:
 
 
-- [Límites de recursos de Base de datos SQL](http://msdn.microsoft.com/library/azure/dn338081.aspx).
+- [Límites de recursos de Base de datos SQL](http://msdn.microsoft.com/library/azure/dn338081.aspx)
 
 
 |Número de error|Gravedad|Descripción|
 |---:|---:|:---|
+|10928|20|Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para obtener más información, visite [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el identificador de recurso = 2.<br/><br/>*Nota:* para obtener más información sobre este error y sobre cómo resolverlo, vea:<br/>• [Gobernanza de recursos de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx). |
+|10929|20|Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para obtener más información, visite [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). De lo contrario, vuelva a intentarlo más tarde.<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el identificador de recurso = 2.<br/><br/>*Nota:* para obtener más información sobre este error y sobre cómo resolverlo, vea:<br/>• [Gobernanza de recursos de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx).|
 |40544|20|La base de datos ha alcanzado su cuota de tamaño. Cree particiones o elimine datos, quite índices o consulte la documentación para obtener soluciones posibles.|
 |40549|16|La sesión terminó porque tiene una transacción de larga duración. Intente reducir la transacción.|
 |40550|16|La sesión ha terminado porque ha adquirido demasiados bloqueos. Intente leer o modificar menos filas en una sola transacción.|
@@ -242,4 +242,4 @@ En la tabla siguiente se muestran todos los errores generales que no pertenecen 
 - [Instrucciones y limitaciones generales de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [Administración de recursos](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

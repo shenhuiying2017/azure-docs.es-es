@@ -2,7 +2,6 @@
 	pageTitle="Consumo de un servicio web de Aprendizaje automático de Microsoft Azure"
 	description="Una vez implementado un servicio de aprendizaje automático, se puede consumir el servicio web RESTFul facilitado como servicio de respuesta de solicitud o como servicio de ejecución por lotes."
 	services="machine-learning"
-	solutions="big-data"
 	documentationCenter=""
 	authors="bradsev"
 	manager="paulettm"
@@ -14,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="09/09/2015" 
+	ms.date="10/19/2015"
 	ms.author="bradsev" />
 
 
@@ -33,6 +32,8 @@ Esto significa que los servicios se pueden consumir desde aplicaciones web, apli
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 Un servicio web de Aprendizaje automático de Azure se puede consumir de dos maneras diferentes, como un servicio de solicitud-respuesta o como un servicio de ejecución por lotes. En cada escenario se proporciona la funcionalidad a través del servicio web RESTFul que se facilita para consumirse una vez que se ha implementado el experimento. Implementando un servicio web de aprendizaje automático en Azure con un punto extremo de servicio web Azure, donde el servicio se escala automáticamente según el uso, puede evitar los costos continuados derivados de los recursos de hardware.
+
+> [AZURE.TIP]Para conocer una forma sencilla de crear una aplicación web para obtener acceso al servicio web predictivo, vea [Consumo de un servicio web de Aprendizaje automático de Azure con una plantilla de aplicación web](machine-learning-consume-web-service-with-web-app-template.md).
 
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
@@ -242,7 +243,7 @@ La respuesta a la API de creación de trabajos por lotes es el Id. de trabajo ú
 
 **2. Iniciar un trabajo de ejecución por lotes**
 
-La creación de un trabajo por lotes sólo lo registra en el sistema y lo coloca en el estado *No iniciado*. Para programar realmente el trabajo para su ejecución, es preciso llamar a la API de **inicio** API que se describe en la página de ayuda de la API del extremo de servicio y especificar el identificador de trabajo que se obtuvo al crear el trabajo.
+La creación de un trabajo por lotes sólo lo registra en el sistema y lo coloca en el estado *No iniciado*. Para programar realmente el trabajo para su ejecución, tendrá que llamar a la API de **inicio** que se describe en la página de ayuda de la API del extremo de servicio y especificar el id. de trabajo que se obtuvo al crear el trabajo.
 
 **3. Obtener el estado de un trabajo de ejecución por lotes**
 
@@ -256,7 +257,7 @@ El estado de un trabajo por lotes asincrónico se puede sondear en cualquier mom
 	    "Details": DETAILS
 	}
 
-*StatusCode* puede ser:
+*StatusCode* puede ser cualquiera de los siguientes:
 
 * No iniciado
 * Ejecución
@@ -432,4 +433,4 @@ El código de ejemplo siguiente muestra cómo se puede enviar y supervisar un tr
 	    }
 	}
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

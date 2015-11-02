@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Implementación de una aplicación de API con una puerta de enlace existente" 
 	description="Use una plantilla del Administrador de recursos de Azure para implementar una aplicación de API que usa una puerta de enlace y un plan del Servicio de aplicaciones existentes." 
-	services="app-service\api" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-api" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -191,4 +191,4 @@ Observe que los nombres de la aplicación web de hospedaje y la puerta de enlace
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

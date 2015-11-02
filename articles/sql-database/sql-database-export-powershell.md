@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/13/2015"
+	ms.date="10/20/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -93,6 +93,9 @@ Al ejecutar el cmdlet **Get-Credential**, se abre una ventana en la que se le pi
 
 Este comando envía una solicitud de exportación de base de datos al servicio. Según el tamaño de la base de datos, la operación de exportación puede tardar algún tiempo en completarse.
 
+> [AZURE.IMPORTANT]Para garantizar un archivo BACPAC transaccionalmente coherente, primero debe [crear una copia de la base de datos](sql-database-copy-powershell.md) y después exportar dicha copia.
+
+
     $exportRequest = Start-AzureSqlDatabaseExport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
     
 
@@ -144,4 +147,4 @@ Al ejecutar este comando se le solicitará una contraseña. Escriba la contrase�
 - [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
 - [Documentación de la base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

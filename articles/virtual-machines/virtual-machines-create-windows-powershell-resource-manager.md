@@ -29,7 +29,7 @@ Si ya ha instalado Azure PowerShell, debe tener la versión 1.0.0 (o posterior) 
 
 	Get-Module azure | format-table version
 
-Si aún no lo ha hecho o debe actualizar la versión del Azure PowerShell instalado, utilice las instrucciones de [Instalación y configuración de Azure PowerShell](install-configure-powershell.md) para instalar Azure PowerShell en el equipo local. A continuación, abra un símbolo del sistema de Azure PowerShell.
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 En primer lugar, debe iniciar sesión en Azure con este comando.
 
@@ -137,4 +137,4 @@ Este es un ejemplo de lo que puede ver:
 
 [Instalación y configuración de Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

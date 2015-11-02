@@ -272,9 +272,9 @@ Debe configurar la red virtual clásica para usar la dirección IP de la puerta 
 
 4. Abra el archivo recién descargado y edite el elemento **LocalNetworkSite** para **vnet02** para agregar la dirección IP de la puerta de enlace para la red virtual nueva obtenida en el paso 1 anterior. El elemento debe tener un aspecto similar al del ejemplo siguiente.
 
-	      <LocalNetworkSite name="vnet03">
+	      <LocalNetworkSite name="vnet02">
 	        <AddressSpace>
-	          <AddressPrefix>10.3.0.0/16</AddressPrefix>
+	          <AddressPrefix>10.2.0.0/16</AddressPrefix>
 	        </AddressSpace>
 	        <VPNGatewayAddress>23.99.213.28</VPNGatewayAddress>
 	      </LocalNetworkSite>
@@ -363,4 +363,4 @@ Ahora que dispone de las dos redes de virtuales conectadas, es momento de probar
 - Obtenga más información sobre [el proveedor de recursos de red (NRP) para ARM](../resource-groups-networking.md).
 - Consulte las instrucciones generales sobre cómo [crear una conexión VPN de S2S entre una red virtual clásica y una red virtual de ARM](../virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

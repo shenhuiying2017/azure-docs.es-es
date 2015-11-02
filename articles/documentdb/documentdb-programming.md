@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Programación de DocumentDB: procedimientos almacenados, desencadenadores de base de datos y UDF | Microsoft Azure" 
 	description="Obtenga información sobre cómo usar DocumentDB para escribir procedimientos almacenados, desencadenadores de base de datos y funciones definidas por el usuario (UDF) en JavaScript. Obtenga sugerencias de programación de base de datos y mucho más." 
-	keywords="Database triggers, stored procedure, stored procedure, database program, sproc, documentdb, azure, Microsoft azure"
+	keywords="Desencadenadores de base de datos, procedimiento almacenado, procedimiento almacenado, programa de base de datos, sproc, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="aliuy" 
@@ -36,7 +36,7 @@ A continuación, vuelva a este artículo, donde conocerá las respuestas a las p
 
 ## Introducción a la programación con UDF y procedimientos almacenados
 
-Este enfoque de *“JavaScript como un T-SQL moderno”* libera a los desarrolladores de aplicaciones de las complejidades de los errores de coincidencia del sistema de tipo y de las tecnologías de asignación relacional de objetos. También cuenta con un número de ventajas intrínsecas que se pueden utilizar para generar sofisticadas aplicaciones:
+Este enfoque de *"JavaScript como un T-SQL moderno"* libera a los desarrolladores de aplicaciones de las complejidades de los errores de coincidencia del sistema de tipo y de las tecnologías de asignación relacional de objetos. También cuenta con un número de ventajas intrínsecas que se pueden utilizar para generar sofisticadas aplicaciones:
 
 -	**Lógica de procedimientos:** JavaScript como un lenguaje de programación de alto nivel, proporciona una interfaz completa y familiar para expresar la lógica empresarial. Puede realizar secuencias complejas de operaciones acercándose más a los datos.
 
@@ -479,12 +479,70 @@ Además de emitir consultas mediante la gramática de SQL del DocumentDB, el SDK
 > <br/>
 > En otras palabras, puede utilizar `__` o `getContext().getCollection()` para obtener acceso a la API de consulta de JavaScript.
 
-Entre las funciones compatibles se encuentran: <ul> <li> <b>chain() ... .value([devolución de llamada] [, opciones])</b> <ul> <li> Inicia una llamada encadenada que debe terminarse con value(). </li> </ul> </li> <li> <b>filter(predicateFunction [, opciones] [, devolución de llamada])</b> <ul> <li> Filtra la entrada con una función de predicado que devuelve verdadero o falso para filtrar la entrada y salida de documentos de entrada en el conjunto resultante. Este comportamiento es similar al de una cláusula WHERE de SQL. </li> </ul> </li> <li> <b>map(transformationFunction [, opciones] [, devolución de llamada])</b> <ul> <li> Aplica una proyección dada una función de transformación que asigna cada elemento de entrada a un valor o un objeto de JavaScript. Este comportamiento es similar al de una cláusula SELECT de SQL. </li> </ul> </li> <li> <b>pluck([nombrePropiedad] [, opciones] [, devolución de llamada])</b> <ul> <li> Se trata de un método abreviado de una asignación que extrae el valor de una propiedad única de cada elemento de entrada. </li> </ul> </li> <li> <b>flatten([isShallow] [, opciones] [, devolución de llamada])</b> <ul> <li> Combina y aplana las matrices de cada elemento de entrada en una sola matriz. Este comportamiento es similar al de SelectMany en LINQ. </li> </ul> </li> <li> <b>sortBy([predicado] [, opciones] [, devolución de llamada])</b> <ul> <li> Produce un nuevo conjunto de documentos al ordenar los documentos en la secuencia de documentos de entrada en orden ascendente según el predicado especificado. Este comportamiento es similar al de una cláusula ORDER BY en SQL. </li> </ul> </li> <li> <b>sortByDescending([predicado] [, opciones] [, devolución de llamada])</b> <ul> <li> Produce un nuevo conjunto de documentos al ordenar los documentos en la secuencia de documentos de entrada en orden descendente según el predicado especificado. Este comportamiento es similar al de una cláusula ORDER BY x DESC en SQL. </li> </ul> </li> </ul>
+Entre las funciones compatibles se encuentran:
+<ul>
+<li>
+<b>chain() ... .value([devolución de llamada] [, opciones])</b>
+<ul>
+<li>
+Inicia una llamada encadenada que debe terminarse con value().
+</li>
+</ul>
+</li>
+<li>
+<b>filter(predicateFunction [, opciones] [, devolución de llamada])</b>
+<ul>
+<li>
+Filtra la entrada con una función de predicado que devuelve verdadero o falso para filtrar la entrada y salida de documentos de entrada en el conjunto resultante. Este comportamiento es similar al de una cláusula WHERE de SQL.
+</li>
+</ul>
+</li>
+<li>
+<b>map(transformationFunction [, opciones] [, devolución de llamada])</b>
+<ul>
+<li>
+Aplica una proyección dada una función de transformación que asigna cada elemento de entrada a un valor o un objeto de JavaScript. Este comportamiento es similar al de una cláusula SELECT de SQL.
+</li>
+</ul>
+</li>
+<li>
+<b>pluck([nombrePropiedad] [, opciones] [, devolución de llamada])</b>
+<ul>
+<li>
+Se trata de un método abreviado de una asignación que extrae el valor de una propiedad única de cada elemento de entrada.
+</li>
+</ul>
+</li>
+<li>
+<b>flatten([isShallow] [, opciones] [, devolución de llamada])</b>
+<ul>
+<li>
+Combina y aplana las matrices de cada elemento de entrada en una sola matriz. Este comportamiento es similar al de SelectMany en LINQ.
+</li>
+</ul>
+</li>
+<li>
+<b>sortBy([predicado] [, opciones] [, devolución de llamada])</b>
+<ul>
+<li>
+Produce un nuevo conjunto de documentos al ordenar los documentos en la secuencia de documentos de entrada en orden ascendente según el predicado especificado. Este comportamiento es similar al de una cláusula ORDER BY en SQL.
+</li>
+</ul>
+</li>
+<li>
+<b>sortByDescending([predicado] [, opciones] [, devolución de llamada])</b>
+<ul>
+<li>
+Produce un nuevo conjunto de documentos al ordenar los documentos en la secuencia de documentos de entrada en orden descendente según el predicado especificado. Este comportamiento es similar al de una cláusula ORDER BY x DESC en SQL.
+</li>
+</ul>
+</li>
+</ul>
 
 
 Cuando se incluye dentro del predicado o las funciones selectoras, las siguientes construcciones de JavaScript se optimizan automáticamente para ejecutarse directamente en índices de DocumentDB:
 
-* Operadores simples: = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
+* Operadores simples: = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! \~
 * Literales, incluido el literal de objeto: {}
 * var, return
 
@@ -556,7 +614,141 @@ En la tabla siguiente se muestran varias consultas SQL con las consultas de Java
 
 Como sucede con las consultas SQL, las claves de propiedad del documento (por ejemplo, `doc.id`) distinguen mayúsculas de minúsculas.
 
-<br/> <table border="1" width="100%"> <colgroup> <col span="1" style="width: 40%;"> <col span="1" style="width: 40%;"> <col span="1" style="width: 20%;"> </colgroup> <tbody> <tr> <th>SQL</th> <th>API de consulta de JavaScript</th> <th>Detalles</th> </tr> <tr> <td> <pre> SELECT * FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return doc; }); </pre> </td> <td>El resultado es todos los documentos (paginados con token de continuación) tal y como son.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg, docs.actions FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return { id: doc.id, msg: doc.message, actions: doc.actions }; }); </pre> </td> <td>Proyecta id, message (con msg como alias) y action de todos los documentos.</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.filter(function(doc) { return doc.id === "X998\_Y998"; }); </pre> </td> <td>Consulta los documentos con el predicado: id = "X998\_Y998".</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE ARRAY\_CONTAINS(docs.Tags, 123) </pre> </td> <td> <pre> \_\_.filter(function(x) { return x.Tags && x.Tags.indexOf(123) > -1; }); </pre> </td> <td>Consulta los documentos que tengan una propiedad Tags y en los que Tags sea una matriz que contenga el valor 123.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.id === "X998\_Y998"; }) .map(function(doc) { return { id: doc.id, msg: doc.message }; }) .value(); </pre> </td> <td>Consulta los documentos con un predicado id = "X998\_Y998" y, después, proyecta id y message (con el alias msg).</td> </tr> <tr> <td> <pre> SELECT VALUE tag FROM docs JOIN tag IN docs.Tags ORDER BY docs.\_ts </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.Tags && Array.isArray(doc.Tags); }) .sortBy(function(doc) { return doc.\_ts; }) .pluck("Tags") .flatten() .value() </pre> </td> <td>Filtra los documentos que tengan una propiedad de matriz, Tags, ordena los documentos resultantes según la propiedad del sistema de marca de tiempo \_ts, y proyecta y aplana la matriz Tags.</td> </tr> </tbody> </table>
+<br/>
+<table border="1" width="100%">
+<colgroup>
+<col span="1" style="width: 40%;">
+<col span="1" style="width: 40%;">
+<col span="1" style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<th>SQL</th>
+<th>API de consulta de JavaScript</th>
+<th>Detalles</th> 
+</tr>
+<tr>
+<td>
+<pre>
+SELECT *
+FROM docs
+</pre>
+</td>
+<td>
+<pre>
+__.map(function(doc) {
+    return doc;
+});
+</pre>
+</td>
+<td>El resultado es todos los documentos (paginados con token de continuación) tal y como son.</td> 
+</tr>
+<tr>
+<td>
+<pre>
+SELECT docs.id, docs.message AS msg, docs.actions 
+FROM docs
+</pre>
+</td>
+<td>
+<pre>
+__.map(function(doc) {
+    return {
+        id: doc.id,
+        msg: doc.message,
+        actions: doc.actions
+    };
+});
+</pre>
+</td>
+<td>Proyecta id, message (con msg como alias) y action de todos los documentos.</td> 
+</tr>
+<tr>
+<td>
+<pre>
+SELECT * 
+FROM docs 
+WHERE docs.id="X998_Y998"
+</pre>
+</td>
+<td>
+<pre>
+__.filter(function(doc) {
+    return doc.id === "X998_Y998";
+});
+</pre>
+</td>
+<td>Consulta los documentos con el predicado: id = "X998\_Y998".</td> 
+</tr>
+<tr>
+<td>
+<pre>
+SELECT *
+FROM docs
+WHERE ARRAY_CONTAINS(docs.Tags, 123)
+</pre>
+</td>
+<td>
+<pre>
+__.filter(function(x) {
+    return x.Tags && x.Tags.indexOf(123) > -1;
+});
+</pre>
+</td>
+<td>Consulta los documentos que tengan una propiedad Tags y en los que Tags sea una matriz que contenga el valor 123.</td> 
+</tr>
+<tr>
+<td>
+<pre>
+SELECT docs.id, docs.message AS msg
+FROM docs 
+WHERE docs.id="X998_Y998"
+</pre>
+</td>
+<td>
+<pre>
+__.chain()
+    .filter(function(doc) {
+        return doc.id === "X998_Y998";
+    })
+    .map(function(doc) {
+        return {
+            id: doc.id,
+            msg: doc.message
+        };
+    })
+    .value();
+</pre>
+</td>
+<td>Consulta los documentos con un predicado id = "X998_Y998" y, después, proyecta id y message (con el alias msg).</td> 
+</tr>
+<tr>
+<td>
+<pre>
+SELECT VALUE tag
+FROM docs
+JOIN tag IN docs.Tags
+ORDER BY docs._ts
+</pre>
+</td>
+<td>
+<pre>
+__.chain()
+    .filter(function(doc) {
+        return doc.Tags && Array.isArray(doc.Tags);
+    })
+    .sortBy(function(doc) {
+    	return doc._ts;
+    })
+    .pluck("Tags")
+    .flatten()
+    .value()
+</pre>
+</td>
+<td>Filtra los documentos que tengan una propiedad de matriz, Tags, ordena los documentos resultantes según la propiedad del sistema de marca de tiempo _ts, y proyecta y aplana la matriz Tags.</td>
+</tr>
+</tbody>
+</table>
 
 ## Compatibilidad con el tiempo de ejecución
 El [SDK del lado servidor de JavaScript de DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) ofrece compatibilidad con la mayoría de características del lenguaje JavaScript habituales, según el estándar [ECMA-262](documentdb-interactions-with-resources.md).
@@ -729,4 +921,4 @@ También puede encontrar útiles las siguientes referencias y recursos en su rut
 -	[Arquitectura de base de datos orientada a servicios](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hospedaje de runtime de .NET en Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

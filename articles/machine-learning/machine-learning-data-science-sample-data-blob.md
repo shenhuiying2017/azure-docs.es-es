@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Datos de ejemplo en el almacenamiento de blobs de Azure | Microsoft Azure" 
+	pageTitle="Muestra de datos en el almacenamiento de blobs de Azure | Microsoft Azure" 
 	description="Datos de ejemplo en el almacenamiento de blobs de Azure" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
-	authors="msolhab" 
+	authors="bradsev" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,10 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
+	ms.date="10/20/2015" 
+	ms.author="sunliangms;fashah;garye;bradsev" />
 
-#<a name="heading"></a>Datos de ejemplo en el almacenamiento de blobs de Azure
+#<a name="heading"></a>Muestra de datos en el almacenamiento de blobs de Azure
+
+Este **menú** está vinculado a temas que describen cómo realizar un muestreo de datos desde varios entornos de almacenamiento. Esta tarea es un paso en el proceso de análisis de Cortana (CAP).
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+## Introducción
 
 En este documento se tratan los datos de muestreo almacenados en el almacenamiento de blobs de Azure mediante su descarga con programación y, a continuación, realizando un muestreo de los mismos con código Python de ejemplo. Los pasos para hacerlo son los siguientes:
 
@@ -46,7 +52,7 @@ En este documento se tratan los datos de muestreo almacenados en el almacenamien
 	    #directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Muestreo de los datos mediante `random.choice` de `numpy` como se indica a continuación:
+3. Reduzca el muestreo de los datos mediante `random.choice` de `numpy` como se indica a continuación:
 
 	    # A 1 percent sample
     	sample_ratio = 0.01 
@@ -97,4 +103,4 @@ Puede usar el código de ejemplo siguiente para muestrear los datos y usarlos di
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

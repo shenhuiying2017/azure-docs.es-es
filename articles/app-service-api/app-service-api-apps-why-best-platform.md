@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="10/15/2015" 
 	ms.author="tdykstra"/>
 
 # ¿Qué son las Aplicaciones de API?
 
-Las Aplicaciones de API de este conjunto ofrecen una plataforma y un ecosistema enriquecidos para la compilación, el hospedaje, el uso y la distribución de las API, tanto en la nube como de forma local. Implemente la API como una aplicación de API y benefíciese de la seguridad de nivel empresarial, el control de acceso simple, la conectividad SaaS e híbrida, la generación automática de SDK y la integración completa con las [aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+Las aplicaciones de API ofrecen una plataforma completa para la compilación, el hospedaje y el consumo de las API, tanto en la nube como de forma local. Implemente la API como una aplicación de API y benefíciese de la seguridad de nivel empresarial, el control de acceso simple, la conectividad SaaS e híbrida, la generación automática de SDK y la integración completa con las [aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 Aplicaciones de API forma parte del [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md), que también incluye aplicaciones web, móviles y lógicas.
 
@@ -46,18 +46,6 @@ Aplicaciones de API incluye además [características de las aplicaciones web de
 >
 >Aplicaciones de API se encuentra actualmente en versión de vista previa pública. [Aplicaciones web del Servicio de aplicaciones](../app-service-web/app-service-web-overview.md) es un servicio disponible con carácter general diseñado para compilar y hospedar aplicaciones críticas seguras a escala global. Si busca un servicio de disponibilidad general para crear una API en la actualidad, Aplicaciones web es una opción ideal. Cuando Aplicaciones de API pase a estar disponible con carácter general, proporcionaremos una ruta de acceso para usar las aplicaciones web existentes y aprovechar las características adicionales de Aplicaciones de API.
 
-### Características de Aplicaciones de API disponibles en un futuro
-
-En un futuro próximo, la plataforma Aplicaciones de API facilitará el uso compartido del código mediante la creación de un ecosistema de API enriquecido:
-
-- **Catálogos de soluciones públicos y privados**: [Azure Marketplace](http://azure.microsoft.com/marketplace/) facilitará la tarea de buscar e implementar aplicaciones de API preempaquetadas desarrolladas por Microsoft y otros fabricantes en la suscripción de Azure. Además, podrá empaquetar y publicar las aplicaciones de API propias que desarrolle para que otros desarrolladores puedan implementarlas en sus suscripciones de Azure. Al publicar las API en Azure Marketplace, puede hacer que estas solo sean visibles para otros miembros de la organización. 
-
-- **Implementación de dependencia automática**: siempre que se implemente una aplicación de API de Marketplace en la suscripción de Azure, Azure implementará automáticamente las aplicaciones de API dependientes y creará los recursos necesarios. Un paquete de aplicaciones de API especificará las aplicaciones de API de las que depende y los recursos de Azure que requiere.
-
-- **Actualizaciones automáticas**: al actualizar el código de uno de los paquetes de aplicaciones de API compartidos, podrá promover la actualización a todos los usuarios que hayan instalado y que ejecuten dicha aplicación de API. Esto funcionará en el caso de cambios no radicales y de usuarios que hayan optado por recibir las actualizaciones.
-
-Muchas de estas características, como el catálogo público y las actualizaciones automáticas, ya están disponibles para las aplicaciones de API proporcionadas por Microsoft.
-
 ## Conceptos de Aplicaciones de API ##
 
 - **Puerta de enlace**: una aplicación web que controla las funciones de administración de API y la autenticación de todas las aplicaciones de API en un grupo de recursos. 
@@ -76,4 +64,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

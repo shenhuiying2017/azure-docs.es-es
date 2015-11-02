@@ -7,8 +7,9 @@ Tamaño máximo de almacenamiento|25 GB por partición
 Número máximo de particiones|12 por servicio Búsqueda
 Número máximo de réplicas|6 por servicio Búsqueda
 Número máximo de unidades de Búsqueda|36 por servicio Búsqueda
+Servicios de búsqueda máximos|12 por cada suscripción de Azure
 Número máximo de indexadores|10 por servicio Búsqueda
 Número máximo de orígenes de datos|10 por servicio Búsqueda
 Número máximo de documentos que se pueden indexar en una sola invocación de indexador|Sin límite
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="10/20/2015" 
 	ms.author="arramac"/>
 
 # Ordenación de datos de DocumentDB con Order By
@@ -125,7 +125,7 @@ A continuación se indica cómo puede crear una colección con indexación para 
         });
 
 ## Muestras
-Eche un vistazo a los [proyectos de ejemplo de Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby) en los que se muestra cómo se usa Order By, incluida la creación de directivas de indexación y la paginación con Order By. Los ejemplos son de código abierto y le animamos a que envíe solicitudes de extracción con las contribuciones que podrían ayudar a otros desarrolladores de DocumentDB. Consulte las [directrices de contribución](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obtener instrucciones acerca de cómo realizar sus aportaciones.
+Eche un vistazo a los [proyectos de ejemplo de Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy) en los que se muestra cómo se usa Order By, incluida la creación de directivas de indexación y la paginación con Order By. Los ejemplos son de código abierto y le animamos a que envíe solicitudes de extracción con las contribuciones que podrían ayudar a otros desarrolladores de DocumentDB. Consulte las [directrices de contribución](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obtener instrucciones acerca de cómo realizar sus aportaciones.
 
 ## ¿Qué novedades se esperan?
 
@@ -152,7 +152,7 @@ La sobrecarga del almacenamiento de indexación será proporcional a la cantidad
 
 **¿Cómo se consultan los datos existentes en DocumentDB con Order By?**
 
-Esto se admitirá con la disponibilidad de la mejora de las directivas de indexación dinámicas mencionada en la sección [Qué novedades se esperan](what's-coming-next). Para hacer esto actualmente, debe exportar los datos y volver a importarlos en una nueva colección de DocumentDB creada con un índice de intervalo u Order By. La herramienta de importación de DocumentDB puede usarse para migrar datos entre colecciones.
+Para ordenar los resultados de la consulta con Order By, debe modificar la directiva de indexación de la colección para usar un tipo de índice de intervalo en la propiedad que se usa para ordenar. Consulte [Modificación de la directiva de indexación](documentdb-indexing-policies.md#modifying-the-indexing-policy-of-a-collection).
 
 **¿Cuáles son las limitaciones actuales de Order By?**
 
@@ -168,13 +168,13 @@ No puede realizar las siguientes operaciones:
 
 ## Pasos siguientes
 
-Bifurque el [proyecto de ejemplos de Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby) y comience a ordenar sus datos.
+Bifurque el [proyecto de ejemplos de Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy) y comience a ordenar sus datos.
 
 ## Referencias
 * [Referencia de las consultas de DocumentDB](documentdb-sql-query.md)
 * [Referencia de la directiva de indexación de DocumentDB](documentdb-indexing-policies.md)
 * [Referencia SQL de DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* [Ejemplos de Order By de DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
+* [Ejemplos de Order By de DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

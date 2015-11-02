@@ -3,24 +3,22 @@
 	description="Aprenda a usar los temas y las suscripciones del Bus de servicio de Azure. Los ejemplos de código están escritos para aplicaciones Ruby."
 	services="service-bus"
 	documentationCenter="ruby"
-	authors="tfitzmac"
-	manager="wpickett"
+	authors="sethmanheim"
+	manager="timlt"
 	editor=""/>
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="08/31/2015"
-	ms.author="tomfitz"/>
-
-
-
-
+	ms.author="sethm"/>
 
 # Uso de temas/suscripciones del Bus de servicio
+
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 En esta guía se indica cómo usar los temas y las suscripciones del Bus de servicio desde aplicaciones Ruby. Entre los escenarios tratados se incluye la **creación de temas y suscripciones, la creación de filtros de suscripción, el envío de mensajes** a un tema, la **recepción de mensajes de una suscripción** y la **eliminación de temas y suscripciones**. Para obtener más información acerca de los temas y las suscripciones, consulte la sección [Pasos siguientes](#next-steps).
 
@@ -213,9 +211,9 @@ Al eliminar un tema también se eliminan todas las suscripciones que estén regi
 
 Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos vínculos para obtener más información.
 
--   Vea [Colas, temas y suscripciones](service-bus-queues-topics-subscriptions.md).
+-   Consulte [Colas, temas y suscripciones](service-bus-queues-topics-subscriptions.md).
 -   Referencia de API para [Clase SqlFilter](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx).
 -	Visite el repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

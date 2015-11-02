@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
 
@@ -89,15 +89,15 @@ En estos pasos se supone que ya ha creado un máquina virtual de Azure con el mo
 
 
 ## Pasos siguientes
-La imagen está lista para ser utilizada como plantilla para crear máquinas virtuales. Puede usar el comando de la CLI de Azure `azure vm create` y proporcionar el nombre de la imagen que acaba de crear. Consulte [Uso de la CLI de Azure con la API de administración de servicios](virtual-machines-command-line-tools.md) para obtener más información acerca del comando. Como alternativa, puede usar el [Portal de administración][] para crear una máquina virtual personalizada mediante el método **Desde la galería** y seleccionar la imagen que acaba de crear. Consulte [Creación de una máquina virtual personalizada][] para obtener más detalles.
+La imagen está lista para ser utilizada como plantilla para crear máquinas virtuales. Puede usar el comando de la CLI de Azure `azure vm create` y proporcionar el nombre de la imagen que acaba de crear. Consulte [Uso de la CLI de Azure con la API de administración de servicios](virtual-machines-command-line-tools.md) para obtener más información acerca del comando. Como alternativa, puede usar el [Portal de administración][] para crear una máquina virtual personalizada mediante el método **Desde la galería** y seleccionar la imagen que acaba de crear. Vea [Creación de una máquina virtual personalizada][] para obtener más detalles.
 
 **Consulte también:**[Guía de usuario del Agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md)
 
 [Portal de administración]: http://manage.windowsazure.com
 [Inicio de sesión en una máquina virtual con Linux]: virtual-machines-linux-how-to-log-on.md
-[Acerca de las imágenes de máquina virtual en Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
-[Creación de una máquina virtual personalizada]: virtual-machines-create-custom.md
+[Acerca de las imágenes de máquina virtual en Azure]: virtual-machines-images.md
+[Creación de una máquina virtual personalizada]: virtual-machines-linux-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Creación de una máquina virtual que ejecuta Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

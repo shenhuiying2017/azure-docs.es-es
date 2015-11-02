@@ -21,6 +21,8 @@
 
 En este tema se ofrece información general acerca de algunos aspectos relacionados con el uso de las máquinas virtuales con Linux en la nube de Azure. La implementación de una máquina virtual con Linux es un proceso sencillo cuando se usa una imagen de la galería.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ## Autenticación: Nombres de usuario, contraseñas y claves SSH.
 
 Al crear una máquina virtual Linux con el Portal de administración de Azure, se le pedirá que facilite un nombre de usuario, una contraseña o una clave pública SSH. La elección de un nombre de usuario para implementar una máquina virtual Linux en Azure está sujeta a la siguiente limitación: no se admiten los nombres de cuentas del sistema (UID <100) ya existentes en la máquina virtual, como por ejemplo, "root".
@@ -97,4 +99,4 @@ En Linux el kernel debe poner al disco de datos el nombre `/dev/sdc` y los usuar
 
  - **Consulte también:** [Configuración del software RAID en Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

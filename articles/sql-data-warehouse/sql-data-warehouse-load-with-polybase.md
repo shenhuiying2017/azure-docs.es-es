@@ -36,7 +36,13 @@ Para seguir paso a paso este tutorial, necesita:
 
 En primer lugar, creará los objetos que requiere PolyBase para conectarse y consultar datos en el almacenamiento de blobs de Azure.
 
-> [AZURE.IMPORTANT]Los tipos de cuenta de Almacenamiento de Azure que admite PolyBase son los siguientes: + Almacenamiento estándar con redundancia local (Standard-LRS) + Almacenamiento estándar con redundancia geográfica (Standard-GRS) + Almacenamiento estándar con redundancia geográfica con acceso de lectura (Standard-RAGRS) PolyBase NO admite los tipos de cuenta Almacenamiento estándar con redundancia de zona (Standard-ZRS) y Almacenamiento premium con redundancia local. Si va a crear una cuenta de Almacenamiento de Azure, asegúrese de que selecciona desde el Plan de tarifa un tipo de cuenta que admita PolyBase.
+> [AZURE.IMPORTANT]Los tipos de cuenta de Almacenamiento de Azure admitidos por PolyBase son:
+> 
+> + Almacenamiento con redundancia local estándar (Standard-LRS)
+> + Almacenamiento con redundancia geográfica (Standard-GRS)
+> + Almacenamiento con redundancia geográfica con acceso de lectura (Standard-RAGRS)
+>
+> PolyBase NO admite los tipos de cuenta Almacenamiento con redundancia de zona estándar (Standard-ZRS) y Almacenamiento con redundancia local premium (Premium-LRS). Si va a crear una cuenta de Almacenamiento de Azure, asegúrese de que selecciona desde el Plan de tarifa un tipo de cuenta que admita PolyBase.
 
 
 ## Creación de clave maestra de base de datos
@@ -175,11 +181,11 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 ;
 ```
 
-> [AZURE.NOTE]Al quitar una tabla externa, debe usar `DROP EXTERNAL TABLE`. No **puede** usar `DROP TABLE`.
+> [AZURE.NOTE]Al quitar una tabla externa, debe usar `DROP EXTERNAL TABLE`. **No puede** usar `DROP TABLE`.
 
 Tema de referencia: [DROP EXTERNAL TABLE (Transact-SQL)][].
 
-También merece la pena mencionar que las tablas externas están visibles tanto en `sys.tables` como (de manera más exhaustiva) en las vistas de catálogo de `sys.external_tables`.
+También merece la pena mencionar que las tablas externas están visibles tanto en `sys.tables` como (de manera más específica) en las vistas de catálogo de `sys.external_tables`.
 
 ## Rotación de claves de almacenamiento
 
@@ -328,4 +334,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/es-ES/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/es-ES/library/ms189450.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Análisis en tiempo real de opinión de Twitter con Análisis de transmisiones | Microsoft Azure"
 	description="Aprenda a usar Análisis de transmisiones para el análisis en tiempo real de opinión de Twitter. Pasos desde la generación de eventos a los datos en un panel dinámico."
-	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
+	keywords="twitter en tiempo real,análisis de opiniones,análisis de los medios sociales,herramientas de análisis de los medios sociales"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -153,7 +153,7 @@ Para comparar el número de menciones entre temas, se aprovechará una [Tumbling
 
 #### Identificación de tendencias: ventana deslizante
 
-Para identificar las tendencias buscaremos temas que crucen un umbral para las menciones en un período determinado de tiempo. Para este tutorial, buscaremos temas que se mencionan más de 20 veces en los últimos 5 segundos con un [SlidingWindow](https://msdn.microsoft.com/library/azure/dn835051.aspx).
+Para identificar las tendencias buscaremos temas que crucen un umbral para las menciones en un período determinado de tiempo. Para este tutorial, buscaremos temas que se mencionan más de 20 veces en los últimos 5 segundos con una [ventana deslizante](https://msdn.microsoft.com/library/azure/dn835051.aspx).
 
 1.	Cambie la consulta en el editor de código a:
 
@@ -236,4 +236,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

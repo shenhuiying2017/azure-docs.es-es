@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Funcionamiento de la administración de contraseñas de Azure AD | Microsoft Azure"
-	description="Obtenga información sobre los distintos componentes de la administración de contraseñas de Azure AD, entre ellos, dónde los usuarios registran, restablecen y cambian sus contraseñas y dónde los administradores configurar y habilitan la administración de contraseñas de Active Directory locales, además de generar informes sobre ellas."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="Funcionamiento de la administración de contraseñas de Azure AD | Microsoft Azure" 
+	description="Obtenga información sobre los distintos componentes de la administración de contraseñas de Azure AD, entre ellos, dónde los usuarios registran, restablecen y cambian sus contraseñas y dónde los administradores configurar y habilitan la administración de contraseñas de Active Directory locales, además de generar informes sobre ellas." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Funcionamiento de la administración de contraseñas
@@ -38,7 +38,8 @@ Puede configurar directivas de administración de contraseñas para un directori
  - Preguntas de seguridad (autenticación basada en conocimiento)
 - Establecer el número de preguntas que un usuario debe registrar para usar el método de autenticación de preguntas de seguridad (solo visible si están habilitadas las preguntas de seguridad).
 - Establecer el número de preguntas que un usuario debe proporcionar durante el restablecimiento para usar el método de autenticación de preguntas de seguridad (solo visible si están habilitadas las preguntas de seguridad).
-- Definir las preguntas de seguridad personalizadas que un usuario puede elegir para registrarse para utilizar el método de autenticación de preguntas de seguridad (solo visible si están habilitadas las preguntas de seguridad).
+- Usar preguntas de seguridad predefinidas y adaptadas que un usuario pueda elegir usar al registrarse para el restablecimiento de contraseña (solo es visible si están habilitadas las preguntas de seguridad)
+- Definir preguntas de seguridad personalizadas que un usuario pueda elegir usar al registrarse para el restablecimiento de contraseña (solo es visible si están habilitadas las preguntas de seguridad)
 - Pedir a los usuarios que se registren para el restablecimiento de contraseñas cuando van al panel de acceso de la aplicación en [http://myapps.microsoft.com](http://myapps.microsoft.com).
 - Pedir a los usuarios que vuelvan a confirmar los datos registrados anteriormente después de un número de días configurable (solo visible si está habilitado el registro obligatorio).
 - Proporcionar una dirección URL o un correo electrónico de soporte técnico personalizados que se mostrarán a los usuarios en caso de que experimenten algún problema al restablecer sus contraseñas.
@@ -121,4 +122,4 @@ Para obtener más información sobre Azure AD Connect, consulte [Introducción a
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

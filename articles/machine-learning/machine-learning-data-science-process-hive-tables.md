@@ -2,7 +2,6 @@
 	pageTitle="Envío de consultas de Hive a clústeres de Hadoop en la tecnología y procesos de análisis avanzado | Microsoft Azure"
 	description="Procese datos de las tablas de subárbol con consultas de subárbol."
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -320,4 +319,4 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/15/2015"
+   ms.date="10/20/2015"
    ms.author="liviodlc"/>
 
 #Tutorial: Integración de Salesforce con Azure Active Directory
@@ -216,7 +216,7 @@ Puede seguir este tutorial con los vídeos a continuación.
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
+		> [AZURE.IMPORTANT] Si está aprovisionando un entorno de **desarrolladores** de Salesforce, dispondrá de un número muy limitado de licencias disponibles para cada perfil. Por tanto, es mejor aprovisionar usuarios al perfil **Usuario Chatter Free**, que tiene 4.999 licencias disponibles.
 
 4. Para probar la configuración de inicio de sesión única, abra el Panel de acceso en[https://myapps.microsoft.com](https://myapps.microsoft.com/) y, a continuación, inicie sesión en la cuenta de prueba y haga clic en **Salesforce**.
 
@@ -253,4 +253,4 @@ Puede seguir este tutorial con los vídeos a continuación.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/21/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Conexión a Almacenamiento de datos SQL 
@@ -151,11 +151,11 @@ Una vez conectado, puede empezar a diseñar las tablas. Consulte el artículo so
 <!--Image references-->
 
 <!--Azure.com references-->
-[conexiones y consultas]: sql-data-warehouse-get-started-connect-query.md
-[diseño de tablas]: sql-data-warehouse-develop-table-design.md
+[conexiones y consultas]: ./sql-data-warehouse-get-started-connect.md
+[diseño de tablas]: ./sql-data-warehouse-develop-table-design.md
 
 <!--MSDN references-->
 
 <!--Other references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

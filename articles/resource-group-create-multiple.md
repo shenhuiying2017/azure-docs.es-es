@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/27/2015"
+   ms.date="10/20/2015"
    ms.author="tomfitz"/>
 
 # Creación de varias instancias de recursos en el Administrador de recursos de Azure
@@ -61,12 +61,14 @@ Use la siguiente plantilla:
           "name": "[concat('examplecopy-', copyIndex())]", 
           "type": "Microsoft.Web/sites", 
           "location": "East US", 
-          "apiVersion": "2014-06-01",
+          "apiVersion": "2015-08-01",
           "copy": { 
              "name": "websitescopy", 
              "count": "[parameters('count')]" 
           }, 
-          "properties": {} 
+          "properties": {
+              "serverFarmId": "hostingPlanName"
+          }
       } 
     ]
 
@@ -103,20 +105,55 @@ Use la siguiente plantilla:
           "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
           "type": "Microsoft.Web/sites", 
           "location": "East US", 
-          "apiVersion": "2014-06-01",
+          "apiVersion": "2015-08-01",
           "copy": { 
              "name": "websitescopy", 
              "count": "[length(parameters('org'))]" 
           }, 
-          "properties": {} 
+          "properties": {
+              "serverFarmId": "hostingPlanName"
+          } 
       } 
     ]
 
 Por supuesto, establezca el número de copias en un valor distinto de la longitud de la matriz. Por ejemplo, podría crear una matriz con muchos valores y, a continuación, pasar un valor de parámetro que especifique el número de elementos de la matriz a implementar. En ese caso, establezca el número de copias como se muestra en el primer ejemplo.
+
+## Dependencia de los recursos de un bucle
+
+Puede especificar que un recurso se implemente después de otro recurso mediante el elemento **dependsOn**. Cuando necesite implementar un recurso que dependa de la colección de recursos de un bucle, puede proporcionar el nombre del bucle copy en el elemento **dependsOn**. En el ejemplo siguiente se muestra cómo implementar 3 cuentas de almacenamiento antes de implementar la máquina virtual. La definición de la máquina virtual no se muestra. Tenga en cuenta que el elemento copy tiene **name** establecido en **storagecopy** y el elemento **dependsOn** para las máquinas virtuales también se establece en **storagecopy**.
+
+    {
+	    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	    "contentVersion": "1.0.0.0",
+	    "parameters": {},
+	    "resources": [
+	        {
+		        "apiVersion": "2015-06-15",
+		        "type": "Microsoft.Storage/storageAccounts",
+		        "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex())]",
+		        "location": "[resourceGroup().location]",
+		        "properties": {
+                    "accountType": "Standard_LRS"
+            	 },
+		        "copy": { 
+         	        "name": "storagecopy", 
+         	        "count": 3 
+      		    }
+	        },
+           {
+               "apiVersion": "2015-06-15", 
+               "type": "Microsoft.Compute/virtualMachines", 
+               "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+               "dependsOn": ["storagecopy"],
+               ...
+           }
+	    ],
+	    "outputs": {}
+    }
 
 ## Pasos siguientes
 - Para obtener información sobre las secciones de una plantilla, consulte [Creación de plantillas del Administrador de recursos de Azure](./resource-group-authoring-templates.md).
 - Para obtener todas las funciones que puede usar en una plantilla, consulte [Funciones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md).
 - Para obtener información sobre cómo implementar la plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
 # Instalación y configuración de Endpoint Protection en una máquina virtual de Azure
@@ -88,7 +88,7 @@ Para comprobar que la extensión de seguridad de Symantec se ha instalado y est�
 
 [Portal]: http://manage.windowsazure.com
 
-[Create]: virtual-machines-windows-tutorial.md
+[Create]: virtual-machines-windows-tutorial-classic-portal.md
 
 [PS]: ../powershell-install-configure.md
 
@@ -98,4 +98,4 @@ Para comprobar que la extensión de seguridad de Symantec se ha instalado y est�
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

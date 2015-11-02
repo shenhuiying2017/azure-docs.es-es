@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="cloud-services"
+   ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -49,4 +49,4 @@ Este documento describe un patrón para proporcionar acceso a servicios web o al
 
 [Nivel de procesamiento por lotes](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

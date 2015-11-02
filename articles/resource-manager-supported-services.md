@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/13/2015"
+   ms.date="10/19/2015"
    ms.author="tomfitz"/>
 
-# Compatibilidad del Administrador de recursos de Azure con servicios y regiones
+# Compatibilidad del Administrador de recursos para servicios, regiones y versiones de API
 
 El Administrador de recursos de Azure le proporciona una nueva manera de implementar y administrar los servicios que conforman sus aplicaciones. La mayoría de los servicios, aunque no todos, admiten el Administrador de recursos y algunos lo admiten solo parcialmente. Microsoft habilitará el Administrador de recursos para cada servicio que sea importante para las soluciones futuras, pero hasta que la compatibilidad sea coherente, debe conocer el estado actual de cada servicio. Este tema proporciona una lista de proveedores de recursos admitidos para el Administrador de recursos de Azure.
 
-Al implementar sus recursos, también debe saber qué regiones admiten esos recursos. La sección [Regiones admitidas](#supported-regions) muestra cómo averiguar qué regiones funcionarán para su suscripción y recursos.
+Al implementar sus recursos, también debe saber qué regiones admiten esos recursos y qué versiones de API están disponibles para los recursos. En la sección [Regiones admitidas](#supported-regions) se muestra cómo averiguar qué regiones funcionarán para su suscripción y recursos. En la sección [Versiones de API admitidas](#supported-api-versions) se muestra cómo determinar las versiones de API que puede usar.
 
-En las tablas siguientes se muestra qué servicios admiten la implementación y administración a través del Administrador de recursos y cuáles no. La columna titulada **Mover recursos** hace referencia a si los recursos de este tipo se pueden mover tanto a un nuevo grupo de recursos como a una nueva suscripción. La columna titulada **Portal de vista previa** indica si puede crear el servicio a través del Portal de vista previa.
+En las tablas siguientes se muestra qué servicios admiten la implementación y administración a través del Administrador de recursos y cuáles no. La columna titulada **Mover recursos** hace referencia a si los recursos de este tipo se pueden mover tanto a un nuevo grupo de recursos como a una nueva suscripción. La columna titulada **Portal de vista previa** indica si puede crear el servicio a través del portal de vista previa.
 
 
 ## Proceso
@@ -32,9 +32,9 @@ En las tablas siguientes se muestra qué servicios admiten la implementación y 
 | Máquinas virtuales | Sí | Sí | No | [Crear una máquina virtual](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Lote | Sí | No | | [REST de Lote](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics Lifecycle Services | Sí | No | | | |
-| Máquinas virtuales (clásicas) | Limitado | No | Parcial (ver a continuación) | - | - | | RemoteApp | No | - | - | - | - | | Service Fabric | No | - | - | - | - |
+| Máquinas virtuales (clásicas) | Limitado | Sí | Parcial (ver a continuación) | - | - | | RemoteApp | No | - | - | - | - | | Service Fabric | No | - | - | - | - |
 
-Máquinas virtuales (clásicas) hace referencia a recursos que se implementaron mediante el modelo de implementación clásica, en lugar de a través del modelo de implementación del Administrador de recursos. En general, estos recursos no admiten las operaciones del Administrador de recursos, pero hay algunas operaciones que se han habilitado. Para obtener más información sobre estos modelos de implementación, consulte [Descripción de la implementación del Administrador de recursos y la implementación clásica](resource-manager-deployment-model.md).
+Máquinas virtuales (clásicas) hace referencia a recursos que se implementaron mediante el modelo de implementación clásica, en lugar de a través del modelo de implementación del Administrador de recursos. En general, estos recursos no admiten las operaciones del Administrador de recursos, pero hay algunas operaciones que se han habilitado. Para obtener más información sobre estos modelos de implementación, vea [Descripción de la implementación del Administrador de recursos y la implementación clásica](resource-manager-deployment-model.md).
 
 Los recursos de Máquinas virtuales (clásicas) se pueden mover a un nuevo grupo de recursos, pero no a una nueva suscripción.
 
@@ -86,7 +86,7 @@ Al trabajar con aplicaciones web, no se puede mover solo un plan del Servicio de
 | Equilibrador de carga | Sí | | | [Cree un equilibrador de carga](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
 | Redes virtuales | Sí | Sí | No | [Cree una red virtual:](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
 | Administrador de tráfico | Sí | No | | [Creación de un perfil del Administrador de tráfico](https://msdn.microsoft.com/library/azure/mt163581.aspx) | |
-| ExpressRoute | No | No | - | - | - |
+| ExpressRoute | Sí | No | No | [REST de ExpressRoute](https://msdn.microsoft.com/library/azure/mt586720.aspx) | |
 
 ## Multimedia y CDN
 
@@ -135,11 +135,11 @@ Antes de implementar sus recursos, compruebe las regiones admitidas para su tipo
 
 ### API de REST
 
-Su mejor opción para detectar qué regiones están disponibles para un tipo de recurso determinado es la operación [Enumerar todos los proveedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx). Esta operación devuelve solo aquellas regiones que están disponibles para su suscripción y tipo de recurso.
+Para detectar qué regiones están disponibles para un tipo de recurso determinado en su suscripción, use la operación [Enumerar todos los proveedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx).
 
 ### PowerShell
 
-En el ejemplo siguiente se muestra cómo obtener las regiones admitidas para sitios web mediante la versión de vista previa 1.0 de Azure PowerShell. Para obtener más información sobre la versión de vista previa 1.0, consulte [Vista previa de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/)
+En el ejemplo siguiente se muestra cómo obtener las regiones admitidas para sitios web mediante la versión de vista previa 1.0 de Azure PowerShell. Para obtener más información sobre la versión de vista previa 1.0, consulte [Vista previa de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
     PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
@@ -177,4 +177,44 @@ Que devuelve:
             North Europe,South Central US,West Europe,West US,Southeast Asia,Central US,East US 2"
     }
 
-<!---HONumber=Oct15_HO3-->
+## Versiones de API compatibles
+
+Cuando implemente una plantilla, debe especificar una versión de API que se usará para crear cada recurso. La versión de API se corresponde a una versión de operaciones de API de REST que se publican por el proveedor de recursos. Conforme un proveedor de recursos habilite nuevas características, publicará una nueva versión de la API de REST. Por lo tanto, la versión de la API que especifica en la plantilla afecta a qué propiedades puede especificar en la plantilla. En general, deseará seleccionar la versión de la API más reciente al crear nuevas plantillas. Para las plantillas existentes, puede decidir si quiere continuar usando una versión anterior de la API o actualizar la plantilla para que la versión más reciente aproveche las nuevas características.
+
+### API de REST
+
+Para detectar qué versiones de la API están disponibles para los tipos de recursos, use la operación [Enumerar todos los proveedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx).
+
+### PowerShell
+
+En el ejemplo siguiente se muestra cómo obtener las versiones de API disponibles para un tipo de recurso concreto mediante la vista previa de Azure PowerShell 1.0.
+
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+    
+La salida debe ser similar a:
+    
+    2015-08-01
+    2015-07-01
+    2015-06-01
+    2015-05-01
+    2015-04-01
+    2015-02-01
+    2014-11-01
+    2014-06-01
+    2014-04-01-preview
+    2014-04-01
+
+### Azure CLI
+
+Puede guardar la información (incluidas las versiones disponibles de la API) para un proveedor de recursos en un archivo con el siguiente comando.
+
+    azure provider show Microsoft.Web -vv --json > c:\temp.json
+
+Puede abrir el archivo y buscar el elemento **apiVersions**.
+
+## Pasos siguientes
+
+- Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
+- Para obtener información sobre cómo implementar recursos, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](./azure-portal/resource-group-template-deploy.md).
+
+<!---HONumber=Oct15_HO4-->

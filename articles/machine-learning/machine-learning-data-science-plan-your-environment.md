@@ -2,9 +2,8 @@
 	pageTitle="Planeación del entorno de análisis avanzado de Aprendizaje automático | Microsoft Azure" 
 	description="Planee su entorno de análisis avanzado teniendo en cuenta las preguntas claves." 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -14,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
-	ms.author="mohabib;bradsev" />
+	ms.date="10/18/2015" 
+	ms.author="bradsev" />
 
 
-# Planeación del entorno de análisis avanzado de Aprendizaje automático de Azure
+# Planeación del entorno para el proceso de análisis de Cortana
 
-¿Qué escenario coincide con su problema de análisis cuando se esté preparando para configurar un entorno para realizar una análisis avanzado con el aprendizaje automático de Azure? Las opciones que elija respecto a los recursos necesarios se basarán en el tipo, el tamaño y la ubicación de origen de los datos y en el destino de los mismos. Este artículo trata esas preguntas que le ayudarán a identificar su escenario.
+¿Qué escenario coincide con su problema de análisis cuando se esté preparando para configurar un entorno para realizar una análisis avanzado con el proceso de análisis avanzado? Las opciones que elija respecto a los recursos necesarios se basarán en el tipo, el tamaño y la ubicación de origen de los datos y en el destino de los mismos. Este artículo trata esas preguntas que le ayudarán a identificar su escenario.
 
-Cuando haya identificado el escenario correspondiente, el flujo de trabajo de la tecnología y proceso de análisis avanzados (ADAPT) que se presenta en la [Ruta de aprendizaje: Creación de soluciones de análisis avanzado de Azure](machine-learning-data-science-how-to-create-machine-learning-service.md) le guía a través de una serie de tareas, desde la obtención de un conjunto de datos hasta la creación y publicación de un modelo como servicio web de Azure que las aplicaciones pueden consumir.
+Cuando haya identificado el escenario correspondiente, el flujo de trabajo del proceso de análisis de Cortana que se presenta en la [Ruta de aprendizaje: Creación de soluciones de análisis avanzado de Azure](machine-learning-data-science-how-to-create-machine-learning-service.md) le guía a través de una serie de tareas, desde la obtención de un conjunto de datos hasta la creación y publicación de un modelo como servicio web de Azure que las aplicaciones pueden consumir.
 
 Este tema también enumera algunos de los recursos y herramientas que se usan por este proceso de análisis de avanzado.
 
@@ -80,4 +79,4 @@ Según el escenario, puede que necesite algunas de las siguientes herramientas y
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

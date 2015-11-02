@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect: historial de versiones
@@ -42,12 +42,32 @@ Fecha de publicación: agosto de 2015
 - La escritura diferida de contraseñas produce un error en alguna configuración debido a una contraseña incorrecta en el conector de Active Directory.
 - No se puede actualizar la sincronización de directorios si dn se usa en el filtrado de atributos.
 
+**Características de versión la preliminar eliminadas:**
+
+- La característica de la versión preliminar [Reescritura de usuarios](active-directory-aadconnect-feature-preview.md#user-writeback) se ha eliminado temporalmente a raíz de los comentarios de nuestros clientes de dicha versión. Se volverá a agregar más adelante después de examinar los comentarios proporcionados.
+
 ## 1\.0.8641.0
 Fecha de publicación: junio de 2015
 
 **Versión inicial de Azure AD Connect.**
 
 Ha cambiado el nombre de Azure AD Sync a Azure AD Connect.
+
+**Nuevas características:**
+
+- Instalación de [configuración rápida](active-directory-aadconnect-get-started-express.md)
+- Posibilidad de [configurar ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+- Posibilidad de [actualizar desde DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+- [Evitar eliminaciones accidentales](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
+- Se ha introducido el [modo de ensayo](active-directory-aadconnectsync-operations.md#staging-mode)
+
+**Nuevas características de la versión preliminar:**
+
+- [Reescritura de usuarios](active-directory-aadconnect-feature-preview.md#user-writeback)
+- [Escritura diferida de grupos](active-directory-aadconnect-feature-preview.md#group-writeback)
+- [Escritura diferida de dispositivos](active-directory-aadconnect-get-started-custom-device-writeback.md)
+- [Extensiones de directorio](active-directory-aadconnect-feature-preview.md#directory-extensions)
+
 
 ## 1\.0.494.0501
 Fecha de publicación: mayo de 2015
@@ -96,7 +116,7 @@ Fecha de publicación: diciembre de 2014
 
 **Nuevas características:**
 
-- Ahora es posible realizar la sincronización de contraseñas con filtrado basado en atributos. Para obtener más detalles, consulte la sincronización de contraseña con filtrado.
+- Ahora es posible realizar la sincronización de contraseñas con filtrado basado en atributos. Para obtener más detalles, consulte [Sincronización de contraseñas con filtrado](active-directory-aadconnectsync-configure-filtering.md).
 - El atributo msDS-ExternalDirectoryObjectID se reescribe en AD. De esta forma se agrega compatibilidad con las aplicaciones de Office 365 mediante OAuth2 para tener acceso tanto a los buzones en línea como locales en una implementación híbrida de Exchange.
 
 **Problemas de actualización corregidos:**
@@ -140,4 +160,4 @@ Fecha de publicación: septiembre de 2014
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

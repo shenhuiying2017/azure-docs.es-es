@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Configuración del registro de Cloud App Discovery para los servicios de proxy" 
+	pageTitle="Configuración del Registro de Cloud App Discovery para los servicios de proxy | Microsoft Azure" 
 	description="El objetivo de este tema es proporcionarle los pasos que debe llevar a cabo para establecer el puerto requerido en los equipos que ejecutan el agente de Cloud App Discovery." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="swadhwa" 
-	editor="lisatoft"/>
+	manager="stevenpo"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="10/20/2015" 
 	ms.author="markusvi"/>
 
 # Configuración del registro de Cloud App Discovery para los servicios de proxy
@@ -48,4 +47,4 @@ El objetivo de este tema es proporcionarle los pasos que debe llevar a cabo para
 
 * [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

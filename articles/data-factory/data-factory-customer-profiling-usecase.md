@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.date="10/20/2015" 
 	ms.author="spelluru"/>
 
 # Caso de uso - Generación de perfiles de clientes
@@ -48,4 +48,4 @@ En este caso de uso de ejemplo, se usa Factoría de datos de Azure para coordina
 
 Al optimizar el análisis de su perfil de usuario y alinearlo con los objetivos empresariales, la empresa de juegos puede recopilar rápidamente los patrones de uso y analizar la eficacia de sus campañas de marketing para todos sus productos de juegos diferentes.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

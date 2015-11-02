@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="10/15/2015"
 	ms.author="jgao"/>
 
 
@@ -34,7 +34,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 - Ejecución del mismo trabajo de MapReduce en HDInsight de Azure
 - Recuperación de los resultados del trabajo de MapReduce
 
-##<a name="prerequisites"></a>Requisitos previos
+##Requisitos previos
 
 Antes de empezar este tutorial, debe haber realizado lo siguiente:
 
@@ -43,7 +43,7 @@ Antes de empezar este tutorial, debe haber realizado lo siguiente:
 - Obtenga una suscripción de Azure. Para obtener más información, consulte [Opciones de compra][azure-purchase-options], [Ofertas para miembros][azure-member-offers] o [Prueba gratuita][azure-free-trial].
 
 
-##<a name="develop"></a>Desarrollo de un programa de streaming de Hadoop para el recuento de palabras en C&#35;
+##Desarrollo de un programa de streaming de Hadoop para el recuento de palabras en C&#35;
 
 La solución para el recuento de palabras contiene dos proyectos de aplicaciones de consola: asignador y reductor. La aplicación del asignador transmite cada palabra a la consola y la aplicación del reductor cuenta la cantidad de palabras que se transmiten desde un documento. Tanto el asignador como el reductor leen caracteres, línea por línea, a partir del flujo de entrada estándar (stdin) y escriben en el flujo de salida estándar (stdout).
 
@@ -156,7 +156,7 @@ Los ejecutables de las aplicaciones del asignador y reductor se encuentran en:
 - C:\\Tutorials\\WordCount\\WordCountReducer\\bin\\Debug\\WordCountReducer.exe
 
 
-##<a name="test"></a>Prueba del programa en el emulador
+##Prueba del programa en el emulador
 
 Realice las siguientes acciones para probar el programa en el emulador de HDInsight:
 
@@ -273,7 +273,7 @@ Este tutorial utiliza los archivos .txt ubicados en el directorio %hadoop\_home%
 
 **Para comprobar el estado del trabajo**
 
-1. En el escritorio, haga clic en **Estado de Hadoop YARN** o vaya a ****http://localhost:50030/jobtracker.jsp**.
+1. En el escritorio, haga clic en **Estado de YARN en Hadoop** o vaya a ****http://localhost:50030/jobtracker.jsp**.
 2. Encuentre el trabajo mediante el identificador de trabajo en la categoría **EN EJECUCIÓN** o **FINALIZADO**.
 3. Si un trabajo tiene errores, puede encontrarlo en la categoría **CON ERROR**. También puede abrir los detalles del trabajo y encontrar información útil para la depuración.
 
@@ -288,7 +288,7 @@ Este tutorial utiliza los archivos .txt ubicados en el directorio %hadoop\_home%
 
 	Puede anexar "|more" al final del comando para obtener la vista de la página.
 
-##<a id="upload"></a>Carga de datos al almacenamiento de blobs de Azure
+##Carga de archivos de datos al almacenamiento de blobs de Azure
 HDInsight de Azure usa el almacenamiento de blobs de Azure como sistema de archivos predeterminado. Puede configurar un clúster de HDInsight para utilizar almacenamiento de blobs adicional para los archivos de datos. En esta sección, creará una cuenta de almacenamiento de Azure y cargará los archivos de datos en el almacenamiento de blobs. Los archivos de datos son los archivos .txt del directorio %hadoop\_home%\\share\\doc\\hadoop\\common.
 
 
@@ -377,7 +377,7 @@ HDInsight de Azure usa el almacenamiento de blobs de Azure como sistema de archi
 	Deben aparecer los dos archivos de aplicación indicados aquí.
 
 
-##<a name="run"></a>Ejecución del trabajo de MapReduce en HDInsight de Azure
+##Ejecución del trabajo de MapReduce en HDInsight de Azure
 
 En esta sección se incluye un script de Azure PowerShell que realiza todas las tareas relacionadas con la ejecución de un trabajo de MapReduce. La lista de tareas incluye:
 
@@ -493,7 +493,7 @@ En esta sección se incluye un script de Azure PowerShell que realiza todas las 
 Para ver un ejemplo del SDK .NET de HDInsight sobre el envío de trabajos de streaming de Hadoop, consulte [Envío de trabajos de Hadoop mediante programación][hdinsight-submit-jobs].
 
 
-##<a name="retrieve"></a>Recuperación del resultado del trabajo de MapReduce
+##Recuperación del resultado del trabajo de MapReduce
 En esta sección se muestra cómo descargar y mostrar los resultados. Para obtener información sobre cómo mostrar los resultados en Excel, consulte [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver][hdinsight-ODBC] y [Conexión de Excel a HDInsight con Power Query][hdinsight-power-query].
 
 
@@ -520,7 +520,7 @@ En esta sección se muestra cómo descargar y mostrar los resultados. Para obten
 
 
 
-##<a id="nextsteps"></a>Pasos siguientes
+##Pasos siguientes
 En este tutorial aprendió a desarrollar un trabajo de MapReduce de streaming de Hadoop, a probar la aplicación en el emulador de HDInsight y a escribir un script de Azure PowerShell para aprovisionar un clúster de HDInsight y ejecutar un trabajo de MapReduce en el clúster. Para obtener más información, consulte los artículos siguientes:
 
 - [Introducción a HDInsight de Azure](../hdinsight-get-started.md)
@@ -555,4 +555,4 @@ En este tutorial aprendió a desarrollar un trabajo de MapReduce de streaming de
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "Flujo de la aplicación de recuento de palabras de MapReduce"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

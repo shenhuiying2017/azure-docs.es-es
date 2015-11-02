@@ -378,11 +378,8 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 18. Compruebe que se crea un archivo de salida en la carpeta **apifactoryoutput** en el contenedor de **adftutorial**.
 
 
-## Otras referencias
 
-Artículo | Descripción
------- | ---------------
-[Referencia para desarrolladores de Factoría de datos de Azure][developer-reference] | La Referencia para desarrolladores incluye contenido de referencia completo para la biblioteca de clase .NET, cmdlets, scripts JSON, funciones, etc. 
+> [AZURE.NOTE]El código de ejemplo anterior inicia un cuadro de diálogo para que escriba las credenciales de Azure. Si necesita iniciar sesión mediante programación sin usar un cuadro de diálogo, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell).
 
 
 [data-factory-introduction]: data-factory-introduction.md
@@ -395,4 +392,4 @@ Artículo | Descripción
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

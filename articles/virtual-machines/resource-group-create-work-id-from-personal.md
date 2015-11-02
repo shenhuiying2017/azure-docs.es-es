@@ -19,21 +19,20 @@
 
 # Crear una identidad profesional o educativa en Azure Active Directory
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Si creó una cuenta de Azure personal o tiene una suscripción a MSDN personal y creó la cuenta de Azure para beneficiarse de los créditos de Azure de MSDN, usó una identidad de *cuenta Microsoft* para crearla. Muchas características excelentes de Azure (las [plantillas de grupo de recursos](../resource-group-overview.md) son un ejemplo) requieren una cuenta profesional o educativa (una identidad administrada por Azure Active Directory) para que funcione.
-
-
-> [AZURE.NOTE]Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../resource-manager-deployment-model.md). En este artículo se trata el uso de ambos modelos, pero Microsoft recomienda que la mayoría de las nuevas implementaciones usen el modelo del Administrador de recursos.
 
 
 Afortunadamente, una de las ventajas de su cuenta de Azure personal es que se incluye con un dominio de Azure Active Directory predeterminado que se puede usar para crear una nueva cuenta profesional o educativa que puede usar con las características de Azure que lo requieran.
 
-> [AZURE.NOTE]Si un administrador le asignó un nombre de usuario y una contraseña, hay muchas posibilidades de que ya disponga de un id. profesional o educativo (también denominado en ocasiones *id. de organización*). Si es así, puede comenzar inmediatamente a usar su cuenta de Azure para acceder a recursos de Azure que lo requieran. Si descubre que no puede usar esos recursos, puede que necesite volver a este artículo para obtener ayuda. Para obtener más información, vea [Cuentas que puede usar para iniciar sesión](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) y [Cómo se relaciona una suscripción de Azure con Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
+> [AZURE.NOTE]Si se le asignó un nombre de usuario y una contraseña por un administrador, hay muchas posibilidades de que ya disponga de un id. profesional o educativo (también denominado en ocasiones *id. de organización*). Si es así, puede comenzar inmediatamente a usar su cuenta de Azure para acceder a recursos de Azure que lo requieran. Si descubre que no puede usar esos recursos, puede que necesite volver a este artículo para obtener ayuda. Para obtener más información, vea [Cuentas que puede usar para iniciar sesión](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) y [Cómo se relaciona una suscripción de Azure con Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
 
 Los pasos son sencillos. Necesita encontrar su identidad con la que ha iniciado sesión en el portal de Azure, descubrir su dominio de Azure Active Directory predeterminado y agregarle un nuevo usuario como coadministrador de Azure.
 
 ## Buscar el directorio predeterminado en el Portal de Azure
 
-Empiece por iniciar sesión en el [Portal de Azure](https://manage.windowsazure.com) con su identidad de la cuenta de Microsoft personal. Cuando haya iniciado sesión, desplácese hacia abajo en el panel azul del lado izquierdo y haga clic en **ACTIVE DIRECTORY**.
+Empiece por iniciar sesión en el [portal de Azure](https://manage.windowsazure.com) con su identidad de la cuenta de Microsoft personal. Cuando haya iniciado sesión, desplácese hacia abajo en el panel azul del lado izquierdo y haga clic en **ACTIVE DIRECTORY**.
 
 ![Azure Active Directory](./media/resource-group-create-work-id-from-personal/azureactivedirectorywidget.png)
 
@@ -75,7 +74,7 @@ Copie la dirección de correo electrónico del nombre de usuario o use **ENVIAR 
 
 ![](./media/resource-group-create-work-id-from-personal/receivedtemporarypassworddialog.png)
 
-Ahora debería ver el nuevo usuario, **Ahmet el desarrollador**, con origen en Azure Active Directory. Ha creado la nueva identidad profesional o educativa con Azure Active Directory. Sin embargo, esta identidad no tiene permisos todavía para usar recursos de Azure.
+Ahora debe ver el nuevo usuario **Ahmet el desarrollador**, con origen en Azure Active Directory. Ha creado la nueva identidad profesional o educativa con Azure Active Directory. Sin embargo, esta identidad no tiene permisos todavía para usar recursos de Azure.
 
 ![](./media/resource-group-create-work-id-from-personal/defaultdirectoryusersaftercreate.png)
 
@@ -145,4 +144,4 @@ Ahora puede usar su nueva identidad de Azure Active Directory para usar [plantil
     data:
     info:    group create command OK
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
-#Instalación de MongoDB en una máquina virtual con Windows Server
+#Instalación de MongoDB en una máquina virtual de Windows
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
@@ -51,4 +51,4 @@ En este tutorial se ha descrito cómo crear una máquina virtual con Windows Ser
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

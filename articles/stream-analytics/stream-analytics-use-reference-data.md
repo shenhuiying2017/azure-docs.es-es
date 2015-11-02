@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Uso de datos de referencia | Microsoft Azure" 
 	description="Uso de datos de referencia como flujo de entrada" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="análisis de macrodatos,servicio en la nube,internet de las cosas,servicio administrado, procesamiento de transmisiones,streaming de datos"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -76,7 +76,7 @@ Si los datos de referencia es un conjunto de datos que cambia con poca frecuenci
 
 > [AZURE.NOTE]Actualmente los trabajos de Análisis de transmisiones buscan la actualización de blobs solo cuando la hora del equipo coincide con la hora codificada en el nombre del blob. Por ejemplo el trabajo buscará /sample/2015-04-16/17:30/products.csv entre las 5:30 p.m. y las 5:30:59.9 p.m. el 16 de abril de 2015, zona horaria UTC. Cuando el reloj de la máquina marca las 5:31 p.m., para de buscar /sample/2015-04-16/17:30/products.csv y comienza a buscar /sample/2015-04-16/17:31/products.csv. La única vez que se tienen en cuenta los blobs de datos de referencia anteriores es cuando comienza el trabajo. En ese momento, el trabajo busca el blob más reciente generado antes de la hora de inicio especificada del trabajo. Esto se hace para garantizar que no hay datos de referencia vacíos establecidos al principio del trabajo. Si no se encuentra ninguno, se producirá un error en el trabajo y se mostrará un aviso de diagnóstico al usuario.
 
-[Factoría de datos de Azure](http://azure.microsoft.com/documentation/services/data-factory/) puede usarse para orquestar la tarea de crear los blobs actualizados requeridos por Análisis de transmisiones para actualizar las definiciones de datos de referencia. Factoría de datos es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. Factoría de datos admite la [conexión a un gran número de almacenes de datos locales y en la nube](./articles/data-factory-data-movement-activities.md) y el desplazamiento sencillo de los datos con la regularidad que se especifique. Para obtener más información e instrucciones paso a paso acerca de cómo configurar una canalización de Factoría de datos para generar datos de referencia para Análisis de transmisiones que se actualiza según una programación predefinida, consulte este [ejemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
+[Factoría de datos de Azure](http://azure.microsoft.com/documentation/services/data-factory/) puede usarse para orquestar la tarea de crear los blobs actualizados requeridos por Análisis de transmisiones para actualizar las definiciones de datos de referencia. Factoría de datos es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. Factoría de datos admite la [conexión a un gran número de almacenes de datos locales y en la nube](./articles/data-factory-data-movement-activities.md) y el desplazamiento sencillo de los datos con la regularidad que se especifique. Para obtener más información e instrucciones paso a paso sobre cómo configurar una canalización de Factoría de datos para generar datos de referencia para Análisis de transmisiones que se actualiza según una programación predefinida, consulte este [ejemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 
 ## Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
@@ -97,4 +97,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

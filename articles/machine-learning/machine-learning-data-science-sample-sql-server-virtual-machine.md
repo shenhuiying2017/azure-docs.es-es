@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="10/18/2015" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Muestreo de datos en SQL Server en Azure
 
-Este documento trata los datos de muestreo almacenados en SQL Server en Azure con SQL y con el lenguaje de programación Python.
+Este documento trata cómo realizar un muestreo de datos almacenados en SQL Server en Azure con SQL y con el lenguaje de programación Python. También muestra cómo mover los datos del muestreo en Aprendizaje automático de Azure guardándolo en un archivo, cargándolo en un blob de Azure, y a continuación, leyéndolo en Aprendizaje automático de Azure.
 
->[AZURE.NOTE]En el código SQL de ejemplo en este documento se supone que los datos están en un servidor SQL Server en Azure. Si no lo está, consulte el tema [Mover datos a SQL Server en Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) en la [Guía de procesos de datos avanzados](machine-learning-data-science-advanced-data-processing.md) para obtener instrucciones para mover los datos a SQL Server en Azure.
+El muestreo de Python usa la biblioteca ODBC [pyodbc](https://code.google.com/p/pyodbc/) para conectarse a SQL Server en Azure y la biblioteca [Pandas](http://pandas.pydata.org/) para realizar el muestreo.
+
+>[AZURE.NOTE]En el código SQL de ejemplo en este documento se supone que los datos están en un servidor SQL Server en Azure. Si no lo está, consulte el tema [Movimiento de datos a SQL Server en Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) para obtener instrucciones sobre cómo mover los datos a SQL Server en Azure.
 
 ##<a name="SQL"></a>Uso de SQL
 
@@ -55,7 +57,7 @@ Puede utilizar directamente las consultas de ejemplo anteriores en el módulo de
 
 ##<a name="python"></a>Uso del lenguaje de programación Python 
 
-En esta sección se muestra cómo usar la biblioteca pyodbc para conectarse a una base de datos de SQL server en Python. La cadena de conexión de la base de datos se muestra a continuación: (reemplace servername, dbname, username y password por su configuración):
+En esta sección se muestra cómo usar la [biblioteca pyodbc](https://code.google.com/p/pyodbc/) para establecer una conexión de ODBC a una base de datos de SQL Server en Python. La cadena de conexión de la base de datos se muestra a continuación: (reemplace servername, dbname, username y password por su configuración):
 
 	#Set up the SQL Azure connection
 	import pyodbc	
@@ -104,13 +106,13 @@ Puede usar el siguiente código de ejemplo para guardar los datos muestreados re
  
 ![lector de blobs][2]
 
-## Ejemplo de Tecnología y procesos de análisis avanzado (ADAPT) en acción
+## Ejemplo de proceso de análisis de Cortana en acción
 
-Para obtener un ejemplo de tutorial de extremo a extremo sobre la Tecnología y procesos de análisis avanzado (ADAPT) con un conjunto de datos público, consulte [Tecnología y procesos de análisis avanzado de Azure en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+Para ver un tutorial de ejemplo completo del proceso de análisis de Cortana usando un conjunto de datos público, consulte [Proceso de análisis de Cortana en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

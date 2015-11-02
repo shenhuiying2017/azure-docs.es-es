@@ -3,7 +3,7 @@
 	description="En este tema se ofrece información general sobre los códecs y formatos de Azure Media Encoder Standard." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015"
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Códecs y formatos de Media Encoder Standard
@@ -119,4 +119,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 [Codificación con Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

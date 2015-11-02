@@ -21,7 +21,7 @@
 ## Directrices para seleccionar una red virtual de Azure
 Al seleccionar una red virtual para usar con los Servicios de dominio de Azure AD, tenga en cuenta las siguientes pautas:
 
-- Asegúrese de seleccionar una red virtual de una región que sea compatible con los Servicios de dominio de Azure AD. La lista actual de regiones de Azure compatibles está disponible en la página de [regiones](active-directory-ds-regions.md).
+- Asegúrese de seleccionar una red virtual de una región que sea compatible con los Servicios de dominio de Azure AD. La lista actual de regiones de Azure compatibles está disponible en la [página de regiones](active-directory-ds-regions.md).
 - Si planea usar una red virtual existente, asegúrese de que sea una red virtual regional. Las redes virtuales que usan el mecanismo de grupos de afinidad heredados no se puede usar con los Servicios de dominio de Azure AD. Deberá [migrar las redes virtuales heredadas a redes virtuales regionales](../virtual-networks-migrate-to-regional-vnet.md).
 - Seleccione la red virtual que hospeda o va a hospedar las máquinas virtuales que necesitan acceso a los Servicios de dominio de Azure AD. No podrá mover los servicios de dominio a otra red virtual más adelante.
 
@@ -55,4 +55,4 @@ Realice el siguiente paso de configuración para crear una red virtual de Azure 
 ---
 [**Paso siguiente: Habilitación de los Servicios de dominio de Azure AD.**](active-directory-ds-getting-started-enableaadds.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

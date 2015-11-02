@@ -3,7 +3,7 @@
 	description="Explica el propósito del diseño de características y de la selección de características, además de proporcionar ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático."
 	services="machine-learning"
 	documentationCenter=""
-	authors="YanZhangADS"
+	authors="bradsev"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="10/20/2015"
 	ms.author="zhangya;bradsev" />
 
 
@@ -135,4 +135,4 @@ Observe que no siempre es necesario realizar el diseño o la selección de carac
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

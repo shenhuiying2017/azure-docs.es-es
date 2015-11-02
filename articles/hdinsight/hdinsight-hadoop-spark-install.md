@@ -13,17 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
+	ms.date="10/15/2015"
 	ms.author="nitinme"/>
 
-# Instalación y uso de Spark en clústeres Hadoop de HDInsight
+# Instalación y uso de Spark en clústeres de Hadoop de HDInsight mediante acción de script
 
+> [AZURE.IMPORTANT]Este artículo está en desuso. HDInsight ofrece Spark, un tipo de clúster de primera clase para los clústeres basados en Windows, lo que significa que puede crear directamente un clúster de Spark sin modificar un clúster de Hadoop mediante acciones de script. Con el tipo de clúster Spark, se obtiene un clúster de HDInsight versión 3.2 con Spark versión 1.3.1. Para instalar versiones diferentes de Spark, puede usar la acción de script. HDInsight proporciona un script de acción de script de ejemplo.
 
 Obtenga información acerca de cómo instalar Spark en clústeres de HDInsight basados en Windows mediante la acción de script y cómo ejecutar consultas de Spark en clústeres de HDInsight.
 
-HDInsight ofrece Spark, un tipo de clúster de primera clase para los clústeres basados en Windows, lo que significa que puede aprovisionar directamente un clúster de Spark sin modificar un clúster de Hadoop. Con el tipo de clúster Spark, se obtiene un clúster de HDInsight versión 3.2 con Spark versión 1.3.1. Para instalar versiones diferentes de Spark, puede usar la acción de script. HDInsight proporciona un script de acción de script de ejemplo.
 
-**Artículos relacionados** - [Instalación de Spark en clústeres de HDInsight basados en Linux](hdinsight-hadoop-spark-install-linux.md). - [Creación de clústeres de Hadoop clusters en HDInsight](hdinsight-provision-clusters.md): información general sobre la creación de clústeres de HDInsight. - [Introducción a Apache Spark en HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md): creación de un clúster de tipo Spark en SO Windows. - [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize]\: información general sobre la personalización de clústeres de HDInsight mediante la acción de script. - [Desarrollo de scripts de acción de script para HDInsight](hdinsight-hadoop-script-actions.md).
+**Artículos relacionados** - [Instalación de Spark en clústeres de HDInsight basados en Linux](hdinsight-hadoop-spark-install-linux.md).
+
+- [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md): información general sobre la creación de clústeres de HDInsight.
+
+- [Introducción a Apache Spark en HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md): creación de un clúster de tipo Spark en el sistema operativo Windows.
+
+- [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize]\: información general sobre la personalización de clústeres de HDInsight mediante la acción de script.
+
+- [Desarrollo de acciones de script con HDInsight](hdinsight-hadoop-script-actions.md).
 
 ## ¿Qué es Spark?
 
@@ -38,7 +46,7 @@ Este tema proporciona instrucciones sobre cómo personalizar un clúster de HDIn
 Hay un script de ejemplo para instalar Spark en un clúster de HDInsight disponible desde un blob de almacenamiento de Azure de solo lectura en [https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1). Este script puede instalar Spark 1.2.0 o Spark 1.0.2, según la versión del clúster de HDInsight que cree.
 
 - Si usa el script al crear un clúster de **HDInsight 3.2**, se instala **Spark 1.2.0**.
-- Si usa el script al crear un clúster de **HDInsight 3.1**, se instala **Spark 1.2.0**.
+- Si usa el script al crear un clúster de **HDInsight 3.1**, se instala **Spark 1.02**.
 
 Puede modificar este script o crear su propio script para instalar otras versiones de Spark.
 
@@ -106,7 +114,7 @@ Realice los pasos siguientes para ejecutar consultas de Spark desde un shell de 
 
 		:q
 
-###<a name="sparksql"></a>Uso del shell de Spark para ejecutar consultas de Spark SQL
+###<a name="sparksql"></a>Uso del shell de Spark para ejecutar consultas SQL de Spark
 
 Spark SQL le permite usar Spark para ejecutar consultas relacionales expresadas en Lenguaje de consulta estructurado (SQL), HiveQL o Scala. En esta sección, veremos el uso de Spark para ejecutar una consulta de Hive en una tabla de Hive de ejemplo. La tabla de Hive usada en esta sección (llamada **hivesampletable**) está disponible de forma predeterminada cuando se crea un clúster.
 
@@ -295,11 +303,11 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 
 ## Consulte también
 
-- [Instalación de Spark en clústeres de HDInsight basados en Linux](hdinsight-hadoop-spark-install-linux.md): instalar Spark en clústeres de HDInsight basados en Linux.
-- [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md): crear clústeres de HDInsight.
+- [Instalación de Spark en clústeres de HDInsight basados en Linux](hdinsight-hadoop-spark-install-linux.md): instalación de Spark en clústeres de HDInsight basados en Linux.
+- [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md): creación de clústeres de HDInsight.
 - [Introducción a Apache Spark en HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md): primeros pasos con Spark en HDInsight.
-- [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize]\: personalizar clústeres de HDInsight mediante la acción de script.
-- [Desarrollo de scripts de acción de script para HDInsight](hdinsight-hadoop-script-actions.md): desarrollar scripts de acción de script.
+- [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize]\: personalización de clústeres de HDInsight mediante la acción de script.
+- [Desarrollo de scripts de acción de script para HDInsight](hdinsight-hadoop-script-actions.md): desarrollo de scripts de acción de script.
 - [Instalación de R en clústeres de HDInsight][hdinsight-install-r] proporciona instrucciones acerca de cómo usar la personalización del clúster para instalar y usar R en clústeres de Hadoop de HDInsight. R es un entorno y lenguaje de código abierto para computación estadística. Proporciona cientos de de funciones estadísticas integradas y su propio lenguaje de programación que combina aspectos de la programación funcional y orientada a objetos. También proporciona amplias capacidades gráficas.
 - [Instalación de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md). Use la personalización del clúster para instalar Giraph en clústeres de Hadoop para HDInsight. Giraph permite realizar un procesamiento gráfico mediante Hadoop, y se puede usar con HDInsight de Azure.
 - [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md). Use la personalización del clúster para instalar Solr en clústeres de Hadoop para HDInsight. Solr le permite realizar potentes operaciones de búsqueda en los datos almacenados.
@@ -309,4 +317,4 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: ../install-configure-powershell.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

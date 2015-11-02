@@ -18,7 +18,9 @@
 
 # Utilización de las colas del Bus de servicio
 
-Este artículo describe cómo usar las colas del Bus de servicio. Los ejemplos están escritos en Java y utilizan el [SDK de Azure para Java][]. Entre los escenarios que abarca se incluyen la **creación de colas**, el **envío y la recepción de mensajes** y la **eliminación de colas**.
+[AZURE.INCLUDE [servicio de bus de selector de colas](../../includes/service-bus-selector-queues.md)]
+
+Este artículo describe cómo usar las colas del Bus de servicio. Los ejemplos están escritos en Java y utilizan el [SDK de Azure para Java][]. Entre los escenarios proporcionados se incluyen los siguientes: **creación de colas**, **envío y recepción de mensajes** y **eliminación de colas**.
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-queue](../../includes/service-bus-java-how-to-create-queue.md)]
 
@@ -65,7 +67,7 @@ La clase **ServiceBusService** proporciona métodos para crear, enumerar y elimi
         System.exit(-1);
     }
 
-En **QueueInfo** hay métodos que permiten ajustar las propiedades de la cola (por ejemplo, establecer el valor de "período de vida" (TTL) predeterminado que se aplicará a los mensajes enviados a la cola). El ejemplo siguiente muestra cómo crear una cola llamada `TestQueue` con un tamaño máximo de 5 GB:
+En **QueueInfo** hay métodos que permiten ajustar las propiedades de la cola, por ejemplo, establecer el valor de período de vida (TTL) predeterminado que se aplicará a los mensajes enviados a la cola. El ejemplo siguiente muestra cómo crear una cola llamada `TestQueue` con un tamaño máximo de 5 GB:
 
     long maxSizeInMegabytes = 5120;
     QueueInfo queueInfo = new QueueInfo("TestQueue");
@@ -76,7 +78,7 @@ Tenga en cuenta que puede usar el método **listQueues** en los objetos **Servic
 
 ## mensajes a una cola
 
-Para enviar un mensaje a una cola del Bus de servicio, su aplicación obtendrá un objeto **ServiceBusContract**. El código siguiente muestra cómo enviar un mensaje a la cola `TestQueue` que creamos anteriormente en el espacio de nombres de `HowToSample`.
+Para enviar un mensaje a una cola del Bus de servicio, su aplicación obtiene un objeto **ServiceBusContract**. El código siguiente muestra cómo enviar un mensaje a la cola `TestQueue` creada anteriormente en el espacio de nombres de `HowToSample`.
 
     try
     {
@@ -114,7 +116,7 @@ Al usar el modo **ReceiveAndDelete**, la operación de recepción consta de una 
 
 En el modo **PeekLock**, el proceso de recepción es una operación en dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma confiable para su futuro procesamiento), completa la segunda fase del proceso de recepción mediante la llamada a **Delete** en el mensaje recibido. Cuando el bus de servicio ve la llamada **Delete**, marca el mensaje como consumido y lo elimina de la cola.
 
-En el ejemplo siguiente se muestra cómo se pueden recibir y procesar mensajes con el modo **PeekLock** (no el modo predeterminado). En el ejemplo que aparece a continuación se crea un bucle infinito y se procesan mensajes a medida que llegan a "TestQueue":
+En el ejemplo siguiente se muestra cómo se pueden recibir y procesar mensajes con el modo **PeekLock** (no es el modo predeterminado). En el ejemplo que aparece a continuación se crea un bucle infinito y se procesan mensajes a medida que llegan a "TestQueue":
 
     	try
 	{
@@ -177,9 +179,9 @@ En caso de que la aplicación se bloquee después de procesar el mensaje y antes
 
 ## Pasos siguientes
 
-Ahora que ya conoce los aspectos básicos de las colas del Bus de servicio, vea [Colas, temas y suscripciones][] para obtener más información.
+Ahora que ya conoce los aspectos básicos de las colas de Bus de servicio, vea [Colas, temas y suscripciones][] para obtener más información.
 
-Para obtener más información, vea el [Centro para desarrolladores de Java](/develop/java/).
+Para obtener más información, consulte el [Centro de desarrolladores de Java](/develop/java/).
 
 
   [SDK de Azure para Java]: http://azure.microsoft.com/develop/java/
@@ -188,4 +190,4 @@ Para obtener más información, vea el [Centro para desarrolladores de Java](/de
   [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

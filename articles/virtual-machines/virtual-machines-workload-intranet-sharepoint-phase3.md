@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # Fase 3 de la carga de trabajo de la granja de servidores de intranet de SharePoint: Configuración de la infraestructura de servidor SQL
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
-
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Modelo de implementación del Administrador de recursos.
 
 En esta fase de la implementación de una granja de servidores de SharePoint 2013 de solo de intranet con grupos de disponibilidad AlwaysOn de SQL Server en servicios de infraestructura de Azure, cree y configure los dos equipos de SQL Server y el equipo de nodo de la mayoría de clúster en Administración de servicios y, a continuación, combínelos en un clúster de Windows Server.
 
@@ -144,7 +143,7 @@ Utilice el procedimiento siguiente dos veces, una vez para cada servidor SQL Ser
 
 SQL Server requiere un puerto que los clientes utilizan para tener acceso al servidor de base de datos. También necesita puertos para conectar con SQL Server Management Studio y para administrar el grupo de alta disponibilidad. A continuación, ejecute el siguiente comando en un símbolo del sistema de Windows PowerShell de nivel de administrador dos veces, una vez para cada servidor SQL Server, para agregar una regla de firewall que permita el tráfico entrante al servidor SQL Server.
 
-	New-NetFirewallRule -DisplayName "SQL Server ports 1433, 4234, and 5022" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action Allow
+	New-NetFirewallRule -DisplayName "SQL Server ports 1433, 1434, and 5022" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action Allow
 
 Para cada una de las máquinas virtuales de servidor SQL Server, cierre la sesión como administrador local.
 
@@ -164,7 +163,7 @@ Los grupos de disponibilidad AlwaysOn de SQL Server se basan en la característi
 - El servidor SQL Server secundario
 - El nodo de mayoría de clúster
 
-El clúster de conmutación por error requiere al menos tres máquinas virtuales. Dos de ellas hospedan SQL Server. La segunda VM de SQL Server es una réplica secundaria sincrónica que garantiza una pérdida de datos cero si se produce un error en la máquina principal. La tercera máquina no necesita hospedar SQL Server. El nodo de mayoría de clúster funciona como un testigo de quórum en el WSFC. Dado que el clúster de WSFC se basa en un quórum para supervisar el estado, siempre debe haber una mayoría para asegurarse de que el clúster de WSFC está en línea. Si solo dos máquinas están en un clúster, y se produce un error en una, no puede haber ninguna mayoría cuando solo una de cada dos falla. Para obtener más información, consulte [Configuración de votación y modos de quórum de WSFC (SQL Server)](http://msdn.microsoft.com/library/hh270280.aspx).
+El clúster de conmutación por error requiere al menos tres máquinas virtuales. Dos de ellas hospedan SQL Server. La segunda VM de SQL Server es una réplica secundaria sincrónica que garantiza una pérdida de datos cero si se produce un error en la máquina principal. La tercera máquina no necesita hospedar SQL Server. El nodo de mayoría de clúster proporciona un cuórum en el WSFC. Dado que el clúster de WSFC se basa en un quórum para supervisar el estado, siempre debe haber una mayoría para asegurarse de que el clúster de WSFC está en línea. Si solo dos máquinas están en un clúster, y se produce un error en una, no puede haber ninguna mayoría cuando solo una de cada dos falla. Para obtener más información, consulte [Configuración de votación y modos de quórum de WSFC (SQL Server)](http://msdn.microsoft.com/library/hh270280.aspx).
 
 Para ambos equipos de SQL Server y el nodo de la mayoría de clúster, ejecute el siguiente comando en un símbolo del sistema de Windows PowerShell de nivel de administrador.
 
@@ -233,4 +232,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 4: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

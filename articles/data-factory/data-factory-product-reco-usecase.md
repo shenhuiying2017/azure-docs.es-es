@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="10/20/2015" 
 	ms.author="spelluru"/>
 
 # Caso de uso: recomendaciones de productos 
@@ -60,4 +60,4 @@ Gracias a esta experiencia de compra personalizada, el distribuidor en línea cr
 
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

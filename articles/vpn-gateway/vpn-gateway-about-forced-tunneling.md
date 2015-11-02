@@ -1,14 +1,20 @@
-<properties pageTitle="Configuración de la tunelización forzada para puertas de enlace de VPN de Microsoft Azure | Microsoft Azure" description="Si tiene una red virtual con una puerta de enlace de VPN entre locales, puede redirigir o "forzar" todo el tráfico enlazado a Internet a la ubicación local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" />
+<properties pageTitle="Configuración de la tunelización forzada para puertas de enlace de VPN de Microsoft Azure | Microsoft Azure" description="Si tiene una red virtual con una puerta de enlace de VPN entre entornos, puede redirigir o "forzar" todo el tráfico enlazado a Internet de nuevo a la ubicación local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" tags="azure-service-management"/>
 <tags  
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/20/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # Configuración de la tunelización forzada
+
+Este artículo se aplica a las redes virtuales y las puertas de enlace de VPN creadas con el modelo de implementación clásico. Cuando las instrucciones para configurar la tunelización forzada de redes virtuales y puertas de enlace de VPN creadas mediante el modelo del Administrador de recursos estén disponibles, agregaremos un vínculo al principio de esta página.
+
+>[AZURE.NOTE]Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
+
+## Información acerca de la tunelización forzada
 
 La tunelización forzada permite redirigir o forzar todo el tráfico vinculado a Internet de vuelta a su ubicación local a través de un túnel VPN de sitio a sitio para inspección y auditoría. Se trata de un requisito de seguridad crítico en la mayoría de las directivas de las empresas de TI. Sin la tunelización forzada, el tráfico vinculado a Internet desde las máquinas virtuales en Azure siempre atravesará desde la infraestructura de red de Azure directamente a Internet, sin la opción que permite inspeccionar o auditar el tráfico. Un acceso no autorizado a Internet puede provocar la divulgación de información u otros tipos de infracciones de seguridad.
 
@@ -38,13 +44,13 @@ La tunelización forzada en Azure se configura a través de rutas definidas por 
 
 - La tunelización forzada debe asociarse a una red virtual que tiene una puerta de enlace de VPN de enrutamiento dinámico (no una puerta de enlace estática). Deberá establecer un "sitio predeterminado" entre los sitios locales entre entornos conectados a la red virtual.
 
-- Tenga en cuenta que la tunelización forzada ExpressRoute no se configura mediante este mecanismo, sino que se habilita mediante el anuncio de una ruta predeterminada a través de las sesiones de emparejamiento BGP de ExpressRoute. Consulte la [Documentación de ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) para obtener más información.
+- Tenga en cuenta que la tunelización forzada ExpressRoute no se configura mediante este mecanismo, sino que se habilita mediante el anuncio de una ruta predeterminada a través de las sesiones de emparejamiento BGP de ExpressRoute. Vea la [Documentación de ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) para obtener más información.
 
 ## Información general sobre la configuración
 
 El siguiente procedimiento le ayudará a especificar la tunelización forzada en una red virtual. Los pasos de configuración corresponden al archivo netcfg de red virtual que aparece a continuación.
 
-En el ejemplo, esta red virtual MultiTier-VNet tiene 3 subredes: *Frontend*, *Midtier* y *Backend*, con 4 conexiones entre locales: *DefaultSiteHQ* y 3 *Branches*. Los pasos del procedimiento establecerán *DefaultSiteHQ* como la conexión de sitio predeterminada para la tunelización forzada y configurarán las subredes *Midtier* y *Backend* para usar la tunelización forzada.
+En el ejemplo, esta red virtual "MultiTier-VNet» tiene tres subredes: *Frontend*, *Midtier* y *Backend*, con cuatro conexiones entre entornos: *DefaultSiteHQ* y tres *Branches*. Los pasos del procedimiento establecerán *DefaultSiteHQ* como la conexión de sitio predeterminada para la tunelización forzada y configurarán las subredes *Midtier* y *Backend* para usar la tunelización forzada.
 
 	<VirtualNetworkSite name="MultiTier-VNet" Location="North Europe">
      <AddressSpace>
@@ -88,7 +94,7 @@ En el ejemplo, esta red virtual MultiTier-VNet tiene 3 subredes: *Frontend*, *Mi
 
 - Una red virtual configurada.
 
-- La versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente desde la sección **Windows PowerShell** de la [Página de descarga](http://azure.microsoft.com/downloads/).
+- La versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente de la sección **Windows PowerShell** de la [página de descarga](http://azure.microsoft.com/downloads/).
 
 ## Configuración de la tunelización forzada
 
@@ -149,6 +155,9 @@ A continuación se muestran algunos cmdlets de PowerShell adicionales que pueden
 
 ## Pasos siguientes
 
-Para obtener información acerca de cómo proteger el tráfico de red. Consulte [Qué es un grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md).
 
-<!---HONumber=Oct15_HO3-->
+Para obtener más información sobre las rutas definidas por el usuario, vea [Rutas definidas por el usuario y reenvío IP](../virtual-network/virtual-networks-udr-overview.md).
+
+Para obtener información sobre cómo proteger el tráfico de red, vea [Qué es un grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md). Tenga en cuenta que nunca debe aplicar un grupo de seguridad de red a una subred de puerta de enlace de red virtual de Azure.
+
+<!---HONumber=Oct15_HO4-->

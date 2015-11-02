@@ -18,7 +18,9 @@
 
 # Uso de temas/suscripciones del Bus de servicio
 
-En este artículo se describe cómo usar los temas y las suscripciones del Bus de servicio. Los ejemplos están escritos en Python y usan el [paquete de Azure para Python][]. Entre los escenarios tratados se incluye la **creación de temas y suscripciones**, la **creación de filtros de suscripción**, el **envío de mensajes a un tema**, la **recepción de mensajes de una suscripción** y la **eliminación de temas y suscripciones**. Para obtener más información acerca de los temas y las suscripciones, consulte la sección [Pasos siguientes](#next-steps).
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+
+En este artículo se describe cómo usar los temas y las suscripciones del Bus de servicio. Los ejemplos están escritos en Python y usan el [paquete de Azure para Python][]. Entre los escenarios tratados se incluyen **la creación de temas y suscripciones**, **la creación de filtros de suscripción**, **el envío de mensajes a un tema**, **la recepción de mensajes de una suscripción** y **la eliminación de temas y suscripciones**. Para obtener más información acerca de los temas y las suscripciones, consulte la sección [Pasos siguientes](#next-steps).
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
@@ -26,7 +28,7 @@ En este artículo se describe cómo usar los temas y las suscripciones del Bus d
 
 ## de un tema
 
-El objeto **ServiceBusService** le permite trabajar con los temas. Agregue lo siguiente cerca de la parte superior de todo archivo Python en el que desee obtener acceso al Bus de servicio mediante programación:
+El objeto **ServiceBusService** le permite trabajar con temas. Agregue lo siguiente cerca de la parte superior de todo archivo Python en el que desee obtener acceso al Bus de servicio mediante programación:
 
 ```
 from azure.servicebus import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
@@ -47,7 +49,7 @@ Puede obtener los valores para el valor y el nombre de clave SAS en el [Portal d
 bus_service.create_topic('mytopic')
 ```
 
-**create\_topic** también admite opciones adicionales, lo que permite reemplazar la configuración predeterminada de los temas, como el período de vida de los mensajes o el tamaño máximo de los temas. En el siguiente ejemplo, se establece el tamaño máximo de los temas en 5 GB y el valor del período de vida (TTL) en 1 minuto:
+**create\_topic** también admite opciones adicionales, lo que permite invalidar la configuración predeterminada de los temas, como el período de vida de los mensajes o el tamaño máximo de los temas. En el siguiente ejemplo, se establece el tamaño máximo de los temas en 5 GB y el valor del período de vida (TTL) en 1 minuto:
 
 ```
 topic_options = Topic()
@@ -79,9 +81,9 @@ El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter*
 
 Es posible agregar filtros a una suscripción a través del método **create\_rule** del objeto **ServiceBusService**. Este método le permite agregar nuevos filtros a una suscripción existente.
 
-> [AZURE.NOTE]Debido a que el filtro predeterminado se aplica automáticamente a todas las suscripciones nuevas, debe eliminar primero el filtro predeterminado **MatchAll** si no quiere que este reemplace los demás filtros que especifique. Puede eliminar la regla predeterminada utilizando el método **delete\_rule** del objeto **ServiceBusService**.
+> [AZURE.NOTE]Debido a que el filtro predeterminado se aplica automáticamente a todas las suscripciones nuevas, debe eliminar primero el filtro predeterminado **MatchAll** si no quiere que este invalide a los demás filtros que especifique. Puede eliminar la regla predeterminada utilizando el método **delete\_rule** del objeto **ServiceBusService**.
 
-En el ejemplo siguiente, se crea una suscripción denominada `HighMessages` con un objeto **SqlFilter** que solo selecciona los mensajes con una propiedad **messagenumber** personalizada cuyo valor sea mayor que 3:
+En el ejemplo siguiente, se crea una suscripción denominada `HighMessages` con **SqlFilter** que solo selecciona los mensajes con una propiedad **messagenumber** personalizada cuyo valor sea mayor que 3:
 
 ```
 bus_service.create_subscription('mytopic', 'HighMessages')
@@ -94,7 +96,7 @@ bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
 ```
 
-Del mismo modo, en el ejemplo que aparece a continuación, se crea una suscripción llamada `LowMessages` con un **SqlFilter** que solo selecciona los mensajes con una propiedad **messagenumber** cuyo valor sea menor o igual a 3:
+Del mismo modo, en el ejemplo que aparece a continuación, se crea una suscripción llamada `LowMessages` con **SqlFilter** que solo selecciona los mensajes con una propiedad **messagenumber** cuyo valor sea menor o igual a 3:
 
 ```
 bus_service.create_subscription('mytopic', 'LowMessages')
@@ -107,13 +109,13 @@ bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 ```
 
-Cuando se envíe un mensaje a `mytopic`, este se entregará siempre a los receptores suscritos al tema **AllMessages**, y se entregará de forma selectiva a los receptores suscritos a los temas **HighMessages** y **LowMessages** (según el contenido del mensaje).
+Cuando se envíe un mensaje a `mytopic`, este se entregará siempre a los receptores suscritos a la suscripción de tema **AllMessages**, y se entregará de forma selectiva a los receptores suscritos a las suscripciones de tema **HighMessages** y **LowMessages** (según el contenido del mensaje).
 
 ## de mensajes a un tema
 
 Para enviar un mensaje a un tema del bus de servicio, la aplicación debe utilizar el método **send\_topic\_message** del objeto **ServiceBusService**.
 
-En el ejemplo siguiente se demuestra cómo enviar 5 mensajes de prueba a `mytopic`. Observe que el valor de la propiedad **messagenumber** de cada mensaje varía en función de la iteración del bucle (así se determinará qué suscripciones lo reciben):
+En el ejemplo siguiente se demuestra cómo enviar cinco mensajes de prueba a `mytopic`. Observe que el valor de la propiedad **messagenumber** de cada mensaje varía en función de la iteración del bucle (así se determinará qué suscripciones lo reciben):
 
 ```
 for i in range(5):
@@ -180,4 +182,4 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Colas de Bus de servicio y colas de Azure]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
