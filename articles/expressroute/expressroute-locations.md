@@ -29,7 +29,7 @@ Tendrá acceso a los servicios de Azure en todas las regiones dentro de una regi
 
 |**Región geopolítica**|**Regiones de Azure**|**Ubicaciones de ExpressRoute**|
 |---|---|---|
-|**EE. UU.**|Todas las regiones de EE. UU.: Este de EE. UU., Oeste de EE. UU., Este de EE. UU. - 2, Centro de EE. UU., Centro y Sur de EE. UU. y Centro y norte de EE. UU.|Atlanta, Chicago, Dallas, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington DC|
+|**Norteamérica**|Todas las regiones de EE. UU.: Este de EE. UU., Oeste de EE. UU., Este de EE. UU. - 2, Centro de EE. UU., Centro y Sur de EE. UU. y Centro y norte de EE. UU.|Atlanta, Chicago, Dallas, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington DC|
 |**Sudamérica**|Sur de Brasil|São Paulo|
 |**Europa**|Norte de Europa y Oeste de Europa|Ámsterdam, Dublín +, Londres|
 |**Asia**|Este de Asia y Sudeste de Asia|Hong Kong y Singapur|
@@ -55,7 +55,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 
 | **Proveedor de servicios** |**Microsoft Azure** | **Office 365** | **Ubicaciones** |
 |-----------------------|--------------------|----------------|---------------|
-| **[Aryaka Networks](http://www.aryaka.com/)** | Compatible | No compatible | Ámsterdam, Silicon Valley, Singapur, Washington DC |
+| **[Aryaka Networks](http://www.aryaka.com/)** | Compatible | Compatible | Ámsterdam, Silicon Valley, Singapur, Washington DC |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Compatible | Compatible | Ámsterdam+, Londres+, Dallas, Silicon Valley, Washington DC |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Compatible | Compatible | Ámsterdam, Londres, Silicon Valley, Singapur, Tokyo, Washington DC |
 |**China Telecom Global** | Próximamente | No compatible | Hong Kong+ |
@@ -64,8 +64,8 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **CoreSite** | Compatible | No compatible | Los Ángeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Compatible | Compatible | Ámsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Ángeles, Melbourne, Nueva York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapur, Sidney, Tokio, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | Compatible | No compatible | Tokio |
-| **[InterCloud](https://www.intercloud.com/)** | Compatible | No compatible | Ámsterdam, Londres, Singapur, Washington DC |
-| **Internet Solutions - Cloud Connect** | Compatible | No compatible | Ámsterdam y Londres |
+| **[InterCloud](https://www.intercloud.com/)** | Compatible | Compatible | Ámsterdam, Londres, Singapur, Washington DC |
+| **Internet Solutions - Cloud Connect** | Compatible | Compatible | Ámsterdam y Londres |
 | **Interxion** | Compatible | No compatible | Ámsterdam |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Compatible | No compatible | Ámsterdam, Chicago, Dallas, Londres, Seattle, Silicon Valley, Washington DC |
 | **Megaport** | Compatible | No compatible | Melbourne, Sidney |
@@ -91,9 +91,9 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Proveedor de servicios** |**Microsoft Azure** | **Office 365** | **Ubicaciones** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Próximamente | No compatible | Chicago+, Washington DC+ |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Próximamente | No compatible | Chicago, Washington DC |
-| **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Próximamente | No compatible | Chicago, Washington DC |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Compatible | No compatible | Chicago, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Próximamente | No compatible | Chicago+, Washington DC+ |
+| **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Próximamente | No compatible | Chicago+, Washington DC |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Compatible | No compatible | Chicago+, Washington DC |
 
 ## Conectividad a través de proveedores de servicios no enumerados
 
@@ -129,4 +129,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 - Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 - Asegúrese de que se cumplen todos los requisitos previos. Consulte [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

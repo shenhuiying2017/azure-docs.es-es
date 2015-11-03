@@ -12,10 +12,12 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="09/28/2015"
+      ms.date="10/26/2015"
       ms.author="tamram" />
 
 # Uso del almacenamiento de archivos de Azure con Windows
+
+[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
 ## Información general
 
@@ -34,6 +36,12 @@ Para obtener más información acerca de los objetivos de escalabilidad del alma
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
+
+## Vídeo: Uso del almacenamiento de archivos de Azure con Windows
+
+Éste es un vídeo que muestra cómo crear y usar recursos compartidos de archivos de Azure en Windows.
+
+> [AZURE.VIDEO azure-file-storage-with-windows]
 
 ## Acerca de este tutorial
 
@@ -89,7 +97,7 @@ A continuación, cree el nuevo recurso compartido, denominado `logs`.
 
 Ahora tiene un recurso compartido de archivos en Almacenamiento de archivos. A continuación, agregaremos un directorio y un archivo.
 
-> [AZURE.IMPORTANT]El nombre del recurso compartido de archivos debe estar en minúsculas. Para obtener todos los detalles sobre cómo asignar un nombre a recursos compartidos y archivos, consulte [Dar nombre y hacer referencia a recursos compartidos, directorios, archivos y metadatos](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+> [AZURE.IMPORTANT]El nombre del recurso compartido de archivos debe estar en minúsculas. Para obtener todos los detalles sobre cómo asignar un nombre a recursos compartidos y archivos, consulte [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ### Creación de un directorio en el recurso compartido de archivos
 
@@ -144,7 +152,7 @@ Cuando un cliente accede al almacenamiento de archivos, la versión SMB que se u
 
 Para mostrar cómo montar un recurso compartido de archivos de Azure, ahora crearemos una máquina virtual de Azure en la que se ejecuta Windows y accederemos a ella de forma remota para montar el recurso compartido.
 
-1. En primer lugar, cree una máquina virtual de Azure nueva según las instrucciones de [Creación de una máquina virtual que ejecuta Windows en el Portal de vista previa de Azure](../virtual-machines-windows-tutorial.md).
+1. En primer lugar, cree una máquina virtual de Azure nueva según las instrucciones de [Creación de una máquina virtual que ejecuta Windows Server](../virtual-machines-windows-tutorial.md).
 2. A continuación, acceda a la máquina virtual de forma remota siguiendo las instrucciones de [Inicio de sesión en una máquina virtual con Windows Server](../virtual-machines-log-on-windows-server.md).
 3. Abra una ventana de PowerShell en la máquina virtual.
 
@@ -156,7 +164,7 @@ Antes de montar el recurso compartido de archivos, primero haga persistir las cr
 
 Windows se reconectará al recurso compartido de archivos cuando la máquina virtual se reinicie. Para comprobar que el recurso compartido se volvió a conectar, ejecute el comando `net use` desde una ventana de PowerShell.
 
-Tenga en cuenta que las credenciales solo persisten en el contexto en el que `cmdkey` se ejecuta. Si va a desarrollar una aplicación que se ejecute como servicio, será preciso que conserve las credenciales en ese contexto también.
+Tenga en cuenta que las credenciales solo persisten en el contexto en el que se ejecuta `cmdkey`. Si va a desarrollar una aplicación que se ejecute como servicio, será preciso que conserve las credenciales en ese contexto también.
 
 ### Montaje del recurso compartido de archivos usando credenciales de persistencia
 
@@ -353,7 +361,7 @@ En el ejemplo siguiente se crea una directiva de acceso compartido en un recurso
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Para obtener más información sobre la creación y uso de firmas de acceso compartido, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) y [Firmas de acceso compartido, Parte 2: Creación y uso de una firma de acceso compartido con el servicio BLOB](storage-dotnet-shared-access-signature-part-2.md).
+Para obtener más información sobre la creación y uso de firmas de acceso compartido, consulte [Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) y [Creación y uso de una firma de acceso compartido con el servicio BLOB](storage-dotnet-shared-access-signature-part-2.md).
 
 ### Copiar archivos
 
@@ -518,8 +526,9 @@ En el Portal de Azure es posible habilitar las métricas para el almacenamiento 
 
 Consulte los vínculos siguientes para obtener más información acerca de Almacenamiento de archivos de Azure.
 
-### Artículos conceptuales
+### Artículos y vídeos conceptuales
 
+- [Almacenamiento de archivos de Azure: un sistema de archivos SMB en la nube sin dificultades para Windows y Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [Uso del almacenamiento de archivos de Azure con Linux](storage-how-to-use-files-linux.md)
 
 ### Compatibilidad de herramientas con el almacenamiento de archivos
@@ -540,4 +549,4 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 - [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx) (Introducción al servicio de archivos de Microsoft Azure)
 - [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx) (Persistencia de conexiones en archivos de Microsoft Azure)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -51,12 +51,12 @@ A continuación, vamos a agregar desencadenadores y acciones.
 
 
 ## Adición de un desencadenador HTTP
-
+1. Seleccione **Crear desde cero**.
 1. Seleccione **Agente de escucha HTTP** desde la galería para crear un nuevo agente de escucha. Llámelo **HTTP1**.
 2. Deje la opción **¿Enviar respuesta automáticamente?** como false. Configure la acción del desencadenador estableciendo _Método HTTP_ en _EXPONER_ y _Dirección URL relativa_ en _/OneWayPipeline_.  
 
 	![Desencadenador HTTP][2]
-
+3. Haga clic en la marca de verificación verde.
 
 ## Adición de la acción Validar
 
@@ -74,9 +74,9 @@ De forma similar, vamos a agregar el resto de las acciones.
 ## Acción Agregar transformación
 Vamos a configurar transformaciones para normalizar los datos de entrada.
 
-1. Agregue **Transformar** desde la galería.
+1. Agregue **Servicio de transformación de BizTalk** desde la galería.
 2. Para configurar una transformación para transformar los mensajes XML de entrada, seleccione la acción **Transformar** como la acción que se llevará a cabo cuando esta API se llame, y seleccione ```triggers(‘httplistener’).outputs.Content``` como el valor de _inputXml_. *Map* es un parámetro opcional, ya que los datos de entrada se hacen corresponder con todas las transformaciones configuradas y se aplican solo aquellos que coincidan con el esquema.
-3. Por último, la transformación se ejecuta solamente si la validación se realiza correctamente. Para configurar esta condición, haga clic en el icono de engranaje situado en la parte superior derecha y seleccione la opción para _agregar una condición que debe cumplirse_. Establezca la condición en ```equals(actions('xmlvalidator').status,'Succeeded')```  
+3. Por último, la transformación se ejecuta solamente si la validación se realiza correctamente. Para configurar esta condición, haga clic en el icono de engranaje situado en la parte superior derecha y seleccione la opción para _agregar una condición que debe cumplirse_. Establezca la condición en ```equals(actions('xmlvalidator').status,'Succeeded')```:  
 
 ![Transformaciones de BizTalk][4]
 
@@ -86,6 +86,7 @@ A continuación, vamos a agregar el destino (una cola de Bus de servicio) para e
 
 1. Agregue un **conector de Bus de servicio** desde la galería. Establezca **Nombre** en _Servicebus1_, **Cadena de conexión** en la cadena de conexión para la instancia de bus de servicio, **Nombre de entidad** en _Cola_ y omita **Nombre de suscripción**.
 2. Seleccione la acción **Enviar mensaje** y establezca el campo **Mensaje** para la acción en _actions('transformservice').outputs.OutputXml_.
+3. Establezca el campo **Tipo de contenido** en application/XML.
 
 ![Bus de servicio][5]
 
@@ -94,10 +95,13 @@ A continuación, vamos a agregar el destino (una cola de Bus de servicio) para e
 Una vez que se realiza el procesamiento de canalización, se devuelve una respuesta HTTP tanto para operación correcta como para error con los pasos siguientes:
 
 1. Agregue un **agente de escucha HTTP** desde la galería y seleccione la acción **Enviar respuesta HTTP**.
-2. Establezca **Contenido de respuesta** en *Procesamiento de canalización completado*, **Código de estado de respuesta** en *200* para indicar HTTP 200 correcto y la **Condición** en la expresión de ```@equals(actions('servicebusconnector').status,'Succeeded')``` <br/>
+2. Establezca **Id. de respuesta** en *Enviar mensaje*.
+2. Establezca **Contenido de respuesta** en *Procesamiento de canalización completado*.
+3. **Código de estado de respuesta** en *200* para indicar HTTP 200 OK.
+4. Haga clic en el menú desplegable en la parte superior derecha y seleccione **Agregar una condición que debe cumplirse**. Establezca la condición en la siguiente expresión: ```@equals(actions('azureservicebusconnector').status,'Succeeded')``` <br/>
+5. Repita estos pasos para enviar una respuesta HTTP en caso de error también. Cambie **Condición** por la siguiente expresión: ```@not(equals(actions('azureservicebusconnector').status,'Succeeded'))``` <br/>
+6. Haga clic en **Aceptar** y luego en **Crear**
 
-
-Repita estos pasos para enviar una respuesta HTTP en caso de error también. Cambie **Condición** por la siguiente expresión: ```@not(equals(actions('servicebusconnector').status,'Succeeded'))``` <br/>
 
 
 ## Finalización
@@ -114,4 +118,4 @@ Algunos temas útiles:
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

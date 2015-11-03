@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/15/2015"
+	ms.date="10/22/2015"
 	ms.author="awills"/>
 
 # Introducción a Application Insights en un proyecto web de Java
@@ -396,4 +396,4 @@ Para obtener más información, consulte el [Centro de desarrolladores de Java](
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/13/2015"
+	ms.date="10/21/2015"
 	ms.author="awills"/>
 
 # Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
@@ -21,7 +21,7 @@ Después de haber implementado la aplicación web, puede configurar pruebas web 
 
 ![Ejemplo de prueba web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-Puede configurar las pruebas web para cualquier extremo de HTTP que sea accesible desde la red pública de Internet.
+Puede configurar pruebas web para cualquier punto de conexión HTTP o HTTPS que sea accesible desde la red pública de Internet.
 
 Existen dos tipos de prueba web:
 
@@ -246,4 +246,4 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

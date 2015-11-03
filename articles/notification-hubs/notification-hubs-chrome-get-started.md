@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="10/20/2015"
 	ms.author="wesmc"/>
 
 # Introducción a Centros de notificaciones para aplicaciones Chrome
@@ -416,13 +416,13 @@ Para ver un ejemplo de cómo enviar notificaciones desde un back-end de Servicio
 
 3. En la ventana de la consola, ejecute el siguiente comando:
 
-        Install-Package WindowsAzure.ServiceBus
+        Install-Package Microsoft.Azure.NotificationHubs
 
    	Esta acción agrega una referencia al SDK de Bus de servicio de Azure con el paquete <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus de NuGet</a>.
 
 4. Abra el archivo **Program.cs** y agregue la siguiente instrucción `using`:
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 5. En la clase **Program**, agregue el siguiente método.
 
@@ -493,4 +493,4 @@ En este sencillo ejemplo, difundirá notificaciones a la aplicación Chrome. Obt
 [Uso de Centros de notificaciones para notificar a los usuarios]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Uso de Centros de notificaciones para enviar noticias de último minuto]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -18,13 +18,13 @@
 
 # Conexión de una aplicación móvil a API de SaaS
 
-En este tutorial, conectará su aplicación móvil a una solución de software como servicio (SaaS) empresarial. Actualizará la aplicación a partir de [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Azure Active Directory] para crear un documento de Microsoft Word en SharePoint Online siempre que se agregue un nuevo TodoItem.
+En este tutorial, conectará su aplicación móvil a una solución de software como servicio (SaaS) empresarial. Actualizará la aplicación a partir del tutorial [Inicio de sesión único de la biblioteca de autenticación de Azure Active Directory] para crear un documento de Microsoft Word en SharePoint Online siempre que se agregue un nuevo TodoItem.
 
 Este tutorial requiere lo siguiente:
 
 * Visual Studio 2013 en Windows 8.1
 * Una suscripción activa a [SharePoint Online]
-* Realización del tutorial [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory]. Debería utilizar el inquilino que le suministra su suscripción a SharePoint.
+* Realización del tutorial [Inicio de sesión único de la biblioteca de autenticación de Azure Active Directory]. Debería utilizar el inquilino que le suministra su suscripción a SharePoint.
 
 [AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
 
@@ -182,10 +182,9 @@ Para crear un documento de Word, usará el paquete de NuGet OpenXML. Instale est
 
 <!-- URLs. -->
 
-[Preview Azure Management Portal]: https://portal.azure.com/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/es-ES/sharepoint/
-[Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
+[Inicio de sesión único de la biblioteca de autenticación de Azure Active Directory]: app-service-mobile-ios-aad-sso.md
 [Extensión de servicio de aplicación de back-end de .NET de Aplicaciones móviles]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

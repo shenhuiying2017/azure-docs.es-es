@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="10/22/2015"
 	ms.author="tdykstra"/>
 
 # Creación de un WebJob .NET en el Servicio de aplicaciones de Azure
@@ -465,7 +465,7 @@ Para agregar archivos a un proyecto o carpeta, haga clic con el botón secundari
 	- *Global.asax.cs*  
 	- En la carpeta *Controladores*: *AdController.cs*
 	- En la carpeta *Views\\Shared*: archivo *\_Layout.cshtml*.
-	- En la carpeta *Views\\Home*: *Index.cshtml*.
+- En la carpeta *Views\\Home*: *Index.cshtml*.
 	- En la carpeta *Views\\Ad* (cree primero la carpeta): cinco archivos *.cshtml*.<br/><br/>
 
 3. En el proyecto ContosoAdsWebJob, agregue los siguientes archivos desde el proyecto descargado.
@@ -480,7 +480,7 @@ Ahora puede generar, ejecutar e implementar la aplicación como se indicó anter
 
 En la siguiente sección se explica el código relacionado para trabajar con el SDK de WebJobs y los blobs y las colas de Azure.
 
-> [AZURE.NOTE] Para obtener el código específico del SDK de WebJobs, consulte las secciones [Program.cs y Functions.cs](#programcs).
+> [AZURE.NOTE]Para obtener el código específico del SDK de WebJobs, consulte las secciones [Program.cs y Functions.cs](#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -782,7 +782,7 @@ Para obtener más información acerca de cómo escribir funciones que utilizan a
 
 ## Pasos siguientes
 
-En este tutorial, ha visto una aplicación sencilla de niveles múltiples que usa el SDK de WebJobs para el procesamiento de back-end. En esta sección se ofrecen algunas sugerencias para obtener más información acerca de las aplicaciones de niveles múltiples de ASP.NET y WebJobs.
+En este tutorial, ha visto una aplicación sencilla de niveles múltiples que usa el SDK de WebJobs para el procesamiento de back-end. En esta sección se ofrecen algunas sugerencias para obtener más información acerca de las aplicaciones de múltiples niveles de ASP.NET y WebJobs.
 
 ### Características que faltan
 
@@ -812,4 +812,4 @@ Para obtener más información, consulte [Obtención de un panel para desarrollo
 
 Para obtener más información, consulte [Recursos de documentación de WebJobs de Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

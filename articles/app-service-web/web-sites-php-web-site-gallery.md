@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="10/13/2015"
+	ms.date="10/15/2015"
 	ms.author="tomfitz"/>
 
 # Creación de una aplicación web de WordPress en el Servicio de aplicaciones de Azure
@@ -124,4 +124,4 @@ Para obtener más información sobre cómo trabajar con las aplicaciones web del
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

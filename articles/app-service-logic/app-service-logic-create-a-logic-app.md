@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/16/2015"
+	ms.date="10/21/2015"
 	ms.author="stepsic"/>
 
 # Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS
@@ -188,4 +188,4 @@ En menos de 5 minutos ha sido capaz de configurar una aplicación lógica sencil
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Uso de las características de aplicaciones lógicas]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

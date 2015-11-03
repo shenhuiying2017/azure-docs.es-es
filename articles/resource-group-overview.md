@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="10/27/2015"
    ms.author="tomfitz"/>
 
 # Información general del Administrador de recursos de Azure
@@ -97,15 +97,19 @@ Para obtener más información sobre las etiquetas, consulte [Uso de etiquetas p
 
 Administrador de recursos permite controlar quién tiene acceso a acciones específicas para la organización. Integra de forma nativa OAuth y Control de acceso basado en rol (RBAC) en la plataforma de administración y aplica este control de acceso a todos los servicios del grupo de recursos. Puede agregar usuarios a roles específicos de plataforma y recurso predefinidos, y aplicar estos roles a una suscripción, un grupo de recursos o un recurso para limitar el acceso. Por ejemplo, puede aprovechar el rol predefinido denominado Colaborador de Base de datos de SQL que permite a los usuarios administrar bases de datos pero no servidores de base de datos ni directivas de seguridad. Puede agregar usuarios de la organización que necesitan este tipo de acceso al rol Colaborador de Base de datos de SQL y aplicar el rol a la suscripción, al grupo de recursos o al recurso.
 
-Administrador de recursos registra automáticamente las acciones del usuario para la auditoría.
+Administrador de recursos registra automáticamente las acciones del usuario para la auditoría. Para obtener información sobre cómo trabajar con los registros de auditoría, consulte [Operaciones de auditoría con el Administrador de recursos](resource-group-audit.md).
 
 Para obtener más información acerca del control de acceso basado en rol, consulte [Control de acceso basado en rol en el Portal de vista previa de Azure](role-based-access-control-configure.md). Este tema contiene una lista de roles integrados y acciones permitidas. Los roles integrados incluyen roles generales como propietario, lector y colaborador, así como roles específicos del servicio como colaborador de la máquina virtual, colaborador de la red virtual y administrador de seguridad SQL (por nombrar solo algunos de los roles disponibles).
 
-Para obtener ejemplos de configuración de directivas de acceso, consulte [Administración y auditoría del acceso a los recursos](azure-portal/resource-group-rbac.md).
+Para ver ejemplos de asignación de roles, consulte [Administración del acceso a los recursos](azure-portal/resource-group-rbac.md).
 
 También puede bloquear explícitamente recursos críticos para impedir que los usuarios los eliminen o modifiquen. Para obtener más información, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 
-Para conocer las prácticas recomendadas, vea [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
+Para conocer las prácticas recomendadas, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
+
+## Administración de recursos con directivas personalizadas
+
+El Administrador de recursos permite crear directivas personalizadas para administrar los recursos. Los tipos de directivas que cree pueden incluir escenarios tan diversos como aplicar una convención de nomenclatura de recursos, limitar qué regiones pueden hospedar un tipo de recurso o necesitar un valor de etiqueta en recursos para organizar la facturación por departamentos. Para obtener más información, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
 
 ## Capa de administración coherente
 
@@ -117,18 +121,18 @@ Para obtener información sobre CLI de Azure, consulte [Uso de la CLI de Azure p
 
 Para obtener información acerca de la API de REST, consulte [Referencia de la API de REST del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
-Para obtener información sobre cómo usar el portal de vista previa, vea [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md).
+Para obtener información sobre cómo usar el portal de vista previa, consulte [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md).
 
 
 ## Pasos siguientes
 
-- Para obtener información sobre cómo crear plantillas, vea [Creación de plantillas](./resource-group-authoring-templates.md).
-- Para implementar la plantilla que creó, vea [Implementación de plantillas](azure-portal/resource-group-template-deploy.md).
-- Para comprender las funciones que puede usar en una plantilla, vea [Funciones de plantillas](./resource-group-template-functions.md)
-- Para obtener instrucciones sobre cómo diseñar las plantillas, vea [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
+- Para obtener información sobre cómo crear plantillas, consulte [Creación de plantillas](./resource-group-authoring-templates.md).
+- Para implementar la plantilla que creó, consulte [Implementación de plantillas](azure-portal/resource-group-template-deploy.md).
+- Para comprender las funciones que puede usar en una plantilla, consulte [Funciones de plantillas](./resource-group-template-functions.md)
+- Para obtener instrucciones sobre cómo diseñar las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
 
 La siguiente es una demostración de esta introducción.
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

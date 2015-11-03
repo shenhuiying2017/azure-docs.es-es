@@ -13,23 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/17/2015" 
+	ms.date="10/23/2015" 
 	ms.author="elizapo"/>
 
 # Preguntas más frecuentes sobre Azure RemoteApp
-Hemos recibido las siguientes preguntas acerca de Azure RemoteApp. ¿Tiene alguna otra? Visite los [Foros de RemoteApp](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp) y pregúntenos lo que quiera saber.
+Hemos recibido las siguientes preguntas acerca de Azure RemoteApp. ¿Tiene alguna otra? Visite los [Foros de RemoteApp](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp) y pregúntenos lo que quiera saber o deje un comentario abajo.
 
 ## ¿Qué es Azure RemoteApp? ##
 
 
 - **¿Qué es RemoteApp de Azure?** RemoteApp es un servicio de Azure que ayuda a proporcionar acceso remoto seguro a las aplicaciones desde muchos dispositivos de usuario diferentes. Obtenga más información sobre [RemoteApp de Azure](remoteapp-whatis.md).
-- **¿Cuáles son los dos tipos de opciones de implementación?** Hay dos tipos de implementaciones de RemoteApp (o colecciones): híbridas y nube. Averigüe qué [opción de implementación](remoteapp-whatis.md) funciona mejor en su organización.
+- **¿Cuáles son las opciones de implementación?** Hay dos tipos de colecciones de RemoteApp: híbridas y nube. La que necesite dependerá de varios factores, como si es necesaria la unión de dominios. Hablamos acerca de todas esas decisiones [aquí](remoteapp-collections.md).
 
+## Sugerencias rápidas para usar Azure RemoteApp ##
+- **¿Cuánto tiempo pasa hasta que me desconecto? ¿Cuánto tiempo puedo estar inactivo antes de arrancar?** 4 horas. Si usted o uno de los usuarios está inactivo durante 4 horas, se cerrará automáticamente la sesión de Azure RemoteApp. Compruebe los demás valores predeterminados en [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](azure-subscription-service-limits.md).
+- **¿Puedo probar este servicio de forma gratuita?** Sí. Hay una versión de prueba gratuita durante 30 días. Tras la finalización de la prueba, puede realizar la transición a una cuenta de pago (que puede usar en producción) o dejar de usar el servicio. Para comenzar una prueba gratuita, vaya a [manage.windowsazure.com](http://manage.windowsazure.com) y cree una instancia de RemoteApp. Con la versión de prueba gratuita, puede crear dos instancias de RemoteApp con 10 usuarios por instancia. Recuerde que esta versión de prueba solo tiene una duración de 30 días.
 ## Detalles de la suscripción de Azure RemoteApp ##
+
 - **¿Cuáles son los límites de servicio?** Puede obtener más información sobre la configuración predeterminada y los límites de servicios de Azure RemoteApp en [Límites, cuotas y restricciones de suscripción y servicios de Azure](azure-subscription-service-limits.md). Indíquenos si tiene otras preguntas.
 - **¿Cuántos usuarios es necesario tener?** Hay un mínimo de 20 usuarios. Permítame que me repita para que quede más claro: el valor mínimo es 20. Se le facturarán 20. 
 - **¿Cuánto cuesta RemoteApp?** Consulte [Detalles de precios de RemoteApp de Azure](../../../pricing/details/remoteapp/).
-- **¿Un tipo de colección cuesta más que otro?** Sí, puede que sí, según los requisitos de la colección. Una colección híbrida requiere una conexión desde Azure RemoteApp hasta la red local. Si utiliza una ruta de red virtual (VNET) o una ExpressRoute existente, no se genera ningún costo adicional. Pero si utiliza una red virtual de Azure nueva y una puerta de enlace o una ExpressRoute, se le cobrará por la [puerta de enlace de VPN](../../../pricing/details/vpn-gateway) o por la [Express Route](../../../pricing/details/expressroute/). Este costo (detallado en los vínculos) se suma a los costos mensuales de Azure RemoteApp.
+- **¿Un tipo de colección cuesta más que otro?** Sí, puede que sí, según los requisitos de la colección. Una colección híbrida requiere una conexión desde Azure RemoteApp hasta la red local. Si utiliza una ruta de red virtual (VNET) o una ExpressRoute existente, no se genera ningún costo adicional. Pero si usa una red virtual de Azure nueva y una puerta de enlace o una ExpressRoute, se le cobrará por la [puerta de enlace de VPN](../../../pricing/details/vpn-gateway) o por la [ExpressRoute](../../../pricing/details/expressroute/). Este costo (detallado en los vínculos) se suma a los costos mensuales de Azure RemoteApp.
 
 ## Colecciones: cuáles son compatibles, cuáles debe usar, etc.
 - **¿Son compatibles las aplicaciones personalizadas de línea de negocio (LOB)?** Sí. Para usar una aplicación personalizada de RemoteApp de Azure, cree una [imagen de plantilla personalizada](remoteapp-create-custom-image.md), y cárguela en la colección de RemoteApp.
@@ -44,7 +48,7 @@ Hemos recibido las siguientes preguntas acerca de Azure RemoteApp. ¿Tiene algun
 
 
 ## Opciones de red
-- **La colección híbrida requiere una red virtual. ¿Podemos usar nuestra red virtual existente?** Puede hacerlo si la red virtual existente es una red virtual de Azure. Para obtener más información, consulte el "Paso 1: Configuración de la red virtual" en las [instrucciones de la colección híbrida](remoteapp-create-hybrid-deployment.md).
+- **La colección híbrida requiere una red virtual. ¿Podemos usar nuestra red virtual existente?** Puede hacerlo si la red virtual existente es una red virtual de Azure. Para obtener más información, consulte el "Paso 1: Configuración de la red virtual" en las [Instrucciones de la colección híbrida](remoteapp-create-hybrid-deployment.md).
 - **¿Puedo usar una red virtual con una colección de nube?** Sí, claro. Consulte [Creación de una colección en la nube](remoteapp-create-cloud-deployment.md), especialmente el paso 1, para obtener más información.
 
 ## Opciones de autenticación
@@ -83,7 +87,7 @@ Puede encontrar toda la información del cliente, incluidos los pasos para insta
 
 ##Soporte y comentarios
 
-- **¿Puedo probar este servicio de forma gratuita?** Sí. Hay una versión de prueba gratuita durante 30 días. Tras la finalización de la prueba, puede realizar la transición a una cuenta de pago (que puede usar en producción) o dejar de usar el servicio. Para comenzar una prueba gratuita, vaya a [manage.windowsazure.com](http://manage.windowsazure.com) y cree una instancia de RemoteApp. Con la versión de prueba gratuita, puede crear dos instancias de RemoteApp con 10 usuarios por instancia. Recuerde que esta versión de prueba solo tiene una duración de 30 días.
+
 - **¿Cuál es el plan de soporte técnico para RemoteApp?** Se ofrecen de forma gratuita los servicios de asistencia para facturación y administración de suscripciones. El soporte técnico está disponible a través de los [planes de servicio de Azure](../../../support/plans/). También puede obtener soporte técnico gratuito de la comunidad a través de nuestro [foro de discusión de Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp). 
 - **¿Cómo puedo enviar comentarios?** Visite el [foro de comentarios](http://feedback.azure.com/forums/247748-azure-remoteapp).
 - **¿A quién puedo dirigirme para obtener más información sobre RemoteApp de Azure?** Además de nuestro [foro de discusión](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp), que es un buen sitio para publicar preguntas, puede unirse al [seminario web Preguntar a los expertos](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html) que se realiza semanalmente, donde se habla de todo lo relacionado con RemoteApp.
@@ -107,5 +111,7 @@ Puede encontrar toda la información del cliente, incluidos los pasos para insta
 	Vídeos También tenemos una serie de vídeos acerca de RemoteApp. Algunos ofrecen una introducción ([Introducción a RemoteApp de Azure](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be)) y otros le guiarán a través de la implementación ([Implementación en la nube](http://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/) e [Implementación híbrida](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be)). Écheles un vistazo.
 
  
+### Permítanos ayudarle 
+¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, a continuación, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

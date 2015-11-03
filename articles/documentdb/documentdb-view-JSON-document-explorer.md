@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/09/2015"
+	ms.date="10/26/2015"
 	ms.author="anhoh"/>
 
 # Ver, editar, crear y cargar documentos JSON con el Explorador de documentos de DocumentDB #
@@ -141,7 +141,8 @@ El Explorador de documentos admite la ingesta en bloque de uno o más documentos
 ##<a name="NextSteps"></a>Pasos siguientes
 
 - Para obtener más información sobre DocumentDB, haga clic [aquí](http://azure.com/docdb).
+- Para empezar a trabajar con código, haga clic en [aquí](documentdb-get-started.md).
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->
