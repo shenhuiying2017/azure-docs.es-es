@@ -32,19 +32,18 @@ Este tutorial requiere lo siguiente:
 
 + XCode 6 o XCode 7, que se puede instalar desde la tienda de aplicaciones MAC.
 + [SDK de Mobile Engagement iOS]
-+ Certificado de notificaciones push (.p12), que puede obtener en el centro de desarrolladores de Apple.
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Mobile Engagement para aplicaciones iOS.
 
 > [AZURE.IMPORTANT]Completar este tutorial es un requisito previo para los demás tutoriales de Mobile Engagement para aplicaciones iOS. Para completarlo, debe tener una cuenta activa de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
 
-##<a id="setup-azme"></a>Configurar Mobile Engagement para su aplicación iOS
+##<a id="setup-azme"></a>Configuración de Mobile Engagement para una aplicación iOS
 
-[AZURE.INCLUDE [Crear aplicación de Mobile Engagement en el portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Creación de la aplicación de Mobile Engagement en el portal](../../includes/mobile-engagement-create-app-in-portal.md)]
 
 ##<a id="connecting-app"></a>Conectar la aplicación al backend de Mobile Engagement
 
-En este tutorial se presenta una "integración básica", que es el conjunto mínimo necesario para recopilar los datos y enviar una notificación de inserción. Toda la información sobre la integración se encuentra en la [Integarción del SDK de Mobile Engagement para iOS](../mobile-engagement-ios-sdk-overview/).
+En este tutorial se presenta una "integración básica", que es el conjunto mínimo necesario para recopilar los datos y enviar una notificación de inserción. Toda la información sobre la integración se encuentra en la [Integración del SDK de Mobile Engagement para iOS](../mobile-engagement-ios-sdk-overview/)
 
 Crearemos una aplicación básica con XCode para demostrar la integración:
 
@@ -56,7 +55,7 @@ Crearemos una aplicación básica con XCode para demostrar la integración:
 
 1. Descargue el [SDK de iOS para Mobile Engagement].
 2. Extraiga el archivo .tar.gz en una carpeta del equipo.
-3. Haga clic con el botón secundario en el proyecto y luego seleccione **Agregar archivos a**.
+3. Haga clic con el botón derecho en el proyecto y luego seleccione **Agregar archivos a**.
 
 	![][1]
 
@@ -70,7 +69,7 @@ Crearemos una aplicación básica con XCode para demostrar la integración:
 
 6. Para **XCode 7** - agregue `libxml2.tbd` en lugar de `libxml2.dylib`.
 
-7. Vuelva al portal de Azure en la página **Información de conexión** de la aplicación y copie la cadena de conexión
+7. Vuelva al Portal de Azure en la página **Información de conexión** de la aplicación y copie la cadena de conexión.
 
 	![][4]
 
@@ -78,7 +77,7 @@ Crearemos una aplicación básica con XCode para demostrar la integración:
 
 		#import "EngagementAgent.h"
 
-9. Pegue ahora la cadena de conexión en el delegado `didFinishLaunchingWithOptions`.
+9. Pegue la cadena de conexión en el delegado `didFinishLaunchingWithOptions`.
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 		{
@@ -89,7 +88,7 @@ Crearemos una aplicación básica con XCode para demostrar la integración:
   			[...]
 		}
 
-10. `setTestLogEnabled` es una instrucción opcional que permite a los registros del SDK identificar problemas.
+10. `setTestLogEnabled` es una instrucción opcional que habilita los registros del SDK para identificar problemas.
 
 ##<a id="monitor"></a>Habilitación de la supervisión en tiempo real
 
@@ -103,11 +102,11 @@ Para comenzar a enviar datos y asegurarse de que los usuarios estén activos, de
 
 	`@interface ViewController : EngagementViewController`
 
-##<a id="monitor"></a>Conectar la aplicación con la supervisión en tiempo real
+##<a id="monitor"></a>Conexión de la aplicación con la supervisión en tiempo real
 
 [AZURE.INCLUDE [Conectar la aplicación con la supervisión en tiempo real](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-##<a id="integrate-push"></a>Habilitación de notificaciones push y mensajería en la aplicación
+##<a id="integrate-push"></a>Habilitación de las notificaciones push y la mensajería en aplicación
 
 Mobile Engagement permite interactuar y llegar mediante notificaciones push y mensajería en la aplicación en el contexto de las campañas. Este módulo se denomina REACH en el portal de Mobile Engagement. En las secciones siguientes se instala la aplicación para recibirlos.
 
@@ -129,7 +128,7 @@ Mobile Engagement permite interactuar y llegar mediante notificaciones push y me
 
 		#import "AEReachModule.h"
 
-2. Dentro del método `application:didFinishLaunchingWithOptions`, cree un módulo de Reach y páselo a la línea existente de inicialización de Engagement:
+2. Dentro del método `application:didFinishLaunchingWithOptions`, cree un módulo de Reach y páselo a la línea de inicialización de Engagement existente:
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 			AEReachModule * reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
@@ -187,4 +186,4 @@ Mobile Engagement permite interactuar y llegar mediante notificaciones push y me
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

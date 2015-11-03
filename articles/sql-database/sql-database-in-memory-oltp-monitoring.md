@@ -1,0 +1,61 @@
+<properties
+	pageTitle="Supervisión del almacenamiento en memoria de XTP | Microsoft Azure"
+	description="Estimar y supervisar el uso y la capacidad del almacenamiento en memoria de XTP; resolver el error de capacidad 41805"
+	services="sql-database"
+	documentationCenter=""
+	authors="jodebrui"
+	manager="jeffreyg"
+	editor=""/>
+
+
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="10/28/2015"
+	ms.author="jodebrui"/>
+
+
+# Supervisión del almacenamiento en memoria de XTP
+
+Consulte el [artículo de niveles de servicio de Base de datos SQL](sql-database-service-tiers.md) para obtener información sobre el almacenamiento y el nivel de servicio.
+
+Al usar [En memoria](sql-database-in-memory.md), los datos de tablas optimizadas en memoria y las variables de tabla residen en el almacenamiento en memoria de XTP. Cada nivel de servicio Premium tiene un tamaño máximo de almacenamiento en memoria. Una vez que se supera este límite, insertar y actualizar las operaciones pueden producir errores (con error 41805). En ese momento se necesita eliminar los datos para reclamar memoria o actualizar el nivel de rendimiento de la base de datos.
+
+## Determinación de si los datos se ajustan dentro del límite de almacenamiento en memoria
+
+La estimación de los requisitos de memoria para una tabla optimizada en memoria funciona de la misma manera para SQL Server tal y como se hace en la base de datos SQL de Azure. Dedique algunos minutos a revisar ese tema en [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
+
+Tenga en cuenta que la tabla y las filas de variables de tabla, así como los índices, se contarán para el tamaño de datos de usuario máx. Además, ALTER TABLE necesita suficiente espacio para crear una nueva versión de toda la tabla y sus índices.
+
+##### Tamaño máximo de almacenamiento en memoria de XTP para niveles de servicio Premium:
+
+
+
+Puede supervisar el uso de almacenamiento en memoria del [Portal](http://portal.azure.com/) de Azure:
+
+- En la hoja Base de datos, busque el cuadro de uso de recursos y haga clic en Editar.
+- A continuación, seleccione el porcentaje de almacenamiento en memoria de XTP de métricas.
+
+O bien, use la siguiente consulta para mostrar el uso del almacenamiento en memoria:
+
+    select xtp_storage_percent from sys.dm_db_resource_stats
+
+## Corrección de situaciones de falta de memoria - Error 41805
+
+Resultados de falta de memoria durante la ejecución en las operaciones de inserción, actualización y creación con el mensaje de error 41805.
+
+El mensaje de error 41805 indica que las variables de tabla y las tablas optimizadas para memoria han superado el tamaño máximo.
+
+Para resolver este error, haga uno de los siguientes:
+
+
+- Elimine datos de las tablas optimizadas para memoria, lo que potencialmente descarga los datos a tablas tradicionales, basadas en disco; o bien,
+- Actualice el nivel de servicio a uno con suficiente espacio de almacenamiento en memoria para los datos que necesita mantener en tablas optimizadas en memoria.
+
+## Pasos siguientes
+Obtenga más información acerca de [Supervisión de Base de datos SQL de Azure con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md)
+
+<!---HONumber=Nov15_HO1-->

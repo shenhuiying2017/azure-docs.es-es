@@ -26,13 +26,13 @@ Comience a trabajar con la Biblioteca de .NET del Lote de Azure mediante la crea
 
 	- **Cuenta de Azure**: puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-	- **Cuenta de Lote**: consulte la sección **Cuenta de Lote** de [Información técnica de Lote de Azure](batch-technical-overview.md).
+	- **Cuenta de lotes**: consulte [Creación y administración de una cuenta de Lote de Azure](batch-account-create-portal.md).
 
 	- **Cuenta de almacenamiento**: consulte la sección **Crear una cuenta de almacenamiento** del apartado [Acerca de cuentas de Almacenamiento de Azure](../storage-create-storage-account.md). En este tutorial creará un contenedor en esta cuenta denominado **testcon1**.
 
 - Un proyecto de aplicación de consola de Visual Studio:
 
-	1.  Abra Visual Studio en el menú **Archivo**, haga clic en **Nuevo** y, a continuación, haga clic en **Proyecto**.
+	1.  Abra Visual Studio, en el menú **Archivo**, haga clic en **Nuevo** y, a continuación, haga clic en **Proyecto**.
 
 	2.	En **Windows**, en **Visual C#**, haga clic en **Aplicación de consola**, denomine el proyecto **GettingStarted**, denomine la solución **AzureBatch** y, a continuación, haga clic en **Aceptar**.
 
@@ -67,7 +67,7 @@ Para admitir la aplicación, se crea un contenedor en Almacenamiento de Azure, s
 
 2. Guarde el archivo App.config.
 
-Para obtener más información acerca de las cadenas de conexión de Almacenamiento de Azure, consulte [Configurar cadenas de conexión de Almacenamiento de Azure](../storage/storage-configure-connection-string.md).
+Para obtener más información acerca de las cadenas de conexión de Almacenamiento de Azure, consulte [Configuración de las cadenas de conexión de Almacenamiento de Azure](../storage/storage-configure-connection-string.md).
 
 ### Creación de un contenedor de almacenamiento
 
@@ -109,7 +109,7 @@ Para obtener más información acerca de las cadenas de conexión de Almacenamie
 
 	> [AZURE.NOTE]En un entorno de producción, se recomienda usar una [firma de acceso compartido](https://msdn.microsoft.com/library/azure/ee395415.aspx).
 
-Para obtener más información acerca del almacenamiento de blobs, consulte [Cómo usar el almacenamiento de blobs en .NET](../storage/storage-dotnet-how-to-use-blobs.md).
+Para obtener más información acerca del almacenamiento de blobs, consulte [Uso del almacenamiento de blobs de .NET](../storage/storage-dotnet-how-to-use-blobs.md).
 
 ### Creación del programa de procesamiento
 
@@ -208,7 +208,7 @@ Un grupo de nodos de ejecución es el primer conjunto de recursos que debe crear
 			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("[account-url]", "[account-name]", "[account-key]");
 			BatchClient client = BatchClient.Open(cred);
 
-	Reemplace los valores entre corchetes por aquellos asociados con la cuenta de Lote, cada uno de los cuales puede encontrarse en el [portal de vista previa de Azure](https://portal.azure.com). Para encontrar estos valores, inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com) y:
+	Reemplace los valores entre corchetes por aquellos asociados con la cuenta de Lote, cada uno de los cuales puede encontrarse en el [Portal de vista previa de Azure](https://portal.azure.com). Para encontrar estos valores, inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com) y:
 
 	- **[account-name]**: haga clic en **Cuentas de Lote**, seleccione la cuenta de Lote que creó anteriormente
 	- **[account-url]**: en la hoja de cuenta de Lote, haga clic en **Propiedades** > **URL**
@@ -491,8 +491,8 @@ Dado que se le cobrará por los recursos en Azure, siempre es conveniente elimin
 
 ## Pasos siguientes
 
-1. Ahora que conoce los aspectos básicos de la ejecución de tareas, puede aprender a realizar el escalado automático de nodos de ejecución cuando cambie la demanda de la aplicación. Para ello, consulte [Escalado automático de nodos de ejecución en un grupo de Lote de Azure](batch-automatic-scaling.md).
+1. Ahora que conoce los aspectos básicos de la ejecución de tareas, puede aprender a realizar el escalado automático de nodos de ejecución cuando cambie la demanda de la aplicación. Para ello, consulte [Escalación automática de los nodos de ejecución en un grupo de Lote de Azure](batch-automatic-scaling.md).
 
 2. Algunas aplicaciones generan grandes cantidades de datos que pueden ser difíciles de procesar. Una manera de resolver esto es a través de una [consulta de lista eficiente](batch-efficient-list-queries.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -135,21 +135,27 @@ Descargar e integrar la biblioteca de SDK
 
 Para comenzar a enviar datos y asegurarse de que los usuarios estén activos, debe enviar al menos una pantalla (Actividad) al back-end de Mobile Engagement.
 
-Vaya a **MainActivity.java** y agregue lo siguiente para reemplazar la clase base de **MainActivity** de **ActionBarActivity** a **EngagementActivity**:
+Vaya a **MainActivity.java** y agregue lo siguiente para reemplazar la clase base de **MainActivity** a **EngagementActivity**:
 
 	public class MainActivity extends EngagementActivity {
 
-##<a id="monitor"></a>Conectar la aplicación con la supervisión en tiempo real
+Debería convertir en comentario (excluir) la línea siguiente para este escenario de ejemplo simple:
+
+    // setSupportActionBar(toolbar);
+
+Si desea tenerlo a mano, debe consultar el escenario "Informes básicos" en nuestro [Integración de Engagement en Android]
+
+##<a id="monitor"></a>Conexión de la aplicación con la supervisión en tiempo real
 
 [AZURE.INCLUDE [Conectar la aplicación con la supervisión en tiempo real](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-##<a id="integrate-push"></a>Habilitar las notificaciones push y la mensajería en la aplicación
+##<a id="integrate-push"></a>Habilitación de las notificaciones push y la mensajería en aplicación
 
 Mobile Engagement permite interactuar y llegar por REACH a los usuarios mediante notificaciones de inserción y mensajería en la aplicación en el contexto de las campañas. Este módulo se denomina REACH en el portal de Mobile Engagement. En las secciones siguientes se instala la aplicación para recibirlos.
 
 ### Habilitar la mensajería en la aplicación
 
-1. Copie los siguientes recursos de mensajería en la aplicación en Manifest.xml, entre las etiquetas `<application>` y `</application>`.
+1. Copie los siguientes recursos de mensajería en aplicación en Manifest.xml, entre las etiquetas `<application>` y `</application>`.
 
 		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light">
   			<intent-filter>
@@ -204,7 +210,7 @@ Mobile Engagement permite interactuar y llegar por REACH a los usuarios mediante
 
 ###Especificación de un icono para las notificaciones
 
-Pegue el siguiente fragmento XML en el Manifest.xml entre las etiquetas `<application>` y `</application>`.
+Pegue el siguiente fragmento XML en su Manifest.xml entre las etiquetas `<application>` y `</application>`.
 
 		<meta-data android:name="engagement:reach:notification:icon" android:value="engagement_close"/>
 
@@ -218,9 +224,13 @@ Para las aplicaciones reales, puede usar un icono adecuado para notificaciones s
 
 >[AZURE.TIP]Para asegurarse de usar las resoluciones de icono correctas, consulte [estos ejemplos](https://www.google.com/design/icons). Desplácese hasta la sección **Notificación**, haga clic en un icono y luego haga clic en `PNGS` para descargar el conjunto de iconos dibujables. Puede ver qué carpetas de recursos dibujables usar con qué resolución para cada versión del icono.
 
+##Creación de un proyecto del Servicio de mensajería en la nube de Google con clave de API 
+
+[AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
+
 ###Habilitar la aplicación para recibir notificaciones de inserción de GCM
 
-1. Pegue lo siguiente entre las etiquetas `<application>` y `</application>` de Manifest.xml después de reemplazar el `project number` obtenido en la consola de Google Play. \\n se introduce de manera intencionada para asegurarse de finalizar el número de proyecto con él.
+1. Pegue lo siguiente entre las etiquetas `<application>` y `</application>` del archivo Manifest.xml después de reemplazar el `project number` obtenido en la consola de Google Play. \\n se introduce de manera intencionada para asegurarse de finalizar el número de proyecto con él.
 
 		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
@@ -265,7 +275,7 @@ Para permitir que Mobile Engagement envíe notificaciones de inserción en su no
 	  
 	![][17]
 
-4. En el menú emergente, pegue la clave de servidor de GCM obtenida en la sección [Habilitación del Servicio de mensajería en la nube de Google](#register) y luego haga clic en **Aceptar**.
+4. En el menú emergente, pegue la clave del servidor de GCM obtenida antes y, a continuación, haga clic en **Aceptar**.
 
 	![][18]
 
@@ -289,9 +299,9 @@ Ahora crearemos una campaña de notificación de inserción simple que enviará 
 
 	c. En **Tiempo de entrega**, seleccione *Cualquier momento* para permitir que la aplicación reciba una notificación, independientemente de si se ha iniciado o no.
 
-	d. En el texto de la notificación, escriba el **título** que aparecerá en negrita en la inserción.
+	d. En el texto de la notificación, escriba el **Título** que aparecerá en negrita en la inserción.
 
-	e. Luego, escriba el **mensaje**.
+	e. Luego, escriba el **Mensaje**.
 
 4. Desplácese hacia abajo y, en la sección **Contenido**, elija **Solo notificación**.
 
@@ -307,6 +317,8 @@ Ahora crearemos una campaña de notificación de inserción simple que enviará 
 [SDK de Android para Mobile Engagement]: http://go.microsoft.com/?linkid=9863935
 [SDK de Android para Mobile Engagement Android]: http://go.microsoft.com/?linkid=9863935
 [Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
+[Integración de Engagement en Android]: https://azure.microsoft.com/es-ES/documentation/articles/mobile-engagement-android-integrate-engagement/#basic-reporting
+
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
 [2]: ./media/mobile-engagement-android-get-started/android-studio-project-props.png
@@ -328,4 +340,4 @@ Ahora crearemos una campaña de notificación de inserción simple que enviará 
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

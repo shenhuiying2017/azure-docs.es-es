@@ -17,19 +17,21 @@
 
 	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
-5. Haga clic en **Credenciales** y, después, en **Agregar credenciales** y **Clave API**.
+5. Haga clic en **Credenciales** y, después, en **Agregar credenciales**-> **Clave API**.
+
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
 
 6. En **Create a new key**, haga clic en **Server key**. En la siguiente ventana, haga clic en **Create**.
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key5.png)
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2-2.png)
 
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key6.png)
 
 7. Anote el valor de **API KEY** (Clave de API).
 
+
 	Usará este valor de clave de API para permitir que Azure lleve a cabo la autenticación con GCM y envíe notificaciones de inserción en nombre de su aplicación.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

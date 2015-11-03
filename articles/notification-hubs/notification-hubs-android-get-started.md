@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="10/23/2015"
 	ms.author="wesmc"/>
 
 # Introducción a Centros de notificaciones para aplicaciones Android
@@ -86,7 +86,7 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
 1. Descargue el <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">SDK de Android para Centros de notificaciones</a>. Extraiga el archivo .zip y copie **notificationhubs\\notification-hubs-0.3.jar** y **notifications\\notifications-1.0.1.jar** en el directorio **app\\libs** del proyecto. Para hacerlo, arrastre los archivos directamente a la carpeta **libs** en la ventana Vista del proyecto de Android Studio. Actualice la carpeta **libs**.
 
 
-    > [AZURE.NOTE] Los números que aparecen al final del nombre del archivo pueden cambiar en versiones de SDK posteriores.
+    > [AZURE.NOTE]Los números que aparecen al final del nombre del archivo pueden cambiar en versiones de SDK posteriores.
 
 2. Configure la aplicación para obtener un Id. de registro desde GCM y úselo para registrar la instancia de la aplicación en el centro de notificaciones.
 
@@ -120,10 +120,7 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
 	    private static Boolean isVisible = false;
 
 
-	Asegúrese de actualizar los tres marcadores de posición:
-	* **SENDER\_ID**: defina `SENDER_ID` en el número de proyecto que obtuvo anteriormente desde el proyecto que creó en la [Consola de la nube de Google](http://cloud.google.com/console).
-	* **HubListenConnectionString**: defina `HubListenConnectionString` en la cadena de conexión **DefaultListenAccessSignature** correspondiente a su centro. Puede copiar esa cadena de conexión con un clic en **Ver cadena de conexión** en la pestaña **Panel** del centro en el [Portal de Azure].
-	* **HubName**: el nombre del centro de notificaciones que aparece en la parte superior de la página en Azure correspondiente a su centro (**no** la dirección URL completa). Por ejemplo, use `"myhub"`.
+	Asegúrese de actualizar los tres marcadores de posición: * **SENDER\_ID**: establezca `SENDER_ID` en el número de proyecto que obtuvo anteriormente del proyecto que creó en la [Consola de Google Cloud](http://cloud.google.com/console). * **HubListenConnectionString**: establezca `HubListenConnectionString` en la cadena de conexión **DefaultListenAccessSignature** correspondiente a su centro. Puede copiar esa cadena de conexión haciendo clic en **Ver cadena de conexión** en la pestaña **Panel** de su centro en el [Portal de Azure]. * **HubName**: use el nombre del centro de notificaciones que aparece en la parte superior de la página de Azure correspondiente a su centro (**no** la dirección URL completa). Por ejemplo, use `"myhub"`.
 
 
 
@@ -156,7 +153,7 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
     	}
 
 
-7. Agregue el método **DialogNotify** a la actividad para mostrar la notificación cuando la aplicación se está ejecutando y es visible. Invalide también **onStart** y **onStop** para determinar si la actividad está visible para mostrar el cuadro de diálogo.
+7. Agregue el método `DialogNotify` a la actividad para mostrar la notificación cuando la aplicación se ejecuta y es visible. Invalide también `onStart`, `onPause`, `onResume` y `onStop` para determinar si la actividad está visible para mostrar el cuadro de diálogo.
 
 	    @Override
 	    protected void onStart() {
@@ -165,11 +162,22 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
 	    }
 	
 	    @Override
+	    protected void onPause() {
+	        super.onPause();
+	        isVisible = false;
+	    }
+	
+	    @Override
+	    protected void onResume() {
+	        super.onResume();
+	        isVisible = true;
+	    }
+	
+	    @Override
 	    protected void onStop() {
 	        super.onStop();
 	        isVisible = false;
 	    }
-
 
 		/**
 		  * A modal AlertDialog for displaying a message on the UI thread
@@ -207,7 +215,7 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
 
 8. Puesto que Android no muestra las notificaciones, debe escribir su propio receptor. En **AndroidManifest.xml**, agregue el siguiente elemento dentro del elemento `<application>`.
 
-	> [AZURE.NOTE] Reemplace el marcador de posición por el nombre del paquete.
+	> [AZURE.NOTE]Reemplace el marcador de posición por el nombre del paquete.
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -218,7 +226,7 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
         </receiver>
 
 
-9. En la vista de proyecto, expanda **app** > **src** > **main** > **java**. Haga clic con el botón derecho en la carpeta del paquete en **java**, haga clic en **Nuevo** y, a continuación, haga clic en **Clase Java**.
+9. En la Vista de proyecto, expanda **app** > **src** > **main** > **java**. Haga clic con el botón derecho en la carpeta del paquete en **java**, haga clic en **Nuevo** y, a continuación, haga clic en **Clase Java**.
 
 	![][6]
 
@@ -236,7 +244,7 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
 
 
-12. Actualice la declaración de clase de la siguiente manera para hacer de `MyHandler` una subclase de `com.microsoft.windowsazure.notifications.NotificationsHandler`, tal y como se muestra a continuación.
+12. Actualice la declaración de clase para hacer de `MyHandler` una subclase de `com.microsoft.windowsazure.notifications.NotificationsHandler`, tal y como se muestra a continuación.
 
 		public class MyHandler extends NotificationsHandler {
 
@@ -296,7 +304,7 @@ Para probar la recepción de notificaciones en su aplicación, envíe notificaci
 ## (Opcional) Enviar notificaciones desde la aplicación
 
 
-1. En la vista de proyecto de Android Studio, expanda **App** -> **src** -> **main** -> **res** -> **layout**. Abra el archivo de diseño **activity\_main.xml** y haga clic en la pestaña **Texto** para actualizar los contenidos de texto del archivo. Actualícelo con el siguiente código, que agrega nuevos controles `Button` y `EditText` para enviar mensajes de notificación al centro de notificaciones. Agregue este código al final, justo antes de `</RelativeLayout>`.
+1. En la vista de proyecto de Android Studio, expanda **App** > **src** > **main** > **res** > **layout**. Abra el archivo de diseño **activity\_main.xml** y haga clic en la pestaña **Texto** para actualizar los contenidos de texto del archivo. Actualícelo con el siguiente código, que agrega nuevos controles `Button` y `EditText` para enviar mensajes de notificación al centro de notificaciones. Agregue este código al final, justo antes de `</RelativeLayout>`.
 
 	    <Button
         android:layout_width="wrap_content"
@@ -341,7 +349,7 @@ Para probar la recepción de notificaciones en su aplicación, envíe notificaci
 
 3. En el archivo **MainActivity.java**, agregue los siguientes miembros en la parte superior de la clase `MainActivity`.
 
-	Actualice `HubFullAccess` con la cadena de conexión **DefaultFullSharedAccessSignature** para su centro. Esta cadena de conexión se puede copiar desde el [Portal de Azure] mediante un clic en **Ver cadena de conexión** en la pestaña **Panel** correspondiente al centro de notificaciones.
+	Actualice `HubFullAccess` con la cadena de conexión **DefaultFullSharedAccessSignature** para su centro. Para copiar esta cadena de conexión desde el [Portal de Azure], haga clic en **Ver cadena de conexión** en la pestaña **Panel** correspondiente al centro de notificaciones.
 
 	    private String HubEndpoint = null;
 	    private String HubSasKeyName = null;
@@ -506,11 +514,11 @@ Asegúrese también de haber agregado su cuenta de Google al emulador en ejecuci
 
 ##Pasos siguientes
 
-En este sencillo ejemplo, ha difundido notificaciones a todos los dispositivos con Windows mediante el portal o aplicación de consola. Se recomienda seguir el tutorial [Notificación a los usuarios con los Centros de notificaciones de Azure] como paso siguiente. Le mostrará cómo enviar notificaciones desde un back-end de ASP.NET mediante etiquetas para dirigirse a usuarios específicos.
+En este sencillo ejemplo, ha difundido notificaciones a todos los dispositivos con Windows mediante el portal o aplicación de consola. Se recomienda seguir el tutorial [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios] como paso siguiente. Le mostrará cómo enviar notificaciones desde un back-end de ASP.NET mediante etiquetas para dirigirse a usuarios específicos.
 
 Si desea segmentar los usuarios por grupos de interés, consulte [Uso de los Centros de notificaciones para enviar noticias de última hora].
 
-Para obtener más información sobre los Centros de notificaciones, consulte [Introducción a los Centros de notificaciones].
+Para obtener más información sobre los Centros de notificaciones, consulte [Orientación sobre los Centros de notificaciones].
 
 
 
@@ -545,8 +553,8 @@ Para obtener más información sobre los Centros de notificaciones, consulte [In
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Portal de Azure]: https://manage.windowsazure.com/
-[Introducción a los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-android-notify-users.md
+[Orientación sobre los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
+[Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]: notification-hubs-aspnet-backend-android-notify-users.md
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

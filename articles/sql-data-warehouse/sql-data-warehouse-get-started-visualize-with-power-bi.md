@@ -17,12 +17,15 @@
     ms.author="lodipalm"/>
 
 # Visualización de datos con Power BI
-Este tutorial muestra cómo usar Power BI para conectar con Almacenamiento de datos SQL y crear unas visualizaciones básicas.
+
 
 > [AZURE.NOTE]Para completar este tutorial, necesita una base de datos de Almacenamiento de datos SQL que se haya cargado previamente con la base de datos de ejemplo AdventureWorksDW. [Creación de una nueva base de datos de Almacenamiento de datos SQL](sql-data-warehouse-get-started-provision.md) le muestra cómo crear una.
 > 
-> Si ya tiene una base de datos de Almacenamiento de datos SQL pero no tiene datos de ejemplo, puede [cargar manualmente los datos de ejemplo][].
+> Si ya tiene una base de datos de Almacenamiento de datos SQL, pero no tiene datos de ejemplo, puede [cargar manualmente los datos de ejemplo][].
 
+Este tutorial muestra cómo usar Power BI para conectar con Almacenamiento de datos SQL y crear unas visualizaciones básicas.
+
+> [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
 ## Conexión a AdventureWorksDW
 
@@ -79,7 +82,7 @@ Ahora está listo para usar Power BI para analizar los datos de ejemplo Adventur
 
     ![LíneaPower BI][11]
 
-Puede guardar el progreso en cualquier momento haciendo clic en **Archivo** y seleccionando **Guardar**.
+Para guardar el progreso en cualquier momento, haga clic en **Archivo** y seleccione **Guardar**.
 
 ## Pasos siguientes
 Ahora que le hemos dado algún tiempo para familiarizarse con los datos de ejemplo, consulte cómo puede [desarrollar][], [cargar][] o [migrar][].
@@ -108,4 +111,4 @@ Ahora que le hemos dado algún tiempo para familiarizarse con los datos de ejemp
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

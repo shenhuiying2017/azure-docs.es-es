@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="10/23/2015"
 	ms.author="wesmc"/>
 
 # Introducción a Centros de notificaciones para Windows Phone
@@ -51,8 +51,7 @@ La realización de este tutorial es un requisito previo para todos los demás tu
 
 El concentrador se crea y configura ahora para enviar una notificación sin autenticar para Windows Phone.
 
-> [AZURE.NOTE]Este tutorial usa MPNS en modo sin autenticar. El modo sin autenticar de MPNS viene con restricciones sobre las notificaciones que puede enviar a cada canal. Centros de notificaciones admite el [modo sin autenticar de MPNS](http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx).
-<!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
+> [AZURE.NOTE]Este tutorial usa MPNS en modo sin autenticar. El modo sin autenticar de MPNS viene con restricciones sobre las notificaciones que puede enviar a cada canal. Los Centros de notificaciones admiten el [modo autenticado de MPNS](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) al permitir que cargue su certificado.
 
 ##Conexión de su aplicación al centro de notificaciones
 
@@ -119,7 +118,7 @@ Puede enviar notificaciones mediante Centros de notificaciones desde cualquier b
 
 	Esta acción agrega una aplicación de consola nueva de Visual C# a la solución. También puede hacer esto en una solución separada.
 
-4. Haga clic con el botón derecho en la solución, haga clic en **Herramientas**, luego en **Administrador de paquetes de bibliotecas** y finalmente en **Consola del Administrador de paquetes**.
+4. Haga clic en **Herramientas**, luego en **Administrador de paquetes de bibliotecas** y finalmente en **Consola del Administrador de paquetes**.
 
 	Esto muestra la Consola del Administrador de paquetes.
 
@@ -199,4 +198,4 @@ En este sencillo ejemplo, ha difundido notificaciones a todos los dispositivos W
 [catálogo de iconos]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

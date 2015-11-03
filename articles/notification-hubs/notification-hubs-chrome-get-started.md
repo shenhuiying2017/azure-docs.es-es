@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="10/20/2015"
 	ms.author="wesmc"/>
 
 # Introducción a Centros de notificaciones para aplicaciones Chrome
@@ -368,16 +368,7 @@ La aplicación Chrome se crea con JavaScript y puede usar su editor de texto pre
 		  }
 		}
 
-	El script anterior incluye lo siguiente:
-	- *window.onload* define los eventos de clic de botón de los dos botones de la IU, uno se registra en GCM y el otro usa el identificador de registro devuelto tras el registro en GCM para registrarse en los Centros de notificaciones de Azure.
-	- La función *updateLog* define una función de registro sencilla.
-	- *registerWithGCM* es el primer controlador de clics de botón que realiza la llamada *chrome.gcm.register* a GCM para registrar esta instancia de aplicación de Chrome.
-	- *registerCallback* es la función de devolución de llamada a la que se llama cuando se devuelve la llamada de registro anterior de GCM. 
-	- *registerWithNH* es el segundo controlador de clics de botón que se registra en los Centros de notificaciones. Obtiene los valores *hubName* y *connectionString* que el usuario ha especificado y crea la llamada a la API de REST para el registro en los Centros de notificaciones.
-	- *splitConnectionString* y *generateSaSToken* son una implementación de Javascript de la creación de un token de SaS que se debe enviar en todas las llamadas a la API de REST. Más información al respecto aquí[Conceptos comunes](http://msdn.microsoft.com/library/dn495627.aspx)
-	- *sendNHRegistrationRequest* es la función que realiza una llamada HTTP REST.
-	- *registrationPayload* define la carga xml del registro. Más información aquí: [Creación de una API de REST para el registro en el Centro de notificaciones]. Actualizamos el Id. de registro que contiene con el que recibimos de GCM.
-	- *client* es una instancia de *XMLHttpRequest* que usamos para crear la solicitud HTTP POST. Tenga en cuenta que actualizamos el encabezado *Authorization* con el sasToken. La finalización correcta de esta llamada registrará esta instancia de la aplicación Chrome con Centros de notificaciones de Azure.
+	El script anterior tiene los siguientes beneficios:- *window.onload* define los eventos de clic de botón de los dos botones de la interfaz de usuario. Uno se registra en GCM y el otro usa el identificador de registro devuelto tras el registro en GCM para registrarse en Centros de notificaciones de Azure. - *updateLog* es la función que define una función de registro sencilla. - *registerWithGCM* es el primer controlador de clic de botón que realiza la llamada **chrome.gcm.register** a GCM para registrar esta instancia de aplicación Chrome. - *registerCallback* es la función de devolución de llamada a la que se llama cuando se devuelve la llamada de registro anterior de GCM. - *registerWithNH* es el segundo controlador de clic de botón que se registra en Centros de notificaciones. Obtiene los valores **hubName** y **connectionString** que el usuario ha especificado y crea la llamada a la API de REST para el registro en los Centros de notificaciones. - *splitConnectionString* y *generateSaSToken* son una implementación de Javascript de la creación de un token de SaS que se debe enviar en todas las llamadas a la API de REST. Para obtener más información, consulte [Conceptos comunes](http://msdn.microsoft.com/library/dn495627.aspx). - *sendNHRegistrationRequest* es la función que realiza una llamada HTTP REST. - *registrationPayload* defines la carga XML de registro. Para obtener más información, consulte [Crear registro]. Actualizamos el id. de registro que contiene con el que recibimos de GCM. - *client* es una instancia de **XMLHttpRequest** que usamos para crear la solicitud HTTP POST. Tenga en cuenta que actualizamos el encabezado **Authorization** con **sasToken**. La finalización correcta de esta llamada registrará esta instancia de la aplicación Chrome con Centros de notificaciones de Azure.
 
 
 Debería ver la siguiente vista de la carpeta al final: ![][21]
@@ -416,13 +407,13 @@ Para ver un ejemplo de cómo enviar notificaciones desde un back-end de Servicio
 
 3. En la ventana de la consola, ejecute el siguiente comando:
 
-        Install-Package WindowsAzure.ServiceBus
+        Install-Package Microsoft.Azure.NotificationHubs
 
    	Esta acción agrega una referencia al SDK de Bus de servicio de Azure con el paquete <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus de NuGet</a>.
 
 4. Abra el archivo **Program.cs** y agregue la siguiente instrucción `using`:
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 5. En la clase **Program**, agregue el siguiente método.
 
@@ -486,11 +477,11 @@ En este sencillo ejemplo, difundirá notificaciones a la aplicación Chrome. Obt
 [ejemplo de GCM de la aplicación Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Aplicaciones web instalables]: https://developers.google.com/chrome/apps/docs/
 [Aplicaciones de Chrome en dispositivos móviles]: https://developer.chrome.com/apps/chrome_apps_on_mobile
-[Creación de una API de REST para el registro en el Centro de notificaciones]: http://msdn.microsoft.com/library/azure/dn223265.aspx
+[Crear registro]: http://msdn.microsoft.com/library/azure/dn223265.aspx
 [biblioteca crypto-js]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Servicio de mensajería en la nube de Google para Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
 [Uso de Centros de notificaciones para notificar a los usuarios]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Uso de Centros de notificaciones para enviar noticias de último minuto]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
