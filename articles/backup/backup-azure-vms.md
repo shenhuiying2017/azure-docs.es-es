@@ -58,9 +58,11 @@ Una máquina virtual de Azure se registra a fin de asociarla con el servicio Cop
 
     ![seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Haga clic en **REGISTRAR** en la parte inferior de la página. ![botón Registrar](./media/backup-azure-vms/register-button-only.png)
+3. Haga clic en el botón **REGISTRAR** que se encuentra en la parte inferior de la página.
 
-4. En el menú contextual **Elementos registrados**, elija las máquinas virtuales que desea registrar. Si hay dos o más máquinas virtuales con el mismo nombre, use el servicio en la nube para distinguirlas.
+    ![botón Registrar](./media/backup-azure-vms/register-button-only.png)
+
+4. En el menú contextual **Elementos registrados**, elija las máquinas virtuales que desea registrar. Si hay dos o más máquinas virtuales con el mismo nombre, use el servicio en la nube para distinguir entre las máquinas virtuales.
 
     >[AZURE.TIP]Se pueden registrar varias máquinas virtuales al mismo tiempo.
 
@@ -74,7 +76,7 @@ Una máquina virtual de Azure se registra a fin de asociarla con el servicio Cop
 
     ![Registering status 1](./media/backup-azure-vms/register-status01.png)
 
-    When the operation completes, the status will change to reflect the *registered* state.
+7. Una vez completada la operación, se cambiará el estado en el portal para reflejar el estado registrado.
 
     ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
@@ -146,8 +148,8 @@ Una vez completada la copia de seguridad inicial, el estado de la máquina virtu
 
 ![Se realiza una copia de seguridad de la máquina virtual con punto de recuperación](./media/backup-azure-vms/protect-backedupvm.png)
 
-## Visualización de los detalles y el estado de la copia de seguridad
-Una vez protegidas, el recuento de máquinas virtuales también aumenta en el resumen de la página **Panel**. La página **Panel** también muestra el número de trabajos de las últimas 24 horas que se realizaron* correctamente*, que *produjeron un error* y que siguen *en curso*. Al hacer clic en una categoría, esta se desglosará en la página **Trabajos**.
+### Visualización de los detalles y el estado de la copia de seguridad
+Una vez protegidas, el recuento de máquinas virtuales también aumenta en el resumen de la página **Panel**. Además, la página **Panel** muestra el número de trabajos de las últimas 24 horas que se realizaron correctamente, que produjeron un error y que siguen en curso. Al hacer clic en una categoría, esta se desglosará en la página **Trabajos**.
 
 ![Estado de la copia de seguridad en la página Panel](./media/backup-azure-vms/dashboard-protectedvms.png)
 
