@@ -30,7 +30,7 @@ La galería de máquinas virtuales de Azure incluye varias imágenes que contien
 
 ##<a name="Provision"></a>Conexión al Portal de administración de Azure y aprovisionamiento de una máquina virtual de SQL Server
 
-1.  Inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com/) con su cuenta. Si no tiene una cuenta de Azure, visite [Evaluación gratuita de Azure](http://www.windowsazure.com/pricing/free-trial/).
+1.  Inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com/) con su cuenta. Si no tiene una cuenta de Azure, visite [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 2.  En el Portal de administración de Azure, en la parte inferior izquierda de la página web, haga clic sucesivamente en **+NUEVO**, **PROCESO**, **MÁQUINA VIRTUAL** y **DESDE LA GALERÍA**.
 
@@ -299,4 +299,4 @@ Los pasos siguientes del proceso de ciencia de datos se asignan en la [Guía de 
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!----HONumber=Oct15_HO3-->
+<!-----HONumber=Oct15_HO3-->
