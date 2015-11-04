@@ -63,6 +63,8 @@ En la tabla siguiente se muestra la jerarquía de navegación de la IU del servi
 || Trabajos| Configurar (dispositivo) || 
 || Alerts| Mantenimiento||
 
+![Vídeo disponible](./media/storsimple-manager-service-administration/Video_icon.png) **Vídeo disponible**
+
 Para ver un vídeo que le guiará a través de la interfaz de usuario del servicio StorSimple Manager, haga clic [aquí](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ## Administrar el dispositivo StorSimple mediante el servicio de Administrador de StorSimple
@@ -114,4 +116,4 @@ Si no puede resolver los problemas y necesita crear una solicitud de servicio, c
 
 -  [Contactar al servicio técnico de Microsoft](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
