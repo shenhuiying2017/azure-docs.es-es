@@ -18,7 +18,7 @@
 
 # Nivel web de carga equilibrada global (patrones de arquitectura de Azure)
 
-El [Marco de integración de plataformas en la nube](azure-architectures-cpif-overview.md) provides instrucciones de integración de carga de trabajo para incorporar aplicaciones en una solución en la nube de Microsoft.
+El [Marco de integración de plataformas en la nube](azure-architectures-cpif-overview.md) proporciona instrucciones de integración de carga de trabajo para incorporar aplicaciones en una solución en la nube de Microsoft.
 
 CPIF describe cómo las organizaciones, los clientes y los socios deben diseñar e implementar cargas de trabajo para la nube utilizando la plataforma en la nube híbrida y las capacidades de administración de Azure, System Center y Windows Server.
 
