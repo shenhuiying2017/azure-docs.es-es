@@ -118,7 +118,20 @@ Algunos algoritmos de aprendizaje hacen determinadas suposiciones sobre la estru
 |[bosque de decisión](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[selva de decisión](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Uso de memoria bajo|
 |[red neuronal](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[La personalización adicional es posible](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[uno contra todos](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Vea las propiedades del método de dos clases seleccionado| |**Regresión**| | | | | | |[lineal](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| ||[lineal bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| ||[bosque de decisión](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| ||[árbol de decisión impulsado](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Uso de memoria grande| |[rápida de bosque por cuantiles](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distribuciones en lugar de predicciones por punto| |[red neuronal](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[La personalización adicional es posible](http://go.microsoft.com/fwlink/?LinkId=402867)||[Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Técnicamente logarítmica lineal. Para predecir totales| |[ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|Para predecir el ordenamiento por rango| |**Detección de anomalías**| | | | | | |[máquina de vectores de soporte](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Especialmente adecuada para conjuntos de características grandes| |[Detección de anomalías basada en PCA](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| | |[K-Means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|Un algoritmo de agrupación en clústeres|
+|[uno contra todos](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Vea las propiedades del método de dos clases seleccionado|
+|**Regresión**| | | | | |
+|[lineal](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| |
+|[lineal bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| |
+|[bosque de decisión](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| |
+|[árbol de decisión impulsado](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Uso de memoria grande|
+|[rápida de bosque por cuantiles](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distribuciones en lugar de predicciones por punto|
+|[red neuronal](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[La personalización adicional es posible](http://go.microsoft.com/fwlink/?LinkId=402867)|
+|[Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Técnicamente logarítmica lineal. Para predecir totales|
+|[ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|Para predecir el ordenamiento por rango|
+|**Detección de anomalías**| | | | | |
+|[máquina de vectores de soporte](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Especialmente adecuada para conjuntos de características grandes|
+|[Detección de anomalías basada en PCA](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| |
+|[K-Means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|Un algoritmo de agrupación en clústeres|
 
 
 **Propiedades de algoritmo:**
@@ -143,7 +156,7 @@ Aunque la inclusión de la palabra «regresión» en el nombre se preste a confu
 
 ![Regresión logística a datos de dos clases con una sola característica][4]
 
-***Regresión logística a datos de dos clases con una sola característica****: el límite de clase es el punto en el que la curva logística tiene la misma distancia hacia ambas clases*
+***Regresión logística a datos de dos clases con una sola característica*** *: el límite de clase es el punto en el que la curva logística tiene la misma distancia hacia ambas clases*
 
 ### Árboles, bosques y selvas
 
@@ -196,7 +209,7 @@ Si tiene un objetivo muy específico, puede que sea su día de suerte. Dentro de
 
 ![Detección de anomalías basada en PCA][8]
 
-***Detección de anomalías basada en PCA****: la inmensa mayoría de los datos entra en una distribución típica; los puntos que se desvían mucho de esa distribución son sospechosos*
+***Detección de anomalías basada en PCA*** *: la inmensa mayoría de los datos entra en una distribución típica; los puntos que se desvían mucho de esa distribución son sospechosos*
 
 ![Conjunto de datos agrupados mediante K-Means][9]
 
@@ -224,4 +237,4 @@ Aprendizaje automático de Azure también incluye acceso a un marco de aprendiza
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
