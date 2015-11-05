@@ -4,4 +4,4 @@
   >
   > + Puede [activar los beneficios de suscriptor de MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): su suscripción de MSDN le proporciona créditos cada mes que puede usar para servicios de pago de Azure.
 
-<!----HONumber=Oct15_HO3-->
+<!------HONumber=Oct15_HO3-->
