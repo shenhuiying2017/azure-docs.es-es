@@ -20,7 +20,7 @@
 
 En función del tamaño de su empresa, puede que quiera designar varios administradores que cumplan funciones diferentes. Esos administradores tendrán acceso a varias características del portal de Azure y, según el rol que tengan, podrán crear o editar usuarios, asignar roles administrativos a otros, restablecer contraseñas de usuario o administrar licencias de usuario y dominios, entre otras funciones.
 
-Es importante entender que un usuario al que se le haya asignado un rol de administrador tendrá los mismos permisos en todos los servicios en la nube a los que se haya suscrito la organización, independientemente de si se ha asignado el rol en el portal de Office 365, en el portal de Azure o por medio del módulo de Azure AD para Windows PowerShell.
+Es  importante entender que un usuario al que se le haya asignado un rol de administrador tendrá los mismos permisos en todos los servicios en la nube a los que se haya suscrito la organización, independientemente de si se ha asignado el rol en el portal de Office 365, en el portal de Azure o por medio del módulo de Azure AD para Windows PowerShell.
 
 Los roles de administrador disponibles son los siguientes:
 
@@ -85,4 +85,4 @@ El administrador global tiene acceso a todos los roles administrativos. De forma
 - [Administrar contraseñas](active-directory-manage-passwords.md)
 - [Administrar grupos](active-directory-manage-groups.md)
 
-<!---HONumber=Oct15_HO4-->
+<!-----HONumber=Oct15_HO4-->
