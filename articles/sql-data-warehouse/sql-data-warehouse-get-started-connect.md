@@ -108,4 +108,4 @@ Ahora que puede conectarse y realizar consultas, pruebe a [visualizar los datos 
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->

@@ -560,4 +560,4 @@ Para obtener más información sobre los Centros de notificaciones, consulte [Or
 [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]: notification-hubs-aspnet-backend-android-notify-users.md
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->

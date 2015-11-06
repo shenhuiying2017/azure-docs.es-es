@@ -330,4 +330,4 @@ Ahora que está familiarizado con los aspectos básicos, siga estos vínculos pa
 
 [Evaluación gratuita de Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->

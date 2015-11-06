@@ -117,4 +117,4 @@ Ejecute la carga de trabajo de prueba en las tablas optimizadas en memoria y pro
 
 [Supervisión de Base de datos SQL de Azure con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md)
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->
