@@ -76,7 +76,7 @@ Una máquina virtual de Azure se registra a fin de asociarla con el servicio Cop
 
     ![Registering status 1](./media/backup-azure-vms/register-status01.png)
 
-7. Una vez completada la operación, se cambiará el estado en el portal para reflejar el estado registrado.
+    Una vez completada la operación, se cambiará el estado en el portal para reflejar el estado registrado.
 
     ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
@@ -164,4 +164,4 @@ Si se encuentra con problemas mientras realiza la copia de seguridad de la máqu
 - [Administración y supervisión de las máquinas virtuales](backup-azure-manage-vms.md)
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 
-<!----HONumber=Nov15_HO1-->
+<!-----HONumber=Nov15_HO1-->

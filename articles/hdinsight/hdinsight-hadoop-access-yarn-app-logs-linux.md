@@ -21,7 +21,7 @@
 
 En este documento se explica cómo acceder a los registros de aplicaciones de YARN (del inglés Yet Another Resource Negotiator) que finalicen en un clúster Hadoop en HDInsight de Azure.
 
-> [AZURE.NOTE]La información contenida en este documento es específica de los clústeres de HDInsight basados en Linux. Para obtener información sobre los clústeres basados en Windows, vea [Acceso a registros de aplicación de YARN en HDInsight basado en Windows ](hdinsight-hadoop-access-yarn-app-logs.md)
+> [AZURE.NOTE] La información contenida en este documento es específica de los clústeres de HDInsight basados en Linux. Para obtener información sobre los clústeres basados en Windows, vea [Acceso a registros de aplicación de YARN en HDInsight basado en Windows ](hdinsight-hadoop-access-yarn-app-logs.md)
 
 ## Requisitos previos
 
@@ -70,7 +70,7 @@ Puede ver estos registros como texto sin formato ejecutando uno de los siguiente
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 	
-Al ejecutar estos comandos debe usar la siguiente información: <lt;applicationId>, <user-who-started-the-application>, <containerId> y <worker-node-address>.
+Al ejecutar estos comandos debe usar la siguiente información: &lt;applicationId>, &lt;user-who-started-the-application>, &lt;containerId> y &lt;worker-node-address>.
 
 ##Interfaz de usuario de ResourceManager de YARN
 
@@ -96,4 +96,4 @@ Una vez creado un túnel SSH, siga estos pasos para ver los registros de YYARN:
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
