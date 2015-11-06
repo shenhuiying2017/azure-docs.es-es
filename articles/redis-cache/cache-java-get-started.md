@@ -93,4 +93,4 @@ Haga clic en el vínculo bajo **Puertos** y, a continuación, haga clic en **No*
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->

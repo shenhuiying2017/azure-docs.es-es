@@ -91,4 +91,4 @@ Ahora que puede conectarse y realizar consultas, pruebe a [conectarse con PowerB
 [3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
 [4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->

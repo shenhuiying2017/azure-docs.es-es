@@ -198,4 +198,4 @@ En este sencillo ejemplo, ha difundido notificaciones a todos los dispositivos W
 [catálogo de iconos]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->

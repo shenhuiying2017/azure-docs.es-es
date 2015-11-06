@@ -58,4 +58,4 @@ Para resolver este error, haga uno de los siguientes:
 ## Pasos siguientes
 Obtenga más información acerca de [Supervisión de Base de datos SQL de Azure con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md)
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->

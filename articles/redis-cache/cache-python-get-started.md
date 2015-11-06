@@ -65,4 +65,4 @@ Reemplace *&lt;name&gt;* por el nombre de la memoria caché y *&lt;key&gt;* por 
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->

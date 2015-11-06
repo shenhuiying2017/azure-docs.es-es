@@ -253,4 +253,4 @@ Consulte [Uso de In-Memory OLTP en una aplicación existente de SQL Azure.](sql-
 
 [Supervisión del almacenamiento In-Memory](sql-database-in-memory-oltp-monitoring.md) para In-Memory OLTP.
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->
