@@ -465,7 +465,7 @@ Para agregar archivos a un proyecto o carpeta, haga clic con el botón secundari
 	- *Global.asax.cs*  
 	- En la carpeta *Controladores*: *AdController.cs*
 	- En la carpeta *Views\\Shared*: archivo *\_Layout.cshtml*.
-- En la carpeta *Views\\Home*: *Index.cshtml*.
+	- En la carpeta *Views\\Home*: *Index.cshtml*.
 	- En la carpeta *Views\\Ad* (cree primero la carpeta): cinco archivos *.cshtml*.<br/><br/>
 
 3. En el proyecto ContosoAdsWebJob, agregue los siguientes archivos desde el proyecto descargado.
@@ -812,4 +812,4 @@ Para obtener más información, consulte [Obtención de un panel para desarrollo
 
 Para obtener más información, consulte [Recursos de documentación de WebJobs de Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->
