@@ -77,7 +77,7 @@ Los recursos creados en el modelo de implementación clásica comparten las sigu
 
         ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        O bien, el portal de vista previa y el usuario deben especificar la implementación **clásica** (para cálculo, almacenamiento y redes).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 

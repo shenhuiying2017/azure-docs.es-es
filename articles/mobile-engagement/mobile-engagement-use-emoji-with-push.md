@@ -40,7 +40,9 @@ Puede incluir emoticonos Emoji en las notificaciones de inserción en unos cuant
 
 7. Al ejecutar una prueba o activar el anuncio, verá una notificación con el emoticono tal y como lo especificó.
 
-	![][3] ![][4] ![][5]
+	![][3] 
+	![][4] 
+	![][5]
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-use-emoji-with-push/notification_input.png

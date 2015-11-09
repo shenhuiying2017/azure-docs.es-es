@@ -93,7 +93,7 @@ Si se detectan incompatibilidades de bases de datos, deberá corregir estas inco
 
 Después de comprobar que dispone de una base de datos compatible, debe elegir el método de migración. En primer lugar, debe decidir si puede permitirse retirar la base de datos de producción durante la migración. Si no puede, utilice la replicación de transacciones de SQL Server, que se explica más adelante. Si puede permitirse algún tiempo de inactividad o va a realizar una migración de prueba de la base de datos de producción que posteriormente puede migrar con la replicación transaccional, considere uno de los tres métodos siguientes.
 
-### Migración de una base de datos compatible con tiempo de inactividad   
+***Migración de una base de datos compatible mediante SQL Server Management Studio ***
 En la lista siguiente se tratan las opciones para migrar una base de datos compatible a Base de datos SQL de Azure cuando puede permitirse algún tiempo de inactividad mientras se lleva a cabo la migración y antes de apuntar a los usuarios y las aplicaciones a la base de datos migrada en Base de datos SQL de Azure. Con estos métodos, migra la base de datos tal como existe en un momento determinado.
 
 > [AZURE.WARNING]Antes de migrar la base de datos con cualquiera de estos métodos, asegúrese de que no se está produciendo ninguna transacción activa para garantizar la coherencia transaccional durante la migración. Existen diferentes modos de poner una base de datos en modo inactivo, desde la deshabilitación de la conectividad de cliente hasta la creación de una [instantánea de base de datos](https://msdn.microsoft.com/library/ms175876.aspx).

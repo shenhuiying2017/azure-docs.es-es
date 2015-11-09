@@ -80,8 +80,8 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar las opciones de la aplicación](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807728.png "Configurar las opciones de la aplicación")
 
-    1.  En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en la aplicación Aba Sainsburys Connect (p. ej.: **https://myaba.co.uk/client-access/sainsburys/saml.php*).
-2.  Haga clic en **Siguiente**.
+    1.  En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en la aplicación ABa Sainsburys Connect (p. ej.: **https://myaba.co.uk/client-access/sainsburys/saml.php*).
+    2.  Haga clic en **Siguiente**.
 
 4.  En la página **Configurar inicio de sesión único en Aba Sainsburys Connect**, para descargar los metadatos, haga clic en **Descargar metadatos** y luego guarde el archivo de metadatos en el equipo.
 
