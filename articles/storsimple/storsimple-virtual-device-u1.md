@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/16/2015"
+   ms.date="10/23/2015"
    ms.author="alkohli" />
 
 # Implementar y administrar un dispositivo virtual StorSimple en Azure
@@ -40,7 +40,7 @@ Este tutorial se aplica a todos los dispositivos virtuales StorSimple que ejecut
 
 ## ¿Cómo difiere el dispositivo virtual del dispositivo físico
 
-El dispositivo virtual de StorSimple es una versión solo de software de StorSimple que se ejecuta en un único nodo en una máquina virtual de Microsoft Azure. El dispositivo virtual admite escenarios de recuperación ante desastres en el que el dispositivo físico no está disponible y es adecuado para su uso en escenarios de prueba y desarrollo de la nube.
+El dispositivo virtual de StorSimple es una versión solo de software de StorSimple que se ejecuta en un único nodo en una máquina virtual de Microsoft Azure. El dispositivo virtual admite escenarios de recuperación ante desastres en el que el dispositivo físico no está disponible y es adecuado para su uso en la recuperación de niveles de elementos de copias de seguridad, en la recuperación ante desastres local y en escenarios de prueba y desarrollo de la nube.
 
 ### Diferencias del dispositivo físico
 
@@ -128,16 +128,16 @@ Realice los pasos siguientes para crear el dispositivo virtual de StorSimple.
 
 	1. **Nombre**: un nombre único para el dispositivo virtual.
 
-	2. **Versión**: elija la versión del dispositivo virtual. Esta opción estará ausente si solo dispone de dispositivos físicos Update 1 (o posteriores) registrados con este servicio. Este campo se muestra solo si tiene una combinación de dispositivos físicos Update 1 y anteriores registrados con el servicio. Dado que la versión del dispositivo virtual determinará desde qué dispositivo físico puede efectuar la conmutación por error o la clonación, es importante que cree una versión adecuada del dispositivo virtual. Seleccione:
+	2. **Versión**: elija la versión del dispositivo virtual. Esta opción estará ausente si solo dispone de dispositivos físicos Update 1 (o posteriores) registrados con este servicio. Este campo se muestra solo si tiene una combinación de dispositivos físicos anteriores y posteriores a Update 1 registrados con el servicio. Dado que la versión del dispositivo virtual determinará desde qué dispositivo físico puede efectuar la conmutación por error o la clonación, es importante que cree una versión adecuada del dispositivo virtual. Seleccione:
 
-	   - Actualización de versión 0.3 si conmuta por error o efectúa una recuperación ante desastres desde un dispositivo físico con el lanzamiento de GA o las actualizaciones de 0.1 a 0.3. 
-	   - Actualización de versión 1 si conmuta por error o efectúa una clonación desde un dispositivo físico con la actualización 1 (o versiones posteriores). 
+	   - Actualización de versión 0.3 si conmuta por error o efectúa una clonación desde un dispositivo físico con el lanzamiento de GA o las actualizaciones de 0.1 a 0.3. 
+	   - Actualización de versión 1 si conmuta por error o efectúa una clonación desde un dispositivo físico con la actualización 1 (o versiones posteriores). Elegir Update 1 en la lista desplegable proporcionará realmente un dispositivo virtual Update 1.1.
  
 	3. **Red virtual**: el nombre de la red virtual que desea usar con este dispositivo virtual.
 
 	4. **Subred**: la subred de la red virtual que se usa con el dispositivo virtual.
 
-	5. **Cuenta de almacenamiento para crear un dispositivo virtual**: la cuenta de almacenamiento que se usará para almacenar la imagen del dispositivo virtual durante el aprovisionamiento. Esta cuenta de almacenamiento debe estar en la misma región que el dispositivo virtual y la red virtual. No debe utilizarse para el almacenamiento de datos por el dispositivo físico o el dispositivo virtual. De forma predeterminada, para ello se creará una nueva cuenta de almacenamiento. Sin embargo, si sabe que ya tiene una cuenta de almacenamiento que es adecuada para este uso, puede seleccionarla en la lista.
+	5. **Cuenta de almacenamiento para crear un dispositivo virtual**: esta cuenta de almacenamiento se usará para almacenar la imagen del dispositivo virtual durante el aprovisionamiento y alojará los discos del dispositivo virtual después del aprovisionamiento. Esta cuenta de almacenamiento debe estar en la misma región que el dispositivo virtual y la red virtual. No debe utilizarse para el almacenamiento de datos por el dispositivo físico o el dispositivo virtual. De forma predeterminada, para ello se creará una nueva cuenta de almacenamiento. Sin embargo, si sabe que ya tiene una cuenta de almacenamiento que es adecuada para este uso, puede seleccionarla en la lista.
 
     >[AZURE.NOTE]El dispositivo virtual solo puede funcionar con las cuentas de almacenamiento de Azure. Otros proveedores de servicios en la nube como Amazon, HP y OpenStack (que son compatibles con el dispositivo físico) no se admiten para el dispositivo virtual StorSimple.
 	
@@ -392,4 +392,4 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
 
 Obtenga información sobre cómo [restaurar un volumen de StorSimple de un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

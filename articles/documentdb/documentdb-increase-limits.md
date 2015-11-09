@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Solicitud de aumento de los límites de la cuenta de DocumentDB | Microsoft Azure" 
-	description="Obtenga información acerca de cómo solicitar un ajuste en los límites de DocumentDB, como el número de colecciones permitidas, los procedimientos almacenados y las cláusulas de consulta." 
-	services="documentdb" 
-	authors="AndrewHoh" 
-	manager="jhubbard" 
-	editor="monicar" 
+<properties
+	pageTitle="Solicitud de aumento de los límites de la cuenta de DocumentDB | Microsoft Azure"
+	description="Obtenga información acerca de cómo solicitar un ajuste en los límites de DocumentDB, como el número de colecciones permitidas, los procedimientos almacenados y las cláusulas de consulta."
+	services="documentdb"
+	authors="AndrewHoh"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/22/2015"
 	ms.author="anhoh"/>
 
 # Solicitud de aumento de los límites de la cuenta de DocumentDB
 
-[Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) tiene un conjunto de límites predeterminados y aplicaciones de cuota. Es posible ajustar algunas cuotas estableciendo contacto con el soporte técnico de Azure. En este artículo se muestra cómo solicitar un aumento del límite de la cuenta.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) tiene un conjunto de límites predeterminados y aplicaciones de cuota. Es posible ajustar algunas cuotas estableciendo contacto con el soporte técnico de Azure. En este artículo se muestra cómo solicitar un aumento del límite de la cuenta.
 
 Después de leer este artículo, podrá responder a las preguntas siguientes:
 
@@ -35,11 +35,12 @@ En la tabla siguiente se describen las cuotas de DocumentDB que se pueden ajusta
 |Número de procedimientos almacenados, desencadenadores y UDF por colección |25 cada una
 |Número máximo de colecciones por cuenta de base de datos |100
 |Almacenamiento máximo de documentos por base de datos (100 colecciones) |1 TB
-|Número máximo de UDF por consulta |1
-|Número máximo de JOIN por consulta |2
-|Número máximo de cláusulas AND por consulta |5
-|Número máximo de cláusulas OR por consulta |5
+|Número máximo de UDF por consulta |2
+|Número máximo de JOIN por consulta |5
+|Número máximo de cláusulas AND por consulta |20
+|Número máximo de cláusulas OR por consulta |10
 |Número máximo de valores por expresión IN |100
+|Número máximo de puntos de un argumento de polígono de una consulta ST\_WITHIN |16
 |Número máximo de creaciones de colección por minuto |5
 |Número máximo de operaciones de escala por minuto |5
 
@@ -54,41 +55,24 @@ En los pasos siguientes se muestra cómo solicitar un ajuste de cuota.
 
 	![Captura de pantalla de la creación de una incidencia de soporte técnico](media/documentdb-increase-limits/getsupport.png)
 
-3. En la hoja **Nueva solicitud de soporte técnico**, haga clic en **Tipo de solicitud** y, a continuación, en la hoja **Tipo de solicitud**, haga clic en **Cuotas**.
+3. En la hoja **Nueva solicitud de soporte**, haga clic en **Fundamentos**. A continuación, establezca el **Tipo de problema** en **Cuota**, **Suscripción** en la suscripción que hospeda su cuenta de DocumentDB, **Servicio** en **DocumentDB** y **Plan de soporte** en **COMPATIBILIDAD con cuotas - incluido**. Finalmente, haga clic en **Siguiente**.
 
 	![Captura de pantalla del tipo de solicitud de incidencia de soporte técnico](media/documentdb-increase-limits/supportrequest1.png)
 
-4. En la hoja **Suscripción**, elija la suscripción que hospeda la cuenta de DocumentDB.
+4. En la hoja **Problema**, elija un nivel de gravedad. Establezca **Tipo de problema** en **DocumentDB** e incluya información sobre el aumento de la cuota en **Detalles**. Haga clic en **Siguiente**.
 
 	![Captura de pantalla del selector de suscripción de incidencia de soporte técnico](media/documentdb-increase-limits/supportrequest2.png)
 
-5. En la hoja **Recursos**, elija **Cuentas de DocumentDB**.
+5. Por último, rellene la información de contacto en la hoja **Información de contacto**.
 
 	![Captura de pantalla de selector de recursos de incidencia de soporte técnico](media/documentdb-increase-limits/supportrequest3.png)
 
-6. En la hoja **Plan de soporte técnico**, elija **Soporte gratuito de cuotas**.
+Una vez creada la incidencia de soporte técnico, debería recibir el número de solicitud de soporte técnico por correo electrónico. También puede ver la solicitud de soporte técnico haciendo clic en **Administrar solicitudes de soporte técnico** en la hoja **Ayuda+Soporte técnico**.
 
-	![Captura de pantalla del selector de plan de soporte técnico para la incidencia de soporte técnico](media/documentdb-increase-limits/supportrequest4.png)
+![Captura de pantalla de la hoja de solicitudes de soporte técnico](media/documentdb-increase-limits/supportrequest4.png)
 
-7. En la hoja **Problema**, elija la categoría de problema **Solicitud de aumento de núcleo o cuota de DocumentDB**.
-
-	![Captura de pantalla del selector de categoría del problema de la incidencia de soporte técnico](media/documentdb-increase-limits/supportrequest5.png)
-
-8. En la hoja **Descripción**, escriba una descripción de la solicitud. No olvide incluir los ajustes específicos de cuota que solicita, así como las cuentas en la que deben realizarse los ajustes.
-
-	![Captura de pantalla del cuadro de texto de descripción de la incidencia de soporte técnico](media/documentdb-increase-limits/supportrequest6.png)
-
-9. Haga clic en **Crear**.
-
-	![Captura de pantalla del botón de creación de la incidencia de soporte técnico](media/documentdb-increase-limits/supportrequest7.png)
-
-Una vez creada la incidencia de soporte técnico, debería recibir el número de solicitud de soporte técnico por correo electrónico. También puede ver la solicitud de soporte técnico haciendo clic **Solicitudes de soporte técnico** en la hoja **Ayuda+Soporte técnico**.
-
-![Captura de pantalla de la hoja de solicitudes de soporte técnico](media/documentdb-increase-limits/supportrequest8.png)
-  
 
 ##<a name="NextSteps"></a> Pasos siguientes
-- Para obtener más información acerca de DocumentDB, haga clic [aquí](http://azure.com/docdb).
- 
+- Para obtener más información sobre DocumentDB, haga clic [aquí](http://azure.com/docdb).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

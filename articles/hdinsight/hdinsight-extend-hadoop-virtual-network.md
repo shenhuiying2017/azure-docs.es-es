@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="10/28/2015"
    ms.author="larryfr"/>
 
 
@@ -22,8 +22,7 @@
 La Red virtual de Azure permite extender sus soluciones de Hadoop para incorporar recursos locales como SQL Server o para crear redes privadas seguras entre los recursos existentes en la nube.
 
 > [AZURE.NOTE]HDInsight no es compatible con las Redes virtuales de Azure basadas en afinidad. Cuando use HDInsight, debe usar redes virtuales basadas en ubicación.
->
-> Actualmente (25/8/2015), solo puede aprovisionar un clúster de HDInsight basado en Linux en una Red virtual de Azure.
+
 
 ##<a id="whatis"></a>¿Qué es Red virtual de Azure?
 
@@ -177,4 +176,4 @@ Los siguientes ejemplos demuestran cómo usar HDInsight con Red virtual de Azure
 
 Para obtener más información acerca de Redes virtuales de Azure, consulte la [Información general sobre Red virtual de Azure](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/14/2015"
+   ms.date="10/28/2015"
    ms.author="patshea" />
 
 # Depuración de una máquina virtual o un servicio en la nube de Azure en Visual Studio
@@ -88,11 +88,11 @@ Para separar el depurador de todos los procesos de su instancia o rol, abra el m
 
 ## Limitaciones de la depuración remota en Azure
 
-Para Azure SDK 4.3, la depuración remota presenta las siguientes limitaciones.
+Desde Azure SDK 2.3, la depuración remota presenta las siguientes limitaciones.
 
 - Con la depuración remota habilitada, no puede publicar un servicio en la nube que presente algún rol con más de 25 instancias.
 
-- El depurador usa los puertos de 30400 a 30424 y de 31400 a 31424. Si intenta usar alguno de estos puertos, no podrá publicar su servicio y aparecerá uno de los siguientes mensajes de error en el registro de actividad de Azure:
+- El depurador usa los puertos de 30400 a 30424, de 31400 a 31424 y de 32400 a 32424. Si intenta usar alguno de estos puertos, no podrá publicar su servicio y aparecerá uno de los siguientes mensajes de error en el registro de actividad de Azure:
 
     - Error al validar el archivo .cscfg con el archivo .csdef. El intervalo de puertos reservado 'intervalo de puertos' para el extremo Microsoft.WindowsAzure.Plugins.RemoteDebugger.Connector del rol 'rol' se superpone con un intervalo o puerto ya definido.
     - Error en la asignación. Vuelva a intentarlo más tarde, intente reducir el tamaño de VM o el número de instancias de rol, o intente implementar en una región distinta.
@@ -190,4 +190,4 @@ Los proyectos ASP.NET de Visual Studio ofrecen una opción para crear una práct
 - Use **Intellitrace** para recopilar un registro de llamadas y eventos de un servidor de versión. Consulte [Depuración con IntelliTrace y Visual Studio de un servicio en la nube publicado](http://go.microsoft.com/fwlink/?LinkID=623016).
 - Use **Diagnósticos de Azure** para registrar información detallada del código que se ejecuta en los roles, bien sea en el entorno de desarrollo o en Azure. Consulte [Recopilación de datos de registro mediante Diagnósticos de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -44,10 +44,14 @@ Para encontrar la dirección IP, así como el nombre **awverify** y los nombres 
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-	> [AZURE.NOTE] Si **Administrar dominios** no está habilitado, está usando una aplicación web en modo **Gratuito**. Con las aplicaciones web en modo **Gratuito** no se pueden usar nombres de dominio personalizados, por lo que el plan del Servicio de aplicaciones se debe actualizar al modo **Compartido**, **Básico** o **Estándar**. Para obtener más información sobre los modos de plan del Servicio de aplicaciones, incluyendo cómo cambiar el modo de una aplicación web, consulte [Escalado de aplicaciones web](../articles/web-sites-scale.md).
+3. En la hoja **Dominios personalizados y SSL**, haga clic en **Traer dominios externos**.
 
-6. En el cuadro de diálogo **ADMINISTRAR DOMINIOS PERSONALIZADOS**, verá la información de **awverify**, el nombre de dominio **.azurewebsites.net** actualmente asignado y la dirección IP virtual. Guarde esta información, puesto que se utilizará al crear registros DNS.
+	![](./media/custom-dns-web-site/dncmntask-cname-7.png)
 
-	![](./media/custom-dns-web-site/managecustomdomains.png)
+	> [AZURE.NOTE]Con las aplicaciones web en modo **Gratuito** no se pueden usar nombres de dominio personalizados, por lo que el plan del Servicio de aplicaciones se debe actualizar al nivel **Compartido**, **Básico**, **Estándar** o **Premium**. Para obtener más información sobre los planes de tarifa del plan del Servicio de aplicaciones, incluyendo cómo cambiar el plan de tarifa de su aplicación web, consulte [Escalado de aplicaciones web](../articles/web-sites-scale.md).
 
-<!---HONumber=Oct15_HO3-->
+6. En la hoja **Bring external domains**, verá la información de **awverify**, el nombre de dominio **.azurewebsites.net** asignado actualmente y la dirección IP virtual. Guarde esta información, puesto que se utilizará al crear registros DNS.
+
+	![](./media/custom-dns-web-site/dncmntask-cname-8.png)
+
+<!---HONumber=Nov15_HO1-->

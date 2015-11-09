@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="10/23/2015"
    ms.author="maroche"/>
 
 # Preguntas frecuentes sobre el Catálogo de datos de Azure
@@ -71,29 +71,32 @@ Durante la vista previa, el **Catálogo de datos de Azure** admite los siguiente
 - Directorio de almacenamiento de Azure
 - Archivo HDFS
 - Directorio HDFS
+- Tabla de Teradata
+- Vista de Teradata
 
-Además de los activos enumerados anteriormente, **Catálogo de datos de Azure** admite la detección de los contenedores de activos de datos siguientes:
+Además de los activos enumerados anteriormente, el **Catálogo de datos de Azure** admite la detección de los contenedores de activos de datos siguientes:
 
 - Base de datos de SQL Server
 - Base de datos de Oracle
 - Clúster de HDFS
+- Base de datos de Teradata 
 
 
 ## P: ¿Cómo puedo solicitar soporte técnico para otro origen de datos?
 
-Es posible enviar solicitudes de características y otros comentarios al [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Pueden enviarse solicitudes de características y otros comentarios al [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## P. ¿Cómo puedo comenzar con el Catálogo de datos de Azure?
 
-El mejor lugar para comenzar es siguiendo las instrucciones de [Introducción al catálogo de datos](../data-catalog-get-started/). Este artículo es un recorrido integral por las capacidades de la versión preliminar pública.
+El mejor lugar para comenzar es seguir las instrucciones de [Introducción al Catálogo de datos](../data-catalog-get-started/). Este artículo es un recorrido integral por las capacidades de la versión preliminar pública.
 
 ## P: ¿Cómo se registran mis datos?
 
-Para registrar sus datos en **Catálogo de datos de Azure**, inicie la herramienta de registro de **Catálogo de datos de Azure** desde el área “Publicar” del portal del **Catálogo de datos de Azure**. En la aplicación de publicación de **Catálogo de datos de Azure **, inicie sesión con las mismas credenciales que usa para acceder al portal de **Catálogo de datos de Azure** y, a continuación, seleccione el origen de datos y los recursos específicos que desee registrar.
+Para registrar sus datos en el **Catálogo de datos de Azure**, inicie la herramienta de registro del **Catálogo de datos de Azure** desde el área “Publicar” del portal del **Catálogo de datos de Azure**. En la aplicación de publicación de **Catálogo de datos de Azure **, inicie sesión con las mismas credenciales que usa para acceder al portal de **Catálogo de datos de Azure** y, después, seleccione el origen de datos y los activos específicos que desea registrar.
 
 ## P: ¿Qué propiedades se extraen de los recursos de datos que se registran?
 
-Las propiedades específicas variarán en función del origen de datos, pero en general, el servicio de publicación del **Catálogo de datos de Azure** extraerá la información siguiente:
+Las propiedades específicas variarán en función del origen de datos pero, en general, el servicio de publicación del **Catálogo de datos de Azure** extraerá la información siguiente:
 
 - Nombre de recurso
 - Tipo de recurso
@@ -102,11 +105,11 @@ Las propiedades específicas variarán en función del origen de datos, pero en 
 - Tipos de datos de columna o atributo
 - Descripción de la columna o atributo
 
-> [AZURE.IMPORTANT]Al registrar recursos de datos con **Catálogo de datos de Azure** no se mueven ni copian los datos a la nube. Registrar recursos desde un origen de datos copiará los metadatos de los recursos en Azure, pero los datos permanecerán en la ubicación del origen de datos existente. La única excepción a esta regla es si un usuario elige cargar registros de vista previa o un perfil de datos al registrar los recursos. Cuando se incluya una vista previa, se copiarán hasta 20 registros de cada recurso y se almacenarán como una instantánea en el **Catálogo de datos de Azure**. Cuando se incluye un perfil de datos, se calculará la información agregada (como el tamaño de las tablas, los valores null de porcentaje por columna y los valores mínimos, máximos y promedios para las columnas) y se incluirá en los metadatos almacenados en el catálogo.
+> [AZURE.IMPORTANT]Al registrar activos de datos con el **Catálogo de datos de Azure**, los datos no se mueven ni se copian a la nube. Registrar recursos desde un origen de datos copiará los metadatos de los recursos en Azure, pero los datos permanecerán en la ubicación del origen de datos existente. La única excepción a esta regla es si un usuario elige cargar registros de vista previa o un perfil de datos al registrar los recursos. Cuando se incluya una vista previa, se copiarán hasta 20 registros de cada activo y se almacenarán como instantánea en el **Catálogo de datos de Azure**. Cuando se incluye un perfil de datos, se calculará la información agregada (como el tamaño de las tablas, los valores null de porcentaje por columna y los valores mínimos, máximos y promedios para las columnas) y se incluirá en los metadatos almacenados en el catálogo.
 
 <br/>
 
-> [AZURE.NOTE]Para los orígenes de datos como SQL Server Analysis Services que tienen una propiedad **Description** de primera clase, la aplicación de publicación del **Catálogo de datos de Azure** extraerá el valor de la propiedad. Para bases de datos relacionales de SQL Server, que no dispongan de una propiedad **Description** de primera clase, la aplicación de publicación del **Catálogo de datos de Azure** extraerá el valor de la propiedad extendida ms\_description para objetos y columnas. Para obtener más información, vea en TechNet [Using Extended Properties on Database Objects (Uso de propiedades extendidas en objetos de base de datos)](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> [AZURE.NOTE]Para los orígenes de datos como SQL Server Analysis Services, que tienen una propiedad **Description** de primera clase, la aplicación de publicación del **Catálogo de datos de Azure** extraerá el valor de la propiedad. Para las bases de datos relacionales de SQL Server, que no disponen de una propiedad **Description** de primera clase, la aplicación de publicación del **Catálogo de datos de Azure** extraerá el valor de la propiedad extendida ms\_description para los objetos y las columnas. Para obtener más información, vea en TechNet [Usar propiedades extendidas en objetos de base de datos](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 
 ## P: ¿Cuánto tiempo se debe esperar a que aparezcan los recursos recién registrados en el Catálogo de datos de Azure?
 
@@ -114,9 +117,9 @@ Después de registrar activos con el **Catálogo de datos de Azure**, es posible
 
 ## P: ¿Cómo se anotan y enriquecen los metadatos de mis recursos de datos registrados?
 
-La manera más sencilla de proporcionar metadatos para recursos registrados consiste en seleccionar el recurso en el portal del **Catálogo de datos de Azure** y, a continuación, especificar los valores de metadatos en el panel de propiedades o el panel de esquema del objeto seleccionado.
+La forma más sencilla de proporcionar metadatos para los activos registrados es seleccionar el activo en el portal del **Catálogo de datos de Azure** y, después, especificar los valores de metadatos en el panel de propiedades o el panel de esquema del objeto seleccionado.
 
-También puede proporcionar algunos metadatos, como etiquetas y expertos durante el proceso de registro. Los valores proporcionados en el servicio de publicación del **Catálogo de datos de Azure** se aplicarán a todos los recursos que se estén registrando en ese momento. Para ver los objetos registrados recientemente en el portal y poder efectuar anotaciones adicionales, seleccione el botón **Ver portal** en la pantalla final de la aplicación de publicación del **Catálogo de datos de Azure**.
+También puede proporcionar algunos metadatos, como etiquetas y expertos durante el proceso de registro. Los valores proporcionados en el servicio de publicación del **Catálogo de datos de Azure** se aplicarán a todos los activos que se estén registrando en ese momento. Para ver los objetos registrados recientemente en el portal y poder efectuar anotaciones adicionales, seleccione el botón **Ver portal** en la última pantalla de la aplicación de publicación del **Catálogo de datos de Azure**.
 
 ## P: ¿Cómo elimino mis objetos de datos registrados?
 
@@ -132,18 +135,18 @@ Durante la vista previa del **Catálogo de datos de Azure**, no hay ningún cont
 
 ## P: ¿Cómo puedo compartir información con el equipo del Catálogo de datos de Azure si encuentro problemas?
 
-Use el Foro del **Catálogo de datos de Azure** para informar de problemas, compartir información y hacer preguntas. El foro se encuentra en http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
+Use el foro del **Catálogo de datos de Azure** para informar de problemas, compartir información y hacer preguntas. El foro se encuentra en http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
 
 ##P: ¿Funciona el Catálogo de datos de Azure con este otro origen de datos que me interesa?
-Estamos trabajando activamente para agregar más orígenes de datos al **Catálogo de datos de Azure**. Si hay un origen de datos que le gustaría que fuese compatible, sugiéralo (o repita su sugerencia si ya se ha efectuado) en el [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Estamos trabajando activamente para agregar más orígenes de datos al **Catálogo de datos de Azure**. Si hay un origen de datos que le gustaría que fuese compatible, sugiéralo (o repita la sugerencia si ya se ha efectuado) en el [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## P: ¿Cómo está relacionado el Catálogo de datos de Azure con el Catálogo de datos en Power BI para Office 365?
 
-Se puede considerar el **Catálogo de datos de Azure** como una evolución del Catálogo de datos. El **Catálogo de datos de Azure** ofrece capacidades similares para la publicación y detección de orígenes de datos, pero se centra en escenarios más amplios y que no dependen de Office 365. Poco después de que el **Catálogo de datos de Azure** esté disponible de manera general, los dos catálogos se combinarán en un único servicio.
+El **Catálogo de datos de Azure** se puede considerar como una evolución del Catálogo de datos. El **Catálogo de datos de Azure** ofrece capacidades similares para la publicación y la detección de orígenes de datos, pero se centra en escenarios más amplios y que no dependen de Office 365. Poco después de que el **Catálogo de datos de Azure** esté disponible de manera general, ambos catálogos se combinarán en un único servicio.
 
 ## P: ¿Qué permisos necesita un usuario registrar activos con el Catálogo de datos de Azure?
 
-El usuario que ejecuta la herramienta de registro del **Catálogo de datos de Azure** necesita permisos en el origen de datos que le permitan leer los metadatos desde el origen. Si el usuario selecciona también incluir una vista previa, el usuario también deberá tener permisos para leer en los datos desde los objetos que se están registrando.
+El usuario que ejecuta la herramienta de registro del **Catálogo de datos de Azure** necesita permisos en el origen de datos que le permitan leer los metadatos del origen. Si el usuario selecciona también incluir una vista previa, el usuario también deberá tener permisos para leer en los datos desde los objetos que se están registrando.
 
 ## P: ¿Estará el catálogo de datos de Azure estará disponible para las implementaciones locales también?
 
@@ -151,11 +154,11 @@ El **Catálogo de datos de Azure** es un servicio en la nube que puede funcionar
 
 ##P: ¿Podemos extraer más metadatos o más ricos de los orígenes de datos que registramos?
 
-Estamos trabajando activamente para ampliar las capacidades del **Catálogo de datos de Azure**. Si durante el registro hay metadatos adicionales que desea extraer del origen de datos, sugiéralo (o vote por ello si ya se ha planteado) en el [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). En el futuro permitiremos a terceros agregar nuevos tipos de orígenes de datos a través de una API de extensibilidad.
+Estamos trabajando activamente para ampliar las capacidades del **Catálogo de datos de Azure**. Si hay metadatos adicionales que desea que se extraigan del origen de datos durante el registro, sugiéralo (o vote por ello si ya se ha planteado) en el [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). En el futuro permitiremos a terceros agregar nuevos tipos de orígenes de datos a través de una API de extensibilidad.
 
 ## P: ¿Cómo se restringe la visibilidad de los recursos de datos registrados para que solo determinadas personas puedan detectarlos?
 
-R: Seleccione los recursos de datos en el **Catálogo de datos de Azure** y haga clic en el botón "Tomar posesión". Los propietarios de los recursos de datos del **Catálogo de datos de Azure** pueden cambiar la configuración de visibilidad para permitir que todos los usuarios del catálogo descubran los recursos de propiedad, o para restringir la visibilidad a usuarios específicos.
+R: Seleccione los activos de datos en el **Catálogo de datos de Azure** y haga clic en el botón “Tomar posesión”. Los propietarios de los activos de datos del **Catálogo de datos de Azure** pueden cambiar la configuración de visibilidad para permitir que todos los usuarios del catálogo descubran los activos de propiedad, o para restringir la visibilidad a usuarios específicos.
 
 ## P: ¿Cómo se actualiza el registro de un recurso de datos para que los cambios en el origen de datos se reflejen en el catálogo?
 
@@ -169,4 +172,4 @@ Si tiene problemas o necesita ayuda con la vista previa del **Catálogo de datos
 
 Diríjase al [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Las preguntas formuladas ahí tendrán respuesta aquí.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

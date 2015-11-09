@@ -62,13 +62,13 @@ El SDK principal solo proporciona una API: a diferencia de los SDK web y de disp
 
     * Si solo instaló el paquete de la API principal Microsoft.ApplicationInsights, debe establecer la clave en código, por ejemplo en main(): 
 
-    `TelemetryConfiguration.Active.InstrumentationKey = "`*su clave*`";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "` **su clave** `";`
 
-    * Si instaló uno de los otros paquetes, puede establecer la clave mediante código o establecerla en ApplicationInsights.config:
+    Si instaló uno de los otros paquetes, puede establecer la clave mediante código o establecerla en ApplicationInsights.config:
  
     `<InstrumentationKey>`*su clave*`</InstrumentationKey>`
 
-
+    Si usa ApplicationInsights.config, asegúrese de que sus propiedades en el Explorador de soluciones se establecen en **Acción de compilación = Contenido, Copiar en el directorio de salida = Copiar**.
 
 ## <a name="telemetry"></a>Inserción de llamadas de telemetría
 
@@ -117,7 +117,7 @@ Utilice cualquiera de las [API de Application Insights][api] para enviar telemet
 
 * `TrackPageView(pageName)` al cambiar formularios, páginas o pestañas
 * `TrackEvent(eventName)` para otras acciones de usuario
-* `TrackMetric(name, value)` en una tarea en segundo plano para enviar informes periódicos de métricas no asociados a eventos específicos
+* `TrackMetric(name, value)` en una tarea en segundo plano para enviar informes periódicos de métricas no asociados a eventos específicos.
 * `TrackTrace(logEvent)` para [registro de diagnósticos][diagnostic]
 * `TrackException(exception)` en cláusulas catch
 * `Flush()` para asegurarse de que toda la telemetría se envía antes de cerrar la aplicación. Úselo solo si está usando simplemente la API principal (Microsoft.ApplicationInsights). Los SDK web y de dispositivos implementan este comportamiento de forma automática. (Si la aplicación se ejecuta en contextos donde Internet no está siempre disponible, consulte también [Canal de persistencia](#persistence-channel).)
@@ -299,4 +299,4 @@ El código del canal de persistencia se encuentra en [github](https://github.com
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

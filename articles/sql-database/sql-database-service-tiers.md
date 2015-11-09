@@ -3,7 +3,7 @@
    description="Compare las características de rendimiento y de continuidad del negocio de los niveles de servicio de Base de datos SQL de Azure para encontrar el equilibrio adecuado entre costo y funcionalidad a medida que escalan a petición sin tiempo de inactividad."
    services="sql-database"
    documentationCenter=""
-   authors="shontnew"
+   authors="rothja"
    manager="jeffreyg"
    editor="monicar"/>
 
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="10/13/2015"
-   ms.author="shkurhek"/>
+   ms.date="10/29/2015"
+   ms.author="jroth"/>
 
 # Niveles de servicio de Base de datos SQL
-
+ 
 ## Información general
 [Base de datos SQL de Azure](sql-database-technical-overview.md) proporciona varios niveles de servicio para administrar los diferentes tipos de cargas de trabajo. El usuario tiene la opción de [crear una base de datos única](sql-database-get-started.md) con características y precios definidos, o bien puede administrar varias bases de datos mediante la [creación de un grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md). En ambos casos, los niveles son: **Basic**, **Standard** y **Premium**. Pero las características de estas capas varían en función de si se va a crear una base de datos individual o una base de datos dentro de un grupo de bases de datos elásticas. Este artículo proporciona información general de los niveles de servicio en ambos contextos.
 
@@ -39,6 +39,11 @@ Las características de rendimiento que se enumeran aquí se aplican a las bases
 
 [AZURE.INCLUDE [Tabla de niveles de servicio de datos de la Base de datos SQL](../../includes/sql-database-service-tiers-table.md)]
 
+
+Para comprender mejor las DTU, consulte la [sección DTU](#understanding-dtus) de este tema.
+
+>[AZURE.NOTE]Para obtener una explicación detallada de todas las demás filas de esta tabla de niveles de servicio, consulte [Límites y capacidades de nivel de servicio](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
+
 ### Niveles de servicio para grupos de bases de datos elásticas
 Además de crear y escalar una base de datos única, también es posible administrar varias bases de datos dentro de un [grupo de bases de datos elásticas](sql-database-elastic-pool.md). Todas las bases de datos de un grupo de bases de datos elásticas comparten un conjunto común de recursos. Las características de rendimiento se miden por *Unidades de transmisión de bases de datos elásticas* (eDTU). Como ocurre con las bases de datos únicas, los grupos de bases de datos elásticas tienen tres niveles de rendimiento: **Basic**, **Standard** y **Premium**. En el caso de las bases de datos elásticas, estos tres niveles también definen los límites de rendimiento global y varias características.
 
@@ -48,9 +53,9 @@ En la tabla siguiente se describen las características de los niveles de servic
 
 [AZURE.INCLUDE [Tabla de niveles de servicio de Base de datos SQL para bases de datos elásticas](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
->[AZURE.NOTE]Todas las bases de datos de un grupo también se ajustan a las características de base de datos única de ese nivel. Por ejemplo, el grupo Basic tiene un límite de número máximo de sesiones por grupo de 2400 – 28800, pero una base de datos individual de dicho grupo tiene un límite de base de datos de 300 sesiones (el límite de una base de datos Basic especificado en la sección anterior).
+Todas las bases de datos de un grupo también se ajustan a las características de base de datos única de ese nivel. Por ejemplo, el grupo Basic tiene un límite de número máximo de sesiones por grupo de 2400 – 28800, pero una base de datos individual de dicho grupo tiene un límite de base de datos de 300 sesiones (el límite de una base de datos Basic especificado en la sección anterior).
 
-## Descripción de las DTU
+### Descripción de las DTU
 
 [AZURE.INCLUDE [Descripción de DTU de base de datos SQL](../../includes/sql-database-understanding-dtus.md)]
 
@@ -78,7 +83,7 @@ Por ejemplo, si espera que crezca la carga de trabajo de una base de datos, pued
 
 Las métricas de rendimiento también pueden ayudarle a determinar si puede cambiar a un nivel de rendimiento inferior. Suponga que usa una base de datos Estándar S2 y todas las métricas de rendimiento muestran que, de media, la base de datos no usa más del 10% en ningún momento. Es probable que la base de datos funcione bien en Estándar S1. Sin embargo, tenga en cuenta las cargas de trabajo que tienen picos o fluctúan antes de tomar la decisión de cambiar a un nivel de rendimiento inferior.
 
-Las mismas métricas que se exponen en el portal están también disponibles a través de las vistas del sistema: [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) en la base de datos maestra lógica del servidor y [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) en la base de datos de usuario (**sys.dm\_db\_resource\_stats** se crea en cada base de datos de usuario Basic, Standard y Premium. Las bases de datos Web y Business Edition devuelven un conjunto de resultados vacío). Use **sys.resource\_stats** si necesita supervisar datos menos pormenorizados en un periodo de tiempo más amplio. Use **sys.dm\_db\_resource\_stats** si necesita supervisar datos más pormenorizados en un período de tiempo más breve. Para obtener más información, consulte la [Guía de rendimiento de la Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/dn369873.aspx).
+Las mismas métricas que se exponen en el portal están también disponibles a través de las vistas del sistema: [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) en la base de datos **maestra** lógica del servidor y [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) en la base de datos de usuario (**sys.dm\_db\_resource\_stats** se crea en cada base de datos de usuario Basic, Standard y Premium. Las bases de datos Web y Business Edition devuelven un conjunto de resultados vacío). Use **sys.resource\_stats** si necesita supervisar datos menos pormenorizados en un periodo de tiempo más amplio. Use **sys.dm\_db\_resource\_stats** si necesita supervisar datos más pormenorizados en un período de tiempo más breve. Para obtener más información, consulte la [Guía de rendimiento de la Base de datos SQL de Azure](sql-database-performance-guidance.md#monitoring-resource-use-with-sysresourcestats).
 
 En los grupos de bases de datos elásticas, puede supervisar las bases de datos individuales del grupo con las técnicas descritas en esta sección. Sin embargo, también puede supervisar el grupo en conjunto. Para obtener información, consulte el artículo [Supervisión y administración de un grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool).
 
@@ -90,4 +95,4 @@ Si desea administrar varias bases de datos como un grupo, consulte [Grupos de ba
 Ahora que conoce los niveles de Base de datos SQL, pruébelos con una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) y aprenda a [crear su primera base de datos SQL](sql-database-get-started.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

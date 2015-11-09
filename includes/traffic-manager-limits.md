@@ -1,8 +1,8 @@
 Recurso| Límite predeterminado
 ---|---
-Perfiles por suscripción | 100
+Perfiles por suscripción | 100 <sup>1</sup>
 Extremos por perfil| 200
 
-Puede ponerse en contacto con soporte técnico para aumentar el límite predeterminado
+<sup>1</sup>Si necesita aumentar estos límites, póngase en contacto con soporte técnico.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

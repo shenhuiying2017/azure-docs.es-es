@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: integración de Azure Active Directory con FM: Systems | Microsoft Azure" description="Aprenda a usar FM: Systems con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: integración de Azure Active Directory con FM: Systems | Microsoft Azure" 
+    description="Aprenda a usar FM: Systems con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: integración de Azure Active Directory con FM: Systems
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=534787).
   
 El objetivo de este tutorial es mostrar la integración de Azure y FM:Systems. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para el inicio de sesión único en FM:Systems
   
-Después de completar este tutorial, los usuarios de Azure AD que haya asignado a FM:Systems podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de FM:Systems (inicio de sesión iniciado por el proveedor de servicios) o desde [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586)
+Después de completar este tutorial, los usuarios de Azure AD que haya asignado a FM:Systems podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de FM:Systems (inicio de sesión iniciado por el proveedor de servicios) o desde [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
   
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
@@ -46,7 +59,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
     ![Galería de aplicaciones](./media/active-directory-saas-fm-systems-tutorial/IC795900.png "Galería de aplicaciones")
 
-7.  En el panel de resultados, seleccione **FM:Systems** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+7.  En el panel de resultados, seleccione **FM:Systems** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![FM: Systems](./media/active-directory-saas-fm-systems-tutorial/IC800213.png "FM: Systems")
 ##Configuración del inicio de sesión único
@@ -59,7 +72,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-fm-systems-tutorial/IC790810.png "Configurar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en FM:Systems?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en FM:Systems?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-fm-systems-tutorial/IC795901.png "Configurar inicio de sesión único")
 
@@ -73,7 +86,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     2.  Haga clic en **Siguiente**.
 
-4.  En la página **Configurar inicio de sesión único en FM:Systems**, para descargar los metadatos, haga clic en **Descargar metadatos** y, a continuación, guarde los metadatos en el equipo.
+4.  En la página **Configurar inicio de sesión único en FM:Systems**, para descargar los metadatos, haga clic en **Descargar metadatos** y luego guarde los metadatos en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-fm-systems-tutorial/IC795903.png "Configurar inicio de sesión único")
 
@@ -92,15 +105,15 @@ Para permitir que los usuarios de Azure AD inicien sesión en FM:Systems, deben 
 
 1.  En una ventana del explorador web, inicie sesión en el sitio de la compañía de FM:Systems como administrador.
 
-2.  Vaya a **System Administration > Manage Security > Users > User list** (Administración del sistema > Administrar seguridad > Usuarios > Lista de usuarios).
+2.  Vaya a **Administración del sistema > Administrar seguridad > Usuarios > Lista de usuarios**.
 
     ![Administración del sistema](./media/active-directory-saas-fm-systems-tutorial/IC795905.png "Administración del sistema")
 
-3.  Haga clic en **Create new user** (Crear nuevo usuario).
+3.  Haga clic en **Crear nuevo usuario**.
 
     ![Crear nuevo usuario](./media/active-directory-saas-fm-systems-tutorial/IC795906.png "Crear nuevo usuario")
 
-4.  En la sección **Create User** (Crear usuario), lleve a cabo estos pasos:
+4.  En la sección **Crear usuario**, lleve a cabo estos pasos:
 
     ![Crear usuario](./media/active-directory-saas-fm-systems-tutorial/IC795907.png "Crear usuario")
 
@@ -121,10 +134,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-fm-systems-tutorial/IC795908.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, luego, en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-fm-systems-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

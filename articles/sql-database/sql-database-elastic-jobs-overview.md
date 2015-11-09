@@ -87,4 +87,4 @@ Hay varios tipos de tareas de trabajo que efectúan la ejecución de trabajos:
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="10/23/2015"
 	ms.author="markusvi"/>
 
 
@@ -63,8 +63,7 @@ Para configurar la integración de 23 Video en Azure AD, deberá agregar 23 Vide
 4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
 6. En el cuadro de búsqueda, escriba **23 Video**.<br><br> ![Aplicaciones][5]<br>
-7. En el panel de resultados, seleccione **23 Video** y luego haga clic en **Completar** para agregar la aplicación.
-
+7. En el panel de resultados, seleccione **23 Video** y luego haga clic en **Completar** para agregar la aplicación. <br><br>![Aplicaciones][25]<br>
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con 23 Video con un usuario de prueba llamado "Britta Simon".
@@ -81,13 +80,13 @@ Para configurar y probar el inicio de sesión único de Azure AD con 23 Video, e
 
 ### Configuración del inicio de sesión único de Azure AD
 
-El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el portal de Azure AD y configurar el inicio de sesión único en la aplicación 23 Video.<br>
+El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure AD y configurar el inicio de sesión único en la aplicación 23 Video.<br>
 
 **Para configurar el inicio de sesión único de Azure AD con 23 Video, realice los pasos siguientes:**
 
-1. En el Portal de Azure AD, en la página de integración de aplicaciones de **23 Video**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6]<br>
+1. En el Portal de Azure AD, en la página de integración de aplicaciones de **23 Video**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6] <br>
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en 23 Video?**, seleccione **Inicio de sesión único de Azure AD** y después haga clic en **Siguiente**. <br><br>![Inicio de sesión único de Azure AD][7]<br>
+2. En la página **¿Cómo desea que los usuarios inicien sesión en 23 Video?**, seleccione **Inicio de sesión único de Azure AD** y después haga clic en **Siguiente**. <br><br> ![Inicio de sesión único de Azure AD][7] <br>
 
 3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes: <br><br>![Inicio de sesión único de Azure AD][8] <br>
  
@@ -122,7 +121,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_03.png) <br>
+3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_03.png) <br>
  
 4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_04.png) <br>
 
@@ -162,18 +161,18 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 1. Inicie sesión en su sitio de la compañía de 23 Video como administrador.
 
-1. Vaya a **Settings** (Configuración).
+1. Vaya a **Configuración**.
 
 
-2. En la sección **Users** (Usuarios), haga clic en **Configure** (Configurar). <br><br>![Asignar usuario][400]<br>
+2. En la sección **Usuarios**, haga clic en **Configurar**. <br><br>![Asignar usuario][400]<br>
 
-3. Haga clic en **Add a new user** (Agregar nuevo usuario). <br><br>![Asignar usuario][401]<br>
+3. Haga clic en **Agregar un nuevo usuario**. <br><br>![Asignar usuario][401]<br>
 
-4. En la sección **Invite someone to join this site** (Invitar a alguien a unirse a este sitio), realice los siguientes pasos: <br><br>![Asignar usuario][402]<br>
+4. En la sección **Invitar a alguien a unirse a este sitio**, realice los siguientes pasos: <br><br>![Asignar usuario][402]<br>
 
-    a. En el cuadro de texto **E-mail addresses** (Direcciones de correo electrónico), escriba la dirección de correo electrónico de Britta Simon en Azure AD.
+    a. En el cuadro de texto **Direcciones de correo electrónico**, escriba la dirección de correo electrónico de Britta Simon en Azure AD.
 
-    b. Haga clic en **Add the user**(Agregar el usuario).
+    b. Haga clic en **Agregar un usuario**.
 
 
 ### Asignación del usuario de prueba de Azure AD
@@ -184,7 +183,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 1. En el Portal de Azure, abra la vista de aplicaciones; para ello, en la vista de directorio, haga clic en **Aplicaciones** en el menú de la parte superior. <br><br>![Asignar usuario][201] <br>
 2. En la lista de aplicaciones. seleccione **23 Video**. <br><br>![Asignar usuario][202] <br>
-1. En el menú de la parte superior, haga clic en **Usuarios**.<br> <br>![Asignar usuario][203] <br>
+1. En el menú de la parte superior, haga clic en **Usuarios**. <br><br>![Asignar usuario][203] <br>
 1. En la lista Usuarios, seleccione **Britta Simon**.
 
 2. En la barra de herramientas de la parte inferior, haga clic en **Asignar**. <br><br>![Asignar usuario][205]
@@ -193,7 +192,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 ### Prueba del inicio de sesión único
 
-El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.<br> Al hacer clic en el icono de 23 Video en el panel de acceso, debería iniciar sesión automáticamente en su aplicación 23 Video.
+El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el Panel de acceso.<br> Al hacer clic en el icono de 23 Video en el panel de acceso, debería iniciar sesión automáticamente en su aplicación 23 Video.
 
 
 ## Recursos adicionales
@@ -208,6 +207,7 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [3]: ./media/active-directory-saas-23video-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-23video-tutorial/tutorial_general_04.png
 [5]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_01.png
+[25]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_02.png
 
 [6]: ./media/active-directory-saas-23video-tutorial/tutorial_general_05.png
 [7]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_03.png
@@ -228,4 +228,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [401]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_11.png
 [402]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_12.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

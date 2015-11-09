@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/14/2015"
+   	ms.date="10/23/2015"
    	ms.author="larryfr"/>
 
 #Creación de clústeres basados en Linux en HDInsight con cURL y la API de REST de Azure
@@ -23,13 +23,17 @@
 
 La API de REST de Azure permite realizar operaciones de administración de servicios hospedados en la plataforma Azure, incluida la creación de recursos como, por ejemplo, clústeres de HDInsight basados en Linux. En este documento, obtendrá información sobre cómo crear plantillas del Administrador de recursos de Azure para configurar un clúster de HDInsight y el almacenamiento asociado y luego usar cURL para implementar la plantilla en la API de REST de Azure para crear un clúster de HDInsight.
 
+> [AZURE.IMPORTANT]Los pasos de este documento usan el número predeterminado de nodos de trabajo (4) para un clúster de HDInsight. Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
+>
+> Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+
 ##Requisitos previos
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __CLI de Azure__ La CLI de Azure se usa para crear una entidad de servicio, que luego se emplea para generar tokens de autenticación para solicitudes a la API de REST de Azure.
 
-    Para obtener información sobre la instalación de la CLI, vea [Instalación de la CLI de Azure](xplat-cli-install.md).
+    Para obtener información sobre la instalación de la CLI, consulte [Instalación de la CLI de Azure](xplat-cli-install.md).
 
 - __cURL__. Esta utilidad está disponible a través del sistema de administración de paquetes, o se puede descargar desde [http://curl.haxx.se/](http://curl.haxx.se/).
 
@@ -265,8 +269,8 @@ Siga los pasos que se documentan en [Conexión a una suscripción de Azure desde
 >
 > También debe guardar la información siguiente utilizada en este proceso:
 > 
-> * Id. de suscripción: se recibe al usar `azure account list`
-> * Id. de inquilino: se recibe al usar `azure account list`
+> * Identificador de suscripción: se recibe al usar `azure account list`
+> * Identificador de inquilino: se recibe al usar `azure account list`
 > * Id. de aplicación: se devuelve al crear la entidad de servicio
 > * Contraseña de la entidad de servicio: se usa al crear la entidad de servicio
 
@@ -351,4 +355,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

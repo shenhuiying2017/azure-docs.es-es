@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="08/04/2015"
 	ms.author="pehteh"/>
 
 
@@ -23,21 +23,13 @@
 
 En este tema se muestra el número de versión mínimo para cada biblioteca o controlador que los programas cliente pueden usar para conectarse a Base de datos SQL de Azure o a Microsoft SQL Server.
 
-
-Este tema se divide en dos secciones:
-
-
-- *Tabla de bibliotecas de controladores publicada por Microsoft*: cubre las bibliotecas que Microsoft ha publicado. Microsoft mantiene la información de esta sección.
-- *Bibliotecas de terceros*: muestra las bibliotecas que publican y mantienen terceros en lugar de Microsoft. **Solo la comunidad pública de desarrolladores mantiene esta sección. Microsoft no mantendrá esta sección.**
-
-
 ## Tabla de bibliotecas de controladores publicadas por Microsoft
 
 
 En la tabla siguiente se muestran las bibliotecas publicadas por Microsoft. La columna **Bibliotecas** proporciona vínculos que puede usar para descargar cada biblioteca. La columna **Versión** muestra la versión mínima recomendada para interactuar con Base de datos de SQL Azure y Microsoft SQL Server.
 
 
-| Plataforma | Oper Sys | Bibliotecas<br/>para descarga | Versión<br/>de controlador | Descripción<br/>de controlador | Más<br/>información |
+| Plataforma | Oper Sys | Bibliotecas <br/>para descarga | Versión <br/>de controlador | Descripción <br/>de controlador | Más <br/>información |
 | :--- | :--- | :--- | :--- | :--- | :-- |
 | .NET | Multiplataforma (. NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4\.5 + | Proveedor de SQL Server para .NET Framework | . |
 | PHP | Windows | [PHP para SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2\.0+ | Controlador PHP para SQL Server | [Vínculo](http://msdn.microsoft.com/library/dn865013.aspx) |
@@ -45,6 +37,14 @@ En la tabla siguiente se muestran las bibliotecas publicadas por Microsoft. La c
 | ODBC | Windows | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11\.0+ | Controlador ODBC de Microsoft para SQL Server | [Vínculo](http://msdn.microsoft.com/library/jj730308.aspx) |
 | ODBC | Suse Linux | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0+ | Controlador ODBC de Microsoft para SQL Server | . |
 | ODBC | Redhat Linux | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0+ | Controlador ODBC de Microsoft para SQL Server | . |
+
+### Compatibilidad con ODBC
+
+Al utilizar el asistente para el nombre de origen de datos (DSN) para definir un origen de datos para la Base de datos SQL de Azure, haga clic en la opción **Con autenticación de SQL Server mediante un identificador de inicio de sesión y una contraseña escritos por el usuario** y seleccione **Conectar con SQL Server para obtener la configuración predeterminada de las opciones de configuración adicionales**. Escriba su nombre de usuario y contraseña para conectarse a su servidor de Base de datos SQL de Azure como **Id. de inicio de sesión** y **Contraseña**. Desactive la casilla **Conectar con SQL Server para obtener la configuración predeterminada de las opciones de configuración adicionales**. Haga clic en **Establecer la siguiente base de datos como predeterminada:** y escriba el nombre de la Base de datos SQL de Azure, incluso si no se muestra en la lista. Tenga en cuenta que el asistente muestra varios idiomas en la lista **Establecer el siguiente idioma para los mensajes del sistema de SQL Server:**.
+
+En esta versión, Base de datos SQL de Microsoft Azure solo se admite en inglés, así que seleccione inglés como idioma. Base de datos SQL de Microsoft Azure no admite **servidor reflejado** o **Adjuntar base de datos**, así que deje estos elementos vacíos. Haga clic en **Probar conexión**.
+
+Cuando utilice el controlador ODBC de SQL Server 2008 Native Client, el botón **Probar conexión** puede producir un error que señala que **master.dbo.syscharsets con** no se admite. Ignore este error, guarde el DSN y utilícelo.
 
 
 ### OLEDB para DB2 y SQL Server, para diseño DRDA
@@ -82,4 +82,4 @@ En la tabla siguiente se muestran las bibliotecas publicadas por terceros como d
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

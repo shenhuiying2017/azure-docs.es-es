@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/14/2015"
+   	ms.date="10/23/2015"
    	ms.author="nitinme"/>
 
 
@@ -81,12 +81,16 @@ El Portal de vista previa de Azure es una herramienta de administración basada 
 8. Haga clic en **Niveles de precios de nodo** para mostrar información sobre los nodos que se creen para este clúster. Establezca el número de nodos de trabajo que necesita para el clúster. El costo estimado del clúster se mostrará en la hoja.
 
 	![Hoja Niveles de precios de nodo](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.5.png "Especifique el número de nodos de clúster")
+    
+    > [AZURE.IMPORTANT]Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
+    >
+    > Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 	Haga clic en **Seleccionar** para guardar la configuración de precios de nodo.
 
 9. Haga clic en **Configuración opcional** para seleccionar la versión del clúster y configurar otros valores de configuración opcionales, por ejemplo, unirse a una **Red virtual**, configurar una **Tienda de metadatos externos** para almacenar datos de Hive y Oozie, usar acciones de script a fin de personalizar un clúster para instalar componentes personalizados o usar cuentas de almacenamiento adicionales con el clúster.
 
-	* Haga clic en la lista desplegable **Versión de HDInsight** y seleccione la versión que quiera usar para el clúster. Para obtener más información, vea [Versiones de clústeres de HDInsight](hdinsight-component-versioning.md).
+	* Haga clic en la lista desplegable **Versión de HDInsight** y seleccione la versión que quiera usar para el clúster. Para obtener más información, consulte [Versiones de clústeres de HDInsight](hdinsight-component-versioning.md).
 
 	* **Red virtual**: seleccione una red virtual de Azure y la subred si quiere colocar el clúster en una red virtual.
 
@@ -102,7 +106,7 @@ El Portal de vista previa de Azure es una herramienta de administración basada 
 
 		>[AZURE.NOTE]La base de datos SQL de Azure usada para la tienda de metadatos debe permitir la conectividad con otros servicios de Azure, incluido HDInsight de Azure. En el panel de la base de datos SQL de Azure, en el lado derecho, haga clic en el nombre de servidor. Este es el servidor en el que se ejecuta la instancia de base de datos SQL. Cuando se encuentre en la vista de servidor, haga clic en **Configurar** y luego, en **Servicios de Azure**, haga clic en **Sí** y en **Guardar**.
 
-	* **Acciones de script** si quiere usar un script personalizado para personalizar un clúster, conforme se crea el clúster. Para obtener más información sobre acciones de script, vea [Personalización de clústeres de HDInsight con una acción de script](hdinsight-hadoop-customize-cluster-linux.md). En la hoja Acciones de script, proporcione los detalles como se muestra en la captura de pantalla.
+	* **Acciones de script** si quiere usar un script personalizado para personalizar un clúster, conforme se crea el clúster. Para obtener más información sobre acciones de script, consulte [Personalización de clústeres de HDInsight con una acción de script](hdinsight-hadoop-customize-cluster-linux.md). En la hoja Acciones de script, proporcione los detalles como se muestra en la captura de pantalla.
 
 		![Hoja de acción de script](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.8.png "Especifique una acción de script")
 
@@ -126,7 +130,7 @@ El Portal de vista previa de Azure es una herramienta de administración basada 
 
 	Use lo siguiente para comprender los iconos del principio de esta hoja y de la sección **Conceptos básicos**:
 
-	* **Configuración** y **Toda la configuración**: muestra la hoja **Configuración** del clúster, que permite acceder a información de configuración detallada para el clúster.
+	* **Configuración** y **Toda la configuración**: muestran la hoja **Configuración** del clúster, que permite acceder a información de configuración detallada para el clúster.
 
 	* **Panel**, **Panel del clúster** y **URL**: se trata de formas de acceder al panel del clúster, que es un portal web para ejecutar trabajos en el clúster.
 
@@ -136,11 +140,11 @@ El Portal de vista previa de Azure es una herramienta de administración basada 
 
 	* **Inicio rápido** (![icono de nube y rayo = inicio rápido](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)): muestra información que le ayudará a empezar a usar HDInsight.
 
-	* **Usuarios** (![icono de usuarios](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png)): permite establecer permisos de _administración del portal_ de este clúster para otros usuarios de su suscripción de Azure.
+	* **Usuarios** (![icono de usuarios](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png)): permite establecer permisos para la _administración del portal_ de este clúster para otros usuarios de la suscripción de Azure.
 
 		> [AZURE.IMPORTANT]Esto _solo_ afecta al acceso y los permisos para este clúster en el Portal de vista previa de Azure, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
 
-	* **Etiquetas** (![icono de etiqueta](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)): las etiquetas permiten establecer pares clave-valor para definir una taxonomía personalizada de los servicios en la nube. Por ejemplo, puede crear una clave denominada __project__ y luego usar un valor común para todos los servicios asociados a un proyecto específico.
+	* **Etiquetas** (![icono de etiqueta](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)): las etiquetas permiten establecer pares de clave-valor para definir una taxonomía personalizada de los servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y luego usar un valor común para todos los servicios asociados a un proyecto específico.
 
 ##Pasos siguientes
 
@@ -163,4 +167,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

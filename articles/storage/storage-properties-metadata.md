@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="09/03/2015" 
+  ms.date="10/26/2015" 
   ms.author="tamram"/>
 
 
@@ -28,15 +28,17 @@ Objetos en las propiedades de compatibilidad de sistema de Almacenamiento de Azu
 
 *   **Metadatos definidos por el usuario.** Los metadatos definidos por el usuario son los metadatos que se especifican en un recurso determinado, en forma de par nombre-valor. Puede usar metadatos para almacenar valores adicionales con un recurso de almacenamiento; estos valores son únicamente para sus propios fines y no afectan a la manera en que se comporta el recurso.
 
-## Establecer y recuperar propiedades
-
-El proceso de recuperación de los valores de propiedad y metadatos de un recurso de almacenamiento consta de dos pasos. Para poder leer estos valores, tiene que capturarlos explícitamente llamando el método **FetchAttributes** o **FetchAttributesAsync**.
+El proceso de recuperación de los valores de propiedad y metadatos de un recurso de almacenamiento consta de dos pasos. Para poder leer estos valores, tiene que capturarlos explícitamente llamando el método **FetchAttributes**.
 
 > [AZURE.IMPORTANT]Los valores de propiedad y los metadatos para un recurso de almacenamiento no se rellenan, a menos que se llame a uno de los métodos **FetchAttributes**.
 
-Para establecer propiedades en un blob, especifique el valor de propiedad y, a continuación, llame al método **SetProperties** o **SetPropertiesAsync**.
+## Establecer y recuperar propiedades
 
-En el ejemplo de código siguiente se crea un contenedor y se escriben los valores de propiedad en una ventana de la consola:
+Para recuperar valores de propiedad, llame al método **FetchAttributes** en el blob o contenedor para rellenar las propiedades y, a continuación, lea los valores.
+
+Para establecer propiedades en un objeto, especifique el valor de propiedad y, a continuación, llame al método **SetProperties**.
+
+En el ejemplo de código siguiente se crea un contenedor y se escriben algunos de sus valores de propiedad en una ventana de la consola:
 
     //Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -64,46 +66,37 @@ Puede especificar metadatos como uno o más pares nombre-valor en un recurso de 
 
 > [AZURE.NOTE]\: El nombre de los metadatos debe cumplir las convenciones de nomenclatura para los identificadores de C#.
  
-Para recuperar metadatos, llame al método **FetchAttributes** en el blob o contenedor para rellenar la colección **Metadata** y, a continuación, lea los valores.
+El ejemplo de código siguiente establece los metadatos en un contenedor. Un valor se establece mediante el método **Agregar** de la colección. El otro valor se establece mediante la sintaxis implícita de clave/valor. Ambos son válidos.
 
-En el ejemplo de código siguiente se crea un nuevo contenedor, se establecen sus metadatos y se vuelven a leer los valores de los metadatos:
+    public static void AddContainerMetadata(CloudBlobContainer container)
+    {
+        //Add some metadata to the container.
+        container.Metadata.Add("docType", "textDocuments");
+        container.Metadata["category"] = "guidance";
 
-         
-	// Account name and key.  Modify for your account.
-	<span style="color:Blue;">string accountName = <span style="color:#A31515;">"myaccount";
-	<span style="color:Blue;">string accountKey = <span style="color:#A31515;">"SzlFqgzqhfkj594cFoveYqCuvo8v9EESAnOLcTBeBIo31p16rJJRZx/5vU/oY3ZsK/VdFNaVpm6G8YSD2K48Nw==";
+        //Set the container's metadata.
+        container.SetMetadata();
+    }
 
-	// Get a reference to the storage account and client with authentication credentials.
-	StorageCredentials credentials = <span style="color:Blue;">new StorageCredentials(accountName, accountKey);
-	CloudStorageAccount storageAccount = <span style="color:Blue;">new CloudStorageAccount(credentials, <span style="color:Blue;">true);
-	CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+Para recuperar metadatos, llame al método **FetchAttributes** en el blob o contenedor para rellenar la colección **Metadata** y, a continuación, lea los valores como se muestra en el ejemplo siguiente.
 
-	// Retrieve a reference to a container. 
-	CloudBlobContainer container = blobClient.GetContainerReference(<span style="color:#A31515;">"mycontainer");
+    public static void ListContainerMetadata(CloudBlobContainer container)
+    {
+        //Fetch container attributes in order to populate the container's properties and metadata.
+        container.FetchAttributes();
 
-	// Create the container if it does not already exist.
-	container.CreateIfNotExists();
-
-	// Set metadata for the container.
-	container.Metadata[<span style="color:#A31515;">"category"] = <span style="color:#A31515;">"images";
-	container.Metadata[<span style="color:#A31515;">"owner"] = <span style="color:#A31515;">"azure";
-	container.SetMetadata();
-
-	// Get container metadata.
-	container.FetchAttributes();
-	<span style="color:Blue;">foreach (<span style="color:Blue;">string key <span style="color:Blue;">in container.Metadata.Keys)
-	{
-	   Console.WriteLine(<span style="color:#A31515;">"Metadata key: " + key);
-	   Console.WriteLine(<span style="color:#A31515;">"Metadata value: " + container.Metadata[key]);
-	}
-
-	//Clean up.
-	container.Delete();
+        //Enumerate the container's metadata.
+        Console.WriteLine("Container metadata:");
+        foreach (var metadataItem in container.Metadata)
+        {
+            Console.WriteLine("\tKey: {0}", metadataItem.Key);
+            Console.WriteLine("\tValue: {0}", metadataItem.Value);
+        }
+    }
 
 ## Otras referencias  
 
-- [Referencia de la biblioteca de cliente de almacenamiento de Azure](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-- [Introducción al almacenamiento de blobs para .NET](storage-dotnet-how-to-use-blobs.md)  
- 
+- [Documentación de referencia de la biblioteca cliente de Almacenamiento de Azure para .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
+- [Paquete de la biblioteca cliente de Almacenamiento de Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

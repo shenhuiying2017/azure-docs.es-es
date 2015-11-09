@@ -66,8 +66,6 @@ Una VPN de sitio a sitio permite crear una conexión segura entre el sitio local
 
 Para obtener más información acerca de cómo configurar una conexión de puerta de enlace de VPN de sitio a sitio, vea [Configurar una red virtual con una conexión VPN de sitio a sitio](vpn-gateway-site-to-site-create.md).
 
-Si desea crear una conexión de puerta de enlace de VPN de sitio a sitio con RRAS, consulte [Conexión VPN sitio a sitio en la Red virtual de Azure mediante el Servicio de enrutamiento y acceso remoto (RRAS) de Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx).
-
 
 ## Conexiones punto a sitio
 
@@ -87,7 +85,7 @@ Si bien las configuraciones de punto a sitio y de sitio a sitio pueden existir s
 
 - En caso de que no tenga acceso a una dirección IP del tipo IPv4 accesible desde Internet para el dispositivo VPN.
 
-Para obtener más información acerca de cómo configurar una conexión de punto a sitio, vea [Configurar una conexión VPN de punto a sitio con una red virtual](vpn-gateway-point-to-site-create.md).
+Para obtener más información acerca de cómo configurar una conexión de punto a sitio, consulte [Configurar una conexión VPN de punto a sitio con una red virtual](vpn-gateway-point-to-site-create.md).
 
 ## Conexiones de ExpressRoute
 
@@ -102,4 +100,4 @@ Para obtener más información sobre ExpressRoute, consulte la [Información té
 
 Consulte las [Preguntas más frecuentes sobre ExpressRoute](../expressroute/expressroute-faqs.md) y las [Preguntas más frecuentes de la puerta de enlace de VPN](vpn-gateway-vpn-faq.md) para obtener más información.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

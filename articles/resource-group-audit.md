@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/27/2015" 
 	ms.author="tomfitz"/>
 
 # Operaciones de auditoría con el Administrador de recursos
@@ -21,6 +21,11 @@
 Cuando se produce un problema durante la implementación o mientras la solución esté vigente, necesita descubrir qué salió mal. El Administrador de recursos ofrece dos maneras de averiguar qué ocurrió y por qué. Puede usar comandos de implementación para recuperar información sobre operaciones e implementaciones concretas. O bien, puede usar los registros de auditoría para recuperar información sobre las implementaciones y otras acciones llevadas a cabo durante la vigencia de la solución. Este tema se centra en los registros de auditoría.
 
 El registro de auditoría contiene todas las acciones realizadas en los recursos. Por tanto, si un usuario de su organización modifica un recurso, podrá identificar la acción, el tiempo y el usuario.
+
+Existen dos limitaciones importantes a tener en cuenta al trabajar con registros de auditoría:
+
+1. Los registros de auditoría solo se conservan durante 90 días.
+2. Solo se pueden consultar para un intervalo de 15 días o menos.
 
 Puede recuperar información de los registros de auditoría a través de Azure PowerShell, CLI de Azure, API de REST o el portal de vista previa de Azure.
 
@@ -30,13 +35,17 @@ Puede recuperar información de los registros de auditoría a través de Azure P
 
 Para recuperar las entradas del registro, ejecute el comando **Get-AzureRmLog** (o **Get-AzureResourceGroupLog** para versiones anteriores a la vista previa de PowerShell 1.0). Ofrezca parámetros adicionales para filtrar la lista de entradas.
 
-En el ejemplo siguiente se muestra cómo usar el registro de auditoría para investigar acciones llevadas a cabo durante el ciclo de vida de la solución. Puede ver cuándo se produjo la acción y quién la solicitó.
+En el ejemplo siguiente se muestra cómo usar el registro de auditoría para investigar acciones llevadas a cabo durante el ciclo de vida de la solución. Puede ver cuándo se produjo la acción y quién la solicitó. Las fechas inicial y final se especifican en un formato de fecha.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
 
-En función de la hora de inicio que especifique, el comando anterior puede devolver una lista larga de acciones para ese grupo de recursos. Puede filtrar los resultados para lo que busca ofreciendo criterios de búsqueda. Por ejemplo, si intenta investigar cómo se detuvo una aplicación web, podría ejecutar el siguiente comando y ver que someone@example.com realizó una acción de detención.
+También puede usar funciones de fecha para especificar el intervalo de fechas, como los últimos 15 días.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15)
+
+En función de la hora de inicio que especifique, los comandos anteriores pueden devolver una lista larga de acciones para ese grupo de recursos. Puede filtrar los resultados para lo que busca ofreciendo criterios de búsqueda. Por ejemplo, si intenta investigar cómo se detuvo una aplicación web, podría ejecutar el siguiente comando y ver que someone@example.com realizó una acción de detención.
+
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
 
     Authorization     :
                         Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
@@ -56,7 +65,7 @@ En función de la hora de inicio que especifique, el comando anterior puede devo
 
 En el siguiente ejemplo, solo buscaremos acciones erróneas después de la hora de inicio especificada. También incluiremos el parámetro **DetailedOutput** para ver los mensajes de error.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed –DetailedOutput
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15) -Status Failed –DetailedOutput
     
 Si este comando devuelve demasiadas entradas y propiedades, puede centrarse en sus esfuerzos de auditoría mediante la recuperación de la propiedad **properties**.
 
@@ -153,4 +162,4 @@ Puede seleccionar cualquier operación para obtener más detalles sobre ella.
 - Para obtener información sobre la concesión del acceso a una entidad de seguridad de servicio, vea [Autenticación de una entidad de seguridad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
 - Para aprender a realizar acciones en un recurso para todos los usuarios, vea [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -27,26 +27,14 @@ En estos pasos se sigue un enfoque consistente en atar cabos para crear conjunto
 
 ## Paso 1: Instalación de Azure PowerShell
 
-También debe disponer de Azure PowerShell, versión 1.0.0 o posterior. Si no ha instalado y configurado Azure PowerShell, haga clic en [aquí](../powershell-install-configure.md) para obtener instrucciones.
-
-Puede comprobar la versión de Azure PowerShell que ha instalado con este comando en el símbolo del sistema de Azure PowerShell.
-
-	Get-Module azure | format-table version
-
-Aquí tiene un ejemplo.
-
-	Version
-	-------
-	1.0.0
-
-Si no tiene la versión 1.0.0 o posterior, debe quitar Azure PowerShell mediante la opción Programas y características del Panel de control y, a continuación, instalar la versión más reciente. Para obtener más información, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Paso 2: Establecimiento de la suscripción
 
 En primer lugar, inicie un símbolo del sistema de Azure PowerShell.
 
 Inicie sesión en su cuenta.
-	
+
 	Login-AzureRmAccount
 
 Obtenga el nombre de la suscripción con el comando siguiente.
@@ -130,8 +118,8 @@ Use este comando para enumerar los conjuntos de disponibilidad existentes.
 
 	Get-AzureRmAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
-### Reglas NAT	
-	
+### Reglas NAT
+
 Las máquinas virtuales basadas en el Administrador de recursos pueden configurarse con reglas de NAT de entrada para permitir el tráfico entrante de Internet y colocarse en un conjunto de carga equilibrada. En ambos casos, debe especificar una instancia del equilibrador de carga y otras opciones. Para obtener más información, consulte [Creación de un equilibrador de carga mediante el Administrador de recursos de Azure](../load-balancer/load-balancer-arm-powershell.md)
 
 Las máquinas virtuales creadas con el modelo de implementación del Administrador de recursos requieren una red virtual del Administrador de recursos. Si es necesario, cree una nueva red virtual basada en Administrador de recursos con al menos una subred para la nueva máquina virtual. Este es un ejemplo de una nueva red virtual denominada **TestNet** con dos subredes denominadas **frontendSubnet** y **backendSubnet**.
@@ -396,4 +384,4 @@ Este es el conjunto de comandos de Azure PowerShell para crear esta máquina vir
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2015"
+	ms.date="10/26/2015"
 	ms.author="femila"/>
 
 # Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio
@@ -22,7 +22,7 @@ Como administrador de TI, puede configurar sus dispositivos Windows 7 unidos a u
 
 ##Instalación del paquete de software de registro de dispositivos en dispositivos Windows 7 unidos a un dominio
 
-El registro de dispositivos para Windows 7 está disponible como paquete MSI descargable. El paquete debe instalarse en equipos con Windows 7 que se unan a un dominio de Active Directory. Debe implementar el paquete mediante un sistema de distribución de software como System Center Configuration Manager. El paquete MSI es compatible con las opciones de instalación silenciosa estándar mediante el parámetro /quiet. El paquete de software está disponible para su descarga en el sitio web de Microsoft Connect. Aquí puede seleccionar y, a continuación, descargar Unión al área de trabajo para Windows 7.
+El registro de dispositivos para Windows 7 está disponible como [paquete MSI descargable](https://connect.microsoft.com/site1164). El paquete debe instalarse en equipos con Windows 7 que se unan a un dominio de Active Directory. Debe implementar el paquete mediante un sistema de distribución de software como System Center Configuration Manager. El paquete MSI es compatible con las opciones de instalación silenciosa estándar mediante el parámetro /quiet. El paquete de software está disponible para su descarga en el [sitio web de Microsoft Connect](https://connect.microsoft.com/site1164). Aquí puede seleccionar y, a continuación, descargar Unión al área de trabajo para Windows 7.
 
 ![](./media/active-directory-conditional-access/device-registration-process-windows7.gif)
 
@@ -52,4 +52,4 @@ A continuación, abra un símbolo del sistema en el equipo con Windows 7 y ejecu
 
 El registro de eventos de Windows en el equipo con Windows 7 mostrará mensajes relacionados con Unión al área de trabajo. Puede encontrar mensajes para eventos de Unión al área de trabajo con éxito y sin éxito. El registro de eventos puede encontrarse en el Visor de eventos en Registros de aplicaciones y servicios> Microsoft-Unión al área de trabajo.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

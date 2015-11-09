@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Especificación de la introducción en directo de MP4 fragmentado de Servicios multimedia de Azure" 
-	description="En esta especificación se describe el protocolo y el formato para inserción de streaming en vivo basada en MP4 fragmentado para Servicios multimedia de Microsoft Azure. Servicios multimedia de Microsoft Azure ofrece streaming en vivo que permite a los clientes la transmisión de eventos en directo y difundir contenido en tiempo real con Microsoft Azure como la plataforma de nube. En el momento de escribir, el MP4 de fragmento previamente codificado es el único mecanismo de introducción para el streaming en vivo en Servicios multimedia de Microsoft Azure. En este documento también se describen los prácticas recomendadas en la creación de mecanismos de introducción en directo sólidos y altamente redundantes." 
+	description="En esta especificación se describe el protocolo y el formato para inserción de streaming en vivo basada en MP4 fragmentado para Servicios multimedia de Microsoft Azure. Servicios multimedia de Microsoft Azure ofrece streaming en vivo que permite a los clientes la transmisión de eventos en directo y difundir contenido en tiempo real con Microsoft Azure como la plataforma de nube. En este documento también se describen los prácticas recomendadas en la creación de mecanismos de introducción en directo sólidos y altamente redundantes." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="cenkdin,juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,18 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/21/2015" 
 	ms.author="juliako"/>
 
 #Especificación de la introducción en directo de MP4 fragmentado de Servicios multimedia de Azure
 
-En esta especificación se describe el protocolo y el formato para inserción de streaming en vivo basada en MP4 fragmentado para Servicios multimedia de Microsoft Azure. Servicios multimedia de Microsoft Azure ofrece streaming en vivo que permite a los clientes la transmisión de eventos en directo y difundir contenido en tiempo real con Microsoft Azure como la plataforma de nube. En el momento de escribir, el MP4 de fragmento previamente codificado es el único mecanismo de introducción para el streaming en vivo en Servicios multimedia de Microsoft Azure. En este documento también se describen los prácticas recomendadas en la creación de mecanismos de introducción en directo sólidos y altamente redundantes.
+En esta especificación se describe el protocolo y el formato para inserción de streaming en vivo basada en MP4 fragmentado para Servicios multimedia de Microsoft Azure. Servicios multimedia de Microsoft Azure ofrece streaming en vivo que permite a los clientes la transmisión de eventos en directo y difundir contenido en tiempo real con Microsoft Azure como la plataforma de nube. En este documento también se describen los prácticas recomendadas en la creación de mecanismos de introducción en directo sólidos y altamente redundantes.
 
-##Notación de cumplimiento
+
+##1\. Notación de cumplimiento
 
 Las palabras clave "DEBE", "NO DEBE", "SE REQUIERE", "TENDRÁ QUE", "NO DEBERÁ", "DEBERÍA", "NO DEBERÍA", "RECOMENDADO", "PUEDE" y "OPCIONAL" de este documento se deben interpretar como se describe en RFC 2119.
 
-##Diagrama del servicio 
+##2\. Diagrama del servicio 
 
 En el diagrama siguiente se muestra la arquitectura de alto nivel del servicio de streaming en vivo en Servicios multimedia de Microsoft Azure:
 
@@ -36,9 +37,11 @@ En el diagrama siguiente se muestra la arquitectura de alto nivel del servicio d
 ![imagen1][image1]
 
 
-##Formato de secuencia de bits: MP4 fragmentado ISO 14496-12
+##3\. Formato de secuencia de bits: MP4 fragmentado ISO 14496-12
 
-El formato de ingesta de streaming activa que se describe en este documento se basa en [ISO-14496-12]. Consulte [[MS SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) para obtener una explicación detallada del formato MP4 fragmentado y de las extensiones tanto para archivos de vídeo a la carta como para la introducción de streaming en vivo.
+El formato de ingesta de streaming activa que se describe en este documento se basa en [ISO-14496-12]. Consulte [[MS SSTR]](http://msdn.microsoft.com/library/ff469518.aspx) para obtener una explicación detallada del formato MP4 fragmentado y de las extensiones tanto para archivos de vídeo a la carta como para la introducción de streaming en vivo.
+
+###Definiciones de formato de introducción en directo 
 
 A continuación se muestra una lista de definiciones de formato especial que se aplican a la introducción en directo en Servicios multimedia de Microsoft Azure:
 
@@ -51,11 +54,13 @@ A continuación se muestra una lista de definiciones de formato especial que se 
 7. La duración de fragmentos MP4 DEBERÍA estar comprendida aproximadamente entre 2 y 6 segundos.
 8. Las marcas de tiempo de fragmentos MP4 e índices (TrackFragmentExtendedHeaderBox fragment\_absolute\_time y fragment\_index) DEBERÍAN llegar en orden ascendente. Aunque Servicios multimedia de Azure es resistente a fragmentos duplicados, tiene una capacidad limitada para reordenar fragmentos de acuerdo con la escala de tiempo multimedia.
 
-##Formato de protocolo: HTTP
+##4\. Formato de protocolo: HTTP
 
 La introducción en directo basada en MP4 fragmentado de ISO para Servicios multimedia de Microsoft Azure usa una solicitud HTTP POST de larga ejecución estándar para transmitir datos multimedia codificados empaquetados en formato MP4 fragmentado al servicio. Cada HTTP POST envía una secuencia de bits MP4 completa fragmentada ("Secuencia") desde el comienzo con cuadros iniciales (cuadro ‘ftyp’, “Live Server Manifest Box” y ‘moov’) y continuando con una secuencia de fragmentos (cuadros ‘moof’ y ‘mdat’). Consulte la sección 9.2 de [1] para la sintaxis URL para la solicitud HTTP POST. Un ejemplo de la dirección URL de POST es:
 
 	http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
+
+###Requisitos
 
 Estos son los requisitos detallados:
 
@@ -67,11 +72,11 @@ Estos son los requisitos detallados:
 6. El codificador NO DEBE usar el nombre Events() como se describe en 9.2 en [1] para la ingesta activa en Servicios multimedia de Microsoft Azure.
 7. Si la solicitud HTTP POST finaliza o se agota el tiempo antes del final de la secuencia con un error TCP, el codificador DEBE emitir una nueva solicitud POST con una nueva conexión y seguir los requisitos anteriores con el requisito adicional de que el codificador debe reenviar los dos fragmentos de MP4 anterior de cada pista en la secuencia anteriores y reanudar sin introducir discontinuidades en la escala de tiempo multimedia. El reenvío de los dos últimos fragmentos de MP4 para cada pista garantiza que no hay ninguna pérdida de datos. En otras palabras, si una secuencia contiene tanto una pista de audio como una de vídeo, y se produce un error en la solicitud POST actual, el codificador debe volver a conectarse y reenviar los últimos dos fragmentos de la pista de audio, que se enviaron correctamente anteriormente, y los dos últimos fragmentos para la pista de vídeo, que se enviaron correctamente anteriormente, para asegurarse de que no hay ninguna pérdida de datos. El codificador DEBE mantener un búfer de “reenvío” de fragmentos de medios, que vuelve a enviar al volver a conectarse.
 
-##Escala de tiempo 
+##5\. Escala de tiempo 
 
 [[MS SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) describe el uso de la "Escala de tiempo" para SmoothStreamingMedia (sección 2.2.2.1), StreamElement (sección 2.2.2.3), StreamFragmentElement(2.2.2.6) y LiveSMIL (sección 2.2.7.3.1). Si el valor de la escala de tiempo no está presente, el valor predeterminado usado es 10.000.000 (10 MHz). Aunque la especificación de formato de Smooth Streaming no bloquea el uso de otros valores de escala de tiempo, la mayoría de las implementaciones del codificador usa este valor predeterminado (10 MHz) para generar datos de introducción de Smooth Streaming. Debido a la característica de [paquetes dinámicos de Azure Media](media-services-dynamic-packaging-overview.md), se recomienda usar la escala de tiempo de 90 kHz para secuencias de vídeo y de 44,1 o 48,1 kHz para secuencias de audio. Si se usan valores de escala de tiempo diferentes para distintas secuencias, se DEBE enviar la escala de tiempo de nivel de secuencia. Consulte [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
 
-##Definición de "secuencia"  
+##6\. Definición de "secuencia"  
 
 "Secuencia" es la unidad básica de operación en la introducción en directo para crear la presentación en directo, la conmutación por error de transmisión de secuencias y los escenarios de redundancia. "Secuencia" se define como una secuencia de bits única de MP4 fragmentado que puede contener una sola pista o varias pistas. Una presentación en directo completa podría contener una o varias secuencias en función de la configuración de los codificadores en directo. En los ejemplos siguientes se ilustran varias opciones de uso de secuencias para crear una presentación en directo completa.
 
@@ -107,7 +112,7 @@ En esta opción, el cliente elige agrupar la pista de audio con la pista de víd
 
 Lo que se muestra anteriormente NO es una lista exhaustiva de todas las opciones de introducción posibles para este ejemplo. De hecho, cualquier agrupación de pistas en secuencias es compatible con la introducción activa. Los clientes y los proveedores de codificación pueden elegir sus propias implementaciones en función de la complejidad de ingeniería, de la capacidad del codificador, y de las consideraciones de redundancia y conmutación por error. Sin embargo, se debe tener en cuenta que en la mayoría de los casos solo hay una pista de audio para toda la presentación activa, por lo que es importante garantizar el buen estado de la secuencia de introducción que contiene la pista de audio. Esta consideración a menudo da como resultado la colocación de la pista de audio en su propia secuencia (como en la opción 2) o su agrupación con la pista de vídeo de velocidad de bits más baja (como en la opción 3). También para una mejor redundancia y tolerancia a errores, el envío de la misma pista de audio en dos secuencias diferentes (la opción 2 con pistas de audio redundantes) o la agrupación de la pista de audio con al menos dos de las pistas de vídeo de velocidad de bits más bajas (opción 3 con audio agrupado en al menos dos secuencias de vídeo) es muy recomendable para la introducción en directo en Servicios multimedia de Microsoft Azure.
 
-##Conmutación por error del servicio 
+##7\. Conmutación por error del servicio 
 
 Dada la naturaleza del streaming en vivo, resulta fundamental una buena compatibilidad de conmutación por error para garantizar la disponibilidad del servicio. Servicios multimedia de Microsoft Azure se ha diseñado para controlar los diversos tipos de errores, incluidos los errores de red, los errores de servidor, los problemas de almacenamiento, etc. Cuando se usa junto con la lógica de conmutación por error adecuada desde el lado del codificador en directo, el cliente puede lograr un servicio de transmisión directo altamente confiable desde la nube.
 
@@ -125,7 +130,7 @@ En esta sección, trataremos los escenarios de conmutación por error de servici
 	4. Se DEBEN reenviar los dos últimos fragmentos enviados para cada pista y reanudar el streaming sin introducir una discontinuidad en la escala de tiempo multimedia. Las marcas de tiempo de fragmento MP4 deben aumentar continuamente, incluso a través de solicitudes HTTP POST.
 6. El codificador DEBE finalizar la solicitud HTTP POST si no se envíen datos a una velocidad acorde con la duración de fragmento MP4. Una solicitud HTTP POST que no envía datos puede impedir que los Servicios multimedia de Azure se desconecten rápidamente del codificador en el caso de una actualización del servicio. Por este motivo, el HTTP POST para pistas dispersas (señal de anuncio) DEBERÍA ser de actividad breve, finalizando tan pronto como se envíe el fragmento disperso.
 
-##Conmutación por error de codificador
+##8\. Conmutación por error de codificador
 
 La conmutación por error del codificador es el segundo tipo de escenario de conmutación por error que se debe tratar para la entrega de streaming en directo integral. En este escenario, la condición de error se produjo en el lado del codificador.
 
@@ -141,7 +146,7 @@ A continuación, se muestran las expectativas del extremo de introducción en di
 5. La nueva secuencia DEBE ser semánticamente equivalente a la secuencia anterior e intercambiable en el nivel de encabezado y fragmento.
 6. El nuevo codificador DEBERÍA intentar minimizar la pérdida de datos. fragment\_absolute\_time y fragment\_index de los fragmentos multimedia DEBERÍAN aumentar desde el punto en que se detuvo el codificador. fragment\_absolute\_time and fragment\_index DEBERÍAN aumentar de forma continua, pero se puede introducir una discontinuidad en caso necesario. Servicios multimedia de Azure omitirá fragmentos que ya ha recibido y procesado, por lo que es mejor equivocarse en el lado del envío de los fragmentos en lugar de introducir discontinuidades en la escala de tiempo mutimedia. 
 
-##Redundancia del codificador 
+##9\. Redundancia del codificador 
 
 Para determinados eventos en directo críticos que demandan una disponibilidad incluso mayor y una calidad de experiencia, se recomienda emplear codificadores redundantes de activo-activo para lograr una conmutación por error perfecta sin pérdida de datos.
 
@@ -151,13 +156,13 @@ Como se ilustra en el diagrama anterior, hay dos grupos de codificadores que ins
 
 El requisito para este escenario es prácticamente el mismo que los requisitos en el caso de conmutación por error del codificador con la excepción de que el segundo conjunto de codificadores se ejecutan al mismo tiempo que los codificadores principales.
 
-##Redundancia de servicios  
+##10\. Redundancia de servicios  
 
 Para la distribución global altamente redundante, a veces es necesario tener copia de seguridad de varias regiones para controlar los desastres regionales. Expandiendo la topología de la "Redundancia del codificador", los clientes pueden elegir tener una implementación de servicio redundante en una región distinta conectada con el segundo conjunto de codificadores. Los clientes también podrían trabajar con un proveedor de CDN para implementar un GTM (Administrador de tráfico global) delante de las dos implementaciones de servicio para enrutar el tráfico de cliente sin problemas. Los requisitos para los codificadores son los mismos que el caso de la "Redundancia del codificador", con la única excepción de que el segundo conjunto de codificadores se debe apuntar a otro extremo de introducción en directo. En el diagrama siguiente se muestra esta configuración:
 
 ![imagen7][image7]
 
-##Tipos especiales de formatos de introducción 
+##11\. Tipos especiales de formatos de introducción 
 
 En esta sección se describen algunos tipos especiales de formatos de introducción en directo que están diseñados para controlar algunos escenarios concretos.
 
@@ -195,7 +200,6 @@ A continuación se muestra una implementación recomendada de las pistas de audi
 2. Use secuencias independientes para enviar las dos velocidades de bits de vídeos más bajas. Cada una de estas secuencias también DEBERÍA contener una copia de cada pista de audio única. Por ejemplo, cuando se admiten varios idiomas, estas secuencias DEBERÍAN contener pistas de audio para cada idioma.
 3. Use instancias de servidor independientes (de codificador) y envíe las secuencias redundantes mencionadas en (1) y (2). 
 
-
 ##Rutas de aprendizaje de Servicios multimedia
 
 Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
@@ -215,4 +219,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

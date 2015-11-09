@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/26/2015"
+   ms.date="10/27/2015"
    ms.author="alkohli" />
 
 # Especificaciones técnicas y cumplimiento normativo para el dispositivo StorSimple
@@ -20,8 +20,6 @@
 ## Información general
 
 Los componentes de hardware del dispositivo StorSimple de Microsoft Azure se adhieren a las especificaciones técnicas y los estándares reglamentarios descritos en este artículo. Las especificaciones técnicas describen los módulos de alimentación y refrigeración (PCM), las unidades de disco y los revestimientos. La información de cumplimiento normativo trata aspectos tales como las normas internacionales, la seguridad, las emisiones y el cableado.
-
-> [AZURE.NOTE]Para obtener más información sobre el dispositivo StorSimple, descargue la [Hoja de datos de la serie 8000 de StorSimple](http://www.microsoft.com/server-cloud/products/storsimple/resources.aspx).
 
 ## Especificaciones del módulo de alimentación y refrigeración  
 
@@ -170,6 +168,8 @@ El enchufe y el conjunto completo del cable de alimentación deben cumplir los e
 
 Para las interfaces de red de 10 GbE, DATA 2 y DATA 3, consulte la [lista de cables de red y módulos compatibles](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
- 
+## Pasos siguientes
 
-<!---HONumber=Oct15_HO3-->
+Para obtener más información sobre las especificaciones del dispositivo StorSimple, descargue las [Especificaciones de la serie 8000 de StorSimple](http://storsimple.seagate.com/Specifications-8000).
+
+<!---HONumber=Nov15_HO1-->

@@ -1,14 +1,26 @@
-<properties pageTitle="Tutorial: Integración de Azure Active Directory con Adobe EchoSign | Microsoft Azure" description="Aprenda a usar Adobe EchoSign con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integración de Azure Active Directory con Adobe EchoSign | Microsoft Azure" 
+    description="Aprenda a usar Adobe EchoSign con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    services="active-directory" authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integración de Azure Active Directory con Adobe EchoSign
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=528195).
 
 El objetivo de este tutorial es mostrar la integración de Azure y Adobe EchoSign. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para el inicio de sesión único en Adobe EchoSign
 
-Después de completar este tutorial, los usuarios de Azure AD que ha asignado a Adobe EchoSign podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Adobe EchoSign (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586)
+Después de completar este tutorial, los usuarios de Azure AD que ha asignado a Adobe EchoSign podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Adobe EchoSign (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
@@ -94,11 +106,11 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
     3.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Adobe EchoSign**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión de IdP**.
     4.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
 
-		>[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+		>[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
     5.  Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado IdP**.
     6.  Haga clic en **Guardar cambios**.
 
-9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-adobe-echosign-tutorial/IC789523.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -140,6 +152,6 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Sí](./media/active-directory-saas-adobe-echosign-tutorial/IC767830.png "Sí")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

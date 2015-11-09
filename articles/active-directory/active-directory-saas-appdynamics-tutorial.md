@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: integración de Azure Active Directory con AppDynamics | Microsoft Azure" description="Aprenda a usar AppDynamics con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: integración de Azure Active Directory con AppDynamics | Microsoft Azure" 
+    description="Aprenda a usar AppDynamics con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integración de Azure Active Directory con AppDynamics
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=529078).
 
 El objetivo de este tutorial es mostrar la integración de Azure y AppDynamics. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para el inicio de sesión único en AppDynamics
 
-Después de completar este tutorial, los usuarios de Azure AD que ha asignado a AppDynamics podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de AppDynamics (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586)
+Después de completar este tutorial, los usuarios de Azure AD que ha asignado a AppDynamics podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de AppDynamics (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
@@ -46,7 +59,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 
     ![Galería de aplicaciones](./media/active-directory-saas-appdynamics-tutorial/IC790210.png "Galería de aplicaciones")
 
-7.  En el panel de resultados, seleccione **AppDynamics** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+7.  En el panel de resultados, seleccione **AppDynamics** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![AppDynamics](./media/active-directory-saas-appdynamics-tutorial/IC790211.png "AppDynamics")
 ##Configuración del inicio de sesión único
@@ -59,7 +72,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-appdynamics-tutorial/IC790212.png "Configurar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en AppDynamics?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en AppDynamics?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-appdynamics-tutorial/IC790213.png "Configurar inicio de sesión único")
 
@@ -73,29 +86,29 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 5.  En otra ventana del explorador web, inicie sesión en el sitio de la compañía de AppDynamics como administrador.
 
-6.  En la barra de herramientas de la parte superior, haga clic en **Settings** (Configuración) y luego en **Administration** (Administración).
+6.  En la barra de herramientas de la parte superior, haga clic en **Configuración** y luego en **Administración**.
 
     ![Administración](./media/active-directory-saas-appdynamics-tutorial/IC790216.png "Administración")
 
-7.  Haga clic en la pestaña **Authentication Provider** (Proveedor de autenticación).
+7.  Haga clic en la pestaña **Proveedor de autenticación**.
 
     ![Proveedor de autenticación](./media/active-directory-saas-appdynamics-tutorial/IC790224.png "Proveedor de autenticación")
 
-8.  En la sección **Authentication Provider** (Proveedor de autenticación), realice estos pasos:
+8.  En la sección **Proveedor de autenticación**, realice estos pasos:
 
     ![Configuración de SAML](./media/active-directory-saas-appdynamics-tutorial/IC790225.png "Configuración de SAML")
 
-    1.  En **Authentication Provider** (Proveedor de autenticación), seleccione **SAML**.
+    1.  En **Proveedor de autenticación**, seleccione **SAML**.
     2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en AppDynamics**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
     3.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en AppDynamics**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
     4.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
 
-        >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-    5.  Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado**.
+    5.  Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado**.
     6.  Haga clic en **Guardar**. ![Save](./media/active-directory-saas-appdynamics-tutorial/IC777673.png "Save")
 
-9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-appdynamics-tutorial/IC790226.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -106,15 +119,15 @@ Para permitir que los usuarios de Azure AD inicien sesión en AppDynamics, tiene
 
 1.  Inicie sesión en su sitio de la compañía de AppDynamics como administrador.
 
-2.  Vaya a **Users** (Usuarios) y, a continuación, haga clic en **+** para abrir el cuadro de diálogo **Create User** (Crear usuario).
+2.  Vaya a **Usuarios** y luego haga clic en **+** para abrir el cuadro de diálogo **Crear usuario**.
 
     ![Usuarios](./media/active-directory-saas-appdynamics-tutorial/IC790229.png "Usuarios")
 
-3.  En la sección **Create User** (Crear usuario), lleve a cabo estos pasos:
+3.  En la sección **Crear usuario**, lleve a cabo estos pasos:
 
     ![Crear usuario](./media/active-directory-saas-appdynamics-tutorial/IC790230.png "Crear usuario")
 
-    1.  Escriba **Username** (Nombre de usuario), **Name** (Nombre), **Email** (Correo electrónico), **New Password** (Nueva contraseña), **Repeat New Password** (Repetir nueva contraseña) de una cuenta válida de AAD que desee aprovisionar en los cuadros de texto relacionados.
+    1.  Escriba **Nombre de usuario**, **Nombre**, **Correo electrónico**, **Nueva contraseña**, **Repetir nueva contraseña** de una cuenta válida de AAD que desee aprovisionar en los cuadros de texto relacionados.
     2.  Haga clic en **Guardar**.
 
 >[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de AppDynamics suministrada por AppDynamics para aprovisionar cuentas de usuario de Azure AD.
@@ -131,10 +144,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-appdynamics-tutorial/IC790231.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, luego, en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-appdynamics-tutorial/IC767830.png "Sí")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,7 +1,20 @@
-<properties pageTitle="Tutorial: Integración de Azure Active Directory con Directions on Microsoft | Microsoft Azure" description="Aprenda a usar Directions on Microsoft con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integración de Azure Active Directory con Directions on Microsoft | Microsoft Azure" 
+    description="Aprenda a usar Directions on Microsoft con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integración de Azure Active Directory con Directions on Microsoft
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=533728).
 
 El objetivo de este tutorial es mostrar la integración de Azure Active Directory y Directions on Microsoft. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -61,7 +74,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
     ![Habilitar el inicio de sesión único](./media/active-directory-saas-directions-microsoft-tutorial/IC786879.png "Habilitar el inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en Directions on Microsoft?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en Directions on Microsoft?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Inicio de sesión único de Microsoft Azure AD](./media/active-directory-saas-directions-microsoft-tutorial/IC786880.png "Inicio de sesión único de Microsoft Azure AD")
 
@@ -77,7 +90,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
     >[AZURE.NOTE]El inicio de sesión único de Directions on Microsoft debe habilitarlo el equipo de soporte técnico de Directions on Microsoft. Recibirá una notificación cuando se haya habilitado el inicio de sesión único.
 
-6.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+6.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-directions-microsoft-tutorial/IC786883.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -95,8 +108,8 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-directions-microsoft-tutorial/IC786884.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, luego, en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "Sí")
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

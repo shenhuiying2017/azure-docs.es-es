@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 #Disponibilidad y fiabilidad de clústeres de Hadoop en HDInsight
@@ -37,7 +37,7 @@ Los nodos [ZooKeeper](http://zookeeper.apache.org/) (ZK) se usan para la elecci�
 
 En general, todo acceso al clúster a través de las puertas de enlace públicas (web Ambari y API de REST) no se lleva a cabo por tener varios nodos principales. La solicitud se enruta al nodo principal activo y se atiende según corresponda.
 
-Al tener acceso al clúster mediante SSH, efectuar la conexión a través del puerto 22 (el valor predeterminado de SSH) permitirá conectarse a headnode0; la conexión a través del puerto 23 provocará la conexión a headnode1.
+Al tener acceso al clúster mediante SSH, efectuar la conexión a través del puerto 22 (el valor predeterminado de SSH) permitirá conectarse al nodo principal 0; la conexión a través del puerto 23 provocará la conexión al nodo principal 1.
 
 ### Nombres completos de dominio (FQDN) internos
 
@@ -49,7 +49,7 @@ Por ejemplo, el servicio de Oozie solo puede ejecutarse en un nodo principal y e
 
 Esto devolverá un valor similar al siguiente, que contiene la dirección URL interna para usar con el comando `oozie`:
 
-	"oozie.base.url": "http://headnode0.CLUSTERNAME-ssh.d9.internal.cloudapp.net:11000/oozie"
+	"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
 
 ## Cómo comprobar el estado del servicio
 
@@ -74,7 +74,7 @@ Por ejemplo, para comprobar el estado del servicio **HDFS** en un clúster denom
 La respuesta será similar a la siguiente:
 
 	{
-	  "href" : "http://headnode0.mycluster-ssh.j7.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
+	  "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
 	  "ServiceInfo" : {
 	    "cluster_name" : "mycluster",
 	    "service_name" : "HDFS",
@@ -82,7 +82,7 @@ La respuesta será similar a la siguiente:
 	  }
 	}
 
-La dirección URL nos indica que el servicio se está ejecutando en **headnode0**.
+La dirección URL nos indica que el servicio se está ejecutando en el **nodo principal 0**.
 
 El estado nos indica que el servicio se está ejecutando o se ha **INICIADO**.
 
@@ -166,4 +166,4 @@ En este documento ha aprendido cómo proporciona HDInsight de Azure alta disponi
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

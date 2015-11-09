@@ -18,6 +18,8 @@
 
 # Mover datos hacia y desde el almacenamiento de blobs de Azure con Python
 
+A continuación se ofrecen vínculos de orientación sobre las tecnologías que se usan para mover datos hacia o desde el almacenamiento de blobs de Azure:
+
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 ## Introducción
@@ -121,4 +123,4 @@ El siguiente código de ejemplo descarga todos los blobs de un contenedor. Usa l
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

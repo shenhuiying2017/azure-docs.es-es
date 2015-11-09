@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/12/2015"
+   ms.date="10/23/2015"
    ms.author="maroche"/>
 
 
@@ -39,8 +39,9 @@ En la vista previa actual, el **Catálogo de datos de Azure** admite el registro
 * Directorios y los blobs de almacenamiento de Azure
 * Archivos y directorios HDFS
 * Tablas de Hive de HDInsight
+* Vistas y tablas de Teradata
 
-> [AZURE.NOTE]El soporte de SQL Server incluye también Base de datos SQL de Microsoft Azure.
+> [AZURE.NOTE]El soporte de SQL Server incluye también Base de datos SQL de Microsoft Azure y Almacenamiento de datos SQL de Microsoft Azure
 
 <br/>
 
@@ -94,4 +95,4 @@ Al volver a registrar un origen de datos ya registrado se realiza una operación
 ## Resumen
 Al registrar un origen de datos con el **Catálogo de datos de Azure** se facilita la detección y comprensión de ese origen de datos, copiando los metadatos estructurales y descriptivos del origen de datos en el servicio Catálogo. Una vez registrado un origen de datos, se puede anotar, administrar y detectar mediante el portal **Catálogo de datos de Azure**.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

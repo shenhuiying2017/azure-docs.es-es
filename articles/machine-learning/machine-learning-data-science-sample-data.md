@@ -20,7 +20,7 @@
 
 Este **menú** está vinculado a temas que describen cómo realizar un muestreo de datos desde varios entornos de almacenamiento. Esta tarea es un paso en el proceso de análisis de Cortana (CAP).
 
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-explore-data-selector.md)]
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 ## Introducción
 
@@ -32,4 +32,4 @@ Este documento trata cómo realizar una muestra de los datos que están almacena
 - Se realiza el muestreo de los **datos de SQL Server** con SQL y el lenguaje de programación Python. 
 - Se realiza el muestreo de los **datos de las tablas de Hive** mediante consultas de Hive.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

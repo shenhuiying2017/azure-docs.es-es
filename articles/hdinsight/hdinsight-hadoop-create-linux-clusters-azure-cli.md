@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/14/2015"
+   	ms.date="10/23/2015"
    	ms.author="larryfr"/>
 
 #Crear clústeres basados en Linux en HDInsight con la CLI de Azure
@@ -27,15 +27,19 @@ Las plantillas de Administración de recursos de Azure son documentos JSON que d
 
 Los pasos de este documento recorren el proceso de creación de un nuevo clúster de HDInsight mediante la CLI de Azure y una plantilla:
 
+> [AZURE.IMPORTANT]Los pasos de este documento usan el número predeterminado de nodos de trabajo (4) para un clúster de HDInsight. Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
+>
+> Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+
 ##Requisitos previos
 
-- **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- __CLI de Azure__. Para obtener información sobre la instalación de la CLI, vea [Instalar la CLI de Azure](xplat-cli-install.md).
+- __CLI de Azure__ Para obtener información sobre la instalación de la CLI, consulte [Instalación de la CLI de Azure](xplat-cli-install.md).
 
 ##Iniciar sesión en su suscripción de Azure
 
-Siga los pasos documentados en [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](xplat-cli-connect.md) y conéctese a su suscripción con el método de __inicio de sesión__.
+Siga los pasos que se documentan en [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](xplat-cli-connect.md) y conéctese a su suscripción con el método __login__.
 
 ##Crear un clúster
 
@@ -108,13 +112,13 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 
 ###Clústeres HBase
 
-* [Introducción a HBase con HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
-* [Desarrollar aplicaciones de Java para HBase en HDInsight](hdinsight-hbase-build-java-maven-linux)
+* [Introducción a HBase en HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
+* [Desarrollo de aplicaciones de Java para HBase en HDInsight](hdinsight-hbase-build-java-maven-linux)
 
 ###Clústeres Storm
 
-* [Desarrollo de las topologías de Java para Storm en HDInsight](hdinsight-storm-develop-java-topology.md)
+* [Desarrollo de topologías de Java para Storm en HDInsight](hdinsight-storm-develop-java-topology.md)
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

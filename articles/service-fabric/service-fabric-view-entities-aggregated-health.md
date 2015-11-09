@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Visualización del mantenimiento agregado de entidades de Service Fabric de Azure"
+   pageTitle="Visualización del mantenimiento agregado de entidades de Azure Service Fabric | Microsoft Azure"
    description="Describe cómo consultar, ver y evaluar el mantenimiento agregado de entidades de Service Fabric de Azure, a través de consultas de mantenimiento y generales."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Cómo ver los informes de mantenimiento de Service Fabric
@@ -836,4 +836,4 @@ Siempre que haya un problema en el clúster o en una aplicación, consulte el ma
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

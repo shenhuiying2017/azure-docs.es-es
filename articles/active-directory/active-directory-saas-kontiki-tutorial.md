@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: Integración de Azure Active Directory con Kontiki | Microsoft Azure" description="Aprenda a usar Kontiki con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integración de Azure Active Directory con Kontiki | Microsoft Azure" 
+    description="Aprenda a usar Kontiki con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integración de Azure Active Directory con Kontiki
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=529076).
   
 El objetivo de este tutorial es mostrar la integración de Azure y Kontiki. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para inicio de sesión único en Kontiki
   
-Después de completar este tutorial, los usuarios de Azure AD asignados a Kontiki podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Kontiki (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586)
+Después de completar este tutorial, los usuarios de Azure AD asignados a Kontiki podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Kontiki (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
   
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
@@ -46,7 +59,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 
     ![Galería de aplicaciones](./media/active-directory-saas-kontiki-tutorial/IC790236.png "Galería de aplicaciones")
 
-7.  En el panel de resultados, seleccione **Kontiki** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+7.  En el panel de resultados, seleccione **Kontiki** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![Kontiki](./media/active-directory-saas-kontiki-tutorial/IC790237.png "Kontiki")
 ##Configuración del inicio de sesión único
@@ -59,15 +72,15 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-kontiki-tutorial/IC790238.png "Configurar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en Kontiki?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en Kontiki?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-kontiki-tutorial/IC790239.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Kontiki**, escriba la dirección URL que los usuarios utilizan para iniciar sesión en Kontiki (por ejemplo: "*https://company.mc.eval.kontiki.com/*")) y, a continuación, haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Kontiki**, escriba la dirección URL que los usuarios utilizan para iniciar sesión en Kontiki (por ejemplo: "*https://company.mc.eval.kontiki.com/*")) y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-kontiki-tutorial/IC790240.png "Configurar dirección URL de la aplicación")
 
-4.  En la página **Configuración de inicio de sesión único en Kontiki**, haga clic en **Descargar metadatos** y, a continuación, guarde el archivo de metadatos en el equipo.
+4.  En la página **Configuración de inicio de sesión único en Kontiki**, haga clic en **Descargar metadatos** y luego guarde el archivo de metadatos en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-kontiki-tutorial/IC790241.png "Configurar inicio de sesión único")
 
@@ -93,10 +106,10 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
     ![Asignar usuarios](./media/active-directory-saas-kontiki-tutorial/IC790243.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, luego, en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-kontiki-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

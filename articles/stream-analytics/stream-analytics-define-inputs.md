@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/13/2015"
+	ms.date="10/23/2015"
 	ms.author="jeffstok"/>
 
 # Descripción de entradas de Análisis de transmisiones
@@ -137,7 +137,7 @@ En la tabla siguiente se explica cada propiedad en la pestaña de entrada de alm
 </tr>
 <tr>
 <td>Patrón del prefijo de la ruta de acceso [opcional]</td>
-<td>La ruta de acceso de archivo para ubicar los blobs dentro del contenedor especificado. Dentro de la ruta, puede elegir especificar una o más instancias de las siguientes tres variables:<BR>{date}, {time},<BR>{partition}<BR>Ejemplo 1: cluster1/logs/{date}/{time}/{partition}<BR>Ejemplo 2: cluster1/logs/{date}</td>
+<td>La ruta de acceso de archivo para ubicar los blobs dentro del contenedor especificado. Dentro de la ruta, puede elegir especificar una o más instancias de las siguientes tres variables:<BR>{date}, {time},<BR>{partition}<BR>Ejemplo 1: cluster1/logs/{date}/{time}/{partition}<BR>Ejemplo 2: cluster1/logs/{date}<P>Tenga en cuenta que "*" no es un valor permitido para pathprefix. Solo se permiten <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caracteres de Blob de Azure</a>.</td>
 </tr>
 <tr>
 <td>Formato de fecha [opcional]</td>
@@ -162,7 +162,7 @@ En la tabla siguiente se explica cada propiedad en la pestaña de entrada de alm
 </tbody>
 </table>
 
-Cuando los datos proceden de un origen de almacenamiento de blobs, puede acceder a algunos de los campos de metadatos en la consulta de Análisis de transmisiones. En la tabla siguiente se enumeran los campos y su descripción.
+Cuando los datos proceden de un origen de almacenamiento de blobs, puede acceder a algunos de los campos de metadatos de la consulta de Análisis de transmisiones. En la tabla siguiente se enumeran los campos y su descripción.
 
 | PROPIEDAD | DESCRIPCIÓN |
 |------|------|
@@ -201,4 +201,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

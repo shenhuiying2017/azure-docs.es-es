@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 
@@ -292,9 +292,9 @@ La definición de trabajo describe dónde encontrar el archivo workflow.xml, as�
 
 	Devolverá información similar a la siguiente:
 
-		headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net
+		hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net
 
-	El puerto usado para JobTracker es 8050, por lo tanto, la dirección completa de JobTracker será **headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:8050**.
+	El puerto usado para JobTracker es 8050, por lo tanto, la dirección completa de JobTracker será **hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8050**.
 
 1. Utilice lo siguiente para crear la configuración de definición de trabajo de Oozie:
 
@@ -390,13 +390,13 @@ Los pasos siguientes usan el comando Oozie para enviar y administrar flujos de t
 	Devolverá un valor similar al siguiente:
 
 		<name>oozie.base.url</name>
-		<value>http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie</value>
+		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	La parte ****http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie** es la dirección URL que se usa con el comando de Oozie.
+	La parte ****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** es la dirección URL que se usa con el comando de Oozie.
 
 2. Use lo siguiente para crear una variable de entorno para la dirección URL, por lo que no tendrá que escribirla para cada comando:
 
-		export OOZIE_URL=http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie
+		export OOZIE_URL=http://HOSTNAMEt:11000/oozie
 
 	Reemplace la dirección URL con la que se recibió anteriormente.
 
@@ -721,4 +721,4 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

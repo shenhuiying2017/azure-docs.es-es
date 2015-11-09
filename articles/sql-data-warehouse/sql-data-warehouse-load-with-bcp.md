@@ -18,6 +18,12 @@
 
 
 # Carga de datos con bcp
+
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
+
 **[bcp][]** es una utilidad de carga masiva de línea de comandos que permite copiar datos entre SQL Server, archivos de datos y Almacenamiento de datos SQL. Use bcp para importar grandes cantidades de filas en tablas de Almacenamiento de datos SQL o para exportar datos de tablas de SQL Server a archivos de datos. Excepto cuando se usa con la opción queryout, bcp no exige ningún conocimiento de Transact-SQL.
 
 bcp es una forma rápida y sencilla de realizar operaciones de introducción y extracción de datos en una base de datos de Almacenamiento de datos SQL. La cantidad exacta de datos que se recomienda para la carga o extracción mediante bcp dependerá de la conexión de red con el centro de datos de Azure. Por lo general, se pueden cargar y extraer tablas de dimensiones, pero es posible que las tablas de hechos bastante grandes tarden una cantidad considerable de tiempo en cargarse o extraerse.
@@ -32,7 +38,10 @@ Este tutorial le mostrará cómo:
 - Importar datos en una tabla mediante el comando in de bcp
 - Importar datos en una tabla mediante el comando out de bcp
 
+>[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
+
 ## Requisitos previos
+
 Para seguir paso a paso este tutorial, necesita:
 
 - Una base de datos de Almacenamiento de datos SQL
@@ -41,10 +50,12 @@ Para seguir paso a paso este tutorial, necesita:
 
 >[AZURE.NOTE]Puede descargar las utilidades bcp y SQLCMD del [Centro de descarga de Microsoft][].
 
-##Importación de datos en Almacenamiento de datos SQL
+## Importación de datos en Almacenamiento de datos SQL
+
 En este tutorial, creará una tabla en Almacenamiento de datos SQL de Azure e importará datos en la tabla.
 
 ### Paso 1: Crear una tabla en Almacenamiento de datos SQL de Azure
+
 Desde un símbolo del sistema, conéctese a la instancia con el comando siguiente, reemplazando los valores según corresponda:
 
 ```
@@ -162,4 +173,4 @@ Para obtener información general sobre la carga, vea [Carga de datos en Almacen
 <!--Other Web references-->
 [Centro de descarga de Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

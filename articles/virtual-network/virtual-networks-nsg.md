@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/22/2015"
    ms.author="telmos" />
 
 # ¿Qué es un grupo de seguridad de red?
@@ -23,7 +23,7 @@ Puede usar un grupo de seguridad de red para controlar el tráfico a una o más 
 
 ![Grupos de seguridad de red](./media/virtual-network-nsg-overview/figure1.png)
 
-La ilustración anterior muestra una red virtual con dos subredes, con un grupo de seguridad de red asociado a cada subred para el control de tráfico.
+La figura anterior muestra una red virtual con dos subredes y cuatro máquinas virtuales (dos en cada subred). Observe que las máquinas virtuales de la subred *back-end* tienen direcciones IP públicas (PIP) asociadas directamente a ellas y las máquinas virtuales de la subred *front-end* están detrás de un equilibrador de carga de Azure. Puede utilizar grupos de seguridad de red vinculados a cada subred para controlar cómo fluye el tráfico a la subred, independientemente de si se ha originado desde una VIP o una PIP.
 
 >[AZURE.NOTE]No se admiten ACL basadas en el extremo y grupos de seguridad de red en la misma instancia de máquina virtual. Si desea usar un grupo de seguridad de red y ya tiene un extremo del ACL, quite primero el extremo del ACL. Para obtener información acerca de cómo hacerlo, consulte [Administración de listas de control de acceso (ACL) para extremos mediante PowerShell](virtual-networks-acl-powershell.md).
 
@@ -33,33 +33,36 @@ Los grupos de seguridad de red son diferentes de las ACL basadas en extremos. La
 
 Un grupo de seguridad de red tiene un *Nombre*, está asociado a una *Región* y tiene una etiqueta descriptiva. Contiene dos tipos de reglas, **entrante** y **saliente**. Se aplican las reglas de entrada en los paquetes entrantes a una máquina virtual y las reglas de salida se aplican a los paquetes salientes de la máquina virtual. Las reglas se aplican en el host donde se encuentra la máquina virtual. Un paquete entrante o saliente debe coincidir con una regla **Permitir** para que se permita; de no ser así, se quitará.
 
+### Reglas de grupo de seguridad de red
+
 Las reglas se procesan en el orden de prioridad. Por ejemplo, una regla con un número de prioridad más bajo (por ejemplo, 100) se procesa antes que las reglas con un número de prioridad más alto (por ejemplo, 200). Una vez que se encuentra una coincidencia, no se procesan más reglas.
 
-Una regla especifica lo siguiente:
+Una regla de grupo de seguridad de red contiene las siguientes propiedades.
 
-- **Nombre:** un identificador único para la regla
+|Propiedad|Descripción|Valores de ejemplo|
+|---|---|---|
+|**Descripción**|Descripción de la regla|Permite el tráfico entrante para todas las máquinas virtuales en la subred X|
+|**Protocolo**|Protocolo que debe coincidir con la regla|TCP, UDP o *||**Intervalo de puertos de origen**|Intervalo del puerto de origen que debe coincidir con la regla|80, 100-200, *||**Intervalo de puertos de destino**|Intervalo del puerto de destino que debe coincidir con la regla|80, 100-200, *||**Prefijo de dirección de origen**|Prefijo de la dirección de origen que debe coincidir con la regla|10\.10.10.1, 10.10.10.0/24, VIRTUAL\_NETWORK|
+|**Prefijo de dirección de destino**|Prefijo de la dirección de destino que debe coincidir con la regla|10\.10.10.1, 10.10.10.0/24, VIRTUAL\_NETWORK|
+|**Dirección**|Dirección del tráfico que debe coincidir con la regla|entrada o salida|
+|**Prioridad**|Prioridad de la regla. Las reglas se comprueban según su orden de prioridad; una vez se aplica una regla, no se prueban más reglas para realizar la coincidencia.|10, 100, 65000|
+|**Access**|Tipo de acceso que se debe aplicar si coincide con la regla|permitir o denegar|
 
-- **Tipo:** entrante y saliente
+### Etiquetas predeterminadas
 
-- **Prioridad:** <You can specify an integer between 100 and 4096>
+Las etiquetas predeterminadas son identificadores proporcionados por el sistema para tratar una categoría de direcciones IP. Puede utilizar etiquetas predeterminadas en el *prefijo de dirección de origen* y el *prefijo de dirección de destino* de cualquier regla. Hay tres etiquetas predeterminadas que puede utilizar.
 
-- **Dirección IP de origen:** CIDR de intervalo de IP de origen
+- **VIRTUAL\_NETWORK:** esta etiqueta predeterminada denota todo el espacio de dirección de red. Incluye el espacio de direcciones de red virtual (intervalos CIDR definidos en Azure), así como todos los espacios de direcciones locales conectados y las redes virtuales de Azure conectadas (redes locales).
 
-- **Intervalo de puertos de origen** <integer or range between 0 and 65536>
+- **AZURE\_LOADBALANCER:** esta etiqueta predeterminada denota el equilibrador de carga de la infraestructura de Azure. Esto se traducirá en una IP de centro de datos de Azure donde se originarán los sondeos de mantenimiento de Azure. Esto solo es necesario si la máquina virtual o un conjunto de máquinas virtuales asociado al grupo de seguridad de red participa en un conjunto de carga equilibrada.
 
-- **Intervalo de IP de destino:** CIDR del intervalo de IP de destino
-
-- **Intervalo de puertos de destino:** <integer or range between 0 and 65536>
-
-- **Protocolo:** <se permite TCP, UDP o '*'>
-
-- **Acceso:** permitir o denegar
+- **INTERNET:** esta etiqueta predeterminada denota el espacio de dirección IP que se encuentra fuera de la red virtual y es accesible mediante Internet pública. Este intervalo incluye además un espacio de IP pública propiedad de Azure.
 
 ### Reglas predeterminadas
 
 Un grupo de seguridad de red contiene las reglas predeterminadas. No se pueden eliminar las reglas predeterminadas, pero dado que tienen asignada la mínima prioridad, pueden reemplazarse por las reglas que cree. Las reglas predeterminadas describen la configuración predeterminada recomendada por la plataforma. Como se muestra en las siguientes reglas predeterminadas, se permite el tráfico que se origina y termina en una red virtual en las direcciones tanto de entrada como de salida.
 
-A pesar de que la conectividad a Internet está permitida para la dirección de salida, está bloqueada para la dirección de entrada de manera predeterminada. Hay una regla predeterminada para que el equilibrador de carga de Azure pueda sondear el mantenimiento de la máquina virtual. Puede invalidar esta regla si la máquina virtual o el conjunto de máquinas virtuales en el grupo de seguridad de red no participa en el conjunto de carga equilibrada.
+A pesar de que la conectividad a Internet está permitida para la dirección de salida, está bloqueada para la dirección de entrada de manera predeterminada. Hay una regla predeterminada para que el equilibrador de carga de Azure pueda sondear el mantenimiento de la máquina virtual. Puede invalidar esta regla si la máquina virtual o el conjunto de máquinas virtuales del grupo de seguridad de red no participan en el conjunto de carga equilibrada.
 
 Las reglas predeterminadas son:
 
@@ -79,20 +82,6 @@ Las reglas predeterminadas son:
 | ALLOW INTERNET OUTBOUND (PERMITIR SALIENTE DE INTERNET) | 65001 | * | * | INTERNET | * | * | PERMITIR |
 | DENY ALL OUTBOUND (DENEGAR TODO EL TRÁFICO SALIENTE) | 65500 | * | * | * | * | * | DENEGAR |
 
-### Etiquetas predeterminadas
-
-Las etiquetas predeterminadas son identificadores proporcionados por el sistema para tratar una categoría de direcciones IP. Las etiquetas predeterminadas se pueden especificar en las reglas definidas por el cliente. Las etiquetas predeterminadas son las siguientes:
-
-- **VIRTUAL\_NETWORK:** esta etiqueta predeterminada denota todo el espacio de dirección de red. Incluye el espacio de direcciones de red virtual (CIDR de IP en Azure), así como todos los espacios de direcciones locales conectados (redes locales). Esto también incluye espacios de direcciones VNet a VNet.
-
-- **AZURE\_LOADBALANCER:** esta etiqueta predeterminada denota el equilibrador de carga de la infraestructura de Azure. Esto se traducirá en una IP de centro de datos de Azure donde se originarán los sondeos de mantenimiento de Azure. Esto solo es necesario si la máquina virtual o un conjunto de máquinas virtuales asociado al grupo de seguridad de red participa en un conjunto de carga equilibrada.
-
-- **INTERNET:** esta etiqueta predeterminada denota el espacio de dirección IP que se encuentra fuera de la red virtual y es accesible mediante Internet pública. Este intervalo incluye además un espacio de IP pública propiedad de Azure.
-
-### Tráfico ICMP
-
-Las reglas de los grupos de seguridad de red actuales solo permiten los protocolos *TCP* o *UDP*. No hay una etiqueta específica para *ICMP*. Sin embargo, el tráfico ICMP se permite dentro de una red virtual de manera predeterminada gracias a las reglas de red virtual de entrada que permiten el tráfico desde y hacia cualquier puerto y protocolo dentro de la red virtual.
-
 ## Asociación de grupos de seguridad de red
 
 Puede asociar un grupo de seguridad de red a VM, NIC y subredes.
@@ -101,7 +90,7 @@ Puede asociar un grupo de seguridad de red a VM, NIC y subredes.
 
 - **Asociación de un grupo de seguridad de red a un NIC.** Al asociar un grupo de seguridad de red a una NIC, las reglas de acceso de red del grupo de seguridad de red se aplican solo a esa NIC. Esto significa que en una VM con varias NIC, si un grupo de seguridad de red se aplica a una sola NIC, no afecta al tráfico enlazado a otras NIC.
 
-- **Asociación de un grupo de seguridad de red a una subred.** Al asociar un grupo de seguridad de red a una subred, las reglas de acceso de red del grupo de seguridad de red se aplican a todas las VM de la subred.
+- **Asociación de un grupo de seguridad de red a una subred**. Al asociar un grupo de seguridad de red a una subred, las reglas de acceso de red del grupo de seguridad de red se aplican a todas las VM de la subred.
 
 Puede asociar diferentes grupos de seguridad de red a una VM, una NIC utilizada por la VM, y la subred a la que está enlazada la NIC. Cuando esto ocurre, todas las reglas de acceso de red se aplican al tráfico en el orden siguiente:
 
@@ -141,11 +130,17 @@ En lugar de usar una regla de denegación, pruebe a usar una regla para permitir
 
 >[AZURE.WARNING]Azure usa una subred especial que se conoce como la subred de la **puerta de enlace** para manejar la puerta de enlace de VPN con otras redes locales y redes virtuales. Asociar un grupo de seguridad de red a esa subred hará que la puerta de enlace de VPN deje de funcionar como se esperaba. No asocie grupos de seguridad de red a subredes de puerta de enlace.
 
+### Reglas especiales
+
 También debe tener en cuenta las reglas especiales que se enumeran a continuación. Asegúrese de que no bloquea el tráfico permitido por esas reglas ya que, en caso contrario, la infraestructura no podrá comunicarse con servicios esenciales de Azure.
 
 - **IP virtual del nodo de host:** servicios de infraestructura básica, como DHCP, DNS y seguimiento de estado, se proporcionan a través de la dirección IP 168.63.129.16 del host virtualizado. Esta dirección IP pública pertenece a Microsoft y será la única dirección IP virtualizada que se usará en todas las regiones con este fin. Esta dirección IP se asigna a la dirección IP física del equipo del servidor (nodo de host) que hospeda la máquina virtual. El nodo de host actúa como la retransmisión DHCP, la resolución recursiva de DNS y el origen de sonda del sondeo de mantenimiento del equilibrador de carga y el sondeo de mantenimiento del equipo. La comunicación con esta dirección IP no se debe considerar como un ataque.
 
 - **Licencias (servicio de administración de claves):** las imágenes de Windows que se ejecutan en las máquinas virtuales deben contar con licencia. Para ello, se debe enviar una solicitud de licencia a los servidores host del servicio de administración de claves que administran dichas consultas. Esto siempre se hará en el puerto de salida 1688.
+
+### Tráfico ICMP
+
+Las reglas de los grupos de seguridad de red actuales solo permiten los protocolos *TCP* o *UDP*. No hay una etiqueta específica para *ICMP*. Sin embargo, el tráfico ICMP se permite dentro de una red virtual de manera predeterminada gracias a las reglas de red virtual de entrada que permiten el tráfico desde y hacia cualquier puerto y protocolo dentro de la red virtual.
 
 ## Límites
 
@@ -164,4 +159,4 @@ Asegúrese de ver todos los [límites relacionados con servicios de red en Azure
 - [Implemente grupos de seguridad de red en el modelo de implementación clásica](virtual-networks-create-nsg-classic-ps.md).
 - [Implemente grupos de seguridad de red en el Administrador de recursos](virtual-networks-create-nsg-arm-pportal.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

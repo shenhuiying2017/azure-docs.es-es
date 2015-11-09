@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="10/23/2015"
 	ms.author="erikre"/>
 
 # Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure (adquirido directamente de GoDaddy)
@@ -23,8 +23,6 @@
 [AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
 
 Si ha adquirido el dominio a través de las aplicaciones web del Servicio de aplicaciones de Azure, consulte el paso final del artículo <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Comprar dominio para Aplicaciones web</a>.
-
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 Este artículo ofrece instrucciones acerca del uso de un nombre de dominio personalizado adquirido directamente en [Go Daddy](https://godaddy.com) con [Aplicaciones web del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714).
 
@@ -64,14 +62,12 @@ Para asociar el dominio personalizado a una aplicación web del Servicio de apli
 
 	* Al agregar un **registro A (host)**, se debe establecer el campo **Host** en **@** (esto representa el nombre de dominio raíz, como **contoso.com**), * (un comodín para que se corresponda con varios subdominios) o el subdominio que desea usar (por ejemplo, **www**). Debe establecer el campo **Points to** (Apunta a) en la dirección IP de aplicación web de Azure.
 
-		> [AZURE.NOTE]Si utiliza registros A (host), tiene que agregar también un registro CNAME con una de las configuraciones siguientes:
-		>
-		> * Un valor **Host** de **awverify** con un valor **Points to** de **awverify.&lt;nombredesuaplicaciónweb&gt;.azurewebsites.net**.
-		>
-		> Azure utiliza este registro CNAME para comprobar que el dominio descrito por el registro D es efectivamente suyo.
-
 	* Al agregar un **registro CNAME (alias)**, debe configurar el campo **Host** en el subdominio que desee usar. Por ejemplo, **www**. Debe definir el campo **Points to** en el nombre de dominio **.azurewebsites.net** de su aplicación web de Azure. Por ejemplo, **contoso.azurwebsites.net**.
 
+5. Haga clic en **Agregar otro**.
+6. Seleccione **CNAME** como el tipo de registro, a continuación, especifique un valor de **Host** de **awverify** y un valor de **Orientado a** de **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
+
+	> [AZURE.NOTE]Azure usa este registro CNAME para comprobar que el dominio descrito por el registro A o el primer registro CNAME es efectivamente suyo. Una vez que el dominio se ha asignado a la aplicación web en el portal de Azurepreview, podrá eliminarse la entrada **awverify**.
 
 5. Cuando haya terminado de agregar o modificar los registros, haga clic en **Finish** (Finalizar) para guardar los cambios.
 
@@ -85,6 +81,5 @@ Para asociar el dominio personalizado a una aplicación web del Servicio de apli
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

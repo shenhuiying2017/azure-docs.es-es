@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: Integración de Azure Active Directory con Aha! | Microsoft Azure" description="Aprenda a usar Aha! con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integración de Azure Active Directory con Aha! | Microsoft Azure" 
+    description="Aprenda a usar Aha! con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integración de Azure Active Directory con Aha!
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=550992).
 
 El objetivo de este tutorial es mostrar la integración de Azure y Aha!. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para el inicio de sesión único en Aha!
 
-Después de completar este tutorial, los usuarios de Azure AD que ha asignado a Aha! podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Aha! (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586)
+Después de completar este tutorial, los usuarios de Azure AD que ha asignado a Aha! podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Aha! (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md)
 
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
@@ -46,7 +59,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
     ![Galería de aplicaciones](./media/active-directory-saas-aha-tutorial/IC798945.png "Galería de aplicaciones")
 
-7.  En el panel de resultados, seleccione **Aha!** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+7.  En el panel de resultados, seleccione **Aha!** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![Aha!](./media/active-directory-saas-aha-tutorial/IC802746.png "Aha!")
 ##Configuración del inicio de sesión único
@@ -59,7 +72,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-aha-tutorial/IC798946.png "Configurar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en Aha!?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en Aha!?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-aha-tutorial/IC798947.png "Configurar inicio de sesión único")
 
@@ -67,36 +80,36 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-aha-tutorial/IC798948.png "Configurar dirección URL de la aplicación")
 
-4.  En la página **Configurar inicio de sesión único en Aha!**, para descargar el archivo de metadatos, haga clic en **Descargar metadatos** y, a continuación, guarde el archivo de metadatos localmente en el equipo.
+4.  En la página **Configurar inicio de sesión único en Aha!**, para descargar el archivo de metadatos, haga clic en **Descargar metadatos** y luego guarde el archivo de metadatos localmente en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-aha-tutorial/IC798949.png "Configurar inicio de sesión único")
 
 5.  En otra ventana del explorador web, inicie sesión en el sitio de la compañía de Aha! como administrador.
 
-6.  En el menú de la parte superior, haga clic en **Settings** (Configuración).
+6.  En el menú de la parte superior, haga clic en **Configuración**.
 
     ![Settings](./media/active-directory-saas-aha-tutorial/IC798950.png "Settings")
 
-7.  Haga clic en **Account** (Cuenta).
+7.  Haga clic en **Cuenta**.
 
     ![Perfil](./media/active-directory-saas-aha-tutorial/IC798951.png "Perfil")
 
-8.  Haga clic en **Security and single sign-on** (Seguridad e inicio de sesión único).
+8.  Haga clic en **Seguridad e inicio de sesión único**.
 
     ![Security and single sign-on (Seguridad e inicio de sesión único)](./media/active-directory-saas-aha-tutorial/IC798952.png "Security and single sign-on (Seguridad e inicio de sesión único)")
 
-9.  En la sección **Single Sign-On** (Inicio de sesión único), en **Identity Provider** (Proveedor de identidad), seleccione **SAML2.0**.
+9.  En la sección **Inicio de sesión único**, en **Proveedor de identidad**, seleccione **SAML2.0**.
 
     ![Security and single sign-on (Seguridad e inicio de sesión único)](./media/active-directory-saas-aha-tutorial/IC798953.png "Security and single sign-on (Seguridad e inicio de sesión único)")
 
-10. Siga estos pasos en la página de configuración **Single Sign-On** (Inicio de sesión único):
+10. Siga estos pasos en la página de configuración **Inicio de sesión único**:
 
     ![Inicio de sesión único](./media/active-directory-saas-aha-tutorial/IC798954.png "Inicio de sesión único")
 
-    1.  En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración.
-    2.  Para **Configure using** (Configurar mediante), seleccione **Metadata File** (Archivo de metadatos).
-    3.  Haga clic en **Browse** (Examinar) para cargar el archivo de metadatos descargado.
-    4.  Haga clic en **Update** (Actualizar).
+    1.  En el cuadro de texto **Nombre**, escriba el nombre de la configuración.
+    2.  Para **Configurar mediante**, seleccione **Archivo de metadatos**.
+    3.  Para cargar el archivo de metadatos descargado, haga clic en **Examinar**.
+    4.  Haga clic en **Actualizar**.
 
 11. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
@@ -121,10 +134,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-aha-tutorial/IC798956.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-aha-tutorial/IC767830.png "Sí")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

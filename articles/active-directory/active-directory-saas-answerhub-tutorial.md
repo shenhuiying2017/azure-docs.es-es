@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: Integración de Azure Active Directory con AnswerHub | Microsoft Azure" description="Aprenda a usar AnswerHub con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integración de Azure Active Directory con AnswerHub | Microsoft Azure" 
+    description="Aprenda a usar AnswerHub con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integración de Azure Active Directory con AnswerHub
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=528077).
 
 El objetivo de este tutorial es mostrar la integración de Azure y AnswerHub. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para el inicio de sesión único en AnswerHub
 
-Después de completar este tutorial, los usuarios de Azure AD que ha asignado a AnswerHub podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de AnswerHub (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586)
+Después de completar este tutorial, los usuarios de Azure AD que ha asignado a AnswerHub podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de AnswerHub (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md)
 
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
@@ -46,12 +59,12 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
     ![Galería de aplicaciones](./media/active-directory-saas-answerhub-tutorial/IC785166.png "Galería de aplicaciones")
 
-7.  En el panel de resultados, seleccione **AnswerHub** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+7.  En el panel de resultados, seleccione **AnswerHub** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![AnswerHub](./media/active-directory-saas-answerhub-tutorial/IC785167.png "AnswerHub")
 ##Configuración del inicio de sesión único
 
-El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en AnswerHub con su cuenta de Azure AD mediante federación basada en el protocolo SAML. Como parte de este procedimiento, se requiere crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en AnswerHub con su cuenta de Azure AD mediante federación basada en el protocolo SAML. Como parte de este procedimiento, se requiere crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
@@ -59,29 +72,29 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-answerhub-tutorial/IC785168.png "Configurar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en AnswerHub?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en AnswerHub?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-answerhub-tutorial/IC785169.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de AnswerHub**, escriba su dirección URL con el siguiente patrón "**https://company.answerhub.com*" y, a continuación, haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de AnswerHub**, escriba su dirección URL con el siguiente patrón "**https://company.answerhub.com*" y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-answerhub-tutorial/IC785170.png "Configurar dirección URL de la aplicación")
 
-4.  En la página **Configurar inicio de sesión único en AnswerHub**, para descargar el certificado, haga clic en **Descargar certificado** y, a continuación, guarde el archivo de certificado en el equipo.
+4.  En la página **Configurar inicio de sesión único en AnswerHub**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-answerhub-tutorial/IC785171.png "Configurar inicio de sesión único")
 
 5.  En otra ventana del explorador web, inicie sesión en el sitio de la compañía de AnswerHub como administrador.
 
-6.  Vaya a **Administration** (Administración).
+6.  Vaya a **Administración**.
 
-7.  Haga clic en la pestaña **User and Group** (Usuario y grupo).
+7.  Haga clic en la pestaña **Usuario y grupo**.
 
-8.  En el panel de navegación izquierdo, en la sección **Social Settings** (Configuración social), haga clic en **SAML Setup** (Configuración de SAML).
+8.  En el panel de navegación izquierdo, en la sección **Configuración social**, haga clic en **Configuración de SAML**.
 
-9.  Haga clic en la pestaña **IDP Config** (Configuración de IDP).
+9.  Haga clic en la pestaña **Configuración de IDP**.
 
-10. En la pestaña **IDP Config** (Configuración de IDP), lleve a cabo estos pasos:
+10. En la pestaña **Configuración de IDP**, lleve a cabo estos pasos:
 
     ![Configuración de SAML](./media/active-directory-saas-answerhub-tutorial/IC785172.png "Configuración de SAML")
 
@@ -96,14 +109,14 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     1.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
 
-		>[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+		>[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
     2.  Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el portapapeles y luego péguelo en el cuadro de texto **Clave pública de IDP (formato x509)**.
     3.  Haga clic en **Guardar**.
 
 12. En la pestaña **Configuración de IDP**, haga clic en **Guardar**.
 
-13. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+13. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-answerhub-tutorial/IC785174.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -114,15 +127,15 @@ Para permitir que los usuarios de Azure AD inicien sesión en AnswerHub, tienen 
 
 1.  Inicie sesión en el sitio de la compañía de **AnswerHub** como administrador.
 
-2.  Vaya a **Administration** (Administración).
+2.  Vaya a **Administración**.
 
-3.  Haga clic en la pestaña **Users & Groups** (Usuarios y grupos).
+3.  Haga clic en la pestaña **Usuarios y grupos**.
 
-4.  En el panel de navegación izquierdo, en la sección **Manage Users** (Administrar usuarios), haga clic en **Create or import users** (Crear o importar usuarios).
+4.  En el panel de navegación izquierdo, en la sección **Administrar usuarios**, haga clic en **Crear o importar usuarios**.
 
     ![Usuarios y grupos](./media/active-directory-saas-answerhub-tutorial/IC785175.png "Usuarios y grupos")
 
-5.  Escriba **Email address** (Dirección de correo electrónico), **Username** (Nombre de usuario) y **Password** (Contraseña) de una cuenta de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados y haga clic en **Save** (Guardar).
+5.  Escriba **Dirección de correo electrónico**, **Nombre de usuario** y **Contraseña** de una cuenta de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados y haga clic en **Guardar**.
 
 >[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de AnswerHub ofrecida por AnswerHub para aprovisionar cuentas de usuario de AAD.
 
@@ -142,6 +155,6 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Sí](./media/active-directory-saas-answerhub-tutorial/IC767830.png "Sí")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

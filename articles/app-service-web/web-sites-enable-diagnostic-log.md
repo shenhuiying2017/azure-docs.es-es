@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="10/20/2015"
 	ms.author="cephalin"/>
 
 # Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure
@@ -67,6 +67,11 @@ La pestaña [Portal de Azure](https://manage.windowsazure.com) Aplicación web *
 * **Almacenamiento de tablas**: almacena la información de diagnóstico de aplicaciones en el nombre de la tabla y en la cuenta de almacenamiento de Azure.
 * **Almacenamiento de blobs**: almacena la información de diagnóstico de aplicaciones en el contenedor de blobs y en la cuenta de almacenamiento de Azure.
 * **Período de retención**: de manera predeterminada, los registros no se eliminan automáticamente del **almacenamiento de blobs**. Seleccione **Establecer retención** y escriba el número de días durante los cuales desea que se conserven los registros si desea que estos se eliminen automáticamente.
+
+>[AZURE.NOTE]Si se [regeneran las claves de acceso de su cuenta de almacenamiento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys), deberá restablecer la configuración de registro correspondiente para usar las claves actualizadas. Para ello, siga estos pasos:
+>
+> 1. En la pestaña **Configurar**, y establezca la característica de registro correspondiente de **Desactivar**. Guarde la configuración.
+> 2. Vuelva a habilitar el registro en el blob de la cuenta de almacenamiento o en la tabla. Guarde la configuración.
 
 Al mismo tiempo se puede habilitar cualquier combinación de sistema de archivos, almacenamiento de tablas o almacenamiento de blobs, y estas opciones tiene configuraciones de nivel de registro individuales. Por ejemplo, puede registrar errores y advertencias en el almacenamiento de blobs como una solución de registro a largo plazo, mientras habilita el registro en el sistema de archivos con un nivel detallado.
 
@@ -265,4 +270,4 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

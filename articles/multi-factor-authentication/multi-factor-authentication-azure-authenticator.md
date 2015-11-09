@@ -127,7 +127,9 @@ Si quiere agregar una cuenta manualmente, puede hacerlo de la siguiente manera:
 Si quiere agregar una cuenta que no sea de Azure manualmente, por ejemplo, su cuenta de Microsoft, puede hacerlo de la siguiente manera:
 
 
-- En primer lugar, necesitará obtener la clave secreta del sitio con el que está asociada la cuenta. Por ejemplo, en Outlook.com, vaya a la configuración de la cuenta, la configuración de seguridad y seleccione la opción para configurar una aplicación de autenticación. Tiene que seleccionar que indica que no puede escanear el código de barras para obtener la clave secreta.
+- Agregar manualmente una cuenta que no sea de Azure puede realizarse mediante el análisis del código QR o escribiendo la clave secreta.
+- Si va a especificar manualmente la clave secreta, obtenga la clave secreta en el sitio con el que está asociada la cuenta. Por ejemplo, en Outlook.com, vaya a la configuración de la cuenta, la configuración de seguridad y seleccione la opción para configurar una aplicación de autenticación. Tiene que seleccionar que indica que no puede escanear el código de barras para obtener la clave secreta.
+- 
 
 ![Add account](./media/multi-factor-authentication-azure-authenticator/secretkey.png)
 
@@ -135,11 +137,11 @@ Si quiere agregar una cuenta que no sea de Azure manualmente, por ejemplo, su cu
 
 ![Add account](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
-- Haga clic en el botón para especificar manualmente de la parte inferior.
+- Examine el código QR o haga clic en el botón para especificar manualmente de la parte inferior. Si examina el código QR, omita el paso siguiente, debido a que la activación comenzará inmediatamente.
 
 ![Add account](./media/multi-factor-authentication-azure-authenticator/scan.png)
 
-- Escriba el nombre de accpount y la clave secreta que se ofrece en la misma página que le muestra el código de barras. Esto se incluye en los cuadros de código y dirección URL en la aplicación móvil. Esto comenzará la instalación.
+- Si va a introducir la clave secreta manualmente, escriba el nombre de la cuenta y la clave secreta que se ofrece en la misma página que le muestra el código de barras. Esto se incluye en los cuadros de código y dirección URL en la aplicación móvil. Esto comenzará la instalación.
 
 ![Add account](./media/multi-factor-authentication-azure-authenticator/manual.png)
 
@@ -162,4 +164,4 @@ A partir de ese momento, cuando se requiera que compruebe el inicio de sesión, 
 
 ![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="cache" 
 	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2015" 
+	ms.date="10/28/2015" 
 	ms.author="tomfitz"/>
 
 # Creación de una Caché en Redis mediante una plantilla
@@ -26,7 +26,13 @@ Para obtener más información sobre la creación de plantillas, consulte [Creac
 
 Para ver la plantilla completa, consulte [Plantilla Caché en Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
->[AZURE.NOTE]Las plantillas ARM para el nuevo [nivel Premium](cache-premium-tier-intro.md) pronto estarán disponibles. Para buscar las últimas plantillas, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) y busque `Redis Cache`.
+>[AZURE.NOTE]Las plantillas ARM para el nuevo [nivel Premium](cache-premium-tier-intro.md) están disponibles.
+>
+>-    [Crear una caché en Redis Premium con agrupación en clústeres](https://azure.microsoft.com/es-ES/documentation/templates/201-redis-premium-cluster-diagnostics/)
+>-    [Crear una caché en Redis Premium con persistencia de datos](https://azure.microsoft.com/es-ES/documentation/templates/201-redis-premium-persistence/)
+>-    [Crear una caché en Redis Premium con una red virtual y agrupación en clústeres opcional](https://azure.microsoft.com/es-ES/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
+>
+>Para buscar las últimas plantillas, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) y busque `Redis Cache`.
 
 ## Lo que implementará
 
@@ -131,4 +137,4 @@ Crea Caché en Redis de Azure.
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

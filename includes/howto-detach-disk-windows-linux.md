@@ -1,14 +1,16 @@
 <properties writer="kathydav" editor="tysonn" manager="timlt" />
 
-Cuando ya no necesite un disco de datos que se encuentra conectado a una máquina virtual, puede desconectarlo fácilmente. Esto quita el disco de la máquina virtual, pero no lo quita del almacenamiento. Si desea volver a usar los datos existentes en el disco, puede acoplarlo de nuevo a la misma máquina virtual (o a otra).
+Cuando ya no necesite un disco de datos que se encuentra conectado a una máquina virtual, puede desconectarlo fácilmente. Esto quita el disco de la máquina virtual, pero no lo quita del almacenamiento.
 
-> [AZURE.NOTE]Una máquina virtual en Azure utiliza distintos tipos de discos, como un disco del sistema operativo, un disco temporal local y discos de datos opcionales. Se recomienda utilizar discos de datos para almacenar datos para una máquina virtual. Para obtener más información, vea [Acerca de los discos y discos duros virtuales para máquinas virtuales](../../virtual-machines-disks-vhds.md). No es posible desconectar un disco del sistema operativo a menos que también elimine la máquina virtual.
+Si desea volver a usar los datos existentes en el disco, puede acoplarlo de nuevo a la misma máquina virtual (o a otra).
 
-## Buscar el disco##
+> [AZURE.NOTE]No es posible desconectar un disco del sistema operativo a menos que también elimine la máquina virtual.
+
+
+## Buscar el disco
 
 Si no conoce el nombre del disco o desea comprobarlo antes de desconectarlo, siga estos pasos.
 
-> [AZURE.NOTE]Azure asigna automáticamente un nombre al disco en el momento de acoplarlo. El nombre consta del nombre del servicio en la nube, el nombre de la máquina virtual y un número.
 
 1. Si aún no lo ha hecho, inicie sesión en el [Portal de Azure](http://manage.windowsazure.com).
 
@@ -19,11 +21,10 @@ Si no conoce el nombre del disco o desea comprobarlo antes de desconectarlo, sig
 	![Buscar disco de datos](./media/howto-detach-disk-windows-linux/FindDataDisks.png)
 
 
-## Desacoplar el disco##
-
-Cuando haya encontrado el nombre del disco, podrá desconectarlo:
+## Desacoplar el disco
 
 1. Haga clic en **Máquinas virtuales**, haga clic en el nombre de la máquina virtual que tiene el disco de datos que desea desconectar y, a continuación, haga clic en **Panel**.
+
 2. En la barra de comandos, haga clic en **Desconectar disco**.
 
 3. Seleccione el disco de datos y, a continuación, haga clic en la marca de verificación para desacoplarlo.
@@ -32,4 +33,4 @@ Cuando haya encontrado el nombre del disco, podrá desconectarlo:
 
 El disco permanece en el almacenamiento pero ya no está acoplado a una máquina virtual.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

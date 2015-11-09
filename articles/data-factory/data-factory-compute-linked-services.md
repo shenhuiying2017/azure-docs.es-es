@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # Servicios vinculados de procesos
@@ -234,6 +234,40 @@ mlEndpoint | La dirección URL de puntuación por lotes. | Sí
 apiKey | La API del modelo de área de trabajo publicado. | Sí
 
 
+## Servicio vinculado con el Análisis con Azure Data Lake
+Cree un servicio vinculado con **Análisis con Azure Data Lake** para vincular un servicio de proceso de Análisis con Azure Data Lake a un generador de datos de Azure antes de usar la [actividad U-SQL de Análisis con Data Lake](data-factory-usql-activity.md) en una canalización.
+
+En el ejemplo siguiente se proporciona la definición de JSON de un servicio vinculado de Análisis con Azure Data Lake.
+
+	{
+	    "name": "AzureDataLakeAnalyticsLinkedService",
+	    "properties": {
+	        "type": "AzureDataLakeAnalytics",
+	        "typeProperties": {
+	            "accountName": "adftestaccount",
+	            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+	            "authorization": "<authcode>",
+				"sessionId": "<session ID>", 
+	            "subscriptionId": "<subscription id>",
+	            "resourceGroupName": "<resource group name>"
+	        }
+	    }
+	}
+
+
+En la siguiente tabla se ofrecen descripciones de las propiedades que se usan en la definición de JSON.
+
+Propiedad | Descripción | Obligatorio
+-------- | ----------- | --------
+Tipo | La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. | Sí
+accountName | Nombre de la cuenta de Análisis con Azure Data Lake | Sí
+dataLakeAnalyticsUri | URI de Análisis con Azure Data Lake | No 
+autorización | El código de autorización se recupera automáticamente después de hacer clic en el botón **Autorizar** situado en el Editor de la factoría de datos y de completar el inicio de sesión de OAuth. | Sí 
+subscriptionId | Id. de suscripción de Azure | No (si no se especifica, se usa la suscripción de la factoría de datos). 
+resourceGroupName | Nombre del grupo de recursos de Azure | No (si no se especifica, se usa el grupo de recursos de la factoría de datos).
+sessionId | Id. de sesión de la sesión de autorización de OAuth. Cada identificador de sesión es único y solo puede usarse una vez. Esto se genera automáticamente en el Editor de la Factoría de datos. | Sí
+
+
 ## Servicio vinculado SQL de Azure
 
 Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Factoría de datos. Consulte el artículo [Conector SQL de Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para obtener más información acerca de este servicio vinculado.
@@ -247,4 +281,4 @@ Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimie
  
    
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

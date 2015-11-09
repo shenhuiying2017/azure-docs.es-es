@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/18/2015"
+	ms.date="10/27/2015"
 	ms.author="danlep"/>
 
 # Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)
@@ -27,7 +27,7 @@ La CLI de Azure es un conjunto de comandos de código abierto y multiplataforma 
 
 Hay dos maneras de conectarse a su suscripción desde la CLI de Azure:
 
-* **Iniciar sesión en Azure con una cuenta profesional o educativa**: en este caso, se utiliza Azure Active Directory para autenticar las credenciales. A partir de versión 0.9.9 de la CLI, esta admite cuentas de organización habilitadas para la autenticación multifactor. Después de iniciar sesión, puede utilizar el Administrador de recursos o los comandos clásicos (administración de servicios).
+* **Iniciar sesión en Azure con una cuenta profesional o educativa o una identidad de cuenta Microsoft**: esto utiliza cualquier tipo de identidad de cuenta para autenticar. A partir de la versión 0.9.9 de CLI, CLI admite la autenticación interactiva para las cuentas que tienen habilitada la autenticación multifactor. Después de iniciar sesión interactivamente, puede utilizar el Administrador de recursos o los comandos clásicos (administración de servicios).
 
 * **Descarga y uso de un archivo de configuración de publicación**: de este modo se instala un certificado que le permite realizar tareas de administración durante el periodo de validez de la suscripción y el certificado. Este método solo permite usar comandos clásicos (administración de servicios).
 
@@ -35,55 +35,54 @@ Para obtener más información acerca de la administración de la autenticación
 
 En caso de no tener ninguna cuenta de Azure, puede crear una de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][free-trial].
 
-
-## Uso del método de inicio de sesión
-
-El método de inicio de sesión solo funciona con una cuenta profesional o educativa, también conocida como *cuenta de organización*. Esta cuenta está administrada por su organización y definida en el Azure Active Directory de la organización. También puede [crear una cuenta de organización](#create-an-organizational-account) si no tiene una.
+> [AZURE.NOTE]Si está utilizando una versión de la CLI de Azure anterior a 0.9.9, puede utilizar el comando `azure login` solo con la cuenta profesional o educativa o las entidades de cuenta; las identidades de la cuenta Microsoft no funcionan. Sin embargo, puede utilizar cualquier identidad para iniciar sesión en su cuenta con el comando `azure login` interactivo con versiones de la CLI de Azure 0.9.9 y posteriores.
 
 
-* **Para iniciar sesión** desde la CLI de Azure con una cuenta profesional o educativa, use el comando siguiente:
 
-	```
-	azure login -u <username>
-	```
+## Uso del método de inicio de sesión interactivo
 
-	Escriba la contraseña cuando se le solicite.
+Utilice el comando `azure login` --sin argumentos-- para autenticarse interactivamente con cualquiera de estas opciones:
 
-	Si se trata de la primera vez que inicia sesión con estas credenciales, se le pedirá que verifique si desea almacenar en caché un token de autenticación. Este aviso también aparece si ha usado anteriormente el comando `azure logout` (descrito a continuación). Para omitir este aviso en escenarios de automatización, ejecute `azure login` con el parámetro `-q`.
+- una cuenta profesional o educativa que requiere autenticación multifactor, o
+- una identidad de cuenta Microsoft cuando desea tener acceso a la funcionalidad del modo de implementación del Administrador de recursos
+
+> [AZURE.NOTE]En ambos casos, la autenticación y la autorización se realizan con Azure Active Directory, en el caso de las cuentas Microsoft mediante el acceso a su dominio predeterminado de Azure Active Directory. (Si registró para obtener una prueba gratuita, puede que no tenga constancia de que Azure Active Directory creó un dominio predeterminado para su cuenta).
+
+Iniciar sesión de forma interactiva es fácil; escriba `azure login` y siga las indicaciones tal y como se muestran a continuación:
+
+	azure login                                                                                                                                                                                         
+	info:    Executing command login
+	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code B4MGHQS7K to authenticate. If you're signing in as an Azure AD application, use the --username and --password parameters.
+	
+Copie el código que se muestra más arriba y abra http://aka.ms/devicelogin en un explorador. Indique el código y se le pedirá que escriba el nombre de usuario y la contraseña para la identidad que desea utilizar. Cuando se complete el proceso, el shell de comandos completará el registro en proceso. Sería algo parecido a lo siguiente:
+	
+	info:    Added subscription Visual Studio Ultimate with MSDN
+	info:    Added subscription Azure Free Trial
+	info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
+	+
+	info:    login command OK
+
+## Uso del inicio de sesión no interactivo con una cuenta profesional o educativa
+
+
+El método de inicio de sesión no interactivo solo funciona con una cuenta profesional o educativa, también conocida como *cuenta de la organización*. Esta cuenta está administrada por su organización y definida en el Azure Active Directory de la organización. También puede [crear una cuenta de la organización](#create-an-organizational-account) si no tiene una, o bien puede [crear un identificador profesional o educativo a partir del identificador de su cuenta Microsoft](./virtual-machines/resource-group-create-work-id-from-personal.md). Esto requiere que especifique un nombre de usuario o un nombre de usuario y una contraseña para el comando `azure login`, de este modo:
+
+	azure login -u ahmet@contoso.onmicrosoft.com
+	info:    Executing command login
+	Password: *********
+	|info:    Added subscription Visual Studio Ultimate with MSDN
+	+
+	info:    login command OK
+	
+Escriba la contraseña cuando se le solicite.
+
+	If this is your first time logging in with these credentials, you are asked to verify that you wish to cache an authentication token. This prompt also occurs if you have previously used the `azure logout` command (described below). To bypass this prompt for automation scenarios, run `azure login` with the `-q` parameter.
 
 * **Para cerrar sesión**, utilice el comando siguiente:
 
-	```
-	azure logout -u <username>
-	```
+		azure logout -u <username>
 
 	Si las suscripciones asociadas a la cuenta solo se autenticaron con Active Directory, al cerrar sesión se elimina la información de la suscripción del perfil local. Sin embargo, si también se ha importado un archivo de configuración de publicación para las suscripciones, al cerrar sesión se elimina solo la información relacionada con Active Directory del perfil local.
-
-### Multi-Factor Authentication
-A partir de la versión 0.9.9 de la CLI de Azure, puede iniciar sesión con una cuenta de organización que use la autenticación multifactor (autenticación con una contraseña y uno o varios métodos de comprobación adicionales, como un dispositivo de confianza o el suministro de otros datos personales).
-
-Después de ejecutar `azure login` con el nombre de usuario y la contraseña de la cuenta, la CLI proporciona la dirección de una página web que se debe abrir. Las instrucciones le dirigen a la especificación de un código en esa página para continuar con la autenticación. Una vez que se cumpla la directiva de autenticación, la CLI de Azure completa el inicio de sesión.
-
-
-### Creación de una cuenta de organización
-
-Si actualmente no tiene una cuenta profesional o educativa y usa una cuenta personal para iniciar sesión en su suscripción de Azure, puede crear fácilmente una cuenta de organización mediante los pasos que se indican a continuación.
-
-1. Inicie sesión en el [Portal de Azure][portal] y seleccione **Active Directory**.
-
-2. Si no hay ningún directorio, seleccione **Crear su directorio** y proporcione la información que se le pida.
-
-3. Seleccione su directorio y agregue un nuevo usuario. Este usuario nuevo es una cuenta profesional o educativa.
-
-	Durante la creación del usuario, se le proporcionará una dirección de correo electrónico para el usuario y una contraseña temporal. Guarde esta información, porque se necesitará más adelante.
-
-4. En el portal de Azure, seleccione **Configuración** y, a continuación, **Administradores**. Seleccione **Agregar** y agregue el usuario nuevo como coadministrador. Esto permite que la cuenta profesional o educativa administre su suscripción de Azure.
-
-5. Finalmente, cierre sesión en el portal de Azure y, a continuación, vuelva a iniciarlo usando la cuenta profesional o educativa. Si es la primera vez que inicia sesión con esta cuenta, se le pide que cambie la contraseña.
-
-	Asegúrese de que ve las suscripciones al iniciar sesión con la cuenta nueva.
-
-Para obtener más información acerca de cuentas profesionales o educativas, consulte [Inicio de sesión como organización en Microsoft Azure][signuporg].
 
 ## Uso del método del archivo de configuración de publicación
 
@@ -91,22 +90,18 @@ Si solo necesita usar los comandos clásicos de la CLI (administración de servi
 
 * **Para descargar el archivo de configuración de publicación** para su cuenta, use el comando siguiente:
 
-	```
-	azure account download
-	```
+		azure account download
 
-	Esto abrirá su explorador predeterminado y le solicitará iniciar sesión en el [Portal de Azure][portal]. Después de iniciar sesión, se descarga un archivo `.publishsettings`. Tome nota de dónde se guarda este archivo.
+Esto abrirá su explorador predeterminado y le solicitará iniciar sesión en el [Portal de Azure][portal]. Después de iniciar sesión, se descarga un archivo `.publishsettings`. Tome nota de dónde se guarda este archivo.
 
-	> [AZURE.NOTE]Si su cuenta está asociada a varios inquilinos de Azure Active Directory, puede que se le pida que seleccione para qué Active Directory desea descargar el archivo de configuración de publicación.
+	> [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
 	>
-	> Una vez seleccionado usando la página de descarga, o visitando el Portal de Azure, el Active Directory seleccionado se convierte en el predeterminado que usan tanto el portal como la página de descarga. Cuando se haya establecido el predeterminado, verá el texto "__click here to return to the selection page__" en la parte superior de la página de descarga. Utilice el vínculo proporcionado para volver a la página de selección.
+	> Once selected using the download page, or by visiting the Azure Portal, the selected Active Directory becomes the default used by the portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
 
 * **Para importar el archivo de configuración de publicación**, ejecute el comando siguiente:
 
-	```
-	azure account import <path to your .publishsettings file>
-	```
-
+		azure account import <path to your .publishsettings file>
+	
 	Después de importar su configuración de publicación, debe eliminar el archivo `.publishsettings`, porque ya no lo necesita la CLI de Azure y supone un riesgo para la seguridad, ya que se puede usar para obtener acceso a su suscripción.
 
 
@@ -161,4 +156,4 @@ Independientemente de que inicie sesión con una cuenta profesional o educativa 
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

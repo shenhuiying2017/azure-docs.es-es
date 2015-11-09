@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: integración de Azure Active Directory con Innotas | Microsoft Azure" description="Aprenda a usar Innotas con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: integración de Azure Active Directory con Innotas | Microsoft Azure"
+    description="Aprenda a usar Innotas con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: integración de Azure Active Directory con Innotas
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=524479).
   
 El objetivo de este tutorial es mostrar la integración de Azure e Innotas. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Un inquilino de Innotas
   
-Después de completar este tutorial, los usuarios de Azure AD que haya asignado a Innotas podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Innotas (inicio de sesión iniciado por el proveedor de servicios) o desde [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586)
+Después de completar este tutorial, los usuarios de Azure AD que haya asignado a Innotas podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Innotas (inicio de sesión iniciado por el proveedor de servicios) o desde [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
   
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
@@ -46,7 +59,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
     ![Galería de aplicaciones](./media/active-directory-saas-innotas-tutorial/IC777332.png "Galería de aplicaciones")
 
-7.  En el panel de resultados, seleccione **Innotas** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+7.  En el panel de resultados, seleccione **Innotas** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![Innotas](./media/active-directory-saas-innotas-tutorial/IC777333.png "Innotas")
 ##Configuración del inicio de sesión único
@@ -59,15 +72,15 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-innotas-tutorial/IC777334.png "Configurar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en Innotas?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en Innotas?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-innotas-tutorial/IC777335.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Innotas**, escriba su dirección URL con el siguiente patrón "*https://\<nombreDeInquilino>.Innotas.com*" y, a continuación, haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Innotas**, escriba su dirección URL con el siguiente patrón "*https://\<nombreDeInquilino>.Innotas.com*" y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-innotas-tutorial/IC777336.png "Configurar dirección URL de la aplicación")
 
-4.  En la página **Configurar inicio de sesión único en Innotas**, para descargar los metadatos, haga clic en **Descargar metadatos** y, a continuación, el archivo de datos localmente como **c:\\InnotasMetaData.xml**.
+4.  En la página **Configurar inicio de sesión único en Innotas**, para descargar los metadatos, haga clic en **Descargar metadatos** y, luego, el archivo de datos localmente como **c:\\InnotasMetaData.xml**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-innotas-tutorial/IC777337.png "Configurar inicio de sesión único")
 
@@ -91,10 +104,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-innotas-tutorial/IC777339.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, luego, en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-innotas-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

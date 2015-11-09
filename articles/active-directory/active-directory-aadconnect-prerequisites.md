@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Requisitos previos de Azure AD Connect | Microsoft Azure"
+   pageTitle="Requisitos previos para Azure Active Directory Connect | Microsoft Azure"
    description="Descripción del artículo que se mostrará en las páginas de aterrizaje y en la mayoría de los resultados de búsqueda"
    services="active-directory"
    documentationCenter=""
@@ -16,7 +16,7 @@
    ms.date="10/13/2015"
    ms.author="andkjell;billmath"/>
 
-# Requisitos previos de Azure AD Connect
+# Requisitos previos para Azure Active Directory Connect (Azure AD Connect)
 En este tema se describen los requisitos previos y los requisitos de hardware de Azure AD Connect.
 
 ## Antes de instalar Azure AD Connect
@@ -39,7 +39,7 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesitará.
 **Cuentas**
 
 - Una cuenta de administrador global de Azure AD para el directorio de Azure AD con el que desea realizar la integración.
-- Una cuenta de administrador de empresa para su Active Directory local si usa la configuración rápida.
+- Una cuenta de administrador de empresa para su Active Directory local si usa la configuración rápida o actualiza desde DirSync.
 - [Cuentas es Active Directory](active-directory-aadconnect-accounts-permissions.md) si usa la opción de instalación de configuración personalizada.
 
 **Conectividad**
@@ -114,4 +114,4 @@ Los requisitos mínimos para equipos que ejecutan AD FS o servidores de aplicaci
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

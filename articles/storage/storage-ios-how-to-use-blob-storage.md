@@ -92,7 +92,7 @@ En el siguiente ejemplo se muestra cómo usar la CLI de Azure CLI para generar u
 
 2. A continuación, escriba el siguiente comando en la CLI de Azure CLI para obtener la cadena de conexión de su cuenta:
 
-		azure storage account connectionString show youraccountname
+		azure storage account connectionstring show youraccountname
 
 3. Cree una variable de entorno con la cadena de conexión que acaba de generar:
 
@@ -358,4 +358,4 @@ Si tiene alguna pregunta sobre esta biblioteca, puede publicarla en el [foro de 
 [API de REST de almacenamiento de Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

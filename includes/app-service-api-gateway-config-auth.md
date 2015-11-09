@@ -14,11 +14,11 @@
   
 3. Elija el proveedor de identidades que desea utilizar y siga los pasos descritos en el artículo correspondiente para configurar la aplicación de API con ese proveedor. Estos artículos se han escrito para aplicaciones móviles, pero los procedimientos son los mismos para las Aplicaciones de API. Algunos de los procedimientos requieren que se use el [Portal de Azure].
 
- - [Cuenta Microsoft](../articles/app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication-preview.md)
- - [Inicio de sesión en Facebook](../articles/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication-preview.md)
- - [Inicio de sesión en Twitter](../articles/app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication-preview.md)
- - [Inicio de sesión en Google](../articles/app-service-mobile/app-service-mobile-how-to-configure-google-authentication-preview.md)
- - [Azure Active Directory](../articles/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication-preview.md)
+ - [Cuenta Microsoft](../articles/app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md)
+ - [Inicio de sesión en Facebook](../articles/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md)
+ - [Inicio de sesión en Twitter](../articles/app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md)
+ - [Inicio de sesión en Google](../articles/app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md)
+ - [Azure Active Directory](../articles/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)
 
 Por ejemplo, las siguientes capturas de pantalla muestran lo que debe ver en las páginas del [Portal de Azure] y en las hojas del [Portal de vista previa de Azure] una vez configurada la autenticación de Azure Active Directory.
 
@@ -38,4 +38,4 @@ En el portal de Azure, la pestaña **Configurar** de la aplicación que ha cread
 
 (La URL de respuesta de la imagen muestra la misma dirección URL dos veces, una vez con `http:` y otra con `https:`.)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

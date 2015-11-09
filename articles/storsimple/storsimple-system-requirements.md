@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/24/2015"
+   ms.date="10/22/2015"
    ms.author="alkohli"/>
 
 # Software de StorSimple, alta disponibilidad y requisitos de red
@@ -163,6 +163,9 @@ El dispositivo StorSimple es un dispositivo bloqueado. Sin embargo, los puertos 
 
 <sup>3</sup> Las direcciones IP fijas del controlador del dispositivo StorSimple deben ser enrutables y capaces de conectarse a Internet. Las direcciones IP fijas se utilizan para el mantenimiento de las actualizaciones del dispositivo. Si los controladores del dispositivo no pueden conectarse a Internet a través de direcciones IP fijas, no podrá actualizar el dispositivo StorSimple.
 
+> [AZURE.IMPORTANT]Asegúrese de que el firewall no modifica ni descifra cualquier tráfico SSL entre el dispositivo StorSimple y Azure.
+
+<br></br>
 ### Enrutamiento de puerto
 
 El enrutamiento de puerto es diferente según la versión de software que se ejecute en el dispositivo StorSimple.
@@ -197,4 +200,4 @@ Además de los requisitos de redes anteriores, para obtener un rendimiento ópti
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

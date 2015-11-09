@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="10/22/2015" 
 	ms.author="anhoh"/>
 
 # Administración de una cuenta de DocumentDB mediante el portal de vista previa de Azure
@@ -65,7 +65,7 @@ DocumentDB admite cuatro niveles diferenciados de coherencia de datos que el usu
 
 - Una coherencia **alta** garantiza que las operaciones de lectura siempre devolverán el último valor que se escribió.
 
-- La coherencia de **Uso vinculado** garantiza que las lecturas no quedarán obsoletas. Garantiza de forma específica que les lecturas serán, como máximo, de K versiones anteriores a la última versión que se escribió.
+- La coherencia de **Uso vinculado** garantiza que las lecturas no quedarán obsoletas. Garantiza de forma específica que les lecturas serán, como máximo, de *K* versiones anteriores a la última versión que se escribió.
 
 - La coherencia de **Sesión** garantiza lecturas monotónicas (nunca se leen datos antiguos, nuevos y antiguos en ese orden), operaciones de escritura monotónicas (las operaciones se ordenan) y que usted leerá los elementos escritos más recientes desde un único punto de vista del cliente.
 
@@ -91,7 +91,7 @@ DocumentDB admite cuatro niveles diferenciados de coherencia de datos que el usu
 
 *Tenga en cuenta que pueden pasar varios minutos antes de que los cambios en la configuración de coherencia predeterminada se hagan efectivos en la cuenta de DocumentDB.*
 
-## <a id="delete"></a>Eliminación de una cuenta de DocumentDB en el Portal de vista previa de Azure
+## <a id="delete"></a> Eliminación de una cuenta de DocumentDB en el portal de vista previa de Azure
 Para quitar del Portal de vista previa de Azure una cuenta de DocumentDB que ya no usa, ejecute el comando **Eliminar** de la hoja **Cuenta de DocumentDB**.
 
 ![Eliminación de una cuenta de DocumentDB en el portal de vista previa de Azure](./media/documentdb-manage-account/image009.png)
@@ -113,4 +113,4 @@ Para obtener más información sobre DocumentDB, consulte la documentación corr
  
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

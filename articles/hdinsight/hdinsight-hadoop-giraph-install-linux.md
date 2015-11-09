@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 # Instalar Giraph en clústeres de Hadoop de HDInsight y usar Giraph para procesar gráficos a gran escala
@@ -99,9 +99,13 @@ Una vez terminada la creación del clúster, siga estos pasos para ejecutar el e
 
 		hadoop fs -copyFromLocal tiny_graph.txt /example/data/tiny_graph.txt
 
-4. Ejecute el ejemplo SimpleShortestPathsComputation con el siguiente comando:
+3. Use lo siguiente para obtener el nombre de dominio completo (FQDN) del nodo principal del clúster:
 
-		 hadoop jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=headnode0:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
+        hostname -f
+        
+4. Ejecute el ejemplo SimpleShortestPathsComputation con el siguiente comando: Reemplace __HEADNODE__ por el FQDN devuelto en el paso anterior:
+
+		 hadoop jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=HEADNODE:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
 
 	Los parámetros que se usan con este comando se describen en la tabla siguiente.
 
@@ -110,7 +114,7 @@ Una vez terminada la creación del clúster, siga estos pasos para ejecutar el e
 	| `jar /usr/hdp/current/giraph/giraph-examples.jar` | El archivo jar que contiene los ejemplos. |
 	| `org.apache.giraph.GiraphRunner` | La clase que se usa para iniciar los ejemplos. |
 	| `org.apache.giraph.examples.SimpleShortestPathsCoputation` | El ejemplo que se ejecutará. En este caso, calculará la ruta más corta entre el identificador 1 y los restantes identificadores del gráfico. |
-	| `-ca mapred.job.tracker=headnode0:9010` | El nodo principal del clúster. |
+	| `-ca mapred.job.tracker=HEADNODE:9010` | El nodo principal del clúster. |
 	| `-vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFromat` | El formato de entrada que se va a usar para los datos de entrada. |
 	| `-vip /example/data/tiny_graph.txt` | El archivo de datos de entrada. |
 	| `-vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat` | El formato de salida. En este caso, el Id. y el valor como texto sin formato. |
@@ -148,4 +152,4 @@ Una vez terminada la creación del clúster, siga estos pasos para ejecutar el e
 
 - [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md). Use la personalización del clúster para instalar Solr en clústeres de Hadoop para HDInsight. Solr le permite realizar potentes operaciones de búsqueda en los datos almacenados.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

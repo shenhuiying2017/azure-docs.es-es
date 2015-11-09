@@ -147,4 +147,4 @@ Su estrategia específica de recuperación ante desastres puede combinar o ampli
 | Implementación activa-activa para el equilibrio de carga de aplicación | Acceso de lectura y escritura < 5 s | Tiempo de detección de errores + llamada de API de conmutación por error + cadena de conexión SQL + cambio de prueba de verificación de aplicación
 | Implementación activa-pasiva para la conservación de datos | Acceso de solo lectura < 5 s acceso de lectura y escritura = cero | Acceso de solo lectura = tiempo de detección de errores de conectividad + prueba de comprobación de la aplicación <br>Acceso de lectura y escritura = tiempo para mitigar la interrupción 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

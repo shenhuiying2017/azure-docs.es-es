@@ -135,7 +135,6 @@ Si especifica una instancia, se recopilará como propiedad "CounterInstanceName"
 Si lo prefiere, puede escribir código que realice la misma acción:
 
     var perfCollector = new PerformanceCollectorModule();
-    perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
     perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
       @"\Sales(electronics)# Items Sold", "Items sold"));
     perfCollector.Initialize(TelemetryConfiguration.Active);
@@ -194,4 +193,4 @@ Para buscar y diagnosticar problemas de rendimiento, lea estas sugerencias:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

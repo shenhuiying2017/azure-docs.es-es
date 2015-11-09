@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="10/06/2015"
+      ms.date="10/26/2015"
       ms.author="jutang;tamram" />
 
 
@@ -27,6 +27,12 @@ Puede crear recursos compartidos de archivos de Azure mediante el portal de vist
 Las aplicaciones que se ejecutan en Azure pueden montar fácilmente recursos compartidos de archivos de máquinas virtuales de Azure. Y con la última versión de Almacenamiento de archivos, es posible también montar un recurso compartido de archivos desde una aplicación local que sea compatible con SMB 3.0.
 
 Tenga en cuenta que dado que el cliente SMB de Linux todavía no admite el cifrado, montar un recurso compartido de archivos de Linux requiere aún que el cliente se encuentre en la misma región de Azure que el recurso compartido de archivos. Sin embargo, la compatibilidad con el cifrado para Linux está en la hoja de ruta de los desarrolladores de Linux responsables de la funcionalidad SMB. Las distribuciones de Linux que admiten el cifrado en el futuro también podrán montar un recurso compartido de archivos de Azure desde cualquier lugar.
+
+## Vídeo: Uso del almacenamiento de archivos de Azure con Linux
+
+Este es un vídeo que muestra cómo crear y usar recursos compartidos de archivos de Azure en Linux.
+
+> [AZURE.VIDEO azure-file-storage-with-linux]
 
 ## Elija una distribución de Linux para usar ##
 
@@ -110,8 +116,9 @@ El almacenamiento de archivos de Azure para el grupo de usuarios de Linux cuenta
 
 Consulte los vínculos siguientes para obtener más información acerca de Almacenamiento de archivos de Azure.
 
-### Artículos conceptuales
+### Artículos y vídeos conceptuales
 
+- [Almacenamiento de archivos de Azure: un sistema de archivos SMB en la nube sin dificultades para Windows y Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [Uso del Almacenamiento de archivos de Azure con Windows](storage-dotnet-how-to-use-files.md)
 
 ### Herramientas de soporte técnico para Almacenamiento de archivos
@@ -130,4 +137,4 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 - [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx) (Introducción al servicio de archivos de Microsoft Azure)
 - [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx) (Persistencia de conexiones en archivos de Microsoft Azure)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

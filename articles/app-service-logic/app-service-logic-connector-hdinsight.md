@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
+   ms.date="10/22/2015"
    ms.author="sameerch"/>
 
 
 # Introducción al conector de HDInsight y su incorporación a su aplicación lógica
-El conector de HDInsight le permite crear clústeres de Hadoop en Azure y enviar trabajos de Hadoop diferentes como Hive, Pig, MapReduce y MapReduce de streaming. El servicio de Azure HDInsight implementa y aprovisiona clústeres de Apache Hadoop en la nube con el fin de proporcionar un marco de software diseñado para realizar tareas de administración, análisis y generación de informes en relación con grandes volúmenes de datos. El núcleo de Hadoop proporciona almacenamiento de datos confiable con el sistema de archivos distribuido Hadoop (HDFS, Hadoop Distributed File System) y un sencillo modelo de programación MapReduce para procesar y analizar, en paralelo, los datos almacenados en este sistema distribuido. Mediante el conector de HDInsight puede crear o eliminar un clúster, enviar un trabajo y esperar a que el trabajo finalice.
+El conector HDInsight le permite crear un clúster de Hadoop en Azure y enviar trabajos de Hadoop diferentes como trabajos de Hive, Pig, MapReduce y MapReduce de streaming. El servicio de Azure HDInsight implementa y aprovisiona clústeres de Apache Hadoop en la nube con el fin de proporcionar un marco de software diseñado para realizar tareas de administración, análisis y generación de informes en relación con grandes volúmenes de datos. El núcleo de Hadoop proporciona almacenamiento de datos confiable con el sistema de archivos distribuido Hadoop (HDFS, Hadoop Distributed File System) y un sencillo modelo de programación MapReduce para procesar y analizar, en paralelo, los datos almacenados en este sistema distribuido. Mediante el conector de HDInsight puede crear o eliminar un clúster, enviar un trabajo y esperar a que el trabajo finalice.
 
 Los conectores pueden utilizarse en aplicaciones lógicas para capturar, procesar o insertar datos como parte de un flujo. Puede agregar el conector de HDInsight a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
 
@@ -62,11 +62,11 @@ Cuando el certificado se ha cargado correctamente, se muestran los detalles de e
 
 ## Uso del conector en una aplicación lógica ##
 
-El conector de HDInsight puede usarse solo como acción de la aplicación lógica. Empecemos por una aplicación lógica sencilla que crea un clúster, ejecuta un trabajo “Hive” y elimina el clúster al final de la finalización del trabajo.
+El conector de HDInsight puede usarse solo como acción de una aplicación lógica. Empecemos por una aplicación lógica sencilla que crea un clúster, ejecuta un trabajo “Hive” y elimina el clúster al finalizar el trabajo.
 
 
 1. En la ficha "Iniciar lógica", haga clic en "Ejecutar esta lógica manualmente".
-2. Seleccione la aplicación de API del conector de HDInsight creada desde la galería. Se enumeran las acciones disponibles: ![][5]
+2. Seleccione la aplicación de API de conector de HDInsight que creó anteriormente en la galería (encontrará el conector de HDInsight que creó en la lista Aplicaciones de API a la derecha de la pantalla.). Seleccione la flecha derecha negra. Se presentan las acciones disponibles: ![][12]
 
 3. Seleccione “Crear clúster”, especifique todos los parámetros del clúster necesarios y seleccione el signo ✓: ![][6]
 
@@ -105,5 +105,6 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-hdinsight/LogicApp5.jpg
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
+[12]: ./media/app-service-logic-connector-hdinsight/LogicApp8.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

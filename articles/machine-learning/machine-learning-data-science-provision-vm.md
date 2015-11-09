@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="10/27/2015" 
 	ms.author="bradsev" />
 
 
@@ -48,19 +48,19 @@ Antes de poder crear una máquina virtual de Azure, debe tener lo siguiente:
 Los pasos implicados en la creación de su instancia de la máquina virtual de ciencia de datos son:
 
 1.	Inicie sesión en el Portal de Azure
-2.	Vaya a **Nuevo** -> **Proceso** -> **Marketplace** y busque *Data Science Virtual Machine*. Seleccione la máquina virtual “**Data Science Virtual Machine**”, publicada por Microsoft para ver un panel que describe la Data Science Virtual Machine
-3.	Haga clic en el botón **Crear**, situado en la parte inferior para acceder a un asistente. ![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
-4.	 Las secciones siguientes proporcionan las entradas para cada paso del asistente usado para crear la Data Science Virtual Machine
-
+2.	Vaya a **Nuevo** -> **Proceso** -> **Marketplace** y busque *Máquina virtual para ciencia de datos*.![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
+3.	Seleccione la máquina virtual llamada “**Máquina virtual para ciencia de datos**”, publicada por Microsoft para ver un panel que describe la máquina virtual para ciencia de datos. 	
+4.	 Haga clic en el botón **Crear**, ubicado en la parte inferior, para tener acceso a un asistente.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
+5.	 Las secciones siguientes proporcionan las entradas para cada uno de los 5 pasos (enumerados a la derecha de la figura anterior) en el asistente que se usó para crear la máquina virtual para ciencia de datos. Estas son las entradas necesarias para configurar cada uno de estos pasos:
 
  **1. Básico**:
 
-- **Nombre**: nombre de su servidor de ciencia de datos que está creando.
+- **Nombre**: nombre del servidor de ciencia de datos que está creando
 - **Nombre de usuario**: identificador de inicio de sesión de la cuenta del administrador
 - **Contraseña**: contraseña de la cuenta del administrador
 - **Suscripción**: si tiene más de una suscripción, seleccione en la que se creará y facturará la máquina
-- **Grupo de recursos**: puede crear uno nuevo o usar un grupo ya existente.
-- **Ubicación**: seleccione el centro de datos más adecuado. Normalmente es el centro de datos que tenga la mayoría de los datos o que esté más cercano a su ubicación física para un acceso más rápido a la red
+- **Grupo de recursos**: puede crear uno nuevo o usar un grupo ya existente
+- **Ubicación**: seleccione el centro de datos más adecuado Normalmente es el centro de datos que tenga la mayoría de los datos o que esté más cercano a su ubicación física para un acceso más rápido a la red
 
  **2. Tamaño**:
 
@@ -91,16 +91,16 @@ Una vez creada y aprovisionada la máquina virtual, está listo para comenzar a 
 ## Herramientas instaladas en Data Science Virtual Machine
 
 ### R
-Si desea usar R para su análisis, la máquina virtual tiene Revolution R Open (RRO) instalado. Se trata de una distribución de código abierto de R totalmente compatible con CRAN-R. Contiene el motor de código abierto de R más reciente, junto con la biblioteca Intel Math Kernel Library. Un IDE llamado “RRO RGui” también está empaquetado en la máquina virtual. Puede descargar y usar, otros IDE, así como [RStudio](http://www.rstudio.com).
+Si desea usar R para su análisis, la máquina virtual tiene Revolution R Open (RRO) instalado. Se trata de una distribución de código abierto de R totalmente compatible con CRAN-R. Contiene el motor de código abierto de R más reciente, junto con la biblioteca Intel Math Kernel Library. Un IDE llamado “RRO RGui” también está empaquetado en la máquina virtual. Puede descargar y usar otros IDE, así como también [RStudio](http://www.rstudio.com).
 
 ### Python
 Para el desarrollo con Python, se ha instalado Anaconda Python Distribution 2.7. Esta distribución contiene Python base, junto con aproximadamente 300 de los paquetes de matemáticas, ingeniería y análisis de datos más populares. Puede usar IDE agrupados con Anaconda, como IDLE o Spyder. Para iniciar uno de ellos, busque en la barra de búsqueda (tecla **Win** + **S**).
 
 ### Bloc de notas de IPython
-La distribución de Anaconda también incluye un IPython Notebook, un entorno para compartir código y análisis. Se ha preconfigurado un servidor de IPython Notebook. Hay un icono del escritorio para iniciar el explorador para tener acceso al servidor del notebook. Si está en la máquina virtual a través de un escritorio remoto también puede visitar [https://localhost:9999/](https://localhost:9999/) para acceder al servidor de IPython Notebook (Nota: simplemente continúe si se obtiene alguna advertencia de certificado).
+La distribución de Anaconda también incluye un IPython Notebook, un entorno para compartir código y análisis. Se ha preconfigurado un servidor de IPython Notebook. Hay un icono del escritorio para iniciar el explorador para tener acceso al servidor del notebook. Si está en la máquina virtual a través de un escritorio remoto, también puede visitar [https://localhost:9999/](https://localhost:9999/) para tener acceso al servidor de IPython Notebook (nota: si se recibe alguna advertencia de certificado, simplemente continúe).
 
 ### Visual Studio 2015 Community Edition
-Visual Studio Community Edition instalado en la máquina virtual. Es una versión gratuita del popular IDE de Microsoft que puede usar para fines de evaluación y para equipos muy pequeños. Puede revisar las condiciones de uso ***aquí*** (vínculo a TBD). Haga doble clic en el icono del escritorio o el menú **Iniciar** para abrir Visual Studio. También puede buscar programas con **Win** + **S** y escribiendo “Visual Studio”.
+Visual Studio Community Edition instalado en la máquina virtual. Es una versión gratuita del popular IDE de Microsoft que puede usar para fines de evaluación y para equipos muy pequeños. Puede revisar las condiciones de uso ***aquí*** (vínculo por determinar). Haga doble clic en el icono del escritorio o en el menú **Inicio** para abrir Visual Studio. También puede buscar programas con **Win** + **S** y escribiendo “Visual Studio”.
 
 Nota: puede obtener un mensaje que indica que el período de evaluación ha caducado. Puede escribir las credenciales de la cuenta de Microsoft o crear una cuenta y volver a escribirlas para obtener acceso a Visual Studio Community Edition. Una ahí, puede crear proyectos en lenguajes como C#, Python
 
@@ -112,11 +112,11 @@ Varias herramientas de Azure están instaladas en la máquina virtual: - Hay un 
 
 ###Power BI
 
-Para ayudarle a crear paneles y visualizaciones excelentes, se ha instalado **Power BI Desktop**. Use esta herramienta para extraer datos de orígenes diferentes, para crear los paneles e informes y publicarlos en la nube. Para obtener información, consulte el sitio [Power BI](http://powerbi.microsoft.com).
+Para ayudarle a crear paneles y visualizaciones excelentes, se instaló **Power BI Desktop**. Use esta herramienta para extraer datos de orígenes diferentes, para crear los paneles e informes y publicarlos en la nube. Para obtener información, consulte el sitio [Power BI](http://powerbi.microsoft.com).
 
 Nota: se necesita una cuenta de Office 365 para tener acceso a Power BI.
 
 ## Herramientas de desarrollo de Microsoft adicionales
-El [**Instalador de plataforma web de Microsoft**](https://www.microsoft.com/web/downloads/platform.aspx) puede usarse para detectar y descargar otras herramientas de desarrollo de Microsoft. También hay un acceso directo a la herramienta que se incluye en el escritorio de la máquina virtual.
+Puede usar el [**Instalador de plataforma web de Microsoft**](https://www.microsoft.com/web/downloads/platform.aspx) para detectar y descargar otras herramientas de desarrollo de Microsoft. También hay un acceso directo a la herramienta que se incluye en el escritorio de la máquina virtual.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

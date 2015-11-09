@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="10/09/2015"
+ms.date="10/26/2015"
 ms.author="larryfr"/>
 
 #Uso de la tunelación SSH para tener acceso a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web
@@ -144,21 +144,11 @@ Si instaló FoxyProxy Standard, use los siguientes pasos para configurarlo para 
 
 4. Seleccione la pestaña **Patrones de dirección URL** y, a continuación, seleccione **Agregar patrón nuevo**. Use lo siguiente para definir el patrón y, a continuación, haga clic en **Aceptar**:
 
-	* **Nombre de patrón** - **headnode**: es solo un nombre descriptivo para el patrón.
+	* **Nombre de patrón** - **clusternodes**: es solo un nombre descriptivo para el patrón.
 
-	* **Patrón de dirección URL** - ***headnode***: define un patrón que coincide con cualquier dirección URL que contenga la palabra **headnode**.
+	* **Patrón de URL** - ***internal.cloudapp.net*** - Define un patrón que coincide con el nombre de dominio completo interno de los nodos del clúster.
 
 	![patrón de foxyproxy](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
-
-	> [AZURE.NOTE]Si se usa un clúster __HBase__, también debe agregar el siguiente patrón, ya que hospeda una interfaz de usuario web en los nodos de zookeeper del clúster:
-	>
-	> * __Nombre de patrón__ - __zookeeper__
-	> * __Patrón de URL__ - __*zookeeper*__
-	>
-	> Si usa un clúster __Storm__, debe agregar los siguientes patrones, ya que la interfaz de usuario de Storm se vincula a la dirección IP de los nodos de trabajo al recuperar los registros. Estamos trabajando para cambiarlo y que use el nombre de dominio en una actualización futura.
-	>
-	> * __Nombre de patrón__ - __nodesbyip__
-	> * __Patrón de URL__ - __* 10.0.0.*__
 
 4. Seleccione **Aceptar** para agregar el proxy y cierre la **Configuración de proxy**.
 
@@ -166,7 +156,7 @@ Si instaló FoxyProxy Standard, use los siguientes pasos para configurarlo para 
 
 	![seleccionar modo de foxyproxy](./media/hdinsight-linux-ambari-ssh-tunnel/selectmode.png)
 
-Después de seguir estos pasos, solo las solicitudes de direcciones URL que contienen la cadena **headnode** se enrutarán a través del túnel SSL.
+Después de seguir estos pasos, solo las solicitudes de direcciones URL que contienen la cadena __internal.cloudapp.net__ se enrutarán a través del túnel SSL.
 
 ##Compruebe con la interfaz de usuario web de Ambari
 
@@ -193,7 +183,7 @@ Una vez que se ha establecido el clúster, siga estos pasos para comprobar que p
 
 	![Imagen de la interfaz de usuario de ResourceManager YARN](./media/hdinsight-linux-ambari-ssh-tunnel/yarnresourcemanager.png)
 
-	> [AZURE.TIP]Observe la dirección URL de esta página; debe ser similar a \_\___http://headnode1.CLUSTERNAME-ssh.j8.internal.cloudapp.net:8088/cluster__. Esto usa el nombre de dominio completo interno (FQDN) del nodo y no es accesible sin usar un túnel SSH.
+	> [AZURE.TIP]Observe la dirección URL de esta página; debe ser similar a \_\___http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__. Esto usa el nombre de dominio completo interno (FQDN) del nodo y no es accesible sin usar un túnel SSH.
 
 ##Pasos siguientes
 
@@ -207,4 +197,4 @@ Para obtener más información sobre el uso de SSH con HDInsight, vea lo siguien
 
 * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

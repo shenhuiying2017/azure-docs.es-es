@@ -14,14 +14,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/13/2015"
+	ms.date="10/29/2015"
 	ms.author="jroth" />
 
 # Guía de rendimiento de Base de datos SQL de Azure
 
 ## Información general
 
-Base de datos SQL de Microsoft Azure tiene tres [niveles de servicio](sql-database-service-tiers.md), Básico, Estándar y Premium. El nivel de servicio Premium controla de forma estricta la cantidad de recursos de Base de datos SQL de Azure y sus réplicas secundarias, y ofrece un rendimiento más predecible para las aplicaciones en la nube. Base de datos SQL de Azure lleva este concepto al nivel de servicio Estándar para ofrecer capacidad de previsión de alto rendimiento para bases de datos con requisitos de rendimiento menores que los que proporciona el nivel de servicio Premium. El nivel de servicio Básico está diseñado para satisfacer los requisitos de rendimiento de bases de datos de menor costo.
+Base de datos SQL de Microsoft Azure tiene tres [niveles de servicio](sql-database-service-tiers.md), Básico, Estándar y Premium. Todos aíslan de forma estricta el recurso proporcionado a Base de datos SQL Azure y garantizan un rendimiento predecible. El rendimiento garantizado para la base de datos aumenta de Básico, pasando por Estándar, hasta Premium.
 
 >[AZURE.NOTE]Los niveles de servicio Business y Web se retirarán en septiembre de 2015. Para obtener más información, consulte [Preguntas más frecuentes sobre la retirada de las ediciones Web y Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Para obtener información detallada sobre cómo actualizar las bases de datos Web o Business existentes a los nuevos niveles de servicio, consulte [Actualización de las bases de datos SQL Web o Business a niveles de servicio nuevos](sql-database-upgrade-new-service-tiers.md).
 
@@ -37,13 +37,10 @@ Este documento proporciona instrucciones para ayudarle a determinar qué nivel d
 
 Para comprender cómo los niveles de servicio Básico, Estándar y Premium mejoran el servicio Base de datos SQL de Azure, es conveniente tener un buen conocimiento general de Base de datos SQL de Azure. Puede elegir Base de datos SQL de Azure por varias razones. Una razón es evitar el largo ciclo de compra e instalación de hardware. Base de datos SQL de Azure permite crear y quitar bases de datos sobre la marcha sin tener que esperar que se apruebe un pedido de compra, que lleguen los equipos, que se actualicen los sistemas de alimentación y refrigeración o se realice la instalación. Microsoft aborda estos desafíos y reduce en gran medida el tiempo necesario para pasar de la idea a la solución gracias al aprovisionamiento previo del hardware según la demanda agregada de cada uno de nuestros centros de datos. Esto puede ahorrar semanas o meses a su negocio ya que evita tener que comprar e implementar el hardware manualmente.
 
-Microsoft también incluye muchas características de administración automática en Base de datos SQL de Azure tales como alta disponibilidad automática, equilibrio de carga y administración integrada.
+Microsoft también incluye muchas características de administración automática en Base de datos SQL de Azure, tales como alta disponibilidad automática y administración integrada.
 
 ### Alta disponibilidad automática 
  Base de datos SQL de Azure mantiene al menos tres réplicas de cada base de datos de usuario e incorpora lógica para confirmar automáticamente cada cambio de forma sincrónica en un quórum de las réplicas. Esto garantiza que un error único en un equipo no ocasionará la pérdida de datos. Además, cada réplica se coloca en diferentes bastidores de hardware para que las interrupciones de la alimentación o las conmutaciones de red no afecten a la base de datos. Por último, hay lógica para regenerar las réplicas automáticamente si se pierde un equipo para que el sistema conserve automáticamente las propiedades de mantenimiento deseadas aunque un equipo esté en mal estado. Estos mecanismos impiden el laborioso proceso que se necesita actualmente para instalar y configurar soluciones de alta disponibilidad. Tener una solución de alta disponibilidad preconfigurada para los datos suprime otro quebradero de cabeza que es la creación de una solución de base de datos crítica mediante técnicas tradicionales.
-
-### Equilibrio de carga 
- A diferencia de las máquinas virtuales tradicionales, Base de datos SQL de Azure también incluye un mecanismo para equilibrar la carga entre varios equipos automáticamente. El equilibrador de carga supervisa dinámicamente el uso de los recursos para un clúster y mueve las réplicas de bases de datos a las máquinas del clúster para compartir la carga entre muchos usuarios de forma justa y dinámica. Esto amplía la funcionalidad de capacidad a petición de la base de datos y permite a un usuario considerar los requisitos de capacidad para cada base de datos por separado porque el equilibrador de carga podrá migrar bases de datos ocupadas y alejarlas entre sí. Al crear soluciones que abarcan muchas bases de datos, esta lógica proporciona una capa de abstracción que permite centrarse en las necesidades de capacidad de cada base de datos en lugar de las limitaciones de tamaño específicas de una máquina virtual.
 
 ### Administración integrada 
  Base de datos SQL de Azure se ejecuta como un servicio. Esto significa que hay objetivos de tiempo de actividad definidos para cada base de datos, lo que evita los largos períodos de inactividad por mantenimiento. Microsoft proporciona una solución de un único proveedor para el servicio, lo que significa que solo hay una compañía a la que llamar en caso de que surja algún problema. Microsoft también actualiza continuamente el servicio, agrega características y capacidad, y busca maneras de mejorar su experiencia en todas las actualizaciones que hacemos. Las actualizaciones se realizan de forma transparente y sin tiempo de inactividad, lo que significa que se integran en nuestro mecanismo normal de conmutación por error de alta disponibilidad. Esto permite aprovechar de inmediato las nuevas características cada vez que se anuncia su disponibilidad en lugar de tener que esperar a que un servidor se actualice durante un tiempo de inactividad futuro.
@@ -51,16 +48,13 @@ Microsoft también incluye muchas características de administración automátic
 Todas estas funcionalidades se entregan en todos los niveles de servicio, comenzando con un precio inicial bajo al mes, que es mucho menos que lo que le costaría adquirir y ejecutar su propio servidor, y significa que incluso el proyecto más pequeño puede sacar partido de Azure sin gastar mucho dinero.
 
 ## ¿Qué diferencia hay en los niveles de servicio?
-
-Microsoft ha trabajado estrechamente con algunos clientes durante su incorporación inicial a Base de datos SQL de Azure para aprender cómo usan el servicio y trasladar esas lecciones a nuestro equipo de ingeniería para planear futuras características. En ese tiempo, descubrimos que algunos tipos de clientes encuentran que el conjunto de características se adapta bien a sus necesidades. Por ejemplo, las nuevas empresas que desarrollan nuevos servicios en la nube encontraron que la combinación de capacidad a petición y los gastos administrativos reducidos simplificaron sus vidas y les permitieron centrarse en su negocio principal. Otros clientes tenían que afrontar retos relativos a los requisitos de rendimiento, quizás para dar servicio a una API central en una solución de base de datos grande de múltiples niveles, que el servicio Base de datos SQL de Azure no satisfacía en ese momento. Los comentarios indicaban que, aunque algunos clientes estaban dispuestos a aceptar una variación de rendimiento mayor para conseguir un precio muy bajo, otros clientes estaban más interesados en obtener garantías de rendimiento específicas para poder generar un mayor valor con estas bases de datos.
-
-Para abordar todas sus necesidades, Microsoft ofrece tres niveles de servicio: Básico, Estándar y Premium. Cada nivel de servicio tiene uno o más niveles de rendimiento que proporcionan la capacidad para ejecutar las bases de datos de una manera predecible. La capacidad se describe en [Unidades de transacción de base de datos (DTU)](sql-database-technical-overview.md#understand-dtus).
+Información general sobre los niveles de servicio Básico, Estándar y Premium. Cada nivel de servicio tiene uno o más niveles de rendimiento que proporcionan la capacidad para ejecutar las bases de datos de una manera predecible. La capacidad se describe en [Unidades de transacción de base de datos (DTU)](sql-database-technical-overview.md#understand-dtus).
 
 El nivel de servicio Básico está diseñado para predecir mejor el rendimiento de cada base de datos hora a hora. La DTU de una base de datos básica está diseñada para proporcionar recursos suficientes para que bases de datos pequeñas sin solicitudes simultáneas tengan un buen rendimiento.
 
 El nivel de servicio Estándar ofrece una capacidad mejorada para predecir el rendimiento y aumenta el nivel para bases de datos con solicitudes simultáneas, tales como aplicaciones web y de grupo de trabajo. El uso de una base de datos de nivel de servicio Estándar permite ajustar el tamaño de su aplicación de base de datos en función de un rendimiento predecible minuto a minuto.
 
-La capacidad más destacada con respecto al rendimiento del nivel de servicio Premium es el rendimiento predecible segundo a segundo para cada base de datos Premium. Usar el nivel de servicio Premium permite ajustar el tamaño de la aplicación de base de datos en función de la carga máxima de esa base de datos y elimina aquellos casos en los que la variación de rendimiento puede hacer que consultas pequeñas tarden más tiempo del esperado en operaciones sensibles a la latencia. Este modelo puede simplificar en gran medida los ciclos de desarrollo y validación del producto necesarios para aquellas aplicaciones que necesitan hacer declaraciones firmes sobre las necesidades máximas de recursos, variación de rendimiento o latencia de las consultas. También permite migrar algunas aplicaciones locales sin cambios significativos porque es una experiencia más próxima a la experiencia aislada tradicional que se daba por supuesto en esas aplicaciones cuando se compilaron inicialmente.
+La capacidad más destacada con respecto al rendimiento del nivel de servicio Premium es el rendimiento predecible segundo a segundo para cada base de datos Premium. Usar el nivel de servicio Premium permite ajustar el tamaño de la aplicación de base de datos en función de la carga máxima de esa base de datos y elimina aquellos casos en los que la variación de rendimiento puede hacer que consultas pequeñas tarden más tiempo del esperado en operaciones sensibles a la latencia. Este modelo puede simplificar en gran medida los ciclos de desarrollo y validación del producto necesarios para aquellas aplicaciones que necesitan hacer declaraciones firmes sobre las necesidades máximas de recursos, variación de rendimiento o latencia de las consultas.
 
 De forma similar al nivel de servicio Estándar, el nivel de servicio Premium ofrece diferentes niveles de rendimiento en función del aislamiento deseado para un cliente.
 
@@ -74,16 +68,16 @@ Aunque cada carga de trabajo puede variar, el propósito de los niveles de servi
 
 ### Casos de uso del nivel de servicio Básico:
 
-- **Introducción a Base de datos SQL de Azure**: las aplicaciones en desarrollo a menudo no necesitan altos niveles de rendimiento. Las bases de datos básicas proporcionan un entorno ideal para el desarrollo de bases de datos a un bajo precio.
+- **Introducción a Base de datos SQL de Azure**: las aplicaciones en desarrollo con frecuencia no necesitan altos niveles de rendimiento. Las bases de datos básicas proporcionan un entorno ideal para el desarrollo de bases de datos a un bajo precio.
 - **Base de datos con un solo usuario**: las aplicaciones que asocian un solo usuario a una base de datos normalmente no tienen grandes requisitos de simultaneidad y rendimiento. Las aplicaciones con estos requisitos son candidatas al nivel de servicio Básico.
 
 ### Casos de uso del nivel de servicio Estándar:
 
-- **Base de datos con varias solicitudes simultáneas**: las aplicaciones que dan servicio a más de un usuario a la vez, como sitios web con tráfico moderado o aplicaciones departamentales que requieren una mayor cantidad de recursos son buenas candidatas para el nivel de servicio Estándar.
+- **Base de datos con varias solicitudes simultáneas**: las aplicaciones que dan servicio a más de un usuario a la vez, como los sitios web con tráfico moderado o las aplicaciones departamentales que requieren una mayor cantidad de recursos, son buenas candidatas para el nivel de servicio Estándar.
 
 ### Casos de uso del nivel de servicio Premium:
 
-- **Alta carga máxima**: una aplicación que requiere mucha CPU, memoria o E/S para completar sus operaciones. Por ejemplo, si una operación de base de datos se sabe que consume varios núcleos de CPU durante un largo período de tiempo, es una candidata para el uso de bases de datos Premium.
+- **Carga máxima elevada**: una aplicación que requiere mucha CPU, memoria o E/S para completar sus operaciones. Por ejemplo, si una operación de base de datos se sabe que consume varios núcleos de CPU durante un largo período de tiempo, es una candidata para el uso de bases de datos Premium.
 - **Muchas solicitudes simultáneas**: algunas aplicaciones de base de datos atienden muchas solicitudes simultáneas, por ejemplo, cuando dan servicio a un sitio web con alto volumen de tráfico. Los niveles de servicio Básico y Estándar tienen límites en la cantidad de solicitudes simultáneas. Las aplicaciones que requieren más conexiones necesitarían elegir un tamaño de reserva suficiente para controlar el número máximo de solicitudes necesarias.
 - **Baja latencia**: algunas aplicaciones necesitan garantizar una respuesta de la base de datos en un tiempo mínimo. Si se llama a un procedimiento almacenado determinado como parte de una operación de cliente más amplia, podría ser necesario volver de esa llamada en no más de 20 milisegundos el 99 % del tiempo. Este tipo de aplicación se beneficiará de las bases de datos Premium para asegurarse de que hay capacidad de proceso disponible.
 
@@ -91,7 +85,112 @@ El nivel exacto que necesitará depende de los requisitos de carga máxima para 
 
 Para obtener más información sobre los niveles de servicio, consulte [Niveles de servicio y niveles de rendimiento de Base de datos SQL de Azure](sql-database-service-tiers.md).
 
-## Descripción del uso de recursos
+## Límites y capacidades de nivel de servicio
+Cada nivel de servicio y nivel de rendimiento están asociados a distintos límites y características de rendimiento. La tabla siguiente describe estas características para una sola base de datos.
+
+[AZURE.INCLUDE [Tabla de niveles de servicio de datos de la Base de datos SQL](../../includes/sql-database-service-tiers-table.md)]
+
+Las secciones siguientes proporcionan más información sobre cada área de la tabla anterior.
+
+### Tamaño máximo de la base de datos
+
+**Tamaño máximo de la base de datos** es simplemente el límite del tamaño de la base de datos en GB.
+
+### DTU
+
+**DTU** son las unidades de transacción de Base de datos. Es la unidad de medida en Base de datos SQL que representa la potencia relativa de bases de datos en base a una medida real: la transacción de base de datos. Consiste en tomar un conjunto de operaciones que son típicas de una solicitud de procesamiento de transacción en línea (OLTP), y medirlas en base a cuántas transacciones se podrían completar por segundo en condiciones de carga total. Para obtener más información sobre las DTU, consulte [Descripción de las DTU](sql-database-technical-overview.md#understand-dtus). Para obtener más información sobre cómo se midieron las DTU, consulte la [Información general sobre la prueba comparativa](sql-database-benchmark-overview.md).
+
+### Restauración a un momento dado
+
+**Restauración a un momento dado** es la capacidad de restaurar la base de datos a un momento anterior en el tiempo. El nivel de servicio determina el número de días que puede retroceder en el tiempo. Para más información consulte [Recuperar una Base de datos SQL de Azure de un error de usuario](sql-database-user-error-recovery.md).
+
+### Recuperación ante desastres
+
+**Recuperación ante desastres** hace referencia a la capacidad de recuperarse de una interrupción en la Base de datos SQL principal.
+
+*Restauración geográfica* está disponible para todos los niveles de servicio sin ningún costo adicional. En el caso de una interrupción, puede usar la copia de seguridad con redundancia geográfica más reciente para restaurar la base de datos en cualquier región de Azure.
+
+La replicación geográfica activa y la estándar proporcionan similares características de recuperación ante desastres, pero con un objetivo de punto de recuperación (RPO) mucho menor. Por ejemplo, con la restauración geográfica, el RPO es de menos de una hora (es decir, la copia de seguridad puede ser de hasta una hora antes). Pero en la replicación geográfica , el RPO es inferior a 5 segundos.
+
+Para obtener más información, consulte [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md).
+
+### Almacenamiento Max XTP In-Memory
+**Almacenamiento Max XTP In-Memory** hace referencia a la cantidad máxima de almacenamiento disponible para [vista previa de In-Memory OLTP](sql-database-in-memory.md) para bases de datos Premium. Puede usar el Portal de Azure o la vista **sys.dm\_db\_resource\_stats** para supervisar el uso del almacenamiento de In-Memory. Para obtener más información sobre la supervisión, consulte [Supervisión del almacenamiento en memoria de XTP](sql-database-in-memory-oltp-monitoring.md).
+
+>[AZURE.NOTE]La vista previa de In-Memory OLTP actualmente admite solamente bases de datos únicas y no bases de datos dentro de grupos de bases de datos elásticas.
+
+### Máximo de solicitudes simultáneas
+
+**Máximo de solicitudes simultáneas** se trata del número máximo de solicitudes simultáneas de usuario/aplicación que se ejecutan al mismo tiempo en la base de datos. Para ver el número de solicitudes simultáneas, ejecute la siguiente consulta Transact-SQL en la Base de datos SQL:
+
+	SELECT COUNT(*) AS [Concurrent_Requests] 
+	FROM sys.dm_exec_requests R
+
+Si está analizando la carga de trabajo de una base de datos de SQL Server local, debería modificar esta consulta para filtrar en la base de datos específica que se va a analizar. Por ejemplo, si tiene una base de datos local denominado MyDatabase, la siguiente consulta Transact-SQL devolverá el número de solicitudes simultáneas en esa base de datos.
+
+	SELECT COUNT(*) AS [Concurrent_Requests] 
+	FROM sys.dm_exec_requests R
+	INNER JOIN sys.databases D ON D.database_id = R.database_id
+	AND D.name = 'MyDatabase'
+
+Tenga en cuenta que se trata simplemente de una instantánea en un solo punto en el tiempo. Para obtener una mejor comprensión de la carga de trabajo, tendrá que recopilar muchas muestras durante un periodo de tiempo para comprender los requisitos de solicitudes simultáneas.
+
+### Máximo de inicios de sesión simultáneos
+
+**Máximo de inicios de sesión simultáneos** representa el límite del número de usuarios o de aplicaciones que intentan iniciar sesión en la base de datos al mismo tiempo. Tenga en cuenta que, aunque estos clientes usen la misma cadena de conexión, el servicio autentica cada inicio de sesión. Así que si diez usuarios se conectan todos de forma simultanea a la base de datos con el mismo nombre de usuario y contraseña, serán diez conexiones simultáneas. Este límite se aplica solo a la duración del inicio de sesión y autenticación. Así que si los mismos diez usuarios se conectan en secuencia a la base de datos, el número de inicios de sesión simultáneos nunca será superior a uno.
+
+>[AZURE.NOTE]Este límite no se aplica actualmente a las bases de datos en grupos de bases de datos elásticas.
+
+No hay ninguna consulta o DMV que pueda mostrar los recuentos o el historial de los inicios de sesión simultáneos. Puede analizar los patrones de usuario y aplicación para hacerse una idea de la frecuencia de los inicios de sesión. También podría ejecutar cargas reales en un entorno de prueba para asegurarse de que no está alcanzando este u otros límites descritos en este tema.
+
+### Máximo de sesiones
+
+**Máximo de sesiones** es el número máximo de conexiones simultáneas abiertas con la base de datos. Cuando un usuario inicia sesión, se establece una sesión y permanece activa hasta que la sesión expire o se cierre. Para ver el número actual de sesiones activas, ejecute la siguiente consulta Transact-SQL en la Base de datos SQL:
+
+	SELECT COUNT(*) AS [Sessions]
+	FROM sys.dm_exec_connections
+
+Si va a analizar una carga de trabajo de SQL Server local, modifique la consulta para centrarse en una base de datos específica. Esto le ayudará a determinar las posibles necesidades de sesión para esa base de datos si la moviese a Base de datos SQL Azure.
+
+	SELECT COUNT(*)  AS [Sessions]
+	FROM sys.dm_exec_connections C
+	INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
+	INNER JOIN sys.databases D ON (D.database_id = S.database_id)
+	WHERE D.name = 'MyDatabase'
+
+Aquí también, las consultas devuelven el recuento de un punto en el tiempo, por ello recopilar varias muestras durante un periodo de tiempo le ayuda a comprender mejor el uso de las sesiones.
+
+Para el análisis de Base de datos SQL, también puede consultar **sys.resource\_stats** para obtener estadísticas históricas sobre las sesiones usando la columna **active\_session\_count**. En la siguiente sección de supervisión se proporciona más información sobre cómo usar esta vista.
+
+## Supervisión del uso de recursos
+Hay dos vistas que permiten supervisar el uso de recursos para una Base de datos SQL con respecto a su nivel de servicio:
+
+- [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx)
+- [Sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+
+>[AZURE.NOTE]También es posible usar el Portal de administración de Azure para ver el uso de los recursos. Para obtener un ejemplo, consulte [Niveles de servicio. Supervisión del rendimiento](sql-database-service-tiers.md#monitoring-performance).
+
+### Uso de sys.dm\_db\_resource\_stats
+La vista [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) existe en cada Base de datos SQL y proporciona datos sobre el uso de recursos recientes en relación con el nivel de servicio. Porcentajes medios para CPU, E/S de datos, escritura de registros y memoria, se registran cada 15 segundos y se mantienen durante una hora.
+
+Dado que esta vista proporciona una panorámica más granular del uso de recursos, debe usar primero **sys.dm\_db\_resource\_stats ** para cualquier análisis o la solución de problemas de estado actual. Por ejemplo, la consulta siguiente muestra el uso de recursos promedio y máximo para la base de datos actual durante la última hora:
+
+	SELECT  
+	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent', 
+	    MAX(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent', 
+	    AVG(avg_data_io_percent) AS 'Average Data IO In Percent', 
+	    MAX(avg_data_io_percent) AS 'Maximum Data IO In Percent', 
+	    AVG(avg_log_write_percent) AS 'Average Log Write Utilization In Percent', 
+	    MAX(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent', 
+	    AVG(avg_memory_usage_percent) AS 'Average Memory Usage In Percent', 
+	    MAX(avg_memory_usage_percent) AS 'Maximum Memory Usage In Percent' 
+	FROM sys.dm_db_resource_stats;  
+
+Para otras consultas, vea los ejemplos de [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx).
+
+### Uso de sys.resource\_stats
+
+La vista [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) en la base de datos **maestra** proporciona información adicional para supervisar el uso del rendimiento de Base de datos SQL dentro de su nivel de rendimiento y nivel de servicio específicos. Los datos se recopilan cada cinco minutos y se mantienen durante aproximadamente 14 días. Esta vista es más útil para realizar análisis históricos a largo plazo sobre el uso de recursos de Base de datos SQL.
 
 El siguiente gráfico muestra el uso de recursos de CPU para la base de datos Premium con un nivel de rendimiento P2 durante cada hora en una semana. Este gráfico en concreto empieza el lunes, muestra 5 días laborables y, a continuación, un fin de semana donde hay mucha menos actividad en la aplicación.
 
@@ -101,7 +200,11 @@ Según los datos, esta base de datos tiene actualmente una carga máxima de CPU 
 
 Merece la pena mencionar que otros tipos de aplicaciones pueden interpretar el mismo gráfico de manera diferente. Por ejemplo, si una aplicación intentara procesar datos de nóminas todos los días y tuviera el mismo gráfico, este tipo de modelo de "trabajo por lotes" podría funcionar bien en un nivel de rendimiento P1. El nivel de rendimiento P1 tiene 100 DTU en comparación con las 200 DTU del nivel de rendimiento P2. Esto significa que el nivel de rendimiento P1 proporciona la mitad de rendimiento que el nivel de rendimiento P2. Hasta un 50 % de uso de CPU en P2 es igual al 100 % de uso de CPU en P1. Siempre que la aplicación no agote los tiempos de espera, quizás no importe si un trabajo grande tarda 2 o 2,5 horas en completarse siempre que se lleve a cabo hoy. Una aplicación en esta categoría puede usar probablemente un nivel de rendimiento P1. Puede aprovechar el hecho de que hay períodos de tiempo durante el día en que el uso de recursos es menor, lo que significa que las "cargas elevadas" podrían retrasarse a uno de esos momentos más tarde. El nivel de rendimiento P1 puede ser adecuado para este tipo de aplicación (y ahorrar dinero) siempre que los trabajos puedan completarse a tiempo cada día.
 
-Base de datos SQL de Azure muestra información sobre los recursos consumidos para cada base de datos activa en la vista **sys.resource\_stats** de la base de datos maestra de cada servidor. Los datos de la tabla se agregan en intervalos de 5 minutos. Con los niveles de servicio Básico, Estándar y Premium, los datos pueden tardar más de 5 minutos en aparecer en la tabla, lo que significa que estos datos son mejores para el análisis histórico que para análisis en tiempo real. Al consultar la vista **sys.resource\_stats** se muestra el historial reciente de una base de datos para validar si la reserva seleccionada proporcionó el rendimiento deseado cuando era necesario. En el ejemplo siguiente se muestra cómo se exponen los datos en esta vista:
+Base de datos SQL de Azure muestra información sobre los recursos consumidos para cada base de datos activa en la vista **sys.resource\_stats** de la base de datos **maestra** de cada servidor. Los datos de la tabla se agregan en intervalos de 5 minutos. Con los niveles de servicio Básico, Estándar y Premium, los datos pueden tardar más de 5 minutos en aparecer en la tabla, lo que significa que estos datos son mejores para el análisis histórico que para análisis en tiempo real. Al consultar la vista **sys.resource\_stats** se muestra el historial reciente de una base de datos para validar si la reserva seleccionada proporcionó el rendimiento deseado cuando era necesario.
+
+>[AZURE.NOTE]Tiene que estar conectado a la base de datos **maestra** de su servidor lógico de Base de datos SQL para poder consultar **sys.resource\_stats** en los ejemplos siguientes.
+
+En el ejemplo siguiente se muestra cómo se exponen los datos en esta vista:
 
 	SELECT TOP 10 * 
 	FROM sys.resource_stats 
@@ -110,13 +213,11 @@ Base de datos SQL de Azure muestra información sobre los recursos consumidos pa
 
 ![estadísticas de recursos del sistema](./media/sql-database-performance-guidance/sys_resource_stats.png)
 
->[AZURE.NOTE]Algunas columnas de la tabla se han truncado por motivos de espacio. Consulte el tema [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) para obtener una descripción completa de la salida.
+En el ejemplo siguiente se muestran las diferentes formas a través de las que puede entender el uso de recursos de Base de datos SQL, mediante la vista de catálogo **sys.resource\_stats**.
 
-## Supervisión del uso de recursos
+>[AZURE.NOTE]Algunas de las columnas de **sys.resource\_stats** han cambiado en las bases de datos V12 actuales, por lo que las consultas de ejemplo en los ejemplos siguientes podrían generar errores. Las actualizaciones futuras de este tema proporcionarán nuevas versiones de las consultas que resuelven este problema.
 
-En esta sección se describen maneras de supervisar el uso de recursos de Base de datos SQL de Azure y se compara el uso de recursos actual con los distintos niveles de rendimiento.
-
-1. La vista de catálogo de **sys.resource\_stats** contiene más información histórica de uso de recursos en el nivel de base de datos. Por ejemplo, para buscar el uso de recursos durante la semana anterior de la base de datos "userdb1", puede ejecutar la consulta siguiente.
+1. Por ejemplo, para buscar el uso de recursos durante la semana anterior de la base de datos "userdb1", puede ejecutar la consulta siguiente.
 	
 		SELECT * 
 		FROM sys.resource_stats 
@@ -183,13 +284,20 @@ En servidores locales tradicionales de SQL Server, el proceso de planeación ini
 Aunque los niveles de servicio están diseñados para mejorar la estabilidad de rendimiento y capacidad de predicción de una aplicación, hay algunos procedimientos recomendados para optimizar la aplicación y poder aprovechar mejor las ventajas de la característica. Si bien muchas aplicaciones verán importantes mejoras de rendimiento simplemente cambiando a un nivel de rendimiento o nivel de servicio superior, no todas las aplicaciones pueden beneficiarse tanto sin una optimización adicional. Las aplicaciones que tienen las siguientes características deben plantearse también optimizaciones adicionales para mejorar aún más el rendimiento cuando se usa Base de datos SQL de Azure.
 
 - **Aplicaciones que tienen un rendimiento lento debido a un comportamiento "conversador"**: esto incluye aplicaciones que realizan un exceso de operaciones de acceso a datos que son sensibles a la latencia de red. Estas aplicaciones pueden requerir modificaciones para reducir el número de operaciones de acceso de datos en Base de datos SQL de Azure. Por ejemplo, la aplicación se puede mejorar mediante técnicas como el procesamiento por lotes de consultas ad-hoc o el traslado de las consultas a procedimientos almacenados. Para obtener más información, consulte la sección 'Procesamiento de consultas por lotes', a continuación.
-- **Bases de datos con una carga de trabajo intensivo que no un solo equipo no puede admitir**: bases de datos que superan los recursos del nivel de rendimiento Premium más alto no son buenas candidatas. Estas bases de datos pueden beneficiarse del escalado horizontal de la carga de trabajo. Para obtener más información, consulte las secciones 'Particionamiento entre bases de datos' y 'Particionamiento funcional', a continuación.
-- **Aplicaciones que contienen consultas no óptimas**: las aplicaciones, especialmente en la capa de acceso a datos, que tienen consultas poco optimizadas no pueden beneficiarse de la elección de un nivel de rendimiento mayor según lo esperado. Esto incluye consultas que carecen de una cláusula WHERE, con índices que faltan o tienen estadísticas anticuadas. Estas aplicaciones se beneficiarán de las técnicas de optimización del rendimiento de consultas estándar. Para obtener más información, consulte las secciones 'Índices que faltan' y 'Optimización/sugerencias de consulta', a continuación.
-- **Aplicaciones con un diseño de acceso a datos no óptimo**: las aplicaciones que tienen problemas inherentes de simultaneidad de acceso a datos, como los interbloqueos, no pueden beneficiarse de la elección de un nivel de rendimiento mayor. Los desarrolladores de aplicaciones deben plantearse reducir los viajes de ida y vuelta a Base de datos SQL de Azure de los datos en caché en el lado del cliente usando el servicio de almacenamiento en caché de Azure u otras tecnologías de almacenamiento en caché. Consulte la sección Almacenamiento en caché de la capa de aplicación, a continuación.
+- **Bases de datos con una carga de trabajo intensivo que un solo equipo no puede admitir**: bases de datos que superan los recursos del nivel de rendimiento Premium más alto no son buenas candidatas. Estas bases de datos pueden beneficiarse del escalado horizontal de la carga de trabajo. Para obtener más información, consulte las secciones 'Particionamiento entre bases de datos' y 'Particionamiento funcional', a continuación.
+- **Aplicaciones que contienen consultas no óptimas**: las aplicaciones, especialmente en la capa de acceso a datos, que tienen consultas poco optimizadas pueden no beneficiarse de la elección de un nivel de rendimiento mayor según lo esperado. Esto incluye consultas que carecen de una cláusula WHERE, con índices que faltan o tienen estadísticas anticuadas. Estas aplicaciones se beneficiarán de las técnicas de optimización del rendimiento de consultas estándar. Para obtener más información, consulte las secciones 'Índices que faltan' y 'Optimización/sugerencias de consulta', a continuación.
+- **Aplicaciones con un diseño de acceso a datos no óptimo**: las aplicaciones que tienen problemas inherentes de simultaneidad de acceso a los datos, como los interbloqueos, pueden no beneficiarse de la elección de un nivel de rendimiento mayor. Los desarrolladores de aplicaciones deben plantearse reducir los viajes de ida y vuelta a Base de datos SQL de Azure de los datos en caché en el lado del cliente usando el servicio de almacenamiento en caché de Azure u otras tecnologías de almacenamiento en caché. Consulte la sección Almacenamiento en caché de la capa de aplicación, a continuación.
 
 ## Técnicas de optimización
-
 En esta sección se explican algunas técnicas que puede usar para optimizar Base de datos SQL de Azure para obtener el mejor rendimiento de la aplicación y que pueda ejecutarla en el menor nivel de rendimiento posible. Varias de las técnicas coinciden con los procedimientos recomendados de optimización tradicionales de SQL Server, pero otras son específicas de Base de datos SQL de Azure. En algunos casos, las técnicas tradicionales de SQL Server se pueden ampliar para que funcionen también en Base de datos SQL de Azure, examinando para ello los recursos consumidos para una base de datos con el fin de encontrar áreas de mayor optimización.
+
+### Query Performance Insight y Asesor de índice
+Base de datos SQL ofrece dos herramientas en el Portal de Azure para analizar y corregir problemas de rendimiento de la base de datos:
+
+- [Query Performance Insight](sql-database-query-performance.md)
+- [Index Advisor](sql-database-index-advisor.md)
+
+Consulte los vínculos anteriores para obtener más información sobre cada una de las herramientas y sobre cómo usarlas. Las dos secciones siguientes sobre índices que faltan y la optimización de consultas, proporcionan otras formas de buscar manualmente y corregir los problemas de rendimiento similares. Se recomienda probar las herramientas en el portal para diagnosticar y corregir problemas de manera más eficiente. Use la optimización manual para casos especiales.
 
 ### Índices que faltan
 Un problema común del rendimiento de las bases de datos OLTP está relacionado con el diseño físico de la base de datos. A menudo, los esquemas de base de datos se diseñan y se entregan sin realizar pruebas a escala (ya sea en la carga o en el volumen de datos). Lamentablemente, el rendimiento de un plan de consultas puede ser aceptable a pequeña escala, pero se puede degradar sustancialmente cuando se enfrenta a los volúmenes de datos del nivel de producción. El origen más común de este problema es la falta de índices adecuados para satisfacer los filtros u otras restricciones en una consulta. A menudo, esto se manifiesta como un recorrido de tabla cuando podría ser suficiente una búsqueda de índice.
@@ -215,6 +323,8 @@ En el ejemplo siguiente se crea un caso donde el plan de consulta seleccionado c
 ![plan de consulta con índices que faltan](./media/sql-database-performance-guidance/query_plan_missing_indexes.png)
 
 Base de datos SQL de Azure contiene funcionalidad que ayuda a los administradores de bases de datos de sugerencias a encontrar y corregir casos frecuentes de índices que faltan. Las vistas de administración dinámica (DMV) integradas en Base de datos SQL de Azure miran la compilación de consultas en la que un índice reduciría considerablemente el costo estimado para ejecutar una consulta. Durante la ejecución de las consultas, hace un seguimiento de cuándo se ejecuta cada plan de consulta, así como de la diferencia estimada entre el plan de consulta en ejecución y uno imaginado en el que exista ese índice. Esto permite a un administrador de bases de datos adivinar rápidamente qué cambios de diseño de la base de datos física pueden mejorar el costo total de la carga de trabajo para una base de datos específica y su carga de trabajo real.
+
+>[AZURE.NOTE]Antes de usar las DMV para buscar índices que faltan, revise la sección sobre [Query Performance Insight y Index Advisor](query-performance-insight-and-index-advisor.md).
 
 La consulta siguiente puede usarse para evaluar posibles índices que faltan.
 
@@ -356,11 +466,13 @@ Puede examinar **sys.resource\_stats** para determinar si el recurso de una prue
 Si una carga de trabajo contiene un conjunto de consultas repetidas, a menudo tiene sentido capturar y validar la idoneidad de esas elecciones del plan ya que probablemente controlarán la unidad de tamaño mínima de los recursos necesaria para hospedar la base de datos. Una vez validado, una revisión ocasional de esos planes permite asegurar que no se han degradado. Para obtener más información acerca de las sugerencias de consulta, consulte [Sugerencias de consulta (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
 
 ### Particionamiento entre bases de datos
-Como Base de datos SQL de Azure se ejecuta en hardware estándar, generalmente los límites de capacidad son inferiores para una base de datos única que para una instalación local de SQL Server tradicional. Por lo tanto, algunos clientes usan técnicas de particionamiento para repartir las operaciones de base de datos entre varias bases de datos cuando no entran en los límites de una base de datos única en Base de datos SQL de Azure. La mayoría de los clientes que usan técnicas de particionamiento en Base de datos SQL de Azure divide sus datos en una única dimensión en varias bases de datos. Este enfoque implica entender que, con frecuencia, las aplicaciones OLTP realizan transacciones que solo se aplican a una fila o a un pequeño grupo de filas del esquema. Por ejemplo, si una base de datos contiene el cliente, el pedido y los detalles del pedido (tal y como se muestra en la base de datos de ejemplo tradicional Northwind incluida en SQL Server), estos datos pueden dividirse en varias bases de datos agrupando a un cliente con la información relacionada sobre el pedido y los detalles del pedido, y garantizar que permanecen en una única base de datos. La aplicación dividiría los distintos clientes entre las bases de datos, repartiendo la carga eficazmente entre varias bases de datos. Esto permite a los clientes no solo evitar el límite de tamaño máximo de la base de datos, también permite a Base de datos SQL de Azure procesar cargas de trabajo que son mucho mayores que los límites de los distintos niveles de rendimiento, siempre y cuando cada base de datos se ajuste a sus DTU.
+Como Base de datos SQL de Azure se ejecuta en hardware estándar, generalmente los límites de capacidad son inferiores para una base de datos única que para una instalación local de SQL Server tradicional. Por lo tanto, algunos clientes usan técnicas de particionamiento para repartir las operaciones de base de datos entre varias bases de datos cuando no entran en los límites de una base de datos única en Base de datos SQL de Azure. La mayoría de los clientes que usan técnicas de particionamiento en Base de datos SQL de Azure divide sus datos en una única dimensión en varias bases de datos. Este enfoque implica entender que, con frecuencia, las aplicaciones OLTP realizan transacciones que solo se aplican a una fila o a un pequeño grupo de filas del esquema.
+
+>[AZURE.NOTE]Tenga en cuenta que Base de datos SQL ahora proporciona una biblioteca para ayudar con el particionamiento. Para obtener más información, consulte [Información general de la biblioteca de cliente de bases de datos elásticas](sql-database-elastic-database-client-library.md).
+
+Por ejemplo, si una base de datos contiene el cliente, el pedido y los detalles del pedido (tal y como se muestra en la base de datos de ejemplo tradicional Northwind incluida en SQL Server), estos datos pueden dividirse en varias bases de datos agrupando a un cliente con la información relacionada sobre el pedido y los detalles del pedido, y garantizar que permanecen en una única base de datos. La aplicación dividiría los distintos clientes entre las bases de datos, repartiendo la carga eficazmente entre varias bases de datos. Esto permite a los clientes no solo evitar el límite de tamaño máximo de la base de datos, también permite a Base de datos SQL de Azure procesar cargas de trabajo que son mucho mayores que los límites de los distintos niveles de rendimiento, siempre y cuando cada base de datos se ajuste a sus DTU.
 
 Aunque el particionamiento de la base de datos no reduce la capacidad total de los recursos para una solución, esta técnica es muy eficaz para admitir soluciones muy grandes repartidas entre varias bases de datos y permite que cada base de datos se ejecute en un nivel de rendimiento diferente para admitir bases de datos "eficaces" muy grandes con requisitos elevados de recursos.
-
-Tenga en cuenta que Base de datos SQL ahora proporciona una biblioteca para ayudar con el particionamiento. Para obtener más información, consulte [Información general de la biblioteca de cliente de bases de datos elásticas](sql-database-elastic-database-client-library.md).
 
 ### Creación de particiones funcional
 Los usuarios de SQL Server suelen combinar varias funciones en una base de datos única. Por ejemplo, si una aplicación contiene lógica para administrar el inventario de un almacén, esa base de datos podría contener lógica asociada con el inventario, el seguimiento de los pedidos de compra, los procedimientos almacenados y las vistas indizadas o materializadas que administran los informes de fin de mes y otras funciones. Esta técnica tiene la ventaja de poder administrar fácilmente la base de datos para operaciones tales como copia de seguridad, pero también requiere ajustar el tamaño del hardware para administrar picos de carga en todas las funciones de una aplicación.
@@ -373,10 +485,10 @@ Para las aplicaciones que tienen acceso a datos en forma de consultas ad hoc fre
 Algunas aplicaciones requieren operaciones de escritura intensivas. En ocasiones se puede reducir la carga total de E/S en una base de datos si se procesan por lotes las operaciones de escritura. Esto suele ser tan sencillo como usar transacciones explícitas en lugar de transacciones de confirmación automática dentro de los procedimientos almacenados y lotes ad hoc. Puede encontrar una evaluación de las distintas técnicas que se pueden usar en [Técnicas de procesamiento por lotes para aplicaciones de Base de datos SQL en Azure](https://msdn.microsoft.com/library/windowsazure/dn132615.aspx). Experimente con su propia carga de trabajo para encontrar el modelo adecuado para el procesamiento por lotes, teniendo cuidado de entender que un modelo determinado puede ofrecer garantías de coherencia transaccional ligeramente diferentes. Para encontrar la carga de trabajo adecuada que minimiza el uso de recursos, es necesario encontrar la combinación correcta entre coherencia y rendimiento.
 
 ### Almacenamiento en caché de la capa de aplicación
-Algunas aplicaciones de base de datos contienen cargas de trabajo con operaciones de lectura intensivas. Es posible usar capas de almacenamiento en caché para reducir la carga en la base de datos y para reducir el nivel de rendimiento necesario para admitir una base de datos con Base de datos SQL de Azure. [Caché en Redis de Azure](https://azure.microsoft.com/services/cache) permite a un cliente con una carga de trabajo con muchas operaciones de lectura leer los datos una vez (o quizás una vez por cada equipo de capa de aplicación, según cómo esté configurada) y almacenar esos datos fuera de Base de datos SQL de Azure. Esto permite reducir la carga de la base de datos (CPU y E/S de lectura), pero afecta a la coherencia transaccional porque los datos que se leen de la memoria caché podrían estar sin actualizar respecto a los datos de la base de datos. Aunque hay muchas aplicaciones donde es aceptable una cierta cantidad de incoherencias, esto no es así para todas las cargas de trabajo. Debe comprender totalmente los requisitos de una aplicación antes de emplear una estrategia de almacenamiento en caché de la capa de aplicación.
+Algunas aplicaciones de base de datos contienen cargas de trabajo con operaciones de lectura intensivas. Es posible usar capas de almacenamiento en caché para reducir la carga en la base de datos y para reducir el nivel de rendimiento necesario para admitir una base de datos con Base de datos SQL de Azure. [Caché en Redis de Azure](https://azure.microsoft.com/services/cache) permite a un cliente con una carga de trabajo con muchas operaciones de lectura leer los datos una vez (o una vez por cada equipo de capa de aplicación, según cómo esté configurada) y almacenar esos datos fuera de Base de datos SQL de Azure. Esto permite reducir la carga de la base de datos (CPU y E/S de lectura), pero afecta a la coherencia transaccional porque los datos que se leen de la memoria caché podrían estar sin actualizar respecto a los datos de la base de datos. Aunque hay muchas aplicaciones donde es aceptable una cierta cantidad de incoherencias, esto no es así para todas las cargas de trabajo. Debe comprender totalmente los requisitos de una aplicación antes de emplear una estrategia de almacenamiento en caché de la capa de aplicación.
 
 ## Conclusión
 
 Los niveles de servicio de Base de datos SQL de Azure le permiten elevar el listón de los tipos de aplicaciones que puede compilar en la nube. Cuando se combina con la optimización de aplicaciones, puede obtener un rendimiento eficaz y confiable para su aplicación. Este documento describe las técnicas recomendadas para optimizar el consumo de recursos de la base de datos que encaja perfectamente en uno de los niveles de rendimiento. La optimización es un ejercicio continuado en el modelo de nube, y los niveles de servicio y sus niveles de rendimiento permiten a los administradores maximizar el rendimiento y minimizar los costos en la plataforma de Microsoft Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

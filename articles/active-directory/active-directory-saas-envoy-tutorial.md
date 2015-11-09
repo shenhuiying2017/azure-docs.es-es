@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: integración de Azure Active Directory con Envoy | Microsoft Azure" description="Aprenda a usar Envoy con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: integración de Azure Active Directory con Envoy | Microsoft Azure" 
+    description="Aprenda a usar Envoy con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." 
+    services="active-directory" 
+    authors="MarkusVi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: integración de Azure Active Directory con Envoy
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=524324).
   
 El objetivo de este tutorial es mostrar la integración de Azure y Envoy. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Un inquilino de Envoy
   
-Después de completar este tutorial, los usuarios de Azure AD que haya asignado a Envoy podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Envoy (inicio de sesión iniciado por el proveedor de servicios) o desde [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586)
+Después de completar este tutorial, los usuarios de Azure AD que haya asignado a Envoy podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Envoy (inicio de sesión iniciado por el proveedor de servicios) o desde [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
   
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
@@ -46,7 +59,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
     ![Galería de aplicaciones](./media/active-directory-saas-envoy-tutorial/IC776760.png "Galería de aplicaciones")
 
-7.  En el panel de resultados, seleccione **Envoy** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+7.  En el panel de resultados, seleccione **Envoy** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![Envoy](./media/active-directory-saas-envoy-tutorial/IC776777.png "Envoy")
 ##Configuración del inicio de sesión único
@@ -59,25 +72,25 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     ![Habilitar inicio de sesión único](./media/active-directory-saas-envoy-tutorial/IC776778.png "Habilitar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en Envoy?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en Envoy?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-envoy-tutorial/IC776779.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Envoy**, escriba su dirección URL con el siguiente patrón "*https://\<nombreDeInquilino>.Envoy.com*" y, a continuación, haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Envoy**, escriba su dirección URL con el siguiente patrón "*https://\<nombreDeInquilino>.Envoy.com*" y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-envoy-tutorial/IC776780.png "Configurar dirección URL de la aplicación")
 
-4.  En la página **Configurar inicio de sesión único en Envoy**, para descargar el certificado, haga clic en **Descargar certificado** y, a continuación, guarde el archivo de certificado localmente como **c:\\Envoy.cer**.
+4.  En la página **Configurar inicio de sesión único en Envoy**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado localmente como **c:\\Envoy.cer**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-envoy-tutorial/IC776781.png "Configurar inicio de sesión único")
 
 5.  En otra ventana del explorador web, inicie sesión en el sitio de la compañía de Envoy como administrador.
 
-6.  En la barra de herramientas de la parte superior, haga clic en el icono de **configuración**.
+6.  En la barra de herramientas de la parte superior, haga clic en el icono de **Configuración**.
 
     ![Envoy](./media/active-directory-saas-envoy-tutorial/IC776782.png "Envoy")
 
-7.  Haga clic en **Company** (Compañía).
+7.  Haga clic en **Compañía**.
 
     ![Compañía](./media/active-directory-saas-envoy-tutorial/IC776783.png "Compañía")
 
@@ -91,11 +104,11 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     >[AZURE.NOTE]La aplicación genera automáticamente el valor del identificador de ubicación de la sede central.
 
-    1.  Copie el valor de **Huella digital** del certificado exportado y, a continuación, péguelo en el cuadro de texto **Fingerprint** (Huella digital).  
+    1.  Copie el valor de **Huella digital** del certificado exportado y luego péguelo en el cuadro de texto **Huella digital**.  
 
-        >[AZURE.TIP]Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP]Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
-    2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Envoy**, copie el valor de **Dirección URL de SSO de SAML** y péguelo en el cuadro de texto **Identity Provider HTTP SAML URL** (Dirección URL de SAML para HTTP del proveedor de identidades).
+    2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Envoy**, copie el valor de **Dirección URL de SSO de SAML** y péguelo en el cuadro de texto **Dirección URL de SAML para HTTP del proveedor de identidades**.
     3.  Haga clic en **Guardar cambios**.
 
 10. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
@@ -116,10 +129,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-envoy-tutorial/IC776787.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-envoy-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

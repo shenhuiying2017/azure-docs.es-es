@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/03/2015"
+   ms.date="10/26/2015"
    ms.author="joaoma" />
 
 # Introducción a la configuración de un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure
@@ -44,7 +44,7 @@ Antes de crear un equilibrador de carga hay que configurar los siguientes elemen
 
 Para obtener más información acerca de los componentes del equilibrador de carga con el Administrador de recursos de Azure en [Compatibilidad del Administrador de recursos de Azure con el equilibrador de carga](load-balancer-arm.md).
 
-Los pasos siguientes muestran cómo configurar un equilibrador de carga para equilibrar la carga entre dos máquinas virtuales.
+Los pasos siguientes muestran cómo configurar un equilibrador de carga entre dos máquinas virtuales.
 
 
 ## Paso a paso con PowerShell
@@ -109,6 +109,7 @@ Cree una dirección IP pública que usará el grupo de direcciones IP front-end:
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip 
 
+>[AZURE.NOTE]La propiedad de etiqueta nombre de dominio de dirección IP pública será el FQDN del equilibrador de carga.
 
 ## Creación de un grupo de direcciones IP front-end y un grupo de direcciones back-end
 
@@ -241,7 +242,37 @@ PS C:\> $backendnic1
 
 Use el comando Add-AzureVMNetworkInterface para asignar el NIC a una máquina virtual.
 
-Encontrará instrucciones paso a paso para crear una máquina virtual y asignarla a un NIC en el artículo [Creación y preconfiguración de una máquina virtual de Windows con el Administrador de recursos y Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)
+Encontrará instrucciones paso a paso para crear una máquina virtual y asignarla a un NIC en el artículo [Creación y preconfiguración de una máquina virtual de Windows con el Administrador de recursos y Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example), opción 4 o 5.
+
+## Actualización de un equilibrador de carga existente
+
+
+### Paso 1
+
+Con el equilibrador de carga del ejemplo anterior, asigne el objeto del equilibrador de carga a la variable $slb mediante Get-AzureLoadBalancer
+
+	$slb=get-azureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
+
+### Paso 2
+
+En el ejemplo siguiente, agregará una nueva regla de NAT de entrada mediante el puerto 81 en el front-end y el puerto 8181 para el grupo de back-end a un equilibrador de carga existente
+
+	$slb | Add-AzureLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+
+
+### Paso 3
+
+Guarde la nueva configuración mediante Set-AzureLoadBalancer
+
+	$slb | Set-AzureLoadBalancer
+
+## Elimine un equilibrador de carga
+
+Use el comando Remove-AzureLoadBalancer para eliminar un equilibrador de carga creado previamente denominado "NRP-LB" en un grupo de recursos denominado "NRP-RG"
+
+	Remove-AzureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
+
+>[AZURE.NOTE]Puede usar el conmutador opcional -Force para evitar la solicitud de eliminación.
 
 
 ## Otras referencias
@@ -251,4 +282,4 @@ Encontrará instrucciones paso a paso para crear una máquina virtual y asignarl
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

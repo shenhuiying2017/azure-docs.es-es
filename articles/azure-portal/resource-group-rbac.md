@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Administración y auditoría del acceso a los recursos"
+   pageTitle="Administración del acceso a los recursos"
    description="Utilice el control de acceso basado en roles (RBAC) para administrar permisos de usuario para los recursos implementados en Azure."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="10/28/2015"
    ms.author="tomfitz"/>
 
 # Administración del acceso a los recursos
@@ -265,7 +265,8 @@ Cree la asignación de rol.
 - Para obtener más información sobre el control de acceso basado en roles, consulte [Control de acceso basado en roles en el Portal de Microsoft Azure](../role-based-access-control-configure.md).
 - Para obtener más información sobre cómo trabajar con entidades de seguridad de servicio para administrar el acceso a las aplicaciones de su suscripción, vea [Autenticación de una entidad de seguridad de servicio a través del Administrador de recursos de Azure](../resource-group-authenticate-service-principal.md) y [Creación de una nueva entidad de seguridad de servicio de Azure mediante el portal clásico de Azure](../resource-group-create-service-principal-portal.md).
 - Para obtener más información sobre las operaciones de auditoría de su organización, consulte [Operaciones de auditoría con el Administrador de recursos](../resource-group-audit.md).
+- Puede aplicar restricciones y convenciones a través de su suscripción con directivas personalizadas. Para obtener más información, consulte [Uso de directivas para administrar los recursos y controlar el acceso](../resource-manager-policy.md).
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

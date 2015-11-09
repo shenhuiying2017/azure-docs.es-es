@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="10/27/2015" 
 	ms.author="spelluru"/>
 
 # Actividades de movimiento de datos
@@ -27,20 +27,21 @@ Este tipo de actividad copia los datos de un almacén de datos de **origen** a u
 
 | **Origen** | **Sink** |
 | ------ | ---- |
-| [Blob de Azure](data-factory-azure-blob-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, Azure DocumentDB, sistema de archivos local |
-| [Tabla de Azure](data-factory-azure-table-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, Azure DocumentDB |
-| [Base de datos SQL de Azure](data-factory-azure-sql-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, Azure DocumentDB |
-| [Almacenamiento de datos SQL de Azure](data-factory-azure-sql-data-warehouse-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, Azure DocumentDB |
-| [DocumentDB de Azure](data-factory-azure-documentdb-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure |
-| [SQL Server en IaaS](data-factory-sqlserver-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
-| [Sistema de archivos local](data-factory-onprem-file-system-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, sistema de archivos local |
-| [SQL Server local](data-factory-sqlserver-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
-| [Base de datos de Oracle local](data-factory-onprem-oracle-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
-| [Base de datos MySQL local](data-factory-onprem-mysql-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
-| [Base de datos DB2 local](data-factory-onprem-db2-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
-| [Base de datos Teradata local](data-factory-onprem-teradata-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
-| [Base de datos Sybase local](data-factory-onprem-sybase-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
-| [Base de datos PostgreSQL local](data-factory-onprem-postgresql-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
+| [Blob de Azure](data-factory-azure-blob-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, Azure DocumentDB, sistema de archivos local, tienda de Azure Data Lake |
+| [Tabla de Azure](data-factory-azure-table-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, Azure DocumentDB, Almacén de Azure Data Lake |
+| [Base de datos SQL de Azure](data-factory-azure-sql-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, Azure DocumentDB, Almacén de Azure Data Lake |
+| [Almacenamiento de datos SQL de Azure](data-factory-azure-sql-data-warehouse-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, Azure DocumentDB, Almacén de Azure Data Lake |
+| [DocumentDB de Azure](data-factory-azure-documentdb-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, Almacén de Azure Data Lake |
+| [Almacén de Azure Data Lake](data-factory-azure-datalake-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, Azure DocumentDB, sistema de archivos local, tienda de Azure Data Lake | 
+| [SQL Server en IaaS](data-factory-sqlserver-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, Almacén de Azure Data Lake |
+| [Sistema de archivos local](data-factory-onprem-file-system-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, sistema de archivos local, Almacén de Azure Data Lake |
+| [SQL Server local](data-factory-sqlserver-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, Almacén de Azure Data Lake |
+| [Base de datos de Oracle local](data-factory-onprem-oracle-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, Almacén de Azure Data Lake |
+| [Base de datos MySQL local](data-factory-onprem-mysql-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, Almacén de Azure Data Lake |
+| [Base de datos DB2 local](data-factory-onprem-db2-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, Almacén de Azure Data Lake |
+| [Base de datos Teradata local](data-factory-onprem-teradata-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, Almacén de Azure Data Lake |
+| [Base de datos Sybase local](data-factory-onprem-sybase-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, Almacén de Azure Data Lake |
+| [Base de datos PostgreSQL local](data-factory-onprem-postgresql-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, SQL Server local, SQL Server en IaaS, Almacén de Azure Data Lake |
 
 ## <a name="copyactivity"></a>Actividad de copia
 La actividad de copia toma un conjunto de datos de entrada (**origen**) y copia los datos de acuerdo con la configuración de la actividad en un conjunto de datos de salida (**receptor**). La copia de datos se realiza por lotes según la programación especificada en la actividad.
@@ -101,4 +102,4 @@ En el caso de la actividad de copia, la sección **typeProperties** varía en fu
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

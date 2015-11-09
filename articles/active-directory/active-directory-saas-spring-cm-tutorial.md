@@ -1,7 +1,20 @@
-<properties pageTitle="Tutorial: Integración de Azure Active Directory con SpringCM | Microsoft Azure" description="Aprenda cómo usar SpringCM con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integración de Azure Active Directory con SpringCM | Microsoft Azure" 
+    description="Aprenda cómo usar SpringCM con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: integración de Azure Active Directory con SpringCM
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=536554).
   
 El objetivo de este tutorial es mostrar cómo configurar el inicio de sesión único entre Azure Active Directory y SpringCM.
   
@@ -71,7 +84,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-spring-cm-tutorial/IC797049.png "Configurar dirección URL de la aplicación")
 
-4.  En la página **Configurar inicio de sesión único en SpringCM**, para descargar el certificado, haga clic en **Descargar certificado** y, a continuación, guarde el archivo de certificado localmente en el equipo.
+4.  En la página **Configurar inicio de sesión único en SpringCM**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado localmente en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-spring-cm-tutorial/IC797050.png "Configurar inicio de sesión único")
 
@@ -87,11 +100,11 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     1.  Para cargar el certificado descargado de Azure Active Directory, haga clic en **Seleccionar certificado de emisor** o **Cambiar el certificado del emisor**.
     2.  En el portal de Microsoft Azure, en la página **Configurar inicio de sesión único en SpringCM**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Emisor**.
-    3.  En el portal de Microsoft Azure, en la página **Configurar inicio de sesión único en SpringCM**, copie el valor de **URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Extremo iniciado por el proveedor de servicios (SP)**.
+    3.  En el portal de Microsoft Azure, en la página **Configurar inicio de sesión único en SpringCM**, copie el valor de **URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Punto de conexión iniciado por el proveedor de servicios (SP)**.
     4.  Como **SAML habilitado**, seleccione **Habilitar**.
     5.  Haga clic en **Guardar**.
 
-8.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+8.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-spring-cm-tutorial/IC797053.png "Configurar inicio de sesión único")
 
@@ -99,7 +112,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
   
 Para permitir que los usuarios de Azure Active Directory inicien sesión en SpringCM, deben aprovisionarse en SpringCM. En el caso de SpringCM, el aprovisionamiento es una tarea manual.
 
->[AZURE.NOTE]Para obtener más información, vea [Crear y editar un usuario de SpringCM](http://knowledge.springcm.com/create-and-edit-a-springcm-user)
+>[AZURE.NOTE]Para obtener más información, vea [Crear y editar un usuario de SpringCM](http://knowledge.springcm.com/create-and-edit-a-springcm-user).
 
 ###Para aprovisionar cuentas de usuario a SpringCM, realice los siguientes pasos:
 
@@ -139,6 +152,6 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Sí](./media/active-directory-saas-spring-cm-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

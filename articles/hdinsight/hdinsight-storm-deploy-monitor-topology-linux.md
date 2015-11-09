@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/04/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 # Implementación y administración de topologías de Apache Storm en HDInsight basado en Linux
@@ -143,7 +143,14 @@ Para obtener más información, consulte la <a href="https://github.com/apache/s
 
 ### URI base
 
-El URI base para la API de REST en clústeres de HDInsight basado en Linux es **https://headnode0:8744/api/v1/</a>**.
+El URI base para la API de REST en clústeres de HDInsight basado en Linux está disponible en el nodo principal en ****https://HEADNODEFQDN:8744/api/v1/**; sin embargo, el nombre del dominio del nodo principal se genera durante la creación del clúster y no es estático.
+
+Puede encontrar el nombre de dominio completo (FQDN) del nodo principal del clúster de varias maneras distintas:
+
+* __Desde una sesión de SSH__: use el comando `headnode -f` desde una sesión SSH al clúster.
+* __Desde Web de Ambari__: seleccione __Servicios__ en la parte superior de la pantalla y, luego, seleccione __Storm__. En la pestaña __Resumen__, seleccione __Servidor de IU de Storm__. El FQDN del nodo donde se ejecutan IU de Storm y la API de REST aparecerá en la parte superior de la página.
+* __Desde la API de REST de Ambari__: use el comando `curl -u admin:PASSWORD -G "https://CLUSTERNAME
+.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` para recuperar información sobre el nodo en que se ejecutan la UI de Storm y la API de REST. Reemplace __PASSWORD__ por la contraseña de administrador del clúster. Reemplace __CLUSTERNAME__ por el nombre del clúster. En la respuesta, la entrada "host\_name" contiene el FQDN del nodo.
 
 ### Autenticación
 
@@ -157,8 +164,8 @@ La información que se devuelve de la API de REST solo se puede utilizar desde d
 
 ## Pasos siguientes
 
-Ahora que ha aprendido cómo implementar y supervisar topologías mediante el panel de Storm, aprenda a [Desarrollar topologías basadas en Java mediante Maven](hdinsight-storm-develop-java-topology.md).
+Ahora que aprendió a implementar y supervisar topologías mediante el panel de Storm, aprenda a [Desarrollar topologías basadas en Java mediante Maven](hdinsight-storm-develop-java-topology.md).
 
 Para obtener una lista con más topologías de ejemplo, consulte [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="genemi"/>
 
 
@@ -65,6 +65,8 @@ Los errores transitorios también se denominan a veces anomalías transitorias. 
 **Nota:** es posible que los errores de federación 10053 y 10054 requieran también la inclusión en su lógica de reintento.
 
 
+<a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
+
 ## Errores de copia de base de datos
 
 
@@ -88,6 +90,8 @@ En la tabla siguiente se describen los diversos errores que puede encontrarse al
 |40571|16|No se pudo copiar la base de datos debido a un error interno. Quite la base de datos de destino y vuelva a intentarlo más adelante.|
 
 
+<a id="bkmk_c_resource_gov_errors" name="bkmk_c_resource_gov_errors">&nbsp;</a>
+
 ## Errores de regulación de recursos
 
 
@@ -103,26 +107,28 @@ En la tabla siguiente se muestran los errores causados por un uso excesivo de re
 **Sugerencia:** el vínculo siguiente ofrece más información que se aplica a la mayoría de los errores de esta sección o a todos ellos:
 
 
-- [Límites de recursos de Base de datos SQL](http://msdn.microsoft.com/library/azure/dn338081.aspx)
+- [Límites de recursos de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn338081.aspx).
 
 
 |Número de error|Gravedad|Descripción|
 |---:|---:|:---|
-|10928|20|Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para obtener más información, visite [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el identificador de recurso = 2.<br/><br/>*Nota:* para obtener más información sobre este error y sobre cómo resolverlo, vea:<br/>• [Gobernanza de recursos de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx). |
-|10929|20|Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para obtener más información, visite [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). De lo contrario, vuelva a intentarlo más tarde.<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el identificador de recurso = 2.<br/><br/>*Nota:* para obtener más información sobre este error y sobre cómo resolverlo, vea:<br/>• [Gobernanza de recursos de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx).|
+|10928|20|Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para obtener más información, visite [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>El identificador de recurso indica el recurso que alcanzó el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el identificador de recurso = 2.<br/><br/>*Nota:* para obtener más información sobre este error y sobre cómo resolverlo, consulte:<br/>• [Gobernanza de recursos de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx). |
+|10929|20|Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para obtener más información, visite [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). De lo contrario, vuelva a intentarlo más tarde.<br/><br/>El identificador de recurso indica el recurso que alcanzó el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el identificador de recurso = 2.<br/><br/>*Nota:* para obtener más información sobre este error y sobre cómo resolverlo, consulte:<br/>• [Gobernanza de recursos de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx).|
 |40544|20|La base de datos ha alcanzado su cuota de tamaño. Cree particiones o elimine datos, quite índices o consulte la documentación para obtener soluciones posibles.|
 |40549|16|La sesión terminó porque tiene una transacción de larga duración. Intente reducir la transacción.|
 |40550|16|La sesión ha terminado porque ha adquirido demasiados bloqueos. Intente leer o modificar menos filas en una sola transacción.|
-|40551|16|La sesión ha terminado debido al uso excesivo de `TEMPDB`. Intente modificar su consulta para reducir el uso del espacio de tabla temporal.<br/><br/>*Sugerencia: * si está usando objetos temporales, puede ahorrar espacio en la base de datos `TEMPDB` quitando objetos temporales cuando la sesión ya no los necesite.|
-|40552|16|La sesión ha terminado debido al excesivo uso de espacio del registro de transacciones. Intente modificar menos filas en una sola transacción.<br/><br/>*Sugerencia:* si realiza inserciones masivas con la utilidad `bcp.exe` o la clase `System.Data.SqlClient.SqlBulkCopy`, intente usar las opciones `-b batchsize`o `BatchSize` para limitar el número de filas copiadas al servidor en cada transacción. Si está volviendo a crear un índice con la instrucción `ALTER INDEX`, intente usar la opción `REBUILD WITH ONLINE = ON`.|
+|40551|16|La sesión ha terminado debido al uso excesivo de `TEMPDB`. Intente modificar su consulta para reducir el uso del espacio de tabla temporal.<br/><br/>*Sugerencia: * si usa objetos temporales, puede ahorrar espacio en la base de datos `TEMPDB` quitando objetos temporales cuando la sesión ya no los necesite.|
+|40552|16|La sesión ha terminado debido al excesivo uso de espacio del registro de transacciones. Intente modificar menos filas en una sola transacción.<br/><br/>*Sugerencia:* si realiza inserciones masivas con la utilidad `bcp.exe` o la clase `System.Data.SqlClient.SqlBulkCopy`, intente usar las opciones `-b batchsize`o `BatchSize` para limitar el número de filas copiadas al servidor en cada transacción. Si vuelve a crear un índice con la instrucción `ALTER INDEX`, intente usar la opción `REBUILD WITH ONLINE = ON`.|
 |40553|16|La sesión ha terminado debido al uso excesivo de la memoria. Intente modificar su consulta para procesar menos filas.<br/><br/>*Sugerencia:* la reducción del número de operaciones `ORDER BY` y `GROUP BY` en el código de Transact-SQL reduce los requisitos de memoria de la consulta.|
 
 
 Para obtener más información sobre la regulación de recursos y los errores asociados, vea:
 
 
-- [Regulación de recursos de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx).
+- [Gobernanza de recursos de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn338078.aspx).
 
+
+<a id="bkmk_d_federation_errors" name="bkmk_d_federation_errors">&nbsp;</a>
 
 ## Errores de federación
 
@@ -134,23 +140,23 @@ En la tabla siguiente se muestran los errores que puede encontrar al trabajar co
 > 
 > La característica de escalado elástico está diseñada para crear aplicaciones de particionamiento con el mínimo esfuerzo.
 > 
-> Para obtener más información acerca del escalado elástico, consulte [Temas de escalado elástico de la base de datos SQL de Azure](sql-database-elastic-scale-documentation-map.md). Considere la posibilidad de implementar soluciones de particionamiento personalizadas para maximizar la escalabilidad, la flexibilidad y el rendimiento. Para obtener más información sobre el particionamiento personalizado, consulte [Escalado horizontal de bases de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn495641.aspx).
+> Para obtener más información acerca del escalado elástico, consulte [Temas de escalado elástico de Base de datos SQL de Azure](sql-database-elastic-scale-documentation-map.md). Considere la posibilidad de implementar soluciones de particionamiento personalizadas para maximizar la escalabilidad, la flexibilidad y el rendimiento. Para obtener más información sobre el particionamiento personalizado, consulte [Escalado horizontal de Bases de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn495641.aspx).
 
 
 |Número de error|Gravedad|Descripción|Mitigación|
 |---:|---:|:---|:---|
-|266|16|No se permite la instrucción <statement> en las transacciones con múltiples instrucciones.|Compruebe que `@@trancount`es 0 en la conexión antes de emitir la instrucción.|
+|266|16|No se permite la instrucción <statement> en las transacciones con múltiples instrucciones.|Compruebe que `@@trancount` es 0 en la conexión antes de emitir la instrucción.|
 |2072|16|La base de datos '%.&#x2a;ls' no existe|Compruebe `sys.databases` para el estado de la base de datos antes de emitir `USE FEDERATION`.|
-|2209|16|%s Error de sintaxis cerca de '%ls'|`FEDERATED ON` solo se puede usar al crear tablas en miembros de federación.|
+|2209|16|%s Error de sintaxis cerca de '%ls'|`FEDERATED ON` solo se puede usar cuando se crean tablas en miembros de federación.|
 |2714|16|Ya hay un objeto con el nombre ‘%.&#x2a;ls’ en la base de datos|Ya existe el nombre de federación.|
 |10054, 10053|20|Error en el nivel del transporte al recibir los resultados del servidor. Se ha anulado una conexión establecida por el software en su equipo host.|Implemente la lógica de reintento en la aplicación.|
 |40530|15|<statement> debe ser la única instrucción del lote|Asegúrese de que no hay ninguna instrucción en el lote|
 |40604|16|No se pudo `CREATE DATABASE` porque se superaría la cuota del servidor|Expanda la cuota de número de bases de datos de servidor|
 |45000|16|Error en la operación <statement>. El nombre de federación especificado <federation_name> no es válido|El nombre de federación no cumple con las reglas de nombres de federación o no es un identificador válido|
 |45001|16|Error en la operación <statement>. El nombre de federación especificado no existe|El nombre de federación no existe|
-|45002|16|Error en la operación <statement>. El nombre de la clave de federación <distribution_name> no es válido|Clave de federación no válida o inexistente|
-|45004|16|Error en la operación <statement>. El valor especificado no es válido para la clave de federación <distribution_name> y la federación <federation_name>|`USE FEDERATION`: Use un valor de límite que se encuentre en el dominio del tipo de datos de la clave de federación o que no sea NULL.<br/><br/>`ALTER FEDERATION SPLIT`: Use un valor válido en el dominio de la clave de federación que no sea ya un punto de división existente.<br/><br/>`ALTER FEDERATION DROP`: Use un valor válido en el dominio de la clave de federación que ya sea un punto de división.|
-|45005|16|No se puede ejecutar <statement> mientras otra operación de federación está en curso en la federación <federation_name> y el miembro con id <member_id>|Espere a que finalice la operación simultánea.|
+|45002|16|Error en la operación <statement>. El nombre de la clave de federación especificado <distribution_name> no es válido|Clave de federación no válida o inexistente|
+|45004|16|Error en la operación <statement>. El valor especificado no es válido para la clave de federación <distribution_name> y la federación <federation_name>|`USE FEDERATION`: use un valor de límite que se encuentre en el dominio del tipo de datos de la clave de federación o que no sea NULL.<br/><br/>`ALTER FEDERATION SPLIT`: use un valor válido en el dominio de la clave de federación que no sea ya un punto de división existente.<br/><br/>`ALTER FEDERATION DROP`: use un valor válido en el dominio de la clave de federación que ya sea un punto de división.|
+|45005|16|No se puede ejecutar <statement> mientras otra operación de federación está en curso en la federación <federation_name> y el miembro con Id. <member_id>|Espere a que finalice la operación simultánea.|
 |45006|16|Error en las operaciones <statement>. No se permiten las relaciones de clave externa en las tablas de referencia que hacen referencia a tablas federadas en miembros de federación|No compatible.|
 |45007|16|Error en la operación <statement>. Las relaciones de clave externa entre tablas federadas deben incluir las columnas de clave de federación.|No compatible|
 |45008|16|Error en la operación <statement>. El tipo de datos de la clave de federación no coincide con el tipo de datos de columna|No compatible.|
@@ -160,9 +166,11 @@ En la tabla siguiente se muestran los errores que puede encontrar al trabajar co
 |45012|16|El valor especificado para la clave de federación no es válido|El valor debe encontrarse en el intervalo al que se dirige la conexión.<br/><br/>Si se filtra, el valor de la clave de federación especificado.<br/><br/>Si no se filtra, el intervalo cubierto por el miembro de federación.|
 |45013|16|El SID ya existe con un nombre de usuario diferente|El SID de un usuario en un miembro de federación se copia desde el SID de la misma cuenta de usuario en la raíz de federación. Bajo determinadas condiciones, puede que el SID ya esté en uso.|
 |45014|16|%ls no se admite en %ls|Operación no admitida.|
-|45022|16|Error en la operación <statement>. El valor de límite especificado ya existe para la clave de federación <distribution_name> y federación <federation_name>|Especifique un valor que ya sea un valor de límite|
-|45023|16|Error en la operación <statement>. El valor de límite especificado no existe para la clave de federación <distribution_name> y federación <federation_name>|Especifique un valor que no sea ya un valor de límite.|
+|45022|16|Error en la operación <statement>. El valor de límite especificado ya existe para la clave de federación <distribution_name> y la federación <federation_name>|Especifique un valor que ya sea un valor de límite|
+|45023|16|Error en la operación <statement>. El valor de límite especificado no existe para la clave de federación <distribution_name> y la federación <federation_name>|Especifique un valor que no sea ya un valor de límite.|
 
+
+<a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
 
 ## Errores generales
 
@@ -209,7 +217,7 @@ En la tabla siguiente se muestran todos los errores generales que no pertenecen 
 |40611|16|Los servidores pueden tener como máximo 128 reglas de firewall definidas.|
 |40614|16|La dirección IP de inicio de la regla de firewall no puede superar la dirección IP final.|
 |40615|16|No se puede abrir el servidor '{0}' solicitado por el inicio de sesión. No está permitido que el cliente con la dirección IP '{1}' acceda al servidor. Para habilitar el acceso, use el Portal de bases de datos SQL o ejecute sp\_set\_firewall\_rule en la base de datos maestra para crear una regla de firewall para esta dirección IP o intervalo de direcciones. Puede tardar hasta cinco minutos que este cambio surta efecto.|
-|40617|16|El nombre de regla de firewall que comienza por <rule name>es demasiado largo. La longitud máxima es 128.|
+|40617|16|El nombre de la regla de firewall que comienza con <rule name> es demasiado largo. La longitud máxima es 128.|
 |40618|16|El nombre de la regla de firewall no puede estar vacío.|
 |40620|16|Error de inicio de sesión del usuario "%.&#x2a;ls". Error de cambio de contraseña. El cambio de contraseña durante el inicio de sesión no se admite en esta versión de SQL Server.|
 |40627|20|La operación en el servidor '{0}' y la base de datos '{1}' está en curso. Espere algunos minutos antes de volver a intentarlo.|
@@ -231,7 +239,7 @@ En la tabla siguiente se muestran todos los errores generales que no pertenecen 
 |40649|16|Se ha especificado un content-type no válido. Solo se admite application/xml.|
 |40650|16|La suscripción <subscription-id> no existe o no está lista para la operación.|
 |40651|16|No se pudo crear el servidor porque la suscripción <subscription-id> está deshabilitada.|
-|40652|16|No se puede mover ni crear un servidor. La suscripción <subscription-id> excederá la cuota|
+|40652|16|No se puede mover ni crear un servidor. La suscripción <subscription-id> excederá la cuota del servidor.|
 |40671|17|Error de comunicación entre la puerta de enlace y el servicio de administración. Inténtelo de nuevo más tarde.|
 |45168|16|El sistema de SQL Azure está bajo carga y está colocando un límite superior en operaciones DB CRUD simultáneas para un único servidor (por ejemplo, crear base de datos). El servidor especificado en el mensaje de error ha superado el número máximo de conexiones simultáneas. Inténtelo de nuevo más tarde.|
 |45169|16|El sistema de SQL Azure está bajo carga y está colocando un límite superior en operaciones CRUD de servidor simultáneas para una única suscripción (por ejemplo, crear servidor). La suscripción especificada en el mensaje de error ha superado el número máximo de conexiones simultáneas y se denegó la solicitud. Inténtelo de nuevo más tarde.|
@@ -242,4 +250,4 @@ En la tabla siguiente se muestran todos los errores generales que no pertenecen 
 - [Instrucciones y limitaciones generales de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [Administración de recursos](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

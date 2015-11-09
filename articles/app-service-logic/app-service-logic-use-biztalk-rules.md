@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/01/2015"
+   ms.date="10/28/2015"
    ms.author="andalmia"/>
 
 #Reglas de BizTalk
@@ -91,38 +91,41 @@ Vamos a usar ahora reglas de negocios para implementar esta lógica de negocios.
 ##Creación de la aplicación de API de reglas
 
 
-1. Inicie sesión en el portal de Azure y vaya a la página principal.
-1. Haga clic en Nuevo->Azure Marketplace->Aplicaciones de API->Reglas de Biz Talk->Crear ![Texto alternativo][3]
+1. Inicie sesión en el Portal de Azure.
+2. Seleccione Nuevo -> Marketplace y busque *Reglas de BizTalk*.
+3. Seleccione las reglas de BizTalk de la lista de resultados. Se abre la hoja Reglas de BizTalk.
+4. Seleccione el botón *Crear*. ![Texto alternativo][3]
 1. En la nueva hoja que se abre, escriba la siguiente información:  
 	1. Nombre: proporcione un nombre para su aplicación de API de reglas
-	1. Plan de hospedaje de aplicaciones: seleccione o cree un plan de hospedaje web
+	1. Plan del Servicio de aplicaciones: seleccione o cree un nuevo plan del Servicio de aplicaciones
 	1. Nivel de precios: elija el nivel de precios en el que desea que resida esta aplicación
 	1. Grupo de recursos: seleccione o cree el grupo de recursos donde debe residir la aplicación
+	2. Suscripción: seleccione la suscripción que desea usar
 	1. Ubicación: elija la ubicación geográfica en la que desearía implementar la aplicación.
-4.	Haga clic en Crear. En unos minutos su aplicación de API de reglas de BizTalk se habrá creado.
+4.	Seleccione *Crear*. En unos minutos su aplicación de API de reglas de BizTalk se habrá creado.
 
 ##Creación de vocabulario
-Tras crear una aplicación de API de reglas de BizTalk, el siguiente paso sería crear vocabularios. Lo normal es que sea el desarrollador el que se encargue de esta tarea. Para ello, siga estos pasos:
+Tras crear una aplicación de API de reglas de BizTalk, el siguiente paso sería crear vocabularios. Lo normal es que sea el desarrollador el que se encargue de esta tarea. Aquí se muestra cómo hacer esto:
 
 
-1. Vaya a la aplicación de API que ha creado; para ello, seleccione Examinar->Aplicaciones de API-><Your Rules API App>. Esto debería llevarle a un Panel de la aplicación de API de reglas parecido al siguiente:
+1. Inicie la aplicación de API de Reglas de BizTalk en el portal; para ello, vaya a Examinar->Aplicaciones de API-><Your Rules API App>. Se dirigirá al panel de la aplicación de API de reglas, parecido a este:
 
    ![Texto alternativo][4]
 
 2.A continuación, haga clic en "Definiciones de vocabulario". Se mostrará la pantalla para la creación de vocabulario. Haga clic en “Agregar” para comenzar a agregar nuevas definiciones de vocabulario. 
-Actualmente se admiten dos tipos de definiciones de vocabulario: literal y XML.
 
 ##Definición literal
 1.	Después de hacer clic en “Agregar”, se abre una nueva hoja para “Agregar definición”. Escriba los siguientes valores:
   1.	Nombre: solo se esperan caracteres alfanuméricos sin caracteres especiales. Aparte, debe ser único en su lista de definiciones de vocabulario existente.
   2.	Descripción: es un campo opcional.
-  3.	Tipo: se admiten dos tipos. En este ejemplo, elija Literal
+  3.	Tipo de definición: se admiten dos tipos. En este ejemplo, elija Literal
   4.	Tipo de entrada: aquí los usuarios pueden seleccionar el tipo de dato de la definición. Actualmente se pueden seleccionar cuatro tipos: 
     i. Cadena: estos valores deben escribirse entre comillas dobles ("cadena de ejemplo")  
     ii. Booleano: puede tener el valor verdadero o falso  
     iii. Número: puede ser cualquier número decimal  
     iv. DateTime: esto significa que la definición es de tipo fecha. Los datos se deben escribir con el formato: mm/dd/yyyy hh:mm:ss AM\PM  
-    v. Entrada: aquí se escribe el valor de su definición. Los valores aquí especificados deben ajustarse al tipo de dato elegido. El usuario puede escribir un solo valor, un conjunto de valores separados por coma o un intervalo de valores mediante la palabra clave to (a). Por ejemplo, el usuario puede escribir un valor único 1; un conjunto 1, 2, 3; o un intervalo de 1 a 5. Tenga en cuenta que el intervalo solo se permite para números.
+  5. Entrada: aquí se escribe el valor de su definición. Los valores aquí especificados deben ajustarse al tipo de dato elegido. Puede escribir un solo valor, un conjunto de valores separados por coma o un intervalo de valores mediante la palabra clave *to* (a). Por ejemplo, puede escribir un valor único 1; un conjunto 1, 2, 3; o un intervalo de 1 a 5. Tenga en cuenta que el intervalo solo se permite para números.
+  6. Seleccione *Aceptar*.
 
 ![Texto alternativo][5]
 ##Definición de XML
@@ -191,13 +194,13 @@ Cada regla de la directiva se puede habilitar o deshabilitar. De forma predeterm
 Todas las reglas de una directiva se ejecutan en orden. La prioridad de la ejecución viene determinada por el orden en el que tienen lugar en la directiva. Esta prioridad se puede cambiar con solo arrastrar y colocar la regla.
 
 ##Prueba de directivas
-Después de crear la directiva y antes de usarla en el entorno de producción, puede probarla. Con el comando “Probar directiva”, los usuarios pueden entrar en la hoja Probar directiva. En esta hoja, puede ver una lista de definiciones de vocabulario que se usan en la directiva que requieren que el usuario proporcione datos. Los usuarios pueden agregar valores manualmente para estas entradas de su escenario de prueba. Como alternativa, los usuarios pueden elegir también importar XML de prueba para las entradas. Después de haberse realizado todas las entradas, se puede ejecutar la prueba y las salidas de cada definición de vocabulario se mostrarán en la columna de salida para que pueda compararlas fácilmente. Para ver los registros de análisis de negocios, haga clic en “Ver registros” para ver los registros de ejecución. Para guardar los registros, hay una opción “Guardar salida” que permite almacenar todos lo datos relacionados con la prueba para luego someterlos a un análisis independiente.
+Puede probar las directivas mediante el comando "Probar directiva" de la hoja Probar directiva. En esta hoja, puede ver una lista de definiciones de vocabulario que se usan en la directiva que requieren que el usuario proporcione datos. Los usuarios pueden agregar valores manualmente para estas entradas de su escenario de prueba. Como alternativa, los usuarios pueden elegir también importar XML de prueba para las entradas. Después de haberse realizado todas las entradas, se puede ejecutar la prueba y las salidas de cada definición de vocabulario se mostrarán en la columna de salida para que pueda compararlas fácilmente. Para ver los registros de análisis de negocios, haga clic en “Ver registros” para ver los registros de ejecución. Para guardar los registros, hay una opción “Guardar salida” que permite almacenar todos lo datos relacionados con la prueba para luego someterlos a un análisis independiente.
 
 ## Uso de reglas en las aplicaciones lógicas
-Después de que la directiva se ha creado y probado, está lista para su consumo. Los usuarios pueden crear una nueva aplicación lógica en Nuevo->Aplicación lógica. En el diseñador, las reglas de BizTalk están disponibles en la galería de la derecha. Estas se pueden ahora arrastrar y colocar en la superficie del diseñador. Una vez realizado esto, habrá una opción para elegir la aplicación de API de reglas (Acción) a la que dirigirse. Las acciones incluyen la lista de directivas que se van a ejecutar. Elija una directiva específica tras la cual es necesario insertar las entradas necesarias para la directiva. Los usuarios pueden usar la salida de la aplicación de API de reglas de bajada para profundizar en la toma de decisiones.
+Después de que la directiva se ha creado y probado, está lista para su consumo. Puede crear una nueva aplicación lógica si selecciona Aplicaciones lógicas en el lado izquierdo de la página principal del portal. Después de crear la aplicación lógica, iníciela y luego seleccione *Desencadenadores y acciones*. A continuación, puede seleccionar la plantilla *Crear desde cero*. Siga los pasos para agregar la aplicación de API de reglas de BizTalk a la aplicación lógica. Una vez realizado esto, habrá una opción para elegir la aplicación de API de reglas (Acción) a la que dirigirse. Las acciones incluyen la lista de directivas que se van a ejecutar. Elija una directiva específica tras la cual es necesario insertar las entradas necesarias para la directiva. Los usuarios pueden usar la salida de la aplicación de API de reglas de bajada para profundizar en la toma de decisiones.
 
 ## Uso de reglas mediante API
-La aplicación de API de reglas también se puede invocar mediante el uso de un rico conjunto de API disponibles. De esta manera los usuarios no están limitados únicamente al uso de flujos y pueden emplear reglas en cualquier aplicación mediante la realización de llamadas a REST. Las API de REST exactas disponibles se pueden ver haciendo clic en el modo "Definición de API" en el panel Reglas.
+La aplicación de API de reglas también se puede invocar mediante el uso de un completo conjunto de API. De esta manera los usuarios no están limitados únicamente al uso de aplicaciones lógicas y pueden emplear reglas en cualquier aplicación mediante la realización de llamadas a REST. Las API de REST exactas disponibles se pueden ver haciendo clic en el modo "Definición de API" en el panel Reglas.
 
 ![Texto alternativo][10]
 
@@ -248,4 +251,4 @@ Una de las principales ventajas del uso de reglas de negocios es que los cambios
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Uso de informes de mantenimiento del sistema para solucionar problemas"
-   description="Describe los informes de mantenimiento del sistema y cómo utilizarlas para solucionar problemas de clúster o de aplicación."
+   pageTitle="Solucionar problemas con los informes de estado del sistema | Microsoft Azure"
+   description="Describe los informes de estado enviados por los componentes de Azure Service Fabric y su uso para la resolución de problemas de clúster o de aplicaciones."
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Uso de informes de mantenimiento del sistema para solucionar problemas
@@ -530,4 +530,4 @@ System.Hosting notifica un error si se produce un error de validación durante l
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

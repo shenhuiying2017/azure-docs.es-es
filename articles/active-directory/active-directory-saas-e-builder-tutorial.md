@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: integración de Azure Active Directory con e-Builder | Microsoft Azure" description="Aprenda a usar e-Builder con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: integración de Azure Active Directory con e-Builder | Microsoft Azure" 
+    description="Aprenda a usar e-Builder con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: integración de Azure Active Directory con e-Builder
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=524478).
   
 El objetivo de este tutorial es mostrar la integración de Azure y e-Builder. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Un inquilino de e-Builder
   
-Después de completar este tutorial, los usuarios de Azure AD que haya asignado a e-Builder podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de e-Builder (inicio de sesión iniciado por el proveedor de servicios) o desde [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586)
+Después de completar este tutorial, los usuarios de Azure AD que haya asignado a e-Builder podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de e-Builder (inicio de sesión iniciado por el proveedor de servicios) o desde [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
   
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
@@ -46,7 +59,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 
     ![Galería de aplicaciones](./media/active-directory-saas-e-builder-tutorial/IC777379.png "Galería de aplicaciones")
 
-7.  En el panel de resultados, seleccione **e-Builder** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+7.  En el panel de resultados, seleccione **e-Builder** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![e-Builder](./media/active-directory-saas-e-builder-tutorial/IC777380.png "e-Builder")
 ##Configuración del inicio de sesión único
@@ -59,15 +72,15 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-e-builder-tutorial/IC777381.png "Configurar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en e-Builder?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en e-Builder?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-e-builder-tutorial/IC777382.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de e-Builder**, escriba su dirección URL con el siguiente patrón "*https://\<nombreDeInquilino>.e-Builder.com*" y, a continuación, haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de e-Builder**, escriba su dirección URL con el siguiente patrón "*https://\<nombreDeInquilino>.e-Builder.com*" y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-e-builder-tutorial/IC777383.png "Configurar dirección URL de la aplicación")
 
-4.  En la página **Configurar inicio de sesión único en e-Builder**, para descargar los metadatos, haga clic en **Descargar metadatos** y, a continuación, el archivo de datos localmente como **c:\\E-BuilderMetaData.xml**.
+4.  En la página **Configurar inicio de sesión único en e-Builder**, para descargar los metadatos, haga clic en **Descargar metadatos** y, luego, el archivo de datos localmente como **c:\\E-BuilderMetaData.xml**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-e-builder-tutorial/IC777384.png "Configurar inicio de sesión único")
 
@@ -91,10 +104,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-e-builder-tutorial/IC777386.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, luego, en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-e-builder-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

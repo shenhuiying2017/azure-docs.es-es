@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 # Instalación y uso de R en clústeres de Hadoop para HDInsight
@@ -91,7 +91,7 @@ Cuando termine de aprovisionar el clúster, siga estos pasos para usar R para re
 
 	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-2. En el símbolo del sistema de `username@headnode1:~$`, escriba el siguiente comando para iniciar una sesión interactiva de R:
+2. En el símbolo del sistema de `username@hn0-CLUSTERNAME:~$`, escriba el siguiente comando para iniciar una sesión interactiva de R:
 
 		R
 
@@ -148,4 +148,4 @@ Cuando termine de aprovisionar el clúster, siga estos pasos para usar R para re
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

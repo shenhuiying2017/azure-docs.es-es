@@ -195,10 +195,29 @@ Si desea obtener una lista de usuarios con datos como las páginas que ven o la 
 
 ## Reducción del tráfico de la aplicación a Application Insights
 
-* En [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), deshabilite los módulos que no necesite, como contadores de rendimiento.
-* Si está utilizando [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calcule el agregado de los lotes de los valores de métricas antes de enviar el resultado. Hay una sobrecarga de TrackMetric() que se proporciona para eso.
+* En [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), deshabilite los módulos que no necesite, como el recopilador de contadores de rendimiento.
+* Use [Muestreo y filtrado](app-insights-api-filtering-sampling.md) en el SDK.
+* Si está usando [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calcule el agregado de los lotes de los valores de métricas antes de enviar el resultado. Hay una sobrecarga de TrackMetric() que se proporciona para eso.
+
 
 Obtenga más información sobre [precios y cuotas](app-insights-pricing.md).
+
+## Deshabilitar la telemetría
+
+Para **iniciar y detener dinámicamente** la recopilación y la transmisión de telemetría desde el servidor:
+
+```
+
+    using  Microsoft.ApplicationInsights.Extensibility;
+
+    TelemetryConfiguration.Active.DisableTelemetry = true;
+```
+
+
+
+Para **deshabilitar los recopiladores estándar seleccionados**, por ejemplo, los contadores de rendimiento, las solicitudes HTTP o las dependencias, elimine o comente las líneas correspondientes en [ApplicationInsights.config](app-insights-api-custom-events-metrics.md). Podría hacer esto, por ejemplo, si quiere enviar sus propios datos de TrackRequest.
+
+
 
 ## Visualización de contadores de rendimiento del sistema
 
@@ -224,4 +243,4 @@ Entre las métricas que se pueden mostrar en el Explorador de métricas se encue
 
 Actualmente, no se supervisan los contadores de rendimiento.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

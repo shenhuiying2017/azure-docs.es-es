@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/20/2015"
+	ms.date="10/23/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -27,9 +27,9 @@
 
 Este artículo proporciona instrucciones para exportar un BACPAC de la base de datos SQL de Azure con el [portal de vista previa de Azure](https://portal.azure.com).
 
-Un BACPAC es un archivo .bacpac que contiene datos y un esquema de base de datos. Para obtener detalles, vea el paquete de copia de seguridad (.bacpac) en [Aplicaciones del nivel de datos](https://msdn.microsoft.com/library/ee210546.aspx).
+Un [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) es un archivo .bacpac que contiene datos y un esquema de base de datos. El caso de uso principal para un BACPAC es mover una base de datos de un servidor a otro, para [migrar una base de datos local a la nube](sql-database-cloud-migrate.md) y para archivar una base de datos existente en un formato abierto.
 
-> [AZURE.NOTE]La Base de datos SQL de Azure crea automáticamente copias de seguridad para cada base de datos de usuario. Para obtener detalles, vea [Información general sobre la continuidad del negocio](sql-database-business-continuity.md).
+> [AZURE.NOTE]Los BACPAC no están diseñados para usarse en operaciones de copia de seguridad y restauración. La Base de datos SQL de Azure crea automáticamente copias de seguridad para cada base de datos de usuario. Para obtener detalles, consulte [Información general sobre la continuidad del negocio](sql-database-business-continuity.md).
 
 
 El BACPAC se exporta a un contenedor de blobs de almacenamiento de Azure que puede descargar cuando se completa la operación correctamente.
@@ -38,12 +38,12 @@ Para completar este artículo, necesitará lo siguiente:
 
 - Una suscripción de Azure. Si necesita una suscripción a Azure, haga clic en la opción **PRUEBA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva para finalizar este artículo.
 - Una Base de datos SQL de Azure. Si no tiene una base de datos SQL, siga los pasos de este artículo para crear uno: [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md).
-- Una [cuenta de almacenamiento de Azure](storage-create-storage-account.md) con un contenedor de blobs para almacenar la copia de seguridad de la base de datos. Actualmente la cuenta de almacenamiento debe usar el modelo de implementación clásico; por tanto, elija **Clásica** al crear una cuenta de almacenamiento. 
+- Una [cuenta de Almacenamiento de Azure](storage-create-storage-account.md) con un contenedor de blobs para almacenar el BACPAC. Actualmente la cuenta de almacenamiento debe usar el modelo de implementación clásico; por tanto, elija **Clásica** al crear una cuenta de almacenamiento. 
 
 
 ## Exportación de la base de datos
 
-Abra la hoja de la Base de datos SQL para la base de datos que desea exportar como archivo .bacpac.
+Abra la hoja de Base de datos SQL correspondiente a la base de datos que desea exportar.
 
 > [AZURE.IMPORTANT]Para garantizar un archivo BACPAC transaccionalmente coherente, primero debe [crear una copia de la base de datos](sql-database-copy.md) y después exportar dicha copia.
 
@@ -59,7 +59,7 @@ Abra la hoja de la Base de datos SQL para la base de datos que desea exportar co
 
     ![exportar base de datos][2]
 
-1.  Escriba la información correspondiente en **Inicio de sesión de administrador de servidor** y **Contraseña** para el servidor SQL de Azure que contiene la base de datos de la que está realizando la copia de seguridad.
+1.  Escriba la información correspondiente en **Inicio de sesión de administrador de servidor** y **Contraseña** para el servidor SQL de Azure que contiene la base de datos que está exportando.
 1.  Haga clic en **Crear** para exportar la base de datos.
 
 Al hacer clic en **Crear** se crea una solicitud de base de datos de exportación y se envía al servicio. Según el tamaño de la base de datos, la operación de exportación puede tardar algún tiempo en completarse.
@@ -78,7 +78,7 @@ Al hacer clic en **Crear** se crea una solicitud de base de datos de exportació
 2.	Haga clic en **EXAMINAR TODO**.
 3.	Haga clic en **Cuentas de almacenamiento (clásico)**.
 2.	Haga clic en la cuenta de almacenamiento donde ha guardado el BACPAC.
-3.	Haga clic en **Contenedores** y seleccione el contenedor en el que exportó la base de datos para obtener detalles de la copia de seguridad (puede descargar y guardar el archivo BACPAC desde aquí).
+3.	Haga clic en **Contenedores** y seleccione el contenedor en el que exportó la base de datos para obtener detalles (puede descargar y guardar el archivo BACPAC desde aquí).
 
     ![detalles de archivo .bacpac][5]
 
@@ -103,4 +103,4 @@ Al hacer clic en **Crear** se crea una solicitud de base de datos de exportació
 [4]: ./media/sql-database-export/export-status.png
 [5]: ./media/sql-database-export/bacpac-details.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

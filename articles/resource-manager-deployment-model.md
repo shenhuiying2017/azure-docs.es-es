@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/26/2015"
    ms.author="tomfitz"/>
 
 # Descripción de la implementación del Administrador de recursos y la implementación clásica
@@ -77,7 +77,7 @@ Los recursos creados en el modelo de implementación clásica comparten las sigu
 
         ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        O bien, el portal de vista previa y el usuario deben especificar la implementación **clásica** (para cálculo, almacenamiento y redes).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -155,6 +155,8 @@ Hay algunas consideraciones importantes al trabajar en máquinas virtuales.
 - Las máquinas virtuales implementadas con el modelo de implementación del Administrador de recursos deben incluirse en una red virtual.
 - Las máquinas virtuales implementadas con el modelo de implementación clásica no deben incluirse en una red virtual.
 
+Si puede permitirse disponer de tiempo de inactividad para las máquinas virtuales, puede realizar la transición desde la implementación clásica hasta el administrador de recursos con los [scripts PowerShell de ASM2ARM](https://github.com/fullscale180/asm2arm).
+
 Para obtener una lista de los comandos de la CLI de Azure equivalentes al realizar la transición desde la implementación clásica al Administrador de recursos, consulte [Comandos equivalentes del Administrador de recursos y de Administración de servicios para las operaciones de VM](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md).
 
 Para obtener más detalles acerca de la transición de recursos de procesos, almacenamiento y redes, consulte [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
@@ -166,4 +168,4 @@ Para obtener información sobre cómo conectar redes virtuales de diferentes mod
 - Para obtener información sobre cómo crear plantillas de implementación declarativas, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para ver los comandos para implementar una plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

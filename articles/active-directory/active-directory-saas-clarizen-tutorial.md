@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: integración de Azure Active Directory con Clarizen | Microsoft Azure" description="Aprenda a usar Clarizen con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: integración de Azure Active Directory con Clarizen | Microsoft Azure" 
+    description="Aprenda a usar Clarizen con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: integración de Azure Active Directory con Clarizen
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=526793).
 
 El objetivo de este tutorial es mostrar la integración de Azure y Clarizen. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para el inicio de sesión único en Clarizen
 
-Después de completar este tutorial, los usuarios de Azure AD que haya asignado a Clarizen podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Clarizen (inicio de sesión iniciado por el proveedor de servicios) o desde [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586)
+Después de completar este tutorial, los usuarios de Azure AD que haya asignado a Clarizen podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Clarizen (inicio de sesión iniciado por el proveedor de servicios) o desde [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
@@ -46,7 +59,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
     ![Galería de aplicaciones](./media/active-directory-saas-clarizen-tutorial/IC784680.png "Galería de aplicaciones")
 
-7.  En el panel de resultados, seleccione **Clarizen** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+7.  En el panel de resultados, seleccione **Clarizen** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![Clarizen](./media/active-directory-saas-clarizen-tutorial/IC784681.png "Clarizen")
 ##Configuración del inicio de sesión único
@@ -59,7 +72,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-clarizen-tutorial/IC784682.png "Configurar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en Clarizen?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en Clarizen?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-clarizen-tutorial/IC784683.png "Configurar inicio de sesión único")
 
@@ -69,25 +82,25 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
 4.  En otra ventana del explorador web, inicie sesión en el sitio de la compañía de **Clarizen** como administrador (p.ej.: **https://app2.clarizen.com/Clarizen/Pages/Service/Login.aspx*).
 
-5.  Haga clic en el nombre de usuario y, a continuación, haga clic en **Settings (Configuración)**.
+5.  Haga clic en el nombre de usuario y luego haga clic en **Configuración**.
 
     ![Settings](./media/active-directory-saas-clarizen-tutorial/IC784685.png "Settings")
 
-6.  Haga clic en la pestaña **Global Settings** (Configuración global) y, a continuación, junto a **Federated Authentication** (Autenticación federada) haga clic en**edit** (editar).
+6.  Haga clic en la pestaña **Configuración global** y, luego, junto a **Autenticación federada** haga clic en**editar**.
 
     ![Configuración global](./media/active-directory-saas-clarizen-tutorial/IC786906.png "Configuración global")
 
-7.  En el cuadro de diálogo **Federated Authentication** (Autenticación federada), realice los pasos siguientes:
+7.  En el cuadro de diálogo **Autenticación federada**, realice los pasos siguientes:
 
     ![Autenticación federada](./media/active-directory-saas-clarizen-tutorial/IC785892.png "Autenticación federada")
 
-    1.  Para cargar el certificado descargado, haga clic en **Upload** (Cargar).
-    2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Clarizen**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Sign-in URL** (URL de inicio de sesión).
-    3.  En el Portal de Azure, en la página de diálogo **Configurar cierre de sesión único en Clarizen**, copie el valor de **Dirección URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **Sign-out URL** (URL de cierre de sesión).
-    4.  Seleccione**Use POST** (Usar POST).
+    1.  Para cargar el certificado descargado, haga clic en **Cargar**.
+    2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Clarizen**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **URL de inicio de sesión**.
+    3.  En el Portal de Azure, en la página de diálogo **Configurar cierre de sesión único en Clarizen**, copie el valor de **Dirección URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **URL de cierre de sesión**.
+    4.  Seleccione**Usar POST**.
     5.  Haga clic en **Guardar**.
 
-8.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+8.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-clarizen-tutorial/IC784688.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -98,11 +111,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Clarizen, deben ap
 
 1.  Inicie sesión en el sitio de la compañía de **Clarizen** como administrador.
 
-2.  Haga clic en**People** (Contactos).
+2.  Haga clic en**Contactos**.
 
     ![Contactos](./media/active-directory-saas-clarizen-tutorial/IC784689.png "Contactos")
 
-3.  Haga clic en **Invite User** (Invitar a usuario).
+3.  Haga clic en **Invitar a usuario**.
 
     ![Invitar a usuarios](./media/active-directory-saas-clarizen-tutorial/IC784690.png "Invitar a usuarios")
 
@@ -110,8 +123,8 @@ Para permitir que los usuarios de Azure AD inicien sesión en Clarizen, deben ap
 
     ![Invitar a contactos](./media/active-directory-saas-clarizen-tutorial/IC784691.png "Invitar a contactos")
 
-    1.  En el cuadro de texto **Email** (Correo electrónico), escriba la dirección de correo electrónico de la cuenta válida de Azure Active Directory que desee aprovisionar.
-    2.  Haga clic en **Invite** (Invitar).
+    1.  En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de la cuenta válida de Azure Active Directory que quiera aprovisionar.
+    2.  Haga clic en **Invitar**.
 
     >[AZURE.NOTE]El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active.
 
@@ -127,10 +140,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-clarizen-tutorial/IC784692.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-clarizen-tutorial/IC767830.png "Sí")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

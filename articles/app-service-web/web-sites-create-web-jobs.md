@@ -74,7 +74,35 @@ Se aceptan los siguientes tipos de archivo:
 	
 > Para que los WebJobs continuos sigan ejecutándose en todas las instancias y de forma confiable, habilite la configuración Siempre activado* de la aplicación web, en caso contrario, es posible que dejen de funcionar cuando el sitio host SCM esté inactivo durante demasiado tiempo.
 
-## <a name="CreateScheduled"></a>Creación de un trabajo web programado
+## <a name="CreateScheduledCRON"></a>Creación de un trabajo web programado utilizando una expresión CRON
+
+Esta técnica está disponible para aplicaciones web que se ejecutan en modo Estándar o Premium y requiere que la opción **AlwaysOn** esté habilitada en la aplicación.
+
+Para convertir un trabajo web a petición en un trabajo web programado, basta con incluir un archivo `settings.job` en la raíz del archivo ZIP del trabajo web. Este archivo JSON debe incluir una propiedad `schedule` con una [expresión CRON](https://en.wikipedia.org/wiki/Cron) como la siguiente.
+
+La expresión CRON se compone de 6 campos: `{second} {minute} {hour} {day} {month} {day of the week}`.
+
+Por ejemplo, para desencadenar el trabajo web cada 15 minutos, la `settings.job` tendría:
+
+```json
+{
+    "schedule": "0 */15 * * * *"
+}
+``` 
+
+Otros ejemplos de programación CRON:
+
+- Cada hora (es decir, siempre que el número de minutos sea 0): `* 0 * * * *` 
+- Cada hora de 9 a 17 horas: `* 0 9-17 * * *` 
+- A las 9:30 todos los días: `* 30 9 * * *`
+- A las 9:30 cada día de lunes a viernes: `* 30 9 * * 1-5`
+
+**Nota**: al implementar un trabajo web desde Visual Studio, asegúrese de marcar las propiedades de archivo `settings.job` como "Copiar si es posterior".
+
+
+## <a name="CreateScheduled"></a>Creación de un trabajo web programado mediante el programador de Azure
+
+La técnica alternativa siguiente hace uso del programador de Azure. En este caso, el trabajo web no tiene ningún conocimiento directo de la programación. En su lugar, se debe configurar el programador de Azure para desencadenar el trabajo web según una programación.
 
 El portal de administración de Azure aún no tiene la capacidad para crear un trabajo web programado, pero hasta que se agregue esa característica, puede hacerlo con el [portal antiguo](http://manage.windowsazure.com).
 
@@ -211,4 +239,4 @@ Para obtener más información, consulte [Recursos recomendados de WebJobs de Az
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

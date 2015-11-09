@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/20/2015"
+   ms.date="10/26/2015"
    ms.author="cherylmc" />
 
 # Preguntas más frecuentes sobre la puerta de enlace de VPN
@@ -70,6 +70,10 @@ Hemos validado un conjunto de dispositivos estándar VPN de sitio a sitio en col
 ### ¿Qué hago si tengo un dispositivo VPN que no está en la lista de dispositivos de compatibilidad conocida?
 
 Si el dispositivo no aparece como un dispositivo VPN de compatibilidad conocida y desea utilizarlo para la conexión VPN, tendrá que comprobar que tiene las opciones de configuración admitidas de IPsec/IKE y los parámetros que aparecen [aquí](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Los dispositivos que cumplen los requisitos mínimos deberían funcionar correctamente con las puertas de enlace de VPN. Póngase en contacto con el fabricante del dispositivo para obtener instrucciones adicionales de soporte técnico y configuración.
+
+### ¿Por qué mi túnel de VPN basado en directivas deja de funcionar cuando el tráfico está inactivo?
+
+Este es el comportamiento esperado para puertas de enlace de VPN basadas en directivas (también conocido como enrutamiento estático). Cuando el tráfico a través del túnel está inactivo durante más de 5 minutos, este túnel se cancelará. Pero en cuanto el tráfico comience a fluir en cualquier dirección, el túnel se restablecerá inmediatamente. Si tiene una puerta de enlace VPN basada en enrutamiento (también conocida como dinámica), no experimentará este comportamiento.
 
 ### ¿Puedo usar una VPN de software para conectarme a Azure?
 
@@ -252,4 +256,4 @@ Ver más P+F sobre redes para obtener detalles adicionales:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

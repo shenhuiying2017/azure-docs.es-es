@@ -1,14 +1,26 @@
-<properties pageTitle="Tutorial: Integración de Azure Active Directory con Lucidchart | Microsoft Azure" description="Aprenda a usar Lucidchart con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integración de Azure Active Directory con Lucidchart | Microsoft Azure" 
+    description="Aprenda a usar Lucidchart con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integración de Azure Active Directory con Lucidchart
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=532346).
   
 El objetivo de este tutorial es mostrar la integración de Azure y Lucidchart. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para inicio de sesión único en Lucidchart
   
-Después de completar este tutorial, los usuarios de Azure AD asignados a Lucidchart podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Lucidchart (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586)
+Después de completar este tutorial, los usuarios de Azure AD asignados a Lucidchart podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Lucidchart (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
   
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
@@ -46,7 +58,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 
     ![Galería de aplicaciones](./media/active-directory-saas-lucidchart-tutorial/IC791184.png "Galería de aplicaciones")
 
-7.  En el panel de resultados, seleccione **Lucidchart** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+7.  En el panel de resultados, seleccione **Lucidchart** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![Lucidchart](./media/active-directory-saas-lucidchart-tutorial/IC791185.png "Lucidchart")
 ##Configuración del inicio de sesión único
@@ -59,7 +71,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-lucidchart-tutorial/IC791186.png "Configurar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en Lucidchart?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en Lucidchart?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-lucidchart-tutorial/IC791187.png "Configurar inicio de sesión único")
 
@@ -67,7 +79,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-lucidchart-tutorial/IC791188.png "Configurar dirección URL de la aplicación")
 
-4.  En la página **Configuración de inicio de sesión único en Lucidchart**, para descargar sus metadatos, haga clic en **Descargar metadatos** y, a continuación, guarde el archivo de datos localmente en el equipo.
+4.  En la página **Configuración de inicio de sesión único en Lucidchart**, para descargar sus metadatos, haga clic en **Descargar metadatos** y luego guarde el archivo de datos localmente en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-lucidchart-tutorial/IC791189.png "Configurar inicio de sesión único")
 
@@ -83,12 +95,12 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
 8.  En la página de diálogo **Configuración de la autenticación SAML**, realice los pasos siguientes:
 
-    1.  Seleccione **Habilitar autenticación de SAML** y, a continuación, haga clic en **Opcional**. ![Configuración de autenticación SAML](./media/active-directory-saas-lucidchart-tutorial/IC791192.png "Configuración de autenticación SAML")
-    2.  En el cuadro de texto **Dominio**, escriba el dominio y, a continuación, haga clic en **Cambiar certificado**. ![Cambiar certificado](./media/active-directory-saas-lucidchart-tutorial/IC791193.png "Cambiar certificado")
-    3.  Abra el archivo de metadatos descargado, copie el contenido y, a continuación, péguelo en el cuadro de texto **Cargar metadatos**. ![Cargar metadatos](./media/active-directory-saas-lucidchart-tutorial/IC791194.png "Cargar metadatos")
-    4.  Seleccione **Agregar nuevo usuario al equipo automáticamente** y, a continuación, haga clic en **Guardar los cambios**. ![Guardar cambios](./media/active-directory-saas-lucidchart-tutorial/IC791195.png "Guardar cambios")
+    1.  Seleccione **Habilitar autenticación de SAML** y luego haga clic en **Opcional**. ![Configuración de autenticación SAML](./media/active-directory-saas-lucidchart-tutorial/IC791192.png "Configuración de autenticación SAML")
+    2.  En el cuadro de texto **Dominio**, escriba el dominio y luego haga clic en **Cambiar certificado**. ![Cambiar certificado](./media/active-directory-saas-lucidchart-tutorial/IC791193.png "Cambiar certificado")
+    3.  Abra el archivo de metadatos descargado, copie el contenido y luego péguelo en el cuadro de texto **Cargar metadatos**. ![Cargar metadatos](./media/active-directory-saas-lucidchart-tutorial/IC791194.png "Cargar metadatos")
+    4.  Seleccione **Agregar nuevo usuario al equipo automáticamente** y luego haga clic en **Guardar los cambios**. ![Guardar cambios](./media/active-directory-saas-lucidchart-tutorial/IC791195.png "Guardar cambios")
 
-9.  Seleccione la confirmación de la configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  Seleccione la confirmación de la configuración de inicio de sesión único y luego haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-lucidchart-tutorial/IC791196.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -110,6 +122,6 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
     ![Sí](./media/active-directory-saas-lucidchart-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

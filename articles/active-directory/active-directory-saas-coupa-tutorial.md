@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: Integración de Azure Active Directory con Coupa | Microsoft Azure" description="Aprenda a usar Coupa con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integración de Azure Active Directory con Coupa | Microsoft Azure" 
+    description="Aprenda a usar Coupa con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integración de Azure Active Directory con Coupa
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=529806).
 
 El objetivo de este tutorial es mostrar la integración de Azure y Coupa. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para el inicio de sesión único en Coupa
 
-Después de completar este tutorial, los usuarios de Azure AD que ha asignado a Coupa podrá realizar un inicio de sesión único en la aplicación con la [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Después de completar este tutorial, los usuarios de Azure AD que ha asignado a Coupa podrá realizar un inicio de sesión único en la aplicación con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
@@ -46,7 +59,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de l
 
     ![Galería de aplicaciones](./media/active-directory-saas-coupa-tutorial/IC791898.png "Galería de aplicaciones")
 
-7.  En el panel de resultados, seleccione **Coupa** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+7.  En el panel de resultados, seleccione **Coupa** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![Coupa](./media/active-directory-saas-coupa-tutorial/IC791899.png "Coupa")
 ##Configuración del inicio de sesión único
@@ -57,11 +70,11 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 1.  Inicie sesión en su sitio de la compañía de Coupa como administrador.
 
-2.  Vaya a **Setup > Security Control** (Configuración > Control de seguridad).
+2.  Vaya a **Configuración > Control de seguridad**.
 
     ![Controles de seguridad](./media/active-directory-saas-coupa-tutorial/IC791900.png "Controles de seguridad")
 
-3.  Para descargar el archivo de metadatos de Coupa en el equipo, haga clic en **Download and import SP metadata** (Descargar e importar metadatos de SP).
+3.  Para descargar el archivo de metadatos de Coupa en el equipo, haga clic en **Descargar e importar metadatos de SP**.
 
     ![Metadatos de SP Coupa](./media/active-directory-saas-coupa-tutorial/IC791901.png "Metadatos de SP Coupa")
 
@@ -71,7 +84,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-coupa-tutorial/IC791902.png "Configurar inicio de sesión único")
 
-6.  En la página **¿Cómo desea que los usuarios inicien sesión en Coupa?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+6.  En la página **¿Cómo desea que los usuarios inicien sesión en Coupa?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-coupa-tutorial/IC791903.png "Configurar inicio de sesión único")
 
@@ -88,7 +101,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-coupa-tutorial/IC791905.png "Configurar inicio de sesión único")
 
-9.  En el sitio de la compañía de Coupa, vaya a **Setup > Security Control** (Configuración > Control de seguridad).
+9.  En el sitio de la compañía de Coupa, vaya a **Configuración > Control de seguridad**.
 
     ![Controles de seguridad](./media/active-directory-saas-coupa-tutorial/IC791900.png "Controles de seguridad")
 
@@ -100,7 +113,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     2.  Haga clic en **Examinar** para cargar el archivo de metadatos de Azure Active descargado.
     3.  Haga clic en **Guardar**.
 
-11. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+11. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-coupa-tutorial/IC791907.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -111,7 +124,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Coupa, tienen que 
 
 1.  Inicie sesión como administrador en el sitio de la compañía de **Coupa**.
 
-2.  En el menú en la parte superior, haga clic en **Configurar** y, a continuación, haga clic en **Usuarios**.
+2.  En el menú en la parte superior, haga clic en **Configurar** y, luego, en **Usuarios**.
 
     ![Usuarios](./media/active-directory-saas-coupa-tutorial/IC791908.png "Usuarios")
 
@@ -123,7 +136,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Coupa, tienen que 
 
     ![Detalles del usuario](./media/active-directory-saas-coupa-tutorial/IC791910.png "Detalles del usuario")
 
-    1.  En los cuadros de texto relacionados, escriba los atributos **Nombre de usuario**, **Nombre**, **Apellido**, **Id. de inicio de sesión único**, **Correo electrónico** de una cuenta válida de Azure Active Directory que desea aprovisionar.
+    1.  En los cuadros de texto relacionados, escriba los atributos **Nombre de usuario**, **Nombre**, **Apellido**, **Id. de inicio de sesión único**, **Correo electrónico** de una cuenta válida de Azure Active Directory que quiera aprovisionar.
     2.  Haga clic en **Crear**.
 
     >[AZURE.NOTE]El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
@@ -142,10 +155,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-coupa-tutorial/IC791911.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-coupa-tutorial/IC767830.png "Sí")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

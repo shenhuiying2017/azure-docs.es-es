@@ -13,10 +13,22 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="10/22/2015" 
 	ms.author="jeffstok"/>
 
 #Notas de la versión de Análisis de transmisiones de Microsoft
+
+## Notas de la versión de Análisis de transmisiones del 22/10/2015 ##
+
+Esta versión contiene las siguientes actualizaciones.
+
+Título | Descripción
+---|---
+Características del lenguaje de consulta adicionales | Análisis de transmisiones ha ampliado el lenguaje de consulta mediante la inclusión de las siguientes características: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx) y [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
+Se han quitado las limitaciones de agregados | En esta versión se quita la limitación de 15 agregados en una consulta. Actualmente no hay límites en el número de agregados por consulta.
+Se ha agregado la característica GROUP BY System.Timestamp | La función [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) ahora permite window\_type o [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx).
+Se ha agregado OFFSET para las ventanas de saltos de tamaño constante y las ventanas de salto | De forma predeterminada, las ventanas de [saltos de tamaño constante](https://msdn.microsoft.com/library/azure/dn835055.aspx) y [salto](https://msdn.microsoft.com/library/azure/dn835041.aspx) se alinean con la hora cero (1/1/0001 12:00:00 A.M. UTC). El nuevo parámetro (opcional) 'offsetsize' permite especificar una diferencia (o alineación) personalizada.
+
 
 ## Notas de la versión de Análisis de transmisiones del 29/09/2015 ##
 
@@ -36,7 +48,7 @@ Esta versión contiene las siguientes actualizaciones.
 
 Título|Descripción
 ---|---
-Soporte para grupos de PowerBI|Para habilitar el uso compartido de datos con otros usuarios de Power BI, los trabajos de Análisis de transmisiones ahora pueden escribir a [grupos de PowerBI](stream-analytics-define-outputs.md#power-bi) dentro de su cuenta de Power BI.
+Soporte para grupos de PowerBI|Para habilitar el uso compartido de datos con otros usuarios de Power BI, los trabajos de Análisis de transmisiones ahora pueden escribir en [grupos de PowerBI](stream-analytics-define-outputs.md#power-bi) dentro de su cuenta de Power BI.
 
 ## Notas de la versión de Análisis de transmisiones del 20/08/2015 ##
 
@@ -104,4 +116,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

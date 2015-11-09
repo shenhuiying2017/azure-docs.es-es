@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2015"
+   ms.date="10/28/2015"
    ms.author="saurabh"/>
 
 # Instalación de .NET en un rol de servicio en la nube 
@@ -142,4 +142,4 @@ Cuando implemente el servicio, se ejecutarán las tareas de inicio e instalarán
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

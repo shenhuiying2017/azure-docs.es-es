@@ -18,6 +18,8 @@
 
 # Mover datos hacia y desde el almacenamiento de blobs de Azure con el Explorador de almacenamiento de Azure
 
+A continuación se ofrecen vínculos de orientación sobre las tecnologías que se usan para mover datos hacia o desde el almacenamiento de blobs de Azure:
+
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 ## Introducción
@@ -53,4 +55,4 @@ En los pasos siguientes se describe cómo cargar y descargar datos mediante el E
 [2]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img2.png
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
