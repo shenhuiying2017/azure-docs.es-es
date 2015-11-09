@@ -41,7 +41,7 @@ Antes de ejecutar las tareas de un trabajo, se ejecuta la tarea de preparación 
 
 La tarea de preparación del trabajo solo se ejecuta en nodos programados para ejecutar una tarea. Esto evita la ejecución innecesaria de una tarea de preparación en caso de que no se asigne una tarea a un nodo, lo que permite ahorrar en cargos de transferencia de datos, por ejemplo. Esta situación se aplica cuando el número de tareas de un trabajo es menor que el número de nodos en un grupo o cuando está habilitada la [ejecución simultánea de tareas](batch-parallel-node-tasks.md), que deja algunos nodos inactivos si el recuento de tareas es menor que el totales de tareas simultáneas posibles.
 
-> [AZURE.NOTE][JobPreparationTask][net_job_prep_cloudjob] difiere de [CloudPool.StartTask][pool_starttask] en que JobPreparationTask se ejecuta al principio de cada trabajo, mientras que StartTask solo se ejecuta cuando un nodo de ejecución se une por primera vez a un grupo o se reinicia.
+> [AZURE.NOTE] [JobPreparationTask][net_job_prep_cloudjob] difiere de [CloudPool.StartTask][pool_starttask] en que JobPreparationTask se ejecuta al principio de cada trabajo, mientras que StartTask solo se ejecuta cuando un nodo de ejecución se une por primera vez a un grupo o se reinicia.
 
 ## Tarea de liberación del trabajo
 
@@ -179,4 +179,4 @@ La captura de pantalla siguiente resalta las propiedades de las tareas de prepar
 [1]: ./media/batch-job-prep-release/batchexplorer-01.png
 [2]: ./media/batch-job-prep-release/batchexplorer-02.png
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->
