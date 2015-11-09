@@ -23,7 +23,7 @@ Uno de los usos de los extremos es la configuración del Equilibrador de carga d
 
 El Equilibrador de carga de Azure asigna la dirección IP y el número de puerto públicos del tráfico entrante a la dirección IP y el número de puerto privados de la máquina virtual, y viceversa, para el tráfico de respuesta desde la máquina virtual.
 
->[AZURE.NOTE]Al configurar el equilibrio de carga del tráfico entre varias máquinas virtuales o servicios mediante la configuración predeterminada, se proporcionará una distribución aleatoria del tráfico entrante. Si busca la afinidad de sesión, consulte [modo de distribución de equilibrador de carga](load-balancer-distribution-mode.md)
+>[AZURE.NOTE]El equilibrador de carga de Azure proporcionará un tráfico de red de distribución hash entre varias instancias de máquina virtual con la configuración predeterminada (obtenga más información acerca de la distribución hash en [características del equilibrador de carga](load-balancer-overview.md#load-balancer-features)). Si busca la afinidad de sesión, consulte [modo de distribución de equilibrador de carga](load-balancer-distribution-mode.md).
 
 Para los servicios en la nube que contienen instancias de roles web o de roles de trabajo, puede definir un extremo público en la definición de servicio (.csdef).
  
@@ -36,7 +36,7 @@ En la siguiente ilustración se muestra un extremo con equilibrio de carga para 
 
 
 
-Cuando los clientes de Internet envían solicitudes de página web a la dirección IP pública del servicio en la nube y el puerto TCP 443, el equilibrador de carga realiza un equilibrio de carga basado en hash de esas solicitudes entre las tres máquinas virtuales del conjunto con equilibrio de carga. Puede obtener más información sobre el algoritmo del equilibrador de carga en [Página de información general del equilibrador de carga](load-balancer-overview#load-balancer-features).
+Cuando los clientes de Internet envían solicitudes de página web a la dirección IP pública del servicio en la nube y el puerto TCP 443, el equilibrador de carga realiza un equilibrio de carga basado en hash de esas solicitudes entre las tres máquinas virtuales del conjunto con equilibrio de carga. Puede obtener más información sobre el algoritmo del equilibrador de carga en [Página de información general del equilibrador de carga](load-balancer-overview.md#load-balancer-features).
 
 
 ## Pasos siguientes
@@ -52,4 +52,4 @@ Cuando los clientes de Internet envían solicitudes de página web a la direcci�
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

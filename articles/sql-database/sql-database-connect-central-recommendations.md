@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="genemi"/>
 
 
@@ -23,6 +23,8 @@
 
 Este tema es un buen lugar para empezar a trabajar con conectividad de cliente a Base de datos SQL de Azure. Proporciona vínculos a ejemplos de código para diversas tecnologías que puede usar para conectarse e interactuar con la Base de datos SQL. Las tecnologías incluyen, entre otras, Enterprise Library, JDBC y PHP. La información proporcionada se aplica independientemente de la tecnología específica que se use para conectarse a la Base de datos SQL.
 
+
+<a id="a-tech-independent-recommend" name="a-tech-independent-recommend"></a>
 
 ## Recomendaciones independientes de la tecnología
 
@@ -35,6 +37,8 @@ Este tema es un buen lugar para empezar a trabajar con conectividad de cliente a
  - Cumplimiento de límites
  - Limitaciones
 
+
+<a id="b-authentication-recommend" name="b-authentication-recommend"></a>
 
 ## Recomendaciones para la autenticación
 
@@ -63,8 +67,10 @@ El enfoque del usuario contenido tiene ventajas e inconvenientes:
  - Quien sea un usuario contenido en varias bases de datos podría tener más contraseñas para recordar o actualizar.
 
 
-Se proporciona más información en - [Bases de datos independientes](http://msdn.microsoft.com/library/ff929071.aspx).
+Para obtener más información, consulte [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](http://msdn.microsoft.com/library/ff929188.aspx).
 
+
+<a id="c-connection-recommend" name="c-connection-recommend"></a>
 
 ## Recomendaciones para la conexión
 
@@ -73,8 +79,7 @@ Se proporciona más información en - [Bases de datos independientes](http://msd
  - El valor predeterminado de 15 segundos es demasiado corto para conexiones que dependen de Internet.
 
 
-- Asegúrese de que el [firewall de su Base de datos SQL de Azure](sql-database-firewall-configure.md) permite la comunicación TCP saliente en el puerto 1433.
- - Puede configurar la configuración del firewall en un servidor de Base de datos SQL o a una base de datos individual.
+- En el equipo que hospeda el programa cliente, asegúrese de que el firewall permita la comunicación TCP saliente en el puerto 1433.
 
 
 - Si el programa cliente se conecta a Base de datos SQL V12, mientras el cliente se ejecuta en una máquina virtual (VM) de Azure, debe abrir los intervalos de puerto 11000 a 11999 y 14000 a 14999 en la VM. Haga clic [aquí](sql-database-develop-direct-route-ports-adonet-v12.md) para obtener información detallada.
@@ -108,7 +113,7 @@ La duración máxima de un período de bloqueo es de 60 segundos.
 ### Puertos que no sea simplemente 1433 en V12
 
 
-En ocasiones, las conexiones de cliente a la base de datos de SQL Azure V12 omiten al proxy e interactúan directamente con la base de datos. Los puertos que no sean 1433 se convierten en puertos importantes. Para obtener información detallada, vea:<br/> [Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+En ocasiones, las conexiones de cliente a la base de datos de SQL Azure V12 omiten al proxy e interactúan directamente con la base de datos. Los puertos que no sean 1433 se convierten en puertos importantes. Para obtener información detallada, consulte:<br/> [Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
 La siguiente sección tiene más que decir sobre el control de errores transitorios y la lógica de reintento.
@@ -128,7 +133,7 @@ Sin embargo, una reconfiguración podría hacer que su programa cliente perdiera
 
 Su programa cliente puede intentar restablecer una conexión después de esperar quizás de 6 a 60 segundos entre reintentos. Debe proporcionar la lógica de reintento en su cliente.
 
-Para obtener ejemplos de código que ilustren la lógica de reintento, vea: - [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
+Para obtener ejemplos de código que ilustren la lógica de reintento, consulte: - [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
 
 
 ### Números de error para errores transitorios
@@ -142,8 +147,10 @@ Cuando se produce cualquier error en Base de datos SQL, se inicia una [SqlExcept
  - Por ejemplo, inténtelo de nuevo si se produce el número de error 40613, que indica algo similar a<br/>*La base de datos "mydatabase" del servidor "theserver" no está actualmente disponible.*
 
 
-Para obtener más información, vea: - [Desarrollo de Base de datos SQL de Azure: temas de procedimientos](http://msdn.microsoft.com/library/azure/ee621787.aspx) - [Solución de problemas de conexión con Base de datos SQL de Azure](http://support.microsoft.com/kb/2980233/)
+Para obtener más información, consulte: - [Desarrollo de Base de datos SQL de Azure: temas de procedimientos](http://msdn.microsoft.com/library/azure/ee621787.aspx) - [Solución de problemas de conexión con Base de datos SQL de Azure](http://support.microsoft.com/kb/2980233/)
 
+
+<a id="e-technologies" name="e-technologies"></a>
 
 ## Tecnologías
 
@@ -157,14 +164,14 @@ Se proporcionan varios ejemplos de código para clientes que se ejecutan en Wind
 **Ejemplos generales:** hay [ejemplos de código](sql-database-develop-quick-start-client-code-samples.md) para diversos lenguajes de programación, por ejemplo, PHP, Python, Node.js y .NET CSharp. Además, se proporcionan ejemplos para clientes que se ejecutan en Windows, Linux y Mac OS X.
 
 
-**Escalado elástico:** para obtener información sobre la conectividad a bases de datos de Escalado elástico, vea:
+**Escalado elástico:** para obtener información sobre la conectividad a bases de datos de Escalado elástico, consulte:
 
 - [Introducción a la vista previa de Escalado elástico de Base de datos SQL de Azure](sql-database-elastic-scale-get-started.md)
 - [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md)
 
 
-**Bibliotecas de controlador:** para obtener información sobre las bibliotecas de controlador de conexión, incluidas las versiones recomendadas, vea:
+**Bibliotecas de controlador:** para obtener información sobre las bibliotecas de controlador de conexión, incluidas las versiones recomendadas, consulte:
 
 - [Bibliotecas de conexiones para la base de datos SQL y SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

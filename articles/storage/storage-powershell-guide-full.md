@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/27/2015"
+	ms.date="10/26/2015"
 	ms.author="selcint"/>
 
 # Usar Azure PowerShell con Almacenamiento de Azure
@@ -237,7 +237,7 @@ Para obtener más información sobre cómo configurar una cadena de conexión de
 
 Ahora ya tiene el equipo configurado y sabe cómo administrar suscripciones y cuentas de almacenamiento con Azure PowerShell. Vaya a la siguiente sección para aprender a administrar los blobs de Azure y las instantáneas de blob.
 
-## Cómo administrar los blobs de Azure y las instantáneas de blob
+## Administrar blobs de Azure
 El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados, como texto o datos binarios, a los que puede acceder desde cualquier lugar del mundo a través de HTTP o HTTPS. Para realizar esta sección, supondremos que ya está familiarizado con los conceptos del Servicio de almacenamiento de blobs de Azure. Para obtener más información, consulte [Uso del almacenamiento de blobs de .NET](storage-dotnet-how-to-use-blobs.md) y [Conceptos del servicio Blob](http://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ### Cómo crear un contenedor
@@ -736,4 +736,4 @@ En esta guía ha aprendido a administrar Almacenamiento de Azure con Azure Power
 [Next Steps]: #next
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

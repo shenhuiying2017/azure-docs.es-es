@@ -40,10 +40,10 @@ Para supervisar la aplicación, agregue un SDK de Application Insights a la apli
 
 **Mantenga abierta la página de códigos** mientras lleva a cabo el siguiente paso en otra ventana del explorador. Necesitará el código pronto.
 
-### Creación de un recurso web de JavaScript en Microsoft CRM
+### Creación de un recurso web de JavaScript en Microsoft Dynamics CRM
 
 1. Abra la instancia de CRM Online e inicie sesión con privilegios de administrador.
-2. Abra Configuración de CDM en Microsoft Dynamics, Personalizaciones, Sistema
+2. Abra Configuración de Microsoft Dynamics CRM, personalizaciones, personalizar el sistema
 
     ![](./media/app-insights-sample-mscrm/04.png)
     
@@ -60,7 +60,7 @@ Para supervisar la aplicación, agregue un SDK de Application Insights a la apli
 
     ![](./media/app-insights-sample-mscrm/08.png)
     
-4. Copie el código de Application Insights. Al copiar, asegúrese de que ignora las etiquetas <script>. Consulte la siguiente captura de pantalla:
+4. Copie el código de Application Insights. Al copiar, asegúrese de que ignora las etiquetas de script. Consulte la siguiente captura de pantalla:
 
     ![](./media/app-insights-sample-mscrm/09.png)
 
@@ -149,9 +149,9 @@ Haga clic en el gráfico para obtener más detalles.
 
 Puede realizar un análisis todavía más exhaustivo si [exporta los datos a Microsoft Power BI](app-insights-export-power-bi.md).
 
-## Solución de ejemplo Dynamics CRM
+## Solución de ejemplo de Microsoft Dynamics CRM
 
-[A continuación se muestra la solución de ejemplo implementada en Dynamics CRM](https://dynamicsandappinsights.codeplex.com/).
+[A continuación se muestra la solución de ejemplo implementada en Microsoft Dynamics CRM](https://dynamicsandappinsights.codeplex.com/).
 
 ## Más información
 
@@ -161,4 +161,4 @@ Puede realizar un análisis todavía más exhaustivo si [exporta los datos a Mic
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

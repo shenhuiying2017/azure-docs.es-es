@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: Integración de Azure Active Directory con Veracode | Microsoft Azure" description="Aprenda cómo usar Veracode con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integración de Azure Active Directory con Veracode | Microsoft Azure" 
+    description="Aprenda cómo usar Veracode con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: integración de Azure Active Directory con Veracode
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=615291).
   
 El objetivo de este tutorial es mostrar la integración de Azure y Veracode. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para el inicio de sesión único en Veracode
   
-Después de completar este tutorial, los usuarios de Azure AD que ha asignado a Veracode podrá realizar un inicio de sesión único en la aplicación con la [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Después de completar este tutorial, los usuarios de Azure AD que ha asignado a Veracode podrá realizar un inicio de sesión único en la aplicación con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
   
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
@@ -67,11 +80,11 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-veracode-tutorial/IC802908.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar las opciones de la aplicación**, haga clic en**Siguiente**.
+3.  En la página **Configurar las opciones de la aplicación**, haga clic en **Siguiente**.
 
     ![Configurar las opciones de la aplicación](./media/active-directory-saas-veracode-tutorial/IC802909.png "Configurar las opciones de la aplicación")
 
-4.  En la página **Configurar inicio de sesión único en Veracode**, para descargar el certificado, haga clic en **Descargar certificado** y, a continuación, guarde el archivo de certificado en el equipo.
+4.  En la página **Configurar inicio de sesión único en Veracode**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-veracode-tutorial/IC802910.png "Configurar inicio de sesión único")
 
@@ -109,7 +122,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
         -   **Pertenencias a equipos**
         -   **Equipo predeterminado**
 
-10. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+10. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-veracode-tutorial/IC802914.png "Configurar inicio de sesión único")
 
@@ -127,11 +140,11 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 	| lastname | User.surname |
 	| email | User.mail |
 
-    1.  En cada fila de datos de la tabla anterior, haga clic en **Agregar atributo de usuario**.
+    1.  En cada fila de datos de la tabla anterior, haga clic en **agregar atributo de usuario**.
     
-	2.  En el cuadro de texto **Nombre de atributo**, escriba el nombre de atributo que se muestra para esa fila.
+	2.  En el cuadro de texto **Nombre de atributo**, escriba el nombre de atributo que se muestra para la fila.
 
-    3.  En el cuadro de texto **Valor de atributo**, seleccione el valor del atributo que se muestra para esa fila.
+    3.  En el cuadro de texto **Valor de atributo**, seleccione el valor de atributo que se muestra para la fila.
 
     4.  Haga clic en **Completo**.
 
@@ -157,10 +170,10 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Asignar usuarios](./media/active-directory-saas-veracode-tutorial/IC802915.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-veracode-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

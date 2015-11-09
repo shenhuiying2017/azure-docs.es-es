@@ -1,9 +1,22 @@
-<properties pageTitle="Tutorial: Integración de Azure Active Directory con ThousandEyes | Microsoft Azure" description="Aprenda cómo usar ThousandEyes con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integración de Azure Active Directory con ThousandEyes | Microsoft Azure" 
+    description="Aprenda cómo usar ThousandEyes con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: integración de Azure Active Directory con ThousandEyes
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=529081).
   
-El objetivo de este tutorial es mostrar cómo configurar el inicio de sesión único entre Active Directory de Azure (AAD) y ThousandEyes.
+El objetivo de este tutorial es mostrar cómo configurar el inicio de sesión único entre Azure Active Directory (Azure AD) y ThousandEyes.
   
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -13,7 +26,7 @@ En la situación descrita en este tutorial se supone que ya cuenta con los eleme
 Después de completar este tutorial, los usuarios de AAD a los que ha asignado acceso a ThousandEyes podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de ThousandEyes (inicio de sesión iniciado por el proveedor del servicio) o con el Panel de acceso de AAD.
 
 1.  Habilitación de la integración de aplicaciones para ThousandEyes
-2.  [Configuración del inicio de sesión único](https://msdn.microsoft.com/library/eae8a61c-8e48-4f15-974d-867adbaf40ca#configuresso)
+2.  Configuración del inicio de sesión único
 3.  Configuración del aprovisionamiento de usuario
 4.  Asignación de usuarios
 
@@ -69,7 +82,7 @@ En esta sección se describe cómo se habilita la autenticación de los usuarios
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "Configurar dirección URL de la aplicación")
 
-4.  En la página **Configurar inicio de sesión único en ThousandEyes**, para descargar el certificado, haga clic en **Descargar certificado** y, a continuación, guarde el archivo de certificado localmente en el equipo.
+4.  En la página **Configurar inicio de sesión único en ThousandEyes**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado localmente en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-thousandeyes-tutorial/IC790065.png "Configurar inicio de sesión único")
 
@@ -98,7 +111,7 @@ En esta sección se describe cómo se habilita la autenticación de los usuarios
     5.  En el **certificado del proveedor de identidades**haga clic en**Elegir archivo** y luego cargue el certificado que ha descargado del portal de Microsoft Azure.
     6.  Haga clic en **Guardar**.
 
-10. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+10. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-thousandeyes-tutorial/IC790070.png "Configurar inicio de sesión único")
 
@@ -145,10 +158,10 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Asignar usuarios](./media/active-directory-saas-thousandeyes-tutorial/IC790075.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, luego, en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-thousandeyes-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -16,7 +16,8 @@
    ms.author="joaoma" />
 
 
-# Información general sobre el equilibrador de carga 
+# ¿Qué es un equilibrador de carga de Azure?
+ 
 El Equilibrador de carga de Azure proporciona una alta disponibilidad y un elevado rendimiento de red para sus aplicaciones. Es un equilibrador de carga de tipo Capa 4 (TCP, UDP) que distribuye el tráfico entrante entre las instancias de servicio correctas de los servicios en la nube o las máquinas virtuales definidas en un conjunto de equilibrio de carga.
  
 Se puede configurar para:
@@ -87,7 +88,7 @@ La configuración del Equilibrador de carga de Azure admite NAT de cono completo
 
 Puede tener más de una dirección IP pública con equilibrio de carga asignada a un conjunto de máquinas virtuales. Con esta capacidad, puede hospedar varios sitios web SSL o varios agentes de escucha de grupo de disponibilidad SQL AlwaysOn en el mismo conjunto de máquinas virtuales. Encontrará más información en [Varias direcciones VIP por servicio en la nube](load-balancer-multivip.md)
 
-**Implementaciones basadas en plantillas con el Administrador de recursos de Azure (vista previa pública)**. El Administrador de recursos de Azure (ARM) es el nuevo marco de administración de servicios de Azure. El Equilibrador de carga de Azure puede administrarse ahora mediante las herramientas y las API basadas en el Administrador de recursos de Azure. Para obtener más información sobre el Administrador de recursos de Azure, consulte [Iaas simplemente más fácil con el Administrador de recursos de Azure.](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)
+****Implementaciones basadas en plantillas con el Administrador de recursos de Azure ** El Administrador de recursos de Azure (ARM) es el nuevo marco de administración de servicios de Azure. El Equilibrador de carga de Azure puede administrarse ahora mediante las herramientas y las API basadas en el Administrador de recursos de Azure. Para obtener más información sobre el Administrador de recursos de Azure, consulte [Iaas simplemente más fácil con el Administrador de recursos de Azure.](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)
 
 
 ## Pasos siguientes
@@ -99,4 +100,4 @@ Puede tener más de una dirección IP pública con equilibrio de carga asignada 
 [Introducción al equilibrador de carga accesible desde Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

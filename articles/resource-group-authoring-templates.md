@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="10/27/2015"
    ms.author="tomfitz"/>
 
 # Creación de plantillas del Administrador de recursos de Azure
@@ -174,6 +174,15 @@ En el ejemplo siguiente se muestra cómo definir los parámetros.
 
 En la sección de variables puede construir valores que se utilizan para simplificar las expresiones de idioma de la plantilla. Normalmente, estas variables se basarán en los valores proporcionados de los parámetros.
 
+Defina variables con la siguiente estructura:
+
+    "variables": {
+       "<variable-name>": "<variable-value>",
+       "<variable-name>": { 
+           <variable-complex-type-value> 
+       }
+    }
+
 En el ejemplo siguiente se muestra cómo definir una variable que se construye a partir de dos valores de parámetro:
 
     "parameters": {
@@ -228,6 +237,7 @@ Defina recursos con la siguiente estructura:
          "name": "<name-of-the-resource>",
          "location": "<location-of-resource>",
          "tags": "<name-value-pairs-for-resource-tagging>",
+         "comments": "<your-reference-notes>",
          "dependsOn": [
            "<array-of-related-resource-names>"
          ],
@@ -240,18 +250,19 @@ Defina recursos con la siguiente estructura:
 
 | Nombre del elemento | Obligatorio | Descripción
 | :----------------------: | :------: | :----------
-| apiVersion | Sí | Versión de la API que admite el recurso. Para ver las versiones y los esquemas disponibles para los recursos, vea [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
+| apiVersion | Sí | Versión de la API que admite el recurso. Para ver las versiones y los esquemas disponibles para los recursos, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
 | type | Sí | Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso que admite el proveedor de recursos.
 | name | Sí | Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986.
 | location | No | Ubicaciones geográficas compatibles del recurso proporcionado.
 | etiquetas | No | Etiquetas asociadas al recurso.
+| comentarios | No | Notas para documentar los recursos de la plantilla
 | dependsOn | No | Recursos de los que depende el recurso que se está definiendo. Las dependencias entre los recursos se evalúan y los recursos se implementan en su orden dependiente. Cuando no hay recursos dependientes entre sí, se intenta implementarlos en paralelo. El valor puede ser una lista separada por comas de nombres de recursos o identificadores de recursos únicos.
 | propiedades | No | Opciones de configuración específicas de recursos.
 | resources | No | Recursos secundarios que dependen del recurso que se está definiendo.
 
 Si el nombre del recurso no es único, puede usar la función auxiliar **resourceId** (descrita a continuación) para obtener el identificador único para cualquier recurso.
 
-Los valores para el elemento **properties** son exactamente iguales que los valores que ofrece en el cuerpo de la solicitud para que la operación de API de REST (método PUT) cree el recurso. Vea [Referencia de Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) para las operaciones de API de REST para el recurso que quiere implementar.
+Los valores para el elemento **properties** son exactamente iguales que los valores que ofrece en el cuerpo de la solicitud para que la operación de API de REST (método PUT) cree el recurso. Consulte [Referencia de Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) para las operaciones de API de REST para el recurso que quiere implementar.
 
 En el ejemplo siguiente se muestra un recurso **Microsoft.Web/serverfarms** y un recurso **Microsoft.Web/Sites** con un recurso **Extensions** anidado:
 
@@ -337,7 +348,7 @@ En este tema se ofrece una visión preliminar de la plantilla. Sin embargo, el e
 
 Puede que necesite combinar dos plantillas o usar una plantilla secundaria dentro de una plantilla principal. Para obtener más información, consulte [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
 
-Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
+Para iterar una cantidad de veces específica al crear un tipo de recurso, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 
 Puede que necesite usar los recursos que existen dentro de un grupo de recursos diferente. Esto es habitual al trabajar con cuentas de almacenamiento o redes virtuales que se comparten entre varios grupos de recursos. Para obtener más información, vea la [función resourceId](../resource-group-template-functions#resourceid).
 
@@ -424,9 +435,9 @@ La siguiente plantilla implementa una aplicación web y aprovisiona con código 
     }
 
 ## Pasos siguientes
-- Para obtener información detallada sobre las funciones que puede usar desde una plantilla, vea [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md).
-- Para saber cómo implementar la plantilla que creó, vea [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md).
-- Para obtener un ejemplo en profundidad de la implementación de una aplicación, vea [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
+- Para obtener información detallada sobre las funciones que puede usar desde una plantilla, consulte [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md).
+- Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md).
+- Para obtener un ejemplo en profundidad de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para ver los esquemas disponibles, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

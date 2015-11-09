@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: integración de Azure Active Directory con FreshService | Microsoft Azure" description="Aprenda a usar FreshService con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: integración de Azure Active Directory con FreshService | Microsoft Azure" 
+    description="Aprenda a usar FreshService con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: integración de Azure Active Directory con FreshService
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=529827).
   
 El objetivo de este tutorial es mostrar la integración de Azure y FreshService. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para el inicio de sesión único en FreshService
   
-Después de completar este tutorial, los usuarios de Azure AD que haya asignado a FreshService podrán realizar un inicio de sesión único en la aplicación desde [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586)
+Después de completar este tutorial, los usuarios de Azure AD que haya asignado a FreshService podrán realizar un inicio de sesión único en la aplicación desde [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
   
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
@@ -46,7 +59,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
     ![Galería de aplicaciones](./media/active-directory-saas-freshservice-tutorial/IC790808.png "Galería de aplicaciones")
 
-7.  En el panel de resultados, seleccione **FreshService** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+7.  En el panel de resultados, seleccione **FreshService** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![Freshservice](./media/active-directory-saas-freshservice-tutorial/IC790809.png "Freshservice")
 ##Configuración del inicio de sesión único
@@ -59,41 +72,41 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-freshservice-tutorial/IC790810.png "Configurar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en FreshService?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en FreshService?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-freshservice-tutorial/IC790811.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de FreshService**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación Freshdesk (por ejemplo: "**http://democompany.freshservice.com/*")) y, a continuación, haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de FreshService**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación Freshdesk (por ejemplo: "**http://democompany.freshservice.com/*")) y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-freshservice-tutorial/IC790812.png "Configurar dirección URL de la aplicación")
 
-4.  En la página **Configurar inicio de sesión único en FreshService**, para descargar el certificado, haga clic en **Descargar certificado** y, a continuación, guarde el archivo de certificado en el equipo.
+4.  En la página **Configurar inicio de sesión único en FreshService**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-freshservice-tutorial/IC790813.png "Configurar inicio de sesión único")
 
 5.  En otra ventana del explorador web, inicie sesión en el sitio de la compañía de FreshService como administrador.
 
-6.  En el menú de la parte superior, haga clic en **Admin** (Administrador).
+6.  En el menú de la parte superior, haga clic en **Administrador**.
 
     ![Administrador](./media/active-directory-saas-freshservice-tutorial/IC790814.png "Administrador")
 
-7.  En el **Customer Portal** (Portal del cliente), haga clic en **Security** (Seguridad).
+7.  En el **Portal del cliente**, haga clic en **Seguridad**.
 
     ![Seguridad](./media/active-directory-saas-freshservice-tutorial/IC790815.png "Seguridad")
 
-8.  En la sección **Security** (Seguridad), lleve a cabo estos pasos:
+8.  En la sección **Seguridad**, realice estos pasos:
 
     ![Inicio de sesión único](./media/active-directory-saas-freshservice-tutorial/IC790816.png "Inicio de sesión único")
 
-    1.  Conmute **Single Sign On** (Inicio de sesión único) a ON (Activado).
-    2.  Seleccione **SAML SSO** (SSO de SAML).
+    1.  Conmute **Inicio de sesión único** a Activado.
+    2.  Seleccione **Inicio de sesión único de SAML**.
     3.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en FreshService**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión de SAML**.
     4.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en FreshService**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
-    5.  Copie el valor de **Huella digital** del certificado exportado y, a continuación, péguelo en el cuadro de texto **Huella digital de certificado de seguridad**.
+    5.  Copie el valor de **Huella digital** del certificado exportado y luego péguelo en el cuadro de texto **Huella digital de certificado de seguridad**.
     
-        >[AZURE.TIP]Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP]Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
-9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-freshservice-tutorial/IC790817.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -104,23 +117,23 @@ Para permitir que los usuarios de Azure AD inicien sesión en FreshService, debe
 
 1.  Inicie sesión en el sitio de la compañía de **FreshService** como administrador.
 
-2.  En el menú de la parte superior, haga clic en **Admin** (Administrador).
+2.  En el menú de la parte superior, haga clic en **Administrador**.
 
     ![Administrador](./media/active-directory-saas-freshservice-tutorial/IC790814.png "Administrador")
 
-3.  En la sección **User Management** (Administración de usuarios), haga clic en **Requesters** (Solicitantes).
+3.  En la sección **Administración de usuarios**, haga clic en **Solicitantes**.
 
     ![Solicitantes](./media/active-directory-saas-freshservice-tutorial/IC790818.png "Solicitantes")
 
-4.  Haga clic en **New Requester** (Nuevo solicitante).
+4.  Haga clic en **Nuevo solicitante**.
 
     ![Nuevos solicitantes](./media/active-directory-saas-freshservice-tutorial/IC790819.png "Nuevos solicitantes")
 
-5.  En la sección **New Requester** (Nuevo solicitante), lleve a cabo estos pasos:
+5.  En la sección **Nuevo solicitante**, lleve a cabo estos pasos:
 
     ![Nuevo solicitante](./media/active-directory-saas-freshservice-tutorial/IC790820.png "Nuevo solicitante")
 
-    1.  Escriba los atributos **First Name** (Nombre) y **Email** (Correo electrónico) de la cuenta de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados.
+    1.  Escriba los atributos **Nombre** y **Correo electrónico** de la cuenta de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados.
     2.  Haga clic en **Guardar**.
 
     >[AZURE.NOTE]El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
@@ -139,10 +152,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-freshservice-tutorial/IC790821.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-freshservice-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

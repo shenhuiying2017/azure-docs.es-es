@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/15/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 #Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X
@@ -135,7 +135,7 @@ Si utilizó una clave SSH protegida con una frase de contraseña, se le pedirá 
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-Si no se especifica ningún puerto, SSH establecerá el puerto 22 como predeterminado, lo cual provocará la conexión a headnode0 en el clúster de HDInsight. Si usa el puerto 23, se conectará a headnode1. Para obtener más información sobre los nodos principales, vea [Disponibilidad y confiabilidad de clústeres Hadoop en HDInsight](hdinsight-high-availability-linux.md).
+Si no se especifica ningún puerto, SSH establecerá el puerto 22 como predeterminado, lo cual provocará la conexión al nodo principal 0 en el clúster de HDInsight. Si usa el puerto 23, se conectará al nodo principal 1. Para obtener más información sobre los nodos principales, vea [Disponibilidad y confiabilidad de clústeres Hadoop en HDInsight](hdinsight-high-availability-linux.md).
 
 ###Conexión a los nodos de trabajo
 
@@ -242,4 +242,4 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

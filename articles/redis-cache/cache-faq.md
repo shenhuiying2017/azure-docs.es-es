@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="10/23/2015" 
 	ms.author="sdanie"/>
 
 # P+F de Caché en Redis de Azure
@@ -191,4 +191,33 @@ Caché en Redis de Microsoft Azure se basa en la popular Caché de Redis de cód
 
 Dado que cada cliente es diferente, no hay no una referencia de clase centralizada en MSDN; en cambio, cada cliente mantiene su propia documentación de referencia. Además de la documentación de referencia, hay varios tutoriales en Azure.com que muestra cómo empezar a trabajar con Caché en Redis de Azure con distintos idiomas y clientes de la caché en la página [Documentación de Caché de Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/).
 
-<!---HONumber=Oct15_HO3-->
+
+## ¿Qué oferta de caché de Azure es adecuada para mí?
+
+>[AZURE.IMPORTANT]Microsoft recomienda que todos los trabajos de desarrollo nuevos usen Caché en Redis de Azure.
+
+Caché de Azure tiene tres ofertas actualmente:
+
+-	Caché en Redis de Azure
+-	Servicio de caché administrado de Azure
+-	Caché en rol de Azure
+
+
+### Caché en Redis de Azure
+Caché en Redis de Azure está disponible con carácter general en tamaños de hasta 53 GB y tiene un contrato de nivel de servicio de disponibilidad del 99,9 %. El nuevo [nivel premium](cache-premium-tier.md) está disponible como versión preliminar y ofrece tamaños de hasta 530 GB, además de compatibilidad con los clústeres, las redes virtuales y la persistencia.
+
+Caché en Redis de Azure ofrece a los clientes la posibilidad de usar una Caché en Redis segura y dedicada administrada por Microsoft. Con esta oferta, puede aprovechar el variado conjunto de características y ecosistema proporcionados por Redis, junto con el hospedaje y la supervisión confiables que Microsoft pone a su disposición.
+
+A diferencia de las memorias caché tradicionales que solo tratan con pares clave-valor, Redis es popular por sus tipos de datos de gran rendimiento. Además, Redis también admite la ejecución de operaciones individuales en estos tipos, por ejemplo: asociar a una cadena; incrementar el valor en un objeto hash; insertar en una lista; calcular la intersección, la unión y la diferencia de conjuntos; u obtener el miembro con la clasificación más alta de un conjunto ordenado. Otras características son la compatibilidad con las transacciones, pub/sub, scripting Lua, claves con un período de vida limitado y opciones de configuración que hacen que Redis se comporte como una memoria caché tradicional.
+
+Otro aspecto clave para el éxito de Redis es su ecosistema de código abierto vibrante y en buen estado. Esto se refleja en el variado conjunto de clientes de Redis disponibles en varios lenguajes, que permite que pueda usarlo prácticamente cualquier carga de trabajo compilada dentro de Azure.
+
+Para obtener más información sobre cómo empezar a usar Caché en Redis de Azure, consulte [Uso de Caché en Redis de Azure](cache-dotnet-how-to-use-azure-redis-cache.md) y la [Documentación de Caché en Redis de Azure](https://azure.microsoft.com/documentation/services/redis-cache/).
+
+### Servicio de caché administrado
+Si ya es cliente del Servicio de caché administrado de Azure, puede seguir usando este servicio o migrar a Caché en Redis de Azure para aprovechar el completo conjunto de características que ofrece. El Servicio de caché administrado de Azure también está disponible con carácter general y ofrece un contrato de nivel de servicio por el que se garantiza una disponibilidad del 99,9 %.
+
+### Caché en rol
+Si usa Caché en rol para autohospedar la memoria caché, puede seguir usando este método. Como Caché en rol es un componente de software autohospedado y no un servicio hospedado de Microsoft, no ofrece ningún contrato de nivel de servicio. Los usuarios de Caché en rol pueden migrar a Caché en Redis de Azure para aprovechar su completo conjunto de características y obtener un contrato de nivel de servicio.
+
+<!---HONumber=Nov15_HO1-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="10/21/2015" 
 	ms.author="awills"/>
  
 # Solución de problemas y preguntas y respuestas sobre Application Insights para Java
@@ -24,7 +24,7 @@ Si tiene dudas o problemas relacionados con [Application Insights para Visual St
 
 *En Eclipse, al agregar el SDK de Application Insights a través de Maven o Gradle, obtengo errores de compilación o de validación de la suma de comprobación.*
 
-* Si el elemento de dependencia <version> usa un patrón con caracteres comodín (por ejemplo, (Maven) `<version>[0.9,)</version>` o (Gradle) `version:'0.9.+'`), pruebe a especificar una versión concreta en lugar de `0.9.3`.
+* Si el elemento de dependencia <version> usa un patrón con caracteres comodín (por ejemplo, (Maven) `<version>[1.0,)</version>` o (Gradle) `version:'1.0.+'`), pruebe a especificar una versión concreta en lugar de `1.0.2`. Consulte la [notas de la versión](app-insights-release-notes-java.md) para la versión más reciente.
 
 ## No aparecen datos 
 
@@ -138,4 +138,4 @@ Consulte [Privacidad y retención de los datos][data].
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

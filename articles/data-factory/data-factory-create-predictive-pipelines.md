@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # Crear canalizaciones predictivas con la factoría de datos de Azure y el aprendizaje automático de Azure 
@@ -315,4 +315,4 @@ En el ejemplo JSON anterior:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

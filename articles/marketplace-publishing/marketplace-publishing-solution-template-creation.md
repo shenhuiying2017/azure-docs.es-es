@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="10/09/2015"
+      ms.date="10/28/2015"
       ms.author="hascipio; v-divte" />
 
 # Guía para crear una plantilla de solución en Azure Marketplace
@@ -44,16 +44,6 @@ Cargue un archivo zip que contiene todos los archivos necesarios para aprovision
 
 Después de cargar el archivo zip, haga clic en **Solicitar certificación**. El equipo de certificación de Microsoft revisará los archivos y certificará la topología.
 
-También puede validar la experiencia de creación sin la implementación real para el usuario final mediante los pasos indicados a continuación.
-
-1. Guarde el archivo *createUiDefinition.json* y genere la dirección URL absoluta. La dirección URL debe ser accesible públicamente.
-2. Codifique la dirección URL [[http://www.url-encode-decode.com/](http://www.url-encode-decode.com/)].
-3. Reemplace el texto resaltado por la ubicación (dirección URL codificada) del archivo *createUiDefinition.json* que requiere validación.
-
-  https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/ **{"initialData":{},"providerConfig":{"createUiDefinition":"http://yoururltocreateuidefinition.jsonURLencoded"}}**
-  
-4. Copie y pegue la dirección URL en cualquier explorador y vea la experiencia del usuario final del archivo createUiDefinition.json.
-
 > [AZURE.TIP]Mientras los desarrolladores trabajan en la creación de las topologías de la plantilla de solución y en conseguir que se certifiquen, el departamento comercial, de marketing o legal de su empresa puede trabajar en el contenido de marketing y legal.
 
 ## Pasos siguientes
@@ -75,4 +65,4 @@ Ahora que ya creó la plantilla de solución y envió el archivo zip con los arc
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -25,6 +25,6 @@
 La aplicación ya está configurada en AAD para que los usuarios puedan iniciar sesión con el inicio de sesión de AAD.
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Configuración de aplicaciones móviles con Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
+[Configuración de aplicaciones móviles con Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

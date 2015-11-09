@@ -30,17 +30,27 @@ El muestreo está actualmente en versión beta y puede cambiar en el futuro.
 El muestreo está disponible actualmente para el SDK de ASP.NET o [cualquier página web](#other-web-pages).
 
 ### Servidor ASP.NET
-Para configurar el muestreo en su aplicación, inserte el siguiente fragmento de código en el método `Application_Start()` en Global.asax.cs:
 
-```C#
+1. Actualice los paquetes de NuGet del proyecto a la versión *preliminar* más reciente de Application Insights. Haga clic en el proyecto en el Explorador de soluciones, elija Administrar paquetes de NuGet, consulte **Incluir versión preliminar** y busque Microsoft.ApplicationInsights.Web. 
 
-    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
-    // This configures sampling percentage at 10%:
-    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+2. Agregar este fragmento de código a ApplicationInsights.config
+
+```XML
+
+    <TelemetryProcessors>
+     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+     <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+     <SamplingPercentage>10</SamplingPercentage>
+     </Add>
+   </TelemetryProcessors>
+
 ```
 
-> [AZURE.NOTE]Para el porcentaje de muestreo, elija un porcentaje que esté cerca de 100/N, donde N es un número entero. Así por ejemplo, los valores válidos incluyen 50 (= 1/2), 33,33 (= 1/3), 25 (= 1/4), 20 (= 1/5) y así sucesivamente. Actualmente el muestreo no es compatible con otros valores.
+> [AZURE.NOTE]Para el porcentaje de muestreo, elija un porcentaje que esté cerca de 100/N, donde N es un número entero. Actualmente el muestreo no es compatible con otros valores.
 
+<a name="other-web-pages"></a>
 ### Páginas web con JavaScript
 
 Puede configurar páginas web para el muestreo desde cualquier servidor. Para servidores ASP.NET, configure ambos lados de cliente y de servidor.
@@ -63,6 +73,26 @@ Cuando [configure las páginas web para Application Insights](app-insights-javas
 Asegúrese de proporcionar el mismo porcentaje de muestreo en JavaScript que el que proporcionó en el lado del servidor.
 
 [Obtenga más información acerca de la API](app-insights-api-custom-events-metrics.md)
+
+
+### Alternativa: establecer el muestreo en el código de servidor
+
+
+En lugar de establecer el parámetro de muestreo en el archivo .config, puede usar código. Esto le permitiría activar o desactivar el muestreo.
+
+*C#*
+
+```C#
+
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+
+    // It's recommended to set SamplingPercentage in the .config file instead.
+
+    // This configures sampling percentage at 10%:
+    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+
+```
 
 
 ## ¿Cuándo usar un muestreo?
@@ -132,4 +162,4 @@ El SDK del lado del cliente (JavaScript) participa en el muestreo junto con el S
 
 * No, en este momento el muestreo no es compatible con las aplicaciones de dispositivo. 
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

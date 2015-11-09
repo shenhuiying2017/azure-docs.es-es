@@ -1,0 +1,74 @@
+<properties 
+   pageTitle="Instrucciones y limitaciones generales de Base de datos SQL de Azure"
+   description="En esta página se describen algunas limitaciones generales para Base de datos SQL de Azure, así como las áreas de interoperatividad y compatibilidad."
+   services="sql-database"
+   documentationCenter="na"
+   authors="rothja"
+   manager="jeffreyg"
+   editor="monicar" />
+<tags 
+   ms.service="sql-database"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="data-management"
+   ms.date="10/28/2015"
+   ms.author="jroth" />
+
+# Instrucciones y limitaciones generales de Base de datos SQL de Azure
+
+En este tema se describen las instrucciones y las limitaciones generales de Base de datos SQL de Azure. Para obtener una visión global que le ayude a comprender las cuotas, la administración de recursos y el soporte técnico, consulte la sección [recursos adicionales](#additional-guidelines) al final de este tema.
+
+## Conectividad
+
+ - La autenticación de Windows no es compatible. Consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md). 
+
+ - La Base de datos SQL de Microsoft Azure admite el cliente de protocolo de secuencia de datos tabular (TDS) en la versión 7.3 o posterior.
+
+ - Se permiten únicamente las conexiones TCP/IP.
+
+ - El explorador de SQL Server 2008 no se admite porque la Base de datos SQL de Microsoft Azure no tiene puertos dinámicos, solo el puerto 1433.
+
+## Trabajos/Agente SQL Server
+
+Base de datos SQL de Microsoft Azure no admite trabajos o Agente SQL Server. Sin embargo, puede ejecutar el Agente SQL Server en su SQL Server local y conectarse a la Base de datos SQL de Microsoft Azure.
+
+## Transacciones
+
+La Base de datos SQL de Azure no admite transacciones distribuidas, que son transacciones que afectan a varios recursos. Para obtener más información, vea [Transacciones distribuidas (ADO.NET)](https://msdn.microsoft.com/library/ms254973.aspx). Base de datos SQL puede no conservar los valores de marca de tiempo no confirmados de la base de datos actual (DBTS) entre las conmutaciones por error.
+
+> [AZURE.NOTE]En algunas situaciones, una transacción se puede promover automáticamente a una transacción distribuida. Para obtener más información, vea [Integración de System.Transactions con SQL Server](https://msdn.microsoft.com/library/ms172070.aspx).
+
+## Compatibilidad con la intercalación de SQL Server
+
+La intercalación de bases de datos predeterminada que utiliza Base de datos SQL de Microsoft Azure es **SQL\_LATIN1\_GENERAL\_CP1\_CI\_AS**, donde **LATIN1\_GENERAL** es inglés (Estados Unidos), **CP1** es la página de códigos 1252, **CI** indica que no se distingue mayúsculas de minúsculas y **AS** especifica que se distinguen los acentos.
+
+Cuando se usa un servidor SQL Server local, es posible establecer las intercalaciones a nivel de servidor, base de datos, columna y expresión. Base de datos SQL de Microsoft Azure no permite establecer la intercalación a nivel de servidor. Para utilizar la intercalación no predeterminada con Base de datos SQL de Microsoft Azure, establezca la intercalación con la opción Crear intercalación de base de datos, o en el nivel de columna o expresión. Base de datos SQL no admite la opción Intercalar con el comando Alter Database. De forma predeterminada, en la Base de datos SQL, los datos temporales tendrán la misma intercalación que la base de datos. Para obtener más información acerca de cómo establecer la intercalación, vea [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+
+## Requisitos de nomenclatura
+
+Algunos nombres de usuario no se permiten por razones de seguridad. No puede usar los siguientes nombres:
+
+ - **admin** 
+ - **administrator** 
+ - **guest** 
+ - **root** 
+ - **sa** 
+
+Los nombres de todos los objetos nuevos deben cumplir las reglas de SQL Server para los identificadores. Para obtener más información, vea [Identificadores](https://msdn.microsoft.com/library/ms175874.aspx).
+
+Además, los nombres de inicio de sesión y el usuario no pueden contener el carácter \\ (no se admite la autenticación de Windows).
+
+## Directrices adicionales
+
+- Además de las limitaciones generales descritas en este artículo, Base de datos SQL tiene cuotas y limitaciones de recursos específicas según el [nivel de servicio](sql-database-service-tiers.md) seleccionado. Para ver una descripción detallada de los límites del nivel de servicio, consulte [Límites y capacidades de nivel de servicio](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
+
+- Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Base de datos SQL](sql-database-limits.md).
+
+- Para obtener directrices relacionadas con la seguridad, consulte [Instrucciones y limitaciones de seguridad de Base de datos SQL de Azure](sql-database-security-guidelines.md).
+
+- Otro asunto relacionado hace referencia a la compatibilidad de Base de datos SQL de Azure con las versiones locales de SQL Server, como SQL Server 2014. La última versión V12 de Base de datos SQL de Azure ha conseguido muchas mejoras en este sentido. Para obtener más detalles, vea [Novedades de Base de datos SQL V12](sql-database-v12-whats-new.md).
+
+- Para obtener información sobre la disponibilidad de controladores y la compatibilidad con Base de datos SQL, consulte [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md).
+
+<!---HONumber=Nov15_HO1-->

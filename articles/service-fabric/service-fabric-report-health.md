@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Adición de informes de mantenimiento de Service Fabric personalizados"
+   pageTitle="Adición de informes de mantenimiento de Service Fabric personalizados | Microsoft Azure"
    description="Describe cómo enviar informes de estado personalizados a entidades de estado de Azure Service Fabric. Proporciona recomendaciones para diseñar e implementar informes de estado de calidad."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Adición de informes de mantenimiento de Service Fabric personalizados
@@ -274,4 +274,4 @@ Según los datos del estado, los escritores del servicio y los administradores d
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -12,12 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/26/2015"
    ms.author="bwren" />
 
 # Programaciones en Automatización de Azure
 
 Las programaciones de Automatización se usan para programar la ejecución automática de runbooks. Podría ser una sola fecha y hora para que el runbook se ejecute una vez. O bien, podría ser una programación periódica para iniciar el runbook varias veces. Normalmente, no se accede a las programaciones desde los runbooks.
+
+>[AZURE.NOTE]Las programaciones no admiten actualmente las configuraciones de DSC de Automatización de Azure.
 
 ## Cmdlets de Windows PowerShell
 
@@ -66,4 +68,4 @@ El cmdlet [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn6902
 - [Programación de un runbook en Automatización de Azure](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

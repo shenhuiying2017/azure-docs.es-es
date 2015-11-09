@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="sdanie"/>
 
 # Referencia de la directiva de Administración de API de Azure
@@ -32,6 +32,8 @@ Las expresiones de directiva pueden utilizarse como valores de atributos o valor
 	-	[Validar JWT][]\: aplica la existencia y la validez de un JWT extraído de un encabezado HTTP especificado o un parámetro de consulta especificado.
 -	[Directivas avanzadas][]
 	-	[Flujo de control][]\: aplica condicionalmente instrucciones de directiva basadas en los resultados de la evaluación de [expresiones][] booleanas.
+	-	[Reenviar solicitud][]\: reenvía la solicitud al servicio back-end.
+	-	[Registro para el centro de eventos][]\: envía mensajes en el formato especificado a un destino de mensaje definido por una entidad del [registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger).
 	-	[Establecer variable][]\: conserva un valor en una variable de [contexto][] con nombre para el acceso posterior.
 -	[Directivas de autenticación][]
 	-	[Autenticar con opción básica][]\: autenticar con un servicio de back-end mediante la autenticación básica.
@@ -72,6 +74,8 @@ Para obtener más información acerca de las expresiones de directivas, vea el s
 [Establecer variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
 [expresiones]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 [contexto]: https://msdn.microsoft.com/library/azure/ea160028-fc04-4782-aa26-4b8329df3448#ContextVariables
+[Reenviar solicitud]: https://msdn.microsoft.com/library/azure/dn894085.aspx#ForwardRequest
+[Registro para el centro de eventos]: https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub
 
 [Directivas de autenticación]: https://msdn.microsoft.com/library/azure/dn894079.aspx
 [Autenticar con opción básica]: https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#Basic
@@ -105,4 +109,4 @@ Para obtener más información acerca de las expresiones de directivas, vea el s
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

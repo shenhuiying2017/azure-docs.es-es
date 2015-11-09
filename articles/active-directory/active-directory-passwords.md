@@ -17,6 +17,9 @@
 	ms.author="asteen"/>
 
 # Administración de contraseñas desde cualquier lugar
+
+  >[AZURE.IMPORTANT]¿Está aquí porque quiere restablecer su contraseña de Azure o O365? Si es así, [siga las instrucciones aquí](https://support.microsoft.com/kb/2606983).
+  
 El autoservicio ha sido durante mucho tiempo un objetivo clave para los departamentos de TI de todo el mundo como una medida de reducción de costos y ahorro de mano de obra. De hecho, el mercado está atestado de productos que le permiten administrar los grupos locales, las contraseñas o los perfiles de usuario en la nube o a nivel local. Azure AD se distingue de estas ofertas proporcionando algunas de las capacidades de autoservicio más fáciles de usar y más eficaces disponibles hoy día.
 
 **La Administración de contraseñas de Azure AD** es un conjunto de capacidades que permiten a los usuarios administrar cualquier contraseña desde cualquier dispositivo, en cualquier momento, desde cualquier ubicación, manteniendo la conformidad con las directivas de seguridad que defina.
@@ -53,7 +56,7 @@ Estas son algunas de las razones por las que se debe usar las capacidades de adm
 
 ## Actualizaciones recientes de servicios
 
-**Actualizaciones de facilidad de uso para la página de registro**: octubre de 2015
+**Actualizaciones de facilidad de uso para la página de registro**, octubre de 2015
 
 - Ahora, cuando un usuario ya tiene datos registrados, solo tiene que hacer clic en "Tiene buen aspecto" para actualizar los datos sin necesidad de volver a enviar el mensaje correo electrónico o una llamada de teléfono.
 
@@ -124,4 +127,4 @@ A continuación se muestran algunas de las interesantes características en las 
 * [Más información](active-directory-passwords-learn-more.md)
 * [Administración de contraseñas en MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

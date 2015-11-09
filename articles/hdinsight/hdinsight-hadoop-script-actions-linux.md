@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/19/2015"
+    ms.date="10/29/2015"
     ms.author="larryfr"/>
 
 # Desarrollo de la acción de script con HDInsight
@@ -43,7 +43,7 @@ Al desarrollar un script personalizado para un clúster de HDInsight, hay varios
 - [Escribir información en STDOUT y STDERR](#bPS7)
 - [Guardar los archivos como ASCII con el fin de línea LF](#bps8)
 
-> [AZURE.IMPORTANT]Las acciones de script se tienen que completar dentro de un periodo de 15 minutos o superarán el tiempo de espera. Durante el aprovisionamiento del nodo, el script se ejecuta a la vez con otros procesos de instalación y de configuración. La competición por los recursos, como el ancho de banda de red o el tiempo de CPU puede ocasionar que el script tarde más en terminar que en el entorno de desarrollo.
+> [AZURE.IMPORTANT]Las acciones de script se tienen que completar dentro de un periodo de 60 minutos o superarán el tiempo de espera. Durante el aprovisionamiento del nodo, el script se ejecuta a la vez con otros procesos de instalación y de configuración. La competición por los recursos, como el ancho de banda de red o el tiempo de CPU puede ocasionar que el script tarde más en terminar que en el entorno de desarrollo.
 
 ### <a name="bPS1"></a>Concentrarse en la versión de Hadoop
 
@@ -71,7 +71,7 @@ Por ejemplo, si un script personalizado instaló una aplicación en /usr/local/b
 
 ### <a name="bPS5"></a>Asegurar una alta disponibilidad de la arquitectura de clúster
 
-Los clústeres de HDInsight basados en Linux proporcionan dos nodos principales que están activos dentro del clúster y las acciones de script se ejecutan para ambos nodos. Si los componentes que instala esperan un único nodo principal, tiene que diseñar un script que instale el componente en uno de los dos nodos principales del clúster. Los nodos principales se denominan **headnode0** y **headnode1**.
+Los clústeres de HDInsight basados en Linux proporcionan dos nodos principales que están activos dentro del clúster y las acciones de script se ejecutan para ambos nodos. Si los componentes que instala esperan un único nodo principal, tiene que diseñar un script que instale el componente en uno de los dos nodos principales del clúster.
 
 > [AZURE.IMPORTANT]Los servicios predeterminados instalados como parte de HDInsight están diseñados para conmutar por error entre los dos nodos principales según sea necesario, pero esta funcionalidad no se extiende a componentes personalizados instalados a través de las acciones de script. Si necesita que los componentes instalados a través de una acción de script tengan una alta disponibilidad, tiene que implementar su propio mecanismo de conmutación por error que use los dos nodos principales disponibles.
 
@@ -220,4 +220,4 @@ Para el comando anterior, reemplace __INFILE__ por el archivo que contiene la ma
 
 [Personalizar los clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

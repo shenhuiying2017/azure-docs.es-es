@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: integración de Azure Active Directory con 15Five | Microsoft Azure" description="Aprenda a usar 15Five con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: integración de Azure Active Directory con 15Five | Microsoft Azure" 
+    description="Aprenda a usar 15Five con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: integración de Azure Active Directory con 15Five
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=528017).
 
 El objetivo de este tutorial es mostrar la integración de Azure y 15Five. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para el inicio de sesión único en 15Five
 
-Después de completar este tutorial, los usuarios de Azure AD que ha asignado a 15Five podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de 15Five (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586)
+Después de completar este tutorial, los usuarios de Azure AD que ha asignado a 15Five podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de 15Five (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md)
 
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
@@ -46,7 +59,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
     ![Galería de aplicaciones](./media/active-directory-saas-15five-tutorial/IC784668.png "Galería de aplicaciones")
 
-7.  En el panel de resultados, seleccione **15Five** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+7.  En el panel de resultados, seleccione **15Five** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![15Five](./media/active-directory-saas-15five-tutorial/IC784669.png "15Five")
 ##Configuración del inicio de sesión único
@@ -59,11 +72,11 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-15five-tutorial/IC784670.png "Configurar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en 15Five?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en 15Five?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-15five-tutorial/IC784671.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de 15Five**, escriba su dirección URL con el siguiente patrón "**https://company.15Five.com*" y, a continuación, haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de 15Five**, escriba su dirección URL con el siguiente patrón "**https://company.15Five.com*" y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-15five-tutorial/IC784672.png "Configurar dirección URL de la aplicación")
 
@@ -73,7 +86,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     >[AZURE.NOTE]El inicio de sesión único debe habilitarlo el equipo de soporte técnico de 15Five.
 
-5.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+5.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-15five-tutorial/IC784674.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -84,11 +97,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en 15Five, deben apro
 
 1.  Inicie sesión en el sitio de la compañía de **15Five** como administrador.
 
-2.  Vaya a **Manage Company** (Administrar compañía).
+2.  Vaya a **Administrar compañía**.
 
     ![Manage Company (Administrar compañía)](./media/active-directory-saas-15five-tutorial/IC784675.png "Manage Company (Administrar compañía)")
 
-3.  Vaya a **People > Add People** (Contactos > Agregar contactos).
+3.  Vaya a **Contactos > Agregar contactos**.
 
     ![Contactos](./media/active-directory-saas-15five-tutorial/IC784676.png "Contactos")
 
@@ -119,6 +132,6 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Sí](./media/active-directory-saas-15five-tutorial/IC767830.png "Sí")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

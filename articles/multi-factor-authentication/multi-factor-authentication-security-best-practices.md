@@ -78,20 +78,12 @@ El servidor de Azure Multi-Factor Authentication puede usarse para proteger recu
 - No es necesario que Servidor Azure Multi-Factor Authentication esté instalado en el servidor de federación de AD FS. Sin embargo, el adaptador de Multi-Factor Authentication para AD FS debe estar instalado en un Windows Server 2012 R2 que ejecute AD FS. Puede instalar el servidor en un equipo diferente, siempre y cuando sea una versión compatible e instale al adaptador de AD FS por separado en el servidor de federación de AD FS. Consulte el procedimiento siguiente para obtener instrucciones acerca de cómo instalar el adaptador por separado.
 - El asistente para la instalación del adaptador de AD FS de Multi-Factor Authentication crea un grupo de seguridad denominado PhoneFactor Admins en Active Directory y, a continuación, agrega la cuenta de servicio de AD FS del servicio de federación a este grupo. Se recomienda comprobar en el controlador de dominio que el grupo PhoneFactor Admins está creado y que la cuenta de servicio de AD FS sea un miembro de este grupo. Si es necesario, agregue la cuenta de servicio de AD FS manualmente al grupo PhoneFactor Admins en el controlador de dominio.
 
-### Portal de usuarios
+### Portal de usuario
 Este portal se ejecuta en un sitio web de Internet Information Server (IIS), que permite capacidades de autoservicio y proporciona un conjunto completo de capacidades de administración de usuarios. Use las directrices siguientes para configurar este componente:
 
 - Se requiere IIS 6 o superior
 - ASP.NET v2.0.507207 debe estar instalado y registrado
 - Este servidor se puede implementar en una red perimetral.
-- Si hay un firewall que filtra la comunicación entre este servidor y Azure, el puerto TCP 443 de salida es necesario para permitir la comunicación con las direcciones URL siguientes:
-	- https://pfd.phonefactor.net 
-	- https://pfd2.phonefactor.net 
-	- https://css.phonefactor.net
-- Si están restringidos los firewalls de salida en el puerto 443, deberá permitirse la salid de los siguientes intervalos de direcciones IP:
-	- 134\.170.116.0/25
-	- 134\.170.165.0/25
-	- 70\.37.154.128/25
 
 
 
@@ -129,4 +121,4 @@ Si bien este artículo resalta algunas prácticas recomendadas para Azure MFA, e
 - [La experiencia de configuración para Azure Multi-Factor Authentication ](multi-factor-authentication-end-user-first-time.md)
 - [P+F sobre Azure Multi-Factor Authentication ](multi-factor-authentication-faq.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

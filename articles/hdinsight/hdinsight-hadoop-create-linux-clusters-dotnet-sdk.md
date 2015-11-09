@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="Crear clústeres de Hadoop, HBase o Storm en Linux en HDInsight con cURL y la API de REST de Azure | Microsoft Azure"
-   	description="Aprenda a crear clústeres de Hadoop, HBase o Storm en Linux para HDInsight mediante cURL y la API de REST de Azure."
+   	pageTitle="Creación de clústeres Hadoop, HBase o Storm en Linux en HDInsight con cURL y la API de REST de Azure | Microsoft Azure"
+   	description="Aprenda a crear clústeres Hadoop, HBase o Storm en Linux para HDInsight con cURL y la API de REST de Azure."
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/14/2015"
+   	ms.date="10/23/2015"
    	ms.author="jgao"/>
 
 #Crear clústeres basados en Linux en HDInsight con el SDK de .NET
@@ -22,6 +22,10 @@
 [AZURE.INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan el trabajo con HDInsight desde una aplicación .NET Framework. En este documento se muestra cómo crear un clúster de HDInsight basado en Linux mediante el SDK de .NET.
+
+> [AZURE.IMPORTANT]Los pasos descritos en este documento crean un clúster con un nodo de trabajo. Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
+>
+> Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Requisitos previos
 
@@ -180,23 +184,23 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
 
 ##Pasos siguientes
 
-Ahora que ha creado correctamente un clúster de HDInsight, use lo siguiente para aprender a trabajar con el clúster.
+Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para aprender a trabajar con el clúster.
 
-###Clústeres de Hadoop
+###Clústeres Hadoop
 
 * [Uso de Hive con HDInsight](hdinsight-use-hive.md)
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-###Clústeres de HBase
+###Clústeres HBase
 
-* [Introducción a HBase con HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
-* [Desarrollar aplicaciones de Java para HBase en HDInsight](hdinsight-hbase-build-java-maven-linux)
+* [Introducción a HBase en HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
+* [Desarrollo de aplicaciones de Java para HBase en HDInsight](hdinsight-hbase-build-java-maven-linux)
 
-###Clústeres de Storm
+###Clústeres Storm
 
-* [Desarrollo de las topologías de Java para Storm en HDInsight](hdinsight-storm-develop-java-topology.md)
+* [Desarrollo de topologías de Java para Storm en HDInsight](hdinsight-storm-develop-java-topology.md)
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/28/2015" 
 	ms.author="mimig"/>
 
 # Administrar las necesidades de capacidad de DocumentDB
@@ -77,4 +77,4 @@ Para obtener instrucciones acerca de cómo supervisar los niveles de rendimiento
 Para obtener más información sobre la elección de los niveles de rendimiento para las colecciones, consulte [Niveles de rendimiento en DocumentDB](documentdb-performance-levels).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

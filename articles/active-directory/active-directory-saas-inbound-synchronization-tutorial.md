@@ -1,11 +1,21 @@
-<properties pageTitle="Tutorial: configuración de Workday para la sincronización de entrada | Microsoft Azure" description="Aprenda a usar la sincronización de entrada con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: configuración de Workday para la sincronización de entrada | Microsoft Azure" 
+    description="Aprenda a usar la sincronización de entrada con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: configuración de Workday para la sincronización de entrada
 >[AZURE.NOTE]Azure Active Directory (AD) Premium está disponible para los clientes de China mediante la instancia internacional de Azure AD. Azure AD Premium no es compatible actualmente en el servicio de Microsoft Azure operado por 21Vianet en China.
-
-&nbsp;
-
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=330042).
 
 El objetivo de este tutorial es mostrar los pasos que se deben realizar en Workday y Windows Azure AD para importar contactos de Workday en Microsoft Azure AD. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -38,7 +48,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 
 	![Aplicaciones](./media/active-directory-saas-inbound-synchronization-tutorial/IC700994.png "Aplicaciones")
 
-4.  Para abrir la **Galería de aplicaciones**, haga clic en **Agregar una aplicación** y, a continuación, en **Agregar una aplicación que mi organización use**.
+4.  Para abrir la **Galería de aplicaciones**, haga clic en **Agregar una aplicación** y luego en **Agregar una aplicación que mi organización use**.
 
 	![¿Qué desea hacer?](./media/active-directory-saas-inbound-synchronization-tutorial/IC700995.png "¿Qué desea hacer?")
 
@@ -46,13 +56,13 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 
 	![Workday](./media/active-directory-saas-inbound-synchronization-tutorial/IC701021.png "Workday")
 
-6.  En el panel de resultados, seleccione **Workday** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+6.  En el panel de resultados, seleccione **Workday** y luego haga clic en **Completar** para agregar la aplicación.
 
 	![Workday](./media/active-directory-saas-inbound-synchronization-tutorial/IC701022.png "Workday")
 
 ##Creación de un usuario del sistema de integración
 
-1.  En el **Workday Workbench** (Área de trabajo de Workday) escriba **crear usuario** en el cuadro de búsqueda y, a continuación, haga clic en el vínculo, **Create Integration System User** (Crear usuario del sistema de integración).     
+1.  En el **Área de trabajo de Workday** escriba **crear usuario** en el cuadro de búsqueda y luego haga clic en el vínculo, **Crear usuario del sistema de integración**.     
 
 	![crear usuario](./media/active-directory-saas-inbound-synchronization-tutorial/IC750979.png "crear usuario")
 
@@ -74,7 +84,7 @@ Para el escenario que se describe en este tutorial, es preciso crear un grupo de
 
 ##Asignación del usuario del sistema de integración al grupo de seguridad
 
-1.  Escriba editar grupo de seguridad en el cuadro de búsqueda y, a continuación, haga clic en el vínculo **Edit Security Group** (Editar grupo de seguridad).     
+1.  Escriba editar grupo de seguridad en el cuadro de búsqueda y luego haga clic en el vínculo **Editar grupo de seguridad**.     
 
 	![Editar grupo de seguridad](./media/active-directory-saas-inbound-synchronization-tutorial/IC750983.png "Editar grupo de seguridad")
 
@@ -149,7 +159,7 @@ El objetivo de esta sección es describir cómo configurar Microsoft Azure AD pa
 
 1.  En la página de integración de aplicaciones de **Workday**, haga clic en **Configurar importación de usuarios** para abrir el cuadro de diálogo **Configurar aprovisionamiento**.    
 
-2.  En la página **Configuración y credenciales de administrador**, realice los pasos siguientes y, a continuación, haga clic en Siguiente:
+2.  En la página **Configuración y credenciales de administrador**, realice los pasos siguientes y luego haga clic en Siguiente:
 
 	![Configuración y credenciales de administrador](./media/active-directory-saas-inbound-synchronization-tutorial/IC750995.png "Configuración y credenciales de administrador")
 
@@ -157,7 +167,7 @@ El objetivo de esta sección es describir cómo configurar Microsoft Azure AD pa
     2.  En el cuadro de texto **Contraseña de administrador de Workday**, escriba la contraseña del usuario que ha creado en la sección [Creación de un usuario del sistema de integración](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser).    
     3.  En el cuadro de texto **Dirección URL de inquilino de Workday**, escriba la dirección URL o el inquilino de Workday.    
 
-3.  En la página **Probar conexión**, haga clic en **Iniciar prueba** para confirmar la conectividad y, a continuación, haga clic en **Siguiente**.
+3.  En la página **Probar conexión**, haga clic en **Iniciar prueba** para confirmar la conectividad y, luego, en **Siguiente**.
 
 	![Probar conexión](./media/active-directory-saas-inbound-synchronization-tutorial/IC750996.png "Probar conexión")
 
@@ -171,4 +181,4 @@ El objetivo de esta sección es describir cómo configurar Microsoft Azure AD pa
 
 Ahora puede ir a la sección **Usuarios** y comprobar si se importó el usuario de Workday.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

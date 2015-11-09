@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/27/2015"
 	ms.author="jhubbard"/>
 
 
@@ -23,6 +23,7 @@ En este tutorial aprenderá los fundamentos del uso de SQL Data Sync de Azure me
 
 En este tutorial se presupone una experiencia previa mínima en SQL Server y Base de datos SQL de Azure. En este tutorial, creará un grupo de sincronización híbrido (sesiones de SQL Server y Base de datos SQL) completamente configurado y sincronizado en función de cómo lo programe.
 
+**Nota:** La documentación técnica completa para Azure SQL Data Sync, que anteriormente se encontraba en MSDN, es ahora un archivo .pdf que puede descargar [aquí](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 ## Paso 1: Conexión a la Base de datos SQL de Azure
 
@@ -63,7 +64,7 @@ Asegúrese de tener el software siguiente instalado en el equipo donde instalar�
 <a id="InstallClient"></a>
 ### Paso 2b: Instalación de un nuevo agente cliente
 
-Siga la instrucción en [Instalar un agente cliente de SQL Data Sync](http://msdn.microsoft.com/library/jj823137.aspx) para instalar el agente.
+Siga las instrucciones de [Instalar un agente cliente de (SQL Data Sync)]((http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf) para instalar el agente.
 
 
 
@@ -80,7 +81,7 @@ Siga la instrucción en [Instalar un agente cliente de SQL Data Sync](http://msd
 
 ## Paso 3: Registro de una base de datos de SQL Server con el agente cliente
 
-Cuando del agente cliente se haya instalado, registre todas las bases de datos de SQL Server locales que pretenda incluir en un grupo de sincronización con el agente. Para registrar una base de datos con el agente, siga las instrucciones de [Registrar una base de datos de SQL Server con un agente cliente](http://msdn.microsoft.com/library/jj823138.aspx).
+Cuando del agente cliente se haya instalado, registre todas las bases de datos de SQL Server locales que pretenda incluir en un grupo de sincronización con el agente. Para registrar una base de datos con el agente, siga las instrucciones de [Registrar una base de datos de SQL Server con un agente cliente](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 
 
@@ -195,11 +196,11 @@ Siempre podrá sincronizar un grupo de sincronización haciendo clic en SYNC en 
 ## Pasos siguientes
 Para obtener más información acerca de Base de datos SQL y SQL Data Sync, consulte:
 
-* [Descarga de documentación técnica de SQL Data Sync](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
+* [Descarga de la documentación técnica completa de SQL Data Sync](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
 * [Información general de Base de datos SQL](sql-database-technical-overview.md)
 * [Administración del ciclo de vida de las aplicaciones](https://msdn.microsoft.com/library/jj907294.aspx)
  
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

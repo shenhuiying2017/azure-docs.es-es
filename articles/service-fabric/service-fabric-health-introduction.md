@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introducción a la supervisión del estado de Service Fabric"
-   description="En este artículo se describe el modelo de supervisión del estado de Service Fabric, incluidas las entidades de mantenimiento, los informes y la evaluación."
+   pageTitle="Seguimiento de estado en Service Fabric | Microsoft Azure"
+   description="Introducción al modelo de seguimiento de estado de Azure Service Fabric, que proporciona supervisión del clúster y sus aplicaciones y servicios."
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Introducción a la supervisión del estado de Service Fabric
@@ -336,4 +336,4 @@ El modelo de estado se usa mucho para la supervisión y el diagnóstico, para ev
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

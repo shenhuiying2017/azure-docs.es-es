@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso de un cliente HTML | Microsoft Azure"
+	pageTitle="Uso de un cliente HTM con Servicios móviles de Azure | Microsoft Azure"
 	description="Obtenga información acerca de cómo usar un cliente HTML para Servicios móviles de Azure."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/23/2015"
 	ms.author="glenga"/>
 
 # Uso de un cliente HTML/JavaScript para Servicios móviles de Azure
@@ -504,10 +504,9 @@ En el ejemplo siguiente se muestra cómo usar el SDK de Live con las API de WinJ
 	// Start the sign-in process.
 	authenticate();
 
-De este modo se inicializa el cliente Live Connect, se envía una nueva solicitud de inicio de sesión a la cuenta de Microsoft, se envía el token de autenticación devuelto a Servicios móviles y, a continuación, se muestra la información del usuario que ha iniciado sesión. La aplicación no se inicia hasta que la autenticación se realiza correctamente.
-
-###Almacenamiento en caché del token de autenticación
-En algunos casos, la llamada al método de inicio de sesión puede evitarse después de la primera vez que el usuario se autentique. Puede usar [sessionStorage] o [localStorage] para almacenar en caché la identidad del usuario actual la primera vez que se inicie sesión y para que compruebe las veces posteriores si ya dispone de la identidad de usuario en la memoria caché. Si la caché está vacía o se produce un error en la llamada (lo que significa que el inicio de sesión actual ha caducado), será necesario pasar por el proceso de inicio de sesión.
+De este modo se inicializa el cliente Live Connect, se envía una nueva solicitud de inicio de sesión a la cuenta de Microsoft, se envía el token de autenticación devuelto a Servicios móviles y, a continuación, se muestra la información del usuario que ha iniciado sesión. La aplicación no se inicia hasta que la autenticación se realiza correctamente. <!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
+###Caching the authentication token
+In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
     // After logging in
     sessionStorage.loggedInUser = JSON.stringify(client.currentUser);
@@ -522,6 +521,7 @@ En algunos casos, la llamada al método de inicio de sesión puede evitarse desp
      // Log out
     client.logout();
     sessionStorage.loggedInUser = null;
+-->
 
 ##<a name="push-notifications"></a>Registrar notificaciones de inserción
 
@@ -665,4 +665,4 @@ Para controlar a qué sitios web se les permite interactuar con solicitudes y en
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [referencia de opciones de consulta del sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

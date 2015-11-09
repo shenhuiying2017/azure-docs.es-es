@@ -1,7 +1,21 @@
-<properties pageTitle="Tutorial: Integración de Azure Active Directory con Jive | Microsoft Azure" description="Aprenda a usar Jive con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integración de Azure Active Directory con Jive | Microsoft Azure" 
+    description="Aprenda a usar Jive con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integración de Azure Active Directory con Jive
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=330042). Para más información sobre este tema, consulte los [procedimientos recomendados para administrar las mejoras de acceso a las aplicaciones de Azure Active Directory](http://go.microsoft.com/fwlink/?LinkId=329963).
+
   
 El objetivo de este tutorial es mostrar la integración de Azure y Jive. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -29,7 +43,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
     ![Aplicaciones](./media/active-directory-saas-jive-tutorial/IC700994.png "Aplicaciones")
 
-4.  Para abrir la **Galería de aplicaciones**, haga clic en **Agregar una aplicación** y, luego, en **Agregar una aplicación que mi organización use**.
+4.  Para abrir la **Galería de aplicaciones**, haga clic en **Agregar una aplicación** y luego en **Agregar una aplicación que mi organización use**.
 
     ![¿Qué desea hacer?](./media/active-directory-saas-jive-tutorial/IC700995.png "¿Qué desea hacer?")
 
@@ -37,7 +51,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
     ![Jive](./media/active-directory-saas-jive-tutorial/IC701001.png "Jive")
 
-6.  En el panel de resultados, seleccione **Jive** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+6.  En el panel de resultados, seleccione **Jive** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![Jive](./media/active-directory-saas-jive-tutorial/IC701005.png "Jive")
 ##Configuración del aprovisionamiento de usuario
@@ -62,7 +76,7 @@ La captura de pantalla siguiente muestra un ejemplo del cuadro de diálogo relac
 
         >[AZURE.NOTE]La dirección URL del inquilino de Jive es la que se usa en su organización para iniciar sesión en Jive. Normalmente, la dirección URL tiene el formato siguiente: **www.<organización>.jive.com**.
 
-    4.  Haga clic en **validar** para comprobar la configuración.
+    4.  Haga clic en **Validar** para comprobar la configuración.
 
     5.  Haga clic en el botón **Siguiente** para abrir la página **Confirmación**.
 
@@ -70,4 +84,4 @@ La captura de pantalla siguiente muestra un ejemplo del cuadro de diálogo relac
   
 Ahora ya puede crear una cuenta de prueba, espere 10 minutos y compruebe si la cuenta se ha sincronizado en Jive.com.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

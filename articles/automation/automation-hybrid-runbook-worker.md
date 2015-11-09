@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Trabajos híbridos de runbook de Automatización de Azure
@@ -30,6 +30,8 @@ Puede designar uno o más equipos del centro de datos para que actúen como un t
 >[AZURE.NOTE]Visión operativa se está integrando en Operations Management Suite y es posible que vea cualquiera de estos nombres usado en el portal y en la documentación.
 
 No hay ningún requisito de firewall de entrada para admitir Trabajos híbridos de runbook. El agente que se encuentra en el equipo local inicia toda la comunicación con Automatización de Azure en la nube. Cuando se inicia un runbook, Automatización de Azure crea una instrucción que el agente recupera. El agente baja el runbook y todos los parámetros antes de ejecutarlo. También recuperará todos los [recursos](http://msdn.microsoft.com/library/dn939988.aspx) que usa el runbook desde Automatización de Azure.
+
+>[AZURE.NOTE]Los trabajo híbridos de runbooks no admiten actualmente [configuraciones de DSC](automation-dsc-overview.md).
 
 ## Grupos de Trabajos híbridos de runbook
 
@@ -73,7 +75,7 @@ Cuando agregue un agente a Operations Management Suite, la solución Automatizac
 
 Abra una sesión de PowerShell en modo de Administrador y ejecute el comando siguientes para importar el módulo.
 
-	cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\5.2.20826.0\HybridRegistration"
+	cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation<version>\HybridRegistration"
 	Import-Module HybridRegistration.psd1
 
 
@@ -86,7 +88,7 @@ Puede obtener la información necesaria para este cmdlet desde la hoja **Adminis
 ![Información general de Trabajo híbrido de runbook](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 - **Name** es el nombre del grupo de Trabajos híbridos de runbook. Si este grupo ya existe en la cuenta de automatización, se le agregará el equipo actual. Si todavía no existe, se agregará.
-- **Extremo** es el campo **URL** campo de la hoja **Administrar claves**.
+- **Punto de conexión** es el campo **URL** campo de la hoja **Administrar claves**.
 - **Token** es la **Clave de acceso primaria** en la hoja **Administrar claves**.  
 
 Utilice el modificador **-Verbose** con **Add-HybridRunbookWorker** para recibir información detallada de la instalación.
@@ -111,8 +113,6 @@ Use el parámetro **RunOn**. Podría usar el comando siguiente para iniciar un r
 	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 
 >[AZURE.NOTE]El parámetro **RunOn** se agregó al cmdlet **Start-AzureAutomationRunbook** en la versión 0.9.1 de PowerShell de Microsoft Azure. Si tiene instalada una versión anterior, deberá [descargar la versión más reciente](http://azure.microsoft.com/downloads). Solo necesita instalar esta versión en una estación de trabajo donde iniciará el runbook desde Windows PowerShell. No es necesario que la instale en el equipo de trabajo, a menos que tenga la intención de iniciar runbooks desde ese equipo. Actualmente no puede iniciar un runbook en un Trabajo híbrido de runbook desde otro runbook, debido a que esto requeriría que la versión más reciente de PowerShell de Azure esté instalada en su cuenta de Automatización. La versión más reciente se actualizará automáticamente en Automatización de Azure y pronto se insertará de manera automática en los trabajos.
-
->[AZURE.NOTE]Hybrid Runbook Worker solo puede ejecutar [runbooks gráficos y de flujo de trabajo de PowerShell](automation-runbook-types.md). Actualmente no se puede iniciar un [runbook de PowerShell](automation-runbook-types.md) en un Hybrid Runbook Worker.
 
 ## Solución de problemas de runbooks en Hybrid Runbook Worker
 
@@ -164,4 +164,4 @@ Puede usar los criterios siguientes para determinar si Automatización de Azure 
 - [Edición de un runbook en Automatización de Azure](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -26,6 +26,7 @@ Con PolyBase puede consultar datos almacenados en el almacenamiento de blobs de 
 - Cree los objetos PolyBase: origen de datos externo, formato de archivo externo y tabla externa. 
 - Consulte los datos almacenados en el almacenamiento de blobs de Azure.
 - Cargue los datos del almacenamiento de blobs de Azure en Almacenamiento de datos SQL.
+- Exporte datos desde Almacenamiento de datos SQL al almacenamiento de blobs de Azure.
 
 
 ## Requisitos previos
@@ -167,8 +168,6 @@ WITH
 ;
 ```
 
-> [AZURE.NOTE]Tenga en cuenta que en este momento no se pueden crear estadísticas en una tabla externa.
-
 Tema de referencia: [CREATE EXTERNAL TABLE (Transact-SQL)][].
 
 Los objetos recién creados se almacenan en la base de datos de Almacenamiento de datos SQL. Puede verlos en el Explorador de objetos de SQL Server Data Tools (SSDT).
@@ -181,7 +180,7 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 ;
 ```
 
-> [AZURE.NOTE]Al quitar una tabla externa, debe usar `DROP EXTERNAL TABLE`. **No puede** usar `DROP TABLE`.
+> [AZURE.NOTE]Al quitar una tabla externa, debe usar `DROP EXTERNAL TABLE`. **No** puede usar `DROP TABLE`.
 
 Tema de referencia: [DROP EXTERNAL TABLE (Transact-SQL)][].
 
@@ -227,7 +226,7 @@ El almacenamiento directo de datos quita el tiempo de transferencia de datos de 
 
 En este ejemplo se usa la instrucción CREATE TABLE AS SELECT para cargar datos. La nueva tabla hereda las columnas designadas en la consulta. Hereda los tipos de datos de esas columnas de la definición de tabla externa.
 
-CREATE TABLE AS SELECT es una instrucción Transact-SQL de alto rendimiento que reemplaza a INSERT...SELECT. Se desarrolló originalmente para el motor de procesamiento paralelo masivo (MPP) de Analytics Platform System y se incluye ahora en Almacenamiento de datos SQL.
+CREATE TABLE AS SELECT es una instrucción Transact-SQL de alto rendimiento que carga los datos en paralelo a todos los nodos de proceso de su Almacenamiento de datos SQL. Se desarrolló originalmente para el motor de procesamiento paralelo masivo (MPP) de Analytics Platform System y se incluye ahora en Almacenamiento de datos SQL.
 
 ```
 -- Load data from Azure blob storage to SQL Data Warehouse 
@@ -245,6 +244,33 @@ FROM   [ext].[CarSensor_Data]
 ```
 
 Vea [CREATE TABLE AS SELECT (Transact-SQL)][].
+
+
+## Exportación de datos al almacenamiento de blobs de Azure
+Esta sección muestra cómo exportar datos desde el Almacenamiento de datos SQL al almacenamiento de blobs de Azure. En este ejemplo se utiliza CREATE EXTERNAL TABLE AS SELECT, que es una instrucción Transact-SQL de alto rendimiento para exportar los datos en paralelo desde todos los nodos de proceso.
+
+En el ejemplo siguiente se crea una tabla externa Weblogs2014 con definiciones de columna y datos de la tabla dbo.Weblogs. La definición de tabla externa se almacena en Almacenamiento de datos SQL y los resultados de la instrucción SELECT se exportan en el directorio "/archive/log2014/" del contenedor de blobs especificado por el origen de datos. Los datos se exportan en el formato de archivo de texto especificado.
+
+```
+CREATE EXTERNAL TABLE Weblogs2014 WITH
+(
+    LOCATION='/archive/log2014/',
+    DATA_SOURCE=azure_storage,
+    FILE_FORMAT=text_file_format
+)
+AS
+SELECT
+    Uri,
+    DateRequested
+FROM
+    dbo.Weblogs
+WHERE
+    1=1
+    AND DateRequested > '12/31/2013'
+    AND DateRequested < '01/01/2015';
+```
+
+
 
 
 ## Evitar el requisito UTF-8 de PolyBase
@@ -334,4 +360,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/es-ES/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/es-ES/library/ms189450.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

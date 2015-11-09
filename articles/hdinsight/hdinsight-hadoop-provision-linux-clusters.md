@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/14/2015"
+   	ms.date="10/23/2015"
    	ms.author="nitinme"/>
 
 
@@ -45,6 +45,8 @@ Durante la configuración, seleccionará uno de estos tipos para el clúster. Pu
 
 Cada tipo de clúster tiene su propia terminología de nodos dentro del clúster, así como el número de nodos y el tamaño de memoria virtual predeterminada para cada tipo de nodo:
 
+> [AZURE.IMPORTANT]Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
+
 ![Nodos de clúster de Hadoop en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)
 
 Los clústeres de Hadoop para HDInsight tienen dos nodos de tipos:
@@ -67,7 +69,7 @@ Los clústeres de Spark para HDInsight tienen tres tipos de nodos: - Nodo princi
 
 ###Almacenamiento de Azure para HDInsight
 
-Cada tipo de clúster también tendrá una o más cuentas de Almacenamiento de Azure asociadas al clúster. HDInsight usa los blobs de Azure desde estas cuentas de almacenamiento como almacén de datos para el clúster. El mantenimiento de los datos separados del clúster permite eliminar clústeres cuando no están en uso y seguir conservando los datos. Después puede usar la misma cuenta de almacenamiento para un clúster nuevo si necesita realizar más análisis. Para obtener más información, consulte [Uso de Almacenamiento de blobs de Azure con HDInsight](../hdinsight-use-blob-storage.md).
+Cada tipo de clúster también tendrá una o más cuentas de Almacenamiento de Azure asociadas al clúster. HDInsight usa los blobs de Azure desde estas cuentas de almacenamiento como almacén de datos para el clúster. El mantenimiento de los datos separados del clúster permite eliminar clústeres cuando no están en uso y seguir conservando los datos. Después puede usar la misma cuenta de almacenamiento para un clúster nuevo si necesita realizar más análisis. Para obtener más información, consulte [Uso de almacenamiento de blobs de Azure con HDInsight](../hdinsight-use-blob-storage.md).
 
 ## <a id="configuration"></a>Opciones de configuración básica
 
@@ -103,7 +105,7 @@ Puede aprovisionar clústeres de HDInsight en uno de los dos sistemas operativos
 
 - **HDInsight en Linux (Ubuntu 12.04 LTS para Linux)**: seleccione esta opción si conoce Linux o Unix, si realiza una migración desde una solución de Hadoop para Linux existente o si desea una integración simple con los componentes del ecosistema de Hadoop creados para Linux. Para obtener más información, vea [Introducción a Hadoop en Linux en HDInsight](hdinsight-hadoop-linux-get-started.md).
 
-> [AZURE.NOTE]En este documento se supone que usa un clúster de HDInsight basado en Linux. Para obtener información específica de los clústeres basados en Windows, consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md).
+> [AZURE.NOTE]En este documento se supone que usa un clúster de HDInsight basado en Linux. Para obtener información específica de los clústeres basados en Windows, consulte [Creación de clústeres de Hadoop basado en Windows en HDInsight](hdinsight-provision-clusters.md).
 
 ###Nombre de la suscripción
 
@@ -117,9 +119,9 @@ Las aplicaciones normalmente se componen de muchos componentes,por ejemplo una a
 
 Hay dos tipos de autenticación usados con los clústeres de HDInsight:
 
-* Usuario __admin__ o __HTTPs__: la cuenta del administrador para un clúster se usa principalmente cuando se accede a la web o a servicios REST expuestos por el clúster. No se puede usar para iniciar sesión directamente en el clúster.
+* Usuario __admin__ o __HTTPs__: la cuenta del administrador para un clúster se usa principalmente cuando se tiene acceso a servicios web o a servicios de REST expuestos por el clúster. No se puede usar para iniciar sesión directamente en el clúster.
 
-* __Nombre de usuario de SSH__: se usa la cuenta de usuario de SSH para tener acceso remoto al clúster mediante un cliente [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell). Se usa con frecuencia para proporcionar un acceso remoto de línea de comandos a los nodos principales del clúster.
+* __Nombre de usuario de SSH__: se usa la cuenta de usuario de SSH para tener acceso remoto al clúster mediante un cliente de [Shell seguro](https://en.wikipedia.org/wiki/Secure_Shell). Se usa con frecuencia para proporcionar un acceso remoto de línea de comandos a los nodos principales del clúster.
 
 La cuenta de administrador está protegida con contraseña y todas las comunicaciones web con el clúster mediante la cuenta de administrador deben realizarse a través de una conexión HTTPS segura.
 
@@ -152,11 +154,13 @@ De forma predeterminada, este contenedor tiene el mismo nombre que el del clúst
 
 Puede seleccionar el tamaño de los recursos de proceso usados por el clúster. Por ejemplo, si sabe que va a realizar las operaciones que necesitan una gran cantidad de memoria, es posible que quiera seleccionar un recurso de proceso con más memoria.
 
-> [AZURE.NOTE]Los distintos tipos de clúster tienen tipos de nodos, número de nodos y tamaños de nodo diferentes. Por ejemplo, un tipo de clúster de Hadoop tiene dos _nodos principales_ y su valor predeterminado es de cuatro _nodos de datos_, mientras que un tipo de clúster Storm tiene dos _nodos nimbus_, tres _nodos zookeeper_ y su valor predeterminado es de cuatro _nodos de supervisor_.
+Los distintos tipos de clúster tienen tipos de nodos, número de nodos y tamaños de nodo diferentes. Por ejemplo, un tipo de clúster de Hadoop tiene dos _nodos principales_ y su valor predeterminado es de cuatro _nodos de datos_, mientras que un tipo de clúster Storm tiene dos _nodos nimbus_, tres _nodos zookeeper_ y su valor predeterminado es de cuatro _nodos de supervisor_.
 
-Al usar el Portal de vista previa de Azure para configurar el clúster, el tamaño de nodo se expone a través de la hoja __Plan de tarifas de nodo__ y también debe mostrar el costo asociado a los distintos tamaños de nodo.
+> [AZURE.IMPORTANT]Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
 
-> [AZURE.IMPORTANT]La facturación se inicia una vez creado el clúster y solo se detiene cuando se elimina el clúster. Para obtener más información sobre los precios de HDInsight, consulte los [detalles de precios de HDInsight](https://azure.microsoft.com/es-ES/pricing/details/hdinsight/).
+Al usar el Portal de vista previa de Azure para configurar el clúster, el tamaño de nodo se expone a través de la hoja __Plan de tarifas de nodo__ y también debe mostrar el costo asociado con los distintos tamaños de nodo.
+
+> [AZURE.IMPORTANT]La facturación se inicia una vez creado el clúster y solo se detiene cuando se elimina el clúster. Para obtener más información sobre los precios, consulte [Detalles de precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##<a id="optionalconfiguration"></a>Configuración opcional
 
@@ -164,7 +168,7 @@ Las secciones siguientes describen las opciones de configuración opcionales, as
 
 ### Versión de HDInsight
 
-Se usa para determinar la versión de HDInsight que usará este clúster. Para obtener más información, consulte [Componentes y versiones de clústeres de Hadoop en HDInsight](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409).
+Se usa para determinar la versión de HDInsight que usará este clúster. Para obtener más información, consulte [Componentes y versiones de clústeres de Hadoop en HDInsight](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409)
 
 ### Uso de redes virtuales de Azure
 
@@ -187,7 +191,7 @@ Para obtener más información sobre las características, las ventajas y la fun
 > HDInsight de Azure solo admite redes virtuales basadas en la ubicación y actualmente no funciona con redes virtuales basadas en grupos de afinidad. Utilice el cmdlet Get-AzureVNetConfig de Azure PowerShell para comprobar si una red virtual existente de Azure está basada en la ubicación. Si la red virtual no está basada en la ubicación, tiene las opciones siguientes:
 >
 > - Exporte la configuración de la red virtual existente y luego cree una red virtual nueva. De manera predeterminada, las redes virtuales nuevas se basan en la ubicación.
-> - Migre a una red virtual basada en la ubicación. Consulte [Migración de los servicios existentes a un ámbito regional](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
+> - Migre a una red virtual basada en la ubicación. Vea [Migración de los servicios existentes a un ámbito regional](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
 >
 > Se recomienda encarecidamente designar una única subred para un clúster.
 >
@@ -195,7 +199,7 @@ Para obtener más información sobre las características, las ventajas y la fun
 >
 > No se puede usar v1 (clásica), red virtual de Azure con HDInsight basado en Linux. La Red virtual debe ser v2 (Administrador de recursos de Azure) para se muestre como opción durante el proceso de creación de un clúster de HDInsight en el Portal de vista previa de Azure o para que se pueda usar para crear un clúster en la CLI de Azure o Azure PowerShell.
 >
-> Si tiene recursos en una red v1 y quiere que dichos recursos puedan acceder directamente a HDInsight a través de una red virtual, vea [Conexión de redes virtuales clásicas con nuevas redes virtuales](../virtual-network/virtual-networks-arm-asm-s2s.md) para obtener información sobre cómo conectar una Red virtual v2 a una Red virtual v1. Cuando se establezca la conexión, puede crear el clúster de HDInsight en la Red virtual v2.
+> Si tiene recursos en una red v1 y quiere que dichos recursos puedan tener acceso directamente a HDInsight a través de una red virtual, consulte [Conexión de redes virtuales clásicas con nuevas redes virtuales](../virtual-network/virtual-networks-arm-asm-s2s.md) para obtener información sobre cómo conectar una Red virtual v2 a una Red virtual v1. Cuando se establezca la conexión, puede crear el clúster de HDInsight en la Red virtual v2.
 
 ### Tienda de metadatos
 
@@ -276,4 +280,4 @@ En este artículo, aprendió información básica acerca de cómo crear un clús
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Uso de Sqoop con HDInsight"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

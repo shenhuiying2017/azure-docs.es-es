@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Administración de clústeres de HDInsight con Ambari | Microsoft Azure"
-   description="Aprenda a usar Ambari para supervisar y administrar clústeres de HDInsight basado en Linux."
+   pageTitle="Supervisión y administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari| Microsoft Azure"
+   description="Aprenda a usar Ambari para supervisar y administrar clústeres de HDInsight basado en Linux. En este documento, aprenderá a usar la interfaz de usuario web de Ambari incluida con clústeres de HDInsight."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -14,24 +14,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/20/2015"
+   ms.date="10/27/2015"
    ms.author="larryfr"/>
 
-#Administración de clústeres de HDInsight con Ambari (vista previa)
+#Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari
 
-Aprenda a usar Ambari para administrar y supervisar clústeres de HDInsight de Azure basado en Linux.
+[AZURE.INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-> [AZURE.NOTE]Gran parte de la información de este artículo solo se aplica a clústeres de HDInsight basado en Linux. En el caso de los clústeres de HDInsight basado en Windows, solo se encuentra disponible la supervisión a través de la API de REST de Ambari. Consulte [Supervisión de Hadoop en HDInsight basado en Windows con la API de Ambari](hdinsight-monitor-use-ambari-api.md).
+Apache Ambari simplifica la administración y la supervisión de un clúster de Hadoop al brindar una API de REST y una interfaz de usuario web fácil de usar. Ambari se incluye en los clústeres de HDInsight basado en Linux y, además, se usa para supervisar el clúster y realizar cambios en la configuración.
+
+En este documento, aprenderá a usar la interfaz de usuario web de Ambari con un clúster de HDInsight.
+
+> [AZURE.NOTE]La información que aparece en este artículo solo se aplica a clústeres de HDInsight basado en Linux. En el caso de los clústeres de HDInsight basado en Windows, solo se encuentra disponible la supervisión a través de la API de REST de Ambari. Consulte [Supervisión de Hadoop en HDInsight basado en Windows con la API de Ambari](hdinsight-monitor-use-ambari-api.md).
 
 ##<a id="whatis"></a> ¿Qué es Ambari?
 
 <a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> simplifica la administración de Hadoop al proporcionar una interfaz de usuario web fácil de usar que se puede utilizar para aprovisionar, administrar y supervisar clústeres de Hadoop. Los desarrolladores pueden integrar estas funcionalidades en sus aplicaciones mediante el uso de las <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">API de REST de Ambari</a>.
 
-De manera predeterminada, Ambari viene con los clústeres de HDInsight basado en Linux. Los clústeres de HDInsight basado en Windows proporcionan la funcionalidad de supervisión a través de las API de REST de Ambari.
+De manera predeterminada, la interfaz web de Ambari viene con los clústeres de HDInsight basado en Linux.
 
 ##Conectividad
 
-La conexión a Ambari en el clúster de HDInsight requiere el uso de HTTPS. También debe autenticarse en Ambari mediante el nombre de la cuenta de administrador (el valor predeterminado es __admin__,) y la contraseña que proporcionó cuando se creó el clúster.
+La interfaz de usuario web de Ambari está disponible en el clúster de HDInsight en HTTPS://CLUSTERNAME.azurehdidnsight.net, donde __CLUSTERNAME__ es el nombre del clúster.
+
+> [AZURE.IMPORTANT]La conexión a Ambari en HDInsight requiere HTTPS. También debe autenticarse en Ambari mediante el nombre de la cuenta de administrador (el valor predeterminado es __admin__) y la contraseña que proporcionó cuando se creó el clúster.
 
 ##Proxy SSH
 
@@ -41,15 +47,7 @@ Para obtener información sobre cómo crear un túnel SSH para trabajar con Amba
 
 ##Interfaz de usuario web de Ambari
 
-La interfaz de usuario web de Ambari está disponible en cada clúster de HDInsight basado en Linux que crea en **https://&lt;clustername>.azurehdinsight.net**.
-
-Se le pedirá autenticarse en la página dos veces. La primera solicitud es para autenticarse en el clúster de HDInsight, mientras que la segunda es para autenticarse en Ambari.
-
-* **Autenticación de clúster**: use el nombre de usuario del administrador del clúster (el valor predeterminado es **admin**) y la contraseña.
-
-* **Autenticación de Ambari**: el valor predeterminado del nombre de usuario y la contraseña es **admin**.
-
-	> [AZURE.NOTE]Si cambió la contraseña del usuario **admin**, debe escribir la contraseña nueva.
+Cuando se conecte a la interfaz de usuario web de Ambari, se le pedirá que se autentique en la página. Use el nombre de usuario y la contraseña de administrador del clúster (valor predeterminado, Admin) que usó durante la creación del clúster.
 
 Cuando se abra la página, observe la barra que se encuentra en la parte superior. Contiene la siguiente información y controles:
 
@@ -141,13 +139,13 @@ Seleccione cualquiera de estos vínculos para abrir una pestaña nueva del explo
 
 > [AZURE.NOTE]Al seleccionar un vínculo **Quick Links** para cualquier servicio se generará un error de "servidor no encontrado", a menos que use un túnel de Capa de sockets seguros (SSL) para autorizar el tráfico web al clúster. Esto es porque las aplicaciones web que se usan para mostrar esta información no se exponen en Internet.
 >
-> Para obtener información sobre cómo usar un túnel SSH con HDInsight, consulte [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
+> Para obtener información sobre cómo usar un túnel SSL con HDInsight, consulte [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ##Administración
 
 ###Usuarios, grupos y permisos de Ambari
 
-La administración de usuarios, grupos y permisos no se debe usar durante la vista previa de HDInsight basado en Linux.
+La administración de usuarios, grupos y permisos no se debe usar con los clústeres de HDInsight.
 
 ###Hosts
 
@@ -218,18 +216,4 @@ Para configurar un servicio, use los siguientes pasos:
 
 3. Use los campos que aparecen para modificar la configuración y, a continuación, seleccione **Save** (Guardar). O bien, seleccione una configuración anterior y, a continuación, seleccione **Make current** (Convertir en actual) para volver a la configuración anterior.
 
-##API de REST
-
-Ambari Web se basa en una API de REST subyacente, que puede aprovechar para crear sus propias herramientas de administración y supervisión. A pesar de que la API es relativamente simple de usar, debe tener en cuenta algunos puntos específicos de Azure:
-
-* **Autenticación**: el nombre de usuario del administrador del clúster (valor predeterminado **admin**) y la contraseña se deben usar para autenticarse en el servicio.
-
-* **Seguridad**: Ambari usa autenticación básica, por lo que debe siempre usar HTTP seguro (HTTPS) cuando se comunique con la API.
-
-* **Direcciones IP**: no es posible tener acceso a la dirección devuelta para los hosts dentro de un clúster desde afuera del clúster, a menos que este sea miembro de una Red virtual de Azure. De este modo, otros miembros de la red virtual podrán tener acceso a la dirección IP, pero no desde fuera de la red.
-
-* **Alguna funcionalidad no está habilitada**: alguna funcionalidad de Ambari está deshabilitada, puesto que está administrada por el servicio en la nube de HDInsight; por ejemplo, agregar o quitar hosts del clúster o agregar nuevos servicios. Es posible que no se implemente completamente otra funcionalidad durante la vista previa de HDInsight basado en Linux.
-
-Para obtener una referencia completa de la API de REST, consulte [Referencia de API de Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

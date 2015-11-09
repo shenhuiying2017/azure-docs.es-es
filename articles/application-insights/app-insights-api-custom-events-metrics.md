@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/23/2015" 
 	ms.author="awills"/>
 
 # API de Application Insights para eventos y métricas personalizados 
@@ -526,14 +526,6 @@ Las llamadas de telemetría individuales pueden invalidar los valores predetermi
 **Para los clientes web de JavaScript**, [use los inicializadores de telemetría de JavaScript](#js-initializer).
 
 
-## <a name="ikey"></a> Establecimiento de la clave de instrumentación para datos de telemetría personalizados seleccionados
-
-*C#*
-    
-    var telemetry = new TelemetryClient();
-    telemetry.Context.InstrumentationKey = "---my key---";
-    // ...
-
 
 ## Datos de vaciado
 
@@ -550,19 +542,33 @@ Tenga en cuenta que la función es asincrónica para canales en memoria, pero si
 
 
 
-## Inicializadores y procesadores de telemetría
-
-Puede escribir y configurar complementos para el SDK de Application Insights con el fin de personalizar cómo se captura y se procesa la telemetría antes de enviarla al servicio de Application Insights.
-
-[Más información](app-insights-telemetry-processors.md)
 
 
-## Deshabilitación de los datos de telemetría estándar
+## Muestreo, filtrado y telemetría de procesamiento 
 
-También puede [deshabilitar partes seleccionadas de los datos de telemetría estándar][config] editando `ApplicationInsights.config`. Podría hacer esto, por ejemplo, si quiere enviar sus propios datos de TrackRequest.
+Puede escribir código para procesar la telemetría antes de que se envíe desde el SDK. El procesamiento incluye los datos enviados desde los módulos de telemetría estándar, como la recopilación de solicitudes HTTP y de dependencias.
 
-[Más información][config].
+* [Agregue propiedades](app-insights-api-filtering-sampling.md#add-properties) a la telemetría, por ejemplo, números de versión o valores calculados a partir de otras propiedades.
+* El [muestreo](app-insights-api-filtering-sampling.md#sampling) reduce el volumen de datos enviados desde la aplicación al portal, sin que ello afecte a las métricas que se muestran ni a su capacidad para diagnosticar problemas al navegar entre elementos relacionados, como excepciones, solicitudes y vistas de página.
+* El [filtrado](app-insights-api-filtering-sampling.md#filtering) también reduce el volumen. Puede controlar qué se envía y qué se descarta, pero debe tener en cuenta el efecto en las métricas. Según la forma en que se descarten los elementos, podría perder la capacidad de navegar entre elementos relacionados.
 
+[Más información](app-insights-api-filtering-sampling.md)
+
+
+## Deshabilitación de la telemetría
+
+Para **iniciar y detener dinámicamente** la recopilación y la transmisión de telemetría:
+
+*C#*
+
+```C#
+
+    using  Microsoft.ApplicationInsights.Extensibility;
+
+    TelemetryConfiguration.Active.DisableTelemetry = true;
+```
+
+Para **deshabilitar los recopiladores estándar seleccionados**, por ejemplo, los contadores de rendimiento, las solicitudes HTTP o las dependencias, elimine o comente las líneas correspondientes en [ApplicationInsights.config][config]. Podría hacer esto, por ejemplo, si quiere enviar sus propios datos de TrackRequest.
 
 ## <a name="debug"></a>Modo de programador
 
@@ -576,6 +582,16 @@ Durante la depuración, resulta útil enviar los datos de telemetría por la can
 *VB*
 
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
+
+
+## <a name="ikey"></a> Establecimiento de la clave de instrumentación para datos de telemetría personalizados seleccionados
+
+*C#*
+    
+    var telemetry = new TelemetryClient();
+    telemetry.Context.InstrumentationKey = "---my key---";
+    // ...
+
 
 ## <a name="dynamic-ikey"></a> Copia de la clave de instrumentación
 
@@ -618,7 +634,7 @@ En páginas web, podría configurarla a partir del estado del servidor web, en l
 
 TelemetryClient tiene una propiedad de Context, que contiene un número de valores que se envían junto con todos los datos de telemetría. Normalmente, se establecen mediante los módulos de telemetría estándar, pero también los puede establecer usted mismo. Por ejemplo:
 
-    telemetryClient.Context.Operation.Name = “MyOperationName”;
+    telemetryClient.Context.Operation.Name = "MyOperationName";
 
 Si establece cualquiera de estos valores manualmente, considere la posibilidad de quitar la línea pertinente de [ApplicationInsights.config][config], de modo que no se confundan sus valores con los valores estándar.
 
@@ -628,11 +644,11 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 * **Location** Identifica la ubicación geográfica del dispositivo.
 * **Operation** En las aplicaciones web, es la solicitud HTTP actual. En otros tipos de aplicaciones, puede establecer este valor para agrupar los eventos juntos.
  * **Id**: valor generado que correlaciona distintos eventos, de modo que cuando usted inspeccione cualquier evento en Búsqueda de diagnóstico, puede encontrar "Elementos relacionados".
- * **Name**: un identificador, generalmente la dirección URL de la solicitud HTTP. 
+ * **Nombre**: un identificador, generalmente la dirección URL de la solicitud HTTP. 
  * **SyntheticSource**: si no es null o no está vacío, esta cadena indica que el origen de la solicitud se ha identificado como un robot o una prueba web. De forma predeterminada se excluirá de cálculos en el Explorador de métricas.
 * **Properties** Propiedades que se envían con todos los datos de telemetría. Se pueden invalidar en llamadas de seguimiento* individuales.
 * **Session** Identifica la sesión del usuario. El id. se establece en un valor generado, que cambia cuando el usuario lleva un tiempo sin estar activo.
-* **User**: información del usuario. 
+* **Usuario** Información del usuario. 
 
 
 
@@ -708,4 +724,4 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

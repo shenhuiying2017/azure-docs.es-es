@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: Integración de Azure Active Directory con Dropbox para Empresas | Microsoft Azure" description="Aprenda a usar Dropbox para Empresas con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integración de Azure Active Directory con Dropbox para Empresas | Microsoft Azure" 
+    description="Aprenda a usar DropBox para Empresas con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." 
+    services="active-directory" 
+    authors="MarkusVi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integración de Azure Active Directory con Dropbox para Empresas
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=522415).
   
 El objetivo de este tutorial es mostrar la integración de Azure y Dropbox para Empresas. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Un inquilino de prueba en Dropbox para empresas
   
-Después de completar este tutorial, los usuarios de Azure AD asignados a Dropbox para Empresas podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Dropbox para Empresas (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md)
+Después de completar este tutorial, los usuarios de Azure AD asignados a DropBox para Empresas podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de DropBox para Empresas (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
   
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
@@ -45,65 +58,65 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
     ![Agregar una aplicación de la galería](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749322.png "Agregar una aplicación de la galería")
 
-6.  En el **cuadro de búsqueda**, escriba **Dropbox para Empresas**.
+6.  En el **cuadro de búsqueda**, escriba **DropBox para Empresas**.
 
     ![Galería de aplicaciones](./media/active-directory-saas-dropboxforbusiness-tutorial/IC701010.png "Galería de aplicaciones")
 
-7.  En el panel de resultados, seleccione **Dropbox para Empresas** y haga clic en **Completar** para agregar la aplicación.
+7.  En el panel de resultados, seleccione **DropBox para Empresas** y haga clic en **Completar** para agregar la aplicación.
 
     ![Dropbox para Empresas](./media/active-directory-saas-dropboxforbusiness-tutorial/IC701011.png "Dropbox para Empresas")
 ##Configuración del inicio de sesión único
   
 El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en Dropbox para Empresas con su cuenta de Azure AD mediante federación basada en el protocolo SAML.
 
-Como parte de este procedimiento, es necesario cargar un certificado codificado en base 64 en su inquilino de Dropbox para Empresas. Si no está familiarizado con este procedimiento, vea [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+Como parte de este procedimiento, es necesario cargar un certificado codificado en base 64 en su inquilino de Dropbox para Empresas. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Dropbox para Empresas**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único **.
+1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **DropBox para Empresas**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749323.png "Configurar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en Dropbox para Empresas?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en DropBox para Empresas?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749327.png "Configurar inicio de sesión único")
 
 3.  En la página **Configurar dirección URL de la aplicación**, realice los pasos siguientes:
 
-     3\.1. Inicio de sesión en el inquilino de Dropbox para Empresas. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769509.png "Configurar inicio de sesión único")
+     3\.1. Inicie sesión en el inquilino de DropBox para Empresas. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769509.png "Configurar inicio de sesión único")
 
-     3\.2. En el panel de navegación de la izquierda, haga clic en **Admin Console**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769510.png "Configurar inicio de sesión único")
+     3\.2. En el panel de navegación de la izquierda, haga clic en **Admin Console** (Consola de administración). <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769510.png "Configurar inicio de sesión único")
 
-     3\.3. En la **Admin Console**, haga clic en **Authentication** en el panel de navegación izquierdo. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769511.png "Configurar inicio de sesión único")
+     3\.3. En **Admin Console** (Consola de administración), haga clic en **Authentication** (Autenticación) en el panel de navegación izquierdo. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769511.png "Configurar inicio de sesión único")
 
-     3\.4. En la sección **Single sign-on**, seleccione **Enable single sign-on** y haga clic en **More** para expandir esta sección. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769512.png "Configurar inicio de sesión único")
+     3\.4. En la sección **Single sign-on** (Inicio de sesión único), seleccione **Enable single sign-on** (Habilitar inicio de sesión único) y haga clic en **More** (Más) para expandir esta sección. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769512.png "Configurar inicio de sesión único")
 
-     3\.5. Copie la dirección URL a continuación de **Users can sign in by entering their email address or they can go directly to**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769513.png "Configurar inicio de sesión único")
+     3\.5. Copie la dirección URL a continuación de **Users can sign in by entering their email address or they can go directly to** (Los usuarios pueden iniciar sesión especificando su dirección de correo electrónico o pueden ir directamente a). <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769513.png "Configurar inicio de sesión único")
 
-     3\.6. En el portal de Azure, en el cuadro de texto de la dirección URL de **Inicio de sesión de Dropbox para Empresas**, pegue la dirección URL. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769514.png "Configurar inicio de sesión único")
-
-
-
-4. En la página **Configurar inicio de sesión único en Dropbox para Empresas**, haga clic en **Descargar certificado** y guarde el archivo de certificado en el equipo. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769515.png "Configurar inicio de sesión único")
+     3\.6. En el portal de Azure, en el cuadro de texto de la dirección URL de **Inicio de sesión de DropBox para Empresas**, pegue la dirección URL. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769514.png "Configurar inicio de sesión único")
 
 
-5. En su inquilino de Dropbox para Empresas, en la sección **Single sign-on** de la página **Authentication**, realice los pasos siguientes: <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769516.png "Configurar inicio de sesión único")
 
-     5\.1. Haga clic en **Required**.
-
-     5\.2. En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Dropbox para Empresas**, copie el valor de **Dirección URL de la página de inicio de sesión** y péguelo en el cuadro de texto **URL de inicio de sesión**.
+4. En la página **Configurar inicio de sesión único en DropBox para Empresas**, haga clic en **Descargar certificado** y guarde el archivo de certificado en el equipo. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769515.png "Configurar inicio de sesión único")
 
 
-     5\.3. Cree un archivo **codificado en Base 64** a partir del certificado descargado. >[AZURE.TIP]Para obtener más información, vea [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+5. En su inquilino de DropBox para Empresas, en la sección **Single sign-on** (Inicio de sesión único) de la página **Authentication** (Autenticación), realice los pasos siguientes: <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769516.png "Configurar inicio de sesión único")
+
+     5\.1. Haga clic en **Required** (Obligatorio).
+
+     5\.2. En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en DropBox para Empresas**, copie el valor de **Dirección URL de la página de inicio de sesión** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
+
+
+     5\.3. Cree un archivo **codificado en base 64** a partir del certificado descargado.[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 
      5\.4. Haga clic en **Elegir certificado** y vaya a su **archivo de certificado codificado en Base 64**.
 
 
-     5\.5. Haga clic en **Guardar cambios** para completar la configuración en el inquilino de Dropbox para Empresas.
+     5\.5. Haga clic en **Guardar cambios** para completar la configuración en el inquilino de DropBox para Empresas.
 
 
-6. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749329.png "Configurar inicio de sesión único")
+6. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.<br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749329.png "Configurar inicio de sesión único")
 
 
 
@@ -116,15 +129,15 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 ### Siga estos pasos para configurar el aprovisionamiento de usuario:
 
-1. En el Portal de administración de Azure, en la página de integración de aplicaciones de **Dropbox para Empresas**, haga clic en **Configurar aprovisionamiento de usuarios** para abrir el cuadro de diálogo **Configurar aprovisionamiento de usuarios**.
+1. En el Portal de administración de Azure, en la página de integración de aplicaciones de **DropBox para Empresas**, haga clic en **Configurar aprovisionamiento de usuarios** para abrir el cuadro de diálogo **Configurar aprovisionamiento de usuarios**.
 
-2. En la página Habilitar aprovisionamiento de usuarios en Dropbox para Empresas, haga clic en Habilitar aprovisionamiento de usuarios para abrir el cuadro de diálogo Sign in to Dropbox to link with Azure AD. <br><br> ![Aprovisionamiento de usuarios](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769517.png "Aprovisionamiento de usuarios")
+2. En la página Habilitar aprovisionamiento de usuarios en DropBox para Empresas, haga clic en Habilitar aprovisionamiento de usuarios para abrir el cuadro de diálogo Sign in to DropBox to link with Azure AD (Inicio de sesión en DropBox para vincular con Azure AD). <br><br> ![Aprovisionamiento de usuarios](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769517.png "Aprovisionamiento de usuarios")
 
-3. En el cuadro de diálogo **Sign in to Dropbox to link with Azure AD**, inicie sesión en su inquilino de Dropbox para Empresas. <br><br> ![Aprovisionamiento de usuarios](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769518.png "Aprovisionamiento de usuarios")
+3. En el cuadro de diálogo **Sign in to DropBox to link with Azure AD** (Inicio de sesión en DropBox para vincular con Azure AD), inicie sesión en su inquilino de DropBox para Empresas. <br><br> ![Aprovisionamiento de usuarios](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769518.png "Aprovisionamiento de usuarios")
 
 
 
-4. Haga clic en **Allow** para conceder a Azure AD acceso a Dropbox. <br><br> ![Aprovisionamiento de usuarios](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769519.png "Aprovisionamiento de usuarios")
+4. Haga clic en **Allow** (Permitir) para conceder a Azure AD acceso a DropBox. <br><br> ![Aprovisionamiento de usuarios](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769519.png "Aprovisionamiento de usuarios")
 
 
 
@@ -141,7 +154,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 1.  En el Portal de Azure AD, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones de **Dropbox para Empresas **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones de **DropBox para Empresas **, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769521.png "Asignar usuarios")
 
@@ -153,7 +166,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 Ahora debería esperar 10 minutos y comprobar si la cuenta se ha sincronizado en Dropbox for Business.
 
-Como primer paso de verificación, puede comprobar el estado del aprovisionamiento, haciendo clic en **Panel** en la página de integración de aplicaciones de **Dropbox para Empresas** en el Portal de administración de Azure.
+Como primer paso de verificación, puede comprobar el estado del aprovisionamiento, haciendo clic en **Panel** en la página de integración de aplicaciones de **DropBox para Empresas** en el Portal de administración de Azure.
 
 <br><br> ![Asignar usuarios](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769522.png "Asignar usuarios")
 
@@ -163,7 +176,7 @@ Un ciclo de aprovisionamiento de usuarios completado correctamente se indica con
 <br><br> ![Asignar usuarios](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769523.png "Asignar usuarios")
 
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 
 
@@ -173,4 +186,4 @@ Si desea probar la configuración de inicio de sesión único, abra el Panel de 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

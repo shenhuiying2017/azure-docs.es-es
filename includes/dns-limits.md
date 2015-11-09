@@ -1,10 +1,10 @@
 
 | Recurso | Límite predeterminado 
 --- | ---
-| Zonas por suscripción | 50
-| Conjuntos de registros por zona| 1000
-| Registros por conjunto de registros| 20 |
+| Zonas por suscripción | 50 <sup>1</sup>
+| Conjuntos de registros por zona| 1000 <sup>1</sup>
+| Registros por conjunto de registros| 20
 
-Puede ponerse en contacto con soporte técnico para aumentar el límite predeterminado
+<sup>1</sup> Si necesita aumentar estos límites, póngase en contacto con el soporte técnico. El servicio DNS de Azure se encuentra actualmente en versión de vista previa. Estos límites se revisarán cuando el servicio goce de disponibilidad general.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

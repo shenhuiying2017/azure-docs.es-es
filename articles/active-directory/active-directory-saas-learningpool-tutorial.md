@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: Integración de Azure Active Directory con Learningpool | Microsoft Azure" description="Aprenda a usar Learningpool con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integración de Azure Active Directory con Learningpool | Microsoft Azure" 
+    description="Aprenda a usar Learningpool con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integración de Azure Active Directory con Learningpool
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=533920).
   
 El objetivo de este tutorial es mostrar la integración de Azure y Learningpool. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para inicio de sesión único en Learningpool
   
-Después de completar este tutorial, los usuarios de Azure AD asignados a Learningpool podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Learningpool (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586)
+Después de completar este tutorial, los usuarios de Azure AD asignados a Learningpool podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Learningpool (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
   
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
@@ -46,7 +59,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 
     ![Galería de aplicaciones](./media/active-directory-saas-learningpool-tutorial/IC795073.png "Galería de aplicaciones")
 
-7.  En el panel de resultados, seleccione **Learningpool** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+7.  En el panel de resultados, seleccione **Learningpool** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![Learningpool](./media/active-directory-saas-learningpool-tutorial/IC809577.png "Learningpool")
 ##Configuración del inicio de sesión único
@@ -78,18 +91,18 @@ La aplicación Learningpool espera las aserciones de SAML en un formato específ
 
     1.  En cada fila de datos de la tabla anterior, haga clic en **agregar atributo de usuario**.
     2.  En el cuadro de texto **Nombre de atributo**, escriba el nombre de atributo que se muestra para la fila.
-    3.  En la lista **Valor de atributo**, seleccione el valor de atributo que se muestra para la fila.
+    3.  En la lista **Valor de atributo**, seleccione el valor de atributo que se muestra para esa fila.
     4.  Haga clic en **Completo**.
 
 3.  Haga clic en **Aplicar cambios**.
 
 4.  En el explorador, haga clic en **Atrás** para volver a abrir el cuadro de diálogo **Inicio rápido**.
 
-5.  Haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+5.  Para abrir el diálogo **Configurar inicio de sesión único**, haga clic en **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-learningpool-tutorial/IC795076.png "Configurar inicio de sesión único")
 
-6.  En la página **¿Cómo desea que los usuarios inicien sesión en Learningpool?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+6.  En la página **¿Cómo desea que los usuarios inicien sesión en Learningpool?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-learningpool-tutorial/IC795077.png "Configurar inicio de sesión único")
 
@@ -97,7 +110,7 @@ La aplicación Learningpool espera las aserciones de SAML en un formato específ
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-learningpool-tutorial/IC795078.png "Configurar dirección URL de la aplicación")
 
-8.  En la página **Configurar inicio de sesión único en Learningpool**, para descargar los metadatos, haga clic en **Descargar metadatos** y, a continuación, guarde el archivo localmente en el equipo.
+8.  En la página **Configurar inicio de sesión único en Learningpool**, para descargar los metadatos, haga clic en **Descargar metadatos** y luego guarde el archivo localmente en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-learningpool-tutorial/IC795079.png "Configurar inicio de sesión único")
 
@@ -105,7 +118,7 @@ La aplicación Learningpool espera las aserciones de SAML en un formato específ
 
     >[AZURE.NOTE]El equipo de soporte técnico de Learningpool es el que debe habilitar el inicio de sesión único.
 
-10. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+10. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-learningpool-tutorial/IC795080.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -128,10 +141,10 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
     ![Asignar usuarios](./media/active-directory-saas-learningpool-tutorial/IC795081.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, luego, en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-learningpool-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

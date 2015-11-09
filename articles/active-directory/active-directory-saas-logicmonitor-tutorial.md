@@ -1,7 +1,20 @@
-<properties pageTitle="Tutorial: Integración de Azure Active Directory con LogicMonitor | Microsoft Azure" description="Aprenda a usar LogicMonitor con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integración de Azure Active Directory con LogicMonitor | Microsoft Azure" 
+    description="Aprenda a usar LogicMonitor con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integración de Azure Active Directory con LogicMonitor
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=528728).
   
 El objetivo de este tutorial es mostrar la integración de Azure y LogicMonitor. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -44,7 +57,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 
     ![Galería de aplicaciones](./media/active-directory-saas-logicmonitor-tutorial/IC790046.png "Galería de aplicaciones")
 
-7.  En el panel de resultados, seleccione **LogicMonitor** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+7.  En el panel de resultados, seleccione **LogicMonitor** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![LogicMonitor](./media/active-directory-saas-logicmonitor-tutorial/IC790047.png "LogicMonitor")
 ##Configuración del inicio de sesión único
@@ -57,7 +70,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-logicmonitor-tutorial/IC790048.png "Configurar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en LogicMonitor?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en LogicMonitor?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-logicmonitor-tutorial/IC790049.png "Configurar inicio de sesión único")
 
@@ -65,7 +78,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-logicmonitor-tutorial/IC790050.png "Configurar dirección URL de la aplicación")
 
-4.  En la página **Configuración de inicio de sesión único en LogicMonitor**, haga clic en **Descargar metadatos** y, a continuación, guarde el archivo en el equipo.
+4.  En la página **Configuración de inicio de sesión único en LogicMonitor**, haga clic en **Descargar metadatos** y luego guarde el archivo en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-logicmonitor-tutorial/IC790051.png "Configurar inicio de sesión único")
 
@@ -85,10 +98,10 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
     1.  Seleccione **Habilitar inicio de sesión único**.
     2.  Como **Asignación de rol predeterminado**, seleccione **readonly**.
-    3.  Abra el archivo de metadatos descargado en el Bloc de notas y, a continuación, pegue el contenido del archivo en el cuadro de texto **Metadatos del proveedor de identidades**.
+    3.  Abra el archivo de metadatos descargado en el Bloc de notas y luego pegue el contenido del archivo en el cuadro de texto **Metadatos del proveedor de identidades**.
     4.  Haga clic en **Guardar cambios**.
 
-9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-logicmonitor-tutorial/IC790055.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -99,7 +112,7 @@ Para que los usuarios de AAD puedan inician sesión, deben aprovisionarse para l
 
 1.  Inicie sesión como administrador en el sitio de la compañía de LogicMonitor.
 
-2.  En el menú de la parte superior, haga clic en **Configuración** y, a continuación, haga clic en **Roles y usuarios**.
+2.  En el menú de la parte superior, haga clic en **Configuración** y, luego, en **Roles y usuarios**.
 
     ![Roles y usuarios](./media/active-directory-saas-logicmonitor-tutorial/IC790056.png "Roles y usuarios")
 
@@ -109,7 +122,7 @@ Para que los usuarios de AAD puedan inician sesión, deben aprovisionarse para l
 
     ![Agregar una cuenta](./media/active-directory-saas-logicmonitor-tutorial/IC790057.png "Agregar una cuenta")
 
-    1.  En los cuadros de texto correspondientes, escriba los valores de **Nombre de usuario**, **Correo electrónico**, **Contraseña** y **Vuelva a escribir contraseña** del usuario de Azure Active Directory que desee aprovisionar.
+    1.  En los cuadros de texto correspondientes, escriba los valores de **Nombre de usuario**, **Correo electrónico**, **Contraseña** y **Vuelva a escribir contraseña** del usuario de Azure Active Directory que quiera aprovisionar.
     2.  Seleccione **Roles**, **Ver permisos** y **Estado**.
     3.  Haga clic en **Enviar**.
 
@@ -131,6 +144,6 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
     ![Sí](./media/active-directory-saas-logicmonitor-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -3,8 +3,8 @@
 	description="Aprenda a utilizar el servicio New Relic para administrar y supervisar su aplicación de Azure." 
 	services="" 
 	documentationCenter=".net" 
-	authors="stepsic-microsoft-com" 
-	manager="carolz" 
+	authors="nickfloyd" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
@@ -14,23 +14,22 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="03/16/2015" 
-	ms.author="stepsic"/>
+	ms.author="nickfloyd@newrelic.com"/>
 
 
 
-#Administración del rendimiento de la aplicación New Relic en Azure
+# Administración del rendimiento de la aplicación New Relic en Azure
 
 En esta guía se describe cómo agregar la supervisión del rendimiento de primer nivel de New Relic a sus aplicaciones hospedadas en Azure. Veremos cómo agregar de forma fácil y sencilla New Relic a la aplicación y le mostraremos algunas de las características de New Relic. Para obtener más información sobre el uso de New Relic, consulte [Uso de New Relic](#using-new-relic).
 
-¿Qué es New Relic?
---
+## ¿Qué es New Relic?
 
 New Relic es una herramienta para desarrolladores que supervisa las aplicaciones de producción y proporciona un conocimiento profundo de su rendimiento y confiabilidad. Está diseñado para ahorrar tiempo al identificar y diagnosticar problemas de rendimiento, poniendo al alcance de la mano toda la información necesaria para solucionar estos problemas.
 
 New Relic realiza el seguimiento del tiempo de carga y de la capacidad de proceso de su transacción web, tanto para los exploradores del servidor como de los usuarios. Muestra cuánto tiempo pasa en la base de datos, analiza las consultas lentas y las solicitudes web, proporciona supervisión y alertas del tiempo de actividad, realiza el seguimiento de excepciones de la aplicación y mucho más.
 
-Precios especiales de New Relic en la Tienda de Azure 
---
+## Precio especial de New Relic en la Tienda de Azure
+
 
 Los usuarios de Azure pueden obtener la versión estándar de New Relic de manera gratuita, mientras que New Relic Pro se ofrece por tamaño de instancia para los Servicios en la nube de Azure.
 
@@ -40,8 +39,7 @@ Para obtener información sobre precios, consulte la [página de New Relic en la
 
 Los clientes de Azure reciben una suscripción de prueba a New Relic Pro de dos semanas de duración cuando implementan el agente de New Relic.
 
-Suscripción a New Relic a través de la Tienda de Azure 
---
+## Suscripción en New Relic mediante el uso de la Tienda de Azure
 
 New Relic se integra perfectamente con los roles web y de trabajo de Azure.
 
@@ -95,7 +93,7 @@ Para suscribirse directamente a New Relic desde la Tienda de Azure, siga estos t
 	![Publicar el proyecto en la nube](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget09.png)
 
 
-**Nota:** si es la primera vez que implementa esta aplicación en Azure, se le pedirá que escriba las credenciales correspondientes. Para obtener más información, consulte <a href="/develop/net/tutorials/get-started/">Implementación de una aplicación web ASP.NET en un sitio web de Azure</a>.
+**Nota:** si es la primera vez que implementa esta aplicación en Azure, se le pedirá que escriba las credenciales correspondientes. Para obtener más información, consulte [Implementación de una aplicación web ASP.NET en un sitio web de Azure](app-service-web\web-sites-dotnet-get-started.md).
 
 ![configuración de publicación](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget10.png)
 
@@ -115,51 +113,25 @@ Para ver el panel de New Relic:
 
 ### <a id="using-new-relic"></a>Uso de New Relic
 
-Después de seleccionar la aplicación de la lista en el menú Applications, el panel Overview muestra información actual del explorador y del servidor de aplicaciones. Para alternar entre las dos vistas, haga clic en el botón **App Server** o **Browser**.
+Después de seleccionar la aplicación de la lista en el menú Applications, el panel Overview muestra información actual del explorador y del servidor de aplicaciones. Para alternar entre las dos vistas, haga clic en el botón **App server** o **Browser**.
 
-Además de las funciones de <a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">interfaz de usuario estándar de New Relic</a> e <a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">información detallada del panel</a>, el panel Applications Overview muestra funciones adicionales.
+Además de las funciones de [la interfaz de usuario estándar de New Relic](https://newrelic.com/docs/site/the-new-relic-ui#functions") y la [información detallada del panel](https://newrelic.com/docs/site/the-new-relic-ui#drilldown), el panel Applications Overview muestra funciones adicionales.
 
-<table border="1">
-  <thead>
-    <tr>
-      <th><b>Si desea...</b></th>
-      <th><b>Haga esto...</b></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-       <td>Mostrar la información del panel para el explorador o servidor de aplicaciones seleccionado</td>
-       <td>Haga clic en el botón <b>App Server</b> o <b>Browser</b>.</td>
-    </tr>
-     <tr>
-       <td>Vista de los niveles de umbral para la puntuación de <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a> de la aplicación</td>
-       <td>Seleccione el icono <b>?<b> de puntuación de Apdex.</b></b></td>
-    </tr>
-    <tr>
-       <td>Ver los detalles de Apdex globales</td>
-       <td>En la vista <b>Browser</b> de Overview, seleccione cualquier lugar en el mapa Global Apdex.<br /><b>Sugerencia:</b> para ir directamente al panel <a href="https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard" target="_blank">Geography</a> de la aplicación seleccionada, haga clic en el título <b>Global Apdex</b> o haga clic en cualquier lugar del mapa Global Apdex.</td>
-    </tr>
-    <tr>
-       <td>Vista del panel <a href="https://newrelic.com/docs/applications-dashboards/web-transactions" target="_blank">Web Transactions</a></td>
-       <td>Haga clic en la tabla Web Transactions en el panel Applications Overview. O bien, para ver los detalles sobre una transacción web específica (incluidas <a href="https://newrelic.com/docs/site/key-transactions" target="_blank">Key Transactions</a>), haga clic en su nombre.</td>
-    </tr>
-    <tr>
-       <td>Ver el panel <a href="https://newrelic.com/docs/site/errors" target="_blank">Errors</a></td>
-       <td>Haga clic en el título del gráfico de tasas de error del panel Applications Overview.<br /><b>Sugerencia:</b> también puede ver el panel Errors en <b>Applications</b> > (su aplicación) > Events > Errors.</td>
-    </tr>
-    <tr>
-       <td>Ver los detalles del servidor de aplicaciones</td>
-       <td><p>Realice una de las operaciones siguientes:<p>
-        <ul>
-          <li>Alterne entre una vista de tabla de los hosts o desglose los detalles de las métricas de cada host.</li>
-          <li>Haga clic en un nombre de servidor individual.</li>
-          <li>Seleccione una puntuación Apdex del servidor individual.</li>
-          <li>Haga clic en una memoria o uso de CPU del servidor individual.</li>
-        </ul>
-       </p></p></td>
-    </tr>
-  </tbody>
-</table>
+| Si desea... | Haga esto... |
+| ----------------- | ---------- |
+| Mostrar la información del panel para el explorador o servidor de aplicaciones seleccionado | Haga clic en el botón **App Server** o **Browser**. |
+| Vista de los niveles de umbral para la puntuación de [Apdex](https://newrelic.com/docs/site/apdex) de la aplicación | Seleccione el icono **?** de puntuación de Apdex. |
+| Ver los detalles de Apdex globales | En la vista **Browser** de Overview, seleccione cualquier lugar en el mapa Global Apdex. **Sugerencia:** para ir directamente al panel [Geography](https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard") de la aplicación seleccionada, haga clic en el título **Global Apdex** o haga clic en cualquier lugar del mapa Global Apdex. |
+| Vista del panel [Web Transactions](https://newrelic.com/docs/applications-dashboards/web-transactions) | Haga clic en la tabla Web Transactions en el panel Applications Overview. O bien, para ver los detalles sobre una transacción web específica (incluidas [Key Transactions](https://newrelic.com/docs/site/key-transactions")), haga clic en su nombre. |
+| Ver el panel [Errors](https://newrelic.com/docs/site/errors). | Haga clic en el título del gráfico de tasas de error del panel Applications Overview. **Sugerencia:** también puede ver el panel Errors en **Applications** > (su aplicación) > Events > Errors. |
+
+
+Además, si desea ver los detalles del servidor de la aplicación, realice una de las acciones siguientes:
+
+- Alterne entre una vista de tabla de los hosts o desglose los detalles de las métricas de cada host.
+- Haga clic en un nombre de servidor individual.
+- Seleccione una puntuación Apdex del servidor individual.
+- Haga clic en una memoria o uso de CPU del servidor individual.
 
 A continuación se muestra un ejemplo del panel Applications Overview cuando se selecciona la vista de explorador.
 
@@ -176,4 +148,4 @@ Consulte estos recursos adicionales para obtener más información:
  * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): información general sobre cómo detalla RUM el tiempo que tardan los exploradores de sus usuarios en cargar las páginas web, de dónde proceden y qué exploradores usan.
  * [Buscar ayuda](https://newrelic.com/docs/site/finding-help): recursos disponibles en el centro de ayuda en línea de New Relic.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

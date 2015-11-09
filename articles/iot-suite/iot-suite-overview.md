@@ -20,6 +20,10 @@
 
 Microsoft ofrece una amplia gama de capacidades con los servicios IoT de Azure. Estos servicios proporcionan capacidades de nivel empresarial para recopilar datos de dispositivos, analizar transmisiones de datos en movimiento, almacenar y consultar grandes conjuntos de datos, visualizar datos históricos y en tiempo real e integrarse con los sistemas back-end importantes. Azure IoT Suite empaqueta un conjunto de servicios potenciados entre sí y capacidades ampliadas para reducir el tiempo de amortización de la inversión para los clientes. Estas extensiones incluyen soluciones preconfiguradas que ofrecen una implementación base de los patrones de soluciones más comunes. En combinación con los kits de desarrollo de software (SDK) de IoT, los clientes pueden fácilmente personalizar las soluciones preconfiguradas o aprovecharlas como ejemplos para el desarrollo de nuevas soluciones.
 
+El vídeo siguiente proporciona una introducción al conjunto de aplicaciones de IoT de Azure:
+
+> [AZURE.VIDEO azurecon-2015-introducing-the-microsoft-azure-iot-suite]
+
 ## Servicios IoT de Azure en Azure IoT Suite
 
 El componente esencial del conjunto de aplicaciones de IoT de Azure es el servicio Centro de IoT. Este servicio proporciona mensajería de dispositivo a nube y de nube a servicio. Actúa como puerta de enlace entre la nube y los otros servicios principales del conjunto de aplicaciones de IoT.
@@ -38,4 +42,4 @@ Las soluciones preconfiguradas están incluidas en el conjunto de aplicaciones d
 
 La primera solución preconfigurada disponible es [supervisión remota](iot-suite-what-are-preconfigured-solutions.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

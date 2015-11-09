@@ -22,7 +22,7 @@
 
 ## Introducción
 
-En este tema se describe el uso de tres tecnologías para mover datos hacia y desde el almacenamiento de blobs de Azure:
+A continuación se ofrecen vínculos de orientación sobre las tecnologías que se usan para mover datos hacia o desde el almacenamiento de blobs de Azure:
 
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -44,4 +44,4 @@ En este documento se supone que tiene una suscripción de Azure y una cuenta de 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

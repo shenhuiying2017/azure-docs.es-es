@@ -1,7 +1,20 @@
-<properties pageTitle="Tutorial: Integración de Azure Active Directory con Bonus.ly | Microsoft Azure" description="Aprenda cómo usar Bonus.ly con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integración de Azure Active Directory con Bonus.ly | Microsoft Azure" 
+    description="Aprenda cómo usar Bonus.ly con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integración de Azure Active Directory con Bonus.ly
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=523806).
 
 El objetivo de este tutorial es mostrar la integración de Azure y Bonus.ly. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -44,7 +57,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de l
 
     ![Galería de aplicaciones](./media/active-directory-saas-bonus-tutorial/IC773681.png "Galería de aplicaciones")
 
-7.  En el panel de resultados, seleccione **Bonus.ly** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+7.  En el panel de resultados, seleccione **Bonus.ly** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![Bonusly](./media/active-directory-saas-bonus-tutorial/IC773682.png "Bonusly")
 ##Configuración del inicio de sesión único
@@ -57,15 +70,15 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-bonus-tutorial/IC749323.png "Configurar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en Bonus.ly?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en Bonus.ly?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-bonus-tutorial/IC773683.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **Dirección URL de inquilino de Bonus.ly**, escriba su dirección URL con el siguiente patrón "*https://\<nombreDeInquilino>.Bonus.ly*" y, a continuación, haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **Dirección URL de inquilino de Bonus.ly**, escriba su dirección URL con el siguiente patrón "*https://\<nombreDeInquilino>.Bonus.ly*" y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-bonus-tutorial/IC773684.png "Configurar dirección URL de la aplicación")
 
-4.  En la página **Configuración de inicio de sesión único en Bonus.ly**, haga clic en **Descargar certificado** y, a continuación, guarde el archivo de certificado en el equipo como **c:\\Bonusly.cer**.
+4.  En la página **Configuración de inicio de sesión único en Bonus.ly**, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo como **c:\\Bonusly.cer**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-bonus-tutorial/IC773685.png "Configurar inicio de sesión único")
 
@@ -84,7 +97,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
     1.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Bonus.ly**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **URL de destino de SSO de IdP**.
     2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Bonus.ly**, copie el valor de **Id. del emisor** y péguelo en el cuadro de texto **Emisor de IdP**.
     3.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Bonus.ly**, copie el valor de **URL de inicio de sesión remoto** y péguelo en el cuadro de texto **URL de inicio de sesión de IdP**.
-    4.  Copie el valor de **Huella digital** del certificado exportado y, a continuación, péguelo en el cuadro de texto **Huella digital del certificado**.
+    4.  Copie el valor de **Huella digital** del certificado exportado y luego péguelo en el cuadro de texto **Huella digital del certificado**.
 
         >[AZURE.TIP]Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
@@ -101,7 +114,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Bonus.ly, tienen q
 
 1.  En una ventana de explorador web diferente, inicie sesión en su inquilino de Bonus.ly.
 
-2.  Haga clic en **Configuración**.
+2.  Hacer clic en **Configuración**.
 
     ![Settings](./media/active-directory-saas-bonus-tutorial/IC781041.png "Settings")
 
@@ -113,7 +126,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Bonus.ly, tienen q
 
     ![Administrar usuarios](./media/active-directory-saas-bonus-tutorial/IC781043.png "Administrar usuarios")
 
-5.  Haga clic en **Agregar usuario**.
+5.  Haga clic en **Add User** (Agregar usuario).
 
     ![Agregar usuario](./media/active-directory-saas-bonus-tutorial/IC781044.png "Agregar usuario")
 
@@ -144,6 +157,6 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
     ![Sí](./media/active-directory-saas-bonus-tutorial/IC767830.png "Sí")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

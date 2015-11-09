@@ -1,14 +1,27 @@
-<properties pageTitle="Tutorial: Integración de Azure Active Directory con Kudos | Microsoft Azure" description="Aprenda a usar Kudos con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integración de Azure Active Directory con Kudos | Microsoft Azure" 
+    description="Aprenda a usar Kudos con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Tutorial: Integración de Azure Active Directory con Kudos
->[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=528191).
   
 El objetivo de este tutorial es mostrar la integración de Azure y Kudos. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Un inquilino de Kudos
   
-Después de completar este tutorial, los usuarios de Azure AD asignados a Kudos podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Kudos (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586)
+Después de completar este tutorial, los usuarios de Azure AD asignados a Kudos podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Kudos (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
   
 La situación descrita en este tutorial consta de los siguientes bloques de creación:
 
@@ -46,7 +59,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 
     ![Galería de aplicaciones](./media/active-directory-saas-kudos-tutorial/IC787800.png "Galería de aplicaciones")
 
-7.  En el panel de resultados, seleccione **Kudos** y, a continuación, haga clic en **Completar** para agregar la aplicación.
+7.  En el panel de resultados, seleccione **Kudos** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![Kudos](./media/active-directory-saas-kudos-tutorial/IC787801.png "Kudos")
 ##Configuración del inicio de sesión único
@@ -59,15 +72,15 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-kudos-tutorial/IC787802.png "Configurar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en Kudos?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en Kudos?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-kudos-tutorial/IC787803.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Kudos**, escriba su dirección URL con el siguiente patrón "**https://company.kudosnow.com*" y, a continuación, haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Kudos**, escriba su dirección URL con el siguiente patrón "**https://company.kudosnow.com*" y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-kudos-tutorial/IC787804.png "Configurar dirección URL de la aplicación")
 
-4.  En la página **Configuración de inicio de sesión único en Kudos**, haga clic en **Descargar certificado** y, a continuación, guarde el archivo de certificado en el equipo.
+4.  En la página **Configuración de inicio de sesión único en Kudos**, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-kudos-tutorial/IC787805.png "Configurar inicio de sesión único")
 
@@ -88,12 +101,12 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
         >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-    3.  Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado X.509**.
+    3.  Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509**.
     4.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Kudos**, copie el valor de **Dirección URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
 5.  En el cuadro de texto **Su dirección URL de Kudos**, escriba el nombre de su compañía.
     6.  Haga clic en **Guardar**.
 
-9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar ** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-kudos-tutorial/IC787808.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -110,15 +123,15 @@ Para permitir que los usuarios de Azure AD inicien sesión en Kudos, deben aprov
 
 3.  Haga clic en **Administrador de usuarios**.
 
-4.  Haga clic en la pestaña **Usuarios** y, a continuación, haga clic en **Agregar un usuario**.
+4.  Haga clic en la pestaña **Usuarios** y, luego, haga clic en **Agregar un usuario**.
 
     ![Administrador de usuarios](./media/active-directory-saas-kudos-tutorial/IC787809.png "Administrador de usuarios")
 
-5.  En la sección **Agregar un usuario**, realice estos pasos:
+5.  En la sección **Agregar usuario**, lleve a cabo estos pasos:
 
     ![Agregar un usuario](./media/active-directory-saas-kudos-tutorial/IC787810.png "Agregar un usuario")
 
-    1.  En los cuadros de texto correspondientes, escriba los valores de **Nombre**, **Apellido**, **Correo electrónico** y otros detalles de la cuenta de Azure Active Directory válida que desea aprovisionar.
+    1.  En los cuadros de texto correspondientes, escriba los valores de **Nombre**, **Apellido**, **Correo electrónico** y otros detalles de la cuenta de Azure Active Directory válida que quiera aprovisionar.
     2.  Haga clic en **Crear usuario**.
 
 >[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Kudos ofrecida por Kudos para aprovisionar cuentas de usuario de AAD.
@@ -135,10 +148,10 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
     ![Asignar usuarios](./media/active-directory-saas-kudos-tutorial/IC787811.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-kudos-tutorial/IC767830.png "Sí")
   
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

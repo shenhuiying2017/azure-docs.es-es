@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Recursos de variables en Automatización de Azure | Microsoft Azure"
-   description="Los recursos de variables son valores que están disponibles para todos los runbooks en Automatización de Azure. En este artículo se explican los detalles de las variables y cómo trabajar con ellas en la creación de texto y gráficos."
+   description="Los activos de variables son valores que están disponibles para todos los runbooks y configuraciones de DSC en Automatización de Azure. En este artículo se explican los detalles de las variables y cómo trabajar con ellas en la creación de texto y gráficos."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,22 +12,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Recursos de variables en Automatización de Azure
 
-Los recursos de variables son valores que están disponibles para todos los runbooks en su cuenta de Automatización. Pueden crearse, modificarse y recuperarse desde el Portal de Azure, Windows PowerShell y desde un runbook. Las variables de Automatización son útiles para los siguientes escenarios:
+Los activos de variables son valores que están disponibles para todos los runbooks y configuraciones de DSC en su cuenta de Automatización. Pueden crearse, modificarse y recuperarse desde el Portal de Azure, Windows PowerShell y desde un runbook o una configuración de DSC. Las variables de Automatización son útiles para los siguientes escenarios:
 
-- Compartir un valor entre varios runbooks.
+- Compartir un valor entre varios runbooks o configuraciones de DSC.
 
-- Compartir un valor entre varios trabajos del mismo runbook.
+- Compartir un valor entre varios trabajos del mismo runbook o configuración de DSC.
 
-- Administrar un valor desde el portal o desde la línea de comandos de Windows PowerShell que usa los runbooks.
+- Administrar un valor desde el portal o desde la línea de comandos de Windows PowerShell que usan los runbooks o las configuraciones de DSC.
 
-Las variables de Automatización se conservan para que sigan estando disponibles, incluso si se produce un error en el runbook. Esto también permite que se establezca un valor por un runbook que se utilizará por otro o bien se utilizará por el mismo runbook la siguiente vez que se ejecute.
+Las variables de Automatización se conservan para que sigan estando disponibles, incluso si se produce un error en el runbook o la configuración de DSC. Esto también permite que se establezca un valor por un runbook que se usará por otro o bien se usará por el mismo runbook o configuración de DSC la siguiente vez que se ejecute.
 
-Cuando se crea una variable, puede especificar que se almacene cifrada. Cuando se cifra una variable, se almacena de forma segura en Automatización de Azure y su valor no se puede recuperar del cmdlet [Get-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913772.aspx) que se incluye como parte del módulo Azure PowerShell. Es la única manera de que se puede recuperar un valor cifrado desde la actividad **Get-AutomationVariable** en un runbook.
+Cuando se crea una variable, puede especificar que se almacene cifrada. Cuando se cifra una variable, se almacena de forma segura en Automatización de Azure y su valor no se puede recuperar del cmdlet [Get-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913772.aspx) que se incluye como parte del módulo Azure PowerShell. Es la única manera de que se puede recuperar un valor cifrado desde la actividad **Get-AutomationVariable** en un runbook o una configuración de DSC.
 
 >[AZURE.NOTE]Los recursos protegidos en Automatización de Azure incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Automatización de Azure con una clave única que se genera para cada cuenta de automatización. Esta clave se cifra mediante un certificado maestro y se almacena en Automatización de Azure. Antes de almacenar un recurso seguro, la clave de la cuenta de automatización se descifra con el certificado maestro y, a continuación, se utiliza para cifrar el recurso.
 
@@ -39,7 +39,7 @@ Puede almacenar varios valores en una única variable mediante la creación de u
 
 ## Cmdlets y actividades de flujo de trabajo
 
-Los cmdlets de la tabla siguiente se usan para crear y administrar variables de Automatización con Windows PowerShell. Se incluyen como parte del [módulo Azure PowerShell](../powershell-install-configure.md) que está disponible para su uso en los runbooks de Automatización.
+Los cmdlets de la tabla siguiente se usan para crear y administrar variables de Automatización con Windows PowerShell. Se incluyen como parte del [módulo Azure PowerShell](../powershell-install-configure.md) que está disponible para su uso en los runbooks de Automatización y las configuraciones de DSC.
 
 |Cmdlets|Descripción|
 |:---|:---|
@@ -48,14 +48,14 @@ Los cmdlets de la tabla siguiente se usan para crear y administrar variables de 
 |[Remove-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913775.aspx)|Quita una variable existente.|
 |[Set-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913767.aspx)|Establece el valor de una variable existente.|
 
-Las actividades de flujo de trabajo en la tabla siguiente se usan para acceder a las variables de Automatización en un runbook. Solo están disponibles para su uso en un runbook y no se incluyen como parte del módulo Azure PowerShell.
+Las actividades de flujo de trabajo en la tabla siguiente se usan para acceder a las variables de Automatización en un runbook. Solo están disponibles para su uso en un runbook o una configuración de DSC y no se incluyen como parte del módulo Azure PowerShell.
 
 |Actividades de flujo de trabajo|Descripción|
 |:---|:---|
 |Get-AutomationVariable|Recupera el valor de una variable existente.|
 |Set-AutomationVariable|Establece el valor de una variable existente.|
 
->[AZURE.NOTE]Debe evitar el uso de variables en el parámetro – Name de **Get-AutomationVariable** en un runbook, ya que puede complicar la detección de dependencias entre runbooks y las variables de Automatización en tiempo de diseño.
+>[AZURE.NOTE]Debe evitar el uso de variables en el parámetro – Name de **Get-AutomationVariable** en un runbook o una configuración de DSC, ya que puede complicar la detección de dependencias entre runbooks o configuraciones de DSC y las variables de Automatización en tiempo de diseño.
 
 ## Creación de una nueva variable de Automatización
 
@@ -96,9 +96,9 @@ Los comandos de ejemplo siguientes muestran cómo crear una variable con un tipo
 
 
 
-## Uso de una variable en un runbook
+## Uso de una variable en un runbook o una configuración de DSC
 
-Use la actividad **Set-AutomationVariable** para establecer el valor de una variable de Automatización en un runbook y **Get-AutomationVariable** para recuperarlo. No debe utilizar los cmdlets **Set-AzureAutomationVariable** o **Get-AzureAutomationVariable** en un runbook, ya que son menos eficientes que las actividades de flujo de trabajo. Tampoco puede recuperar el valor de variables seguras con **Get-AzureAutomationVariable**. La única forma de crear una nueva variable desde un runbook es utilizar el cmdlet [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx).
+Use la actividad **Set-AutomationVariable** para establecer el valor de una variable de Automatización en un runbook o una configuración de DSC y **Get-AutomationVariable** para recuperarlo. No debe usar los cmdlets **Set-AzureAutomationVariable** o **Get-AzureAutomationVariable** en un runbook o una configuración DSC, ya que son menos eficientes que las actividades de flujo de trabajo. Tampoco puede recuperar el valor de variables seguras con **Get-AzureAutomationVariable**. La única forma de crear una nueva variable desde un runbook o una configuración de DSC es usar el cmdlet [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx).
 
 
 ### Ejemplos de runbook textual
@@ -188,4 +188,4 @@ La imagen siguiente muestra cómo filtrar los objetos almacenados en una variabl
 - [Vínculos de creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

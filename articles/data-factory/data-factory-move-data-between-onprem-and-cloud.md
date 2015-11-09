@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="10/23/2015" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos entre orígenes locales y la nube con Data Management Gateway
@@ -134,29 +134,29 @@ En este paso, use el Portal de administración de Azure para crear una instancia
 
 	También puede descargar e instalar la puerta de enlace manualmente con los vínculos de esta hoja y registrarla usando la clave que se muestra en el cuadro de texto **REGISTRAR CON LA CLAVE**.
 	
-	Consulte la sección [Data Management Gateway](#DMG) para obtener información detallada de la puerta de enlace, incluidos procedimientos recomendados y algunas consideraciones importantes.
+	Consulte las secciones del principio de este artículo para obtener información detallada de la puerta de enlace, incluidos procedimientos recomendados y algunas consideraciones importantes.
 
 	>[AZURE.NOTE]Debe ser administrador del equipo local para instalar y configurar correctamente Data Management Gateway. Puede agregar usuarios adicionales al grupo local de Windows Usuarios de usuarios de Data Management Gateway. Los miembros de este grupo podrán usar la herramienta Administrador de configuración de Data Management Gateway para configurar la puerta de enlace.
 
-5. Espere un par de minutos e inicie la aplicación **Administración de configuración de Data Management Gateway** en el equipo. En la ventana **Búsqueda**, escriba **Data Management Gateway** para tener acceso a esta utilidad. También puede encontrar el archivo ejecutable **ConfigManager.exe** en la carpeta: **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared**.
+5. Espere un par de minutos e inicie la aplicación **Administración de configuración de Data Management Gateway** en el equipo. En la ventana **Búsqueda**, escriba **Data Management Gateway** para tener acceso a esta utilidad. También puede encontrar el archivo ejecutable **ConfigManager.exe** en la carpeta: **C:\\Archivos de programa\\Microsoft Data Management Gateway\\1.0\\Shared**.
 
 	![Administrador de configuración de puertas de enlace](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 
 6. Espere hasta que los valores se hayan establecido como se indica a continuación:
-	1. El **Estado** está establecido en **Iniciado**.
+	1. **Estado** está establecido en **Iniciado**.
 	2. **Nombre de la puerta de enlace** está establecido en **adftutorialgateway**.
 	3. **Nombre de instancia** está establecido en **adftutorialgateway**.
-	4. El **Registro** está establecido en **Registrado**.
+	4. **Registro** está establecido en **Registrado**.
 	5. La barra de estado de la parte inferior muestra **Conectado al servicio en la nube Data Management Gateway** junto con una **marca de verificación verde**.
 
-8. Cambie a **Certificados**. El certificado especificado en esta pestaña se usa para cifrar y descifrar las credenciales para el almacén de datos local que especifique en el portal. Haga clic en **Cambiar** usar su propio certificado. De forma predeterminada, la puerta de enlace usa el certificado generado automáticamente por el servicio Factoría de datos.
+8. Cambie a **Certificados**. El certificado especificado en esta pestaña se usa para cifrar y descifrar las credenciales para el almacén de datos local que especifique en el portal. Haga clic en **Cambiar** para usar su propio certificado. De forma predeterminada, la puerta de enlace usa el certificado generado automáticamente por el servicio Factoría de datos.
 
 	![Configuración del certificado de puerta de enlace](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 9. En el Portal de Azure, haga clic en **Aceptar** en la hoja **Configurar** y luego en la hoja **Nueva puerta de enlace de datos**.
 6. Debería ver **adftutorialgateway** en **Puertas de enlace de datos** en la vista de árbol de la izquierda. Si hace clic en ella, debería ver el JSON asociado. 
 	
 
-### Paso 2: Creación de servicios vinculados 
+### Paso 3: Crear servicios vinculados 
 En este paso, creará dos servicios vinculados: **StorageLinkedService** y **SqlServerLinkedService**. El servicio **SqlServerLinkedService** vincula una base de datos de SQL Server local y el servicio vinculado **StorageLinkedService** vincula un almacén de blobs de Azure a la factoría de datos. Más adelante en este tutorial creará una canalización que copia datos de la base de datos de SQL Server local al almacén de blobs de Azure.
 
 #### Adición de un servicio vinculado a una base de datos de SQL Server local
@@ -164,12 +164,12 @@ En este paso, creará dos servicios vinculados: **StorageLinkedService** y **Sql
 
 	![Nuevo servicio vinculado de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png) 
 3.	En el **Editor de JSON**, haga lo siguiente: 
-	1. Para el **gatewayName**, especifique **adftutorialgateway**.	
+	1. Para **gatewayName**, especifique **adftutorialgateway**.	
 	2. Si está usando la autenticación de Windows:
-		1. En la **connectionString**: 
+		1. En **connectionString**: 
 			1. Establezca **Seguridad integrada** en **true**.
 			2. Especifique el **nombre del servidor** de la base de datos y el **nombre de la base de datos**. 
-			2. Quitar el **Id. de usuario** y la **Contraseña**. 
+			2. Quite **Id. de usuario** y **Contraseña**. 
 		3. Especifique el nombre de usuario y la contraseña para las propiedad **userName** y **password**.
 		
 				"typeProperties": {
@@ -180,7 +180,7 @@ En este paso, creará dos servicios vinculados: **StorageLinkedService** y **Sql
         		}
 
 	4. Si está usando la autenticación de SQL:
-		1. Especifique el **nombre del servidor** de la base de datos, el **nombre de la base de datos**, el **Id. de usuario** y la **Contraseña** en el **connectionString**.       
+		1. Especifique el **nombre del servidor** de la base de datos, el **nombre de la base de datos**, el **Id. de usuario** y la **Contraseña** en **connectionString**.       
 		2. Quite las últimas dos propiedades de JSON - **userName** y **password** - de JSON.
 		3. Quite la **, (coma)** al final de la línea que especifica el valor de la propiedad **gatewayName**. 
 
@@ -199,7 +199,7 @@ En este paso, creará dos servicios vinculados: **StorageLinkedService** y **Sql
 4. Haga clic en **Implementar** para implementar **StorageLinkedService**.
    
  
-### Paso 3: Creación de conjuntos de datos de entrada y salida
+### Paso 4: Crear conjuntos de datos de entrada y salida
 En este paso, creará conjuntos de datos de entrada y de salida que representan datos de entrada y de salida para la operación de copia (base de datos de SQL Server local => almacenamiento de blobs de Azure). Antes de crear conjuntos de datos o tablas (conjuntos de datos rectangulares), debe hacer lo siguiente (después de la lista, se detallan los pasos):
 
 - Cree una tabla con el nombre **emp** en la base de datos de SQL Server que agregó como servicio vinculado a la factoría de datos e inserte un par de entradas de ejemplo en la tabla.
@@ -258,7 +258,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 
 	Tenga en cuenta lo siguiente:
 	
-	- **type** está establecido como **SqlServerTable**.
+	- **type** está establecido en **SqlServerTable**.
 	- **tableName** está establecido en **emp**.
 	- **linkedServiceName** está establecido en **SqlServerLinkedService** (creó este servicio vinculado en el paso 2).
 	- Para una tabla de entrada no generada por otra canalización en Factoría de datos de Azure, tiene que especificar la propiedad **external** en **true**. Indica que los datos de entrada se han producido fuera del servicio Factoría de datos de Azure. Opcionalmente, puede especificar las directivas de datos externos mediante el elemento **externalData** en la sección **Policy**.    
@@ -297,7 +297,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 	- **type** está establecido en **AzureBlob**.
 	- **linkedServiceName** está establecido en **StorageLinkedService** (creó este servicio vinculado en el paso 2).
 	- **folderPath** está establecido en **adftutorial/outfromonpremdf**, donde outfromonpremdf es la carpeta del contenedor adftutorial. Solo tiene que crear el contenedor **adftutorial**.
-	- El elemento **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval**, en **1**). El servicio Factoría de datos generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos SQL de Azure. 
+	- El elemento **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval** en **1**). El servicio Factoría de datos generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos SQL de Azure. 
 
 	Si no especifica **fileName** para una **tabla de entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada. Puede ver algunos archivos de ejemplo en [tutorial][adf-tutorial].
  
@@ -322,7 +322,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 2.	Haga clic en **Implementar** en la barra de comandos para implementar el conjunto de datos (la tabla es un conjunto de datos rectangular). Confirme que aparece un mensaje en la barra de título que indica **LA TABLA SE IMPLEMENTÓ CORRECTAMENTE**.
   
 
-### Paso 4: Creación y ejecución de una canalización
+### Paso 5: Crear y ejecutar una canalización
 En este paso, va a crear una **canalización** con una **actividad de copia** que usa **EmpOnPremSQLTable** como entrada y **OutputBlobTable** como salida.
 
 1.	En la hoja **FACTORÍA DE DATOS**, haga clic en la ventana **Crear e implementar** para iniciar el **Editor** para la factoría de datos.
@@ -384,7 +384,7 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
 
 	Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **end** es opcional, pero se utilizará en este tutorial.
 	
-	Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 hours**". Para ejecutar la canalización indefinidamente, especifique **9/9/9999** como valor de la propiedad **end**.
+	Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9/9/9999** como valor de la propiedad **end**.
 	
 	Está definiendo la duración del procesamiento de los segmentos de datos según las propiedades de **disponibilidad** que se definieron para cada tabla de la Factoría de datos de Azure.
 	
@@ -407,8 +407,8 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
 
 	Puede acercar, alejar, acercar al 100%, ampliar para ajustar, colocar automáticamente canalizaciones y tablas, y mostrar información de linaje (resalta elementos ascendentes y descendentes de los elementos seleccionados). Puede hacer doble clic en un objeto (tabla o canalización de entrada o salida) para ver sus propiedades.
 
-### Paso 5: Supervisión de las canalizaciones y los conjuntos de datos
-En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo en una factoría de datos de Azure. También puede usar los cmdlets de PowerShell para supervisar los conjuntos de datos y las canalizaciones. Para obtener más información acerca de la supervisión, consulte [Supervisión y administración de canalizaciones](monitor-manage-pipelines.md).
+### Paso 6: Supervisar los conjuntos de datos y las canalizaciones
+En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo en una factoría de datos de Azure. También puede usar los cmdlets de PowerShell para supervisar los conjuntos de datos y las canalizaciones. Para obtener más información sobre la supervisión, consulte [Supervisión y administración de canalizaciones](monitor-manage-pipelines.md).
 
 1. Vaya al **Portal de vista previa de Azure** (si lo ha cerrado).
 2. Si la hoja de **ADFTutorialOnPremDF** no está abierta, ábrala haciendo clic en **ADFTutorialOnPremDF** en el **Panel de inicio**.
@@ -454,30 +454,62 @@ En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo 
 
 	![Explorador de almacenamiento de Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
+## Movimiento de la puerta de enlace móvil desde una máquina a otra
+En esta sección se proporcionan pasos para mover el cliente de puerta de enlace de un equipo a otro equipo.
+
+2. En el portal, navegue hasta la **página de inicio de Factoría de datos** y haga clic en el icono **Servicios vinculados**. 
+
+	![Vínculo de puertas de enlace de datos](./media/data-factory-move-data-between-onprem-and-cloud/DataGatewaysLink.png) 
+3. Seleccione la puerta de enlace en la sección **PUERTAS DE ENLACE DE DATOS** de la hoja **Servicios vinculados**.
+	
+	![Hoja Servicios vinculados con puerta de enlace seleccionada](./media/data-factory-move-data-between-onprem-and-cloud/LinkedServiceBladeWithGateway.png)
+4. En la hoja **Puerta de enlace de datos**, haga clic en **Descargar e instalar la puerta de enlace de datos**.
+	
+	![Vínculo de puerta de enlace de descarga](./media/data-factory-move-data-between-onprem-and-cloud/DownloadGatewayLink.png) 
+5. En la hoja **Configurar**, haga clic en **Descargar e instalar la puerta de enlace de datos** y siga las instrucciones para instalar la puerta de enlace de datos en la máquina. 
+
+	![Hoja Configurar](./media/data-factory-move-data-between-onprem-and-cloud/ConfigureBlade.png)
+6. Mantenga el **Administrador de configuración de Microsoft Data Management Gateway** abierto. 
+ 
+	![Administrador de configuración](./media/data-factory-move-data-between-onprem-and-cloud/ConfigurationManager.png)	
+7. En la hoja **Configurar** del portal, haga clic en **Volver a crear clave** en la barra de comandos y haga clic en **Sí** para el mensaje de advertencia. Haga clic en **botón Copiar** junto al texto de la clave para copiar la clave en el portapapeles. Tenga en cuenta que la puerta de enlace en la máquina antigua dejará de funcionar tan pronto como vuelva a crear la clave.  
+	
+	![Volver a crear clave](./media/data-factory-move-data-between-onprem-and-cloud/RecreateKey.png)
+	 
+8. Pegue la **clave** en el cuadro de texto en la página **Registrar puerta de enlace** del **Administrador de configuración de Data Management Gateway** en la máquina. (Opcional) Haga clic en la casilla **Mostrar clave de puerta de enlace** para ver el texto de la clave.
+ 
+	![Copiar clave y registrar](./media/data-factory-move-data-between-onprem-and-cloud/CopyKeyAndRegister.png)
+9. Haga clic en **Registrar** para registrar la puerta de enlace con el servicio en la nube.
+10. En la página **Especificar certificado**, haga clic en **Examinar** para seleccionar el mismo certificado que se usó con la puerta de enlace anterior, escriba la **contraseña** y haga clic en **Finalizar**. 
+ 
+	![Especificar certificado](./media/data-factory-move-data-between-onprem-and-cloud/SpecifyCertificate.png)
+
+	Puede exportar un certificado desde la puerta de enlace anterior haciendo lo siguiente: inicie el Administrador de configuración de Data Management Gateway en la máquina antigua, pase a la pestaña **Certificado**, haga clic en el botón **Exportar** y siga las instrucciones. 
+10. Después del registro correcto de la puerta de enlace, debe ver **Registro** establecido en **Registrado** y **Estado** establecido en **Iniciado** en la página principal del administrador de configuración de puertas de enlace. 
 
 ## Configuración de credenciales y seguridad
 
 También puede crear un servicio vinculado de SQL Server mediante la hoja de Servicios vinculados en lugar de usar el editor de la factoría de datos.
  
-3.	En la página de inicio de la factoría de datos, haga clic en el icono **Servicios vinculados**. 
+3.	En la página de inicio de Factoría de datos, haga clic en el icono **Servicios vinculados**. 
 4.	En la hoja **Servicios vinculados**, haga clic en **Nuevo almacén de datos** en la barra de comandos. 
-4.	Escriba **SqlServerLinkedService** para el **Nombre**. 
-2.	Haga clic en flecha junto al **Tipo** y seleccione **SQL Server**.
+4.	Escriba **SqlServerLinkedService** para el **nombre**. 
+2.	Haga clic en flecha junto a **Tipo** y seleccione **SQL Server**.
 
 	![Creación de un nuevo almacén de datos](./media/data-factory-move-data-between-onprem-and-cloud/new-data-store.png)
-3.	Debe definir más opciones bajo **Tipo**.
-4.	Para la configuración **Puerta de enlace de datos**, seleccione la puerta de enlace que acaba de crear. 
+3.	Debe definir más configuraciones bajo **Tipo**.
+4.	Para el valor **Puerta de enlace de datos**, seleccione la puerta de enlace que acaba de crear. 
 
 	![Configuración de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-settings.png)
-4.	Escriba el nombre de su servidor de base de datos para la configuración **Servidor**.
-5.	Escriba el nombre de la base de datos para la configuración **Base de datos**.
+4.	Escriba el nombre del servidor de base de datos para el valor **Servidor**.
+5.	Escriba el nombre de la base de datos para el valor **Base de datos**.
 6.	Haga clic en flecha junto a **Credenciales**.
 
 	![Hoja Credenciales](./media/data-factory-move-data-between-onprem-and-cloud/credentials-dialog.png)
 7.	En la hoja **Credenciales**, haga clic en la opción **Haga clic aquí para establecer las credenciales**.
 8.	En el cuadro de diálogo **Establecer credenciales**, realice lo siguiente:
 
-	![Cuadro de diálogo Establecer credenciales](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. Seleccione la **autenticación** que desea que use el servicio Factoría de datos para conectarse a la base de datos. 2. Escriba el nombre del usuario que tiene acceso a la base de datos para la configuración **NOMBRE DE USUARIO**. 3. Escriba la contraseña para el usuario para la configuración **CONTRASEÑA**. 4. Haga clic en **Aceptar** para cerrar el cuadro de diálogo. 
+	![Cuadro de diálogo Establecer credenciales](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. Seleccione la **autenticación** que desea que use el servicio Factoría de datos para conectarse a la base de datos. 2. Escriba el nombre del usuario que tiene acceso a la base de datos para el valor **NOMBRE DE USUARIO**. 3. Escriba la contraseña para el usuario para el valor **CONTRASEÑA**. 4. Haga clic en **Aceptar** para cerrar el cuadro de diálogo. 
 4. Haga clic en **Aceptar** para cerrar la hoja **Credenciales**. 
 5. Haga clic en **Aceptar** en la hoja **Nuevo almacén de datos**. 	
 6. Confirme que el estado de **SqlServerLinkedService** está establecido en En línea en la hoja Servicios vinculados.![Estado del servicio vinculado de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
@@ -486,7 +518,7 @@ Si tiene acceso al portal desde un equipo diferente del equipo de la puerta de e
 
 Cuando usa la aplicación "Establecer credenciales" iniciada desde el Portal de Azure para establecer credenciales para un origen de datos local, el portal cifra las credenciales con el certificado especificado en la pestaña Certificado del Administrador de configuración de Data Management Gateway en el equipo de puerta de enlace.
 
-Si desea un enfoque basado en API para cifrar las credenciales, puede usar el cmdlet [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) de PowerShell para cifrar las credenciales. El cmdlet usa el certificado cuyo uso tiene configurado esa puerta de enlace para cifrar las credenciales. Puede usar las credenciales cifradas devueltas por este cmdlet y agregarlas al elemento EncryptedCredential de connectionString en el archivo JSON que se va a emplear con el cmdlet [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) o en el fragmento JSON en el Editor de la Factoría de datos en el portal.
+Si desea un enfoque basado en API para cifrar las credenciales, puede usar el cmdlet [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) de PowerShell para cifrar las credenciales. El cmdlet usa el certificado cuyo uso tiene configurado esa puerta de enlace para cifrar las credenciales. Puede usar las credenciales cifradas devueltas por este cmdlet y agregarlas al elemento EncryptedCredential de connectionString en el archivo JSON que se va a emplear con el cmdlet [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) o en el fragmento de código JSON en el Editor de la Factoría de datos en el portal.
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -536,7 +568,7 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
 		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. En Azure PowerShell, cambie a la carpeta **C:\\\Archivos de programa\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** y ejecute el script **RegisterGateway.ps1** asociado con la variable local **$Key** como se muestra en el siguiente comando para registrar el agente cliente instalado en su equipo en la puerta de enlace lógica que creó antes.
+4. En Azure PowerShell, cambie a la carpeta **C:\\\Archivos de programa\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** y ejecute el script **RegisterGateway.ps1** asociado a la variable local **$Key** como se muestra en el siguiente comando para registrar el agente cliente instalado en su máquina con la puerta de enlace lógica que creó antes.
 
 		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
@@ -565,17 +597,17 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 
 1. Como se mencionó anteriormente en el tutorial paso a paso, hay varias maneras de establecer credenciales para almacenes de datos locales con la factoría de datos. Las consideraciones de puerto varían para estas opciones.	
 
-	- Mediante la aplicación **Establecer credenciales**: de forma predeterminada, el programa de instalación de Data Management Gateway abre los puertos **8050** y **8051** en el Firewall de Windows local para el equipo de puerta de enlace. La aplicación Establecer credenciales usa estos puertos para retransmitir las credenciales a la puerta de enlace. Estos puertos se abren solo para el equipo en el Firewall de Windows local. Estos puertos no se pueden alcanzar desde Internet y no es necesario que estén abiertos en el firewall corporativo.
-	2.	Mediante el commandlet de powershell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx): a. Si está usando el comando de Powershell para cifrar las credenciales y como resultado no desea que la instalación de puerta de enlace abra los puertos de entrada en el equipo de puerta de enlace en Firewall de Windows, puede hacerlo mediante el comando siguiente durante la instalación:
+	- Mediante la aplicación **Establecer credenciales**: de forma predeterminada, el programa de instalación de Data Management Gateway abre los puertos **8050** y **8051** en el Firewall de Windows local para la máquina de puerta de enlace. La aplicación Establecer credenciales usa estos puertos para retransmitir las credenciales a la puerta de enlace. Estos puertos se abren solo para el equipo en el Firewall de Windows local. Estos puertos no se pueden alcanzar desde Internet y no es necesario que estén abiertos en el firewall corporativo.
+	2.	Mediante el commandlet de PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx): a. Si está usando el comando de Powershell para cifrar las credenciales y como resultado no desea que la instalación de puerta de enlace abra los puertos de entrada en el equipo de puerta de enlace en Firewall de Windows, puede hacerlo mediante el comando siguiente durante la instalación:
 	
 			msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
-3.	Si usa la aplicación **Configuración de credenciales**, tiene que iniciarla en un equipo que pueda conectarse a Data Management Gateway para poder establecer credenciales para el origen de datos y probar la conexión al origen de datos.
+3.	Si usa la aplicación **Establecer credenciales**, tiene que iniciarla en un equipo que pueda conectarse a Data Management Gateway para poder establecer credenciales para el origen de datos y probar la conexión con dicho origen de datos.
 4.	Al copiar datos desde y hacia una base de datos de SQL Server local hacia o desde una base de datos SQL a Azure, asegúrese de lo siguiente:	
-	- 	El firewall del equipo de la puerta de enlace permite la salida de la comunicación TCP de en el puerto **TCP** **1433**.
-	- 	Establezca la [configuración de firewall de SQL Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) para agregar la **dirección IP del equipo de la puerta de enlace** a las **direcciones IP permitidas**.
+	- 	El firewall del equipo de la puerta de enlace permite la salida de la comunicación TCP en el puerto **TCP** **1433**.
+	- 	Establezca la [configuración del firewall de SQL Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) para agregar la **dirección IP de la máquina de la puerta de enlace** a las **direcciones IP permitidas**.
 5.	Si copia datos desde y hacia SQL Server local a cualquier destino y los equipos de la puerta de enlace y de SQL Server son diferentes, haga lo siguiente: [configure Firewall de Windows](https://msdn.microsoft.com/library/ms175043.aspx) en el equipo de SQL Server para que la puerta de enlace pueda tener acceso a la base de datos a través de puertos en los que escucha la instancia de SQL Server. En la instancia predeterminada es el puerto 1433.
 
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Activos de certificados en Automatización de Azure | Microsoft Azure"
-   description="Los certificados se pueden almacenar de manera segura en Automatización de Azure, de manera tal que los runbooks pueden tener acceso a ellos para realizar la autenticación respecto de Azure y recursos de terceros. Este artículo explica los detalles de los certificados y cómo trabajar con ellos en la creación de textos y de gráficos."
+   description="Los certificados se pueden almacenar de manera segura en Automatización de Azure, de manera tal que los runbooks o configuraciones de DSC pueden tener acceso a ellos para realizar la autenticación respecto de Azure y recursos de terceros. Este artículo explica los detalles de los certificados y cómo trabajar con ellos en la creación de textos y de gráficos."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Activos de certificados en Automatización de Azure
 
-Los certificados se pueden almacenar de manera segura en Automatización de Azure de manera que los runbooks pueden tener acceso a ellos mediante el uso de la actividad **Get-AutomationCertificate**. Esto le permite crear runbooks que usan certificados para autenticación o agregarlos a Azure o a recursos de terceros que crea o configura su runbook.
+Los certificados se pueden almacenar de manera segura en Automatización de Azure de manera que los runbooks o las configuraciones de DSC pueden tener acceso a ellos mediante el uso de la actividad **Get-AutomationCertificate**. Esto le permite crear runbooks y configuraciones de DSC que usan certificados para autenticación o agregarlos a Azure o a recursos de terceros.
 
 >[AZURE.NOTE]Los recursos protegidos en Automatización de Azure incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Automatización de Azure con una clave única que se genera para cada cuenta de automatización. Esta clave se cifra mediante un certificado maestro y se almacena en Automatización de Azure. Antes de almacenar un recurso seguro, la clave de la cuenta de automatización se descifra con el certificado maestro y, a continuación, se utiliza para cifrar el recurso.
 
 ## Cmdlets de Windows PowerShell
 
-Los cmdlets de la tabla siguiente se usan para crear y administrar variables de Automatización con Windows PowerShell. Se incluyen como parte del [módulo Azure PowerShell](../powershell-install-configure.md) que está disponible para su uso en los runbooks de Automatización.
+Los cmdlets de la tabla siguiente se usan para crear y administrar variables de Automatización con Windows PowerShell. Se incluyen como parte del [módulo Azure PowerShell](../powershell-install-configure.md) que está disponible para su uso en las configuraciones de DSC y los runbooks de Automatización.
 
 |Cmdlets|Descripción|
 |:---|:---|
@@ -32,19 +32,19 @@ Los cmdlets de la tabla siguiente se usan para crear y administrar variables de 
 |[Remove- AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913773.aspx)|Quita un certificado a Automatización de Azure.|
 |[Set- AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913763.aspx)|Establece las propiedades de un certificado existente, incluyendo la carga del archivo de certificado y el establecimiento de la contraseña de un .pfx.|
 
-## Actividades de runbook
+## Actividades para tener acceso a certificados
 
-Las actividades de la tabla siguiente se usan para obtener acceso a los certificados en un runbook.
+Las actividades de la tabla siguiente se usan para obtener acceso a los certificados en un runbook o una configuración de DSC.
 
 |Actividades|Descripción|
 |:---|:---|
-|Get-AutomationCertificate|Obtiene un certificado para usarlo en un runbook.|
+|Get-AutomationCertificate|Obtiene un certificado para usarlo en un runbook o una configuración de DSC.|
 
->[AZURE.NOTE]Debe evitar el uso de variables en el parámetro –Name de GetAutomationCertificate, debido a que esto podría complicar la detección de las dependencias entre runbooks y recursos de certificados en tiempo de diseño.
+>[AZURE.NOTE]Debe evitar el uso de variables en el parámetro –Name de GetAutomationCertificate, debido a que esto podría complicar la detección de las dependencias entre runbooks o configuraciones de DSC, y recursos de certificados en tiempo de diseño.
 
 ## Creación de un certificado nuevo
 
-Cuando crea un certificado nuevo, debe cargar un archivo cer o pfx a Automatización de Azure. Si marca el certificado como exportable, podrá transferirlo fuera del almacén de certificados de Automatización de Azure. Si no es exportable, solo se puede usar para firmar dentro del runbook.
+Cuando crea un certificado nuevo, debe cargar un archivo cer o pfx a Automatización de Azure. Si marca el certificado como exportable, podrá transferirlo fuera del almacén de certificados de Automatización de Azure. Si no es exportable, solo se puede usar para firmar dentro del runbook o la configuración de DSC.
 
 ### Para crear un certificado nuevo con el portal de Azure
 
@@ -77,9 +77,9 @@ Los siguientes comandos de ejemplo muestran cómo crear un certificado de automa
 	
 	New-AzureAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certName -Path $certPath –Password $certPwd -Exportable
 
-## Uso de un certificado en un runbook
+## Uso de un certificado
 
-Debe utilizar la actividad **Get-AutomationCertificate** para usar un certificado en un runbook. No puede usar el cmdlet [Get-AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913765.aspx), debido a que devuelve información acerca del recurso de certificado, pero no el certificado mismo.
+Debe utilizar la actividad **Get-AutomationCertificate** para usar un certificado. No puede usar el cmdlet [Get-AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913765.aspx), debido a que devuelve información acerca del recurso de certificado, pero no el certificado mismo.
 
 ### Ejemplo de runbook de texto
 
@@ -107,4 +107,4 @@ Este ejemplo utiliza el parámetro **UseConnectionObject** definido para la **ac
 
 - [Vínculos de creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

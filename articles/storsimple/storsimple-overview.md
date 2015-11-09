@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/09/2015"
+   ms.date="10/14/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # Serie StorSimple 8000: una solución de almacenamiento en la nube híbrida 
@@ -46,7 +46,7 @@ En la tabla siguiente se describen algunas de las ventajas principales que propo
 |Disponibilidad en el Portal de administración de Azure | Ahora está disponible en el Portal de Azure Government. Para obtener más información, consulte [Implementación del dispositivo StorSimple local en el Portal de Government](storsimple-deployment-walkthrough-gov.md)|
 |Compatibilidad para el almacenamiento con redundancia de zona | Con la actualización a la versión más reciente de las API de almacenamiento, la serie StorSimple 8000 será compatible con el almacenamiento con redundancia de zona (ZRS), además del almacenamiento con redundancia local (LRS) y el almacenamiento con redundancia geográfica (GRS). Para obtener información detallada sobre ZRS, consulte [este artículo sobre las opciones de redundancia de Almacenamiento de Azure](https://azure.microsoft.com/documentation/articles/storage-redundancy/).
 
-![icono de vídeo](./media/storsimple-overview/video_icon.png) Vea [este vídeo](https://www.youtube.com/watch?v=4MhJT5xrvQw&feature=youtu.be) para obtener información general de las características y ventajas de StorSimple serie 8000.
+![icono de vídeo](./media/storsimple-overview/video_icon.png) Visualice [este vídeo](http://azure.microsoft.com/documentation/videos/guru-pangals-welcome-to-wpc--july-2015) para obtener una introducción a las características y ventajas de StorSimple serie 8000.
 
 ## Componentes StorSimple
 
@@ -65,6 +65,8 @@ El siguiente diagrama proporciona una vista de alto nivel de la arquitectura y c
 ![Arquitectura de StorSimple](./media/storsimple-overview/overview-big-picture.png)
 
 Las secciones siguientes describen los componentes con más detalle y explican la manera en que la solución ordena los datos, asigna el almacenamiento y facilita la administración del almacenamiento y la protección de los datos. La última sección proporciona definiciones de algunos términos y conceptos importantes relacionados con los componentes de StorSimple y su administración.
+
+![icono de vídeo](./media/storsimple-overview/video_icon.png) Visualice [este vídeo](https://www.youtube.com/watch?v=4MhJT5xrvQw&feature=youtu.be) para obtener una introducción al dispositivo StorSimple, al dispositivo virtual StorSimple y al servicio del administrador de StorSimple.
 
 ## Dispositivo de StorSimple
 
@@ -269,4 +271,4 @@ Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-secu
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

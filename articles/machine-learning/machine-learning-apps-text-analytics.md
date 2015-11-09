@@ -93,6 +93,9 @@ La clave de la cuenta se puede obtener [aquí](https://datamarket.azure.com/acco
  
 ---
 
+##API de lote
+El servicio de análisis de texto permite realizar extracciones de opiniones y frases clave en el modo por lotes. Para GetSentimentBatch y GetKeyPhrasesBatch, cada uno de los registros puntuados cuenta como una transacción. Por lo tanto, por ejemplo, si obtiene una opinión sobre 1000 registros en una sola llamada, se deducirán 1000 transacciones.
+
 ###GetSentimentBatch###
 
 **URL**
@@ -205,4 +208,4 @@ En la respuesta siguiente, obtendrá la lista de las frases clave asociadas a su
 Los identificadores especificados en el sistema son los identificadores que devuelve el sistema. El servicio web no comprueba que los identificadores sean únicos. Es responsabilidad del autor de la llamada hacerlo.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -39,17 +39,7 @@ Pero, ¿cómo se puede comparar el rendimiento relativo de las bases de datos y 
 
 ## Descripción de las DTU
 
-La unidad de transacción de base de datos (DTU) es la unidad de medida en Base de datos SQL que representa la potencia relativa de bases de datos en base a una medida del mundo real: la transacción de base de datos. Usamos un conjunto de operaciones que son típicas de una solicitud de procesamiento de transacciones en línea (OLTP) y después medimos cuántas transacciones se podrían completar por segundo en condiciones de carga total (esta es la versión resumida; puede leer los detalles en [formación general de la prueba comparativa](https://msdn.microsoft.com/library/azure/dn741327.aspx)).
-
-Una base de datos de tipo Básica tiene 5 DTU, lo que significa que puede completar 5 transacciones por segundo, mientras que una base de datos de tipo Premium P11 tiene 1750 DTU.
-
-![DTU de base de datos única](./media/sql-database-technical-overview/single_db_dtus.png)
-
-DTU para bases de datos únicas se convierte directamente en eDTU para bases de datos elásticas. Por ejemplo, una base de datos de un grupo de bases de datos elásticas de tipo Básico ofrece hasta 5 eDTU. Es el mismo rendimiento que una base de datos única de tipo Básica. La diferencia es que la base de datos flexible no consumirá ninguna eDTU del grupo hasta que tenga que hacerlo.
-
-![Grupos de elásticas y eDTU](./media/sql-database-technical-overview/sqldb_elastic_pools.png)
-
-Un ejemplo sencillo ayuda. Use un grupo de bases de datos elásticas de tipo Básico con 1000 DTU y coloque 800 bases de datos en él. Siempre y cuando se usen solamente 200 de las 800 bases de datos en un momento dado (5 DTU X 200 = 1000), no se alcanzará la capacidad del grupo y el rendimiento de la base de datos no se degradará. Este es un ejemplo simplificado para mayor claridad. Los cálculos matemáticos reales son un poco más complicados. El portal realiza los cálculos matemáticos y hace una recomendación basándose en el uso histórico de la base de datos. Vea [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md) para saber cómo funcionan las recomendaciones o para realizar los cálculos matemáticos por su cuenta.
+[AZURE.INCLUDE [Descripción de DTU de base de datos SQL](../../includes/sql-database-understanding-dtus.md)]
 
 ## Mantenimiento de la aplicación y el negocio en funcionamiento
 
@@ -58,10 +48,10 @@ El contrato de nivel de servicio [(SLA)](http://azure.microsoft.com/support/lega
 ![Replicación geográfica de Base de datos SQL](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
 
-Para obtener más información sobre las diferentes características de continuidad del negocio disponibles para los distintos niveles de servicio, vea [Continuidad empresarial](sql-database-business-continuity.md).
+Para obtener más información sobre las diferentes características de continuidad del negocio disponibles para los distintos niveles de servicio, consulte [Continuidad empresarial](sql-database-business-continuity.md).
 
 ## Protección de los datos
-SQL Server tradicionalmente ha proporcionado una sólida seguridad de datos que Base de datos SQL respeta con sus características que limitan el acceso, protegen los datos y ayudan a supervisar la actividad. Para ver un resumen rápido de las opciones de seguridad que tiene Base de datos SQL, vea [Protección de bases de datos SQL](sql-database-security.md). Para obtener una vista más completa de las características de seguridad, vea [Centro de seguridad para el motor de base de datos SQL Server y Base de datos SQL](https://msdn.microsoft.com/library/bb510589). Y para obtener información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure](http://azure.microsoft.com/support/trust-center/security/).
+SQL Server tradicionalmente ha proporcionado una sólida seguridad de datos que Base de datos SQL respeta con sus características que limitan el acceso, protegen los datos y ayudan a supervisar la actividad. Para ver un resumen rápido de las opciones de seguridad que tiene Base de datos SQL, consulte [Protección de bases de datos SQL](sql-database-security.md). Para obtener una vista más completa de las características de seguridad, consulte [Centro de seguridad para el motor de base de datos SQL Server y Base de datos SQL](https://msdn.microsoft.com/library/bb510589). Y para obtener información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure](http://azure.microsoft.com/support/trust-center/security/).
 
 ## Pasos siguientes
 
@@ -69,4 +59,4 @@ SQL Server tradicionalmente ha proporcionado una sólida seguridad de datos que 
 
 - Comience por [crear su primera base de datos](sql-database-get-started.md). Luego cree su primera aplicación en [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) o [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
