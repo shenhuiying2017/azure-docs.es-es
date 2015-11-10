@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Creación de un experimento sencillo en Estudio de aprendizaje automático | Azure"
 	description="Un primer tutorial de Aprendizaje de máquina para la creación de un experimento sencilla para entrenar y probar un modelo de regresión lineal en Estudio de aprendizaje automático de Azure."
-	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
+	keywords="experimento,regresión lineal,algoritmos de aprendizaje automático,tutorial de aprendizaje automático,técnicas de modelado predictivo"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/13/2015"
+	ms.date="11/03/2015"
 	ms.author="garye"/>
 
 # Tutorial de Aprendizaje automático: Creación del primer experimento en Estudio de aprendizaje automático de Azure
@@ -25,7 +25,7 @@ En este primer tutorial de Aprendizaje automático, crearemos un modelo de regre
 
 Un experimento de Estudio de aprendizaje automático de Azure consiste en arrastrar componentes a un lienzo y conectarlos para *crear un modelo*, *entrenar el modelo* y *puntuar y probar el modelo*. El experimento usa técnicas de modelado predictivo en forma de módulos de Estudio de aprendizaje automático que recopila datos, entrena un modelo y aplica dicho modelo a nuevos datos. También se pueden agregar módulos para procesar previamente los datos y seleccionar las funciones, dividir los datos en conjuntos de formación y prueba y evaluar o validar de forma cruzada la calidad del modelo.
 
-Abra Estudio de aprendizaje automático de Azure en [https://studio.azureml.net](https://studio.azureml.net) y haga clic en el botón **Get started** (Comenzar). Puede elegir el acceso de invitado o iniciar sesión con su cuenta Microsoft.
+Abra Estudio de aprendizaje automático de Azure en [https://studio.azureml.net](https://studio.azureml.net) y haga clic en el botón **Comenzar**. Puede elegir el acceso de invitado o iniciar sesión con su cuenta Microsoft.
 
 Para obtener más información sobre Estudio de aprendizaje automático, consulte [¿Qué es el Estudio de aprendizaje automático?](machine-learning-what-is-ml-studio.md)
 
@@ -56,9 +56,9 @@ En este tutorial de Aprendizaje automático se enumeran los cinco pasos básicos
 
 Hay una serie de conjuntos de datos de ejemplo incluidos en Estudio de aprendizaje automático de Azure entre los que puede elegir y puede importar datos desde varios orígenes. En este ejemplo, usaremos el conjunto de datos de muestra incluido, **Automobile price data (Raw)**. Este conjunto de datos incluye entradas para varios automóviles individuales, incluyendo información como marca, modelo, especificaciones técnicas y precio.
 
-1. Inicie un experimento nuevo haciendo clic en **+NEW** (+NUEVO) en la parte inferior de la ventana de Estudio de aprendizaje automático, seleccione **EXPERIMENT** (EXPERIMENTO) y luego **Blank Experiment** (Experimento en blanco). Seleccione el nombre del experimento predeterminado en la parte superior del lienzo y cámbielo por uno significativo, por ejemplo, **Predicción del precio de automóviles**.
+1. Inicie un experimento nuevo haciendo clic en **+NUEVO** en la parte inferior de la ventana de Estudio de aprendizaje automático, seleccione **EXPERIMENTO** y luego **Experimento en blanco**. Seleccione el nombre del experimento predeterminado en la parte superior del lienzo y cámbielo por uno significativo, por ejemplo, **Predicción del precio de automóviles**.
 
-2. A la izquierda del lienzo de experimentos, hay una paleta de conjuntos de datos y módulos. Escriba **automobile** en el cuadro de búsqueda de la parte superior de esta paleta para encontrar el conjunto de datos llamado **Automobile price data (Raw)** (Datos de precios de automóviles (sin formato)).
+2. A la izquierda del lienzo de experimentos, hay una paleta de conjuntos de datos y módulos. Escriba **automóvil** en el cuadro de búsqueda de la parte superior de esta paleta para encontrar el conjunto de datos llamado **Datos de precios de automóviles (sin formato)**.
 
 	![Palette search][screen1a]
 
@@ -80,9 +80,9 @@ Normalmente, un conjunto de datos requiere algún procesamiento previo antes de 
 
 En primer lugar, eliminaremos la columna **normalized-losses** y luego las filas que tienen datos que faltan.
 
-1. Escriba **project columns** en el cuadro de búsqueda, en la parte superior de la paleta del módulo, para encontrar el módulo [Project Columns][project-columns] (Columnas del proyecto); arrástrelo después hasta el lienzo de experimentos y conéctelo al puerto de salida del conjunto de datos **Automobile price data (Raw)**. Este módulo nos permite seleccionar las columnas de datos que queremos incluir o excluir del modelo.
+1. Escriba **columnas del proyecto** en el cuadro de búsqueda, en la parte superior de la paleta del módulo, para encontrar el módulo [Columnas del proyecto][project-columns]; arrástrelo después hasta el lienzo de experimentos y conéctelo al puerto de salida del conjunto de datos **Datos de precios de automóviles (sin formato)**. Este módulo nos permite seleccionar las columnas de datos que queremos incluir o excluir del modelo.
 
-2. Seleccione el módulo [Project Columns][project-columns] (Columnas del proyecto) y haga clic en **Launch column selector** (Iniciar el selector de columnas) en el panel **Properties** (Propiedades).
+2. Seleccione el módulo [Columnas del proyecto][project-columns] y haga clic en **Iniciar el selector de columnas** en el panel **Propiedades**.
 
 	- Asegúrese de que **Todas las columnas** esté seleccionado en la lista desplegable del filtro **Comenzar con**. Esto indica a [Proyectar columnas][project-columns] que pase todas las columnas (excepto las que se van a excluir).
 	- En la siguiente fila, seleccione **Excluir** y **nombres de columna** y luego haga clic en el cuadro de texto. A continuación, se mostrará una lista de columnas. Seleccione **normalized-losses** y se agregará al cuadro de texto.
@@ -140,19 +140,19 @@ Ahora que los datos están listos, la construcción de un modelo predictivo cons
 
 Queremos predecir el precio de un automóvil, que puede ser cualquier valor, así que usaremos un modelo de regresión. En este ejemplo, entrenaremos un modelo sencillo de *regresión lineal* y en el siguiente paso lo probaremos.
 
-1. Podemos usar nuestros datos para el entrenamiento y la prueba si los dividimos en conjuntos diferentes para entrenamiento y prueba. Seleccione y arrastre el módulo [Dividir][split] al lienzo de experimentos y conéctelo a la salida del último módulo [Proyectar columnas][project-columns]. Establezca **Fracción de filas del primer conjunto de datos de salida** en 0,75. De esta forma, usaremos el 75 % de los datos para entrenar el modelo y retendremos el 25 % para prueba.
+1. Podemos usar nuestros datos para el entrenamiento y la prueba si los dividimos en conjuntos diferentes para entrenamiento y prueba. Seleccione y arrastre el módulo [Dividir datos][split] al lienzo de experimentos y conéctelo a la salida del último módulo [Columnas del proyecto][project-columns]. Establezca **Fracción de filas del primer conjunto de datos de salida** en 0,75. De esta forma, usaremos el 75 % de los datos para entrenar el modelo y retendremos el 25 % para prueba.
 
 	> [AZURE.TIP]Al cambiar el parámetro **Valor de inicialización aleatorio**, puede producir muestras aleatorias diferentes para entrenamiento y prueba. Este parámetro controla la inicialización del generador de números pseudoaleatorios.
 
-2. Ejecute el experimento. De esta forma, los módulos [Proyectar columnas][project-columns] y [Dividir][split] pasan las definiciones de columna a los módulos que se agregarán a continuación.
+2. Ejecute el experimento. De esta forma, los módulos [Columnas del proyecto][project-columns] y [Dividir datos][split] pasan las definiciones de columna a los módulos que se agregarán a continuación.
 
 3. Para seleccionar el algoritmo de aprendizaje, expanda la categoría **Aprendizaje automático** en la paleta de módulos situada a la izquierda del lienzo y luego expanda **Inicializar modelo**. Se muestran varias categorías de módulos que se pueden usar para inicializar algoritmos de Aprendizaje automático.
 
 	En este experimento de ejemplo, seleccione el módulo [Regresión lineal][linear-regression] en la categoría **Regresión** (también puede encontrar el módulo si escribe "regresión lineal" en el cuadro de búsqueda de la paleta) y arrástrelo al lienzo de experimentos.
 
-4. Busque y arrastre el módulo [Train Module][train-model] (Entrenar modelo) al lienzo del experimento. Conecte el puerto de entrada izquierdo a la salida del módulo [Regresión lineal][linear-regression]. Conecte el puerto de entrada derecho a la salida de datos de entrenamiento (puerto izquierdo) del módulo [Dividir][split].
+4. Busque y arrastre el módulo [Entrenar modelo][train-model] al lienzo del experimento. Conecte el puerto de entrada izquierdo a la salida del módulo [Regresión lineal][linear-regression]. Conecte el puerto de entrada derecho a la salida de datos de entrenamiento (puerto izquierdo) del módulo [Dividir datos][split].
 
-5. Seleccione el módulo [Train Model][train-model] (Entrenar modelo), haga clic en **Launch column selector** (Iniciar el selector de columnas) en el panel **Properties** (Propiedades) y luego seleccione la columna **price**. Este es el valor que nuestro modelo va a predecir.
+5. Seleccione el módulo [Entrenar modelo][train-model], haga clic en **Iniciar el selector de columnas** en el panel **Propiedades** y luego seleccione la columna **precio**. Este es el valor que nuestro modelo va a predecir.
 
 	![Select "price" column][screen7]
 
@@ -166,17 +166,17 @@ El resultado es un modelo de regresión entrenado que se puede usar para puntuar
 
 Ahora que hemos entrenado el modelo usando el 75 % de nuestros datos, podemos usarlo para puntuar el otro 25 % de los datos y ver cómo funciona el modelo.
 
-1. Busque y arrastre el módulo [Puntuar modelo][score-model] al lienzo de experimentos y conecte el puerto de entrada izquierdo a la salida del módulo [Entrenar modelo][train-model]. Conecte el puerto de entrada derecho a la salida de datos de prueba (puerto derecho) del módulo [Dividir][split].  
+1. Busque y arrastre el módulo [Puntuar modelo][score-model] al lienzo de experimentos y conecte el puerto de entrada izquierdo a la salida del módulo [Entrenar modelo][train-model]. Conecte el puerto de entrada derecho a la salida de datos de prueba (puerto derecho) del módulo [Dividir datos][split].  
 
 	![Score Model module][screen8a]
 
-2. Para ejecutar el experimento y ver el resultado del módulo [Score Model][score-model] (Puntuar modelo), haga clic en el puerto de salida y seleccione **Visualize** (Visualizar). La salida muestra los valores previstos para el precio y los valores conocidos de los datos de prueba.
+2. Para ejecutar el experimento y ver el resultado del módulo [Puntuar modelo][score-model], haga clic en el puerto de salida y seleccione **Visualizar**. La salida muestra los valores previstos para el precio y los valores conocidos de los datos de prueba.
 
 3. Finalmente, para probar la calidad de los resultados, seleccione el módulo [Evaluar modelo][evaluate-model] y arrástrelo al lienzo de experimentos, y luego conecte el puerto de entrada izquierdo a la salida del módulo [Puntuar modelo][score-model]. (Hay dos puertos de entrada debido a que el módulo [Evaluar modelo][evaluate-model] puede usarse para comparar dos modelos.)
 
 4. Ejecute el experimento.
 
-Para ver la salida del módulo [Evaluate Model][evaluate-model] (Evaluar modelo), haga clic en el puerto de salida y seleccione **Visualize** (Visualizar). Se muestran las siguientes estadísticas para nuestro modelo:
+Para ver la salida del módulo [Evaluar modelo][evaluate-model], haga clic en el puerto de salida y seleccione **Visualizar**. Se muestran las siguientes estadísticas para nuestro modelo:
 
 - **Desviación media** (MAE): la media de errores absolutos (un *error* es la diferencia entre el valor de predicción y el valor real).
 - **Raíz cuadrada de errores** (RMSE): la raíz cuadrada de la media de errores al cuadrado de las predicciones realizadas sobre el conjunto de datos de prueba.
@@ -234,4 +234,4 @@ Si desea un tutorial más amplio y detallado de las técnicas de modelado predic
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

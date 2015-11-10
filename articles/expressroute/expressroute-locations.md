@@ -90,9 +90,9 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 
 | **Proveedor de servicios** |**Microsoft Azure** | **Office 365** | **Ubicaciones** |
 |-----------------------|--------------------|----------------|---------------|
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Próximamente | No compatible | Chicago+, Washington DC+ |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Compatible | No compatible | Chicago+, Washington DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Próximamente | No compatible | Chicago+, Washington DC+ |
-| **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Próximamente | No compatible | Chicago+, Washington DC |
+| **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Compatible | No compatible | Chicago+, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Compatible | No compatible | Chicago+, Washington DC |
 
 ## Conectividad a través de proveedores de servicios no enumerados
@@ -129,4 +129,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 - Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 - Asegúrese de que se cumplen todos los requisitos previos. Consulte [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

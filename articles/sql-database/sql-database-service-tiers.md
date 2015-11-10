@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Niveles de servicio de Base de datos SQL"
-   description="Compare las características de rendimiento y de continuidad del negocio de los niveles de servicio de Base de datos SQL de Azure para encontrar el equilibrio adecuado entre costo y funcionalidad a medida que escalan a petición sin tiempo de inactividad."
-   services="sql-database"
-   documentationCenter=""
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar"/>
+	pageTitle="Niveles de servicio de Base de datos SQL"
+	description="Compare las características de rendimiento y de continuidad del negocio de los niveles de servicio de Base de datos SQL de Azure para encontrar el equilibrio adecuado entre costo y funcionalidad a medida que escalan a petición sin tiempo de inactividad."
+	services="sql-database"
+	documentationCenter=""
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="10/29/2015"
-   ms.author="jroth"/>
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="11/03/2015"
+	ms.author="jroth"/>
 
 # Niveles de servicio de Base de datos SQL
  
@@ -45,7 +45,7 @@ Para comprender mejor las DTU, consulte la [sección DTU](#understanding-dtus) d
 >[AZURE.NOTE]Para obtener una explicación detallada de todas las demás filas de esta tabla de niveles de servicio, consulte [Límites y capacidades de nivel de servicio](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
 ### Niveles de servicio para grupos de bases de datos elásticas
-Además de crear y escalar una base de datos única, también es posible administrar varias bases de datos dentro de un [grupo de bases de datos elásticas](sql-database-elastic-pool.md). Todas las bases de datos de un grupo de bases de datos elásticas comparten un conjunto común de recursos. Las características de rendimiento se miden por *Unidades de transmisión de bases de datos elásticas* (eDTU). Como ocurre con las bases de datos únicas, los grupos de bases de datos elásticas tienen tres niveles de rendimiento: **Basic**, **Standard** y **Premium**. En el caso de las bases de datos elásticas, estos tres niveles también definen los límites de rendimiento global y varias características.
+Además de crear y escalar una base de datos única, también es posible administrar varias bases de datos dentro de un [grupo de bases de datos elásticas](sql-database-elastic-pool.md). Todas las bases de datos de un grupo de bases de datos elásticas comparten un conjunto común de recursos. Las características de rendimiento se miden por *Unidades de transmisión de bases de datos elásticas* (eDTU). Como ocurre con las bases de datos únicas, los grupos de bases de datos elásticas tienen tres niveles de servicio: **Básico**, **Estándar** y **Premium**. En el caso de las bases de datos elásticas, estos tres niveles también definen los límites de rendimiento global y varias características.
 
 Los grupos de bases de datos elásticas permiten que estas bases de datos compartan y consuman recursos de DTU sin que sea preciso de asignar un nivel de rendimiento específicos a las bases de datos del grupo. Por ejemplo, una base de datos de un grupo Standard puede usar desde 0 eDTU al número máximo de eDTU de la base de datos (ya sean los 100 eDTU definidos por el nivel de servicio o un número personalizado que se configure). Esto permite que varias bases de datos con diferentes cargas de trabajo usen de forma eficaz los recursos de eDTU disponibles para todo el grupo.
 
@@ -95,4 +95,4 @@ Si desea administrar varias bases de datos como un grupo, consulte [Grupos de ba
 Ahora que conoce los niveles de Base de datos SQL, pruébelos con una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) y aprenda a [crear su primera base de datos SQL](sql-database-get-started.md).
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

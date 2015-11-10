@@ -21,9 +21,9 @@
 # Introducción a In-Memory (vista previa)
 
 
-Las tecnologías In-Memory de SQL mejoran notablemente el rendimiento de las cargas de trabajo de transacciones y de análisis. Con In-Memory OLTP puede multiplicar hasta 30 veces el rendimiento en las transacciones, mientras con In-Memory Analytics puede mejorar hasta 100 veces el rendimiento de las consultas, dependiendo de la carga de trabajo.
+Las tecnologías In-Memory de SQL mejoran notablemente el rendimiento de las cargas de trabajo de transacciones y de análisis. Con In-Memory OLTP puede multiplicar hasta 30 veces el rendimiento en las transacciones, mientras con In-Memory Analytics puede mejorar hasta 100 veces el rendimiento de las consultas, dependiendo de la carga de trabajo. Con el análisis en tiempo real, puede combinar estas tecnologías para obtener conocimientos del negocio en tiempo real en función de los datos operativos.
 
-In-Memory Analytics ya está disponible de forma general. In-Memory OLTP se encuentra en fase de vista previa para las Bases de datos SQL Premium de Azure.
+In-Memory Analytics ya está disponible de forma general en Base de datos de Azure. In-Memory OLTP y Real-Time Operational Analytics se encuentran en vista previa, para Bases de datos SQL de Azure premium.
 
 
 ## Introducción
@@ -31,18 +31,18 @@ In-Memory Analytics ya está disponible de forma general. In-Memory OLTP se encu
 Pruebe In-Memory OLTP para las cargas de trabajo transaccionales:
 
 
-- [Enriquecimiento de una base de datos AdventureWorksLT con los ejemplos de In-Memory OLTP](#Enrich-an-AdventureWorksLT-database-with-In-Memory-OLTP-samples).
+- [Instalación del ejemplo de In-Memory OLTP](#install-the-in-memory-oltp-sample).
 - [Uso de In-Memory OLTP en una aplicación existente de SQL Azure.](sql-database-in-memory-oltp-migration.md)
 - [Supervisión del almacenamiento In-Memory](sql-database-in-memory-oltp-monitoring.md).
 
 
-Pruebe In-Memory Analytics para las cargas de trabajo de las consultas:
+Pruebe In-Memory Analytics para las cargas de trabajo de análisis:
 
-- [Instalación de In-Memory Analytics](#Install-the-In-Memory-Analytics-sample).
+- [Instalación del ejemplo de In-Memory Analytics](#install-the-in-memory-analytics-sample).
 - Obtener más información sobre [índices de almacén de columnas](https://msdn.microsoft.com/library/gg492088.aspx) en MSDN.
 
 
-## Enriquecimiento de una base de datos AdventureWorksLT con los ejemplos de In-Memory OLTP
+## Instalación del ejemplo de In-Memory OLTP.
 
 Puede crear la base de datos de ejemplo AdventureWorksLT [V12] con unos cuantos clics en el Portal de vista previa de Azure. Los pasos a continuación explican cómo puede mejorar la base de datos AdventureWorksLT con tablas y procedimientos almacenados compilados de forma nativa, para mostrar los objetos OLTP de In-Memory.
 
@@ -241,9 +241,11 @@ No se admiten algunas características de Transact-SQL con In-Memory OLTP. Para 
 
 ## Recursos adicionales
 
-Más información acerca de In-Memory OLTP y Analytics: [In-Memory OLTP (optimización In-Memory)](https://msdn.microsoft.com/library/dn133186.aspx)
+[Más información acerca de In-Memory OLTP en MSDN](https://msdn.microsoft.com/library/dn133186.aspx)
 
-[Más información sobre los índices de almacenamiento de columnas MSDN](https://msdn.microsoft.com/library/gg492088.aspx)
+[Obtenga información acerca In-Memory Analytics (almacén de columnas) en MSDN](https://msdn.microsoft.com/library/gg492088.aspx)
+
+[Obtenga información sobre análisis operativos en tiempo real en MSDN](https://msdn.microsoft.com/library/dn817827.aspx)
 
 [Notas del producto sobre patrones de cargas de trabajo comunes y consideraciones de migración](https://msdn.microsoft.com/library/dn673538.aspx) describe los patrones de carga de trabajo donde In-Memory OLTP normalmente proporciona importantes mejoras de rendimiento.
 
@@ -253,4 +255,4 @@ Consulte [Uso de In-Memory OLTP en una aplicación existente de SQL Azure.](sql-
 
 [Supervisión del almacenamiento In-Memory](sql-database-in-memory-oltp-monitoring.md) para In-Memory OLTP.
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

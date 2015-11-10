@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Flujo de trabajo de desarrollo típico para Búsqueda de Azure | Microsoft Azure"
-	description="Un flujo de trabajo o una guía básica para la creación de prototipos y aplicaciones de producción que se integran con Búsqueda de Azure"
+	description="Un flujo de trabajo o una guía básica para la creación de prototipos y aplicaciones de producción que se integran con Búsqueda de Azure, un servicio de búsqueda hospedado en la nube."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,12 +13,12 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Flujo de trabajo de desarrollo típico para Búsqueda de Azure
 
-Este artículo es una guía para incluir Búsqueda de Azure como un componente que proporcione la experiencia de búsqueda en la aplicación personalizada. Según sea su intención, bien de hacer primero algunas pruebas o de pasar directamente a la acción, puede que necesite unas instrucciones preliminares sobre cómo integrar Búsqueda de Azure en su proyecto de desarrollo personalizado.
+Este artículo es una guía para incluir Búsqueda de Azure, un servicio de búsqueda hospedado en la nube, como componente que proporciona la experiencia de búsqueda en su aplicación personalizada. Según sea su intención, bien de hacer primero algunas pruebas o de pasar directamente a la acción, puede que necesite unas instrucciones preliminares sobre cómo integrar Búsqueda de Azure en su proyecto de desarrollo personalizado.
 
 En las secciones siguientes vamos a desglosar un flujo de trabajo típico para un prototipo inicial, esto le ayudará a evaluar si Búsqueda de Azure reúne los requisitos de búsqueda que necesita para la aplicación. La segunda parte del artículo trata sobre las importantes decisiones de diseño que hay que tener en cuenta a la hora de afrontar un trabajo de desarrollo de aplicaciones más serio.
 
@@ -190,4 +190,4 @@ Recuerde que solo el nivel de precios estándar se pueden escalar o reducir. Ade
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

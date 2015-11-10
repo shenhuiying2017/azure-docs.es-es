@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="10/19/2015"
+	ms.date="11/04/2015"
 	ms.author="wesmc"/>
 
 # Introducción a Centros de notificaciones para aplicaciones iOS
@@ -302,8 +302,8 @@ Si desea enviar notificaciones dentro de una aplicación. Esta sección proporci
 				signature = [self CF_URLEncodedString:[rawHmac base64EncodedStringWithOptions:0]];
 
 				// Construct authorization token string
-				token = [NSString stringWithFormat:@"SharedAccessSignature sr=%@&sig=%@&se=%qu&skn=%@",
-					targetUri, signature, expires, HubSasKeyName];
+				token = [NSString stringWithFormat:@"SharedAccessSignature sig=%@&se=%qu&skn=%@&sr=%@",
+					signature, expires, HubSasKeyName, targetUri];
 			}
 			@catch (NSException *exception)
 			{
@@ -365,7 +365,7 @@ Si desea enviar notificaciones dentro de una aplicación. Esta sección proporci
 				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
 			{
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
-		        if (error || httpResponse.statusCode != 200)
+		        if (error || (httpResponse.statusCode != 200 && httpResponse.statusCode != 201))
 		        {
 		            NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
 		        }
@@ -433,20 +433,20 @@ Si desea enviar notificaciones dentro de una aplicación. Esta sección proporci
 11. Compile el proyecto y compruebe si hay errores.
 
 
+> [AZURE.NOTE]Si encuentra un error de compilación en Xcode7 sobre la compatibilidad de bitcode, debe cambiar "Configuración de compilación" -> "Habilitar Bitcode"(ENABLE\_BITCODE) en 'NO' en Xcode. El SDK de los Centros de notificaciones no es compatible con bitcode.
 
-Puede buscar todas las cargas de notificaciones posibles en la [Local and Push Notification Programming Guide] (Guía de programación de notificaciones locales y push) de Apple.
-
+Puede buscar todas las cargas de notificaciones posibles en la guía [Local and Push Notification Programming Guide] (Guía de programación de notificaciones locales y push) de Apple.
 
 
 ##Prueba de la aplicación
 
 Para probar las notificaciones push en iOS, debe implementar la aplicación en un dispositivo. No puede enviar notificaciones push de Apple con el simulador de iOS.
 
-1. Ejecute la aplicación y compruebe que el registro se realiza correctamente, luego pulse **OK** (Aceptar).
+1. Ejecute la aplicación y compruebe que el registro se realiza correctamente, luego pulse **Aceptar**.
 
 	![][33]
 
-2. Puede enviar una notificación de prueba desde el Portal de Azure. Si agrega código para enviar la notificación en la aplicación, pulse dentro del campo de texto para escribir un mensaje de notificación. Luego, pulse el botón **Send** (Enviar) en el teclado, o el botón **Send Notification** (Enviar notificación) en la vista, para enviar el mensaje de notificación.
+2. Puede enviar una notificación de prueba desde el Portal de Azure. Si agrega código para enviar la notificación en la aplicación, pulse dentro del campo de texto para escribir un mensaje de notificación. Luego, pulse el botón **Enviar** en el teclado, o el botón **Enviar notificación** en la vista, para enviar el mensaje de notificación.
 
 	![][34]
 
@@ -503,4 +503,4 @@ Para obtener más información general sobre los Centros de notificaciones, cons
 
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

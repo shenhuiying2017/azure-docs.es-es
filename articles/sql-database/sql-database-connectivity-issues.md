@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/26/2015"
+	ms.date="11/02/2015"
 	ms.author="genemi"/>
 
 
@@ -81,17 +81,10 @@ Si el programa se comunica con la Base de datos SQL de Azure a través de un mid
 ### Aumento del intervalo entre reintentos
 
 
-El programa siempre debería esperar al menos entre 6 y 10 segundos antes de su primer reintento. En caso contrario, el servicio en la nube puede inundarse repentinamente con solicitudes que aún no están listas para su procesamiento.
 
+Se recomienda un retraso de 5 segundos antes del primer reintento. Si se vuelve a intentar después de un retraso menor de 5 segundos, se correrá el riesgo de sobrecargar el servicio en la nube. Para cada intento siguiente el retraso debe aumentar exponencialmente, hasta un máximo de 60 segundos.
 
-Si se necesita más de un reintento, debe aumentar el intervalo antes de cada reintento sucesivo, hasta un valor máximo. Dos de las estrategias alternativas son las siguientes:
-
-
-- Aumento monotónico del intervalo. Por ejemplo, podría agregar otros 5 segundos a cada intervalo sucesivo.
-
-
-- Aumento exponencial del intervalo. Por ejemplo, puede multiplicar cada intervalo sucesivo por 1,5.
-
+Una explicación del *período de bloqueo* para clientes que usan ADO.NET está disponible en [Grupos de conexión de SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 También puede establecer un número máximo de reintentos antes de que el programa se cierre automáticamente.
 
@@ -151,7 +144,7 @@ La cadena de conexión necesaria para conectarse a Base de datos SQL de Azure es
 #### 30 segundos de tiempo de espera de conexión
 
 
-La conexión por Internet es menos estable que a través de una red privada. Por lo tanto se recomienda que en la cadena de conexión: establezca el parámetro de **tiempo de espera de la conexión** en **30** segundos (en lugar de 15 segundos).
+La conexión por Internet es menos estable que a través de una red privada. Por lo tanto se recomienda que en la cadena de conexión establezca el parámetro de **tiempo de espera de la conexión** en **30** segundos (en lugar de 15 segundos).
 
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
@@ -191,7 +184,7 @@ Por ejemplo, cuando el programa cliente está hospedado en un equipo con Windows
 7. &gt; Nueva regla
 
 
-Si el programa cliente se hospeda en una máquina virtual (VM) de Azure, debe leer:<br/>[Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+Si el programa cliente se hospeda en una máquina virtual (VM) de Azure, debe leer:<br/>[Puertos a partir de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 Para obtener información general acerca de la configuración de puertos y la dirección IP, consulte: [Firewall de Base de datos SQL de Azure](sql-database-firewall-configure.md).
@@ -239,7 +232,7 @@ Supongamos que sospecha que fallan los intentos de conexión debido a problemas 
 En Linux, resultan útiles las utilidades siguientes: `netstat -nap` o `nmap -sS -O 127.0.0.1` (cambie el valor del ejemplo por su dirección IP).
 
 
-En Windows la utilidad [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) resulta útil. Esta es una ejecución de ejemplo que consultó la situación del puerto en un servidor de Base de datos SQL de Azure y que se ejecutó en un equipo portátil:
+En Windows la utilidad [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) resulta de gran ayuda. Esta es una ejecución de ejemplo que consultó la situación del puerto en un servidor de Base de datos SQL de Azure y que se ejecutó en un equipo portátil:
 
 
 ```
@@ -284,7 +277,7 @@ Presentamos algunas instrucciones SELECT de Transact-SQL que consultan los regis
 
 | Consulta de un registro | Descripción |
 | :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La vista [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) ofrece información sobre eventos individuales, incluidos los errores de conectividad relacionados con la reconfiguración, limitación y acumulación excesiva de recursos.<br/><br/>Lo ideal es poder correlacionar los valores de **start\_time** o **end\_time** con información sobre cuándo el programa cliente experimentó los problemas.<br/><br/>**SUGERENCIA:** tiene que conectarse a la base de datos **principal** para su ejecución. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La vista [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) ofrece información sobre eventos individuales, incluidos los errores que pueden causar fallos de conectividad o errores transitorios.<br/><br/>Lo ideal es poder correlacionar los valores de **start\_time** o **end\_time** con información sobre cuándo el programa cliente experimentó los problemas.<br/><br/>**SUGERENCIA:** tiene que conectarse a la base de datos **principal** para su ejecución. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | La vista [sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) ofrece recuentos agregados de los tipos de eventos, para realizar diagnósticos adicionales.<br/><br/>**SUGERENCIA:** tiene que conectarse a la base de datos **principal** para su ejecución. |
 
 
@@ -485,4 +478,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* es una biblioteca de reintentos de uso general con licencia de Apache 2.0, escrita en **Python**, para simplificar la tarea de agregar comportamiento de reintento a prácticamente todo.](https://pypi.python.org/pypi/retrying)
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

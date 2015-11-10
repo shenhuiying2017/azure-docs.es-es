@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/21/2015"
+	ms.date="11/04/2015"
 	ms.author="awills"/>
 
 # Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
@@ -217,14 +217,17 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 
 ## ¿Tiene preguntas? ¿Tiene problemas?
 
-
-* *¿Hay diferencia entre las "pruebas web" y la "disponibilidad"?*
-
-    Usamos ambos términos de manera intercambiable.
-
 * *¿Puedo llamar el código desde mi prueba web?*
 
     No. Los pasos de la prueba deben encontrarse en el archivo .webtest. Y no se puede llamar a otras pruebas web ni utilizar bucles. Pero hay varios complementos que pueden resultarle útiles.
+
+* *¿Se admite HTTPS?*
+
+    Actualmente, se admiten SSL 3.0 y TLS 1.0.
+
+* *¿Existe alguna diferencia entre las "pruebas web" y las "pruebas de disponibilidad"?*
+
+    Usamos ambos términos de manera intercambiable.
 
 ## <a name="video"></a>Vídeo
 
@@ -246,4 +249,4 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

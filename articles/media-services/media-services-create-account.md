@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/28/2015"  
+	ms.date="11/03/2015"  
 	ms.author="juliako"/>
 
 
@@ -35,13 +35,20 @@ El acceso a Servicios multimedia requiere dos cuentas asociadas:
 
 -   **Una cuenta de Servicios multimedia**. La cuenta le proporciona acceso a un conjunto de Servicios multimedia basados en la nube que están disponibles en Azure. Una cuenta de Servicios multimedia no almacena el contenido multimedia real, sino que almacena metadatos sobre el contenido multimedia y trabajos de procesamiento multimedia en su cuenta. En el momento en el que cree la cuenta, seleccione una región de Servicios multimedia disponible. La región que selecciona es un centro de datos que almacena los registros de metadatos para su cuenta.
 
-    > [AZURE.NOTE]Entre las regiones de Servicios multimedia disponibles se incluyen las siguientes: Europa del Norte, Europa occidental, Oeste de EE. UU., Este de EE. UU., Sudeste de Asia, Asia oriental, Oeste de Japón, Este de Japón. Servicios multimedia no usa grupos de afinidad.
+    > [AZURE.NOTE]Entre las regiones de Servicios multimedia (AMS) disponibles se incluyen las siguientes: Europa del Norte, Europa occidental, Oeste de EE. UU., Este de EE. UU., Sudeste de Asia, Asia oriental, Oeste de Japón, Este de Japón. Servicios multimedia no usa grupos de afinidad.
+    >
+	> AMS ahora también está disponible en los centros de datos siguientes: Sur de Brasil, India occidental, Sur de la India e India central. Ahora puede usar el Portal de administración de Azure para [crear cuentas de servicio de medios](media-services-create-account.md#create-a-media-services-account-using-quick-create) y realizar la diversas tareas descritas [aquí](https://azure.microsoft.com/documentation/services/media-services/). Sin embargo, Codificación en directo no está habilitado en estos centros de datos. Además, no todos los tipos de unidades reservadas de codificación están disponibles en estos centros de datos.
+	>
+	>- Sur de Brasil: solo están disponibles las unidades reservadas de codificación básicas y estándar
+	>- India occidental, Sur de la India e India central: solo están disponibles unidades reservadas de codificación básicas
+
+
 -   **Una cuenta de almacenamiento asociada**. La cuenta de almacenamiento es una cuenta de almacenamiento de Azure asociada a una cuenta de Servicios multimedia. La cuenta de almacenamiento proporciona almacenamiento de blobs para archivos multimedia y debe ubicarse en la misma región geográfica que la cuenta de Servicios multimedia. Cuando cree una cuenta de Servicios multimedia, podrá elegir una cuenta de almacenamiento existente en la misma región o crear una nueva cuenta de almacenamiento en la misma región. Si elimina una cuenta de Servicios multimedia, no se eliminarán los blobs de la cuenta de almacenamiento relacionada.
 
 <a id="quick"></a>
 ## una cuenta de Servicios multimedia mediante Quick Create
 
-1. En el [portal de Azure][], haga clic en **Nuevo**, en **Servicios multimedia** y luego en **Creación rápida**.
+1. En el [Portal de Azure][], haga clic en **Nuevo**, en **Servicios multimedia** y luego en **Creación rápida**.
 
 	![Creación rápida de Servicios multimedia](./media/media-services-create-account/wams-QuickCreate.png)
 
@@ -63,9 +70,9 @@ El acceso a Servicios multimedia requiere dos cuentas asociadas:
 
 	![Página de Servicios multimedia](./media/media-services-create-account/wams-mediaservices-page.png)
 
-	Cuando haga doble clic en el nombre de cuenta, se mostrará la página de **Inicio rápido** de forma predeterminada. La página le permite realizar algunas tareas de administración que también están disponibles en otras páginas del portal. Por ejemplo, puede cargar un archivo de vídeo desde esta página o hacerlo desde la página **CONTENT**.
+	Cuando haga doble clic en el nombre de cuenta, se mostrará la página de **Inicio rápido** de forma predeterminada. La página le permite realizar algunas tareas de administración que también están disponibles en otras páginas del portal. Por ejemplo, puede cargar un archivo de vídeo desde esta página o hacerlo desde la página **CONTENIDO**.
 
-	Además, puede ver el código que usa el SDK de Servicios multimedia de Azure para realizar las siguientes tareas: cargar, codificar y publicar vídeos. Puede hacer clic en uno de los vínculos en la sección **WRITE SOME CODE**, copiar el código y usarlo en su aplicación.
+	Además, puede ver el código que usa el SDK de Servicios multimedia de Azure para realizar las siguientes tareas: cargar, codificar y publicar vídeos. Puede hacer clic en uno de los vínculos en la sección **ESCRIBIR ALGÚN CÓDIGO**, copiar el código y usarlo en su aplicación.
 
 ##Rutas de aprendizaje de Servicios multimedia
 
@@ -90,6 +97,6 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 <!-- URLs. -->
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
 
-  [portal de Azure]: http://manage.windowsazure.com/
+  [Portal de Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->
