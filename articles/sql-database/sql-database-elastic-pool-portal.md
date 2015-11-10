@@ -44,7 +44,7 @@ O bien
 Si ve un mensaje que indica que hay un grupo recomendado para un servidor, haga clic en él para revisar y crear fácilmente un grupo optimizado para las bases de datos del servidor. Para obtener más información, consulte [Grupos de bases de datos elásticas recomendados](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
    
   
-![Creación de grupos elásticos][1]
+   ![Creación de grupos elásticos][1]
 
 
 La hoja **Grupo de bases de datos elásticas** brinda opciones para elegir el plan de tarifa, agregar bases de datos y configurar las características de rendimiento del grupo.
