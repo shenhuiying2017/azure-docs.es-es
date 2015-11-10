@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/10/2015"
+	ms.date="11/03/2015"
 	ms.author="awills"/>
 
 # Application Insights para y aplicaciones web de JavaScript
@@ -52,6 +52,8 @@ Inserte el script justo antes de la etiqueta &lt;/head&gt; de cada página de la
 * En un sitio de SharePoint, en el panel de control, abra [Configuración del sitio/Página maestra](app-insights-sharepoint.md).
 
 El script contiene la clave de instrumentación que dirige los datos al recurso de Application Insights.
+
+([Una explicación más profunda del script](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
 
 *(Si está usando un marco de página web conocido, mire a ver si encuentra adaptadores de Application Insights). Por ejemplo, hay [un módulo AngularJS](http://ngmodules.org/modules/angular-appinsights)).*
 
@@ -184,4 +186,4 @@ Si no lo ha hecho aún, puede obtener información de su servidor y mostrar los 
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -106,7 +106,7 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
 
 Agregue manualmente el SDK:
 
-1. Descargue del [SDK de Application Insights para Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip).
+1. Descargue el [SDK de Application Insights para Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html).
 2. Extraiga los archivos binarios del archivo zip y agréguelos al proyecto.
 
 ### Preguntas...
@@ -396,4 +396,4 @@ Para obtener más información, consulte el [Centro de desarrolladores de Java](
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

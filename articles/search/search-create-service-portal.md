@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creación de un servicio Búsqueda de Azure en el portal | Microsoft Azure"
-	description="Agregar un servicio Búsqueda de Azure gratuito o estándar a una suscripción existente mediante el portal de Azure"
+	description="Agregue una Búsqueda de Azure gratis o estándar a una suscripción existente mediante el portal de Azure Búsqueda de Azure es un servicio de búsqueda hospedado en la nube para aplicaciones personalizadas."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Creación de un servicio Búsqueda de Azure en el portal de Azure
@@ -120,4 +120,4 @@ En la siguiente información adicional, se explica cómo compilar y administrar 
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

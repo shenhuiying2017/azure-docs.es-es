@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creación de un índice de Búsqueda de Azure en el portal | Microsoft Azure"
-	description="Agregue un índice al servicio Búsqueda de Azure rellenando definiciones de campo en el Portal de Azure"
+	description="Agregue un índice al servicio Búsqueda de Azure, un servicio de búsqueda hospedado en la nube, rellenando definiciones de campo en el Portal de Azure"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Creación de un índice de Búsqueda de Azure en el Portal de Azure
@@ -100,4 +100,4 @@ Una vez que se encuentre cómodo con el índice básico, considere la posibilida
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

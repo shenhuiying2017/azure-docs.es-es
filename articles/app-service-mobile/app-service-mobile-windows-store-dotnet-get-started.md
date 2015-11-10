@@ -95,4 +95,4 @@ En esta sección, descargará un proyecto de plantilla de aplicación universal 
 [Portal de Azure]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

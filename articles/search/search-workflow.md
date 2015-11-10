@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Flujo de trabajo de desarrollo típico para Búsqueda de Azure | Microsoft Azure"
-	description="Un flujo de trabajo o una guía básica para la creación de prototipos y aplicaciones de producción que se integran con Búsqueda de Azure"
+	description="Un flujo de trabajo o una guía básica para la creación de prototipos y aplicaciones de producción que se integran con Búsqueda de Azure, un servicio de búsqueda hospedado en la nube."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,12 +13,12 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Flujo de trabajo de desarrollo típico para Búsqueda de Azure
 
-Este artículo es una guía para incluir Búsqueda de Azure como un componente que proporcione la experiencia de búsqueda en la aplicación personalizada. Según sea su intención, bien de hacer primero algunas pruebas o de pasar directamente a la acción, puede que necesite unas instrucciones preliminares sobre cómo integrar Búsqueda de Azure en su proyecto de desarrollo personalizado.
+Este artículo es una guía para incluir Búsqueda de Azure, un servicio de búsqueda hospedado en la nube, como componente que proporciona la experiencia de búsqueda en su aplicación personalizada. Según sea su intención, bien de hacer primero algunas pruebas o de pasar directamente a la acción, puede que necesite unas instrucciones preliminares sobre cómo integrar Búsqueda de Azure en su proyecto de desarrollo personalizado.
 
 En las secciones siguientes vamos a desglosar un flujo de trabajo típico para un prototipo inicial, esto le ayudará a evaluar si Búsqueda de Azure reúne los requisitos de búsqueda que necesita para la aplicación. La segunda parte del artículo trata sobre las importantes decisiones de diseño que hay que tener en cuenta a la hora de afrontar un trabajo de desarrollo de aplicaciones más serio.
 
@@ -112,7 +112,7 @@ Ahora que tiene un servicio y un índice, puede experimentar con otras caracter�
 
 **Proveedores de sugerencias:** se refiere a la característica que autocompleta o anticipa la escritura de las consultas, devolviendo sugerencias para los términos de búsqueda a medida que el usuario escribe los primeros caracteres de una frase de búsqueda. Consulte [Sugerencias](https://msdn.microsoft.com/library/dn798936.aspx) o [Suggesters Class](https://msdn.microsoft.com/library/microsoft.azure.search.models.suggester.aspx) para obtener más información.
 
-**Analizadores de lenguaje:** proporcionan las reglas lingüísticas utilizadas durante el análisis de texto. El analizador de lenguaje predeterminado para Búsqueda de Azure es Lucene para inglés, pero se pueden utilizar otros o incluso varios analizadores especificándolos en el índice. Los analizadores de Lucene están disponibles en todas las API. Los procesadores de lenguaje natural de Microsoft solo están disponibles en [Versión de API de REST 2015-02-28 Preview](search-api-2015-02-28-preview.md). Consulte [Compatibilidad de idioma ](https://msdn.microsoft.com/library/dn879793.aspx) para obtener más información.
+**Analizadores de lenguaje:** proporcionan las reglas lingüísticas utilizadas durante el análisis de texto. El analizador de lenguaje predeterminado para Búsqueda de Azure es Lucene para inglés, pero se pueden utilizar otros o incluso varios analizadores especificándolos en el índice. Los analizadores de Lucene están disponibles en todas las API. Los procesadores de lenguaje natural de Microsoft solo están disponibles en [Versión de API de REST 2015-02-28 Preview](search-api-2015-02-28-preview.md). Consulte [Compatibilidad de idioma](https://msdn.microsoft.com/library/dn879793.aspx) para obtener más información.
 
 ### Paso 6: actualización de índices y documentos
 
@@ -190,4 +190,4 @@ Recuerde que solo el nivel de precios estándar se pueden escalar o reducir. Ade
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

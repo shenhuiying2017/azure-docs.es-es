@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Tutorial de HBase: introducción a HBase en Hadoop | Microsoft Azure"
 	description="Siga este tutorial de HBase para empezar a usar Apache HBase con Hadoop en HDInsight. Cree tablas desde el shell de HBase y consúltelas mediante Hive."
-	keywords="apache hbase,hbase,hbase shell,hbase tutorial"
+	keywords="apache hbase,hbase,shell de hbase,tutorial de hbase"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/28/2015"
+	ms.date="10/29/2015"
 	ms.author="jgao"/>
 
 
 
 # Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight
 
-Aprenda a aprovisionar un clúster de HBase en HDInsight, a crear tablas de HBase y a consultar las tablas mediante Hive. Para obtener información general de HBase, vea [Información general de HBase de HDInsight][hdinsight-hbase-overview].
+Aprenda a crear un clúster de HBase en HDInsight, a crear tablas de HBase y a consultar las tablas mediante Hive. Para obtener información general de HBase, vea [Información general de HBase de HDInsight][hdinsight-hbase-overview].
 
 [AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
 
@@ -38,27 +38,27 @@ Antes de empezar este tutorial de HBase, debe contar con lo siguiente:
 - **Una suscripción de Microsoft Azure válida**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Una estación de trabajo** con Visual Studio 2013: para obtener instrucciones, vea [Instalación de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
-## Aprovisionamiento de un clúster de HBase
+## Creación del clúster de HBase.
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
-**Para aprovisionar un clúster de HBase usando el Portal de Azure, siga estos pasos:**
+**Para crear un clúster de HBase mediante el Portal de Azure, siga estos pasos:**
 
 
-1. Inicie sesión en el [Portal de Azure][azure-management-portal].
-2. Haga clic en **Nuevo** en la esquina superior izquierda y, a continuación, haga clic en **Datos + Análisis**, **HDInsight**.
+1. Inicie sesión en el [portal de vista previa de Azure][azure-management-portal].
+2. Haga clic en **Nuevo** en la esquina superior izquierda y, a continuación, haga clic en **Datos y análisis**, **HDInsight**.
 3. Escriba los siguientes valores:
 
-	- **Nombre de clúster**: escriba un nombre para identificar este clúster.
+	- **Nombre del clúster**: escriba un nombre para identificar este clúster.
 	- **Tipo de clúster**: HBase
 	- **Sistema operativo del clúster**: el clúster HBase de HDInsight que actualmente solo está disponible en el sistema operativo Windows.
-	- **Suscripción**: seleccione la suscripción de Azure usada para aprovisionar este clúster.
-	- **Grupo de recursos**: agregue o seleccione un grupo de recursos de Azure. Para obtener más información, consulte [Introducción al Administrador de recursos de Azure](resource-group-overview.md).
+	- **Suscripción**: seleccione la suscripción de Azure usada para crear este clúster.
+	- **Grupo de recursos**: agregue o seleccione un grupo de recursos de Azure. Para obtener más información, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md).
 	- **Configurar las credenciales**: para un clúster basado en Windows, puede crear un usuario del clúster (también denominado usuario HTTP, usuario de servicio web HTTP) y un usuario de Escritorio remoto.
 	- **Origen de datos**: cree una nueva cuenta de almacenamiento de Azure o seleccione una cuenta de almacenamiento de Azure existente para usar como sistema de archivos predeterminado para el clúster. Esta cuenta de almacenamiento de Azure debe encontrarse en la misma ubicación que el clúster HBase de HDInsight.
-	- **Tenga en cuenta los niveles de precios:** seleccione el número de servidores de región para el clúster de HBase.
+	- **Tenga en cuenta los planes de tarifa:** seleccione el número de servidores de región para el clúster de HBase.
 
-		> [AZURE.WARNING]Para lograr alta disponibilidad de servicios de HBase, debe aprovisionar un clúster que contenga al menos **tres** nodos. Esto garantiza que, si un nodo deja de funcionar, las regiones de datos de HBase están disponibles en otros nodos.
+		> [AZURE.WARNING]Para lograr alta disponibilidad de servicios de HBase, debe crear un clúster que contenga al menos **tres** nodos. Esto garantiza que, si un nodo deja de funcionar, las regiones de datos de HBase están disponibles en otros nodos.
 
 		> Si está aprendiendo HBase, elija 1 siempre para el tamaño del clúster y elimine el clúster después de cada uso para reducir el coste.
 
@@ -174,7 +174,7 @@ Puede consultar datos en tablas de HBase mediante el uso de Hive. En esta secci�
 **Para abrir el panel de clúster, siga estos pasos:**
 
 1. Vaya a **https://<HDInsightClusterName>.azurehdinsight.net/**.
-5. Escriba el nombre de usuario y la contraseña de la cuenta de usuario de Hadoop. El nombre de usuario predeterminado es **admin** y la contraseña es la que ha escrito durante el proceso de aprovisionamiento. Se abre una nueva pestaña del explorador.
+5. Escriba el nombre de usuario y la contraseña de la cuenta de usuario de Hadoop. El nombre de usuario predeterminado es **admin** y la contraseña es la que ha escrito durante el proceso de creación. Se abre una nueva pestaña del explorador.
 6. Haga clic en **Editor de Hive** en la parte superior de la página. El Editor de Hive tiene el siguiente aspecto:
 
 	![Panel de clúster de HDInsight.][img-hdinsight-hbase-hive-editor]
@@ -300,10 +300,10 @@ En este tutorial de HBase para HDInsight, ha aprendido a aprovisionar un clúste
 
 Para más información, consulte:
 
-- [Información general de HBase de HDInsight][hdinsight-hbase-overview]. HBase es una base de datos NoSQL de código abierto Apache basada en Hadoop que ofrece un acceso aleatorio y una coherencia fuerte para grandes cantidades de datos no estructurados y semiestructurados.
-- [Aprovisionamiento de clústeres de HBase en Red virtual de Azure][hdinsight-hbase-provision-vnet]. Con la integración de red virtual, los clústeres de HBase se pueden implementar en la misma red que sus aplicaciones para que estas puedan comunicarse directamente con HBase.
-- [Configuración de la replicación de HBase en HDInsight](hdinsight-hbase-geo-replication.md). Aprenda a configurar la replicación de HBase entre dos centros de datos de Azure.
-- [Análisis de opiniones de Twitter con HBase en HDInsight][hbase-twitter-sentiment]. Descubra cómo realizar [análisis de opinión](http://en.wikipedia.org/wiki/Sentiment_analysis) en tiempo real de macrodatos con HBase en un clúster de Hadoop en HDInsight.
+- [Información general de HBase de HDInsight][hdinsight-hbase-overview] HBase es una base de datos NoSQL de código abierto Apache basada en Hadoop que ofrece un acceso aleatorio y una coherencia fuerte para grandes cantidades de datos no estructurados y semiestructurados.
+- [Creación de clústeres de HBase en Red virtual de Azure][hdinsight-hbase-provision-vnet] Con la integración de red virtual, los clústeres de HBase se pueden implementar en la misma red que sus aplicaciones para que estas puedan comunicarse directamente con HBase.
+- [Configuración de la replicación geográfica de HBase en HDInsight](hdinsight-hbase-geo-replication.md) Aprenda a configurar la replicación de HBase entre dos centros de datos de Azure.
+- [Análisis de opiniones de Twitter con HBase en HDInsight][hbase-twitter-sentiment] Descubra cómo realizar [análisis de opinión](http://en.wikipedia.org/wiki/Sentiment_analysis) en tiempo real de macrodatos con HBase en un clúster de Hadoop en HDInsight.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -332,4 +332,4 @@ Para más información, consulte:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

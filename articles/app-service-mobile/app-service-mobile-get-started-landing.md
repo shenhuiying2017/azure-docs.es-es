@@ -21,12 +21,7 @@ Use Aplicaciones móviles del Servicio de aplicaciones para crear fácilmente ap
 
 Para comenzar, siga estos tutoriales para crear una aplicación de tareas pendientes que se conecta a un back-end móvil en el Servicio de aplicaciones. Elija la plataforma cliente:
 
-  * [iOS](../app-service-mobile-ios-get-started.md)
-  * [Xamarin.iOS](../app-service-mobile-xamarin-ios-get-started.md)
-  * [Xamarin.Android](../app-service-mobile-xamarin-android-get-started.md)
-  * [Xamarin.Forms](../app-service-mobile-xamarin-forms-get-started.md)
-  * [Windows](../app-service-mobile-windows-store-dotnet-get-started.md)
-  * [HTML](../app-service-mobile-html-get-started.md)
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ##Vídeos
 
@@ -34,4 +29,4 @@ Para comenzar, siga estos tutoriales para crear una aplicación de tareas pendie
 
 Aplicaciones móviles del Servicio de aplicaciones con Kirill Gavrylyuk
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

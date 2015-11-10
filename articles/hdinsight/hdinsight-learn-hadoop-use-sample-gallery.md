@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="07/09/2015"
+   ms.date="10/29/2015"
    ms.author="jgao"/>
 
 # Información sobre Hadoop con la Galería de introducción de HDInsight de Azure
@@ -68,4 +68,4 @@ Otras formas de aprender HDInsight son:
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

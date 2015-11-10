@@ -18,6 +18,11 @@
 
 # Carga de datos con la Factoría de datos de Azure
 
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
+
  Este tutorial le mostrará cómo crear una canalización en Factoría de datos de Azure que desplazará los datos del almacenamiento de blobs de Azure a un Almacenamiento de datos SQL. Con los siguiente pasos, hará lo siguiente:
 
 + Configurar datos de ejemplo en un blob de Almacenamiento de Azure.
@@ -201,4 +206,4 @@ En la sección 'Crear e implementar', haga clic en 'Más comandos' y, a continua
 	}
 	
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

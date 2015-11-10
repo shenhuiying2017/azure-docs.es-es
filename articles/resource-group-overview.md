@@ -79,7 +79,7 @@ Para obtener más información sobre la creación de plantillas, consulte [Crear
 
 Para los esquemas de plantilla, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-Para obtener información acerca del uso de una plantilla para la implementación, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md).
+Para obtener información acerca del uso de una plantilla para la implementación, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
 Para obtener instrucciones sobre cómo estructurar las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
 
@@ -101,7 +101,7 @@ Administrador de recursos registra automáticamente las acciones del usuario par
 
 Para obtener más información acerca del control de acceso basado en rol, consulte [Control de acceso basado en rol en el Portal de vista previa de Azure](role-based-access-control-configure.md). Este tema contiene una lista de roles integrados y acciones permitidas. Los roles integrados incluyen roles generales como propietario, lector y colaborador, así como roles específicos del servicio como colaborador de la máquina virtual, colaborador de la red virtual y administrador de seguridad SQL (por nombrar solo algunos de los roles disponibles).
 
-Para ver ejemplos de asignación de roles, consulte [Administración del acceso a los recursos](azure-portal/resource-group-rbac.md).
+Para ver ejemplos de asignación de roles, consulte [Administración del acceso a los recursos](resource-group-rbac.md).
 
 También puede bloquear explícitamente recursos críticos para impedir que los usuarios los eliminen o modifiquen. Para obtener más información, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 
@@ -127,7 +127,7 @@ Para obtener información sobre cómo usar el portal de vista previa, consulte [
 ## Pasos siguientes
 
 - Para obtener información sobre cómo crear plantillas, consulte [Creación de plantillas](./resource-group-authoring-templates.md).
-- Para implementar la plantilla que creó, consulte [Implementación de plantillas](azure-portal/resource-group-template-deploy.md).
+- Para implementar la plantilla que creó, consulte [Implementación de plantillas](resource-group-template-deploy.md).
 - Para comprender las funciones que puede usar en una plantilla, consulte [Funciones de plantillas](./resource-group-template-functions.md)
 - Para obtener instrucciones sobre cómo diseñar las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
 
@@ -135,4 +135,4 @@ La siguiente es una demostración de esta introducción.
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

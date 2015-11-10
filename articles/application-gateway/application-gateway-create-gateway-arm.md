@@ -120,7 +120,11 @@ Asigna el intervalo de direcciones 10.0.0.0/24 a la variable de subred que se us
 	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
 Crea una red virtual denominada "appgwvnet" en el grupo de recursos "appw-rg" para la región Oeste de EE. UU. con el prefijo 10.0.0.0/16 y la subred 10.0.0.0/24
+
+### Paso 3
 	
+	$subnet=$vnet.Subnets[0]
+
 ## Creación de una dirección IP pública para la configuración del front-end
 
 	$publicip = New-AzurePublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
@@ -189,7 +193,7 @@ Crea una Puerta de enlace de aplicaciones con todos los elementos de configuraci
 
 ## Inicio de la Puerta de enlace de aplicaciones
 
-Una vez configurada la puerta de enlace, use el cmdlet `Start-AzureApplicationGateway` para iniciar la puerta de enlace. La facturación de una puerta de enlace de aplicaciones comienza después de que se haya iniciado correctamente.
+Una vez configurada la puerta de enlace, use el cmdlet `Start-AzureApplicationGateway` para iniciarla. La facturación de una puerta de enlace de aplicaciones comienza después de que se haya iniciado correctamente.
 
 
 **Nota**: el cmdlet `Start-AzureApplicationGateway` puede tardar hasta 15-20 minutos en completarse.
@@ -213,9 +217,9 @@ Use `Start-AzureApplicationGateway` para iniciar la Puerta de enlace de aplicaci
 
 ## Verificación del estado de la Puerta de enlace de aplicaciones
 
-Use el cmdlet `Get-AzureApplicationGateway` para comprobar el estado de la puerta de enlace. Si *Start-AzureApplicationGateway* se ha completado correctamente en el paso anterior, el estado debería ser *En ejecución * y los valores VIP y DnsName deben tener entradas válidas.
+Use el cmdlet `Get-AzureApplicationGateway` para comprobar el estado de la puerta de enlace. Si *Start-AzureApplicationGateway* se realizó correctamente en el paso anterior, el estado debe ser *En ejecución*, y Vip y DnsName deben tener entradas válidas.
 
-Este ejemplo muestra una puerta de enlace de aplicaciones que está operativa, en ejecución y lista para asumir el tráfico destinado a `http://<generated-dns-name>.cloudapp.net`.
+Este ejemplo muestra una Puerta de enlace de aplicaciones que está operativa, en ejecución y lista para asumir el tráfico destinado a `http://<generated-dns-name>.cloudapp.net`.
 
 	Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
@@ -369,7 +373,7 @@ Para eliminar una puerta de enlace de aplicaciones, deberá hacer lo siguiente e
 
 1. Use el cmdlet `Stop-AzureApplicationGateway` para detener la puerta de enlace. 
 2. Use el cmdlet `Remove-AzureApplicationGateway` para quitar la puerta de enlace.
-3. Compruebe que se ha quitado la puerta de enlace mediante el uso del cmdlet `Get-AzureApplicationGateway`.
+3. Compruebe que se quitó la puerta de enlace mediante el uso del cmdlet `Get-AzureApplicationGateway`.
 
 
 ### Paso 1
@@ -385,7 +389,7 @@ Use `Stop-AzureApplicationGateway` para detener la Puerta de enlace de aplicacio
 	Stop-AzureApplicationGateway -ApplicationGateway $getgw  
 
 
-Cuando la puerta de enlace de aplicaciones tenga el estado detenido, use el cmdlet `Remove-AzureApplicationGateway` para quitar el servicio.
+Cuando el estado de la Puerta de enlace de aplicaciones sea Detenido, use el cmdlet `Remove-AzureApplicationGateway` para quitar el servicio.
 
 
 	Remove-AzureApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -Force
@@ -405,13 +409,13 @@ Para comprobar que se ha quitado el servicio, puede usar el cmdlet `Get-AzureApp
 
 ## Pasos siguientes
 
-Si desea configurar la descarga SSL, consulte [Configuración de una puerta de enlace de aplicaciones para descarga SSL](application-gateway-ssl.md).
+Si quiere configurar la descarga SSL, vea [Configuración de una Puerta de enlace de aplicaciones para descarga SSL](application-gateway-ssl.md).
 
-Si desea configurar una puerta de enlace de aplicaciones para usarla con ILB, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
+Si desea configurar una Puerta de enlace de aplicaciones para usarla con ILB, consulte [Creación de una Puerta de enlace de aplicaciones con un Equilibrador de carga interno (ILB)](application-gateway-ilb.md).
 
 Si desea obtener más información acerca de opciones de equilibrio de carga en general, vea:
 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

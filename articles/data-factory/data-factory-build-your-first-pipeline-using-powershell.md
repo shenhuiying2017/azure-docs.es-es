@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.topic="hero-article"
+	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
 # Compilación de la primera canalización mediante Azure PowerShell
@@ -33,6 +33,10 @@ En este artículo, aprenderá a usar Azure PowerShell para crear su primera cana
 Este artículo no ofrece información general conceptual sobre el servicio Factoría de datos de Azure. Para obtener información general detallada del servicio, vea el artículo [Introducción a la Factoría de datos de Azure](data-factory-introduction.md).
 
 > [AZURE.IMPORTANT]Revise el artículo [Información general del tutorial](data-factory-build-your-first-pipeline.md) y realice los pasos de requisitos previos antes de completar este tutorial.
+>   
+> Este artículo no abarca todos los cmdlets de Factoría de datos. Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener la documentación completa sobre los cmdlets de la factoría de datos.
+>    
+> Si está usando la vista previa de Azure PowerShell 1.0, debe usar los cmdlets que se documentan [aquí](https://msdn.microsoft.com/library/dn820234.aspx). Por ejemplo, use New-AzureRMDataFactory en lugar de usar New-AzureDataFactory.
 
 ## Paso 1: Creación de la factoría de datos
 
@@ -45,7 +49,7 @@ En este paso, use Azure PowerShell para crear una Factoría de datos de Azure ll
 2. Cambie al modo AzureResourceManager a medida que los cmdlets de la factoría de datos de Azure están disponibles.
 
 		Switch-AzureMode AzureResourceManager
-3. Cree un grupo de recursos de Azure con el nombre *ADFTutorialResourceGroup*, mediante la ejecución del siguiente comando.
+3. Cree un grupo de recursos de Azure con el nombre: *ADFTutorialResourceGroup* ejecutando el siguiente comando.
 
 		New-AzureResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
@@ -77,7 +81,7 @@ En este paso, vinculará su cuenta de almacenamiento de Azure y un clúster de H
 		    }
 		}
 
-	Reemplace **account name** por el nombre de la cuenta de almacenamiento de Azure y **account key** por la clave de acceso de la cuenta de almacenamiento de Azure. Para obtener información sobre cómo obtener la clave de acceso de almacenamiento, consulte [Vista, copia y regeneración de las claves de acceso de almacenamiento](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
+	Reemplace **account name** por el nombre de la cuenta de almacenamiento de Azure y **account key** por la clave de acceso de la cuenta de almacenamiento de Azure. Para obtener información sobre cómo obtener la clave de acceso de almacenamiento, vea [Vista, copia y regeneración de las claves de acceso de almacenamiento](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
 
 2.	En Azure PowerShell, cambie a la carpeta ADFGetStartedPSH.
 3.	Use el cmdlet **New-AzureDataFactoryLinkedService** para crear un servicio vinculado. Este cmdlet y otros cmdlets de Factoría de datos que usa en este tutorial requieren que pase los valores para los parámetros *ResourceGroupName* y *DataFactoryName*. Como alternativa, puede usar **Get AzureDataFactory** para obtener un objeto **DataFactory** y pasar el objeto sin necesidad de escribir *ResourceGroupName* y *DataFactoryName* cada vez que ejecuta un cmdlet. Ejecute el comando siguiente para asignar el resultado del cmdlet **Get-AzureDataFactory** a una variable **$df**.
@@ -163,7 +167,7 @@ En este paso, creará la primera canalización:
 
 1.	Cree un archivo JSON con el nombre MyFirstPipelinePSH.json en la carpeta C:\\ADFGetStartedPSH con el siguiente contenido:
 
-	> [AZURE.IMPORTANT]Reemplace **storageaccountname** por el nombre de la cuenta de almacenamiento en el código JSON.
+	> [AZURE.IMPORTANT]Reemplace **storageaccountname** por el nombre de la cuenta de almacenamiento en JSON.
 
 		{
 		  "name": "MyFirstPipeline",
@@ -211,7 +215,7 @@ En este paso, creará la primera canalización:
 		New-AzureDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
 5. Enhorabuena, ya creó correctamente su primera canalización con Azure PowerShell.
 
-### <a name="MonitorDataSetsAndPipeline"></a> Supervisión de los conjuntos de datos y la canalización
+### <a name="MonitorDataSetsAndPipeline"></a> Supervisión de los conjuntos de datos y de la canalización
 En este paso, se usará Azure PowerShell para supervisar lo que está ocurriendo en una factoría de datos de Azure.
 
 1.	Ejecute **Get-AzureDataFactory** y asigne el resultado a la variable **$df**.
@@ -265,9 +269,11 @@ Vea [Referencia de cmdlets de factoría de datos](https://msdn.microsoft.com/lib
 
 
 ## Pasos siguientes
-En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight de Azure a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte el [Tutorial: Copia de datos de un blob de Azure en SQL Azure](./data-factory-get-started.md).
+En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight de Azure a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte el [Tutorial: Copia de datos de un blob de Azure a SQL Azure](./data-factory-get-started.md).
 
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md).
 
-<!---HONumber=Oct15_HO4-->
+[cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+
+<!---HONumber=Nov15_HO2-->

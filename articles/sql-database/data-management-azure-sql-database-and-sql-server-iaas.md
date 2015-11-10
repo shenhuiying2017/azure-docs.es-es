@@ -3,7 +3,7 @@
 	description="Obtenga información acerca de la base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure. Revise los factores de motivación comunes del negocio para determinar la tecnología de SQL que funciona mejor en el caso de la aplicación." 
 	services="sql-database, virtual-machines" 
 	documentationCenter="" 
-	authors="Selcin" 
+	authors="jeffgoll" 
 	manager="jeffreyg" 
 	editor="tysonn"/>
 
@@ -12,9 +12,9 @@
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="10/19/2015" 
-	ms.author="selcint"/>
+	ms.author="jeffreyg"/>
 
 # Descripción de Base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure
 
@@ -257,4 +257,4 @@ Este artículo del grupo Servicios de contenido empresarial y en la nube de Micr
 <!--Image references-->
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

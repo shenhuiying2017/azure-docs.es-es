@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Copia de seguridad de las máquinas virtuales de Azures | Microsoft Azure"
-	description="Este artículo proporciona los procedimientos para realizar una copia de seguridad de una máquina virtual de Azure."
+	description="Procedimientos para realizar una copia de seguridad de una máquina virtual de Azure."
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/23/2015"
+	ms.date="10/29/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 
@@ -28,7 +28,7 @@ La realización de copias de seguridad de máquinas virtuales de Azure consta tr
 
 ![Tres pasos para realizar una copia de seguridad de una máquina virtual de Azure](./media/backup-azure-vms/3-steps-for-backup.png)
 
->[AZURE.NOTE] La copia de seguridad de la máquina virtual es local. No puede realizar copias de seguridad de máquinas virtuales desde una región hasta un almacén de copia de seguridad de otra región. Por lo tanto, para cada región de Azure que tiene máquinas virtuales que necesiten una copia de seguridad, debe crearse al menos 1 almacén de copia de seguridad en esa región.
+>[AZURE.NOTE]La copia de seguridad de la máquina virtual es local. No puede realizar copias de seguridad de máquinas virtuales desde una región hasta un almacén de copia de seguridad de otra región. Por lo tanto, para cada región de Azure que tiene máquinas virtuales que necesiten una copia de seguridad, debe crearse al menos 1 almacén de copia de seguridad en esa región.
 
 ## Paso 1: Detección de máquinas virtuales de Azure
 El proceso de detección debe ser siempre el primer paso para asegurarse de que se identifican las nuevas máquinas virtuales agregadas a la suscripción. El proceso envía consultas a Azure para obtener la lista de máquinas virtuales incluidas en la suscripción, junto con información adicional, por ejemplo, el nombre del servicio en la nube y la región.
@@ -39,8 +39,7 @@ El proceso de detección debe ser siempre el primer paso para asegurarse de que 
 
     ![seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Haga clic en **DETECTAR** en la parte inferior de la página.
-    ![botón Detectar](./media/backup-azure-vms/discover-button-only.png)
+3. Haga clic en **DETECTAR** en la parte inferior de la página. ![botón Detectar](./media/backup-azure-vms/discover-button-only.png)
 
     El proceso de detección puede tardar unos minutos mientras se tabulan las máquinas virtuales. Una notificación en la parte inferior de la pantalla le permite saber que el proceso se está ejecutando.
 
@@ -59,12 +58,11 @@ Una máquina virtual de Azure se registra a fin de asociarla con el servicio Cop
 
     ![seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Haga clic en el botón **REGISTRAR** que se encuentra en la parte inferior de la página.
-    ![botón Registrar](./media/backup-azure-vms/register-button-only.png)
+3. Haga clic en **REGISTRAR** en la parte inferior de la página. ![botón Registrar](./media/backup-azure-vms/register-button-only.png)
 
-4. En el menú contextual **Elementos registrados**, elija las máquinas virtuales que desea registrar. Si hay dos o más máquinas virtuales con el mismo nombre, use el servicio en la nube para distinguir entre las máquinas virtuales.
+4. En el menú contextual **Elementos registrados**, elija las máquinas virtuales que desea registrar. Si hay dos o más máquinas virtuales con el mismo nombre, use el servicio en la nube para distinguirlas.
 
-    >[AZURE.TIP] Se pueden registrar varias máquinas virtuales al mismo tiempo.
+    >[AZURE.TIP]Se pueden registrar varias máquinas virtuales al mismo tiempo.
 
     Se crea un trabajo para cada máquina virtual que ha seleccionado.
 
@@ -72,11 +70,11 @@ Una máquina virtual de Azure se registra a fin de asociarla con el servicio Cop
 
     ![registrar trabajo](./media/backup-azure-vms/register-create-job.png)
 
-    La máquina virtual también aparece en la lista de elementos registrados junto con el estado de la operación de registro
+   La máquina virtual también aparece en la lista de elementos registrados junto con el estado de la operación de registro
 
     ![Registering status 1](./media/backup-azure-vms/register-status01.png)
 
-    Una vez completada la operación, se cambiará el estado en el portal para reflejar el estado registrado.
+    When the operation completes, the status will change to reflect the *registered* state.
 
     ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
@@ -86,7 +84,6 @@ Ahora puede configurar una directiva de retención y copia de seguridad para la 
 Los almacenes de Copia de seguridad de Azure creados después de mayo de 2015 incluyen una directiva predeterminada integrada en el almacén. Esta directiva predeterminada viene con un período de retención predeterminado de 30 días y una programación de copia de seguridad diaria.
 
 1. Vaya al almacén de copia de seguridad en **Servicios de recuperación** en el Portal de Azure y haga clic en **Elementos registrados**.
-
 2. Seleccione **Máquina virtual de Azure** en el menú desplegable.
 
     ![Seleccionar carga de trabajo en el portal](./media/backup-azure-vms/select-workload.png)
@@ -97,7 +94,7 @@ Los almacenes de Copia de seguridad de Azure creados después de mayo de 2015 in
 
     Si hay dos o más máquinas virtuales con el mismo nombre, use el servicio en la nube para distinguir entre las máquinas virtuales.
 
-    >[AZURE.TIP] Puede proteger varias máquinas virtuales al mismo tiempo.
+    >[AZURE.TIP]Puede proteger varias máquinas virtuales al mismo tiempo.
 
     ![Configuración de protección a escala](./media/backup-azure-vms/protect-at-scale.png)
 
@@ -107,7 +104,7 @@ Los almacenes de Copia de seguridad de Azure creados después de mayo de 2015 in
 
     ![Protección mediante nueva directiva](./media/backup-azure-vms/policy-schedule.png)
 
-    >[AZURE.NOTE] Una directiva de copia de seguridad incluye un esquema de retención de las copias de seguridad programadas. Si selecciona una directiva de copia de seguridad existente, no podrá modificar las opciones de retención en el paso siguiente.
+    >[AZURE.NOTE]Una directiva de copia de seguridad incluye un esquema de retención de las copias de seguridad programadas. Si selecciona una directiva de copia de seguridad existente, no podrá modificar las opciones de retención en el paso siguiente.
 
 5. Elija un **intervalo de retención** para asociar con las copias de seguridad.
 
@@ -143,14 +140,14 @@ Para desencadenar la copia de seguridad inicial inmediatamente después de confi
 
     ![Copia de seguridad en curso](./media/backup-azure-vms/protect-inprogress.png)
 
->[AZURE.NOTE] Como parte de la operación de copia de seguridad, el servicio Copia de seguridad de Azure emite un comando a la extensión de copia de seguridad en cada máquina virtual para vaciar toda la escritura y tomar una instantánea coherente.
+>[AZURE.NOTE]Como parte de la operación de copia de seguridad, el servicio Copia de seguridad de Azure emite un comando a la extensión de copia de seguridad en cada máquina virtual para vaciar toda la escritura y tomar una instantánea coherente.
 
 Una vez completada la copia de seguridad inicial, el estado de la máquina virtual en la pestaña **Elementos protegidos** se mostrará como *Protegido*.
 
 ![Se realiza una copia de seguridad de la máquina virtual con punto de recuperación](./media/backup-azure-vms/protect-backedupvm.png)
 
-### Visualización de los detalles y el estado de la copia de seguridad
-Una vez protegidas, el recuento de máquinas virtuales también aumenta en el resumen de la página **Panel**. Además, la página **Panel** muestra el número de trabajos de las últimas 24 horas que se realizaron correctamente, que produjeron un error y que siguen en curso. Al hacer clic en una categoría, esta se desglosará en la página **Trabajos**.
+## Visualización de los detalles y el estado de la copia de seguridad
+Una vez protegidas, el recuento de máquinas virtuales también aumenta en el resumen de la página **Panel**. La página **Panel** también muestra el número de trabajos de las últimas 24 horas que se realizaron* correctamente*, que *produjeron un error* y que siguen *en curso*. Al hacer clic en una categoría, esta se desglosará en la página **Trabajos**.
 
 ![Estado de la copia de seguridad en la página Panel](./media/backup-azure-vms/dashboard-protectedvms.png)
 
@@ -164,4 +161,4 @@ Si se encuentra con problemas mientras realiza la copia de seguridad de la máqu
 - [Administración y supervisión de las máquinas virtuales](backup-azure-manage-vms.md)
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 
-<!-----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

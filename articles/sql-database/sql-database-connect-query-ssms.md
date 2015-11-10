@@ -45,7 +45,7 @@ Al trabajar con Base de datos SQL, debe usar la versión más reciente de SSMS. 
 
 La razón más común de los errores de conexión son los errores en el nombre del servidor, nombre de usuario o contraseña, así como el servidor que no permite conexiones por motivos de seguridad. Asegúrese de que la configuración de firewall del servidor permite las conexiones desde la dirección IP de su equipo local y la dirección IP que utiliza el cliente SSMS. A veces son diferentes.
 
-Si el error de conexión se produce debido a una regla de firewall, la dirección IP se notifica en el mensaje de error. Agregue esta dirección IP a la regla de firewall del servidor. Para obtener más información, consulte [Configuración del firewall (Base de datos SQL de Azure)](sql-database-configure-firewall-settings.md).
+Si se produce un error en la conexión debido a la configuración del firewall, la versión más reciente de SSMS creará la regla de firewall para usted después de preguntar. Para obtenerla, consulte [Descargar SSMS](https://msdn.microsoft.com/library/mt238290.aspx). Si está usando una versión anterior, se notificará la dirección IP en un mensaje de error y deberá agregar esta dirección IP a la regla de firewall del servidor. Para obtener más información, consulte [Configuración del firewall (Base de datos SQL de Azure)](sql-database-configure-firewall-settings.md).
 
 ## Ejecutar consultas de ejemplo
 
@@ -76,4 +76,4 @@ Puede utilizar instrucciones Transact-SQL para crear y administrar bases de dato
 
 Si no está familiarizado con Transact-SQL, consulte [Tutorial: Escribir instrucciones Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx) y [Referencia de Transact-SQL (motor de base de datos)](https://msdn.microsoft.com/library/bb510741.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->
