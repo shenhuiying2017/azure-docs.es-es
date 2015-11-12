@@ -96,7 +96,7 @@ El motor de recomendaciones de DDM marca determinados campos de la base de datos
 
     ![Panel de navegación](./media/sql-database-dynamic-data-masking-get-started/8_ddm_excluded_users.png)
 
-	>[AZURE.TIP]Para hacer que el nivel de aplicación pueda mostrar datos confidenciales para los usuarios con privilegios de la aplicación, agregue el usuario SQL o identidad AAD que la aplicación usa para consultar la base de datos. Se recomienda que esta lista incluya un número mínimo de usuarios con privilegio para minimizar la exposición de los datos confidenciales.
+	>[AZURE.TIP] Para hacer que el nivel de aplicación pueda mostrar datos confidenciales para los usuarios con privilegios de la aplicación, agregue el usuario SQL o identidad AAD que la aplicación usa para consultar la base de datos. Se recomienda que esta lista incluya un número mínimo de usuarios con privilegio para minimizar la exposición de los datos confidenciales.
 
 10. Haga clic en **Guardar** en la hoja de configuración de enmascaramiento de datos para guardar la directiva de enmascaramiento nueva o actualizada.
 
@@ -109,4 +109,4 @@ Consulte [Cmdlets de Base de datos SQL de Azure](https://msdn.microsoft.com/libr
 
 Consulte [Operaciones para Bases de datos SQL de Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->

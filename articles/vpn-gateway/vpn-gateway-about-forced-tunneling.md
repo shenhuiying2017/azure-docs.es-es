@@ -1,4 +1,12 @@
-<properties pageTitle="Configuración de la tunelización forzada para puertas de enlace de VPN de Microsoft Azure | Microsoft Azure" description="Si tiene una red virtual con una puerta de enlace de VPN entre entornos, puede redirigir o "forzar" todo el tráfico enlazado a Internet de nuevo a la ubicación local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" tags="azure-service-management"/>
+<properties 
+   pageTitle="Configuración de la tunelización forzada para puertas de enlace de VPN de Microsoft Azure | Microsoft Azure"
+   description="Si tiene una red virtual con una puerta de enlace de VPN entre entornos, puede redirigir o "forzar" todo el tráfico enlazado a Internet de nuevo a la ubicación local. "
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""
+   tags="azure-service-management"/>
 <tags  
    ms.service="vpn-gateway"
    ms.devlang="na"
@@ -12,7 +20,7 @@
 
 Este artículo se aplica a las redes virtuales y las puertas de enlace de VPN creadas con el modelo de implementación clásico. Cuando las instrucciones para configurar la tunelización forzada de redes virtuales y puertas de enlace de VPN creadas mediante el modelo del Administrador de recursos estén disponibles, agregaremos un vínculo al principio de esta página.
 
->[AZURE.NOTE]Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
+>[AZURE.NOTE] Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
 
 ## Información acerca de la tunelización forzada
 
@@ -160,4 +168,4 @@ Para obtener más información sobre las rutas definidas por el usuario, vea [Ru
 
 Para obtener información sobre cómo proteger el tráfico de red, vea [Qué es un grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md). Tenga en cuenta que nunca debe aplicar un grupo de seguridad de red a una subred de puerta de enlace de red virtual de Azure.
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->

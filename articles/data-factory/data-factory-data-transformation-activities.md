@@ -19,7 +19,7 @@
 # Transformar y analizar mediante la Factoría de datos de Azure
 
 ## Información general
-Las actividades de transformación en la Factoría de datos de Azure transforman y procesan sus datos sin procesar en predicciones y perspectivas. La actividad de transformación se ejecuta en un entorno informático, como clúster de HDInsight de Azure o un Lote de Azure. La Factoría de datos de Azure admite las siguientes actividades de transformación que se pueden agregar a[canalizaciones](data-factory-create-pipelines.md) ya sea individualmente o encadenadas a otra actividad.
+Las actividades de transformación en la Factoría de datos de Azure transforman y procesan sus datos sin procesar en predicciones y perspectivas. La actividad de transformación se ejecuta en un entorno informático, como clúster de HDInsight de Azure o un Lote de Azure. La Factoría de datos de Azure admite las siguientes actividades de transformación que se pueden agregar a [canalizaciones](data-factory-create-pipelines.md) ya sea individualmente o encadenadas a otra actividad.
 
 
 Actividad de transformación | Entorno de procesos 
@@ -42,4 +42,4 @@ Consulte el artículo [Servicios vinculados de procesos](data-factory-compute-li
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md).
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->

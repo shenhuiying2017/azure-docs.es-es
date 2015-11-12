@@ -29,7 +29,7 @@ RENAME DATABASE AdventureWorks TO Contoso;
 
 Es importante recordar que se no se puede cambiar el nombre de un objeto o una base de datos si otros usuarios están conectados a ellos o los están utilizando. Puede que primero sea necesario terminar sesiones abiertas. Para terminar una sesión deberá usar el comando [KILL](https://msdn.microsoft.com/library/ms173730.aspx). Tenga cuidado cuando use ```KILL```. Una vez ejecutado, se terminará la sesión de destino y se revertirá cualquier trabajo no confirmado.
 
-> [AZURE.NOTE]Las sesiones del Almacenamiento de datos SQL están precedidas por “SID”; deberá incluir esto y el número de sesión al invocar el comando KILL. Por ejemplo, ```KILL 'SID1234'``` terminaría la sesión 1234, suponiendo que tenga los permisos adecuados para ejecutarlo.
+> [AZURE.NOTE] Las sesiones del Almacenamiento de datos SQL están precedidas por “SID”; deberá incluir esto y el número de sesión al invocar el comando KILL. Por ejemplo, ```KILL 'SID1234'``` terminaría la sesión 1234, suponiendo que tenga los permisos adecuados para ejecutarlo.
 
 ## Finalización de sesiones
 Para cambiar el nombre de una base de datos, puede que necesite terminar las sesiones conectadas al Almacenamiento de datos SQL. La siguiente consulta generará una lista distinta de comandos KILL para borrar las conexiones (Guardar para la sesión actual).
@@ -69,4 +69,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Article references-->
 [información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->

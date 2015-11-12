@@ -106,4 +106,4 @@ Use REST para realizar la recuperación de la base de datos mediante programaci�
 Una vez recuperada la base de datos, podrá configurarla para el uso. Para ello siga los pasos descritos en la guía [Finalización de una base de datos recuperada](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->

@@ -209,4 +209,4 @@ Ahora debería tener un clúster de CoreOS de tres nodos ejecutándose en Azure.
 [YAML]: http://yaml.org/
 [Introducción a Fleet en CoreOS de Azure]: virtual-machines-linux-coreos-fleet-get-started.md
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->

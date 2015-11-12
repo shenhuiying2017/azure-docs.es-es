@@ -23,7 +23,7 @@
 
 En este artículo se proporcionan pasos de solución de problemas detallada de errores complejos de Escritorio remoto.
 
-> [AZURE.IMPORTANT]Para eliminar los errores más comunes de Escritorio remoto, asegúrese de leer [la solución de problemas básicos de Escritorio remoto](virtual-machines-troubleshoot-remote-desktop-connections.md) antes de continuar.
+> [AZURE.IMPORTANT] Para eliminar los errores más comunes de Escritorio remoto, asegúrese de leer [la solución de problemas básicos de Escritorio remoto](virtual-machines-troubleshoot-remote-desktop-connections.md) antes de continuar.
 
 ## Póngase en contacto con el servicio de atención al cliente de Azure
 
@@ -108,7 +108,7 @@ Para eliminar el extremo de servicio en la nube y la ACL como causas de los prob
 
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_3.png)
 
-> [AZURE.NOTE]En el caso de máquinas virtuales creadas en el Administrador de recursos, vaya a [Causa 4: Grupos de seguridad de red](#nsgs).
+> [AZURE.NOTE] En el caso de máquinas virtuales creadas en el Administrador de recursos, vaya a [Causa 4: Grupos de seguridad de red](#nsgs).
 
 Si no tiene otra máquina virtual en el mismo servicio en la nube o red virtual, puede crear una fácilmente. Para obtener más información, vea [Crear una máquina virtual que ejecuta Windows en Azure](virtual-machines-windows-tutorial.md). Cuando acabe de realizar las pruebas, elimine la máquina virtual que creó.
 
@@ -207,4 +207,4 @@ Compruebe que el extremo de Escritorio remoto para la máquina virtual de Azure 
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->

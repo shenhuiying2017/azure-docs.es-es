@@ -19,7 +19,7 @@
 
 # Conexión de varios sitios locales a una red virtual
 
->[AZURE.NOTE]Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
+>[AZURE.NOTE] Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
 
 Este artículo se aplica a las redes virtuales y las puertas de enlace de VPN creadas con el modelo de implementación clásico (Administración de servicios).
 
@@ -177,4 +177,4 @@ Antes de comenzar la configuración, compruebe que dispone de lo siguiente:
 
 Para obtener más información sobre las puertas de enlace de VPN, vea [Acerca de las puertas de enlace de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->

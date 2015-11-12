@@ -6,4 +6,4 @@ Al usar Azure PowerShell 0.9.8, primero debe habilitar el modo de Administrador 
 
 Para obtener información acerca de la versión de vista previa 1.0, así como de su instalación y desinstalación, consulte la [versión de vista previa de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/). Para obtener información acerca de los cambios significativos en los comandos del Administrador de recursos, consulte [Cambios en los cmdlets de PowerShell de administración del Administrador de recursos de Azure](../articles/powershell-preview-resource-manager-changes.md).
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->

@@ -35,7 +35,9 @@ En este tutorial hará lo siguiente mediante Visual Studio 2013:
 ## Creación e implementación de las entidades de Factoría de datos con Visual Studio 
 
 ### Requisitos previos
-Debe tener instalado en el equipo lo siguiente: - Visual Studio 2013 - Descargue el SDK de Azure para Visual Studio 2013. Vaya a la [Página de descargas de Azure](http://azure.microsoft.com/downloads/) y haga clic en **Instalación de VS 2013**en la sección **.NET**.
+Debe tener instalado en el equipo lo siguiente: 
+- Visual Studio 2013
+- Descargue el SDK de Azure para Visual Studio 2013. Vaya a la [Página de descargas de Azure](http://azure.microsoft.com/downloads/) y haga clic en **Instalación de VS 2013**en la sección **.NET**.
 
 ### Tutorial
 
@@ -224,8 +226,10 @@ Ya ha creado las tablas y los servicios vinculados de entrada/salida. Ahora, va 
 ## Uso del Explorador de servidores para revisar las entidades de Factoría de datos
 
 1. En **Visual Studio**, haga clic en el menú **Ver** y en la opción **Explorador de servidores**.
-2. En la ventana Explorador de servidores, expanda **Azure** y **Factoría de datos**. Si aparece **Iniciar sesión en Visual Studio**, escriba la **cuenta** asociada a su suscripción de Azure y haga clic en **Continuar**. Escriba la **contraseña** y haga clic en **Iniciar sesión**. Visual Studio intenta obtener información acerca de todas las factorías de datos de Azure en su suscripción. Verá el estado de esta operación en la ventana **Lista de tareas de Factoría de datos**.![Explorador de servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
-3. Puede hacer clic con el botón derecho en una factoría de datos y seleccionar Exportar Factoría de datos a nuevo proyecto para crear un proyecto de Visual Studio basado en una factoría de datos existente. ![Exportar factoría de datos a un proyecto de VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
+2. En la ventana Explorador de servidores, expanda **Azure** y **Factoría de datos**. Si aparece **Iniciar sesión en Visual Studio**, escriba la **cuenta** asociada a su suscripción de Azure y haga clic en **Continuar**. Escriba la **contraseña** y haga clic en **Iniciar sesión**. Visual Studio intenta obtener información acerca de todas las factorías de datos de Azure en su suscripción. Verá el estado de esta operación en la ventana **Lista de tareas de Factoría de datos**.  
+	![Explorador de servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
+3. Puede hacer clic con el botón derecho en una factoría de datos y seleccionar Exportar Factoría de datos a nuevo proyecto para crear un proyecto de Visual Studio basado en una factoría de datos existente.
+	![Exportar factoría de datos a un proyecto de VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Actualización de herramientas de Factoría de datos para Visual Studio
 Para actualizar las herramientas de Factoría de datos de Azure para Visual Studio, haga lo siguiente:
@@ -240,4 +244,4 @@ Consulte [Supervisión de los conjuntos de datos y la canalización](data-factor
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md).
 
-<!---HONumber=Nov15_HO2-->
+<!----HONumber=Nov15_HO2-->

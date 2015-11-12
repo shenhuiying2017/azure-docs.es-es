@@ -25,7 +25,7 @@
 
 Este artículo le guiará por el proceso con el modelo de implementación del Administrador de recursos. Puedes seleccionar el artículo para el modelo de implementación y la herramienta de implementación usando las pestañas superiores.
 
->[AZURE.NOTE]Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información acerca de los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
+>[AZURE.NOTE] Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información acerca de los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
 
 La conexión de una red virtual a otra (VNet a VNet) es muy parecida a la conexión de una red virtual a la ubicación de un sitio local. Ambos tipos de conectividad usan una puerta de enlace de VPN para proporcionar un túnel seguro con IPsec/IKE. Las redes virtuales que se conecten pueden estar en regiones distintas. Incluso puede combinar la comunicación de red virtual a red virtual con configuraciones de varios sitios. Esto permite establecer topologías de red que combinen la conectividad entre entornos con la conectividad entre redes virtuales, como se muestra en el diagrama siguiente.
 
@@ -253,4 +253,4 @@ Puede agregar máquinas virtuales a las redes virtuales. [Creación de una máqu
 
 Para obtener más información sobre las puertas de enlace de VPN, vea [Preguntas más frecuentes sobre las puertas de enlace de VPN](vpn-gateway-faq.md).
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
