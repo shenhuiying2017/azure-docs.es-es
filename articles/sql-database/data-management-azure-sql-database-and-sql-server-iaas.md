@@ -257,4 +257,4 @@ Este artículo del grupo Servicios de contenido empresarial y en la nube de Micr
 <!--Image references-->
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
 
-<!---HONumber=Nov15_HO2-->
+<!----HONumber=Nov15_HO2-->

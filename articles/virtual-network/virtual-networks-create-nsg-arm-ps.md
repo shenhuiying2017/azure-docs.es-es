@@ -123,7 +123,7 @@ Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el esce
 		                        "ProvisioningState": "Succeeded"
 		                      }
 
->[AZURE.WARNING]La salida del comando anterior muestra el contenido del objeto de configuración de red virtual, que solo existe en el equipo donde se ejecuta PowerShell. Debe ejecutar el cmdlet **AzureVirtualNetwork Set** para guardar esta configuración en Azure.
+>[AZURE.WARNING] La salida del comando anterior muestra el contenido del objeto de configuración de red virtual, que solo existe en el equipo donde se ejecuta PowerShell. Debe ejecutar el cmdlet **AzureVirtualNetwork Set** para guardar esta configuración en Azure.
 
 7. Guardar la nueva configuración de red virtual en Azure.
 
@@ -182,4 +182,4 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
 
 		Set-AzureVirtualNetwork -VirtualNetwork $vnet
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->

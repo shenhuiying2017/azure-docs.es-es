@@ -376,4 +376,4 @@ Si quieres ver un vídeo en el que se realiza esta tarea, mira aquí:
 
 [Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->

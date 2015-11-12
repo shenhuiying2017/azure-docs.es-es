@@ -106,4 +106,4 @@ Una vez completada la ejecución de la plantilla, ahora dispondrá del servidor 
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
