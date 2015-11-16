@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""
     manager="jeffreyg"
-    authors="sidneyh"
+    authors="ddove"
     editor=""/>
 
 <tags
@@ -13,18 +13,20 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/29/2015"
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015"
+    ms.author="ddove;sidneyh"/>
 
 # Información general de la biblioteca de cliente de bases de datos elásticas
 
-La **biblioteca de cliente de bases de datos elásticas** le ayuda a desarrollar fácilmente aplicaciones compartidas usando cientos, o incluso miles, de bases de datos de SQL de Azure hospedadas en Microsoft Azure. Estos diseños se usan normalmente para aplicaciones de Software como servicio (SaaS), que son generalmente arquitecturas de inquilino único, donde cada inquilino se aprovisiona con una base de datos. Uno de los objetivos de la biblioteca es crear y administrar este tipo de aplicación. La biblioteca cliente es una biblioteca de .NET Framework que se puede instalar en cualquier proyecto de aplicación mediante [Visual Studio](sql-database-elastic-scale-add-references-visual-studio.md) y [Nuget](http://go.microsoft.com/?linkid=9862605). La biblioteca de cliente forma parte de las herramientas de la base de datos flexible que es una [característica específica de base de datos flexible](sql-database-elastic-scale-introduction.md).
+La **biblioteca de cliente de bases de datos elásticas** le ayuda a desarrollar fácilmente aplicaciones compartidas usando cientos, o incluso miles, de bases de datos de SQL de Azure hospedadas en Microsoft Azure. Estos diseños se usan normalmente para aplicaciones de Software como servicio (SaaS), que son generalmente arquitecturas de inquilino único, donde cada inquilino se aprovisiona con una base de datos. Uno de los objetivos de la biblioteca es crear y administrar este tipo de aplicación.
+
+Para instalar la biblioteca, consulte [Base de datos SQL de Microsoft Azure: escala elástica](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). La biblioteca de cliente forma parte de las herramientas de Base de datos elástica, que es una [característica específica de Base de datos elástica](sql-database-elastic-scale-introduction.md).
 
 ## Capacidades de cliente
 
 Desarrollar, escalar y administrar aplicaciones de escalado horizontal mediante *particionamiento* (se trata a continuación) presenta desafíos para el desarrollador y para el administrador. La biblioteca de cliente facilita las operaciones de estos roles. En la ilustración siguiente se describen las funciones principales que brinda la biblioteca cliente de bases de datos elásticas. La ilustración muestra un entorno con muchas bases de datos, donde cada base de datos corresponde a una partición. En este ejemplo, se colocan muchos clientes en la misma base de datos con un mapa de intervalo, aunque lo mismo se aplica si hay una base de datos para cada cliente (inquilino). Las herramientas facilitan el desarrollo de aplicaciones de Base de datos SQL de Azure con particiones mediante las siguientes capacidades específicas:
 
-Si desea obtener las definiciones de los términos que se usan aquí, consulte el [glosario de las herramientas de bases de datos elásticas](sql-database-elastic-scale-glossary.md).
+Si desea obtener las definiciones de los términos que se usan aquí, consulte el [glosario de las herramientas de Base de datos elástica](sql-database-elastic-scale-glossary.md).
 
 ![Capacidades de Escalado elástico][1]
 
@@ -40,7 +42,7 @@ En general, los clientes que usan las herramientas de bases de datos elásticas 
 
 Pruebe la [aplicación de ejemplo](sql-database-elastic-scale-get-started.md) que muestra las funciones de cliente.
 
-Para instalar la biblioteca, vaya a la [biblioteca de cliente de bases de datos elásticas](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+Para instalar la biblioteca, vaya a la [biblioteca de cliente de Base de datos elástica](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 Para obtener instrucciones sobre cómo usar la herramienta de división y combinación, consulte la [información general de la herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md).
 
@@ -53,4 +55,4 @@ Para obtener instrucciones sobre cómo usar la herramienta de división y combin
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

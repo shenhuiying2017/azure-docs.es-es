@@ -18,6 +18,8 @@
 
 # Configuración de la aplicación para usar el inicio de sesión de Google
 
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
+
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 En este tema se muestra cómo configurar las aplicaciones móviles para usar Google como proveedor de autenticación.
@@ -32,11 +34,11 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
 4. En la barra de navegación de la izquierda, haga clic en **API y autenticación** y luego, en **API sociales**, haga clic en **API de Google+** > **Habilitar API**.
 
-5. Haga clic en**API y autenticación** > **Credenciales** > **Pantalla de consentimiento de OAuth**, seleccione su **Dirección de correo electrónico**, escriba un **Nombre de producto** y haga clic en **Guardar**.
+5. Haga clic en **API y autenticación** > **Credenciales** > **Pantalla de consentimiento de OAuth**, seleccione su **Dirección de correo electrónico**, escriba un **Nombre de producto** y haga clic en **Guardar**.
 
 6. En la pestaña **Credenciales**, haga clic en **Agregar credenciales** > **Id. de cliente de OAuth 2.0** y luego seleccione **Aplicación web**.
 
-7. Pegue la **URL** de las aplicaciones móviles que copió anteriormente en **Orígenes de JavaScript autorizados** y luego pegue el **URI de redirección** que copió antes en la **el URI de redirección autorizado**. Este URI de redirección es la puerta de enlace de la aplicación móvil anexada a la ruta de acceso, _/signin-google_. Por ejemplo: `https://contosogateway.azurewebsites.net/signin-google`. Asegúrese de que está utilizando el esquema HTTPS. A continuación, haga clic en **Crear**.
+7. Pegue la **URL** de las aplicaciones móviles que copió anteriormente en **Orígenes de JavaScript autorizados** y luego pegue el **URI de redirección** que copió antes en el **URI de redirección autorizado**. Este URI de redirección es la puerta de enlace de la aplicación móvil anexada a la ruta de acceso, _/signin-google_. Por ejemplo: `https://contosogateway.azurewebsites.net/signin-google`. Asegúrese de que está utilizando el esquema HTTPS. A continuación, haga clic en **Crear**.
 
 8. En la siguiente pantalla, tome nota de los valores de id. de cliente y el secreto del cliente.
 
@@ -67,4 +69,4 @@ De este modo ya estará listo para usar Google para realizar la autenticación e
 [Portal de administración de Azure]: https://portal.azure.com/
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

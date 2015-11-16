@@ -18,9 +18,7 @@
 
 # Incorporación de notificaciones push a la aplicación Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Información general
 
@@ -39,6 +37,10 @@ Para completar este tutorial, necesitará lo siguiente:
 * Un dispositivo iOS físico.
 
 * Complete el [tutorial de inicio rápido](../app-service-mobile-xamarin-ios-get-started.md).
+
+##<a name="create-hub"></a>Creación de un centro de notificaciones
+
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
 ## <a id="register"></a>Registro de aplicaciones para notificaciones push
 
@@ -154,4 +156,4 @@ Ha completado correctamente este tutorial.
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

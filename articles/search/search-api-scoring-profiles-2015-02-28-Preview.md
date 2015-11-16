@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Perfiles de puntuación (API de REST de Búsqueda de Azure: 2015-02-28-Preview) | Microsoft Azure"
-	description="Perfiles de puntuación (API de REST de Búsqueda de Azure: 2015-02-28-Preview)"
+	description="Búsqueda de Azure es un servicio de búsqueda hospedado en la nube que admite la optimización de resultados basados en perfiles de puntuación definidos por el usuario."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="10/01/2015" />
+	ms.date="11/04/2015" />
 
 # Perfiles de puntuación (API de REST de Búsqueda de Azure: 2015-02-28-Preview)
 
@@ -370,4 +370,4 @@ Para obtener más ejemplos, consulte [Esquema XML: tipos de datos (sitio web de 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Copia de seguridad de máquinas virtuales de Azure: solución de problemas | Microsoft Azure"
-	description="Obtenga información para solucionar problemas de copia de seguridad y restaurar la máquina virtual de Azure"
+	pageTitle="Solución de problemas de copia de seguridad de máquinas virtuales de Azure | Microsoft Azure"
+	description="Solución de problemas de copia de seguridad y restauración de máquinas virtuales de Azure"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="trinadhk";"aashishr"/>
 
 
 # Solución de problemas de copia de seguridad de máquinas virtuales de Azure
@@ -123,4 +123,4 @@ Una vez que la resolución de nombres se haya realizado correctamente, también 
 1. Obtenga la lista de [IP del centro de datos de Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) que van a formar parte de la lista de direcciones IP aprobadas.
 2. Desbloquee las direcciones IP usando el commandlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Ejecute este commandlet en la máquina virtual de Azure, en una ventana de PowerShell con privilegios elevados (realice la ejecución como administrador).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

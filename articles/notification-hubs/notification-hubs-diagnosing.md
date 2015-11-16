@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="10/27/2015" 
 	ms.author="wesmc"/>
 
 #Centros de notificaciones de Azure: pautas de diagnóstico
@@ -85,7 +85,7 @@ Una vez que el PNS respectivo ha recibido el mensaje de notificación, es respon
 
 Si un PNS intenta entregar una notificación pero el dispositivo está sin conexión, el PNS almacena la notificación por un período de tiempo limitado, y la entrega al dispositivo cuando vuelve a estar disponible. Solo se almacena una notificación reciente de una aplicación en particular. Si se envían varias notificaciones mientras el dispositivo está sin conexión, cada nueva notificación provoca que se descarte la anterior. Este comportamiento de mantener solo la notificación más reciente se conoce como fusionar notificaciones en APNS y contraer en GCM (que usa una clave de contracción). Si el dispositivo permanece sin conexión durante un período de tiempo prolongado, todas las notificaciones que se estaban almacenando para él se descartan. Origen: [instrucciones para APNS] e [instrucciones para GCM]
 
-Con los Centros de notificaciones de Azure, puede pasar una clave de fusión a través de un encabezado HTTP mediante la `SendNotification` API genérica (por ejemplo, para el SDK de .NET SDK`SendNotificationAsync`) que también toma los encabezados HTTP que se pasan como están al PNS respectivo.
+Con los Centros de notificaciones de Azure, puede pasar una clave de fusión a través de un encabezado HTTP mediante la `SendNotification` API genérica (por ejemplo, para el SDK de .NET – `SendNotificationAsync`) que también toma los encabezados HTTP que se pasan como están al PNS respectivo.
 
 ##Sugerencias de autodiagnóstico
 
@@ -115,7 +115,7 @@ A continuación, examinaremos las diversas formas de diagnosticar y encontrar la
 
 	![][8]
  
-	> [AZURE.NOTE]Las funciones de Visual Studio para editar registros se deben usar únicamente durante las fases de desarrollo y prueba con un número limitado de registros. Si surge la necesidad de corregir sus registros en masa, considere la posibilidad de usar la función para exportar o importar registros que se describe en [Exportación e importación de registros] (disponible solo en el nivel Estándar).
+	> [AZURE.NOTE]Las funciones de Visual Studio para editar registros se deben usar únicamente durante las fases de desarrollo y prueba con un número limitado de registros. Si surge la necesidad de corregir sus registros en masa, considere la posibilidad de usar la función para exportar o importar registros que se describe en [Exportación e importación de registros](https://msdn.microsoft.com/library/dn790624.aspx).
 
 2. **Explorador de Bus de servicio**
 
@@ -228,7 +228,7 @@ Más detalles aquí:
 [Instrucciones para plantillas]: https://msdn.microsoft.com/library/dn530748.aspx
 [instrucciones para APNS]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [instrucciones para GCM]: http://developer.android.com/google/gcm/adv.html
-[Exportación e importación de registros]: http://msdn.microsoft.com/library/dn790624.aspx
+[Export/Import Registrations]: http://msdn.microsoft.com/library/dn790624.aspx
 [Explorador de Bus de servicio]: http://msdn.microsoft.com/library/dn530751.aspx
 [Código del explorador de Bus de servicio]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [Introducción al Explorador de servidores de VS]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
@@ -240,4 +240,4 @@ Más detalles aquí:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

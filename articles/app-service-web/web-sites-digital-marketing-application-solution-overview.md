@@ -31,7 +31,7 @@ A continuación, aparece un ejemplo de una campaña de marketing digital global 
 
 Cree rápidamente aplicaciones nuevas a partir de un CMS popular en la galería o aproveche recursos web existentes en Aplicaciones web del Servicio de aplicaciones de una variedad de lenguajes y marcos.
 
-Azure Marketplace proporciona plantillas provenientes de los sistemas de administración de contenido (CMS) de sitios web populares, como [Orchard], [Umbraco], Drupal y [WordPress]. Puede crear una aplicación web usando el tipo de CMS de su preferencia. Puede elegir entre varios backends de bases de datos para satisfacer sus necesidades, incluida [Base de datos SQL de Azure] y [MySQL].
+Azure Marketplace proporciona plantillas provenientes de los sistemas de administración de contenido (CMS) de sitios web populares, como Orchard, Umbrado, Drupal y [WordPress]. Puede crear una aplicación web usando el tipo de CMS de su preferencia. Puede elegir entre varios backends de bases de datos para satisfacer sus necesidades, incluida [Base de datos SQL de Azure] y [MySQL].
 
 Los recursos web existentes pueden ejecutarse en Aplicaciones web, ya sean .NET, PHP, JAVA, Node.js o Python. Puede moverlos a Aplicaciones web con sus herramientas [FTP] conocidas. Si crea campañas de marketing digital con frecuencia, es posible que ya disponga de recursos web en un sistema de administración de control de código fuente. Puede implementar en Aplicaciones web directamente desde opciones de control de código fuente populares, como [Visual Studio], [Visual Studio Online] y [Git]\: local, GitHub, BitBucket, DropBox, Mercurial, etc.
 
@@ -95,8 +95,6 @@ En el nivel **Estándar**, supervise las notificaciones de correo electrónico r
 
 [Azure App Service]: /services/app-service/web/
 
-[Orchard]: web-sites-dotnet-orchard-cms-gallery.md
-[Umbraco]: web-sites-gallery-umbraco.md
 [WordPress]: web-sites-php-web-site-gallery.md
   
 [MySQL]: web-sites-php-mysql-deploy-use-git.md
@@ -140,4 +138,4 @@ En el nivel **Estándar**, supervise las notificaciones de correo electrónico r
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

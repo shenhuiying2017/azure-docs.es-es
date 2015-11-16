@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introducción a los servicios fiables del Service Fabric de Microsoft Azure"
-   description="Creación de una aplicación de Service Fabric mediante servicios con y sin estado."
+   pageTitle="Introducción a Reliable Services | Microsoft Azure"
+   description="Introducción a la creación de una aplicación de Service Fabric de Microsoft Azure mediante servicios con y sin estado."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="10/15/2015"
    ms.author="vturecek"/>
 
-# Introducción a los servicios fiables del Service Fabric de Microsoft Azure
+# Introducción a Reliable Services de Service Fabric de Microsoft Azure
 
-Una aplicación de Service Fabric contiene uno o más servicios que ejecutan el código. Este tutorial le guiará a través del proceso de creación de aplicaciones de Service Fabric "Hello World" sin estado y con estado mediante el modelo de programación [*servicios fiables*](../Service-Fabric/service-fabric-reliable-services-introduction.md).
+Una aplicación de Service Fabric contiene uno o varios servicios que ejecutan el código. Este tutorial le guiará a través del proceso de creación de aplicaciones de Service Fabric "Hello World" sin estado y con estado mediante el modelo de programación [*Reliable Services*](service-fabric-reliable-services-introduction.md).
 
 Un servicio sin estado es el tipo de servicio que existe principalmente en aplicaciones en la nube hoy en día. El servicio se considera sin estado porque el propio servicio no contiene datos que se necesiten almacenar de forma fiable o ofrecer con alta disponibilidad: en otras palabras, si una instancia de un servicio sin estado se cierra, se perderá todo su estado interno. En estos tipos de servicios, el estado debe almacenarse en un almacén externo, como Tablas de Azure o en una base de datos SQL, para que resulten fiables y tengan una alta disponibilidad.
 
@@ -26,13 +26,13 @@ Service Fabric presenta una nueva clase de servicio con estado: un servicio que 
 
 En este tutorial, implementará un servicio sin estado y con estado que mantenga un contador interno. En el servicio sin estado, el valor del contador se pierde cuando el servicio se reinicia o se mueve. Sin embargo, en el servicio con estado, el estado del contador se vuelve fiable gracias a Service Fabric de modo que si la ejecución del servicio se interrumpe por algún motivo en el medio del recuento, puede retomarse desde donde se quedó.
 
-## Crear un servicio sin estado
+## Creación de un servicio sin estado
 
 Comencemos con un servicio sin estado.
 
 Inicie Visual Studio 2015 RC como **Administrador** y cree un nuevo proyecto de **Aplicación de Service Fabric** denominado *HelloWorld*:
 
-![Utilice el cuadro de diálogo Nuevo proyecto para crear una nueva aplicación de Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+![Uso del cuadro de diálogo Nuevo proyecto para crear una nueva aplicación de Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
 Después, cree un proyecto de **servicio sin estado** denominado *HelloWorldStateless*:
 
@@ -100,7 +100,7 @@ Esta orquestación es administrada por el sistema para mantener el servicio con 
 
 En este ejemplo de servicio sin estado, el número se almacena en una variable local. Pero dado que se trata de un servicio sin estado, el valor que se va a almacenar solo existe para el ciclo de vida actual de la instancia de servicio en que se encuentra. Cuando se mueve o se reinicia el servicio, el valor se pierde.
 
-## Crear un servicio con estado
+## Creación de un servicio con estado
 
 Para cambiar el valor sin estado del contador a una alta disponibilidad y persistencia, incluso cuando se mueve o reinicia el servicio, necesitamos un servicio con estado.
 
@@ -110,7 +110,7 @@ En la misma aplicación **HelloWorld**, agregue un nuevo servicio haciendo clic 
 
 Seleccione **Servicio con estado de Service Fabric** y asígnele el nombre "HelloWorldStateful". Haga clic en **Agregar**.
 
-![Utilice el cuadro de diálogo Nuevo proyecto para crear un nuevo servicio con estado de Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
+![Uso del cuadro de diálogo Nuevo proyecto para crear un nuevo servicio con estado de Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
 La aplicación ahora debería tener dos servicios: el servicio sin estado *HelloWorld* y el servicio con estado *HelloWorldStateful*.
 
@@ -204,4 +204,4 @@ Una vez que los servicios se estén ejecutando, podrá ver los eventos ETW gener
 
 [Referencia para desarrolladores de servicios confiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

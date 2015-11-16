@@ -14,12 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/29/2015"
+	ms.date="11/03/2015"
 	ms.author="jroth" />
 
 # Guía de rendimiento de Base de datos SQL de Azure
 
-## Información general
+## Información general 
 
 Base de datos SQL de Microsoft Azure tiene tres [niveles de servicio](sql-database-service-tiers.md), Básico, Estándar y Premium. Todos aíslan de forma estricta el recurso proporcionado a Base de datos SQL Azure y garantizan un rendimiento predecible. El rendimiento garantizado para la base de datos aumenta de Básico, pasando por Estándar, hasta Premium.
 
@@ -114,8 +114,8 @@ La replicación geográfica activa y la estándar proporcionan similares caracte
 
 Para obtener más información, consulte [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md).
 
-### Almacenamiento Max XTP In-Memory
-**Almacenamiento Max XTP In-Memory** hace referencia a la cantidad máxima de almacenamiento disponible para [vista previa de In-Memory OLTP](sql-database-in-memory.md) para bases de datos Premium. Puede usar el Portal de Azure o la vista **sys.dm\_db\_resource\_stats** para supervisar el uso del almacenamiento de In-Memory. Para obtener más información sobre la supervisión, consulte [Supervisión del almacenamiento en memoria de XTP](sql-database-in-memory-oltp-monitoring.md).
+### Almacenamiento máximo de In-Memory OLTP
+**Almacenamiento máximo de In-Memory OLTP** se refiere a la cantidad máxima de almacenamiento disponible en la [vista previa de In-Memory OLTP](sql-database-in-memory.md) para bases de datos Premium. También se conoce a veces como *almacenamiento en memoria de XTP*. Puede usar el Portal de Azure o la vista **sys.dm\_db\_resource\_stats** para supervisar el uso del almacenamiento de In-Memory. Para obtener más información sobre la supervisión, consulte [Supervisión del almacenamiento de In-Memory OLTP](sql-database-in-memory-oltp-monitoring.md).
 
 >[AZURE.NOTE]La vista previa de In-Memory OLTP actualmente admite solamente bases de datos únicas y no bases de datos dentro de grupos de bases de datos elásticas.
 
@@ -160,7 +160,7 @@ Si va a analizar una carga de trabajo de SQL Server local, modifique la consulta
 
 Aquí también, las consultas devuelven el recuento de un punto en el tiempo, por ello recopilar varias muestras durante un periodo de tiempo le ayuda a comprender mejor el uso de las sesiones.
 
-Para el análisis de Base de datos SQL, también puede consultar **sys.resource\_stats** para obtener estadísticas históricas sobre las sesiones usando la columna **active\_session\_count**. En la siguiente sección de supervisión se proporciona más información sobre cómo usar esta vista.
+Para el análisis de Base de datos SQL, también puede consultar **sys.resource\_stats** a fin de obtener estadísticas históricas sobre las sesiones usando la columna **active\_session\_count**. En la siguiente sección de supervisión se proporciona más información sobre cómo usar esta vista.
 
 ## Supervisión del uso de recursos
 Hay dos vistas que permiten supervisar el uso de recursos para una Base de datos SQL con respecto a su nivel de servicio:
@@ -186,7 +186,7 @@ Dado que esta vista proporciona una panorámica más granular del uso de recurso
 	    MAX(avg_memory_usage_percent) AS 'Maximum Memory Usage In Percent' 
 	FROM sys.dm_db_resource_stats;  
 
-Para otras consultas, vea los ejemplos de [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx).
+Para otras consultas, consulte los ejemplos de [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
 ### Uso de sys.resource\_stats
 
@@ -200,7 +200,7 @@ Según los datos, esta base de datos tiene actualmente una carga máxima de CPU 
 
 Merece la pena mencionar que otros tipos de aplicaciones pueden interpretar el mismo gráfico de manera diferente. Por ejemplo, si una aplicación intentara procesar datos de nóminas todos los días y tuviera el mismo gráfico, este tipo de modelo de "trabajo por lotes" podría funcionar bien en un nivel de rendimiento P1. El nivel de rendimiento P1 tiene 100 DTU en comparación con las 200 DTU del nivel de rendimiento P2. Esto significa que el nivel de rendimiento P1 proporciona la mitad de rendimiento que el nivel de rendimiento P2. Hasta un 50 % de uso de CPU en P2 es igual al 100 % de uso de CPU en P1. Siempre que la aplicación no agote los tiempos de espera, quizás no importe si un trabajo grande tarda 2 o 2,5 horas en completarse siempre que se lleve a cabo hoy. Una aplicación en esta categoría puede usar probablemente un nivel de rendimiento P1. Puede aprovechar el hecho de que hay períodos de tiempo durante el día en que el uso de recursos es menor, lo que significa que las "cargas elevadas" podrían retrasarse a uno de esos momentos más tarde. El nivel de rendimiento P1 puede ser adecuado para este tipo de aplicación (y ahorrar dinero) siempre que los trabajos puedan completarse a tiempo cada día.
 
-Base de datos SQL de Azure muestra información sobre los recursos consumidos para cada base de datos activa en la vista **sys.resource\_stats** de la base de datos **maestra** de cada servidor. Los datos de la tabla se agregan en intervalos de 5 minutos. Con los niveles de servicio Básico, Estándar y Premium, los datos pueden tardar más de 5 minutos en aparecer en la tabla, lo que significa que estos datos son mejores para el análisis histórico que para análisis en tiempo real. Al consultar la vista **sys.resource\_stats** se muestra el historial reciente de una base de datos para validar si la reserva seleccionada proporcionó el rendimiento deseado cuando era necesario.
+Base de datos SQL de Azure muestra información sobre los recursos consumidos para cada base de datos activa en la vista **sys.resource\_stats** de la base de datos **maestra** de cada servidor. Los datos de la tabla se agregan en intervalos de 5 minutos. Con los niveles de servicio Básico, Estándar y Premium, los datos pueden tardar más de 5 minutos en aparecer en la tabla, lo que significa que estos datos son mejores para el análisis histórico que para análisis en tiempo real. Al consultar la vista **sys.resource\_stats**, se muestra el historial reciente de una base de datos para validar si la reserva seleccionada proporcionó el rendimiento deseado cuando era necesario.
 
 >[AZURE.NOTE]Tiene que estar conectado a la base de datos **maestra** de su servidor lógico de Base de datos SQL para poder consultar **sys.resource\_stats** en los ejemplos siguientes.
 
@@ -213,7 +213,7 @@ En el ejemplo siguiente se muestra cómo se exponen los datos en esta vista:
 
 ![estadísticas de recursos del sistema](./media/sql-database-performance-guidance/sys_resource_stats.png)
 
-En el ejemplo siguiente se muestran las diferentes formas a través de las que puede entender el uso de recursos de Base de datos SQL, mediante la vista de catálogo **sys.resource\_stats**.
+En el ejemplo siguiente, se muestran las diferentes formas a través de las cuales puede entender el uso de recursos de Base de datos SQL, mediante la vista de catálogo **sys.resource\_stats**.
 
 >[AZURE.NOTE]Algunas de las columnas de **sys.resource\_stats** han cambiado en las bases de datos V12 actuales, por lo que las consultas de ejemplo en los ejemplos siguientes podrían generar errores. Las actualizaciones futuras de este tema proporcionarán nuevas versiones de las consultas que resuelven este problema.
 
@@ -491,4 +491,4 @@ Algunas aplicaciones de base de datos contienen cargas de trabajo con operacione
 
 Los niveles de servicio de Base de datos SQL de Azure le permiten elevar el listón de los tipos de aplicaciones que puede compilar en la nube. Cuando se combina con la optimización de aplicaciones, puede obtener un rendimiento eficaz y confiable para su aplicación. Este documento describe las técnicas recomendadas para optimizar el consumo de recursos de la base de datos que encaja perfectamente en uno de los niveles de rendimiento. La optimización es un ejercicio continuado en el modelo de nube, y los niveles de servicio y sus niveles de rendimiento permiten a los administradores maximizar el rendimiento y minimizar los costos en la plataforma de Microsoft Azure.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

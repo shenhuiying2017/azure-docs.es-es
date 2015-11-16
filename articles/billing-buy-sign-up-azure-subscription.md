@@ -20,12 +20,6 @@
 
 # Compra de una suscripción de Azure o registro para obtener una
 
-Este tema le ayudará con las siguientes tareas:
-
-* Registrarse para suscribirse a una prueba gratuita de Azure
-* Actualizar la suscripción de una prueba gratuita de Azure a una suscripción de pago por uso
-* Activar la suscripción de Azure mediante una clave de activación de servicio en línea (una clave de 5 x 5)
-
 ## Registrarse para suscribirse a una prueba gratuita de Azure
 Para registrarse para obtener una suscripción de prueba gratuita de Azure, debe proporcionar un número de teléfono, una tarjeta de crédito y una [cuenta Microsoft](https://www.microsoft.com/es-ES/account/faq.aspx) (lo que antes se conocía como Windows Live ID) o una cuenta profesional o educativa (que también se conoce como Id. de organización). El número de teléfono y la tarjeta de crédito solo se usan para comprobar su identidad, no se realizará ningún cargo en su tarjeta de crédito.
 
@@ -39,11 +33,8 @@ Para registrarse para obtener una suscripción de prueba gratuita de Azure:
 
 3. En la sección **sobre usted**, escriba su información personal. Tenga en cuenta que el país no se puede cambiar una vez que se ha especificado. ![La captura de pantalla de información personal](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
-4. En la comprobación por teléfono se envía un código a su teléfono usando el método elegido: llamada telefónica o SMS. Al escribir el código que ha recibido, nos ayuda comprobar su identidad. </br></br> En la sección **Comprobación por teléfono**, seleccione el código de marcado internacional de su país, escriba el número de teléfono (no escriba el código de marcado interno) y luego seleccione **Enviar mensaje de texto** o **Llamarme**. Después de recibir un código de comprobación, escríbalo en el cuadro **Comprobar código** y luego seleccione el botón **Comprobar código** para comprobar su número de teléfono. No se puede usar un número de teléfono VOIP para la comprobación por teléfono.</br> ![La captura de pantalla sobre la comprobación por teléfono](./media/billing-buy-sign-up-azure-subscription/PhoneVerify.png)</br>Si no recibe un mensaje de texto o llamada, pruebe a usar un número de teléfono diferente o póngase en contacto con el [servicio de soporte técnico de Microsoft](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obtener ayuda. </br>
-5. Después de completar la comprobación por teléfono, pase a la sección de comprobación de la tarjeta.
-
- ![cardverify](./media/billing-buy-sign-up-azure-subscription/VardVerify.png)</br>
-
+4. En la comprobación por teléfono se envía un código a su teléfono usando el método elegido: llamada telefónica o SMS. Al escribir el código que ha recibido, nos ayuda comprobar su identidad. </br></br> En la sección **Comprobación por teléfono**, seleccione el código de marcado internacional de su país, escriba el número de teléfono (no escriba el código de marcado interno) y luego seleccione **Enviar mensaje de texto** o **Llamarme**. Después de recibir un código de comprobación, escríbalo en el cuadro **Comprobar código** y luego seleccione el botón **Comprobar código** para comprobar su número de teléfono. No se puede usar un número de teléfono VOIP para la comprobación por teléfono.</br> ![La captura de pantalla sobre la comprobación por teléfono](./media/billing-buy-sign-up-azure-subscription/PhoneVerify.png)</br>Si no recibe un mensaje de texto o una llamada, pruebe a usar un número de teléfono diferente o póngase en contacto con el [servicio de soporte técnico de Microsoft](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obtener ayuda. </br>
+5. Después de completar la comprobación por teléfono, pase a la sección de comprobación de la tarjeta. ![cardverify](./media/billing-buy-sign-up-azure-subscription/VardVerify.png)</br>
 6. Después de completar la comprobación de la tarjeta de crédito, seleccione la opción **Contrato** y luego seleccione **Registrarse**. ![Registro](./media/billing-buy-sign-up-azure-subscription/Signup.png)</br> Puede que la suscripción tarde en configurarse unos minutos. Si la configuración de la suscripción no finaliza en 15 minutos, póngase en contacto con el [servicio de soporte técnico de Microsoft](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obtener ayuda. </br> Si recibe un mensaje de error, siga los pasos que se indican en el mensaje para resolver el problema. Un mensaje de error típico es:
 
 **Lo sentimos, no se pudo completar la operación. Inténtelo de nuevo más tarde o vuelva a cargar la página web.** </br>
@@ -68,4 +59,4 @@ Si compró créditos de Azure bajo licencia Open a un revendedor, siga estos pas
 2. Escriba la clave de producto y luego marque la primera opción de contrato (y también la segunda opción si desea recibir ofertas especiales) para activar la suscripción.</br>![CLAVE DE ACTIVACIÓN DEL SERVICIO EN LÍNEA](./media/billing-buy-sign-up-azure-subscription/OSAkey.png)
 3. Seleccione **Activar**.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

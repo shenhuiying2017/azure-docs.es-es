@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/20/2015"
+   ms.date="11/03/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect: historial de versiones
@@ -21,6 +21,44 @@
 El equipo de Azure Active Directory actualiza periódicamente Azure AD Connect con nuevas características y funciones. No todas las adiciones son aplicables a todas las audiencias.
 
 Este artículo está diseñado para ayudarle a realizar un seguimiento de las versiones que se han publicado y comprender si necesita actualizar a la versión más reciente o no.
+
+Vínculos relacionados:
+
+- Para obtener información sobre los permisos necesarios para aplicar una actualización, vea [cuentas y permisos](active-directory-aadconnect-accounts-permissions.md#upgrade)
+- [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.0.9125.0
+Publicado: noviembre de 2015
+
+**Nuevas características:**
+
+- Puede volver a configurar ADFS para la confianza de Azure AD.
+- Puede actualizar el esquema de Active Directory y volver a generar reglas de sincronización.
+- Puede deshabilitar una regla de sincronización.
+- Puede definir "AuthoritativeNull" como un nuevo literal en una regla de sincronización.
+
+**Nuevas características de la versión preliminar:**
+
+- [Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
+- Compatibilidad para sincronización de contraseñas de [Servicios de dominio de Azure AD](active-directory-ds-getting-started.md).
+
+**Nuevo escenarios admitido:**
+
+- Admite varias organizaciones de Exchange locales. Consulte [Implementaciones híbridas con varios bosques de Active Directory](https://technet.microsoft.com/es-ES/library/jj873754.aspx) para obtener más información.
+
+**Problemas corregidos:**
+
+- Problemas de sincronización de contraseñas:
+    - Un objeto movido desde fuera de ámbito a dentro de ámbito no tendrá su contraseña sincronizada. Esto incluye tanto UO como el filtrado de atributos.
+    - La selección de una nueva UO para incluir en sincronización no requiere una sincronización de contraseñas completa.
+    - Cuando un usuario deshabilitado se habilita, la contraseña no se sincroniza.
+    - La cola de reintentos de contraseña es infinita y el límite anterior de 5.000 objetos para retirar anterior se ha quitado.
+    - [Solución de problemas mejorada](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
+- No se puede conectar con Active Directory con el nivel funcional de bosque de Windows Server 2016.
+- No se puede cambiar el grupo usado para el filtrado de grupo tras la instalación inicial.
+- Ya no se creará un nuevo perfil de usuario en el servidor de Azure AD Connect para cada usuario haciendo un cambio de contraseña con la escritura diferida de contraseñas habilitada.
+- No se pueden usar valores enteros largos en ámbitos de reglas de sincronización.
+- La casilla de verificación "Reescritura de dispositivos" permanece deshabilitada si hay controladores de dominio inalcanzables.
 
 ## 1\.0.8667.0
 Fecha de publicación: agosto de 2015
@@ -41,10 +79,11 @@ Fecha de publicación: agosto de 2015
 - No se puede habilitar y deshabilitar el "Modo provisional" si se han agregado atributos de extensión.
 - La escritura diferida de contraseñas produce un error en alguna configuración debido a una contraseña incorrecta en el conector de Active Directory.
 - No se puede actualizar la sincronización de directorios si dn se usa en el filtrado de atributos.
+- Uso excesivo de CPU al utilizar el restablecimiento de contraseña.
 
 **Características de versión la preliminar eliminadas:**
 
-- La característica de la versión preliminar [Reescritura de usuarios](active-directory-aadconnect-feature-preview.md#user-writeback) se ha eliminado temporalmente a raíz de los comentarios de nuestros clientes de dicha versión. Se volverá a agregar más adelante después de examinar los comentarios proporcionados.
+- La característica [Reescritura de usuarios](active-directory-aadconnect-feature-preview.md#user-writeback) de la versión preliminar se ha eliminado temporalmente a raíz de los comentarios de nuestros clientes de dicha versión. Se volverá a agregar más adelante después de examinar los comentarios proporcionados.
 
 ## 1\.0.8641.0
 Fecha de publicación: junio de 2015
@@ -160,4 +199,4 @@ Fecha de publicación: septiembre de 2014
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

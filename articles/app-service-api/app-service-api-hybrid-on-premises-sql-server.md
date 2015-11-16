@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
-	ms.author="tarcher"/>
+	ms.date="11/03/2015" 
+	ms.author="tdykstra"/>
 
 # Conexión a un servidor SQL local desde una aplicación de API en el Servicio de aplicaciones de Azure mediante Conexiones híbridas
 
@@ -430,4 +430,4 @@ Ahora que la infraestructura de la conexión híbrida se ha completado, es el mo
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

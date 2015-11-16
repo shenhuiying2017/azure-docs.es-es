@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Escenarios de Testability de Service Fabric: comunicación del servicio" 
+   pageTitle="Capacidad de prueba: comunicación del servicio | Microsoft Azure" 
    description="La comunicación entre servicios es un punto crítico de integración de una aplicación de Service Fabric. En este artículo se describen las consideraciones de diseño y las técnicas de prueba." 
    services="service-fabric" 
    documentationCenter=".net" 
@@ -16,7 +16,7 @@
    ms.date="08/25/2015"
    ms.author="vturecek"/>
 
-# Escenarios de Testability de Service Fabric: comunicación del servicio
+# Escenarios de capacidad de prueba de Service Fabric: comunicación del servicio
 
 Los microservicios y los estilos de arquitectura orientados a servicios emergen naturalmente en Service Fabric. En estos tipos de arquitecturas distribuidas, las aplicaciones de microservicio divididas en componentes suelen constar de varios servicios que necesitan comunicarse entre sí. Incluso en el caso más simple, por lo general dispone al menos de un servicio web sin estado y de un servicio de almacenamiento de datos con estado que necesitan comunicarse.
 
@@ -101,4 +101,4 @@ En este ejemplo, se establece `QuorumLossMode` en `PartialQuorumLoss` para indic
 
 [Más información sobre los escenarios de Testability](service-fabric-testability-scenarios.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

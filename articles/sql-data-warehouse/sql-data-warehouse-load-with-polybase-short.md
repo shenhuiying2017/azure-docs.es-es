@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="11/04/2015"
    ms.author="sahajs;barbkess"/>
 
 
@@ -24,7 +24,7 @@
 - [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
-En este tutorial se le enseñará a cargar datos en el Almacenamiento de datos SQL mediante PolyBase.
+En este tutorial se le enseñará a cargar datos en el Almacenamiento de datos SQL mediante PolyBase. Para obtener más información sobre PolyBase, consulte el [Tutorial de PolyBase en el Almacenamiento de datos SQL][].
 
 
 ## Requisitos previos
@@ -75,7 +75,6 @@ A continuación, debe crear tablas externas en el Almacenamiento de datos SQL pa
 - [Create External Data Source]\: para especificar la ubicación del almacenamiento blobs de Azure.
 - [Create External File Format]\: para especificar el diseño de los datos.
 - [Create External Table]\: para hacer referencia a los datos del almacenamiento de Azure.
-
 
 
 ```
@@ -132,7 +131,7 @@ SELECT count(*) FROM dbo.DimDate2External;
 
 ## Paso 4: Carga de datos en Almacenamiento de datos SQL
 
-- Para cargar los datos en una nueva tabla, ejecute la instrucción CREATE TABLE AS SELECT. La nueva tabla hereda las columnas designadas en la consulta. Hereda los tipos de datos de esas columnas de la definición de tabla externa. 
+- Para cargar los datos en una tabla nueva, ejecute la instrucción [CREATE TABLE AS SELECT (Transact-SQL)][]. La nueva tabla hereda las columnas designadas en la consulta. Hereda los tipos de datos de esas columnas de la definición de tabla externa. 
 - Para cargar los datos en una tabla existente, use la instrucción INSERT...SELECT.  
 
 
@@ -144,18 +143,25 @@ CREATE TABLE dbo.DimDate2
 WITH 
 (   
     CLUSTERED COLUMNSTORE INDEX,
-		DISTRIBUTION = ROUND_ROBIN
+    DISTRIBUTION = ROUND_ROBIN
 )
 AS 
 SELECT * 
 FROM   [dbo].[DimDate2External];
 
 ```
-Vea [CREATE TABLE AS SELECT (Transact-SQL)][].
 
 
-Para obtener más información sobre PolyBase, consulte el [Tutorial de PolyBase en el Almacenamiento de datos SQL][].
+## Paso 5: Crear estadísticas de los datos recién cargados 
 
+Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas. Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos. Si desea ver una explicación detallada de las estadísticas, consulte el tema [Estadísticas][] en el grupo de temas relacionados con el desarrollo. A continuación, puede ver un ejemplo rápido de cómo crear estadísticas sobre los datos cargados y organizados en tablas que aparecen en este ejemplo.
+
+
+```
+create statistics [DateId] on [DimDate2] ([DateId]);
+create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
+create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+```
 
 <!--Article references-->
 [Tutorial de PolyBase en el Almacenamiento de datos SQL]: sql-data-warehouse-load-with-polybase.md
@@ -172,4 +178,9 @@ Para obtener más información sobre PolyBase, consulte el [Tutorial de PolyBase
 [Create Database Scoped Credential]: https://msdn.microsoft.com/es-ES/library/mt270260.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 
-<!---HONumber=Nov15_HO1-->
+
+<!--Article references-->
+
+[Estadísticas]: ./sql-data-warehouse-develop-statistics.md
+
+<!---HONumber=Nov15_HO2-->

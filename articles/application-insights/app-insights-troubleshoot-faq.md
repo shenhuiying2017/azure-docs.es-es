@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="11/04/2015" 
 	ms.author="awills"/>
  
 # Solución de problemas y preguntas - Application Insights para ASP.NET
@@ -136,12 +136,15 @@ Consulte las [notas de la versión](app-insights-release-notes.md) del SDK adecu
 + Haga clic en el botón Actualizar. La hoja se actualiza periódicamente, pero también puede hacerlo manualmente. El intervalo de actualización es mayor para intervalos de tiempo mayores.
 + En el panel de inicio de Microsoft Azure, observe el mapa de estado del servicio. Si hay algunas indicaciones de alerta, espere hasta que hayan vuelto a su estado correcto y después cierre y vuelva a abrir el cuadro de la aplicación de Application Insights.
 + Compruebe también [nuestro blog de estado](http://blogs.msdn.com/b/applicationinsights-status/).
++ Si editó ApplicationInsights.config, compruebe minuciosamente la configuración de TelemetryInitializers y TelemetryProcessors. Un parámetro o tipo con un nombre incorrecto puede provocar que el SDK no envíe datos.
 
 #### No hay datos desde que se publicó la aplicación en el servidor
 
++ Compruebe que realmente copió todas las DLL de Microsoft.ApplicationInsights en el servidor, junto con Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll.
 + En el firewall, tendrá que abrir los puertos TCP 80 y 443 para el tráfico saliente en dc.services.visualstudio.com y f5.services.visualstudio.com.
 + Si tiene que usar un servidor proxy para enviar fuera de la red corporativa, establezca el valor [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) en el archivo Web.config.
 + Windows Server 2008: asegúrese de haber instalado las siguientes actualizaciones: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523) y [KB2600217](https://support.microsoft.com/kb/2600217).
+
 
 #### <a name="q04"></a>No veo ningún dato para mi sitio web en Análisis de uso
 
@@ -166,7 +169,7 @@ Debe organizar un proxy que pueda retransmitir llamadas POST https a dc.services
 
 ## Monitor de estado no funciona
 
-Vea [Solución de problemas del Monitor de estado](app-insights-monitor-performance-live-website-now.md#troubleshooting). Los puertos del firewall son el problema más común.
+Consulte [Solución de problemas del Monitor de estado](app-insights-monitor-performance-live-website-now.md#troubleshooting). Los puertos del firewall son el problema más común.
 
 ## El Portal
 
@@ -243,4 +246,4 @@ Puede [escribir un script de PowerShell](app-insights-powershell-script-create-r
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

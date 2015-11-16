@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="garye"/>
 
 
@@ -89,8 +89,7 @@ Es cierto que el servicio no necesita los datos originales de la tarjeta de cré
 
 Ejecute el experimento por última vez (haga clic en **Ejecutar**). Si desea comprobar que el modelo sigue funcionando, haga clic en la salida del módulo [Puntuar modelo][score-model] y seleccione **Ver resultados**. Verá que aparecen los datos originales, junto con el valor de riesgo de crédito ("Etiquetas puntuadas") y el valor de probabilidad de la puntuación ("Probabilidades puntuadas").
 
-##
-Implementación del servicio web
+## Implementación del servicio web
 
 Para implementar un servicio web derivado de nuestro experimento, haga clic en **Implementar servicio web** debajo del lienzo. Estudio de aprendizaje automático implementa el experimento como servicio web y le dirige al panel de servicios.
 
@@ -98,8 +97,11 @@ Para implementar un servicio web derivado de nuestro experimento, haga clic en *
 
 Puede configurar el servicio haciendo clic en la pestaña **CONFIGURACIÓN**. Aquí puede modificar el nombre del servicio (recibe de manera predeterminada el nombre del experimento) y proporcionarle una descripción. También puede poner etiquetas más descriptivas para las columnas de entrada y salida.
 
+![Configurar el servicio web][5]
+
 ## Prueba del servicio web
-En la página **PANEL**, haga clic en el vínculo **Probar** en **Extremo predeterminado**. Aparecerá un cuadro de diálogo que le pide los datos de entrada del servicio. Se trata de las mismas columnas que aparecieron en el conjunto de datos original de riesgo de crédito alemán.
+En la página **PANEL**, haga clic en el vínculo **Probar** en **Extremo predeterminado**. Aparecerá un cuadro de diálogo que le pide los datos de entrada del servicio. Se trata de las mismas columnas que aparecieron en el conjunto de datos original de riesgo de crédito alemán. ![Prueba del servicio web][6]
+
 
 Escriba un conjunto de datos y, a continuación, haga clic en **Aceptar**.
 
@@ -114,6 +116,8 @@ Los resultados generados por el servicio web se muestran en la parte inferior de
 [2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
 [3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
 [4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png
+[5]: ./media/machine-learning-walkthrough-5-publish-web-service/publish5.png
+[6]: ./media/machine-learning-walkthrough-5-publish-web-service/publish6.png
 
 
 <!-- Module References -->
@@ -127,4 +131,4 @@ Los resultados generados por el servicio web se muestran en la parte inferior de
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

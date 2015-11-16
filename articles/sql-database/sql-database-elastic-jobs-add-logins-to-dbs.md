@@ -1,11 +1,10 @@
 <properties 
-	title="How to add a users to an elastic database pool" 
 	pageTitle="Cómo agregar usuarios a un grupo de bases de datos elásticas" 
 	description="Debe agregar un usuario con privilegios para cada base de datos del grupo." 
 	metaKeywords="azure sql database elastic databases credentials" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
-	authors="sidneyh"/>
+	authors="ddove"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="11/03/2015" 
 	ms.author="ddove; sidneyh" />
 
 # Cómo agregar usuarios a un grupo de bases de datos elásticas
@@ -33,11 +32,11 @@ La característica **Trabajos de base de datos elástica** (vista previa) le per
 
 		CREATE USER admin1 FROM LOGIN login1;
 		
-3. El usuario también debe tener permisos suficientes para ejecutar la secuencia de comandos especificada para el trabajo. Use procedimiento **sp\_addrolemember** para proporcionar al usuario los permisos mínimos necesarios para ejecutar correctamente la secuencia de comandos.
+3. El usuario también debe tener permisos suficientes para ejecutar la secuencia de comandos especificada para el trabajo. Use [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) para proporcionar al usuario los permisos mínimos necesarios para ejecutar correctamente el script.
 
 ## Pasos siguientes
 
-Para crear y administrar trabajos, vea [Creación y administración de trabajos de bases de datos elásticas](sql-database-elastic-jobs-create-and-manage.md).
+Para crear y administrar trabajos, consulte [Creación y administración de trabajos de Base de datos elástica](sql-database-elastic-jobs-create-and-manage.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -45,4 +44,4 @@ Para crear y administrar trabajos, vea [Creación y administración de trabajos 
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

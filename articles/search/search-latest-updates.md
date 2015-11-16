@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="10/01/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Novedades en la actualización más reciente de Búsqueda de Azure#
 
-Búsqueda de Azure está disponible con carácter general y ofrece un contrato de nivel de servicio (SLA) con el 99,9 % de disponibilidad para las configuraciones admitidas de la [versión 2015-02-28 de la API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Búsqueda de Azure es un servicio de búsqueda hospedado en la nube en Microsoft Azure. Está disponible con carácter general y ofrece un contrato de nivel de servicio (SLA) con el 99,9 % de disponibilidad para las configuraciones admitidas de la [versión 2015-02-28 de la API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 ##Cómo se actualizan e implementan las características
 
@@ -32,7 +32,7 @@ La biblioteca .NET y la API de REST tienen varias versiones. Las API más antigu
 
 Esta versión agrega nueva [compatibilidad con la sintaxis de consulta de Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) que se puede usar con la [versión de vista previa de la API de REST del servicio Búsqueda de Azure](search-api-2015-02-28-preview.md). Para usar la nueva sintaxis, debe especificar el `queryType` en una operación de búsqueda de documentos.
 
-Además, las dos características siguientes se extrajeron de la vista previa y ahora forman parte de la API oficial en MSDN: - Procesadores de lenguaje natural: POST en búsqueda, sugerencias y consultas de búsqueda.
+Además, las dos características siguientes se extrajeron de la vista previa y ahora forman parte de la API oficial en MSDN: - [Procesadores de lenguaje natural](search-language-support.md): POST en búsqueda, sugerencias y consultas de búsqueda.
 
 ##SDK para .NET 0.10.0-preview
 **Fecha de publicación: agosto de 2015**
@@ -125,4 +125,4 @@ La versión preliminar de [API de REST de administración](search-management-api
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

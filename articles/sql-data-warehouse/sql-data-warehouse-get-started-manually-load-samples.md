@@ -13,49 +13,50 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/02/2015"
    ms.author="lodipalm;barbkess"/>
 
 #Carga de datos de ejemplo en Almacenamiento de datos SQL
 
-Ahora que ha configurado una instancia del Almacenamiento de datos SQL puede cargar fácilmente datos de ejemplo en ella. Lo siguiente le ayudará a crear un conjunto de datos denominado AdventureWorksPDW2012 en la base de datos. Este conjunto de datos modela una estructura de almacenamiento de datos de ejemplo para una compañía ficticia llamada AdventureWorks. Tenga en cuenta que necesitará tener instalado BCP para los siguientes pasos. Si no tiene actualmente BCP instalado, instale las [Utilidades de la línea de comandos de Microsoft para SQL Server][].
+Una vez que [creó una instancia de base de datos de Almacenamiento de datos SQL][create a SQL Data Warehouse database instance], el paso siguiente es crear y cargar algunas tablas. Puede usar los scripts de ejemplo de Adventure Works que creamos para Almacenamiento de datos SQL a fin de crear y cargar tablas para una empresa ficticia llamada Adventure Works. Estos scripts usa sqlcmd para ejecutar SQL y bcp para cargar datos. Si todavía no tiene instaladas estas herramientas, siga estos vínculos para [instalar bcp][] e [instalar sqlcmd][].
 
-1. Para empezar, haga clic para descargar nuestros [Scripts de datos de ejemplo][].
+Siga estos pasos sencillos para cargar la base de datos de ejemplo de Adventure Works en Almacenamiento de datos SQL:
 
-2. Cuando se haya descargado el archivo, extraiga el contenido del archivo AdventureWorksPDW2012.zip y abra la nueva carpeta AdventureWorksPDW2012.
+1. Descargue los [scripts de ejemplo de Adventure Works para Almacenamiento de datos SQL][].
 
-3. Edite el archivo aw\_create.bat y establezca los siguientes valores en la parte superior del archivo:
+2. Extraiga los archivos del zip que descargó en un directorio de la máquina local.
 
-   a. **Servidor**: el nombre completo del servidor en el que se encuentra el Almacenamiento de datos SQL
+3. Edite el archivo extraído aw\_create.bat y defina las siguientes variables que se encuentran en la parte superior del archivo. No deje espacios en blanco entre "=" y el parámetro. A continuación, puede ver ejemplos del aspecto que deberían tener las modificaciones.
 
-   b. **Usuario**: el usuario para el servidor anterior
-   
-   c. **Contraseña**: la contraseña para el inicio de sesión del servidor suministrado
-   
-   d. **Base de datos**: el nombre de la instancia del Almacenamiento de datos SQL en el que quiera cargar datos
-   
-   Asegúrese de que no haya ningún espacio en blanco entre el “=” y estos parámetros.
-   
+    	server=mylogicalserver.database.windows.net
+    	user=mydwuser
+    	password=Mydwpassw0rd
+    	database=mydwdatabase
 
-4. Ejecute aw\_create.bat desde el directorio en el que se encuentra. Esto creará el esquema y cargará datos en todas las tablas mediante BCP.
+4. En un símbolo del sistema de Windows, ejecute el archivo aw\_create.bat editado. Asegúrese de estar en el directorio en el que guardó la versión editada de aw\_create.bat. Este script le permitirá hacer lo siguiente:
+	* Anular cualquier tabla o vista de Adventure Works que ya exista en la base de datos.
+	* Crear las vistas y tablas de Adventure Works.
+	* Cargar cada tabla de Adventure Works con bcp.
+	* Validar los recuentos de fila de cada tabla de Adventure Works.
+	* Recopilar estadísticas en cada columna de cada tabla de Adventure Works.
 
 
-## Conexión a su ejemplo y consulta
+##Consultar los datos de ejemplo
 
-Como se describe en la documentación de [conexión][], puede conectarse a esta base de datos mediante Visual Studio y SSDT. Ahora que ha cargado algunos datos de ejemplo en el Almacenamiento de datos SQL, puede ejecutar rápidamente algunas consultas para empezar.
+Una vez que carga algunos datos de ejemplo en Almacenamiento de datos SQL, puede ejecutar rápidamente algunas consultas. Para ejecutar una consulta, conéctese a la base de datos de Adventure Works que acaba de crear en Almacenamiento de datos SQL de Azure con Visual Studio y SSDT, tal como se describe en el documento de [conexión][].
 
-Podemos ejecutar una instrucción select simple para obtener toda la información de los empleados:
+Un ejemplo de una instrucción select simple para obtener toda la información de los empleados:
 
 	SELECT * FROM DimEmployee;
 
-También podemos ejecutar una consulta más compleja mediante construcciones como GROUP BY para ver la cantidad total de todas las ventas de cada día:
+Un ejemplo de una consulta más compleja con construcciones como GROUP BY para ver la cantidad total de todas las ventas de cada día:
 
 	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
 	FROM FactInternetSales
 	GROUP BY OrderDateKey
 	ORDER BY OrderDateKey;
 
-Incluso podemos usar la cláusula WHERE para filtrar órdenes desde antes de una fecha determinada:
+Ejemplos de una instrucción SELECT con una cláusula WHERE para filtrar pedidos desde antes de una fecha determinada:
 
 	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
 	FROM FactInternetSales
@@ -63,10 +64,10 @@ Incluso podemos usar la cláusula WHERE para filtrar órdenes desde antes de una
 	GROUP BY OrderDateKey
 	ORDER BY OrderDateKey;
 
-De hecho, Almacenamiento de datos SQL admite casi todas las construcciones de T-SQL que SQL Server realiza, y se pueden encontrar algunas de las diferencias en nuestra documentación para [migrar código][].
+Almacenamiento de datos SQL admite casi todas las construcciones T-SQL compatibles con SQL Server. Todas las diferencias existentes se registran en nuestra documentación sobre la [migración del código][].
 
 ## Pasos siguientes
-Ahora que le hemos dado algún tiempo para familiarizarse con los datos de ejemplo, consulte como [desarrollar][], [cargar][] o [migrar][].
+Ahora que tuvo la oportunidad de probar algunas consultas con datos de ejemplo, revise cómo [desarrollar][], [cargar][] o [migrar][] a Almacenamiento de datos SQL.
 
 <!--Image references-->
 
@@ -75,12 +76,12 @@ Ahora que le hemos dado algún tiempo para familiarizarse con los datos de ejemp
 [desarrollar]: ./sql-data-warehouse-overview-develop.md
 [cargar]: ./sql-data-warehouse-overview-load.md
 [conexión]: ./sql-data-warehouse-get-started-connect.md
-[migrar código]: ./sql-data-warehouse-migrate-code.md
-
-<!--MSDN references-->
-[Utilidades de la línea de comandos de Microsoft para SQL Server]: http://www.microsoft.com/download/details.aspx?id=36433/
+[migración del código]: ./sql-data-warehouse-migrate-code.md
+[create a SQL Data Warehouse database instance]: ./sql-data-warehouse-get-started-provision.md
+[instalar bcp]: ./sql-data-warehouse-load-with-bcp.md
+[instalar sqlcmd]: ./sql-data-warehouse-get-started-connect-query-sqlcmd.md
 
 <!--Other Web references-->
-[Scripts de datos de ejemplo]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
+[scripts de ejemplo de Adventure Works para Almacenamiento de datos SQL]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

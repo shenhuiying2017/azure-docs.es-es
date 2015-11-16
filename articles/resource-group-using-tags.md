@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
+	ms.date="10/28/2015"
 	ms.author="tomfitz"/>
 
 
@@ -155,8 +155,9 @@ Al descargar el CSV de uso correspondiente a los servicios que admiten etiquetas
 
 ## Pasos siguientes
 
-- Para obtener información sobre cómo usar Azure PowerShell al implementar recursos, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](./powershell-azure-resource-manager.md).
+- Puede aplicar restricciones y convenciones a través de su suscripción con directivas personalizadas. La directiva que defina podría requerir que se establezca una etiqueta específica para todos los recursos. Para obtener más información, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
+- Para obtener información sobre cómo usar Azure PowerShell al implementar recursos, consulte [Uso de Azure PowerShell con Administrador de recursos de Azure](./powershell-azure-resource-manager.md).
 - Para obtener información sobre cómo usar la interfaz de la línea de comandos de Azure al implementar recursos, consulte [Uso de la interfaz de la línea de comandos de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](./xplat-cli-azure-resource-manager.md).
 - Para obtener información sobre cómo usar el portal de vista previa, vea [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](./resource-group-portal.md).  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

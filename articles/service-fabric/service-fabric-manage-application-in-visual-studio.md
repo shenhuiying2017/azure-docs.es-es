@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Administración de aplicaciones de Service Fabric en Visual Studio"
-   description="Puede administrar sus servicios y aplicaciones de Service Fabric de Microsoft Azure a través de Visual Studio."
+   pageTitle="Administración de las aplicaciones en Visual Studio | Microsoft Azure"
+   description="Use Visual Studio para crear, desarrollar, empaquetar, implementar y depurar las aplicaciones y servicios de Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# Administración de aplicaciones de Service Fabric en Visual Studio
+# Uso de Visual Studio para simplificar la escritura y la administración de las aplicaciones de Service Fabric
 
-Puede administrar sus servicios y aplicaciones de Service Fabric de Microsoft Azure a través de Visual Studio. Cuando haya [configurado su entorno de desarrollo](../service-fabric-setup-your-development-environment), puede usar Visual Studio para crear aplicaciones de Service Fabric, agregar servicios, o empaquetar, registrar e implementar aplicaciones en el clúster de desarrollo local.
+Puede administrar los servicios y aplicaciones de Service Fabric a través de Visual Studio. Cuando haya [configurado su entorno de desarrollo](service-fabric-setup-your-development-environment.md), puede usar Visual Studio para crear aplicaciones de Service Fabric, agregar servicios, o empaquetar, registrar e implementar aplicaciones en el clúster de desarrollo local.
 
-Para administrar su aplicación de Service Fabric, en el Explorador de soluciones haga doble clic en su proyecto de aplicación.
+Para administrar la aplicación, en el Explorador de soluciones haga clic con el botón derecho en su proyecto de aplicación.
 
 ![Para administrar la aplicación de Service Fabric, haga clic con el botón secundario en el proyecto de aplicación][manageservicefabric]
 
 ## Implementación de la aplicación de Service Fabric
 
-La implementación de una aplicación de Service Fabric combina los pasos siguientes en una operación sencilla.
+La implementación de una aplicación combina los pasos siguientes en una operación sencilla.
 
 1. Creación del paquete de aplicación
 2. Carga del paquete de aplicación en el almacén de imágenes
@@ -79,4 +79,4 @@ Puede quitar una aplicación del clúster local mediante el Explorador de servid
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

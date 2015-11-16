@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Introducción a Búsqueda de Azure | Microsoft Azure" 
-	description="Introducción a Búsqueda de Azure" 
+	description="Introducción a Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,12 +14,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Introducción a Búsqueda de Azure
 
-Búsqueda de Microsoft Azure es un nuevo servicio que le permite incrustar funcionalidad de búsqueda en aplicaciones personalizadas. Proporciona un motor de búsqueda y almacenamiento para los datos, que se administran, y a los que se tiene acceso, mediante una biblioteca de .NET o una API de REST.
+Búsqueda de Microsoft Azure es un servicio de búsqueda hospedado en la nube que le permite insertar funcionalidad de búsqueda en aplicaciones personalizadas. Proporciona un motor de búsqueda y almacenamiento para los datos, que se administran, y a los que se tiene acceso, mediante una biblioteca de .NET o una API de REST.
 
 En este artículo se ofrece una introducción a la API de REST de Búsqueda de Azure.
 
@@ -378,4 +378,4 @@ Si necesita un actualizador sobre dónde buscar las páginas de configuración, 
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -54,12 +54,13 @@ Aprenda a usar determinadas características de vista previa de Azure Active Dir
 
 Estos vínculos serán útiles para explorar el servicio en profundidad:
 
+- Consulte la [información de precios de Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c)
 - Obtenga ayuda sobre el desbordamiento de pila con las etiquetas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) o [adal](http://stackoverflow.com/questions/tagged/adal).
-- Envíenos sus ideas sobre la versión de vista previa mediante la sección de [opiniones de los usuarios](http://feedback.azure.com/forums/169401-azure-active-directory), ¡queremos conocer la suya! Use la frase "AzureADB2C:" en el título de la entrada para que podamos encontrarla.
+- Envíenos sus ideas sobre la versión preliminar con [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory); ¡queremos conocerlas! Use la frase "AzureADB2C:" en el título de la entrada para que podamos encontrarla.
 - Azure Active Directory B2C es compatible con los protocolos estándar del sector, OpenID Connect y OAuth 2.0, mediante el modelo de registro de aplicaciones que llamamos "Modelo de aplicaciones v2.0".
   - [Referencia de protocolos del modelo de aplicaciones v2.0](active-directory-b2c-reference-protocols.md)
   - [Referencia de tokens del modelo de aplicaciones v2.0](active-directory-b2c-reference-tokens.md)
 - [P+F sobre Azure Active Directory B2C](active-directory-b2c-faqs.md)
 - [Presentación de solicitudes de soporte técnico con respecto a Azure Active Directory B2C](active-directory-b2c-support.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

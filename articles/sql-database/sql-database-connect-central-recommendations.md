@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/02/2015" 
 	ms.author="genemi"/>
 
 
@@ -100,20 +100,10 @@ A menos que el programa vuelva a usar la conexión para otra operación inmediat
 - Cerrar la conexión.
 
 
-#### Se inició una excepción al usarse un grupo
-
-
-Al habilitarse la agrupación de conexiones y producirse un error de tiempo de espera u otro error de inicio de sesión, se iniciará una excepción. Se producirá un error en los intentos de conexión posteriores durante los próximos cinco segundos, lo que se conoce como *período de bloqueo*.
-
-Si la aplicación intenta conectarse durante el período de bloqueo, la primera excepción se iniciará de nuevo. Tras la finalización del período de bloqueo, los errores posteriores dan lugar a un nuevo período de bloqueo que dura el doble que el período de bloqueo anterior.
-
-La duración máxima de un período de bloqueo es de 60 segundos.
-
-
 ### Puertos que no sea simplemente 1433 en V12
 
 
-En ocasiones, las conexiones de cliente a la base de datos de SQL Azure V12 omiten al proxy e interactúan directamente con la base de datos. Los puertos que no sean 1433 se convierten en puertos importantes. Para obtener información detallada, consulte:<br/> [Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+En ocasiones, las conexiones de cliente a la base de datos de SQL Azure V12 omiten al proxy e interactúan directamente con la base de datos. Los puertos que no sean 1433 se convierten en puertos importantes. Para obtener información detallada, vea:<br/> [Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
 La siguiente sección tiene más que decir sobre el control de errores transitorios y la lógica de reintento.
@@ -131,7 +121,12 @@ El sistema de Azure tiene la capacidad de volver a configurar dinámicamente ser
 
 Sin embargo, una reconfiguración podría hacer que su programa cliente perdiera su conexión a Base de datos SQL. Este error se denomina *error transitorio*.
 
-Su programa cliente puede intentar restablecer una conexión después de esperar quizás de 6 a 60 segundos entre reintentos. Debe proporcionar la lógica de reintento en su cliente.
+Si el programa cliente tiene lógica de reintento, puede intentar restablecer una conexión después de dar tiempo a que se corrijan los errores transitorios.
+
+Se recomienda un retraso de 5 segundos antes del primer reintento. Si se vuelve a intentar después de un retraso menor de 5 segundos, se correrá el riesgo de sobrecargar el servicio en la nube. Para cada intento siguiente el retraso debe aumentar exponencialmente, hasta un máximo de 60 segundos.
+
+Una explicación del *período de bloqueo* para clientes que usan ADO.NET está disponible en [Grupos de conexión de SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
+
 
 Para obtener ejemplos de código que ilustren la lógica de reintento, consulte: - [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
 
@@ -174,4 +169,4 @@ Se proporcionan varios ejemplos de código para clientes que se ejecutan en Wind
 
 - [Bibliotecas de conexiones para la base de datos SQL y SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

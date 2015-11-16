@@ -178,7 +178,7 @@ Aquí está la definición del servicio vinculado de Almacén de Azure Data Lake
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -187,4 +187,4 @@ Aquí está la definición del servicio vinculado de Almacén de Azure Data Lake
 
 Vea [Movimiento de datos a y desde el Almacén de Azure Data Lake](data-factory-azure-datalake-connector.md) para obtener descripciones de las propiedades JSON del servicio vinculado de Almacén de Azure Data Lake y de los fragmentos de código JSON del conjunto de datos.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

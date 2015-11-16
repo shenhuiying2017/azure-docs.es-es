@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Obtención de información sobre el consumo de recursos de Microsoft Azure"
+   pageTitle="Obtención de información sobre el consumo de recursos de Microsoft Azure | Microsoft Azure"
    description="Proporciona información general conceptual de las API de uso de facturación de Azure y de RateCard, que se utilizan para proporcionar información sobre el consumo de recursos y tendencias de Azure."
    services="billing"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="07/07/2015"
+   ms.date="11/02/2015"
    ms.author="mobandyo;bryanla"/>
 
 # Obtención de información sobre el consumo de recursos de Microsoft Azure 
@@ -72,10 +72,10 @@ Los clientes y socios pueden utilizar la API de RateCard de recursos de Azure pa
 
 ## Pasos siguientes
 + Consulte [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (Referencia de API de REST de facturación de Azure) para obtener más detalles sobre ambas API, que forman parte del conjunto de API proporcionadas por Administrador de recursos de Azure.
-+ Si desea profundizar en el código de ejemplo, consulte [Microsoft Azure Billing API Code Samples on Github](https://github.com/Azure/BillingCodeSamples) (Códigos de ejemplo de API de facturación de Microsoft Azure en Github).
++ Si quiere profundizar en el código de ejemplo, consulte nuestros ejemplos de código de la API de facturación de Microsoft Azure en [Ejemplos de código de Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
 ## Más información
 + Consulte el artículo [Información general de Administrador de recursos de Azure](resource-group-overview.md) para obtener más información sobre Administrador de recursos de Azure.
 + Para obtener información adicional acerca del conjunto de herramientas necesarias para ayudarle a comprender el gasto en nube, consulte el artículo de Gartner [Market Guide for IT Financial Management (ITFM) Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb) (Guía de mercado para las herramientas de administración financiera de TI (ITFM)).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

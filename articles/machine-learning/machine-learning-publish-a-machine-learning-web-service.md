@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="11/03/2015"
 	ms.author="garye"/>
 
 # Implementar un servicio web de Aprendizaje automático de Azure
@@ -24,11 +24,11 @@ Desde una perspectiva general, esto se realiza en tres pasos:
 
 - **[Crear un experimento de formación]**: el Estudio de aprendizaje automático de Azure es un entorno de desarrollo visual de colaboración que se utiliza para entrenar y probar un modelo de análisis predictivo con los datos de entrenamiento que proporcione.
 - **[Convertirlo a un experimento predictivo]**: una vez que el modelo se ha entrenado con datos existentes y está listo para usarlo para puntuar nuevos datos, debe preparar y simplificar el experimento para la puntuación.
-- **[Implementarlo como un servicio web]**: con un solo clic, puede publicar el experimento de puntuación como un servicio web de Azure. Los usuarios pueden enviar datos al modelo y recibir las predicciones de su modelo.
+- **[Implementarlo como un servicio web]**: con un solo clic, puede implementar el experimento de puntuación como un servicio web de Azure. Los usuarios pueden enviar datos al modelo y recibir las predicciones de su modelo.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Una vez que haya publicado el servicio web, puede:
+Una vez que haya implementado el servicio web, puede hacer lo siguiente:
 
 - **[obtener acceso]** a él través de la API del servicio web;
 - **[administrarlo]** mediante el Portal de administración de Azure; y
@@ -55,20 +55,20 @@ El proceso de creación y administración de experimentos de entrenamiento se tr
 
 ## Convertir un experimento de entrenamiento en experimento predictivo
 
-Una vez entrenado el modelo, está listo para usarlo para puntuar nuevos datos. Para ello, convierta el experimento de entrenamiento en un experimento predictivo. Al efectuar la conversión a un experimento predictivo, estará preparando el modelo formado para publicarlo como servicio web de puntuación. Los usuarios del servicio web enviarán datos de entrada a su modelo y el modelo devolverá los resultados de predicción. Por lo tanto, cuando efectúe la conversión a un experimento predictivo, deberá tener en cuenta cómo espera que utilicen el modelo los demás.
+Una vez entrenado el modelo, está listo para usarlo para puntuar nuevos datos. Para ello, convierta el experimento de entrenamiento en un experimento predictivo. Al efectuar la conversión a un experimento predictivo, estará preparando el modelo entrenado para implementarlo como servicio web de puntuación. Los usuarios del servicio web enviarán datos de entrada a su modelo y el modelo devolverá los resultados de predicción. Por lo tanto, cuando efectúe la conversión a un experimento predictivo, deberá tener en cuenta cómo espera que usen el modelo los demás.
 
-Para convertir su experimento de entrenamiento en un experimento predictivo, haga clic en **Ejecutar** en la parte inferior del lienzo de experimento y luego haga clic en **Configurar servicio web**.
+Para convertir su experimento de entrenamiento en un experimento predictivo, haga clic en **Ejecutar** en la parte inferior del lienzo de experimento, haga clic en **Configurar servicio web** y luego en **Servicio web predictivo**.
 
 ![Convertir en experimento de puntuación](./media/machine-learning-publish-a-machine-learning-web-service/figure-1.png)
 
-Para obtener más detalles sobre cómo realizar esta conversión, consulte [Convertir un experimento de entrenamiento de aprendizaje automático en un experimento predictivo](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+Para obtener más detalles sobre cómo realizar esta conversión, consulte [Convertir un experimento de entrenamiento en Aprendizaje automático en un experimento predictivo](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
 
 ## Implementar el experimento predictivo como servicio web
 
-Ahora que ha preparado el experimento predictivo suficientemente, puede publicarlo como un servicio web de Azure. Mediante el servicio web, los usuarios pueden enviar datos a su modelo y el modelo devolverá las predicciones.
+Ahora que ha preparado el experimento predictivo suficientemente, puede implementarlo como servicio web de Azure. Mediante el servicio web, los usuarios pueden enviar datos a su modelo y el modelo devolverá las predicciones.
 
-Para publicar su experimento predictivo, haga clic en **Ejecutar** en la parte inferior del lienzo del experimento y luego haga clic en **Publicar servicio web**. El servicio web está configurado y se colocará en el panel del servicio web.
+Para publicar su experimento predictivo, haga clic en **Ejecutar** en la parte inferior del lienzo del experimento y luego haga clic en **Implementar servicio web**. El servicio web está configurado y se colocará en el panel del servicio web.
 
 ![Implementación del servicio web](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)
 
@@ -89,27 +89,26 @@ Cuando implementa el servicio web desde el Estudio de aprendizaje automático, p
 
 El panel proporciona toda la información que necesita para tener acceso a su servicio web. Por ejemplo, la clave de API se proporciona para permitir el acceso autorizado al servicio, y las páginas de ayuda de API sirven para ayudarle a empezar a escribir el código.
 
-Para más información sobre el acceso a un servicio web de Aprendizaje automático, vea [Cómo consumir un servicio web de Aprendizaje automático de Azure publicado](machine-learning-consume-web-services.md).
+Para obtener más información sobre el acceso a un servicio web de Aprendizaje automático, vea [Cómo consumir un servicio web de Aprendizaje automático de Azure implementado](machine-learning-consume-web-services.md).
 
 
 ## Administrar el servicio web en el Portal de administración de Azure
 
-En el Portal de administración de Azure, puede administrar los servicios web haciendo clic en el servicio **Aprendizaje automático**, abriendo el área de trabajo de Aprendizaje automático y, a continuación, abriendo el servicio web desde la pestaña **SERVICIOS WEB**. Desde esta página, puede supervisar el servicio web, actualizarlo y eliminarlo. También puede agregar un segundo extremo para el servicio web además del extremo predeterminado que se crea cuando se publica.
+En el Portal de administración de Azure, puede administrar los servicios web haciendo clic en el servicio **Aprendizaje automático**, abriendo el área de trabajo de Aprendizaje automático y, a continuación, abriendo el servicio web desde la pestaña **SERVICIOS WEB**. Desde esta página, puede supervisar el servicio web, actualizarlo y eliminarlo. También puede agregar un segundo extremo para el servicio web además del extremo predeterminado que se crea cuando se implementa.
 
-Para más información, vea [Administrar un área de trabajo de Aprendizaje automático de Azure](machine-learning-manage-workspace.md).
-<!-- When this article gets published, fix the link and uncomment
+Para más información, vea [Administrar un área de trabajo de Aprendizaje automático de Azure](machine-learning-manage-workspace.md). <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 
 
 ## Actualizar el servicio web
 
-Puede realizar cambios en el servicio web, como actualizar el modelo con datos de entrenamiento adicionales y volver a publicarlo, sobrescribiendo el servicio web original.
+Puede realizar cambios en el servicio web, como actualizar el modelo con datos de entrenamiento adicionales y volver a implementarlo, sobrescribiendo el servicio web original.
 
-Para actualizar el servicio web, abra el experimento predictivo original que usó para implementar el servicio web y haga una copia modificable haciendo clic en **GUARDAR COMO**. Realice los cambios y haga clic en **Publicar servicio web**. Puesto que ya ha publicado este experimento antes, el Estudio de aprendizaje automático le preguntará si desea sobrescribir el servicio existente. Si hace clic en **SÍ**, el servicio web existente se detendrá y el nuevo experimento predictivo se publicará en su lugar.
+Para actualizar el servicio web, abra el experimento predictivo original que usó para implementar el servicio web y haga una copia modificable haciendo clic en **GUARDAR COMO**. Realice los cambios y haga clic en **Publicar servicio web**. Puesto que ya ha publicado este experimento antes, Estudio de aprendizaje automático le preguntará si desea sobrescribir el servicio existente. Si hace clic en **SÍ**, el servicio web existente se detendrá y el nuevo experimento predictivo se implementará en su lugar.
 
 > [AZURE.NOTE]Si ha realizado cambios de configuración en el servicio web original, como, por ejemplo, escribir un nuevo nombre para mostrar o una descripción, necesitará escribir esos valores de nuevo.
 
 Una opción para actualizar el servicio web es volver a entrenar el modelo mediante programación. Para obtener más información, consulte [Volver a entrenar modelos de aprendizaje automático mediante programación](machine-learning-retrain-models-programmatically.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

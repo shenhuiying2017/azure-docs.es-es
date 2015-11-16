@@ -34,13 +34,7 @@ Antes de entrar en los detalles de la implementación de una aplicación existen
 
   Este es un ejemplo de un manifiesto de aplicación:
 
-  ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ApplicationManifest ApplicationTypeName="actor2Application"
-                       ApplicationTypeVersion="1.0.0.0"
-                       xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  ```xml <?xml version="1.0" encoding="utf-8"?> <ApplicationManifest ApplicationTypeName="actor2Application" ApplicationTypeVersion="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="actor2Pkg" ServiceManifestVersion="1.0.0.0" />
@@ -55,8 +49,7 @@ Antes de entrar en los detalles de la implementación de una aplicación existen
       </Service>
     </DefaultServices>
 
-  </ApplicationManifest>
-  ```
+  </ApplicationManifest> ```
 
 * **Manifiesto de servicio**
 
@@ -64,16 +57,7 @@ Antes de entrar en los detalles de la implementación de una aplicación existen
 
   Este es un ejemplo de un manifiesto de servicio
 
-  ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ServiceManifest Name="actor2Pkg"
-                   Version="1.0.0.0"
-                   xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <ServiceTypes>
-      <StatelessServiceType ServiceTypeName="actor2Type" />
-    </ServiceTypes>
+  ```xml <?xml version="1.0" encoding="utf-8"?> <ServiceManifest Name="actor2Pkg" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ServiceTypes> <StatelessServiceType ServiceTypeName="actor2Type" /> </ServiceTypes>
 
     <CodePackage Name="Code" Version="1.0.0.0">
       <EntryPoint>
@@ -90,8 +74,7 @@ Antes de entrar en los detalles de la implementación de una aplicación existen
         <Endpoint Name="ServiceEndpoint" />
       </Endpoints>
     </Resources>
-  </ServiceManifest>
-  ```
+  </ServiceManifest> ```
 
 ## Estructura del archivo del paquete de aplicación
 Para implementar una aplicación mediante, por ejemplo, los cmdlets de Powershell, la aplicación debe seguir una estructura de directorios predefinida.
@@ -294,7 +277,7 @@ Es posible implementar un servicio Service Fabric en diversas “configuraciones
 
 * `InstanceCount`: se usa para especificar cuántas instancias del servicio deben iniciarse en el clúster de Service Fabric. Puede establecer el valor `InstanceCount` según el tipo de aplicación que se va a implementar. Los dos escenarios más comunes son:
 
-	* `InstanCount = "1"`: en este caso, solo se implementará una instancia del servicio en el clúster. El programador de Service Fabric determina en qué nodo se va a implementar el servicio. Un recuento de instancia única también es recomendable para aplicaciones que requieren una configuración diferente si se ejecutan en varias instancias. En ese caso, es más fácil definir varios servicios en el mismo archivo de manifiesto de aplicación y usar `InstanceCount = "1"`. Por lo que el resultado final será tener varias instancias del mismo servicio, pero cada una con una configuración concreta. Un valor de `InstanceCount` mayor que uno solo tiene sentido si el objetivo es tener varias instancias de la misma configuración exacta.
+	* `InstanceCount = "1"`: en este caso, solo se implementará una instancia del servicio en el clúster. El programador de Service Fabric determina en qué nodo se va a implementar el servicio. Un recuento de instancia única también es recomendable para aplicaciones que requieren una configuración diferente si se ejecutan en varias instancias. En ese caso, es más fácil definir varios servicios en el mismo archivo de manifiesto de aplicación y usar `InstanceCount = "1"`. Por lo que el resultado final será tener varias instancias del mismo servicio, pero cada una con una configuración concreta. Un valor de `InstanceCount` mayor que uno solo tiene sentido si el objetivo es tener varias instancias de la misma configuración exacta.
 
 	* `InstanceCount ="-1"`: en este caso se implementará una instancia del servicio en cada nodo del clúster de Service Fabric. El resultado final tendrá una instancia (y sólo una) del servicio para cada nodo del clúster. Se trata de una configuración útil para las aplicaciones front-end (p. ej., un extremo REST) porque las aplicaciones cliente solo necesitan “conectarse” a cualquiera de los nodos del clúster para poder usar el extremo. Esta configuración también se puede usar cuando, por ejemplo, todos los nodos del clúster de Service Fabric están conectados a un equilibrador de carga para que el tráfico del cliente se pueda distribuir en el servicio que se está ejecutando en todos los nodos del clúster.
 
@@ -353,4 +336,4 @@ Consulte [esto](service-fabric-develop-your-service-index.md) si desea obtener m
 [5]: ./media/service-fabric-deploy-existing-app/service-node-3.png
 [6]: ./media/service-fabric-deploy-existing-app/service-node-4.png
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

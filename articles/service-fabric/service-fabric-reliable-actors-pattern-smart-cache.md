@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Patrón de diseño de la memoria caché inteligente de Actores confiables"
-   description="Patrón de diseño sobre cómo usar Actores confiables como infraestructura de almacenamiento en memoria caché de aplicaciones basadas en web"
+   pageTitle="Patrón de diseño de la memoria caché inteligente | Microsoft Azure"
+   description="Patrón de diseño sobre cómo se puede usar el modelo de programación Reliable Actors de Service Fabric para crear una infraestructura de almacenamiento en caché para las aplicaciones basadas en web."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -17,11 +17,13 @@
    ms.author="vturecek"/>
 
 # Patrón de diseño de Actores confiables: memoria caché inteligente
+
 La combinación de una capa web, una capa de almacenamiento en memoria caché, una capa de almacenamiento y, ocasionalmente, una capa de trabajador son prácticamente las partes estándares de las aplicaciones actuales. La capa de almacenamiento en memoria caché normalmente es esencial para el rendimiento y puede, de hecho, constar de varias capas ella misma. Muchas de las memorias caché son pares de clave y valor simples, mientras que otros sistemas como [Redis](http://redis.io), que se usan como memorias caché, ofrecen una semántica más enriquecida. Aun así, cualquier capa de almacenamiento en memoria caché especial tendrá una semántica limitada y, lo que es más importante, es otra capa más que se debe administrar. ¿Y si en su lugar los objetos solo mantuvieran el estado en variables locales y a esos objetos se les pudiera hacer una instantánea o se pudieran almacenar de forma persistente en un almacén duradero automáticamente? Además, las colecciones enriquecidas, como las listas, los conjuntos ordenados, las colas y cualquier otro tipo personalizado para este tema se modelan simplemente como métodos y variables de miembro.
 
 ![][1]
 
 ## El ejemplo de la tabla de líderes
+
 Considere el ejemplo de la tabla de líderes: un objeto Leaderboard debe mantener una lista ordenada de los jugadores y sus puntuaciones, de modo que se puedan realizar consultas. Por ejemplo, para obtener los "100 mejores jugadores" o para buscar la posición de un jugador en el panel de líderes relativa a +-N jugadores por encima y por debajo. Una solución típica con herramientas tradicionales requeriría una operación "GET" en el objeto Leaderboard (colección que admite la inserción de una nueva tupla<Player  Points> llamada Score), su ordenación y finalmente una operación "PUT" en la memoria caché. Probablemente, se bloquearía el objeto Leaderboard con LOCK (GETLOCK, PUTLOCK) para mantener la coherencia. Consideremos una solución basada en actores donde estado y comportamiento estén juntos. Hay dos opciones:
 
 * implementar la colección Leaderboard como parte del actor;
@@ -280,6 +282,7 @@ Principalmente, la memoria caché inteligente ofrece:
 
 
 ## Pasos siguientes
+
 [Patrón: gráficos y redes distribuidas](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
 [Patrón: gobernanza de recursos](service-fabric-reliable-actors-pattern-resource-governance.md)
@@ -298,4 +301,4 @@ Principalmente, la memoria caché inteligente ofrece:
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

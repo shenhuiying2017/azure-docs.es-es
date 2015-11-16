@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="11/04/2015" 
 	ms.author="elizapo"/>
 
 # Creación de una colección híbrida de Azure RemoteApp
@@ -54,7 +54,7 @@ Necesita llevar a cabo los pasos siguientes antes de crear la colección:
 ## Paso 1: Configuración de la red virtual
 Puede implementar una colección híbrida que use una red virtual de Azure existente, o bien puede crear una nueva red virtual. Una red virtual permite a los usuarios acceder a los datos de la red local a través de recursos remotos de RemoteApp. El uso de una red virtual proporciona a la colección acceso de red directo a otros servicios de Azure y máquinas virtuales implementadas en esa red virtual.
 
-Asegúrese de consultar la información de [planeación de la red virtual](remoteapp-planvpn.md) y [tamaño de la red virtual](remoteapp-vnetsizing.md) antes de crear la red virtual.
+Asegúrese de consultar la información de [planeación de la red virtual](remoteapp-planvnet.md) y [tamaño de la red virtual](remoteapp-vnetsizing.md) antes de crear la red virtual.
 
 ### Creación de una red virtual de Azure y su unión a la implementación de Active Directory
 
@@ -87,10 +87,12 @@ Antes de crear la colección, debemos asegurarnos de que la nueva red virtual es
 
 Una vez creada la colección de Azure RemoteApp, haga doble clic en el nombre de la colección. Se abrirá la página **Inicio rápido**, donde terminará de configurar la colección.
 
+¿Algo salió mal? Consulte la [información para la solución de problemas de colecciones híbridas](remoteapp-hybridtrouble.md).
+
 ## Paso 3: Vinculación de la colección al dominio local ##
 
  
-1. En la página **Inicio rápido**, haga clic en **unirse al dominio local**.
+1. En la página **Inicio rápido**, haga clic en **Unirse al dominio local**.
 2. Agregue la cuenta de servicio de Azure RemoteApp al dominio de Active Directory local. Necesitará el nombre de dominio, la unidad organizativa, el nombre del usuario de la cuenta de servicio y la contraseña. 
 
 	Se trata de la información que recopiló si siguió los pasos descritos en [Configuración de Active Directory para RemoteApp de Azure](remoteapp-ad.md).
@@ -145,6 +147,6 @@ Eso es todo, creó e implementó correctamente su colección híbrida de Azure R
 
  
 ### Permítanos ayudarle 
-¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, luego, una vez que los aprobemos, verá los cambios y mejoras aquí.
+¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, a continuación, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

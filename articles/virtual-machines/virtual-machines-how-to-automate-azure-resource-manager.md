@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="07/09/2015"
+	ms.date="10/29/2015"
 	ms.author="davidmu"/>
 
 
@@ -32,13 +32,11 @@ El Administrador de recursos de Azure simplifica la implementación y administra
 
 [Marcos de aplicaciones mediante el uso de plantillas](virtual-machines-app-frameworks.md)
 
-[Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y la CLI de Azure](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
+[Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y CLI de Azure](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
+
+[Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure](xplat-cli-azure-resource-manager.md)
 
 [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-## Recursos generales
-
-[Plantillas de inicio rápido de Azure](http://azure.microsoft.com/documentation/templates/)
 
 [Proveedores de proceso, red y almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md)
 
@@ -47,31 +45,17 @@ El Administrador de recursos de Azure simplifica la implementación y administra
 
 [Proveedor de recursos de red](http://go.microsoft.com/fwlink/p/?linkid=534943&clcid=0x409)
 
-
-## Automatización con la CLI de Azure
-
-[Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure](xplat-cli-azure-resource-manager.md)
-
-[Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y la CLI de Azure](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
-
-## Automatización con Azure PowerShell
-
-[Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-
-## Automatización con .NET
+## .NET
 
 [Implementación de recursos de Azure mediante la biblioteca de .NET](virtual-machines-arm-deployment.md)
 
 
-## Automatización con Automatización de Azure
+## Automatización de Azure
 
 [Administración de máquinas virtuales de Azure mediante Automatización de Azure](automation-manage-virtual-machines.md)
-
-
 
 ## Recursos adicionales
 
 [Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

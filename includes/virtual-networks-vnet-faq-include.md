@@ -219,15 +219,16 @@ Solo se admiten servicios de proceso en las redes virtuales. Los servicios de pr
 
 ### ¿¿Puedo usar Aplicaciones web con la red virtual?
 
-No. No se puede implementar Aplicación web de Azure en una red virtual. Sin embargo, Aplicaciones web puede conectarse con seguridad y tener acceso a recursos de la red virtual de Azure si ha realizado la configuración de la conexión de punto a sitio para la red virtual. Para obtener más información, consulte los temas siguientes:
+Sí. Puede implementar Aplicaciones web dentro de una red virtual con ASE (Entorno del Servicio de aplicaciones). Además, Aplicaciones web puede conectarse con seguridad y tener acceso a recursos de la red virtual de Azure si ha realizado la configuración de la conexión de punto a sitio para la red virtual. Para obtener más información, consulte los temas siguientes:
 
-- [Integración de la red virtual con Aplicaciones web](http://azure.microsoft.com/blog/
-- 014/09/15/azure-websites-virtual-network-integration/)
+
+- [Creación de Aplicaciones web en un entorno del Servicio de aplicaciones](https://azure.microsoft.com/es-ES/documentation/articles/app-service-web-how-to-create-a-web-app-in-an-ase/)
+
+- [Integración de la red virtual con Aplicaciones web](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
 - [Uso de la integración de la red virtual y de conexiones híbridas con Aplicaciones web](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
 - [Integración de su aplicación web con una red virtual de Azure](web-sites-integrate-with-vnet.md)
-
 
 ### ¿Puedo implementar servicios en la nube con roles web y de trabajo (PaaS) en una red virtual?
 
@@ -265,4 +266,4 @@ Sí. Existen API de REST para administrar redes virtuales y la conectividad entr
 
 Sí. Puede usar herramientas de la línea de comandos y PowerShell para diferentes plataformas. Puede encontrar más información [aquí](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

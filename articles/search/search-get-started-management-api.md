@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introducción a la API de REST de administración de búsqueda de Azure" 
-	description="Introducción a la API de REST de administración de búsqueda de Azure" 
+	pageTitle="Introducción a la API de REST de administración de Búsqueda de Azure | Microsoft Azure" 
+	description="Administre el servicio de Búsqueda de Azure hospedado en la nube mediante una API de REST de administración." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Introducción a la API de REST de administración de búsqueda de Azure
@@ -204,4 +204,4 @@ Una vez terminado este tutorial, puede obtener más información acerca de la ad
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

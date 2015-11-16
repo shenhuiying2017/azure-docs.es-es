@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Cómo paginar los resultados de la búsqueda en Búsqueda de Azure" 
-	description="Paginación en búsqueda de Azure" 
+	pageTitle="Cómo paginar los resultados de la búsqueda en Búsqueda de Azure | Microsoft Azure" 
+	description="Paginación de Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Cómo paginar los resultados de la búsqueda en Búsqueda de Azure#
@@ -114,4 +114,4 @@ Consulte [Buscar documentos (API de Búsqueda de Azure)](http://msdn.microsoft.c
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

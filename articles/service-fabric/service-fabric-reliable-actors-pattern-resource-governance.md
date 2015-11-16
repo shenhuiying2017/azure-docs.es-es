@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Patrón de diseño de gobernanza de recursos de los actores de Service Fabric de Azure"
-   description="Patrón de diseño sobre cómo se pueden usar los actores de Service Fabric para modelar la aplicación que se necesita escalar, pero con el uso de recursos restringidos"
+   pageTitle="Patrón de diseño de gobernanza de recursos | Microsoft Azure"
+   description="Patrón de diseño sobre cómo se puede usar Reliable Actors de Service Fabric para modelar la aplicación que se necesita escalar verticalmente, pero con el uso de recursos restringidos."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -17,6 +17,7 @@
    ms.author="vturecek"/>
 
 # Patrón de diseño de Actores confiables: gobernanza de recursos
+
 Este patrón y los escenarios relacionados son fácilmente reconocibles para los desarrolladores (empresariales o de otro tipo) que tienen limitaciones de recursos locales o en la nube, que no puede escalar inmediatamente o que quieren incorporar aplicaciones de gran escala y datos en la nube.
 
 En el ámbito empresarial, estos recursos limitados, como las bases de datos, se ejecutan en hardware con escalado vertical. Cualquier persona con una experiencia empresarial sabe que esta es una situación común en ámbitos locales. Incluso en la escala de nube, se produce esta situación cuando un servicio en la nube intenta exceder el límite de 64.000 conexiones TCP entre una tupla de dirección y puerto o al intentar conectarse a una base de datos basada en la nube que limita el número de conexiones simultáneas.
@@ -30,6 +31,7 @@ En el diagrama siguiente se muestra este escenario:
 ![][1]
 
 ## Escenarios de modelado de memoria caché con actores
+
 Esencialmente, se modela el acceso a los recursos como un actor o varios actores que actúan como servidores proxy (por ejemplo, de conexión) en un recurso o grupo de recursos. Entonces, puede administrar directamente el recurso a través de actores individuales o usar un actor de coordinación que administre los actores del recurso. Para que sea más concreto, nos referiremos a la necesidad habitual de tener que trabajar con una capa de almacenamiento particionada (también conocida como "sharded") por motivos de rendimiento y escalabilidad. La primera opción es bastante básica: se puede usar una función estática para asignar y resolver los actores en los recursos descendentes. Esta función puede devolver, por ejemplo, una cadena de conexión con una entrada dada. Se puede decidir por completo cómo implementar esa función. Por supuesto, este enfoque conlleva sus propios inconvenientes, como la afinidad estática, que hace que volver a realizar una partición de los recursos o la reasignación de un actor a recursos sea muy difícil. Este es un ejemplo muy sencillo: se llevará a cabo aritmética de módulo para determinar el nombre de base de datos mediante el userId y se usará la región para identificar el servidor de base de datos.
 
 ## Ejemplo de código de gobernanza de recursos: resolución estática
@@ -140,6 +142,7 @@ public class Resolver : Actor<ResolverState>, IResolver
 ```
 
 ## Acceso a los recursos con capacidad finita
+
 Ahora se analizará otro ejemplo: acceso exclusivo a recursos valiosos como bases de datos, cuentas de almacenamiento y sistemas de archivos con capacidad de rendimiento finita. Nuestro escenario es el siguiente: se quieren procesar eventos mediante un actor llamado EventProcessor, que es responsable de procesar y conservar el evento, en este caso a un archivo .CSV por motivos de simplicidad. Aunque se puede seguir el enfoque de particionamiento mencionado anteriormente para escalar horizontalmente los recursos, aún hay que ocuparse los problemas de simultaneidad. Por ese motivo se eligió un ejemplo basado en archivos para ilustrar este punto concreto: la escritura en un único archivo de varios actores provocará problemas de simultaneidad. Para resolver el problema, se introduce otro actor denominado EventWriter que tiene una propiedad exclusiva de los recursos restringidos. El escenario se ilustra a continuación:
 
 ![][3]
@@ -398,6 +401,7 @@ Este patrón es muy habitual en escenarios en los que los desarrolladores tienen
 
 
 ## Pasos siguientes
+
 [Patrón: memoria caché inteligente](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [Patrón: gráficos y redes distribuidas](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
@@ -417,4 +421,4 @@ Este patrón es muy habitual en escenarios en los que los desarrolladores tienen
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

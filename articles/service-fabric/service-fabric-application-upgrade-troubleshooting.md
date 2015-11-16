@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Solución de problemas de las actualizaciones de aplicación de Service Fabric"
+   pageTitle="Solución de problemas de las actualizaciones de aplicaciones | Microsoft Azure"
    description="En este artículo se tratan algunos de los problemas comunes de actualización de una aplicación de Service Fabric y cómo resolverlos."
    services="service-fabric"
    documentationCenter=".net"
@@ -225,4 +225,4 @@ El tiempo de actualización de un dominio de actualización está limitado por *
 [Serialización de datos](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

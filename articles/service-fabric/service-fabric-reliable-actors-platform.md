@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Uso de la plataforma Service Fabric por parte de actores confiables"
-   description="En este artículo se describe la forma en que Actores confiables usa las características de la plataforma Service Fabric. Abarca los conceptos de la plataforma de Service Fabric desde el punto de vista de los desarrolladores de actores."
+   pageTitle="Reliable Actors en Service Fabric | Microsoft Azure"
+   description="Describe cómo Reliable Actors usa las características de la plataforma de Service Fabric que abarcan conceptos desde el punto de vista de los desarrolladores de actores."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -18,8 +18,9 @@
 
 # Uso de la plataforma Service Fabric por parte de actores confiables
 
-## Conceptos del modelo de aplicación de Service Fabric para los actores
-Los actores usan el modelo de aplicación de Service Fabric para administrar el ciclo de vida de la aplicación. Cada tipo actor se asigna a un [tipo de servicio](service-fabric-application-model.md#describe-a-service) de Service Fabric. El código de actor se [empaqueta](service-fabric-application-model.md#package-an-application) como una aplicación de Service Fabric y se [implementa](service-fabric-deploy-remove-applications.md#deploy-an-application) en el clúster.
+Los actores usan el modelo de aplicación de Service Fabric para administrar el ciclo de vida de la aplicación. Cada tipo de actor se asigna a un [tipo de servicio](service-fabric-application-model.md#describe-a-service) de Service Fabric. El código de actor se [empaqueta](service-fabric-application-model.md#package-an-application) como una aplicación de Service Fabric y se [implementa](service-fabric-deploy-remove-applications.md#deploy-an-application) en el clúster.
+
+## Concepto del modelo de aplicación de ejemplo para actores
 
 Veamos el ejemplo de un proyecto de actor [creado con Visual Studio](service-fabric-reliable-actors-get-started.md) para ilustrar algunos de los conceptos anteriores.
 
@@ -242,4 +243,4 @@ Tenga en cuenta que al cambiar el proveedor de estado, es necesario que se vuelv
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -44,7 +44,7 @@ Trabajar con el Administrador de recursos de Azure a través de la CLI de Azure 
 
 Para obtener más información acerca de cómo autenticarse en Microsoft Azure, consulte [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](xplat-cli-connect.md).
 
->[AZURE.NOTE]Cuando use una cuenta profesional o educativa, administrada por Azure Active Directory, también puede utilizar el Control de acceso basado en roles de Azure (RBAC) para administrar el acceso y el uso de recursos de Azure. Para obtener más información, [Administración y auditoría del acceso a los recursos](../azure-portal/resource-group-rbac.md)
+>[AZURE.NOTE]Cuando use una cuenta profesional o educativa, administrada por Azure Active Directory, también puede utilizar el Control de acceso basado en roles de Azure (RBAC) para administrar el acceso y el uso de recursos de Azure. Para obtener más información, [Administración y auditoría del acceso a los recursos](resource-group-rbac.md)
 
 ## Configuración del modo Administrador de recursos de Azure
 
@@ -88,29 +88,30 @@ La creación de una nueva plantilla está fuera del ámbito de este artículo, a
 
 1. Descargue los archivos azuredeploy.json y azuredeploy.parameters.json de [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) en una carpeta de trabajo en el equipo local.
 
-2. Abra el archivo azuredeploy.parameters.json en un editor de texto y especifique valores de parámetro adecuados para su entorno (dejando el valor **ubuntuOSVersion** sin modificar). ```
-	{
-	  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {
-	    "newStorageAccountName": {
-	      "value": "MyStorageAccount"
-	    },
-	    "adminUsername": {
-	      "value": "MyUserName"
-	    },
-	    "adminPassword": {
-	      "value": "MyPassword"
-	    },
-	    "dnsNameForPublicIP": {
-	      "value": "MyDomainName"
-	    },
-	    "ubuntuOSVersion": {
-	      "value": "14.04.2-LTS"
-	    }
-	  }
-	}
-```
+2. Abra el archivo azuredeploy.parameters.json en un editor de texto y especifique valores de parámetro adecuados para su entorno (deje el valor **ubuntuOSVersion** sin modificar).
+
+		{
+	  	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	  	"contentVersion": "1.0.0.0",
+	  	"parameters": {
+		    "newStorageAccountName": {
+		      "value": "MyStorageAccount"
+		    },
+		    "adminUsername": {
+		      "value": "MyUserName"
+		    },
+		    "adminPassword": {
+		      "value": "MyPassword"
+		    },
+		    "dnsNameForPublicIP": {
+		      "value": "MyDomainName"
+		    },
+		    "ubuntuOSVersion": {
+		      "value": "14.04.2-LTS"
+		    }
+		  }
+		}
+	```
 3. Después de guardar el archivo azuredeploy.parameters.json, use el siguiente comando para crear un grupo de recursos nuevo basado en la plantilla. La opción `-e` especifica el archivo azuredeploy.parameters.json que modificó en el paso anterior. Reemplace *testRG* con el nombre de grupo que desea usar y *testDeploy* con el nombre de implementación que desee. La ubicación debe ser la misma que la especificada en el archivo de parámetros de plantilla.
 
 		azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
@@ -149,7 +150,7 @@ La creación de una nueva plantilla está fuera del ámbito de este artículo, a
 	>
 	> Si no proporciona un nombre de implementación, se crea automáticamente uno basado en el nombre del archivo de plantilla. Se devolverá como parte de la salida del comando `azure group create`.
 
-	Ahora puede usar SSH para la máquina virtual, con el nombre de dominio especificado. Cuando se conecte a la máquina virtual, tiene que utilizar un nombre de dominio completo del formulario `<domainName>.<region>.cloudapp.azure.com`, como `MyDomainName.westus.cloudapp.azure.com`.
+	Ahora puede usar SSH para la máquina virtual, con el nombre de dominio especificado. Cuando se conecte a la máquina virtual, tiene que utilizar un nombre de dominio completo con formato `<domainName>.<region>.cloudapp.azure.com`, como `MyDomainName.westus.cloudapp.azure.com`.
 
 5. Para ver el grupo, use el siguiente comando.
 
@@ -157,12 +158,12 @@ La creación de una nueva plantilla está fuera del ámbito de este artículo, a
 
 	Este comando devuelve información acerca de los recursos del grupo. Si tiene varios grupos, puede utilizar el comando `azure group list` para recuperar una lista de nombres de grupos y, a continuación, usar `azure group show` para ver detalles de un grupo específico.
 
-También puede usar una plantilla directamente desde [GitHub](https://github.com/Azure/azure-quickstart-templates), en lugar de descargar una en el equipo. Para ello, pase la dirección URL al archivo azuredeploy.json para la plantilla en su comando mediante la opción **--template-url**. Para obtener la URL, abra azuredeploy.json en GitHub en modo _sin procesar_ y copie la dirección URL que aparece en la barra de direcciones del explorador. A continuación, puede usar esta dirección URL directamente para crear una implementación mediante un comando similar al siguiente ejemplo.
+También puede usar una plantilla directamente desde [GitHub](https://github.com/Azure/azure-quickstart-templates), en lugar de descargar una en el equipo. Para ello, pase la dirección URL al archivo azuredeploy.json para la plantilla en su comando mediante la opción **--template-url**. Para obtener la dirección URL, abra azuredeploy.json en GitHub en modo _sin procesar_ y copie la dirección URL que aparece en la barra de direcciones del explorador. A continuación, puede usar esta dirección URL directamente para crear una implementación mediante un comando similar al siguiente ejemplo.
 
 	azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json
 Se le pedirá que escriba los parámetros de plantilla necesarios.
 
-> [AZURE.NOTE]Es importante abrir la plantilla de JSON en modo _sin procesar_. La dirección URL que aparece en la barra de direcciones del explorador es diferente de la que aparece en el modo normal. Para abrir el archivo en modo _sin procesar_ mientras lo ve en GitHub, haga clic en **Raw** (Sin procesar) en la esquina superior derecha.
+> [AZURE.NOTE]Es importante abrir la plantilla de JSON en modo _sin procesar_. La dirección URL que aparece en la barra de direcciones del explorador es diferente de la que aparece en el modo normal. Para abrir el archivo en modo _sin procesar_ mientras lo ve en GitHub, haga clic en **Sin procesar** en la esquina superior derecha.
 
 ## Trabajo con recursos
 
@@ -209,4 +210,4 @@ Para ver información registrada sobre operaciones realizadas en un grupo, utili
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

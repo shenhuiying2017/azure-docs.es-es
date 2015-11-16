@@ -19,7 +19,7 @@
 
 # Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model]((azure-cli-arm-commands.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](azure-cli-arm-commands.md).
 
 Este artículo describe la manera de usar la CLI de Azure en el modo de Administrador de servicios (modo asm) para crear, administrar y eliminar los servicios de la línea de comandos de equipos Mac, Linux y Windows. Puede realizar muchas de las mismas tareas mediante las diversas bibliotecas de los SDK de Azure, Azure PowerShell y el Portal de Azure. El uso de los servicios de Azure con el modo de Administración de servicios es básicamente similar a la creación y administración de conceptos y servicios individuales de Azure como sitios web, máquinas virtuales, redes virtuales, almacenamiento, etc.
 
@@ -2350,4 +2350,4 @@ Permite eliminar una entrada del servidor DNS de la configuración de red.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

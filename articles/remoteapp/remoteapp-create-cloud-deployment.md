@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="11/04/2015" 
 	ms.author="elizapo"/>
 
 # Creación de una colección en la nube de Azure RemoteApp
@@ -40,7 +40,7 @@ Necesita llevar a cabo los pasos siguientes antes de crear la colección:
 - En este procedimiento se supone que va a usar una de las imágenes de plantilla que se proporcionan con la suscripción o que ya ha cargado la imagen de plantilla que quiere usar. Si tiene que cargar una imagen de plantilla diferente, puede hacerlo desde la página Imágenes de plantilla. Haga clic en **cargar una imagen de plantilla** y siga los pasos del asistente. 
 - ¿Desea usar la imagen de Office 365 ProPlus? Consulte la información [aquí](remoteapp-officesubscription.md).
 - ¿Desea proporcionar aplicaciones personalizadas o programas LOB? Cree una nueva [imagen](remoteapp-imageoptions.md) y úsela en su colección en la nube.
-- Averigüe si tiene que conectarse a una red virtual. Si opta por conectarse a una red virtual, asegúrese de que cumple las [directrices de ajuste de tamaño](remoteapp-vnetsizing.md) y que [puede conectarse a RemoteApp](remoteapp-vnet.md). Consulte el [artículo sobre planeación de la red virtual](remoteapp-planvpn.md) para obtener más información.
+- Averigüe si tiene que conectarse a una red virtual. Si opta por conectarse a una red virtual, asegúrese de que cumple las [directrices de ajuste de tamaño](remoteapp-vnetsizing.md) y que [puede conectarse a RemoteApp](remoteapp-vnet.md). Consulte el [artículo sobre planeación de la red virtual](remoteapp-planvnet.md) para obtener más información.
 - Si usa una red virtual, decida si quiere unirla al dominio de Active Directory local.
 
 ## Paso 1: Creación de una colección en la nube (con o sin red virtual)##
@@ -109,4 +109,4 @@ Eso es todo, creó e implementó correctamente su colección en la nube de Azure
 ### Permítanos ayudarle 
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, luego, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

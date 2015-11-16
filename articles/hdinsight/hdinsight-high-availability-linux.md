@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="11/03/2015"
 	ms.author="larryfr"/>
 
 #Disponibilidad y fiabilidad de clústeres de Hadoop en HDInsight
@@ -146,7 +146,7 @@ Al crear un nuevo clúster, puede especificar el tamaño de los nodos. A continu
 
 * **CLI de Azure**: cuando se usa el comando `azure hdinsight cluster create`, puede establecer el tamaño del nodo principal mediante el parámetro `--headNodeSize`.
 
-* **Azure PowerShell**: cuando se usa el cmdlet `New-AzureHDInsightCluster`, puede establecer el tamaño del nodo principal mediante el parámetro `-HeadNodeVMSize`.
+* **Azure PowerShell**: cuando se usa el cmdlet `New-AzureRmHDInsightCluster`, puede establecer el tamaño del nodo principal mediante el parámetro `-HeadNodeVMSize`.
 
 ##Pasos siguientes
 
@@ -166,4 +166,4 @@ En este documento ha aprendido cómo proporciona HDInsight de Azure alta disponi
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

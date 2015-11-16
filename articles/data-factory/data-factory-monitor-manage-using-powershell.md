@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Crear y supervisar una factoría de datos mediante PowerShell de Azure
@@ -27,6 +27,10 @@
 El tutorial [Introducción a la Factoría de datos de Azure][adf-get-started] le muestra cómo crear y supervisar una factoría de datos de Azure con el [Portal de vista previa de Azure][azure-preview-portal]. En este tutorial, creará y supervisará una factoría de datos de Azure con cmdlets de PowerShell de Azure. La canalización en la factoría de datos que cree en este tutorial copia los datos del blob de Azure a una base de datos SQL de Azure.
 
 > [AZURE.NOTE]Este artículo no abarca todos los cmdlets de Factoría de datos. Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener la documentación completa sobre los cmdlets de la factoría de datos.
+>  
+>  Si está usando la versión preliminar de Azure PowerShell 1.0, debe emplear los cmdlets que se documentan [aquí](https://msdn.microsoft.com/library/dn820234.aspx). Por ejemplo, use New-AzureRMDataFactory en lugar de New-AzureDataFactory.
+
+
 
 ##Requisitos previos
 Además de los requisitos previos que se enumeran en el tema de información general del tutorial, debe tener instalado PowerShell de Azure en el equipo. Si aún no dispone de él, descargue e instale [PowerShell de Azure][download-azure-powershell] en el equipo.
@@ -129,7 +133,7 @@ En este paso, creará dos servicios vinculados: **StorageLinkedService** y **Azu
 
 ## <a name="CreateInputAndOutputDataSets"></a>Paso 3: Crear tablas de entrada y salida
 
-En el paso anterior, creó los servicios vinculados **StorageLinkedService** y **AzureSqlLinkedService** para vincular una cuenta de almacenamiento de Azure y una base de datos SQL de Azure con la factoría de datos: **ADFTutorialDataFactoryPSH**. En este paso, creará tablas que representan los datos de entrada y salida para la actividad de copia en la canalización que va a crear en el paso siguiente.
+En el paso anterior, creó los servicios vinculados **StorageLinkedService** y **AzureSqlLinkedService** para vincular una cuenta de almacenamiento de Azure y una base de datos SQL de Azure con la factoría de datos: **ADFTutorialDataFactoryPSH**. En este paso, creará conjuntos de datos que representan los datos de entrada y salida de la actividad de copia en la canalización que va a crear en el paso siguiente.
 
 Una tabla es un conjunto de datos rectangular y es el único tipo de conjunto de datos que se admite en este momento. La tabla de entrada de este tutorial hace referencia a un contenedor de blobs en el Almacenamiento de Azure al que apunta StorageLinkedService y la tabla de salida hace referencia a una tabla SQL en la Base de datos de SQL Azure a la que apunta AzureSqlLinkedService.
 
@@ -253,7 +257,7 @@ En esta parte del paso, creará una tabla de salida denominada **EmpSQLTable** q
 			      }
 			    ],
 			    "type": "AzureSqlTable",
-			    "linkedServiceName": "AzureSqlLinkedService1",
+			    "linkedServiceName": "AzureSqlLinkedService",
 			    "typeProperties": {
 			      "tableName": "emp"
 			    },
@@ -354,7 +358,7 @@ En este paso, usará PowerShell de Azure para supervisar lo que está ocurriendo
  
 2.	Ejecute **Get-AzureDataFactorySlice** para obtener la información sobre todos los segmentos de **EmpSQLTable**, que es la tabla de salida de la canalización.
 
-		Get-AzureDataFactorySlice $df -TableName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
+		Get-AzureDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
 
 	Reemplace la parte del año, mes y fecha del parámetro **StartDateTime** por el año, mes y fecha actuales. Debe coincidir con el valor de **inicio** en JSON de canalización.
 
@@ -386,7 +390,7 @@ En este paso, usará PowerShell de Azure para supervisar lo que está ocurriendo
 
 3.	Ejecute **Get-AzureDataFactoryRun** para obtener la información de la actividad que se ejecuta para un segmento **específico**. Cambie el valor del parámetro **StartDateTime** para que coincida con la hora de **inicio** del segmento desde la salida anterior. El valor de **StartDateTime** debe estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-03-03T22:00:00Z.
 
-		Get-AzureDataFactoryRun $df -TableName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
+		Get-AzureDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
 
 	Debería ver una salida similar a la siguiente:
 
@@ -433,4 +437,4 @@ Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar 
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

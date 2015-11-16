@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Procedimiento para implementar la navegación por facetas en Búsqueda de Azure" 
-	description="Navegación por facetas en Búsqueda de Azure" 
+	pageTitle="Procedimiento para implementar la navegación por facetas en Búsqueda de Azure | Microsoft Azure" 
+	description="Agregue navegación con facetas a aplicaciones que se integran con Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/07/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Procedimiento para implementar la navegación por facetas en Búsqueda de Azure
@@ -372,4 +372,4 @@ Para obtener más información sobre los principios de diseño de la navegación
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

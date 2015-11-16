@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación de una nueva entidad de servicio de Azure mediante el portal de Azure"
-   description="Describe cómo crear una nueva entidad de servicio de Azure que puede utilizarse con el control de acceso basado en rol en el Administrador de recursos de Azure para administrar el acceso a los recursos."
+   pageTitle="Creación de aplicación de AD y entidad de servicio en el portal | Microsoft Azure"
+   description="Describe cómo crear una nueva aplicación de Active Directory y una entidad de servicio que puede utilizarse con el control de acceso basado en roles en el Administrador de recursos de Azure para administrar el acceso a los recursos."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,24 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="10/29/2015"
    ms.author="tomfitz"/>
 
-# Creación de una nueva entidad de servicio de Azure mediante el portal de Azure
+# Creación de aplicación de Active Directory y entidad de servicio mediante el portal
 
 ## Información general
-Una entidad de servicio es un proceso, aplicación o servicio automatizado que necesita tener acceso a otros recursos. Mediante el Administrador de recursos de Azure, puede conceder acceso a una entidad de servicio y autenticarla para que pueda realizar las acciones de administración permitidas sobre los recursos que existen en la suscripción o como inquilino.
+Si tiene una aplicación que necesita tener acceso a un recurso o modificarlo en su suscripción, puede usar el portal para crear una aplicación de Active Directory y asignarla a un rol con los permisos correctos. Si crea una aplicación de Active Directory a través del portal, en realidad se crea la aplicación y una entidad de servicio. La entidad de servicio se utiliza al establecer los permisos.
 
-En este tema se muestra cómo crear a una nueva entidad de servicio mediante el portal de Azure. Actualmente, debe usar el portal de Microsoft Azure para crear una nueva entidad de servicio. Esta capacidad se agregará al portal de vista previa de Azure en una versión posterior.
+En este tema se muestra cómo crear una nueva aplicación y entidad de servicio mediante el portal de Azure. Actualmente, debe usar el portal de Microsoft Azure para crear una nueva aplicación de Active Directory. Esta capacidad se agregará al portal de vista previa de Azure en una versión posterior. Puede utilizar el portal de vista previa para asignar la aplicación a un rol.
 
 ## Conceptos
-1. Azure Active Directory (AAD): un servicio de administración de identidades y acceso creado para la nube. Para obtener más información, consulte [¿Qué es Azure Active Directory?](./active-directory-whatis/)
+1. Azure Active Directory (AAD): un servicio de administración de identidades y acceso creado para la nube. Para obtener más información, consulte [¿Qué es Azure Active Directory?](active-directory/active-directory-whatis.md)
 2. Entidad de servicio: una instancia de una aplicación en un directorio.
-3. Aplicación de AD: un registro de directorio en AAD que identifica una aplicación en AAD. Para obtener más información, consulte [Conceptos básicos sobre autenticación en Azure AD](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
+3. Aplicación de AD: un registro de directorio en AAD que identifica una aplicación en AAD. 
+
+Para obtener una explicación más detallada de las aplicaciones y entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio](active-directory/active-directory-application-objects.md). Para obtener más información acerca de la autenticación de Active Directory, vea [Escenarios de autenticación en Azure AD](active-directory/active-directory-authentication-scenarios.md).
 
 
-## Creación de aplicación de Active Directory
-1. Inicie sesión en su cuenta de Azure a través del [portal clásico](https://manage.windowsazure.com/).
+## Creación de los objetos de la aplicación y la entidad de servicio
+
+1. Inicie sesión en su cuenta de Azure a través del [portal](https://manage.windowsazure.com/).
 
 2. Seleccione **Active Directory** en el panel izquierdo.
 
@@ -64,7 +67,7 @@ En este tema se muestra cómo crear a una nueva entidad de servicio mediante el 
 
      ![propiedades de la aplicación][4]
 
-## Creación de la contraseña de la entidad de servicio
+## Creación de una clave de autenticación para la aplicación
 El portal ahora debería tener la aplicación seleccionada.
 
 1. Haga clic en la pestaña **Configurar** para configurar la contraseña de su aplicación.
@@ -93,11 +96,41 @@ La aplicación está ahora lista y la entidad de servicio creada en el inquilino
 * **ID. DE CLIENTE**: como nombre de usuario.
 * **CLAVE**: como contraseña.
 
+## Asignación de la aplicación a un rol
+
+Puede utilizar el [portal de vista previa](https://portal.azure.com) para asignar la aplicación de Active Directory a un rol que tenga acceso al recurso al que necesita tener acceso. Para obtener información sobre la asignación de la aplicación a un rol, consulte [Control de acceso basado en roles de Azure Active Directory](active-directory/role-based-access-control-configure.md).
+
+## Obtención de token de acceso en el código
+
+Si está utilizando. NET, puede recuperar el token de acceso para su aplicación con el código siguiente.
+
+En primer lugar, debe instalar la biblioteca de autenticación de Active Directory en el proyecto de Visual Studio. La manera más fácil de hacerlo es utilizar el paquete de NuGet. Abra la ventana Consola del Administrador de paquetes y escriba los siguientes comandos.
+
+    PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
+    PM> Update-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Safe
+
+En la aplicación, agregue un método similar al siguiente para recuperar el token.
+
+    public static string GetAccessToken()
+    {
+        var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
+        var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
+        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
+
+        if (result == null) {
+            throw new InvalidOperationException("Failed to obtain the JWT token");
+        }
+
+        string token = result.AccessToken;
+
+        return token;
+    }
+
 ## Pasos siguientes
 
-- Para obtener información sobre cómo especificar directivas de seguridad, consulte [Administración y auditoría del acceso a los recursos](azure-portal/resource-group-rbac.md).  
-- Para ver los pasos que permiten que una entidad de servicio tenga acceso a los recursos, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](./resource-group-authenticate-service-principal.md).  
-- Para obtener información general sobre el control de acceso basado en rol, consulte [Control de acceso basado en roles en el Portal de Microsoft Azure](role-based-access-control-configure.md).
+- Para obtener información sobre cómo especificar directivas de seguridad, consulte [Administración y auditoría del acceso a los recursos](resource-group-rbac.md).  
+- Para ver una demostración en vídeo de estos pasos, consulte [Habilitación de la administración mediante programación de un recurso de Azure con Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
+- Para obtener información acerca del uso de Azure PowerShell o la CLI de Azure para trabajar con aplicaciones de Active Directory y entidades de servicio, incluida la forma de utilizar un certificado para la autenticación, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](./resource-group-authenticate-service-principal.md).
 - Para obtener instrucciones sobre cómo implementar la seguridad con el Administrador de recursos de Azure, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
 
 
@@ -116,4 +149,4 @@ La aplicación está ahora lista y la entidad de servicio creada en el inquilino
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

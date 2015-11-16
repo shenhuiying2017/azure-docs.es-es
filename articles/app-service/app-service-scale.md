@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="10/29/2015" 
 	ms.author="stepsic"/>
 
 # Escala de nivel de precios de Servicio de aplicaciones de Azure
@@ -131,4 +131,4 @@ Según el nivel de precios, se encuentran disponibles las siguientes caracterís
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Administración de la configuración de Azure MFA" 
-	description="Este documento ofrecerá a los usuarios información acerca de dónde tienen que ir a administrar su configuración de Azure MFA." 
+	pageTitle="Problemas con Azure Multi-Factor Authentication | Microsoft Azure" 
+	description="Este documento ofrecerá a los usuarios información sobre qué hacer si se encuentran con un problema con Azure Multi-Factor Authentication" 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,19 +13,38 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="10/29/2015" 
 	ms.author="billmath"/>
 
 # Problemas con Azure Multi-Factor Authentication
 La siguiente información le ayudará a resolver algunos de los problemas comunes que podría encontrar.
 
 
-
+- [Errores de Id. de correlación](#correlation-id-errors)
 - [Perdí el teléfono o me lo robaron](#i-have-lost-my-phone-or-it-was-stolen?)
 - [Deseo cambiar mi número de teléfono](#i-want-to-change-my-phone-number)
 - [No recibo ningún código en el teléfono](#i-am-not-receiving-a-code-on-my-phone)
 - [Las contraseñas de la aplicación no funcionan](#app-passwords-are-not-working)
 - [¿Cómo puedo quitar Azure Authenticator del dispositivo anterior y moverlo a uno nuevo?](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
+
+##Errores de Id. de correlación
+Si ha probado los pasos de solución de problemas siguientes y continúa teniendo problemas, puede publicar una pregunta en los [foros de Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [Buscar en Microsoft Knowledge Base (KB)](https://www.microsoft.com/es-ES/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) o [ponerse en contacto con el servicio de soporte técnico](https://support.microsoft.com/es-ES) y estudiaremos el problema en cuanto nos sea posible.
+
+Cuando se comunique con el soporte técnico, se recomienda que incluya la información siguiente:
+
+ - **Descripción general del error**: qué mensaje de error exacto ha obtenido el usuario. Si no hay ningún mensaje de error, describe detalladamente el comportamiento inesperado observado.
+ - **Página**: en qué página estaba cuando se generó el error (incluir la dirección URL).
+ - **Código de error**: el código de error específico que ha recibido.
+ - **Id. de sesión**: el identificador de sesión específico que ha recibido.
+ - **Id. de correlación**: el código de id. de correlación generado cuando el usuario vio el error.
+ - **Marca de tiempo**: en qué fecha y a qué hora exactamente se ha generado el error (incluir la zona horaria).
+ 
+![Id. de correlación](./media/multi-factor-authentication-end-user-manage/correlation.png)
+
+ - **Id. de usuario**: cuál fue el identificador del usuario que ha obtenido el error (por ejemplo, user@contoso.com)?
+ - **Información sobre el usuario**: si se trataba de un usuario federado, con sincronización de hash de contraseña o solo de la nube. ¿El usuario tiene asignada una licencia de Azure AD Premium, Enterprise Mobility o Azure AD Básico? ¿El usuario utiliza Office 365? etc.
+
+Incluir esta información nos ayudará a solucionar el problema lo antes posible.
 
 ## Perdí el teléfono o me lo robaron
 Si perdió el teléfono o se lo robaron, le recomendamos que solicite al administrador que restablezca las [contraseñas de la aplicación](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords) y que borre todos los [dispositivos recordados](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-suspended-devices-for-a-user).
@@ -103,7 +122,7 @@ En primer lugar, debe asegurarse de lo siguiente:
 
 Si tiene un smartphone, le recomendamos usar la [aplicación Azure Authenticator](multi-factor-authentication-azure-authenticator).
 
-Si desea cambiar entre la opción de recibir los códigos de comprobación por mensajes de texto o a través de la aplicación móvil, elija **Usar una opción de comprobación** distinta.
+Si desea cambiar entre la opción de recibir los códigos de comprobación por mensajes de texto o a través de la aplicación móvil, elija **Usar una opción de comprobación distinta**.
 
 ![Comprobación distinta](./media/multi-factor-authentication-end-user-manage/differentverification.png)
 
@@ -120,4 +139,4 @@ En primer lugar, asegúrese de haber escrito correctamente la contraseña de la 
 ##¿Cómo puedo quitar Azure Authenticator del dispositivo anterior y moverlo a uno nuevo?
 Cuando desinstala la aplicación del dispositivo o vuelve a programar el dispositivo, no se quita la activación en el back-end. Debe usar los pasos que se detallan en [Migrar a un dispositivo nuevo.](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

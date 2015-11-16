@@ -18,6 +18,8 @@
 
 # Configuración de la aplicación para usar el inicio de sesión de la cuenta Microsoft
 
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
+
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 En este tema se muestra cómo configurar las Aplicaciones móviles de Azure para usar la cuenta Microsoft como proveedor de autenticación.
@@ -26,7 +28,7 @@ En este tema se muestra cómo configurar las Aplicaciones móviles de Azure para
 
 1. Inicie sesión en el [Portal de administración de Azure] y vaya a la aplicación móvil.
 
-2. Haga clic en **Configuración**, **Autenticación del usuario** y, después, haga clic en **Cuenta Microsoft**. Copie la **Dirección URL de redireccionamiento**. La usará para configurar una aplicación nueva para su cuenta Microsoft.
+2. Haga clic en **Configuración**, **Autenticación del usuario** y, después, haga clic en **Cuenta Microsoft**. Copie la **URL de redireccionamiento**. La usará para configurar una aplicación nueva para su cuenta Microsoft.
 
 3. Vaya a la página [Mis aplicaciones] del Centro para desarrolladores de la cuenta Microsoft e inicie sesión con su cuenta Microsoft, si procede.
 
@@ -68,6 +70,5 @@ De este modo ya estará listo para usar la cuenta Microsoft para realizar la aut
 
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Portal de administración de Azure]: https://portal.azure.com/
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -39,21 +39,24 @@ Tenemos numerosos clientes que utilizan los Centros de notificaciones. A continu
 * 7Digital [(caso práctico: 7Digital)]
 * Aplicaciones de Bing: decenas de millones de dispositivos, envío de 3 millones de notificaciones al día
 
+###4\. ¿Cómo puedo actualizar o degradar mis Centros de notificaciones para cambiar el nivel de servicio?
+Vaya al [Portal de Azure], haga clic en el Bus de servicio, luego en el espacio de nombres y finalmente en el Centro de notificaciones. En la pestaña Escalar, podrá cambiar el nivel de servicio de los Centros de notificaciones.
+
 ##Diseño y desarrollo
 ###1\. ¿Qué plataformas de servicio admiten?
-Ofrecemos SDK y muestras para .NET, Java, PHP, Python y Node.js, de modo que un backend de aplicación puede configurarse para comunicarse con los Centros de notificaciones mediante cualquiera de estas plataformas. Las API de los Centros de notificaciones se basan en la interfaz REST para que pueda elegir para comunicarse directamente con estas. Más información aquí: [API de REST de Centros de notificaciones]
+Ofrecemos SDK y muestras para .NET, Java, PHP, Python y Node.js, de modo que un backend de aplicación puede configurarse para comunicarse con los Centros de notificaciones mediante cualquiera de estas plataformas. Las API de los Centros de notificaciones se basan en la interfaz REST para que pueda elegir para comunicarse directamente con estas. Puede encontrar más información en [API de REST de Centros de notificaciones]
 
 ###2\. ¿Qué plataformas de dispositivos admiten?
-Se admite el envío de notificaciones a aplicaciones de Apple iOS, Android, universales de Windows y Windows Phone, Kindle, Android China (a través de Baidu), Xamarin (iOS y Android) y Chrome. Aquí puede encontrar tutoriales paso a paso para estas plataformas: [Tutoriales de introducción a los Centros de notificaciones].
+Se admite el envío de notificaciones a aplicaciones de Apple iOS, Android, universales de Windows y Windows Phone, Kindle, Android China (a través de Baidu), Xamarin (iOS y Android) y Chrome. Puede encontrar tutoriales paso a paso para estas plataformas en [Tutoriales de introducción a los Centros de notificaciones].
 
 ###3\. ¿Admiten las notificaciones de correo electrónico/web/SMS?
 Los Centros de notificaciones están diseñados principalmente para enviar notificaciones a aplicaciones móviles mediante las plataformas mencionadas anteriormente. No proporcionamos la capacidad de enviar correo electrónico o SMS; sin embargo, se pueden integrar plataformas de terceros que proporcionan estas capacidades junto con los Centros de notificaciones para enviar notificaciones de inserción nativa mediante los Servicios móviles de Azure. También proporcionamos una notificación de inserción en el explorador lista para usarse. Los clientes pueden elegir implementarla mediante SignalR. También proporcionamos un tutorial para enviar notificaciones de inserción a aplicaciones de Chrome que funcionan en el explorador de Google Chrome. Vea el tutorial [Aplicaciones de Chrome].
 
 ###4\. ¿Cuál es la relación entre los Servicios móviles de Azure y los Centros de notificaciones de Azure en qué casos debo utilizar cada uno?
-Si tiene un back-end de aplicación móvil existente y desea agregar la capacidad de enviar notificaciones de inserción, debe utilizar los Centros de notificaciones de Azure. Si desea configurar su back-end de aplicación móvil desde cero, debe considerar utilizar los Servicios móviles de Azure. Un servicio móvil de Azure proporciona automáticamente un centro de notificaciones para que pueda enviar notificaciones de inserción fácilmente desde el back-end de aplicación móvil. Los precios de los Servicios móviles de Azure incluyen los cargos de base por un centro de notificaciones, y solo paga cuando supera las inserciones incluidas. Más información aquí: [Precios de Servicios móviles]
+Si tiene un back-end de aplicación móvil existente y desea agregar la capacidad de enviar notificaciones de inserción, debe utilizar los Centros de notificaciones de Azure. Si desea configurar su back-end de aplicación móvil desde cero, debe considerar utilizar los Servicios móviles de Azure. Un servicio móvil de Azure proporciona automáticamente un centro de notificaciones para que pueda enviar notificaciones de inserción fácilmente desde el back-end de aplicación móvil. Los precios de los Servicios móviles de Azure incluyen los cargos de base por un centro de notificaciones, y solo paga cuando supera las inserciones incluidas. Puede encontrar más información en [Precios de Servicios móviles]
 
 ###5\. ¿Cuántos dispositivos admiten?
-En los niveles estándar y básico, no se exige ningún límite en cuanto al número de dispositivos activos que pueden recibir notificaciones. Más información aquí: [Precios de los Centros de notificaciones].
+En los niveles estándar y básico, no se exige ningún límite en cuanto al número de dispositivos activos que pueden recibir notificaciones. Puede encontrar más información en [Precios de los Centros de notificaciones].
 
 ###6\. ¿Cuántas notificaciones de inserción puedo enviar?
 Los clientes usan los Centros de notificaciones de Azure para enviar millones de notificaciones de inserción al día. No tiene que hacer nada más para escalar los Centros de notificaciones. Escalamos vertical y automáticamente en función del número de notificaciones que fluyen a través del sistema. Tenga en cuenta que los precios cambian según las notificaciones de inserción servidas.
@@ -74,13 +77,13 @@ Debido a la naturaleza de las notificaciones de inserción que se entregan por u
 *Distribución geográfica*: la distribución geográfica no siempre es crítica en el caso de las notificaciones push. Se realiza para destacar que los distintos servicios de notificación de inserción (APNS, GCM, etc.) que entregan en última instancia las notificaciones de inserción a los dispositivos no se han distribuido de manera uniforme. Sin embargo, si tiene una aplicación que se usa en todo el mundo, puede crear varios centros en distintos espacios de nombres para sacar provecho de la disponibilidad del servicio de los centros de notificaciones en diferentes regiones de Azure en todo el mundo. Tenga en cuenta que esto aumentará el coste de administración, especialmente en relación con los registros, por lo que no es muy recomendable y solo debe realizarse si es realmente necesario.
 
 ###10\. ¿Debemos llevar a cabo los registros desde el backend de la aplicación o desde los dispositivos directamente?
-Los registros desde el backend de la aplicación son útiles cuando tiene que realizar una autenticación de cliente antes de crear el registro o cuando se tienen etiquetas que deben crearse o modificarse por el back-end de aplicación basándose en alguna lógica de aplicación. Más información disponible aquí: [Instrucciones de registro de back-end] e [Instrucciones de registro de back-end - 2]
+Los registros desde el backend de la aplicación son útiles cuando tiene que realizar una autenticación de cliente antes de crear el registro o cuando se tienen etiquetas que deben crearse o modificarse por el back-end de aplicación basándose en alguna lógica de aplicación. Puede encontrar más información en [Instrucciones de registro de back-end] e [Instrucciones de registro de back-end - 2]
 
 ###11\. ¿Qué es el modelo de seguridad?
-Los Centros de notificaciones de Azure usan un modelo de seguridad basado en la firma de acceso compartido (SAS). Puede utilizar los tokens SAS en el nivel de espacio de nombres raíz o en el nivel específico de los centros de notificación. Estos tokens de SAS pueden establecerse con distintas reglas de autorización; por ejemplo, permisos de envío de mensajes, permisos de notificaciones de escucha, etc. Más información aquí: [Modelo de seguridad de Centro de notificaciones]
+Los Centros de notificaciones de Azure usan un modelo de seguridad basado en la firma de acceso compartido (SAS). Puede utilizar los tokens SAS en el nivel de espacio de nombres raíz o en el nivel específico de los centros de notificación. Estos tokens de SAS pueden establecerse con distintas reglas de autorización; por ejemplo, permisos de envío de mensajes, permisos de notificaciones de escucha, etc. Puede encontrar más información en [Seguridad].
 
 ###12\. ¿Cómo se controlan las cargas confidenciales en las notificaciones?
-Todas las notificaciones se entregan a los dispositivos mediante las plataformas de servicios de notificación de inserción (PNS). Cuando un remitente envía una notificación a los centros de notificaciones de Azure, procesamos y pasamos la notificación a las PNS correspondientes. Todas las conexiones desde el remitente a los Centros de notificaciones de Azure y a la PNS usan HTTPS. Los Centros de notificaciones de Azure no registran la carga del mensaje de ninguna manera. No obstante, para enviar cargas confidenciales, recomendamos un patrón de inserción seguro en el que el remitente envía una notificación ’ping’ con un identificador de mensaje al dispositivo sin la carga confidencial y, cuando la aplicación en el dispositivo recibe esta carga, llama a una API de back-end de aplicación segura directamente para capturar los detalles del mensaje. Aquí tiene el tutorial para implementar el patrón: [Centro de notificaciones: tutorial de inserción segura].
+Todas las notificaciones se entregan a los dispositivos mediante las plataformas de servicios de notificación de inserción (PNS). Cuando un remitente envía una notificación a los centros de notificaciones de Azure, procesamos y pasamos la notificación a las PNS correspondientes. Todas las conexiones desde el remitente a los Centros de notificaciones de Azure y a la PNS usan HTTPS. Los Centros de notificaciones de Azure no registran la carga del mensaje de ninguna manera. No obstante, para enviar cargas confidenciales, recomendamos un patrón de inserción seguro en el que el remitente envía una notificación ’ping’ con un identificador de mensaje al dispositivo sin la carga confidencial y, cuando la aplicación en el dispositivo recibe esta carga, llama a una API de back-end de aplicación segura directamente para capturar los detalles del mensaje. El tutorial para implementar el patrón es [Inserción segura de los Centros de notificaciones].
 
 ##Operaciones
 ###1\. ¿Qué es el historial de recuperación ante desastres (DR)?
@@ -96,7 +99,7 @@ Se recomienda usar un back-end de aplicación que:
 
 - obtenga un volcado normal de registros desde el centro principal como una copia de seguridad y, a continuación, realice una inserción masiva en el centro de notificaciones secundario.
 
-(La funcionalidad de exportación/importación de registros disponible en el nivel Estándar se describe aquí: [Exportación e importación de registros]).
+(La funcionalidad de exportación/importación de registros disponible en el nivel Estándar se describe en [Exportación e importación de registros]).
 
 Si no dispone de un backend, cuando la aplicación se inicie en los dispositivos, estos realizarán un nuevo registro en el centro de notificaciones secundario y, finalmente, el centro de notificaciones secundario tendrá todos los dispositivos activos registrados, pero habrá un periodo durante el cual los dispositivos donde las aplicaciones no se hayan abierto no recibirán notificaciones.
 
@@ -105,11 +108,12 @@ Todas las operaciones de administración de los centros de notificación van a l
 
 ##Supervisión y solución de problemas
 ###1\. ¿Qué funcionalidades de solución de problemas hay disponibles?
-Los Centros de notificaciones de Azure proporcionan varias características para la solución de problemas comunes, especialmente en el escenario más común sobre las notificaciones quitadas. Vea los detalles de este artículo sobre solución de problemas: [Centro de notificaciones: solución de problemas].
+Los Centros de notificaciones de Azure proporcionan varias características para la solución de problemas comunes, especialmente en el escenario más común sobre las notificaciones quitadas. Vea los detalles en el artículo sobre solución de problemas [Solución de problemas de los Centros de notificaciones].
 
 ###2\. ¿Qué características de telemetría hay disponibles?
-Los Centros de notificaciones Azure permiten ver los datos de telemetría en el Portal de administración de Azure. Puede encontrar detalles de las métricas disponibles aquí: [Centros de notificaciones: métricas]. Tenga en cuenta que con "notificaciones correctas" solo se indica que estas notificaciones se han entregado al servicio de notificación de inserción externo (APNS de Apple, GCM para Google, etc.) y, a continuación, al PNS para entregarse a los dispositivos. El PNS no nos muestra estas métricas. También proporciona la funcionalidad de exportar la telemetría mediante programación (en el nivel estándar). Vea este ejemplo para obtener más información: [Centro de notificaciones: ejemplo de métricas].
+Los Centros de notificaciones Azure permiten ver los datos de telemetría en el Portal de administración de Azure. Puede encontrar detalles de las métricas disponibles en [Métricas de los centros de notificaciones]. Tenga en cuenta que con "notificaciones correctas" solo se indica que estas notificaciones se han entregado al servicio de notificación de inserción externo (APNS de Apple, GCM para Google, etc.) y, a continuación, al PNS para entregarse a los dispositivos. El PNS no nos muestra estas métricas. También proporciona la funcionalidad de exportar la telemetría mediante programación (en el nivel estándar). Vea este ejemplo para obtener más información: [Ejemplo de métricas de Centro de notificaciones].
 
+[Portal de Azure]: https://manage.windowsazure.com
 [Precios de los Centros de notificaciones]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [SLA de Centros de notificaciones]: http://azure.microsoft.com/support/legal/sla/
 [Caso práctico: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -123,11 +127,11 @@ Los Centros de notificaciones Azure permiten ver los datos de telemetría en el 
 [Precios de Servicios móviles]: http://azure.microsoft.com/pricing/details/mobile-services/
 [Instrucciones de registro de back-end]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Instrucciones de registro de back-end - 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
-[Modelo de seguridad de Centro de notificaciones]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Centro de notificaciones: tutorial de inserción segura]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Centro de notificaciones: solución de problemas]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[Centros de notificaciones: métricas]: https://msdn.microsoft.com/library/dn458822.aspx
-[Centro de notificaciones: ejemplo de métricas]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
+[Seguridad]: https://msdn.microsoft.com/library/azure/dn495373.aspx
+[Inserción segura de los Centros de notificaciones]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[Solución de problemas de los Centros de notificaciones]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Métricas de los centros de notificaciones]: https://msdn.microsoft.com/library/dn458822.aspx
+[Ejemplo de métricas de Centro de notificaciones]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Exportación e importación de registros]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

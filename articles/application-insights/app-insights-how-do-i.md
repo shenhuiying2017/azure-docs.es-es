@@ -183,6 +183,10 @@ A continuación, puede:
 
 ![](./media/app-insights-how-do-i/115-metrics.png)
 
+## Modificación de valores o nombres de propiedad
+
+Cree un filtro (app-insights-api-filtering-sampling.md#filtering). Esto le permite modificar o filtrar telemetría antes de que se envíe desde su aplicación a Application Insights.
+
 ## Enumeración de usuarios específicos y su uso
 
 Si solo desea [buscar usuarios específicos](#search-specific-users), puede establecer el [identificador de usuario autenticado](app-insights-api-custom-events-metrics/#authenticated-users).
@@ -227,7 +231,7 @@ Entre las métricas que se pueden mostrar en el Explorador de métricas se encue
 
 ### Si no ve ningún dato de contadores de rendimiento
 
-* El **servidor IIS** en su propio equipo o en una máquina virtual. [Instale el Monitor de estado](app-insights-monitor-performance-live-website-now.md). 
+* El **servidor IIS** en su propia máquina o en una VM. [Instale el Monitor de estado](app-insights-monitor-performance-live-website-now.md). 
 * **Sitio web de Azure**: aún no se admiten los contadores de rendimiento. Hay varias métricas que se puede obtener como parte estándar del sitio web de Azure en el panel de control.
 * **Servidor Unix**: [instale collectd](app-insights-java-collectd.md)
 
@@ -236,11 +240,4 @@ Entre las métricas que se pueden mostrar en el Explorador de métricas se encue
 * En primer lugar, [agregue un nuevo gráfico](app-insights-metrics-explorer.md) y compruebe si el contador está en el conjunto básico que se ofrece.
 * Si no es así, [agregue el contador al conjunto recopilado por el módulo del contador de rendimiento](app-insights-web-monitor-performance.md#system-performance-counters).
 
-
- 
-
-### Roles web de Azure
-
-Actualmente, no se supervisan los contadores de rendimiento.
-
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

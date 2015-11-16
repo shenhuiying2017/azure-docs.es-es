@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Qué es Búsqueda de Azure"
-	description="Información técnica y resumen de características de Búsqueda de Azure."
+	description="Búsqueda de Azure es un servicio de búsqueda hospedado en la nube. Más información en esta información técnica y resumen de características."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,12 +14,12 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # ¿Qué es Búsqueda de Azure?
 
-El servicio Búsqueda de Azure es un servicio en la nube totalmente administrado que permite a los desarrolladores crear eficaces aplicaciones de búsqueda mediante un SDK de .NET o las API de REST. Incluye búsquedas de texto completo que abarcan todo el contenido, además de comportamientos de búsqueda avanzada similares a los que presentan los motores de búsqueda web comerciales, por ejemplo, sugerencias de escritura anticipada de consultas, basadas en la entrada parcial de una palabra, resaltado de los aciertos encontrados y navegación por facetas. La compatibilidad con el lenguaje natural está integrada y se utilizan las reglas lingüísticas que corresponden al idioma especificado.
+El servicio Búsqueda de Azure es un servicio de búsqueda hospedado en la nube totalmente administrado que permite a los desarrolladores crear eficaces aplicaciones de búsqueda mediante un SDK de .NET o las API de REST. Incluye búsquedas de texto completo que abarcan todo el contenido, además de comportamientos de búsqueda avanzada similares a los que presentan los motores de búsqueda web comerciales, por ejemplo, sugerencias de escritura anticipada de consultas, basadas en la entrada parcial de una palabra, resaltado de los aciertos encontrados y navegación por facetas. La compatibilidad con el lenguaje natural está integrada y se utilizan las reglas lingüísticas que corresponden al idioma especificado.
 
 Es posible escalar el servicio en función de las necesidades de aumento de la capacidad de búsqueda o de almacenamiento. Por ejemplo, los minoristas pueden aumentar la capacidad para satisfacer los volúmenes adicionales que acompañan a los eventos de promoción o de compras de temporada.
 
@@ -131,4 +131,4 @@ También puede consultar estos tutoriales:
 
 [Uso de Búsqueda de Azure en .NET](search-howto-dotnet-sdk.md) [Introducción a Búsqueda de Azure](search-get-started-dotnet.md) [Búsqueda de Azure: ejemplos, tutoriales y demostraciones en vídeo](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

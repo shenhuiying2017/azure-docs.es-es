@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Depuración de la aplicación de Service Fabric en Visual Studio con F5"
-   description="Mejore la confiabilidad y el rendimiento de los servicios mediante Visual Studio y un clúster de desarrollo local."
+   pageTitle="Depuración de la aplicación en Visual Studio | Microsoft Azure"
+   description="Mejore la confiabilidad y el rendimiento de los servicios mediante su desarrollo y depuración en Visual Studio y un clúster de desarrollo local."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2015"
+   ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# Depuración de la aplicación de Service Fabric en Visual Studio con F5
+# Depuración de la aplicación de Service Fabric con Visual Studio
 
 Puede ahorrar tiempo y dinero implementando y depurando la aplicación de Service Fabric en un clúster de desarrollo del equipo local. Visual Studio puede implementar la aplicación en el clúster local y conectar automáticamente el depurador a todas las instancias de la aplicación.
 
@@ -66,4 +66,4 @@ Puede ahorrar tiempo y dinero implementando y depurando la aplicación de Servic
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

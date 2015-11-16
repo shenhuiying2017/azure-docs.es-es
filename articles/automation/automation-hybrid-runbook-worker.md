@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="11/03/2015"
    ms.author="bwren" />
 
 # Trabajos híbridos de runbook de Automatización de Azure
@@ -52,6 +52,10 @@ Tenga en cuenta las siguientes recomendaciones para los Hybrid Worker:
 - Los Hybrid Worker pueden coexistir con servidores de runbooks de Service Management Automation o System Center Orchestrator.
 - Considere la posibilidad de usar una máquina ubicada físicamente en la región de su cuenta de automatización, o cerca de ella, puesto que los datos del trabajo se envían a la Automatización de Azure cuando se completa un trabajo.
 
+Requisitos del firewall:
+
+- La máquina local en la que se ejecuta el trabajo de Hybrid Runbook Worker debe tener acceso de salida a *.cloudapp.net en los puertos 443, 9354 y 30000-30199.
+
 ## Instalación de Trabajo híbrido de runbook
 El siguiente procedimiento describe cómo instalar y configurar Hybrid Runbook Worker. Realice los dos primeros pasos una vez para su entorno de Automatización y después repita los pasos restantes en cada equipo de trabajo.
 
@@ -61,17 +65,17 @@ Si todavía no tiene un área de trabajo de Operations Management Suite, puede c
 ### 2\. Adición de soluciones de Automatización de área de trabajo de Operations Management Suite
 Las soluciones agregan funcionalidad a Operations Management Suite. La solución de Automatización agrega funcionalidad a Automatización de Azure, incluida la compatibilidad con Hybrid Runbook Worker. Cuando se agrega la solución al área de trabajo, se insertarán automáticamente los componentes de trabajo al equipo del agente que va a instalar en el paso siguiente.
 
-Siga las instrucciones de [Para agregar una solución mediante la Galería de soluciones](../operational-insights/operational-insights-setup-workspace.md#1-add-solutions) para agregar la solución de **Automatización** al área de trabajo de Operations Management Suite.
+Siga las instrucciones que se describen en [Para agregar una solución mediante la Galería de soluciones](../operational-insights/operational-insights-setup-workspace.md#1-add-solutions) para agregar la solución de **Automatización** al área de trabajo de Operations Management Suite.
 
 ### 3\. Instalación del agente de Microsoft Management
 El agente de Microsoft Management conecta los equipos a Operations Management Suite. Cuando instala el agente en la máquina local y se conecte al área de trabajo, se descargarán automáticamente los componentes necesarios para Hybrid Runbook Worker.
 
 Siga las instrucciones que se encuentran en [Conexión de equipos directamente en Visión operativa](../operational-insights/operational-insights-direct-agent.md) para instalar el agente en la máquina local. Puede repetir este proceso para varios equipos para agregar varios trabajos a su entorno.
 
-Cuando el agente se conecta correctamente a Operations Management Suite, se enumerará en la pestaña **Orígenes conectados** del panel **Configuración** de Operations Management Suite. Puede comprobar que el agente ha descargado correctamente la solución Automatización cuando tiene una carpeta llamada **AzureAutomationFiles** en C:\\Program Files\\Microsoft Monitoring Agent\\Agent.
+Cuando el agente se conecta correctamente a Operations Management Suite, se mostrará en la pestaña **Orígenes conectados** del panel **Configuración** de Operations Management Suite. Puede comprobar que el agente ha descargado correctamente la solución Automatización cuando tiene una carpeta llamada **AzureAutomationFiles** en C:\\Program Files\\Microsoft Monitoring Agent\\Agent.
 
 ### 4\. Instalación del entorno de runbook y conexión con Automatización de Azure
-Cuando agregue un agente a Operations Management Suite, la solución Automatización inserta el módulo **HybridRegistration** de PowerShell que contiene el cmdlet **Add-HybridRunbookWorker**. Este cmdlet se usa para instalar el entorno de runbook en el equipo y registrarlo con Automatización de Azure.
+Cuando agrega un agente a Operations Management Suite, la solución Automatización inserta el módulo **HybridRegistration** de PowerShell que contiene el cmdlet **Add-HybridRunbookWorker**. Este cmdlet se usa para instalar el entorno de runbook en el equipo y registrarlo con Automatización de Azure.
 
 Abra una sesión de PowerShell en modo de Administrador y ejecute el comando siguientes para importar el módulo.
 
@@ -88,10 +92,10 @@ Puede obtener la información necesaria para este cmdlet desde la hoja **Adminis
 ![Información general de Trabajo híbrido de runbook](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 - **Name** es el nombre del grupo de Trabajos híbridos de runbook. Si este grupo ya existe en la cuenta de automatización, se le agregará el equipo actual. Si todavía no existe, se agregará.
-- **Punto de conexión** es el campo **URL** campo de la hoja **Administrar claves**.
+- **Punto de conexión** es el campo **URL** de la hoja **Administrar claves**.
 - **Token** es la **Clave de acceso primaria** en la hoja **Administrar claves**.  
 
-Utilice el modificador **-Verbose** con **Add-HybridRunbookWorker** para recibir información detallada de la instalación.
+Use el modificador **-Verbose** con **Add-HybridRunbookWorker** para recibir información detallada sobre la instalación.
 
 ### 5\. Instalación de módulos PowerShell
 Los runbooks pueden usar cualquiera de las actividades y los cmdlets definidos en los módulos instalados en el entorno de Automatización de Azure. Sin embargo, estos módulos no se implementan automáticamente en las máquinas locales, por lo que debe instalarlos de forma manual. La excepción es el módulo de Azure que se instala de manera predeterminada y brinda acceso a los cmdlets para todos los servicios y actividades de Azure para Automatización de Azure.
@@ -100,7 +104,7 @@ Debido a que el propósito principal de la característica Trabajo híbrido de r
 
 ## Eliminación de Hybrid Runbook Worker
 
-Puede quitar Hybrid Runbook Worker desde un equipo local con el cmdlet **Remove-HybridRunbookWorker** en esta máquina. Utilice el modificador **-Verbose** para ver un registro detallado del proceso de eliminación.
+Puede quitar Hybrid Runbook Worker de un equipo local con el cmdlet **Remove-HybridRunbookWorker** en esta máquina. Use el modificador **-Verbose** para ver un registro detallado del proceso de eliminación.
 
 ## Inicio de runbooks en Trabajo híbrido de runbook
 
@@ -116,7 +120,7 @@ Use el parámetro **RunOn**. Podría usar el comando siguiente para iniciar un r
 
 ## Solución de problemas de runbooks en Hybrid Runbook Worker
 
-[La salida y los mensajes de runbooks](automation-runbook-output-and-messages.md) se envían a Automatización de Azure desde los Hybrid Worker igual que los trabajos que se ejecutan en la nube. También puede habilitar los flujos Detallado y Progreso de la misma manera que haría para otros runbooks.
+[La salida y los mensajes de runbooks](automation-runbook-output-and-messages.md) se envían a Automatización de Azure desde los trabajos híbridos igual que los trabajos de runbook que se ejecutan en la nube. También puede habilitar los flujos Detallado y Progreso de la misma manera que haría para otros runbooks.
 
 Los registros se almacenan localmente en cada Hybrid Worker en C:\\ProgramData\\Microsoft\\System Center\\Orchestrator\\7.2\\SMA\\Sandboxes.
 
@@ -164,4 +168,4 @@ Puede usar los criterios siguientes para determinar si Automatización de Azure 
 - [Edición de un runbook en Automatización de Azure](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Información general sobre Testability"
-   description="En este artículo se describe la característica de Testability en Microsoft Azure Fabric de servicio."
+   pageTitle="Información general sobre la capacidad de prueba | Microsoft Azure"
+   description="En este artículo se describe la característica de capacidad de prueba de Service Fabric de Microsoft Azure Fabric para inducir acciones de error y ejecutar escenarios de prueba en los servicios."
    services="service-fabric"
    documentationCenter=".net"
    authors="rishirsinha"
@@ -94,4 +94,4 @@ Para crear los verdaderos servicios de escala en la nube, es muy crítica la cap
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

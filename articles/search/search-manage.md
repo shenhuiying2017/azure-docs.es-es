@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Administración del servicio de búsqueda en Microsoft Azure | Microsoft Azure" 
-	description="Administración del servicio de búsqueda en Microsoft Azure" 
+	description="Administración de Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,12 +14,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Administración del servicio de búsqueda en Microsoft Azure
 
-Búsqueda de Azure es un servicio basado en la nube y una API basada en HTTP que puede usarse en aplicaciones de búsqueda personalizadas. Nuestro servicio de búsqueda proporciona el motor para análisis de texto de búsqueda de texto completo, características de búsqueda avanzadas, almacenamiento de datos de búsqueda y una sintaxis de comando de consulta.
+Búsqueda de Azure es un servicio basado en la nube con una API basada en HTTP que puede usarse en aplicaciones de búsqueda personalizadas. Nuestro servicio de búsqueda proporciona el motor para análisis de texto de búsqueda de texto completo, características de búsqueda avanzadas, almacenamiento de datos de búsqueda y una sintaxis de comando de consulta.
 
 En este artículo se explica cómo administrar un servicio de búsqueda en el [Portal de Azure](https://portal.azure.com).
 
@@ -193,4 +193,4 @@ Los roles proporcionan control de acceso después de crear el servicio. Solo los
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

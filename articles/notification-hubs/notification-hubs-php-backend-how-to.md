@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="php" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="11/01/2015" 
 	ms.author="yuaxu"/>
 
 # Uso de los Centros de notificaciones desde PHP
@@ -133,11 +133,7 @@ Consulte la [documentación de las API de REST de Centros de notificaciones](htt
 
 Con esta clase, ahora podemos escribir los métodos de envío de notificaciones dentro de la clase **NotificationHub**.
 
-	public function sendNotification($notification) {
-		$this->sendNotification($notification, "");
-	}
-
-	public function sendNotification($notification, $tagsOrTagExpression) {
+	public function sendNotification($notification, $tagsOrTagExpression="") {
 		if (is_array($tagsOrTagExpression)) {
 			$tagExpression = implode(" || ", $tagsOrTagExpression);
 		} else {
@@ -199,7 +195,9 @@ Los métodos anteriores envían una solicitud POST HTTP al extremo /messages del
 ##<a name="complete-tutorial"></a>Finalización del tutorial
 Ahora puede completar el tutorial introductorio enviando la notificación desde un back-end de PHP.
 
-Inicialice el cliente de Centros de notificaciones (reemplace la cadena de conexión y el nombre del centro tal como se indica en el [tutorial introductorio]): $hub = new NotificationHub("cadena de conexión", "nombre del centro");
+Inicialice el cliente de Centros de notificaciones (reemplace la cadena de conexión y el nombre del centro tal como se indica en el [tutorial introductorio]):
+
+	$hub = new NotificationHub("connection string", "hubname");	
 
 Después, agregue el código de envío dependiendo de la plataforma móvil de destino.
 
@@ -229,7 +227,7 @@ Después, agregue el código de envío dependiendo de la plataforma móvil de de
 		                '<wp:Text1>Hello from PHP!</wp:Text1>' .
 		           '</wp:Toast> ' .
 		        '</wp:Notification>';
-	$notification = new Notification("mpns", $toast);
+	$notification = new Notification("windowsphone", $toast);
 	$notification->headers[] = 'X-WindowsPhone-Target : toast';
 	$notification->headers[] = 'X-NotificationClass : 2';
 	$hub->sendNotification($notification);
@@ -257,4 +255,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [tutorial introductorio]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

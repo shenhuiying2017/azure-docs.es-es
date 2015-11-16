@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Arquitectura del equilibrador de recursos"
-   description="Introducción a la arquitectura del equilibrador de recursos de Service Fabric"
+   pageTitle="Arquitectura del equilibrador de recursos | Microsoft Azure"
+   description="Información general de la arquitectura del equilibrador de recursos de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="GaugeField"
@@ -38,4 +38,4 @@ Características de equilibrio de recursos:
 [Image1]: media/service-fabric-resource-balancer-architecture/Service-Fabric-Resource-Balancer-Architecture.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

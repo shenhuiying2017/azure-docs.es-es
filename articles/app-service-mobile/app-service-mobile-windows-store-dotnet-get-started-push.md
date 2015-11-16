@@ -18,9 +18,7 @@
 
 # Incorporación de notificaciones push a la aplicación universal Windows en tiempo de ejecución 8.1
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Información general
 
@@ -37,28 +35,21 @@ Para completar este tutorial, necesitará lo siguiente:
 * Complete el [tutorial de inicio rápido](../app-service-mobile-windows-store-dotnet-get-started.md).  
 
 
+##<a name="create-hub"></a>Creación de un centro de notificaciones
 
-##<a name="create-gateway"></a>Creación de un centro de notificaciones
-
-Siga estos pasos para crear un nuevo centro de notificaciones para controlar las notificaciones push. Si ya tiene un centro en el mismo grupo de recursos, no es necesario completar esta sección.
-
-1. Visite el [Portal de Azure]. Haga clic en **Examinar todo** > **Aplicaciones móviles** > el back-end que acaba de crear. Haga clic en **Configuración** > **Móvil** > **Inserción**. 
-
-2. Siga el flujo de trabajo para crear un centro de notificaciones. Deberá crear un nuevo espacio de nombres si no hay ninguno en el grupo de recursos actual. Haga clic en **Crear** una vez configurados todos los valores.
-
-Luego, usará este centro de notificaciones para habilitar la inserción en la aplicación.
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
 ##Registro de la aplicación para notificaciones push
 
 Para poder enviar notificaciones push a las aplicaciones Windows desde Azure, debe enviar la aplicación a la Tienda Windows. Después, podrá configurar el proyecto de servidor para integrarlo con WNS.
 
-1. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en el proyecto de la aplicación de la Tienda Windows y, luego, haga clic en **Tienda** > **Asociar aplicación con la Tienda...**. 
+1. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en el proyecto de la aplicación de la Tienda Windows y luego haga clic en **Tienda** > **Asociar aplicación con la Tienda...**. 
 
     ![Asociar aplicación con la Tienda Windows](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-win8-app.png)
     
-2. En el asistente, haga clic en **Siguiente**, inicie sesión con su cuenta Microsoft, escriba un nombre para la aplicación en **Reservar un nuevo nombre de aplicación** y, luego, haga clic en **Reservar**.
+2. En el asistente, haga clic en **Siguiente**, inicie sesión con su cuenta Microsoft, escriba un nombre para la aplicación en **Reservar un nuevo nombre de aplicación** y luego haga clic en **Reservar**.
 
-3. Una vez creado correctamente el registro de la aplicación, seleccione el nuevo nombre de la aplicación, haga clic en **Siguiente** y, por último, haga clic en **Asociar**. Se agrega la información de registro necesaria de la Tienda Windows al manifiesto de aplicación.
+3. Después de crear correctamente el registro de la aplicación, seleccione el nuevo nombre de la aplicación, haga clic en **Siguiente** y, por último, haga clic en **Asociar**. Se agrega la información de registro necesaria de la Tienda Windows al manifiesto de aplicación.
 
 7. Repita los pasos 1 y 3 para el proyecto de aplicación de la Tienda de Windows Phone con el mismo registro que creó anteriormente para la aplicación de la Tienda Windows.
 
@@ -76,7 +67,7 @@ Para poder enviar notificaciones push a las aplicaciones Windows desde Azure, de
 
 1. Inicie sesión en el [Portal de Azure] y seleccione **Examinar** > **Aplicación móvil** > su aplicación > **Servicios de notificaciones de inserción**.
 
-2. En el **Servicio de notificaciones de Windows**, escriba la **clave de seguridad** (secreto de cliente) y el **SID del paquete** que ha obtenido en el sitio de Servicios Live. Por último, haga clic en **Guardar**.
+2. En **Servicio de notificaciones de Windows**, escriba la **clave de seguridad** (secreto de cliente) y el **SID del paquete** que ha obtenido en el sitio de Servicios Live. Por último, haga clic en **Guardar**.
 
 El back-end de la aplicación móvil ya está configurado para funcionar con WNS.
 
@@ -192,4 +183,4 @@ La carpeta ahora ya está lista para recibir notificaciones.
 
 <!-- Images. -->
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

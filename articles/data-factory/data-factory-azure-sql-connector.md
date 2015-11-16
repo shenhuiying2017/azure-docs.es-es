@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="11/03/2015" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde SQL Azure mediante Factoría de datos de Azure
@@ -562,4 +562,4 @@ Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar 
 
 	 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

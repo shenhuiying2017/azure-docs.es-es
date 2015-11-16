@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/03/2015"
    ms.author="mausher;barbkess"/>
 
 
@@ -23,6 +23,7 @@
 - [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
 - [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
+
 
 **[bcp][]** es una utilidad de carga masiva de línea de comandos que permite copiar datos entre SQL Server, archivos de datos y Almacenamiento de datos SQL. Use bcp para importar grandes cantidades de filas en tablas de Almacenamiento de datos SQL o para exportar datos de tablas de SQL Server a archivos de datos. Excepto cuando se usa con la opción queryout, bcp no exige ningún conocimiento de Transact-SQL.
 
@@ -34,7 +35,7 @@ Con bcp puede:
 - Usar una utilidad de línea de comandos sencilla para extraer datos de Almacenamiento de datos SQL.
 
 Este tutorial le mostrará cómo:
- 
+
 - Importar datos en una tabla mediante el comando in de bcp
 - Importar datos en una tabla mediante el comando out de bcp
 
@@ -64,14 +65,20 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I
 Una vez conectado, copie el script de tabla siguiente en el símbolo del sistema de SQLCMD y presione la tecla ENTRAR:
 
 ```
-CREATE TABLE DimDate2 (DateId INT NOT NULL, CalendarQuarter TINYINT NOT NULL, FiscalQuarter TINYINT NOT NULL);
-```
-
-En la línea siguiente, escriba el terminador de lote GO y presione la tecla ENTRAR para ejecutar la instrucción:
-
-```
+CREATE TABLE DimDate2 
+(
+    DateId INT NOT NULL,
+    CalendarQuarter TINYINT NOT NULL,
+    FiscalQuarter TINYINT NOT NULL
+)
+WITH 
+(
+    CLUSTERED COLUMNSTORE INDEX,
+    DISTRIBUTION = ROUND_ROBIN
+);
 GO
 ```
+>[AZURE.NOTE]Consulte el tema [Diseño de tablas][] en el grupo de temas relacionados con el desarrollo para obtener más información sobre las opciones disponibles con la cláusula WITH.
 
 ### Paso 2: Crear un archivo de datos de origen
 
@@ -127,6 +134,19 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
+### Paso 4: Crear estadísticas de los datos recién cargados 
+
+Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas. Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos. Si desea ver una explicación detallada de las estadísticas, consulte el tema [Estadísticas][] en el grupo de temas relacionados con el desarrollo. A continuación, puede ver un ejemplo rápido de cómo crear estadísticas sobre los datos cargados y organizados en tablas que aparecen en este ejemplo.
+
+Ejecute las siguientes instrucciones CREATE STATISTICS desde un símbolo del sistema sqlcmd:
+
+```
+create statistics [DateId] on [DimDate2] ([DateId]);
+create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
+create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+GO
+```
+
 ## Exportación de datos de Almacenamiento de datos SQL
 En este tutorial, creará un archivo de datos a partir de una tabla de Almacenamiento de datos SQL. Se exportarán los datos creados anteriormente a un nuevo archivo de datos denominado DimDate2\_export.txt.
 
@@ -163,8 +183,11 @@ Para obtener información general sobre la carga, vea [Carga de datos en Almacen
 
 <!--Article references-->
 
-[Carga de datos en Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-load/
-[información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop/
+[Carga de datos en Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-load.md
+[información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop.md
+[Diseño de tablas]: ./sql-data-warehouse-develop-table-design.md
+[Estadísticas]: ./sql-data-warehouse-develop-statistics.md
+
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -173,4 +196,4 @@ Para obtener información general sobre la carga, vea [Carga de datos en Almacen
 <!--Other Web references-->
 [Centro de descarga de Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

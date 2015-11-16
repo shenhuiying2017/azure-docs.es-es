@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Transición de versión preliminar api-version=2014* a api-version=2015 *#
 
-La siguiente orientación es para los clientes que crearon aplicaciones personalizadas en las versiones preliminares de Búsqueda de Azure y ahora están migrando a la versión disponible con carácter general, 2015-02-28.
+Búsqueda de Azure es un servicio de búsqueda hospedado en la nube en Microsoft Azure. La siguiente orientación es para los clientes que crearon aplicaciones personalizadas en las versiones preliminares de Búsqueda de Azure y ahora están migrando a la versión disponible con carácter general, 2015-02-28.
 
 Como cliente de la versión preliminar, puede usar cualquiera de estas versiones preliminares anteriores:
 
@@ -144,4 +144,4 @@ La versión `2015-02-28` de la API responde a un Contrato de nivel de servicio (
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

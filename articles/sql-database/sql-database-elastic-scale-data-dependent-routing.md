@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Enrutamiento dependiente de los datos" 
-	description="Cómo usar ShardMapManager para enrutamiento dependiente de los datos, una característica de bases de datos elásticas para Base de datos SQL de Azure" 
+	pageTitle="Enrutamiento dependiente de los datos | Microsoft Azure" 
+	description="Cómo usar ShardMapManager para enrutamiento dependiente de los datos, una característica de Base de datos elástica para Base de datos SQL de Azure" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
+	authors="torsteng" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="torsteng;sidneyh"/>
 
 #Enrutamiento dependiente de los datos
 
@@ -22,9 +22,13 @@ La clase **ShardMapManager** proporciona a las aplicaciones ADO.NET la capacidad
 
 A través del uso del enrutamiento dependiente de los datos, no es necesario que la aplicación haga seguimiento de las distintas cadenas de conexión o ubicaciones de base de datos asociadas con diferentes segmentos de datos en el entorno particionado. En lugar de eso, el [administrador de mapas de particiones](sql-database-elastic-scale-shard-map-management.md) asume la responsabilidad de entregar conexiones abiertas a la base de datos correcta cuando sea necesario, según los datos del mapa de particiones y el valor de la clave de particionamiento que es el destino de la solicitud de la aplicación. (Esta clave normalmente es *customer\_id*, *tenant\_id*, *date\_key* o algún otro identificador específico que es un parámetro fundamental de la solicitud de base de datos).
 
+## Descarga de la biblioteca de cliente
+
+Para instalar la biblioteca, vaya a la [biblioteca de cliente de Base de datos elástica](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+
 ## Usar un ShardMapManager en una aplicación de enrutamiento dependiente de datos 
 
-En el caso de las aplicaciones que utilizan enrutamiento dependiente de los datos, se debe crear una instancia de **ShardMapManager** una vez por dominio de aplicación durante la inicialización, mediante la llamada de fábrica **GetSQLShardMapManager**.
+En el caso de las aplicaciones que usan enrutamiento dependiente de los datos, se debe crear una instancia de **ShardMapManager** una vez por dominio de aplicación durante la inicialización, mediante la llamada de fábrica **GetSQLShardMapManager**.
 
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString, 
                       ShardMapManagerLoadPolicy.Lazy);
@@ -32,7 +36,7 @@ En el caso de las aplicaciones que utilizan enrutamiento dependiente de los dato
 
 En este ejemplo, se inicializan **ShardMapManager** y un elemento **ShardMap** específico que contiene.
 
-En el caso de una aplicación que no manipula el mapa de particiones mismo, las credenciales que se usan en el método de fábrica para obtener el **ShardMapManager** (en el ejemplo anterior, *smmConnectionString*) deben ser credenciales que únicamente tienen permisos de solo lectura en la base de datos del **Mapa de particiones global** a la que hace referencia la cadena de conexión. Estas credenciales normalmente son distintas de las credenciales que se usan para abrir conexiones con el administrador de mapa de particiones. Consulte también [Uso de credenciales en las bibliotecas de cliente de bases de datos elásticas](sql-database-elastic-scale-manage-credentials.md).
+En el caso de una aplicación que no manipula el mapa de particiones mismo, las credenciales que se usan en el método de fábrica para obtener el **ShardMapManager** (en el ejemplo anterior, *smmConnectionString*) deben ser credenciales que únicamente tienen permisos de solo lectura en la base de datos del **Mapa de particiones global** a la que hace referencia la cadena de conexión. Estas credenciales normalmente son distintas de las credenciales que se usan para abrir conexiones con el administrador de mapa de particiones. Consulte también [Uso de credenciales en las bibliotecas de cliente de Base de datos elástica](sql-database-elastic-scale-manage-credentials.md).
 
 ## Invocar el enrutamiento dependiente de los datos 
 
@@ -70,7 +74,7 @@ Este es un ejemplo de código que usa el Administrador de asignación de partici
         cmd.ExecuteNonQuery(); 
     }  
 
-Observe que en lugar de usar un constructor para **SqlConnection**, seguido de una llamada **Open()** al objeto de conexión, se utiliza el método **OpenConnectionForKey**, y se entrega una nueva conexión ya abierta a la base de datos correcta. Las conexiones utilizadas de esta manera seguirán aprovechando completamente las agrupaciones de conexiones de ADO.Net. Siempre y cuando las transacciones y las solicitudes puedan verse satisfecha por una partición a la vez, esta debiera ser la única modificación necesaria en una aplicación utilizando ya ADO.Net.
+Observe que en lugar de usar un constructor para **SqlConnection**, seguido de una llamada **Open()** al objeto de conexión, se usa el método **OpenConnectionForKey**, y se entrega una nueva conexión ya abierta a la base de datos correcta. Las conexiones utilizadas de esta manera seguirán aprovechando completamente las agrupaciones de conexiones de ADO.Net. Siempre y cuando las transacciones y las solicitudes puedan verse satisfecha por una partición a la vez, esta debiera ser la única modificación necesaria en una aplicación utilizando ya ADO.Net.
 
 El método **OpenConnectionForKeyAsync** también está disponible si la aplicación usa la programación asincrónica con ADO.Net. Su comportamiento es el equivalente del enrutamiento dependiente de datos del método **Connection.OpenAsync** de ADO.Net.
 
@@ -117,4 +121,4 @@ Las propiedades de las transacciones están garantizadas para todas las operacio
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

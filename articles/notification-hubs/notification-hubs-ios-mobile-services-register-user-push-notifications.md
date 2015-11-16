@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="11/01/2015" 
 	ms.author="yuaxu"/>
 
 # Registro del usuario actual para notificaciones de inserción con un servicio móvil
@@ -122,4 +122,4 @@ Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación 
 [Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

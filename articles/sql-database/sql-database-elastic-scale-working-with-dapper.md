@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Uso de la biblioteca de cliente de bases de datos elásticas con Dapper" 
+	pageTitle="Uso de la biblioteca de cliente de Base de datos elástica con Dapper | Microsoft Azure" 
 	description="Uso de la biblioteca de cliente de bases de datos elásticas con Dapper." 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh"/>
+	authors="torsteng"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="torsteng;sidneyh"/>
 
 # Uso de la biblioteca de cliente de bases de datos elásticas con Dapper 
 
@@ -174,4 +174,4 @@ Las aplicaciones que usan Dapper y DapperExtensions pueden beneficiarse fácilme
 [1]: ./media/sql-database-elastic-scale-working-with-dapper/dapperimage1.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="10/29/2015"
 	ms.author="stepsic"/>
 	
 # Implementación desde Visual Studio
@@ -65,4 +65,4 @@ En el futuro puede revisar la aplicación lógica en el control de código fuent
 
 Si no quiere usar Visual Studio, pero quiere usar herramientas para implementar la aplicación lógica del control de código fuente, siempre puede usar la [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) o [Powershell](../powershell-azure-resource-manager.md) directamente para automatizar las implementaciones.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

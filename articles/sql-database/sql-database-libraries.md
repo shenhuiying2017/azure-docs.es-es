@@ -7,27 +7,22 @@
 	manager="jeffreyg"
 	editor="genemi"/>
 
-
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management" 
+	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/04/2015"
 	ms.author="pehteh"/>
 
-
 # Bibliotecas de conexiones para Base de datos SQL y SQL Server
-
 
 En este tema se muestra el número de versión mínimo para cada biblioteca o controlador que los programas cliente pueden usar para conectarse a Base de datos SQL de Azure o a Microsoft SQL Server.
 
 ## Tabla de bibliotecas de controladores publicadas por Microsoft
 
-
 En la tabla siguiente se muestran las bibliotecas publicadas por Microsoft. La columna **Bibliotecas** proporciona vínculos que puede usar para descargar cada biblioteca. La columna **Versión** muestra la versión mínima recomendada para interactuar con Base de datos de SQL Azure y Microsoft SQL Server.
-
 
 | Plataforma | Oper Sys | Bibliotecas <br/>para descarga | Versión <br/>de controlador | Descripción <br/>de controlador | Más <br/>información |
 | :--- | :--- | :--- | :--- | :--- | :-- |
@@ -46,28 +41,20 @@ En esta versión, Base de datos SQL de Microsoft Azure solo se admite en inglés
 
 Cuando utilice el controlador ODBC de SQL Server 2008 Native Client, el botón **Probar conexión** puede producir un error que señala que **master.dbo.syscharsets con** no se admite. Ignore este error, guarde el DSN y utilícelo.
 
-
 ### OLEDB para DB2 y SQL Server, para diseño DRDA
-
 
 Proveedor OLE DB de Microsoft para DB2 Versión 5.0 (proveedor de datos) le permite crear aplicaciones distribuidas dirigidas a bases de datos de IBM DB2. El proveedor de datos utiliza la arquitectura de acceso a los datos de Microsoft SQL Server en conjunto con un cliente de redes de Microsoft para DB2 que funciona como solicitante de la aplicación Arquitectura distribuida de bases de datos relacionales (DRDA). El proveedor de datos convierte los comandos OLE DB del Modelo de objetos componentes (COM) de Microsoft y los tipos de datos en formatos de datos y puntos de código de protocolo DRDA.
 
-
 Para más información, consulte:
-
 
 - [Proveedor OLE DB de Microsoft para DB2 Versión 5.0](http://msdn.microsoft.com/library/dn745875.aspx)
 - [Proveedor OLE DB de Microsoft para DB2 v4.0 para Microsoft SQL Server 2012](http://www.microsoft.com/download/details.aspx?id=29100)
 
-
 ## Bibliotecas de terceros
-
 
 > [AZURE.IMPORTANT]En la tabla siguiente se muestran las bibliotecas publicadas por terceros bajo los términos de licencia de terceros. El usuario es responsable de comprobar y cumplir con las licencias de terceros relevantes para poder usar estas bibliotecas. Asume el riesgo del uso de estas bibliotecas. Microsoft no otorga ninguna garantía, expresa o implícita, con respecto a la información proporcionada aquí y simplemente ha proporcionado la información por razones de conveniencia para los usuarios. Nada en este documento implica cualquier tipo de aprobación por Microsoft. <br/><br/>Depende de la comunidad pública de desarrolladores la actualización y el mantenimiento de la información que se encuentra en esta sección "Bibliotecas de terceros", mediante el uso del repositorio [azure-content](http://github.com/Azure/azure-content/) propiedad de **Azure** en GitHub.com. Microsoft anima a los desarrolladores a actualizar esta sección. *No* está previsto que el personal de Microsoft mantenga la información de esta sección, en parte porque otras personas son más expertas con las bibliotecas de terceros que nosotros. Gracias.
 
-
 En la tabla siguiente se muestran las bibliotecas publicadas por terceros como de otras compañías o por la comunidad. Las bibliotecas publicadas por Microsoft están restringidas a la sección anterior de este tema.
-
 
 | Plataforma | Bibliotecas |
 | :-- | :-- |
@@ -77,9 +64,8 @@ En la tabla siguiente se muestran las bibliotecas publicadas por terceros como d
 | Node.js | [Edge.js *(github com, tjanczuk)*](https://github.com/tjanczuk/edge)<br/><br/>[Edge.js *(tjanczuk, github io)*](http://tjanczuk.github.io/edge/) |
 | . | [FreeTDS *(org)*](http://www.freetds.org/) |
 
-
 <!--
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

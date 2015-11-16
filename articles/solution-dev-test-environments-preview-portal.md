@@ -144,7 +144,7 @@ En la siguiente tabla se muestran los valores predeterminados de estos parámetr
 | **requestedServiceObjectiveName** | S0 | S1 |
 
 ## Creación de entornos
-Todos los recursos de Azure deben crearse dentro de un [grupo de recursos de Azure](azure-portal/resource-group-portal.md). Los grupos de recursos le permiten agrupar recursos de Azure y así administrarlos de forma colectiva. Se pueden asignar [permisos](azure-portal/resource-group-rbac.md) a grupos de recursos para que personas específicas dentro de su organización puedan crearlos, modificarlos, eliminarlos o verlos, junto con los recursos que contienen. Se pueden ver alertas e información de facturación de los recursos del grupo de recursos en el [Portal de vista previa de Azure](https://portal.azure.com). Los grupos de recursos se crean en una [ubicación](http://azure.microsoft.com/regions/) de Azure. En este artículo, todos los recursos se crean en la ubicación Centro de EE. UU. Cuando empiece a crear entornos reales, elegirá la ubicación que mejor cumpla sus requisitos.
+Todos los recursos de Azure deben crearse dentro de un [grupo de recursos de Azure](azure-portal/resource-group-portal.md). Los grupos de recursos le permiten agrupar recursos de Azure y así administrarlos de forma colectiva. Se pueden asignar [permisos](resource-group-rbac.md) a grupos de recursos para que personas específicas dentro de su organización puedan crearlos, modificarlos, eliminarlos o verlos, junto con los recursos que contienen. Se pueden ver alertas e información de facturación de los recursos del grupo de recursos en el [Portal de vista previa de Azure](https://portal.azure.com). Los grupos de recursos se crean en una [ubicación](http://azure.microsoft.com/regions/) de Azure. En este artículo, todos los recursos se crean en la ubicación Centro de EE. UU. Cuando empiece a crear entornos reales, elegirá la ubicación que mejor cumpla sus requisitos.
 
   **Paso 5:** Creación de grupos de recursos para los entornos de desarrollo y pruebas mediante uno de los métodos siguientes. Con ambos métodos se obtiene exactamente el mismo resultado.
 
@@ -384,4 +384,4 @@ Ahora que ha experimentado lo fácil que es crear, mantener y eliminar entornos 
 - Use [Visual Studio Release Management](http://msdn.microsoft.com/Library/vs/alm/Release/overview) para crear canalizaciones de implementación continuas y administradas y liberarlas de forma rápida, fácil y con frecuencia.
 - Solicite una invitación para la vista previa de [Laboratorio de desarrollo y pruebas de Azure](http://azure.microsoft.com/campaigns/devtest-lab/). Esta aplicación le permite administrar entornos de laboratorio de desarrollo y pruebas mediante plantillas y configurar cuotas y directivas para su uso dentro de la organización.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

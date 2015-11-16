@@ -8,39 +8,30 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="app-service-logic" 	
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="10/01/2015"
+   ms.date="10/29/2015"
    ms.author="rajram"/>
 
 # Codificador de archivos sin formato de BizTalk
 
-Use el conector Codificador de archivos sin formato de BizTalk para interoperar entre datos de archivos sin formato (por ejemplo, Excel, csv) y datos XML. En este sentido, puede convertir una instancia de archivo sin formato a XML y viceversa.
+Use el conector Codificador de archivos sin formato de BizTalk para interoperar entre datos de archivos sin formato (por ejemplo, un archivo Excel o CSV) y datos XML. En este sentido, puede convertir una instancia de archivo sin formato a XML y viceversa.
 
 ##Uso del Codificador de archivos sin formato de BizTalk
-Para usar el Codificador de archivos sin formato de BizTalk, primero debe crear una instancia de la aplicación de API del Codificador de archivos sin formato de BizTalk. Esta operación puede realizarse en línea, mediante la creación de una aplicación lógica, o bien seleccionando la aplicación de API del Codificador de archivos sin formato de BizTalk en Azure Marketplace.
+Para usar el Codificador de archivos sin formato de BizTalk, primero debe crear una instancia de la aplicación de API del Codificador de archivos sin formato de BizTalk. Esta operación puede realizarse en línea, mediante la creación de una aplicación lógica, o bien seleccionando la aplicación de API del Codificador de archivos sin formato de BizTalk en Azure Marketplace. Estos son los pasos para crear una aplicación de API de Codificador de archivos sin formato de BizTalk desde Azure Marketplace: 1. Inicie sesión en el Portal de Azure (http://portal.azure.com). 2. Seleccione Nuevo > Marketplace > Todo. 3. Busque "Codificador de archivos sin formato de BizTalk" en el cuadro de búsqueda. 4. Seleccione el Codificador de archivos sin formato de BizTalk de la lista de resultados. 5. Seleccione "Crear" y proporcione un nombre y los demás detalles necesarios. 6. Seleccione "Crear". Se le redirigirá a la página de inicio, donde puede ver el progreso de creación. Esta operación puede tardar varios minutos en completarse. Recibirá una notificación cuando lo haga.
 
 ###Configuración del Codificador de archivos sin formato de BizTalk
-El Codificador de archivos sin formato de BizTalk adopta esquemas como parte de su configuración. Para iniciar la hoja de configuración de la aplicación de API, los usuarios pueden iniciar la aplicación de API directamente desde el Portal de Azure, o bien pueden hacer clic en dicha aplicación en la superficie del diseñador.
+Después de crear la aplicación de API, puede ejecutarla directamente desde la página de inicio del Portal de Azure o desde la superficie del diseñador al crear una aplicación lógica.
 
-![Configuración del Codificador de archivos sin formato de BizTalk][1]
-
-En la hoja Aplicación de API, los usuarios pueden configurar esquemas haciendo clic en el elemento *Esquemas*.
-
-![Elemento Esquemas del Codificador de archivos sin formato de BizTalk][2]
-
-Los usuarios pueden cargar esquemas desde un disco o generar uno a partir de una instancia de archivo sin formato o una instancia JSON.
-
-![Elemento Esquemas del Codificador de archivos sin formato de BizTalk][3]
-
+Para iniciarla desde la página de inicio de Azure puede buscarla si escribe el nombre que asignó al Codificador de archivos sin formato de BizTalk cuando se creó. Para ello, siga estos pasos: 1. Escriba el nombre del Codificador de archivos sin formato de BizTalk en el cuadro de búsqueda en el Portal de Azure y haga clic en Buscar. 2. Luego, seleccione su Codificador de archivos sin formato de BizTalk de la lista. Se abre la hoja Aplicación de API donde puede configurar la aplicación de API del Codificador de archivos sin formato de BizTalk. Para iniciar la configuración, puede agregar un esquema; para ello, siga estos pasos. 1. Seleccione el componente "Esquemas". ![Elemento Esquemas del Codificador de archivos sin formato de BizTalk][2] 2. Luego, seleccione "Agregar nuevo" en la hoja Esquemas que se abre ![Lista de acciones del Codificador de archivos sin formato de BizTalk][7] 3. Seleccione una de las tres opciones para proporcionar el esquema. Las opciones son CARGAR NUEVO ESQUEMA, GENERAR DESDE JSON Y GENERAR DESDE ARCHIVO SIN FORMATO. ![Lista de acciones del Codificador de archivos sin formato de BizTalk][8] 4. Siga los pasos para proporcionar el esquema, según la selección realizada en el paso anterior. Verá que el esquema se ha cargado: ![Lista de acciones del Codificador de archivos sin formato de BizTalk][9]
 
 ###Uso del Codificador de archivos sin formato de BizTalk en la superficie de diseño
-Una vez configurado, los usuarios pueden hacer clic en *->* y elegir una acción de una lista de acciones.
+Ahora que ha configurado el Codificador de archivos sin formato de Biztalk, es hora de usarlo en una aplicación lógica. Para empezar, cree una nueva aplicación lógica (nosotros iniciamos una existente que ha creado con anterioridad y luego seguimos estos pasos): 1. En la ficha "Iniciar lógica", haga clic en "Ejecutar esta lógica manualmente". 2. Seleccione la aplicación de API del Codificador de archivos sin formato de BizTalk que creó anteriormente en la galería (encontrará el Codificador de archivos sin formato de BizTalk que creó en la lista de aplicaciones de API de la parte derecha de la pantalla.). 3. Seleccione la flecha derecha negra. Se presentan las dos acciones disponibles (Archivo sin formato a XML y XML a archivo sin formato): ![Lista de acciones del Codificador de archivos sin formato de BizTalk][1] ![Lista de acciones del Codificador de archivos sin formato de BizTalk][4]
 
-![Lista de acciones del Codificador de archivos sin formato de BizTalk][4]
+Siga los pasos que se describen a continuación en función de la acción seleccionada.
 
 ####Archivo sin formato a XML
 
@@ -72,6 +63,10 @@ La acción devuelve la salida como una cadena: archivo sin formato. La salida co
 [4]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.ListOfActions.PNG
 [5]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.FlatFileToXml.PNG
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
+[7]: ./media/app-service-logic-flatfile-encoder/flatfileencoder.addschema.PNG
+[8]: ./media/app-service-logic-flatfile-encoder/flatfileencoder.selectschemauploadoption.PNG
+[9]: ./media/app-service-logic-flatfile-encoder/flatfileencoder.shemauploaded.PNG
+
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

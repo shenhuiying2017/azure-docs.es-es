@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="11/04/2015"
    ms.author="tomfitz"/>
 
 # Creación de plantillas del Administrador de recursos de Azure
@@ -54,32 +54,6 @@ La sintaxis básica de la plantilla es JSON; sin embargo, las expresiones y func
 
 Normalmente, se usan expresiones con funciones para realizar operaciones con el fin de configurar la implementación. Al igual que en JavaScript, las llamadas de función tienen el formato **functionName(arg1,arg2,arg3)**. Se hace referencia a las propiedades mediante los operadores dot e [index] .
 
-La siguiente lista muestra las funciones comunes.
-
-- **parameters(parameterName)**
-
-    Devuelve un valor de parámetro que se proporciona cuando se ejecuta la implementación.
-
-- **variables(variableName)**
-
-    Devuelve una variable que se define en la plantilla.
-
-- **concat(arg1,arg2,arg3,...)**
-
-    Combina varios valores de cadena. Esta función puede tomar cualquier número de argumentos.
-
-- **base64(inputString)**
-
-    Devuelve la representación de base64 de la cadena de entrada.
-
-- **resourceGroup()**
-
-    Devuelve un objeto estructurado (con las propiedades de identificador, nombre y ubicación) que representa el grupo de recursos actual.
-
-- **resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
-
-    Devuelve el identificador único de un recurso. Se puede usar para recuperar recursos de otro grupo de recursos.
-
 En el ejemplo siguiente se muestra cómo utilizar algunas de las funciones para la construcción de valores:
  
     "variables": {
@@ -88,7 +62,7 @@ En el ejemplo siguiente se muestra cómo utilizar algunas de las funciones para 
        "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
     }
 
-Por ahora, ya sabe lo suficiente acerca de expresiones y funciones para comprender las secciones de la plantilla. Para obtener más información acerca de todas las funciones de plantilla, incluidos los parámetros y el formato de valores devueltos, consulte [Funciones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md).
+Para obtener la lista completa de las funciones de plantilla, consulte [Funciones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md).
 
 
 ## Parámetros
@@ -107,7 +81,10 @@ Defina recursos con la estructura siguiente:
          "minValue": <optional-minimum-value-for-int-parameters>,
          "maxValue": <optional-maximum-value-for-int-parameters>,
          "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
-         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>
+         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>,
+         "metadata": {
+             "description": "<optional-description-of-the parameter>" 
+         }
        }
     }
 
@@ -121,6 +98,7 @@ Defina recursos con la estructura siguiente:
 | maxValue | No | El valor máximo de parámetros de tipo int, este valor es inclusivo.
 | minLength | No | La longitud mínima de los parámetros de tipo cadena, secureString y matriz, este valor es inclusivo.
 | maxLength | No | La longitud máxima de los parámetros de tipo cadena, secureString y matriz, este valor es inclusivo.
+| description | No | Descripción del parámetro que se mostrará a los usuarios de la plantilla mediante la interfaz de plantilla personalizada del portal.
 
 Los valores y tipos permitidos son los siguientes:
 
@@ -346,7 +324,7 @@ En el ejemplo siguiente se muestra un valor que se devuelve en la sección de sa
 ## Escenarios más avanzados.
 En este tema se ofrece una visión preliminar de la plantilla. Sin embargo, el escenario puede requerir tareas más avanzadas.
 
-Puede que necesite combinar dos plantillas o usar una plantilla secundaria dentro de una plantilla principal. Para obtener más información, consulte [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
+Puede que necesite combinar dos plantillas o usar una plantilla secundaria dentro de una plantilla principal. Para obtener más información, vea [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
 
 Para iterar una cantidad de veces específica al crear un tipo de recurso, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 
@@ -435,9 +413,9 @@ La siguiente plantilla implementa una aplicación web y aprovisiona con código 
     }
 
 ## Pasos siguientes
-- Para obtener información detallada sobre las funciones que puede usar desde una plantilla, consulte [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md).
-- Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md).
-- Para obtener un ejemplo en profundidad de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
+- Para obtener información detallada sobre las funciones que puede usar desde una plantilla, vea [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md).
+- Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
+- Para obtener un ejemplo en profundidad de la implementación de una aplicación, vea [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para ver los esquemas disponibles, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

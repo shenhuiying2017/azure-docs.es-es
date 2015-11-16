@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="11/04/2015" 
 	ms.author="bradsev" />
 
 
@@ -28,30 +28,32 @@ Data Science Virtual Machine es una imagen de máquina virtual de Azure preinsta
 - Visual Studio Community Edition
 - Power BI Desktop
 - SQL Server Express Edition
+- SDK de Azure
 
 
-La ciencia de datos implica una iteración en una secuencia de tareas: encontrar, cargar y preprocesar datos, crear y probar modelos e implementar los modelos para su uso en aplicaciones inteligentes. No es raro que los científicos de datos usen diversas herramientas para realizar estas tareas. Puede ser bastante lento encontrar las versiones del software adecuadas, descargarlas e instalarlas. Data Science Virtual Machine puede facilitar mucho de esa carga.
+La ciencia de datos implica una iteración en una secuencia de tareas: encontrar, cargar y preprocesar datos, crear y probar modelos e implementar los modelos para su uso en aplicaciones inteligentes. No es raro que los científicos de datos usen diversas herramientas para realizar estas tareas. Puede ser bastante lento encontrar las versiones del software adecuadas, descargarlas e instalarlas. Use Data Science Virtual Machine para facilitar esta carga.
 
-Use Data Science Virtual Machine para facilitar esta carga. Impulse su proyecto de análisis mediante la creación de una imagen que incluye el software que se usa habitualmente para tareas de análisis y aprendizaje automático en una variedad de lenguajes, incluidos R, Python, SQL y C#. Visual Studio proporciona un IDE para desarrollar y probar el código que es fácil de usar. El SDK de Azure incluido en la máquina virtual permite crear aplicaciones con varios servicios en la plataforma en la nube de Microsoft.
+Data Science Virtual Machine pone en marcha el proyecto de análisis. Le permite trabajar en tareas en una variedad de lenguajes, incluidos R, Python, SQL y C#. Visual Studio proporciona un IDE para desarrollar y probar el código que es fácil de usar. El SDK de Azure incluido en la máquina virtual permite crear aplicaciones con varios servicios en la plataforma en la nube de Microsoft.
+
 
 ## Requisitos previos
 
 Antes de poder crear una máquina virtual de Azure, debe tener lo siguiente:
 
-- **Suscripción de Azure**: Consulte [ Obtener una versión de evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una suscripción a Azure**: para conseguir una, vea [Obtener una versión de evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-*   **Una cuenta de almacenamiento de Azure**: consulte [Creación de una cuenta de almacenamiento de Azure](storage-whatis-account.md). La cuenta de almacenamiento puede crearse como parte del proceso de creación de la máquina virtual si no desea usar una cuenta existente.
+*   **Una cuenta de almacenamiento de Azure**: para crear una, consulte [Creación de una cuenta de almacenamiento de Azure](storage-whatis-account.md). También puede crear una cuenta de almacenamiento como parte del proceso de creación de la máquina virtual si no desea usar una cuenta existente.
 
 
 ## Creación de su máquina virtual de ciencia de datos
 
-Los pasos implicados en la creación de su instancia de la máquina virtual de ciencia de datos son:
+Estos son los pasos para crear una instancia de Data Science Virtual Machine:
 
-1.	Inicie sesión en el Portal de Azure
-2.	Vaya a **Nuevo** -> **Proceso** -> **Marketplace** y busque *Máquina virtual para ciencia de datos*.![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
+1.	Inicie sesión en el [Portal de Azure](https://ms.portal.azure.com/).
+2.	Vaya a **Nuevo** -> **Proceso** -> **Marketplace** y busque *Data Science Virtual Machine*.![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
 3.	Seleccione la máquina virtual llamada “**Máquina virtual para ciencia de datos**”, publicada por Microsoft para ver un panel que describe la máquina virtual para ciencia de datos. 	
 4.	 Haga clic en el botón **Crear**, ubicado en la parte inferior, para tener acceso a un asistente.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
-5.	 Las secciones siguientes proporcionan las entradas para cada uno de los 5 pasos (enumerados a la derecha de la figura anterior) en el asistente que se usó para crear la máquina virtual para ciencia de datos. Estas son las entradas necesarias para configurar cada uno de estos pasos:
+5.	 Las secciones siguientes proporcionan las **entradas** para cada uno de los **5 pasos** (enumerados a la derecha de la ilustración anterior) en el asistente que se usó para crear Data Science Virtual Machine. Estas son las entradas necesarias para configurar cada uno de estos pasos:
 
  **1. Básico**:
 
@@ -68,17 +70,18 @@ Los pasos implicados en la creación de su instancia de la máquina virtual de c
 
  **3. Configuración**
 
- **4. Tipo de disco**:
+- **Tipo de disco**: elija Premium si prefiere una unidad de estado sólido (SSD), de lo contrario elija "Estándar".
+- **Cuenta de almacenamiento**: puede crear una nueva cuenta de almacenamiento de Azure en su suscripción o usar uno existente en la misma *ubicación* que ha elegido en el paso Básico del asistente.
+- **Otros parámetros**: en la mayoría de los casos, usará simplemente los valores predeterminados. Puede mover el puntero sobre el vínculo informativo para obtener ayuda sobre los campos específicos en caso de que desee considerar el uso de valores no predeterminados.
 
-- Elija Premium si prefiere SSD; de lo contrarío, elija Estándar
+ **4. Resumen**:
 
- **5. Cuenta de almacenamiento**:
-
-
-- Puede crear una nueva cuenta de almacenamiento de Azure en su suscripción o usar uno existente en la misma ubicación que ha elegido en el paso Básico del asistente.
-- En la mayoría de los casos, usará el valor predeterminado para el resto de los parámetros. Puede mover el puntero sobre el vínculo informativo para obtener ayuda sobre el campo específico si no desea usar no el valor predeterminado.
 - Compruebe que toda la información que ha especificado es correcta.
-- Haga clic en **Comprar** para iniciar el aprovisionamiento. Se proporciona un vínculo a los términos de la transacción. La máquina virtual no tiene ningún cargo adicional más allá del cálculo del tamaño del servidor que eligió en el paso **Tamaño**. 
+
+ **5. Comprar**:
+
+- Haga clic en **Comprar** para iniciar el aprovisionamiento. Se proporciona un vínculo a los términos de la transacción. La máquina virtual no tiene ningún cargo adicional más allá del proceso para el tamaño del servidor que eligió en el paso **Tamaño**. 
+
 
 El aprovisionamiento tardará entre 10 y 20 minutos. El estado del aprovisionamiento se muestra en el Portal de Azure.
 
@@ -100,7 +103,7 @@ Para el desarrollo con Python, se ha instalado Anaconda Python Distribution 2.7.
 La distribución de Anaconda también incluye un IPython Notebook, un entorno para compartir código y análisis. Se ha preconfigurado un servidor de IPython Notebook. Hay un icono del escritorio para iniciar el explorador para tener acceso al servidor del notebook. Si está en la máquina virtual a través de un escritorio remoto, también puede visitar [https://localhost:9999/](https://localhost:9999/) para tener acceso al servidor de IPython Notebook (nota: si se recibe alguna advertencia de certificado, simplemente continúe).
 
 ### Visual Studio 2015 Community Edition
-Visual Studio Community Edition instalado en la máquina virtual. Es una versión gratuita del popular IDE de Microsoft que puede usar para fines de evaluación y para equipos muy pequeños. Puede revisar las condiciones de uso ***aquí*** (vínculo por determinar). Haga doble clic en el icono del escritorio o en el menú **Inicio** para abrir Visual Studio. También puede buscar programas con **Win** + **S** y escribiendo “Visual Studio”.
+Visual Studio Community Edition instalado en la máquina virtual. Es una versión gratuita del popular IDE de Microsoft que puede usar para fines de evaluación y para equipos muy pequeños. Puede revisar los términos de licencia [aquí](https://www.visualstudio.com/support/legal/mt171547). Haga doble clic en el icono del escritorio o en el menú **Inicio** para abrir Visual Studio. También puede buscar programas con **Win** + **S** y escribiendo "Visual Studio".
 
 Nota: puede obtener un mensaje que indica que el período de evaluación ha caducado. Puede escribir las credenciales de la cuenta de Microsoft o crear una cuenta y volver a escribirlas para obtener acceso a Visual Studio Community Edition. Una ahí, puede crear proyectos en lenguajes como C#, Python
 
@@ -119,4 +122,4 @@ Nota: se necesita una cuenta de Office 365 para tener acceso a Power BI.
 ## Herramientas de desarrollo de Microsoft adicionales
 Puede usar el [**Instalador de plataforma web de Microsoft**](https://www.microsoft.com/web/downloads/platform.aspx) para detectar y descargar otras herramientas de desarrollo de Microsoft. También hay un acceso directo a la herramienta que se incluye en el escritorio de la máquina virtual.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

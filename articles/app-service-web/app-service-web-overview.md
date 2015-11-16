@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="10/27/2015"
 	ms.author="jaime.espinosa"/>
 
 
@@ -27,7 +27,7 @@ Aproveche la eficacia de las [Aplicaciones web del Servicio de aplicaciones](htt
 
 ## Mucho más que simples sitios web##
 
-Las empresas modernas interactúan con sus clientes de formas cada vez más sofisticadas. Compañías de todos los tipos consideran su presencia web corporativa como una parte crítica de su empresa y componente principal de su plan de negocio. Para ponerse a la altura, las empresas buscan una plataforma que les proporcione la agilidad, seguridad y escalabilidad necesarias. Además, requieren la capacidad de vincularse a su sistema de negocio existente, poder implementar nuevo código de forma rápida y sincronizar instancias en todo el mundo. Con el Servicio de aplicaciones y Aplicaciones web de Azure, las organizaciones pueden satisfacer los requisitos de sus clientes de forma rápida y rentable.
+Las empresas modernas interactúan con sus clientes de formas cada vez más sofisticadas. Compañías de todos los tipos consideran su presencia web corporativa como una parte crítica de su empresa y componente principal de su plan de negocio. Para adaptarse a este importante hecho, las empresas buscan una plataforma que proporcione agilidad, escalabilidad y seguridad. Además, necesitan poder vincularse a sus sistemas de negocio existentes, ser capaces de implementar rápidamente nuevo código y poner al día las instancias en todo el planeta. Con el Servicio de aplicaciones y Aplicaciones web de Azure, las organizaciones pueden satisfacer los requisitos de sus clientes de forma rápida y rentable.
 
 ## ¿Por qué Aplicaciones web? ##
 
@@ -39,7 +39,7 @@ Aplicaciones web del Servicio de aplicaciones de Azure es una plataforma totalme
 
 ## Conceptos de Aplicaciones web ##
 
-- **Galería de Aplicaciones web**: seleccione en una lista ampliable de plantillas de aplicaciones web existentes. Aproveche lo mejor de la comunidad de aplicaciones OSS mediante la instalación con un solo clic de paquetes como Wordpress, Joomla y Drupal. Comience correctamente el proceso de desarrollo de su aplicación utilizando marcos de trabajo como .NET MVC, Django y CakePHP.
+- **Galería de Aplicaciones web**: seleccione en una lista ampliable de plantillas de aplicaciones web existentes. Aproveche lo mejor de la comunidad de aplicaciones OSS mediante la instalación con un solo clic de paquetes como Wordpress, Joomla y Drupal. Comience con buen pie el proceso de desarrollo de su aplicación usando marcos de trabajo como .NET MVC, Django y CakePHP.
 - **Ajuste de escala automático**: Aplicaciones web le permite ampliar y reducir rápidamente sus recursos para hacer frente a cualquier carga de trabajo entrante de los clientes. Manualmente seleccione el número y tamaño de las máquinas virtuales o configure el escalado automático para escalar los servidores en función de la carga o programación.
 - **Integración continua**: configure la integración continua y los flujos de trabajo de implementación con VSO, GitHub, TeamCity, Hudson o BitBucket, lo que permite compilar, probar e implementar automáticamente la aplicación web en cada comprobación del código o pruebas de integración correctas.
 - **Espacios de implementación**: realice una [implementación de ensayo][Slots] para comprobar el código en un entorno de preproducción que sea idéntico al de la aplicación web de producción del Servicio de aplicaciones de Azure. Cuando esté satisfecho, publique una nueva versión de la aplicación sin tiempo de inactividad mediante una operación de intercambio. 
@@ -65,4 +65,4 @@ Para obtener más información sobre la plataforma de Servicio de aplicaciones d
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

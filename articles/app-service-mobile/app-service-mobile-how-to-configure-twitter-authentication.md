@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/29/2015"
 	ms.author="mahender"/>
 
 # Configuración de la aplicación para usar el inicio de sesión de Twitter
@@ -29,7 +29,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
 1. Inicie sesión en el [Portal de administración de Azure] y vaya a la aplicación móvil. Copie la **Dirección URL**. La usará para configurar la aplicación de Twitter.
 
-2. Haga clic en **Configuración**, **Autenticación del usuario** y, después, haga clic en **Twitter**. Copie la **URL de devolución de llamada**. La usará para configurar la aplicación de Twitter.
+2. Haga clic en **Configuración**, **Autenticación móvil** y, después, haga clic en **Twitter**. Copie la **URL de devolución de llamada**. La usará para configurar la aplicación de Twitter.
 
 3. Desplácese hasta el sitio web para [desarrolladores de Twitter], inicie sesión con las credenciales de la cuenta de Twitter y haga clic en **Crear nueva aplicación**.
 
@@ -70,6 +70,5 @@ De este modo ya estará listo para usar Twitter para realizar la autenticación 
 [desarrolladores de Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Portal de administración de Azure]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

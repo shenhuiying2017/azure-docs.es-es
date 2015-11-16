@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/27/2015"   
+	ms.date="11/03/2015"   
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ Estas notas de la versión resumen los cambios realizados desde las versiones an
 
 - [Problemas actualmente conocidos](#issues)
 - [Historial de versiones de API de REST](#rest_version_history)
+- [Versión de octubre de 2015](#oct_changes_15)
 - [Versión de septiembre de 2015](#september_changes_15)
 - [Versión de agosto de 2015](#august_changes_15)
 - [Versión de julio de 2015](#july_changes_15)
@@ -74,11 +75,19 @@ Los objetos de Servicios multimedia del SDK no se pueden serializar y, como resu
 
 Para obtener información sobre el historial de versiones de la API de REST de Servicios multimedia, consulte [Referencia de la API de REST de Servicios multimedia de Azure].
 
+##<a id="oct_changes_15"></a>Versión de octubre de 2015
+
+Servicios multimedia de Azure (AMS) ahora también está disponible en los centros de datos siguientes: Sur de Brasil, India occidental, Sur de la India e India central. Ahora puede usar el Portal de administración de Azure para [crear cuentas de servicio multimedia](media-services-create-account.md#create-a-media-services-account-using-quick-create) y realizar la diversas tareas descritas [aquí](https://azure.microsoft.com/documentation/services/media-services/). Sin embargo, Codificación en directo no está habilitado en estos centros de datos. Además, no todos los tipos de unidades reservadas de codificación están disponibles en estos centros de datos.
+
+- Sur de Brasil: solo están disponibles las unidades reservadas de codificación básicas y estándar
+- India occidental, Sur de la India e India central: solo están disponibles unidades reservadas de codificación básicas
+
+
 ##<a id="september_changes_15"></a>Versión de septiembre de 2015 
 
-- AMS ofrece ahora la capacidad de proteger tanto vídeo bajo demanda (VOD) como secuencias activas con la tecnología DRM modular de Widevine. Puede usar los siguientes partners de servicios de entrega para ayudarle a entregar licencias de Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). Para obtener más información, consulte [este blog](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
+- AMS ofrece ahora la capacidad de proteger tanto vídeo bajo demanda (VOD) como secuencias activas con la tecnología DRM modular de Widevine. Puede usar los siguientes asociados de servicios de entrega para ayudarle a entregar licencias de Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). Para obtener más información, consulte [este blog](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
 
-	Puede usar el [SDK de .NET de AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir de la versión 3.5.1) o la API de REST para configurar su AssetDeliveryConfiguration para usar Widevine.
+	Puede usar el [SDK de .NET de AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir de la versión 3.5.1) o la API de REST para configurar AssetDeliveryConfiguration para usar Widevine.
 
 - AMS agregó compatibilidad para vídeos ProRes de Apple. Ahora puede cargar sus archivos de vídeos de origen QuickTime que usan ProRes de Apple u otros códecs. Para obtener más información, consulte [este blog](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 
@@ -89,11 +98,11 @@ Para obtener información sobre el historial de versiones de la API de REST de S
 	- Ahora puede usar el formato Apple HTTP Live Streaming (HLS) con filtro solo de audio. Esta actualización le permite quitar la pista solo de audio mediante la especificación de (audio-only=false) en la dirección URL.
 	- Al definir filtros para los activos, ahora tiene la posibilidad de combinar varios filtros (hasta 3) en una sola dirección URL.
 
-	Para obtener más información, consulte [este blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+	Para obtener más información, consulte [este](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
 
 - AMS admite ahora I-Frames en HLS v4. La compatibilidad con I-Frames optimiza las operaciones de avance rápido y rebobinado. De forma predeterminada, todas las salidas de HLS v4 incluyen la lista de reproducción de I-Frame (EXT-X-I-FRAME-STREAM-INF).
  
-	Para obtener más información, consulte [este blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+	Para obtener más información, consulte [este](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
 
 ##<a id="august_changes_15"></a>Versión de agosto de 2015
 
@@ -108,7 +117,7 @@ Para obtener información sobre el historial de versiones de la API de REST de S
 
 - Anuncia la disponibilidad general de Media Encoder estándar. Para obtener más información, consulte [esta publicación del blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-	Codificador multimedia estándar usa valores predefinidos que se describen en [esta](http://go.microsoft.com/fwlink/?LinkId=618336) sección. Tenga en cuenta que cuando se usa un valor preestablecido para codificaciones de 4k, debe obtener el tipo de unidad reservada **Premium**. Para obtener más información, consulte [Escalación de codificación](media-services-portal-encoding-units).
+	El Codificador multimedia Estándar usa valores predefinidos que se describen en [esta](http://go.microsoft.com/fwlink/?LinkId=618336) sección. Tenga en cuenta que cuando se usa un valor preestablecido para codificaciones de 4k, debe obtener el tipo de unidad reservada **Premium**. Para obtener más información, consulte [Escalación de codificación](media-services-portal-encoding-units).
 - Subtítulos en tiempo real con Servicios multimedia de Azure y el Reproductor. Para obtener más información, consulte [esta publicación del blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ###Actualizaciones del SDK .NET de Servicios multimedia
@@ -602,4 +611,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [Control de notificaciones de trabajo de Servicios multimedia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

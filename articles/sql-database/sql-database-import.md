@@ -47,7 +47,7 @@ Para importar una base de datos SQL de un .bacpac, necesita lo siguiente:
 
 Abra la hoja de SQL Server para la base de datos que quiere importar:
 
-1.	Vaya al [Portal de vista previa de Azure](https//:portal.azure.com).
+1.	Vaya al [Portal de vista previa de Azure](https://portal.azure.com).
 2.	Haga clic en **EXAMINAR TODO**.
 3.	Haga clic en **Servidores SQL Server**.
 2.	Haga clic en el servidor en el que restaurará la base de datos.
@@ -110,4 +110,4 @@ Al hacer clic en **Crear** se envía una solicitud de importación de base de da
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

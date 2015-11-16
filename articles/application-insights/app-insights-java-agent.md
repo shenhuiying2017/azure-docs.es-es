@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="11/03/2015" 
 	ms.author="awills"/>
  
 # Supervisión de dependencias, excepciones y tiempos de ejecución en aplicaciones web de Java
@@ -33,7 +33,7 @@ Para usar el agente de Java, debe instalarlo en el servidor. Las aplicaciones we
 
 ## Instalación del agente de Application Insights para Java
 
-1. [Descargue el agente](http://go.microsoft.com/fwlink/?LinkId=618633) en el equipo que ejecuta el servidor de Java.
+1. [Descargue el agente](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html) en el equipo que ejecuta el servidor de Java.
 2. Edite el script de inicio del servidor de aplicaciones y agregue la siguiente JVM:
 
     `javaagent:`*ruta de acceso completa al archivo JAR del agente*
@@ -122,4 +122,4 @@ Para buscar instancias individuales de informes de dependencia, excepción y mé
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

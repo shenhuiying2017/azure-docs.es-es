@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Escalado con la herramienta de división y combinación de bases de datos elásticas" 
+    pageTitle="Escalado con la herramienta de división y combinación de Base de datos elástica | Microsoft Azure" 
     description="Explica cómo manipular las particiones y mover los datos a través de un servicio autohospedado mediante las API de bases de datos elásticas." 
     services="sql-database" 
     documentationCenter="" 
     manager="jeffreyg" 
-    authors="sidneyh"/>
+    authors="ddove"/>
 
 <tags 
     ms.service="sql-database" 
@@ -12,14 +12,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/29/2015" 
-    ms.author="sidneyh" />
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh" />
 
 # Escalado con la herramienta de división y combinación de bases de datos elásticas
 
-Si elige no utilizar el modelo simple de asignación de bases de datos independientes para cada shardlet (inquilino), es posible que la aplicación necesite redistribuir de manera flexible los datos a través de las bases de datos cuando las necesidades de capacidad fluctúan. Las herramientas de bases de datos elásticas incluyen una herramienta de división y combinación hospedada por el cliente para reequilibrar la distribución de los datos y administrar las zonas activas para las aplicaciones particionadas. Se basa en una funcionalidad subyacente para mover shardlets a petición entre distintas bases de datos y se integra con la administración de mapa de particiones para mantener asignaciones coherente.
+Las [herramientas de Base de datos elástica](sql-database-elastic-scale-introduction.md) incluyen una herramienta para reequilibrar la distribución de los datos y administrar las zonas activas para las aplicaciones particionadas. La **herramienta de división y combinación** administra la reducción y el escalado horizontal; puede agregar o quitar bases de datos del conjunto de particiones y usar la herramienta de división y combinación para reequilibrar la distribución de shardlets entre ellas. (Para obtener definiciones de los términos, consulte el [Glosario de escala elástica](sql-database-elastic-scale-glossary.md)).
 
-La herramienta de división y combinación administra la reducción y el escalado horizontal; puede agregar o quitar bases de datos del conjunto de particiones y utilizar la herramienta de división y combinación para reequilibrar la distribución de shardlets entre ellas. (Para obtener definiciones de los términos, consulte el [Glosario de Escalado elástico](sql-database-elastic-scale-glossary.md)).
+La herramienta mueve los shardlets a petición entre distintas bases de datos y se integra con la [administración de mapa de particiones](sql-database-elastic-scale-shard-map-management.md) para mantener coherentes las asignaciones.
+
+Para comenzar, consulte [Herramienta de división y combinación de Base de datos elástica](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 
 ## Novedades de la División y combinación
 
@@ -29,8 +31,6 @@ La versión 1.0.0 de la herramienta división-combinación ofrece las siguientes
 
 ## Procedimiento de actualización
 
-Para actualizar a la versión más reciente de División y combinación, haga lo siguiente:
-
 1. Descargue la versión más reciente del paquete de División y combinación desde NuGet, tal como se describe en [Descarga de los paquetes de División y combinación](sql-database-elastic-scale-configure-deploy-split-and-merge.md#download-the-Split-Merge-packages).
 2. Cambie el archivo de configuración de servicio en la nube para que la implementación de División y combinación refleje los nuevos parámetros de configuración. Un nuevo parámetro requerido es la información acerca del certificado utilizado para el cifrado. Una manera fácil de hacerlo consiste en comparar el nuevo archivo de plantilla de configuración de la descarga con la configuración existente. Asegúrese de agregar la configuración para "DataEncryptionPrimaryCertificateThumbprint" y "DataEncryptionPrimary" tanto para la web como para el rol de trabajo.
 3. Antes de implementar la actualización en Azure, asegúrese de que se han terminado todas las operaciones de División y combinación actualmente en ejecución. Puede hacerlo fácilmente consultando las tablas RequestStatus y PendingWorkflows en la base de datos de metadatos de División y combinación para solicitudes en curso.
@@ -39,6 +39,7 @@ Para actualizar a la versión más reciente de División y combinación, haga lo
 No es necesario aprovisionar una nueva base de datos de metadatos para que se actualice la División y combinación. La nueva versión actualizará automáticamente su base de datos de metadatos existente a la nueva versión.
 
 ## Escenarios de División y combinación 
+
 Las aplicaciones necesitan extenderse de manera flexible más allá de los límites de una sola base de datos de Base de datos SQL de Azure, tal como se ilustra en los siguientes escenarios:
 
 * **Aumento de la capacidad: intervalos de división**: la capacidad de aumentar la capacidad agregada en la capa de datos aborda las crecientes necesidades de capacidad. En este escenario, la aplicación proporciona la capacidad adicional a través de la partición de los datos y de la distribución de los mismos cada vez en más base de datos hasta satisfacer las necesidades de capacidad. La característica "split" del servicio de División y combinación de escalado elástico aborda este escenario. 
@@ -139,7 +140,7 @@ La implementación actual del servicio División y combinación está sujeta a l
 
 * El servicio se basa actualmente en la identidad de las filas establecida por una clave o índice único que incluye la clave de particionamiento para mejorar el rendimiento y la confiabilidad de shardlets de gran tamaño. Esto permite que el servicio mueva datos en una granularidad incluso más fina que solo el valor de clave de particionamiento. De este modo se reduce la cantidad máxima de espacio de registro y bloqueos que se requieren durante la operación. Considere la posibilidad de crear un índice único o una clave principal que incluya la clave de particionamiento en una tabla determinada si desea usar esa tabla con solicitudes de división/combinación/desplazamiento. Por motivos de rendimiento, la clave de particionamiento debe ser la columna inicial de la clave o del índice.
 
-* Durante el procesamiento de la solicitud, algunos datos de shardlets pueden estar presentes tanto en la partición de origen como en la de destino. Esto actualmente es necesario como protección contra errores durante el desplazamiento de los shardlets. Tal como se explicó anteriormente, la integración de división y combinación con el mapa de particiones de Escalado elástico asegura que las conexiones mediante las API de enrutamiento dependiente de los datos y que usan el método **OpenConnectionForKey** en el mapa de particiones no ven ningún estado intermedio incoherente. Sin embargo, cuando se conecten a la partición de origen o a la partición de destino sin usar el método **OpenConnectionForKey**, es posible que los estados intermedios incoherentes sean visibles cuando las solicitudes de división/combinación/desplazamiento estén en desarrollo. Estas conexiones pueden mostrar resultados parciales o duplicados, dependiendo del tiempo o de la partición subyacente a la conexión. Esta limitación incluye actualmente las conexiones realizadas por Consultas a través de particiones múltiples de Escalado elástico.
+* Durante el procesamiento de la solicitud, algunos datos de shardlets pueden estar presentes tanto en la partición de origen como en la de destino. Esto actualmente es necesario como protección contra errores durante el desplazamiento de los shardlets. Tal como se explicó anteriormente, la integración de división y combinación con el mapa de particiones de escala elástica asegura que las conexiones mediante las API de enrutamiento dependiente de los datos y que usan el método **OpenConnectionForKey** en el mapa de particiones no ven ningún estado intermedio incoherente. Sin embargo, cuando se conecten a la partición de origen o a la partición de destino sin usar el método **OpenConnectionForKey**, es posible que los estados intermedios incoherentes sean visibles cuando las solicitudes de división/combinación/desplazamiento estén en desarrollo. Estas conexiones pueden mostrar resultados parciales o duplicados, dependiendo del tiempo o de la partición subyacente a la conexión. Esta limitación incluye actualmente las conexiones realizadas por Consultas a través de particiones múltiples de Escalado elástico.
 
 * No se debe compartir la base de datos de metadatos para el servicio División y combinación entre diferentes roles. Por ejemplo, un rol del servicio de División y combinación que se ejecuta en ensayo tiene que señalar a una base de datos de metadatos diferente que el rol de producción.
  
@@ -159,7 +160,7 @@ El servicio División y combinación proporciona la tabla **RequestStatus** en l
 
 * **Status**: el estado actual de la solicitud. Para las solicitudes en curso, también muestra la fase actual en que está la solicitud.
 
-* **CancelRequest**: marca que indica si se ha cancelado la solicitud.
+* **CancelRequest**: marca que indica si se canceló la solicitud.
 
 * **Progress**: una estimación de porcentaje de la finalización de la operación. Un valor de 50 indica que la operación está aproximadamente un 50% completada.
 
@@ -238,4 +239,4 @@ Además, una propiedad de unicidad con la clave de particionamiento como la colu
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Conectar la Base de datos SQL de Azure para la Búsqueda de Azure con indizadores" 
+	pageTitle="Conectar la Base de datos SQL de Azure para la Búsqueda de Azure con indexadores | Microsoft Azure" 
 	description="Obtenga información sobre cómo extraer datos de la base de datos SQL de Azure en un índice de Búsqueda de Azure mediante el uso de indizadores." 
 	services="search" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/29/2015" 
+	ms.date="11/04/2015" 
 	ms.author="eugenesh"/>
 
 #Conectar la Base de datos SQL de Azure para la Búsqueda de Azure con indizadores
 
-El servicio de Búsqueda de Azure le ayuda a proporcionar una experiencia de búsqueda excelente, pero antes de realizar una búsqueda debe rellenar un índice de Búsqueda de Azure con los datos. Si los datos residen en una Base de datos SQL de Azure, el nuevo **indexador de Búsqueda de Azure para la Base de datos SQL de Azure** (o **indexador SQL de Azure**, para abreviar) de Búsqueda de Azure puede automatizar el proceso de indexación. Esto significa que tendrá que escribir menos código y tendrá menos infraestructura para mantener.
+El servicio Búsqueda de Azure es un servicio de búsqueda hospedado en la nube que facilita ofrecer una excelente experiencia de búsqueda. Antes de buscar, deberá rellenar un índice de Búsqueda de Azure con los datos. Si los datos residen en una Base de datos SQL de Azure, el nuevo **indexador de Búsqueda de Azure para la Base de datos SQL de Azure** (o **indexador SQL de Azure**, para abreviar) de Búsqueda de Azure puede automatizar el proceso de indexación. Esto significa que tendrá que escribir menos código y tendrá menos infraestructura para mantener.
 
 Actualmente, los indexadores solo funcionan con la Base de datos SQL de Azure, SQL Server en máquinas virtuales de Azure y [Azure DocumentDB](../documentdb/documentdb-search-indexer.md). En este artículo, nos centraremos en los indizadores que funcionan con la Base de datos SQL de Azure. Si le gustaría consultar soporte técnico para orígenes de datos adicionales, envíe sus comentarios a través del [foro de comentarios de Búsqueda de Azure](http://feedback.azure.com/forums/263029-azure-search).
 
@@ -279,4 +279,4 @@ R: Sí. El indizador se ejecuta en uno de los nodos del servicio de búsqueda, y
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

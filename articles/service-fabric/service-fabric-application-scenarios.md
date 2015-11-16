@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Escenarios y diseño de aplicación con Service Fabric" 
-   description="Categorías de aplicaciones. Diseño de la aplicación mediante servicios con estado y sin estado" 
+   description="Información general de las categorías de las aplicaciones de nube en Service Fabric. Describe el diseño de la aplicación mediante servicios con estado y sin estado."
    services="service-fabric" 
    documentationCenter=".net" 
    authors="msfussell" 
@@ -34,12 +34,12 @@ La plataforma Service Fabric de Azure es ideal para las siguientes categorías d
  
 - **Análisis y flujos de trabajo de datos**: las lecturas y escrituras rápidas de Service Fabric permiten las aplicaciones que deben procesar de forma confiable eventos o secuencias de datos. Service Fabric también permite las aplicaciones que describen una canalización de procesamiento, donde los resultados deben ser confiables y, a continuación, transferirse sin pérdida a la siguiente fase de procesamiento, incluidos los sistemas transaccionales y financieros, donde la coherencia y el cálculo de los datos son fundamentales.
 
-## Diseño de aplicaciones compuestas por microservicios sin y con estado ##
+## Diseño de aplicaciones compuestas por microservicios sin y con estado
 La creación de aplicaciones con roles de trabajo del servicio en la nube de Azure es un ejemplo de servicios sin estado. Por el contrario, los microservicios con estado mantienen el estado autoritativo más allá de la solicitud y su respuesta, proporcionando una alta disponibilidad y coherencia de dicho estado a través de API sencillas que proporcionan garantías transaccionales respaldadas por la replicación. Los servicios con estado de Service Fabric democratizan la alta disponibilidad (HA), llevándola a todos los tipos de aplicaciones, no solo a las bases de datos y otros almacenes de datos. Se trata de una progresión natural: las aplicaciones ya han pasado de usar bases de datos puramente relacionales para la alta disponibilidad a bases de datos NoSQL; ahora las propias aplicaciones pueden administrar su estado y datos "activos" dentro de ellos para obtener aumentos adicionales del rendimiento sin sacrificar la confiabilidad, la coherencia o la disponibilidad.
 
 Al crear aplicaciones que constan de microservicios, suele tener una combinación de aplicaciones web sin estado (ASP.NET, node.js, etc.) que llaman a servicios de nivel intermedio de negocio sin y con estado, todos ellos implementados en el mismo clúster de Service Fabric mediante los comandos de implementación de Service Fabric. Cada uno de estos servicios es independiente en lo relacionado con la escala, la confiabilidad y el uso de recursos, mejorando significativamente la agilidad en el desarrollo y la administración del ciclo de vida.
   
-Los microservicios con estado simplifican los diseños de la aplicación al acabar con la necesidad de colas y memorias caché adicionales tradicionalmente necesarias para cumplir los requisitos de disponibilidad y latencia de una aplicación puramente sin estado. Como los servicios con estado son de alta disponibilidad y de baja latencia de forma natural, hay menos partes en movimiento que administrar en su aplicación en su conjunto. En los siguientes diagramas se muestran las diferencias entre diseñar una aplicación sin estado y otra con estado. Al aprovecharse los modelos de programación de [servicios fiables](../Service-Fabric/service-fabric-reliable-services-introduction.md) y [actores confiables](service-fabric-reliable-actors-introduction.md), los servicios con estado reducen la complejidad de la aplicación, al mismo tiempo que se obtienen un alto rendimiento y una baja latencia.
+Los microservicios con estado simplifican los diseños de la aplicación al acabar con la necesidad de colas y memorias caché adicionales tradicionalmente necesarias para cumplir los requisitos de disponibilidad y latencia de una aplicación puramente sin estado. Como los servicios con estado son de alta disponibilidad y de baja latencia de forma natural, hay menos partes en movimiento que administrar en su aplicación en su conjunto. En los siguientes diagramas se muestran las diferencias entre diseñar una aplicación sin estado y otra con estado. Al aprovecharse los modelos de programación de [Reliable Services](service-fabric-reliable-services-introduction.md) y [Reliable Actors](service-fabric-reliable-actors-introduction.md), los servicios con estado reducen la complejidad de la aplicación, al mismo tiempo que se obtienen un alto rendimiento y una baja latencia.
 
 ## Una aplicación compilada con servicios sin estado##
 ![Aplicación que hace uso del servicio sin estado][Image1]
@@ -57,15 +57,15 @@ Vea también los siguientes temas:
 
 [Definición y administración del estado del servicio](service-fabric-concepts-state.md)
 
-[Disponibilidad de servicios](../service-fabric-concepts-availability-services.md)
+[Disponibilidad de servicios](service-fabric-concepts-availability-services.md)
 
 [Escalabilidad de servicios de Service Fabric](service-fabric-concepts-scalability.md)
 
-[Creación de particiones de servicios de Service Fabric](service-fabric-concepts-partitioning.md)
+[Creación de particiones de los servicios de Service Fabric](service-fabric-concepts-partitioning.md)
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -29,7 +29,7 @@ Si planea ejecutar cargas de trabajo Lote de producción, deberá aumentar una o
 ## Cuotas de suscripción
 Recurso|Límite predeterminado|Límite máximo
 ---|---|---
-Cuentas de Lote por región y suscripción|1|20
+Cuentas de Lote por región y suscripción|1|50
 
 ## Cuotas de la cuenta de Lote
 [AZURE.INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
@@ -95,4 +95,4 @@ El servicio de soporte técnico de Azure se pondrá en contacto con usted. Compl
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->
