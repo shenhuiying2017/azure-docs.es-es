@@ -100,7 +100,8 @@ Puede configurar el servicio haciendo clic en la pestaña **CONFIGURACIÓN**. Aq
 ![Configurar el servicio web][5]
 
 ## Prueba del servicio web
-En la página **PANEL**, haga clic en el vínculo **Probar** en **Extremo predeterminado**. Aparecerá un cuadro de diálogo que le pide los datos de entrada del servicio. Se trata de las mismas columnas que aparecieron en el conjunto de datos original de riesgo de crédito alemán. ![Prueba del servicio web][6]
+En la página **PANEL**, haga clic en el vínculo **Probar** en **Extremo predeterminado**. Aparecerá un cuadro de diálogo que le pide los datos de entrada del servicio. Se trata de las mismas columnas que aparecieron en el conjunto de datos original de riesgo de crédito alemán. 
+![Prueba del servicio web][6]
 
 
 Escriba un conjunto de datos y, a continuación, haga clic en **Aceptar**.

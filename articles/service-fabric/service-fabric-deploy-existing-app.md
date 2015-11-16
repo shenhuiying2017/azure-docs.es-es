@@ -34,7 +34,13 @@ Antes de entrar en los detalles de la implementación de una aplicación existen
 
   Este es un ejemplo de un manifiesto de aplicación:
 
-  ```xml <?xml version="1.0" encoding="utf-8"?> <ApplicationManifest ApplicationTypeName="actor2Application" ApplicationTypeVersion="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <ApplicationManifest ApplicationTypeName="actor2Application"
+                       ApplicationTypeVersion="1.0.0.0"
+                       xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="actor2Pkg" ServiceManifestVersion="1.0.0.0" />
@@ -49,7 +55,8 @@ Antes de entrar en los detalles de la implementación de una aplicación existen
       </Service>
     </DefaultServices>
 
-  </ApplicationManifest> ```
+  </ApplicationManifest>
+  ```
 
 * **Manifiesto de servicio**
 
@@ -57,7 +64,16 @@ Antes de entrar en los detalles de la implementación de una aplicación existen
 
   Este es un ejemplo de un manifiesto de servicio
 
-  ```xml <?xml version="1.0" encoding="utf-8"?> <ServiceManifest Name="actor2Pkg" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ServiceTypes> <StatelessServiceType ServiceTypeName="actor2Type" /> </ServiceTypes>
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <ServiceManifest Name="actor2Pkg"
+                   Version="1.0.0.0"
+                   xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ServiceTypes>
+      <StatelessServiceType ServiceTypeName="actor2Type" />
+    </ServiceTypes>
 
     <CodePackage Name="Code" Version="1.0.0.0">
       <EntryPoint>
@@ -74,7 +90,8 @@ Antes de entrar en los detalles de la implementación de una aplicación existen
         <Endpoint Name="ServiceEndpoint" />
       </Endpoints>
     </Resources>
-  </ServiceManifest> ```
+  </ServiceManifest>
+  ```
 
 ## Estructura del archivo del paquete de aplicación
 Para implementar una aplicación mediante, por ejemplo, los cmdlets de Powershell, la aplicación debe seguir una estructura de directorios predefinida.
