@@ -32,7 +32,7 @@ Existen requisitos de conectividad de red para entornos del Servicio de aplicaci
 -  Conectividad de red saliente a los puntos de conexión de Almacenamiento de Azure en todo el mundo. Esto incluye a los puntos de conexión situados en la misma región que el entorno del Servicio de aplicaciones, así como los puntos de conexión de almacenamiento ubicados en **otras** regiones de Azure. Los puntos de conexión de Almacenamiento de Azure se resuelven en los dominios DNS siguientes: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* y *file.core.windows.net*.  
 -  Conectividad de red saliente a los puntos de conexión de Base de datos SQL ubicados en la misma región que el entorno del Servicio de aplicaciones. Los puntos de conexión de la Base de datos SQL se resuelven el dominio siguiente: *database.windows.net*.
 -  Conectividad de la red saliente a los puntos de conexión del plano de administración de Azure (puntos de conexión ASM y ARM). Incluye conectividad saliente tanto a *management.core.windows.net* como a *management.azure.com*. 
--  Conectividad de red saliente a *mscrl.microsoft.com* y *crl.microsoft.com*. Es necesario para admitir la funcionalidad SSL.
+-  Conectividad de red saliente a *ocsp.msocsp.com*. Es necesario para admitir la funcionalidad SSL.
 -  La configuración de DNS para la red virtual debe ser capaz de resolver todos los puntos de conexión y dominios mencionados en los puntos anteriores. Si estos puntos de conexión no se pueden resolver, se producirá un error en los intentos de creación del entorno del Servicio de aplicaciones y los entornos del Servicio de aplicaciones existentes se marcarán como incorrectos.
 -  Si existe un servidor DNS personalizado en el otro punto de conexión de una puerta de enlace de VPN, el servidor DNS debe estar accesible desde la subred que contiene el entorno de Servicio de aplicaciones. 
 -  La ruta de acceso de la red saliente no puede atravesar los servidores proxy corporativos internos, ni puede forzar la tunelización a local. Si lo hace, se cambiará la dirección NAT en vigor del tráfico de red saliente del entorno del Servicio de aplicaciones. Al cambiar la dirección NAT del tráfico de red de salida de un entorno del Servicio de aplicaciones causará errores de conectividad a muchos de los puntos de conexión enumerados anteriormente. Lo que da como resultado un error al intentar la creación del entorno del Servicio de aplicaciones, y además, los entornos del Servicio de aplicaciones previamente correctos estarán marcados como incorrectos.  
@@ -58,9 +58,9 @@ El efecto combinado de estos pasos es que la UDR a nivel de subred tendrá prior
 
 **IMPORTANTE:** las rutas definidas en una UDR **deben** ser lo suficientemente específicas para que tengan prioridad sobre cualquier otra ruta anunciada por la configuración de ExpressRoute. En el ejemplo siguiente se usa el intervalo de direcciones 0.0.0.0/0 amplio y como tal puede reemplazarse accidentalmente por los anuncios de ruta con intervalos de direcciones más específicos.
 
-**MUY IMPORTANTE:** los entornos del Servicio de aplicaciones no son compatibles con las configuraciones de ExpressRoute que **anuncian incorrectamente rutas entre ruta de acceso de emparejamiento público y la ruta de acceso de emparejamiento privado**. Las configuraciones de ExpressRoute con el emparejamiento público configurado recibirán anuncios de ruta de Microsoft para un amplio conjunto de intervalos de direcciones IP de Microsoft Azure. Si estos intervalos de direcciones se comunican incorrectamente en la ruta de acceso de interconexión privada, el resultado final es que en todos los paquetes de red saliente desde la subred del entorno del Servicio de aplicaciones se forzará incorrectamente la tunelización a la infraestructura de red local del cliente. Este flujo de red interrumpirá los entornos del Servicio de aplicaciones. La solución a este problema consiste en detener rutas anunciadas entre la ruta de acceso de interconexión pública y la ruta de acceso de interconexión privada.
+**MUY IMPORTANTE:** los entornos del Servicio de aplicaciones no son compatibles con las configuraciones de ExpressRoute que **anuncian incorrectamente rutas entre la ruta de acceso de emparejamiento público y la ruta de acceso de emparejamiento privado**. Las configuraciones de ExpressRoute con el emparejamiento público configurado recibirán anuncios de ruta de Microsoft para un amplio conjunto de intervalos de direcciones IP de Microsoft Azure. Si estos intervalos de direcciones se comunican incorrectamente en la ruta de acceso de interconexión privada, el resultado final es que en todos los paquetes de red saliente desde la subred del entorno del Servicio de aplicaciones se forzará incorrectamente la tunelización a la infraestructura de red local del cliente. Este flujo de red interrumpirá los entornos del Servicio de aplicaciones. La solución a este problema consiste en detener rutas anunciadas entre la ruta de acceso de interconexión pública y la ruta de acceso de interconexión privada.
 
-La información de fondo sobre las rutas definidas por el usuario está disponible en esta [información general][UDROverview].
+Se puede encontrar información de contexto sobre las rutas definidas por el usuario en esta [información general][UDROverview].
 
 Los detalles sobre cómo crear y configurar las rutas definidas por el usuario están disponibles en este [procedimiento][UDRHowTo].
 
@@ -89,7 +89,7 @@ El enfoque recomendado para configurar el acceso saliente a Internet es definir 
 
 Recuerde que 0.0.0.0/0 es un intervalo de direcciones amplio y como tal se reemplaza por intervalos de direcciones más específicos anunciados por ExpressRoute. Para repetir la recomendación anterior, debe usarse una UDR con una ruta 0.0.0.0/0 junto con una configuración de ExressRoute que solo anuncia 0.0.0.0/0 también.
 
-Como alternativa, puede descargar una lista completa y actualizada de intervalos CIDR usados por Azure. El archivo Xml que contiene todos los intervalos de direcciones IP de Azure está disponible en el [Centro de descarga de Microsoft][DownloadCenterAddressRanges].
+Como alternativa, puede descargar una lista completa y actualizada de intervalos CIDR usados por Azure. El archivo XML que contiene todos los intervalos de direcciones IP de Azure está disponible en el [Centro de descarga de Microsoft][DownloadCenterAddressRanges].
 
 Sin embargo, tenga en cuenta que estos intervalos cambian con el tiempo, por lo que se necesitan actualizaciones periódicas manuales en una UDR para mantenerla sincronizada. Además, como hay un límite superior de 100 rutas en una única UDR, necesitará "agrupar" los intervalos de direcciones IP de Azure para ajustarse al límite de 100 rutas, teniendo en cuenta que las rutas definidas de UDR deben ser más específicas que las rutas anunciadas por ExpressRoute.
 
@@ -137,4 +137,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 
 <!-- IMAGES -->
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

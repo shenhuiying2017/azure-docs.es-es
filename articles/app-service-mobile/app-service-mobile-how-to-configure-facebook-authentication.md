@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/29/2015"
 	ms.author="mahender"/>
 
 # Configuración de la aplicación para usar el inicio de sesión de Facebook
@@ -28,7 +28,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
 1. Inicie sesión en el [Portal de administración de Azure] y vaya a la aplicación móvil. Copie la **Dirección URL**. La usará para configurar la aplicación de Facebook.
  
-2. Haga clic en **Configuración**, **Autenticación del usuario** y, después, en **Facebook**. Ahora, copie el **URI de redireccionamiento** de la hoja de Facebook. La usará con la aplicación de Facebook.
+2. Haga clic en **Configuración**, **Autenticación móvil** y luego en **Facebook**. Ahora, copie el **URI de redireccionamiento** de la hoja de Facebook. La usará con la aplicación de Facebook.
  
 3. En otra ventana del explorador, navegue hasta el sitio web de [Desarrolladores de Facebook] e inicie sesión con las credenciales de su cuenta de Facebook.
 
@@ -79,6 +79,5 @@ De este modo ya estará listo para usar Facebook para realizar la autenticación
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /es-ES/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Portal de administración de Azure]: https://portal.azure.com/
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

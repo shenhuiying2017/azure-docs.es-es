@@ -1,16 +1,16 @@
 
 <properties
-	pageTitle="Copia de seguridad de Azure: administrar máquinas virtuales | Microsoft Azure"
-	description="Información sobre cómo administrar una máquina virtual de Azure"
+	pageTitle="Administración y supervisión de copias de seguridad de máquinas virtuales de Azure | Microsoft Azure"
+	description="Aprenda a administrar y supervisar las copias de seguridad de máquinas virtuales de Azure"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
 
-# Administrar y supervisar la copia de seguridad de máquinas virtuales de Azure
+# Administración y supervisión de copias de seguridad de máquinas virtuales de Azure
 
 ## Administrar máquinas virtuales protegidas
 
@@ -249,4 +249,4 @@ Las alertas basadas en eventos están sometidas a las siguientes limitaciones:
 
 - [Restauración de máquinas virtuales de Azure](backup-azure-restore-vms.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

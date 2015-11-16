@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/17/2015"
+   ms.date="10/29/2015"
    ms.author="jehollan"/>
 
 #Aplicación de API de C#
@@ -105,4 +105,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creación de la primera solución de búsqueda con Búsqueda de Azure" 
-	description="Creación de la primera solución de búsqueda con Búsqueda de Azure" 
+	pageTitle="Creación de la primera solución de búsqueda con Búsqueda de Azure | Microsoft Azure" 
+	description="Cree su primera solución de búsqueda mediante Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Creación de la primera solución de búsqueda con Búsqueda de Azure
@@ -206,4 +206,4 @@ También puede revisar la [API de REST de Búsqueda de Azure](http://msdn.micros
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/27/2015"
+	ms.date="10/30/2015"
 	ms.author="danlep"/>
 
 # Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)
@@ -27,15 +27,17 @@ La CLI de Azure es un conjunto de comandos de código abierto y multiplataforma 
 
 Hay dos maneras de conectarse a su suscripción desde la CLI de Azure:
 
-* **Iniciar sesión en Azure con una cuenta profesional o educativa o una identidad de cuenta Microsoft**: esto utiliza cualquier tipo de identidad de cuenta para autenticar. A partir de la versión 0.9.9 de CLI, CLI admite la autenticación interactiva para las cuentas que tienen habilitada la autenticación multifactor. Después de iniciar sesión interactivamente, puede utilizar el Administrador de recursos o los comandos clásicos (administración de servicios).
+* **Iniciar sesión en Azure con una cuenta profesional o educativa o una identidad de cuenta Microsoft**: esto utiliza cualquier tipo de identidad de cuenta para autenticar. La CLI actual también admite la autenticación interactiva para las cuentas que tienen habilitada la autenticación multifactor. Después de iniciar sesión interactivamente, puede utilizar el Administrador de recursos o los comandos clásicos (administración de servicios).
 
-* **Descarga y uso de un archivo de configuración de publicación**: de este modo se instala un certificado que le permite realizar tareas de administración durante el periodo de validez de la suscripción y el certificado. Este método solo permite usar comandos clásicos (administración de servicios).
+* **Descarga y uso de un archivo de configuración de publicación**: de este modo se instala un certificado en el equipo local que le permite realizar tareas de administración durante el período de validez de la suscripción y el certificado. Este método solo permite usar comandos clásicos (administración de servicios).
 
 Para obtener más información acerca de la administración de la autenticación y la suscripción, consulte ["¿Cuál es la diferencia entre la autenticación basada en cuentas y la basada en certificados?"][authandsub].
 
 En caso de no tener ninguna cuenta de Azure, puede crear una de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][free-trial].
 
-> [AZURE.NOTE]Si está utilizando una versión de la CLI de Azure anterior a 0.9.9, puede utilizar el comando `azure login` solo con la cuenta profesional o educativa o las entidades de cuenta; las identidades de la cuenta Microsoft no funcionan. Sin embargo, puede utilizar cualquier identidad para iniciar sesión en su cuenta con el comando `azure login` interactivo con versiones de la CLI de Azure 0.9.9 y posteriores.
+>[AZURE.NOTE]Si está utilizando una versión de la CLI de Azure anterior a 0.9.10, puede utilizar el comando `azure login` solo con las identidades de cuenta profesional o educativa; las identidades de la cuenta Microsoft no funcionan. Sin embargo, puede utilizar cualquier identidad para iniciar sesión en su cuenta con el comando `azure login` interactivo con versiones de la CLI de Azure 0.9.10 y posteriores.
+>
+Las versiones 0.9.9. y superiores son compatibles con la autenticación multifactor.
 
 
 
@@ -46,16 +48,16 @@ Utilice el comando `azure login` --sin argumentos-- para autenticarse interactiv
 - una cuenta profesional o educativa que requiere autenticación multifactor, o
 - una identidad de cuenta Microsoft cuando desea tener acceso a la funcionalidad del modo de implementación del Administrador de recursos
 
-> [AZURE.NOTE]En ambos casos, la autenticación y la autorización se realizan con Azure Active Directory, en el caso de las cuentas Microsoft mediante el acceso a su dominio predeterminado de Azure Active Directory. (Si registró para obtener una prueba gratuita, puede que no tenga constancia de que Azure Active Directory creó un dominio predeterminado para su cuenta).
+> [AZURE.NOTE]En ambos casos, la autenticación y la autorización se realizan con Azure Active Directory. Si usa una identidad de cuenta de Microsoft, el proceso de inicio de sesión obtiene acceso a su dominio predeterminado de Azure Active Directory. (Si se registró para obtener una prueba gratuita, puede que no sepa que Azure Active Directory creó un dominio predeterminado para su cuenta).
 
-Iniciar sesión de forma interactiva es fácil; escriba `azure login` y siga las indicaciones tal y como se muestran a continuación:
+Iniciar sesión de forma interactiva es fácil; escriba `azure login` y siga las instrucciones tal como se muestra a continuación:
 
 	azure login                                                                                                                                                                                         
 	info:    Executing command login
-	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code B4MGHQS7K to authenticate. If you're signing in as an Azure AD application, use the --username and --password parameters.
-	
-Copie el código que se muestra más arriba y abra http://aka.ms/devicelogin en un explorador. Indique el código y se le pedirá que escriba el nombre de usuario y la contraseña para la identidad que desea utilizar. Cuando se complete el proceso, el shell de comandos completará el registro en proceso. Sería algo parecido a lo siguiente:
-	
+	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code XXXXXXXXX to authenticate. If you're signing in as an Azure AD application, use the --username and --password parameters.
+
+Copie el código que se muestra más arriba y abra http://aka.ms/devicelogin en un explorador. Indique el código y se le pedirá que escriba el nombre de usuario y la contraseña para la identidad que desea utilizar. Cuando se complete ese proceso, el shell de comandos completará el registro en curso. Sería algo parecido a lo siguiente:
+
 	info:    Added subscription Visual Studio Ultimate with MSDN
 	info:    Added subscription Azure Free Trial
 	info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
@@ -73,7 +75,7 @@ El método de inicio de sesión no interactivo solo funciona con una cuenta prof
 	|info:    Added subscription Visual Studio Ultimate with MSDN
 	+
 	info:    login command OK
-	
+
 Escriba la contraseña cuando se le solicite.
 
 	If this is your first time logging in with these credentials, you are asked to verify that you wish to cache an authentication token. This prompt also occurs if you have previously used the `azure logout` command (described below). To bypass this prompt for automation scenarios, run `azure login` with the `-q` parameter.
@@ -92,7 +94,7 @@ Si solo necesita usar los comandos clásicos de la CLI (administración de servi
 
 		azure account download
 
-Esto abrirá su explorador predeterminado y le solicitará iniciar sesión en el [Portal de Azure][portal]. Después de iniciar sesión, se descarga un archivo `.publishsettings`. Tome nota de dónde se guarda este archivo.
+Esto abrirá el explorador predeterminado y le solicitará iniciar sesión en el [Portal de Azure][portal]. Después de iniciar sesión, se descarga un archivo `.publishsettings`. Tome nota de dónde se guarda este archivo.
 
 	> [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
 	>
@@ -101,7 +103,7 @@ Esto abrirá su explorador predeterminado y le solicitará iniciar sesión en el
 * **Para importar el archivo de configuración de publicación**, ejecute el comando siguiente:
 
 		azure account import <path to your .publishsettings file>
-	
+
 	Después de importar su configuración de publicación, debe eliminar el archivo `.publishsettings`, porque ya no lo necesita la CLI de Azure y supone un riesgo para la seguridad, ya que se puede usar para obtener acceso a su suscripción.
 
 
@@ -125,7 +127,7 @@ Esto cambia la suscripción predeterminada a Azure-sub-2.
 
 Si desea usar una suscripción no predeterminada con la CLI de Azure, pero no quiere cambiar la predeterminada actualmente, puede usar la opción `--subscription` para el comando y proporcionar el nombre de la suscripción que desee usar para la operación.
 
-Una vez que esté conectado a su suscripción de Azure, puede empezar a usar los comandos de la CLI de Azure. Para obtener más información, consulte [Uso de la CLI de Azure](xplat-cli-install.md).
+Una vez que esté conectado a su suscripción de Azure, puede empezar a usar los comandos de la CLI de Azure.
 
 ## Almacenamiento de la configuración de la CLI
 
@@ -154,6 +156,6 @@ Independientemente de que inicie sesión con una cuenta profesional o educativa 
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
-[cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
+[cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

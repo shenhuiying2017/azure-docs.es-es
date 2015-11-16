@@ -4,7 +4,7 @@
                 services="active-directory"
                 documentationCenter=""
                 authors="markusvi"
-                manager="swadhwa"
+                manager="stevenpo"
                 editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
                 ms.tgt_pltfrm="na"
                 ms.devlang="na"
                 ms.topic="article"
-                ms.date="08/10/2015"
+                ms.date="10/30/2015"
                 ms.author="markusvi"/>
 
 
@@ -104,4 +104,4 @@ Tenemos una gran cantidad de excelentes recursos en línea para ayudarle a apren
 
 - [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

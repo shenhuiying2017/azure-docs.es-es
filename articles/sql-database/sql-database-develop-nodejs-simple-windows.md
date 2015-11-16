@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
-	ms.author="mebha"/>
+	ms.date="11/03/2015"
+	ms.author="meetb"/>
 
 
 # Conexión a la base de datos SQL mediante Node.js en Windows
@@ -53,7 +53,7 @@ A continuación, navegue hasta la carpeta node\_modules\\msnodesql y ejecute el 
 Vea el tema de [introducción](sql-database-get-started.md) para obtener información sobre cómo crear una base de datos de ejemplo y recuperar la cadena de conexión. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
 
 
-## Conexión a la base de datos SQL
+## Conexión a la Base de datos SQL
 
 
 - Copie el código siguiente en un archivo .js que se encuentra en el directorio del proyecto.
@@ -224,4 +224,4 @@ Para que este ejemplo de código funcione, primero debe tener o crear un procedi
 
 Para obtener más información, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

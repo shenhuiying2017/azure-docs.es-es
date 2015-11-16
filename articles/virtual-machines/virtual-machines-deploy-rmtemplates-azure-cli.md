@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="11/01/2015"
 	ms.author="rasquill"/>
 
 # Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y CLI de Azure
@@ -22,7 +22,6 @@
 En este artículo se muestra cómo usar las plantillas del Administrador de recursos de Azure y la línea de comandos (CLI) de Azure para realizar tareas comunes de implementación y administración de máquinas virtuales de Azure. Para obtener más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](http://azure.microsoft.com/documentation/templates/) y [Marcos de aplicaciones mediante el uso de plantillas](virtual-machines-app-frameworks.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica. No puede usar plantillas en el modelo de implementación clásico.
-
 
 - [Creación rápida de una máquina virtual en Azure](#quick-create-a-vm-in-azure)
 - [Implementación de una máquina virtual en Azure desde una plantilla](#deploy-a-vm-in-azure-from-a-template)
@@ -38,16 +37,16 @@ En este artículo se muestra cómo usar las plantillas del Administrador de recu
 
 ## Preparación
 
-Para poder usar la CLI de Azure con grupos de recursos de Azure, necesitará la versión correcta de la CLI de Azure y una cuenta profesional o educativa.
+Para poder usar la CLI de Azure con grupos de recursos de Azure, necesitará la versión correcta de la CLI de Azure y una cuenta de Azure. Si no tiene la CLI de Azure, debe [instalarla](xplat-cli-install.md).
 
 ### Actualización de la CLI de Azure a la versión 0.9.0 o posterior
 
-Escriba `azure --version` para ver si ya está instalada la versión 0.9.0 o posterior
+Escriba `azure --version` para ver si ya está instalada la versión 0.9.0 o posterior.
 
 	azure --version
     0.9.0 (node: 0.10.25)
 
-Si la versión no es 0.9.0 o posterior, tendrá que [instalar la CLI de Azure](../xplat-cli-install.md) o actualizarla mediante uno de los instaladores nativos o a través de **npm** escribiendo `npm update -g azure-cli`.
+Si la versión no es 0.9.0 o posterior, deberá actualizarla mediante uno de los instaladores nativos, o bien a través de **npm** escribiendo `npm update -g azure-cli`.
 
 También puede ejecutar la CLI de Azure como un contenedor de Docker con la siguiente [imagen de Docker](https://registry.hub.docker.com/u/microsoft/azure-cli/). Desde un host de Docker, ejecute el siguiente comando:
 
@@ -57,9 +56,9 @@ También puede ejecutar la CLI de Azure como un contenedor de Docker con la sigu
 
 Si aún no tiene una suscripción de Azure pero tiene una suscripción a MSDN, puede activar sus [beneficios de suscripción a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). O puede suscribirse a una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-Debe tener una cuenta profesional o educativa para usar plantillas de Administración de recursos de Azure. Si tiene una, escriba `azure login` y su nombre de usuario y contraseña, e inicie sesión correctamente.
+Ahora [inicie sesión de manera interactiva en su cuenta de Azure](../xplat-cli-connect.md#use-the-log-in-method). Para ello, escriba `azure login` y siga las indicaciones para obtener una experiencia de inicio de sesión interactiva en su cuenta de Azure.
 
-> [AZURE.NOTE]Si no los tiene, verá un mensaje de error que indica que necesita un tipo diferente de la cuenta. Para crear una desde su cuenta de Azure actual, consulte [Creación de una identidad profesional o educativa en Azure Active Directory](resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE]Si tiene un identificador profesional o educativo y sabe que no tiene habilitada la autenticación en dos fases, **también** puede usar `azure login -u` junto con el identificador profesional o educativo para iniciar una sesión *sin* una sesión interactiva. Si no tiene un identificador profesional o educativo, puede [crear uno desde su cuenta personal de Microsoft](resource-group-create-work-id-from-personal.md) para iniciar sesión de la misma manera.
 
 La cuenta puede tener más de una suscripción. Puede enumerar las suscripciones escribiendo `azure account list`, que podría ser algo similar a lo siguiente:
 
@@ -84,15 +83,11 @@ De forma predeterminada, la CLI de Azure se inicia en el modo de administración
 
 	azure config mode arm
 
-
-
-> [AZURE.NOTE]Puede volver a cambiar al conjunto predeterminado de comandos escribiendo `azure config mode asm`.
-
 ## Descripción de las plantillas de recursos y grupos de recursos de Azure
 
 La mayoría de las aplicaciones se desarrollan a partir de una combinación de tipos de recursos diferentes (por ejemplo, una o varias máquinas virtuales y cuentas de almacenamiento, una Base de datos SQL, una red virtual o una red de entrega de contenido). La API de administración de servicios de Azure predeterminada y el portal de Azure clásico representan estos elementos mediante un enfoque de servicio por servicio, que requiere implementar y administrar servicios individuales (o buscar otras herramientas que lo hagan) y no como una unidad lógica de implementación.
 
-*Las plantillas del Administrador de recursos de Azure* permiten implementar y administrar estos recursos diferentes como una unidad lógica de implementación de manera declarativa. En lugar de indicar imperativamente a Azure que debe implementar un comando tras otro, describa la implementación completa en un archivo JSON (todos los recursos y configuración asociada y parámetros de implementación) e indíquele a Azure que implemente esos recursos como un único grupo.
+Sin embargo, las *plantillas del Administrador de recursos de Azure* permiten implementar y administrar estos recursos diferentes como una unidad lógica de implementación de manera declarativa. En lugar de indicar imperativamente a Azure que debe implementar un comando tras otro, describa la implementación completa en un archivo JSON (todos los recursos y configuración asociada y parámetros de implementación) e indíquele a Azure que implemente esos recursos como un único grupo.
 
 Después puede administrar el ciclo de vida general de los recursos del grupo mediante el uso de comandos de administración de recursos de CLI de Azure para:
 
@@ -434,7 +429,7 @@ Una vez haya decidido estos valores, estará preparado para crear un grupo e imp
 
 Cuando estén preparados los valores de los parámetros, debe crear un grupo de recursos para la implementación de la plantilla y después implementar la plantilla.
 
-Para crear el grupo de recursos, escriba `azure group create <group name> <location>` con el nombre del grupo que desea y la ubicación del centro de datos en la que quiere realizar la implementación. Esto sucede rápidamente:
+Para crear el grupo de recursos, escriba `azure group create <group name> <location>` con el nombre del grupo que desea y la ubicación del centro de datos donde quiere realizar la implementación. Esto sucede rápidamente:
 
     azure group create myResourceGroup westus
     info:    Executing command group create
@@ -698,7 +693,7 @@ Para una máquina virtual Linux, consulte [Creación y carga de un disco duro vi
 
 ### Paso 3: Creación de la máquina virtual con la plantilla
 
-Ahora ya puede crear una máquina virtual nueva basada en .vhd. Cree un grupo para implementar, mediante `azure group create <location>`:
+Ahora ya puede crear una máquina virtual nueva basada en .vhd. Cree un grupo en el cual realizar la implementación a través de `azure group create <location>`:
 
     azure group create myResourceGroupUser eastus
     info:    Executing command group create
@@ -1108,7 +1103,7 @@ Este es el contenido del archivo JSON de la plantilla. Si desea la versión más
 
 ### Paso 2: Creación de la implementación con la plantilla
 
-Cree un grupo de recursos para la plantilla mediante `azure group create <location>`. Después, cree una implementación en ese grupo de recursos; para ello, use `azure group deployment create`, pase el grupo de recursos y el nombre de la implementación y responda a las solicitudes de los parámetros de la plantilla que no tengan valores predeterminados.
+Cree un grupo de recursos para la plantilla mediante `azure group create <location>`. Después, cree una implementación en ese grupo de recursos; para ello, use `azure group deployment create`, pase el grupo de recursos y el nombre de la implementación y, luego, responda a las solicitudes de los parámetros de la plantilla que no tengan valores predeterminados.
 
 
     azure group create lbgroup westus
@@ -1176,7 +1171,7 @@ Tenga en cuenta que esta plantilla implementa una imagen de Windows Server; sin 
 
 ## <a id="remove-a-resource-group"></a>Tarea: Eliminación de un grupo de recursos
 
-Recuerde que puede volver a implementar un grupo de recursos, pero si ha terminado con uno, puede eliminarlo mediante `azure group delete <group name>`.
+Recuerde que puede volver a implementar un grupo de recursos, pero si ya terminó con uno, puede eliminarlo mediante `azure group delete <group name>`.
 
     azure group delete myResourceGroup
     info:    Executing command group delete
@@ -1186,7 +1181,7 @@ Recuerde que puede volver a implementar un grupo de recursos, pero si ha termina
 
 ## <a id="show-the-log-for-a-resource-group-deployment"></a>Tarea: Visualización del registro para una implementación de grupo de recursos
 
-Es común al crear o usar plantillas. La llamada para mostrar los registros de implementación de un grupo es `azure group log show <groupname>`, que muestra gran cantidad de información útil para entender por qué ha ocurrido algo o por qué no. (Para obtener más información sobre cómo solucionar problemas de las implementaciones, así como otra información acerca de problemas, consulte [Solución de problemas de implementaciones de grupo de recursos en Azure](resource-group-deploy-debug.md)).
+Es común al crear o usar plantillas. La llamada para mostrar los registros de implementación de un grupo es `azure group log show <groupname>`, que muestra gran cantidad de información útil para entender por qué ocurrió algo o por qué no fue así. (Para obtener más información sobre cómo solucionar problemas con las implementaciones, así como otra información acerca de problemas, consulte [Solución de problemas de implementaciones de grupo de recursos en Azure](resource-group-deploy-debug.md)).
 
 Por ejemplo, para solucionar errores específicos, puede usar herramientas como **jq** para realizar consultas algo más precisas, como qué errores individuales se deben corregir. El siguiente ejemplo usa **jq** para analizar un registro de implementación para **lbgroup**, en busca de errores.
 
@@ -1202,7 +1197,7 @@ Puede detectar rápidamente qué salió mal, corregirlo y volver a intentarlo. E
 
 ## <a id="display-information-about-a-virtual-machine"></a>Tarea: Visualización de información acerca de una máquina virtual
 
-Con el `azure vm show <groupname> <vmname> command` puede ver información sobre máquinas virtuales específicas en el grupo de recursos. Es posible que primero deba enumerar las máquinas virtuales de un grupo mediante `azure vm list <groupname>` si tiene más de uno.
+Con el comando `azure vm show <groupname> <vmname> command` puede ver información sobre máquinas virtuales específicas en el grupo de recursos. Si tiene más de una máquina virtual en el grupo, es posible que primero deba enumerarlas en un grupo con `azure vm list <groupname>`.
 
     azure vm list zoo
     info:    Executing command vm list
@@ -1302,8 +1297,8 @@ A continuación, deberá montar el disco, como haría normalmente en Linux (o en
 
 ## Pasos siguientes
 
-Para consultar más ejemplos de uso de la CLI de Azure con el modo **arm**, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](xplat-cli-azure-resource-manager.md). Para obtener más información sobre los recursos de Azure y sus conceptos, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).
+Para ver más ejemplos de uso de la CLI de Azure con el modo **arm**, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](xplat-cli-azure-resource-manager.md). Para obtener más información acerca de los recursos de Azure y sus conceptos, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).
 
 Para obtener más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](http://azure.microsoft.com/documentation/templates/) y [Marcos de aplicaciones mediante el uso de plantillas](virtual-machines-app-frameworks.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

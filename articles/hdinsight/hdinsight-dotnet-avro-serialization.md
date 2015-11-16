@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="10/29/2015"
 	ms.author="jgao"/>
 
 
@@ -24,15 +24,15 @@ En este tema, se explica el uso de <a href="https://hadoopsdk.codeplex.com/wikip
 
 [AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
 
-##<a name="apacheAvro"></a>Apache Avro
+##Apache Avro
 <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> implementa el sistema de serialización de datos de Apache Avro para el entorno de Microsoft.NET. Apache Avro proporciona un formato compacto de intercambio de datos binarios para la serialización. Utiliza <a href="http://www.json.org" target="_blank">JSON</a> para definir un esquema independiente del lenguaje que garantiza la interoperabilidad de lenguajes. Los datos serializados en un lenguaje se pueden leer en otro. Actualmente, se admiten C, C++, C#, Java, PHP, Python y Ruby. Puede encontrar información detallada sobre el formato en la <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">especificación de Apache Avro</a>. Tenga en cuenta que la versión actual de Microsoft Avro Library no admite la parte de llamadas a procedimientos remotos (RPC) de esta especificación.
 
 La representación serializada de un objeto en el sistema Avro consta de dos partes: el esquema y el valor real. El esquema de Avro describe el modelo de datos independiente del lenguaje de los datos serializados con JSON. Está presente en paralelo con una representación binaria de los datos. Tener el esquema aparte de la representación binaria permite escribir cada objeto sin sobrecargas por valor, lo que agiliza la serialización y reduce la representación.
 
-##<a name="hadoopScenario"></a>El escenario de Hadoop
+##Escenario de Hadoop
 El formato de serialización de Apache Avro se utiliza de forma generalizada en HDIngisht de Azure y otros entornos de Apache Hadoop. Avro proporciona una forma práctica de representar estructuras de datos complejas dentro de un trabajo MapReduce de Hadoop. El formato de los archivos de Avro (archivo contenedor de objetos Avro) está diseñado para admitir el modelo de programación distribuida de MapReduce. La característica clave que permite la distribución es que los archivos son "divisibles" en el sentido de que se puede buscar cualquier punto en un archivo y comenzar a leer desde un bloque concreto.
 
-##<a name="serializationMAL"></a>Serialización en Microsoft Avro Library
+##Serialización en Microsoft Avro Library
 La biblioteca de .NET para Avro admite dos formas de serialización de objetos:
 
 - **reflexión**: el esquema JSON para los tipos se compila automáticamente a partir de los atributos del contrato de datos de los tipos .NET que se van a serializar.
@@ -41,14 +41,14 @@ La biblioteca de .NET para Avro admite dos formas de serialización de objetos:
 Cuando tanto el escritor como el lector de la secuencia conocen el esquema de los datos, se pueden enviar los datos sin el esquema. En aquellos casos en los que se utiliza el archivo contenedor de objetos Avro, el esquema se almacena en el archivo. Se pueden especificar otros parámetros, como el códec utilizado para la compresión de datos. Estos escenarios se explican e ilustran con más detalle en los ejemplos de código siguientes.
 
 
-##<a name="prerequisites"></a> Requisitos previos de Microsoft Avro Library
+## Requisitos previos de Microsoft Avro Library
 
 - <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
 - <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (v5.6.0.4 o posterior)
 
 Tenga en cuenta que la dependencia de Newtonsoft.Json.dll se descarga automáticamente con la instalación de Microsoft Avro Library. En la sección siguiente se detalla el procedimiento para ello.
 
-##<a name="installation"></a> Instalación de Microsoft Avro Library
+## Instalación de Microsoft Avro Library
 Microsoft Avro Library se distribuye como un paquete de NuGet que se puede instalar desde Visual Studio mediante el siguiente procedimiento:
 
 1. Elija la pestaña **Proyecto** -> **Administrar paquetes de NuGet...**
@@ -59,11 +59,11 @@ Tenga en cuenta que la dependencia de Newtonsoft.Json.dll (>= .6.0.4) se descarg
 
 Puede que desee visitar la <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">página principal de Microsoft Avro Library</a> para leer las notas de la versión actual.
 
-##<a name="sourceCode"></a>Código fuente de Microsoft Avro Library
+##Código fuente de Microsoft Avro Library
 
 El código fuente de Microsoft Avro Library está disponible en la <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">página principal de Microsoft Avro Library</a>.
 
-##<a name="compiling"></a>Compilación del esquema con Microsoft Avro Library
+##Compilación del esquema con Microsoft Avro Library
 
 Microsoft Avro Library contiene una utilidad de generación de código que permite la creación de tipos de C# automáticamente en función del esquema JSON previamente definido. La utilidad de generación de código no se distribuye como un ejecutable binario, pero se puede compilar fácilmente mediante el siguiente procedimiento:
 
@@ -238,7 +238,7 @@ En este ejemplo, se supone que el esquema está compartido entre los lectores y 
     // Press any key to exit.
 
 
-###<a name="Scenario2"></a>Muestra 2: serialización mediante el uso de un registro genérico
+###Ejemplo 2: Serialización con un registro genérico
 
 Cuando no se puede usar reflexión porque los datos no se pueden representar mediante clases .NET con un contrato de datos, se puede especificar el esquema JSON de forma explícita en un registro genérico. Este método suele ser más lento que cuando se utiliza la reflexión. En estos casos, el esquema de los datos puede ser dinámico, es decir, no se conoce hasta el momento de la compilación. Los datos representados como archivos de valores separados por comas (CSV) cuyo esquema se desconoce hasta que se transforman con el formato de Avro en tiempo de ejecución son un ejemplo de este tipo de escenario dinámico.
 
@@ -363,7 +363,7 @@ En este ejemplo, se supone que el esquema está compartido entre los lectores y 
     // Press any key to exit.
 
 
-###<a name="Scenario3"></a>Muestra 3: serialización mediante el uso de archivos contenedores de objetos y serialización con reflexión
+###Ejemplo 3: Serialización mediante el uso de archivos contenedores de objetos y serialización con reflexión
 
 Este ejemplo es similar al escenario del <a href="#Scenario1">primer ejemplo</a>, donde el esquema se especifica de forma implícita con reflexión. La diferencia es que aquí no se presupone su conocimiento por parte del lector que lo deserializa. Los objetos **SensorData** que se van a serializar y el esquema especificado de forma implícita se almacenan en un archivo contenedor de objetos representado por la clase [**AvroContainer**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx).
 
@@ -604,7 +604,7 @@ Los datos del archivo contenedor de objetos se comprimen usando el códec de com
     // Press any key to exit.
 
 
-###<a name="Scenario4"></a>Muestra 4: serialización mediante el uso de archivos contenedores de objetos y serialización con registro genérico
+###Ejemplo 4: Serialización mediante el uso de archivos contenedores de objetos y serialización con registro genérico
 
 Este ejemplo es similar al escenario del <a href="#Scenario2">segundo ejemplo</a>, donde el esquema se especifica de forma implícita con JSON. La diferencia es que aquí no se presupone su conocimiento por parte del lector que lo deserializa.
 
@@ -868,7 +868,7 @@ Los datos se leen después en el archivo y se deserializan en una colección de 
 
 
 
-###<a name="Scenario5"></a>Muestra 5: serialización mediante el uso de archivos contenedores de objetos con un códec de compresión personalizado
+###Ejemplo 5: Serialización mediante el uso de archivos contenedores de objetos con un códec de compresión personalizado
 
 El quinto ejemplo muestra cómo usar un códec de compresión personalizado para archivos contenedores de objetos de Avro. Puede descargar una muestra que contiene el código para este ejemplo desde el sitio de [muestras de código de Azure](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111).
 
@@ -1366,7 +1366,7 @@ La [especificación de Avro](http://avro.apache.org/docs/current/spec.html#Requi
     // ----------------------------------------
     // Press any key to exit.
 
-###<a name="Scenario6"></a>Muestra 6: uso de Avro para cargar datos para el servicio HDInsight de Microsoft Azure
+###Ejemplo 6: Uso de Avro para cargar datos para el servicio HDInsight de Microsoft Azure
 
 El sexto ejemplo muestra algunas técnicas de programación relacionadas para interactuar con el servicio HDInsight de Azure. Puede descargar una muestra con el código para este ejemplo desde el sitio de [muestras de código de Azure](https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3).
 
@@ -1399,10 +1399,7 @@ Para limpiar el clúster, ejecute el comando siguiente:
 
     AvroHDISample clean
 
-
-
-
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Colecciones fiables"
-   description="Colecciones fiables le permite escribir aplicaciones en la nube altamente disponibles, escalables y de baja latencia."
+   pageTitle="Reliable Collections | Microsoft Azure"
+   description="Los servicios con estado de Service Fabric proporcionan colecciones fiables que le permiten escribir aplicaciones en la nube altamente disponibles, escalables y de baja latencia."
    services="service-fabric"
    documentationCenter=".net"
    authors="mcoskun"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="mcoskun"/>
 
-# Colecciones fiables
+# Introducción a Reliable Collections en los servicios con estado de Service Fabric
 
 Colecciones fiables le permite escribir aplicaciones en la nube altamente disponibles, escalables y de baja latencia como si estuviese escribiendo aplicaciones para un solo equipo. Las clases del espacio de nombres `Microsoft.ServiceFabric.Data.Collections` proporcionan un conjunto de colecciones originales que hacen que el estado tenga una elevada disponibilidad. Los desarrolladores solo necesitan programar en las API de colección fiable y permiten a Colecciones fiables administrar el estado local y replicado.
 
@@ -25,7 +25,7 @@ La diferencia clave entre Colecciones fiables y otras tecnologías de alta dispo
 1. Todas las lecturas son locales, lo cual produce una latencia baja y lecturas de alto rendimiento.
 2. Todas las escrituras producen el número mínimo de operaciones de E/S de red, lo cual provoca una baja latencia y escrituras de alto rendimiento.
 
-![Imagen de la evolución de las colecciones.](media/service-fabric-reliable-services-reliable-collections/ReliableCollectionsEvolution.png)
+![Imagen de la evolución de colecciones](media/service-fabric-reliable-services-reliable-collections/ReliableCollectionsEvolution.png)
 
 Colecciones fiables se puede considerar como la evolución natural de las clases `System.Collections`: un nuevo conjunto de colecciones que están diseñadas para la nube y aplicaciones de varios equipos sin aumentar la complejidad para los desarrolladores. Por lo tanto, son:
 
@@ -38,7 +38,7 @@ Colecciones fiables proporcionan garantías de homogeneidad sólidas de fábrica
 
 Las API de colecciones confiables son una evolución de las API de colecciones simultáneas (que se encuentran en el espacio de nombres `System.Collections.Concurrent`):
 
-1. Asincrónico: devuelve una tarea debido a que, a diferencia de Colecciones fiables, las operaciones se replican y guardan.
+1. Asincrónico: devuelve una tarea debido a que, a diferencia de las colecciones simultáneas, las operaciones se replican y se guardan.
 2. Ningún parámetro de salida: usa `ConditionalResult<T>` para devolver un valor y un booleano en lugar de parámetros de salida. `ConditionalResult<T>` es similar a `Nullable<T>` pero no requiere que T sea un struct.
 3. Transacciones: utiliza un objeto de transacción para permitir que el usuario agrupe acciones en varias colecciones fiables en una transacción.
 
@@ -78,7 +78,7 @@ Administrador de estado fiable y Colecciones fiables siguen un modelo de persist
 
 Para comprender mejor el modelo de registro y de punto de comprobación, primero analicemos el escenario de discos infinitos. El administrador de estados fiable registra cada operación antes de replicarse. Esto permite a la colección fiable aplicar solamente la operación de la memoria. Dado que los registros se conservan, incluso cuando la réplica falla y debe reiniciarse, el Administrador de estado fiable tiene suficiente información en sus registros para reproducir todas las operaciones que ha perdido la réplica. Como el disco es infinito, las entradas de registro nunca deberán quitarse y la colección fiable solo tiene que administrar el estado en memoria.
 
-Ahora veamos el escenario de disco finito. En un determinado momento el administrador de estado fiable se quedará sin espacio en disco. Antes de que suceda, el administrador de estado fiable debe truncar su registro para liberar espacio para los registros más recientes. Solicitará a las colecciones fiables comprobar su su estado en memoria. Es responsabilidad de la colección fiable que conserve su estado hasta ese punto. Una vez que las colecciones fiables completen sus puntos de control, el administrador de estado fiable puede truncar el registro para liberar espacio en disco. De este modo, cuando la réplica debe reiniciarse, las colecciones fiables recuperarán su estado de punto de comprobación y el administrador de estado fiable recuperará y reproducirá todos los cambios de estado que se han producido desde el punto de control.
+Ahora veamos el escenario de disco finito. En un determinado momento el administrador de estado fiable se quedará sin espacio en disco. Antes de que suceda, el administrador de estado fiable debe truncar su registro para liberar espacio para los registros más recientes. Solicitará a Reliable Collections la comprobación de su estado en memoria en el disco. Es responsabilidad de la colección fiable que conserve su estado hasta ese punto. Una vez que las colecciones fiables completen sus puntos de control, el administrador de estado fiable puede truncar el registro para liberar espacio en disco. De este modo, cuando la réplica debe reiniciarse, las colecciones fiables recuperarán su estado de punto de comprobación y el administrador de estado fiable recuperará y reproducirá todos los cambios de estado que se han producido desde el punto de control.
 
 ## Bloqueo
 En colecciones fiables, todas las transacciones tienen dos fases: una transacción no libera los bloqueos que ha adquirido hasta que la transacción finaliza con una anulación o confirmación.
@@ -115,7 +115,7 @@ Algunos aspectos que debe tener en cuenta:
 
 - [Inicio rápido de servicios fiables](service-fabric-reliable-services-quick-start.md)
 - [Introducción a los servicios de API web de Service Fabric](service-fabric-reliable-services-communication-webapi.md)
-- [Uso avanzado del modelo de programación de servicios fiables](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)
+- [Uso avanzado del modelo de programación de servicios fiables](service-fabric-reliable-services-advanced-usage.md)
 - [Referencia para desarrolladores de colecciones confiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

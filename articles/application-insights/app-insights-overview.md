@@ -89,7 +89,7 @@ El impacto sobre el rendimiento es muy pequeño. Seguimiento de llamadas que no 
 
 1. En primer lugar, necesita una suscripción a [Microsoft Azure](http://azure.com). Suscribirse es gratis, y puede elegir el [nivel de precios](https://azure.microsoft.com/pricing/details/application-insights/) gratuito de Application Insights.
 
-2. Inicie sesión en el [Portal de vista previa de Azure](http://portal.azure.com).
+2. Inicie sesión en el [Portal de Azure](http://portal.azure.com)
 3. Cree un recurso en Application Insights. Aquí es donde verá los datos de la aplicación.
 
     ![Agregar, Servicios para desarrolladores, Application Insights.](./media/app-insights-overview/11-new.png)
@@ -154,4 +154,4 @@ Para obtener más detalles, elija el tipo de aplicación en Introducción, en la
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

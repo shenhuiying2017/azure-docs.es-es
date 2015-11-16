@@ -40,7 +40,7 @@ En primer lugar, necesita una suscripción a [Microsoft Azure](http://azure.com)
 
 ## 2\. Descarga del SDK
 
-1. Descargue del [SDK de Application Insights para Java](http://dl.windowsazure.com/applicationinsights/javabin/sdk.zip). 
+1. Descargue el [SDK de Application Insights para Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). 
 2. En el servidor, extraiga el contenido del SDK en el directorio desde el que se cargan los archivos binarios de proyecto. Si usa Tomcat, estará normalmente en `webapps<your_app_name>\WEB-INF\lib`.
 
 
@@ -139,4 +139,4 @@ Y cuando vea las propiedades de una solicitud, podrá ver los eventos de telemet
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

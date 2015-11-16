@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introducción técnica"
-   description="Introducción técnica a Service Fabric. Explica los conceptos claves y la introducción a la arquitectura"
+   pageTitle="Información técnica de Service Fabric | Microsoft Azure"
+   description="Introducción técnica a Service Fabric. Explica los conceptos claves y la introducción a la arquitectura."
    services="service-fabric"
    documentationCenter=".net"
    authors="msfussell"
@@ -54,4 +54,4 @@ Para obtener más información acerca de Service Fabric, consulte:
 - [Escenarios de aplicación](service-fabric-application-scenarios.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

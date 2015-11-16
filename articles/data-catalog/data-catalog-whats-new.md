@@ -13,12 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/23/2015"
+   ms.date="10/30/2015"
    ms.author="maroche"/>
 
 # Novedades en el Catálogo de datos de Azure
 
 De forma periódica se publican actualizaciones al **Catálogo de datos de Azure**. No todas las versiones incluirán nuevas características de cara al usuario, algunas se centran en la funcionalidad del servicio back-end. En esta página se resaltan las nuevas funcionalidades de cara al usuario que se han agregado al servicio **Catálogo de datos de Azure** .
+
+## Novedades de la versión correspondiente a la semana del 30 de octubre de 2015
+
+A partir de la semana del 30 de octubre de 2015, se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
+
+- Compatibilidad con cifrado en reposo de vistas previas de datos y perfiles de datos para orígenes de datos registrados. El Catálogo de datos de Azure cifra de forma transparente los registros de vista previa y los orígenes de datos de los perfiles de datos registrados con el servicio sin necesidad de que los administradores del Catálogo administren las claves.
 
 ## Novedades de la versión correspondiente a la semana del 23 de octubre de 2015
 
@@ -33,7 +39,7 @@ A partir de la semana del 23 de octubre de 2015, se agregaron las siguientes fun
 A partir de la semana del 16 de octubre de 2015, se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
 
 - Compatibilidad con orígenes de datos de Hive locales. Los usuarios ahora pueden registrarse y detectar tablas de Hive de Apache Hive en orígenes de datos locales de Hadoop.
-- Compatibilidad con las búsquedas guardadas en el portal del **Catálogo de datos de Azure**. Los usuarios pueden guardar términos de búsqueda y filtrar selecciones para repetir con facilidad búsquedas anteriores y definir vistas útiles del contenido del Catálogo. El usuario puede marcar una búsqueda guardada como su búsqueda predeterminada. Cuando un usuario hace clic en el icono de búsqueda de "lupa" en la página principal del portal del **Catálogo de datos de Azure** o en la página de "introducción", se llevará directamente al usuario a la búsqueda guardada marcada como predeterminada.
+- Compatibilidad con las búsquedas guardadas en el portal del **Catálogo de datos de Azure**. Los usuarios pueden guardar términos de búsqueda y filtrar selecciones para repetir con facilidad búsquedas anteriores y definir vistas útiles del contenido del Catálogo. El usuario puede marcar una búsqueda guardada como su búsqueda predeterminada. Cuando un usuario hace clic en el icono de búsqueda de "lupa" en la página principal del portal del **Catálogo de datos de Azure** o en la página de "introducción", el usuario irá a parar directamente a la búsqueda guardada marcada como predeterminada.
 
 
 ## Novedades de la versión correspondiente a la semana del 9 de octubre de 2015
@@ -73,7 +79,7 @@ A partir de la semana del 18 de septiembre de 2015, se agregaron las siguientes 
 
 A partir de la semana del 11 de septiembre de 2015, se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
 
-- Compatibilidad con el registro y la detección de objetos de SQL Server Analysis Services mediante HTTP o HTTPS. Ahora los usuarios pueden conectarse a servidores SSAS mediante una dirección URL (como, por ejemplo, https://servername/olap/msmdpump.dll) en lugar de un nombre de servidor y pueden usar la autenticación básica y las conexiones anónimas además de la autenticación de Windows. Para obtener más información sobre las conexiones HTTP/HTTPS a SSAS, consulte [Configurar el acceso HTTP a Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
+- Compatibilidad con el registro y la detección de objetos de SQL Server Analysis Services mediante HTTP o HTTPS. Ahora los usuarios pueden conectarse a servidores SSAS mediante una dirección URL (como, por ejemplo, https://servername/olap/msmdpump.dll) en lugar de un nombre de servidor y pueden usar la autenticación básica y las conexiones anónimas además de la autenticación de Windows. Para obtener más información sobre las conexiones HTTP/HTTPS a SSAS, consulte [Configurar el acceso HTTP a Analysis Services en Internet Information Services (IIS) 8.0](https://msdn.microsoft.com/library/gg492140.aspx).
 - Compatibilidad con orígenes de datos de Hive en HDInsight. Los usuarios ahora pueden registrarse y detectar tablas de Hive de Apache Hive de Hadoop en orígenes de datos de HDInsight. Para obtener más información sobre Hive en HDInsight, consulte el [centro de documentación de HDInsight](../hdinsight-use-hive/).
 - Compatibilidad para el registro y la detección de bases de datos de SQL Server y clústeres de HDFS como contenedores. Al registrar tablas y vistas de Oracle o HDFS, el **Catálogo de datos de Azure** creará una entrada para la base de datos, así como para las tablas y las vistas. La base de datos se puede detectar y anotar mediante el portal del **Catálogo de datos de Azure**. Los usuarios también pueden buscar y filtrar el contenido de una base de datos o clúster además de buscar y filtrar el contenido del catálogo.
 
@@ -102,8 +108,8 @@ A partir de la semana del 21 de agosto de 2015, se agregaron las siguientes func
 
 - Soporte técnico para proporcionar información de solicitud de acceso a orígenes de datos registrados. Para cualquier recurso de datos registrado, los usuarios pueden ahora proporcionar instrucciones para solicitar el acceso, incluidos los vínculos de correo electrónico o direcciones URL, para integrar fácilmente herramientas y procesos existentes.
 - Información sobre herramientas para las etiquetas y expertos, para que resulte más fácil de descubrir qué usuarios han proporcionado los metadatos de los activos de datos registrados.
-- Hemos agregado un nuevo botón de "Usuario" y un menú a la barra de navegación superior. Este menú permite al usuario ver la cuenta utilizada para iniciar sesión en el **Catálogo de datos de Azure** y cerrar la sesión si así lo desea. Este menú también muestra el nombre del catálogo, lo que resulta útil para los desarrolladores que usan la API de REST del **Catálogo de datos de Azure**.
+- Hemos agregado un nuevo botón de "Usuario" y un menú a la barra de navegación superior. Este menú permite al usuario ver la cuenta usada para iniciar sesión en el **Catálogo de datos de Azure** y cerrar la sesión si así lo desea. Este menú también muestra el nombre del catálogo, lo que resulta útil para los desarrolladores que usan la API de REST del **Catálogo de datos de Azure**.
 - Solo en la edición estándar: cuando se agregan propietarios a los activos de datos, el **Catálogo de datos de Azure** admite ahora tanto cuentas de usuario como grupos de seguridad como propietarios. Para agregar un grupo de seguridad como propietario de los activos de datos seleccionados, puede especificar el nombre para mostrar del grupo o la dirección de correo electrónico UPN del grupo, si tiene alguna.
 - Compatibilidad con orígenes de datos de almacenamiento de blobs de Azure. Los usuarios pueden registrarse ahora y detectar el almacenamiento de blobs de Azure y los directorios.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

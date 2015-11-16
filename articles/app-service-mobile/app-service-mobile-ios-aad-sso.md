@@ -7,12 +7,12 @@
         manager="dwrede" />
 
 <tags ms.service="app-service-mobile"
-ms.workload="mobile"
-ms.tgt_pltfrm="mobile-ios"
-ms.devlang="objective-c"
-ms.topic="article"
-ms.date="09/14/2015"
-ms.author="mahender" />
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="09/14/2015"
+	ms.author="mahender" />
 
 # Incorporación del inicio de sesión de Azure Active Directory a la aplicación iOS
 
@@ -120,7 +120,7 @@ Ahora podrá hacer referencia a la biblioteca de autenticación de Active Direct
 [Configuración de la aplicación móvil con Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [biblioteca de autenticación de Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
- [Introducción a las aplicaciones móviles]: app-service-mobile-ios-get-started.md
- [Incorporación de autenticación a la aplicación]: app-service-mobile-ios-get-started-users.md
+[Introducción a las aplicaciones móviles]: app-service-mobile-ios-get-started.md
+[Incorporación de autenticación a la aplicación]: app-service-mobile-ios-get-started-users.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

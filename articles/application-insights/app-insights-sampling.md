@@ -33,7 +33,7 @@ El muestreo está disponible actualmente para el SDK de ASP.NET o [cualquier pá
 
 1. Actualice los paquetes de NuGet del proyecto a la versión *preliminar* más reciente de Application Insights. Haga clic en el proyecto en el Explorador de soluciones, elija Administrar paquetes de NuGet, consulte **Incluir versión preliminar** y busque Microsoft.ApplicationInsights.Web. 
 
-2. Agregar este fragmento de código a ApplicationInsights.config
+2. Agregue este fragmento de código a [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
 ```XML
 
@@ -162,4 +162,6 @@ El SDK del lado del cliente (JavaScript) participa en el muestreo junto con el S
 
 * No, en este momento el muestreo no es compatible con las aplicaciones de dispositivo. 
 
-<!---HONumber=Nov15_HO1-->
+>>>>>>> 36f8b905a3f60271ee6dc3a17c3ca431937287dc
+
+<!---HONumber=Nov15_HO2-->

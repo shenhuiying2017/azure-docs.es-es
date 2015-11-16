@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="11/04/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Carga de datos en Almacenamiento de datos SQL
@@ -163,6 +163,16 @@ Tenga en cuenta que también puede cargar una subsección de las filas desde una
 
 Además de la instrucción `CREATE TABLE...AS SELECT`, también puede cargar datos de tablas externas en tablas preexistentes con una instrucción "INSERT...INTO".
 
+##  Crear estadísticas de los datos recién cargados 
+
+Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas. Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos. Si desea ver una explicación detallada de las estadísticas, consulte el tema [Estadísticas][] en el grupo de temas relacionados con el desarrollo. A continuación, puede ver un ejemplo rápido de cómo crear estadísticas sobre los datos cargados y organizados en tablas que aparecen en este ejemplo.
+
+
+```
+create statistics [<name>] on [<Table Name>] ([<Column Name>]);
+create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
+```
+
 ## Pasos siguientes
 Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][].
 
@@ -175,6 +185,7 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
 [Migración de esquemas]: sql-data-warehouse-migrate-schema.md
 [Migración de código]: sql-data-warehouse-migrate-code.md
+[Estadísticas]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -189,4 +200,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [Documentación de Almacenamiento de Azure]: https://azure.microsoft.com/es-ES/documentation/articles/storage-create-storage-account/
 [Documentación de ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

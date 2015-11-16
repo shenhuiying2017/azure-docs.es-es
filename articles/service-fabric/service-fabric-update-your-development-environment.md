@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/29/2015"
+   ms.date="10/30/2015"
    ms.author="seanmck"/>
 
 # Actualizar el entorno de desarrollo de Service Fabric
@@ -53,4 +53,4 @@ Eso es todo. Ahora puede iniciar Visual Studio y continuar creando aplicaciones 
 
  [1]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Vínculo de WebPI"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

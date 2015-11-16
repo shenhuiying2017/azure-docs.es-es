@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/28/2015" 
 	ms.author="tomfitz"/>
 
 # Bloqueo de recursos con el Administrador de recursos de Azure
@@ -106,5 +106,6 @@ Azure PowerShell proporciona otros comandos para bloqueos de trabajo, como **Set
 - Para obtener más información sobre cómo trabajar con bloqueos de recursos, consulte [Bloqueo de los recursos de Azure](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx).
 - Para aprender a organizar de manera lógica los recursos, consulte [Uso de etiquetas para organizar sus recursos](resource-group-using-tags.md).
 - Para cambiar el grupo de recursos en que reside un recurso, consulte [Traslado de los recursos a un nuevo grupo de recursos](resource-group-move-resources.md).
+- Puede aplicar restricciones y convenciones a través de su suscripción con directivas personalizadas. Para obtener más información, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
-	ms.author="davidmu"/>
+	ms.author="josephd"/>
 
 # Plantilla del Administrador de recursos de la granja de SharePoint de tres servidores
 
@@ -376,4 +376,4 @@ Para obtener más información, consulte [Idioma de la plantilla del Administrad
 
 [Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

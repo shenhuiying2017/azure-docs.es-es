@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Ejecución de la prueba de caos."
-   description="En este artículo se describen los escenarios de Service Fabric predefinidos proporcionados por Microsoft."
+   pageTitle="Pruebas de conmutación por error y caos | Microsoft Azure"
+   description="Uso de los escenarios de prueba de conmutación por error y pruebas de caos de Service Fabric para inducir acciones de error y comprobar la confiabilidad de los servicios."
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -251,4 +251,4 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

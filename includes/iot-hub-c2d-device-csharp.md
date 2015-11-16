@@ -1,9 +1,9 @@
-## Recepción de mensajes procedentes del dispositivo simulado
+## Recepción de mensajes en el dispositivo simulado
 
 En esta sección, modificará la aplicación de dispositivo simulado que creó en [Introducción al Centro de IoT] para recibir mensajes de nube a dispositivo del Centro de IoT.
 
 1. En Visual Studio, en el proyecto **SimulatedDevice**, agregue el método siguiente a la clase **Program**.
-   
+
         private static async void ReceiveC2dAsync()
         {
             Console.WriteLine("\nReceiving cloud to device messages from service");
@@ -37,4 +37,4 @@ En esta sección, modificará la aplicación de dispositivo simulado que creó e
 
 <!-- Images -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

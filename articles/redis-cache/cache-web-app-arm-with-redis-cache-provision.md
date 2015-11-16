@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="10/29/2015" 
 	ms.author="tomfitz"/>
 
 # Creación de una aplicación web y Caché en Redis mediante una plantilla
@@ -49,7 +49,7 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
 
 ### Caché en Redis
 
-Crea Caché en Redis de Azure que se utiliza con la aplicación web. El nombre de la memoria caché se especifica en el parámetro **redisCacheName**.
+Crea Caché en Redis de Azure que se usa con la aplicación web. El nombre de la memoria caché se especifica en el parámetro **redisCacheName**.
 
 La plantilla crea la memoria caché en la misma ubicación que la aplicación web, lo que se recomienda para un mejor rendimiento.
 
@@ -125,4 +125,4 @@ Observe que la aplicación web está configurada con las propiedades de configur
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

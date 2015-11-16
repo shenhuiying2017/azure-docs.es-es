@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/13/2015"
+   ms.date="11/02/2015"
    ms.author="andkjell;billmath"/>
 
 
@@ -77,6 +77,14 @@ Los permisos que requiera dependen de las características opcionales que habili
 | Escritura diferida de dispositivos | Los permisos concedidos con un script de PowerShell como se describe en [Escritura diferida de dispositivos](active-directory-aadconnect-get-started-custom-device-writeback.md).|
 | Escritura diferida de grupos | Leer, crear, actualizar y eliminar objetos de grupo en la UO donde se deben ubicar los grupos de distribuciones.|
 
+## Actualizar
+Al actualizar desde una versión de Azure AD Connect a una nueva versión, necesitará los siguientes permisos:
+
+| Principal | Permisos necesarios | Usado para |
+| ---- | ---- | ---- |
+| Usuario que ejecuta el asistente para instalación | Administrador del servidor local | Archivos binarios de la actualización. |
+| Usuario que ejecuta el asistente para instalación | Miembro de ADSyncAdmins | Realice cambios en las reglas de sincronización y en otra configuración. |
+| Usuario que ejecuta el asistente para instalación | Si utiliza un servidor SQL completo: DBO (o similar) de la base de datos del motor de sincronización | Realice los cambios de nivel de base de datos, como actualizar tablas con nuevas columnas. |
 
 ## Más información acerca de las cuentas creadas
 
@@ -86,12 +94,14 @@ Si utiliza la configuración rápida, se creará una cuenta en Active Directory 
 
 ![Cuenta de AD](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
-### Cuenta de servicio de sincronización de Azure AD Connect
-El asistente para instalación crea una cuenta de servicio local (a menos que especifique la cuenta que se desea usar en la configuración personalizada). La cuenta tendrá el prefijo **AAD\_** y se usa para el servicio de sincronización real para ejecutar como. Si instala Azure AD Connect en un controlador de dominio, la cuenta se crea en el dominio. Si usa SQL Server en un servidor remoto, la cuenta debe estar ubicada en el dominio.
+### Cuentas de servicio de sincronización de Azure AD Connect
+El asistente para instalación crea dos cuentas de servicio local (a menos que especifique la cuenta que se desea usar en la configuración personalizada). La cuenta con el prefijo **AAD\_** se usa para el servicio de sincronización real para ejecutar como. Si instala Azure AD Connect en un controlador de dominio, las cuentas se crean en el dominio. Si usa SQL Server en un servidor remoto, la cuenta de servicio **AAD\_** debe estar ubicada en el dominio. La cuenta con el prefijo **AADSyncSched\_** se utiliza para la tarea programada que ejecuta el motor de sincronización.
 
 ![Cuenta de servicio de sincronización](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
-La cuenta se crea con una contraseña larga compleja que no expira. Esta cuenta la usará Windows para almacenar las claves de cifrado, por lo que no se debe restablecer o cambiar la contraseña para esta cuenta.
+Las cuentas se crean con una contraseña larga compleja que no expira.
+
+Para la cuenta de servicio del motor de sincronización, esta cuenta la usará Windows para almacenar las claves de cifrado, por lo que no se debe restablecer o cambiar la contraseña para esta cuenta.
 
 Si usa SQL Server completo, la cuenta de servicio será el DBO de la base de datos creada para el motor de sincronización. El servicio no funcionará como se pretende con ningún otro permiso. También se creará un inicio de sesión SQL.
 
@@ -110,6 +120,6 @@ La cuenta de servicio se crea con una contraseña larga compleja que no expira. 
 
 ## Pasos siguientes
 
-Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
+Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

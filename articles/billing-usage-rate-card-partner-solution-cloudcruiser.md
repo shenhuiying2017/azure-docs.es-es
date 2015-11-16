@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Integración de Cloud Cruiser y de las API de facturación de Microsoft Azure"
+   pageTitle="Integración de la API de facturación de Cloud Cruiser y Microsoft Azure | Microsoft Azure"
    description="Proporciona una perspectiva exclusiva del socio de facturación de Microsoft Azure Cloud Cruiser, sobre sus experiencias de integración de las API de facturación de Azure en su producto. Esto es especialmente útil para los clientes de Azure y de Cloud Cruiser que están interesados en usar o probar Cloud Cruiser para el paquete de Microsoft Azure."
    services="billing"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="08/10/2015"
+   ms.date="11/02/2015"
    ms.author="mobandyo;sirishap;bryanla"/>
 
 # Integración de Cloud Cruiser y de las API de facturación de Microsoft Azure
@@ -213,7 +213,7 @@ Lo mejor de todo es que solamente tiene que realizar este proceso una vez. Cuand
 + Para obtener instrucciones detalladas sobre la creación de libros e informes de Cloud Cruiser, consulte la [documentación](http://docs.cloudcruiser.com/) en línea de Cloud Cruiser (inicio de sesión válida necesaria). Para obtener más información acerca de Cloud Cruiser, póngase en contacto con [info@cloudcruiser.com](mailto:info@cloudcruiser.com).
 + Consulte [Obtención de información sobre el consumo de recursos de Microsoft Azure](billing-usage-rate-card-overview.md) para obtener información general sobre las API de uso de recursos de Azure y de RateCard.
 + Consulte [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (Referencia de API de REST de facturación de Azure) para obtener más información sobre ambas API, que forman parte del conjunto de API proporcionadas por Administrador de recursos de Azure.
-+ Si desea profundizar en el código de ejemplo, consulte [Microsoft Azure Billing API Code Samples on Github](https://github.com/Azure/BillingCodeSamples) (Códigos de ejemplo de API de facturación de Microsoft Azure en Github).
++ Si quiere profundizar en el código de ejemplo, consulte nuestros ejemplos de código de la API de facturación de Microsoft Azure en [Ejemplos de código de Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
 ### Más información
 + Consulte el artículo [Información general de Administrador de recursos de Azure](resource-group-overview.md) para obtener más información sobre Administrador de recursos de Azure.
@@ -234,4 +234,4 @@ Lo mejor de todo es que solamente tiene que realizar este proceso una vez. Cuand
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Ilustración 13 - Creación de nuevos campos para la información de etiqueta"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Ilustración 14 - Relleno de la estructura de la cuenta con la información de las búsquedas"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

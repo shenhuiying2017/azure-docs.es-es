@@ -51,7 +51,7 @@ Con el editor de texto que prefiera, agregue lo siguiente al principio del archi
 
 ## Configuración de una conexión de almacenamiento de Azure
 
-El módulo azure leerá las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y **AZURE\_STORAGE\_ACCESS\_KEY** para obtener información necesaria para conectarse a su cuenta de almacenamiento de Azure. Si no se establecen estas variables de entorno, debe especificar la información de la cuenta antes de usar **Azure::BlobService** con el siguiente código:
+El módulo azure leerá las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y **AZURE\_STORAGE\_ACCESS\_KEY** para obtener información necesaria para conectarse a su cuenta de almacenamiento de Azure. Si no se establecen estas variables de entorno, debe especificar la información de la cuenta antes de usar **Azure::Blob::BlobService** con el siguiente código:
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your azure storage access key>"
@@ -68,11 +68,11 @@ Para obtener estos valores:
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-El objeto **Azure::BlobService** permite trabajar con contenedores y blobs. Para crear un contenedor, use el método**create\_container()**.
+El objeto **Azure::Blob::BlobService** permite trabajar con contenedores y blobs. Para crear un contenedor, use el método**create\_container()**.
 
 En el siguiente ejemplo de código se crea un contenedor o se imprime el error, si hay alguno.
 
-	azure_blob_service = Azure::BlobService.new
+	azure_blob_service = Azure::Blob::BlobService.new
 	begin
 	  container = azure_blob_service.create_container("test-container")
 	rescue
@@ -146,4 +146,4 @@ Para obtener información acerca de tareas de almacenamiento más complejas, sig
 - [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

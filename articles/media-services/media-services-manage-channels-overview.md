@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="11/03/2015"  
 	ms.author="juliako"/>
 
 #Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
@@ -240,7 +240,7 @@ Otras consideraciones sobre el funcionamiento de los canales y los componentes r
 
 ##Creación de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
 
-Para obtener más información sobre los codificadores en directo locales, consulte [Uso de codificadores en directo de terceros con Servicios multimedia de Azure](https://msdn.microsoft.com/library/azure/dn783464.aspx).
+Para obtener más información sobre los codificadores en directo locales, consulte [Uso de codificadores en directo de terceros con Servicios multimedia de Azure](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
 
 Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar los canales y programas.
 
@@ -266,4 +266,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="10/29/2015"
 	ms.author="josephd"/>
 
 # Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint de intranet
@@ -48,9 +48,9 @@ Puede crear estos entornos de desarrollo y pruebas de forma gratuita con su [sus
 
 ### Red virtual solo en la nube
 
-La red virtual solo en la nube no está conectada a una red local. Si desea crear rápidamente una granja de SharePoint básica o de alta disponibilidad, consulte [granja de servidores SharePoint](virtual-machines-sharepoint-farm-azure-preview.md). En el ejemplo siguiente se muestra la configuración básica de la granja de servidores de SharePoint.
+La red virtual solo en la nube no está conectada a una red local. Si desea crear rápidamente una granja de SharePoint básica o de alta disponibilidad, consulte [Creación de granjas de servidores de SharePoint](virtual-machines-sharepoint-farm-azure-preview.md). En el ejemplo siguiente se muestra la configuración básica de la granja de servidores de SharePoint.
 
-![](./media/virtual-machines-workload-intranet-sharepoint-farm/SPFarm_Basic.png)
+![](./media/virtual-machines-workload-intranet-sharepoint-farm/Non-HAFarm.png)
 
 ### Red virtual entre locales
 
@@ -128,4 +128,4 @@ Una vez configurada, puede expandir esta granja de SharePoint con ayuda de [Arqu
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Escenarios de prueba personalizados"
+   pageTitle="Escenarios de prueba personalizados | Microsoft Azure"
    description="Protección de los servicios contra errores correctos/incorrectos"
    services="service-fabric"
    documentationCenter=".net"
@@ -153,4 +153,4 @@ class Test
 ```
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

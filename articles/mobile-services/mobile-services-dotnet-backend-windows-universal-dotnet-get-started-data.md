@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="11/02/2015" 
 	ms.author="glenga"/>
 
 # Incorporación de Servicios móviles a una aplicación existente
@@ -121,4 +121,4 @@ Este tutorial muestra los aspectos básicos de la habilitación de un proyecto d
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

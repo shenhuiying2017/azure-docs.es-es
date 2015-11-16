@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="10/29/2015" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos entre orígenes locales y la nube con Data Management Gateway
@@ -149,10 +149,15 @@ En este paso, use el Portal de administración de Azure para crear una instancia
 	4. **Registro** está establecido en **Registrado**.
 	5. La barra de estado de la parte inferior muestra **Conectado al servicio en la nube Data Management Gateway** junto con una **marca de verificación verde**.
 
-8. Cambie a **Certificados**. El certificado especificado en esta pestaña se usa para cifrar y descifrar las credenciales para el almacén de datos local que especifique en el portal. Haga clic en **Cambiar** para usar su propio certificado. De forma predeterminada, la puerta de enlace usa el certificado generado automáticamente por el servicio Factoría de datos.
+8. Cambie a la pestaña **Certificados**. El certificado especificado en esta pestaña se usa para cifrar y descifrar las credenciales para el almacén de datos local que especifique en el portal. Haga clic en **Cambiar** para usar su propio certificado. De forma predeterminada, la puerta de enlace usa el certificado generado automáticamente por el servicio Factoría de datos.
 
 	![Configuración del certificado de puerta de enlace](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
-9. En el Portal de Azure, haga clic en **Aceptar** en la hoja **Configurar** y luego en la hoja **Nueva puerta de enlace de datos**.
+9. (Opcional) Cambie a la pestaña **Diagnósticos**, active la opción **Habilitar el registro detallado para solucionar problemas** si desea habilitar el registro detallado que puede usar para solucionar los problemas de la puerta de enlace. La información de registro se encuentra en el **Visor de sucesos**, en el nodo **Registros de aplicaciones y servicios** -> **Data Management Gateway**. 
+
+	![Ficha Diagnóstico](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
+
+	También puede usar esta página para **probar la conexión** a un origen de datos local mediante la puerta de enlace.
+10. En el Portal de Azure, haga clic en **Aceptar** en la hoja **Configurar** y, después, en la hoja **Nueva puerta de enlace de datos**.
 6. Debería ver **adftutorialgateway** en **Puertas de enlace de datos** en la vista de árbol de la izquierda. Si hace clic en ella, debería ver el JSON asociado. 
 	
 
@@ -164,13 +169,13 @@ En este paso, creará dos servicios vinculados: **StorageLinkedService** y **Sql
 
 	![Nuevo servicio vinculado de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png) 
 3.	En el **Editor de JSON**, haga lo siguiente: 
-	1. Para **gatewayName**, especifique **adftutorialgateway**.	
+	1. En **gatewayName**, especifique **adftutorialgateway**.	
 	2. Si está usando la autenticación de Windows:
 		1. En **connectionString**: 
 			1. Establezca **Seguridad integrada** en **true**.
-			2. Especifique el **nombre del servidor** de la base de datos y el **nombre de la base de datos**. 
+			2. Especifique el **nombre de servidor** de la base de datos y el **nombre de la base de datos**. 
 			2. Quite **Id. de usuario** y **Contraseña**. 
-		3. Especifique el nombre de usuario y la contraseña para las propiedad **userName** y **password**.
+		3. Especifique el nombre de usuario y la contraseña en las propiedades **userName** y **password**.
 		
 				"typeProperties": {
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
@@ -181,7 +186,7 @@ En este paso, creará dos servicios vinculados: **StorageLinkedService** y **Sql
 
 	4. Si está usando la autenticación de SQL:
 		1. Especifique el **nombre del servidor** de la base de datos, el **nombre de la base de datos**, el **Id. de usuario** y la **Contraseña** en **connectionString**.       
-		2. Quite las últimas dos propiedades de JSON - **userName** y **password** - de JSON.
+		2. Quite las últimas dos propiedades JSON (**userName** y **password**) de JSON.
 		3. Quite la **, (coma)** al final de la línea que especifica el valor de la propiedad **gatewayName**. 
 
 				"typeProperties": {
@@ -203,7 +208,7 @@ En este paso, creará dos servicios vinculados: **StorageLinkedService** y **Sql
 En este paso, creará conjuntos de datos de entrada y de salida que representan datos de entrada y de salida para la operación de copia (base de datos de SQL Server local => almacenamiento de blobs de Azure). Antes de crear conjuntos de datos o tablas (conjuntos de datos rectangulares), debe hacer lo siguiente (después de la lista, se detallan los pasos):
 
 - Cree una tabla con el nombre **emp** en la base de datos de SQL Server que agregó como servicio vinculado a la factoría de datos e inserte un par de entradas de ejemplo en la tabla.
-- Cree un contenedor de blob denominado **adftutorial** en la cuenta de almacenamiento de blobs de Azure que agregó como un servicio vinculado a la factoría de datos.
+- Cree un contenedor de blobs llamado **adftutorial** en la cuenta de almacenamiento de blobs de Azure que agregó como un servicio vinculado a la factoría de datos.
 
 ### Preparación de la instancia local de SQL Server para el tutorial
 
@@ -299,7 +304,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 	- **folderPath** está establecido en **adftutorial/outfromonpremdf**, donde outfromonpremdf es la carpeta del contenedor adftutorial. Solo tiene que crear el contenedor **adftutorial**.
 	- El elemento **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval** en **1**). El servicio Factoría de datos generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos SQL de Azure. 
 
-	Si no especifica **fileName** para una **tabla de entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada. Puede ver algunos archivos de ejemplo en [tutorial][adf-tutorial].
+	Si no especifica un valor de **fileName** para una **tabla de entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada. Puede ver algunos archivos de ejemplo en [tutorial][adf-tutorial].
  
 	Si no especifica un valor **fileName** para una tabla de salida, los archivos generados en la **ruta de la carpeta** se denominan con el siguiente formato: Data.<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -379,12 +384,12 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
  
 	- En la sección de actividades, solo hay una actividad cuyo **type** está establecido en **Copy**.
 	- La **entrada** de la actividad está establecida en **EmpOnPremSQLTable** y la **salida** de la actividad está establecida en **OutputBlobTable**.
-	- En la sección **transformation** , **SqlSource** está especificado como el **tipo de origen** y **BlobSink ** está especificado como el **tipo de receptor**.
+	- En la sección **transformation**, **SqlSource** está especificado como **tipo de origen** y **BlobSink** está especificado como **tipo de receptor**.
 - La consulta SQL **select * from emp** está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
 
 	Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **end** es opcional, pero se utilizará en este tutorial.
 	
-	Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9/9/9999** como valor de la propiedad **end**.
+	Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 hours**". Para ejecutar la canalización indefinidamente, especifique **9/9/9999** como valor de la propiedad **end**.
 	
 	Está definiendo la duración del procesamiento de los segmentos de datos según las propiedades de **disponibilidad** que se definieron para cada tabla de la Factoría de datos de Azure.
 	
@@ -448,7 +453,7 @@ En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo 
 	![Activity Run Details blade][image-data-factory-activity-run-details]
 
 11. Haga clic en **X** para cerrar todas las hojas hasta que
-12. regrese a la hoja principal para **ADFTutorialOnPremDF**.
+12. regrese a la hoja principal de **ADFTutorialOnPremDF**.
 14. (Opcional) Haga clic en **Canalizaciones**, elija **ADFTutorialOnPremDF** y obtenga detalles de las tablas de entrada (**Consumido**) o las tablas de salida (**Producido**).
 15. Use herramientas como el **Explorador de almacenamiento de Azure** para comprobar la salida.
 
@@ -457,7 +462,7 @@ En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo 
 ## Movimiento de la puerta de enlace móvil desde una máquina a otra
 En esta sección se proporcionan pasos para mover el cliente de puerta de enlace de un equipo a otro equipo.
 
-2. En el portal, navegue hasta la **página de inicio de Factoría de datos** y haga clic en el icono **Servicios vinculados**. 
+2. En el portal, vaya a la **página principal de Factoría de datos** y haga clic en el icono **Servicios vinculados**. 
 
 	![Vínculo de puertas de enlace de datos](./media/data-factory-move-data-between-onprem-and-cloud/DataGatewaysLink.png) 
 3. Seleccione la puerta de enlace en la sección **PUERTAS DE ENLACE DE DATOS** de la hoja **Servicios vinculados**.
@@ -472,7 +477,7 @@ En esta sección se proporcionan pasos para mover el cliente de puerta de enlace
 6. Mantenga el **Administrador de configuración de Microsoft Data Management Gateway** abierto. 
  
 	![Administrador de configuración](./media/data-factory-move-data-between-onprem-and-cloud/ConfigurationManager.png)	
-7. En la hoja **Configurar** del portal, haga clic en **Volver a crear clave** en la barra de comandos y haga clic en **Sí** para el mensaje de advertencia. Haga clic en **botón Copiar** junto al texto de la clave para copiar la clave en el portapapeles. Tenga en cuenta que la puerta de enlace en la máquina antigua dejará de funcionar tan pronto como vuelva a crear la clave.  
+7. En la hoja **Configurar** del portal, haga clic en **Volver a crear clave** en la barra de comandos y haga clic en **Sí** en el mensaje de advertencia. Haga clic en el **botón Copiar** junto al texto de la clave para copiar la clave en el portapapeles. Tenga en cuenta que la puerta de enlace en la máquina antigua dejará de funcionar tan pronto como vuelva a crear la clave.  
 	
 	![Volver a crear clave](./media/data-factory-move-data-between-onprem-and-cloud/RecreateKey.png)
 	 
@@ -497,12 +502,12 @@ También puede crear un servicio vinculado de SQL Server mediante la hoja de Ser
 2.	Haga clic en flecha junto a **Tipo** y seleccione **SQL Server**.
 
 	![Creación de un nuevo almacén de datos](./media/data-factory-move-data-between-onprem-and-cloud/new-data-store.png)
-3.	Debe definir más configuraciones bajo **Tipo**.
-4.	Para el valor **Puerta de enlace de datos**, seleccione la puerta de enlace que acaba de crear. 
+3.	Debe definir más configuraciones en la opción **Tipo**.
+4.	En la opción **Puerta de enlace de datos**, seleccione la puerta de enlace que acaba de crear. 
 
 	![Configuración de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-settings.png)
-4.	Escriba el nombre del servidor de base de datos para el valor **Servidor**.
-5.	Escriba el nombre de la base de datos para el valor **Base de datos**.
+4.	Escriba el nombre del servidor de base de datos en la opción **Servidor**.
+5.	Escriba el nombre de la base de datos en la opción **Base de datos**.
 6.	Haga clic en flecha junto a **Credenciales**.
 
 	![Hoja Credenciales](./media/data-factory-move-data-between-onprem-and-cloud/credentials-dialog.png)
@@ -512,7 +517,7 @@ También puede crear un servicio vinculado de SQL Server mediante la hoja de Ser
 	![Cuadro de diálogo Establecer credenciales](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. Seleccione la **autenticación** que desea que use el servicio Factoría de datos para conectarse a la base de datos. 2. Escriba el nombre del usuario que tiene acceso a la base de datos para el valor **NOMBRE DE USUARIO**. 3. Escriba la contraseña para el usuario para el valor **CONTRASEÑA**. 4. Haga clic en **Aceptar** para cerrar el cuadro de diálogo. 
 4. Haga clic en **Aceptar** para cerrar la hoja **Credenciales**. 
 5. Haga clic en **Aceptar** en la hoja **Nuevo almacén de datos**. 	
-6. Confirme que el estado de **SqlServerLinkedService** está establecido en En línea en la hoja Servicios vinculados.![Estado del servicio vinculado de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. Confirme que el estado de **SqlServerLinkedService** está establecido en En línea en la hoja Servicios vinculados. ![Estado del servicio vinculado de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 Si tiene acceso al portal desde un equipo diferente del equipo de la puerta de enlace, debe asegurarse de que la aplicación del Administrador de credenciales puede conectarse al equipo de la puerta de enlace. Si la aplicación no puede ponerse en contacto con el equipo de la puerta de enlace, no podrá establecer las credenciales del origen de datos ni probar la conexión al origen de datos.
 
@@ -610,4 +615,4 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

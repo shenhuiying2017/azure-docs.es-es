@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="10/01/2015"
+   ms.date="11/04/2015"
    ms.author="heidist"/>
 
 # API de REST del Servicio Búsqueda de Azure versión 2015-02-28-Preview
 
-Este artículo es la documentación de referencia de `api-version=2015-02-28-Preview`. Esta vista previa amplía la versión disponible generalmente actual, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), proporcionando las siguientes funciones experimentales:
+Búsqueda de Azure es un servicio de búsqueda hospedado en la nube en Microsoft Azure. Este artículo es la documentación de referencia de `api-version=2015-02-28-Preview`. Esta vista previa amplía la versión disponible generalmente actual, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), proporcionando las siguientes funciones experimentales:
 
 - [Sintaxis de consulta de Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) es una implementación de [Analizador de consultas de Lucene](https://lucene.apache.org/core/4_10_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), que puede especificar mediante el parámetro queryType en [Operaciones de búsqueda](#SearchDocs).
 - `moreLikeThis` es un parámetro de consulta usado en [Operaciones de búsqueda](#SearchDocs) que busca otros documentos que son pertinentes para otro documento específico.
@@ -1742,4 +1742,4 @@ Recupere 5 sugerencias en las que la entrada de búsqueda parcial sea "lux"
       "suggesterName": "sg"
     }
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

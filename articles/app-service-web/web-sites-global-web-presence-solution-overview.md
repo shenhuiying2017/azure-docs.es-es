@@ -33,7 +33,7 @@ A continuación, aparece un ejemplo de un sitio web .COM que se ejecuta en Aplic
 
 Cree rápidamente sitios nuevos a partir de un CMS popular en la galería o aproveche recursos web existentes en Aplicaciones web del Servicio de aplicaciones de una variedad de lenguajes y marcos.
 
-Azure Marketplace proporciona plantillas provenientes de los sistemas de administración de contenido (CMS) de sitios web populares, como [Orchard], [Umbraco], Drupal y [WordPress]. Puede crear una aplicación web usando el tipo de CMS de su preferencia. Puede elegir entre varios backends de bases de datos para satisfacer sus necesidades, incluida [Base de datos SQL de Azure] y [MySQL].
+Azure Marketplace proporciona plantillas provenientes de los sistemas de administración de contenido (CMS) de sitios web populares, como Orchard, Umbrado, Drupal y [WordPress]. Puede crear una aplicación web usando el tipo de CMS de su preferencia. Puede elegir entre varios backends de bases de datos para satisfacer sus necesidades, incluida [Base de datos SQL de Azure] y [MySQL].
 
 Los recursos web existentes pueden ejecutarse en Aplicaciones web del Servicio de aplicaciones, ya sean .NET, PHP, Java, Node.js o Python. Puede moverlos a Aplicaciones web con sus herramientas [FTP] conocidas o el sistema de administración de control de código fuente. Aplicaciones web admite la publicación desde opciones de control de código fuente conocidas, como [Visual Studio], [Visual Studio Online] y [Git]\: local, GitHub, BitBucket, DropBox, Mercurial, etc.
 
@@ -97,8 +97,6 @@ Haga que su sitio .COM sea atractivo con medios enriquecidos, como:
 
 [Azure App Service]: /services/app-service/web/
 
-[Orchard]: web-sites-dotnet-orchard-cms-gallery.md
-[Umbraco]: web-sites-gallery-umbraco.md
 [WordPress]: web-sites-php-web-site-gallery.md
 [MySQL]: web-sites-php-mysql-deploy-use-git.md
 [Base de datos SQL de Azure]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
@@ -139,4 +137,4 @@ Haga que su sitio .COM sea atractivo con medios enriquecidos, como:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

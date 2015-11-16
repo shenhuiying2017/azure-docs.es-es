@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="10/28/2015"
+   ms.date="11/05/2015"
    ms.author="jroth" />
 
 # Instrucciones y limitaciones generales de Base de datos SQL de Azure
@@ -41,9 +41,7 @@ La Base de datos SQL de Azure no admite transacciones distribuidas, que son tran
 
 ## Compatibilidad con la intercalación de SQL Server
 
-La intercalación de bases de datos predeterminada que utiliza Base de datos SQL de Microsoft Azure es **SQL\_LATIN1\_GENERAL\_CP1\_CI\_AS**, donde **LATIN1\_GENERAL** es inglés (Estados Unidos), **CP1** es la página de códigos 1252, **CI** indica que no se distingue mayúsculas de minúsculas y **AS** especifica que se distinguen los acentos.
-
-Cuando se usa un servidor SQL Server local, es posible establecer las intercalaciones a nivel de servidor, base de datos, columna y expresión. Base de datos SQL de Microsoft Azure no permite establecer la intercalación a nivel de servidor. Para utilizar la intercalación no predeterminada con Base de datos SQL de Microsoft Azure, establezca la intercalación con la opción Crear intercalación de base de datos, o en el nivel de columna o expresión. Base de datos SQL no admite la opción Intercalar con el comando Alter Database. De forma predeterminada, en la Base de datos SQL, los datos temporales tendrán la misma intercalación que la base de datos. Para obtener más información acerca de cómo establecer la intercalación, vea [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+La intercalación de bases de datos predeterminada que utiliza Base de datos SQL de Microsoft Azure es **SQL\_LATIN1\_GENERAL\_CP1\_CI\_AS**, donde **LATIN1\_GENERAL** es inglés (Estados Unidos), **CP1** es la página de códigos 1252, **CI** indica que no se distingue mayúsculas de minúsculas y **AS** especifica que se distinguen los acentos. Es posible modificar la intercalación de bases de datos de V12 mediante Transact-SQL. Para obtener más información acerca de cómo establecer la intercalación, consulte [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## Requisitos de nomenclatura
 
@@ -55,7 +53,7 @@ Algunos nombres de usuario no se permiten por razones de seguridad. No puede usa
  - **root** 
  - **sa** 
 
-Los nombres de todos los objetos nuevos deben cumplir las reglas de SQL Server para los identificadores. Para obtener más información, vea [Identificadores](https://msdn.microsoft.com/library/ms175874.aspx).
+Los nombres de todos los objetos nuevos deben cumplir las reglas de SQL Server para los identificadores. Para obtener más información, consulte [Identificadores](https://msdn.microsoft.com/library/ms175874.aspx).
 
 Además, los nombres de inicio de sesión y el usuario no pueden contener el carácter \\ (no se admite la autenticación de Windows).
 
@@ -63,12 +61,12 @@ Además, los nombres de inicio de sesión y el usuario no pueden contener el car
 
 - Además de las limitaciones generales descritas en este artículo, Base de datos SQL tiene cuotas y limitaciones de recursos específicas según el [nivel de servicio](sql-database-service-tiers.md) seleccionado. Para ver una descripción detallada de los límites del nivel de servicio, consulte [Límites y capacidades de nivel de servicio](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
-- Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Base de datos SQL](sql-database-limits.md).
+- Para conocer los límites de Base de datos SQL, consulte [Límites de recursos de Base de datos SQL](sql-database-limits.md).
 
 - Para obtener directrices relacionadas con la seguridad, consulte [Instrucciones y limitaciones de seguridad de Base de datos SQL de Azure](sql-database-security-guidelines.md).
 
-- Otro asunto relacionado hace referencia a la compatibilidad de Base de datos SQL de Azure con las versiones locales de SQL Server, como SQL Server 2014. La última versión V12 de Base de datos SQL de Azure ha conseguido muchas mejoras en este sentido. Para obtener más detalles, vea [Novedades de Base de datos SQL V12](sql-database-v12-whats-new.md).
+- Otro asunto relacionado hace referencia a la compatibilidad de Base de datos SQL de Azure con las versiones locales de SQL Server, como SQL Server 2014. La última versión V12 de Base de datos SQL de Azure ha conseguido muchas mejoras en este sentido. Para obtener más detalles, consulte [Novedades de Base de datos SQL V12](sql-database-v12-whats-new.md).
 
 - Para obtener información sobre la disponibilidad de controladores y la compatibilidad con Base de datos SQL, consulte [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

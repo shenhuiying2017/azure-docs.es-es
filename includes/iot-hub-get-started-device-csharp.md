@@ -62,6 +62,9 @@ En esta sección, escribirá una aplicación de consola de Windows que simula un
         SendDeviceToCloudMessagesAsync();
         Console.ReadLine();
 
+  De forma predeterminada, el método **Create** crea un **DeviceClient** que utiliza el protocolo AMQP para comunicarse con el Centro de IoT. Para usar el protocolo HTTPS, use la invalidación del método **Create** para especificar el protocolo. Si decide usar el protocolo HTTPS, debe agregar también el paquete de NuGet **Microsoft.AspNet.WebApi.Client** al proyecto para incluir el espacio de nombres **System.Net.Http.Formatting**.
+
+
 > [AZURE.NOTE]Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, se recomienda implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal como se sugiere en el artículo de MSDN [Control de errores transitorios].
 
 <!-- Links -->
@@ -72,4 +75,4 @@ En esta sección, escribirá una aplicación de consola de Windows que simula un
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

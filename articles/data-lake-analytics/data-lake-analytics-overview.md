@@ -47,7 +47,7 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
 
 - **Funciona con todos los datos de Azure**
 
-    Análisis de Data Lake puede funcionar con diversos orígenes de datos de Azure: blobs de Almacenamiento de Azure, Base de datos SQL de Azure y, por supuesto, Análisis de Data Lake está especialmente optimizado para trabajar con el Almacén de Azure Data Lake, proporcionando el máximo nivel de rendimiento, capacidad de proceso y la ejecución en paralelo para las cargas de trabajo de macrodatos.
+    Análisis de Data Lake puede funcionar con diversos orígenes de datos de Azure, como almacenamiento de blobs de Azure y Base de datos SQL de Azure, y está especialmente optimizado para trabajar con el almacén de Azure Data Lake, proporcionando el máximo nivel de rendimiento, capacidad de proceso y ejecución en paralelo para las cargas de trabajo de macrodatos.
 
 ## Consulte también
 
@@ -77,4 +77,4 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
     - [Envíe una solicitud de característica](http://aka.ms/adlafeedback)
     - [Obtenga ayuda en los foros](http://aka.ms/adlaforums)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

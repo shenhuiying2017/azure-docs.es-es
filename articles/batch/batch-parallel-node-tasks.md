@@ -13,7 +13,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="vm-windows"
    	ms.workload="big-compute"
-   	ms.date="09/30/2015"
+   	ms.date="11/02/2015"
    	ms.author="v-marsma"/>
 
 # Maximizar el uso de recursos de proceso de Lote de Azure con tareas simultáneas de nodo
@@ -38,7 +38,7 @@ Para ilustrar las ventajas de la ejecución en paralelo de tareas, supongamos qu
 
 La configuración de los nodos de proceso en la solución Lote para la ejecución en paralelo de tareas se realiza en el nivel de grupo. Cuando se trabaja con la API de .NET Lote, se establece la propiedad [CloudPool.MaxTasksPerComputeNode][maxtasks_net] al crear un grupo. En la API de REST Lote, se establece el elemento [maxTasksPerNode][maxtasks_rest] en el cuerpo de la solicitud durante la creación del grupo.
 
-Lote de Azure permite una configuración máxima de tareas por nodo que casi cuadriplica el número de núcleos de nodo. Por ejemplo, si el grupo está configurado con nodos de tamaño "Grande" (cuatro núcleos), `maxTasksPerNode` se puede establecer en 16. Consulte más detalles sobre el número de núcleos para cada uno de los tamaños de nodo en [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-size-specs.md), así como más información sobre los límites de servicio en [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
+Lote de Azure permite una configuración máxima de tareas por nodo que casi cuadriplica el número de núcleos de nodo. Por ejemplo, si el grupo está configurado con nodos de tamaño "Grande" (cuatro núcleos), `maxTasksPerNode` se puede establecer en 16. Consulte más detalles sobre el número de núcleos para cada uno de los tamaños de nodo en [Tamaños para Servicios en la nube](../cloud-services/cloud-services-sizes-specs.md), así como más información sobre los límites de servicio en [Límites y cuotas del servicio Lote de Azure](batch-quota-limit.md).
 
 > [AZURE.TIP]Asegúrese de tener en cuenta el valor `maxTasksPerNode` al construir una [fórmula de escalado automático][enable_autoscaling] para el grupo. Por ejemplo, una fórmula que evalúe `$RunningTasks` podría verse afectada considerablemente por un aumento en las tareas por nodo. Consulte [Escalación automática de los nodos de ejecución en un grupo de Lote de Azure](batch-automatic-scaling.md) para obtener más información.
 
@@ -106,11 +106,11 @@ La segunda ejecución del ejemplo muestra una disminución notable en la duraci�
 
 ## Mapa térmico de Batch Explorer
 
-El explorador de Lote, o [Batch Explorer][batch_explorer], una de las [aplicaciones de ejemplo][github_samples] de Lote de Azure, contiene una función de *mapa térmico* que proporciona una visualización del uso de los núcleos de nodo dentro de un grupo. Cuando se ejecuta la aplicación de ejemplo [ParallelTasks][parallel_tasks_sample], use la característica de mapa térmico para visualizar fácilmente la actividad de los núcleos de nodos.
+[Batch Explorer][batch_explorer], una de las [aplicaciones de ejemplo][github_samples] de Lote de Azure, contiene una característica denominada *Mapa térmico* que proporciona visualización de la ejecución de tareas. Cuando ejecute la aplicación de ejemplo [ParallelTasks][parallel_tasks_sample], use la característica Mapa térmico para visualizar fácilmente la ejecución de tareas paralelas en cada nodo.
 
 ![Mapa térmico de Batch Explorer][1]
 
-*Mapa térmico de Batch Explorer que muestra cuatro nodos con cuatro núcleos por nodo, los cuales están ejecutando una tarea cada uno de manera simultánea*
+*Mapa térmico de Batch Explorer que muestra un grupo de cuatro nodos, donde cada nodo ejecuta actualmente cuatro tareas*
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
@@ -127,4 +127,4 @@ El explorador de Lote, o [Batch Explorer][batch_explorer], una de las [aplicacio
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

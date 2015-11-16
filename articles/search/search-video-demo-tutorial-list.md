@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Vídeos, ejemplos y tutoriales en la Búsqueda de Azure"
-	description="Busque todos los vídeos, ejemplos, demostraciones y tutoriales creados para la Búsqueda de Azure en una lista central."
+	pageTitle="Vídeos, ejemplos y tutoriales de Búsqueda de Azure | Microsoft Azure"
+	description="Lista fundamental de todos los vídeos, ejemplos, demostraciones y tutoriales creados para Búsqueda de Azure, un servicio hospedado en la nube en Microsoft Azure."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="09/29/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 #Búsqueda de Azure: tutoriales, demostraciones de vídeo y ejemplos
@@ -25,13 +25,16 @@ Póngase en marcha más rápidamente con los siguientes vídeos, demostraciones,
 
 [**Demo del portal de trabajos en la ciudad de Nueva York en Búsqueda de Azure**](http://aka.ms/azjobsdemo) es un sitio web activo de ASP.NET que muestra capacidades de Búsqueda de Azure con datos procedentes de NYC Open Data Initiative.
 
-[**Probar el Servicio de aplicaciones + Búsqueda de Azure**](search-tryappservice.md) es una sesión de una hora gratuita con la Búsqueda de Azure que incluye datos, una aplicación web funcional y código fuente que puede modificar en línea para probar varias características de búsqueda.
+[**Probar el Servicio de aplicaciones + Búsqueda de Azure en aplicación combinada ASP.NET MVC**](search-tryappservice.md) es una sesión de una hora gratuita con Búsqueda de Azure que incluye datos, una aplicación web funcional y código fuente que puede modificar en línea para probar varias características de búsqueda en una aplicación ASP.NET.
+
+[**Sitio de demostración de Búsqueda de Azure**](https://searchsamples.azurewebsites.net/#/) es una colección de aplicaciones de demostración para Búsqueda de Azure. Realice una versión de prueba de aplicaciones de inventario de productos, búsqueda geográfica, búsqueda de elementos multimedia mediante Búsqueda de Azure.
 
 ##Vídeos
 
 Vínculo|Descripción
 ----|-----------
-[Procedimientos recomendados 2015 de AzureCon para Búsqueda de Azure](https://azure.microsoft.com/es-ES/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|Consejos prácticos sobre cómo conseguir escalación, un rendimiento óptimo y eficacia en la codificación al crear aplicaciones para escenarios web o móviles. 
+[¿Qué es Búsqueda de Azure?](https://azure.microsoft.com/documentation/videos/what-is-azure-search/)|Información general de Búsqueda de Azure en un minuto y medio.
+[Procedimientos recomendados 2015 de AzureCon para Búsqueda de Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|Consejos prácticos sobre cómo conseguir escalación, un rendimiento óptimo y eficacia en la codificación al crear aplicaciones para escenarios web o móviles. 
 [Academia virtual de Microsoft: adición de la Búsqueda de Azure a sus aplicaciones y sitios web](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps)|Serie de 7 partes sobre cómo agregar la Búsqueda de Azure a una aplicación, presentada por Liam Cavanagh, Janusz Lembicz y Bernardita Torres Garayar.
 [Compilación 2015: datos modernos](http://channel9.msdn.com/Events/Build/2015/2-663)|Pasados 29 minutos de la sesión se describe cómo se ajusta la Búsqueda de Azure en la revolución de datos moderna, presentada por Shawn Bice y Pablo Castro.
 [Compilación 2015: usar la Búsqueda de Azure para crear excelentes experiencias de búsqueda en aplicaciones web y móviles](http://channel9.msdn.com/Events/Build/2015/2-745)|Pablo Castro presenta en la compilación 2015 de Microsoft.
@@ -50,6 +53,7 @@ Vínculo|Descripción
 
 Tutorial|Descripción
 -----------|-----------
+[Búsqueda de datos de StackExchange mediante Búsqueda de Azure](search-howto-stackexchange-data.md)|Búsqueda de texto completo sobre datos StackExchange en una aplicación integrada con Búsqueda de Azure.
 [Cómo utilizar la Búsqueda de Azure con D3.js para crear visualizaciones de datos interactivas](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/)|Entrada de blog y código de ejemplo que muestra cómo agregar capacidades de búsqueda visual a su aplicación personalizada.
 [Introducción a Búsqueda de Azure en .NET](search-get-started-dotnet.md)|Obtenga información acerca de cómo trabajar con la Búsqueda de Azure en código administrado.
 [Introducción a Búsqueda de Azure en NodeJS](search-get-started-nodejs.md)|Obtenga información acerca de cómo trabajar con la Búsqueda de Azure en NodeJS.
@@ -91,4 +95,4 @@ En CodePlex, puede encontrar varios ejemplos publicados durante la vista previa 
 - [**SQL Server to Azure Search Sync Sample**](http://sqlserver2azuresearch.codeplex.com/) es una aplicación de consola de Windows que carga un conjunto de filas de SQL Server desde una base de datos local insertada.
 - [**Scoring Profiles Demo**](https://azuresearchscoringprofiles.codeplex.com/) es una aplicación de consola de Windows que define, ejecuta y actualiza un perfil de puntuación para optimizar los resultados de la búsqueda.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

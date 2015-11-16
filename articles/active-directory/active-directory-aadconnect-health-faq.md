@@ -95,8 +95,9 @@ Deberá abrir los puertos 80, 443 y 5671 TCP/UDP para que el agente de Azure AD 
 ## Vínculos relacionados
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Instalación del agente de Azure AD Connect Health para AD FS](active-directory-aadconnect-health-agent-install-adfs.md)
-* [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
+* [Instalación del agente de Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Operaciones de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
+* [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
+* [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

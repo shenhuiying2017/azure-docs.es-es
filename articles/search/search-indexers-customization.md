@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Personalización del indexador de Búsqueda de Azure" 
-	description="Aprenda a personalizar la configuración y directivas de los indexadores de Búsqueda de Azure." 
+	pageTitle="Personalización del indexador de Búsqueda de Azure | Microsoft Azure" 
+	description="Aprenda a personalizar la configuración y las directivas de los indexadores de Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="chaosrealm" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/29/2015" 
+	ms.date="11/04/2015" 
 	ms.author="eugenesh"/>
 
 #Personalización del indexador de Búsqueda de Azure
@@ -117,4 +117,4 @@ Incluso si intenta tolerar algunos errores, la [API de obtención del estado de 
 Eso es todo por ahora. Si tiene ideas o sugerencias para futuras ideas de contenido, envíenos un mensaje de Twitter con el hashtag #AzureSearch o envíe sus ideas a nuestra [página de UserVoice](http://feedback.azure.com/forums/263029-azure-search).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

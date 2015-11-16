@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/13/2015"
+   ms.date="11/02/2015"
    ms.author="andkjell;billmath"/>
 
 # Requisitos previos para Azure Active Directory Connect (Azure AD Connect)
@@ -31,8 +31,9 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesitará.
 **Entorno y servidores locales**
 
 - La versión del esquema de AD y el nivel funcional del bosque deben ser Windows Server 2003 o una versión posterior. Los controladores de dominio pueden ejecutar cualquier versión siempre que se cumplan los requisitos de nivel de bosque y esquema.
+- Si pretende usar la característica de **escritura diferida de contraseñas**, los controladores de dominio deben estar en Windows Server 2008 (con el SP más reciente) o posterior.
 - Azure AD Connect debe instalarse en Windows Server 2008 o en una versión superior. Este servidor puede ser un controlador de dominio o un servidor miembro si se usa la configuración rápida. Si usa la configuración personalizada, el servidor también puede ser independiente y no tiene que estar unido a un dominio.
-- Si pretende usar la sincronización de contraseñas de la característica, el servidor debe estar en Windows Server 2008 R2 SP1 o posterior.
+- Si pretende usar la característica de **sincronización de contraseñas**, el servidor debe estar en Windows Server 2008 R2 SP1 o posterior.
 - Si se implementa Servicios de federación de Active Directory, los servidores en los que se instale AD FS o el Proxy de aplicación web deben ser Windows Server 2012 R2 o versiones posteriores. Administración remota de Windows debe estar habilitada en estos servidores para la instalación remota.
 - Azure AD Connect requiere una base de datos de SQL Server para almacenar datos de identidad. De forma predeterminada se instala SQL Server 2012 Express LocalDB (una versión ligera de SQL Server Express) y se crea la cuenta de servicio para el servicio en el equipo local. SQL Server Express tiene un límite de tamaño de 10 GB que le permite que administre aproximadamente 100.000 objetos. Si tiene que administrar un volumen superior de objetos de directorio, es preciso que el proceso de instalación apunte a otra versión de SQL Server. Azure AD Connect admite todas las versiones de Microsoft SQL Server de SQL Server 2008 (con Service Pack 4) a SQL Server 2014.
 
@@ -44,7 +45,7 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesitará.
 
 **Conectividad**
 
-- Si utiliza un proxy saliente para la conexión a Internet, la siguiente configuración del archivo **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** debe agregarse para que el asistente para instalación y Azure AD puedan conectarse a Internet y a Azure AD.
+- Si utiliza un proxy saliente para la conexión a Internet, la siguiente configuración del archivo **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** se debe agregar para que el asistente para instalación y la sincronización de Azure AD puedan conectarse a Internet y a Azure AD.
 
 ```
     <system.net>
@@ -58,7 +59,7 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesitará.
     </system.net>
 ```
 
-Este texto debe escribirse en la parte inferior del archivo. En este código, &lt;PROXYADRESS&gt; representa la dirección IP del proxy real o el nombre de host. -Si el proxy limita a qué direcciones URL se puede acceder, las direcciones URL que se documentan en [URL de Office 365 e intervalos de direcciones IP](https://support.office.com/es-ES/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) deben abrirse en el proxy.
+Este texto debe escribirse en la parte inferior del archivo. En este código, &lt;PROXYADRESS&gt; representa la dirección IP del proxy real o el nombre de host. -Si el proxy limita a qué direcciones URL se puede acceder, las direcciones URL que se documentan en [Direcciones URL de Office 365 e intervalos de direcciones IP](https://support.office.com/es-ES/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) deben abrirse en el proxy.
 
 **Otros**
 
@@ -112,6 +113,6 @@ Los requisitos mínimos para equipos que ejecutan AD FS o servidores de aplicaci
 
 
 ## Pasos siguientes
-Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
+Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

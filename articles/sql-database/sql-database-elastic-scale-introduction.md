@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Herramientas de bases de datos elásticas de Base de datos SQL de Azure"
+    pageTitle="Información general de las características de las herramientas de Base de datos elástica | Microsoft Azure"
     description="Los desarrolladores de Software como servicio (SaaS) pueden crear bases de datos elásticas y escalables con facilidad en la nube mediante estas herramientas"
     services="sql-database"
     documentationCenter=""
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/27/2015"
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015"
+    ms.author="ddove;sidneyh"/>
 
 # Información general de las características de bases de datos elásticas
 
@@ -108,4 +108,4 @@ Para ver los detalles del grupo de bases de datos elásticas, consulte [Consider
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

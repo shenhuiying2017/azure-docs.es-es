@@ -31,11 +31,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/es-ES/pricing/free-trial/).
 - **Habilite su suscripción de Azure** para la versión de vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
-- **Azure PowerShell 1.0 o superior**. Consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md) para obtener más información. Después de haber instalado Azure PowerShell 1.0 o superior, debe ejecutar el siguiente cmdlet para instalar el módulo Almacén de Azure Data Lake.
-
-		Install-Module AzureRM.DataLakeStore
-
-	Para obtener más información sobre el módulo **AzureRM.DataLakeStore**, consulte la [Galería de PowerShell](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore).
+- **Azure PowerShell 1.0**. Puede instalarlo desde [aquí](https://github.com/MicrosoftBigData/AzureDataLake/releases/download/AzurePowerShell_2015_10_30/AzurePowerShell.msi).
 
 ## Creación de una cuenta de Almacén de Azure Data Lake
 
@@ -54,7 +50,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore" 
 
 
-2. Una cuenta del Almacén de Azure Data Lake está asociada a un grupo de recursos de Azure. Comience creando un grupo de recursos de Azure.
+2. La cuenta de Almacén de Azure Data Lake se asocia con un grupo de recursos de Azure. Comience creando un grupo de recursos de Azure.
 
 		$resourceGroupName = "<your new resource group name>"
     	New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
@@ -143,4 +139,4 @@ Cuando se le solicite, escriba **Y** para eliminar la cuenta.
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

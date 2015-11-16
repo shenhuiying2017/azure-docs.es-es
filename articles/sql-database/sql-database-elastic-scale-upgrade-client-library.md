@@ -1,11 +1,11 @@
 <properties
 	
-	pageTitle="Upgrade to the latest elastic database client library" 
+	pageTitle="Upgrade to the latest elastic database client library | Microsoft Azure" 
 	description="Upgrade apps and libraries using Nuget" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh"/>
+	authors="ddove"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
-	ms.author="sidneyh" />
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh" />
 
 # Actualización a la última biblioteca de clientes de base de datos elástica
 
-Hay nuevas versiones disponibles de la biblioteca de clientes de base de datos elástica a través de [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) y de la interfaz del Administrador de NuGetPackage en Visual Studio. Las actualizaciones contienen correcciones de errores y compatibilidad para nuevas capacidades de la biblioteca de clientes.
+Hay nuevas versiones disponibles de la [biblioteca de clientes de Base de datos elástica](sql-database-elastic-database-client-library.md) a través de [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) y de la interfaz del Administrador de paquetes de NuGet en Visual Studio. Las actualizaciones contienen correcciones de errores y compatibilidad para nuevas capacidades de la biblioteca de clientes.
 
 Vuelve a generar la aplicación con la nueva biblioteca, así como cambiar los metadatos de administrador de asignación de particiones existentes almacenados en sus bases de datos SQL de Azure para admitir nuevas características.
 
@@ -97,4 +97,4 @@ Versión inicial de vista previa
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

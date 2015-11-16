@@ -21,8 +21,8 @@
 El tema siguiente describe las distintas operaciones que se pueden realizar con Azure AD Connect Health.
 
 ## Habilitación de notificaciones de correo electrónico
-Puede configurar el Servicio de Azure AD Connect Health para enviar notificaciones por correo electrónico cuando se generen alertas que indiquen que el estado de la infraestructura de identidad  no es correcto. Esto ocurrirá cuando se genere una alerta y también cuando se marque como resuelta. Siga las instrucciones que aparecen a continuación para configurar las notificaciones de correo electrónico.
->[AZURE.NOTE] Las notificaciones de correo electrónico están deshabilitadas de forma predeterminada.
+Puede configurar el Servicio de Azure AD Connect Health para enviar notificaciones por correo electrónico cuando se generen alertas que indiquen que el estado de la infraestructura de identidad no es correcto. Esto ocurrirá cuando se genere una alerta y también cuando se marque como resuelta. Siga las instrucciones que aparecen a continuación para configurar las notificaciones de correo electrónico.
+>[AZURE.NOTE]Las notificaciones de correo electrónico están deshabilitadas de forma predeterminada.
 
 
 ### Para habilitar las notificaciones de correo electrónico de Azure AD Connect Health
@@ -86,8 +86,8 @@ Azure AD Connect Health admite los siguientes roles integrados.
 
 | Rol | Permisos |
 | ----------- | ---------- |
-| Propietario | Los propietarios pueden ***administrar el acceso*** (por ejemplo, asignar roles a un usuario y/o grupo), ***ver toda la información*** (por ejemplo, ver las alertas) desde el portal y ***cambiar la configuración*** (por ejemplo, notificaciones de correo electrónico) dentro de Azure AD Connect Health. <br>De forma predeterminada, a los administradores globales de Azure AD se les asigna este rol y esto no se puede cambiar.  |
-|Colaborador|  Los colaboradores pueden ***ver toda la información*** (por ejemplo, ver las alertas) desde el portal y ***cambiar la configuración*** (por ejemplo, notificaciones de correo electrónico) dentro de Azure AD Connect Health.|
+| Propietario | Los propietarios pueden ***administrar el acceso*** (por ejemplo, asignar roles a un usuario y/o grupo), ***ver toda la información*** (por ejemplo, ver las alertas) desde el portal y ***cambiar la configuración*** (por ejemplo, notificaciones de correo electrónico) dentro de Azure AD Connect Health. <br>De forma predeterminada, a los administradores globales de Azure AD se les asigna este rol y esto no se puede cambiar. |
+|Colaborador| Los colaboradores pueden ***ver toda la información*** (por ejemplo, ver las alertas) desde el portal y ***cambiar la configuración*** (por ejemplo, notificaciones de correo electrónico) dentro de Azure AD Connect Health.|
 |Lector| Los lectores pueden ***ver toda la información*** (por ejemplo, ver las alertas) desde el portal dentro de Azure AD Connect Health.|
 
 Todos los demás roles (como 'Administradores de acceso de usuario' o 'Usuarios del laboratorio DevTest'), incluso si están disponibles en la experiencia del portal, no afectan al acceso dentro de Azure AD Connect Health.
@@ -98,7 +98,7 @@ Azure AD Connect admite la administración de acceso a dos niveles:
 
 - ***Todas las instancias de servicio***: este es el modo recomendado para la mayoría de los clientes y controla el acceso para todas las instancias de servicio (por ejemplo, una granja de servidores ADFS) en todos los tipos de rol que está supervisando Azure AD Connect Health.
 
-- ***Instancia de servicio***: en algunos casos, puede que necesite separar el acceso según los tipos de rol o por una instancia de servicio. En este caso, puede administrar el acceso en el nivel de instancia de servicio.  
+- ***Instancia de servicio***: en algunos casos, puede que necesite separar el acceso según los tipos de rol o por una instancia de servicio. En este caso, puede administrar el acceso en el nivel de instancia de servicio.
 
 El permiso se concede si un usuario final tiene acceso al nivel de directorio o de instancia de servicio.
 
@@ -130,7 +130,7 @@ Estos pasos permitirán a los usuarios y grupos enumerados el acceso según sus 
 ![Anclar hoja de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 
 
->[AZURE.NOTE] Un usuario con el rol de "Lector" asignado no podrá realizar la operación "crear" para obtener la extensión de Azure AD Connect Health de Azure Marketplace. Este usuario todavía puede obtener la hoja visitando el vínculo anterior. Para usos posteriores, el usuario puede anclar la hoja en el panel.
+>[AZURE.NOTE]Un usuario con el rol de "Lector" asignado no podrá realizar la operación "crear" para obtener la extensión de Azure AD Connect Health de Azure Marketplace. Este usuario todavía puede obtener la hoja visitando el vínculo anterior. Para usos posteriores, el usuario puede anclar la hoja en el panel.
 
 ### Eliminación de usuarios y/o grupos
 Puede quitar un usuario o grupo agregado a la parte Control de acceso basado en rol de Azure AD Connect Health si hace clic con el botón derecho y selecciona Quitar.<br>
@@ -141,8 +141,9 @@ Puede quitar un usuario o grupo agregado a la parte Control de acceso basado en 
 ## Vínculos relacionados
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Instalación del agente de Azure AD Connect Health para AD FS](active-directory-aadconnect-health-agent-install-adfs.md)
+* [Instalación del agente de Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
+* [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!------HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

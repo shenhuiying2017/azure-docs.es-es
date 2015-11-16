@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="10/29/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: mover y procesar archivos de registro con Factoría de datos [PowerShell]
 En este artículo se ofrece un completo tutorial de un escenario canónico de procesamiento de registros utilizando la factoría de datos de Azure para transformar los datos de archivos de registro en perspectivas.
+
+> [AZURE.IMPORTANT]Este artículo no abarca todos los cmdlets de Factoría de datos. Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener la documentación completa sobre los cmdlets de la factoría de datos.
+>    
+> Si está usando la versión preliminar de Azure PowerShell 1.0, debe emplear los cmdlets que se documentan [aquí](https://msdn.microsoft.com/library/dn820234.aspx). Por ejemplo, use New-AzureRMDataFactory en lugar de New-AzureDataFactory.
 
 ## Escenario
 Contoso es una empresa de juegos que crea juegos para varias plataformas: consolas de juegos, dispositivos portátiles y PC. Cada uno de estos juegos produce miles de registros. El objetivo de Contoso es recopilar y analizar los registros generados por estos juegos para obtener información de uso, identificar las oportunidades de venta y venta cruzada, desarrollar nuevas características atractivas, etc. para mejorar el negocio y ofrecer la mejor experiencia a los clientes.
@@ -558,4 +562,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises-us
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

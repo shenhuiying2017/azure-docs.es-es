@@ -6,7 +6,7 @@
  authors="Blackmist"
  manager="paulettm"
  editor="cgronlun"
-	tags="azure-portal"/>
+ tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="09/02/2015"
+ ms.date="10/30/2015"
  ms.author="larryfr"/>
 
 # Poner en correlación eventos con el tiempo con Storm y HBase en HDInsight
@@ -200,4 +200,4 @@ Cuando esté listo para detener la topología, vuelva al proyecto **CorrelationT
 Para obtener más ejemplos de Storm, vea [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

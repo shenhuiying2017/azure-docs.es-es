@@ -1,6 +1,6 @@
 <properties
    pageTitle="Ejemplo de ciclo de vida de aplicaciones basadas en REST | Microsoft Azure"
-   description="Una muestra de Service Fabric deMicrosoft Azure que muestra el ciclo de vida de la aplicación mediante la interfaz REST de Service Fabric."
+   description="Un ejemplo de Service Fabric de Microsoft Azure que muestra el ciclo de vida de la aplicación mediante la interfaz REST de Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -710,4 +710,4 @@ namespace ServiceFabricRestCaller
 
 [Ciclo de vida de la aplicación de Service Fabric](service-fabric-application-lifecycle.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

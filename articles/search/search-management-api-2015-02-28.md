@@ -1,10 +1,10 @@
-<properties pageTitle="API de REST de administración de Búsqueda de Azure versión 2015-02-28" description="API de REST de administración de Búsqueda de Azure: versión 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties pageTitle="API de REST de administración de Búsqueda de Azure versión 2015-02-28 | Microsoft Azure" description="API de REST de administración de Búsqueda de Azure: versión 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="09/16/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
 
 # API de administración: versión 2015-02-28
 
-En este documento se describe la versión **2015-02-28* de la API de REST de administración de Búsqueda de Azure. Desde entonces se reemplazó por versiones más recientes. Para la versión más reciente, vea [API de REST de administración de Búsqueda de Azure 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx) en MSDN.
+Búsqueda de Azure es un servicio de búsqueda hospedado en la nube en Microsoft Azure. En este documento se describe la versión **2015-02-28* de la API de REST de administración de Búsqueda de Azure. Desde entonces se reemplazó por versiones más recientes. Para la versión más reciente, vea [API de REST de administración de Búsqueda de Azure 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx) en MSDN.
 
 ##Operaciones de administración de servicio
 
@@ -528,7 +528,7 @@ La autenticación en un servicio Búsqueda de Azure requiere dos fragmentos de i
 - Clave de administración: concede acceso a todas las operaciones (máximo de 2 por servicio).
 - Clave de consulta: autentica solamente las solicitudes de consulta (máximo de 50 por servicio).
 
-La capacidad para administrar mediante programación las claves de administración y consulta de su servicio Búsqueda de Azure proporciona los medios para crear herramientas personalizadas, sustituir periódicamente las claves como rutina recomendada de seguridad, sustituir las claves cuando un empleado deja la empresa, o generar y adquirir claves durante el aprovisionamiento de servicio cuando se implementa la solución mediante programación o con secuencias de comandos.
+La capacidad para administrar mediante programación las claves de administración y consulta de su servicio Búsqueda de Azure proporciona los medios para crear herramientas personalizadas, sustituir periódicamente las claves como rutina recomendada de seguridad, sustituir las claves cuando un empleado deja la empresa, o generar y adquirir claves durante el aprovisionamiento de servicio cuando se implementa la solución mediante programación o con scripts.
 
 Las claves de la consulta se pueden adquirir, crear y eliminar. Las operaciones de clave de administración están restringidas a adquirir y volver a generar los valores de clave existentes. Eliminar una clave de administración podría impedir el acceso al servicio permanentemente, por lo que la operación no está disponible.
 
@@ -812,4 +812,4 @@ El código de estado de respuesta es HTTP 200 (OK) si se realiza correctamente.
 
 Ninguno.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

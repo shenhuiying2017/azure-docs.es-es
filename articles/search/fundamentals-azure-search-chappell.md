@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Introducción a Búsqueda de Azure | Microsoft Azure" 
-	description="Obtenga información acerca de cómo Búsqueda de Azure puede ayudarle a crear aplicaciones enriquecidas de búsqueda." 
+	description="Aprenda cómo Búsqueda de Azure, un servicio de búsqueda en la nube hospedado, puede ayudarle a crear completas aplicaciones de búsqueda." 
 	editor="monicar" 
 	manager="mblythe" 
 	services="search" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Introducción a Búsqueda de Azure #
 
-**Resumen:** obtenga información acerca de Búsqueda de Azure, un servicio de búsqueda totalmente administrado en Azure para ofrecer experiencias valiosas de búsqueda en aplicaciones web y móviles. La búsqueda es el estilo predeterminado de interacción con los datos en la Web. Se espera cada vez más en todas las situaciones de aplicación.
+**Resumen:** aprenda cómo se puede usar Búsqueda de Azure, un servicio en la nube de Azure completamente administrado y hospedado, para permitir una experiencia de búsqueda completa en aplicaciones web y móviles. La búsqueda es el estilo predeterminado de interacción con los datos en la Web. Se espera cada vez más en todas las situaciones de aplicación.
 
 **Contenido:**
 
@@ -42,4 +42,4 @@ Este artículo es una información general de la tecnología y de los escenarios
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">"Introducción a Búsqueda de Azure" (en PDF)</a>
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">"Introducción a Búsqueda de Azure" (en Microsoft Word)</a> 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

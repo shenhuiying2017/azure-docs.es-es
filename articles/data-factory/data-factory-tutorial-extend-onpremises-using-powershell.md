@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="10/29/2015" 
 	ms.author="spelluru"/>
 
 
@@ -23,6 +23,10 @@ En este tutorial, aprenderá a configurar el entorno para habilitar el proceso y
 En el último paso del escenario de procesamiento de registro desde el primer tutorial con Partición -> Enriquecer -> Analizar flujo de trabajo, la salida de la eficacia de la campaña de marketing se ha copiado en una base de datos SQL de Azure. También puede mover estos datos a un SQL Server local para realizar análisis dentro de su organización.
  
 Para copiar los datos de eficacia de la campaña de marketing de blobs de Azure a un SQL Server local, deberá crear servicios vinculados locales adicionales, una tabla y un proceso con el mismo conjunto de cmdlets que se introdujo en el primer tutorial.
+
+> [AZURE.IMPORTANT]Este artículo no abarca todos los cmdlets de Factoría de datos. Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener la documentación completa sobre los cmdlets de la factoría de datos.
+>    
+> Si está usando la versión preliminar de Azure PowerShell 1.0, debe emplear los cmdlets que se documentan [aquí](https://msdn.microsoft.com/library/dn820234.aspx). Por ejemplo, use New-AzureRMDataFactory en lugar de New-AzureDataFactory.
 
 ## Requisitos previos
 
@@ -170,4 +174,4 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

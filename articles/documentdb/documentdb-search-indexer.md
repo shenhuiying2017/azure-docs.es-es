@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="06/16/2015" 
+    ms.date="10/28/2015" 
     ms.author="anhoh"/>
 
 #Conexión de DocumentDB con Búsqueda de Azure mediante indizadores
@@ -137,7 +137,7 @@ Asegúrese de que el esquema del índice de destino es compatible con el de los 
 |Booleano|Edm.Boolean, Edm.String|
 |Números que parecen enteros|Edm.Int32, Edm.Int64, Edm.String|
 |Números que parecen puntos flotantes|Edm.Double, Edm.String|
-|String|Edm.String|
+|Cadena|Edm.String|
 |Matrices de tipos primitivos, por ejemplo, "a", "b", "c" |Collection(Edm.String)|
 |Cadenas que parecen fechas| Edm.DateTimeOffset, Edm.String|
 |Objetos GeoJSON, por ejemplo, {"tipo": "Punto", "coordenadas": [long, lat]} | Edm.GeographyPoint |
@@ -270,4 +270,4 @@ El historial de ejecución contiene como máximo las 50 ejecuciones completadas 
  - Para obtener más información sobre Búsqueda de Azure, haga clic [aquí](/services/search/).
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

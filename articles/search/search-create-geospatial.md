@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Crear una aplicación de búsqueda geoespacial usando Búsqueda de Azure" 
-	description="Crear una aplicación de búsqueda geoespacial con la búsqueda de Azure y Bing" 
+	pageTitle="Creación de una aplicación de búsqueda geoespacial usando Búsqueda de Azure | Microsoft Azure" 
+	description="Cree una aplicación de búsqueda geoespacial con Bing y Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Crear una aplicación de búsqueda geoespacial usando Búsqueda de Azure
@@ -81,7 +81,7 @@ Analicemos el código que explica cómo funciona esto.
 
     Si luego se fija en el índice, verá que el campo **GeoPt** que contendrá la longitud y la latitud de cada tienda está vacío. Esto nos lleva al paso siguiente de la función **Main**.
 
-5. Pase a la función **ExtractAddressInfoToXML()**. Esta función extrae la información de las direcciones del archivo store_locations.csv y la carga en un archivo XML que tiene un formato que Mapas de Bing puede aceptar para obtener las coordenadas geográficas. Cuando se ha creado el archivo, se envía para su procesamiento a DataFlow de Mapas de Bing llamando a la función **GeoCoding.CreateJob**.
+5. Pase a la función **ExtractAddressInfoToXML()**. Esta función extrae la información de las direcciones del archivo store\_locations.csv y la carga en un archivo XML que tiene un formato que Mapas de Bing puede aceptar para obtener las coordenadas geográficas. Cuando se ha creado el archivo, se envía para su procesamiento a DataFlow de Mapas de Bing llamando a la función **GeoCoding.CreateJob**.
 
 6. Como el proceso de obtención de coordenadas geográficas puede llevar tiempo, existe un bucle que llama a **GeoCoding.CheckStatus** cada 10 segundos para ver si se ha completado el trabajo. Una vez completado, los resultados se descargan llamando a **GeoCoding.DownloadResults** en una clase de direcciones.
 
@@ -127,7 +127,8 @@ El proyecto **AdventureWorksWebGeo** nos muestra cómo se puede usar ASP.NET MVC
 
 +	La función **Buscar** recupera las ubicaciones de las tiendas, que luego se reciben y agregan como marcadores en el Mapa de Bing.
 
-4.	Abra HomeController.cs en **Controladores** y fíjese en la función **Buscar**. Vea que hace una llamada a _storeSearch.Search(lat, lon, 10000). Esto hará que se ejecute una consulta para buscar todas las tiendas que se encuentren a 10.000 km de la latitud (lat) y la longitud (lon) especificadas. Los resultados de esta consulta se procesan y luego se envían de vuelta a la vista índice para que se procesen como marcadores superpuestos en el Mapa de Bing.
+4.	Abra HomeController.cs en **Controladores** y fíjese en la función **Buscar**. Vea que hace una llamada a \_storeSearch.Search(lat, lon, 10000). Esto hará que se ejecute una consulta para buscar todas las tiendas que se encuentren a 10.000 km de la latitud (lat) y la longitud (lon) especificadas. Los resultados de esta consulta se procesan y luego se envían de vuelta a la vista índice para que se procesen como marcadores superpuestos en el mapa de Bing.
+
 Con esto finaliza la demostración. Ya ha visto las operaciones principales que necesitará conocer para elaborar una aplicación de ASP.NET MVC4 basada en mapas usando Búsqueda de Azure.
 
 
@@ -166,4 +167,4 @@ Si quiere ampliar conocimientos, puede agregar más capacidades a la aplicación
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

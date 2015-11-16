@@ -1,10 +1,11 @@
 <!--v-sharos 10/13/2105 virtual device security-->
 
-Keep the following security considerations in mind when you use the StorSimple virtual device:
+Tenga en cuenta las siguientes consideraciones de seguridad al utilizar el dispositivo virtual de StorSimple:
 
-- The virtual device is secured through your Microsoft Azure subscription. This means that if you are using the virtual device and your Azure subscription is compromised, the data stored on your virtual device is also susceptible.
+- El dispositivo virtual se protege mediante su suscripción de Microsoft Azure. Esto significa que si está utilizando el dispositivo virtual y se pone en peligro su suscripción de Azure, los datos almacenados en el dispositivo virtual también se ponen en peligro.
 
-- The public key of the certificate used to encrypt data stored in Azure StorSimple is securely made available to the Azure portal, and the private key is retained with the StorSimple device. On the StorSimple virtual device, both the public and private keys are stored in Azure.
+- La clave pública del certificado usada para cifrar los datos almacenados en Azure StorSimple está disponible de forma segura en el Portal de Azure; la clave privada se conserva con el dispositivo StorSimple. En el dispositivo virtual de StorSimple, las claves públicas y privadas se almacenan en Azure.
 
-- The virtual device is hosted in the Microsoft Azure datacenter.
+- El dispositivo virtual está hospedado en el centro de datos de Microsoft Azure.
 
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="11/03/2015" 
 	ms.author="tomfitz"/>
 
 # Aprovisionamiento de una aplicación de API con una puerta de enlace existente
@@ -191,4 +191,4 @@ Observe que los nombres de la aplicación web de hospedaje y la puerta de enlace
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

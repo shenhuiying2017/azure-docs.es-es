@@ -51,8 +51,9 @@ La API de Node.js es un conjunto de contenedores que permite la implementación 
 
 ## Administración de almacenes de claves
 
-Los contenedores del Almacén de claves de Azure (almacenes) se pueden administrar mediante PowerShell o la CLI, tal como se describe en los siguientes artículos:
+Los contenedores del Almacén de claves de Azure (almacenes) se pueden administrar mediante REST, PowerShell o la CLI, tal como se describe en los siguientes artículos:
 
+- [Crear y administrar almacenes de claves con CLI](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 - [Crear y administrar almacenes claves con PowerShell](key-vault-get-started.md)
 - [Crear y administrar almacenes claves con CLI](key-vault-manage-with-cli.md)
 
@@ -67,4 +68,4 @@ Los artículos siguientes proporcionan orientación específica de tareas:
 
 - Esta descarga contiene la aplicación de ejemplo HelloKeyVault y un ejemplo de servicio web de Azure. [Ejemplos de código de almacén de claves de Azure](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

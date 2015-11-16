@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Migración de federaciones" 
+    pageTitle="Migración de federaciones | Microsoft Azure" 
     description="Describe los pasos para migrar una aplicación existente creada con la característica Federaciones al modelo de Base de datos elástica." 
     services="sql-database" 
     documentationCenter="" 
     manager="jeffreyg" 
-    authors="sidneyh" 
+    authors="ddove" 
     editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/14/2015" 
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh"/>
 
 # Migración de federaciones 
 
@@ -108,7 +108,7 @@ La utilidad Migración de federaciones proporciona capacidades para:
 
 ## Comparación de características
 
-Aunque las herramientas de Base de datos elástica ofrece muchas características adicionales (por ejemplo, [consultas a través de particiones múltiples](sql-database-elastic-scale-multishard-querying.md), [división y combinación de particiones](sql-database-elastic-scale-overview-split-and-merge.md), [elasticidad de partición](sql-database-elastic-scale-elasticity.md), [almacenamiento en caché del lado cliente](sql-database-elastic-scale-shard-map-management.md), etc.), existen algunas características interesantes de Federaciones que no se admiten en las herramientas de Base de datos elástica.
+Aunque las herramientas de Base de datos elástica ofrece muchas características adicionales (por ejemplo, [consultas a través de particiones múltiples](sql-database-elastic-scale-multishard-querying.md), [división y combinación de particiones](sql-database-elastic-scale-overview-split-and-merge.md), elasticidad de partición, [almacenamiento en caché del lado cliente](sql-database-elastic-scale-shard-map-management.md), etc.), existen algunas características interesantes de Federaciones que no se admiten en las herramientas de Base de datos elástica.
   
 - El uso de **FILTERING=ON**. En su lugar, se recomienda que utilice seguridad de nivel de fila (RLS) para filtrar filas. Al igual que el filtrado de federaciones, RLS agrega automáticamente un predicado a todas las consultas en una tabla de particiones. Para obtener más información, consulte [Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila](sql-database-elastic-tools-multi-tenant-row-level-security.md). 
  
@@ -150,4 +150,4 @@ Si la aplicación aún no está lista para trabajar sin las federaciones, pónga
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

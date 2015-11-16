@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/02/2015"
 	ms.author="billmath;andkjell"/>
 
 # Instalación personalizada de Azure AD Connect
@@ -90,7 +90,7 @@ Configuración | Descripción
 ------------- | ------------- |
 [Mis usuarios solo se representan una vez en todos los bosques](active-directory-aadconnect-topologies.md#multiple-forests-separate-topologies) | Todos los usuarios se crean como objetos individuales en Azure AD.<br> Los objetos no se combinan en el metaverso.
 [Atributo Mail](active-directory-aadconnect-topologies.md#multiple-forests-full-mesh-with-optional-galsync) | Esta opción une a los usuarios y contactos si el atributo Mail tiene el mismo valor en bosques diferentes. Se recomienda utilizar esta opción cuando se han creado los contactos mediante GALSync.
-[ObjectSID y msExchangeMasterAccountSID](active-directory-aadconnect-topologies.md#multiple-forests-account-resource-forest)|Esta opción une a un usuario habilitado en un bosque de cuentas con un usuario deshabilitado en un bosque de recursos de Exchange. Esto también se conoce como buzón vinculado en Exchange.
+[ObjectSID y msExchangeMasterAccountSID](active-directory-aadconnect-topologies.md#multiple-forests-account-resource-forest)|Esta opción une a un usuario habilitado en un bosque de cuentas con un usuario deshabilitado en un bosque de recursos de Exchange. Esto también se conoce como buzón vinculado en Exchange. Esta opción también se puede usar si solo usa Lync y Exchange no está presente en el bosque de recursos.
 sAMAccountName y MailNickName|Esta opción combina atributos donde se espera que pueda encontrarse el identificador de inicio de sesión para el usuario.
 Mi propio atributo|Esta opción le permite seleccionar su propio atributo. **Limitación:** asegúrese de seleccionar un atributo que ya exista en el metaverso. Si elige un atributo personalizado, que el asistente no podrá completarse.
 
@@ -246,4 +246,4 @@ Ahora que ha instalado Azure Connect de AD puede [comprobar la instalación y as
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

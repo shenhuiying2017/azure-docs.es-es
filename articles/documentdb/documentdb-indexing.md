@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/03/2015" 
 	ms.author="arramac"/>
 	
 # Indexación automática en Azure DocumentDB
@@ -55,7 +55,7 @@ Una importante implicación de tratar los valores de esquema y de instancia unif
 
 ![Índice en forma de árbol](media/documentdb-indexing/IndexAsTree.png)
 
-A pesar de ser libre de esquema, los lenguajes de consulta JavaScript y SQL de DocumentDB proporcionan filtros y proyecciones relacionales, navegación jerárquica en documentos y la invocación de UDF escritos completamente en JavaScript. El tempo de ejecución de consulta de DocumentDB tiene capacidad para admitir estas consultas, ya que funciona directamente con esta representación de árbol de índice de los datos.
+A pesar de la ausencia de esquema, los lenguajes de consulta JavaScript y SQL de DocumentDB proporcionan filtros y proyecciones relacionales, navegación jerárquica entre documentos, operaciones espaciales e invocación de UDF escritos completamente en JavaScript. El tempo de ejecución de consulta de DocumentDB tiene capacidad para admitir estas consultas, ya que funciona directamente con esta representación de árbol de índice de los datos.
 
 La directiva de predeterminada de indexación indexa automáticamente todas las propiedades de todos los documentos y proporciona consultas coherentes (es decir, el índice se actualiza de forma sincrónica con la escritura de documento). ¿Cómo admite DocumentDB actualizaciones coherentes en el árbol de índice a escala? DocumentDB emplea técnicas de escritura optimizada, sin bloqueos, y de mantenimiento del índice estructurado de registros. Esto se traduce en que DocumentDB admite un volumen sostenido de escrituras rápidas mientras se sigue atendiendo consultas coherentes.
 
@@ -67,4 +67,4 @@ La indexación de DocumentDB está diseñada en función de la eficacia de almac
 - Más información sobre cómo personalizar el índice de DocumentDB [aquí](documentdb-indexing-policies.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

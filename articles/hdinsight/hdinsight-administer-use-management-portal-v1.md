@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/04/2015"
 	ms.author="jgao"/>
 
 # Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
@@ -150,11 +150,6 @@ De manera predeterminada, estos servicios se conceden para el acceso. Puede revo
 6. En **NOMBRE DE USUARIO** y **NUEVA CONTRASEÑA**, escriba el nuevo nombre de usuario y la contraseña (respectivamente) para el clúster.
 7. Haga clic en **GUARDAR**.
 
-Esto también se puede hacer con los cmdlets de PowerShell de Azure:
-
-- Grant-AzureHDInsightHttpServicesAccess
-- Revoke-AzureHDInsightHttpServicesAccess
-
 Consulte [Administración de HDInsight con PowerShell de Azure](hdinsight-administer-use-powershell.md).
 
 ##Apertura de una línea de comandos de Hadoop
@@ -199,10 +194,8 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
 * [Introducción a HDInsight de Azure](../hdinsight-get-started.md)
 * [¿Qué versión de Hadoop tiene HDInsight de Azure?](hdinsight-component-versioning.md)
 
-[image-cluster-quickcreate]: ./media/hdinsight-administer-use-management-portal/HDI.QuickCreateCluster.png
-[image-cluster-landing]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterLanding.PNG "Página de aterrizaje del clúster"
-[image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png
-[image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Línea de comandos de Hadoop"
-[image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
+[image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal-v1/hdi.createrdpuser.png
+[image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Línea de comandos de Hadoop"
+[image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,14 +13,19 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="11/04/2015" 
     ms.author="vikbucha" />
 
 
 
 # Solución de problemas de creación de colecciones en la nube de RemoteApp
 
-Errores comunes vistos en el Portal de administración de Azure:
+Si tiene problemas para crear una colección en la nube, consulte la siguiente información.
+
+## La imagen no es válida ##
+Si ve un mensaje como "GoldImageInvalid" cuando esté esperando a que Azure aprovisione la colección, la imagen de plantilla no cumple [los requisitos definidos para la imagen](remoteapp-imagereqs.md). Por lo tanto, consulte los [requisitos](remoteapp-imagereqs.md), corrija la imagen y pruebe a crear la colección de nuevo.
+
+## Errores comunes vistos en el Portal de administración de Azure
 
 	DNS server could not be reached
 	ProvisioningTimeout
@@ -38,4 +43,4 @@ Si usa una de las imágenes de Microsoft incluidas en su suscripción, intente c
 Si recibe este error, normalmente significa que ha actualizado a una cuenta de pago pero intenta usar una imagen proporcionada por Microsoft que solo es válida durante el modo de prueba del servicio. En este caso, intente crear nuevamente la colección en la nube, pero asegúrese de especificar la imagen correcta.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

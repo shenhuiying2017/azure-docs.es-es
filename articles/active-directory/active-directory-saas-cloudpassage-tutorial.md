@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.date="10/30/2015"
 	ms.author="markvi"/>
 
 
@@ -83,13 +83,16 @@ Para configurar y probar el inicio de sesión único de Azure AD con CloudPassag
 
 ### Configuración del inicio de sesión único de Azure AD
 
-El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el portal de Azure AD y configurar el inicio de sesión único en la aplicación de CloudPassage.<br> La aplicación CloudPassage espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla muestra un ejemplo. <br><br> ![Configurar inicio de sesión único][21]
+El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el portal de Azure AD y configurar el inicio de sesión único en la aplicación de CloudPassage.<br> La aplicación CloudPassage espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla muestra un ejemplo.
+<br><br> ![Configurar inicio de sesión único][21]
 
 **Para configurar el inicio de sesión único de Azure AD con CloudPassage, realice los pasos siguientes:**
 
-1. En el Portal de Azure AD, en la página de integración de aplicaciones de **CloudPassage**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.<br><br> ![Configurar inicio de sesión único][7]
+1. En el Portal de Azure AD, en la página de integración de aplicaciones de **CloudPassage**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.<br><br>
+![Configurar inicio de sesión único][7]
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en CloudPassage?**, seleccione **Inicio de sesión único de Windows Azure AD** y, luego , haga clic en **Siguiente**.<br><br> ![Configurar inicio de sesión único][8]
+2. En la página **¿Cómo desea que los usuarios inicien sesión en CloudPassage?**, seleccione **Inicio de sesión único de Windows Azure AD** y, luego , haga clic en **Siguiente**.<br><br>
+![Configurar inicio de sesión único][8]
 
 3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes: <br><br>![Configurar las opciones de la aplicación][9]
  
@@ -281,4 +284,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [29]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_16.png
 [30]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_17.png
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Nov15_HO2-->

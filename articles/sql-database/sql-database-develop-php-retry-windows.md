@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="07/21/2015"
-	ms.author="mebha"/>
+	ms.date="10/20/2015"
+	ms.author="meetb"/>
 
 
 # Conexión a la Base de datos SQL mediante PHP en Windows mediante el control de errores transitorios
@@ -136,4 +136,4 @@ Para obtener más información sobre el uso y la instalación de PHP, vea [Acces
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

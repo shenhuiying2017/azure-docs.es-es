@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="11/03/2015" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde Blob de Azure mediante Factoría de datos de Azure
@@ -510,4 +510,4 @@ false | mergeFiles | <p>Para una carpeta de origen Folder1 con la siguiente estr
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

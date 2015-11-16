@@ -40,7 +40,7 @@ Los grupos de bases de datos elásticas en Base de datos SQL de Azure permiten a
 
 Los grupos de bases de datos elásticas son apropiados para un amplio número de bases de datos con patrones de utilización específicos. Para una base de datos determinada, este patrón está caracterizado por una utilización media baja con picos de utilización relativamente poco frecuentes.
 
-Cuantas más bases de datos se puedan agregar a un grupo, mayor será el ahorro obtenido, aunque a veces este también puede percibirse con tan solo 2 bases de datos S3 en función del patrón de uso de la aplicación.
+Cuantas más bases de datos pueda agregar a un grupo, mayores ahorros habrá. Según su patrón de uso de la aplicación, es posible ver los ahorros con tan solo dos bases de datos S3.
 
 Las siguientes secciones le ayudarán a comprender cómo evaluar si la recopilación específica de bases de datos se beneficiará del uso de un grupo de bases de datos elásticas. Los ejemplos usan grupos de bases de datos elásticas Estándar, pero también se aplican los mismos principios a grupos Básico y Premium.
 
@@ -435,4 +435,4 @@ No todas las bases de datos únicas son candidatas óptimas para los grupos de b
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

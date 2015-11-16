@@ -25,7 +25,7 @@ Entonces:
 - ¿Desea mover la suscripción de Azure de un directorio a otro?
 - ¿Tiene Azure y Office 365 en distintos inquilinos y desea consolidarlos?
 
-Si su cuenta está en Estados Unidos, puede hacerlo fácilmente en el Centro de cuentas de Microsoft Azure (para las suscripciones de pago por uso). Hemos agregado la capacidad de transferir suscripciones a otros usuarios. En otras palabras, ahora puede cambiar el administrador de la cuenta en cualquier suscripción de pago por uso que usted posea.
+Puede hacerlo fácilmente en el Centro de cuentas de Microsoft Azure para las suscripciones de pago por uso o de MSDN. Hemos agregado la capacidad de transferir suscripciones a otros usuarios. En otras palabras, ahora puede cambiar el administrador de la cuenta en cualquier suscripción de pago por uso o de MSDN que usted posea, sin importar el país en el que trabaja.
 
 ## Transferencia de una suscripción de Azure
 
@@ -111,4 +111,4 @@ Si su cuenta está en Estados Unidos, puede hacerlo fácilmente en el Centro de 
 4. Actualice las alertas de facturación para esta suscripción en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions). [Más información](http://go.microsoft.com/fwlink/?LinkID=533292).
 5. 	Si trabaja con un asociado, considere la posibilidad de actualizar el identificador del asociado en esta suscripción. Puede hacerlo en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

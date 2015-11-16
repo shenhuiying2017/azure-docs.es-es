@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="10/29/2015"
    ms.author="nitinme"/>
 
 # Aprovisionamiento de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de vista previa de Azure
@@ -23,7 +23,12 @@
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Aprenda a usar el Portal de vista previa de Azure para configurar un clúster de HDInsight (Hadoop, HBase o Storm) para trabajar con un Almacén de Azure Data Lake. Algunas consideraciones importantes para esta versión: * **Para los clústeres de Hadoop y Storm (Windows y Linux)**, el Almacén de Data Lake solo puede usarse como cuenta de almacenamiento adicional. La cuenta de almacenamiento predeterminada para los clústeres de este tipo seguirá siendo blobs de almacenamiento de Azure (WASB). * **Para los clústeres de HBase (Windows y Linux)**, el Almacén de Data Lake puede usarse como almacenamiento predeterminado o adicional.
+Aprenda a usar el Portal de vista previa de Azure para configurar un clúster de HDInsight (Hadoop, HBase o Storm) para trabajar con un Almacén de Azure Data Lake. Algunas consideraciones importantes sobre esta versión:
+
+* **En clústeres de Hadoop y Storm (Windows y Linux)**, el almacén de Data Lake solo puede usarse como cuenta de almacenamiento adicional. La cuenta de almacenamiento predeterminada para los clústeres de este tipo seguirán Blobs de almacenamiento de Azure (WASB).
+
+* **En clústeres HBase (Windows y Linux)**, el almacén de Data Lake puede usarse como almacenamiento predeterminado o almacenamiento adicional.
+
 
 En este artículo, aprovisionamos un clúster de Hadoop con el Almacén de Data Lake como almacenamiento adicional. La configuración de HDInsight para trabajar con el Almacén de Data Lake mediante el Portal de vista previa de Azure consta de los pasos siguientes:
 
@@ -36,7 +41,7 @@ En este artículo, aprovisionamos un clúster de Hadoop con el Almacén de Data 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/es-ES/pricing/free-trial/).
-- **Habilitación de la suscripción de Azure** para la vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
+- **Habilite su suscripción de Azure** para la versión de vista previa pública del almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
 
 
 ## Creación de un clúster de HDInsight con autenticación ante una entidad de servicio de Azure Active Directory
@@ -80,14 +85,14 @@ En esta sección, se crea un clúster de Hadoop en HDInsight que usa el Almacén
 
 1. Inicie sesión en el nuevo [Portal de vista previa de Azure](https://portal.azure.com).
 
-2. Si no tiene una cuenta de Almacén de Data Lake, créela. Siga las instrucciones en [Introducción al Almacén de Azure Data Lake mediante el Portal de vista previa de Azure](data-lake-store-get-started-portal.md).
+2. Si no tiene una cuenta de Almacén de Data Lake, créela. Siga las instrucciones que se describen en [Introducción al Almacén de Azure Data Lake mediante el Portal de vista previa de Azure](data-lake-store-get-started-portal.md).
 
 	Si ya tiene una cuenta de Almacén de Data Lake, en el panel izquierdo, haga clic en **Examinar**, en **Almacén de Data Lake** y después en el nombre de cuenta a la que desea conceder acceso.
 
 	Realice las tareas siguientes en su cuenta de Almacén de Data Lake.
 
 	* [Cree una carpeta en el Almacén de Data Lake](data-lake-store-get-started-portal.md#createfolder).
-	* [Cargue un archivo a su Almacén de Data Lake](data-lake-store-get-started-portal.md#uploaddata). Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	* [Cargue un archivo en su Almacén de Data Lake](data-lake-store-get-started-portal.md#uploaddata). Si busca algunos datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 
 	Usará los archivos cargados más adelante al probar la cuenta de Almacén de Data Lake con el clúster de HDInsight.
 
@@ -137,7 +142,7 @@ Después de configurar un clúster de HDInsight, puede ejecutar trabajos de prue
 
 		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder'
 
-	En esta consulta de Hive, creamos una tabla con los datos almacenados en el Almacén de Data Lake en `adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder`. Esta ubicación contiene un archivo de datos de ejemplo que debería haber cargado antes.
+	En esta consulta de Hive, creamos una tabla con los datos almacenados en el almacén de Data Lake en `adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder`. Esta ubicación contiene un archivo de datos de ejemplo que debería haber cargado antes.
 
 	La tabla **Sesión de trabajo** en la parte inferior muestra el estado del trabajo, que cambia de **Inicializando** a **Ejecutando** y después a **Completado**. También puede hacer clic en **Ver detalles** para obtener más información sobre el trabajo completado.
 
@@ -182,16 +187,16 @@ Una vez que configure el clúster de HDInsight para que use el Almacén de Data 
 		Found 1 items
 		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder
 
-	También puede usar el comando `hdfs dfs -put` para cargar algunos archivos al Almacén de Data Lake y después usar `hdfs dfs -ls` para comprobar si los archivos se cargaron correctamente.
+	También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en el almacén de Data Lake y después usar `hdfs dfs -ls` para comprobar si los archivos se cargaron correctamente.
 
 ## Consideraciones para aprovisionar un clúster de HBase que use el Almacén de Data Lake como almacenamiento predeterminado
 
-Para los clústeres de HBase, puede usar cuentas de Almacén de Data Lake como almacenamiento predeterminado. Si decide hacerlo, para aprovisionar un clúster correctamente, la entidad de servicio asociada con el clúster **debe** tener acceso a la cuenta de Almacén de Data Lake. Puede asegurarse de esto de dos maneras:
+Para los clústeres de HBase, puede usar cuentas de Almacén de Data Lake como almacenamiento predeterminado. Si decide hacerlo, para aprovisionar un clúster correctamente, la entidad de servicio asociada con el clúster **debe** tener acceso a la cuenta del almacén de Data Lake. Puede asegurarse de esto de dos maneras:
 
-* **Si usa una entidad de servicio existente**, debe comprobar que la entidad de servicio se agregue a la ACL en el nivel raíz del sistema de archivos del Almacén de Data Lake antes de iniciar el aprovisionamiento del clúster.
-* **Si opta por crear una nueva entidad de servicio** como parte del aprovisionamiento del clúster, en cuanto se inicie el aprovisionamiento del clúster, debe agregar la entidad de servicio recién creada al nivel raíz del sistema de archivos del Almacén de Data Lake. Si no lo hace, el clúster se aprovisionará, pero los servicios de HBase no se podrán iniciar. Para solucionar este problema, deberá agregar la entidad de servicio a la ACL de la cuenta de Almacén de Data Lake y después reiniciar los servicios de HBase mediante la interfaz de usuario de Web de Ambari.
+* **Si usa una entidad de servicio existente**, debe comprobar que la entidad de servicio se agregue a la ACL en el nivel raíz del sistema de archivos del almacén de Data Lake antes de iniciar el aprovisionamiento del clúster.
+* **Si opta por crear una nueva entidad de servicio** como parte del aprovisionamiento del clúster, en cuanto se inicie dicho proceso, debe agregar la entidad de servicio recién creada al nivel raíz del sistema de archivos del almacén de Data Lake. Si no lo hace, el clúster se aprovisionará, pero los servicios de HBase no se podrán iniciar. Para solucionar este problema, deberá agregar la entidad de servicio a la ACL de la cuenta de Almacén de Data Lake y después reiniciar los servicios de HBase mediante la interfaz de usuario de Web de Ambari.
 
-Para obtener instrucciones sobre cómo agregar una entidad de servicio a un sistema de archivos del Almacén de Data Lake, consulte [Configuración de la entidad de servicio para acceder al sistema de archivos del Almacén de Data Lake](#acl).
+Para obtener instrucciones sobre cómo agregar una entidad de servicio a un sistema de archivos del almacén de Data Lake, consulte [Configuración de la entidad de servicio para acceder al sistema de archivos del almacén de Data Lake](#acl).
 
 
 
@@ -202,4 +207,4 @@ Para obtener instrucciones sobre cómo agregar una entidad de servicio a un sist
 [makecert]: https://msdn.microsoft.com/es-ES/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/es-ES/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

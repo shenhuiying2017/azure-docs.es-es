@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Uso de la biblioteca de cliente de bases de datos elásticas con Entity Framework" 
-	description="El cliente de bases de datos elásticas facilita el escalado y Entity Framework es sencillo de usar para codificar bases de datos." 
+	pageTitle="Uso de la biblioteca de cliente de Base de datos elástica con Entity Framework | Microsoft Azure" 
+	description="Uso de la biblioteca de cliente de Base de datos elástica y Entity Framework para la codificación de bases de datos" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
+	authors="torsteng" 
 	editor=""/>
 
 <tags 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="torsteng;sidneyh"/>
 
 # Biblioteca de cliente de base de datos elástica con Entity Framework 
  
-Puede usar la biblioteca de cliente de bases de datos elásticas con Entity Framework (EF) de Microsoft para compilar aplicaciones que utilicen el particionamiento de base de datos, lo que facilita escalar horizontalmente la capa de datos de su aplicación. Este documento muestra los cambios que es necesario realizar en una aplicación de Entity Framework para su integración con las funcionalidades de las herramientas de bases de datos elásticas. Se centra en la composición de la [administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md) y el [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) con el enfoque Entity Framework **Code First**. El tutorial [Code First – Nueva base de datos](http://msdn.microsoft.com/data/jj193542.aspx) para EF sirve como ejemplo en ejecución en este documento. El código de ejemplo que acompaña a este documento forma parte del conjunto de ejemplos de las herramientas de bases de datos elásticas en los ejemplos de código de Visual Studio.
+Este documento muestra los cambios que es necesario realizar en una aplicación de Entity Framework para su integración con las [herramientas de Base de datos elástica](sql-database-elastic-scale-introduction.md). Se centra en la composición de la [administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md) y el [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) con el enfoque **Code First** de Entity Framework. El tutorial [Code First – Nueva base de datos](http://msdn.microsoft.com/data/jj193542.aspx) para EF sirve como ejemplo en ejecución en este documento. El código de ejemplo que acompaña a este documento forma parte del conjunto de ejemplos de las herramientas de bases de datos elásticas en los ejemplos de código de Visual Studio.
   
 ## Descarga y ejecución del código de ejemplo
 Para descargar el código de este artículo:
@@ -30,7 +30,7 @@ Para descargar el código de este artículo:
     
     ![Entity Framework y aplicación de ejemplo de bases de datos elásticas][1]
 
-    Seleccione el ejemplo llamado **Herramientas de bases de datos elásticas para SQL de Azure – Integración con Entity Framework**. Después de aceptar la licencia, el ejemplo se carga.
+    Seleccione el ejemplo llamado **Herramientas de Base de datos elástica para SQL de Azure – Integración con Entity Framework**. Después de aceptar la licencia, el ejemplo se carga.
 
 Para ejecutar el ejemplo, debe crear tres bases de datos vacías en Base de datos SQL de Azure:
 
@@ -53,7 +53,7 @@ Todos estos métodos se basan en la clase DbContext para administrar de forma tr
 
 ## Suposiciones de herramientas de bases de datos elásticas 
 
-Para definiciones de términos, vea el [Glosario de herramientas de base de datos elástica](sql-database-elastic-scale-glossary.md).
+Para definiciones de términos, consulte el [Glosario de herramientas de Base de datos elástica](sql-database-elastic-scale-glossary.md).
 
 Con la biblioteca de cliente de bases de datos elásticas, se definen particiones de los datos de la aplicación, denominadas shardlets. Los shardlets se identifican mediante una clave de particionamiento y se asignan a bases de datos específicas. Una aplicación puede tener tantas bases de datos como sea necesario y distribuir los shardlets para proporcionar suficiente capacidad o rendimiento en función de los requisitos del negocio actuales. La asignación de valores de clave de particionamiento a las bases de datos se almacena en un mapa de particiones que proporcionan las API de cliente de bases de datos elásticas. A esta capacidad la denominamos **Administración de mapas de particiones** o, para abreviar, SMM. El mapa de particiones también funciona como el agente de conexiones de base de datos para las solicitudes que llevan una clave de particionamiento. A esta capacidad nos referimos como **enrutamiento dependiente de datos**.
  
@@ -180,7 +180,7 @@ El ejemplo de código siguiente muestra cómo se puede usar una directiva de rei
 
 **SqlDatabaseUtils.SqlRetryPolicy** en el código anterior se define como **SqlDatabaseTransientErrorDetectionStrategy** con un número de reintentos de 10 y un tiempo de espera de 5 segundos entre reintentos. Este enfoque es parecido a las instrucciones para EF y las transacciones iniciadas por el usuario (consulte las [limitaciones con las estrategias de ejecución de reintentos [EF6 en adelante])](http://msdn.microsoft.com/data/dn307226). En ambas situaciones es necesario que el programa de la aplicación controle el ámbito en el que se devuelve la excepción transitoria: para volver a abrir la transacción o (como se muestra) volver a crear el contexto a partir del constructor adecuado que usa la biblioteca de cliente de bases de datos elásticas.
 
-La necesidad de controlar dónde las excepciones transitorias nos llevan de vuelta en el ámbito también impide el uso de la **SqlAzureExecutionStrategy** integrada que se incluye con EF. **SqlAzureExecutionStrategy** volvería a abrir la conexión pero no utiliza **OpenConnectionForKey** y, por tanto, pasa por alto toda la validación que se realiza como parte de la llamada **OpenConnectionForKey**. En su lugar, el código de ejemplo usa **DefaultExecutionStrategy** integrada que también se incluye con EF. Al contrario que **SqlAzureExecutionStrategy**, funciona correctamente en combinación con la directiva de reintentos de gestión de errores transitorios. La directiva de ejecución se establece en la clase **ElasticScaleDbConfiguration**. Tenga en cuenta que hemos decidido no usar **DefaultSqlExecutionStrategy** dado que sugiere el uso de **SqlAzureExecutionStrategy** si se producen excepciones transitorias, lo que podría llevar a un comportamiento erróneo, como hemos comentado. Para obtener más información sobre las diferentes directivas de reintento y EF, consulte [Resistencia de conexión en EF](http://msdn.microsoft.com/data/dn456835.aspx).
+La necesidad de controlar dónde las excepciones transitorias nos llevan de vuelta en el ámbito también impide el uso de la **SqlAzureExecutionStrategy** integrada que se incluye con EF. **SqlAzureExecutionStrategy** volvería a abrir la conexión pero no usa **OpenConnectionForKey** y, por tanto, pasa por alto toda la validación que se realiza como parte de la llamada **OpenConnectionForKey**. En su lugar, el código de ejemplo usa **DefaultExecutionStrategy** integrada que también se incluye con EF. Al contrario que **SqlAzureExecutionStrategy**, funciona correctamente en combinación con la directiva de reintentos de gestión de errores transitorios. La directiva de ejecución se establece en la clase **ElasticScaleDbConfiguration**. Tenga en cuenta que hemos decidido no usar **DefaultSqlExecutionStrategy** dado que sugiere el uso de **SqlAzureExecutionStrategy** si se producen excepciones transitorias, lo que podría llevar a un comportamiento erróneo, como hemos comentado. Para obtener más información sobre las diferentes directivas de reintento y EF, consulte [Resistencia de conexión en EF](http://msdn.microsoft.com/data/dn456835.aspx).
 
 #### Reescrituras del constructor
 Los ejemplos de código anteriores muestran las reescrituras del constructor predeterminado que requiere la aplicación para usar enrutamiento dependiente de datos con Entity Framework. La siguiente tabla generaliza este método para otros constructores.
@@ -264,7 +264,7 @@ Se podría haber usado la versión del constructor heredado de la clase base. Pe
 
 Los métodos descritos en este documento implican un par de limitaciones:
 
-* Las aplicaciones de EF que usen **LocalDb** deben migrar en primer lugar a una base de datos de SQL Server normal antes de usar la biblioteca cliente de bases de datos elásticas. El escalado horizontal de una aplicación mediante particionamiento con Escalado elástico no es posible con **LocalDb**. Tenga en cuenta que los desarrolladores pueden seguir usando **LocalDb**. 
+* Las aplicaciones de EF que usen **LocalDb** deben migrar en primer lugar a una base de datos de SQL Server normal antes de usar la biblioteca de cliente de Base de datos elástica. El escalado horizontal de una aplicación mediante particionamiento con escala elástica no es posible con **LocalDb**. Tenga en cuenta que los desarrolladores pueden seguir usando **LocalDb**. 
 
 * Los cambios efectuados en la aplicación que implican cambios en el esquema de base de datos deben pasar por migraciones de EF en todas las particiones. El código de ejemplo de este documento no muestra cómo hacerlo. Considere el uso de Update-Database con un parámetro ConnectionString para iterar en todas las particiones; o extraiga el script T-SQL para la migración pendiente usando Update-Database con la opción –Script y aplique el script T-SQL en sus particiones.
 
@@ -272,7 +272,7 @@ Los métodos descritos en este documento implican un par de limitaciones:
 
 ## Conclusiones 
 
-Las aplicaciones de Entity Framework pueden beneficiarse fácilmente de las herramientas de bases de datos elásticas en Base de datos SQL de Azure. Con los pasos descritos en este documento, las aplicaciones de EF pueden usar la funcionalidad de enrutamiento dependiente de datos de la biblioteca cliente de bases de datos elásticas mediante la refactorización de constructores de las subclases **DbContext** que se usan en la aplicación de EF. Esto limita los cambios necesarios en los lugares donde ya existen clases **DbContext**. Además, las aplicaciones de EF pueden seguir aprovechando la implementación automática de esquemas mediante la combinación de los pasos que invocan las migraciones de EF necesarias con el registro de nuevas particiones y asignaciones en el mapa de particiones.
+Las aplicaciones de Entity Framework pueden beneficiarse fácilmente de las herramientas de bases de datos elásticas en Base de datos SQL de Azure. Con los pasos descritos en este documento, las aplicaciones de EF pueden usar la funcionalidad de enrutamiento dependiente de datos de la biblioteca de cliente de Base de datos elástica mediante la refactorización de constructores de las subclases **DbContext** que se usan en la aplicación de EF. Esto limita los cambios necesarios en los lugares donde ya existen clases **DbContext**. Además, las aplicaciones de EF pueden seguir aprovechando la implementación automática de esquemas mediante la combinación de los pasos que invocan las migraciones de EF necesarias con el registro de nuevas particiones y asignaciones en el mapa de particiones.
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -281,4 +281,4 @@ Las aplicaciones de Entity Framework pueden beneficiarse fácilmente de las herr
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Copia de seguridad de Azure: restauración de una máquina virtual | Microsoft Azure"
+	pageTitle="Restauración de una copia de seguridad de una máquina virtual | Microsoft Azure"
 	description="Información sobre cómo restaurar una máquina virtual de Azure"
 	services="backup"
 	documentationCenter=""
@@ -8,9 +8,9 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="trinadhk"; "jimpark"/>
 
-# Restauración de una máquina virtual
+# Restauración de máquinas virtuales en Azure
 Puede restaurar una máquina virtual en una nueva máquina virtual desde las copias de seguridad almacenadas en el almacén de copia de seguridad de Azure mediante la acción de restauración.
 
 ## Restauración del flujo de trabajo
@@ -105,4 +105,4 @@ Obtenga más información sobre el [problema de reversión de USN](https://techn
 - [Solución de errores](backup-azure-vms-troubleshoot.md#restore)
 - [Administración de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

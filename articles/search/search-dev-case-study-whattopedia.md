@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Caso práctico de programador de Búsqueda de Azure: Cómo creó WhatToPedia un portal infomedia en Microsoft Azure" 
-	description="Obtenga información acerca de cómo crear un portal de información y un motor de búsqueda meta con el servicio de búsqueda en Microsoft Azure" 
+	pageTitle="Caso práctico de programador de Búsqueda de Azure: Cómo creó WhatToPedia un portal infomedia en Microsoft Azure | Microsoft Azure" 
+	description="Obtenga información acerca de cómo crear un portal de información y un motor de búsqueda meta con Búsqueda de Azure, un servicio de búsqueda hospedado en la nube para desarrolladores." 
 	services="search, sql-database,  storage, web-sites" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Caso práctico para desarrolladores de Búsqueda de Azure
@@ -421,4 +421,4 @@ El código siguiente genera el indexador mencionado en la sección sobre la crea
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

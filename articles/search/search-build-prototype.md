@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Creación de una aplicación de prototipo para Búsqueda de Azure" 
-	description="Cree su primer prototipo de aplicación para empezar a usar Búsqueda de Azure." 
+	description="Cree su primer prototipo de aplicación para empezar a usar Búsqueda de Azure, un servicio de búsqueda hospedado en la nube." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Creación de una aplicación de prototipo para Búsqueda de Azure
 
-Los desarrolladores que evalúan Búsqueda de Azure casi siempre comienzan con una aplicación de prueba preliminar que muestra el valor de agregar Búsqueda de Azure a una aplicación personalizada. En este artículo, le proporcionamos algunos bloques de creación para acelerar el proceso de creación de prototipos.
+Los desarrolladores que evalúan Búsqueda de Azure para la búsqueda hospedada en la nube casi siempre comienzan con una aplicación de prueba preliminar que muestra el valor de agregar Búsqueda de Azure a una aplicación personalizada. En este artículo, le proporcionamos algunos bloques de creación para acelerar el proceso de creación de prototipos.
  
 - Proyecto de Visual Studio C# que incluye archivos data.json y schema.json. Los datos de ejemplo le permiten compilar y ejecutar la solución inmediatamente, para confirmar que la solución funciona en su sistema antes de escribir una línea de código. 
 
@@ -133,4 +133,4 @@ Visite estos vínculos para obtener más información:
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

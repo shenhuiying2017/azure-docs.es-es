@@ -92,10 +92,10 @@ Por ejemplo, para desencadenar el trabajo web cada 15 minutos, la `settings.job`
 
 Otros ejemplos de programación CRON:
 
-- Cada hora (es decir, siempre que el número de minutos sea 0): `* 0 * * * *` 
-- Cada hora de 9 a 17 horas: `* 0 9-17 * * *` 
-- A las 9:30 todos los días: `* 30 9 * * *`
-- A las 9:30 cada día de lunes a viernes: `* 30 9 * * 1-5`
+- Cada hora (es decir, siempre que el número de minutos sea 0): `0 0 * * * *` 
+- Cada hora de 9 a 17 horas: `0 0 9-17 * * *` 
+- A las 9:30 todos los días: `0 30 9 * * *`
+- A las 9:30 cada día de lunes a viernes: `0 30 9 * * 1-5`
 
 **Nota**: al implementar un trabajo web desde Visual Studio, asegúrese de marcar las propiedades de archivo `settings.job` como "Copiar si es posterior".
 
@@ -239,4 +239,4 @@ Para obtener más información, consulte [Recursos recomendados de WebJobs de Az
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

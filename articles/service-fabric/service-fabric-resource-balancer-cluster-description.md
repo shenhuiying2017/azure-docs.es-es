@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Descripción del clúster de equilibrador de recursos"
-   description="Especificación de una descripción del clúster para el equilibrador de recursos"
+   pageTitle="Descripción del clúster del equilibrador de recursos| Microsoft Azure"
+   description="Descripción de un clúster de Service Fabric mediante la especificación de dominios de error, dominios de actualización, propiedades de nodo y capacidades de nodo en el equilibrador de recursos."
    services="service-fabric"
    documentationCenter=".net"
    authors="GaugeField"
@@ -16,7 +16,7 @@
    ms.date="09/03/2015"
    ms.author="masnider"/>
 
-# Descripción del clúster
+# Descripción de un clúster de Service Fabric
 
 El equilibrador de recursos de Service Fabric proporciona varios mecanismos para describir un clúster. Durante el tiempo de ejecución, el equilibrador de recursos utiliza estos fragmentos de información para asegurarse de que realiza servicios de maneras que garantizan una alta disponibilidad de los servicios que se ejecutan en el clúster mientras garantiza asimismo la máxima utilización de los recursos del clúster. Las funciones del equilibrador de recursos que describen un clúster son dominios de error, dominios de actualización, propiedades de nodo y capacidades de nodo. Además, el equilibrador de recursos tiene algunas opciones de configuración que pueden ajustar su rendimiento.
 
@@ -115,7 +115,7 @@ Tenga en cuenta que, aunque también se pueda enumerar una métrica determinada 
 Cuando se crean nuevos servicios, el equilibrador de recursos de clúster de Service Fabric usa la información sobre la capacidad de los nodos existentes y el consumo de los servicios existentes para determinar si hay suficiente disponible en la capacidad para colocar todo el servicio nuevo. Si no hay capacidad suficiente, se rechaza la solicitud de crear servicio con un mensaje de error que indica que no hay capacidad suficiente restante en el clúster.
 
 
-### Configuraciones de equilibrador de recursos
+### Configuraciones del equilibrador de recursos
 
 Dentro del manifiesto de clúster, los siguientes valores de configuración diferentes que definen el comportamiento general del equilibrador de recursos:
 
@@ -192,4 +192,4 @@ Para obtener más información: [Arquitectura de equilibrador de recursos](servi
 [Image6]: media/service-fabric-resource-balancer-cluster-description/Thresholds.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

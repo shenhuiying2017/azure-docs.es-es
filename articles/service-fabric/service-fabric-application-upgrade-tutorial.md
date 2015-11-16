@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Tutorial de actualización de aplicación de Service Fabric"
-   description="Este artículo le guía a través de una experiencia de actualización de una aplicación de Service Fabric."
+   pageTitle="Tutorial de actualización de la aplicación | Microsoft Azure"
+   description="Este artículo le guía a través de la experiencia de implementación de una aplicación de Service Fabric, cambio de código y la distribución de una actualización."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -126,4 +126,4 @@ Puede que desee intentar cambiar las versiones y pasar de la versión 2 a la ver
 [Solucionar problemas de una actualización de aplicación ](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

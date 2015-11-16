@@ -60,7 +60,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 Agrega este recurso a la plantilla para evitar que se realicen acciones especificadas en un recurso. El bloqueo se aplica a todos los usuarios y grupos. Generalmente, aplica un bloqueo solo durante un tiempo limitado; por ejemplo, cuando se ejecuta un proceso y desea garantizar que ninguna persona de su organización modifique o elimine por accidente un recurso.
 
-Para crear o eliminar bloqueos de administración, debe tener acceso a las acciones **Microsoft.Authorization/*** o **Microsoft.Authorization/locks/***. De los roles integrados, solo se conceden esas acciones a **Propietario** y **Administrador de acceso de usuario**. Para obtener más información sobre el control de acceso basado en rol, consulte [Administración del acceso a los recursos](./azure-portal/resource-group-rbac.md).
+Para crear o eliminar bloqueos de administración, debe tener acceso a las acciones **Microsoft.Authorization/*** o **Microsoft.Authorization/locks/***. De los roles integrados, solo se conceden esas acciones a **Propietario** y **Administrador de acceso de usuario**. Para obtener más información sobre el control de acceso basado en rol, consulte [Administración del acceso a los recursos](resource-group-rbac.md).
 
 El bloqueo se aplica al recurso especificado y a cualquier recurso secundario. Si se aplica más de un bloqueo a un recurso, el bloqueo más restrictivo tiene prioridad. Por ejemplo, si aplica ReadOnly en el nivel primario (por ejemplo, el grupo de recursos) y CanNotDelete a un recurso dentro de ese grupo, prevalece el bloqueo más restrictivo (ReadOnly) del elemento primario.
 
@@ -133,4 +133,4 @@ El próximo ejemplo aplica un bloqueo de solo lectura al grupo de recursos.
 - Para obtener más información sobre la estructura de la plantilla, consulte [Crear plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para obtener más información sobre los bloqueos, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -50,6 +50,7 @@ Como resultado, puede que le resulte útil considerar el decidir cuáles deben s
 - [Factoría de datos](#data-factory-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
+- [Centro de IoT](#iot-hub-limits)
 - [Almacén de claves](#key-vault-limits)
 - [Servicios multimedia](#media-services-limits)
 - [Mobile Engagement](#mobile-engagement-limits)
@@ -121,7 +122,7 @@ Los límites siguientes se aplican al usar el Administrador de recursos de Azure
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-Para obtener más información sobre los límites de la cuenta de almacenamiento, vea [Objetivos de escalabilidad y rendimiento de Almacenamiento de Azure](../articles/storage/storage-scalability-targets.md).
+Para obtener más información sobre los límites de la cuenta de almacenamiento, consulte [Objetivos de escalabilidad y rendimiento de Almacenamiento de Azure](../articles/storage/storage-scalability-targets.md).
 
 
 #### Límites de Almacenamiento premium
@@ -172,7 +173,7 @@ La tabla siguiente muestra los límites de los servicios de Biztalk de Azure.
 
 [AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
 
-Para obtener más detalles sobre los límites de Búsqueda de Azure, vea [Límites y restricciones](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+Para obtener más detalles sobre los límites de Búsqueda de Azure, consulte [Límites y restricciones](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
 ### Límites de Servicios multimedia
 
@@ -194,6 +195,10 @@ Para obtener más detalles sobre los límites de Búsqueda de Azure, vea [Límit
 ### Límites de Bus de servicio
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
+
+### Límites del Centro de IoT
+
+[AZURE.INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
 
 ### Límites de Factoría de datos
 
@@ -251,7 +256,7 @@ Para obtener más detalles sobre los límites de Búsqueda de Azure, vea [Límit
 
 ### Límites de Base de datos SQL
 
-Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Base de datos SQL](sql-database/sql-database-resource-limits.md).
+Para conocer los límites de Base de datos SQL, consulte [Límites de recursos de Base de datos SQL](sql-database/sql-database-resource-limits.md).
 
 ## Otras referencias
 
@@ -259,4 +264,4 @@ Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Bas
 
 [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

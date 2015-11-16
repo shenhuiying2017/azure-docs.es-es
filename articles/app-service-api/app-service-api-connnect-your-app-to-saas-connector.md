@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="11/03/2015" 
 	ms.author="tdykstra"/>
 
 # Implementación y configuración de una aplicación de API de conector SaaS en el Servicio de aplicaciones de Azure
@@ -237,4 +237,4 @@ Hemos visto cómo instalar, configurar y probar un conector SaaS. Para obtener m
 [portal de Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

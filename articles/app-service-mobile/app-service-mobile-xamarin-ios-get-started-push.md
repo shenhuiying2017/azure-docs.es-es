@@ -40,6 +40,10 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * Complete el [tutorial de inicio rápido](../app-service-mobile-xamarin-ios-get-started.md).
 
+##<a name="create-hub"></a>Creación de un centro de notificaciones
+
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+
 ## <a id="register"></a>Registro de aplicaciones para notificaciones push
 
 [AZURE.INCLUDE [Habilitación de notificaciones de inserción de Apple](../../includes/enable-apple-push-notifications.md)]
@@ -154,4 +158,4 @@ Ha completado correctamente este tutorial.
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

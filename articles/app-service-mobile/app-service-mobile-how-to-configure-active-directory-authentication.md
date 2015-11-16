@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/29/2015" 
 	ms.author="mahender"/>
 
 # Configuración de la aplicación para usar el inicio de sesión de Azure Active Directory
@@ -26,7 +26,7 @@ En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para
 
 1. Inicie sesión en el [Portal de administración de vista previa de Azure] y vaya a la aplicación móvil.
 
-2. En **Configuración**, haga clic en **Autenticación del usuario** y, después, haga clic en **Azure Active Directory**. Copie la **dirección URL de la aplicación** y la **dirección URL de respuesta** que aparecen en la lista. Las usará más adelante. Asegúrese de que la **Dirección URL de la aplicación** y la **URL de respuesta** usan el esquema HTTPS.
+2. En **Configuración**, haga clic en **Autenticación móvil** y luego haga clic en **Azure Active Directory**. Copie la **dirección URL de la aplicación** y la **dirección URL de respuesta** que aparecen en la lista. Las usará más adelante. Asegúrese de que la **Dirección URL de la aplicación** y la **URL de respuesta** usan el esquema HTTPS.
 
     ![][1]
 
@@ -73,6 +73,5 @@ Autenticación de usuarios de la aplicación móvil con un inicio de sesión ún
 [Portal de administración de vista previa de Azure]: https://portal.azure.com/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

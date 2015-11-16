@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="10/30/2015"
 	ms.author="femila"/>
 
 # Acceso condicional de Azure en versión de vista previa para aplicaciones SaaS
@@ -55,7 +55,7 @@ De forma predeterminada, la directiva se aplicará a todos los usuarios que teng
 
 Los grupos de seguridad también se pueden excluir explícitamente de la directiva si activa la opción Excepto y especifica uno o más grupos. Los usuarios que sean miembros de un grupo en la lista Excepto no estarán sujetos al requisito de la autenticación multifactor, aunque sean miembros de un grupo al que se aplica la regla de acceso. La regla de acceso que se muestra a continuación requerirá que todos los usuarios del grupo Administradores usen la autenticación multifactor para tener acceso a la aplicación.
 
-![Configuración de reglas de acceso condicional con MFA](./media/active-directory-conditional-access/conditionalaccess-saas-apps.jpg)
+![Configuración de reglas de acceso condicional con MFA](./media/active-directory-conditional-access/conditionalaccess-saas-apps.png)
 
 ##Reglas de acceso condicional con MFA
 Si un usuario se ha configurado con la característica de autenticación multifactor por usuario, esta opción en el usuario tendrá prioridad sobre las reglas de autenticación multifactor de aplicación. Esto significa que un usuario que se ha configurado para la autenticación multifactor por usuario deberá realizarla aunque se haya excluido de las reglas de autenticación multifactor de aplicación. Obtenga más información sobre Multi-Factor Authentication y la configuración por usuario.
@@ -86,4 +86,4 @@ En el ejemplo siguiente se muestra cómo habilitar MFA local mediante el cmdlet 
 
 Además de establecer esta marca, la instancia de AD FS de inquilinos federados debe configurarse para llevar a cabo Multi-Factor Authentication. Siga las instrucciones para implementar Azure Multi-Factor Authentication en modo local.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

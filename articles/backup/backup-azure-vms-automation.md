@@ -14,7 +14,9 @@
 En este artículo se muestra cómo usar Azure PowerShell para realizar y recuperar copias de seguridad de máquinas virtuales IaaS de Azure.
 
 ## Conceptos
-Vea [Copia de seguridad de máquinas virtuales de Azure: introducción](backup-azure-vms-introduction.md) en la documentación de Copia de seguridad de Azure. Ahí se explican los motivos básicos por los qué se deben realizar copias de seguridad de las máquinas virtuales, los requisitos previos para hacerlas y sus limitaciones.
+Vea [Copia de seguridad de máquinas virtuales de Azure: introducción](backup-azure-vms-introduction.md) en la documentación de Copia de seguridad de Azure.
+
+> [AZURE.WARNING]Antes de empezar, asegúrese de que se tratan los aspectos fundamentales sobre los [requisitos previos](backup-azure-vms-prepare.md) necesarios para trabajar con Copia de seguridad de Azure y las [limitaciones](backup-azure-vms-prepare.md#limitations) de la solución actual de copia de seguridad de máquina virtual.
 
 Para usar PowerShell de forma eficaz, es preciso conocer la jerarquía de objetos y desde dónde empezar.
 
@@ -26,7 +28,7 @@ Los 2 flujos más importantes son habilitar la protección de una máquina virtu
 ## Instalación y registro
 Para empezar:
 
-1. [Descargue el PowerShell más reciente](https://github.com/Azure/azure-powershell/releases) (la mínima versión necesaria es: 1.0.0)
+1. [Descargue la versión de PowerShell más reciente](https://github.com/Azure/azure-powershell/releases) (la versión mínima necesaria es: 1.0.0)
 
 2. Para empezar, habilite los commandlets de Copia de seguridad de Azure, para lo que debe cambiar al modo *AzureResourceManager* usando el commandlet **Switch-AzureMode**:
 
@@ -300,4 +302,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Si desea agregar capacidades gráficas a esta salida del informe, obtenga información en el blog de TechNet sobre [gráficos con PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

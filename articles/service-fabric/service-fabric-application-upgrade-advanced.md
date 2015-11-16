@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Actualización de la aplicación de Service Fabric: temas avanzados"
+   pageTitle="Actualización de aplicación: temas avanzados | Microsoft Azure"
    description="En este artículo se tratan algunos temas avanzados relacionados con la actualización de una aplicación de Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -51,4 +51,4 @@ Casos en los que usar un paquete de diferencias sería una buena opción:
 [Solucionar problemas de una actualización de aplicación ](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

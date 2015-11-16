@@ -42,7 +42,7 @@ Un trabajo de indización puede generar las siguientes salidas:
 
 Este tema muestra cómo crear trabajos de indización para **Indización de un recurso** e **Indización de varios archivos**.
 
-Para ver las actualizaciones más recientes de Azure Media Indexer, consulte [Blogs de Servicios multimedia](http://azure.microsoft.com/blog/topics/media-services/).
+Para ver las actualizaciones más recientes de Azure Media Indexer, consulte [Blogs de Servicios multimedia](#preset).
 
 ## Uso de archivos de manifiesto y de manifiesto para tareas de indización
 
@@ -50,7 +50,7 @@ Puede especificar más detalles de las tareas de indización mediante la configu
 
 También puede procesar varios archivos multimedia a la vez mediante un archivo de manifiesto.
 
-Para obtener más información, consulte [Valores preestablecidos de tarea para Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+Para obtener más información, consulte [Valores preestablecidos de tarea para Azure Media Indexer](#).
 
 ## Indización de un recurso
 
@@ -143,43 +143,22 @@ Tenga en cuenta que si no se especifica ningún archivo de configuración, el ar
 	                                                   mediaProcessorName));
 
 	    return processor;
-	}
-
+	}  
+<!-- __ -->
 ### <a id="output_files"></a>Archivos de salida
 
 De forma predeterminada, el trabajo de indización genera los siguientes archivos de salida. Los archivos se almacenarán en el primer recurso de salida.
 
+Cuando haya más de un archivo multimedia de entrada, Indexer generará un archivo de manifiesto para las salidas del trabajo denominado 'JobResult.txt'. Para cada archivo multimedia de entrada, los archivos de palabras clave, AIB, SAMI, TTML y WebVTT resultantes se numeran secuencialmente y se les asigna un nombre usando el “Alias”.
 
-<table border="1">
-<tr><th>Nombre de archivo</th><th>Descripción</th></tr>
-<tr><td>InputFileName.aib </td>
-<td>Archivo Blob de indización de audio.<br/><br/>
-El archivo Blob de indización de audio (AIB) es un archivo que se puede buscar en Microsoft SQL Server mediante la búsqueda de texto completo. El archivo AIB es más eficaz que los archivos de subtítulos simples, porque contiene alternativas para cada palabra, lo que permite una experiencia de búsqueda mucho más rica.
-<br/>
-<br/>
-Requiere la instalación del complemento de SQL Indizador en un equipo que ejecute Microsoft SQL Server 2008 o posterior. Buscar AIB mediante la búsqueda de texto completo de Microsoft SQL Server proporciona resultados de búsqueda más precisos que buscar los archivos de subtítulos generados por WAMI. Esto se debe a que el archivo AIB contiene palabras alternativas que suenan de forma similar mientras que los archivos de subtítulos contienen la palabra de mayor confianza para cada segmento del audio. Si la búsqueda de palabras habladas es de suma importancia, se recomienda usar el archivo AIB junto con Microsoft SQL Server.
-<br/><br/>
-Para descargar el complemento, haga clic en <a href="http://aka.ms/indexersql">Complemento de Azure Media Indexer</a>.
-<br/><br/>
-También es posible usar otros motores de búsqueda, como Apache Lucene/Solr para indizar simplemente el vídeo en función de los subtítulos y los archivos XML de palabras clave, pero esto generará unos resultados de búsqueda menos precisos.</td></tr>
-<tr><td>InputFileName.smi<br/>InputFileName.ttml<br/>InputFileName.vtt</td>
-<td>Archivos de subtítulos (CC) en formatos SAMI, TTML y WebVTT.
-<br/><br/>
-Se pueden usar para crear archivos de audio y vídeo accesibles para personas con discapacidades auditivas.
-<br/><br/>
-Entre los archivos de subtítulos se incluye una etiqueta denominada <b>Recognizability</b> que puntúa un trabajo de indización en función de lo reconocible que resulta la voz en el vídeo de origen. Puede usar el valor de <b>Recognizability</b> para filtrar los archivos de salida por facilidad de uso. Una puntuación baja significa unos resultados de indización pobres debido a la calidad del audio.</td></tr>
-<tr><td>InputFileName.kw.xml
-<br/>
-InputFileName.info
-</td>
-<td>Archivos de información y palabras clave.
-<br/><br/>
-El archivo de palabras clave es un archivo XML que contiene las palabras clave que se extraen del contenido de voz, con información de frecuencia y desplazamiento.
-<br/><br/>
-El archivo de información es un archivo de texto sin formato que contiene información detallada acerca de cada término reconocido. La primera línea es especial y contiene la puntuación de reconocimiento. Cada línea siguientes es una lista separada por tabulaciones de los datos siguientes: hora de inicio, hora de finalización, palabra o frase, y confianza. Las horas se proporcionan en segundos y la confianza se expresa como un número entre 0-1.  <br/><br/>Línea de ejemplo: "1,20 &#160;&#160;&#160;1,45 &#160;&#160;&#160;palabra &#160;&#160;&#160;0,67"
-<br/><br/>
-Estos archivos se pueden usar para varios propósitos, por ejemplo, para realizar análisis de voz, o exponerse a motores de búsqueda como Bing, Google o Microsoft SharePoint para hacer que los archivos multimedia sean más reconocibles, o incluso usarse para proporcionar anuncios más pertinentes.</td></tr>
-</table>
+Nombre de archivo | Descripción
+----------|------------
+__InputFileName.aib__ | Archivo Blob de indización de audio. <br /><br /> El archivo Blob de indexación de audio (AIB) es un archivo que se puede buscar en Microsoft SQL Server mediante la búsqueda de texto completo. El archivo AIB es más eficaz que los archivos de subtítulos simples, porque contiene alternativas para cada palabra, lo que permite una experiencia de búsqueda mucho más rica. <br/> <br/>Requiere la instalación del complemento Indexer SQL en un equipo que ejecute Microsoft SQL Server 2008 o posterior. Buscar AIB mediante la búsqueda de texto completo de Microsoft SQL Server proporciona resultados de búsqueda más precisos que buscar los archivos de subtítulos generados por WAMI. Esto se debe a que el archivo AIB contiene palabras alternativas que suenan de forma similar mientras que los archivos de subtítulos contienen la palabra de mayor confianza para cada segmento del audio. Si la búsqueda de palabras habladas es de suma importancia, se recomienda usar el archivo AIB junto con Microsoft SQL Server.<br/><br/> Para descargar el complemento, haga clic en <a href="http://aka.ms/indexersql">Complemento de Azure Media Indexer</a>. <br/><br/>También es posible usar otros motores de búsqueda, como Apache Lucene/Solr para indizar simplemente el vídeo en función de los subtítulos y los archivos XML de palabras clave, pero esto generará unos resultados de búsqueda menos precisos.
+__InputFileName.smi__<br />\_\_InputFileName.ttml\_\_<br />\_\_InputFileName.vtt\_\_ |Archivos de subtítulos en los formatos SAMI, TTML y WebVTT.<br/><br/>Se puede usar para realizar archivos de audio y vídeo accesibles a personas con discapacidades auditivas.<br/><br/>Los archivos de subtítulos incluyen una etiqueta llamada <b>Recognizability</b> que puntúa un trabajo de indexación en función de lo reconocible que es la voz en el vídeo de origen. Puede usar el valor de <b>Recognizability</b> para filtrar los archivos de salida por facilidad de uso. Una puntuación baja significa unos resultados de indización pobres debido a la calidad del audio.
+__InputFileName.kw.xml<br />InputFileName.info__ |Archivos de información y palabras clave. <br/><br/>El archivo de palabras clave es un archivo XML que contiene las palabras clave que se extraen del contenido de voz, con información de frecuencia y desplazamiento. <br/><br/>El archivo de información es un archivo de texto sin formato que contiene información detallada acerca de cada término reconocido. La primera línea es especial y contiene la puntuación de reconocimiento. Cada línea siguientes es una lista separada por tabulaciones de los datos siguientes: hora de inicio, hora de finalización, palabra o frase, y confianza. Las horas se proporcionan en segundos y la confianza se expresa como un número entre 0-1. <br/><br/>Línea de ejemplo: “1.20 1.45 word 0.67” <br/><br/>Estos archivos se pueden usar para varios propósitos, por ejemplo, para realizar análisis de voz, o para exponerse a motores de búsqueda como Bing, Google o Microsoft SharePoint para hacer que los archivos multimedia sean más reconocibles, o incluso para proporcionar anuncios más pertinentes.
+__JobResult.txt__ |Manifiesto de salida que solo aparece al indexar varios archivos y que contiene la información siguiente:<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Error</th></tr><tr><td>a.mp4</td><td>Media\_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media\_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media\_3</td><td>600</td><td>0</td></tr></table><br/>
+
+
 
 Si no se indizan correctamente todos los archivos multimedia de entrada, el trabajo de indización fallará con el código de error 4000. Para obtener más información, consulte [Códigos de error](#error_codes).
 
@@ -262,49 +241,6 @@ Un archivo de manifiesto con la extensión .lst se crea y se carga en el recurso
 	    return asset;
 	}
 
-
-### Archivos de salida
-
-Cuando haya más de un archivo multimedia de entrada, Indexer generará un archivo de manifiesto para las salidas del trabajo denominado 'JobResult.txt'. Para cada archivo multimedia de entrada, los archivos de palabras clave y AIB, SAMI, TTML y WebVTT resultantes se numeran secuencialmente, como se muestra a continuación.
-
-Para obtener descripciones de los archivos de salida, consulte [Archivos de salida](#output_files).
-
-
-<table border="1">
-<tr><th>Nombre de archivo</th><th>Descripción</th></tr>
-<tr><td>JobResult.txt</td>
-<td>Manifiesto de salida
-<br/><br/>A continuación se muestra el formato del archivo de manifiesto de salida (JobResult.txt).
-<br/><br/>
-
-<table border="1">
-<tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Error</th></tr>
-<tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr>
-<tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr>
-<tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr>
-</table><br/>
-Cada fila representa un archivo multimedia de entrada:
-<br/><br/>
-InputFile: nombre de archivo del recurso o URL del archio multimedia de entrada.
-<br/><br/>
-Alias: nombre de archivo de salida correspondiente.
-<br/><br/>
-MediaLength: longitud del archivo multimedia de entrada en segundos. Puede ser 0 si se ha producido un error en esta entrada.
-<br/><br/>
-Error: indica si el archivo multimedia se ha indizado correctamente. 0 si se realiza correctamente; en caso contrario, producirá un error. Consulte <a href="#error_codes">Códigos de error para ver errores concretos</a>.
-</td></tr>
-<tr><td>Media_1.aib </td>
-<td>File #0: archivo de blob de indización de audio.</td></tr>
-<tr><td>Media_1.smi<br/>Media_1.ttml</td>
-<td>File #0: archivos de subtítulos (CC) en formatos SAMI, TTML y WebVTT.</td></tr>
-<tr><td>Media_1.kw.xml</td>
-<td>File #0: archivo de palabras clave.</td></tr>
-<tr><td>Media_2.aib </td>
-<td>File #1: archivo de blob de indización de audio.</td></tr>
-</table>
-
-Si no se indizan correctamente todos los archivos multimedia de entrada, el trabajo de indización fallará con el código de error 4000. Para obtener más información, consulte [Códigos de error](#error_codes).
-
 ### Trabajo parcialmente correcto
 
 Si no se indizan correctamente todos los archivos multimedia de entrada, el trabajo de indización fallará con el código de error 4000. Para obtener más información, consulte [Códigos de error](#error_codes).
@@ -312,36 +248,40 @@ Si no se indizan correctamente todos los archivos multimedia de entrada, el trab
 
 Se generan las mismas salidas (como trabajos realizados correctamente). Puede consultar el archivo de manifiesto de salida para ver qué archivos de entrada son erróneos, según los valores de columna Error. En el caso de los archivos de entrada erróneos, no se generarán los archivos de palabras clave y AIB, SAMI, TTML y WebVTT resultantes.
 
+### <a id="preset"></a> Valores predefinidos de tarea para Azure Media Indexer
+
+Para personalizar el procesamiento de Azure Media Indexer, puede proporcionar valores predefinidos de tarea junto con la tarea. A continuación se describe el formato de este xml de configuración.
+
+Nombre | Necesario | Descripción
+----|----|---
+__input__ | false | Archivos de recurso que desea indexar.</p><p>Azure Media Indexer admite los siguientes formatos de archivo multimedia: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Puede especificar el nombre de archivo en el atributo **name** o **list** del elemento **input** (tal y como se muestra a continuación). Si no especifica qué archivo de recurso se debe indexar, se selecciona el archivo principal. Si no se establece ningún archivo de recurso principal, se indexa el primer archivo del recurso de entrada.</p><p>Para especificar explícitamente el nombre del archivo de recurso:<br />`<input name="TestFile.wmv">`<br /><br />También puede indexar varios archivos de recurso a la vez (hasta 10). Para ello:<br /><br /><ol class="ordered"><li><p>Cree un archivo de texto (archivo de manifiesto) y asígnele una extensión .lst. </p></li><li><p>Agregue una lista de todos los nombres de archivo de recurso en el recurso de entrada a este archivo de manifiesto. </p></li><li><p>Agregue (cargue) el archivo de manifiesto al recurso. </p></li><li><p>Especifique el nombre del archivo de manifiesto en el atributo list de la entrada.<br />`<input list="input.lst">`</li></ol><br /><br />Nota: si agrega más de 10 archivos al archivo de manifiesto, el trabajo de indexación producirá un error con el código de error 2006.
+__metadata__ | false | Metadatos de los archivos de recurso especificados usados para la adaptación de vocabulario. Resulta útil para preparar el indexador para reconocer palabras de vocabulario no estándar tales como nombres propios.<br />`<metadata key="..." value="..."/>` <br /><br />Puede proporcionar __valores__ para __claves__ predefinidas. Actualmente se admiten las siguientes claves:<br /><br />"title" y "description", que se usan para que la adaptación de vocabulario ajuste el modelo de lenguaje a su trabajo y mejorar así la precisión del reconocimiento de voz. Los valores se incluyen en las búsquedas de Internet para encontrar documentos de texto relevantes para el contexto, y el contenido se usa para aumentar el diccionario interno durante el tiempo que dura la tarea de indexación.<br />`<metadata key="title" value="[Title of the media file]" />`<br />`<metadata key="description" value="[Description of the media file] />"`
+__features__ <br /><br /> Agregado en la versión 1.2. Actualmente solo se admite la característica de reconocimiento de voz ("ASR").| false | La característica de reconocimiento de voz tiene las siguientes claves de configuración:<table><tr><th><p>Clave</p></th> <th><p>Descripción</p></th><th><p>Valor de ejemplo</p></th></tr><tr><td><p>Language</p></td><td><p>El lenguaje natural que se reconocerá en el archivo multimedia.</p></td><td><p>English, Spanish</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>Una lista separada por signos de punto y coma de los formatos de las leyendas de salida deseados (si existen)</p></td><td><p>ttml; sami; webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>Una marca booleana que especifica si es o no un archivo AIB necesario (para su uso con SQL Server y el Indexer IFilter del cliente). Para obtener más información, consulte <a href="http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">Uso de archivos AIB con Azure Media Indexer y SQL Server</a>.</p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Una marca booleana que especifica si se requiere un archivo XML de palabras clave.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Una marca booleana que especifica si se debe o no forzar leyendas completas (independientemente del nivel de confianza). </p><p>El valor predeterminado es false, en cuyo caso las palabras y frases que tienen un nivel de confianza de un 50% menos se omite en las salidas de la leyenda final y se reemplazan por puntos suspensivos ("..."). Los puntos suspensivos son útiles para el control de calidad de las leyendas y la auditoría.</p></td><td><p>True; False. </p></td></tr></table>
 
 ### <a id="error_codes"></a>Códigos de error
 
+En caso de error, Azure Media Indexer debe notificar uno de los siguientes códigos de error:
 
-<table border="1">
-<tr><th>Código</th><th>Nombre</th><th>Razones posibles</th></tr>
-<tr><td>2000</td><td>Configuración no válida</td><td>Configuración no válida</td></tr>
-<tr><td>2001</td><td>Recursos de entrada no válidos</td><td>Faltan recursos de entrada o están vacíos.</td></tr>
-<tr><td>2002</td><td>Manifiesto no válido</td><td>El manifiesto está vacío o contiene elementos no válidos.</td></tr>
-<tr><td>2003</td><td>No se pudo descargar el archivo multimedia</td><td>Dirección URL no válida en el archivo de manifiesto.</td></tr>
-<tr><td>2004</td><td>Protocolo no admitido</td><td>No se admite el protocolo de dirección URL de los medios.</td></tr>
-<tr><td>2005</td><td>Tipo de archivo no admitido</td><td>No se admite el tipo de archivo multimedia de entrada.</td></tr>
-<tr><td>2006</td><td>Hay demasiados archivos de entrada</td><td>Hay más de 10 archivos en el manifiesto de entrada. </td></tr>
-<tr><td>3000</td><td>No se pudo descodificar el archivo multimedia</td>
-<td>Códec multimedia no admitido.
-<br/>o<br/>
-El archivo multimedia está dañado.
-<br/>o<br/>
-No hay ninguna secuencia de audio en el archivo multimedia de entrada.</td></tr>
-<tr><td>4000</td><td>Indización de lote parcialmente correcta</td><td>Algunos de los archivos multimedia de entrada no se pudieron indizar. Para obtener más información, consulte <a href="output_files">Archivos de salida</a>.</td></tr>
-<tr><td>otros</td><td>Errores internos</td><td>Póngase en contacto con el equipo de soporte técnico.</td></tr>
-</table>
+Código | Nombre | Razones posibles
+-----|------|------------------
+2000 | Configuración no válida | Configuración no válida
+2001 | Recursos de entrada no válidos | Faltan recursos de entrada o están vacíos.
+2002 | Manifiesto no válido | El manifiesto está vacío o contiene elementos no válidos.
+2003 | No se pudo descargar el archivo multimedia | Dirección URL no válida en el archivo de manifiesto.
+2004 | Protocolo no admitido | No se admite el protocolo de dirección URL de los medios.
+2005 | Tipo de archivo no admitido | No se admite el tipo de archivo multimedia de entrada.
+2006 | Hay demasiados archivos de entrada | Hay más de 10 archivos en el manifiesto de entrada.
+3000 | No se pudo descodificar el archivo multimedia | Códec multimedia no compatible <br/>o<br/> Archivo de medios dañado <br/>o<br/> No hay secuencias de audio en los medios de entrada.
+4000 | Indización de lote parcialmente correcta | Algunos de los archivos multimedia de entrada no se pudieron indizar. Para obtener más información, consulte <a href="output_files">Archivos de salida</a>.
+otros | Errores internos | Póngase en contacto con el equipo de soporte técnico. indexer@microsoft.com
 
 
-##<a id="supported_languages"></a>Idiomas admitidos
+## <a id="supported_languages"></a>Idiomas admitidos
 
-Actualmente, se admiten los idiomas inglés y español. Para obtener más información, consulte [Azure Media Indexer en español](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)
+Actualmente, se admiten los idiomas inglés y español. Para obtener más información, consulte [la publicación del blog sobre la versión v1.2](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 
-##Rutas de aprendizaje de Servicios multimedia
+## Rutas de aprendizaje de Servicios multimedia
 
 Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
@@ -349,7 +289,7 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
-##Vínculos relacionados
+## Vínculos relacionados
 
 [Uso de archivos AIB con el Indizador multimedia de Azure y SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
@@ -359,4 +299,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

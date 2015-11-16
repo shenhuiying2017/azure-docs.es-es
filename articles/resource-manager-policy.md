@@ -13,16 +13,24 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="10/06/2015"
+	ms.date="11/02/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # Uso de directivas para administrar los recursos y controlar el acceso
 
-El Administrador de recursos de Azure permite controlar el acceso mediante directivas personalizadas. Una directiva representa una o más infracciones que se pueden evitar en el ámbito deseado. El ámbito, en este caso, puede ser una suscripción, un grupo de recursos o un recurso individual.
+El Administrador de recursos de Azure permite controlar el acceso mediante directivas personalizadas. Con las directivas, puede impedir que los usuarios de su organización dividan las convenciones que se necesitan para administrar los recursos de esta.
 
-Las directivas son un sistema de permisos predeterminado. Las directivas se definen mediante definición de directiva y se aplican con una asignación de directivas. Las asignaciones de directiva permiten controlar el ámbito de aplicación de una directiva.
+Se crean definiciones de directivas que describen las acciones o los recursos que se han denegado específicamente. Esas definiciones de directivas se asignan en el ámbito deseado, como la suscripción, el grupo de recursos o un recurso individual.
 
-En este artículo se explica la estructura básica del lenguaje de definición de directivas que se puede usar para crear directivas. A continuación, describiremos cómo es posible aplicar estas directivas en distintos ámbitos y, finalmente, mostraremos algunos ejemplos de aplicación mediante la API de REST. Pronto se agregará compatibilidad con PowerShell.
+En este artículo se explica la estructura básica del lenguaje de definición de directivas que se puede usar para crear directivas. A continuación, describiremos cómo es posible aplicar estas directivas en distintos ámbitos y, finalmente, mostraremos algunos ejemplos de aplicación mediante la API de REST.
+
+## ¿En qué se diferencia de RBAC?
+
+Existen algunas diferencias importantes entre el control de acceso basado en roles y las directivas, pero lo primero que hay que entender es que las directivas y RBAC funcionan conjuntamente. Para poder usar la directiva, el usuario debe autenticarse a través de RBAC. A diferencia de RBAC, la directiva es un sistema que permite de manera predeterminada y niega explícitamente.
+
+RBAC se centra en las acciones que un **usuario** puede realizar en distintos ámbitos. Por ejemplo, un usuario determinado se agrega al rol de colaborador para un grupo de recursos en el ámbito deseado, por lo que el usuario puede realizar cambios en ese grupo de recursos.
+
+La directiva se centra en acciones de **recursos** en varios ámbitos. Por ejemplo, mediante directivas, puede controlar los tipos de recursos que se pueden aprovisionar o restringir las ubicaciones en las que se pueden aprovisionar los recursos.
 
 ## Escenarios comunes
 
@@ -60,14 +68,15 @@ A continuación se muestran los operadores lógicos admitidos junto con la sinta
 
 | Nombre del operador | Sintaxis |
 | :------------- | :------------- |
-| Not | "not" : {&lt;condición&gt;} |
+| Not | "not" : {&lt;condition or operator &gt;} |
 | Y | "allOf" : [ {&lt;condición1&gt;},{&lt;condición2&gt;}] |
 | O | "anyOf" : [ {&lt;condición1&gt;},{&lt;condición2&gt;}] |
 
+No se admiten condiciones anidadas.
 
 ## Condiciones
 
-A continuación se muestran las condiciones admitidas junto con la sintaxis:
+Una condición evalúa si un **campo** o un **origen** cumple determinados criterios. La sintaxis y los nombres de condición admitidos son los siguientes:
 
 | Nombre de la condición | Sintaxis |
 | :------------- | :------------- |
@@ -80,11 +89,15 @@ A continuación se muestran las condiciones admitidas junto con la sintaxis:
 
 ## Campos y orígenes
 
-Las condiciones se crean mediante el uso de campos y orígenes. Estos son los campos y orígenes admitidos:
+Las condiciones se crean mediante el uso de campos y orígenes. Un campo representa las propiedades de la carga de solicitud de recursos. Un origen representa las características de la propia solicitud.
+
+Estos son los campos y orígenes admitidos:
 
 Campos: **name**, **kind**, **type**, **location**, **tags**, **tags.***.
 
 Orígenes: **action**
+
+Para obtener más información acerca de las acciones, consulte [Roles integrados en Azure RBAC](active-directory/role-based-access-built-in-roles.md).
 
 ## Ejemplos de definición de directivas
 
@@ -276,4 +289,4 @@ Puede obtener, cambiar o quitar definiciones de la directiva mediante los cmdlet
 
 De forma similar, puede obtener, cambiar o quitar las asignaciones de directivas mediante los cmdlets Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment y Remove-AzureRmPolicyAssignment respectivamente.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

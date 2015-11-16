@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
+   ms.date="10/27/2015"
    ms.author="derrickv"/>
 
 # Conceptos para desarrolladores del Catálogo de datos de Azure
@@ -40,7 +40,7 @@ Los usuarios son entidades de seguridad que tienen permisos para realizar accion
 
 Existen diferentes roles que un usuario puede tener. Para obtener más información sobre las funciones, consulte la sección Funciones y autorización.
 
-Solo se pueden agregar usuarios individuales (no grupos de seguridad).
+Se pueden agregar usuarios individuales y grupos de seguridad.
 
 Catálogo de datos de Azure usa Azure Active Directory para la administración de identidades y acceso. Cada usuario de catálogo debe ser un miembro de Active Directory para la cuenta.
 
@@ -92,19 +92,19 @@ Estas propiedades se aplican a todos los tipos de recursos de raíz y a todos lo
 
 > [AZURE.NOTE]Las propiedades cuyos nombres comienzan por un carácter de subrayado doble son tipos de sistema.
 
-<table><tr><td><b>Nombre de propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>La última vez que se modificó la raíz. Esta la establece el cliente. (El servidor no mantiene este valor).</td></tr><tr><td>__id</td><td>Guid</td><td>Identificador del elemento (solo lectura). Se garantiza que este identificador es el único para el recurso. Por tanto, la clave del elemento es __Id, __id de la raíz. Esta tupla solo se garantiza que sea única dentro de un directorio.</td></tr><tr><td>__typeId</td><td>Guid</td><td>El tipo de recurso (solo lectura)</td></tr><tr><td>__creatorId</td><td>String</td><td>Cadena usada por el creador del recurso para identificar de manera exclusiva el recurso. </td></tr></table>
+<table><tr><td><b>Nombre de propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>La última vez que se modificó la raíz. Esta la establece el cliente. (El servidor no mantiene este valor).</td></tr><tr><td>__id</td><td>Cadena</td><td>Identificador del elemento (solo lectura). Se garantiza que este identificador es único para el activo de un catálogo.</td></tr><tr><td>__type</td><td>Cadena</td><td>El tipo de recurso (solo lectura)</td></tr><tr><td>__creatorId</td><td>String</td><td>Cadena usada por el creador del recurso para identificar de manera exclusiva el recurso. </td></tr></table>
 
 ### Propiedades de raíz comunes
 
 Estas propiedades se aplican a todos los tipos de recursos de raíz.
 
-<table><tr><td><b>Nombre de propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>name</td><td>String</td><td>Un nombre derivado de la información de ubicación del origen de datos</td></tr><tr><td>dsl</td><td>Ubicación del origen de datos</td><td>Describe el origen de datos de forma exclusiva y es uno de los identificadores del recurso. (Consulte la sección de identidad dual). La estructura del dsl varía según el tipo de origen.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Más información sobre el tipo de recurso.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Describe el usuario que registró más recientemente este recurso. Contiene tanto el identificador único para el usuario (upn) como un nombre para mostrar (lastName y firstName).</td></tr><tr><td>lastRegisteredTime</td><td>dateTime</td><td>La última vez que se registró este recurso en el catálogo.</td></tr></table>
+<table><tr><td><b>Nombre de propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>name</td><td>String</td><td>Un nombre derivado de la información de ubicación del origen de datos</td></tr><tr><td>dsl</td><td>Ubicación del origen de datos</td><td>Describe el origen de datos de forma exclusiva y es uno de los identificadores del recurso. (Consulte la sección de identidad dual). La estructura del dsl varía según el tipo de origen.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Más información sobre el tipo de recurso.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Describe el usuario que registró más recientemente este recurso. Contiene tanto el identificador único para el usuario (upn) como un nombre para mostrar (lastName y firstName).</td></tr><tr><td>lastRegisteredTime</td><td>dateTime</td><td>La última vez que se registró este recurso en el catálogo.</td></tr><tr><td>containerId</td><td>Cadena</td><td>Id. del activo de contenedor para el origen de datos. Esta propiedad no se admite para el tipo de contenedor.</td></tr></table>
 
 ### Tipos de recursos de raíz
 
 Los tipos de recursos de raíz son aquellos que representan los distintos tipos de recursos de datos que se pueden registrar en el catálogo.
 
-<table><tr><td><b>Tipo de recurso</b></td><td><b>Propiedades adicionales</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>Tabla</td><td></td><td></td><td>Una tabla representa datos tabulares. Aquí se podría incluir una tabla SQL, una vista SQL, una tabla tabular de Analysis Services, una dimensión multidimensional de Analysis Services, una tabla de Oracle, etc. ...   </td></tr><tr><td>Measure</td><td></td><td></td><td>Este tipo representa una medida de Analysis Services.</td></tr><tr><td></td><td>Measure</td><td>Columna</td><td>Metadatos que describen la medida</td></tr><tr><td></td><td>isCalculated </td><td>Booleano</td><td>Especifica si se calcula la medida o no.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td>Contenedor físico de medida</td></tr><tr><td>KPI</td><td></td><td></td><td>Este tipo representa un indicador de rendimiento clave de Analysis Services.</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td>Una expresión numérica MDX o un cálculo que devuelve el valor objetivo del KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td>Una expresión numérica MDX que devuelve el valor real del KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td>Una expresión MDX que representa el estado del KPI en un punto especificado en el tiempo.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td>Una expresión MDX que evalúa el valor del KPI en el tiempo. La tendencia puede ser cualquier criterio basado en el tiempo que sea útil en un contexto empresarial específico.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td>contenedor físico de medida</td></tr><tr><td>Informe</td><td></td><td></td><td>Este tipo representa un informe de SQL Server Reporting Services </td></tr><tr><td></td><td>CreatedBy</td><td>String</td><td></td></tr><tr><td></td><td>CreatedDate</td><td>String</td><td></td></tr></table>
+<table><tr><td><b>Tipo de recurso</b></td><td><b>Propiedades adicionales</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>Tabla</td><td></td><td></td><td>Una tabla representa datos tabulares. Aquí se podría incluir una tabla SQL, una vista SQL, una tabla tabular de Analysis Services, una dimensión multidimensional de Analysis Services, una tabla de Oracle, etc. ...   </td></tr><tr><td>Measure</td><td></td><td></td><td>Este tipo representa una medida de Analysis Services.</td></tr><tr><td></td><td>Measure</td><td>Columna</td><td>Metadatos que describen la medida</td></tr><tr><td></td><td>isCalculated </td><td>Booleano</td><td>Especifica si se calcula la medida o no.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td>Contenedor físico de medida</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td>Una expresión numérica MDX o un cálculo que devuelve el valor objetivo del KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td>Una expresión numérica MDX que devuelve el valor real del KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td>Una expresión MDX que representa el estado del KPI en un punto especificado en el tiempo.</td></tr><tr><td></td><td>trendExpression</td><td>Cadena</td><td>Una expresión MDX que evalúa el valor del KPI en el tiempo. La tendencia puede ser cualquier criterio basado en el tiempo que sea útil en un contexto empresarial específico.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td>contenedor físico de medida</td></tr><tr><td>Informe</td><td></td><td></td><td>Este tipo representa un informe de SQL Server Reporting Services </td></tr><tr><td></td><td>CreatedBy</td><td>String</td><td></td></tr><tr><td></td><td>CreatedDate</td><td>Cadena</td><td></td></tr><tr><td>Contenedor</td><td></td><td></td><td>Este tipo representa un contenedor de otros activos, como una base de datos SQL, un contenedor de blobs de Azure o un modelo de Analysis Services.</td></tr></table>
 
 ### Tipos de anotación
 
@@ -123,6 +123,10 @@ Los tipos de anotación representan tipos de metadatos que se pueden asignar a o
 
 <tr><td>ColumnsDataProfile</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columnas</td></td><td>ColumnDataProfile[]</td><td>El número de filas del conjunto de datos</td></tr>
+
+<tr><td>Documentación</td><td></td><td></td><td>Un activo dado solo puede tener una documentación asociada con él.</td></tr>
+<tr><td></td><td>mimeType</td><td>cadena</td><td>El tipo MIME del contenido.</td></tr>
+<tr><td></td><td>contenido</td><td>cadena</td><td>El contenido de la documentación.</td></tr>
 
 
 </table>
@@ -258,4 +262,4 @@ Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

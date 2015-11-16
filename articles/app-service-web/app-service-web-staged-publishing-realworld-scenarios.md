@@ -312,7 +312,7 @@ El [CMS de Umbraco](http://umbraco.com/) es una conocida solución de CMS para .
 Recuerde siempre quitar la carpeta `install` de la aplicación y no cargarla nunca en aplicaciones web de ensayo o producción. En este tutorial, usaremos WebMatrix.
 
 #### Configuración de un entorno de ensayo
-Cree una ranura de implementación (como se mencionó anteriormente) para la aplicación web de CMS de Umbraco. Se supone que ya tiene una en funcionamiento. Si no, puede crear una desde Marketplace. Para obtener más información, haga clic [aquí](web-sites-gallery-umbraco).
+Cree una ranura de implementación (como se mencionó anteriormente) para la aplicación web de CMS de Umbraco. Se supone que ya tiene una en funcionamiento. Si no, puede crear una desde Marketplace.
 
 Actualice las cadenas de conexión para la ranura de implementación de ensayo de modo que apunte a la base de datos recién creada, **umbraco-stage-db**. La aplicación web de producción (umbraositecms-1) y la aplicación web de ensayo (umbracositecms-1-stage) **DEBEN** apuntar a bases de datos diferentes.
 
@@ -326,7 +326,7 @@ Haga clic en **Obtener configuración de publicación** para la ranura de implem
 
 ![Importación de la configuración de publicación para Umbraco mediante WebMatrix](./media/app-service-web-staged-publishing-realworld-scenarios/11import.png)
 
-- Revise los cambios en el cuadro de diálogo e implemente la aplicación web local en la aplicación web de Azure, *umbracositecms-1-stage*. Al implementar archivos directamente en la aplicación web de ensayo, se omitirán todos los archivos de la `~/app_data/TEMP/` carpeta puesto que estos se volverán a generar la primera vez que se inicie la aplicación web de ensayo. También debe omitir el archivo `~/app_data/umbraco.config`, que también se volverá a generar.
+- Revise los cambios en el cuadro de diálogo e implemente la aplicación web local en la aplicación web de Azure, *umbracositecms-1-stage*. Al implementar los archivos directamente en la aplicación web de ensayo, se omitirán todos los archivos de la `~/app_data/TEMP/` carpeta puesto que estos se volverán a generar la primera vez que se inicie la aplicación web de ensayo. También debe omitir el archivo `~/app_data/umbraco.config`, dado que también se volverá a generar.
 
 ![Revisión de los cambios de publicación en WebMatrix](./media/app-service-web-staged-publishing-realworld-scenarios/12umbpublish.png)
 
@@ -418,7 +418,7 @@ Cuando se haya actualizado el sitio de desarrollo local, publique los cambios en
 
 ![Vista previa de intercambio para la implementación de CMS de Umbraco](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
-Las ventajas de intercambiar la aplicación web y la base de datos son las siguientes: 1. Ofrece la posibilidad de revertir a la versión anterior de la aplicación web con otro **intercambio** si hay algún problema con la aplicación. 2. Para realizar una actualización deberá implementar los archivos y la base de datos de la aplicación web de ensayo en la aplicación web y la base de datos de producción. Son muchas las cosas que pueden salir mal al implementar los archivos y las bases de datos. Mediante la característica de **intercambio** de las ranuras, podemos reduce el tiempo de inactividad durante una actualización y reducir el riesgo de errores que pueden producirse al implementar los cambios. 3. Ofrece la posibilidad de hacer **pruebas A/B** mediante la característica de [pruebas en producción](http://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/).
+Las ventajas de intercambiar la aplicación web y la base de datos son las siguientes: 1. Ofrece la posibilidad de revertir a la versión anterior de la aplicación web con otro **intercambio** si hay algún problema con la aplicación. 2. Para realizar una actualización deberá implementar los archivos y la base de datos de la aplicación web de ensayo en la aplicación web y la base de datos de producción. Son muchas las cosas que pueden salir mal al implementar los archivos y las bases de datos. Mediante la característica de **intercambio** de las ranuras, podemos reducir el tiempo de inactividad durante una actualización y disminuir el riesgo de errores que pueden producirse al implementar los cambios. 3. Ofrece la posibilidad de hacer **pruebas A/B** mediante la característica de [pruebas en producción](http://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/).
 
 Este ejemplo demuestra la flexibilidad de la plataforma, donde puede compilar módulos personalizados parecidos al módulo Courier de Umbraco para administrar la implementación entre entornos.
 
@@ -429,4 +429,4 @@ Este ejemplo demuestra la flexibilidad de la plataforma, donde puede compilar m�
 
 [How to block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/) (Bloqueo del acceso web a ranuras de implementación que no son de producción)
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

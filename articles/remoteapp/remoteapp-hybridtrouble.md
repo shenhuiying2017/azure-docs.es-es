@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="11/04/2015" 
     ms.author="elizapo" />
 
 
@@ -25,6 +25,9 @@ Una colección híbrida se hospeda en y almacena los datos en la nube de Azure, 
 ¿Todavía no ha creado la colección? Consulte los pasos en [Creación de una colección híbrida](remoteapp-create-hybrid-deployment.md).
 
 Si tiene problemas al crear la colección, o si la colección no funciona del modo esperado, consulte la siguiente información.
+
+## La imagen no es válida ##
+Si ve un mensaje como "GoldImageInvalid" cuando esté esperando a que Azure aprovisione la colección, la imagen de plantilla no cumple [los requisitos definidos para la imagen](remoteapp-imagereqs.md). Por lo tanto, consulte los [requisitos](remoteapp-imagereqs.md), corrija la imagen y pruebe a crear la colección de nuevo.
 
 ## ¿La red virtual utiliza tunelización forzada? ##
 Actualmente RemoteApp no admite el uso de redes virtuales en las que esté habilitada la tunelización forzada. Si necesita esta función, póngase en contacto con el [equipo de RemoteApp](mailto:remoteappforum@microsoft.com) para solicitar soporte técnico.
@@ -81,4 +84,4 @@ Asegúrese de que los detalles de dominio proporcionados son válidos y de que s
 
 El nombre de dominio que creó o agregó debe ser un nombre de dominio interno (no un nombre de dominio de Azure AD) y debe utilizar el formato DNS que se puede resolver (contoso.local). Por ejemplo, si tiene un nombre interno de Active Directory (contoso.local) y un UPN de Active Directory (contoso.com), debe utilizar el nombre interno al crear la colección.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

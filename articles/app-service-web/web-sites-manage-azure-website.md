@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="10/28/2015" 
 	ms.author="erikre"/>
 
 # Administración de una aplicación web en Servicio de aplicaciones de Azure
@@ -66,7 +66,7 @@ Cuando la aplicación web está en ejecución, querrá asegurarse de que está d
 ### Copias de seguridad
 
 - Establezca las [copias de seguridad automáticas](web-sites-backup.md) de la aplicación web. Obtenga más información sobre las copias de seguridad en [este vídeo](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
-- Conozca las opciones para la [recuperación de bases de datos](http://msdn.microsoft.com/library/azure/hh852669.aspx) en Base de datos SQL de Azure.
+- Conozca las opciones para la [recuperación de bases de datos](https://azure.microsoft.com/es-ES/documentation/articles/sql-database-business-continuity/) en Base de datos SQL de Azure.
 
 ### Solución de problemas
 
@@ -103,4 +103,4 @@ Si usa Visual Studio Online, puede configurar una implementación continua desde
 
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Administración de mapas de particiones." 
+	pageTitle="Administración de mapas de particiones | Microsoft Azure" 
 	description="Cómo usar ShardMapManager, la biblioteca de cliente de bases de datos elásticas" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh"/>
 
 # Administración de mapas de particiones.
-En un entorno de base de datos particionada, un **mapa de particiones** mantiene información que permite que una aplicación se conecte a la base de datos correcta en función del valor de la **clave de particionamiento**. La comprensión de cómo se construyen estos mapas es fundamental para administrar particiones con la biblioteca de cliente de bases de datos elásticas.
+
+La [biblioteca de cliente de Base de datos elástica](sql-database-elastic-database-client-library.md) se usa para administrar un conjunto de particiones. En un entorno de base de datos particionada, un [**mapa de particiones**](sql-database-elastic-scale-glossary.md) mantiene información que permite que una aplicación se conecte a la base de datos correcta en función del valor de la **clave de particionamiento**. Comprender cómo se construyen estos mapas es fundamental para la administración de los mapas de particiones.
 
 ## Mapas de particiones y asignaciones de particiones
  
@@ -116,7 +117,7 @@ En el caso de aplicaciones que administran mapas de particiones (agregar o cambi
 
 ### Solo los metadatos afectados 
 
-Los métodos usados para rellenar o cambiar datos de **ShardMapManager** no modifican los datos de usuario almacenados en las propias particiones. Por ejemplos, métodos como **CreateShard**, **DeleteShard**, **UpdateMapping**, etc. afectan solo a los metadatos del mapa de particiones. No quitan, agregan ni modificar los datos contenidos en las particiones. En su lugar, estos métodos están diseñados para usarse conjuntamente con operaciones independientes que se lleven a cabo para crear o quitar bases de datos reales, o para mover filas de una partición a otra con el fin de reequilibrar un entorno particionado. (La herramienta de **división y combinación** incluida con las herramientas de bases de datos elásticas usa estas API junto con la coordinación del movimiento de datos real entre particiones).
+Los métodos usados para rellenar o cambiar datos de **ShardMapManager** no modifican los datos de usuario almacenados en las propias particiones. Por ejemplos, métodos como **CreateShard**, **DeleteShard**, **UpdateMapping**, etc. afectan solo a los metadatos del mapa de particiones. No quitan, agregan ni modificar los datos contenidos en las particiones. En su lugar, estos métodos están diseñados para usarse conjuntamente con operaciones independientes que se lleven a cabo para crear o quitar bases de datos reales, o para mover filas de una partición a otra con el fin de reequilibrar un entorno particionado. (La herramienta de **división y combinación** incluida con las herramientas de Base de datos elástica usa estas API junto con la coordinación del movimiento de datos real entre particiones).
 
 ## Rellenado de un mapa de particiones: ejemplo
  
@@ -126,7 +127,7 @@ A continuación se muestra una secuencia de operaciones de ejemplo para rellenar
 2. Los metadatos de dos particiones diferentes se agregan al mapa de particiones. 
 3. Se agregan diversas asignaciones de intervalo de claves, y se muestra el contenido global del mapa de particiones. 
 
-El código está escrito de manera que todo el método puede volverse a ejecutar con seguridad en caso de que se produzca un error inesperado: cada solicitud comprueba si ya existe una partición o asignación antes de intentar crearla. El siguiente código asume que las bases de datos llamadas **sample\_shard\_0**, **sample\_shard\_1** y **sample\_shard\_2** ya se han creado en el servidor al que hace referencia la cadena **shardServer**.
+El código está escrito de manera que todo el método puede volverse a ejecutar con seguridad en caso de que se produzca un error inesperado: cada solicitud comprueba si ya existe una partición o asignación antes de intentar crearla. El siguiente código asume que las bases de datos llamadas **sample\_shard\_0**, **sample\_shard\_1** y **sample\_shard\_2** ya se creó en el servidor al que hace referencia la cadena **shardServer**.
 
     public void CreatePopulatedRangeMap(ShardMapManager smm, string mapName) 
         {            
@@ -228,7 +229,7 @@ Estos métodos funcionan en conjunto como los bloques de creación disponibles p
 
 * Para dividir en dos los intervalos existentes o combinar en uno los intervalos adyacentes, use **SplitMapping** y **MergeMappings**.
 
-    Tenga en cuenta que las operaciones de división y combinación **no cambian la partición a la que se asignan los valores de clave**. Una división divide un rango existente en dos partes, pero deja ambas partes como asignadas a la misma partición. Una combinación opera en dos intervalos adyacentes que ya están asignados a la misma partición, fusionándolos en un solo intervalo. El movimiento de puntos o intervalos propiamente dichos entre particiones debe coordinarse mediante **UpdateMapping** junto con el movimiento de datos real. Puede usar el servicio de **División y combinación** que forma parte de las herramientas de base de datos elástica para coordinar los cambios de mapas de particiones con el movimiento de datos, cuando se requiere movimiento.
+    Tenga en cuenta que las operaciones de división y combinación **no cambian la partición a la que se asignan los valores de clave**. Una división divide un rango existente en dos partes, pero deja ambas partes como asignadas a la misma partición. Una combinación opera en dos intervalos adyacentes que ya están asignados a la misma partición, fusionándolos en un solo intervalo. El movimiento de puntos o intervalos propiamente dichos entre particiones debe coordinarse mediante **UpdateMapping** junto con el movimiento de datos real. Puede usar el servicio de **división y combinación** que forma parte de las herramientas de Base de datos elástica para coordinar los cambios de mapas de particiones con el movimiento de datos, cuando se requiere movimiento.
 
 * Para volver a asignar (o mover) puntos o intervalos individuales a particiones diferentes, use **UpdateMapping**.
 
@@ -253,4 +254,4 @@ Sin embargo, para escenarios que requieren movimiento de datos, se necesita la h
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

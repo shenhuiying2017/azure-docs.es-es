@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="11/02/2015" 
 	ms.author="glenga"/>
 
 # Automatización de servicios móviles con herramientas de línea de comandos 
@@ -184,4 +184,4 @@ Para obtener más información sobre el registro de scripts, consulte [Referenci
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

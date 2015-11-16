@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Uso de los perfiles de puntuación en la Búsqueda de Azure" 
-	description="Introducción a los perfiles de puntuación en la Búsqueda de Azure" 
+	pageTitle="Uso de los perfiles de puntuación en la Búsqueda de Azure | Microsoft Azure" 
+	description="Optimice la clasificación de búsqueda a través de perfiles de puntuación en Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Uso de los perfiles de puntuación en la Búsqueda de Azure
@@ -126,4 +126,4 @@ Obtenga más información sobre la sintaxis de búsqueda y los parámetros de co
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="11/03/2015"
 	ms.author="sdanie"/>
 
 # Cómo proteger un back-end de API web con Azure Active Directory y la administración de API
@@ -547,4 +547,4 @@ Para ver otra demostración de cómo configurar y usar esta directiva, vea [Clou
 [Creación de una instancia del servicio de administración de API]: api-management-get-started.md#create-service-instance
 [Administrar tu primera API]: api-management-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

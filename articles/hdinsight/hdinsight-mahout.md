@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="11/03/2015"
 	ms.author="larryfr"/>
 
 #Generación de recomendaciones de películas mediante Apache Mahout con Hadoop en HDInsight
@@ -105,7 +105,7 @@ Para su comodidad, [GroupLens Research][movielens] proporciona calificaciones de
             -Container $container `
             -Context $context
     
-    Esta acción carga el archivo __u.data__ en __example/data/u.data__ en el almacenamiento predeterminado del clúster. Después, puede tener acceso a estos datos usando el URI __wasb:///example/data/u.data__ de los trabajos de HDInsight.
+    Esta acción carga el archivo __u.data__ en __example/data/u.data__ en el almacenamiento predeterminado del clúster. Después, puede tener acceso a estos datos usando el URI \_\___wasb:///example/data/u.data__ de los trabajos de HDInsight.
 
 ###Ejecución del trabajo
 
@@ -133,7 +133,7 @@ Use el siguiente script de Windows PowerShell para ejecutar un trabajo que usa e
             
 	# NOTE: The version number portion of the file path
 	# may change in future versions of HDInsight.
-	$jarFile = "file:///C:/apps/dist/mahout-0.9.0.2.1.15.1-1234/examples/target/mahout-examples-0.9.0.2.1.15.1-1234-job.jar"
+	$jarFile = "file:///C:/apps/dist/mahout-0.9.0.2.2.7.1-33/examples/target/mahout-examples-0.9.0.2.2.7.1-33-job.jar"
     #
 	# If you are using an earlier version of HDInsight,
 	# set $jarFile to the jar file you
@@ -379,7 +379,7 @@ Uno de los métodos de clasificación disponibles con Mahout es compilar un [bos
 
 		hadoop jar c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasb:///example/data/KDDTrain+.arff -ds wasb:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
 
-    La salida de esta operación se almacena en el directorio __nsl-forest__, que está ubicado en el almacenamiento del clúster de HDInsight en __wasb://user/&lt;username>/nsl-forest/nsl-forest.seq. &lt;username> es el nombre de usuario utilizado para la sesión de Escritorio remoto. Este archivo no es legible para el ojo humano.
+    La salida de esta operación se almacena en el directorio __nsl-forest__, que está ubicado en el almacenamiento del clúster de HDInsight en \_\___wasb://user/&lt;username>/nsl-forest/nsl-forest.seq. &lt;username> es el nombre de usuario utilizado para la sesión de Escritorio remoto. Este archivo no es legible para el ojo humano.
 
 5. Para probar el bosque, clasifique el conjunto de datos __KDDTest+.arff__. Use el comando siguiente:
 
@@ -411,7 +411,7 @@ Uno de los métodos de clasificación disponibles con Mahout es compilar un [bos
 	    Reliability                                53.4921%
 	    Reliability (standard deviation)            0.4933
 
-  Este trabajo también genera un archivo ubicado en  __wasb:///example/data/predictions/KDDTest+.arff.out__. Sin embargo, este archivo no es legible por el ojo humano.
+  Este trabajo también genera un archivo ubicado en \_\___wasb:///example/data/predictions/KDDTest+.arff.out__. Sin embargo, este archivo no es legible por el ojo humano.
 
 > [AZURE.NOTE]Los trabajos de Mahout no sobrescriben archivos. Si desea ejecutar estos trabajos de nuevo, debe eliminar los archivos creados por trabajos anteriores.
 
@@ -421,10 +421,7 @@ Uno de los métodos de clasificación disponibles con Mahout es compilar un [bos
 
 Mahout se instala en clústeres de HDInsight 3.1, y se puede instalar manualmente en clústeres de HDInsight 3.0 o HDInsight 2.1 siguiendo estos pasos.
 
-1. La versión de Mahout que utilice depende de la versión de HDInsight del clúster. Para encontrar la versión del clúster, use el siguiente comando de [Azure PowerShell][aps]\:
-
-    	PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select version
-
+1. La versión de Mahout que utilice depende de la versión de HDInsight del clúster. Puede encontrar la versión de clúster en las propiedades del clúster en el portal de Azure.
 
   * __Para HDInsight 2.1__, puede descargar un archivo de almacenamiento Java (JAR) que contiene [Mahout 0.9](http://repo2.maven.org/maven2/org/apache/mahout/mahout-core/0.9/mahout-core-0.9-job.jar).
 
@@ -436,7 +433,7 @@ Mahout se instala en clústeres de HDInsight 3.1, y se puede instalar manualment
 
     	> [AZURE.NOTE] Cuando Mahout 1.0 esté disponible, podrá usar los paquetes de compilación previa con HDInsight 3.0.
 
-2. Cargue el archivo jar en __example/jars__ en el almacenamiento predeterminado del clúster. Reemplace CLUSTERNAME en el siguiente script por el nombre de su clúster de HDInsight y FILENAME por la ruta de acceso al archivo __mahout-coure-0,9-job.jar__.
+2. Cargue el archivo jar en __example/jars__ en el almacenamiento predeterminado del clúster. Reemplace CLUSTERNAME en el siguiente script por el nombre de su clúster de HDInsight y FILENAME por la ruta de acceso al archivo __mahout-coure-0.9-job.jar__.
 
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterName = "CLUSTERNAME"
@@ -469,10 +466,24 @@ Para evitar errores al ejecutar trabajos de Mahout, elimine los archivos tempora
 
 ###No se encuentra el archivo JAR
 
-Los clústeres de HDInsight 3.1 incluyen Mahout. La ruta y el nombre de archivo incluyen el número de la versión de Mahout instalada en el clúster. El script de ejemplo de WindowsPowerShell de este tutorial usa una ruta que es válida a partir de julio de 2014, pero el número de la versión cambiará en futuras actualizaciones de HDInsight. Para determinar la ruta actual al archivo JAR de Mahout de su clúster, use el siguiente comando de Windows PowerShell y luego modifique el script para que haga referencia a la ruta de archivo devuelta:
+Los clústeres de HDInsight 3.1 incluyen Mahout. La ruta y el nombre de archivo incluyen el número de la versión de Mahout instalada en el clúster. El script de ejemplo de Windows PowerShell de este tutorial usa una ruta que es válida a partir de noviembre de 2015, pero el número de la versión cambiará en futuras actualizaciones de HDInsight. Para determinar la ruta actual al archivo JAR de Mahout de su clúster, use el siguiente comando de Windows PowerShell y luego modifique el script para que haga referencia a la ruta de archivo devuelta:
 
-	Use-AzureHDInsightCluster -Name $clusterName
-	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar'
+	Use-AzureRmHDInsightCluster -ClusterName $clusterName
+    #Get the cluster info so we can get the resource group, storage, etc.
+        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+        $resourceGroup = $clusterInfo.ResourceGroup
+        $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
+        $container=$clusterInfo.DefaultStorageContainer
+        $storageAccountKey=Get-AzureRmStorageAccountKey `
+            -Name $storageAccountName `
+            -ResourceGroupName $resourceGroup `
+            | %{ $_.Key1 }
+    Invoke-AzureRmHDInsightHiveJob `
+            -StatusFolder "wasb:///example/statusout" `
+            -DefaultContainer $container `
+            -DefaultStorageAccountName $storageAccountName `
+            -DefaultStorageAccountKey $storageAccountKey `
+            -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar'
 
 ###<a name="nopowershell"></a>Clases que no funcionan con Windows PowerShell
 
@@ -520,4 +531,4 @@ Ahora que ha aprendido a usar a Mahout, descubra otras formas de trabajar con da
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->
