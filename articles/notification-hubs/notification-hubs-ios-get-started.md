@@ -210,7 +210,7 @@ Si desea enviar notificaciones dentro de una aplicación. Esta sección proporci
 		#import <CommonCrypto/CommonHMAC.h>
 		#import "HubInfo.h"
 
-5. En ViewController.m, agregue el siguiente código a la implementación de interfaz. Este código analizará la cadena de conexión *DefaultFullSharedAccessSignature*. Como se mencionó en la [Referencia de la API de REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), esta información analizada se usará para generar un token SaS para el encabezado de la solicitud **Autorización**.
+5. En ViewController.m, agregue el siguiente código a la implementación de la interfaz. Este código analizará la cadena de conexión *DefaultFullSharedAccessSignature*. Como se mencionó en la [Referencia de la API de REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), esta información analizada se usará para generar un token SaS para el encabezado de la solicitud **Autorización**.
 
 		NSString *HubEndpoint;
 		NSString *HubSasKeyName;
@@ -503,4 +503,4 @@ Para obtener más información general sobre los Centros de notificaciones, cons
 
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

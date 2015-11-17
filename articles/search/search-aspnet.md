@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Conexión de la Búsqueda de Azure con aplicaciones web de ASP.NET | Microsoft Azure"
+	pageTitle="Conexión de Búsqueda de Azure con aplicaciones web de ASP.NET | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
 	description="Conecte una aplicación web de ASP.NET MVC con Búsqueda de Azure, un servicio de búsqueda hospedada en la nube. Aprenda a conectar, consultar y representar los resultados mediante la biblioteca .Net o la API de REST."
 	services="search"
 	documentationCenter=""
@@ -462,4 +462,4 @@ Para fomentar el conocimiento de Búsqueda de Azure y la integración con ASP.NE
 - [Caso práctico para desarrolladores de Búsqueda de Azure](search-dev-case-study-whattopedia.md)
 - [Flujo de trabajo de desarrollo típico para Búsqueda de Azure](search-workflow.md) 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

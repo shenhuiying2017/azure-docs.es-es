@@ -157,15 +157,34 @@ Ahora está todo listo para enviar un aviso. Ahora comprobaremos que ha llevado 
 
 ###Concesión de acceso a Mobile Engagement para enviar notificaciones
 
-1. Tendrá que asociar la aplicación con una aplicación de la Tienda Windows para obtener su **Identificador de seguridad de paquete (SID)** y su **Clave secreta** (Secreto de cliente). Puede crear una aplicación desde el [Centro de desarrollo de la Tienda Windows] y, luego, asegúrese de **Asociar la aplicación con la Tienda** desde Visual Studio.
+1. Abra [Centro de desarrollo de Tienda Windows] en el explorador web, inicie sesión y cree una cuenta, si es necesario.
+2. Haga clic en **Panel** en la esquina superior derecha y, a continuación, haga clic en **Crear una nueva aplicación** desde el menú del panel izquierdo. 
 
-	![][7]
+	![][9]
 
-2. Desplácese a la **Configuración** del portal de Mobile Engagement y haga clic en la sección **Inserción nativa** de la izquierda.
+2. Cree la aplicación mediante la reserva de su nombre.
 
-3. Haga clic en el botón **Editar** para especificar el **Identificador de seguridad de paquete (SID)** y su **Clave secreta**, tal como se muestra a continuación:
+	![][10]
+
+3. Una vez creada la aplicación, vaya a **Servicios -> Notificaciones de inserción** en el menú izquierdo.
+
+	![][11]
+
+4. En la sección Notificaciones de inserción, haga clic en el vínculo **sitio de Servicios Live**.
+
+	![][12]
+
+5. Se abrirá la sección de credenciales de inserción. Asegúrese de que se encuentra en la sección **Configuración de aplicaciones** y, a continuación, copie su **SID del paquete** y **Secreto del cliente**
+
+	![][13]
+
+6. Desplácese a la **Configuración** del portal de Mobile Engagement y haga clic en la sección **Inserción nativa** de la izquierda. A continuación, haga clic en el botón **Editar** para especificar el **Identificador de seguridad de paquete (SID)** y su **Clave secreta** tal como se muestra a continuación:
 
 	![][6]
+
+8. Por último, asegúrese de que asoció la aplicación de Visual Studio a esta aplicación creada en la tienda de aplicaciones. Debe hacer clic en **Asociar aplicación con la Tienda** de Visual Studio para ello.
+
+	![][7]
 
 ##<a id="send"></a>Enviar una notificación a su aplicación
 
@@ -178,7 +197,7 @@ Si la aplicación se estaba ejecutando, verá entonces una notificación desde l
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9864592
-[Centro de desarrollo de la Tienda Windows]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409
+[Centro de desarrollo de Tienda Windows]: https://dev.windows.com
 [Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
@@ -189,5 +208,10 @@ Si la aplicación se estaba ejecutando, verá entonces una notificación desde l
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
 [7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
 [8]: ./media/mobile-engagement-windows-store-dotnet-get-started/vs-suspend.png
+[9]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_create_app.png
+[10]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_app_name.png
+[11]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push.png
+[12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
+[13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

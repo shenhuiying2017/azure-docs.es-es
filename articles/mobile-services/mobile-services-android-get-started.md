@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/08/2015"
+	ms.date="11/05/2015"
 	ms.author="ricksal"/>
 
 # Introducción a Servicios móviles para Android (back-end JavaScript)
@@ -28,7 +28,9 @@ En este tutorial se muestra cómo agregar un servicio back-end basado en la nube
 
 > [AZURE.VIDEO mobile-get-started-android]
 
-A continuación se muestra una captura de pantalla de la aplicación completada: ![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
+La siguiente captura de pantalla muestra la aplicación final:
+
+![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
 
 ## Requisitos previos
 
@@ -93,4 +95,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

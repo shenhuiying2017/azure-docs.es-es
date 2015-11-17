@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Flujo de trabajo de desarrollo típico para Búsqueda de Azure | Microsoft Azure"
+	pageTitle="Flujo de trabajo de desarrollo típico para Búsqueda de Azure | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
 	description="Un flujo de trabajo o una guía básica para la creación de prototipos y aplicaciones de producción que se integran con Búsqueda de Azure, un servicio de búsqueda hospedado en la nube."
 	services="search"
 	documentationCenter=""
@@ -112,7 +112,7 @@ Ahora que tiene un servicio y un índice, puede experimentar con otras caracter�
 
 **Proveedores de sugerencias:** se refiere a la característica que autocompleta o anticipa la escritura de las consultas, devolviendo sugerencias para los términos de búsqueda a medida que el usuario escribe los primeros caracteres de una frase de búsqueda. Consulte [Sugerencias](https://msdn.microsoft.com/library/dn798936.aspx) o [Suggesters Class](https://msdn.microsoft.com/library/microsoft.azure.search.models.suggester.aspx) para obtener más información.
 
-**Analizadores de lenguaje:** proporcionan las reglas lingüísticas utilizadas durante el análisis de texto. El analizador de lenguaje predeterminado para Búsqueda de Azure es Lucene para inglés, pero se pueden utilizar otros o incluso varios analizadores especificándolos en el índice. Los analizadores de Lucene están disponibles en todas las API. Los procesadores de lenguaje natural de Microsoft solo están disponibles en [Versión de API de REST 2015-02-28 Preview](search-api-2015-02-28-preview.md). Consulte [Compatibilidad de idioma](https://msdn.microsoft.com/library/dn879793.aspx) para obtener más información.
+**Analizadores de lenguaje:** proporcionan las reglas lingüísticas utilizadas durante el análisis de texto. El analizador de lenguaje predeterminado para Búsqueda de Azure es Lucene para inglés, pero se pueden utilizar otros o incluso varios analizadores especificándolos en el índice. Los analizadores de Lucene están disponibles en todas las API. Los procesadores de lenguaje natural de Microsoft solo están disponibles en [Versión de API de REST 2015-02-28 Preview](search-api-2015-02-28-preview.md). Consulte [Compatibilidad de idioma ](https://msdn.microsoft.com/library/dn879793.aspx) para obtener más información.
 
 ### Paso 6: actualización de índices y documentos
 
@@ -190,4 +190,4 @@ Recuerde que solo el nivel de precios estándar se pueden escalar o reducir. Ade
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

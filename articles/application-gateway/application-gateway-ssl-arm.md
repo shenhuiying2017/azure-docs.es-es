@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Configuración de una Puerta de enlace de aplicaciones para la descarga SSL con el Administrador de recursos de Azure | Microsoft Azure"
+   pageTitle="Configuración de una puerta de enlace de aplicaciones para la descarga SSL con el Administrador de recursos de Azure | Microsoft Azure"
    description="En esta página se ofrecen instrucciones para crear una Puerta de enlace de aplicaciones con descarga SSL mediante el Administrador de recursos de Azure"
    documentationCenter="na"
    services="application-gateway"
@@ -15,20 +15,23 @@
    ms.date="10/28/2015"
    ms.author="joaoma"/>
 
-# Configuración de una Puerta de enlace de aplicaciones para la descarga SSL con el Administrador de recursos de Azure
+# Configuración de una puerta de enlace de aplicaciones para la descarga SSL con el Administrador de recursos de Azure
 
+> [AZURE.SELECTOR]
+-[Azure Classic Powershell](application-gateway-ssl.md)
+-[Azure Resource Manager Powershell](application-gateway-ssl-arm.md)
 
  Puerta de enlace de aplicaciones puede configurarse para terminar la sesión SSL en la puerta de enlace para evitar la costosa tarea de descifrado SSL que tiene lugar en la granja de servidores web. La descarga SSL también simplifica la configuración del servidor front-end y la administración de la aplicación web.
 
 
->[AZURE.IMPORTANT]Antes de trabajar con recursos de Azure, es importante comprender que Azure tiene actualmente dos modelos de implementación: el Administrador de recursos y el clásico. Asegúrese de que comprende los [modelos de implementación y las herramientas](azure-classic-rm.md) antes de trabajar con recursos de Azure. Puede ver la documentación de las distintas herramientas haciendo clic en las pestañas de la parte superior de este artículo. Este documento tratará de la creación de una Puerta de enlace de aplicaciones con el Administrador de recursos de Azure. Para usar la versión clásica, vaya a [Configuración de una Puerta de enlace de aplicaciones para carga SSL con PowerShell](application-gateway-ssl.md).
+>[AZURE.IMPORTANT]Antes de trabajar con recursos de Azure, es importante comprender que Azure tiene actualmente dos modelos de implementación: el modelo clásico y el Administrador de recursos. Asegúrese de que comprende los [modelos de implementación y las herramientas](azure-classic-rm.md) antes de trabajar con recursos de Azure. Para ver la documentación de las distintas herramientas, haga clic en las pestañas de la parte superior de este artículo. Este documento tratará de la creación de una Puerta de enlace de aplicaciones con el Administrador de recursos de Azure. Para usar el modelo de implementación clásico, vaya a [Configuración de una Puerta de enlace de aplicaciones para la descarga SSL con el Administrador de recursos de Azure](application-gateway-ssl.md).
 
 
 
 ## Antes de empezar
 
 1. Instale la versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente de la sección **Windows PowerShell** de la [página de descarga](http://azure.microsoft.com/downloads/).
-2. Creará una red virtual y subred para la Puerta de enlace de aplicaciones. Asegúrese de que no hay máquinas virtuales o de que las implementaciones de nube usan la subred. La Puerta de enlace de aplicaciones debe encontrarse en una subred de red virtual.
+2. Creará una red virtual y una subred para la Puerta de enlace de aplicaciones. Asegúrese de que no hay máquinas virtuales o de que las implementaciones en la nube usan la subred. La Puerta de enlace de aplicaciones debe encontrarse en una subred de red virtual.
 3. Los servidores que configurará para usar la Puerta de enlace de aplicaciones deben existir o tener sus extremos creados en la red virtual o tener una VIP/IP pública asignada.
 
 ## ¿Qué se necesita para crear una Puerta de enlace de aplicaciones?
@@ -36,22 +39,22 @@
 
 - **Grupo de servidores back-end:** la lista de direcciones IP de los servidores back-end. Las direcciones IP mostradas deben pertenecer a la subred de la red virtual o ser una VIP/IP pública. 
 - **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración como el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
-- **Puerto front-end:** este puerto es el puerto público abierto en la Puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
-- **Agente de escucha:** este agente tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL). 
-- **Regla:** enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se redirigirá el tráfico cuando se seleccione un agente de escucha concreto. Actualmente, solo se admite la regla *básica*. La regla *básica* es la distribución de carga round robin.
+- **Puerto front-end:** este puerto es el puerto público abierto en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
+- **Agente de escucha:** la escucha tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL). 
+- **Regla:** enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se redirigirá el tráfico cuando se seleccione un agente de escucha concreto. Actualmente, solo se admite la regla *básica*. La regla *basic* regla es la distribución de carga round robin.
 
 **Notas de configuración adicionales:**
 
 Para la configuración de certificados SSL, el protocolo de **HttpListener** debería cambiar a *Https* (con distinción entre mayúsculas y minúsculas). El elemento **SslCertificate** debe agregarse a **HttpListener** con el valor de la variable configurado para el certificado SSL. El puerto front-end debe actualizarse a 443.
 
-**Para habilitar la afinidad basada en cookies**: se puede configurar una Puerta de enlace de aplicaciones para asegurarse de que la solicitud de una sesión de cliente siempre se dirige a la misma máquina virtual en la granja de servidores web. Para ello es necesario inyectar una cookie de sesión que permite a la puerta de enlace dirigir el tráfico de forma adecuada. Para habilitar la afinidad basada en cookies, establezca **CookieBasedAffinity** en *Habilitado * en el elemento **BackendHttpSettings**.
+**Para habilitar la afinidad basada en cookies**: se puede configurar una puerta de enlace de aplicaciones para asegurarse de que la solicitud de una sesión de cliente siempre se dirige a la misma máquina virtual en la granja de servidores web. Para ello es necesario inyectar una cookie de sesión que permite a la puerta de enlace dirigir el tráfico de forma adecuada. Para habilitar la afinidad basada en cookies, establezca **CookieBasedAffinity** en *Enabled * en el elemento **BackendHttpSettings**.
 
  
-## Creación de una Puerta de enlace de aplicaciones
+## Creación de una nueva puerta de enlace de aplicaciones
 
-La diferencia entre el uso clásico del portal clásico de Azure y el Administrador de recursos de Azure será el orden en que creará la Puerta de enlace de aplicaciones y los elementos que es necesario configurar.
+La diferencia entre el uso del modelo de implementación clásico de Azure y el Administrador de recursos de Azure será el orden en que creará una Puerta de enlace de aplicaciones y los elementos que es necesario configurar.
 
-Con el Administrador de recursos, todos los elementos que componen una Puerta de enlace de aplicaciones se configurarán individualmente y, a continuación, se unirán para crear el recurso Puerta de enlace de aplicaciones.
+Con el Administrador de recursos, todos los elementos que componen una Puerta de enlace de aplicaciones se configurarán individualmente y, a continuación, se unirán para crear el recurso de Puerta de enlace de aplicaciones.
 
 
 A continuación se proporcionan los pasos necesarios para crear una Puerta de enlace de aplicaciones:
@@ -59,12 +62,12 @@ A continuación se proporcionan los pasos necesarios para crear una Puerta de en
 1. Creación de un grupo de recursos para el Administrador de recursos
 2. Creación de una red virtual, una subred y una dirección IP pública para la Puerta de enlace de aplicaciones
 3. Creación de un objeto de configuración de la Puerta de enlace de aplicaciones
-4. Creación de un recurso para la Puerta de enlace de aplicaciones
+4. Creación de un recurso de Puerta de enlace de aplicaciones
 
 
 ## Creación de un grupo de recursos para el Administrador de recursos
 
-Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del ARM. Hay más información disponible en Uso de [Windows Powershell con el Administrador de recursos](powershell-azure-resource-manager.md).
+Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del ARM. Hay más información disponible en [Uso de Windows PowerShell con el Administrador de recursos](powershell-azure-resource-manager.md).
 
 ### Paso 1
 
@@ -145,7 +148,7 @@ Este paso configurará el grupo de direcciones IP back-end denominado "pool01" c
 
 	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
 
-Configura la opción de Puerta de enlace de aplicaciones "poolsetting01" para el tráfico de red con carga equilibrada en el grupo de back-end.
+Configura la opción de Puerta de enlace de aplicaciones "poolsetting01" para un tráfico de red con carga equilibrada en el grupo de back-end.
 
 ### Paso 4
 
@@ -167,7 +170,7 @@ Crea la configuración de direcciones IP front-end denominada "fipconfig01" y as
 
 ### Paso 7
 
-	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
+	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
 
 
 Crea el nombre de agente de escucha "listener01" y asocia el puerto front-end con la configuración de direcciones IP front-end y el certificado.
@@ -182,7 +185,7 @@ Crea la regla de enrutamiento del equilibrador de carga denominado "rule01" medi
 
 	$sku = New-AzureApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-Configura el tamaño de la instancia de la Puerta de enlace de aplicaciones
+Configura el tamaño de la instancia de la Puerta de enlace de aplicaciones.
 
 >[AZURE.NOTE]El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Puede elegir entre Standard\_Small, Standard\_Medium y Standard\_Large.
 
@@ -219,9 +222,9 @@ Use `Start-AzureApplicationGateway` para iniciar la Puerta de enlace de aplicaci
 
 ## Verificación del estado de la Puerta de enlace de aplicaciones
 
-Use el cmdlet `Get-AzureApplicationGateway` para comprobar el estado de la puerta de enlace. Si *Start-AzureApplicationGateway* se realizó correctamente en el paso anterior, el estado debe ser *En ejecución*, y Vip y DnsName deben tener entradas válidas.
+Use el cmdlet `Get-AzureApplicationGateway` para comprobar el estado de la puerta de enlace. Si *Start-AzureApplicationGateway* se ha completado correctamente en el paso anterior, el estado debería ser *En ejecución * y los valores VIP y DnsName deben tener entradas válidas.
 
-Este ejemplo muestra una Puerta de enlace de aplicaciones que está operativa, en ejecución y lista para asumir el tráfico destinado a `http://<generated-dns-name>.cloudapp.net`.
+Este ejemplo muestra una puerta de enlace de aplicaciones que está operativa, en ejecución y lista para asumir el tráfico destinado a `http://<generated-dns-name>.cloudapp.net`.
 
 	Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
@@ -379,4 +382,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

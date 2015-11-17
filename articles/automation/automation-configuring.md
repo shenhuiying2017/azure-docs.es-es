@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/22/2015"
+   ms.date="11/02/2015"
    ms.author="bwren" />
 
 # Configuración de Automatización de Azure
@@ -21,7 +21,7 @@ Este artículo describe las acciones que debe realizar para comenzar a usar Auto
 
 ## Cuentas de automatización
 
-Cuando inicia Automatización de Azure por primera vez, debe crear al menos una cuenta de Automatización. Las cuentas de Automatización le permiten aislar los recursos de Automatización (runbooks, recursos) desde los recursos de Automatización contenidos en otras cuentas de Automatización. Puede usar cuentas de Automatización para separar recursos de Automatización en entornos lógicos independientes. Por ejemplo, puede usar una cuenta para desarrollo y otra para producción.
+Cuando inicia Automatización de Azure por primera vez, debe crear al menos una cuenta de Automatización. Las cuentas de Automatización le permiten aislar los recursos de Automatización (runbooks, recursos, configuraciones) desde los recursos de Automatización contenidos en otras cuentas de Automatización. Puede usar cuentas de Automatización para separar recursos de Automatización en entornos lógicos independientes. Por ejemplo, puede usar una cuenta para desarrollo y otra para producción.
 
 Los recursos de Automatización de cada cuenta de Automatización están asociados con una sola región de Azure, pero las cuentas de Automatización pueden administrar servicios de Azure en cualquier región. El principal motivo para crear cuentas de Automatización en distintas regiones sería si tiene directivas que requieren que los datos y recursos se aíslen en una región específica.
 
@@ -67,4 +67,4 @@ Deberá repetir estas líneas después de cada [punto de control](http://technet
 - [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) (Automatización de Azure: autenticación en Azure mediante Azure Active Directory)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

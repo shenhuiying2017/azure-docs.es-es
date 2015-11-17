@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creación de un servicio Búsqueda de Azure en el portal | Microsoft Azure"
+	pageTitle="Creación de un servicio Búsqueda de Azure en el Portal | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
 	description="Agregue una Búsqueda de Azure gratis o estándar a una suscripción existente mediante el portal de Azure Búsqueda de Azure es un servicio de búsqueda hospedado en la nube para aplicaciones personalizadas."
 	services="search"
 	documentationCenter=""
@@ -19,11 +19,11 @@
 
 # Creación de un servicio Búsqueda de Azure en el portal de Azure
 
-Búsqueda de Microsoft Azure es un nuevo servicio que le permite incrustar funcionalidad de búsqueda en aplicaciones personalizadas. Proporciona un motor de búsqueda y almacenamiento para sus datos de búsqueda, cuyo acceso y administración se gestionan mediante el portal de Azure, un SDK de .NET o una API de REST. Entre las funciones clave se incluyen consultas de Autocompletar, la coincidencia aproximada, la navegación con facetas, el resaltado de resultados y la compatibilidad con varios idiomas. Para obtener más información acerca del funcionamiento de Búsqueda de Azure, consulte [Introducción a Búsqueda de Azure](fundamentals-azure-search-chappell/).
+Búsqueda de Microsoft Azure es un servicio de búsqueda hospedado en la nube que le permite insertar funcionalidad de búsqueda en aplicaciones personalizadas. Proporciona un motor de búsqueda y almacenamiento para sus datos de búsqueda, a los que puede acceder y administrarlos mediante el Portal de Azure, un SDK de .NET o una API de REST. Entre las funciones clave se incluyen consultas de autocompletar, la coincidencia aproximada, la navegación con facetas, el resaltado de resultados, los perfiles de puntuación y la compatibilidad con varios idiomas. Para obtener más información acerca del funcionamiento de Búsqueda de Azure, consulte [Qué es Búsqueda de Azure](seach-what-is-search.md).
 
-## Adición de Búsqueda de Azure a una suscripción  
+## Incorporación de Búsqueda de Azure a una suscripción de forma gratuita
 
-Como administrador, puede agregar Búsqueda de Azure a una suscripción existente sin costo alguno al seleccionar el servicio compartido (o a una tarifa estándar cuando se opta por recursos específicos).
+Como administrador, puede agregar Búsqueda de Azure a una suscripción de Azure existente sin costo alguno al seleccionar el servicio compartido (o a una tarifa estándar cuando se opta por recursos específicos).
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
@@ -52,25 +52,14 @@ Como administrador, puede agregar Búsqueda de Azure a una suscripción existent
 
 Preste atención a las notificaciones de la barra de salto. Cuando el servicio esté listo para su uso, aparecerá un aviso.
 
-<a id="sub-2"></a>
-## Buscar el nombre del servicio y las claves de API del servicio Búsqueda de Azure
-
-Después de crear el servicio, puede volver al portal de Azure para obtener la dirección URL o la `api-key`. Las conexiones con el servicio de Búsqueda de Azure requieren que tenga la URL y una `api-key` para autenticar la llamada.
-
-1. En la barra de salto, haga clic en **Inicio** y, a continuación, haga clic en el servicio Búsqueda de Azure para abrir el panel del servicio.
-
-2. En el panel del servicio verá mosaicos con información esencial, así como el icono de llave para tener acceso a las claves de administrador.
-
-  	![][3]
-
-3. Copie la dirección URL del servicio y una clave de administración. Los necesitará para la tarea siguiente, [Probar las operaciones de servicio](#sub-4).
-
 <a id="sub-3"></a>
-## Actualización al nivel estándar
+## Incorporación de un servicio de búsqueda de nivel Estándar para obtener recursos dedicados
 
-Muchos clientes comienzan con el servicio gratuito y posteriormente actualizan al nivel estándar cuando el rendimiento de las consultas o el almacenamiento no es suficiente para las cargas de trabajo que deben ejecutar. El nivel estándar ofrece recursos dedicados en un centro de datos de Azure que solo usted puede usar. Las operaciones de Búsqueda de Azure requieren réplicas de almacenamiento y servicio. Al registrarse para una búsqueda estándar, puede optimizar la configuración del servicio para usar más de cualquier recurso que sea el más importante para su escenario.
+Muchos clientes comienzan con el servicio gratuito y después cambian al nivel Estándar para dar cabida a cargas de trabajo mayores. El nivel Estándar ofrece recursos dedicados en un centro de datos de Azure que solo usted puede usar.
 
-Para usar el nivel estándar, repita los pasos anteriores de este artículo para crear un nuevo servicio de Búsqueda de Azure y elija el plan de tarifas estándar. Tenga en cuenta que la configuración de recursos dedicados puede tardar unos minutos (hasta 15 minutos o más).
+Las operaciones de Búsqueda de Azure requieren réplicas de almacenamiento y servicio. A diferencia del servicio gratuito, que no tiene ninguna opción para agregar recursos, el nivel Estándar permite escalar verticalmente para agregar más almacenamiento o soporte de consultas al incrementar el recurso que sea más importante en su escenario.
+
+Para usar el nivel Estándar, debe crear un servicio de búsqueda con ese nivel de precios. Puede repetir los pasos anteriores de este artículo para crear un servicio Búsqueda de Azure. Tenga en cuenta que la configuración de recursos dedicados puede tardar unos minutos (hasta 15 minutos o más).
 
 No hay ninguna actualización de la versión gratuita. Cambiar al modo estándar, con su potencial de escalación, requiere un servicio nuevo. Tendrá que volver a cargar los índices y documentos usados por su aplicación de búsqueda.
 
@@ -85,6 +74,20 @@ El servicio Búsqueda de Azure a nivel estándar se crea con una réplica y una 
 Las réplicas y las particiones adicionales se cobran en unidades de búsqueda. El total de unidades de búsqueda necesario para admitir una configuración de recursos en particular se muestra en la página, a medida que agrega recursos.
 
 Puede consultar [Detalles de precios](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obtener la información de facturación por unidad. Consulte [Límites y restricciones](search-limits-quotas-capacity.md) para obtener ayuda para decidir cómo configurar las combinaciones de partición y de réplica.
+
+<a id="sub-2"></a>
+## Buscar el nombre del servicio y las claves de API del servicio Búsqueda de Azure
+
+Después de crear el servicio, puede volver al portal de Azure para obtener la dirección URL o la `api-key`. Las conexiones con el servicio de Búsqueda de Azure requieren que tenga la URL y una `api-key` para autenticar la llamada.
+
+1. En la barra de salto, haga clic en **Inicio** y, a continuación, haga clic en el servicio Búsqueda de Azure para abrir el panel del servicio.
+
+2. En el panel del servicio verá mosaicos con información esencial, así como el icono de llave para tener acceso a las claves de administrador.
+
+  	![][3]
+
+3. Copie la dirección URL del servicio y una clave de administración. Los necesitará para la tarea siguiente, [Probar las operaciones de servicio](#sub-4).
+
 
 <a id="sub-4"></a>
 ## Prueba de operaciones del servicio
@@ -120,4 +123,4 @@ En la siguiente información adicional, se explica cómo compilar y administrar 
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

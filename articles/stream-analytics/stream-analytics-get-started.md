@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Introducción al Análisis de transmisiones: detección de fraudes en tiempo real | Microsoft Azure"
 	description="Aprenda a crear una solución para la detección de fraudes en tiempo real con Análisis de transmisiones. Use un centro de eventos para el procesamiento de eventos en tiempo real."
-	keywords="event hub,fraud detection,real-time,real-time processing"
+	keywords="concentrador de eventos,detección de fraudes,tiempo real,procesamiento en tiempo real"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="10/05/2015"
+	ms.date="11/06/2015"
 	ms.author="jeffstok" />
 
 
@@ -257,4 +257,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/14/2015"
+	ms.date="11/10/2015"
 	ms.author="cabailey"/>
 
 # Introducción al Almacén de claves de Azure #
@@ -35,7 +35,7 @@ Para obtener información general sobre el Almacén de claves de Azure, consulte
 Para realizar este tutorial, necesitará lo siguiente:
 
 - Una suscripción a Microsoft Azure. Si no tiene una, puede registrarse para obtener una versión de [evaluación gratuita](../../../../pricing/free-trial).
-- Azure PowerShell, de la versión 0.9.1 a la 0.9.8. Para instalar Azure PowerShell y asociarla con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+- Azure PowerShell, **versión mínima: 1.0**. Para instalar Azure PowerShell y asociarla con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md). Si ya instaló Azure PowerShell y no sabe la versión, en la consola de Azure PowerShell, escriba `(Get-Module azure -ListAvailable).Version`. Si tiene Azure PowerShell versiones 0.9.1 a 0.9.8 instalado, también puede usar este tutorial con algunos cambios menores. Por ejemplo, debe usar el comando `Switch-AzureMode AzureResourceManager` y algunos de los comandos de Almacén de claves de Azure que cambiaron. Para obtener una lista de los cmdlets de Almacén de claves para las versiones 0.9.1 a 0.9.8, consulte [Cmdlets de Almacén de claves de Azure](https://msdn.microsoft.com/library/azure/dn868052(v=azure.98).aspx). 
 - Una aplicación que se configurará para utilizar la clave o contraseña creada en este tutorial. Hay una aplicación de ejemplo disponible en el [Centro de descarga de Microsoft](http://www.microsoft.com/es-ES/download/details.aspx?id=45343). Para obtener instrucciones, consulte el archivo Léame adjunto.
 
 
@@ -59,53 +59,46 @@ Lea también los siguientes tutoriales para familiarizarse con el Administrador 
 
 Inicie una sesión de PowerShell de Azure e inicie sesión en su cuenta de Azure con el siguiente comando:
 
-    Add-AzureAccount
+    Login-AzureRmAccount 
 
 En la ventana emergente del explorador, escriba el nombre de usuario y la contraseña de su cuenta de Azure. Azure PowerShell obtendrá todas las suscripciones que están asociadas a esta cuenta y, de forma predeterminada, usará la primera.
 
 Si tiene varias suscripciones y desea especificar una en concreto para que use el Almacén de claves de Azure, escriba lo siguiente para ver las suscripciones de su cuenta:
 
-    Get-AzureSubscription
+    Get-AzureRmSubscription
 
 A continuación, para especificar la suscripción que se debe usar, escriba:
 
-    Select-AzureSubscription -SubscriptionName <subscription name>
+    Set-AzureRmContext -SubscriptionId <subscription ID>
 
 Para obtener más información sobre cómo configurar PowerShell de Azure, consulte [Instalación y configuración de PowerShell de Azure](../powershell-install-configure.md).
 
-## <a id="switch"></a>Cambio al Administrador de recursos de Azure ##
-
-Las versiones de los cmdlets del Almacén de claves de Azure de este tutorial necesitan el Administrador de recursos de Azure. Por lo tanto, escriba lo siguiente para cambiar al modo de Administrador de recursos de Azure:
-
-	Switch-AzureMode AzureResourceManager
 
 ## <a id="resource"></a>Creación de un nuevo grupo de recursos ##
 
 Cuando se utiliza el Administrador de recursos de Azure, todos los recursos relacionados se crean dentro de un grupo de recursos. Crearemos un nuevo grupo de recursos denominado **ContosoResourceGroup** para este tutorial:
 
-	New-AzureResourceGroup –Name 'ContosoResourceGroup' –Location 'East Asia'
-
-Para el parámetro **- Location**, use el comando [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn654582.aspx) para identificar cómo se debe especificar una ubicación alternativa a la usada en este ejemplo. Si necesita más información, escriba: `Get-Help Get-AzureLocation`
+	New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East Asia'
 
 
 ## <a id="vault"></a>Creación de un Almacén de claves ##
 
-Utilice el cmdlet [New-AzureKeyVault](https://msdn.microsoft.com/library/azure/dn903602(v=azure.98).aspx) para crear un Almacén de claves. Este cmdlet tiene tres parámetros obligatorios: el **nombre del grupo de recursos**, el **nombre del Almacén de claves** y la **ubicación geográfica**.
+Use el cmdlet [New-AzureKeyVault](https://msdn.microsoft.com/library/azure/mt603736.aspx) para crear un almacén de claves. Este cmdlet tiene tres parámetros obligatorios: el **nombre del grupo de recursos**, el **nombre del Almacén de claves** y la **ubicación geográfica**.
 
 Por ejemplo, si utiliza el nombre del almacén de **ContosoKeyVault**, el nombre del grupo de recursos **ContosoResourceGroup** y la ubicación **East Asia**, deberá escribir:
 
-    New-AzureKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
+    New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
 
 El resultado de este cmdlet muestra las propiedades del Almacén de claves que acaba de crear. Las dos propiedades más importantes son:
 
-- **Name**: en este ejemplo, el nombre es **ContosoKeyVault**. Utilizará este nombre para otros cmdlets del Almacén de claves.
-- **vaultUri**: en este ejemplo, es https://contosokeyvault.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
+- **Nombre del almacén**: en este ejemplo, el nombre es **ContosoKeyVault**. Utilizará este nombre para otros cmdlets del Almacén de claves.
+- **URI del almacén**: en este ejemplo, es https://contosokeyvault.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
 
 Su cuenta de Azure ahora está autorizada para realizar operaciones en este Almacén de claves. Hasta el momento, nadie más lo está.
 
 ## <a id="add"></a>Adición de una clave o un secreto al Almacén de claves ##
 
-Si desea que el Almacén de claves de Azure cree una clave protegida mediante software, utilice el cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048(v=azure.98).aspx) y escriba lo siguiente:
+Si desea que el Almacén de claves de Azure cree una clave protegida mediante software, utilice el cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) y escriba lo siguiente:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
@@ -173,17 +166,17 @@ Para registrar la aplicación en Azure Active Directory:
 
 ## <a id="authorize"></a>Autorización de la aplicación para que use la clave o el secreto ##
 
-Para que la aplicación pueda tener acceso a la clave o el secreto en el almacén, utilice el cmdlet [Set-AzureKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/dn903607(v=azure.98).aspx).
+Para permitir que la aplicación acceda a la clave o el secreto en el almacén, use el cmdlet [Set-AzureKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx).
 
 Por ejemplo, si el nombre del almacén es **ContosoKeyVault** y la aplicación que desea autorizar tiene el identificador de cliente 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed y desea que la aplicación tenga autorización para descifrar y firmar con claves en el almacén, ejecute lo siguiente:
 
 
-	Set-AzureKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
+	Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
 
 Si desea autorizar a esa misma aplicación para leer los secretos en el almacén, ejecute lo siguiente:
 
 
-	Set-AzureKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
+	Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 
 ## <a id="HSM"></a>Si desea utilizar un módulo de seguridad de hardware (HSM) ##
 
@@ -195,7 +188,7 @@ Para crear estas claves protegidas con HSM, debe contar con una [suscripción de
 Cuando cree el almacén, agregue el parámetro **-SKU**:
 
 
-	New-AzureKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -SKU 'Premium'
+	New-AzureRmKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -SKU 'Premium'
 
 
 
@@ -216,13 +209,13 @@ Para obtener instrucciones detalladas sobre cómo generar el paquete BYOK, consu
 
 ## <a id="delete"></a>Eliminación del Almacén de claves junto con las claves y secretos asociados ##
 
-Si ya no necesita el Almacén de claves ni la clave o el secreto que contiene, puede eliminar el Almacén de claves utilizando el cmdlet [Remove-AzureKeyVault](https://msdn.microsoft.com/library/azure/dn903603(v=azure.98).aspx):
+Si ya no necesita el almacén de claves ni la clave o el secreto que contiene, puede eliminar el almacén de claves usando el cmdlet [Remove-AzureKeyVault](https://msdn.microsoft.com/library/azure/mt619485.aspx):
 
-	Remove-AzureKeyVault -VaultName 'ContosoKeyVault'
+	Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
 O bien puede eliminar un grupo de recursos de Azure completo, que incluye el Almacén de claves y otros recursos incluidos en dicho grupo:
 
-	Remove-AzureResourceGroup -ResourceGroupName 'ContosoResourceGroup'
+	Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 
 
 ## <a id="other"></a>Otros cmdlets de Azure PowerShell ##
@@ -240,16 +233,9 @@ Estos son otros comandos que pueden resultar útiles para administrar el Almacé
 
 Para obtener un tutorial de seguimiento que usa el Almacén de claves de Azure en una aplicación web, consulte [Uso del Almacén de claves de Azure desde una aplicación web](key-vault-use-from-web-application.md).
 
-Para obtener una lista de los cmdlets de Azure PowerShell para el Almacén de claves de Azure, consulte [Cmdlets del Almacén de claves de Azure](https://msdn.microsoft.com/library/azure/dn868052(v=azure.98).aspx).
-
-Si desea probar la nueva versión de Azure PowerShell (versión 1.0) que está actualmente en versión preliminar, ya no necesitará ejecutar `Switch-AzureMode AzureResourceManager` y algunos de los cmdlets de Almacén de claves cambian de nombre. Para obtener más información acerca de esta versión preliminar, consulte la entrada [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/es-ES/blog/azps-1-0-pre/) en el blog de Microsoft Azure. Para obtener una lista de los cmdlets de Azure PowerShell para esta versión de Azure PowerShell, consulte [Cmdlets del Almacén de claves de Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx). Si instala esta nueva versión de Azure PowerShell, puede usar las instrucciones de este tutorial con los siguientes cambios:
-
-* No ejecute **Switch-AzureMode AzureResourceManager**
-* En lugar de **New-AzureKeyVault**, ejecute `New-AzureRMKeyVault`
-* En lugar de **Get-AzureKeyVault**, ejecute `Get-AzureRMKeyVault`
-* En lugar de **Remove-AzureKeyVault**, ejecute `Remove-AzureRMKeyVault`
-* En lugar de **Set-AzureKeyVaultAccessPolicy**, ejecute `Set-AzureRMKeyVaultAccessPolicy`   
+Para obtener una lista de los cmdlets de Azure PowerShell 1.0 para Almacén de claves de Azure, consulte [Cmdlets de Almacén de claves de Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
+ 
 
 Para conocer las referencias de programación, consulte la [Guía del desarrollador del Almacén de claves de Azure](key-vault-developers-guide.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

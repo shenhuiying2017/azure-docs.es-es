@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="11/09/2015"
    ms.author="tomfitz"/>
 
 # Información general del Administrador de recursos de Azure
@@ -123,16 +123,17 @@ Para obtener información acerca de la API de REST, consulte [Referencia de la A
 
 Para obtener información sobre cómo usar el portal de vista previa, consulte [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md).
 
+El Administrador de recursos de Azure admite el uso compartido de recursos entre orígenes (CORS). Con CORS, puede llamar a la API de REST del Administrador de recursos o un API de REST de un servicio Azure desde una aplicación web que reside en un dominio diferente. Sin compatibilidad con CORS, el explorador web evitaría que una aplicación en un dominio acceda a recursos de otro dominio. El Administrador de recursos habilita CORS para todas las solicitudes con credenciales de autenticación válidas.
 
 ## Pasos siguientes
 
-- Para obtener información sobre cómo crear plantillas, consulte [Creación de plantillas](./resource-group-authoring-templates.md).
-- Para implementar la plantilla que creó, consulte [Implementación de plantillas](resource-group-template-deploy.md).
-- Para comprender las funciones que puede usar en una plantilla, consulte [Funciones de plantillas](./resource-group-template-functions.md)
-- Para obtener instrucciones sobre cómo diseñar las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
+- Para obtener información sobre cómo crear plantillas, vea [Creación de plantillas](./resource-group-authoring-templates.md).
+- Para implementar la plantilla que creó, vea [Implementación de plantillas](resource-group-template-deploy.md).
+- Para comprender las funciones que puede usar en una plantilla, vea [Funciones de plantillas](./resource-group-template-functions.md)
+- Para obtener instrucciones sobre cómo diseñar las plantillas, vea [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
 
 La siguiente es una demostración de esta introducción.
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

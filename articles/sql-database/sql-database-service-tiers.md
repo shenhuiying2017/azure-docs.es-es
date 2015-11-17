@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="11/03/2015"
+	ms.date="11/10/2015"
 	ms.author="jroth"/>
 
 # Niveles de servicio de Base de datos SQL
@@ -35,7 +35,7 @@ Los niveles de servicio Basic, Standard y Premium tienen un SLAde tiempo de acti
 ### Niveles de servicio para bases de datos únicas
 Para las bases de datos únicas hay varios niveles de rendimiento dentro de cada nivel de servicio, tiene la flexibilidad de elegir el nivel que mejor se adapte a las exigencias de la carga de trabajo. Si necesita escalar vertical u horizontalmente, puede cambiar fácilmente los niveles de la base de datos en el Portal de Azure sin que haya tiempo de inactividad en la aplicación. Para obtener información más detallada, consulte [Modificación de niveles de servicio y de rendimiento de la base de datos](sql-database-scale-up.md).
 
-Las características de rendimiento que se enumeran aquí se aplican a las bases de datos creadas con la [Base de datos SQL V12](sql-database-v12-whats-new.md).
+Las características de rendimiento que se enumeran aquí se aplican a las bases de datos creadas con la [Base de datos SQL V12](sql-database-v12-whats-new.md). En aquellas situaciones donde el hardware subyacente de Azure hospeda varias Bases de datos SQL, la base de datos seguirá recibiendo un conjunto garantizado de recursos y las características de rendimiento esperado de la base de datos individual no se ven afectadas.
 
 [AZURE.INCLUDE [Tabla de niveles de servicio de datos de la Base de datos SQL](../../includes/sql-database-service-tiers-table.md)]
 
@@ -95,4 +95,4 @@ Si desea administrar varias bases de datos como un grupo, consulte [Grupos de ba
 Ahora que conoce los niveles de Base de datos SQL, pruébelos con una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) y aprenda a [crear su primera base de datos SQL](sql-database-get-started.md).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

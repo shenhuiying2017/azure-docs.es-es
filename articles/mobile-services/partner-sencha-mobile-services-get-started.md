@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"></a>Introducción a Servicios móviles y Sencha Touch
@@ -42,6 +42,7 @@ A continuación se muestra una captura de pantalla de la aplicación final:
 - Descargue e instale la [herramienta Sencha Cmd] (http://www.sencha.com/products/sencha-cmd/download"target =" \_blank").
 
 - Java Runtime Environment (JRE) o Kit de desarrollo de Java (si está creando aplicaciones de Android).
+- Gema Ruby y SASS.
 
 ## <a name="create-new-service"> </a>Creación de un servicio móvil
 
@@ -94,7 +95,7 @@ En la mayoría de las aplicaciones Touch, si desea agregar una biblioteca extern
 
 Puede agregar manualmente las extensiones de Azure a la aplicación mediante los siguientes pasos:
 
-1. Descargue el paquete de extensiones de Azure desde [aquí](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure). Es posible usar el identificador de foros de Sencha para obtener acceso a esta área.
+1. Descargue el paquete de extensiones de Azure desde [aquí](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure). Es posible usar el identificador de foros de Sencha para obtener acceso a esta área.
 
 2. Copie el paquete de extensiones de Azure desde el directorio de descarga en el que desee que se encuentre finalmente y descomprímalo:
 
@@ -111,7 +112,7 @@ Puede agregar manualmente las extensiones de Azure a la aplicación mediante los
 
 Todas las aplicaciones generadas por Sencha Cmd disponen de una carpeta "packages" en la raíz. La ubicación de esta carpeta se puede configurar, pero independientemente de su ubicación, el rol de la carpeta "packages" es servir como almacenamiento de todos los paquetes usados por la aplicación (o aplicaciones si ha creado un espacio de trabajo de Sencha).
 
-Puesto que Ext.Azure es un paquete de Sencha Cmd, el código de origen puede instalarse e incluirse fácilmente en la aplicación mediante Sencha Cmd. (Consulte [Sencha Cmd Packages](http://docs.sencha.com/cmd/3.1.2/#!/guide/command_packages) (Paquetes de Sencha Cmd) para obtener más información).
+Puesto que Ext.Azure es un paquete de Sencha Cmd, el código de origen puede instalarse e incluirse fácilmente en la aplicación mediante Sencha Cmd. (Consulte [Sencha Cmd Packages](http://docs.sencha.com/cmd/6.x/cmd_packages/cmd_packages.html) (Paquetes de Sencha Cmd) para obtener más información).
 
 Para descargar e instalar el paquete de extensiones de Azure desde el repositorio de Sencha Packages, tendrá que agregar el nombre de paquete al archivo **app.json** y compilar la aplicación:
 
@@ -663,7 +664,7 @@ La etapa final de este tutorial consiste en hospedar y ejecutar la aplicación n
 
   2. Use Sencha Cmd para ejecutar los siguientes comandos:
 
-    * *sencha app refresh*: este comando indica a Sencha Cmd que busque todas las dependencias de aplicación y descargue los paquetes necesarios (por ejemplo, [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)).
+    * *sencha app refresh*: este comando indica a Sencha Cmd que busque todas las dependencias de aplicación y descargue los paquetes necesarios (por ejemplo, [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)).
 
     * *sencha web start*: iniciará un servidor web local para realizar una prueba de la aplicación.
 
@@ -701,7 +702,7 @@ A continuación, obtenga más información sobre Sencha Touch Extension para Azu
 ##Recursos adicionales
 
   * [Descarga de Sencha Touch](http://pages.sencha.com/touch-for-azure.html)
-  * [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)
+  * [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)
 
 
 ##Resumen
@@ -716,4 +717,4 @@ Para obtener información sobre las tareas iniciales de Sencha Touch, consulte e
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->
