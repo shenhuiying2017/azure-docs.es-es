@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Empezar con la primera aplicación de Búsqueda de Azure en .NET | Microsoft Azure"
+	pageTitle="Introducción a su primera aplicación de Búsqueda de Azure en .NET | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
 	description="Tutorial sobre cómo crear una solución de Visual Studio usando la biblioteca de cliente .NET desde el SDK de .NET para Búsqueda de Azure."
 	services="search"
 	documentationCenter=""
@@ -794,4 +794,4 @@ Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

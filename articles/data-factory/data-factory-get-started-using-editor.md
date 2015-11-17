@@ -383,8 +383,6 @@ Para obtener una lista de actividades admitidas, vea el tema [Canalizaciones y a
  
 Para realizar este tutorial con PowerShell de Azure, consulte [Creación y supervisión de una factoría de datos con PowerShell de Azure][monitor-manage-using-powershell].
 
-## Enviar comentarios
-Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-editor.md).
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -503,4 +501,4 @@ Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar 
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

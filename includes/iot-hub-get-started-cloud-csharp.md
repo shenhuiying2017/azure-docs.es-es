@@ -71,7 +71,7 @@ En esta sección, creará una aplicación de consola de Windows que lee mensajes
 
 3. Busque `WindowsAzure.ServiceBus`, haga clic en **Instalar** y acepte las condiciones de uso.
 
-    De esta forma, se descarga, se instala y se agrega una referencia al [Bus de servicio de Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
+    De esta forma, se descarga, instala y agrega una referencia al [Bus de servicio de Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 4. Agregue la siguiente instrucción `using` en la parte superior del archivo **Program.cs**:
 
@@ -126,7 +126,7 @@ En esta sección, creará una aplicación de consola de Windows que lee mensajes
 [Azure Storage account]: storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
-[Azure Preview Portal]: https://portal.azure.com/
+[Azure preview portal]: https://portal.azure.com/
 
 
 <!-- Images -->
@@ -134,4 +134,4 @@ En esta sección, creará una aplicación de consola de Windows que lee mensajes
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

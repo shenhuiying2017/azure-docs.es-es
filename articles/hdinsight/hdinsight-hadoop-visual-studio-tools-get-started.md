@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Aprenda a usar las herramientas de Hadoop para Visual Studio en HDInsight | Microsoft Azure"
 	description="Aprenda a instalar y usar las herramientas de Hadoop en HDInsight para conectarse a un clúster de Hadoop y ejecutar una consulta de Hive."
-	keywords="hadoop tools,hive query,visual studio"
+	keywords="herramientas de hadoop,consulta de hive,visual studio"
 	services="HDInsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -180,6 +180,21 @@ La versión más reciente de la herramienta permite ver el contenido de los trab
 
 	![Herramientas de Hadoop: herramientas de Visual Studio en HDInsight ver trabajos de Hive][12]
 
+### Ejecución de Hive más rápida mediante HiveServer2
+
+>[AZURE.NOTE]Este tutorial solo funciona en la versión 3.2 del clúster de HDInsight y posteriores.
+
+Las herramientas de HDInsight se usan para enviar trabajos de Hive mediante WebHCat (también llamado Templeton). Tardó mucho tiempo en devolver los detalles del trabajo y la información de error. Para resolver este problema de rendimiento, las herramientas de HDInsight ejecutan trabajos de Hive directamente en el clúster mediante HiveServer2, de modo que omitan RDP o SSH. Además de mejorar el rendimiento, los usuarios también pueden ver Hive en gráficos Tez y los detalles de la tarea.
+
+En el caso del clúster de HDInsight versión 3.2 o posterior, puede ver un botón **Ejecutar mediante HiveServer2**:
+
+![las herramientas de visual studio en hdinsight mediante hiveserver2](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.execute.via.hiveserver2.png)
+
+Y puede ver los registros transmitidos de vuelta en tiempo real y ver los gráficos del trabajo si se ejecuta la consulta de Hive en Tez.
+ 
+![ejecución rápida de hive para herramientas de visual studio en hdinsight](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.fast.path.hive.execution.png)
+
+
 ### Gráfico de rendimiento de trabajos de Hive de Tez
 
 Las herramientas de HDInsight para Visual Studio admiten que se muestren gráficos de rendimiento de los trabajos de Hive que ejecuta el motor de ejecución de Tez. Para obtener información acerca de cómo habilitar Tez, consulte [Usar Hive y HiveQL con Hadoop en HDInsight][hdinsight.hive]. Después de enviar un trabajo de Hive a Visual Studio, Visual Studio mostrará el gráfico de dicho trabajo cuando se complete. Es posible que tenga que hacer clic en el botón **Actualizar** para ver el estado del trabajo más reciente.
@@ -189,6 +204,12 @@ Las herramientas de HDInsight para Visual Studio admiten que se muestren gráfic
 ![gráfico de rendimiento de tez de hive de hadoop](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
 
 Para ayudarle a entender mejor la consulta de Hive, la herramienta agrega la vista de operadores de Hive en esta versión. Basta con que haga doble clic en los vértices del gráfico de trabajo para ver todos los operadores dentro de un vértice. También puede mantener el puntero sobre un operador determinado, para ver más detalles del operador.
+
+### Vista de ejecución de tareas de Hive en trabajos Tez
+
+La vista de ejecución de tareas de Hive en trabajos Tez puede usarse para obtener información estructurada y visualizada de los trabajos de Hive y obtener más detalles del trabajo. Cuando hay problemas de rendimiento, puede usar la vista para obtener más información. Por ejemplo, cómo funciona cada tarea y la información detallada sobre cada tarea (lectura y escritura de datos, programación y hora de inicio y fin, etc.), por lo que puede ajustar configuraciones de trabajo o la arquitectura del sistema según la información mostrada.
+
+![vista de la ejecución de tareas de herramientas de visual studio en hdinsight](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png)
 
 ## Ejecución de scripts de Pig
 
@@ -237,4 +258,4 @@ En este artículo, ha aprendido a conectarse a clústeres de HDInsight desde Vis
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Bases de datos NoSQL - Introducción al SDK de .NET de DocumentDB | Microsoft Azure"
 	description="Aprender a crear una base de datos y configurar una cuenta de Azure DocumentDB. Crear una base de datos y colección y almacenar documentos JSON dentro de su cuenta de base de datos NoSQL."
-	keywords="Create a database, create database, nosql database, nosql databases, nuget, documentdb, azure, Microsoft azure"
+	keywords="Crear una base de datos, crear base de datos, base de datos nosql, bases de datos nosql, nuget, documentdb, azure, Microsoft azure"
 	services="documentdb"
 	documentationCenter=".net"
 	authors="AndrewHoh"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="09/16/2015"
+	ms.date="11/05/2015"
 	ms.author="anhoh"/>
 
 #Introducción al SDK de .NET de DocumentDB  
@@ -75,6 +75,8 @@ En primer lugar, agregue estas referencias al principio de la aplicación de C#,
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
     using Newtonsoft.Json;
+
+> [AZURE.IMPORTANT]Para poder completar esta aplicación, asegúrese de que agregar las dependencias anteriores.
 
 A continuación, guarde el punto de conexión de la cuenta de DocumentDB y la clave de acceso principal o secundaria, que se encuentran en el [Portal de vista previa de Azure](https://portal.azure.com).
 
@@ -478,4 +480,4 @@ Para restaurar las referencias al SDK de .NET de DocumentDB en Visual Studio, ha
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

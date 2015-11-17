@@ -1,49 +1,52 @@
 <properties 
-   pageTitle="Creación y administración de un grupo de bases de datos SQL elásticas mediante PowerShell" 
-   description="Creación y administración de un grupo de bases de datos SQL elásticas de Azure mediante PowerShell" 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+    pageTitle="Creación de un grupo de bases de datos elásticas SQL de Azure con PowerShell | Microsoft Azure" 
+    description="Cree un grupo de bases de datos elásticas para compartir los recursos entre varias Bases de datos SQL de Azure." 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="stevestein" 
+    manager="jeffreyg" 
+    editor=""/>
 
 <tags
-   ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="10/08/2015"
-   ms.author="adamkr; sstein"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="powershell"
+    ms.workload="data-management" 
+    ms.date="11/06/2015"
+    ms.author="adamkr; sstein"/>
 
-# Creación y administración de un grupo de bases de datos SQL elásticas mediante PowerShell
+# Creación de un grupo de bases de datos elásticas con PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-portal.md)
-- [C#](sql-database-client-library.md)
+- [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
-## Información general
+Este artículo muestra cómo crear un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) con cmdlets de PowerShell.
 
-Este artículo muestra cómo crear y administrar un grupo de bases de datos elásticas de Base de datos SQL mediante PowerShell.
+> [AZURE.NOTE]Los grupos de bases de datos elásticas están actualmente en vista previa y solo estarán disponibles en servidores con bases de datos SQL V12. Si tiene un servidor de Base de datos SQL V11 puede [usar PowerShell para actualizar a V12 y crear un grupo](sql-database-upgrade-server.md) en un solo paso.
+
+Este artículo muestra cómo conseguir los elementos necesarios (incluido el servidor V12) para la creación y configuración de un grupo de bases de datos elásticas, excepto para la suscripción de Azure. Si necesita una suscripción a Azure, haga clic en la opción **PRUEBA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva para finalizar este artículo.
+
+
+
+
+Los pasos para crear un grupo de bases de datos elásticas con Azure PowerShell se detallan y explican para mayor claridad. Para aquellos que simplemente buscan una lista breve de comandos, vea la sección de **Resumen** al final de este artículo.
 
 > [AZURE.IMPORTANT]Tenga en cuenta que el cmdlet Switch-AzureMode ya no está disponible a partir de la versión Vista previa de Azure PowerShell 1.0, y que los cmdlets que estaban en el módulo de Azure ResourceManager han cambiado de nombre. En los ejemplos de este artículo usaremos la nueva convención de nomenclatura de Vista previa de PowerShell 1.0. Para obtener más información detallada, consulte [Degradación del cmdlet Switch-AzureMode en Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 Para ejecutar los cmdlets de PowerShell, necesitará tener Azure PowerShell instalado y en marcha; asimismo, debido a la eliminación del cmdlet Switch-AzureMode, deberá descargar e instalar la versión más reciente de Azure PowerShell ejecutando el [Instalador de plataforma web de Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
-Los pasos para crear un grupo de bases de datos elásticas con Azure PowerShell se detallan y explican para mayor claridad. Para aquellos que simplemente buscan una lista breve de comandos, vea la sección de **Resumen** al final de este artículo.
 
-Este artículo muestra cómo conseguir los elementos necesarios (excepto en la suscripción de Azure) para la creación y configuración de un grupo de bases de datos elásticas. Si necesita una suscripción a Azure, haga clic en la opción **PRUEBA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva para finalizar este artículo.
-
-> [AZURE.NOTE]Los grupos de bases de datos elásticas están actualmente en vista previa y solo estarán disponibles en servidores con Base de datos SQL V12.
 
 
 ## Configuración de las credenciales y selección de la suscripción
 
 Ahora que está ejecutando el módulo del Administrador de recursos de Azure, tendrá acceso a todos los cmdlets necesarios para crear y configurar un grupo de bases de datos elásticas. En primer lugar, debe establecer el acceso a su cuenta de Azure. Ejecute lo siguiente y aparecerá una pantalla de inicio de sesión para especificar sus credenciales. Use el mismo correo electrónico y la misma contraseña que usa para iniciar sesión en el portal de Azure.
 
-	Add-AzureAccount
+	Add-AzureRmAccount
 
 Después de iniciar sesión correctamente, se mostrará información en la pantalla que incluye el identificador con el que ha iniciado sesión y las suscripciones a Azure a las que tiene acceso.
 
@@ -52,7 +55,7 @@ Después de iniciar sesión correctamente, se mostrará información en la panta
 
 Para seleccionar la suscripción, necesitará el nombre o el identificador de suscripción (**-SubscriptionName**). Puede copiar el nombre o el identificador del paso anterior, o bien, si dispone de varias suscripciones, puede ejecutar el cmdlet **Get-AzureSubscription** y copiar la información de suscripción deseada del conjunto de resultados. Cuando tenga su suscripción, ejecute el siguiente cmdlet:
 
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
 
 ## Creación de un grupo de recursos, un servidor y una regla de firewall
@@ -61,34 +64,34 @@ Ya dispone de acceso para ejecutar cmdlets en su suscripción de Azure, por lo q
 
 Si ya dispone de un grupo de recursos, puede ir al paso siguiente, o bien puede ejecutar el comando siguiente para crear un nuevo grupo de recursos:
 
-	New-AzureRMResourceGroup -Name "resourcegroup1" -Location "West US"
+	New-AzureRmResourceGroup -Name "resourcegroup1" -Location "West US"
 
 ### Creación de un servidor 
 
-Los grupos de bases de datos elásticas se crean en los servidores Base de datos SQL de Azure. Si ya dispone de un servidor, puede ir al paso siguiente, o bien puede ejecutar el comando siguiente para crear un nuevo servidor V12. Reemplace ServerName con el nombre de su servidor. Debe ser único para servidores SQL de Azure, por lo que es posible que obtenga un error si el nombre del servidor ya existe. También debe tener en cuenta que este comando puede tardar varios minutos en completarse. Se mostrarán los detalles del servidor y el símbolo del sistema de PowerShell tras crear el servidor correctamente. Puede editar el comando para usar cualquier ubicación válida que elija.
+Los grupos de bases de datos elásticas se crean en los servidores Base de datos SQL de Azure. Si ya dispone de un servidor, puede ir al paso siguiente, o bien puede ejecutar el cmdlet [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx) para crear un nuevo servidor V12. Reemplace ServerName con el nombre de su servidor. Este debe ser único para los servidores SQL de Azure, por lo que si el nombre del servidor ya existe, verá un error aquí. También debe tener en cuenta que este comando puede tardar varios minutos en completarse. Se mostrarán los detalles del servidor y el símbolo del sistema de PowerShell tras crear el servidor correctamente. Puede editar el comando para usar cualquier ubicación válida que elija.
 
-	New-AzureRMSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
+	New-AzureRmSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
 Al ejecutar este comando, se abrirá una ventana para especificar el **Nombre de usuario** y la **Contraseña**. No especifique aquí sus credenciales de Azure, sino el nombre de usuario y contraseña serán las credenciales de administrador que desea crear para el nuevo servidor.
 
 
 ### Configuración de una regla de firewall para permitir el acceso al servidor
 
-Establezca una regla de firewall para tener acceso al servidor. Ejecute el comando siguiente, reemplazando las direcciones IP inicial y final con los valores válidos para el equipo.
+Establezca una regla de firewall para tener acceso al servidor. Ejecute el comando [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603586.aspx), reemplazando las direcciones IP inicial y final por los valores válidos para el equipo.
 
 Si el servidor necesita permitir el acceso a otros servicios de Azure, agregue el conmutador **- AllowAllAzureIPs** que agregará una regla de firewall especial y permitirá todo el acceso de tráfico de Azure al servidor.
 
-	New-AzureRMSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
+	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
-Para obtener más información, vea [Firewall de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx).
+Para obtener más información, consulte [Firewall de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx).
 
 
 ## Creación de un grupo de bases de datos elásticas y de bases de datos elásticas
 
-Ahora ya dispone de un grupo de recursos, un servidor y una regla de firewall configurados para poder tener acceso al servidor. El siguiente comando creará el grupo de bases de datos elásticas. Este comando crea un grupo que comparte un total de 400 eDTU. Se garantiza que cada base de datos del grupo tenga siempre 10 eDTU disponibles (DatabaseDtuMin). Las bases de datos individuales del grupo pueden consumir un máximo de 100 eDTU (DatabaseDtuMax). Para obtener una explicación detallada de los parámetros, vea [Grupos elásticos de bases de datos SQL de Azure](sql-database-elastic-pool.md).
+Ahora ya dispone de un grupo de recursos, un servidor y una regla de firewall configurados para poder tener acceso al servidor. El cmdlet [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) creará el grupo de bases de datos elásticas. Este comando crea un grupo que comparte un total de 400 eDTU. Se garantiza que cada base de datos del grupo tenga siempre 10 eDTU disponibles (DatabaseDtuMin). Las bases de datos individuales del grupo pueden consumir un máximo de 100 eDTU (DatabaseDtuMax). Para obtener una explicación detallada de los parámetros, vea [Grupos elásticos de bases de datos SQL de Azure](sql-database-elastic-pool.md).
 
 
-	New-AzureRMSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
+	New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
 ### Creación o adición de bases de datos elásticas en un grupo de bases de datos elásticas
@@ -99,30 +102,30 @@ El grupo creado en el paso anterior está vacío, no tiene ninguna base de datos
 
 ### Creación de nuevas bases de datos elásticas en un grupo de bases de datos elásticas
 
-Para crear una nueva base de datos directamente dentro de un grupo, use el cmdlet **New-AzureRMSqlDatabase** y establezca el parámetro **ElasticPoolName**.
+Para crear una nueva base de datos directamente dentro de un grupo, use el cmdlet [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) y establezca el parámetro **ElasticPoolName**.
 
 
-	New-AzureRMSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
 
 ### Movimiento de una base de datos existente a un grupo de bases de datos elásticas
 
-Para mover una base de datos existente a un grupo, use el cmdlet **Set-AzureRMSqlDatabase** y establezca el parámetro **ElasticPoolName**.
+Para mover una base de datos existente a un grupo, use el cmdlet [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) y establezca el parámetro **ElasticPoolName**.
 
 
 Para obtener una demostración, cree una base de datos que no se encuentre en el grupo de bases de datos elásticas.
 
-	New-AzureRMSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -Edition "Standard"
+	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -Edition "Standard"
 
 Mueva la base de datos existente a un grupo de bases de datos elásticas.
 
-	Set-AzureRMSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+	Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 ## Cambio de la configuración de rendimiento de un grupo de bases de datos elásticas
 
 
-    Set-AzureRMSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
+    Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
 
 
 ## Supervisión de bases de datos elásticas y de grupos de bases de datos elásticas
@@ -131,12 +134,12 @@ Mueva la base de datos existente a un grupo de bases de datos elásticas.
 
 Puede realizar el seguimiento del estado de las operaciones de grupos de bases de datos elásticas, incluida la creación y las actualizaciones.
 
-	Get-AzureRMSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
+	Get-AzureRmSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
 
 ### Obtención del estado del movimiento de una base de datos elástica dentro y fuera de un grupo de bases de datos elásticas
 
-	Get-AzureRMSqlElasticPoolDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+	Get-AzureRmSqlElasticPoolDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 ### Obtención de métricas de consumo de un grupo de bases de datos elásticas
 
@@ -201,14 +204,14 @@ Exportación a un archivo CSV:
 ## Resumen
 
 
-    Add-AzureAccount
-    Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-    New-AzureRMResourceGroup -Name "resourcegroup1" -Location "West US"
-    New-AzureRMSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
-    New-AzureRMSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
-    New-AzureRMSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
-    New-AzureRMSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1" -MaxSizeBytes 10GB
-    Set-AzureRMSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
+    Add-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+    New-AzureRmResourceGroup -Name "resourcegroup1" -Location "West US"
+    New-AzureRmSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
+    New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
+    New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
+    New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1" -MaxSizeBytes 10GB
+    Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
     
     $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
     $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015")
@@ -229,4 +232,4 @@ Tras la creación de un grupo de bases de datos elásticas, puede administrar la
 
 Para obtener información detallada acerca de los grupos y las bases de datos elásticas, incluidos los detalles de errores y de API, vea la [Referencia acerca de los grupos de bases de datos elásticas](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

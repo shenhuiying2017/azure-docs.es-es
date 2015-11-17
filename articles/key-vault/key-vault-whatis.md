@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/22/2015"
+	ms.date="11/12/2015"
 	ms.author="cabailey"/>
 
 
@@ -38,7 +38,7 @@ Utilice la tabla siguiente para comprender mejor cómo Almacén de claves puede 
 | ------------- |-------------|-----|
 | Desarrollador para una aplicación de Azure | “Quiero escribir una aplicación para Azure que use claves para firma y cifrado, pero quiero que sean externas desde mi aplicación para que la solución sea adecuada para una aplicación que se distribuya geográficamente. <br/><br/>También quiero que estas claves y secretos estén protegidos, sin tener que escribir el código, y quiero que me resulten fáciles de usar desde mi aplicación, con el máximo rendimiento". | √ Las claves se almacenan en un almacén y las invoca un URI cuando es necesario.<br/><br/> √ Las claves se protegen mediante Azure usando algoritmos estándar de la industria, longitudes de clave y módulos de seguridad de hardware (HSM).<br/><br/> √ Las claves se procesan en HSM que residen en los mismos centros de datos de Azure que las aplicaciones, que proporcionan una mayor confiabilidad y una menor latencia que si las claves residieran en una ubicación separada, como en local.|
 | Desarrollador para software como servicio (SaaS): |“No quiero asumir la responsabilidad, ni tampoco la posible responsabilidad, de las claves y los secretos de inquilino de mis clientes. <br/><br/>Quiero que los clientes posean y administren sus claves de modo que pueda concentrarse en hacer lo que hago mejor, que es proporcionar las características de software principales.” | √ Los clientes pueden importar sus propias claves a Azure y administrarlas. Cuando se necesita una aplicación SaaS para realizar operaciones criptográficas usando claves de sus clientes, el Almacén de claves lo hace en nombre de la aplicación. La aplicación no ve las claves de los clientes.|
-| Responsable principal de la seguridad (CSO) | “Quiero saber que nuestras aplicaciones cumplen con HSM FIPS 140-2 de nivel 2 para administración de claves segura. <br/><br/>Deseo asegurarme de que mi organización tiene el control del ciclo de vida de las claves y puedo supervisar el uso de las mismas. <br/><br/>Y aunque usamos varios servicios y recursos de Azure, quiero administrar las claves desde una ubicación única en Azure.” |√ Los HSM tienen la validación FIPS 140-2 de nivel 2.<br/><br/>√ El Almacén de claves está diseñado para que Microsoft no vea ni extraiga las claves.<br/><br/>√ Registro prácticamente en tiempo real del uso de claves (no disponible actualmente).<br/><br/>√ El almacén proporciona una sola interfaz, independientemente de cuántos almacenes tiene en Azure, qué regiones admiten y qué aplicaciones los utilizan. |
+| Responsable principal de la seguridad (CSO) | “Quiero saber que nuestras aplicaciones cumplen con HSM FIPS 140-2 de nivel 2 para administración de claves segura. <br/><br/>Deseo asegurarme de que mi organización tiene el control del ciclo de vida de las claves y puedo supervisar el uso de las mismas. <br/><br/>Y aunque usamos varios servicios y recursos de Azure, quiero administrar las claves desde una ubicación única en Azure.” |√ Los HSM tienen la validación FIPS 140-2 de nivel 2.<br/><br/>√ Almacén de claves está diseñado para que Microsoft no vea ni extraiga las claves.<br/><br/>√ Registro prácticamente en tiempo real del uso de claves (no disponible en la [vista previa](http://blogs.technet.com/b/kv/archive/2015/11/10/keyvault_2d00_logging_2d00_preview.aspx)).<br/><br/>√ El almacén proporciona una sola interfaz, independientemente de cuántos almacenes tenga en Azure, qué regiones admitan y qué aplicaciones los usen. |
 
 
 Cualquier persona que tenga una suscripción de Azure puede crear y usar almacenes de claves. Aunque el Almacén de claves beneficia a los desarrolladores y los administradores de seguridad, el administrador de una organización que administra otros servicios de Azure, podría implementarlo y administrarlo. Por ejemplo, este administrador iniciaría sesión con una suscripción de Azure, crearía un almacén para la organización en el que almacenar las claves y, a continuación, asumiría la responsabilidad de las tareas operativas, como:
@@ -49,7 +49,7 @@ Cualquier persona que tenga una suscripción de Azure puede crear y usar almacen
 + Configurar el uso de claves (por ejemplo, para firmar o cifrar)
 + Supervisar el uso de claves
 
-Este administrador podría ofrecer después a los desarrolladores los URI para llamar desde sus aplicaciones y proporcionar a su administrador de seguridad la información de registro de uso de claves. **La información de registro de uso de claves no está disponible actualmente.**
+Este administrador podría ofrecer después a los desarrolladores los URI para llamar desde sus aplicaciones y proporcionar a su administrador de seguridad la información de registro de uso de claves. Tenga en cuenta que el registro de uso está actualmente en [vista previa](http://blogs.technet.com/b/kv/archive/2015/11/10/keyvault_2d00_logging_2d00_preview.aspx).
 
    ![Información general del Almacén de claves de Azure][1]
 
@@ -65,4 +65,4 @@ Para obtener más información acerca del uso de claves y secretos con el Almac�
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

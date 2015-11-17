@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creación de un índice de Búsqueda de Azure en el portal | Microsoft Azure"
+	pageTitle="Creación de un índice de Búsqueda de Azure en el Portal | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
 	description="Agregue un índice al servicio Búsqueda de Azure, un servicio de búsqueda hospedado en la nube, rellenando definiciones de campo en el Portal de Azure"
 	services="search"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="search"
-	ms.devlang="rest-api"
+	ms.devlang="na"
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
@@ -18,6 +18,11 @@
 	ms.author="heidist"/>
 
 # Creación de un índice de Búsqueda de Azure en el Portal de Azure
+> [AZURE.SELECTOR]
+- [Overview](search-what-is-an-index.md)
+- [Portal](search-create-index-portal.md)
+- [.NET](search-create-index-dotnet.md)
+- [REST API](search-create-index-rest-api.md)
 
 Puede crear rápidamente un índice en Búsqueda de Azure mediante la creación de uno en el portal de Azure. Usar el portal resulta excelente para las pruebas de prueba de concepto, pero también se puede usar para ver las definiciones de esquema y el uso de recursos para cualquier índice implementado en el servicio.
 
@@ -100,4 +105,4 @@ Una vez que se encuentre cómodo con el índice básico, considere la posibilida
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

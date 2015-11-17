@@ -41,7 +41,7 @@ Para ver tutoriales y código de ejemplo con aplicaciones más complejas de Node
 
 > [AZURE.NOTE]Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN](/es-ES/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o bien [registrarse para obtener una evaluación gratuita](/es-ES/pricing/free-trial/?WT.mc_id=A261C142F).
 >
-> Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751). Ahí puede crear de forma inmediata una aplicación web de corta duración para iniciarse en Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
+> Si desea empezar a usar Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita de Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751). Ahí puede crear de forma inmediata una aplicación web de corta duración para iniciarse en Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
 
 ## Creación de una aplicación web y habilitación de la publicación Git
 
@@ -61,35 +61,37 @@ Siga estos pasos para crear una aplicación web en el Servicio de aplicaciones d
 
 	Este nombre debe ser único en el dominio azurewebsites.net porque la dirección URL de la aplicación web será {nombre}.azurewebsites.net. Si el nombre especificado no es único, se muestra un signo de exclamación rojo en el cuadro de texto.
 
-5. Seleccione un **Grupo de recursos** o cree uno nuevo.
+5. Seleccione una **suscripción**.
+
+6. Seleccione un **Grupo de recursos** o cree uno nuevo.
 
 	Para obtener más información sobre los grupos de recursos, consulte [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](../resource-group-portal.md).
 
-5. Seleccione un **Plan de servicio de aplicaciones/Ubicación** o cree uno nuevo.
+7. Seleccione un **plan de servicio de aplicaciones/ubicación** o cree uno nuevo.
 
-	Para obtener más información sobre los planes del Servicio de aplicaciones, consulte [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	Para obtener más información sobre los planes del Servicio de aplicaciones, consulte [Información general sobre los planes del Servicio de aplicaciones de Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-6. Haga clic en **Crear**.
+8. Haga clic en **Crear**.
    
 	![][portal-quick-create2]
 
 	En poco tiempo, normalmente menos de un minuto, Azure termina de crear la nueva aplicación web.
 
-7. Haga clic en **Aplicaciones web > {su nueva aplicación web}**.
+9. Haga clic en **Aplicaciones web > {su nueva aplicación web}**.
 
 	![](./media/web-sites-nodejs-develop-deploy-mac/gotowebapp.png)
 
-8. En la hoja **Aplicación web**, haga clic en la parte **Implementación**.
+10. En la hoja **Aplicación web**, haga clic en la parte **Implementación**.
 
 	![][deployment-part]
 
-9. En la hoja **Implementación continua**, haga clic en **Elegir origen**.
+11. En la hoja **Implementación continua**, haga clic en **Elegir origen**.
 
-14. Haga clic en **Repositorio de Git local** y, después, en **Aceptar**.
+12. Haga clic en **Repositorio de Git local** y, después, en **Aceptar**.
 
 	![][setup-git-publishing]
 
-11. Configure las credenciales de implementación si aún no lo hizo.
+13. Configure las credenciales de implementación si aún no lo hizo.
 
 	a. En la hoja Aplicación web, haga clic en **Configuración > Credenciales de implementación**.
 
@@ -99,7 +101,7 @@ Siga estos pasos para crear una aplicación web en el Servicio de aplicaciones d
 	
 	![](./media/web-sites-nodejs-develop-deploy-mac/setdeploycreds.png)
 
-11. En la hoja Aplicación web, haga clic en **Configuración** y, después, en **Propiedades**.
+14. En la hoja Aplicación web, haga clic en **Configuración** y, después, en **Propiedades**.
  
 	Para publicar, la insertará en un repositorio de Git remoto. La dirección URL se muestra en **Dirección URL de Git**. Esta dirección URL se usará más adelante en el tutorial.
 
@@ -222,4 +224,4 @@ Para obtener más información sobre cómo desarrollar aplicaciones de Node.js e
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

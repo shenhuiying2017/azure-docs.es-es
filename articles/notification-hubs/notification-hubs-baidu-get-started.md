@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="10/19/2015"
+	ms.date="11/03/2015"
 	ms.author="wesmc"/>
 
 # Introducción a Centros de notificaciones con Baidu
@@ -504,4 +504,4 @@ Para enviar una notificación de prueba puede usar la pestaña Depurar del porta
 [Portal de Azure]: https://manage.windowsazure.com/
 [portal de Baidu]: http://www.baidu.com/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

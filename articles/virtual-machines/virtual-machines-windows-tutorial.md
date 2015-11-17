@@ -24,12 +24,11 @@
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<br>
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica. 
+<br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
 
 
-Este tutorial muestra lo fácil que resulta crear una máquina virtual de Azure en unos minutos en el Portal de vista previa. Usaremos una imagen de Windows Server 2012 R2 Datacenter como ejemplo para crear la máquina virtual, pero esa es solo una de las muchas imágenes que Azure ofrece. Las imágenes disponibles dependen de su suscripción. Por ejemplo, las imágenes de escritorio pueden estar disponibles para los suscriptores MSDN.
+Este tutorial muestra lo fácil que resulta crear una máquina virtual de Azure en unos minutos en el Portal de vista previa de Azure. Usaremos una imagen de Windows Server 2012 R2 Datacenter como ejemplo para crear la máquina virtual, pero esa es solo una de las muchas imágenes que Azure ofrece. Las imágenes disponibles dependen de su suscripción. Por ejemplo, las imágenes de escritorio pueden estar disponibles para los suscriptores MSDN.
 
 También puede crear máquinas virtuales con sus propias imágenes, con plantillas del Administrador de recursos o con herramientas de automatización. Para obtener información sobre los diferentes métodos, consulte [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-choices-create-vm.md).
 
@@ -45,7 +44,7 @@ Se trata del tutorial en formato de vídeo.
 
 ## Selección de la imagen
 
-1. Inicie sesión en el [Portal de vista previa](https://portal.azure.com).
+1. Inicie sesión en el Portal de vista previa de Azure.
 
 2. En el menú Concentrador, haga clic en **Nuevo** > **Proceso** > **Windows Server 2012 R2 Datacenter**.
 
@@ -87,9 +86,9 @@ Después de seleccionar la imagen, puede usar los valores predeterminados de Azu
 
 Una vez creada la máquina virtual, podrá iniciar sesión en ella para administrar su configuración y las aplicaciones que va a ejecutar en ella.
 
->[AZURE.NOTE] Para obtener consejos acerca de los requisitos y la solución de problemas, vea [Conectar a una máquina virtual de Azure con RDP o SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
+>[AZURE.NOTE]Para obtener consejos acerca de los requisitos y la solución de problemas, vea [Conectar a una máquina virtual de Azure con RDP o SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
-1. Si aún no lo ha hecho, inicie sesión en el [Portal de vista previa](https://portal.azure.com).
+1. Si no lo hizo todavía, inicie sesión en el Portal de vista previa de Azure.
 
 2. Haga clic en la máquina virtual en el Panel de inicio. Si necesita encontrarlo, haga clic en **Examinar todo** > **Reciente** o **Examinar todo** > **Máquinas virtuales**. Después, seleccione la máquina virtual en la lista.
 
@@ -112,4 +111,4 @@ Una vez creada la máquina virtual, podrá iniciar sesión en ella para administ
 * Use Azure PowerShell y la CLI de Azure para [buscar y seleccionar imágenes de máquina virtual](resource-groups-vm-searching.md).
 * Automatice la implementación y administración de máquinas virtuales y cargas de trabajo con el [Administrador de recursos de Azure](virtual-machines-how-to-automate-azure-resource-manager.md) y las [plantillas de Administrador de recursos de Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!-----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->
