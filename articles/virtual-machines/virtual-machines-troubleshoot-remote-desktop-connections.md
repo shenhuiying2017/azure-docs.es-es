@@ -34,13 +34,16 @@ En la primera sección "Pasos básicos" se enumeran los pasos para tratar proble
 
 Estos pasos básicos pueden ayudarlo a solucionar la mayoría de los errores comunes en la conexión a Escritorio remoto que se producen en las máquinas virtuales creadas con el modelo de implementación clásica. Después de realizar cada paso, intente volver a conectarse a la máquina virtual.
 
-- Restablezca el servicio de escritorio remoto desde el [portal de Azure](https://portal.azure.com) para solucionar problemas de inicio con el servidor RDP.<br> Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual Windows > **Restablecer acceso remoto**.
+- Restablezca el servicio de escritorio remoto desde el [portal de Azure](https://portal.azure.com) para solucionar problemas de inicio con el servidor RDP.<br> 
+	Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual Windows > **Restablecer acceso remoto**.
 
     ![Restablecer acceso remoto](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
 
-- Reinicie la máquina Virtual para tratar otros problemas de inicio.<br> Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual Windows > **Reiniciar**.
+- Reinicie la máquina Virtual para tratar otros problemas de inicio.<br>
+	Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual Windows > **Reiniciar**.
 
-- Cambie el tamaño de la máquina virtual para corregir cualquier problema de host.<br> Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual Windows > Configuración > **Tamaño**. Para obtener información detallada, vea [Cambiar el tamaño de la máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
+- Cambie el tamaño de la máquina virtual para corregir cualquier problema de host.<br>
+	Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual Windows > Configuración > **Tamaño**. Para obtener información detallada, vea [Cambiar el tamaño de la máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
 
 - Revise la captura de pantalla o el registro de la consola de la máquina virtual para corregir problemas de arranque. Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual Windows > **Diagnóstico de arranque**.
 
