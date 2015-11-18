@@ -19,7 +19,7 @@
 # Transformar y analizar mediante la Factoría de datos de Azure
 
 ## Información general
-Las actividades de transformación en la Factoría de datos de Azure transforman y procesan sus datos sin procesar en predicciones y perspectivas. La actividad de transformación se ejecuta en un entorno informático, como clúster de HDInsight de Azure o un Lote de Azure. La Factoría de datos de Azure admite las siguientes actividades de transformación que se pueden agregar a [canalizaciones](data-factory-create-pipelines.md) ya sea individualmente o encadenadas a otra actividad.
+Las actividades de transformación en la Factoría de datos de Azure transforman y procesan sus datos sin procesar en predicciones y perspectivas. La actividad de transformación se ejecuta en un entorno informático, como clúster de HDInsight de Azure o un Lote de Azure. La Factoría de datos de Azure admite las siguientes actividades de transformación que se pueden agregar a[canalizaciones](data-factory-create-pipelines.md) ya sea individualmente o encadenadas a otra actividad.
 
 
 Actividad de transformación | Entorno de procesos 
@@ -30,7 +30,9 @@ Actividad de transformación | Entorno de procesos
 [Streaming de Hadoop](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop]
 [Puntuación de lote de aprendizaje automático](data-factory-create-predictive-pipelines.md) | MV de Azure 
 [Procedimiento almacenado](data-factory-stored-proc-activity.md) | SQL de Azure | 
-[DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] o Lote de Azure    
+[U-SQL de análisis con Data Lake](data-factory-usql-activity.md) | Análisis con Azure Data Lake 
+[DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] o Lote de Azure
+    
 
 Deberá crear un servicio vinculado para el entorno de proceso y después usar el servicio vinculado al definir una actividad de transformación. La Factoría de datos admite dos tipos de entornos de proceso.
 
@@ -42,4 +44,4 @@ Consulte el artículo [Servicios vinculados de procesos](data-factory-compute-li
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md).
 
-<!----HONumber=Nov15_HO1-->
+<!-----HONumber=Nov15_HO1-->

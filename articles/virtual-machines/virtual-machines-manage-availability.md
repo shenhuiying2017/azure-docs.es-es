@@ -46,7 +46,7 @@ FD definen un grupo de máquinas virtuales que comparten un origen de alimentaci
 <!--Image reference-->
    ![Configuración de UD y FD](./media/virtual-machines-manage-availability/ud-fd-configuration.png)
 
->[AZURE.NOTE]Para obtener instrucciones, vea [Configuración de un conjunto de disponibilidad para máquinas virtuales][].
+>[AZURE.NOTE] Para obtener instrucciones, vea [Configuración de un conjunto de disponibilidad para máquinas virtuales][].
 
 ### Configure cada nivel de aplicación en conjuntos separados de disponibilidad
 Si las máquinas virtuales en su conjunto de disponibilidad son casi idénticas y tienen la misma función en su aplicación, recomendamos que configure un conjunto de disponibilidad para cada nivel de la aplicación. Si coloca dos niveles diferentes en el mismo conjunto de disponibilidad, todas las máquinas virtuales en un mismo nivel de aplicación se podrían reiniciar simultáneamente. Al configurar al menos dos máquinas virtuales para cada nivel, se garantiza que al menos una máquina virtual en cada nivel estará disponible.

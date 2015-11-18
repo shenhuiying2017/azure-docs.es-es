@@ -32,28 +32,31 @@ Puede usar la [API de REST](https://msdn.microsoft.com/library/azure/dn931945.as
 
 2. En el modo **Operaciones**, haga clic en **Reglas de alerta**.
 
-3. Haga clic en el comando **Agregar alerta**. ![Agregar alerta](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
+3. Haga clic en el comando **Agregar alerta**.
+    ![Agregar alerta](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
 
 4. Puede asignar un nombre a la regla de alerta y elegir una descripción que se mostrará en el correo electrónico de notificación.
 
-5. Cuando seleccione **Métricas**, elegirá una condición y el valor de umbral para la métrica. Es el período de tiempo que Azure usa para supervisar y trazar actividades de alerta. ![Condición y umbral](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
+5. Cuando seleccione **Métricas**, elegirá una condición y el valor de umbral para la métrica. Es el período de tiempo que Azure usa para supervisar y trazar actividades de alerta.
+    ![Condición y umbral](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
-6. También puede elegir **Eventos** y obtener una notificación cuando se produzca un evento determinado. ![Eventos](./media/insights-receive-alert-notifications/Insights_Events.png)
+6. También puede elegir **Eventos** y obtener una notificación cuando se produzca un evento determinado. 
+    ![Eventos](./media/insights-receive-alert-notifications/Insights_Events.png)
     
->[AZURE.NOTE]En este momento los eventos solo se admiten para las aplicaciones web.
+>[AZURE.NOTE] En este momento los eventos solo se admiten para las aplicaciones web. 
 
 7. Por último, puede enviar una notificación de correo electrónico a los administradores responsables.
 
-Después de hacer clic en **Guardar**, al cabo de unos minutos se le informará si la métrica que eligió supera el umbral.
+Después de hacer clic en **Guardar**, al cabo de unos minutos se le informará si la métrica que eligió supera el umbral. 
 
 ## Administrar las reglas de alertas
 
-Cuando haya creado una regla de alerta, podrá ver una vista previa del umbral de alertas en comparación con la métrica del día anterior.
+Cuando haya creado una regla de alerta, podrá ver una vista previa del umbral de alertas en comparación con la métrica del día anterior. 
 
 ![Eventos](./media/insights-receive-alert-notifications/Insights_EditAlert.png)
 
 
-Por supuesto, puede editar esta regla de alerta y elegir **Deshabilitar** o **Habilitar** si desea detener temporalmente la recepción de notificaciones sobre ella.
+Por supuesto, puede editar esta regla de alerta y elegir **Deshabilitar** o **Habilitar** si desea detener temporalmente la recepción de notificaciones sobre ella. 
 
 ## Pasos siguientes
 
@@ -66,4 +69,4 @@ Por supuesto, puede editar esta regla de alerta y elegir **Deshabilitar** o **Ha
 * [Realice el seguimiento del estado del servicio](insights-service-health.md) para averiguar cuándo ha sufrido Azure interrupciones del servicio o degradación del rendimiento.
  
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
