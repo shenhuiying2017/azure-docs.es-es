@@ -145,7 +145,7 @@ Como parte de este procedimiento, es necesario cargar un certificado codificado 
     e. Como **Type** (Tipo), seleccione **Trust Store Cert** (Confiar en certificados de almacén).
 
     f. Cree un archivo codificado en base 64 a partir del certificado descargado.
-    > [AZURE.NOTE]Para obtener más información, consulte [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o) (Conversión de un certificado binario en un archivo de texto).
+    > [AZURE.NOTE] Para obtener más información, consulte [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o) (Conversión de un certificado binario en un archivo de texto).
     
     g. Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado PEM**.
 
@@ -183,7 +183,7 @@ Como parte de este procedimiento, es necesario cargar un certificado codificado 
 
     f. En el cuadro de texto **ServiceNow Homepage** (Página de inicio de ServiceNow), escriba la dirección URL de la página de inicio de instancia de ServiceNow.
 
-    > [AZURE.NOTE]La página de inicio de la instancia de ServiceNow es una concatenación de su **URL de inquilino de ServiceNow** y **/navpage.do** (por ejemplo: **https://fabrikam.service-now.com/navpage.do*)).
+    > [AZURE.NOTE] La página de inicio de la instancia de ServiceNow es una concatenación de su **URL de inquilino de ServiceNow** y **/navpage.do** (por ejemplo: *https://fabrikam.service-now.com/navpage.do*).
  
 
     g. En el cuadro de texto **Entity ID / Issuer** (Id. de entidad / emisor), escriba la dirección URL de su inquilino ServiceNow.
@@ -196,7 +196,7 @@ Como parte de este procedimiento, es necesario cargar un certificado codificado 
 
     k. Anule la selección de **Create an AuthnContextClass** (Crear AuthnContextClass).
 
-    l. En **AuthnContextClassRef Method** (Método AuthnContextClassRef), escriba ****http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
+    l. En **AuthnContextClassRef Method** (Método AuthnContextClassRef), escriba **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
 
     m. En el cuadro de diálogo **Clock Skew** (Desplazamiento del reloj), escriba **60**.
 
@@ -230,19 +230,19 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 2. En la página **Especifique sus credenciales de ServiceNow para habilitar el aprovisionamiento automático de usuarios**, proporcione los valores de configuración siguientes: Configurar aprovisionamiento de usuarios
 
-     2\.1. En el cuadro de texto **Nombre de la instancia de ServiceNow**, escriba el nombre de la instancia de ServiceNow.
+     2.1. En el cuadro de texto **Nombre de la instancia de ServiceNow**, escriba el nombre de la instancia de ServiceNow.
 
-     2\.2. En el cuadro de texto **Nombre del usuario administrador de ServiceNow**, escriba el nombre de la cuenta de administrador de ServiceNow.
+     2.2. En el cuadro de texto **Nombre del usuario administrador de ServiceNow**, escriba el nombre de la cuenta de administrador de ServiceNow.
 
-     2\.3. En el cuadro de texto **Contraseña de administración de ServiceNow**, escriba la contraseña para esta cuenta.
+     2.3. En el cuadro de texto **Contraseña de administración de ServiceNow**, escriba la contraseña para esta cuenta.
 
-     2\.4. Haga clic en **Validar** para comprobar la configuración.
+     2.4. Haga clic en **Validar** para comprobar la configuración.
 
-     2\.5. Haga clic en el botón **Siguiente** para abrir la página **Pasos siguientes**.
+     2.5. Haga clic en el botón **Siguiente** para abrir la página **Pasos siguientes**.
 
-     2\.6. Si quiere aprovisionar todos los usuarios para esta aplicación, seleccione "**Aprovisionar automáticamente todas las cuentas del directorio en esta aplicación**". <br><br> ![Pasos siguientes](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Pasos siguientes")
+     2.6. Si quiere aprovisionar todos los usuarios para esta aplicación, seleccione "**Aprovisionar automáticamente todas las cuentas del directorio en esta aplicación**". <br><br> ![Pasos siguientes](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Pasos siguientes")
 
-     2\.7. En la página **Pasos siguientes**, haga clic en **Completar** para guardar la configuración.
+     2.7. En la página **Pasos siguientes**, haga clic en **Completar** para guardar la configuración.
 
 
 
@@ -278,4 +278,4 @@ Si desea probar la configuración de inicio de sesión único, abra el Panel de 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Nov15_HO2-->
+<!----HONumber=Nov15_HO2-->
