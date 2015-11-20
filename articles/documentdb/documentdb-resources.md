@@ -73,12 +73,14 @@ DocumentDB no exige ninguna extensión propietaria a la norma JSON ni codificaci
 ### Direccionamiento de un recurso
 Todos los recursos se pueden diseccionar mediante URI. El valor de la propiedad **\_self** de un recurso representa la URI relativa del recurso. El formato del URI consta de los segmentos de ruta /<feed>/{\_rid}:
 
-|Valor de _self |Descripción |
--------------------|----------- 
+|Valor de _self |Descripción
+|-------------------|----------- 
 |/dbs |Fuente de las bases de datos en una cuenta de bases de datos. 
 |/dbs/{_rid-db} |Base de datos con la propiedad de identificador único con el valor {_rid-db}. 
 |/dbs/{_rid-db}/colls/ |Fuente de recopilaciones en una base de datos. 
-|/dbs/{_rid-db}/colls/{_rid-coll} |Recopilación con la propiedad de identificador único con el valor {_rid-coll}. 
+|/dbs/{_rid-db}/colls/{_rid-coll} |Recopilación con la propiedad de identificador único con el valor {_rid-coll}
+|/dbs/{_rid-db}/colls/{_rid-coll}/docs |Fuente de documentos de una colección
+|/dbs/{_rid-db}/colls/{_rid-coll}/docs/{_rid-doc} |Documento con un id. que coincide con el valor de {_rid-doc}
 |/dbs/{_rid-db}/users/ |Fuente de usuarios en una base de datos. 
 |/dbs/{_rid-db}/users/{_rid-user} |Usuario con la propiedad de identificador único con el valor {_rid-user}. 
 |/dbs/{_rid-db}/users/{_rid-user}/permissions |Fuente de permisos en una base de datos. 

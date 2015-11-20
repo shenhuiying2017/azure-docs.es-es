@@ -71,9 +71,9 @@ En este paso, creará dos servicios vinculados: **AzureStorageLinkedService1** y
 
 #### Cree el servicio vinculado SQL de Azure.
 
-5. Haga doble clic con el botón derecho en el nodo **Servicios vinculados ** en el **Explorador de soluciones** de nuevo, apunte a **Agregar** y haga clic en **Nuevo elemento**. 
+5. Haga doble clic con el botón derecho en el nodo **Servicios vinculados** en el **Explorador de soluciones** de nuevo, apunte a **Agregar** y haga clic en **Nuevo elemento**. 
 6. Esta vez, seleccione **Servicios vinculados de SQL Azure** y haga clic en **Agregar**. 
-7. En el archivo **AzureSqlLinkedService1.json** reemplace **servername**, **databasename**, ****username@servername** y **password** por los nombres del servidor de SQL Azure, la base de datos, la cuenta de usuario y la contraseña.
+7. En el archivo **AzureSqlLinkedService1.json** reemplace **servername**, **databasename**, **username@servername** y **password** por los nombres del servidor de SQL Azure, la base de datos, la cuenta de usuario y la contraseña.
 8.  Guarde el archivo **AzureSqlLinkedService1.json**. 
 
 
@@ -211,7 +211,8 @@ Ya ha creado las tablas y los servicios vinculados de entrada/salida. Ahora, va 
 	1. Seleccione la opción **Crear la nueva factoría de datos**.
 	2. Escriba **VSTutorialFactory** para **Nombre**.  
 	
-		> [AZURE.NOTE]El nombre del generador de datos de Azure debe ser único global. Si recibe un error sobre el nombre de la factoría de datos cuando se publica, cámbielo (por ejemplo, sunombreVSTutorialFactory) e intente publicar de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
+		> [AZURE.NOTE]  
+		> El nombre del generador de datos de Azure debe ser único global. Si recibe un error sobre el nombre de la factoría de datos cuando se publica, cámbielo (por ejemplo, sunombreVSTutorialFactory) e intente publicar de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
 		> 
 		> El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
 	3. Seleccione la suscripción correcta para el campo **Suscripción**. 
@@ -240,4 +241,4 @@ Para actualizar las herramientas de Factoría de datos de Azure para Visual Stud
 
 Consulte [Supervisión de los conjuntos de datos y la canalización](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) para obtener instrucciones sobre cómo usar el Portal de vista previa de Azure para supervisar la canalización y los conjuntos de datos que ha creado en este tutorial.
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->
