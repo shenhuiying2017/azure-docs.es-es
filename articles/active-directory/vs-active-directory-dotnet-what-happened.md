@@ -3,7 +3,7 @@
 	description="Describe lo que sucede a su proyecto de MVC cuando se conecta a Azure AD mediante los servicios conectados de Visual Studio."
 	services="active-directory"
 	documentationCenter="na"
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # ¿Qué ha ocurrido a mi proyecto MVC (servicio conectado a Azure Active Directory de Visual Studio)?
 
@@ -171,4 +171,4 @@ La aplicación Azure Active Directory se actualizó para incluir el permiso *Lee
 
 [Más información acerca de Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

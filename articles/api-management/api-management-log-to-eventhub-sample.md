@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="10/30/2015"
+    ms.date="11/10/2015"
     ms.author="v-darmi"/>
 
 # Supervisión de API con Administración de API de Azure, Centros de eventos y Runscope
@@ -257,4 +257,15 @@ En la siguiente imagen animada, puede ver una solicitud realizada a una API en e
 ## Resumen
 El servicio de Administración de API de Azure proporciona un lugar ideal para capturar el tráfico de HTTP hacia y desde la API. Centros de eventos de Azure es una solución altamente escalable y de bajo costo para capturar ese tráfico y colocarlo en sistemas de procesamiento secundario para el registro, supervisión y otros análisis sofisticados. La conexión a sistemas de supervisión del tráfico de terceros como Runscope es tan simple como las pocas docenas de líneas de código.
 
-<!---HONumber=Nov15_HO2-->
+## Pasos siguientes
+-	Obtenga más información acerca de los centros de eventos de Azure
+	-	[Introducción a los centros de eventos de Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+	-	[Recepción de mensajes con EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+	-	[Guía de programación de Centros de eventos](../event-hubs/event-hubs-programming-guide.md)
+-	Obtenga más información acerca de la integración de Administración de API y Centros de eventos
+	-	[Cómo registrar eventos en los centros de eventos de Azure en la administración de API de Azure](api-management-howto-log-event-hubs.md)
+	-	[Referencia de entidad del registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+	-	[referencia de la directiva log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+	
+
+<!---HONumber=Nov15_HO3-->

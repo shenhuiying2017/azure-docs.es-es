@@ -104,8 +104,8 @@ Nombre|Parte de SAS|Descripción
 ---|---|---
 URI de blobs|https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt |La dirección del blob. Tenga en cuenta que se recomienda fehacientemente el uso de HTTPS.
 Versión de servicios de almacenamiento|sv=2015-04-05|En la versión de servicios de almacenamiento 2012-02-12 y superiores, este parámetro indica qué versión usar.
-Hora de inicio|st=2015-04-29T22%3A18%3A26Z|Se especifica en formato ISO 8061. Si desea que la SAS sea válida de inmediato, omita la hora de inicio.
-Hora de expiración|se=2015-04-30T02%3A23%3A26Z|Se especifica en formato ISO 8061.
+Hora de inicio|st=2015-04-29T22%3A18%3A26Z|Se especifica en formato ISO 8601. Si desea que la SAS sea válida de inmediato, omita la hora de inicio.
+Hora de expiración|se=2015-04-30T02%3A23%3A26Z|Se especifica en formato ISO 8601.
 Recurso|sr=b|El recurso es un blob.
 Permisos|sp=rw|Los permisos que concede la SAS son de lectura y escritura.
 Intervalo de IP|sip=168.1.5.60-168.1.5.70|El intervalo de direcciones IP desde el que se aceptará una solicitud.
@@ -317,11 +317,9 @@ Las firmas de acceso compartido son útiles para ofrecer permisos limitados a su
 - [Uso del Almacenamiento de archivos de Azure con Windows](storage-dotnet-how-to-use-files.md)
 - [Administración del acceso a los recursos de almacenamiento de Azure](storage-manage-access-to-resources.md)
 - [Delegación de acceso con una firma de acceso compartido](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [Presentación de tablas y colas SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [Presentación de tablas y colas SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

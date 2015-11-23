@@ -168,7 +168,7 @@ public class Job : IComparable<Job>
 }
 ```
 
-Finalmente, se implementa la interfaz IJobQueue en el nivel de detalle. Tenga en cuenta que se omiten los detalles de implementación de la cola de prioridad para mayor claridad. Una implementación de ejemplo puede encontrarse en los ejemplos que la acompañan.
+Finalmente, se implementa la interfaz IJobQueue en el actor. Tenga en cuenta que se omiten los detalles de implementación de la cola de prioridad para mayor claridad. Una implementación de ejemplo puede encontrarse en los ejemplos que la acompañan.
 
 ## Ejemplo de código de memoria caché inteligente: cola de elementos Job
 
@@ -240,7 +240,7 @@ En los ejemplos anteriores, tabla de líderes y JobQueue, se usaron dos técnica
 
 * Por otro lado, en el ejemplo de JobQueue, se implementó el actor como una cola de prioridad en sí mismo en lugar de hacer referencia a otro objeto definido en otra parte.
 
-Los actores ofrecen flexibilidad para que el desarrollador defina estructuras de objetos enriquecidos como parte de los actores o gráficos de objetos de referencia fuera de los actores. En términos de la memoria caché, los actores pueden realizar escritura por detrás o escritura a través, o bien se pueden usar distintas técnicas con una granularidad de variables de miembro. En otras palabras, existe un control total sobre lo que se debe conservar y cuándo se debe conservar. No es necesario conservar el estado transitorio o el estado que se puede crear a partir del estado guardado. ¿Qué tal si ahora se rellenan las memorias caché de estos actores? Hay varias formas de hacerlo. Los actores ofrecen métodos virtuales llamados OnActivateAsync() y OnDectivateAsync() para informar de cuándo se activa y desactiva una instancia del actor. Tenga en cuenta que el actor se activa a petición cuando se le envía la primera solicitud. Se puede usar OnActivateAsync() para rellenar el estado a petición como en la lectura a través, quizás desde un almacén estable externo. O se puede rellenar el estado en un temporizador, como un actor de tasa de cambio que ofrece la función de conversión según los tipos de divisa más recientes. Este actor puede rellenar periódicamente su estado desde un servicio externo, por ejemplo cada 5 segundos, y usarlo para la función de conversión. Observe el ejemplo siguiente:
+Los actores ofrecen flexibilidad para que el desarrollador defina estructuras de objetos enriquecidos como parte de los actores o gráficos de objetos de referencia fuera de los actores. En términos de la memoria caché, los actores pueden realizar escritura por detrás o escritura a través, o bien se pueden usar distintas técnicas con una granularidad de variables de miembro. En otras palabras, existe un control total sobre lo que se debe conservar y cuándo se debe conservar. No es necesario conservar el estado transitorio o el estado que se puede crear a partir del estado guardado. ¿Qué tal si ahora se rellenan las memorias caché de estos actores? Hay varias formas de hacerlo. Los actores ofrecen métodos virtuales llamados OnActivateAsync() y OnDeactivateAsync() para informar de cuándo se activa y desactiva una instancia del actor. Tenga en cuenta que el actor se activa a petición cuando se le envía la primera solicitud. Se puede usar OnActivateAsync() para rellenar el estado a petición como en la lectura a través, quizás desde un almacén estable externo. O se puede rellenar el estado en un temporizador, como un actor de tasa de cambio que ofrece la función de conversión según los tipos de divisa más recientes. Este actor puede rellenar periódicamente su estado desde un servicio externo, por ejemplo cada 5 segundos, y usarlo para la función de conversión. Observe el ejemplo siguiente:
 
 ## Ejemplo de código de memoria caché inteligente: conversor de tasas
 
@@ -301,4 +301,4 @@ Principalmente, la memoria caché inteligente ofrece:
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -3,7 +3,7 @@
 	description="Introducción a Almacenamiento de tablas de Azure en un proyecto ASP.NET 5 en Visual Studio después de conectarse a una cuenta de almacenamiento mediante los servicios conectados de Visual Studio"
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Introducción al almacenamiento Tabla de Azure y los servicios conectados de Visual Studio
 
@@ -53,7 +53,7 @@ Para obtener acceso a las tablas en los proyectos ASP.NET 5, deberá incluir los
 	    using System.Threading.Tasks;
 	    using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
-2. Obtenga un objeto **CloudStorageAccount** que represente la información de la cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure.
+2. Obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure.
 
 	    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 	        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
@@ -211,4 +211,4 @@ Puede eliminar fácilmente una entidad después de haberla encontrado. El códig
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

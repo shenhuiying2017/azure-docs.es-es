@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="11/09/2015"
 	ms.author="jgao"/>
 
 
@@ -103,7 +103,7 @@ Algunas de las características más destacadas de la plataforma de HDInsight in
 En la siguiente tabla se enumeran las versiones de HDInsight que está disponibles actualmente, las versiones correspondientes de la distribución Hortonworks Data Platform que usan y sus fechas de lanzamiento. Si se conocen, también se proporcionan también las fechas de expiración y desuso. Tenga en cuenta lo siguiente:
 
 * Los clústeres de alta disponibilidad con dos nodos principales se implementan de forma predeterminada para los clústeres de HDInsight 2.1 y versiones posteriores. No están disponibles para los clústeres de HDInsight 1.6.
-* Cuando expira el soporte técnico de una versión concreta, es posible que no esté disponible en el Portal de Azure. En la tabla siguiente se indica qué versiones están disponibles en el Portal de Azure. Las versiones de clúster seguirán estando disponibles usando el parámetro `Version` en el comando [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) y en el SDK de .NET hasta la fecha de desuso.
+* Cuando expira el soporte técnico de una versión concreta, es posible que no esté disponible en el Portal de Azure. En la tabla siguiente se indica qué versiones están disponibles en el Portal de Azure. Las versiones de clúster seguirán estando disponibles usando el parámetro `Version` en el comando [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) y en el SDK de .NET hasta la fecha de desuso.
 
 <table border="1"> <tr><th>Versión de HDInsight</th><th>Versión de HDP</a><th>Alta disponibilidad</th></th><th>Fecha de lanzamiento</th><th>Disponible en el Portal de Azure</th><th>Fecha de expiración de soporte técnico</th><th>Fecha de desuso</th></tr> <tr><td>HDI 3.2</td><td>HDP 2.2</td><td>Sí</td><td>18/02/2015</td><td>Sí</td><td></td><td></td></tr> <tr><td>HDI 3.1</td><td>HDP 2.1</td><td>Sí</td><td>24/06/2014</td><td>Sí</td><td></td><td></td></tr> <tr><td>HDI 3.0</td><td>HDP 2.0</td><td>Sí</td><td>11/02/2014</td><td>Sí</td><td>17/09/2014</td><td>30/06/2015</td></tr> <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Sí</td><td>28/10/2013</td><td>No</td><td>12/05/2014</td><td>31/05/2015</td></tr> <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>No</td><td>28/10/2013</td><td>No</td><td>26/04/2014</td><td>31/05/2015</td></tr> </table><br>
 
@@ -160,4 +160,4 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/05/2015" 
 	ms.author="awills"/>
 
 
@@ -44,7 +44,7 @@ El monitor de dependencia listo para su uso sin configuraciones adicionales actu
 * Java
  * Llamadas a una base de datos a través de un controlador [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), por ejemplo, MySQL, SQL Server, PostgreSQL o SQLite.
 
-Puede escribir sus propias llamadas de SDK para supervisar otras dependencias que usan la [API de TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency.
+Puede escribir sus propias llamadas de SDK para supervisar otras dependencias que usan la [API de TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
 
 ## Para configurar la supervisión de dependencia
@@ -202,4 +202,4 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

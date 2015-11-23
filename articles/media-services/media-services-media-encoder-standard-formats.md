@@ -106,12 +106,14 @@ MP4 <br/><br/>(incluidos los contenedores de MP4 de velocidad de bits múltiple)
 MPEG2-TS |H.264 (perfil alto, perfil principal y perfil de base de línea)|AAC-LC, HE-AAC v1, HE-AAC v2 
 
 
+
 ##Rutas de aprendizaje de Servicios multimedia
 
-Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Envío de comentarios
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##Consulte también
 
@@ -119,4 +121,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 [Codificación con Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

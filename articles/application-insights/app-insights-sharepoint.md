@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="11/06/2015" 
 	ms.author="awills"/>
 
 # Supervisión de un sitio de SharePoint con Application Insights
@@ -77,21 +77,21 @@ Vuelva a implementar la aplicación.
 
 Vuelva a la hoja de la aplicación en el [Portal de Azure](http://portal.azure.com).
 
-Los primeros eventos aparecerán en Búsqueda de diagnóstico.
+Los primeros eventos aparecerán en Búsqueda.
 
 ![](./media/app-insights-sharepoint/09-search.png)
 
 Si espera más datos, haga clic en Actualizar después de unos segundos.
 
-**Análisis de uso** vincula a los gráficos de usuarios, sesiones y vistas de página:
+En la hoja de introducción, haga clic en **Análisis de uso** para ver a los gráficos de los usuarios, sesiones y vistas de páginas:
 
 ![](./media/app-insights-sharepoint/06-usage.png)
 
-Por ejemplo, haga clic en Vistas de página para ver más detalles:
+Haga clic en cualquier gráfico para ver más detalles: por ejemplo, Vistas de página:
 
 ![](./media/app-insights-sharepoint/07-pages.png)
 
-Haga clic en Usuarios para ver los detalles acerca de los nuevos usuarios y sus ubicaciones.
+O usuarios:
 
 
 ![](./media/app-insights-sharepoint/08-users.png)
@@ -108,4 +108,4 @@ Haga clic en Usuarios para ver los detalles acerca de los nuevos usuarios y sus 
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

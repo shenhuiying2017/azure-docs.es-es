@@ -1067,12 +1067,12 @@ Si se realiza correctamente, se devuelve la respuesta siguiente:
 	         }
 	      },
 	      "Id":"nb:lid:UUID:8e5a821d-2194-4d00-8884-adf979856874",
-	      "ExpirationDateTime":"/Date(1337049393000)/",
+	      "ExpirationDateTime":"\/Date(1337049393000)\/",
 	      "Type":1,
 	      "Path":"https://storagetestaccount001.blob.core.windows.net/asset-71d2dd33-efdf-ec43-8ea1-136a110bd42c?st=2012-05-14T21%3A36%3A33Z&se=2012-05-15T02%3A36%3A33Z&sr=c&si=8e5a821d-2194-4d00-8884-adf979856874&sig=y75dViDpC5V8WutrXM%2B%2FGpR3uOtqmlISiNlHU1YUBOg%3D",
 	      "AccessPolicyId":"nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8",
 	      "AssetId":"nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c",
-	      "StartTime":"/Date(1337031393000)/"
+	      "StartTime":"\/Date(1337031393000)\/"
 	   }
 	}
 
@@ -1189,16 +1189,15 @@ Para transmitir vídeo, use [Reproductor de Servicios multimedia de Azure](http:
 Para probar la descarga progresiva, pegue una dirección URL en un explorador (por ejemplo, Internet Explorer, Chrome o Safari).
 
 
-##Pasos siguientes
+##Siguientes pasos: Rutas de aprendizaje de Servicios multimedia
 
-###Rutas de aprendizaje de Servicios multimedia
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+##Envío de comentarios
 
-- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### ¿Busca alguna otra cosa?
+## ¿Busca alguna otra cosa?
 
 Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna forma sus necesidades, háganos llegar sus comentarios mediante el subproceso de Disqus siguiente.
 
@@ -1214,4 +1213,4 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

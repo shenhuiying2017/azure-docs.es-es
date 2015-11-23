@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="11/06/2015"
    ms.author="larryfr"/>
 
 # Uso de MapReduce con Hadoop en HDInsight con SSH
@@ -72,7 +72,7 @@ Para obtener más información sobre el uso de PuTTY, consulte [Utilización de 
 
 3. Cuando finalice el trabajo, use el siguiente comando para mostrar los archivos de salida almacenados en ****wasb://example/data/WordCountOutput**:
 
-		hadoop fs -ls wasb:///example/data/WordCountOutput
+		hdfs dfs -ls wasb:///example/data/WordCountOutput
 
 	Se deberían mostrar dos archivos, **\_SUCCESS** y **part-r-00000**. El archivo **part-r-00000** contiene la salida de este trabajo.
 
@@ -80,7 +80,7 @@ Para obtener más información sobre el uso de PuTTY, consulte [Utilización de 
 
 4. Para ver la salida, use el comando siguiente:
 
-		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
+		hdfs dfs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
 	Se muestra una lista de las palabras que están contenidas en el archivo ****wasb://example/data/gutenberg/davinci.txt**, junto con el número de veces que apareció cada palabra. El siguiente es un ejemplo de los datos que estarán contenidos en el archivo:
 
@@ -108,4 +108,4 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

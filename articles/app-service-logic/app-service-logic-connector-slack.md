@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Uso del conector de Slack en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
 	description="Creación y configuración del conector de Slack o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
-	authors="anuragdalmia" 
+	authors="rajeshramabathiran" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service\logic" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+	ms.date="11/11/2015"
+	ms.author="rajram"/>
 
 # Introducción al conector de Slack y su incorporación a su aplicación lógica
 Conéctese a los canales de Slack y publique mensajes para su equipo. Los conectores pueden usarse en aplicaciones lógicas como parte de un "flujo de trabajo" para realizar diferentes tareas. El uso del conector de Slack en su flujo de trabajo, en combinación con otros conectores, puede permitirle conseguir diversos resultados. Por ejemplo, puede usar el [conector de Facebook](app-service-logic-connector-facebook.md) en el flujo de trabajo para publicar un mensaje en el canal de Slack.
@@ -99,4 +99,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

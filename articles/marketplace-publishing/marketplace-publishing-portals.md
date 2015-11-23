@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -50,4 +50,4 @@ Mientras la oferta del portal de publicación esté en ensayo, es preciso que se
 ## Otras referencias
 - [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

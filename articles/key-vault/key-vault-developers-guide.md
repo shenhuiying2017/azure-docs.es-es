@@ -5,15 +5,15 @@
    documentationCenter=""
    authors="BrucePerlerMS"
    manager="mbaldwin"
-   editor="mbaldwin" />
+   editor="bruceper" />
 <tags
    ms.service="key-vault"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/22/2015"
-   ms.author="mbaldwin" />
+   ms.date="11/06/2015"
+   ms.author="bruceper" />
 
 # Guía del desarrollador del Almacén de claves de Azure
 
@@ -33,21 +33,11 @@ Las operaciones en los almacenes de claves se autentican y autorizan mediante Az
 
 ## Programación para el almacén de claves
 
-El sistema de administración del almacén de claves para los programadores está compuesto por varias interfaces, con REST como base. En este artículo de la referencia de REST se ofrecen conceptos básicos, [Acerca de las claves y los secretos](https://msdn.microsoft.com/library/azure/dn903623.aspx)
+El sistema de administración del almacén de claves para los programadores está compuesto por varias interfaces, con REST como base. [Referencia de la API de REST de Almacén de claves](https://msdn.microsoft.com/library/azure/dn903609.aspx)
 
-### REST
-
-La API de REST es la base de toda la interacción mediante programación con el almacén de claves.
-
-Almacén de claves tiene su propio extremo REST que se describe en la [Referencia de la API de REST del Almacén de claves](https://msdn.microsoft.com/library/azure/dn903609.aspx)
-
-### .NET
-
-La API de .NET es un conjunto de contenedores que permite la implementación a través del modelo de programación de C# sin necesidad de interactuar directamente con el extremo REST. Aquí puede encontrar la [Referencia de la API de cliente .NET del Almacén de claves de Azure](https://msdn.microsoft.com/library/azure/dn903301.aspx).
-
-### Node.js
-
-La API de Node.js es un conjunto de contenedores que permite la implementación a través del modelo de programación de Node.js sin necesidad de interactuar directamente con el extremo REST. Aquí puede encontrar el [SDK de Microsoft Azure para Node.js - Administración del Almacén de claves](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/).
+|[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|:--:|:--:|
+|[.NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 
 ## Administración de almacenes de claves
 
@@ -67,5 +57,12 @@ Los artículos siguientes proporcionan orientación específica de tareas:
 ## Ejemplos
 
 - Esta descarga contiene la aplicación de ejemplo HelloKeyVault y un ejemplo de servicio web de Azure. [Ejemplos de código de almacén de claves de Azure](http://www.microsoft.com/download/details.aspx?id=45343)
+- Use este tutorial como ayuda para aprender a usar el Almacén de claves de Azure desde una aplicación web. [Uso del Almacén de claves de Azure desde una aplicación web](key-vault-use-from-web-application.md)
 
-<!---HONumber=Nov15_HO2-->
+## Bibliotecas compatibles
+
+- [La biblioteca principal del Almacén de claves de Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) proporciona interfaces IKey y IKeyResolver para localizar las claves de identificadores y realizar operaciones con las claves.
+
+- [Las extensiones del Almacén de claves de Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) proporcionan capacidades ampliadas para el Almacén de claves de Azure.
+
+<!---HONumber=Nov15_HO3-->

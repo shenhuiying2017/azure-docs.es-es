@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Servicios vinculados de procesos
@@ -49,6 +49,7 @@ Tenga en cuenta los siguientes puntos **importantes** acerca del servicio vincul
 	      "jobsContainer": "adfjobs",
 	      "timeToLive": "00:05:00",
 	      "version": "3.1",
+		  "osType": "linux",
 	      "linkedServiceName": "MyBlobStore"
 	      "additionalLinkedServiceNames": [
 	        "otherLinkedServiceName1",
@@ -69,6 +70,7 @@ timetolive | <p>El tiempo de inactividad permitido para el clúster de HDInsight
 versión | Versión del clúster de HDInsight. | No
 linkedServiceName | El almacén de blobs que usará el clúster a petición para almacenar y procesar datos. | Sí
 additionalLinkedServiceNames | Especifica cuentas de almacenamiento adicionales para el servicio vinculado de HDInsight, de forma que el servicio Factoría de datos pueda registrarlas en su nombre. | No
+osType | Tipo de sistema operativo. Los valores permitidos son: windows (valor predeterminado) y linux | No 
 
 ### Propiedades avanzadas
 
@@ -235,7 +237,7 @@ apiKey | La API del modelo de área de trabajo publicado. | Sí
 
 
 ## Servicio vinculado con el Análisis con Azure Data Lake
-Cree un servicio vinculado con **Análisis con Azure Data Lake** para vincular un servicio de proceso de Análisis con Azure Data Lake a un generador de datos de Azure antes de usar la [actividad U-SQL de Análisis con Data Lake](data-factory-usql-activity.md) en una canalización.
+Cree un servicio vinculado de **Análisis de Azure Data Lake** para vincular un servicio de proceso de Análisis de Azure Data Lake a una factoría de datos de Azure antes de usar la [actividad U-SQL de Análisis de Data Lake](data-factory-usql-activity.md) en una canalización.
 
 En el ejemplo siguiente se proporciona la definición de JSON de un servicio vinculado de Análisis con Azure Data Lake.
 
@@ -260,12 +262,12 @@ En la siguiente tabla se ofrecen descripciones de las propiedades que se usan en
 Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
 Tipo | La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. | Sí
-accountName | Nombre de la cuenta de Análisis con Azure Data Lake | Sí
-dataLakeAnalyticsUri | URI de Análisis con Azure Data Lake | No 
-autorización | El código de autorización se recupera automáticamente después de hacer clic en el botón **Autorizar** situado en el Editor de la factoría de datos y de completar el inicio de sesión de OAuth. | Sí 
-subscriptionId | Id. de suscripción de Azure | No (si no se especifica, se usa la suscripción de la factoría de datos). 
-resourceGroupName | Nombre del grupo de recursos de Azure | No (si no se especifica, se usa el grupo de recursos de la factoría de datos).
-sessionId | Id. de sesión de la sesión de autorización de OAuth. Cada identificador de sesión es único y solo puede usarse una vez. Esto se genera automáticamente en el Editor de la Factoría de datos. | Sí
+accountName | Nombre de la cuenta de Análisis de Azure Data Lake | Sí
+dataLakeAnalyticsUri | Identificador URI de Análisis de Azure Data Lake. | No 
+authorization | El código de autorización se recupera automáticamente después de hacer clic en el botón **Autorizar** situado en el Editor de Factoría de datos y de completar el inicio de sesión de OAuth. | Sí 
+subscriptionId | Identificador de suscripción de Azure. | No (si no se especifica, se usa la suscripción de la factoría de datos). 
+resourceGroupName | Nombre del grupo de recursos de Azure. | No (si no se especifica, se usa el grupo de recursos de la factoría de datos).
+sessionId | Identificador de sesión de la sesión de autorización de OAuth. Cada identificador de sesión es único y solo puede usarse una vez. Esto se genera automáticamente en el Editor de Factoría de datos. | Sí
 
 
 ## Servicio vinculado SQL de Azure
@@ -281,4 +283,4 @@ Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimie
  
    
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

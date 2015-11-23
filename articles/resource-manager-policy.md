@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/02/2015"
+	ms.date="11/10/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # Uso de directivas para administrar los recursos y controlar el acceso
@@ -23,6 +23,8 @@ El Administrador de recursos de Azure permite controlar el acceso mediante direc
 Se crean definiciones de directivas que describen las acciones o los recursos que se han denegado específicamente. Esas definiciones de directivas se asignan en el ámbito deseado, como la suscripción, el grupo de recursos o un recurso individual.
 
 En este artículo se explica la estructura básica del lenguaje de definición de directivas que se puede usar para crear directivas. A continuación, describiremos cómo es posible aplicar estas directivas en distintos ámbitos y, finalmente, mostraremos algunos ejemplos de aplicación mediante la API de REST.
+
+La directiva está actualmente disponible como vista previa.
 
 ## ¿En qué se diferencia de RBAC?
 
@@ -289,4 +291,4 @@ Puede obtener, cambiar o quitar definiciones de la directiva mediante los cmdlet
 
 De forma similar, puede obtener, cambiar o quitar las asignaciones de directivas mediante los cmdlets Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment y Remove-AzureRmPolicyAssignment respectivamente.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -40,6 +40,20 @@ Hive también puede extenderse a través de **funciones definidas por el usuario
 
 * [Cómo agregar una UDF de Hive personalizada a HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
+
+## Tablas internas frente a tablas externas de Hive.
+
+Existen determinados aspectos que debe conocer en relación con la tabla interna y externa de Hive:
+
+- El comando **CREATE TABLE** crea una tabla interna. El archivo de datos debe ubicarse en el contenedor predeterminado.
+- El comando **CREATE TABLE** mueve el archivo de datos a la carpeta /hive/warehouse/<TableName>.
+- El comando **CREATE EXTERNAL TABLE** crea una tabla externa. El archivo de datos puede estar ubicado fuera del contenedor predeterminado.
+- El comando **CREATE EXTERNAL TABLE** no mueve el archivo de datos.
+- El comando **CREATE EXTERNAL TABLE** no permite ninguna carpeta en LOCATION. Este es el motivo por el que el tutorial hace una copia del archivo sample.log.
+
+Para obtener más información, consulte [HDInsight: introducción de tablas internas y externas de Hive][cindygross-hive-tables].
+
+
 ##<a id="data"></a>Acerca de los datos de ejemplo, un archivo log4j de Apache
 
 Este ejemplo usa un archivo de ejemplo *log4j*, que se almacena en **/example/data/sample.log** en el contenedor de almacenamiento de blobs. Cada registro del archivo consta de una línea de campos que contiene un campo `[LOG LEVEL]` para mostrar el tipo y la gravedad, por ejemplo:
@@ -183,4 +197,7 @@ Ahora que aprendió qué es Hive y cómo usarlo con Hadoop en HDInsight, use los
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO4-->
+
+[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+
+<!---HONumber=Nov15_HO3-->

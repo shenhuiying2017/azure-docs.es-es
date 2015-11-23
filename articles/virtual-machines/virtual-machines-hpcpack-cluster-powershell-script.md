@@ -6,7 +6,7 @@
    authors="dlepow"
    manager="timlt"
    editor=""
-   tags="azure-service-management"/>
+   tags="azure-service-management,hpc-pack"/>
 <tags
    ms.service="virtual-machines"
    ms.devlang="NA"
@@ -390,4 +390,4 @@ El archivo de configuración siguiente implementa un clúster de HPC Pack en un 
 
 * Pruebe las herramientas de HPC Pack para iniciar, detener, agregar y quitar nodos de proceso de un clúster creado. Consulte [Administración de nodos de proceso en un clúster de HPC Pack en Azure](virtual-machines-hpcpack-cluster-node-manage.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

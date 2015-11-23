@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/14/2015"
+   ms.date="10/29/2015"
    ms.author="telmos" />
 
 # Información general sobre redes virtuales
@@ -93,4 +93,4 @@ Los dispositivos virtuales dependen de las [rutas definidas por el usuario y ree
 - [Reserva de una dirección IP pública](../virtual-networks-reserved-public-ip.md).
 - Obtención de más información sobre [rutas definidas por el usuario y reenvío IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

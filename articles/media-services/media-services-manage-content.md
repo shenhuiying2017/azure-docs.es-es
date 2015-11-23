@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="11/09/2015"
 	ms.author="juliako"/>
 
 
@@ -204,17 +204,19 @@ Se aplican algunas consideraciones:
 
 - Asegúrese de que se ha publicado el vídeo.
 - El **REPRODUCTOR DE CONTENIDO DE SERVICIOS MULTIMEDIA** reproduce desde el extremo de streaming predeterminado. Si desea reproducir desde un extremo de streaming que no esté predeterminado, use otro reproductor. Por ejemplo, el [Reproductor de Servicios multimedia de Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
- 
+
+![AMSPlayer][AMSPlayer]
 
 ##Rutas de aprendizaje de Servicios multimedia
 
-Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Envío de comentarios
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-![AMSPlayer][AMSPlayer]
+
 
 <!-- Images -->
 [portaloverview]: ./media/media-services-manage-content/media-services-content-page.png
@@ -229,4 +231,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

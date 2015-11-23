@@ -1,6 +1,6 @@
 <properties
-	 pageTitle="Usar el portal de Azure para administrar el centro de IoT | Microsoft Azure"
-	 description="Información general sobre cómo crear y administrar los centros de IoT de Azure a través del portal de Azure"
+	 pageTitle="Usar el portal de vista previa de Azure para administrar el centro de IoT | Microsoft Azure"
+	 description="Información general sobre cómo crear y administrar los centros de IoT de Azure a través del portal de vista previa de Azure"
 	 services="iot-hub"
 	 documentationCenter=""
 	 authors="nasing"
@@ -16,11 +16,11 @@
 	 ms.date="10/19/2015"
 	 ms.author="nasing"/>
 
-# Administración de Centros de IoT a través del portal de Azure
+# Administración de Centros de IoT a través del portal de vista previa de Azure
 
 ## Introducción
 
-En este artículo se describe cómo empezar a trabajar con Centros de IoT a través del Portal de Azure, cómo buscar Centros de IoT, y cómo crearlos y administrarlos.
+En este artículo se describe cómo empezar a trabajar con Centros de IoT de Azure a través del Portal de vista previa de Azure, cómo buscar Centros de IoT y cómo crearlos y administrarlos.
 
 ## Dónde encontrar centros de IoT
 
@@ -153,4 +153,4 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

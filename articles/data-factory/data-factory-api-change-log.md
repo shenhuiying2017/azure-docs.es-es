@@ -13,11 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="11/10/2015" 
 	ms.author="spelluru"/>
 
 # Factoría de datos de Azure - Registro de cambios de .NET SDK 
 En este artículo se proporciona información sobre los cambios realizados en el SDK de Factoría de datos de Azure en una versión específica. El paquete NuGet más reciente para la Factoría de datos de Azure se encuentra [aquí](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories).
+
+## Versión 4.2.0
+Fecha de lanzamiento: 10/11/2015
+
+### Incorporación de características
+
+- Se ha agregado el nuevo tipo de actividad siguiente: [AzureMLUpdateResourceActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremlupdateresourceactivity.aspx). Para obtener más información acerca de la actividad, consulte [Actualización de modelos de Aprendizaje automático de Azure mediante la actividad de recursos de actualización](https://azure.microsoft.com/documentation/articles/data-factory-azure-ml-batch-execution-activity/#updating-azure-ml-models-using-the-update-resource-activity).
+- Se ha agregado una nueva propiedad opcional [updateResourceEndpoint](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.updateresourceendpoint.aspx) a la [clase AzureMLLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.aspx). 
+- Se han agregado las propiedades [LongRunningOperationInitialTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationinitialtimeout.aspx) y [LongRunningOperationRetryTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationretrytimeout.aspx) a la clase [DataFactoryManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.aspx). 
+- Permita la configuración de los tiempos de espera para las llamadas de cliente al servicio de Factoría de datos. 
+
 
 ## Versión 4.1.0
 Fecha de lanzamiento: 28-10-2015
@@ -95,4 +106,4 @@ Fecha de lanzamiento: 02/10/2015
 
 - Actualmente, se admite la ejecución de procedimientos almacenados en orígenes de Base de datos SQL de Azure y Almacenamiento de datos SQL de Azure como parte de la actividad de copia. Para ello, las clases [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) y [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) tienen las siguientes propiedades: **SqlReaderStoredProcedureName** y **StoredProcedureParameters**. Consulte los artículos [Base de datos SQL de Azure](data-factory-azure-sql-connector.md#sqlsource) y [Almacenamiento de datos SQL de Azure](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) en Azure.com para obtener detalles sobre estas propiedades.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

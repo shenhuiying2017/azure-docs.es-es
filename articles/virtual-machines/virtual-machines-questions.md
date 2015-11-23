@@ -30,7 +30,7 @@ Todos los suscriptores pueden ejecutar software de servidor en una máquina virt
 
 Para el software de servidor, puede ejecutar versiones recientes de Windows Server, así como una variedad de distribuciones de Linux y hospedar distintas cargas de trabajo y servicios de servidor en ellos. Para obtener más información de soporte técnico, consulte:
 
-• Para máquinas virtuales de Windows: [soporte de software de servidor de Microsoft para Máquinas virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+• Para máquinas virtuales de Windows: [soporte de software de servidor de Microsoft para máquinas virtuales Azure](http://go.microsoft.com/fwlink/p/?LinkId=393550)
 
 • Para máquinas virtuales de Linux: [Linux en distribuciones aprobadas por Azure](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
@@ -104,7 +104,7 @@ Si ha olvidado el nombre de usuario o contraseña y ha instalado el agente de m�
 
 Detalles adicionales:
 
-- Para las imágenes de Linux, si usa el Portal de administración, “azureuser” se proporciona como un nombre de usuario predeterminado, pero puede cambiarlo usando “De la Galería” en lugar de “Creación rápida” como forma de crear la máquina virtual. Utilizar “De la Galería” también le permite decidir si desea usar una contraseña, una clave SSH o ambos para iniciar la sesión. La cuenta de usuario es un usuario sin privilegios que tiene acceso “sudo” para ejecutar comandos privilegiados. La cuenta “root” está deshabilitada.
+- Para las imágenes de Linux, si usa el Portal de Azure, “azureuser” se proporciona como un nombre de usuario predeterminado, pero puede cambiarlo usando “De la Galería” en lugar de “Creación rápida” como forma de crear la máquina virtual. Utilizar “De la Galería” también le permite decidir si desea usar una contraseña, una clave SSH o ambos para iniciar la sesión. La cuenta de usuario es un usuario sin privilegios que tiene acceso “sudo” para ejecutar comandos privilegiados. La cuenta “root” está deshabilitada.
 - Para las imágenes de Windows, deberá proporcionar un nombre de usuario y una contraseña al crear la máquina virtual. La cuenta se agrega al grupo de administradores.
 
 ## ¿Puede Azure ejecutar antivirus en las máquinas virtuales?
@@ -127,7 +127,7 @@ Azure cobra un precio por hora basado en el tamaño y el sistema operativo de la
 
 Se le cobrará cuando el estado de la máquina virtual esté en ejecución o detenido, pero no se le cobrará cuando el estado de la máquina virtual sea Detenido (sin asignar). Para poner una máquina virtual en estado Detenido (sin asignar), realice una de las acciones siguientes:
 
-- Apague o elimine la máquina virtual desde el Portal de administración.
+- Apague o elimine la máquina virtual desde el Portal de Azure.
 - Use el cmdlet Stop-AzureVM, disponible en el módulo de Azure PowerShell.
 - Use la operación de Cerrar rol en la API de REST de administración de servicios y especifique StoppedDeallocated para el elemento PostShutdownAction.
 
@@ -151,4 +151,4 @@ Para proporcionar redundancia, coloque dos o más máquinas virtuales configurad
 
 [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

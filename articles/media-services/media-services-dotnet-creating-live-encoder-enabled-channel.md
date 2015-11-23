@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015"  
+	ms.date="11/08/2015"  
 	ms.author="juliako"/>
 
 
@@ -86,6 +86,10 @@ En el tema se muestra cómo:
 
 - Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Póngase en contacto con amslived en Microsoft punto com si necesita ejecutar un canal durante largos períodos de tiempo.
 - Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
+
+##Descarga de un ejemplo
+
+Obtenga y ejecute un ejemplo desde [aquí](http://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
 ##Requisitos previos
 Los siguientes requisitos son necesarios para completar el tutorial.
@@ -506,17 +510,16 @@ Agregue la sección appSettings al archivo app.config y establezca los valores d
 	}	
 
 
-##Pasos siguientes
+##Siguientes pasos: Rutas de aprendizaje de Servicios multimedia
 
-###Rutas de aprendizaje de Servicios multimedia
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+##Envío de comentarios
 
-- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ### ¿Busca alguna otra cosa?
 
 Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna forma sus necesidades, háganos llegar sus comentarios mediante el subproceso de Disqus siguiente.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

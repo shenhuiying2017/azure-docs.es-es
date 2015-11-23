@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
  ms.service="virtual-machines"
  ms.devlang="na"
@@ -286,7 +286,7 @@ La herramienta **clusrun** de HPC Pack se puede usar para ejecutar comandos en l
 * Cree un script de shell que muestre cada número de 1 a 10 durante un segundo en cada nodo del clúster, ejecútelo y muestre la salida de los nodos inmediatamente.
 
     ```
-    > clusrun /interleaved echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
+    > clusrun /interleaved echo "for i in {1..10}; do echo \"\$i\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
     ```
 
 >[AZURE.NOTE]Tal vez tenga que usar ciertos caracteres de escape en comandos **clusrun**. Como se muestra en este ejemplo, utilice ^ en una ventana de comandos para anular el símbolo ">".
@@ -313,4 +313,4 @@ La herramienta **clusrun** de HPC Pack se puede usar para ejecutar comandos en l
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="11/11/2015" 
 	ms.author="andrl"/>
 
 # Programación en el servidor de DocumentDB: procedimientos almacenados, desencadenadores de base de datos y UDF
@@ -50,7 +50,7 @@ Este enfoque de *"JavaScript como un T-SQL moderno"* libera a los desarrolladore
 	-	Agrega una capa de abstracción en la parte superior de los datos sin procesar, lo cual permite a los arquitectos de datos desarrollar sus aplicaciones de forma independiente de los datos. Esto supone una especial ventaja cuando los datos no tienen esquema, debido a débiles suposiciones que se deben integrar en la aplicación si tienen que tratar directamente con los datos.  
 	-	Esta abstracción permite a las empresas mantener seguros sus datos simplificando el acceso desde los scripts.  
 
-Se admite la creación y ejecución de operadores de consulta personalizada, procedimientos almacenados y desencadenadores de base de datos a través de la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) y los [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx) en muchas plataformas: .NET, Node.js y JavaScript, entre otras. **Este tutorial utiliza el [SDK de Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** para ilustrar la sintaxis y el uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF).
+Se admite la creación y ejecución de operadores de consulta personalizada, procedimientos almacenados y desencadenadores de base de datos a través de la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) y los [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx) en muchas plataformas: .NET, Node.js y JavaScript, entre otras. <b>Este tutorial utiliza el [SDK de Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)</b> para ilustrar la sintaxis y el uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF).
 
 ## Procedimientos almacenados
 
@@ -903,7 +903,7 @@ Aquí el desencadenador previo que se debe ejecutar con la solicitud se especifi
 
 ## Código de ejemplo
 
-Puede encontrar más ejemplos de código del lado servidor (entre los que se incluyen [upsert](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/bulkDelete.js) y [update](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/update.js)) en nuestro [repositorio de Github](https://github.com/Azure/azure-documentdb-js/tree/master/server-side/samples).
+Puede encontrar más ejemplos de código del lado servidor (entre los que se incluyen [upsert](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) y [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) en nuestro [repositorio de Github](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
 ¿Desea compartir el impresionante procedimiento almacenado? Envíenos una solicitud de extracción.
 
@@ -921,4 +921,4 @@ También puede encontrar útiles las siguientes referencias y recursos en su rut
 -	[Arquitectura de base de datos orientada a servicios](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hospedaje de runtime de .NET en Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -79,7 +79,7 @@ La plantilla también está disponible fuera del curso.
 
 - [Ver el vídeo de entrenamiento](http://aka.ms/3dBlueprintTemplateVideo) primero para saber lo que puede hacer   
 - Descargar la [plantilla de Visio de proyectos 3D de Microsoft](http://aka.ms/3DBlueprintTemplate)
-- Descargar los [símbolos de nube y empresariales](#symbol-and-icon-sets) para utilizar con la plantilla 3D
+- Descargar los [símbolos de nube y empresariales](#drawing-symbol-and-icon-sets) para utilizar con la plantilla 3D 
 
 Envíenos un correo electrónico a [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) si tiene preguntas específicas no respondidas en los materiales de entrenamiento o para proporcionarnos sus comentarios. La facilidad de uso es uno de los objetivos principales de la plantilla; háganos saber lo que está bien y qué le causa problemas.
 
@@ -108,4 +108,4 @@ Microsoft publica varios pósteres e infografías relacionados con la arquitectu
 
 ![Infografías de arquitectura de Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

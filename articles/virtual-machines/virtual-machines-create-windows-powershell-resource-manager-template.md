@@ -19,7 +19,7 @@
 
 # Creación de una máquina virtual Windows con una plantilla del Administrador de recursos
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica. No puede crear este recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica. No puede crear este recurso con el modelo de implementación clásica.
 
 Puede crear fácilmente una nueva máquina virtual de Azure basada en Windows mediante una plantilla del Administrador de recursos con Azure PowerShell. Esta plantilla crea una sola máquina virtual que ejecuta Windows en una nueva red virtual con una sola subred en un nuevo grupo de recursos.
 
@@ -282,10 +282,10 @@ Ahora dispone de una nueva máquina virtual Windows denominada MyWindowsVM en el
 
 [Creación de una máquina virtual Windows con el Administrador de recursos de Azure y PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
 
-[Creación de una máquina virtual Windows con PowerShell y el Administrador de servicios de Azure](virtual-machines-create-windows-powershell-service-manager.md)
+[Crear máquinas virtuales de Windows con PowerShell y el modelo de implementación clásica](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 [Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Instalación y configuración de Azure PowerShell](install-configure-powershell.md)
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

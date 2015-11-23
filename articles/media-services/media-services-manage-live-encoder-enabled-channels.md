@@ -448,10 +448,12 @@ Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar 
 
 ##Rutas de aprendizaje de Servicios multimedia
 
-Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Envío de comentarios
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ##Temas relacionados
 
@@ -464,4 +466,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

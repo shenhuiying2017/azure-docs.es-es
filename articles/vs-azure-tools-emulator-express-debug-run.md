@@ -3,7 +3,7 @@
    description="Uso de Emulator Express para ejecutar y depurar un servicio en la nube en un sistema local"
    services="visual-studio-online"
    documentationCenter="n/a"
-   authors="patshea123"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="08/14/2015"
-   ms.author="patshea" />
+   ms.author="tarcher" />
 
 
 # Uso de Emulator Express para ejecutar y depurar un servicio en la nube en un sistema local
@@ -28,7 +28,7 @@ Al crear un nuevo proyecto en el SDK de Azure 2.3 o posterior, Emulator Express 
 
 1. En el menú contextual del proyecto de Azure, elija **Propiedades**, y, a continuación, elija la pestaña **Web**.
 
-1. En **Servidor de desarrollo local**, elija el botón de opción **Usar IIS Express**. Emulator Express no es compatible con el servidor web de IIS.
+1. En **Servidor de desarrollo local**, elija el botón de **opción Usar IIS Express**. Emulator Express no es compatible con el servidor web de IIS.
 
 1. En **Emulador**, elija el botón de opción **Usar Emulator Express**.
 
@@ -54,4 +54,4 @@ Antes de usar Emulator Express, debe tener en cuenta algunas limitaciones:
 
 [Depuración de Servicios en la nube](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

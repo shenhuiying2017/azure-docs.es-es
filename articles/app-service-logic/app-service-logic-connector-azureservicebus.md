@@ -3,7 +3,7 @@
    description="Creación y configuración del conector del bus de servicio de Azure o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
+   authors="rajeshramabathiran"
    manager="dwrede"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
-   ms.author="andalmia"/>
+   ms.date="11/11/2015"
+   ms.author="rajram"/>
 
 
 # Introducción al conector del bus de servicio de Azure y su incorporación a su aplicación lógica 
@@ -93,4 +93,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

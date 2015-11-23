@@ -58,7 +58,7 @@ Un centro de IoT recibe los datos de telemetría de los refrigeradores situados 
 
 El centro de IoT expone los datos de telemetría que recibe a través de un extremo de grupo del consumidor.
 
-La instancia del Centro de IoT de esta solución preconfigurada corresponde a la **aplicación de back-end de IoT** de la arquitectura típica de una solución de IoT.
+La instancia del Centro de IoT de esta solución preconfigurada corresponde a la **pasarela de nube** de la arquitectura típica de una solución de IoT.
 
 ### Análisis de transmisiones de Azure
 
@@ -91,4 +91,4 @@ Examine estos recursos para obtener más información sobre las soluciones IoT p
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [Análisis de transmisiones de Azure]: https://azure.microsoft.com/services/stream-analytics/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

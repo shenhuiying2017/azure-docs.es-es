@@ -86,6 +86,31 @@ Esta configuración básica requiere el conjunto de componentes y servicios sigu
 - Una cuenta de almacenamiento.
 - Una suscripción de Azure.
 
+Estas son las máquinas virtuales y sus tamaños predeterminados para esta configuración.
+
+Elemento | Descripción de la máquina virtual | Imagen de la Galería | Tamaño predeterminado
+--- | --- | --- | ---
+1\. | Primer controlador de dominio | Windows Server 2012 R2 Datacenter | A2 (mediano)
+2\. | Segundo controlador de dominio | Windows Server 2012 R2 Datacenter | A2 (mediano)
+3\. | Primer servidor de base de datos | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+4\. | Segundo servidor de base de datos | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+5\. | Nodo de mayoría para el clúster | Windows Server 2012 R2 Datacenter | A1 (pequeño)
+6\. | Primer servidor de aplicaciones de SharePoint | Versión de evaluación de Microsoft SharePoint Server 2013: Windows Server 2012 R2 | A4 (extragrande)
+7\. | Segundo servidor de aplicaciones de SharePoint | Versión de evaluación de Microsoft SharePoint Server 2013: Windows Server 2012 R2 | A4 (extragrande)
+8\. | Primer servidor web de SharePoint | Versión de evaluación de Microsoft SharePoint Server 2013: Windows Server 2012 R2 | A4 (extragrande)
+9\. | Segundo servidor web de SharePoint | Versión de evaluación de Microsoft SharePoint Server 2013: Windows Server 2012 R2 | A4 (extragrande)
+
+Para calcular los costos estimados para esta configuración, consulte [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/).
+
+1. En **Módulos**, haga clic en **Calcular**, y, a continuación, haga clic en **Máquinas virtuales** las veces suficientes como para crear una lista de nueve máquinas virtuales.
+2. Para cada máquina virtual, seleccione:
+	- La región deseada
+	- **Windows** para el tipo
+	- **Estándar** para el plan de tarifa
+	- El tamaño predeterminado de la tabla anterior o el tamaño deseado para **Tamaño de instancia**
+
+> [AZURE.NOTE]La calculadora de precios de Azure no incluye los costos adicionales de la licencia de SQL Server para las dos máquinas virtuales que ejecutan SQL Server 2014 Enterprise. Para obtener más información, consulte [Precios de máquinas virtuales-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+
 ### Fases de implementación
 
 Para implementar esta configuración, siga este proceso :
@@ -128,4 +153,4 @@ Una vez configurada, puede expandir esta granja de SharePoint con ayuda de [Arqu
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

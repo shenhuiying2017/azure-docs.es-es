@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de una aplicación de prototipo para Búsqueda de Azure" 
+	pageTitle="Creación de una aplicación de prototipo para Búsqueda de Azure | Microsoft Azure | Servicio de búsqueda hospedado en la nube" 
 	description="Cree su primer prototipo de aplicación para empezar a usar Búsqueda de Azure, un servicio de búsqueda hospedado en la nube." 
 	services="search" 
 	documentationCenter="" 
@@ -133,4 +133,4 @@ Visite estos vínculos para obtener más información:
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

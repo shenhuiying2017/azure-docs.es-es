@@ -200,13 +200,15 @@ A continuación se muestra una implementación recomendada de las pistas de audi
 2. Use secuencias independientes para enviar las dos velocidades de bits de vídeos más bajas. Cada una de estas secuencias también DEBERÍA contener una copia de cada pista de audio única. Por ejemplo, cuando se admiten varios idiomas, estas secuencias DEBERÍAN contener pistas de audio para cada idioma.
 3. Use instancias de servidor independientes (de codificador) y envíe las secuencias redundantes mencionadas en (1) y (2). 
 
+
+
 ##Rutas de aprendizaje de Servicios multimedia
 
-Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Envío de comentarios
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png
@@ -219,4 +221,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

@@ -96,7 +96,7 @@ Para obtener más información sobre los inicios de sesión y los usuarios, cons
 
 Tenga en cuenta los siguientes puntos para que las aplicaciones de Base de datos SQL de Azure resulten menos vulnerables a amenazas de seguridad:
 
-- Use siempre las actualizaciones más recientes: cuando se conecte a la Base de datos SQL, use siempre la versión más reciente de las herramientas y las bibliotecas para evitar vulnerabilidades de seguridad. Para obtener más información acerca de qué herramientas y bibliotecas se admiten, consulte [Instrucciones y limitaciones generales de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee336245.aspx).
+- Use siempre las actualizaciones más recientes: cuando se conecte a la Base de datos SQL, use siempre la versión más reciente de las herramientas y las bibliotecas para evitar vulnerabilidades de seguridad.
 - Bloquee las conexiones entrantes en el puerto TCP 1433: solo se necesitan las conexiones salientes del puerto TCP 1433 para que las aplicaciones se comuniquen con la Base de datos SQL. Si las demás aplicaciones de ese equipo no necesitan comunicaciones entrantes, asegúrese de que el firewall continúa bloqueando las conexiones entrantes en el puerto TCP 1433.
 - Evitar vulnerabilidades por inyección: para asegurarse de que las aplicaciones no tienen vulnerabilidades por inyección de SQL, use consultas parametrizadas siempre que sea posible. Asimismo, asegúrese de revisar el código detenidamente y de ejecutar una prueba de penetración antes de implementar su aplicación.
 
@@ -107,8 +107,6 @@ Tenga en cuenta los siguientes puntos para que las aplicaciones de Base de datos
 
 [Configuración del firewall (Base de datos SQL de Azure)](sql-database-configure-firewall-settings.md)
 
-[Instrucciones y limitaciones generales de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee336245.aspx)
-
 [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

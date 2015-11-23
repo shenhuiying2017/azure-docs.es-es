@@ -27,7 +27,7 @@ La compatibilidad con AMQP 1.0 está disponible en el SDK del Bus de servicio ve
 
 De manera predeterminada, la biblioteca de clientes .NET del bus de servicio se comunica con el servicio del bus de servicio utilizando un protocolo dedicado basado en SOAP. Para usar AMQP 1.0 en lugar del protocolo predeterminado, es necesario configurar de manera explícita la cadena de conexión del Bus de servicio tal y como se describe en la sección siguiente. Aparte de este cambio, el código de la aplicación prácticamente permanece invariable al utilizar AMQP 1.0.
 
-La versión actual incluye unas cuantas funciones de la API que no son compatibles con el uso de AMQP. Estas funciones incompatibles se enumeran más adelante en la sección "Funciones incompatibles y restricciones". Algunos de los parámetros de configuración avanzados también adquieren un significado diferente cuando se usa AMQP.
+La versión actual incluye unas cuantas funciones de la API que no son compatibles con el uso de AMQP. Estas funciones incompatibles se enumeran más adelante en la sección [Características no admitidas, restricciones y diferencias de comportamiento](#unsupported-features-restrictions-and-behavioral-differences). Algunos de los parámetros de configuración avanzados también adquieren un significado diferente cuando se usa AMQP.
 
 ### Configuración mediante App.config
 
@@ -168,6 +168,7 @@ Las API de .NET exponen varias opciones para controlar el comportamiento del pro
 ¿Listo para obtener más información? Consulte los siguientes vínculos:
 
 - [Información general sobre AMQP para el Bus de servicio]
+- [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio]
 - [AMQP de Bus de servicio para Windows Server]
 
   [Utilización de las colas del bus de servicio]: service-bus-dotnet-how-to-use-queues.md
@@ -199,6 +200,7 @@ Las API de .NET exponen varias opciones para controlar el comportamiento del pro
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
 [Información general sobre AMQP para el Bus de servicio]: service-bus-amqp-overview.md
+[Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP de Bus de servicio para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

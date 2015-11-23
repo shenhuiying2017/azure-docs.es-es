@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="11/06/2015"
    ms.author="larryfr"/>
 
 # Uso de Pig con Hadoop en HDInsight
@@ -42,6 +42,8 @@ Pig Latin también admite las funciones definidas por el usuario (UDF), que le p
 Para obtener más información acerca de Pig Latin, consulte el [manual de referencia de Pig Latin 1 (en inglés)](http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html) y el [manual de referencia de Pig Latin 2 (en inglés)](http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html).
 
 Para obtener un ejemplo del uso de UDF con Pig, vea los siguientes documentos:
+
+* [Utilice DataFu con Pig en HDInsight](hdinsight-hadoop-use-pig-datafu-udf.md) - DataFu es una colección de UDF útiles mantenida por Apache
 
 * [Uso de Python con Pig y Hive en HDInsight](hdinsight-python.md)
 
@@ -104,7 +106,7 @@ También puede usar SQL Server Integration Services (SSIS) para ejecutar un trab
 - [Administrador de conexiones de suscripción de Azure][connectionmanager]
 
 
-Obtenga más información acerca del paquete de características de Azure para SSIS [aquí][ssispack].
+Obtenga más información sobre el paquete de características de Azure para SSIS [aquí][ssispack].
 
 
 ##<a id="nextsteps"></a>Pasos siguientes
@@ -144,4 +146,4 @@ Ahora que aprendió a usar Pig con HDInsight, use los siguientes vínculos para 
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

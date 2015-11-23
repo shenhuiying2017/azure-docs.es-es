@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/23/2015"
+	ms.date="11/06/2015"
 	ms.author="jeffstok"/>
 
 # Descripción de entradas de Análisis de transmisiones
@@ -201,4 +201,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

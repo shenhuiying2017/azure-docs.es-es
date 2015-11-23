@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
     ms.date="10/05/2015" 
-    ms.author="mimig"/>
+    ms.author="arramac"/>
 
 
 # Directivas de indexación de DocumentDB
@@ -769,4 +769,4 @@ Siga los vínculos que aparecen a continuación para obtener ejemplos de adminis
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

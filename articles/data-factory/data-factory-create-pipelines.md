@@ -310,8 +310,7 @@ Una vez implementada una canalización, puede administrar y supervisar la canali
 - Conozca [Administración y supervisión Factoría de datos de Azure](data-factory-monitor-manage-pipelines.md).
 - [Creación e implementación de su primera canalización](data-factory-build-your-first-pipeline.md). 
 
-## Envíe sus comentarios
-Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-pipelines.md).
+
  
 
    
@@ -336,4 +335,4 @@ Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar 
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

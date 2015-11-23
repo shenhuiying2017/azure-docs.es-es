@@ -187,7 +187,7 @@ En esta sección se comparan las colas de Azure y las colas del Service Bus desd
 
 - Service Bus aplica límites de tamaño de cola. El tamaño máximo de la cola se especifica al crear la cola y puede tener un valor entre 1 y 80 GB. Si se alcanza el valor de tamaño de la cola establecido al crear la cola, se rechazarán los mensajes entrantes adicionales y el código de llamada recibirá una excepción. Para obtener más información sobre las cuotas en el Service Bus, vea [Cuotas de Service Bus](https://msdn.microsoft.com/library/ee732538.aspx).
 
-- Puede crear colas de Service Bus en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas (que es el valor predeterminado), Service Bus crea 16 particiones por cada GB que especifique. Por lo tanto, si crea una cola con un tamaño de 5 GB, con 16 particiones el tamaño de cola máximo se convierte en (5 * 16) = 80 GB. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en el portal de administración de Azure.
+- Puede crear colas de Service Bus en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas (que es el valor predeterminado), Service Bus crea 16 particiones por cada GB que especifique. Por lo tanto, si crea una cola con un tamaño de 5 GB, con 16 particiones el tamaño de cola máximo se convierte en (5 * 16) = 80 GB. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en el Portal de Azure.
 
 - Con las colas de Azure, si el contenido del mensaje no es seguro para XML, debe estar codificado con **Base64**. Si codifica el mensaje con **Base64**, la carga de usuario puede ser de hasta 48 KB, en lugar de 64 KB.
 
@@ -195,7 +195,7 @@ En esta sección se comparan las colas de Azure y las colas del Service Bus desd
 
 - Cuando los clientes se comunican con colas de Service Bus por el protocolo TCP, el número máximo de conexiones simultáneas a una única cola de Service Bus se limita a 100. Este número se comparte entre remitentes y receptores. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de conexiones adicionales y el código de llamada recibirá una excepción. Este límite no se impone en clientes que se conectan a las colas mediante la API basada en REST.
 
-- Si necesita más de 10.000 colas en un único espacio de nombres de Service Bus, puede ponerse en contacto con el equipo de soporte técnico de Azure y solicitar un aumento. Para escalar más allá de las 10.000 colas con el Service Bus, también puede crear espacios de nombres adicionales mediante el portal de administración de Azure.
+- Si necesita más de 10.000 colas en un único espacio de nombres de Service Bus, puede ponerse en contacto con el equipo de soporte técnico de Azure y solicitar un aumento. Para escalar más allá de las 10.000 colas con el Bus de servicio, también puede crear espacios de nombres adicionales mediante el portal de Azure.
 
 ## Administración y operaciones
 
@@ -311,4 +311,4 @@ En los artículos siguientes se ofrece más orientación e información acerca d
 - [Descripción de la facturación del almacenamiento de Azure: ancho de banda, transacciones y capacidad](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

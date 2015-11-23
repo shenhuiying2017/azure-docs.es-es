@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a los Centros de eventos"
+	pageTitle="Introducción a los Centros de eventos en C# con Apache Storm | Microsoft Azure"
 	description="Siga este tutorial para empezar a usar Centros de eventos de Azure, a enviar eventos en C# y a recibirlos en un clúster de Apache Storm"
 	services="event-hubs"
 	documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="core"
-	ms.tgt_pltfrm="csharp"
-	ms.devlang="csharp"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/01/2015"
+	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
 # Introducción a los Centros de eventos
@@ -89,9 +89,9 @@ Ahora está preparado para ejecutar las aplicaciones.
 
 Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y envía y recibe datos, puede pasar a los siguientes escenarios:
 
-- Una [aplicación de ejemplo completa que usa Centros de eventos].
-- El ejemplo [Escala horizontal del procesamiento de eventos con Centros de eventos].
-- Una [solución de mensajería en cola] mediante las colas de Bus de servicio.
+- Una [aplicación de ejemplo completa que usa Centros de eventos][].
+- El ejemplo [Escala horizontal del procesamiento de eventos con Centros de eventos][].
+- Una [solución de mensajería en cola][] mediante las colas de Bus de servicio.
 
 <!-- Images. -->
 [1]: ./media/event-hubs-csharp-storm-getstarted/create-event-hub1.png
@@ -108,9 +108,9 @@ Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y e
 [portal de Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Información general de los Centros de eventos de Azure]: event-hubs-overview.md
-[aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[Escala horizontal del procesamiento de eventos con Centros de eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Escala horizontal del procesamiento de eventos con Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [solución de mensajería en cola]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

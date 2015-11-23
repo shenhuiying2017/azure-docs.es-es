@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/02/2015"
+   ms.date="11/09/2015"
    ms.author="tomfitz"/>
 
 # Funciones de la plantilla del Administrador de recursos de Azure
 
 Este tema describe todas las funciones que puede utilizar en una plantilla del Administrador de recursos de Azure.
 
-Las funciones de plantilla y sus parámetros no distinguen mayúsculas de minúsculas. Por ejemplo, el Administrador de recursos resuelve **variables('var1')** y **VARIABLES('VAR1')** de la misma manera.
+Las funciones de plantilla y sus parámetros no distinguen mayúsculas de minúsculas. Por ejemplo, el Administrador de recursos resuelve **variables('var1')** y **VARIABLES('VAR1')** de la misma manera. Cuando se evalúa, a menos que la función modifique expresamente las mayúsculas (como toUpper o toLower), la función conservará el caso. Es posible que determinados tipos de recursos tengan requisitos de mayúsculas independientemente de cómo se evalúen las expresiones.
 
 ## agregar
 
@@ -547,4 +547,4 @@ Devuelve el valor de variable. El nombre de la variable especificada debe defini
 - Para iterar una cantidad de veces específica al crear un tipo de recurso, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 - Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

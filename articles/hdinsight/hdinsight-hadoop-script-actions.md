@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="11/09/2015"
 	ms.author="jgao"/>
 
 # Desarrollo de la acción de script con HDInsight
@@ -87,10 +87,10 @@ HDInsight proporciona varios scripts para instalar los componentes adicionales e
 
 Nombre | Script
 ----- | -----
-**Instalar Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Vea [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark].
-**Instalar R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Vea [Instalación y uso de R en clústeres de HDInsight][hdinsight-r-scripts].
-**Instalar Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Vea [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md).
-- **Instalación de Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vea [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md).
+**Instalar Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Consulte [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark].
+**Instalar R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Consulte [Instalación y uso de R en clústeres de HDInsight][hdinsight-r-scripts].
+**Instalar Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Consulte [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md).
+**Instalación de Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vea [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md).
 
 La acción de script puede implementarse desde el portal de vista previa de Azure, Azure PowerShell o mediante el SDK de HDInsight para .NET. Para obtener más información, consulte [Personalización de clústeres de HDInsight mediante la acción de script][hdinsight-cluster-customize].
 
@@ -200,9 +200,9 @@ Los scripts usados para personalizar un clúster deben encontrarse en la cuenta 
 
 En este ejemplo, debe asegurarse de que el contenedor "somecontainer" de la cuenta de almacenamiento "somestorageaccount" es públicamente accesible. De lo contrario, el script generará una excepción "Not Found" y producirá un error.
 
-### Paso de los parámetros al cmdlet Add-AzureHDInsightScriptAction
+### Paso de los parámetros al cmdlet Add-AzureRmHDInsightScriptAction
 
-Para pasar varios parámetros para el cmdlet Add-AzureHDInsightScriptAction, debe dar formato al valor de cadena para contener todos los parámetros del script. Por ejemplo:
+Para pasar varios parámetros para el cmdlet Add-AzureRmHDInsightScriptAction, debe dar formato al valor de cadena para contener todos los parámetros del script. Por ejemplo:
 
 	"-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
  
@@ -339,7 +339,7 @@ En caso de que se produzca un error de ejecución, también se incluirá la sali
 - [Personalizar los clústeres de HDInsight mediante la acción de script][hdinsight-cluster-customize]
 - [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark]
 - [Instalación y uso de R en clústeres de Hadoop de HDInsight][hdinsight-r-scripts]
-- [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md).
+- [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md)
 - [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
@@ -351,4 +351,4 @@ En caso de que se produzca un error de ejecución, también se incluirá la sali
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

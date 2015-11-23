@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager"/>
+ tags="azure-resource-manager,hpc-pack"/>
 
 <tags
  ms.service="virtual-machines"
@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="08/18/2015"
+ ms.date="11/11/2015"
  ms.author="danlep"/>
 
 # Introducción a un clúster de HPC Pack en Azure para ejecutar cargas de trabajo de Excel y SOA
@@ -43,7 +43,7 @@ Le mostraremos dos formas de configurar el clúster: en primer lugar, con una pl
 
 
 ### Uso de una plantilla de inicio rápido
-Use una plantilla de inicio rápido de Azure para implementar rápida y fácilmente un clúster de HPC Pack en el Portal de vista previa de Azure. Al abrir la plantilla en el portal, obtendrá una interfaz de usuario simple donde debe especifique la configuración del clúster. A continuación se muestran los pasos que se deben seguir.
+Use una plantilla de inicio rápido de Azure para implementar rápida y fácilmente un clúster de HPC Pack en el Portal de vista previa de Azure. Al abrir la plantilla en el portal de vista previa, obtendrá una interfaz de usuario simple donde debe especifique la configuración del clúster. A continuación se muestran los pasos que se deben seguir.
 
 1. Visite la página [Creación de plantilla de clúster HPC en GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). Si lo desea, revise la información sobre la plantilla y el código de origen.
 
@@ -51,7 +51,7 @@ Use una plantilla de inicio rápido de Azure para implementar rápida y fácilme
 
     ![Implementación de plantillas en Azure][github]
 
-3. En el portal, siga estos pasos para especificar los parámetros de la plantilla de clúster HPC.
+3. En el portal de vista previa, siga estos pasos para especificar los parámetros de la plantilla de clúster HPC.
 
     a. En la página **Editar plantilla**, haga clic en **Guardar**.
 
@@ -355,7 +355,7 @@ Para realizar esto, establezca explícitamente la marca UseAzureQueue en false e
 
 ### Uso del enlace NetTcp
 
-Para usar el enlace NetTcp, la configuración es igual que al conectarse a un clúster local. Deberá abrir algunos extremos en la VM del nodo principal. En el Portal de administración de Azure, haga lo siguiente.
+Para usar el enlace NetTcp, la configuración es igual que al conectarse a un clúster local. Deberá abrir algunos extremos en la VM del nodo principal. En el portal de Azure, realice estas acciones:
 
 
 1. Pare la VM.
@@ -389,4 +389,4 @@ La aplicación cliente de SOA no requiere cambios excepto modificar el nombre pr
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

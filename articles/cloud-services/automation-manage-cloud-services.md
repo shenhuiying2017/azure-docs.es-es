@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/03/2015"
 	ms.author="jolevy"/>
 
 
@@ -43,4 +43,4 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 Consulte el [Tutorial de introducción](../automation/automation-create-runbook-from-samples.md) de Automatización de Azure.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

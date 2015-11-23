@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/14/2015" 
+	ms.date="11/12/2015" 
 	ms.author="jeffstok"/>
 
 # Descripción de salidas de Análisis de transmisiones
@@ -143,6 +143,8 @@ Cuando la cuenta de Power BI esté autenticada, puede configurar las propiedades
 | Nombre de la tabla | Proporcione un nombre de tabla en el conjunto de datos de la salida de Power BI. Actualmente, la salida de Power BI de trabajos de Análisis de transmisiones solo puede tener una tabla en un conjunto de datos. |
 | Nombre de grupo | Para habilitar el uso compartido de datos con otros usuarios de Power BI, escriba los datos en grupos. Puede seleccionar los grupos dentro de su cuenta de Power BI o elegir "Mi área de trabajo" si no desea escribir en un grupo. Actualizar un grupo existente requiere renovar la autenticación de Power BI. |
 
+Para visualizar un tutorial sobre la configuración de una salida de Power BI y un panel, consulte el artículo [Análisis de transmisiones de Azure y Power BI](stream-analytics-power-bi-dashboard.md).
+
 > [AZURE.NOTE]No cree explícitamente el conjunto de datos y la tabla en el panel de Power BI. El conjunto de datos y la tabla se rellenarán automáticamente cuando se inicie el trabajo y este inicie el bombeo de la salida en Power BI. Observe que si la consulta de trabajo no genera ningún resultado, el conjunto de datos y la tabla no se creará. Tenga en cuenta asimismo que si Power BI ya cuenta con un conjunto de datos y una tabla con el mismo nombre que el proporcionado en este trabajo de Análisis de transmisiones, se sobrescribirán los datos existentes.
 
 ### Renovación de la autorización de Power BI
@@ -157,7 +159,7 @@ Para resolver este problema, detenga su trabajo en ejecución y vaya a la salida
 
 ## Almacenamiento de tablas
 
-El [almacenamiento de tablas de Azure](./articles/storage-introduction.md) ofrece un tipo de almacenamiento de alta disponibilidad y escalabilidad masiva, de forma que las aplicaciones pueden escalarse automáticamente para ajustarse a la demanda de los usuarios. Almacenamiento de tablas es un almacén de claves/atributos NoSQL de Microsoft que puede aprovechar para datos estructurados con menos restricciones en el esquema. El almacenamiento de tablas de Azure puede usarse para almacenar datos con de persistencia y recuperación eficaz.
+[El almacenamiento de tablas de Azure](./articles/storage-introduction.md) ofrece un tipo de almacenamiento de alta disponibilidad y escalabilidad masiva, de forma que las aplicaciones pueden escalarse automáticamente para ajustarse a la demanda de los usuarios. Almacenamiento de tablas es un almacén de claves/atributos NoSQL de Microsoft que puede aprovechar para datos estructurados con menos restricciones en el esquema. El almacenamiento de tablas de Azure puede usarse para almacenar datos con de persistencia y recuperación eficaz.
 
 En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de tabla.
 
@@ -265,4 +267,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

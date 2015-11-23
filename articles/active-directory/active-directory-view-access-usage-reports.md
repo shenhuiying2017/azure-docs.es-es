@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="11/10/2015"
 	ms.author="kenhoff;Justinha;curtand"/>
 
 # Visualización de los informes de acceso y uso
@@ -56,7 +56,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 |	Actividad de aprovisionamiento de cuentas |	Proporciona un historial de intentos para aprovisionar cuentas en aplicaciones externas. |
 |	Estado de la sustitución de contraseña |	Proporciona información detallada del estado de sustitución automática de contraseñas de aplicaciones SaaS. |
 |	Errores de aprovisionamiento de cuentas |	Indica un impacto en el acceso de los usuarios a aplicaciones externas. |
-|	**Administración de derechos**
+|	**Rights management**
 |	Uso de RMS |	Proporciona un resumen de uso de Rights Management |
 |	Usuarios de RMS más activos |	Enumera los 1.000 usuarios activos principales que han accedido a archivos protegidos mediante RMS |
 |	Uso de dispositivos RMS |	Enumera los dispositivos utilizados para obtener acceso a los archivos protegidos mediante RMS |
@@ -159,6 +159,10 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 | :-------------     | :-------        |
 | Use este informe cuando quiera ver el uso de todas las aplicaciones SaaS en su directorio. Este informe se basa en el número de veces que los usuarios hacen clic en la aplicación en el Panel de acceso. | Directorio > pestaña Informes |
 
+Este informe incluye los inicios de sesión en _todas_ las aplicaciones a las que su directorio tiene acceso, incluidas las aplicaciones previamente integradas de Microsoft.
+
+Entres las aplicaciones previamente integradas de Microsoft se incluyen Office 365, Sharepoint, el Portal de administración de Azure, etc.
+
 ![Resumen de uso de la aplicación](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
 
@@ -239,7 +243,7 @@ Si sospecha que una cuenta de usuario puede estar en peligro o que cualquier tip
 
 - Póngase en contacto con el usuario para comprobar la actividad.
 - Restablezca la contraseña del usuario.
-- [Habilite Multi-factor Authentication](http://go.microsoft.com/fwlink/?linkid=335774) para obtener seguridad adicional
+- [Habilite Multi-factor Authentication](multi-factor-authentication-get-started.md) para obtener seguridad adicional
 
 ## Visualización o descarga de un informe
 
@@ -271,4 +275,4 @@ Para obtener más información sobre las notificaciones de informes de Azure AD,
 - [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

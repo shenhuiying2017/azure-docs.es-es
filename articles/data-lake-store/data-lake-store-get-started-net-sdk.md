@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/05/2015"
    ms.author="nitinme"/>
 
 # Introducción al Almacén de Azure Data Lake mediante SDK de .NET
@@ -22,6 +22,7 @@
 - [Using Portal](data-lake-store-get-started-portal.md)
 - [Using PowerShell](data-lake-store-get-started-powershell.md)
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Using Azure CLI](data-lake-store-get-started-cli.md)
 
 Aprenda a utilizar el SDK de .NET del Almacén de Azure Data Lake para crear una cuenta de Azure Data Lake y realizar operaciones básicas como crear carpetas, cargar y descargar archivos de datos, eliminar la cuenta, etc. Para obtener más información sobre Data Lake, consulte [Almacén de Azure Data Lake](data-lake-store-overview.md).
 
@@ -50,7 +51,7 @@ Aprenda a utilizar el SDK de .NET del Almacén de Azure Data Lake para crear una
 5. Agregue el paquete Nuget al proyecto.
 
 	1. Haga clic con el botón derecho en el Explorador de soluciones y haga clic en **Administrar paquetes de NuGet**.
-	2. En el cuadro de diálogo **Administrador de paquetes de Nuget**, asegúrese de que **Origen del paquete** está establecido en **nuget.org** y que la casilla **Incluir versión preliminar** está activada.
+	2. En la pestaña **Administrador de paquetes de Nuget**, asegúrese de que **Origen del paquete** está establecido en **nuget.org** y que la casilla **Incluir versión preliminar** está activada.
 	3. Busque e instale los paquetes siguientes:
 	
 		* Microsoft.Azure.Common.Authentication
@@ -212,7 +213,8 @@ Aprenda a utilizar el SDK de .NET del Almacén de Azure Data Lake para crear una
 ## Otras formas de crear una cuenta de Almacén de Data Lake
 
 - [Introducción al Almacén de Data Lake mediante el Portal](data-lake-store-get-started-portal.md)
-- [Introducción al Almacén de Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md) 
+- [Introducción al Almacén de Azure Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
+- [Introducción al Almacén de Data Lake mediante la CLI de Azure](data-lake-store-get-started-cli.md)
 
 
 ## Pasos siguientes
@@ -221,4 +223,4 @@ Aprenda a utilizar el SDK de .NET del Almacén de Azure Data Lake para crear una
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

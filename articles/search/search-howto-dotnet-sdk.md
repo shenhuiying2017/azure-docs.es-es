@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Cómo usar Búsqueda de Azure desde una aplicación .NET | Microsoft Azure"
+   pageTitle="Cómo usar Búsqueda de Azure desde una aplicación .NET | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
    description="Cómo usar Búsqueda de Azure desde una aplicación .NET"
    services="search"
    documentationCenter=""
@@ -627,4 +627,4 @@ Hotel.cs:
     }
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

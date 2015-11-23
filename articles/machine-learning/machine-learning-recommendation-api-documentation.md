@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="11/06/2015" 
 	ms.author="LuisCa"/>
 
 #Documentación de la API de recomendación de Aprendizaje automático de Azure
@@ -1107,7 +1107,7 @@ OData XML
 	</entry>
 	</feed>
 
-###8\.3. Obtener elementos de catálogo por token
+### 8\.3. Obtener elementos de catálogo por token
 
 | Método HTTP | URI |
 |:--------|:--------|
@@ -1221,7 +1221,7 @@ En esta sección se muestra cómo enviar eventos en tiempo real a las recomendac
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-|Request body| Entrada de datos de eventos para cada evento que va a enviar. Debe enviar para la misma sesión de usuario o explorador el mismo identificador en el campo SessionId. (Vea el ejemplo del cuerpo de evento aparece a continuación).|
+|Cuerpo de la solicitud| Entrada de datos de eventos para cada evento que va a enviar. Debe enviar para la misma sesión de usuario o explorador el mismo identificador en el campo SessionId. (Vea el ejemplo del cuerpo de evento aparece a continuación).|
 
 
 - Ejemplo para evento 'Click':
@@ -1269,14 +1269,39 @@ En esta sección se muestra cómo enviar eventos en tiempo real a las recomendac
   		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
   		<SessionId>11112222</SessionId>
   		<EventData>
-    	<EventData>
-      	<Name>RemoveShopCart</Name>
-      	<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
-    	</EventData>
+		  	<EventData>
+      				<Name>RemoveShopCart</Name>
+      				<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
+    			</EventData>
   		</EventData>
 		</Event>
 
-- Ejemplo para evento 'Purchase': <Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId> <SessionId>11112222</SessionId> <EventData> <EventData> <Name>Purchase</Name> <PurchaseItems> <PurchaseItems> <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId> <Count>3</Count> </PurchaseItems> </PurchaseItems> </EventData> </EventData> </Event>
+- Ejemplo para el evento “Purchase”:
+
+		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
+		<SessionId>11112222</SessionId>
+		<EventData>
+			<EventData>
+				<Name>Purchase</Name>
+				<PurchaseItems>
+					<PurchaseItem>
+						<ItemId>ABBF8081-C5C0-4F09-9701-E1C7AC78304A</ItemId>
+						<Count>1</Count>
+					</PurchaseItem>
+					<PurchaseItem>
+						<ItemId>21BF8088-B6C0-4509-870C-11C0AC7F304B</ItemId>
+						<Count>3</Count>
+					</PurchaseItem>
+				</PurchaseItems>
+			</EventData>
+		</EventData>
+		</Event>
+		
+		
+		
+
+
 
 - Ejemplo con envío de 2 eventos, 'Click' y 'AddShopCart':
 
@@ -1772,7 +1797,7 @@ En la siguiente tabla se describen los parámetros de compilación para una comp
 | Método HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
-|ENCABEZADO |`"Content-Type", "text/xml"` (Si se envía el cuerpo de la solicitud)|
+|ENCABEZADO |`"Content-Type", "text/xml"` (Si se envía el cuerpo de solicitud)|
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
@@ -1847,7 +1872,7 @@ XML de OData
 | Método HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&buildType=%27<buildType>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&buildType=%27Ranking%27&apiVersion=%271.0%27`|
-|ENCABEZADO |`"Content-Type", "text/xml"` (Si se envía el cuerpo de la solicitud)|
+|ENCABEZADO |`"Content-Type", "text/xml"` (Si se envía el cuerpo de solicitud)|
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
@@ -2535,7 +2560,7 @@ Obtenga recomendaciones de la compilación activa de tipo o "Fbt" basadas en las
 código de estado HTTP: 200
 
 
-La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes: - `Feed\entry\content\properties\Id1`: Id. de elemento recomendado. - `Feed\entry\content\properties\Name1`: nombre del elemento. - `Feed\entry\content\properties\Id2`. Id. del segundo elemento recomendado (opcional). - `Feed\entry\content\properties\Name2`: nombre del segundo elemento (opcional). - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; cuanto más alto el número, mayor confianza. - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de la recomendación).
+La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes: - `Feed\entry\content\properties\Id1`: id. de elemento recomendado. - `Feed\entry\content\properties\Name1`: nombre del elemento. - `Feed\entry\content\properties\Id2`. id. del segundo elemento recomendado (opcional). - `Feed\entry\content\properties\Name2`: nombre del segundo elemento (opcional). - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; cuanto más alto el número, mayor confianza. - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de la recomendación).
 
 En la respuesta de ejemplo siguiente se incluyen 3 elementos recomendados.
 
@@ -2621,7 +2646,7 @@ Obtenga recomendaciones de una compilación concreta de tipo "Fbt".
 código de estado HTTP: 200
 
 
-La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes: - `Feed\entry\content\properties\Id1`: Id. de elemento recomendado. - `Feed\entry\content\properties\Name1`: nombre del elemento. - `Feed\entry\content\properties\Id2`. Id. del segundo elemento recomendado (opcional). - `Feed\entry\content\properties\Name2`: nombre del segundo elemento (opcional). - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; cuanto más alto el número, mayor confianza. - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de la recomendación).
+La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes: - `Feed\entry\content\properties\Id1`: id. de elemento recomendado. - `Feed\entry\content\properties\Name1`: nombre del elemento. - `Feed\entry\content\properties\Id2`. id. del segundo elemento recomendado (opcional). - `Feed\entry\content\properties\Name2`: nombre del segundo elemento (opcional). - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; cuanto más alto el número, mayor confianza. - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de la recomendación).
 
 Vea un ejemplo de respuesta en 12.3
 
@@ -2665,7 +2690,7 @@ Notas: 1. No hay ninguna recomendación de usuario para la generación de FBT. 2
 
 | Método HTTP | URI |
 |:--------|:--------|
-|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemIds=%27<itemIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
+|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
@@ -2727,7 +2752,7 @@ Nota: no hay ninguna recomendación de usuario para la generación de FBT.
 
 | Método HTTP | URI |
 |:--------|:--------|
-|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&buildId=50012&apiVersion=%271.0%27`|
+|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>%27&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%27&numberOfResults=10&includeMetadata=false&buildId=50012&apiVersion=%271.0%27`|
 
 
 
@@ -2775,7 +2800,7 @@ Recupere la lista de elementos usados en la compilación activa o en la compilac
 
 código de estado HTTP: 200
 
-La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id`: Id. de elemento recomendado - `Feed\entry\content\properties\Name`: nombre del elemento. - `Feed\entry\content\properties\Rating`: N/D. - `Feed\entry\content\properties\Reasoning`: N/D.
+La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id`: id. de elemento recomendado - `Feed\entry\content\properties\Name`: nombre del elemento. - `Feed\entry\content\properties\Rating`: N/D. - `Feed\entry\content\properties\Reasoning`: N/D.
 
 XML de OData
 
@@ -2904,4 +2929,4 @@ código de estado HTTP: 200
 Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso.<br><br> Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse.<br><br> Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia.<br><br> © 2015 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

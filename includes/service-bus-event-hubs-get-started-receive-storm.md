@@ -2,9 +2,9 @@
 
 [**Apache Storm**](https://storm.incubator.apache.org) es un sistema de cálculo distribuido en tiempo real que simplifica el procesamiento confiable de flujos de datos sin enlazar. Esta sección muestra cómo utilizar un emisor de Storm para Centros de eventos a fin de recibir eventos de los Centros de eventos. Con Apache Storm, se pueden dividir los eventos en varios procesos hospedados en distintos nodos. La integración de los Centros de eventos con Storm simplifica el consumo de eventos al comprobar de forma transparente el progreso mediante la instalación de Zookeeper de Storm, la administración de puntos de comprobación persistentes y las recepciones en paralelo de los Centros de eventos.
 
-Para obtener más información sobre los patrones de recepción de los Centros de eventos, consulte Información general de los [Centros de eventos].
+Para obtener más información sobre los patrones de recepción de los Centros de eventos, consulte Información general de los [Centros de eventos][].
 
-Este tutorial usa una instalación de [HDInsight Storm], que integra el emisor de Centros de eventos que ya se encuentra disponible.
+Este tutorial usa una instalación de [HDInsight Storm][], que integra el emisor de Centros de eventos que ya se encuentra disponible.
 
 1. Siga el procedimiento descrito en [Introducción a HDInsight Storm](../hdinsight/hdinsight-storm-overview.md) para crear un clúster nuevo de HDInsight y conectarlo a través del Escritorio remoto.
 
@@ -230,4 +230,4 @@ Este tutorial usa una instalación de [HDInsight Storm], que integra el emisor d
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

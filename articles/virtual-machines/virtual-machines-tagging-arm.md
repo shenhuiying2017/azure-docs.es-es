@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure-services"
-   ms.date="07/23/2015"
+   ms.date="11/10/2015"
    ms.author="dkshir;memccror"/>
 
 # Etiquetado de una máquina virtual en Azure
@@ -88,7 +88,7 @@ Si la máquina virtual ya contiene etiquetas, verá todas ellas en el recurso:
 
 Si desea agregar etiquetas a través de PowerShell, puede usar el comando `Set-AzureResource`. Tenga en cuenta que si actualiza las etiquetas a través de PowerShell, se actualizan todas ellas en conjunto. Por tanto, si va a agregar una etiqueta a un recurso que ya tiene etiquetas, tendrá que incluir todas las etiquetas que desea colocar en el recurso. A continuación se muestra un ejemplo de cómo agregar etiquetas adicionales a un recurso mediante los cmdlets de PowerShell.
 
-Este primer cmdlet establece todas las etiquetas colocadas en *MyWindowsVM* con la variable *tags*, para lo que emplea las funciones `Get-AzureResource` y `Tags`.
+Este primer cmdlet establece todas las etiquetas colocadas en *MyWindowsVM* con la variable *tags*, para lo que emplea las funciones `Get-AzureResource` y `Tags`. Tenga en cuenta que el parámetro `ApiVersion` es opcional; si no se especifica, se utilizará la última versión de API del proveedor de recursos.
 
         PS C:\> $tags = (Get-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/virtualmachines" -ApiVersion 2015-05-01-preview).Tags
 
@@ -155,7 +155,7 @@ Ahora que hemos aplicado etiquetas a nuestros recursos a través de PowerShell, 
 
 ## Visualización de etiquetas en los detalles de uso
 
-Las etiquetas colocadas en los recursos de proceso, red y almacenamiento a través del Administrador de recursos de Azure se rellenarán en los detalles de uso del portal de facturación.
+Las etiquetas colocadas en los recursos de proceso, red y almacenamiento a través del Administrador de recursos de Azure se rellenarán en los detalles de uso del [portal de facturación](https://account.windowsazure.com/).
 
 Haga clic en **Descargar detalles de uso** para ver los detalles de uso de la suscripción.
 
@@ -190,4 +190,4 @@ Mediante el análisis de estas junto con el uso, las organizaciones podrán obte
 [Comprender la factura de Azure]: ../billing-understand-your-bill.md
 [Obtención de información sobre el consumo de recursos de Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

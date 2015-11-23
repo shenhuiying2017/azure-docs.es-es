@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="08/03/2015"
+	ms.date="11/06/2015"
 	ms.author="tomfitz"/>
 
 #WordPress de clase empresarial en el Servicio de aplicaciones de Azure
@@ -28,7 +28,7 @@ Una instalación básica de WordPress solamente tiene dos requisitos.
 
     > [AZURE.NOTE]ClearDB proporciona varias configuraciones de MySQL, cada una de ellas con diferentes características de rendimiento. Consulte la [Tienda de Azure][cdbnstore] para obtener información sobre las ofertas proporcionadas a través de dicha tienda o los [precios de ClearDB](http://www.cleardb.com/pricing.view) para conocer las ofertas directamente desde ClearDB.
 
-* **PHP 5.2.4 o superior**: el servicio de aplicaciones de Azure proporciona actualmente las [versiones 5.3, 5.4 y 5.5 de PHP][phpwebsite].
+* **PHP 5.2.4 o superior**: el servicio de aplicaciones de Azure proporciona actualmente las [versiones 5.4, 5.5 y 5.6 de PHP][phpwebsite].
 
 	> [AZURE.NOTE]Le recomendamos ejecutar siempre la versión más reciente de PHP para asegurarse de que dispone de las correcciones de seguridad más actuales.
 
@@ -53,7 +53,7 @@ La replicación y el enrutamiento a varias bases de datos MySQL se pueden hacer 
 
 ###Implementación en varias regiones con almacenamiento multimedia y almacenamiento en caché
 
-Si el sitio va a aceptar cargas u hospedar archivos multimedia, use almacenamiento de blogs de Azure. Si necesita almacenamiento en caché, plantéese el uso de [Caché en Redis][rediscache], [Memcache Cloud](http://azure.microsoft.com/gallery/store/garantiadata/memcached/), [MemCachier](http://azure.microsoft.com/gallery/store/memcachier/memcachier/) o una de las otras ofertas de almacenamiento en caché de la [Tienda de Azure](http://azure.microsoft.com/gallery/store/).
+Si el sitio va a aceptar cargas u hospedar archivos multimedia, use almacenamiento de blogs de Azure. Si necesita almacenamiento en caché, plantéese el uso de [Caché en Redis][rediscache], [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) o una de las otras ofertas de almacenamiento en caché de la [Tienda de Azure](http://azure.microsoft.com/gallery/store/).
 
 ![una aplicación web de Azure, hospedada en varias regiones, con el enrutador de alta disponibilidad CDBR para MySQL con memoria caché administrada, el almacenamiento de blobs y CDN][performance-diagram]
 
@@ -87,7 +87,7 @@ El rendimiento en la nube se logra principalmente mediante almacenamiento en cac
 Para hacer esto... | Use esto...
 ------------------------|-----------
 **Conocer las capacidades de las instancias del Servicio de aplicaciones** | [Detalles de precios, incluidas las capacidades de niveles de Servicio de aplicaciones][websitepricing]
-**Almacenar recursos en caché** | [Caché en Redis][rediscache], [Memcache Cloud](/gallery/store/garantiadata/memcached/), [MemCachier](/gallery/store/memcachier/memcachier/) o una de las otras ofertas de almacenamiento en caché de la [Tienda de Azure](/gallery/store/)
+**Almacenar recursos en caché** | [Caché en Redis][rediscache], [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) o una de las otras ofertas de almacenamiento en caché de la [Tienda de Azure](/gallery/store/)
 **Escalar su aplicación** | [Escalar una aplicación web en Servicio de aplicaciones de Azure][websitescale] y [Enrutamiento de alta disponibilidad de ClearDB][cleardbscale] Si opta por hospedar y administrar su propia instalación de MySQL, debe plantearse el uso de [CGE de MySQL Cluster][cge] para escalado horizontal
 
 ####Migración
@@ -249,10 +249,10 @@ Para hacer esto... | Use esto...
 [sendgridplugin]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
 [phpwebsite]: web-sites-php-configure.md
 [customdomain]: web-sites-custom-domain-name.md
-[trafficmanager]: /blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/
+[trafficmanager]: ../traffic-manager/traffic-manager-overview.md
 [backup]: web-sites-backup.md
 [restore]: web-sites-restore.md
-[rediscache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
+[rediscache]: https://azure.microsoft.com/documentation/services/redis-cache/
 [managedcache]: http://msdn.microsoft.com/library/azure/dn386122.aspx
 [websitescale]: web-sites-scale.md
 [managedcachescale]: http://msdn.microsoft.com/library/azure/dn386113.aspx
@@ -279,8 +279,8 @@ Para hacer esto... | Use esto...
 [deploy]: web-sites-deploy.md
 [posh]: ../install-configure-powershell.md
 [Azure CLI]: ../xplat-cli-install.md
-[storesendgrid]: /gallery/store/sendgrid/sendgrid-azure/
+[storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

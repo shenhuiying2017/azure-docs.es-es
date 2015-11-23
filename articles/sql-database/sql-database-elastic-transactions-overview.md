@@ -98,6 +98,27 @@ Las transacciones de base de datos elástica para Base de datos SQL también adm
 
 Puede automatizar la instalación y la implementación de la versión y las bibliotecas de .NET necesarias para las transacciones de base de datos elástica en Azure (en el sistema operativo invitado de su servicio en la nube). Para los roles de trabajo de Azure, use las tareas de inicio. Los conceptos y los pasos se documentan en [Instalación de .NET en un rol de servicio en la nube](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/).
 
+Tenga en cuenta que el instalador de .NET 4.6.1 requiere más espacio de almacenamiento temporal durante el proceso de arranque en los servicios en la nube de Azure que el instalador de .NET 4.6. Para garantizar una instalación correcta, debe aumentar el almacenamiento temporal para el servicio en la nube de Azure en el archivo ServiceDefinition.csdef en la sección LocalResources y en la configuración del entorno de la tarea de inicio, como se muestra en el ejemplo siguiente:
+
+	<LocalResources>
+	...
+		<LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+		<LocalStorage name="TMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+	</LocalResources>
+	<Startup>
+		<Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
+			<Environment>
+		...
+				<Variable name="TEMP">
+					<RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TEMP']/@path" />
+				</Variable>
+				<Variable name="TMP">
+					<RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TMP']/@path" />
+				</Variable>
+			</Environment>
+		</Task>
+	</Startup>
+
 ## Supervisión del estado de la transacción
 
 Use vistas de administración dinámica (DMV) en Base de datos SQL para supervisar el estado y el progreso de las transacciones en curso de base de datos elástica. Todas las DMV relacionadas con las transacciones son pertinentes para las transacciones distribuidas en Base de datos SQL. Puede encontrar la lista correspondiente de DMV aquí: [Funciones y vistas de administración dinámica relacionadas con transacciones (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
@@ -124,4 +145,4 @@ Las siguientes limitaciones se aplican actualmente a transacciones de base de da
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -418,8 +418,6 @@ Para copiar los datos de eficacia de la campaña de marketing desde Blob de Azur
 
 Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises] para aprender a crear una canalización para copiar datos de eficacia de campaña de marketing en una base de datos de SQL Server local.
 
-## Enviar comentarios
-Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-tutorial.md).
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -528,4 +526,4 @@ Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar 
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

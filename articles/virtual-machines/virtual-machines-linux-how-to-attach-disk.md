@@ -160,6 +160,7 @@ Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos cas
 
 	Si el comando `mount` genera un error, compruebe la sintaxis correcta del archivo /etc/fstab. Si se crean particiones o unidades de datos adicionales, tendrá que especificarlas también en /etc/fstab por separado.
 
+	Deberá establecer que se pueda grabar en la unidad mediante los siguientes comandos: # cd /datadrive # sudo chmod go+w /datadrive
 
 >[AZURE.NOTE]Posteriormente, la eliminación de un disco de datos sin editar fstab podría provocar un error en el inicio de la máquina virtual. Si ocurre habitualmente, la mayoría de distribuciones proporcionan las opciones de fstab `nofail` y/o `nobootwait` que permitirán que el sistema se inicie incluso si el disco no se monta al arrancar. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
 
@@ -174,4 +175,4 @@ Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos cas
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

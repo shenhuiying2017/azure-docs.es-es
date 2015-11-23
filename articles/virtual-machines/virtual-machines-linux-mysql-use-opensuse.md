@@ -42,6 +42,5 @@ Para obtener más información sobre MySQL, vea la [Documentación de MySQL][MyS
 
 [MySQLDocs]: http://dev.mysql.com/doc/index-topic.html
 [MySQL]: http://www.mysql.com
-[AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

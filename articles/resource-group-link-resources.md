@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="11/06/2015" 
 	ms.author="tomfitz"/>
 
 # Vinculación de recursos en el Administrador de recursos de Azure
@@ -28,96 +28,7 @@ Todos los recursos vinculados deben pertenecer a la misma suscripción. Cada rec
 
 ## Vinculación de plantillas
 
-El ejemplo siguiente muestra una plantilla que crea un recurso de tipo "Microsoft.AppService/apiapps" con un conjunto de relaciones unidireccionales para un sitio web, un centro de notificaciones y bases de datos SQL.
-
-    {
-        "$schema": "http://schemas.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "$system": {
-                "type": "Object"
-            }
-        },
-        "resources": [
-            {
-                "apiVersion": "2014-11-01",
-                "type": "Microsoft.Web/sites",
-                "name": "[parameters('$system').siteName]",
-                "location": "[parameters('$system').location]",
-                "resources": [
-                    {
-                        "apiVersion": "2014-11-01",
-                        "name": "appsettings",
-                        "type": "config",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.NotificationHubs/namespaces/NotificationHubs', variables('notificationHubNamespace'), variables('notificationHubName'))]"
-                        ],
-                        "properties": {
-                            "MS_MobileServiceName": "[parameters('$system').apiAppName]",
-                            "MS_NotificationHubName": "[variables('notificationHubName')]",
-                            "MS_NotificationHubConnectionString": "[listkeys(resourceId('Microsoft.NotificationHubs/namespaces/notificationHubs/authorizationRules', variables('notificationHubNamespace'), variables('notificationHubName'), 'DefaultFullSharedAccessSignature'), '2014-09-01').primaryConnectionString]"
-                        }
-                    }
-                ]
-            },
-            {
-                "apiVersion": "[parameters('$system').apiVersion]",
-                "type": "Microsoft.AppService/apiapps",
-                "name": "[parameters('$system').apiAppName]",
-                "properties": {
-                    "accessLevel": "PublicAnonymous"
-                },
-                "resources": [
-                    {
-                        "apiVersion": "2015-01-01",
-                        "type": "providers/links",
-                        "name": "Microsoft.Resources/mobile-codesite",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.AppService/apiapps', parameters('$system').apiAppName)]",
-                            "[resourceId('Microsoft.Web/Sites', variables('userSiteName'))]"
-                        ],
-                        "properties": {
-                            "targetId": "[resourceId('Microsoft.Web/sites', variables('userSiteName'))]"
-                        }
-                    },
-                    {
-                        "apiVersion": "2015-01-01",
-                        "type": "providers/links",
-                        "name": "Microsoft.Resources/mobile-notificationhub",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.AppService/apiapps', parameters('$system').apiAppName)]",
-                            "[resourceId('Microsoft.NotificationHubs/namespaces/NotificationHubs', variables('notificationHubNamespace'), variables('notificationHubName'))]"
-                        ],
-                        "properties": {
-                            "targetId": "[resourceId('Microsoft.NotificationHubs/namespaces/NotificationHubs', variables('notificationHubNamespace'), variables('notificationHubName'))]"
-                        }
-                    },
-                    {
-                        "apiVersion": "2015-01-01",
-                        "type": "providers/links",
-                        "name": "Microsoft.Resources/mobile-sqlserver",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.AppService/apiapps', parameters('$system').apiAppName)]"
-                        ],
-                        "properties": {
-                            "targetId": "[concat('/subscriptions/', parameters('userDatabase').subscriptionId, '/resourcegroups/', parameters('userDatabase').resourceGroupName, '/providers/Microsoft.Sql/servers/', parameters('userDatabase').serverName)]"
-                        }
-                    },
-                    {
-                        "apiVersion": "2015-01-01",
-                        "type": "providers/links",
-                        "name": "Microsoft.Resources/mobile-sqldb",
-                        "dependsOn": [
-                            "[resourceId('Microsoft.AppService/apiapps', parameters('$system').apiAppName)]"
-                        ],
-                        "properties": {
-                            "targetId": "[concat('/subscriptions/', parameters('userDatabase').subscriptionId, '/resourcegroups/', parameters('userDatabase').resourceGroupName, '/providers/Microsoft.Sql/servers/', parameters('userDatabase').serverName, '/databases/', parameters('userDatabase').databaseName)]"
-                        }
-                    }
-                ]
-            }
-        ]
-    }
+Para definir un vínculo entre los recursos de una plantilla, consulte [Vínculos de recursos: esquema de plantillas](resource-manager-template-links.md).
 
 ## Vinculación con la API de REST
 
@@ -146,4 +57,4 @@ Para obtener más ejemplos, incluido cómo recuperar información acerca de los 
 - También puede organizar los recursos con etiquetas. Para obtener información sobre el etiquetado de recursos, consulte [Uso de etiquetas para organizar los recursos](resource-group-using-tags.md).
 - Para obtener una descripción sobre cómo crear plantillas y definir los recursos que se van a implementar, consulte [Creación de plantillas](resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -44,7 +44,9 @@ El tipo .NET del cliente con tipo correspondiente es el siguiente:
 		public bool Complete { get; set; }
 	}
 
-Cuando está habilitado el esquema dinámico, Servicios móviles de Azure genera automáticamente columnas nuevas basadas en el objeto en las solicitudes de inserción o actualización. Para obtener más información, consulte [Esquema dinámico](http://go.microsoft.com/fwlink/?LinkId=296271).
+Tenga en cuenta que [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) se usa para definir la asignación entre la asignación de PropertyName entre el tipo de cliente y la tabla.
+
+Cuando está habilitado el esquema dinámico en un servicio móvil de back-end de JavaScript, Servicios móviles de Azure genera automáticamente columnas nuevas basadas en el objeto en las solicitudes de inserción o actualización. Para obtener más información, consulte [Esquema dinámico](http://go.microsoft.com/fwlink/?LinkId=296271). En un servicio móvil de back-end .NET, la tabla se define en el modelo de datos del proyecto.
 
 ##<a name="create-client"></a>Creación del cliente de Servicios móviles
 
@@ -62,12 +64,12 @@ En el código anterior, reemplace `AppUrl` y `AppKey` por la URL y la clave de a
 
 ##<a name="instantiating"></a>Creación de una referencia de tabla
 
-Todo el código que obtiene acceso o modifica los datos de la tabla de Servicios móviles llama a las funciones del objeto `MobileServiceTable`. Obtenga una referencia a la tabla llamando a la función [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) en una instancia de `MobileServiceClient`.
+Todo el código que obtiene acceso o modifica los datos de la tabla de Servicios móviles llama a las funciones del objeto `MobileServiceTable`. Obtenga una referencia a la tabla llamando al método [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) en una instancia de `MobileServiceClient` del modo indicado a continuación:
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
 
-Este es el modelo de serialización con tipo; consulte la descripción del <a href="#untyped">modelo de serialización sin tipo</a> a continuación.
+Este es el modelo de serialización con tipo; consulte la descripción del [modelo de serialización sin tipo](#untyped) a continuación.
 
 ##<a name="querying"></a>Consulta de datos desde un servicio móvil
 
@@ -669,16 +671,19 @@ Para admitir el escenario de aplicación específico, deberá personalizar la co
 		await table.InsertAsync(newItem);
 	}
 
-	public class MyHandler : DelegatingHandler
-	{
-		protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-		{
-			request.Headers.Add("x-my-header", "my value");
-			var response = awaitbase.SendAsync(request, cancellationToken);
-			response.StatusCode = HttpStatusCode.ServiceUnavailable;
-			return response;
-		}
-	}
+    public class MyHandler : DelegatingHandler
+    {
+        protected override async Task<HttpResponseMessage> 
+            SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            // Add a custom header to the request.
+            request.Headers.Add("x-my-header", "my value");
+            var response = await base.SendAsync(request, cancellationToken);
+            // Set a differnt response status code.
+            response.StatusCode = HttpStatusCode.ServiceUnavailable;
+            return response;
+        }
+    }
 
 Este código agrega un nuevo encabezado **x-my-header** en la solicitud y establece arbitrariamente el código de respuesta como no disponible. En un escenario real, debería establecer el código de estado de respuesta basado en alguna lógica personalizada requerida por la aplicación.
 
@@ -740,6 +745,7 @@ Esta propiedad convierte todas las propiedades en minúsculas durante la seriali
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md/#Commands_to_manage_mobile_services
 [Tutorial de simultaneidad optimista]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
+[MobileServiceClient]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
 [IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
 [Skip]: http://msdn.microsoft.com/library/windowsazure/dn250573.aspx
@@ -748,4 +754,4 @@ Esta propiedad convierte todas las propiedades en minúsculas durante la seriali
 [API personalizada en los SDK del cliente de Servicios móviles de Azure]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Uso del conector de OneDrive en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
 	description="Creación y configuración del conector de OneDrive o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
-	authors="anuragdalmia"
+	authors="rajeshramabathiran"
 	manager="dwrede"
 	editor=""
 	services="app-service\logic"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+	ms.date="11/11/2015"
+	ms.author="rajram"/>
 
 # Introducción al conector de OneDrive y su incorporación a su aplicación lógica
 Conéctese a su OneDrive para cargar, descargar y eliminar archivos. Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. Puede agregar el conector de OneDrive a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
@@ -95,6 +95,6 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 
 <!-- Links -->
 [crear una nueva aplicación lógica]: app-service-logic-create-a-logic-app.md
-[Definición de la API de OneDrive]: https://msdn.microsoft.com/es-es/library/dn974227.aspx
+[Definición de la API de OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

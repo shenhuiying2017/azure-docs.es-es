@@ -204,10 +204,10 @@ Para ver información registrada sobre operaciones realizadas en un grupo, utili
 ## Pasos siguientes
 
 * Para obtener información sobre el trabajo con el Administrador de recursos de Azure con Azure PowerShell, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md)
-* Para obtener información sobre cómo trabajar con el Administrador de recursos de Azure desde el Portal de Azure, consulte [Uso de grupos de recursos para administrar los recursos de Azure][psrm].
+* Para obtener información sobre cómo trabajar con el Administrador de recursos de Azure desde el Portal de vista previa de Azure, consulte [Uso de grupos de recursos para administrar los recursos de Azure][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

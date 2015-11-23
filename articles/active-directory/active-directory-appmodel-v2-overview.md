@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="11/06/2015"
 	ms.author="dastrock"/>
 
 # Versión preliminar del modelo de aplicaciones v2.0: inicio de sesión de usuarios de cuentas de Microsoft y de Azure AD en una sola aplicación
@@ -57,4 +57,4 @@ Estos vínculos le servirán para explorar la plataforma en profundidad:
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

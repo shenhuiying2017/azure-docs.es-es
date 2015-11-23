@@ -43,10 +43,10 @@ Este artículo contiene información específica para que los desarrolladores y 
 
 - [¿Qué es el Centro de IoT de Azure?][lnk-iothub]
 - La sección ["Seguridad" de la Guía para desarrolladores del Centro de IoT de Azure][lnk-devguide] ofrece información adicional sobre los tokens y el sistema de permisos del Centro de IoT.
-- [Administración del Centro de IoT a través del Portal de Azure][lnk-manage-portal] describe el uso del Portal de Azure para administrar el Centro de IoT.
+- [Administración del Centro de IoT a través del Portal de vista previa de Azure][lnk-manage-portal] describe el uso del Portal de vista previa de Azure para administrar el Centro de IoT.
 
 [lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

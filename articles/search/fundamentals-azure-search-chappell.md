@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción a Búsqueda de Azure | Microsoft Azure" 
+	pageTitle="Introducción a la Búsqueda de Azure | Microsoft Azure | Servicio de búsqueda hospedado en la nube" 
 	description="Aprenda cómo Búsqueda de Azure, un servicio de búsqueda en la nube hospedado, puede ayudarle a crear completas aplicaciones de búsqueda." 
 	editor="monicar" 
 	manager="mblythe" 
@@ -42,4 +42,4 @@ Este artículo es una información general de la tecnología y de los escenarios
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">"Introducción a Búsqueda de Azure" (en PDF)</a>
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">"Introducción a Búsqueda de Azure" (en Microsoft Word)</a> 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

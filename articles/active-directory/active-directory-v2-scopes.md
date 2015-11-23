@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/10/2015"
 	ms.author="dastrock"/>
 
 # Vista previa de la versión 2.0 del modelo de aplicaciones: ámbitos, permisos y consentimiento
@@ -112,8 +112,8 @@ Si una aplicación realiza el inicio de sesión mediante [OpenID Connect](active
 
 El ámbito `offline_access` permite que la aplicación tenga acceso a recursos en nombre del usuario durante un largo período de tiempo. En la pantalla de consentimiento de la cuenta profesional este ámbito aparecerá como el permiso "Acceso a los datos en cualquier momento". En la pantalla de consentimiento de la cuenta personal de Microsoft este ámbito aparecerá como el permiso "Acceso a tu información en cualquier momento". Cuando un usuario aprueba el ámbito `offline_access`, la aplicación se habilitará para recibir los tokens de actualización del extremo de token de la versión 2.0. Los tokens de actualización son de larga duración y permiten a la aplicación adquirir nuevos tokens de acceso a medida que los antiguos caducan.
 
-Si tu aplicación no solicita el ámbito `offline_access`, no recibirá tokens de actualización (refresh\_tokens). Esto significa que cuando canjees un código de autorización (authorization\_code) del [flujo del código de autorización de OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), solo recibirás un token de acceso (access\_token) desde el extremo de `/token`. Ese token de acceso seguirá siendo válido durante un breve período de tiempo (normalmente una hora), pero finalmente caducará. En ese momento, la aplicación tendrá que redirigir al usuario de nuevo al extremo de `/authorize` para recuperar un nuevo código de autorización. Durante esta redirección, el usuario puede o no necesitar escribir sus credenciales de nuevo o volver a dar el consentimiento a permisos, según el tipo de aplicación.
+Si tu aplicación no solicita el ámbito `offline_access`, no recibirá tokens de actualización (refresh\_tokens). Esto significa que cuando canjea un authorization\_code en el [flujo de código de autorización de OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), solo recibirá un access\_token desde el extremo de `/token`. Ese token de acceso seguirá siendo válido durante un breve período de tiempo (normalmente una hora), pero finalmente caducará. En ese momento, la aplicación tendrá que redirigir al usuario de nuevo al extremo de `/authorize` para recuperar un nuevo authorization\_code. Durante esta redirección, el usuario puede o no necesitar escribir sus credenciales de nuevo o volver a dar el consentimiento a permisos, según el tipo de aplicación.
 
 Para más información sobre cómo obtener y usar tokens de actualización, consulta la [referencia del protocolo de la versión 2.0 del modelo de aplicaciones](active-directory-v2-protocols.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

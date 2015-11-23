@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/08/2015" 
+	ms.date="11/10/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -49,20 +49,20 @@ También está disponible un conjunto enriquecido y eficaz de herramientas de de
 
 ## Características de continuidad del negocio para bases de datos de un grupo
 
-Actualmente en la vista previa, las bases de datos elásticas admiten la mayoría de las [características de continuidad empresarial](https://msdn.microsoft.com/library/azure/hh852669.aspx) que están disponibles para las bases de datos únicas en servidores V12.
+Actualmente en la vista previa, las bases de datos elásticas admiten la mayoría de las [características de continuidad empresarial](sql-database-business-continuity.md) que están disponibles para las bases de datos únicas en servidores V12.
 
-### Copia de seguridad y restauración de bases de datos ([restauración a un momento dado](https://msdn.microsoft.com/library/azure/hh852669.aspx#BKMK_PITR))
+### Copia de seguridad y restauración de bases de datos (restauración a un momento dado)
 
 El sistema realiza automáticamente copias de seguridad de las bases de datos del grupo de bases de datos elásticas y la directiva de retención de copias de seguridad es la misma que el nivel de servicio correspondiente de la de las bases de datos únicas. De manera más específica, una base de datos elástica de un grupo básico se puede restaurar en cualquier punto de restauración en los últimos 7 días, una base de datos elástica de un grupo estándar se puede restaurar en cualquier punto de restauración durante los últimos 14 días y una base de datos elástica de un grupo Premium se puede restaurar en cualquier punto de restauración en los últimos 35 días. Durante la vista previa, se restaurarán las bases de datos de un grupo a una nueva base de datos del mismo grupo. Las bases de datos quitadas siempre se restaurarán como bases de datos independientes fuera del grupo en el nivel de rendimiento más bajo de ese nivel de servicio. Por ejemplo, una base de datos elástica de un grupo estándar que se quita se restaurará como base de datos de S0. Las operaciones de restauración de bases de datos pueden realizarse a través del Portal de Azure o mediante programación con la API de REST. Los cmdlet de PowerShell podrán utilizarse próximamente.
 
-### [Restauración geográfica](https://msdn.microsoft.com/library/azure/hh852669.aspx#BKMK_GEO)
+### Restauración geográfica
 
 La restauración geográfica permite recuperar una base de datos de un grupo en un servidor en una región distinta. Durante la vista previa, para restaurar una base de datos de un grupo en un servidor diferente, el servidor de destino deberá tener un grupo con el mismo nombre que el grupo de origen. Si es necesario, cree un nuevo grupo en el servidor de destino y asígnele el mismo nombre antes de restaurar la base de datos. Si no existe un grupo con el mismo nombre en el servidor de destino, se producirá un error en la operación de restauración geográfica. Puede realizar operaciones de restauración geográfica mediante el Portal de Azure o la API de REST. Los cmdlet de PowerShell podrán utilizarse próximamente.
 
 
-### [Replicación geográfica](https://msdn.microsoft.com/library/azure/dn783447.aspx)
+### Replicación geográfica
 
-Las bases de datos que tienen habilitada la replicación geográfica se pueden mover dentro y fuera del grupo de bases de datos elásticas sin que ello repercuta en el funcionamiento de la replicación. Puede habilitar la replicación geográfica en una base de datos que ya está en el grupo si el servidor de destino que especifique tiene un grupo con el mismo nombre que el grupo de origen.
+La replicación geográfica está disponible para cualquier base de datos en un grupo de bases de datos elásticas estándar o premium. Una o todas las bases de datos de una asociación de replicación geográfica pueden estar en un grupo de bases de datos elásticas siempre que los niveles de servicio sean los mismos. Puede configurar la replicación geográfica para grupos de bases de datos elásticas mediante el [Portal de Azure](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md) o [Transact-SQL](sql-database-geo-replication-transact-sql.md).
 
 ### importación y exportación
 
@@ -72,4 +72,4 @@ No se admite la exportación de una base de datos desde un grupo. Actualmente, n
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

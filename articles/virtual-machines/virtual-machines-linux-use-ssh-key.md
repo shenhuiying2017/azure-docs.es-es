@@ -46,26 +46,26 @@ Si necesita crear los archivos:
 
 	- Para Mac, no olvide visitar el [sitio web de Actualizaciones de seguridad de Apple](https://support.apple.com/HT201222) y, si es necesario, elegir las actualizaciones correspondientes.
 	- Para las distribuciones de Linux basadas en Debian como Ubuntu, Debian, Mint y demás:
-		
+
 			sudo apt-get update ssh-keygen
 			sudo apt-get update openssl
-			
+
 	- Para las distribuciones de Linux basadas en RPM como CentOS y Oracle Linux:
-		
+
 			sudo yum update ssh-keygen
 			sudo yum update openssl
-			
+
 	- Para SLES y OpenSUSE
-		
+
 			sudo zypper update ssh-keygen
 			sudo zypper update openssl
-	
+
 2. Use **ssh keygen** para crear archivos RSA de 2048 bits de clave pública y privada, y a menos que tenga una ubicación específica o nombres específicos para los archivos, acepte la ubicación predeterminada y el nombre de `~/.ssh/id_rsa`. El comando básico es:
 
 		ssh-keygen -t rsa -b 2048 
-	
+
 	Normalmente, la implementación de **ssh keygen** agrega un comentario, con frecuencia se trata del nombre de usuario y nombre de host del equipo. Puede especificar un comentario específico mediante la opción `-C`.
-	
+
 3. Cree un archivo .pem desde su archivo `~/.ssh/id_rsa` para poder trabajar con el portal clásico. Use **openssl** como sigue:
 
 		openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
@@ -125,7 +125,7 @@ En el ejemplo siguiente se muestra el uso del formato **ssh-rsa** con una planti
 	data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 	data:    ContentVersion     : 1.0.0.0
 	data:    Name                   Type    Value
-	
+
 	data:    newStorageAccountName  String  testtestsshvmtemplate3
 	data:    adminUserName          String  ops
 	data:    sshKeyData             String  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAkek3P6V3EhmD+xP+iKDZco9 user@macbookpro
@@ -157,7 +157,7 @@ A continuación, puede usar el archivo .pem con el portal clásico o con el modo
 	+ Configuring certificate
 	+ Creating VM
 	info:    vm create command OK
-	
+
 
 ## Conexión a la máquina virtual
 
@@ -166,11 +166,11 @@ El comando **ssh** toma un nombre de usuario para iniciar sesión con la direcci
 Un uso típico con la implementación del Administrador de recursos podría ser similar al siguiente, si simplemente se especificó un subdominio y una ubicación de implementación:
 
 	ssh user@subdomain.westus.cloudapp.azure.com -p 22
-	
+
 o bien, si se conecta a un servicio de nube de implementación clásica, la dirección que usaría sería algo así:
 
 	ssh user@subdomain.cloudapp.net -p 22
-	
+
 Dado que el formato de dirección puede cambiar, siempre puede usar la dirección IP o quizás tenga un nombre de dominio personalizado asignado (tendría que descubrir la dirección de la máquina virtual de Azure).
 
 ### Detección de la dirección SSH de la máquina virtual de Azure con implementaciones clásicas
@@ -266,27 +266,27 @@ Si crea una máquina virtual mediante un archivo .pem creado a partir de su arch
 	Saving password to keychain failed
 	Identity added: /Users/rasquill/.ssh/id_rsa (/Users/rasquill/.ssh/id_rsa)
 	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
-	
+
 	* Documentation:  https://help.ubuntu.com/
-	
+
 	System information as of Sat Oct 10 20:53:08 UTC 2015
-	
+
 	System load: 0.52              Memory usage: 5%   Processes:       80
 	Usage of /:  45.3% of 1.94GB   Swap usage:   0%   Users logged in: 0
-	
+
 	Graph this data and manage this system at:
 		https://landscape.canonical.com/
-	
+
 	Get cloud support with Ubuntu Advantage Cloud Guest:
 		http://www.ubuntu.com/business/services/cloud
-	
+
 	0 packages can be updated.
 	0 updates are security updates.
-	
+
 	The programs included with the Ubuntu system are free software;
 	the exact distribution terms for each program are described in the
 	individual files in /usr/share/doc/*/copyright.
-	
+
 	Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 	applicable law.
 
@@ -295,7 +295,7 @@ Si crea una máquina virtual mediante un archivo .pem creado a partir de su arch
 Puede leer las sugerencias en [Solución de problemas de las conexiones SSH](virtual-machines-troubleshoot-ssh-connections.md) que quizás le ayuden a resolver la situación.
 
 ## Pasos siguientes
-
+ 
 Ahora que ha conectado a la máquina virtual, asegúrese de actualizar su distribución elegida antes de continuar con su uso.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

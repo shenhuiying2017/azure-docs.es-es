@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Actividades de movimiento de datos
@@ -51,7 +51,10 @@ La actividad de copia toma un conjunto de datos de entrada (**origen**) y copia 
 La actividad de copia proporciona las siguientes capacidades:
 
 ### <a name="global"></a>Movimiento de datos disponibles globalmente
-La actividad de copia que proporciona el servicio de movimiento de datos está disponible globalmente en las siguientes regiones y zonas geográficas. La topología disponible globalmente garantiza un movimiento de datos eficiente que evita saltos entre regiones en la mayoría de los casos.
+Aunque la propia Factoría de datos de Azure solamente esté disponible en la región Oeste de Estados Unidos, el servicio de movimiento de datos que permite la actividad de copia está disponible globalmente en las siguientes regiones y zonas geográficas. La topología disponible globalmente garantiza un movimiento de datos eficiente que evita saltos entre regiones en la mayoría de los casos.
+
+
+Si está copiando de un origen en la nube a un destino de la nube (por ejemplo: Blob de Azure -> SQL Azure), el servicio de movimiento de datos elige la implementación más cercana a la ubicación del receptor para realizar la transferencia. En el caso de que vaya a copiar datos de un origen de datos local en la nube o viceversa (por ejemplo: SQL Server local -> Blob de Azure), el movimiento de datos se realiza en realidad la pasarela de administración de datos sin participación alguna por parte del servicio de movimiento de datos.
 
 | Region | Geography |
 | ------ | --------- | 
@@ -66,6 +69,8 @@ La actividad de copia que proporciona el servicio de movimiento de datos está d
 | Europa occidental | EMEA |
 | Sudeste asiático | Asia y Pacífico Sur |
 | Este de Japón | Asia y Pacífico Sur |
+
+
 
 ### <a name="moveonpremtocloud"></a>Movimiento de datos seguro entre la nube y la ubicación local
 Uno de los desafíos de la integración de datos moderna es mover datos sin problemas entre ubicación la local y la nube. Data management gateway es un agente que puede instalar de forma local para permitir canalizaciones de datos híbridas.
@@ -98,8 +103,4 @@ Propiedades como nombre, descripción, tablas de entrada y salida, varias direct
 
 En el caso de la actividad de copia, la sección **typeProperties** varía en función de los tipos de origen y receptor. En cada la página específica del almacén de datos en los documentos enumerados anteriormente se encuentran las propiedades específicas del tipo de almacén de datos.
 
-
-## Enviar comentarios
-Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md).
-
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

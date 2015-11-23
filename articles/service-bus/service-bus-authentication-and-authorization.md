@@ -45,7 +45,7 @@ La compatibilidad de la autenticación de SAS con Bus de servicio se incluye en 
 
 ## Autenticación de ACS
 
-La autenticación de Bus de servicio mediante ACS se administra a través de un espacio de nombres de ACS "-sb" complementario. Si desea crear un espacio de nombres de ACS complementario para un espacio de nombres de Bus de servicio, no puede crear el espacio de nombres de Bus de servicio mediante el Portal de administración de Azure; debe crear dicho espacio mediante el cmdlet [New-AzureSBNamespace](https://msdn.microsoft.com/library/azure/dn495165.aspx) de PowerShell. Por ejemplo:
+La autenticación de Bus de servicio mediante ACS se administra a través de un espacio de nombres de ACS "-sb" complementario. Si desea crear un espacio de nombres de ACS complementario para un espacio de nombres de Bus de servicio, no puede crear el espacio de nombres de Bus de servicio mediante el Portal de Azure; debe crear dicho espacio de nombres mediante el cmdlet [New-AzureSBNamespace](https://msdn.microsoft.com/library/azure/dn495165.aspx) de PowerShell. Por ejemplo:
 
 ```
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $true
@@ -73,4 +73,4 @@ Para obtener una descripción general de SAS en el Bus de servicio, consulte [Fi
 
 Puede encontrar más información acerca de los tokens ACS en [Procedimiento: Solicitar un token de ACS mediante el protocolo OAuth WRAP](https://msdn.microsoft.com/library/hh674475.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

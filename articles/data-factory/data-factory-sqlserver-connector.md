@@ -471,14 +471,16 @@ Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas de
 
 **SqlSink** admite las siguientes propiedades:
 
+
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | -------- | ----------- | -------------- | -------- |
-| sqlWriterStoredProcedureName | Nombre del procedimiento almacenado especificado por el usuario para actualizar o insertar datos en la tabla de destino. | Nombre del procedimiento almacenado. | No |
-| sqlWriterTableType | Nombre del tipo de tabla especificado por el usuario que se usará en el procedimiento almacenado anterior. La actividad de copia dispone que los datos que se mueven estén disponibles en una tabla temporal con este tipo de tabla. El código de procedimiento almacenado puede combinar los datos copiados con datos existentes. | Un nombre de tipo de tabla. | No |
-| writeBatchSize | Inserta datos en la tabla SQL cuando el tamaño del búfer alcance writeBatchSize | Entero. (unidad = recuento de filas) | No (Predeterminado = 10000) |
 | writeBatchTimeout | Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera. | (Unidad = intervalo de tiempo) Ejemplo: "00:30:00" (30 minutos). | No | 
-| sqlWriterCleanupScript | Consulta especificada del usuario para que ejecute la actividad de copia para asegurarse de que los datos de un segmento específico se van a limpiar. | Una instrucción de consulta. | No | 
-| sliceIdentifierColumnName | Nombre de columna especificado por el usuario para que la rellene la actividad de copia con un identificador de segmentos generado automáticamente, que se usará para limpiar los datos de un segmento específico cuando se vuelva a ejecutar. | Nombre de columna de una columna con el tipo de datos binarios (32). | No |
+| writeBatchSize | Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize. | Entero. (unidad = recuento de filas) | No (Predeterminado = 10000)
+| sqlWriterCleanupScript | Consulta especificada por el usuario para que la actividad de copia se ejecute de tal forma que se limpien los datos de un segmento específico. Consulte la sección sobre repetibilidad a continuación para obtener más detalles. | Una instrucción de consulta. | No |
+| sliceIdentifierColumnName | Nombre de columna especificado por el usuario para que la rellene la actividad de copia con un identificador de segmentos generado automáticamente, que se usará para limpiar los datos de un segmento específico cuando se vuelva a ejecutar. Consulte la sección sobre repetibilidad a continuación para obtener más detalles. | Nombre de columna de una columna con el tipo de datos binarios (32). | No |
+| sqlWriterStoredProcedureName | Nombre del procedimiento almacenado que actualiza e inserta (operación de upsert) datos en la tabla de destino. | Nombre del procedimiento almacenado. | No |
+| storedProcedureParameters | Parámetros del procedimiento almacenado. | Pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. | No | 
+| sqlWriterTableType | Nombre del tipo de tabla especificado por el usuario que se usará en el procedimiento almacenado anterior. La actividad de copia dispone que los datos que se mueven estén disponibles en una tabla temporal con este tipo de tabla. El código de procedimiento almacenado puede combinar los datos copiados con datos existentes. | Un nombre de tipo de tabla. | No |
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -491,7 +493,7 @@ Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas de
 
 ### Asignación de tipos para SQL Server y SQL de Azure
 
-Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de tipos de origen a tipos de receptor con el siguiente enfoque de dos pasos:
+Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
 
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
@@ -541,4 +543,4 @@ La asignación es igual que la asignación de tipo de datos de SQL Server para A
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

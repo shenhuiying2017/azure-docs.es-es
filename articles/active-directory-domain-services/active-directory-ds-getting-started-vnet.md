@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="udayh"
-	editor="inhenk"/>
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="11/09/2015"
 	ms.author="maheshu"/>
 
 # Servicios de dominio de Azure AD *(vista previa)*: introducción
@@ -21,9 +21,10 @@
 ## Directrices para seleccionar una red virtual de Azure
 Al seleccionar una red virtual para usar con los Servicios de dominio de Azure AD, tenga en cuenta las siguientes pautas:
 
-- Asegúrese de seleccionar una red virtual de una región que sea compatible con los Servicios de dominio de Azure AD. La lista actual de regiones de Azure compatibles está disponible en la [página de regiones](active-directory-ds-regions.md).
+- Asegúrese de seleccionar una red virtual de una región que sea compatible con los Servicios de dominio de Azure AD. La lista actual de regiones de Azure compatibles está disponible en la [página de regiones](https://azure.microsoft.com/regions/#services).
 - Si planea usar una red virtual existente, asegúrese de que sea una red virtual regional. Las redes virtuales que usan el mecanismo de grupos de afinidad heredados no se puede usar con los Servicios de dominio de Azure AD. Deberá [migrar las redes virtuales heredadas a redes virtuales regionales](../virtual-networks-migrate-to-regional-vnet.md).
 - Seleccione la red virtual que hospeda o va a hospedar las máquinas virtuales que necesitan acceso a los Servicios de dominio de Azure AD. No podrá mover los servicios de dominio a otra red virtual más adelante.
+- No se admiten los Servicios de dominio de Azure AD con redes virtuales creadas mediante el Administrador de recursos de Azure.
 
 
 ## Paso 2: Creación de una red virtual de Azure
@@ -55,4 +56,4 @@ Realice el siguiente paso de configuración para crear una red virtual de Azure 
 ---
 [**Paso siguiente: Habilitación de los Servicios de dominio de Azure AD.**](active-directory-ds-getting-started-enableaadds.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

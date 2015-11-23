@@ -68,6 +68,9 @@ La tabla siguiente muestra las diferencias de las características de continuida
 
 Estas características se proporcionan para abordar los escenarios mencionados anteriormente. Vea la sección [Diseño para la continuidad del negocio](sql-database-business-continuity-design.md) sección para obtener instrucciones sobre cómo seleccionar características específicas.
 
+> [AZURE.NOTE]\: los valores ERT y RPO son objetivos de ingeniería que únicamente proporcionan orientación. No forman parte del [SLA de Base de datos SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
+
+
 ###Restauración a un momento dado
 
 la restauración a un momento dado está diseñada para restablecer la base de datos a un punto anterior en el tiempo. Esta característica usa las copias de seguridad de la base de datos, las copias de seguridad incrementales y las copias de seguridad de registros de transacciones que el servicio mantiene automáticamente para cada base de datos de usuario. Esta capacidad está disponible para todos los niveles de servicio. Puede recuperar la base de datos de hace 7 días, con el nivel Basic, 14 días, con el nivel Standard, y 35 días, con el nivel Premium. Vea la sección [Recuperación de errores humanos](sql-database-user-error-recovery.md) para obtener más información sobre cómo usar la restauración a un momento dado.
@@ -88,4 +91,4 @@ La replicación geográfica activa está disponible para bases de datos Premium.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

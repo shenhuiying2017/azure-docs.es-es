@@ -26,7 +26,7 @@ En este artículo se muestra cómo usar el [Portal de vista previa de Azure](htt
 
 ## Crear una cuenta de lote
 
-1. Inicie sesión en el [portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com).
 
 2. Haga clic en **Nuevo** > **Proceso** > **Servicio de Lote**.
 
@@ -80,4 +80,4 @@ Para ver y administrar las claves de acceso, haga clic en el icono de llave.
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

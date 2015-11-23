@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Límites de servicio en Búsqueda de Azure | Microsoft Azure"
+	pageTitle="Límites de servicio en Búsqueda de Azure | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
 	description="Límites de servicio usados en la planeación de la capacidad y los límites máximos en solicitudes y respuestas para Búsqueda de Azure, un servicio de búsqueda hospedado en la nube."
 	services="search"
 	documentationCenter=""
@@ -133,4 +133,4 @@ Las claves de API se usan para la autenticación del servicio. Hay dos tipos. La
 - Máximo de 1000 documentos devueltos por página de resultados de búsqueda
 - Máximo de 100 sugerencias devueltas por solicitud de Sugerir API
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

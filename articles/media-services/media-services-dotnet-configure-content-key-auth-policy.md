@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/18/2015"
+	ms.date="11/06/2015"
 	ms.author="juliako"/>
 
 
@@ -237,7 +237,7 @@ Para obtener un token de prueba basado en la restricción de token que se usó p
 
 Los Servicios multimedia le permiten configurar los derechos y las restricciones que desee para que el tiempo de ejecución de PlayReady DRM las aplique cuando un usuario intente reproducir contenido protegido.
 
-Al proteger su contenido con PlayReady, una de las cosas que debe especificar en la directiva de autorización es una cadena XML que defina la [plantilla de licencias PlayReady](https://msdn.microsoft.com/library/azure/dn783459.aspx). En el SDK de Servicios multimedia para. NET, las clases **PlayReadyLicenseResponseTemplate** y **PlayReadyLicenseTemplate** le ayudarán a definir la plantilla de licencia de PlayReady.
+Al proteger su contenido con PlayReady, una de las cosas que debe especificar en la directiva de autorización es una cadena XML que defina la [plantilla de licencias PlayReady](media-services-playready-license-template-overview.md). En el SDK de Servicios multimedia para. NET, las clases **PlayReadyLicenseResponseTemplate** y **PlayReadyLicenseTemplate** le ayudarán a definir la plantilla de licencia de PlayReady.
 
 ###Restricción open
 	
@@ -345,18 +345,53 @@ Para configurar la opción de restricción de token, debe usar un archivo XML pa
 	    return TokenRestrictionTemplateSerializer.Serialize(template);
 	} 
 	
-	static private string ConfigurePlayReadyLicenseTemplate()
-	{
-	    // The following code configures PlayReady License Template using .NET classes
-	    // and returns the XML string.
-	             
-	    PlayReadyLicenseResponseTemplate responseTemplate = new PlayReadyLicenseResponseTemplate();
-	    PlayReadyLicenseTemplate licenseTemplate = new PlayReadyLicenseTemplate();
-	
-	    responseTemplate.LicenseTemplates.Add(licenseTemplate);
-	
-	    return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
-	}
+    static private string ConfigurePlayReadyLicenseTemplate()
+    {
+        // The following code configures PlayReady License Template using .NET classes
+        // and returns the XML string.
+
+        //The PlayReadyLicenseResponseTemplate class represents the template for the response sent back to the end user. 
+        //It contains a field for a custom data string between the license server and the application 
+        //(may be useful for custom app logic) as well as a list of one or more license templates.
+        PlayReadyLicenseResponseTemplate responseTemplate = new PlayReadyLicenseResponseTemplate();
+
+        // The PlayReadyLicenseTemplate class represents a license template for creating PlayReady licenses
+        // to be returned to the end users. 
+        //It contains the data on the content key in the license and any rights or restrictions to be 
+        //enforced by the PlayReady DRM runtime when using the content key.
+        PlayReadyLicenseTemplate licenseTemplate = new PlayReadyLicenseTemplate();
+        //Configure whether the license is persistent (saved in persistent storage on the client) 
+        //or non-persistent (only held in memory while the player is using the license).  
+        licenseTemplate.LicenseType = PlayReadyLicenseType.Nonpersistent;
+       
+        // AllowTestDevices controls whether test devices can use the license or not.  
+        // If true, the MinimumSecurityLevel property of the license
+        // is set to 150.  If false (the default), the MinimumSecurityLevel property of the license is set to 2000.
+        licenseTemplate.AllowTestDevices = true;
+
+
+        // You can also configure the Play Right in the PlayReady license by using the PlayReadyPlayRight class. 
+        // It grants the user the ability to playback the content subject to the zero or more restrictions 
+        // configured in the license and on the PlayRight itself (for playback specific policy). 
+        // Much of the policy on the PlayRight has to do with output restrictions 
+        // which control the types of outputs that the content can be played over and 
+        // any restrictions that must be put in place when using a given output.
+        // For example, if the DigitalVideoOnlyContentRestriction is enabled, 
+        //then the DRM runtime will only allow the video to be displayed over digital outputs 
+        //(analog video outputs won’t be allowed to pass the content).
+
+        //IMPORTANT: These types of restrictions can be very powerful but can also affect the consumer experience. 
+        // If the output protections are configured too restrictive, 
+        // the content might be unplayable on some clients. For more information, see the PlayReady Compliance Rules document.
+
+        // For example:
+        //licenseTemplate.PlayRight.AgcAndColorStripeRestriction = new AgcAndColorStripeRestriction(1);
+
+        responseTemplate.LicenseTemplates.Add(licenseTemplate);
+
+        return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
+    }
+
 
 Para obtener un token de prueba basado en la restricción de token que se usó para la directiva de autorización de claves, consulte [esta](#test) sección.
 
@@ -392,10 +427,11 @@ Para obtener un token de prueba basado en la restricción de token que se usó p
 
 ##Rutas de aprendizaje de Servicios multimedia
 
-Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Envío de comentarios
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
 
@@ -403,4 +439,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 Ahora que ha configurado la directiva de autorización de la clave de contenido, consulte el tema [Configuración de la directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

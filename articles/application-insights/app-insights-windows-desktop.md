@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="11/05/2015" 
 	ms.author="awills"/>
 
 # Application Insights en servicios, aplicaciones y roles de trabajo de escritorio de Windows
@@ -23,9 +23,9 @@
 
 Application Insights permite supervisar el uso y rendimiento de la aplicación implementada.
 
-Todas las aplicaciones de Windows (incluidas las aplicaciones de escritorio, los servicios en segundo plano y los roles de trabajo) pueden usar el SDK principal de Application Insights para enviar telemetría a Application Insights. También puede agregar el SDK de Application Insights a un proyecto de biblioteca de clases.
+Todas las aplicaciones de Windows (incluidas las aplicaciones de escritorio, los servicios en segundo plano y los roles de trabajo) pueden usar el SDK de Application Insights para enviar telemetría a Application Insights. También puede agregar el SDK de Application Insights a un proyecto de biblioteca de clases.
 
-El SDK principal solo proporciona una API: a diferencia de los SDK web y de dispositivos, no incluye módulos que recopilen datos automáticamente, por lo que tiene que escribir un código para enviar su propia telemetría. Algunos de los otros paquetes, como el recopilador de contadores de rendimiento, también funcionarán en una aplicación de escritorio.
+Puede elegir qué recopiladores de datos estándar desea usar (por ejemplo, para supervisar contadores de rendimiento o llamadas de dependencia), o simplemente usar la API principal y escribir su propia telemetría.
 
 
 ## <a name="add"></a> Creación de recursos en Application Insights
@@ -48,13 +48,13 @@ El SDK principal solo proporciona una API: a diferencia de los SDK web y de disp
 
     ![Haga clic con el botón secundario en el proyecto y seleccione Administrar paquetes de Nuget.](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. Instale el paquete de la API principal de Application Insights: Microsoft.ApplicationInsights.
+2. Instale el paquete Application Insights Windows Server: Microsoft.ApplicationInsights.WindowsServer
 
-    ![Busque "Application Insights"](./media/app-insights-windows-desktop/04-core-nuget.png)
+    ![Busque "Application Insights"](./media/app-insights-windows-desktop/04-ai-nuget.png)
 
     *¿Puedo usar otros paquetes?*
 
-    Sí, puede instalar otros paquetes, como el contador de rendimiento o los paquetes de recopiladores de dependencias si desea usar sus módulos. Microsoft.ApplicationInsights.Web incluye varios paquetes de este tipo. Si desea usar los [paquetes de recopiladores de registros o de seguimiento](app-insights-asp-net-trace-logs.md), comience con el paquete de servidor web.
+    Sí. Elija la API principal (Microsoft.ApplicationInsights) si solo desea usar la API para enviar su propia telemetría. El paquete de Windows Server incluye automáticamente la API principal más otra serie de paquetes, como la recopilación de contadores de rendimiento y la supervisión de dependencias.
 
     (Pero no use Microsoft.ApplicationInsights.Windows que está destinado a aplicaciones de la Tienda Windows.)
 
@@ -62,7 +62,7 @@ El SDK principal solo proporciona una API: a diferencia de los SDK web y de disp
 
     * Si solo instaló el paquete de la API principal Microsoft.ApplicationInsights, debe establecer la clave en código, por ejemplo en main(): 
 
-    `TelemetryConfiguration.Active.InstrumentationKey = "` **su clave** `";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "` *su clave* `";`
 
     Si instaló uno de los otros paquetes, puede establecer la clave mediante código o establecerla en ApplicationInsights.config:
  
@@ -113,14 +113,14 @@ Por ejemplo, en una aplicación de Windows Forms, podría escribir:
 
 ```
 
-Utilice cualquiera de las [API de Application Insights][api] para enviar telemetría. En las aplicaciones de escritorio de Windows, no se envía automáticamente ninguna telemetría. Normalmente se usaría:
+Utilice cualquiera de las [API de Application Insights][api] para enviar telemetría. Si usa la API principal, la telemetría no se envía automáticamente. Normalmente se usaría:
 
 * `TrackPageView(pageName)` al cambiar formularios, páginas o pestañas
 * `TrackEvent(eventName)` para otras acciones de usuario
-* `TrackMetric(name, value)` en una tarea en segundo plano para enviar informes periódicos de métricas no asociados a eventos específicos.
+* `TrackMetric(name, value)` en una tarea en segundo plano para enviar informes periódicos de métricas no asociados a eventos específicos
 * `TrackTrace(logEvent)` para [registro de diagnósticos][diagnostic]
 * `TrackException(exception)` en cláusulas catch
-* `Flush()` para asegurarse de que toda la telemetría se envía antes de cerrar la aplicación. Úselo solo si está usando simplemente la API principal (Microsoft.ApplicationInsights). Los SDK web y de dispositivos implementan este comportamiento de forma automática. (Si la aplicación se ejecuta en contextos donde Internet no está siempre disponible, consulte también [Canal de persistencia](#persistence-channel).)
+* `Flush()` para asegurarse de que toda la telemetría se envía antes de cerrar la aplicación. Úselo solo si está usando simplemente la API principal (Microsoft.ApplicationInsights). Los SDK web implementan este comportamiento automáticamente. (Si la aplicación se ejecuta en contextos donde Internet no está siempre disponible, consulte también [Canal de persistencia](#persistence-channel).)
 
 
 #### Inicializadores de contexto
@@ -299,4 +299,4 @@ El código del canal de persistencia se encuentra en [github](https://github.com
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

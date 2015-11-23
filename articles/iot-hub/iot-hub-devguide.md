@@ -18,7 +18,7 @@
 
 # Guía del desarrollador del Centro de IoT de Azure
 
-El Centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y un back-end de aplicaciones.
+El centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y una aplicación back-end.
 
 El Centro de IoT de Azure permite:
 
@@ -59,7 +59,7 @@ Finalmente, es importante tener en cuenta que todos los extremos del Centro de I
 
 Al usar el [SDK de Bus de servicio de Azure para .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) o el [host del procesador de eventos de los centros de eventos][], puede usar cualquier cadena de conexión del Centro de IoT con los permisos correctos y después usar `messages/events` como nombre del centro de eventos.
 
-Cuando se usan SDK (o integraciones de productos) que no detectan el Centro de IoT, tiene que recuperar un extremo y un nombre de centro de eventos compatibles con los centros de eventos en la configuración del Centro de IoT en el [Portal de vista previa de Azure][]\:
+Cuando se usan SDK (o integraciones de productos) que no detectan el Centro de IoT, tiene que recuperar un punto de conexión y un nombre de centro de eventos compatibles con los centros de eventos en la configuración del Centro de IoT en el [Portal de vista previa de Azure][]\:
 
 1. En la hoja del Centro de IoT, haga clic en **Configuración** y después e **Mensajería**,
 2. En la sección **Configuración de dispositivo a nube**, encontrará un cuadro **Extremo compatible con el Centro de eventos**, **Nombre compatible con el Centro de eventos** y **Particiones**.
@@ -193,7 +193,7 @@ El Centro de IoT usa el siguiente conjunto de *permisos* para conceder acceso al
 
 Se conceden permisos de las maneras siguientes:
 
-* **Directivas de acceso compartido de nivel de centro**. Las *directivas de acceso compartido* pueden conceder cualquier combinación de los permisos enumerados anteriormente. Puede definir las directivas en el [Portal de administración de Azure][lnk-management-portal] o mediante programación usando las [API del proveedor de recursos del Centro de IoT de Azure][lnk-resource-provider-apis]. Un Centro de IoT recién creado tiene las siguientes directivas predeterminadas:
+* **Directivas de acceso compartido de nivel de centro**. Las *directivas de acceso compartido* pueden conceder cualquier combinación de los permisos enumerados anteriormente. Puede definir las directivas en el [Portal de vista previa de Azure][lnk-management-portal] o mediante programación usando las [API del proveedor de recursos del Centro de IoT de Azure][lnk-resource-provider-apis]. Un Centro de IoT recién creado tiene las siguientes directivas predeterminadas:
 
     - *iothubowner*: directiva con todos los permisos
     - *service*: directiva con el permiso **ServiceConnect**
@@ -237,7 +237,7 @@ Estos son los valores esperados:
 
 Cada protocolo admitido (como HTTP y AMQP) transporta tokens de diferentes maneras.
 
-La autenticación de HTTP se implementa mediante la inclusión de un token válido en el encabezado de solicitud **Authorization**. Un parámetro de consulta llamado **Authorization** también puede transportar el token.
+La autenticación de HTTP se implementa mediante la inclusión de un token válido en el encabezado de solicitud **Autorización**. Un parámetro de consulta llamado **Authorization** también puede transportar el token.
 
 Al usar [AMQP][lnk-amqp], el Centro de IoT admite [SASL PLAIN][lnk-sasl-plain] y [seguridad basada en notificaciones AMQP][lnk-cbs].
 
@@ -352,7 +352,7 @@ Un Centro de IoT expone las propiedades siguientes para controlar la mensajería
 
 Además, de forma análoga a los Centros de eventos, el Centro de IoT permite la administración de los grupos de consumidores en el extremo de recepción del dispositivo a nube.
 
-Puede modificar todas estas propiedades mediante el [Portal de Azure][lnk-management-portal], o por medio de programación con las [API del proveedor de recursos del Centro de IoT de Azure][lnk-resource-provider-apis].
+Puede modificar todas estas propiedades mediante el [Portal de vista previa de Azure][lnk-management-portal], o por medio de programación con las [API del proveedor de recursos del Centro de IoT de Azure][lnk-resource-provider-apis].
 
 #### Propiedades contra la suplantación <a id="antispoofing"></a>
 
@@ -418,9 +418,8 @@ El cuerpo es una matriz serializada de JSON de registros, cada uno con las sigui
 
 | Propiedad | Descripción |
 | -------- | ----------- |
-| EnqueuedTime | Marca de tiempo que indica cuándo se produjo el resultado del mensaje. Por ejemplo, el dispositivo completado o el mensaje expirado. |
-| CorrelationId | **MessageId** del mensaje de nube a dispositivo al que pertenece esta información de comentarios. |
-| StatusCode | **0** si es correcto, **1** si el mensaje expiró, **2** si se supera el número máximo de entregas, **3** si se rechazó el mensaje. |
+| EnqueuedTimeUtc | Marca de tiempo que indica cuándo se produjo el resultado del mensaje. Por ejemplo, el dispositivo completado o el mensaje expirado. |
+| OriginalMessageId | **MessageId** del mensaje de nube a dispositivo al que pertenece esta información de comentarios. |
 | Descripción | Los valores de cadena para los resultados anteriores. |
 | DeviceId | **DeviceId** del dispositivo de destino del mensaje de nube a dispositivo al que pertenece este elemento de comentarios. |
 | DeviceGenerationId | **DeviceGenerationId** del dispositivo de destino del mensaje de nube a dispositivo al que pertenece este elemento de comentarios. |
@@ -431,9 +430,8 @@ El cuerpo es una matriz serializada de JSON de registros, cada uno con las sigui
 
     [
         {
-            "CorrelationId": "0987654321",
-            "EnqueuedTime": "2015-07-28T16:24:48.789Z",
-            "StatusCode": "0",
+            "OriginalMessageId": "0987654321",
+            "EnqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
             "Description": "Success",
             "DeviceId": "123",
             "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
@@ -493,7 +491,7 @@ Ahora que vio información general sobre el desarrollo del Centro de IoT, siga e
 
 [host del procesador de eventos de los centros de eventos]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
 
-[Portal de vista previa de Azure]: https://ms.portal.azure.com
+[Portal de vista previa de Azure]: https://portal.azure.com
 
 [img-summary]: ./media/iot-hub-devguide/summary.png
 [img-endpoints]: ./media/iot-hub-devguide/endpoints.png
@@ -534,4 +532,4 @@ Ahora que vio información general sobre el desarrollo del Centro de IoT, siga e
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

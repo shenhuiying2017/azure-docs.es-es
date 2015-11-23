@@ -67,4 +67,12 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 	
 >[AZURE.NOTE]Si después de seguir los pasos de solución de problemas, todavía no puede realizar correctamente el streaming, envíe una incidencia de soporte técnico mediante el Portal de administración de Azure.
 
-<!---HONumber=Oct15_HO3-->
+##Rutas de aprendizaje de Servicios multimedia
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Envío de comentarios
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

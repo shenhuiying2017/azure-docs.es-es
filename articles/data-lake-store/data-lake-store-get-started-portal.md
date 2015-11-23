@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/05/2015"
    ms.author="nitinme"/>
 
 # Introducción al Almacén de Azure Data Lake mediante el Portal de vista previa de Azure
@@ -22,6 +22,7 @@
 - [Using Portal](data-lake-store-get-started-portal.md)
 - [Using PowerShell](data-lake-store-get-started-powershell.md)
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Using Azure CLI](data-lake-store-get-started-cli.md)
 
 Aprenda a usar el Portal de vista previa de Azure para crear una cuenta de Almacén de Azure Data Lake y realizar operaciones básicas como crear carpetas, cargar y descargar archivos de datos, eliminar la cuenta, etc. Para obtener más información acerca del Almacén de Data Lake, consulte la página con [información general del Almacén de Azure Data Lake](data-lake-store-overview.md).
 
@@ -122,13 +123,14 @@ Para eliminar una cuenta de Almacén de Azure Data Lake, en la hoja de su Almac�
 ## Otras formas de crear una cuenta de Almacén de Data Lake
 
 - [Introducción al Almacén de Azure Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
-- [Introducción al Almacén de Azure Data Lake mediante .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Introducción al Almacén de Data Lake mediante SDK de .NET](data-lake-store-get-started-net-sdk.md)
+- [Introducción al Almacén de Data Lake mediante la CLI de Azure](data-lake-store-get-started-cli.md)
 
 
 ## Pasos siguientes
 
-- [Protección de los datos almacenados en el Almacén de Azure Data Lake](data-lake-store-secure-data.md)
+- [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

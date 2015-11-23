@@ -1263,8 +1263,8 @@ Opciones de parámetros:
 	-a, --allocation-method <allocation-method>  el método de asignación [Static][Dynamic]
 	-i, --idletimeout <idletimeout>              el tiempo de espera de inactividad en minutos
 	-f, --reverse-fqdn <reverse-fqdn>            el nombre de dominio completo inverso
-	-t, --tags <tags>                            la lista de etiquetas. Pueden ser varios.
-	Con el formato "nombre=valor".
+	-t, --tags <tags>                            la lista de etiquetas.
+	Pueden ser varios. Con el formato "nombre=valor".
 	El nombre es obligatorio y el valor es opcional.
 	Por ejemplo, -t tag1=value1;tag2
 	-s, --subscription <subscription>            el identificador de la suscripción
@@ -1759,4 +1759,4 @@ Opciones de parámetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

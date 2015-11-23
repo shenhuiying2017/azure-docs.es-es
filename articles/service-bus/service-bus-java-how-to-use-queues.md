@@ -186,8 +186,7 @@ Para obtener más información, consulte el [Centro de desarrolladores de Java](
 
   [SDK de Azure para Java]: http://azure.microsoft.com/develop/java/
   [Kit de herramientas de Azure para Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
-  [Azure Management Portal]: http://manage.windowsazure.com/
   [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

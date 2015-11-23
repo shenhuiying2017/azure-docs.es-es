@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="11/05/2015" 
 	ms.author="sdanie"/>
 
 #¿Qué es Administración de API?
@@ -78,7 +78,7 @@ Para obtener más información, consulte [Creación de desarrolladores e invitac
 
 Las directivas son una poderosa funcionalidad de Administración de API que permite al publicador cambiar el comportamiento de la API a través de la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Entre las declaraciones más usadas se encuentran la conversión de formato de XML a JSON y la limitación de tasa de llamadas para restringir la cantidad de llamadas entrantes de un desarrollador, pero también hay muchas otras directivas disponibles.
 
-Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de Administración de API, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control][] y [Establecer variable][] se basan en expresiones de directiva. Para obtener más información, consulte [Directivas avanzadas][], [Expresiones de directiva][] y el vídeo siguiente.
+Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de Administración de API, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) y [Establecer variable](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) se basan en expresiones de directiva. Para obtener más información, consulte [Directivas avanzadas](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies), [Expresiones de directiva](https://msdn.microsoft.com/library/azure/dn910913.aspx) y el vídeo siguiente.
 
 > [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
@@ -114,4 +114,4 @@ Puede personalizar el aspecto y apariencia del portal para desarrolladores agreg
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

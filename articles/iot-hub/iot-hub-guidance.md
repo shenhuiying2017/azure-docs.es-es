@@ -26,7 +26,7 @@ Hay muchos requisitos y estrategias para el aprovisionamiento de dispositivos (c
 
 ## Puertas de enlace de campo
 
-Una puerta de enlace de campo es un dispositivo especializado o un software de uso general que actúa como un activador de comunicación y potencialmente, como un sistema de control de dispositivos local y centro de procesamiento de datos de dispositivo. Una puerta de enlace de campo puede realizar funciones de procesamiento y control locales hacia los dispositivos; por otro lado, puede filtrar o agregar la telemetría del dispositivo y, por tanto, reducir la cantidad de datos que se transfieren al back-end.
+Una puerta de enlace de campo es un dispositivo especializado o un software de uso general que actúa como un activador de comunicación y potencialmente, como un sistema de control de dispositivos local y centro de procesamiento de datos de dispositivo. Una puerta de enlace de campo puede realizar las funciones de procesamiento y control locales hacia los dispositivos; en el otro lado, puede filtrar o agregar la telemetría del dispositivo y, por tanto, reducir la cantidad de datos que se transfieren en el back-end.
 
 El ámbito de una puerta de enlace de campo incluye la puerta de enlace de campo en sí y todos los dispositivos conectados a ella. Como su nombre indica, las puertas de enlace de campo actúan fuera de las instalaciones de procesamiento de datos dedicadas y suelen estar enlazadas a la ubicación. Una puerta de enlace de campo es diferente de un enrutador de tráfico simple, que tiene un rol activo en la administración del flujo de información y el acceso. Esto significa que es una entidad dirigida a la aplicación y un terminal de sesión o conexión de red (por ejemplo, en este contexto, las puertas de enlace pueden ayudar en el aprovisionamiento de dispositivos, la transformación de datos, la traducción de protocolos y el procesamiento de reglas de evento). Por el contrario, los dispositivos NAT o los firewalls no se consideran puertas de enlace de campo porque no son terminales de sesión o de conexión explícitos, sino que enrutan o deniegan las conexiones o sesiones que se realizan a través de ellos.
 
@@ -88,4 +88,4 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

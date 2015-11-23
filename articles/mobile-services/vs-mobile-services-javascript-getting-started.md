@@ -3,7 +3,7 @@
 	description="Uso de Servicios móviles de Azure en un proyecto de JavaScript en Visual Studio .NET" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
 	ms.date="09/17/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Introducción a una aplicación móvil de Javascript después de agregar los servicios móviles de Azure usando Visual Studio Connected Services
 
@@ -92,4 +92,4 @@ Elimine una fila en la tabla de datos. Llame al método [done]() en el objeto [P
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

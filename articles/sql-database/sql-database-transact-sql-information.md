@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/02/2015"
+   ms.date="11/09/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Información sobre Transact-SQL de Base de datos SQL de Azure
@@ -29,7 +29,6 @@ En este tema se describen las características que están disponibles con Base d
 
 Base de datos SQL V12 es compatible con algunos pero no todos los argumentos que existen en las instrucciones de SQL Server 2016 Transact-SQL correspondientes. Por ejemplo, la instrucción CREATE PROCEDURE está disponible aunque lo está la opción WITH ENCRYPTION de CREATE PROCEDURE. Consulte los temas de sintaxis vinculados para obtener más información sobre las áreas compatibles de cada instrucción.
 
-- Ensamblados CLR:[CREATE ASSEMBLY](https://msdn.microsoft.com/library/ms189524.aspx)
 - Bases de datos: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
 - Generalmente hay vistas de administración dinámica disponibles para las características que están disponibles
 - Funciones: [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)
@@ -88,12 +87,12 @@ Base de datos SQL V12 es compatible con algunos pero no todos los argumentos que
 
 ## Referencia completa de Transact-SQL
 
-Para obtener más información acerca de la gramática de Transact-SQL, su uso y ejemplos, consulte [Referencia de Transact-SQL (motor de base de datos)](https://msdn.microsoft.com/library/bb510741.aspx) en Libros en pantalla de SQL Server.
+Para obtener más información acerca de la gramática de Transact-SQL, su uso y ejemplos, vea [Referencia de Transact-SQL (motor de base de datos)](https://msdn.microsoft.com/library/bb510741.aspx) en Libros en pantalla de SQL Server.
 
 ### Acerca de las etiquetas "Se aplica a"
 
-La referencia de Transact-SQL incluye temas relacionados con SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014 y Base de datos SQL de Microsoft Azure. Al principio de cada tema hay una sección que indica los productos que admiten el asunto del tema. Si se omite un producto, la característica descrita en el tema no está disponible en ese producto. Por ejemplo, los grupos de disponibilidad se introdujeron en SQL Server 2012. El tema **CREACIÓN DE UN GRUPO DE DISPONIBILIDAD** indica que se aplica a **SQL Server (SQL Server 2012 hasta la versión actual)** porque no se aplica a SQL Server 2008, SQL Server 2008 R2 ni Base de datos SQL de Microsoft Azure.
+La referencia de Transact-SQL incluye temas relacionados con SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014 y Base de datos SQL de Microsoft Azure. Al principio de cada tema hay una sección que indica los productos que admiten el asunto del tema. Si se omite un producto, la característica descrita en el tema no está disponible en ese producto. Por ejemplo, los grupos de disponibilidad se introdujeron en SQL Server 2012. El tema **CREACIÓN DE UN GRUPO DE DISPONIBILIDAD** indica que se aplica a **SQL Server (SQL Server 2012 a través de la versión actual)** porque no se aplica a SQL Server 2008, SQL Server 2008 R2 ni Base de datos SQL de Microsoft Azure.
 
 En algunos casos, el asunto general de un tema puede usarse en un producto, pero no se admiten todos los argumentos. Por ejemplo, los usuarios de base de datos independientes se introdujeron en SQL Server 2012. La instrucción **CREATE USER** puede usarse en cualquier producto de SQL Server, sin embargo, la sintaxis **WITH PASSWORD** no se puede utilizar con versiones anteriores. En este caso, se insertan secciones **Se aplica a** adicionales en las correspondientes descripciones de argumentos en el cuerpo del tema.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

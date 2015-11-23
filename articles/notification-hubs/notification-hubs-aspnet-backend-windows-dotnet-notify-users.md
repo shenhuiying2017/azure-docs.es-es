@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="11/09/2015"
 	ms.author="wesmc"/>
 
 #Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET
@@ -204,6 +204,8 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
             // The tag passed here can be whatever other tags you may want to use.
             try
             {
+				// The device handle used will be different depending on the device and PNS. 
+				// Windows devices use the channel uri as the PNS handle.
                 await new RegisterClient(BACKEND_ENDPOINT).RegisterAsync(channel.Uri, new string[] { "myTag" });
 
                 var dialog = new MessageDialog("Registered as: " + UsernameTextBox.Text);
@@ -293,6 +295,7 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
             if (statusCode != HttpStatusCode.Accepted)
             {
                 // log or throw
+				throw new System.Net.WebException(statusCode.ToString());
             }
         }
 
@@ -329,7 +332,7 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
                     }
                     else
                     {
-                        throw new Exception();
+						throw new System.Net.WebException(response.StatusCode.ToString());
                     }
                 }
             }
@@ -384,4 +387,4 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Información general acerca de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

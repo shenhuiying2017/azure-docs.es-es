@@ -194,4 +194,4 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 - [Copia de seguridad de máquinas virtuales](backup-azure-vms.md)
 - [Administrar copia de seguridad de máquina virtual](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

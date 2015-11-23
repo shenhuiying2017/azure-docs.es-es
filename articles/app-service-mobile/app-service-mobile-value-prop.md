@@ -50,11 +50,11 @@ Para obtener más información sobre la plataforma de Servicio de aplicaciones d
 [Migrate your Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
 
 [Servicio de aplicaciones de Azure]: ../app-service/app-service-value-prop-what-is.md
-[Introducción]: app-service-mobile-ios-get-started-offline-data.md
+[Introducción]: app-service-mobile-ios-get-started.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [JavaScript backend version]: ../mobile-services-ios-get-started.md
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

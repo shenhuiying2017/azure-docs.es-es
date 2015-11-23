@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -19,10 +19,10 @@
 # Creación de una cuenta de vendedor de Microsoft
 Este artículo le guía a través de la creación y el registro de las cuentas necesarias para convertirse en un vendedor de Microsoft aprobado para Azure Marketplace.
 
-## 1. Creación de una cuenta de Microsoft (MSA)
+## 1\. Creación de una cuenta de Microsoft (MSA)
 > [AZURE.WARNING]Para finalizar el proceso de publicación, debe crear una cuenta Microsoft. Esta cuenta se usará para registrarse e iniciar sesión tanto en el Portal de publicación como en el panel de vendedores. Solo debe tener una cuenta Microsoft para sus ofertas de Azure Marketplace. No deben ser específicas a servicios u ofertas.
 
-La dirección que constituye el nombre de usuario debe estar en su dominio y controlada por su equipo de TI (por ejemplo, publishing@yourcompany.com). Los pagos, la información fiscal y los informes se tramitarán con esta cuenta.
+La dirección que constituye el nombre de usuario debe estar en su dominio y controlada por su equipo de TI (por ejemplo, publishing@yourcompany.com)). Los pagos, la información fiscal y los informes se tramitarán con esta cuenta.
 
   >[AZURE.WARNING]No se admiten palabras como "Azure", "Microsoft" en el registro de la cuenta MSA. Evite el uso de estas palabras para completar el proceso de creación y registro de cuentas.
 
@@ -47,7 +47,7 @@ La dirección que constituye el nombre de usuario debe estar en su dominio y con
 
 > [AZURE.IMPORTANT]El uso de la lista de distribución permite que varias personas reciban notificaciones por correo electrónico que son informes importantes de la información de pago y también garantiza que la propiedad de la MSA se pueden transferir y que no está vinculada a un único usuario.
 
-## 2. Creación de su cuenta en el Panel de vendedores
+## 2\. Creación de su cuenta en el Panel de vendedores
 El Panel de vendedores de Microsoft se usa para registrar la información de la empresa una vez. El usuario inscrito debe ser un representante válido de la compañía y debe proporcionar su información personal, como una forma de validar su identidad. La persona que se inscribe debe usar una cuenta de Microsoft (MSA) que se comparte para la compañía y debe usarse la misma cuenta en el Portal de publicación de Azure. Debe asegurarse de que su compañía no tenga ya una cuenta en el panel de vendedores antes de intentar crear una nueva. Durante el proceso, recopilaremos los datos de su cuenta bancaria, su información fiscal y la dirección de la compañía. Normalmente, estos datos se pueden obtener de contactos financieros o comerciales.
 
 > [AZURE.IMPORTANT]Deben completarse los componentes del perfil de vendedor siguientes para avanzar por las distintas fases de la creación e implementación de la oferta.
@@ -142,7 +142,7 @@ Si prefiere actualizar la información bancaria y fiscal más adelante, vaya al 
 
 > [AZURE.WARNING]No podrá llevar a producción las ofertas comerciales sin completar la información fiscal y de cuenta bancaria en su cuenta de Panel de vendedores.
 
-## 3. Registre su cuenta en el Portal de publicación
+## 3\. Registre su cuenta en el Portal de publicación
 El Portal de publicación de Azure se usa para publicar y administrar sus ofertas. Encontrará información útil en el Portal de publicación, que le guiará por todo el proceso de creación de ofertas.
 
 > [AZURE.WARNING]DEBE usar aquí la misma cuenta de Microsoft de compañía que se usó para el registro del Panel de vendedores. Se pueden agregar usuarios adicionales para ayudar una vez creada la cuenta del anunciante principal.
@@ -208,4 +208,4 @@ Ahora que la cuenta se creó y se registró, haga clic en el tipo de artefacto (
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -71,6 +71,15 @@ Actualmente, tener varias NIC tiene los siguientes límites y restricciones:
 |DS12|4|
 |DS13|8|
 |DS14|16|
+|D1\_v2|1|
+|D2\_v2|2|
+|D3\_v2|4|
+|D4\_v2|8|
+|D5\_v2|16|
+|D11\_v2|2|
+|D12\_v2|4|
+|D13\_v2|8|
+|D14\_v2|16|
 |G1|1|
 |G2|2|
 |G3|4|
@@ -249,4 +258,4 @@ Para agregar una ruta predeterminada en la NIC secundaria, siga estos pasos:
 
 En cuanto a las máquinas virtuales de Linux, puesto que el comportamiento predeterminado está usando el enrutamiento del host no seguro, le recomendamos restrinja el flujo de tráfico de las NIC secundarias para que permanezca dentro de la misma subred. Sin embargo, si ciertos escenarios exigen que tenga conectividad fuera de la subred, los usuarios deben habilitar el enrutamiento basado en las directivas para asegurarse de que el tráfico de entrada y salida utiliza la misma NIC.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

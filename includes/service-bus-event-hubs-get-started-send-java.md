@@ -1,5 +1,6 @@
 ## Envío de mensajes a Centros de eventos
-En esta sección se escribirá una aplicación de consola Java para enviar eventos al Centro de eventos. Usaremos el proveedor de JMS AMQP del [proyecto Apache Qpid](http://qpid.apache.org/). Esto es parecido a usar temas y colas de Bus de servicio con AMQP a través de Java, como se muestra [aquí](../articles/service-bus/service-bus-java-how-to-use-jms-api-amqp.md). Para obtener más información, consulte la [documentación de Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) y el [servicio de mensajería de Java](http://www.oracle.com/technetwork/java/jms/index.html).
+
+En esta sección se escribirá una aplicación de consola Java para enviar eventos al Centro de eventos. Usaremos el proveedor de JMS AMQP del [proyecto Apache Qpid](http://qpid.apache.org/). Esto es parecido a usar temas y colas de Bus de servicio con AMQP a través de Java, como se muestra [aquí](../service-bus/service-bus-java-how-to-use-jms-api-amqp.md). Para obtener más información, consulte la [documentación de Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) y el [servicio de mensajería de Java](http://www.oracle.com/technetwork/java/jms/index.html).
 
 1. En Eclipse, instale el [Kit de herramientas de Azure para Eclipse](https://msdn.microsoft.com/library/azure/hh690946.aspx). Incluye las bibliotecas de cliente de Qpid JMS AMQP.
 
@@ -11,7 +12,7 @@ En esta sección se escribirá una aplicación de consola Java para enviar event
 
 4. Cree un archivo denominado **servicebus.properties** en la raíz del proyecto **Remitente**, con el siguiente contenido. No olvide sustituir los valores de su:
 	- Nombre del centro de eventos.
-	- nombre del espacio de nombres (éste suele ser `{event hub name}-ns`).
+	- Nombre del espacio de nombres (este suele ser `{event hub name}-ns`).
 	- Clave **SendRule** codificada mediante URL (anotó esta clave cuando creó el Centro de eventos). Puede codificar con URL [aquí](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 			# servicebus.properties - sample JNDI configuration
@@ -88,11 +89,7 @@ En esta sección se escribirá una aplicación de consola Java para enviar event
 
 
 
-<!-- Links -->
-[Azure Management Portal]: https://manage.windowsazure.com/
-
-
 <!-- Images -->
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

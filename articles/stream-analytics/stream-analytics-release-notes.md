@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/22/2015" 
+	ms.date="11/12/2015" 
 	ms.author="jeffstok"/>
 
 #Notas de la versión de Análisis de transmisiones de Microsoft
+
+## Notas de la versión de Análisis de transmisiones del 12/11/2015 ##
+
+Esta versión contiene la siguiente actualización.
+
+Título | Descripción
+---|---
+Nuevo comportamiento de SELECT | SELECT en el Análisis de transmisiones se ha ampliado para permitir * como descriptor de acceso de propiedad de un registro anidado. Para obtener más información, consulte [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Tipos de dato complejo").
 
 ## Notas de la versión de Análisis de transmisiones del 22/10/2015 ##
 
@@ -48,7 +56,7 @@ Esta versión contiene las siguientes actualizaciones.
 
 Título|Descripción
 ---|---
-Soporte para grupos de PowerBI|Para habilitar el uso compartido de datos con otros usuarios de Power BI, los trabajos de Análisis de transmisiones ahora pueden escribir en [grupos de PowerBI](stream-analytics-define-outputs.md#power-bi) dentro de su cuenta de Power BI.
+Soporte para grupos de PowerBI|Para habilitar el uso compartido de datos con otros usuarios de Power BI, los trabajos de Análisis de transmisiones ahora pueden escribir a [grupos de PowerBI](stream-analytics-define-outputs.md#power-bi) dentro de su cuenta de Power BI.
 
 ## Notas de la versión de Análisis de transmisiones del 20/08/2015 ##
 
@@ -116,4 +124,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

@@ -33,8 +33,8 @@ Elemento | Nombre de la máquina virtual | Imagen de la Galería | Tamaño míni
 --- | --- | --- | ---
 1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primer controlador de dominio, ejemplo DC1) | Windows Server 2012 R2 Datacenter | A2 (mediano)
 2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (segundo controlador de dominio, ejemplo DC2) | Windows Server 2012 R2 Datacenter | A2 (mediano)
-3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primer equipo de SQL Server, ejemplo SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (segundo equipo de SQL Server, ejemplo SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primer equipo de SQL Server, ejemplo SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (segundo equipo de SQL Server, ejemplo SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
 5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (nodo de mayoría para el clúster, ejemplo MN1) | Windows Server 2012 R2 Datacenter | A1 (pequeño)
 6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primer servidor de aplicaciones de SharePoint, ejemplo APP1) | Versión de evaluación de Microsoft SharePoint Server 2013: Windows Server 2012 R2 | A4 (extragrande)
 7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (segundo servidor de aplicaciones de SharePoint, ejemplo APP2) | Versión de evaluación de Microsoft SharePoint Server 2013: Windows Server 2012 R2 | A4 (extragrande)
@@ -115,7 +115,7 @@ Inicie sesión en el primer equipo de controlador de dominio mediante las creden
 5.	Aparecerá el cuadro de diálogo de explorador que mostrará el mensaje: "¿Desea abrir o guardar ComputerName.rdp desde manage.windowsazure.com?" Haga clic en **Abrir**.
 6.	Seleccione el cuadro de diálogo **Conexión de escritorio remoto** y haga clic en **Conectar**.
 7.	En el cuadro de diálogo **Seguridad de Windows**, haga clic en **Usar otra cuenta**.
-8.	En **Nombre de usuario**, escriba el nombre del máquina virtual y nombre de usuario de la cuenta de administrador local que se creó con la máquina virtual (una cuenta de máquina local). Use el siguiente formato: *nombreDeEquipo*\*nombreDeCuentaDeAdministradorLocal*
+8.	En **Nombre de usuario**, escriba el nombre del máquina virtual y nombre de usuario de la cuenta de administrador local que se creó con la máquina virtual (una cuenta de máquina local). Use el siguiente formato: *nombreDeEquipo**nombreDeCuentaDeAdministradorLocal*
 9.	En **Contraseña**, escriba la contraseña para la cuenta de administrador local.
 10.	Haga clic en **Aceptar**.
 11.	En el cuadro de diálogo **Conexión a Escritorio remoto**, haga clic en **Sí**. El escritorio de la nueva máquina aparece en una ventana de sesión de Escritorio remoto.
@@ -248,4 +248,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 3: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

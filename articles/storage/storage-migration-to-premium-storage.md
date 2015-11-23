@@ -1,10 +1,10 @@
 <properties
     pageTitle="Migrar a Almacenamiento premium de Azure | Microsoft Azure"
-    description="Migre a Almacenamiento premium de Azure para tener compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un alto consumo de E/S que se ejecutan en Máquinas virtuales de Azure."
+    description="Migre las máquinas virtuales existentes a Almacenamiento premium de Azure. Almacenamiento premium ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S que se ejecutan en máquinas virtuales de Azure."
     services="storage"
     documentationCenter="na"
-    authors="tamram"
-    manager="adinah"
+    authors="ms-prkhad"
+    manager=""
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/23/2015"
+    ms.date="11/04/2015"
     ms.author="tamram"/>
 
 
@@ -21,17 +21,26 @@
 
 ## Información general
 
-El propósito de esta guía es ayudar a los nuevos usuarios de Almacenamiento premium de Microsoft Azure a prepararse mejor para realizar una transición sin problemas desde su sistema actual a Almacenamiento premium. La guía trata tres de los componentes clave de este proceso: la planeación de la migración a Almacenamiento premium, la migración de discos duros virtuales (VHD) existentes a Almacenamiento premium y la creación de instancias de máquina virtual de Azure en Almacenamiento premium.
+Almacenamiento premium de Azure ofrece soporte de disco de alto rendimiento y latencia baja para máquinas virtuales con cargas de trabajo intensivas de E/S. Discos de máquinas virtuales que usan datos de almacén de Almacenamiento premium en unidades de estado sólido (SSD). Puede migrar los discos de máquina virtual de su aplicación al Almacenamiento premium de Azure para aprovechar la velocidad y el rendimiento de estos discos.
+
+Una máquina virtual de Azure admite la conexión de varios discos de Almacenamiento premium para que las aplicaciones puedan disponer de hasta 64 TB de almacenamiento por máquina virtual. Con Almacenamiento premium, las aplicaciones pueden tener hasta 80.000 E/S por segundo (operaciones de entrada/salida por segundo) por VM, así como un rendimiento del disco de 2000 MB por segundo por VM con latencias extremadamente bajas para operaciones de lectura.
+
+>[AZURE.NOTE]Se recomienda migrar cualquier disco de máquina virtual que requiera un número elevado de operaciones de entrada/salida por segundo al Almacenamiento premium de Azure para mejorar el rendimiento de la aplicación. Si el disco no requiere un número elevado de operaciones de entrada/salida por segundo, puede limitar los costos manteniéndolo en almacenamiento estándar, que almacena los datos de disco de máquina virtual en unidades de disco duro (HDD) y no en unidades de estado sólido (SSD).
+
+La finalidad de esta guía es ayudar a los nuevos usuarios de Almacenamiento premium de Azure a prepararse mejor para realizar una transición sin problemas desde su sistema actual a Almacenamiento premium. La guía trata tres de los componentes clave de este proceso: la planeación de la migración a Almacenamiento premium, la migración de discos duros virtuales (VHD) existentes a Almacenamiento premium y la creación de instancias de máquina virtual de Azure en Almacenamiento premium.
 
 Para completar el proceso de migración en su totalidad puede ser necesario realizar acciones adicionales antes y después de los pasos proporcionados en esta guía, por ejemplo, configurar redes virtuales o extremos, o realizar cambios de código dentro de la propia aplicación. Estas acciones son únicas para cada aplicación y deben completarse junto con los pasos proporcionados en esta guía para realizar la transición completa a Almacenamiento premium lo más fácilmente posible.
 
 Encontrará una introducción a las características de Almacenamiento premium en [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](storage-premium-storage-preview-portal.md).
 
-Esta guía se divide en dos secciones que abarcan los dos escenarios de migración siguientes:- [Migración de máquinas virtuales desde fuera Azure a Almacenamiento premium de Azure](#migrating-vms-from-outside-azure-to-azure-premium-storage).- [Migración de máquinas virtuales de Azure existentes a Almacenamiento premium de Azure](#migrating-existing-azure-vms-to-azure-premium-storage).
+Esta guía se divide en dos secciones donde se tratan los dos escenarios de migración siguientes:
+
+- [Migración de máquinas virtuales desde fuera de Azure a Almacenamiento premium de Azure](#migrating-vms-from-outside-azure-to-azure-premium-storage)
+- [Migración de máquinas virtuales de Azure existentes a Almacenamiento premium de Azure](#migrating-existing-azure-vms-to-azure-premium-storage)
 
 Siga los pasos especificados en la sección correspondiente en función de su escenario.
 
-## Migración de máquinas virtuales desde fuera de Azure a Almacenamiento premium de Azure
+## Migración de máquinas virtuales desde otras plataformas a Almacenamiento premium de Azure
 
 ### Requisitos previos
 - Necesitará una suscripción de Azure. Si no tiene una, puede crear una suscripción de [prueba gratuita](http://azure.microsoft.com/pricing/free-trial/) de un mes o visitar la página [Precios de Azure](http://azure.microsoft.com/pricing/) para conocer más opciones.
@@ -67,7 +76,7 @@ Para más información sobre las especificaciones del Almacenamiento premium, co
 Dependiendo de la carga de trabajo, decida si son necesarios más discos de datos para la máquina virtual. Puede conectar varios discos de datos persistentes a la máquina virtual. Si es necesario, puede crear bandas en los discos para aumentar la capacidad y el rendimiento del volumen. Si secciona discos de datos Almacenamiento premium usando [Espacios de almacenamiento](http://technet.microsoft.com/library/hh831739.aspx), será necesario configurarlo con una columna por cada disco que use. De lo contrario, el rendimiento general del volumen seccionado puede ser inferior al esperado debido a la distribución desigual de tráfico entre los discos. En las máquinas virtuales de Linux, esto se logra con la utilidad *mdadm*. Vea el artículo [Configuración del software RAID en Linux](../virtual-machines-linux-configure-raid.md) para más información.
 
 #### Directiva de almacenamiento en caché de disco
-De forma predeterminada, la directiva de almacenamiento en caché de los discos es *Solo lectura* para todos los discos de datos premium y *Lectura y Escritura* para el disco de sistema operativo premium conectado a la máquina virtual. Recomendamos esta opción de configuración para lograr el rendimiento óptimo de E/S de la aplicación. Para discos de datos de solo escritura o de gran cantidad de escritura (por ejemplo, archivos de registro de SQL Server), deshabilite el almacenamiento en caché de disco para lograr un mejor rendimiento de la aplicación. La configuración de caché de los discos de datos existentes se puede actualizar con el Portal de Azure o con el parámetro *- HostCaching* del cmdlet *Set-AzureDataDisk*.
+De forma predeterminada, la directiva de almacenamiento en caché de los discos es *Solo lectura* para todos los discos de datos Premium y *Lectura y Escritura* para el disco de sistema operativo Premium conectado a la máquina virtual. Recomendamos esta opción de configuración para lograr el rendimiento óptimo de E/S de la aplicación. Para discos de datos de solo escritura o de gran cantidad de escritura (por ejemplo, archivos de registro de SQL Server), deshabilite el almacenamiento en caché de disco para lograr un mejor rendimiento de la aplicación. La configuración de caché de los discos de datos existentes se puede actualizar con el Portal de Azure o con el parámetro *- HostCaching* del cmdlet *Set-AzureDataDisk*.
 
 #### Ubicación
 Elija una ubicación donde el Almacenamiento premium de Azure esté disponible. Consulte [Servicios de Azure por región](http://azure.microsoft.com/regions/#services) para obtener información actualizada sobre las ubicaciones disponibles. El rendimiento de las máquinas virtuales será superior si están en la misma región que la cuenta de almacenamiento donde se almacenan los discos de máquina virtual, y no en regiones separadas.
@@ -113,7 +122,7 @@ Si está cargando un disco duro virtual que se va usar para crear varias instanc
 
 		%windir%\system32\sysprep\sysprep.exe
 
-4. En la herramienta de preparación del sistema, seleccione Iniciar la Configuración rápida (OOBE) del sistema, active la casilla Generalizar, seleccione **Apagado** y después haga clic en **Aceptar**, tal y como se muestra en la imagen siguiente. Esto generalizará el sistema operativo y apagará el sistema.
+4. En la herramienta de preparación del sistema, seleccione Entrar en System Out-of-Box Experience (OOBE), active la casilla Generalizar, seleccione **Apagado**, y, a continuación y haga clic en **Aceptar**, como se muestra en la imagen siguiente. Esto generalizará el sistema operativo y apagará el sistema.
 
 	![][1]
 
@@ -241,9 +250,9 @@ Use estos cmdlets de PowerShell para registrar el disco duro virtual como un dis
 
 Copie y guarde el nombre de este nuevo disco de datos de Azure. En el ejemplo anterior, es *DataDisk*.
 
-### Crear una máquina virtual de la serie DS de Azure
+### Creación de una máquina virtual de serie DS o GS
 
-Tras registrar la imagen de sistema operativo o disco de sistema operativo, cree una instancia de máquina virtual de Azure de la serie DS. Para ello, usaremos el nombre de la imagen de sistema operativo o del disco de sistema operativo que haya registrado. Seleccione el tipo de máquina virtual en el nivel de Almacenamiento premium. En el siguiente ejemplo, usamos el tamaño de máquina virtual *Standard\_DS2*. Puede crear una máquina virtual de la serie GS con los mismos pasos.
+Tras registrar la imagen de sistema operativo o disco de sistema operativo, cree una máquina virtual de la serie DS o GS. Para ello, usaremos el nombre de la imagen de sistema operativo o del disco de sistema operativo que haya registrado. Seleccione el tipo de máquina virtual en el nivel de Almacenamiento premium. En el siguiente ejemplo, usamos el tamaño de VM *Standard\_DS2*.
 
 >[AZURE.NOTE]Actualice el tamaño del disco para procurar que coincida con sus requisitos de capacidad y rendimiento y los tamaños de disco de Azure disponibles.
 
@@ -668,4 +677,4 @@ Vea también los siguientes recursos para obtener más información sobre Almace
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

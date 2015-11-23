@@ -45,36 +45,26 @@ En primer lugar, creará los objetos que requiere PolyBase para conectarse y con
 >
 > PolyBase NO admite los tipos de cuenta Almacenamiento con redundancia de zona estándar (Standard-ZRS) y Almacenamiento con redundancia local premium (Premium-LRS). Si va a crear una cuenta de Almacenamiento de Azure, asegúrese de que selecciona desde el Plan de tarifa un tipo de cuenta que admita PolyBase.
 
+## Paso 1: Almacenamiento de credenciales en la base de datos
+Para tener acceso al almacenamiento de blobs de Azure, deberá crear una credencial con ámbito de base de datos que almacene información de autenticación para la cuenta de almacenamiento de Azure. Siga estos pasos para almacenar una credencial en la base de datos.
 
-## Creación de clave maestra de base de datos
-Conéctese a la base de datos de usuarios en el servidor para crear una clave maestra de base de datos. Esta clave se usa para cifrar el secreto de credencial en el paso siguiente.
+1. Conexión a la base de datos de Almacenamiento de datos SQL.
+2. Use [CREATE MASTER KEY (Transact-SQL)][] para crear una clave maestra para la base de datos. Si la base de datos ya tiene una clave maestra, no tiene que crear otra. Esta clave sirve para cifrar el "secreto" de la credencial en el paso siguiente.
 
-```
--- Creating master key
-CREATE MASTER KEY;
-```
+    ```
+    -- Create a E master key
+    CREATE MASTER KEY;
+    ```
 
-Tema de referencia: [CREATE MASTER KEY (Transact-SQL)][].
+1. Compruebe si ya tiene las credenciales de la base de datos. Para ello, use la vista del sistema sys.database\_credentials, no sys.credentials que solo muestra las credenciales del servidor.
 
-## Creación de una credencial con ámbito de base de datos
-Para tener acceso al almacenamiento de blobs de Azure, deberá crear una credencial con ámbito de base de datos que almacene información de autenticación para la cuenta de almacenamiento de Azure. Conéctese a la base de datos de almacenamiento de datos y cree una credencial con ámbito de base de datos para cada cuenta de almacenamiento de Azure a la que quiera tener acceso. Especifique un nombre de identidad y la clave de la cuenta de almacenamiento de Azure como secreto. El nombre de identidad no afecta a la autenticación en el Almacenamiento de Azure.
+    ``` -- Compruebe las credenciales de ámbito de base de datos existentes. SELECT * FROM sys.database\_credentials;
 
-Para ver si ya existe una credencial con ámbito de base de datos, use sys.database\_credentials, no sys.credentials, que solo muestra las credenciales del servidor.
+3. Use [CREATE CREDENTIAL (Transact-SQL)][] para crear una credencial con ámbito de base de datos para cada cuenta de almacenamiento de Azure a la que quiera acceder. En este ejemplo, IDENTITY es un nombre descriptivo para la credencial. No afecta a la autenticación en el almacenamiento de Azure. SECRET se refiere a la clave de la cuenta de almacenamiento de Azure.
 
-```
--- Check for existing database-scoped credentials.
-SELECT * FROM sys.database_credentials;
+    -- Cree una credencial con ámbito de base de datos: CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe' , secreto = '<azure_storage_account_key>' ; ```
 
--- Create a database scoped credential
-CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
-WITH IDENTITY = 'joe'
-,    Secret = '<azure_storage_account_key>'
-;
-```
-
-Tema de referencia: [CREATE CREDENTIAL (Transact-SQL)][].
-
-Para quitar una credencial de ámbito de base de datos, use simplemente la siguiente sintaxis:
+1. Si necesita quitar una credencial de ámbito de base de datos, use [DROP CREDENTIAL (Transact-SQL)][]\:
 
 ```
 -- Dropping credential
@@ -82,93 +72,90 @@ DROP DATABASE SCOPED CREDENTIAL ASBSecret
 ;
 ```
 
-Tema de referencia: [DROP CREDENTIAL (Transact-SQL)][].
+## Paso 2: Creación de un origen de datos externo
+El origen de datos externo es un objeto de base de datos que almacena la ubicación de los datos de almacenamiento de blobs de Azure y la información de acceso. Use [CREATE EXTERNAL DATA SOURCE (Transact-SQL)][] para definir un origen de datos externo para cada blob de almacenamiento de Azure al que quiera acceder.
 
-## Creación de un origen de datos externo
-El origen de datos externo es un objeto de base de datos que almacena la ubicación de los datos de almacenamiento de blobs de Azure y la información de acceso. Debe definir un origen de datos externo para cada contenedor de Almacenamiento de Azure al que quiera tener acceso.
+    ```
+    -- Create an external data source for an Azure storage blob
+    CREATE EXTERNAL DATA SOURCE azure_storage 
+    WITH
+    (
+        TYPE = HADOOP,
+        LOCATION ='wasbs://mycontainer@test.blob.core.windows.net',
+        CREDENTIAL = ASBSecret
+    )
+    ;
+    ```
 
-```
--- Creating external data source (Azure Blob Storage) 
-CREATE EXTERNAL DATA SOURCE azure_storage 
-WITH
-(
-    TYPE = HADOOP
-,   LOCATION ='wasbs://mycontainer@test.blob.core.windows.net'
-,   CREDENTIAL = ASBSecret
-)
-;
-```
+Si necesita quitar la tabla externa, use [DROP EXTERNAL DATA SOURCE][]:
 
-Tema de referencia: [CREATE EXTERNAL DATA SOURCE (Transact-SQL)][].
+    ```
+    -- Drop an external data source
+    DROP EXTERNAL DATA SOURCE azure_storage
+    ;
+    ```
 
-Para quitar el origen de datos externo, la sintaxis es la siguiente:
+## Paso 3: Creación de un formato de archivo externo
+El formato de archivo externo es un objeto de base de datos que especifica el formato de los datos externos. PolyBase puede trabajar con datos comprimidos y sin comprimir en formatos de texto delimitado, Hive RCFILE y HIVE ORC.
 
-```
--- Dropping external data source
-DROP EXTERNAL DATA SOURCE azure_storage
-;
-```
-
-Tema de referencia: [DROP EXTERNAL DATA SOURCE (Transact-SQL)][].
-
-## Creación de un formato de archivo externo
-El formato de archivo externo es un objeto de base de datos que especifica el formato de los datos externos. En este ejemplo, hemos descomprimido datos en un archivo de texto y los campos están separados por el carácter de barra vertical ('|').
+Use [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][] para crear el formato de archivo externo. En este ejemplo, se especifica que los datos del archivo son texto sin comprimir y los campos están separados por el carácter de barra vertical ('|').
 
 ```
--- Creating external file format (delimited text file)
+-- Create an external file format for a text-delimited file.
+-- Data is uncompressed and fields are separated with the
+-- pipe character.
 CREATE EXTERNAL FILE FORMAT text_file_format 
 WITH 
 (   
-    FORMAT_TYPE = DELIMITEDTEXT 
-,	FORMAT_OPTIONS  (
-                        FIELD_TERMINATOR ='|'
-                    ,   USE_TYPE_DEFAULT = TRUE
-                    )
+    FORMAT_TYPE = DELIMITEDTEXT, 
+    FORMAT_OPTIONS  
+    (
+        FIELD_TERMINATOR ='|',
+        USE_TYPE_DEFAULT = TRUE
+    )
 )
 ;
 ```
 
-PolyBase puede trabajar con datos comprimidos y sin comprimir en formatos de texto delimitado, Hive RCFILE y HIVE ORC.
-
-Tema de referencia: [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][].
-
-Para quitar un formato de archivo externo, la sintaxis es la siguiente:
+Si necesita quitar un formato de archivo externo, use [DROP EXTERNAL FILE FORMAT].
 
 ```
 -- Dropping external file format
 DROP EXTERNAL FILE FORMAT text_file_format
 ;
 ```
-Tema de referencia: [DROP EXTERNAL FILE FORMAT (Transact-SQL)][].
 
 ## Creación de una tabla externa
 
-La definición de tabla externa es similar a una definición de tabla relacional. La principal diferencia es la ubicación y el formato de los datos. La definición de tabla externa se almacena en la base de datos de Almacenamiento de datos SQL. Los datos se almacenan en la ubicación especificada por el origen de datos.
+La definición de tabla externa es similar a una definición de tabla relacional. La principal diferencia es la ubicación y el formato de los datos.
 
-La opción LOCATION especifica la ruta de acceso a los datos desde la raíz del origen de datos. En este ejemplo, los datos se encuentran en 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'. Todos los archivos de la misma tabla tienen que estar en la misma carpeta lógica de BLOB de Azure.
+- La definición de tabla externa se almacena en forma de metadatos en la base de datos de Almacenamiento de datos SQL. 
+- Los datos se almacenan en la ubicación externa especificada por el origen de datos.
+
+Use [CREATE EXTERNAL TABLE (Transact-SQL)][] para definir la tabla externa.
+
+La opción LOCATION especifica la ruta de acceso a los datos desde la raíz del origen de datos. En este ejemplo, los datos se encuentran en 'wasbs://mycontainer@test.blob.core.windows.net/path/Demo/'. Todos los archivos de la misma tabla tienen que estar en la misma carpeta lógica del almacenamiento de blobs de Azure.
 
 Opcionalmente, también puede especificar opciones de rechazo (REJECT\_TYPE, REJECT\_VALUE, REJECT\_SAMPLE\_VALUE) que determinan la manera en que PolyBase controlará registros con modificaciones que recibe del origen de datos externo.
 
 ```
--- Creating external table pointing to file stored in Azure Storage
+-- Creating an external table for data in Azure blob storage.
 CREATE EXTERNAL TABLE [ext].[CarSensor_Data] 
 (
-     [SensorKey]     int    NOT NULL 
-,    [CustomerKey]   int    NOT NULL 
-,    [GeographyKey]  int        NULL 
-,    [Speed]         float  NOT NULL 
-,    [YearMeasured]  int    NOT NULL
+     [SensorKey]     int    NOT NULL,
+     [CustomerKey]   int    NOT NULL,
+     [GeographyKey]  int        NULL,
+     [Speed]         float  NOT NULL,
+     [YearMeasured]  int    NOT NULL,
 )
 WITH 
 (
-    LOCATION    = '/Demo/'
-,   DATA_SOURCE = azure_storage
-,   FILE_FORMAT = text_file_format      
+    LOCATION    = '/Demo/',
+    DATA_SOURCE = azure_storage,
+    FILE_FORMAT = text_file_format      
 )
 ;
 ```
-
-Tema de referencia: [CREATE EXTERNAL TABLE (Transact-SQL)][].
 
 Los objetos recién creados se almacenan en la base de datos de Almacenamiento de datos SQL. Puede verlos en el Explorador de objetos de SQL Server Data Tools (SSDT).
 
@@ -180,7 +167,7 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 ;
 ```
 
-> [AZURE.NOTE]Al quitar una tabla externa, debe usar `DROP EXTERNAL TABLE`. **No** puede usar `DROP TABLE`.
+> [AZURE.NOTE]Al quitar una tabla externa, debe usar `DROP EXTERNAL TABLE`. No **puede** usar `DROP TABLE`.
 
 Tema de referencia: [DROP EXTERNAL TABLE (Transact-SQL)][].
 
@@ -247,7 +234,7 @@ Vea [CREATE TABLE AS SELECT (Transact-SQL)][].
 
 ## Crear estadísticas de los datos recién cargados
 
-Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas. Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos. Si desea ver una explicación detallada de las estadísticas, consulte el tema [Estadísticas][] en el grupo de temas relacionados con el desarrollo. A continuación, puede ver un ejemplo rápido de cómo crear estadísticas sobre los datos cargados y organizados en tablas que aparecen en este ejemplo.
+Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas. Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos. Si quiere ver una explicación detallada de las estadísticas, vea el tema [Estadísticas][] en el grupo de temas relacionados con el desarrollo. A continuación, puede ver un ejemplo rápido de cómo crear estadísticas sobre los datos cargados y organizados en tablas que aparecen en este ejemplo.
 
 ```
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -370,4 +357,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/es-ES/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/es-ES/library/ms189450.aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

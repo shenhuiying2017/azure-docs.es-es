@@ -185,4 +185,12 @@ Los licenciatarios de productos provisionales y finales del SSPK pueden enviar p
 - WOOX Innovations Limited
 - ZTE Corporation
 
-<!---HONumber=Nov15_HO2-->
+##Rutas de aprendizaje de Servicios multimedia
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Envío de comentarios
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

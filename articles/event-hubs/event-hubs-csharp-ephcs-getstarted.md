@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a los Centros de eventos"
+	pageTitle="Introducción a los Centros de eventos en C# | Microsoft Azure"
 	description="Siga este tutorial para empezar a usar Centros de eventos de Azure con C# y EventProcessorHost"
 	services="event-hubs"
 	documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="core"
-	ms.tgt_pltfrm="csharp"
-	ms.devlang="csharp"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
 # Introducción a los Centros de eventos
@@ -34,7 +34,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## Creación de un Centro de eventos
 
-1. Inicie sesión en el [Portal de administración de Azure] y haga clic en **NUEVO** en la parte inferior de la pantalla.
+1. Inicie sesión en el [portal de Azure] y haga clic en **NUEVO** en la parte inferior de la pantalla.
 
 2. Haga clic en **Servicios de aplicaciones**, **Bus de servicio**, **Centro de eventos** y, finalmente, en **Creación rápida**.
 
@@ -83,10 +83,10 @@ Ya está preparado para ejecutar las aplicaciones.
 
 Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y envía y recibe datos, puede pasar a los siguientes escenarios:
 
-- Una [aplicación de ejemplo completa que usa Centros de eventos].
-- El ejemplo [Escala horizontal del procesamiento de eventos con Centros de eventos].
-- Una [solución de mensajería en cola] mediante las colas de Bus de servicio.
-- [Información general de los Centros de eventos]
+- Una [aplicación de ejemplo completa que usa Centros de eventos][].
+- El ejemplo [Escala horizontal del procesamiento de eventos con Centros de eventos][].
+- Una [solución de mensajería en cola][] mediante las colas de Bus de servicio.
+- [Información general de los Centros de eventos][]
 
 <!-- Images. -->
 [1]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub1.png
@@ -100,12 +100,12 @@ Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y e
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[portal de Azure]: https://manage.windowsazure.com/
 [Host del procesador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Información general de los Centros de eventos]: event-hubs-overview.md
-[aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[Escala horizontal del procesamiento de eventos con Centros de eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Escala horizontal del procesamiento de eventos con Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [solución de mensajería en cola]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/11/2015"
    ms.author="jgao"/>
 
 
@@ -603,10 +603,10 @@ Los resultados son:
 Hay 6 filas en la partición donde la clave de partición es "Web" (de la cuarta fila en adelante):
 
 - Hay 6 filas con un valor inferior o igual a 500, por lo que la CUME\_DIST es igual a 6/6 = 1.
-- Hay 5 filas con un valor inferior o igual a 500, por lo que la CUME\_DIST es igual a 5/6 = 0.83.
-- Hay 4 filas con un valor inferior o igual a 500, por lo que la CUME\_DIST es igual a 5/6 = 0.66.
-- Hay 3 filas con un valor inferior o igual a 500, por lo que la CUME\_DIST es igual a 3/6 = 0.5. Hay dos filas con el mismo valor de latencia.
-- Hay 1 fila con un valor inferior o igual a 500, por lo que la CUME\_DIST es igual a 1/6 = 1. 
+- Hay 5 filas con un valor inferior o igual a 400, por lo que la CUME\_DIST es igual a 5/6 = 0.83.
+- Hay 4 filas con un valor inferior o igual a 300, por lo que la CUME\_DIST es igual a 5/6 = 0.66.
+- Hay 3 filas con un valor inferior o igual a 200, por lo que la CUME\_DIST es igual a 3/6 = 0.5. Hay dos filas con el mismo valor de latencia.
+- Hay 1 fila con un valor inferior o igual a 100, por lo que la CUME\_DIST es igual a 1/6 = 0.16. 
 
 
 **Notas de uso:**
@@ -743,4 +743,4 @@ PERCENTILE\_DISC no interpola valores, por lo que la mediana de Web es 200, que 
 - [Administración de Análisis de Azure Data Lake mediante Azure Powershell](data-lake-analytics-use-powershell.md)
 - [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

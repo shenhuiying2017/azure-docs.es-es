@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="11/12/2015" 
 	ms.author="sdanie"/>
 
 # P+F de Caché en Redis de Azure
@@ -47,9 +47,9 @@ A partir de esta tabla, podemos extraer las conclusiones siguientes.
 -	Con la agrupación en clústeres de Redis, el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones (nodos) del clúster. Por ejemplo, si se crea un clúster P4 de 10 particiones, el rendimiento disponible es de 250.000 * 10 = 2,5 millones de solicitudes por segundo.
 -	El rendimiento para los tamaños de clave más grandes es más alto en el nivel Premium que en el nivel Estándar.
 
-| Nivel de precios | Tamaño | Ancho de banda disponible (Mbps) | Tamaño de clave de 1 KB |
+| Nivel de precios | Tamaño | Ancho de banda disponible | Tamaño de clave de 1 KB |
 |----------------------|--------|----------------------------|--------------------------------|
-| **Tamaños de caché estándar** | &nbsp; | &nbsp; | **Solicitudes por segundo (RPS)** |
+| **Tamaños de caché estándar** | &nbsp; | **(Mbps)** | **Solicitudes por segundo (RPS)** |
 | C0 | 250 MB | 5 | 600 |
 | C1 | 1 GB | 100 | 12200 |
 | C2 | 2,5 GB | 200 | 24000 |
@@ -212,7 +212,7 @@ A diferencia de las memorias caché tradicionales que solo tratan con pares clav
 
 Otro aspecto clave para el éxito de Redis es su ecosistema de código abierto vibrante y en buen estado. Esto se refleja en el variado conjunto de clientes de Redis disponibles en varios lenguajes, que permite que pueda usarlo prácticamente cualquier carga de trabajo compilada dentro de Azure.
 
-Para obtener más información sobre cómo empezar a usar Caché en Redis de Azure, consulte [Uso de Caché en Redis de Azure](cache-dotnet-how-to-use-azure-redis-cache.md) y la [Documentación de Caché en Redis de Azure](https://azure.microsoft.com/documentation/services/redis-cache/).
+Para obtener más información sobre cómo empezar a usar Caché en Redis de Azure, consulte [Uso de memoria caché en Redis de Azure](cache-dotnet-how-to-use-azure-redis-cache.md) y la [Documentación de memoria caché en Redis de Azure](https://azure.microsoft.com/documentation/services/redis-cache/).
 
 ### Servicio de caché administrado
 Si ya es cliente del Servicio de caché administrado de Azure, puede seguir usando este servicio o migrar a Caché en Redis de Azure para aprovechar el completo conjunto de características que ofrece. El Servicio de caché administrado de Azure también está disponible con carácter general y ofrece un contrato de nivel de servicio por el que se garantiza una disponibilidad del 99,9 %.
@@ -220,4 +220,4 @@ Si ya es cliente del Servicio de caché administrado de Azure, puede seguir usan
 ### Caché en rol
 Si usa Caché en rol para autohospedar la memoria caché, puede seguir usando este método. Como Caché en rol es un componente de software autohospedado y no un servicio hospedado de Microsoft, no ofrece ningún contrato de nivel de servicio. Los usuarios de Caché en rol pueden migrar a Caché en Redis de Azure para aprovechar su completo conjunto de características y obtener un contrato de nivel de servicio.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->
