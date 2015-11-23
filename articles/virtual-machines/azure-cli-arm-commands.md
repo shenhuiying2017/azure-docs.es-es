@@ -1251,7 +1251,24 @@ Crea un recurso de dirección ip pública. Creará el recurso de dirección ip p
 	info:    network public-ip create command OK
 
 
-Opciones de parámetros: -h, --help información de uso de salida -v, --verbose salida de uso de verbose --json salida de uso de use -g, --resource-group <resource-group> nombre del grupo de recursos -n, --name <name> nombre de IP pública -l, --location <location> la ubicación -d, --domain-name-label <domain-name-label> el nombre de la etiqueta de dominio. Establece el DNS en <domain-name-label>.<location>.cloudapp.azure.com -a, --allocation-method <allocation-method> el método de asignación [Static][Dynamic] -i, --idletimeout <idletimeout> el tiempo de espera de inactividad en minutos -f, --reverse-fqdn <reverse-fqdn> el nombre de dominio completo inverso -t, --tags <tags> la lista de etiquetas. Pueden ser varios. Con el formato "nombre=valor". El nombre es obligatorio y el valor es opcional. Por ejemplo, -t tag1=value1;tag2 -s, --subscription <subscription> el identificador de la suscripción <br>
+Opciones de parámetros:
+	-h, --help                                   información de uso de salida
+	-v, --verbose                                salida de uso de verbose
+	--json                                       salida de uso de use
+	-g, --resource-group <resource-group>        nombre del grupo de recursos
+	-n, --name <name>                            nombre de IP pública
+	-l, --location <location>                    la ubicación
+	-d, --domain-name-label <domain-name-label>  el nombre de la etiqueta de dominio.
+	Establece el DNS en <domain-name-label>.<location>.cloudapp.azure.com
+	-a, --allocation-method <allocation-method>  el método de asignación [Static][Dynamic]
+	-i, --idletimeout <idletimeout>              el tiempo de espera de inactividad en minutos
+	-f, --reverse-fqdn <reverse-fqdn>            el nombre de dominio completo inverso
+	-t, --tags <tags>                            la lista de etiquetas.
+	Pueden ser varios. Con el formato "nombre=valor".
+	El nombre es obligatorio y el valor es opcional.
+	Por ejemplo, -t tag1=value1;tag2
+	-s, --subscription <subscription>            el identificador de la suscripción
+<br>
 
 	network public-ip set [options] <resource-group> <name>
 Actualiza las propiedades de un recurso de dirección ip pública existente. En el siguiente ejemplo hemos cambiado la dirección IP pública de dinámica a estática.
