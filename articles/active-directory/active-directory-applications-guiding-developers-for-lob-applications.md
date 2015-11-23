@@ -78,4 +78,4 @@ Para las aplicaciones de confianza, puede dar su consentimiento a la aplicación
 
 Para obtener más información sobre el consentimiento del usuario y la experiencia de consentimiento en Azure, vea [Integración de aplicaciones con Azure Active Directory](active-directory-integrating-applications.md).
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
