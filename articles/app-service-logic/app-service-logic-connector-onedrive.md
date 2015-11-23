@@ -26,7 +26,13 @@ Para usar el conector de OneDrive, deberá crear primero una instancia de la apl
 2.	En "Todo", busque "Conector de OneDrive".
 3.	Configure el conector de OneDrive de la siguiente forma:
 
-	![][1] - **Nombre**: asigne un nombre al conector de OneDrive. - **Plan del Servicio de aplicaciones**: seleccione o cree un plan del Servicio de aplicaciones. - **Nivel de precios**: elija un nivel de precios para el conector. - **Grupo de recursos**: seleccione o cree un grupo de recursos donde debe residir el conector. - **Suscripción**: elija la suscripción en la que desea crear el conector. - **Ubicación**: elija la ubicación geográfica donde desea que se implemente el conector.
+	![][1]
+	- **Nombre**: asigne un nombre al conector de OneDrive.
+	- **Plan del Servicio de aplicaciones**: seleccione o cree un plan del Servicio de aplicaciones.
+	- **Nivel de precios**: elija un nivel de precios para el conector.
+	- **Grupo de recursos**: seleccione o cree un grupo de recursos donde debe residir el conector.
+	- **Suscripción**: elija la suscripción en la que desea crear el conector.
+	- **Ubicación**: elija la ubicación geográfica donde desea que se implemente el conector.
 
 4. Haga clic en Crear. Se creará un nuevo conector de OneDrive.
 5. Una vez creada la instancia de aplicación de la API, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de OneDrive.
@@ -43,7 +49,8 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de OneDriv
 	![][2]
 4.	Puede quitar la aplicación de la API del conector de OneDrive en el editor haciendo clic en "Conector de OneDrive". Haga clic en el botón Autorizar. Proporcione la credenciales de Microsoft (si no ha iniciado sesión automáticamente). Haga clic en "Sí" para permitir el acceso.
 
-	![][3] ![][4]
+	![][3]
+	![][4]
 
 5.	Ahora puede usar el conector de OneDrive en el flujo. Actualmente, los desencadenadores no están disponibles en el conector de OneDrive. Las acciones disponibles son: Obtener archivo, Cargar un archivo, Eliminar archivo y Listar archivos.
 

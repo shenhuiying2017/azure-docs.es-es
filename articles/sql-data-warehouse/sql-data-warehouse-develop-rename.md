@@ -27,6 +27,7 @@ Actualmente, solo puede cambiarse el nombre de tablas. La sintaxis para cambiar 
 RENAME OBJECT Customer TO NewCustomer;
 ```
 
+> [AZURE.NOTE] Las sesiones del Almacenamiento de datos SQL están precedidas por “SID”; deberá incluir esto y el número de sesión al invocar el comando KILL. Por ejemplo, ```KILL 'SID1234'``` terminaría la sesión 1234, suponiendo que tenga los permisos adecuados para ejecutarlo.
 Al cambiar el nombre de una tabla, se actualizan todos los objetos y las propiedades asociados a la tabla para hacer referencia al nuevo nombre de la tabla. Por ejemplo, se actualizan las definiciones, los índices, las restricciones y los permisos de la tabla. Las vistas no se actualizan.
 
 ## Cambio de nombre de una tabla externa

@@ -154,11 +154,16 @@ El Portal de publicación de Azure se usa para publicar y administrar sus oferta
 
   >[AZURE.TIP]Las directivas de participación se mencionan [aquí](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > Si tiene problemas para completar el registro como vendedor, abra una incidencia de soporte técnico, tal como se indica a continuación: 1. Póngase en contacto con [Soporte técnico](http://go.microsoft.com/fwlink?LinkId=272975). 2. Elija **Registro del Panel de vendedores y su cuenta**. 3. Elija **Registrarse en una cuenta de desarrollador**. 4. Elija un **método** de contacto.
+  > Si tiene problemas para completar el registro como vendedor, abra una incidencia de soporte técnico, tal como se indica a continuación:
+  1. Póngase en contacto con [Soporte técnico](http://go.microsoft.com/fwlink?LinkId=272975).
+  2. Elija **Registro del Panel de vendedores y su cuenta**.
+  3. Elija **Registro para una cuenta de desarrollador**
+  4. Elija un **método** de contacto.
 
 ### Países "Sell-from"
 
-> [AZURE.WARNING]Para vender sus servicios en Microsoft Azure Marketplace, es necesario que la entidad registrada proceda de uno de los países "sell from" aprobados. Esta restricción se debe a motivos de pago e impuestos. Trabajamos activamente para ampliar esta lista de países en un futuro próximo, así pues, manténgase atento. Para obtener la lista completa, consulte la sección 1b del documento en el vínculo [http://go.microsoft.com/fwlink/?LinkID=526833](http://go.microsoft.com/fwlink/?LinkID=526833).
+> [AZURE.WARNING]
+Para vender sus servicios en Microsoft Azure Marketplace, es necesario que la entidad registrada proceda de uno de los países "sell from" aprobados. Esta restricción se debe a motivos de pago e impuestos. Trabajamos activamente para ampliar esta lista de países en un futuro próximo, así pues, manténgase atento. Para obtener la lista completa, consulte la sección 1b del documento en el vínculo [http://go.microsoft.com/fwlink/?LinkID=526833](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 
 
@@ -166,7 +171,12 @@ El Portal de publicación de Azure se usa para publicar y administrar sus oferta
 ## Pasos siguientes
 Ahora que la cuenta se creó y se registró, haga clic en el tipo de artefacto (máquina virtual, servicio de programador, servicio de datos, plantilla de soluciones) que desea publicar en Azure Marketplace. Visite uno de los artículos siguientes para obtener más información sobre cómo publicar su oferta respectiva:
 
-|| Imagen de máquina virtual | Servicio para desarrolladores | Servicio de datos | Plantilla de solución | |----|-----|-----|-----|-----| |**Paso 2: Creación de la oferta** | [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md)| [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md) | [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md) | [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md) | || [Requisitos previos técnicos de imagen de la máquina virtual][link-single-vm-prereq] | Requisitos previos técnicos de servicio de desarrolladores | Requisitos previos técnicos de servicio de datos | [Requisitos previos técnicos de plantilla de solución](marketplace-publishing-solution-template-creation-prerequisites.md) | [Guía de publicación de imágenes de máquina virtual][link-single-vm] | Guía de publicación de servicios de desarrolladores | Guía de publicación de servicios de datos | [Guía de publicación de plantillas de solución](marketplace-publishing-solution-template-creation.md) | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] |
+|| Imagen de máquina virtual | Servicio para desarrolladores | Servicio de datos | Plantilla de solución |
+|----|-----|-----|-----|-----|
+|**Paso 2: Creación de la oferta** | [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md)| [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md) | [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md) | [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md) |
+|| [Requisitos previos técnicos de imagen de la máquina virtual][link-single-vm-prereq] | Requisitos previos técnicos de servicio de desarrolladores | Requisitos previos técnicos de servicio de datos | [Requisitos previos técnicos de plantilla de solución](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [Guía de publicación de imágenes de máquina virtual][link-single-vm] | Guía de publicación de servicios de desarrolladores | Guía de publicación de servicios de datos | [Guía de publicación de plantillas de solución](marketplace-publishing-solution-template-creation.md)
+|| [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] |
 
 ## Otras referencias
 - [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)

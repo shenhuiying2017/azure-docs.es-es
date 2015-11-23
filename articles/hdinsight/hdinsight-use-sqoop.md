@@ -39,16 +39,17 @@ Para ver las versiones de Sqoop compatibles con los clústeres de HDInsight, con
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una estación de trabajo con Azure PowerShell**. Consulte [Instalación y uso de Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para ejecutar scripts de Azure PowerShell, debe ejecutar Azure PowerShell como administrador y establecer la directiva de ejecución en *RemoteSigned*. Consulte [Ejecución de scripts de Windows PowerShell][powershell-script].
+- **Una estación de trabajo con Azure PowerShell**. Consulte [Instalación y uso de Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+ Para ejecutar scripts de Azure PowerShell, debe ejecutar Azure PowerShell como administrador y establecer la directiva de ejecución en *RemoteSigned*. Consulte [Ejecución de scripts de Windows PowerShell][powershell-script].
 
 - **Clúster de Azure HDInsight**: para obtener instrucciones acerca del aprovisionamiento del clúster, consulte [Introducción al uso de HDInsight][hdinsight-get-started] o [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision]. Para completar el tutorial, necesita los datos siguientes:
 
 	<table border="1">
-<tr><th>Propiedad del clúster</th><th>Nombre de variable de Azure PowerShell</th><th>Valor</th><th>Descripción</th></tr>
-<tr><td>Nombre del clúster de HDInsight</td><td>$clusterName</td><td></td><td>El nombre del clúster de HDInsight.</td></tr>
-<tr><td>Nombre de la cuenta de almacenamiento de Azure</td><td>$storageAccountName</td><td></td><td>Cuenta de almacenamiento de Azure disponible para el clúster de HDInsight. Para este tutorial, use la cuenta de almacenamiento predeterminada especificada durante el proceso de aprovisionamiento del clúster.</td></tr>
-<tr><td>Nombre del contenedor de blobs de Azure</td><td>$containerName</td><td></td><td>Para este ejemplo, use el nombre del blob utilizado para el sistema de archivos predeterminado del clúster de HDInsight. De manera predeterminada, tiene el mismo nombre que el del clúster de HDInsight.</td></tr>
-</table>
+	<tr><th>Propiedad del clúster</th><th>Nombre de variable de Azure PowerShell</th><th>Valor</th><th>Descripción</th></tr>
+	<tr><td>Nombre del clúster de HDInsight</td><td>$clusterName</td><td></td><td>El nombre del clúster de HDInsight.</td></tr>
+	<tr><td>Nombre de la cuenta de almacenamiento de Azure</td><td>$storageAccountName</td><td></td><td>Cuenta de almacenamiento de Azure disponible para el clúster de HDInsight. Para este tutorial, use la cuenta de almacenamiento predeterminada especificada durante el proceso de aprovisionamiento del clúster.</td></tr>
+	<tr><td>Nombre del contenedor de blobs de Azure</td><td>$containerName</td><td></td><td>Para este ejemplo, use el nombre del blob utilizado para el sistema de archivos predeterminado del clúster de HDInsight. De manera predeterminada, tiene el mismo nombre que el del clúster de HDInsight.</td></tr>
+	</table>
 
 - ****Base de datos SQL de Azure o Microsoft SQL Server
 
@@ -60,7 +61,8 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 <tr><td>Nombre de inicio de sesión de la base de datos SQL de Azure</td><td>$sqlDatabaseLogin</td><td></td><td>El nombre de inicio de sesión de la base de datos SQL de Azure.</td></tr>
 <tr><td>Contraseña de inicio de sesión de la base de datos SQL de Azure</td><td>$sqlDatabasePassword</td><td></td><td>La contraseña de inicio de sesión de la base de datos SQL de Azure.</td></tr>
 <tr><td>Nombre de la base de datos SQL de Azure</td><td>$sqlDatabaseName</td><td></td><td>Base de datos SQL de Azure a la que Sqoop exportará datos o desde la que los importará. </td></tr>
-</table>> [AZURE.NOTE]De forma predeterminada, una base de datos SQL de Azure permite realizar conexiones desde servicios de Azure, como HDInsight de Azure. Si la configuración del firewall está deshabilitada, debe habilitarla en el portal de vista previa de Azure. Para obtener instrucciones sobre la creación de una base de datos SQL de Azure y la configuración de las reglas de firewall, consulte [Creación y configuración de una base de datos SQL][sqldatabase-create-configue].
+</table>
+> [AZURE.NOTE]De forma predeterminada, una base de datos SQL de Azure permite realizar conexiones desde servicios de Azure, como HDInsight de Azure. Si la configuración del firewall está deshabilitada, debe habilitarla en el portal de vista previa de Azure. Para obtener instrucciones sobre la creación de una base de datos SQL de Azure y la configuración de las reglas de firewall, consulte [Creación y configuración de una base de datos SQL][sqldatabase-create-configue].
 	
 	* **SQL Server**: si el clúster de HDInsight se encuentra en la misma red virtual de Azure que un SQL Server, puede seguir los pasos indicados en este artículo para importar y exportar datos a una base de datos de SQL Server.
 	

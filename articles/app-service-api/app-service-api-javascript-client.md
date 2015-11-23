@@ -66,7 +66,7 @@ Es posible configurar puertas de enlace de aplicación de API para habilitar COR
 
 	![](./media/app-service-api-javascript-client/23-app-settings-set.png)
 
-El valor de configuración **MS\_CrossDomainOrigins** de la aplicación se describe detalladamente en la entrada de blog [Actualizaciones de .NET de Servicios móviles de Azure](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/); así pues, consúltela para obtener más información sobre dicho valor de configuración.
+El valor de configuración **MS_CrossDomainOrigins** de la aplicación se describe detalladamente en la entrada de blog [Actualizaciones de .NET de Servicios móviles de Azure](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/); así pues, consúltela para obtener más información sobre dicho valor de configuración.
 
 ### Habilitación de CORS en código de API web
 
@@ -80,7 +80,7 @@ El proceso de habilitación CORS en API web se documenta en profundidad en el ar
 
 	![apiapp.json y metadatos en el Explorador de soluciones](./media/app-service-api-javascript-client/01-cors-installed.png)
 
-1. Abra el archivo la *App\_Start/WebApiConfig.cs*. Agregue la línea de código siguiente al método **Register** de la clase **WebApiConfig** en el archivo.
+1. Abra el archivo la *App_Start/WebApiConfig.cs*. Agregue la línea de código siguiente al método **Register** de la clase **WebApiConfig** en el archivo.
 
 		config.EnableCors();
 

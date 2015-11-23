@@ -50,7 +50,7 @@ Este enfoque de *"JavaScript como un T-SQL moderno"* libera a los desarrolladore
 	-	Agrega una capa de abstracción en la parte superior de los datos sin procesar, lo cual permite a los arquitectos de datos desarrollar sus aplicaciones de forma independiente de los datos. Esto supone una especial ventaja cuando los datos no tienen esquema, debido a débiles suposiciones que se deben integrar en la aplicación si tienen que tratar directamente con los datos.  
 	-	Esta abstracción permite a las empresas mantener seguros sus datos simplificando el acceso desde los scripts.  
 
-Se admite la creación y ejecución de operadores de consulta personalizada, procedimientos almacenados y desencadenadores de base de datos a través de la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) y los [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx) en muchas plataformas: .NET, Node.js y JavaScript, entre otras. **Este tutorial utiliza el [SDK de Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** para ilustrar la sintaxis y el uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF).
+Se admite la creación y ejecución de operadores de consulta personalizada, procedimientos almacenados y desencadenadores de base de datos a través de la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) y los [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx) en muchas plataformas: .NET, Node.js y JavaScript, entre otras. <b>Este tutorial utiliza el [SDK de Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)</b> para ilustrar la sintaxis y el uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF).
 
 ## Procedimientos almacenados
 
@@ -475,9 +475,69 @@ La UDF se puede utilizar de forma consecuente en consultas como en el ejemplo si
 ## API de consulta integradas en lenguajes JavaScript
 Además de emitir consultas mediante la gramática de SQL del DocumentDB, el SDK del lado servidor permite realizar consultas optimizadas a través de una interfaz fluida de JavaScript sin necesitar conocimientos de SQL. La API de consulta de JavaScript permite crear mediante programación las consultas al pasar las funciones de predicado a función encadenada, con una sintaxis familiar para los elementos integrados de matriz de ECMAScript5 y las bibliotecas populares de JavaScript, como lodash. Las consultas se analizan con el tiempo de ejecución de JavaScript para que se ejecuten eficazmente mediante índices de DocumentDB.
 
-> [AZURE.NOTE]`__` (subrayado doble) es un alias para `getContext().getCollection()`. <br/> En otras palabras, puede utilizar `__` o `getContext().getCollection()` para obtener acceso a la API de consulta de JavaScript.
+> [AZURE.NOTE]`__` (subrayado doble) es un alias para `getContext().getCollection()`.
+> <br/>
+> En otras palabras, puede utilizar `__` o `getContext().getCollection()` para obtener acceso a la API de consulta de JavaScript.
 
-Entre las funciones compatibles se encuentran: <ul> <li> <b>chain() ... .value([devolución de llamada] [, opciones])</b> <ul> <li> Inicia una llamada encadenada que debe terminarse con value(). </li> </ul> </li> <li> <b>filter(predicateFunction [, opciones] [, devolución de llamada])</b> <ul> <li> Filtra la entrada con una función de predicado que devuelve verdadero o falso para filtrar la entrada y salida de documentos de entrada en el conjunto resultante. Este comportamiento es similar al de una cláusula WHERE de SQL. </li> </ul> </li> <li> <b>map(transformationFunction [, opciones] [, devolución de llamada])</b> <ul> <li> Aplica una proyección dada una función de transformación que asigna cada elemento de entrada a un valor o un objeto de JavaScript. Este comportamiento es similar al de una cláusula SELECT de SQL. </li> </ul> </li> <li> <b>pluck([nombrePropiedad] [, opciones] [, devolución de llamada])</b> <ul> <li> Se trata de un método abreviado de una asignación que extrae el valor de una propiedad única de cada elemento de entrada. </li> </ul> </li> <li> <b>flatten([isShallow] [, opciones] [, devolución de llamada])</b> <ul> <li> Combina y aplana las matrices de cada elemento de entrada en una sola matriz. Este comportamiento es similar al de SelectMany en LINQ. </li> </ul> </li> <li> <b>sortBy([predicado] [, opciones] [, devolución de llamada])</b> <ul> <li> Produce un nuevo conjunto de documentos al ordenar los documentos en la secuencia de documentos de entrada en orden ascendente según el predicado especificado. Este comportamiento es similar al de una cláusula ORDER BY en SQL. </li> </ul> </li> <li> <b>sortByDescending([predicado] [, opciones] [, devolución de llamada])</b> <ul> <li> Produce un nuevo conjunto de documentos al ordenar los documentos en la secuencia de documentos de entrada en orden descendente según el predicado especificado. Este comportamiento es similar al de una cláusula ORDER BY x DESC en SQL. </li> </ul> </li> </ul>
+Entre las funciones compatibles se encuentran:
+<ul>
+<li>
+<b>chain() ... .value([devolución de llamada] [, opciones])</b>
+<ul>
+<li>
+Inicia una llamada encadenada que debe terminarse con value().
+</li>
+</ul>
+</li>
+<li>
+<b>filter(predicateFunction [, opciones] [, devolución de llamada])</b>
+<ul>
+<li>
+Filtra la entrada con una función de predicado que devuelve verdadero o falso para filtrar la entrada y salida de documentos de entrada en el conjunto resultante. Este comportamiento es similar al de una cláusula WHERE de SQL.
+</li>
+</ul>
+</li>
+<li>
+<b>map(transformationFunction [, opciones] [, devolución de llamada])</b>
+<ul>
+<li>
+Aplica una proyección dada una función de transformación que asigna cada elemento de entrada a un valor o un objeto de JavaScript. Este comportamiento es similar al de una cláusula SELECT de SQL.
+</li>
+</ul>
+</li>
+<li>
+<b>pluck([nombrePropiedad] [, opciones] [, devolución de llamada])</b>
+<ul>
+<li>
+Se trata de un método abreviado de una asignación que extrae el valor de una propiedad única de cada elemento de entrada.
+</li>
+</ul>
+</li>
+<li>
+<b>flatten([isShallow] [, opciones] [, devolución de llamada])</b>
+<ul>
+<li>
+Combina y aplana las matrices de cada elemento de entrada en una sola matriz. Este comportamiento es similar al de SelectMany en LINQ.
+</li>
+</ul>
+</li>
+<li>
+<b>sortBy([predicado] [, opciones] [, devolución de llamada])</b>
+<ul>
+<li>
+Produce un nuevo conjunto de documentos al ordenar los documentos en la secuencia de documentos de entrada en orden ascendente según el predicado especificado. Este comportamiento es similar al de una cláusula ORDER BY en SQL.
+</li>
+</ul>
+</li>
+<li>
+<b>sortByDescending([predicado] [, opciones] [, devolución de llamada])</b>
+<ul>
+<li>
+Produce un nuevo conjunto de documentos al ordenar los documentos en la secuencia de documentos de entrada en orden descendente según el predicado especificado. Este comportamiento es similar al de una cláusula ORDER BY x DESC en SQL.
+</li>
+</ul>
+</li>
+</ul>
 
 
 Cuando se incluye dentro del predicado o las funciones selectoras, las siguientes construcciones de JavaScript se optimizan automáticamente para ejecutarse directamente en índices de DocumentDB:
@@ -554,10 +614,144 @@ En la tabla siguiente se muestran varias consultas SQL con las consultas de Java
 
 Como sucede con las consultas SQL, las claves de propiedad del documento (por ejemplo, `doc.id`) distinguen mayúsculas de minúsculas.
 
-<br/> <table border="1" width="100%"> <colgroup> <col span="1" style="width: 40%;"> <col span="1" style="width: 40%;"> <col span="1" style="width: 20%;"> </colgroup> <tbody> <tr> <th>SQL</th> <th>API de consulta de JavaScript</th> <th>Detalles</th> </tr> <tr> <td> <pre> SELECT * FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return doc; }); </pre> </td> <td>El resultado es todos los documentos (paginados con token de continuación) tal y como son.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg, docs.actions FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return { id: doc.id, msg: doc.message, actions: doc.actions }; }); </pre> </td> <td>Proyecta id, message (con msg como alias) y action de todos los documentos.</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.filter(function(doc) { return doc.id === "X998\_Y998"; }); </pre> </td> <td>Consulta los documentos con el predicado: id = "X998\_Y998".</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE ARRAY\_CONTAINS(docs.Tags, 123) </pre> </td> <td> <pre> \_\_.filter(function(x) { return x.Tags && x.Tags.indexOf(123) > -1; }); </pre> </td> <td>Consulta los documentos que tengan una propiedad Tags y en los que Tags sea una matriz que contenga el valor 123.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.id === "X998\_Y998"; }) .map(function(doc) { return { id: doc.id, msg: doc.message }; }) .value(); </pre> </td> <td>Consulta los documentos con un predicado id = "X998\_Y998" y, después, proyecta id y message (con el alias msg).</td> </tr> <tr> <td> <pre> SELECT VALUE tag FROM docs JOIN tag IN docs.Tags ORDER BY docs.\_ts </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.Tags && Array.isArray(doc.Tags); }) .sortBy(function(doc) { return doc.\_ts; }) .pluck("Tags") .flatten() .value() </pre> </td> <td>Filtra los documentos que tengan una propiedad de matriz, Tags, ordena los documentos resultantes según la propiedad del sistema de marca de tiempo \_ts, y proyecta y aplana la matriz Tags.</td> </tr> </tbody> </table>
+<br/>
+<table border="1" width="100%">
+<colgroup>
+<col span="1" style="width: 40%;">
+<col span="1" style="width: 40%;">
+<col span="1" style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<th>SQL</th>
+<th>API de consulta de JavaScript</th>
+<th>Detalles</th> 
+</tr>
+<tr>
+<td>
+<pre>
+SELECT *
+FROM docs
+</pre>
+</td>
+<td>
+<pre>
+__.map(function(doc) {
+    return doc;
+});
+</pre>
+</td>
+<td>El resultado es todos los documentos (paginados con token de continuación) tal y como son.</td> 
+</tr>
+<tr>
+<td>
+<pre>
+SELECT docs.id, docs.message AS msg, docs.actions 
+FROM docs
+</pre>
+</td>
+<td>
+<pre>
+__.map(function(doc) {
+    return {
+        id: doc.id,
+        msg: doc.message,
+        actions: doc.actions
+    };
+});
+</pre>
+</td>
+<td>Proyecta id, message (con msg como alias) y action de todos los documentos.</td> 
+</tr>
+<tr>
+<td>
+<pre>
+SELECT * 
+FROM docs 
+WHERE docs.id="X998_Y998"
+</pre>
+</td>
+<td>
+<pre>
+__.filter(function(doc) {
+    return doc.id === "X998_Y998";
+});
+</pre>
+</td>
+<td>Consulta los documentos con el predicado: id = "X998\_Y998".</td> 
+</tr>
+<tr>
+<td>
+<pre>
+SELECT *
+FROM docs
+WHERE ARRAY_CONTAINS(docs.Tags, 123)
+</pre>
+</td>
+<td>
+<pre>
+__.filter(function(x) {
+    return x.Tags && x.Tags.indexOf(123) > -1;
+});
+</pre>
+</td>
+<td>Consulta los documentos que tengan una propiedad Tags y en los que Tags sea una matriz que contenga el valor 123.</td> 
+</tr>
+<tr>
+<td>
+<pre>
+SELECT docs.id, docs.message AS msg
+FROM docs 
+WHERE docs.id="X998_Y998"
+</pre>
+</td>
+<td>
+<pre>
+__.chain()
+    .filter(function(doc) {
+        return doc.id === "X998_Y998";
+    })
+    .map(function(doc) {
+        return {
+            id: doc.id,
+            msg: doc.message
+        };
+    })
+    .value();
+</pre>
+</td>
+<td>Consulta los documentos con un predicado id = "X998_Y998" y, después, proyecta id y message (con el alias msg).</td> 
+</tr>
+<tr>
+<td>
+<pre>
+SELECT VALUE tag
+FROM docs
+JOIN tag IN docs.Tags
+ORDER BY docs._ts
+</pre>
+</td>
+<td>
+<pre>
+__.chain()
+    .filter(function(doc) {
+        return doc.Tags && Array.isArray(doc.Tags);
+    })
+    .sortBy(function(doc) {
+    	return doc._ts;
+    })
+    .pluck("Tags")
+    .flatten()
+    .value()
+</pre>
+</td>
+<td>Filtra los documentos que tengan una propiedad de matriz, Tags, ordena los documentos resultantes según la propiedad del sistema de marca de tiempo _ts, y proyecta y aplana la matriz Tags.</td>
+</tr>
+</tbody>
+</table>
 
 ## Compatibilidad con el tiempo de ejecución
-El [SDK del lado servidor de JavaScript de DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) ofrece compatibilidad con la mayoría de características del lenguaje JavaScript habituales, según el estándar [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+El [SDK del lado servidor de JavaScript de DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) ofrece compatibilidad con la mayoría de características del lenguaje JavaScript habituales, según el estándar [ECMA-262](documentdb-interactions-with-resources.md).
 
 ### Seguridad
 Los procedimientos almacenados y desencadenadores de JavaScript se encuentran en un espacio aislado para que los efectos de un script no se filtren al otro sin pasar por el aislamiento de la transacción de instantánea en el nivel de la base de datos. Los entornos de tiempo de ejecución se agrupan pero se borran del contexto tras cada ejecución. Por lo tanto se garantiza su seguridad de cualquier efecto secundario no intencionado entre ellos.
@@ -661,7 +855,8 @@ Todas las operaciones de la Base de datos de documentos se realizan de forma RES
 	}
 
 
-El procedimiento almacenado se registra ejecutando una solicitud POST con la URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs conteniendo en el cuerpo el procedimiento almacenado que se va a crear. Los desencadenadores y las UDF se pueden registrar de forma similar mediante la emisión de una solicitud POST con respecto a /triggers y /udfs, respectivamente. Este procedimiento almacenado se puede ejecutar mediante la emisión de una solicitud POST en su vínculo de recursos:
+El procedimiento almacenado se registra ejecutando una solicitud POST con la URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs conteniendo en el cuerpo el procedimiento almacenado que se va a crear. Los desencadenadores y las UDF se pueden registrar de forma similar mediante la emisión de una solicitud POST con respecto a /triggers y /udfs, respectivamente.
+Este procedimiento almacenado se puede ejecutar mediante la emisión de una solicitud POST en su vínculo de recursos:
 
 	POST https://<url>/sprocs/<sproc> HTTP/1.1
 	authorization: <<auth>>

@@ -59,25 +59,29 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 ## Uso del conector de SMTP en la aplicación lógica
 Una vez creado el conector, ahora puede usar el conector de SMTP como acción para la aplicación lógica. Para ello, siga estos pasos:
 
-1.	Creación de una nueva aplicación lógica: ![][2]
-2.	Abra **Desencadenadores y acciones** para abrir el diseñador de Aplicaciones lógicas y configurar el flujo de trabajo: ![][3]
-3.	El conector de SMTP aparecerá en la sección "Aplicaciones de API de este grupo de recursos" en la galería, en el lado derecho. Selecciónelo: ![][4]
+1.	Creación de una nueva aplicación lógica: 
+	![][2]
+2.	Abra **Desencadenadores y acciones** para abrir el diseñador de Aplicaciones lógicas y configurar el flujo de trabajo: 
+	![][3]
+3.	El conector de SMTP aparecerá en la sección "Aplicaciones de API de este grupo de recursos" en la galería, en el lado derecho. Selecciónelo: 
+	![][4]
 4.	Seleccione el conector de SMTP para agregarlo automáticamente al diseñador de flujo de trabajo.
 
 Ahora puede configurar el conector de SMTP para usarlo en el flujo de trabajo. Seleccione la acción **Enviar correo electrónico** y configure las propiedades de entrada:
 
-	Property | Description
+	Propiedad | Descripción
 	--- | ---
-	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Subject | Enter the subject of the email.
-	Body | Enter body of the email.
-	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
-	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
-	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
+	Para | Escriba la dirección de correo electrónica de los destinatarios. Separe las distintas direcciones de correo electrónico con puntos y comas (;). Por ejemplo, escriba: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Escriba la dirección de correo electrónica de los destinatarios. Separe varias direcciones de correo electrónico mediante un punto y coma (;). Por ejemplo, escriba: *recipient1@domain.com;recipient2@domain.com*.
+	Asunto | Especifique el asunto del correo electrónico.
+	Cuerpo | Escriba el cuerpo del correo electrónico.
+	Es HTML | Si esta propiedad está establecida en true, el contenido del cuerpo se envía como HTML.
+	Bcc | Especifique la dirección de correo electrónico de los destinatarios para la copia de carbón oculta. Separe varias direcciones de correo electrónico mediante un punto y coma (;). Por ejemplo, escriba: *recipient1@domain.com;recipient2@domain.com*.
+	Importancia | Especifique la importancia del correo electrónico. Las opciones son Normal, Baja y Alta.
+	Datos adjuntos | Datos adjuntos que se deben enviar con el correo electrónico. Contiene los campos siguientes: Contiene los campos siguientes:<ul><li>Contenido (String)</li><li>Codificación de trasferencia de contenido (Enum) (“none”|”base64”)</li><li>Tipo de contenido (String)</li><li>ID de contenido (String)</li><li>Nombre de archivo (String)</li></ul>
 
-![][5] ![][6]
+![][5] 
+![][6]
 
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)

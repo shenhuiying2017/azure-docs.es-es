@@ -27,7 +27,7 @@ Este artículo le guiará por el proceso con el modelo de implementación del Ad
 
 Si las redes virtuales se crearon con el modelo de implementación clásica, vea [Creación de una conexión de red virtual a red virtual](virtual-networks-configure-vnet-to-vnet-connection.md). El modelo de implementación clásica permite conectar redes virtuales que residen en distintas suscripciones.
 
-Si quiere conectar una red virtual creada en el modelo de implementación clásica a una red virtual creada con el modelo del Administrador de recursos de Azure, vea [Conexión de redes virtuales clásicas a nuevas redes virtuales](../virtual-network/virtual-networks-arm-asm-s2s.md).
+>[AZURE.NOTE] Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información acerca de los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 

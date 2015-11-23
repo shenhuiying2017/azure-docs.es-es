@@ -514,10 +514,15 @@ También puede crear un servicio vinculado de SQL Server mediante la hoja de Ser
 7.	En la hoja **Credenciales**, haga clic en la opción **Haga clic aquí para establecer las credenciales**.
 8.	En el cuadro de diálogo **Establecer credenciales**, realice lo siguiente:
 
-	![Cuadro de diálogo Establecer credenciales](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. Seleccione la **autenticación** que desea que use el servicio Factoría de datos para conectarse a la base de datos. 2. Escriba el nombre del usuario que tiene acceso a la base de datos para el valor **NOMBRE DE USUARIO**. 3. Escriba la contraseña para el usuario para el valor **CONTRASEÑA**. 4. Haga clic en **Aceptar** para cerrar el cuadro de diálogo. 
+	![Cuadro de diálogo Establecer credenciales](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+	1.	Seleccione la **autenticación** que desea que use el servicio Factoría de datos para conectarse a la base de datos. 
+	2.	Escriba el nombre del usuario que tiene acceso a la base de datos para el valor **NOMBRE DE USUARIO**. 
+	3.	Escriba la contraseña para el usuario para el valor **CONTRASEÑA**. 
+	4.	Haga clic en **Aceptar** para cerrar el cuadro de diálogo.  
 4. Haga clic en **Aceptar** para cerrar la hoja **Credenciales**. 
 5. Haga clic en **Aceptar** en la hoja **Nuevo almacén de datos**. 	
-6. Confirme que el estado de **SqlServerLinkedService** está establecido en En línea en la hoja Servicios vinculados. ![Estado del servicio vinculado de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. Confirme que el estado de **SqlServerLinkedService** está establecido en En línea en la hoja Servicios vinculados.
+	![Estado del servicio vinculado de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 Si tiene acceso al portal desde un equipo diferente del equipo de la puerta de enlace, debe asegurarse de que la aplicación del Administrador de credenciales puede conectarse al equipo de la puerta de enlace. Si la aplicación no puede ponerse en contacto con el equipo de la puerta de enlace, no podrá establecer las credenciales del origen de datos ni probar la conexión al origen de datos.
 
@@ -589,7 +594,8 @@ Puede quitar una puerta de enlace con el cmdlet **Remove-AzureDataFactoryGateway
 ## Flujo de datos de copia mediante Data Management Gateway
 Al usar una actividad de copia en una canalización de datos para introducir datos locales en la nube para su posterior procesamiento, o bien exportar los datos de resultados en la nube de nuevo a un almacén de datos local, la actividad de copia usa internamente una puerta de enlace para transferir los datos de origen de un origen de datos local a la nube y viceversa.
 
-A continuación se muestra el flujo de datos de alto nivel y el resumen de los pasos para copiar con una puerta de enlace de datos: ![Flujo de datos mediante la puerta de enlace](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+A continuación se muestra el flujo de datos de alto nivel y el resumen de los pasos para copiar con una puerta de enlace de datos:
+![Flujo de datos mediante la puerta de enlace](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	El desarrollador de datos crea una nueva puerta de enlace para una Factoría de datos de Azure mediante el [Portal de Azure](http://portal.azure.com) o un [cmdlet de PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	El desarrollador de datos usa el panel "Servicios vinculado" para definir un nuevo servicio vinculado para un almacén de datos local con la puerta de enlace. Como parte de la configuración de los datos de servicios vinculados el desarrollador usa la aplicación Establecer credenciales, como se muestra en el tutorial paso a paso para especificar las credenciales y los tipos de autenticación. El cuadro de diálogo de la aplicación Establecer credenciales se comunicará con el almacén de datos para probar la conexión y la puerta de enlace para guardar las credenciales.
