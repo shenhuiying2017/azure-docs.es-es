@@ -43,6 +43,8 @@ AMQP 1.0 es un protocolo de mensajes a nivel de red, confiable y eficaz que se p
 
 ## AMQP 1.0 es un Estándar (con mayúscula)
 
+AMQP 1.0 es un estándar internacional, aprobado por ISO e IEC como ISO/IEC 19464:2014.
+
 AMQP 1.0 lo ha estado desarrollando desde 2008 un grupo central de 20 compañías, tanto proveedores de tecnología como empresas usuarias. Durante este tiempo, las empresas usuarias han contribuido con sus requisitos empresariales del mundo real y los proveedores de tecnología han hecho evolucionar el protocolo para cumplir con estos requisitos. Durante el proceso, los proveedores han participado en talleres, en los que han colaborado para validar la interoperabilidad entre sus implementaciones.
 
 En octubre de 2011, el trabajo de desarrollo pasó a un Comité técnico dentro de la Organización para el Avance de Estándares de Información Estructurados (OASIS), y el estándar OASIS AMQP 1.0 se publicó en octubre de 2012. Las empresas siguientes participaron en el Comité técnico durante el desarrollo del estándar:
@@ -105,4 +107,4 @@ En este momento las siguientes bibliotecas de cliente están trabajando con el B
 [Instalación de Apache Qpid Proton-C en una máquina virtual Linux de Azure]: service-bus-amqp-apache.md
 [AMQP de Bus de servicio para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción a Búsqueda de Azure | Microsoft Azure" 
+	pageTitle="Introducción a Búsqueda de Azure | Microsoft Azure | Servicio de búsqueda hospedado en la nube" 
 	description="Introducción a Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -378,4 +378,4 @@ Si necesita un actualizador sobre dónde buscar las páginas de configuración, 
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

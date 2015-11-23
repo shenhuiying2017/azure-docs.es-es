@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Conectar la Base de datos SQL de Azure para la Búsqueda de Azure con indexadores | Microsoft Azure" 
+	pageTitle="Conectar la Base de datos SQL de Azure para la Búsqueda de Azure con indizadores | Microsoft Azure | Servicio de búsqueda hospedado en la nube" 
 	description="Obtenga información sobre cómo extraer datos de la base de datos SQL de Azure en un índice de Búsqueda de Azure mediante el uso de indizadores." 
 	services="search" 
 	documentationCenter="" 
@@ -279,4 +279,4 @@ R: Sí. El indizador se ejecuta en uno de los nodos del servicio de búsqueda, y
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

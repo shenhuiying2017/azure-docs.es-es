@@ -30,7 +30,7 @@ Consulte nuestra [Guía de solución de problemas](active-directory-ds-troublesh
 No. Solo se puede crear un único dominio atendido por Servicios de dominio de Azure AD para un único directorio de Azure AD.
 
 #### ¿Puedo hacer que Servicios de dominio de Azure AD esté disponible en varias redes virtuales dentro de mi suscripción?
-El propio servicio no admite directamente este escenario. Servicios de dominio de Azure AD está disponible solo en una red virtual en cada momento. Sin embargo, puede configurar la conectividad entre varias redes virtuales con el fin de exponer Servicios de dominio de Azure AD a otras redes virtuales. Este artículo describe cómo puede [conectar redes virtuales en Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnetconnection.md).
+El propio servicio no admite directamente este escenario. Servicios de dominio de Azure AD está disponible solo en una red virtual en cada momento. Sin embargo, puede configurar la conectividad entre varias redes virtuales con el fin de exponer Servicios de dominio de Azure AD a otras redes virtuales. Este artículo describe cómo puede [conectar redes virtuales en Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 #### ¿Puedo habilitar Servicios de dominio de Azure AD mediante PowerShell?
 PowerShell y la implementación automatizada de Servicios de dominio de Azure AD no están disponible actualmente.
@@ -68,4 +68,4 @@ Consulte nuestra [página de regiones](active-directory-ds-regions.md) para obte
 #### ¿Cuándo está disponible Servicios de dominio de Azure AD con carácter general?
 Actualmente no podemos compartir escalas de tiempo sobre cuándo estará disponible el servicio con carácter general.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

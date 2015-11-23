@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="11/11/2015"
 	ms.author="genli"/>
 
 # Adición o cambio del coadministrador, el administrador de servicios y el administrador de cuenta de Azure
@@ -39,7 +39,11 @@ Se puede agregar la siguiente dirección de correo electrónico como coadministr
 * **Cuenta Microsoft** (anteriormente Windows Live ID) </br> Puede usar una cuenta Microsoft para iniciar sesión en todos los productos y servicios en la nube de Microsoft orientados al consumidor, como Outlook (Hotmail), Skype (MSN), OneDrive, Windows Phone y Xbox LIVE.
 * **Cuenta de organización**</br> Una cuenta de organización es una cuenta que se crea en Azure Active Directory. La dirección de la cuenta de organización se parece a esta: usuario@<your domain>.onmicrosoft.com.
 
-**Nota**: *si ha iniciado sesión con una cuenta Microsoft, solo puede agregar otras cuentas Microsoft como coadministrador. Se trata de una consideración de seguridad para evitar que las cuentas que no son de organización detecten si determinadas cuentas (p. ej. janedoe@contoso.com) son válidas. * Si ha iniciado sesión con una cuenta de organización, puede agregar otras cuentas de organización a su organización como coadministrador. Por ejemplo, abby@contoso.com puede agregar bob@contoso.com como administrador de servicios o coadministrador, pero no puede agregar john@notcontoso.com. Los usuarios que iniciaron sesión con cuentas de organización pueden seguir agregando usuarios de cuentas Microsoft como administrador de servicios o coadministrador. * Ahora que es posible iniciar sesión en Azure con una cuenta de organización, estos son los cambios en los requisitos de la cuenta de administrador de servicios y coadministrador:
+**Nota:**
+
+ * Si ha iniciado sesión con una cuenta Microsoft, solo puede agregar otras cuentas Microsoft como coadministrador. Es una consideración de seguridad para evitar que se detecten las cuentas no organizativas si algunas cuentas (por ejemplo, janedoe@contoso.com) son válidas.
+ * Si ha iniciado sesión con una cuenta organizativa, puede agregar otras cuentas organizativas de su organización como coadministrador. Por ejemplo, abby@contoso.com puede agregar bob@contoso.com como administrador de servicios o coadministrador, pero no puede agregar john@notcontoso.com. Los usuarios que han iniciado sesión con cuentas organizativas pueden continuar agregando usuarios de cuentas de Microsoft como coadministradores o administradores de servicios.
+ * Ahora que es posible iniciar sesión en Azure con una cuenta profesional, estos son los cambios en los requisitos de la cuenta de administrador de servicios y coadministrador:
 
 | Método de inicio de sesión| ¿Agregar una cuenta Microsoft como coadministrador o administrador de servicios? |¿Agregar una cuenta de organización de la misma organización como coadministrador o administrador de servicios? |¿Agregar una cuenta de organización de una organización diferente como coadministrador o administrador de servicios?
 | ------------- | ------------- |---------------|---------------|
@@ -55,8 +59,8 @@ Solo el administrador de cuenta puede cambiar el administrador de servicios de u
 
 4. En el cuadro **ADMINISTRADOR DE SERVICIOS**, escriba la dirección de correo electrónico del nuevo administrador de servicios. ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
-## Cambio del administrador de cuenta (transferencia de la propiedad de la cuenta de Azure a otra cuenta)
+## Cambie el administrador de cuenta
 
-Para transferir la propiedad de la cuenta de Azure a otra cuenta, consulte [Transferencia de una suscripción de Azure](../billing-subscription-transfer.md).
+Para transferir la propiedad de la cuenta de Azure a otra cuenta, consulte [Transferencia de suscripciones de Azure](../billing-subscription-transfer.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

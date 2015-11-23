@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Uso del conector de OneDrive en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
 	description="Creación y configuración del conector de OneDrive o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
-	authors="anuragdalmia"
+	authors="rajeshramabathiran"
 	manager="dwrede"
 	editor=""
 	services="app-service\logic"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+	ms.date="11/11/2015"
+	ms.author="rajram"/>
 
 # Introducción al conector de OneDrive y su incorporación a su aplicación lógica
 Conéctese a su OneDrive para cargar, descargar y eliminar archivos. Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. Puede agregar el conector de OneDrive a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
@@ -26,13 +26,7 @@ Para usar el conector de OneDrive, deberá crear primero una instancia de la apl
 2.	En "Todo", busque "Conector de OneDrive".
 3.	Configure el conector de OneDrive de la siguiente forma:
 
-	![][1]
-	- **Nombre**: asigne un nombre al conector de OneDrive.
-	- **Plan del Servicio de aplicaciones**: seleccione o cree un plan del Servicio de aplicaciones.
-	- **Nivel de precios**: elija un nivel de precios para el conector.
-	- **Grupo de recursos**: seleccione o cree un grupo de recursos donde debe residir el conector.
-	- **Suscripción**: elija la suscripción en la que desea crear el conector.
-	- **Ubicación**: elija la ubicación geográfica donde desea que se implemente el conector.
+	![][1] - **Nombre**: asigne un nombre al conector de OneDrive. - **Plan del Servicio de aplicaciones**: seleccione o cree un plan del Servicio de aplicaciones. - **Nivel de precios**: elija un nivel de precios para el conector. - **Grupo de recursos**: seleccione o cree un grupo de recursos donde debe residir el conector. - **Suscripción**: elija la suscripción en la que desea crear el conector. - **Ubicación**: elija la ubicación geográfica donde desea que se implemente el conector.
 
 4. Haga clic en Crear. Se creará un nuevo conector de OneDrive.
 5. Una vez creada la instancia de aplicación de la API, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de OneDrive.
@@ -49,8 +43,7 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de OneDriv
 	![][2]
 4.	Puede quitar la aplicación de la API del conector de OneDrive en el editor haciendo clic en "Conector de OneDrive". Haga clic en el botón Autorizar. Proporcione la credenciales de Microsoft (si no ha iniciado sesión automáticamente). Haga clic en "Sí" para permitir el acceso.
 
-	![][3]
-	![][4]
+	![][3] ![][4]
 
 5.	Ahora puede usar el conector de OneDrive en el flujo. Actualmente, los desencadenadores no están disponibles en el conector de OneDrive. Las acciones disponibles son: Obtener archivo, Cargar un archivo, Eliminar archivo y Listar archivos.
 
@@ -95,6 +88,6 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 
 <!-- Links -->
 [crear una nueva aplicación lógica]: app-service-logic-create-a-logic-app.md
-[Definición de la API de OneDrive]: https://msdn.microsoft.com/es-es/library/dn974227.aspx
+[Definición de la API de OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

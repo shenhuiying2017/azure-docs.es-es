@@ -1,5 +1,13 @@
-<properties pageTitle="Agregar nodos "burst" a un clúster de HPC Pack | Microsoft Azure" description="Obtener información sobre cómo agregar instancias de rol de trabajo que se ejecutan en un servicio en la nube */*bajo demanda como recursos de proceso en un nodo principal de HPC Pack en Azure." services="virtual-machines" documentationCenter="" authors="dlepow" manager="timlt" editor="" tags="azure-service-management"/>
-<tags 
+<properties
+ pageTitle="Agregar nodos de ráfaga a un clúster de HPC Pack | Microsoft Azure"
+ description="Obtenga información acerca de cómo agregar instancias de rol de trabajo que se ejecutan en un servicio en la nube a petición como recursos de proceso a un nodo principal de HPC Pack de Azure."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="dlepow"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management,hpc-pack"/>
+<tags
 ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
@@ -80,4 +88,4 @@ Si tiene problemas al implementar nodos de Azure, consulte [Solución de problem
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

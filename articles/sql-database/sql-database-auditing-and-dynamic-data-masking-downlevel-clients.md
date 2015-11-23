@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Base de datos SQL: compatibilidad con clientes de nivel inferior para enmascaramiento de datos dinámicos y auditoría | Microsoft Azure" 
-	description="Obtenga información sobre compatibilidad de Base de datos SQL con clientes de nivel inferior para enmascaramiento de datos dinámicos y auditoría." 
+	pageTitle="Compatibilidad de los clientes de nivel inferior de Base de datos SQL para auditoría | Microsoft Azure" 
+	description="Obtenga información acerca de la compatibilidad de clientes de nivel inferior de Base de datos SQL para auditoría." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="nadavhelfman" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="nadavhelfman"/>
+	ms.date="11/12/2015" 
+	ms.author="nadavhelfman; ronitr"/>
  
-# Base de datos SQL: compatibilidad con clientes de nivel inferior para enmascaramiento de datos dinámicos y auditoría 
+# Base de datos SQL: compatibilidad con clientes de nivel inferior para auditoría
 
 
-[Auditoría](sql-database-auditing-get-started.md) y [Enmascaramiento de datos dinámicos](sql-database-dynamic-data-masking-get-started.md) funcionan con los clientes SQL que admiten el redireccionamiento de TDS.
+[Auditoría](sql-database-auditing-get-started.md) funciona automáticamente con los clientes SQL que admiten el redireccionamiento de TDS.
 
 Cualquier cliente que implementa TDS 7.4 también debe admitir el redireccionamiento. Entre las excepciones a esto se incluyen JDBC 4.0, en el que la función de redireccionamiento no es totalmente compatible y Tedious para Node.JS, en cuya redireccionamiento no se ha implementado.
 
@@ -38,6 +38,4 @@ Una lista parcial de "Clientes de nivel inferior" incluye:
 
 **Comentario:** la anterior modificación de FDQN de servidor puede resultar útil también para aplicar una directiva de auditoría de nivel de SQL Server sin necesidad de un paso de configuración en cada base de datos (mitigación temporal).
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

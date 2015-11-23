@@ -62,7 +62,7 @@ En función de los datos de telemetría, calculamos que la confiabilidad actual 
 
 ### Tiempo activo del servicio
 
-Es posible que Almacenamiento de datos SQL de Azure tenga hasta 4 eventos de mantenimiento al mes para la instalación de correcciones críticas. Cada evento puede provocar errores de consulta hasta 2 horas. El tiempo dependerá del número de DWU asignado al servicio. Haremos todo lo posible para notificar estos eventos con 48 horas de anticipación.
+Es posible que Almacenamiento de datos SQL de Azure tenga hasta 4 eventos de mantenimiento al mes para la instalación de correcciones críticas. Cada evento puede provocar errores de consulta hasta 2 horas. El tiempo dependerá del número de DWU asignado al servicio.
 
 
 ## Pasos siguientes
@@ -78,4 +78,4 @@ Es posible que Almacenamiento de datos SQL de Azure tenga hasta 4 eventos de man
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

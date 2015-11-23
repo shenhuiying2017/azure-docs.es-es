@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
  ms.service="virtual-machines"
  ms.devlang="na"
@@ -26,7 +26,7 @@ En este artículo se muestra cómo implementar un clúster de Microsoft HPC Pack
 
 NAMD (siglas del programa Nanoscale Molecular Dynamics) es un paquete de dinámica molecular paralelo diseñado para la simulación de alto rendimiento de sistemas biomoleculares grandes que contienen hasta millones de átomos, como virus, estructuras celulares y proteínas grandes. NAMD se escala a cientos de núcleos en las simulaciones típicas y a más de 500.000 núcleos en las simulaciones de mayor tamaño.
 
-Microsoft HPC Pack proporciona características para ejecutar una variedad de aplicaciones HPC y paralelas a gran escala, incluidas las aplicaciones MPI, en clústeres de máquinas virtuales de Microsoft Azure. A partir de Microsoft HPC Pack 2012 R2, HPC Pack también admite la ejecución de las aplicaciones HPC Linux en máquinas virtuales de nodos de proceso Linux implementadas en un clúster de HPC Pack. Consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-cluster-hpcpack.md) para obtener información básica relativa al uso de los nodos de proceso de Linux con HPC Pack.
+Microsoft HPC Pack proporciona características para ejecutar una variedad de aplicaciones HPC y paralelas a gran escala, incluidas las aplicaciones MPI, en clústeres de máquinas virtuales de Microsoft Azure. A partir de Microsoft HPC Pack 2012 R2 Update 2, HPC Pack también admite la ejecución de las aplicaciones HPC Linux en máquinas virtuales de nodos de proceso Linux implementadas en un clúster de HPC Pack. Consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-cluster-hpcpack.md) para obtener información básica relativa al uso de los nodos de proceso de Linux con HPC Pack.
 
 
 ## Requisitos previos
@@ -78,7 +78,7 @@ Microsoft HPC Pack proporciona características para ejecutar una variedad de ap
 
 
 ## Configuración de la confianza mutua entre nodos de proceso
-Ejecutar un trabajo entre nodos en varios nodos de Linux requiere que los nodos confíen entre sí (por **rsh** o **ssh**). Al crear el clúster de HPC Pack con el script de implementación IaaS de Microsoft HPC Pack, el script establece automáticamente una confianza mutua permanente con la cuenta de administrador que especifique. Para los usuarios sin privilegios de administrador que ha creado en el dominio del clúster, tiene que configurar la confianza mutua temporal entre los nodos cuando se les asigna un trabajo y destruir la relación una vez completado el trabajo. Para hacerlo para cada usuario, proporcione un par de claves RSA al clúster que usa HPC Pack para establecer la relación de confianza.
+Ejecutar un trabajo de entre nodos en varios nodos de Linux requiere que los nodos confíen entre sí (por **rsh** o **ssh**). Al crear el clúster de HPC Pack con el script de implementación IaaS de Microsoft HPC Pack, el script establece automáticamente una confianza mutua permanente con la cuenta de administrador que especifique. Para los usuarios sin privilegios de administrador que ha creado en el dominio del clúster, tiene que configurar la confianza mutua temporal entre los nodos cuando se les asigna un trabajo y destruir la relación una vez completado el trabajo. Para hacerlo para cada usuario, proporcione un par de claves RSA al clúster que usa HPC Pack para establecer la relación de confianza.
 
 ### Generación de un par de claves RSA
 Es fácil generar un par de claves RSA, con clave pública y clave privada, mediante la ejecución del comando de Linux **ssh keygen**.
@@ -129,9 +129,9 @@ Es fácil generar un par de claves RSA, con clave pública y clave privada, medi
 
 Ahora configure un recurso compartido SMB estándar en una carpeta en el nodo principal y monte la carpeta compartida en todos los nodos de Linux para permitir que los nodos de Linux tengan acceso a los archivos NAMD con una ruta de acceso común. Consulte las opciones y los pasos de uso compartido de archivos en [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-cluster-hpcpack.md). (En este artículo, se recomienda montar una carpeta compartida en el nodo principal porque los nodos de Linux de CentOS 6.6 no son compatibles con el servicio Archivo de Azure, que ofrece funciones similares. Para obtener más información sobre el montaje de un recurso compartido de Archivo de Azure, consulte [Persistencia de conexiones en archivos de Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
-1.	Cree una carpeta en el nodo principal y compártala con todos los usuarios estableciendo privilegios de lectura y escritura. En este ejemplo, \\\CentOS66HN\\Namd es el nombre de la carpeta, donde CentOS66HN es el nombre de host del nodo principal.
+1.	Cree una carpeta en el nodo principal y compártala con todos los usuarios estableciendo privilegios de lectura y escritura. En este ejemplo, \\CentOS66HN\\Namd es el nombre de la carpeta, donde CentOS66HN es el nombre de host del nodo principal.
 
-2. Extraiga los archivos NAMD de la carpeta mediante una versión de Windows de **tar** o cualquier otra utilidad de Windows que funcione con archivos .tar. Extraiga el archivo tar NAMD en \\\CentOS66HN\\Namd\\namd2 y extraiga los archivos del tutorial en \\\CentOS66HN\\Namd\\namd2\\namdsample.
+2. Extraiga los archivos NAMD de la carpeta mediante una versión de Windows de **tar** o cualquier otra utilidad de Windows que funcione con archivos .tar. Extraiga el archivo tar NAMD en \\CentOS66HN\\Namd\\namd2 y extraiga los archivos del tutorial en \\CentOS66HN\\Namd\\namd2\\namdsample.
 
 2.	Abra una ventana de Windows PowerShell y ejecute los siguientes comandos para montar la carpeta compartida.
 
@@ -302,7 +302,7 @@ Ahora está listo para enviar un trabajo NAMD en el administrador de clústeres 
 
 6.	El trabajo tarda varios minutos en finalizar.
 
-7.	Encuentre el registro del trabajo en \<headnodeName>\\Namd\\namd2\\namd2\_hpccharmrun.log y los archivos de salida en \<headnode>\\Namd\\namd2\\namdsample\\1-2-sphere.
+7.	Encuentre el registro del trabajo en <headnodeName>\\Namd\\namd2\\namd2\_hpccharmrun.log y los archivos de salida en <headnode>\\Namd\\namd2\\namdsample\\1-2-sphere.
 
 8.	Si lo desea, inicie VMD para ver los resultados del trabajo. Los pasos para visualizar los archivos de salida de NAMD (en este caso, una molécula de proteína ubiquitina en una esfera de agua) quedan fuera del ámbito de este artículo. Consulte el [tutorial de NAMD](http://www.life.illinois.edu/emad/biop590c/namd-tutorial-unix-590C.pdf) para obtener más información.
 
@@ -408,4 +408,4 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 [task_details]: ./media/virtual-machines-linux-cluster-hpcpack-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-cluster-hpcpack-namd/vmd_view.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

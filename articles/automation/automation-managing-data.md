@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="11/02/2015"
    ms.author="bwren;sngun" />
 
 # Administración de datos de Automatización de Azure
@@ -34,6 +34,9 @@ La tabla siguiente resume la directiva de retención para distintos recursos.
 |Módulos|Se quitan de manera permanente 90 días después de que un usuario elimina el módulo o 90 días después de que un usuario elimina la cuenta que contiene el módulo.|
 |Runbooks|Se quitan de manera permanente 90 días después de que un usuario elimina el recurso o 90 días después de que un usuario elimina la cuenta que contiene el recurso.|
 |Trabajos|Se eliminan y quitan de manera permanente 90 días después de la última modificación. Esto puede ser después de completar, detener o suspender el trabajo.|
+|Configuraciones de nodo y archivos MOF| La configuración de nodo anterior se quita de forma permanente 90 días después de que se genere una nueva configuración.|
+|Nodos de DSC| Se quitan de forma permanente 90 días después de que se anule el registro del nodo de la cuenta de Automatización mediante el Portal de Azure o el cmdlet [Unregister-AzureRMAutomationDscNode](https://msdn.microsoft.com/library/mt603500.aspx) de Windows PowerShell. Los nodos también se quitan permanentemente 90 días después de que el usuario elimina la cuenta que contiene el nodo. |
+|Informes de nodo| Se quitan de forma permanente 90 días después de que se genere un nuevo informe para ese nodo.|
 
 La directiva de retención se aplica a todos los usuarios y, por el momento, no se puede personalizar.
 
@@ -60,6 +63,11 @@ No es posible recuperar el valor de variables cifradas o del campo de contraseñ
 
 No es posible exportar certificados desde Automatización de Azure. Debe asegurarse de que todos los certificados estén disponibles fuera de Azure.
 
+### Configuraciones DSC
+
+Puede exportar las configuraciones a archivos de script con el Portal de administración de Azure o con el cmdlet [Get-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) en Windows PowerShell. Estas configuraciones se pueden importar y usar en otra cuenta de automatización.
+
+
 ##Replicación geográfica en Automatización de Azure
 
 La replicación geográfica, una función estándar de las cuentas de Automatización de Azure, realiza una copia de seguridad de los datos de la cuenta en una región geográfica diferente con fines de redundancia. Puede elegir una región primaria al configurar la cuenta, y entonces se le asigna automáticamente a esta una región secundaria. Los datos secundarios, copiados de la región primaria, se actualizan continuamente en caso de pérdida de los datos.
@@ -76,4 +84,4 @@ La siguiente tabla muestra los emparejamientos de la región primaria y secundar
 
 En el improbable caso de que se pierdan datos de una región primaria, Microsoft intenta recuperarlos. Cuando no es posible recuperar los datos principales, se lleva a cabo la conmutación por error geográfica y se notificará a los clientes afectados al respecto a través de su suscripción.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

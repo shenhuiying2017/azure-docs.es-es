@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure | Microsoft Azure"
-	description="Información sobre el uso del Almacenamiento Premium de Azure para discos Aprenda a crear una cuenta de Almacenamiento Premium."
+	description="Almacenamiento premium ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S que se ejecutan en máquinas virtuales de Azure. La serie DS de Azure y las máquinas virtuales de la serie GS admiten el Almacenamiento premium."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
-	manager="carolz"
+	authors="ms-prkhad"
+	manager=""
 	editor="tysonn"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="11/04/2015"
 	ms.author="tamram;selcint"/>
 
 
@@ -21,15 +21,13 @@
 
 ## Información general
 
-Bienvenido a **Discos de almacenamiento premium de Azure** para tener unas máquinas virtuales más rápidas.
+Almacenamiento premium de Azure ofrece soporte de disco de alto rendimiento y latencia baja para máquinas virtuales con cargas de trabajo intensivas de E/S. Discos de máquinas virtuales que usan datos de almacén de Almacenamiento premium en unidades de estado sólido (SSD). Puede migrar los discos de máquina virtual de su aplicación al Almacenamiento premium de Azure para aprovechar la velocidad y rendimiento de estos discos.
 
-Con la introducción del Almacenamiento premium, Microsoft Azure ahora ofrece dos tipos de almacenamiento duradero: **Almacenamiento premium** y **Almacenamiento estándar**. Almacenamiento premium almacena datos en unidades de estado sólido (SSD) de última tecnología, mientras que el Almacenamiento estándar almacena los datos en unidades de disco duro (HDD).
+Una máquina virtual de Azure admite la conexión de varios discos de Almacenamiento premium para que las aplicaciones puedan disponer de hasta 64 TB de almacenamiento por máquina virtual. Con Almacenamiento premium, las aplicaciones pueden tener hasta 80.000 E/S por segundo (operaciones de entrada/salida por segundo) por VM, así como un rendimiento del disco de 2000 MB por segundo por VM con latencias extremadamente bajas para operaciones de lectura.
 
-Almacenamiento premium ofrece soporte de disco de alto rendimiento y latencia baja para cargas de trabajo intensivas de E/S que se ejecutan en máquinas virtuales de Azure. Puede adjuntar varios discos de Almacenamiento premium a una máquina virtual (VM). Con Almacenamiento premium, las aplicaciones pueden tener hasta 64 TB de almacenamiento por VM y logran 80.000 E/S por segundo (operaciones de entrada/salida por segundo) por VM, así como un rendimiento del disco de 2000 MB por segundo por VM con latencias extremadamente bajas para operaciones de lectura.
+>[AZURE.NOTE]Se recomienda migrar cualquier disco de máquina virtual que requiera un número elevado de operaciones de entrada/salida por segundo al Almacenamiento premium de Azure para mejorar el rendimiento de la aplicación. Si el disco no requiere un número elevado de operaciones de entrada/salida por segundo, puede limitar los costos mediante el mantenimiento del almacenamiento estándar, que almacena los datos de disco de máquina virtual en unidades de disco duro (HDD) en lugar de SSD.
 
-Para empezar a usar Almacenamiento premium de Azure, visite la página [Empiece de forma gratuita](http://azure.microsoft.com/pricing/free-trial/).
-
-Este artículo proporciona información general detallada del Almacenamiento premium de Azure.
+Para empezar a usar Almacenamiento premium de Azure, visite la página [Empiece de forma gratuita](http://azure.microsoft.com/pricing/free-trial/). Para obtener información sobre cómo migrar las máquinas virtuales existentes al Almacenamiento premium, consulte [Migrar a Almacenamiento premium de Azure](storage-migration-to-premium-storage.md).
 
 ## Cosas importantes acerca del Almacenamiento premium
 
@@ -60,6 +58,8 @@ Puede usar Almacenamiento premium para discos de una de las siguientes maneras:
 - Cree una nueva VM de serie DS o GS. Al crear la máquina virtual, puede seleccionar una cuenta de Almacenamiento premium creada anteriormente, crear una nueva o dejar que el Portal de Azure cree una cuenta premium de manera predeterminada.
 
 Azure usa la cuenta de almacenamiento como un contenedor para el sistema operativo (SO) y los discos de datos. En otras palabras, si crea una VM de serie DS o GS de Azure y selecciona una cuenta de Almacenamiento premium de Azure, el sistema operativo y los discos de datos se almacenan en dicha cuenta de almacenamiento.
+
+Para obtener información sobre cómo migrar las máquinas virtuales existentes al Almacenamiento premium, consulte [Migrar a Almacenamiento premium de Azure](storage-migration-to-premium-storage.md).
 
 Para aprovechar las ventajas de Almacenamiento premium, cree primero una cuenta de Almacenamiento premium mediante un tipo de cuenta *Premium\_LRS*. Para ello, puede usar el [Portal de vista previa de Microsoft Azure](https://portal.azure.com/), [Azure PowerShell](../install-configure-powershell.md) o la [API de REST de administración del servicio](http://msdn.microsoft.com/library/azure/ee460799.aspx). Para obtener instrucciones detalladas, consulte [Creación y uso de una cuenta de Almacenamiento Premium para discos](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
@@ -203,64 +203,7 @@ Consulte a continuación instrucciones importantes para configurar las máquinas
 - Para discos de Almacenamiento premium con caché de configuración "ReadWrite", deben habilitarse las barreras para la durabilidad de las escrituras.
 - Para que las etiquetas de volumen persistan después de reiniciar la VM, debe actualizar/etc/fstab con las referencias UUID a los discos. Consulte también [Acoplamiento de un disco de datos a una máquina virtual de Linux](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-how-to-attach-disk).
 
-Las siguientes son las distribuciones de Linux que se validan con Almacenamiento premium. Se recomienda actualizar las máquinas virtuales al menos a una de estas versiones (o posteriores) para mejorar el rendimiento y la estabilidad con Almacenamiento premium. Además, algunas de las versiones requieren el LIS más reciente (Linux Integration Services v4.0 para Microsoft Azure). Siga el vínculo proporcionado para su descarga e instalación. Seguiremos agregando más imágenes a la lista según vayamos completando validaciones adicionales. Tenga en cuenta que nuestras validaciones demostraron que el rendimiento varía para estas imágenes y también depende de las características de carga de trabajo y la configuración de las imágenes. Se optimizan diferentes imágenes para distintos tipos de cargas de trabajo. 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> 
-<tbody> 
-<tr> 
-	<td><strong>Distribución</strong></td> 
-	<td><strong>Versión</strong></td> 
-	<td><strong>Kernel admitido</strong></td> 
-	<td><strong>Imagen admitida</strong></td> 
-</tr> 
-<tr> 
-	<td rowspan="4"><strong>Ubuntu</strong></td> 
-	<td>12.04</td> 
-	<td>3.2.0-75.110</td> 
-	<td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-es-es-30GB</td> 
-</tr>
-<tr> 
-	<td>14.04</td> 
-	<td>3.13.0-44.73</td> 
-	<td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-es-es-30GB</td> 
-</tr> 
-<tr> 
-	<td>14.10</td> 
-	<td>3.16.0-29.39</td> 
-	<td>Ubuntu-14\_10-amd64-server-20150202-es-es-30GB</td> 
-</tr> 
-<tr> 
-	<td>15.04</td> 
-	<td>3.19.0-15</td> 
-	<td>Ubuntu-15\_04-amd64-server-20150422-es-es-30GB</td> 
-</tr> 
-<tr> 
-	<td><strong>SUSE</strong></td> 
-	<td>SLES 12</td> 
-	<td>3.12.36-38.1</td> 
-	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> 
-</tr> 
-<tr> 
-	<td><strong>CoreOS</strong></td> 
-	<td>584.0.0</td> 
-	<td>3.18.4</td> 
-	<td>CoreOS 584.0.0</td> 
-</tr> 
-<tr> 
-	<td rowspan="2"><strong>CentOS</strong></td> 
-	<td>6.5, 6.6, 7.0</td> 
-	<td></td> 
-	<td>
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 requerido</a>
-	</td> 
-</tr> 
-<tr>
-	<td>7.1</td>
-	<td>3.10.0-229.1.2.el7</td>
-	<td>
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 4.0 recomendado</a> <br/> 
-		*Vea la nota a continuación 
-	</td> 
-</tr>
+Las siguientes son las distribuciones de Linux que se validan con Almacenamiento premium. Se recomienda actualizar las máquinas virtuales al menos a una de estas versiones (o posteriores) para mejorar el rendimiento y la estabilidad con Almacenamiento premium. Además, algunas de las versiones requieren el LIS más reciente (Linux Integration Services v4.0 para Microsoft Azure). Siga el vínculo proporcionado para su descarga e instalación. Seguiremos agregando más imágenes a la lista según vayamos completando validaciones adicionales. Tenga en cuenta que nuestras validaciones demostraron que el rendimiento varía para estas imágenes y también depende de las características de carga de trabajo y la configuración de las imágenes. Se optimizan diferentes imágenes para distintos tipos de cargas de trabajo. <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>Distribución</strong></td> <td><strong>Versión</strong></td> <td><strong>Kernel admitido</strong></td> <td><strong>Imagen admitida</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-es-ES-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-es-ES-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-es-ES-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-es-ES-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 6.7, 7.0</td> <td></td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 requerido </a> </br> *Vea la nota a continuación </td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 recomendado </a> <br/> *Vea la nota a continuación </td> </tr>
 
 <tr>
 	<td rowspan="2"><strong>Oracle</strong></td>
@@ -273,8 +216,7 @@ Las siguientes son las distribuciones de Linux que se validan con Almacenamiento
 	<td></td>
 	<td>Póngase en contacto con soporte técnico para obtener más información</td>
 </tr>
-</tbody> 
-</table>
+</tbody> </table>
 
 
 ### Controladores de LIS para CentOS Openlogic
@@ -388,17 +330,14 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 ## Pasos siguientes
 
-[Uso de operaciones de servicios BLOB con Almacenamiento premium de Azure](http://go.microsoft.com/fwlink/?LinkId=521969)
-
-[Creación de una máquina virtual que ejecuta Windows](../virtual-machines-windows-tutorial-azure-preview.md)
-
-[Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
-
-[Documentación de almacenamiento](http://azure.microsoft.com/documentation/services/storage/)
-
-[Referencia de MSDN](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- [Uso de operaciones de servicios BLOB con Almacenamiento premium de Azure](http://go.microsoft.com/fwlink/?LinkId=521969)
+- [Migrar a Almacenamiento premium de Azure](storage-migration-to-premium-storage.md).
+- [Creación de una máquina virtual que ejecuta Windows](../virtual-machines-windows-tutorial-azure-preview.md)
+- [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
+- [Documentación de almacenamiento](http://azure.microsoft.com/documentation/services/storage/)
+- [Referencia de MSDN](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

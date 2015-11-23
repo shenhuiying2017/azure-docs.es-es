@@ -20,7 +20,7 @@
 Acciones como supervisar, detectar, diagnosticar y solucionar problemas permite a los servicios continuar con una interrupción mínima de la experiencia del usuario. Para obtener más información, lea:
 
 - [Cómo supervisar y diagnosticar servicios localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
-- [Configuración de Application Insights para su aplicación de Service Fabric](service-fabric-diagnostics-application-insights-setup.md)
+- [Configuración de Application Insights para su aplicación de Service Fabric](../app-insights-windows-desktop.md)
 - [Solucionar problemas de errores de una actualización de aplicación](service-fabric-application-upgrade-troubleshooting.md)
 - [Supervisión de diagnósticos y rendimiento para actores confiables](service-fabric-reliable-actors-diagnostics.md)
 - [Supervisión de diagnósticos y rendimiento para servicios de confianza](service-fabric-reliable-services-diagnostics.md)
@@ -38,4 +38,4 @@ Service Fabric presenta un modelo de estado que ofrece una funcionalidad de eval
 - [Uso de informes de mantenimiento del sistema para solucionar problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Adición de informes de mantenimiento de Service Fabric personalizados](service-fabric-report-health.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

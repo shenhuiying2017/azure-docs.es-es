@@ -67,15 +67,66 @@ Al hacer doble clic en **PartitionedProductsUsageTable** en la vista de diagrama
 
 Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de los siguientes estados:
 
-Estado | Subestado | Descripción
------- | ---------- | -----------
-En espera | ScheduledTime<br/>DatasetDependencies<br/>ComputeResources<br/>ConcurrencyLimit<br/>ActivityResume<br/>Retry<br/>Validation<br/>ValidationRetry | En espera de las condiciones previas que deben cumplirse antes de la ejecución. Consulte el subestado para averiguar lo que espera el segmento.
-En curso | Starting<br/>Configuring<br/>Allocating Resources<br/>Running<br/>Validating | Actualmente, la actividad se ejecuta y genera/valida los datos de un segmento específico.
-Con error | | Error de procesamiento del sector. Consulte los registros de errores para averiguar la causa del error.
-Ready | | El procesamiento del segmento se realizó correctamente. El segmento está listo para su uso.
-Skip | | No se debe procesar este segmento.
+<table>
+<tr>
+	<th align="left">Estado</th><th align="left">Subestado</th><th align="left">Descripción</th>
+</tr>
+<tr>
+	<td rowspan="8">En espera</td><td>ScheduleTime</td><td>No ha llegado la hora para que se ejecute el sector.</td>
+</tr>
+<tr>
+<td>DatasetDependencies</td><td>Las dependencias de nivel superior no están listas.</td>
+</tr>
+<tr>
+<td>ComputeResources</td><td>No están disponibles los recursos de proceso.</td>
+</tr>
+<tr>
+<td>ConcurrencyLimit</td> <td>Todas las instancias de actividad están ocupadas con la ejecución de otros sectores.</td>
+</tr>
+<tr>
+<td>ActivityResume</td><td>La actividad está en pausa y no puede ejecutar los sectores hasta que se reanude.</td>
+</tr>
+<tr>
+<td>Retry</td><td>Se volverá a intentar la ejecución de la actividad.</td>
+</tr>
+<tr>
+<td>Validation</td><td>Aún no ha iniciado la validación.</td>
+</tr>
+<tr>
+<td>ValidationRetry</td><td>En espera de que se vuelva a intentar la validación.</td>
+</tr>
+<tr>
+&lt;tr
+<td rowspan="2">InProgress</td><td>Validating</td><td>Validación en curso.</td>
+</tr>
+<td></td>
+<td>El segmento se está procesando.</td>
+</tr>
+<tr>
+<td rowspan="4">Con error</td><td>TimedOut</td><td>La ejecución tardó más tiempo del permitido por la actividad.</td>
+</tr>
+<tr>
+<td>Canceled</td><td>Cancelado por acción del usuario.</td>
+</tr>
+<tr>
+<td>Validación</td><td>Error de validación.</td>
+</tr>
+<tr>
+<td></td><td>No se pudo generar o validar el segmento.</td>
+</tr>
+<td>Ready</td><td></td><td>El segmento está listo para su uso.</td>
+</tr>
+<tr>
+<td>Skipped</td><td></td><td>El segmento no se procesó.</td>
+</tr>
+<tr>
+<td>None</td><td></td><td>Un segmento que existía con un estado distinto, pero se ha restablecido.</td>
+</tr>
+</table>
 
-Para ver los detalles de un segmento, haga clic en la hoja **Segmentos actualizados recientemente**.
+
+
+Puede ver los detalles sobre un segmento haciendo clic en la hoja **Segmentos actualizados recientemente**.
 
 ![Detalles de segmento](./media/data-factory-monitor-manage-pipelines/slice-details.png)
  
@@ -386,7 +437,7 @@ Una vez guardadas, las métricas pueden tardar hasta una hora en estar visibles 
 
 Para configurar alertas en métricas, haga clic en la secuencia siguiente de la hoja Factoría de datos: **Supervisión** -> **Métrica** -> **Agregar alerta** -> **Agregar una regla de alerta**.
 
-Rellene los detalles de la regla de alerta, especifique los correos electrónicos y haga clic en **Aceptar**.
+Rellene los detalles de la regla de alerta, especifique los correos electrónicos y haga clic en**Aceptar**.
 
 
 ![Configuración de alerta en métricas](./media/data-factory-monitor-manage-pipelines/setting-up-alerts-on-metrics.png)
@@ -471,8 +522,4 @@ Debería ver el siguiente mensaje después de la implementación correcta:
 	Parameters        :
 	Outputs           
 
-
-## Enviar comentarios
-Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md).
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

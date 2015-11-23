@@ -17,7 +17,9 @@
     ms.author="ddove;sidneyh"/>
 
 # Glosario de las herramientas de bases de datos elásticas
-Los siguientes términos se definen para las [herramientas de Base de datos elástica](sql-database-elastic-scale-introduction.md), una característica de Base de datos SQL de Azure. Las herramientas incluyen la [biblioteca de cliente](sql-database-elastic-database-client-library.md), la [herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md), los [grupos elásticos](sql-database-elastic-pool.md) y las [consultas](sql-database-elastic-query-overview.md).
+Los siguientes términos se definen para las [herramientas de Base de datos elástica](sql-database-elastic-scale-introduction.md), una característica de Base de datos SQL de Azure. Las herramientas se usan para administrar [mapas de particiones](sql-database-elastic-scale-shard-map-management.md) e incluyen la [biblioteca de cliente](sql-database-elastic-database-client-library.md), la [herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md), los [grupos elásticos](sql-database-elastic-pool.md) y las [consultas](sql-database-elastic-query-overview.md).
+
+Estos términos se usan en [Incorporación de una partición con herramientas de bases de datos elásticas](sql-database-elastic-scale-add-a-shard.md) y [Uso de la clase RecoveryManager para solucionar problemas de asignaciones de particiones](sql-database-elastic-database-recovery-manager.md).
 
 ![Términos de Escalado elástico][1]
 
@@ -80,4 +82,4 @@ Los siguientes términos se definen para las [herramientas de Base de datos elá
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

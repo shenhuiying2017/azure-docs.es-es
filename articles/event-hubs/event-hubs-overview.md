@@ -132,7 +132,7 @@ La capacidad de procesamiento de los Centros de eventos se controla mediante uni
 
 - Salida: hasta 2 MB por segundo.
 
-La entrada está limitada a la cantidad de capacidad que ofrece el número de unidades de procesamiento adquiridas. El envío de datos por encima de esta cantidad provoca una excepción de "cuota superada". Esta cantidad es de 1 MB por segundo o 1000 eventos por segundo, lo que ocurra primero. La salida no produce excepciones de limitación, pero está limitada a la cantidad de transferencia de datos que ofrecen las unidades de procesamiento adquiridas: 2 MB por segundo por unidad de procesamiento. Si recibe excepciones de tasa de publicación o espera ver una salida superior, compruebe cuántas unidades de procesamiento adquirió para el espacio de nombres en que se creó el Centro de eventos. Para obtener más unidades de procesamiento, puede ajustar la configuración en la página **Espacios de nombres**, en la pestaña **Escala** del Portal de administración de Azure. También puede cambiar esta configuración mediante las API de Azure.
+La entrada está limitada a la cantidad de capacidad que ofrece el número de unidades de procesamiento adquiridas. El envío de datos por encima de esta cantidad provoca una excepción de "cuota superada". Esta cantidad es de 1 MB por segundo o 1000 eventos por segundo, lo que ocurra primero. La salida no produce excepciones de limitación, pero está limitada a la cantidad de transferencia de datos que ofrecen las unidades de procesamiento adquiridas: 2 MB por segundo por unidad de procesamiento. Si recibe excepciones de tasa de publicación o espera ver una salida superior, compruebe cuántas unidades de procesamiento adquirió para el espacio de nombres en que se creó el Centro de eventos. Para obtener más unidades de procesamiento, puede ajustar la configuración en la página **Espacios de nombres**, en la pestaña **Escala** del Portal de Azure. También puede cambiar esta configuración mediante las API de Azure.
 
 Aunque las particiones son un concepto de organización de datos, las unidades de procesamiento son puramente un concepto de capacidad. Las unidades de procesamiento se facturan por hora y se adquieren previamente. Cuando se adquieren, las unidades de procesamiento se facturan durante un período mínimo de una hora. Se pueden adquirir hasta 20 unidades de procesamiento para un espacio de nombres del Bus de servicio y hay un límite de cuenta de Azure de 20 unidades de procesamiento. Estas unidades de procesamiento se comparten entre todos los Centros de eventos de un espacio de nombres determinado.
 
@@ -167,4 +167,4 @@ Ahora que ha aprendido conceptos sobre los Centros de eventos, puede continuar c
 [solución de mensajería en cola]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

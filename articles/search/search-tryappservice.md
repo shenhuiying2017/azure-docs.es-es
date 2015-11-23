@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Prueba del Servicio de aplicaciones de Azure con Búsqueda de Azure | Microsoft Azure" 
+   pageTitle="Prueba del Servicio de aplicaciones de Azure con Búsqueda de Azure | Microsoft Azure | Servicio de búsqueda hospedado en la nube" 
    description="Pruebe gratis Búsqueda de Azure, un servicio de búsqueda hospedado en la nube, hasta una hora, usando la plantilla TryAzureAppService." 
    services="search" 
    documentationCenter="" 
@@ -529,4 +529,4 @@ La siguiente captura de pantalla muestra el esquema usado para crear el índice 
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

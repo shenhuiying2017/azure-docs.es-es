@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags 
    ms.service="application-gateway"
@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/03/2015"
+   ms.date="11/09/2015"
    ms.author="joaoma"/>
 
 # ¿Qué es una Puerta de enlace de aplicaciones?
@@ -52,9 +52,10 @@ El equilibrio de carga de nivel 7 HTTP es útil para:
 
 Puerta de enlace de aplicaciones actualmente se ofrece en 3 tamaños: pequeño, mediano y grande. Tamaños pequeños de instancia están pensados para escenarios de desarrollo y pruebas.
 
-Puede crear hasta 10 puertas de enlace de aplicaciones por suscripción y cada una de esas puerta de enlace puede tener un máximo de 10 instancias. El equilibrio de carga de Puerta de enlace de aplicaciones como servicio administrado de Azure permite el aprovisionamiento de un equilibrador de carga de nivel 7 detrás del equilibrador de carga de software de Azure.
+Puede crear hasta 50 puertas de enlace de aplicaciones por suscripción y cada una de esas puertas de enlace puede tener un máximo de 10 instancias. El equilibrio de carga de Puerta de enlace de aplicaciones como servicio administrado de Azure permite el aprovisionamiento de un equilibrador de carga de nivel 7 detrás del equilibrador de carga de software de Azure.
 
 En la tabla siguiente se muestra un promedio de rendimiento para cada instancia de puerta de enlace de aplicaciones:
+
 
 | Respuesta de la página de back-end | Pequeña | Mediano | Grande|
 |---|---|---|---|
@@ -62,18 +63,19 @@ En la tabla siguiente se muestra un promedio de rendimiento para cada instancia 
 |100k | 35 Mbps | 100 Mbps| 200 Mbps |
 
 
->[AZURE.NOTE]Los números de rendimiento también dependen de la respuesta HTTP de aplicación web devuelta a la puerta de enlace de aplicaciones.
+>[AZURE.NOTE]Se trata de una guía aproximada para un rendimiento de puerta de enlace de aplicaciones. El rendimiento real depende de varios detalles del entorno, como el tamaño medio de página, la ubicación de las instancias de back-end, el tiempo de procesamiento para proporcionar una página para asignar nombre a unas pocas.
 
-
-## Supervisión
+## Supervisión del estado
  
-Puerta de enlace de aplicaciones supervisa el estado de las instancias de back-end mediante puertos de sondeo, probando periódicamente la respuesta HTTP desde secciones HttpSettings de puerta de enlace. El sondeo espera una respuesta HTTP correcta en el intervalo de código de respuesta 200-390 y prueba las direcciones IP de back-end cada 30 segundos para buscar la respuesta HTTP.
 
-Cuando se recibe una respuesta HTTP correcta, la dirección IP se marca con un estado correcto. Si se produce un error en el sondeo, la dirección IP se quita de un grupo de back-end correcto y el tráfico deja de fluir a este servidor. El sondeo de estado continúa cada 30 segundos en la instancia web errónea hasta que vuelve en línea. Cuando la instancia web responde correctamente al sondeo de estado, se vuelve a agregar al grupo de back-end correcto y el tráfico vuelve a fluir a esta instancia.
+Puerta de enlace de aplicaciones de Azure supervisa el estado de las instancias de back-end cada 30 segundos. Envía una solicitud de sondeo de estado HTTP a cada instancia en el puerto configurado en elementos *BackendHttpSettings* de la configuración. El sondeo del estado espera una respuesta HTTP correcta con un código de estado de respuesta en el intervalo comprendido entre 200 y 399.
+
+Cuando se recibe una respuesta HTTP correcta, el servidor back-end se marca con un estado correcto y sigue recibiendo tráfico de la Puerta de enlace de aplicaciones de Azure. Si se produce un error en el sondeo, la instancia de back-end se quita de un grupo correcto y el tráfico deja de fluir a este servidor. El sondeo del estado se sigue realizando cada 30 segundos a la instancia de back-end con error para comprobar su estado actual. Cuando la instancia de back-end responde correctamente al sondeo de estado, se vuelve a agregar como correcta al grupo de back-end y el tráfico vuelve a fluir a esta instancia.
 
 ## Configuración y administración
 
 Puede crear y administrar una puerta de enlace de aplicaciones mediante las API de REST y mediante el uso de cmdlets de PowerShell.
+
 
 
 ## Pasos siguientes
@@ -82,4 +84,4 @@ Creación de una puerta de enlace de aplicaciones. Consulte [Creación de una pu
 
 Configuración de la descarga SSL. Consulte [Configuración de la descarga SSL con Puerta de enlace de aplicaciones](application-gateway-ssl.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

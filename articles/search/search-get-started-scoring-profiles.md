@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de los perfiles de puntuación en la Búsqueda de Azure | Microsoft Azure" 
+	pageTitle="Uso de los perfiles de puntuación en la Búsqueda de Azure | Microsoft Azure | Servicio de búsqueda hospedado en la nube" 
 	description="Optimice la clasificación de búsqueda a través de perfiles de puntuación en Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -126,4 +126,4 @@ Obtenga más información sobre la sintaxis de búsqueda y los parámetros de co
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

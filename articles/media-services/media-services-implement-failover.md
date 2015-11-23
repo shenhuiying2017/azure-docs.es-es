@@ -960,4 +960,13 @@ En esta sección creará y configurará un proyecto de aplicación de consola de
 
 Ahora puede usar un administrador de tráfico para enrutar las solicitudes entre los dos centros de datos y, por consiguiente, la conmutación por error si se produce cualquier interrupción.
 
-<!---HONumber=Oct15_HO3-->
+
+##Rutas de aprendizaje de Servicios multimedia
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Envío de comentarios
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

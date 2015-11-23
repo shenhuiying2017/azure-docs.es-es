@@ -155,7 +155,7 @@ Nombre de archivo | Descripción
 ----------|------------
 __InputFileName.aib__ | Archivo Blob de indización de audio. <br /><br /> El archivo Blob de indexación de audio (AIB) es un archivo que se puede buscar en Microsoft SQL Server mediante la búsqueda de texto completo. El archivo AIB es más eficaz que los archivos de subtítulos simples, porque contiene alternativas para cada palabra, lo que permite una experiencia de búsqueda mucho más rica. <br/> <br/>Requiere la instalación del complemento Indexer SQL en un equipo que ejecute Microsoft SQL Server 2008 o posterior. Buscar AIB mediante la búsqueda de texto completo de Microsoft SQL Server proporciona resultados de búsqueda más precisos que buscar los archivos de subtítulos generados por WAMI. Esto se debe a que el archivo AIB contiene palabras alternativas que suenan de forma similar mientras que los archivos de subtítulos contienen la palabra de mayor confianza para cada segmento del audio. Si la búsqueda de palabras habladas es de suma importancia, se recomienda usar el archivo AIB junto con Microsoft SQL Server.<br/><br/> Para descargar el complemento, haga clic en <a href="http://aka.ms/indexersql">Complemento de Azure Media Indexer</a>. <br/><br/>También es posible usar otros motores de búsqueda, como Apache Lucene/Solr para indizar simplemente el vídeo en función de los subtítulos y los archivos XML de palabras clave, pero esto generará unos resultados de búsqueda menos precisos.
 __InputFileName.smi__<br />\_\_InputFileName.ttml\_\_<br />\_\_InputFileName.vtt\_\_ |Archivos de subtítulos en los formatos SAMI, TTML y WebVTT.<br/><br/>Se puede usar para realizar archivos de audio y vídeo accesibles a personas con discapacidades auditivas.<br/><br/>Los archivos de subtítulos incluyen una etiqueta llamada <b>Recognizability</b> que puntúa un trabajo de indexación en función de lo reconocible que es la voz en el vídeo de origen. Puede usar el valor de <b>Recognizability</b> para filtrar los archivos de salida por facilidad de uso. Una puntuación baja significa unos resultados de indización pobres debido a la calidad del audio.
-__InputFileName.kw.xml<br />InputFileName.info__ |Archivos de información y palabras clave. <br/><br/>El archivo de palabras clave es un archivo XML que contiene las palabras clave que se extraen del contenido de voz, con información de frecuencia y desplazamiento. <br/><br/>El archivo de información es un archivo de texto sin formato que contiene información detallada acerca de cada término reconocido. La primera línea es especial y contiene la puntuación de reconocimiento. Cada línea siguientes es una lista separada por tabulaciones de los datos siguientes: hora de inicio, hora de finalización, palabra o frase, y confianza. Las horas se proporcionan en segundos y la confianza se expresa como un número entre 0-1. <br/><br/>Línea de ejemplo: “1.20 1.45 word 0.67” <br/><br/>Estos archivos se pueden usar para varios propósitos, por ejemplo, para realizar análisis de voz, o para exponerse a motores de búsqueda como Bing, Google o Microsoft SharePoint para hacer que los archivos multimedia sean más reconocibles, o incluso para proporcionar anuncios más pertinentes.
+__InputFileName.kw.xml<br />InputFileName.info__ |Archivos de información y palabras clave. <br/><br/>El archivo de palabras clave es un archivo XML que contiene las palabras clave que se extraen del contenido de voz, con información de frecuencia y desplazamiento. <br/><br/>El archivo de información es un archivo de texto sin formato que contiene información detallada acerca de cada término reconocido. La primera línea es especial y contiene la puntuación de reconocimiento. Cada línea siguiente es una lista separada por tabulaciones de los datos siguientes: hora de inicio, hora de finalización, palabra o frase y confianza. Las horas se proporcionan en segundos y la confianza se expresa como un número entre 0-1. <br/><br/>Línea de ejemplo: “1.20 1.45 word 0.67” <br/><br/>Estos archivos se pueden usar para varios propósitos, por ejemplo, para realizar análisis de voz, o para exponerse a motores de búsqueda como Bing, Google o Microsoft SharePoint para hacer que los archivos multimedia sean más reconocibles, o incluso para proporcionar anuncios más pertinentes.
 __JobResult.txt__ |Manifiesto de salida que solo aparece al indexar varios archivos y que contiene la información siguiente:<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Error</th></tr><tr><td>a.mp4</td><td>Media\_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media\_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media\_3</td><td>600</td><td>0</td></tr></table><br/>
 
 
@@ -281,12 +281,14 @@ otros | Errores internos | Póngase en contacto con el equipo de soporte técnic
 Actualmente, se admiten los idiomas inglés y español. Para obtener más información, consulte [la publicación del blog sobre la versión v1.2](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 
-## Rutas de aprendizaje de Servicios multimedia
+##Rutas de aprendizaje de Servicios multimedia
 
-Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Envío de comentarios
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 ## Vínculos relacionados
@@ -299,4 +301,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

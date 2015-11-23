@@ -83,6 +83,8 @@ Otras soluciones VPN de software deben funcionar con nuestra puerta de enlace si
 
 ## Conexiones punto a sitio
 
+Actualmente, las conexiones de punto a sitio solo están disponibles para el modelo de implementación clásica (también conocido como administración de servicios). Estamos trabajando en una solución de punto a sitio para el modelo de implementación del Administrador de recursos de Azure. Cuando esté disponible, esta página se actualizará.
+
 ### ¿Qué sistemas operativos puedo usar para las conexiones de punto a sitio?
 
 Se admiten los siguientes sistemas operativos:
@@ -97,7 +99,7 @@ Se admiten los siguientes sistemas operativos:
 
 ### ¿Puedo usar cualquier cliente de software VPN de punto a sitio que admita SSTP?
 
-No. La compatibilidad se limita solo a las versiones de sistema operativo de Windows enumeradas anteriormente.
+No. La compatibilidad se limita solo a las versiones de sistema operativo de Windows enumeradas anteriormente. El cliente de Windows 10 se está comprobando actualmente.
 
 ### ¿Cuántos extremos de cliente VPN puedo tener en mi configuración punto a sitio?
 
@@ -105,7 +107,7 @@ Se admiten hasta 128 clientes VPN para poder conectarse al mismo tiempo a una re
 
 ### ¿Puedo usar mi propio CA raíz de PKI interna para la conectividad de punto a sitio?
 
-En este momento, se admiten solamente los certificados raíz autofirmados.
+Sí. Anteriormente, solo podían usarse certificados raíz autofirmados. Todavía puede cargar 20 certificados raíz.
 
 ### ¿Puedo atravesar servidores proxy y firewalls con la capacidad de punto a sitio?
 
@@ -234,7 +236,7 @@ Para el tráfico entre distintas redes virtuales de Azure, se cobra solo por el 
 
 Sí, este procedimiento se admite. Para obtener más información, consulte [Configurar conexiones VPN ExpressRoute y sitio a sitio que coexistan](../expressroute/expressroute-coexist.md).
 
-## Conectividad y las máquinas virtuales
+## Conectividad entre entornos y máquinas virtuales
 
 ### Si mi máquina virtual está en una red virtual y tengo una conexión entre locales, ¿cómo debo conectar a la máquina virtual?
 
@@ -246,14 +248,15 @@ Si tiene configurada una red virtual con conectividad entre locales, puede conec
 
 No. Únicamente el tráfico que tiene como destino una IP que se encuentra en los intervalos de direcciones IP de red local de la red virtual que haya especificado pasará a través de la puerta de enlace de red virtual. El tráfico que tenga una IP de destino ubicada dentro de la red virtual permanecerá en la red virtual. El resto del tráfico se envía a través del equilibrador de carga a las redes públicas, o si se usa la tunelización forzada, se envía a través de la puerta de enlace VPN de Azure. Si está solucionando problemas, es importante asegurarse de que en la red local tiene especificados todos los intervalos que desee enviar a través de la puerta de enlace. Compruebe que los intervalos de direcciones de red local no se superponen con ninguno de los intervalos de direcciones de la red virtual. Además, deberá comprobar que el servidor DNS que está utilizando está resolviendo el nombre a la dirección IP correcta.
 
+
+## P+F de Red virtual
+
+Consulte información adicional de redes virtuales adicionales en las [Preguntas frecuentes sobre redes virtuales](../virtual-network/virtual-networks-faq.md).
+
 ## Pasos siguientes
 
-Ver más P+F sobre redes para obtener detalles adicionales:
-
-- [Preguntas frecuentes sobre redes virtuales](../virtual-network/virtual-networks-faq.md)
-
-- [Preguntas frecuentes sobre ExpressRoute](../expressroute/expressroute-faqs.md)
+Puede ver más información acerca de las pasarelas de VPN en el [página de documentación de Pasarela de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/).
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

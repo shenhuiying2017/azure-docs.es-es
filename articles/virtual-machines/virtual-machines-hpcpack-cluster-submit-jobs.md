@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager,azure-service-management"/>
+ tags="azure-resource-manager,azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -156,14 +156,14 @@ Para comprobar la configuración, intente ejecutar trabajos en el clúster de Az
 
     El Administrador de trabajos de HPC se abre y muestra una lista de los trabajos del nodo principal.
 
-**Para usar el portal de trabajos basado en web en el nodo principal**
+**Para usar el portal web en el nodo principal**
 
 1. Inicie un explorador web en el equipo cliente y escriba la dirección siguiente: ```
     https://HeadNodeDnsName.cloudapp.net/HpcPortal
     ```
 2. En el cuadro de diálogo de seguridad que aparece, escriba las credenciales de dominio del Administrador de clústeres de HPC. (También puede agregar otros usuarios de clúster en distintos roles. Para obtener más información, consulte [Administración de usuarios de clúster](https://technet.microsoft.com/library/ff919335.aspx).)
 
-    El portal se abre en la vista de la lista de trabajos.
+    El portal web se abre en la vista de la lista de trabajos.
 
 3. Para enviar un trabajo de ejemplo que devuelva la cadena "Hello World" del clúster, haga clic en **Nuevo trabajo** en el panel de navegación izquierdo.
 
@@ -183,4 +183,4 @@ Para comprobar la configuración, intente ejecutar trabajos en el clúster de Az
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

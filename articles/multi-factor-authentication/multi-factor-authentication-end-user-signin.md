@@ -17,7 +17,8 @@
 	ms.author="billmath"/>
 
 # La experiencia de inicio de sesión con Azure Multi-Factor Authentication
-La documentación incluida en esta página muestra una experiencia típica de inicio de sesión. Para obtener ayuda con el inicio de sesión, vea [Problemas con Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
+> [AZURE.NOTE]La documentación incluida en esta página muestra una experiencia típica de inicio de sesión. Para obtener ayuda con el inicio de sesión, vea [Problemas con Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
+
 
 
 ## ¿Cómo se presenta la experiencia de inicio de sesión?
@@ -102,4 +103,4 @@ En la siguiente sección se mostrará cómo iniciar sesión con un método alter
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Vista previa de Azure AD B2C | Microsoft Azure"
+	pageTitle="Vista previa de Azure AD B2C: Uso de la API Graph | Microsoft Azure"
 	description="Cómo llamar a la API Graph para un inquilino de B2C mediante una identidad de aplicación para automatizar el proceso."
 	services="active-directory-b2c"
 	documentationCenter=".net"
@@ -222,7 +222,7 @@ Content-Length: 338
 {
 	// These properties are all required for creating consumer users.
 	 
-	"accountEnabled": false,                    // always set to false
+	"accountEnabled": true,
 	"alternativeSignInNamesInfo": [             // controls what identifier the user uses to sign into their account
 		{
 			"type": "emailAddress",             // can be 'emailAddress' or 'userName'
@@ -349,4 +349,4 @@ Puede usar el nombre completo, por ejemplo `extension_55dc0861f9a44eb999e0a8a872
 
 Si tiene alguna pregunta o solicitud para las acciones que desea realizar con la API Graph en el inquilino de B2C, ¡somos todo oídos! Deje un comentario sobre el artículo o registre un problema en el repositorio de GitHub de ejemplos de código.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

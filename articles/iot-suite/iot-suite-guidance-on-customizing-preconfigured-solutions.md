@@ -45,7 +45,7 @@ El segundo trabajo funciona en los valores de dispositivo a umbral creados en la
 
 ## Adición de reglas propias
 
-Además de cambiar los trabajos de Análisis de transmisiones de Azure preconfigurados, puede usar el Portal de Azure para agregar nuevos trabajos o nuevas consultas a los trabajos existentes.
+Además de cambiar los trabajos de Análisis de transmisiones de Azure preconfigurados, puede usar el Portal de vista previa de Azure para agregar nuevos trabajos o nuevas consultas a los trabajos existentes.
 
 ## Personalización de dispositivos
 
@@ -69,4 +69,4 @@ Para obtener más información sobre los dispositivos de IoT, consulte el [sitio
 
 [SDK de dispositivo de IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

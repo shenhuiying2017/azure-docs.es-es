@@ -24,24 +24,24 @@ Puede pagar con tarjeta de crédito o débito, o recibir aprobación para pagar 
 
 ## Editar información de pago de una tarjeta de crédito existente
 1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions) como administrador de cuenta.
-2. En **Haga clic en una suscripción para ver los detalles y el uso**, haga clic en la suscripción que está vinculada a la tarjeta de crédito.</br> ![selectsub](./media/billing-how-to-change-credit-card/selectsub.png)
-3. En el lado derecho de la página, haga clic en **Cambiar método de pago**.</br> ![changesub](./media/billing-how-to-change-credit-card/changesub.png)
-4. En la página **Elegir método de pago**, haga clic en **Editar** junto al número de la tarjeta de crédito.</br> ![changesub](./media/billing-how-to-change-credit-card/editcard.png)
+2. En **Haga clic en una suscripción para ver los detalles y el uso**, seleccione la suscripción que está vinculada a la tarjeta de crédito.</br> ![selectsub](./media/billing-how-to-change-credit-card/selectsub.png)
+3. En el lado derecho de la página, seleccione **Cambiar método de pago**.</br> ![changesub](./media/billing-how-to-change-credit-card/changesub.png)
+4. En la página **Elegir método de pago**, seleccione **Editar** junto al número de la tarjeta de crédito.</br> ![changesub](./media/billing-how-to-change-credit-card/editcard.png)
 5. En la página **Editar**, compruebe que ha seleccionado el tipo y el número de tarjeta de crédito correctos.
-6. Realice los cambios necesarios en los detalles de la tarjeta y luego haga clic en **Siguiente** para volver a la página Elegir método de pago.
+6. Realice los cambios necesarios en los detalles de la tarjeta y luego haga clic en **Siguiente** para volver a la página **Elegir método de pago**.
 
 ## Adición de una nueva tarjeta de crédito como método de pago
 1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions) como administrador de cuenta.
-2. En **Haga clic en una suscripción para ver los detalles y el uso**, haga clic en la suscripción para la que desea agregar un nuevo método de pago.
-3. En el lado derecho de la página, haga clic en **Cambiar método de pago**.
+2. En **Haga clic en una suscripción para ver los detalles y el uso**, seleccione la suscripción para la que desea agregar un nuevo método de pago.
+3. En el lado derecho de la página, seleccione **Cambiar método de pago**.
 4. En la página **Elegir método de pago**, seleccione "+" para agregar una nueva tarjeta de crédito.
 5. Elija un tipo de tarjeta de crédito y luego proporcione toda la información necesaria.
-6. Haga clic en **Siguiente** para volver a la página Elegir método de pago. Si la tarjeta agregada es válida, se agregará a la lista de métodos de pago disponibles. Puede ver todas las tarjetas de crédito disponibles haciendo clic en la flecha de lista desplegable situada junto a la tarjeta de crédito.
+6. Haga clic en **Siguiente** para volver a la página **Elegir método de pago**. Si la tarjeta agregada es válida, se agregará a la lista de métodos de pago disponibles. Puede ver todas las tarjetas de crédito disponibles seleccionando la flecha de lista desplegable situada junto a la tarjeta de crédito.
 
 ## Cambio de la tarjeta de crédito usada para pagar una factura de Azure
 1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions) como administrador de cuenta.
-2. En **Haga clic en una suscripción para ver los detalles y el uso**, haga clic en la suscripción para la que desea actualizar el método de pago.
-3. En el lado derecho de la página, haga clic en **Cambiar método de pago**.
-4. En la página Elegir método de pago, haga clic en la flecha de lista desplegable situada junto a la tarjeta de crédito, seleccione la tarjeta de crédito que desee usar y luego haga clic en ![checkbutton](./media/billing-how-to-change-credit-card/checkbutton.png). Se cerrará la ventana.
+2. En **Haga clic en una suscripción para ver los detalles y el uso**, seleccione la suscripción para la que desea actualizar el método de pago.
+3. En el lado derecho de la página, seleccione **Cambiar método de pago**.
+4. En la página **Elegir método de pago**, seleccione la flecha de lista desplegable situada junto a la tarjeta de crédito, seleccione la tarjeta de crédito que quiera usar y finalmente seleccione ![checkbutton](./media/billing-how-to-change-credit-card/checkbutton.png) para cerrar la ventana.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

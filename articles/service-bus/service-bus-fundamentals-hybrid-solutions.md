@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2015" 
+	ms.date="11/06/2015" 
 	ms.author="sethm"/>
 
 # Bus de servicio
@@ -21,7 +21,8 @@
 Cuando una aplicación o servicio se ejecutan en la nube o de manera local, a menudo tienen que interactuar con otras aplicaciones o servicios. Para proporcionar una manera enormemente útil de hacerlo, Azure ofrece el Bus de servicio. En este artículo nos centramos en esta tecnología, describiendo qué es y los beneficios que ofrece.
 
 ## Elementos fundamentales del Bus de servicio
-Las distintas situaciones requieren distintos estilos de comunicación. A veces, permitir a las aplicaciones enviar y recibir mensajes mediante una simple cola es la mejor solución. En otras situaciones, una cola ordinaria no es suficiente y es mejor una cola con un mecanismo de publicación y suscripción. En otros casos, lo realmente necesario es una conexión entre las aplicaciones (no se requieren colas). El Bus de servicio ofrece las tres opciones, por lo que sus aplicaciones pueden interactuar de varias maneras diferentes.
+
+Las distintas situaciones requieren distintos estilos de comunicación. A veces, permitir a las aplicaciones enviar y recibir mensajes mediante una simple cola es la mejor solución. En otras situaciones, una cola ordinaria no es suficiente y es mejor una cola con un mecanismo de publicación y suscripción. En otros casos, lo realmente necesario es una conexión entre las aplicaciones y no se requieren colas. El Bus de servicio ofrece las tres opciones, por lo que sus aplicaciones pueden interactuar de varias maneras diferentes.
 
 El Bus de servicio es un servicio en la nube multiinquilino, lo que significa que varios usuarios comparten el servicio. Cada usuario, como desarrollador de aplicaciones, crea un *espacio de nombres* y, a continuación, define los mecanismos de comunicación que necesita dentro de ese espacio de nombres. La ilustración 1 muestra su apariencia.
 
@@ -56,13 +57,13 @@ Cada mensaje tiene dos partes: un conjunto de propiedades, cada una de ellas, un
 
 El receptor puede leer los mensajes de la cola del Bus de servicio de dos formas distintas. La primera opción, denominada *ReceiveAndDelete*, quita un mensaje de la cola y lo elimina de inmediato. Esto es sencillo, pero si se produce un error por parte del receptor antes de que finalice el procesamiento del mensaje, este se perderá. Puesto que se quita de la cola, ningún otro receptor podrá obtener acceso a él.
 
-La segunda opción, *PeekLock*, se ha creado para solucionar este problema. Como ocurre con ReceiveAndDelete, una lectura de PeekLock quita un mensaje de la lista. Sin embargo, no elimina el mensaje. En este caso, bloquea el mensaje, por lo que se oculta a los demás receptores. A continuación, espera a que se produzca uno de los tres eventos:
+La segunda opción, *PeekLock*, se ha creado para solucionar este problema. Como ocurre con **ReceiveAndDelete**, una lectura de **PeekLock** quita un mensaje de la cola. Sin embargo, no elimina el mensaje. En este caso, bloquea el mensaje, por lo que se oculta a los demás receptores. A continuación, espera a que se produzca uno de los tres eventos:
 
-- Si el receptor procesa el mensaje correctamente, invoca *Completo* y la cola elimina el mensaje. 
-- Si el receptor decide que no puede procesar el mensaje correctamente, invoca *Abandonar*. La cola quita el bloqueo del mensaje y se pone a disposición de otros receptores.
-- Si el receptor no invoca ninguna de esas opciones en un período configurable (60 segundos de forma predeterminada), la cola presupone que se ha producido un error con el receptor. En ese caso, se comporta como si el receptor hubiera invocado Abandonar, por lo que el mensaje estaría disponible para otros receptores.
+- Si el receptor procesa el mensaje correctamente, invoca **Completo** y la cola elimina el mensaje. 
+- Si el receptor decide que no puede procesar el mensaje correctamente, invoca **Abandonar**. La cola quita el bloqueo del mensaje y se pone a disposición de otros receptores.
+- Si el receptor no invoca ninguna de esas opciones en un período configurable (60 segundos de forma predeterminada), la cola presupone que se ha producido un error con el receptor. En ese caso, se comporta como si el receptor hubiera invocado **Abandon**, por lo que el mensaje estaría disponible para otros receptores.
 
-Observe lo que ocurre aquí: el mismo mensaje puede enviarse dos veces, quizás a dos receptores distintos. Las aplicaciones que usan colas de Bus de servicio deben estar preparadas para ello. Para facilitar la detección duplicada, cada mensaje dispone de una propiedad MessageID exclusiva que no se modifica de forma predeterminada independientemente del número de veces que se lea un mensaje en una cola.
+Observe lo que ocurre aquí: el mismo mensaje puede enviarse dos veces, quizás a dos receptores distintos. Las aplicaciones que usan colas de Bus de servicio deben estar preparadas para ello. Para facilitar la detección duplicada, cada mensaje dispone de una propiedad **MessageID** exclusiva que no se modifica de forma predeterminada independientemente del número de veces que se lea un mensaje en una cola.
 
 Las colas son útiles en determinadas situaciones. Permiten a las aplicaciones comunicarse incluso cuando no se estén ejecutando a la vez. Esto es especialmente útil con aplicaciones móviles y por lotes. Una cola con varios receptores también proporciona un equilibrio de carga automático, ya que los mensajes enviados se difunden a través de esos receptores.
 
@@ -77,10 +78,10 @@ Aunque son útiles, las colas no siempre son la solución adecuada. A veces, los
 Un tema es similar en muchos aspectos a una cola. Los remitentes envían mensajes a un tema de la misma forma en la que envían mensajes a una cola, y esos mensajes tienen la misma apariencia que las colas. La gran diferencia es que los temas permiten a cada aplicación de recepción crear su propia suscripción mediante la definición de un *filtro*. El suscriptor verá, por lo tanto, solo los mensajes que coincidan con ese filtro. Por ejemplo, la ilustración 3 muestra un remitente y un tema con tres suscriptores, cada uno con su propio filtro:
 
 - El suscriptor 1 recibe solo mensajes que contienen la propiedad *Seller="Ava"*.
-- El suscriptor 2 recibe mensajes que contienen la propiedad *Seller="Ruby"* o la propiedad *Amount* cuyo valor es superior a 100.000. uizás Ruby es la directora de ventas, y por eso quiere ver sus propias ventas y todas las grandes ventas independientemente de quién las hace.
+- El suscriptor 2 recibe mensajes que contienen la propiedad *Seller="Ruby"* o la propiedad *Amount* cuyo valor es superior a 100.000. Quizás Ruby es la directora de ventas, y por eso quiere ver sus propias ventas y todas las grandes ventas independientemente de quién las hace.
 - El suscriptor 3 ha establecido su filtro en *True*, lo que significa que recibe todos los mensajes. Por ejemplo, esta aplicación puede ser responsable de mantener una traza de auditoría y, por tanto, necesita ver todos los mensajes.
 
-Como ocurre con las colas, los suscriptores a un tema pueden leer los mensajes utilizando ReceiveAndDelete o PeekLock. Sin embargo, a diferencia de las colas, varios suscriptores pueden recibir un mensaje único enviado a un tema. Este enfoque, que se denomina normalmente *publicar y suscribir*, es útil cuando puede haber varias aplicaciones interesadas en los mismos mensajes. Si se define el filtro adecuado, cada suscriptor puede pulsar solo la parte de la secuencia de mensaje que necesita ver.
+Como ocurre con las colas, los suscriptores a un tema pueden leer los mensajes usando **ReceiveAndDelete** o **PeekLock**. Sin embargo, a diferencia de las colas, varios suscriptores pueden recibir un mensaje único enviado a un tema. Este enfoque, que se denomina normalmente *publicar y suscribir*, es útil cuando puede haber varias aplicaciones interesadas en los mismos mensajes. Si se define el filtro adecuado, cada suscriptor puede pulsar solo la parte de la secuencia de mensaje que necesita ver.
 
 ## Relés
 
@@ -96,7 +97,7 @@ Supongamos que desea conectar dos aplicaciones locales que se ejecutan dentro de
 
 Un relé de Bus de servicio proporciona esa ayuda. Para comunicarse de forma bidireccional a través de un relé, cada aplicación establece una conexión TCP saliente con el Bus de servicio y, a continuación, la mantiene abierta. Todas las comunicaciones entre las dos aplicaciones se llevarán a cabo a través de esas conexiones. Puesto que cada conexión se estableció desde dentro del centro de datos, el firewall permitirá el tráfico entrante a cada aplicación sin abrir puertos nuevos. Este enfoque también evita el problema de NAT, puesto que cada aplicación cuenta con un extremo coherente en la nube a través de la comunicación. Las aplicaciones pueden evitar los problemas que podrían complicar la comunicación mediante el intercambio de datos a través del relé.
 
-Para usar relés de Bus de servicio, las aplicaciones se basan en Windows Communication Foundation (WCF). El Bus de servicio proporciona enlaces a WCF que facilitan la interactuación de las aplicaciones de Windows a través de los relés. Las aplicaciones que ya usan WCF pueden normalmente especificar solo uno de esos enlaces y después comunicarse con los demás a través de un relé. Sin embargo, a diferencia de las colas y los temas, el uso cuando sea posible de relés de aplicaciones que no sean de Windows requiere algún tipo de esfuerzo de programación; no se proporcionan bibliotecas estándar.
+Para usar retransmisiones de bus de servicio, las aplicaciones se basan en Windows Communication Foundation (WCF). El Bus de servicio proporciona enlaces a WCF que facilitan la interactuación de las aplicaciones de Windows a través de los relés. Las aplicaciones que ya usan WCF pueden normalmente especificar solo uno de esos enlaces y después comunicarse con los demás a través de un relé. Sin embargo, a diferencia de las colas y los temas, el uso cuando sea posible de relés de aplicaciones que no sean de Windows requiere algún tipo de esfuerzo de programación; no se proporcionan bibliotecas estándar.
 
 Al contrario de lo que ocurre con las colas y los temas, las aplicaciones no crean relés explícitamente. En este caso, cuando una aplicación que desea recibir mensajes establece una conexión TCP con el Bus de servicio, se crea un relé automáticamente. Cuando se abandona la conexión, el relé se elimina. Para que una aplicación encuentre una retransmisión creada por un agente de escucha específico, el Bus de servicio proporciona un registro que permite a las aplicaciones ubicar una retransmisión específica por nombre.
 
@@ -104,7 +105,7 @@ Las retransmisiones son la solución adecuada cuando se necesita una comunicaci�
 
 ## Centros de eventos
 
-Los Centros de eventos son un sistema de recopilación altamente escalable que puede procesar millones de eventos, lo que permite que su aplicación procese y analice las grandes cantidades de datos que generan sus aplicaciones y dispositivos conectados. Por ejemplo, puede utilizar un centro de eventos para recopilar datos sobre el rendimiento del motor en directo desde una flota de automóviles. Una vez recopilados en los Centros de eventos, puede transformar y almacenar los datos usando cualquier proveedor de análisis en tiempo real o clúster de almacenamiento. Para obtener más información sobre los Centros de eventos, consulte [Información general de los centros de eventos](../event-hubs-overview.md).
+Los Centros de eventos son un sistema de recopilación altamente escalable que puede procesar millones de eventos, lo que permite que su aplicación procese y analice las grandes cantidades de datos que generan sus aplicaciones y dispositivos conectados. Por ejemplo, puede utilizar un centro de eventos para recopilar datos sobre el rendimiento del motor en directo desde una flota de automóviles. Una vez recopilados en los Centros de eventos, puede transformar y almacenar los datos usando cualquier proveedor de análisis en tiempo real o clúster de almacenamiento. Para obtener más información sobre los Centros de eventos, consulte [Información general de los centros de eventos](../event-hubs/event-hubs-overview.md).
 
 ## Resumen
 
@@ -114,20 +115,14 @@ La conexión de aplicaciones forma parte desde siempre de la creación de soluci
 
 Ahora que conoce los fundamentos del Bus de servicio de Azure, siga estos vínculos para obtener más información.
 
-- Utilización de las [colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md).
-- Utilización de los [temas del Bus de servicio](service-bus-dotnet-how-to-use-topics-subscriptions.md).
-- Utilización de la [retransmisión del Bus de servicio](service-bus-dotnet-how-to-use-relay.md).
-- Ejemplos del Bus de servicio: consulte la información general en [MSDN][]. 
-
-[svc-bus]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_01_architecture.png
-[queues]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_02_queues.png
-[topics-subs]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
-[relay]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_04_relay.png
-[MSDN]: https://msdn.microsoft.com/library/dn194201.aspx
+- Uso de las [colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
+- Uso de los [temas del Bus de servicio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- Uso de la [Retransmisión de Bus de servicio](service-bus-dotnet-how-to-use-relay.md)
+- [Ejemplos del Bus de servicio](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

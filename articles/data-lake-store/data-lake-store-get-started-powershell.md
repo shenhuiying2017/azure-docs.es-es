@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/06/2015"
    ms.author="nitinme"/>
 
 # Introducción al Almacén de Azure Data Lake mediante Azure PowerShell
@@ -22,6 +22,7 @@
 - [Using Portal](data-lake-store-get-started-portal.md)
 - [Using PowerShell](data-lake-store-get-started-powershell.md)
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Using Azure CLI](data-lake-store-get-started-cli.md)
 
 Aprenda a usar Azure PowerShell para crear una cuenta del Almacén de Azure Data Lake y realizar operaciones básicas como crear carpetas, cargar y descargar archivos de datos, eliminar la cuenta, etc. Para obtener más información acerca del Almacén de Data Lake, consulte [Información general del Almacén de Data Lake](data-lake-store-overview.md).
 
@@ -31,7 +32,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/es-ES/pricing/free-trial/).
 - **Habilite su suscripción de Azure** para la versión de vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
-- **Azure PowerShell 1.0**. Puede instalarlo desde [aquí](https://github.com/MicrosoftBigData/AzureDataLake/releases/download/AzurePowerShell_2015_10_30/AzurePowerShell.msi).
+- **Azure PowerShell 1.0 o superior**. Consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md) para obtener más información.
 
 ## Creación de una cuenta de Almacén de Azure Data Lake
 
@@ -131,6 +132,7 @@ Cuando se le solicite, escriba **Y** para eliminar la cuenta.
 
 - [Introducción al Almacén de Data Lake mediante el Portal](data-lake-store-get-started-portal.md)
 - [Introducción al Almacén de Data Lake mediante SDK de .NET](data-lake-store-get-started-net-sdk.md)
+- [Introducción al Almacén de Data Lake mediante la CLI de Azure](data-lake-store-get-started-cli.md)
 
 
 ## Pasos siguientes
@@ -139,4 +141,4 @@ Cuando se le solicite, escriba **Y** para eliminar la cuenta.
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

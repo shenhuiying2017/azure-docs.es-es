@@ -81,7 +81,7 @@ Información adicional sobre el Centro de IoT:
 
 * [Información general sobre el centro de IoT]
 * [Guía del desarrollador del centro de IoT]
-* [Directrices sobre el centro de IoT]
+* [Directrices sobre el Centro de IoT]
 * [Lenguajes y plataformas de dispositivos compatibles][Supported devices]
 * [Centro para desarrolladores de IoT de Azure]
 
@@ -105,14 +105,14 @@ Información adicional sobre el Centro de IoT:
 [Almacenamiento de Azure]: https://azure.microsoft.com/es-ES/documentation/services/storage/
 [Bus de servicio de Azure]: https://azure.microsoft.com/es-ES/documentation/services/service-bus/
 
-[Azure Preview Portal]: https://portal.azure.com/
+[Azure preview portal]: https://portal.azure.com/
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
 [Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
 
 [Información general sobre el centro de IoT]: iot-hub-what-is-iot-hub.md
-[Directrices sobre el centro de IoT]: iot-hub-guidance.md
+[Directrices sobre el Centro de IoT]: iot-hub-guidance.md
 [Guía del desarrollador del centro de IoT]: iot-hub-devguide.md
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
@@ -120,4 +120,4 @@ Información adicional sobre el Centro de IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

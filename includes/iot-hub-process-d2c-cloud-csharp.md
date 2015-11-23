@@ -19,7 +19,7 @@ Para tener la seguridad de que no se reenvía ningún mensaje fuera de la ventan
 ### Aprovisionamiento de una cuenta de almacenamiento de Azure y una cola del Bus de servicio
 Para usar [EventProcessorHost], debe tener una cuenta de almacenamiento de Azure. Puede usar una existente o seguir las instrucciones que se indican en [Acerca de Almacenamiento de Azure] para crear una. Tome nota de la cadena de conexión de la cuenta de almacenamiento.
 
-También necesitará una cola del Bus de servicio para permitir el procesamiento fiable de los mensajes interactivos. Puede crear una cola mediante programación con una ventana de desduplicación de 1 hora, como se explica en [Uso de colas del Bus de servicio][Service Bus Queue], o bien usar el [Portal de administración de Azure], siguiendo estos pasos:
+También necesitará una cola del Bus de servicio para permitir el procesamiento fiable de los mensajes interactivos. Puede crear una cola mediante programación con una ventana de desduplicación de 1 hora, como se explica en [Uso de colas del Bus de servicio][Service Bus Queue], o bien usar el [Portal de Azure], siguiendo estos pasos:
 
 1. Haga clic en **NUEVO** en la esquina inferior izquierda, y haga clic sucesivamente en **Servicios de aplicaciones**, **Bus de servicio**, **Cola** y **Personalizado**, y seleccione el nombre **d2ctutorial** y, luego, una ventana de desduplicación de 1 hora.
 
@@ -301,11 +301,11 @@ En esta sección, escribirá una aplicación de consola de Windows que recibe me
 
 [Guía de programación de los Centros de eventos]: ../event-hubs/event-hubs-programming-guide.md
 
-[Azure Preview Portal]: https://portal.azure.com/
+[Azure preview portal]: https://portal.azure.com/
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Portal de Azure]: https://manage.windowsazure.com/
 
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 
@@ -324,4 +324,4 @@ En esta sección, escribirá una aplicación de consola de Windows que recibe me
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -27,7 +27,7 @@ En este artículo se describen los tamaños y las opciones disponibles para los 
 
 Las máquinas virtuales y servicios en la nube de Azure son dos de los distintos tipos de recursos de proceso que ofrece Azure. Para obtener más explicaciones, vea [Cálculo de las opciones de hospedaje proporcionadas por Azure](http://go.microsoft.com/fwlink/p/?LinkID=311926).
 
->[AZURE.NOTE] Para ver límites relacionados de Azure, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
+>[AZURE.NOTE]Para ver límites relacionados de Azure, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 
 ## Consideraciones de planeación
 
@@ -37,11 +37,7 @@ Las máquinas virtuales están disponibles en dos niveles: básico y estándar. 
 
 *   Serie de Dv2, una evolución de la serie D original, presenta una CPU más eficaz. La CPU de la serie Dv2 es un 35 % aproximadamente más rápida que la CPU de la serie D. Se basa en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz de la última generación; y con Intel Turbo Boost Technology 2.0, puede alcanzar los 3,2 GHz. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
 
-    La disponibilidad regional de la serie Dv2 se basará en esta programación:
-        octubre de 2015: Este 2 de EE. UU., Centro de EE. UU., Centro y norte de EE. UU., Oeste de EE. UU.
-        Noviembre 2015: Este de EE. UU., Norte de Europa, Oeste de Europa
-        Enero de 2016: Centro y Sur de EE. UU., Este de Asia y del Pacífico Sur, Sudeste de Asia y del Pacífico Sur, Este de Japón, Oeste de Japón,
-                Este de Australia, Sudeste de Australia, Sur de Brasil
+    La disponibilidad regional de la serie Dv2 se basará en esta programación: octubre de 2015: Este 2 de EE. UU., Centro de EE. UU., Centro y norte de EE. UU., Oeste de EE. UU. Noviembre 2015: Este de EE. UU., Norte de Europa, Oeste de Europa Enero de 2016: Centro y Sur de EE. UU., Este de Asia y del Pacífico Sur, Sudeste de Asia y del Pacífico Sur, Este de Japón, Oeste de Japón, Este de Australia, Sudeste de Australia, Sur de Brasil
 
 
 *   Las VM de la serie G ofrecen el mayor tamaño y el mejor rendimiento, y se ejecutan en hosts que tienen procesadores de la familia Intel Xeon E5 V3.
@@ -64,6 +60,8 @@ Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 
 *   Las series Dv2 y D son ideales para las aplicaciones que requieren CPU más rápidas, mejor rendimiento de disco local, o tienen mayor demanda de memoria. Ofrecen una combinación eficaz para muchas aplicaciones de clase empresarial.
 
+
+
 ## Límites generales
 
 Esta tabla muestra los límites que se aplican independientemente del tamaño de una máquina virtual, para las máquinas virtuales creadas con el modelo de implementación de administración de servicios.
@@ -78,9 +76,9 @@ Esta tabla muestra los límites que se aplican independientemente del tamaño de
 
 Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 
->[AZURE.NOTE] La capacidad de almacenamiento se representa mediante 1024^3 bytes como unidad de medida para GB. En ocasiones, esto se conoce como gibibyte o definición de base 2 Al comparar los tamaños que utilizan distintos sistemas de base, tenga en cuenta que los tamaños de base 2 podrían parecer más pequeños que los de base 10. No obstante, para cualquier tamaño específico (como 1 GB), un sistema de base 2 ofrece más capacidad que un sistema de base 10, ya que 1024^3 es mayor que 1000^3.
+>[AZURE.NOTE]La capacidad de almacenamiento se representa mediante 1024^3 bytes como unidad de medida para GB. En ocasiones, esto se conoce como gibibyte o definición de base 2 Al comparar los tamaños que utilizan distintos sistemas de base, tenga en cuenta que los tamaños de base 2 podrían parecer más pequeños que los de base 10. No obstante, para cualquier tamaño específico (como 1 GB), un sistema de base 2 ofrece más capacidad que un sistema de base 10, ya que 1024^3 es mayor que 1000^3.
 
-### Nivel Basic
+## Nivel Basic
 
 |Tamaño: Portal de Azure\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (300 por disco)|
 |---|---|---|---|---|---|---|
@@ -90,7 +88,7 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 |A3\\Basic\_A3|4|7 GB|1|<p>SO = 1023 GB</p><p>Temporal = 120 GB</p>|8|8x300|
 |A4\\Basic\_A4|8|14 GB|1|<p>SO = 1023 GB</p><p>Temporal = 240 GB</p>|16|16x300|
 
-### Nivel estándar: serie A
+## Nivel estándar: serie A
 
 |Tamaño: Portal de Azure\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)|
 |---|---|---|---|---|---|---|
@@ -107,7 +105,7 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 |A10\\igual|8|56 GB|2|<p><p>SO = 1023 GB</p><p>Temporal = 382 GB</p><blockquote><p>Nota: para obtener información y comentarios sobre el uso de este tamaño, vea <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Acerca de las instancias de proceso intensivo A8, A9, A10 y A11</a>.</p></blockquote>|16|16x500|
 |A11\\igual|16|112 GB|4|<p><p>SO = 1023 GB</p><p>Temporal = 382 GB</p><blockquote><p>Nota: para obtener información y comentarios sobre el uso de este tamaño, vea <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Acerca de las instancias de proceso intensivo A8, A9, A10 y A11</a>.</p></blockquote>|16|16x500|
 
-### Nivel estándar: serie D
+## Nivel estándar: serie D
 
 |Tamaño: Portal de Azure\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)|
 |---|---|---|---|---|---|---|
@@ -120,7 +118,7 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 |Standard\_D13\\igual|8|56 GB|8|<p>SO = 1023 GB</p><p>Temporal (SSD) =400 GB</p>|16|16x500|
 |Standard\_D14\\igual|16|112 GB|16|<p>SO = 1023 GB</p><p>Temporal (SSD) =800 GB</p>|32|32x500|
 
-### Nivel estándar: serie Dv2
+## Nivel estándar: serie Dv2
 
 |Tamaño: Portal de Azure\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)|
 |---|---|---|---|---|---|---|
@@ -134,7 +132,7 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 |Standard\_D13\_v2\\same|8|56 GB|8|<p>SO = 1023 GB</p><p>Temporal (SSD) =400 GB</p>|16|16x500|
 |Standard\_D14\_v2\\same|16|112 GB|16|<p>SO = 1023 GB</p><p>Temporal (SSD) =800 GB</p>|32|32x500|
 
-### Nivel estándar: serie DS*
+## Nivel estándar: serie DS*
 
 |Tamaño: Portal de Azure\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Tamaño de caché (GB)|E/S de disco máx. y ancho de banda|
 |---|---|---|---|---|---|---|---|
@@ -147,9 +145,9 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 |Standard\_DS13\\igual|8|56|8|<p>SO = 1023 GB</p><p>Disco SSD local = 112 GB</p>|16|288|<p>25,600</p><p>256 MB por segundo</p>|
 |Standard\_DS14\\igual|16|112|16|<p>SO = 1023 GB</p><p>Disco SSD local = 224 GB</p>|32|576|<p>50,000</p><p>512 MB por segundo</p>|
 
-*Las operaciones de entrada/salida máximas por segundo (E/S) y el rendimiento (ancho de banda) posibles con una máquina virtual de la serie DS se ven afectadas por el tamaño del disco. Para obtener más información, vea [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage-premium-storage-preview-portal.md)
+**Las operaciones de entrada/salida máximas por segundo (E/S) y el rendimiento (ancho de banda) posibles con una máquina virtual de la serie DS se ven afectadas por el tamaño del disco. Para obtener más información, vea [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage-premium-storage-preview-portal.md)
 
-### Nivel estándar: serie G
+## Nivel estándar: serie G
 
 |Tamaño: Portal de Azure\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)|
 |---|---|---|---|---|---|---|
@@ -159,7 +157,7 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 |Standard\_G4\\igual|16|224 GB|8|<p>SO = 1023 GB</p><p>Disco SSD local = 3,072 GB</p>|32|32 x 500|
 |Standard\_G5\\igual|32|448 GB|16|<p>SO = 1023 GB</p><p>Disco SSD local = 6,144 GB</p>|64|<p>64 x 500</p>|
 
-### Nivel estándar: serie GS
+## Nivel estándar: serie GS
 
 |Tamaño: Portal de Azure\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Tamaño de caché (GB)|E/S de disco máx. y ancho de banda|
 |---|---|---|---|---|---|---|---|
@@ -176,4 +174,4 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 
 [Sobre las instancias informáticas intensivas A8, A9, A10 y A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

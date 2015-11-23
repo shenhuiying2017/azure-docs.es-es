@@ -13,16 +13,39 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/04/2015" 
 	ms.author="spelluru"/>
 
-# Creación de canalizaciones predictivas con la actividad Ejecución de lotes de Aprendizaje automático de Azure   
+# Creación de canalizaciones predictivas con las actividades de Aprendizaje automático de Azure   
 ## Información general
 
 > [AZURE.NOTE]Consulte los artículos [Introducción a la Factoría de datos de Azure  
 ](data-factory-introduction.md) y [Creación de su primera canalización](data-factory-build-your-first-pipeline.md) para empezar a trabajar rápidamente con el servicio Factoría de datos de Azure.
 
-Factoría de datos de Azure permite crear fácilmente canalizaciones que aprovechan un servicio web de [Aprendizaje automático de Azure][azure-machine-learning] publicado para realizar análisis predictivos. Con Factoría de datos de Azure puede hacer uso de las canalizaciones de macrodatos (por ejemplo, Pig y Hive) para procesar los datos que se han introducido desde diversos orígenes, y usar los servicios web de Aprendizaje automático de Azure para realizar predicciones sobre los datos del lote.
+## Introducción
+
+[Aprendizaje automático de Azure](https://azure.microsoft.com/documentation/services/machine-learning/) permite compilar, probar e implementar soluciones de análisis predictivo. Desde una perspectiva general, esto se realiza en tres pasos:
+
+1. **Crear un experimento de entrenamiento**. Para ello use Estudio de aprendizaje automático de Azure que es un entorno de desarrollo visual de colaboración que se emplea para entrenar y probar un modelo de análisis predictivo con los datos de entrenamiento que le proporcione.
+2. **Convertirlo en un experimento predictivo**. Una vez que el modelo se ha entrenado con datos existentes y está listo para usarlo para puntuar nuevos datos, debe preparar y simplificar el experimento para la puntuación.
+3. **Implementarlo como un servicio web**. Puede publicar el experimento de puntuación como un servicio web de Azure. Los usuarios pueden enviar datos al modelo a través de este punto de conexión de servicio web y recibir las predicciones de resultado para el modelo.  
+
+Factoría de datos de Azure permite crear fácilmente canalizaciones que aprovechan un servicio web de [Aprendizaje automático de Azure][azure-machine-learning] publicado para realizar análisis predictivos. Mediante la **actividad de ejecución de lotes** en una canalización de Factoría de datos de Azure, puede invocar un servicio web de Aprendizaje automático de Azure para realizar predicciones sobre los datos en el lote. Consulte la sección [Invocación de un servicio web de Aprendizaje automático de Azure mediante la actividad de ejecución de lotes](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) para obtener detalles.
+
+Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación de Aprendizaje automático de Azure tienen que volver a entrenarse con nuevos conjuntos de datos de entrada. Puede volver a entrenar un modelo de Aprendizaje automático de Azure de una canalización de Factoría de datos realizando los pasos siguientes:
+
+1. Publicar el experimento de entrenamiento (experimento no predictivo) como un servicio web. Tiene que hacerlo en Estudio de aprendizaje automático de Azure, tal como hizo para exponer el experimento predictivo como un servicio web en el escenario anterior.
+2. Usar la actividad de ejecución de lotes de Aprendizaje automático de Azure para invocar el servicio web para el experimento de entrenamiento. Básicamente, puede emplear la actividad de ejecución de lotes de Aprendizaje automático de Azure para invocar el servicio web de aprendizaje y el servicio web de puntuación. 
+  
+Después de terminar el entrenamiento, tiene que actualizar el servicio web de puntuación (experimento predictivo expuesto como un servicio web) con el modelo recién entrenado. Para ello, siga estos pasos:
+
+1. Agregar un punto de conexión no predeterminado al servicio web de puntuación. No se puede actualizar el punto de conexión predeterminado del servicio web, por lo que tendrá que crear un nuevo punto de conexión no predeterminado mediante el Portal de administración de Azure. Consulte el artículo [Creación de puntos de conexión](../machine-learning/machine-learning-create-endpoint.md) para obtener información sobre los conceptos y procedimientos relacionados con el tema.
+2. Actualizar los servicios vinculados ya existentes de Aprendizaje automático de Azure para puntuar para que usen el punto de conexión no predeterminado. Debe empezar a emplear el nuevo punto de conexión para usar el servicio web que está actualizado.
+3. Use la **Actividad de recursos de actualización de Aprendizaje automático de Azure** para actualizar el servicio web con el modelo recién entrenado.  
+
+Para obtener más detalles consulte la sección [Actualización de modelos de Aprendizaje automático de Azure mediante la actividad de recursos de actualización](#updating-azure-ml-models-using-the-update-resource-activity).
+
+## Invocación de un servicio web de Aprendizaje automático de Azure mediante la actividad de ejecución de lotes
 
 Factoría de datos de Azure se usa para coordinar el procesamiento y el movimiento de datos y, posteriormente, realizar la ejecución por lotes mediante Aprendizaje automático de Azure. Para ello, deberá hacer lo siguiente:
 
@@ -36,7 +59,7 @@ Factoría de datos de Azure se usa para coordinar el procesamiento y el movimien
 	![URI del lote](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
 
 
-## Escenario: Experimentos mediante entradas y salidas de servicios web que hacen referencia a datos de Almacenamiento de blobs de Azure
+### Escenario: Experimentos mediante entradas y salidas de servicios web que hacen referencia a datos de Almacenamiento de blobs de Azure
 En este escenario, el servicio web de Aprendizaje automático de Azure realiza predicciones mediante datos de un archivo de un almacenamiento de blobs de Azure y almacena los resultados de predicción en el almacenamiento de blobs. El siguiente JSON define una canalización de Factoría de datos de Azure con una actividad AzureMLBatchExecution. La actividad tiene el conjunto de datos **DecisionTreeInputBlob** como entrada y **DecisionTreeResultBlob** como salida. **DecisionTreeInputBlob** se pasa como entrada al servicio web mediante la propiedad JSON **webServiceInput** y **DecisionTreeResultBlob** se pasa como salida al servicio web mediante la propiedad JSON **webServiceOutputs**. Solo los conjuntos de datos que son entradas y salidas de la actividad pueden pasarse como salidas y entradas de servicio web.
 
 
@@ -240,7 +263,7 @@ Antes de continuar con este ejemplo y usar el Editor de Factoría de datos para 
 
 	> [AZURE.NOTE]La especificación de la entrada para la actividad AzureMLBatchExecution es opcional.
 
-## Escenario: Experimentos mediante módulos Lector y Escritor para hacer referencia a datos de varios almacenamientos
+### Escenario: Experimentos mediante módulos Lector y Escritor para hacer referencia a datos de varios almacenamientos
 
 Otro escenario común al crear experimentos de Aprendizaje automático de Azure es usar módulos Lector y Escritor. El módulo lector se usa para cargar datos en un experimento y el módulo escritor para guardar los datos de los experimentos. Para obtener información sobre los módulos lector y escritor, consulte los temas [Lector](https://msdn.microsoft.com/library/azure/dn905997.aspx) y [Escritor](https://msdn.microsoft.com/library/azure/dn905984.aspx) en MSDN Library.
 
@@ -331,6 +354,243 @@ En el ejemplo JSON anterior:
 - Las fechas y horas de **inicio** y **finalización** deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de la propiedad **end** es opcional. Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx).
  
 
+## Actualización de modelos de Aprendizaje automático de Azure mediante la actividad de recursos de actualización
+Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación de Aprendizaje automático de Azure tienen que volver a entrenarse con nuevos conjuntos de datos de entrada. Después de terminar con el nuevo entrenamiento, tendrá que actualizar el servicio web de puntuación con el modelo de Aprendizaje automático que volvió a entrenar. Los pasos más comunes para habilitar el nuevo entrenamiento y actualizar los modelos de Aprendizaje automático de Azure mediante los servicios web son:
+
+1. Crear un experimento en [Estudio de aprendizaje automático](https://studio.azureml.net). 
+2. Cuando esté satisfecho con el modelo, use Estudio de aprendizaje automático de Azure para publicar servicios web para el **experimento de entrenamiento** y puntuación / ** experimento predictivo**.
+
+En la tabla siguiente se describen los servicios web empleados en este ejemplo. Consulte [Volver a entrenar modelos de aprendizaje automático mediante programación](../machine-learning/machine-learning-retrain-models-programmatically.md) para obtener información detallada.
+
+| Tipo de servicio web | description 
+| :------------------ | :---------- 
+| **Servicio web de entrenamiento** | Recibe datos de entrenamiento y genera modelos entrenados. El resultado del entrenamiento es un archivo .ilearner en un almacenamiento de blobs de Azure. El **punto de conexión predeterminado** se crea automáticamente para cuando publique el experimento de entrenamiento como un servicio web. Puede crear más puntos de conexión, pero el ejemplo usa solo el punto de conexión predeterminado |
+| **Servicio web de puntuación** | Recibe ejemplos de datos sin etiqueta y realiza predicciones. El resultado de la predicción puede presentarse en diversas formas, como un archivo .csv o como las filas de una Base de datos de SQL de Azure, dependiendo de la configuración del experimento. El punto de conexión predeterminado se crea automáticamente cuando se publica el experimento predictivo como un servicio web. Tendrá que crear el segundo **punto de conexión no predeterminado y actualizable** a través del [Portal de Azure](https://manage.windowsazure.com). Puede crear más puntos de conexión, pero el ejemplo usa solo el punto de conexión no predeterminado actualizable. Consulte el artículo [Creación de puntos de conexión](../machine-learning/machine-learning-create-endpoint.md) para conocer los pasos necesarios para ello.       
+ 
+La siguiente imagen muestra la relación entre los puntos de conexión de entrenamiento y de puntuación de Aprendizaje automático de Azure.
+
+![Servicios web](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
+
+
+Puede invocar el **servicio web de entrenamiento** mediante la **actividad de ejecución de lotes de Aprendizaje automático de Azure**. Es lo mismo que invocar un servicio web de Aprendizaje automático de Azure (servicio web de puntuación) para puntuar datos. Las secciones anteriores tratan en detalle cómo invocar un servicio web de Aprendizaje automático de Azure a partir de una canalización de Factoría de datos de Azure.
+  
+El **servicio web de puntuación** se puede invocar con la **Actividad de recursos de actualización de Aprendizaje automático de Azure** para actualizar el servicio web con el modelo recién entrenado. Como se mencionó en la tabla anterior, debe crear y usar el punto de conexión no predeterminado y actualizable. También debe actualizar todos los servicios vinculados existentes en Factoría de datos para que empleen el punto de conexión no predeterminado y, de ese modo, usen siempre el modelo con el entrenamiento más reciente.
+
+El escenario siguiente proporciona información detallada con un ejemplo de entrenimiento y actualización de los modelos de Aprendizaje automático de Azure, desde una canalización de Factoría de datos de Azure.
+ 
+### Escenario: entrenamiento y actualización de un modelo de Aprendizaje automático de Azure
+Esta sección proporciona una canalización de ejemplo que usa la **Actividad de ejecución de lotes de Aprendizaje automático de Azure** para volver a entrenar un modelo y la **Actividad de recursos de actualización de Aprendizaje automático de Azure** para actualizar el modelo en el servicio web de puntuación. También proporciona fragmentos JSON para todos los servicios vinculados, conjuntos de datos y canalización en el ejemplo.
+
+Esta es la vista de diagrama de la canalización de ejemplo. Como se puede apreciar, la Actividad de ejecución de lotes de Aprendizaje automático de Azure toma la entrada de entrenamiento y genera un resultado de entrenamiento (archivo iLearner). La Actividad de recursos de actualización de Aprendizaje automático de Azure toma este resultado de entrenamiento y actualiza el modelo en el punto de conexión de servicio web de puntuación. La Actividad de recursos de actualización no produce ningún resultado. El placeholderBlob es simplemente un conjunto de datos de salida ficticio que el servicio de Factoría de datos de Azure necesita para ejecutar la canalización.
+
+![diagrama de canalización](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+
+
+#### Servicio vinculado de almacenamiento de blobs de Azure:
+Almacenamiento de Azure contiene los siguientes datos:
+
+- datos de aprendizaje. Estos son los datos de entrada para el servicio web de entrenamiento de Aprendizaje automático de Azure.  
+- archivo iLearner. Estos son los datos de salida del servicio web de entrenamiento de Aprendizaje automático de Azure. Es también es la entrada para la Actividad de recursos de actualización.  
+   
+Esta es la definición de JSON de ejemplo del servicio vinculado:
+
+	{
+		"name": "StorageLinkedService",
+	  	"properties": {
+	    	"type": "AzureStorage",
+			"typeProperties": {
+	    		"connectionString": "DefaultEndpointsProtocol=https;AccountName=name;AccountKey=key"
+			}
+		}
+	}
+
+
+#### Conjunto de datos de entrada de entrenamiento:
+El siguiente conjunto de datos representa los datos de entrenamiento de entrada para el servicio web de entrenamiento de Aprendizaje automático de Azure. La Actividad de ejecución de lotes de Aprendizaje automático de Azure toma este conjunto de datos como entrada.
+
+	{
+	    "name": "trainingData",
+	    "properties": {
+	        "type": "AzureBlob",
+	        "linkedServiceName": "StorageLinkedService",
+	        "typeProperties": {
+	            "folderPath": "labeledexamples",
+	            "fileName": "labeledexamples.arff",
+	            "format": {
+	                "type": "TextFormat"
+	            }
+	        },
+	        "availability": {
+	            "frequency": "Week",
+	            "interval": 1
+	        },
+	        "policy": {          
+	            "externalData": {
+	                "retryInterval": "00:01:00",
+	                "retryTimeout": "00:10:00",
+	                "maximumRetry": 3
+	            }
+	        }
+	    }
+	}
+
+#### Conjunto de datos de salida de entrenamiento:
+El siguiente conjunto de datos representa el archivo iLearner de salida del servicio web de entrenamiento de Aprendizaje automático de Azure. La Actividad de ejecución de lotes de Aprendizaje automático de Azure produce este conjunto de datos. Este conjunto de datos es también la entrada para la Actividad de recursos de actualización de Aprendizaje automático de Azure.
+
+	{
+	    "name": "trainedModelBlob",
+	    "properties": {
+	        "type": "AzureBlob",
+	        "linkedServiceName": "StorageLinkedService",
+	        "typeProperties": {
+	            "folderPath": "trainingoutput",
+	            "fileName": "model.ilearner",
+	            "format": {
+	                "type": "TextFormat"
+	            }
+	        },
+	        "availability": {
+	            "frequency": "Week",
+	            "interval": 1
+	        }
+	    }
+	}
+
+#### Servicio vinculado para el punto de conexión de entrenamiento de Aprendizaje automático de Azure 
+El siguiente fragmento JSON define un servicio vinculado de Aprendizaje automático de Azure que apunta al punto de conexión predeterminado del servicio web de entrenamiento.
+
+	{	
+		"name": "trainingEndpoint",
+	  	"properties": {
+	    	"type": "AzureML",
+	    	"typeProperties": {
+	    		"mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--training experiment--/jobs",
+	      		"apiKey": "myKey"
+	    	}
+	  	}
+	}
+
+En **Estudio de aprendizaje automático**, haga lo siguiente para obtener valores para **mlEndpoint** y **apiKey**:
+
+1. Haga clic en **SERVICIOS WEB** en el menú izquierdo.
+2. En la lista de servicios web haga clic en el **servicio web de entrenamiento**. 
+3. Haga clic en Copiar junto al cuadro de texto **clave de API** para copiar la clave de API en el Portapapeles. Pegue la clave en el editor de JSON de Factoría de datos.
+4. En el **Estudio de aprendizaje automático**, haga clic en el vínculo **EJECUCIÓN POR LOTES**, copie la **URI de solicitud** de la sección **Solicitud** y péguela en el editor de JSON de Factoría de datos.   
+
+
+#### Servicio vinculado para el punto de conexión de puntuación actualizable de Aprendizaje automático de Azure:
+El siguiente fragmento JSON define un servicio vinculado de Aprendizaje automático de Azure que apunta al punto de conexión no predeterminado y actualizable del servicio web de puntuación.
+
+	{
+	    "name": "updatableScoringEndpoint2",
+	    "properties": {
+	        "type": "AzureML",
+	        "typeProperties": {
+	            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
+	            "apiKey": "endpoint2Key",
+	            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
+	        }
+	    }
+	}
+
+
+Antes de crear e implementar un servicio vinculado de Aprendizaje automático de Azure, siga los pasos en [Creación de puntos de conexión](../machine-learning/machine-learning-create-endpoint.md) para crear un segundo punto de conexión (no predeterminada y actualizable) para el servicio web de puntuación.
+
+Después de crear el punto de conexión no predeterminado actualizable, haga clic en **EJECUCIÓN POR LOTES** para obtener el valor URI para la propiedad JSON **mlEndpoint** y haga clic en el vínculo **ACTUALIZAR RECURSO** para obtener el valor URI para la propiedad JSON **updateResourceEndpoint** . La clave de API está en la página de punto de conexión (en la esquina inferior derecha).
+
+![punto de conexión actualizable](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
+
+ 
+#### Conjunto de datos de salida de marcador de posición:
+La Actividad de recursos de actualización de Aprendizaje automático de Azure no genera ningún resultado, pero en Factoría de datos de Azure es necesario tener un conjunto de datos de resultado para controlar la programación de la canalización, por lo que en este ejemplo se usa un conjunto de datos ficticios o de marcador de posición.
+
+	{
+	    "name": "placeholderBlob",
+	    "properties": {
+	        "availability": {
+	            "frequency": "Week",
+	            "interval": 1
+	        },
+	        "type": "AzureBlob",
+	        "linkedServiceName": "StorageLinkedService",
+	        "typeProperties": {
+	            "folderPath": "any",
+	            "format": {
+	                "type": "TextFormat"
+	            }
+	        }
+	    }
+	}
+
+
+#### Canalización
+La canalización tiene dos actividades: **AzureMLBatchExecution** y **AzureMLUpdateResource**. La Actividad de ejecución de lotes de Aprendizaje automático de Azure toma los datos de entrenamiento como entrada y genera como resultado un archivo iLearner. La actividad invoca el servicio web de entrenamiento (el experimento de entrenamiento expuesto como servicio web) con los datos de entrenamiento de entrada y recibe el archivo ilearner desde el servicio web. El placeholderBlob es simplemente un conjunto de datos de salida ficticio que el servicio de Factoría de datos de Azure necesita para ejecutar la canalización.
+
+![diagrama de canalización](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+
+
+	{
+	    "name": "pipeline",
+	    "properties": {
+	        "activities": [
+	            {
+	                "name": "retraining",
+	                "type": "AzureMLBatchExecution",
+	                "inputs": [
+	                    {
+	                        "name": "trainingData"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "trainedModelBlob"
+	                    }
+	                ],
+	                "typeProperties": {
+	                    "webServiceInput": "trainingData",
+	                    "webServiceOutputs": {
+	                        "output1": "trainedModelBlob"
+	                    }              
+	                 },
+	                "linkedServiceName": "trainingEndpoint",
+	                "policy": {
+	                    "concurrency": 1,
+	                    "executionPriorityOrder": "NewestFirst",
+	                    "retry": 1,
+	                    "timeout": "02:00:00"
+	                }
+	            },
+	            {
+	                "type": "AzureMLUpdateResource",
+	                "typeProperties": {
+	                    "trainedModelName": "Training Exp for ADF ML [trained model]",
+	                    "trainedModelDatasetName" :  "trainedModelBlob"
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "trainedModelBlob"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "placeholderBlob"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00",
+	                    "concurrency": 1,
+	                    "retry": 3
+	                },
+	                "name": "AzureML Update Resource",
+	                "linkedServiceName": "updatableScoringEndpoint2"
+	            }
+	        ]
+	    }
+	}
+
+
+
+
 ## Preguntas más frecuentes
 
 **P:** Estoy usando la actividad AzureMLBatchScoring. ¿Debo cambiar y usar la actividad AzureMLBatchExecution?
@@ -364,4 +624,4 @@ Si desea seguir usando la actividad AzureMLBatchScoring, consulte el artículo [
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

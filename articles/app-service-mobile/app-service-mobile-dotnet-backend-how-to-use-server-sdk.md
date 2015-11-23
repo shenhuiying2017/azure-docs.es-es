@@ -20,6 +20,8 @@
 
 En este tema se muestra cómo usar el SDK del servidor back-end de .NET en escenarios clave de Aplicaciones móviles del Servicio de aplicaciones de Azure. El SDK de Aplicaciones móviles de Azure le permite trabajar con clientes móviles de su aplicación ASP.NET.
 
+>[AZURE.TIP]El [SDK de .NET server SDK para aplicaciones móviles de Azure](https://github.com/Azure/azure-mobile-apps-net-server) es de código abierto en GitHub. El repositorio contiene el conjunto de pruebas de unidad SDK del servidor completo, así como algunos proyectos de ejemplo.
+
 ## Cómo descargar e inicializar el SDK
 
 El SDK está disponible en [NuGet.org]. Este paquete incluye la funcionalidad básica necesaria para comenzar a usar el SDK. Para inicializar el SDK, tendrá que realizar acciones en el objeto **HttpConfiguration**.
@@ -28,7 +30,7 @@ El SDK está disponible en [NuGet.org]. Este paquete incluye la funcionalidad b�
 
 Para instalar el SDK, haga doble clic en el proyecto de servidor en Visual Studio, seleccione **Administrar paquetes de NuGet**, busque el paquete [Microsoft.Azure.Mobile.Server](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) y haga clic en **Instalar**.
 
-###Inicialización del proyecto de servidor
+###<a name="server-project-setup"></a> Inicialización del proyecto de servidor
 
 Un proyecto de servidor backend de .NET se inicializa de manera similar a otros proyectos ASP.NET mediante la inclusión de una clase de inicio OWIN. Para agregar esta clase en Visual Studio, haga clic con el botón derecho en el proyecto de servidor y seleccione **Agregar** -> **Nuevo elemento** y después en **Web** -> **General** -> **Clase de inicio OWIN**.
 
@@ -191,7 +193,7 @@ Para agregar notificaciones push al proyecto de servidor, extienda el objeto **M
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-En este momento, puede usar el cliente de Centros de notificaciones para enviar notificaciones push a dispositivos registrados. Para obtener más información, consulte [Incorporación de notificaciones push a la aplicación](app-service-mobile-ios-get-started-push.md). Para obtener más información acerca de todo lo que puede hacer con los Centros de notificaciones, consulte [Información general de los Centros de notificaciones](../notification-hubs/notification-hubs-overview.md).
+En este momento, puede usar el cliente de Centros de notificaciones para enviar notificaciones push a dispositivos registrados. Para obtener más información, consulte [Incorporación de notificaciones de inserción a la aplicación](app-service-mobile-ios-get-started-push.md) Para obtener más información acerca de todo lo que puede hacer con los Centros de notificaciones, consulte [Información general de los Centros de notificaciones](../notification-hubs/notification-hubs-overview.md).
 
 ## Cómo publicar el proyecto de servidor
 
@@ -205,4 +207,4 @@ Siga los pasos que se indican a continuación para publicar el proyecto de servi
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

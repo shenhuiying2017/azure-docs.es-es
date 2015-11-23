@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/04/2015"
+   ms.date="11/11/2015"
    ms.author="tomfitz"/>
 
 # Compatibilidad del Administrador de recursos para servicios, regiones y versiones de API
@@ -60,9 +60,9 @@ Al trabajar con aplicaciones web, no se puede mover solo un plan del Servicio de
 | Servicio | Administrador de recursos habilitado | Portal de vista previa | Mover recursos | API de REST | Esquema |
 | ------- | ------- | ------- | -------------- | -------- | ------ |
 | DocumentDB | Sí | [Sí](https://portal.azure.com/#create/Microsoft.DocumentDB) | Sí | [REST de DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
-| Almacenamiento | Sí | [Sí](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | | [Creación de almacenamiento](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Storage.json) |
+| Almacenamiento | Sí | [Sí](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | | [Creación de almacenamiento](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [Cuenta de almacenamiento](resource-manager-template-storage.md) |
 | Caché en Redis | Sí | [Sí](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | Sí | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| Base de datos SQL | Sí | [Sí](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.7-preview) | Sí | [Crear base de datos](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
+| Base de datos SQL | Sí | [Sí](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | Sí | [Crear base de datos](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Search | Sí | [Sí](https://portal.azure.com/#create/Microsoft.Search) | Sí | [REST de Búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | Almacenamiento de datos SQL | Sí | [Sí](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
 | StorSimple | No | No | - | - | - | | Memoria caché administrada | No | No | - | - | - |
@@ -127,6 +127,13 @@ Al trabajar con aplicaciones web, no se puede mover solo un plan del Servicio de
 | Programador | Sí | No | | | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
 | Visión operativa | Sí | No | Sí | | |
 | IoTHubs | Sí | [Sí](https://portal.azure.com/#create/Microsoft.IotHub) | | | |
+
+## Resource Manager
+
+| Característica | Administrador de recursos habilitado | Portal de vista previa | Mover recursos | API de REST | Esquema |
+| ------- | ------- | -------- | -------------- | -------- | ------ |
+| Autorización | Sí | N/D | N/D | [Bloqueos de administración](https://msdn.microsoft.com/library/azure/mt204563.aspx)<br >[Control de acceso basado en roles](https://msdn.microsoft.com/library/azure/dn906885.aspx) | [Bloqueo de recurso](resource-manager-template-lock.md)<br />[Asignaciones de roles](resource-manager-template-role.md) |
+| Recursos | Sí | N/D | N/D | [Linked Resources](https://msdn.microsoft.com/library/azure/mt238499.aspx) | [Vínculos de recursos](resource-manager-template-links.md) |
 
 
 ## Regiones admitidas
@@ -227,4 +234,4 @@ Puede abrir el archivo y buscar el elemento **apiVersions**.
 - Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para obtener información sobre cómo implementar recursos, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a los Centros de eventos"
+	pageTitle="Introducción a los Centros de eventos con C y Apache Storm | Microsoft Azure"
 	description="Siga este tutorial para empezar a usar Centros de eventos de Azure; a enviar eventos en C y a recibirlos en un clúster de Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
@@ -111,4 +111,4 @@ Los siguientes recursos están disponibles para desarrollar aplicaciones que int
 [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

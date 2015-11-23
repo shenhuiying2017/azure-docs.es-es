@@ -75,8 +75,7 @@ El mismo código de seguimiento que agregó a la aplicación anterior para diagn
 ## Pasos siguientes
 
 * [Introducción al estado de Service Fabric](service-fabric-health-introduction.md)
-* [Configuración de Application Insights](service-fabric-diagnostics-application-insights-setup.md)
 * [Supervisión de diagnósticos y rendimiento de actores de Service Fabric de Azure](service-fabric-reliable-actors-diagnostics.md)
 * [Diagnóstico de servicios de confianza con estado](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

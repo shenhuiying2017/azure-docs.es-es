@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Patrón de diseño de gráficos y redes distribuidas de los actores de Service Fabric de Azure"
-   description="Diseñar el patrón sobre la forma en que los actores de Service Fabric pueden usarse para modelar la aplicación como gráficos y redes distribuidas"
+   pageTitle="Patrón de gráficos y redes distribuidas | Microsoft Azure"
+   description="Patrón de diseño sobre la forma en que Reliable Actors de Service Fabric se puede usar para modelar aplicaciones como redes y gráficos distribuidos."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -224,4 +224,4 @@ Lo que realmente hace es aprovechar la capacidad de los actores confiables para 
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

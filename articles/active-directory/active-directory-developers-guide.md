@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/16/2015"
+   ms.date="11/06/2015"
    ms.author="mbaldwin"/>
 
 
@@ -46,9 +46,9 @@ Estos tutoriales están adaptados para varias plataformas y pueden ayudarle a em
 
 ### Guías de inicio rápido de aplicaciones web
 
-|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![Javascript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md)
-|:--:|:--:|:--:|
-|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md)
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md)|[![Javascript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md)
+|:--:|:--:|:--:|:--:|
+|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Java](active-directory-devquickstarts-webapp-java.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md)
 
 ### Guías de inicio rápido de API web
 
@@ -73,6 +73,7 @@ En estos artículos se describe cómo realizar tareas específicas con Azure Act
 - [Envío de aplicaciones web para Office 365 al panel de vendedores](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 - [Vista previa: cómo compilar aplicaciones que inician sesión para los usuarios tanto con cuentas personales como profesionales o educativas](active-directory-appmodel-v2-overview.md)
 - [Vista previa: Creación de aplicaciones que registren e inicien la sesión de los consumidores](active-directory-b2c-overview.md)
+
 
 ## Referencia
 
@@ -106,7 +107,7 @@ Estos artículos proporcionan información básica sobre las API de REST y de la
 - [Referencia del protocolo OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx): el protocolo OpenID Connect 1.0 amplía OAuth 2.0 para su uso como protocolo de autenticación.
 
 
-- [Referencia del protocolo WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx): el protocolo WS-Federation 1.2 se describe en la especificación de Web Services Federation, versión 1.2.
+- [Referencia del protocolo WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx): el protocolo WS-Federation 1.2 se describe en la especificación Web Services Federation, versión 1.2.
 
 - [Tipos de token y de notificación admitidos](active-directory-token-and-claims.md): puede usar esta guía para entender y evaluar las notificaciones en los tokens web JSON (JWT) y SAML 2.0.
 
@@ -137,4 +138,4 @@ Los ponentes de estas presentaciones de información general sobre el desarrollo
 
 - [Azure Active Directory en Twitter](https://twitter.com/azuread): anuncios de Azure Active Directory en 140 caracteres o menos.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

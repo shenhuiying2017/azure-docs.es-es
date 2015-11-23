@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="10/20/2015"
+  ms.date="11/05/2015"
   ms.author="andrl"/>
 
 # Portal de la Comunidad
@@ -89,8 +89,6 @@ Para mantenerse al día en las novedades y características más recientes de Do
 
 | Nombre del evento | Ubicación | Date | Hashtag |
 | ------------------------------------------------------------------------------- | -------------------- | ------------------- | ------- |
-| [CloudDevelop 2015](http://www.clouddevelop.org/) | Columbus, OH | 23 de octubre de 2015 | [#CloudDevConf](https://twitter.com/hashtag/CloudDevConf) |
-| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp) | Seattle, WA | Del 27 al 30 de octubre de 2015 | [#Summit15](https://twitter.com/hashtag/Summit15) |
 | [Integration User Group](http://www.integrationusergroup.com/) | Seminario web | 9 de noviembre de 2015 | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) (Encuentro: msdevmtl) | Montreal, QC, Canadá | 1 de diciembre de 2015 | [#msdevmtl](https://twitter.com/hashtag/msdevmtl) |
 
@@ -100,11 +98,14 @@ Para mantenerse al día en las novedades y características más recientes de Do
 
 | Nombre del evento | Ubicación | Date | Grabación |
 | -------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp) | Seattle, WA | Del 27 al 30 de octubre de 2015 | N/D |
+| [CloudDevelop 2015](http://www.clouddevelop.org/) | Columbus, OH | 23 de octubre de 2015 | N/D |
 | [SQL Saturday #430 - Sofia 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | Sofía, Bulgaria | 10 de octubre de 2015 | N/D |
 | [SQL Saturday #429 - Oporto 2015](http://www.sqlsaturday.com/429/eventhome.aspx) | Oporto, Portugal | 3 de octubre de 2015 | N/D |
 | [AzureCon](https://azure.microsoft.com/azurecon/) | Evento virtual | 29 de septiembre de 2015 | [Azure data and analytics platform](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207) (Plataforma de análisis y datos de Azure)<br/>[Working with NoSQL Data in DocumentDB](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) (Uso de datos NoSQL Data en DocumentDB) |
-| [SQL Saturday #434 - Holland 2015](http://www.sqlsaturday.com/434/eventhome.aspx) | Utrecht, Países Bajos | 26 de septiembre de 2015 | N/D |
+| [SQL Saturday #434 - Holland 2015](http://www.sqlsaturday.com/434/eventhome.aspx) | Utrecht, Países Bajos | 26 de septiembre de 2015 | [Introducción a Base de datos de documentos de Azure](https://channel9.msdn.com/Blogs/Windows-Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
 | [Meetup: San Francisco Bay Area Azure Developers](http://www.meetup.com/bayazure/events/223943785/) (Encuentro: desarrolladores de Azure de la zona de la Bahía de San Francisco) | San Francisco, California | 15 de septiembre de 2015 | N/D |
+| [Reunión del grupo de usuario de Azure de Bielorrusia](https://www.facebook.com/events/786540124800276/) | Minsk, Bielorrusia | 9 de septiembre de 2015 | [Introducción al concepto de la Base de datos de documentos, niveles de coherencia, estrategias de particionamiento](https://www.youtube.com/watch?v=Uc_qwWzJKH8) |
 | [NoSQL Now!](http://nosql2015.dataversity.net/) (¡NoSQL ya!) | San José, CA | 18-20 de agosto de 2015 | N/D |
 | [@Scale Seattle](http://www.atscaleconference.com/) | Seattle, WA | 17 de junio de 2015 | [Schema Agnostic Indexing with Azure DocumentDB](https://www.youtube.com/watch?v=VJQ_5qFFVP4) (Indexación independiente de esquemas con Azure DocumentDB) |
 | [Tech Refresh 2015](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015) (Actualización tecnológica 2015) | Lisboa, Portugal | 15 de junio de 2015 | [DocumentDB 101](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015/DPDEV01) |
@@ -214,4 +215,4 @@ El equipo de Azure DocumentDB desarrolla estos proyectos activamente en colabora
 | Conector de Hadoop | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | Herramienta de migración de datos | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Centro de descarga de Microsoft](http://www.microsoft.com/es-ES/download/details.aspx?id=46436) |
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

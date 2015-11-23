@@ -89,15 +89,16 @@ Este artículo contiene vínculos a temas que muestran cómo configurar su entor
 
 Para obtener información sobre los conceptos relacionados con la entrega de su contenido bajo demanda, vea [Conceptos sobre Servicios multimedia](media-services-concepts.md).
 
+##Rutas de aprendizaje de Servicios multimedia
 
-##Pasos siguientes: AMS vías de aprendizaje
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+##Envío de comentarios
 
-- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

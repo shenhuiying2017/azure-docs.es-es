@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde el sistema de archivos local con Factoría de datos de Azure
@@ -52,7 +52,7 @@ Como primer paso, configure la puerta de enlace de administración de datos seg�
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\Contosogame-Asia",
+	      "host": "\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -273,7 +273,7 @@ El ejemplo copia los datos que pertenecen a una serie temporal desde una tabla d
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\Contosogame-Asia",
+	      "host": "\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -427,7 +427,7 @@ Un sistema de archivos local se puede vincular a una Factoría de datos de Azure
 Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
 type | La propiedad type se debe establecer en **OnPremisesFileServer**. | Sí 
-host | Nombre de host del servidor. Use ' \\ ' como carácter de escape como en el ejemplo siguiente: si el recurso compartido es: \\servername, especifique \\\servername.<p>Si el sistema de archivos es local en el equipo de puerta de enlace, use Local o localhost. Si el sistema de archivos está en un servidor que no es el equipo de puerta de enlace, use \\\servername.</p> | Sí
+host | Nombre de host del servidor. Use ' \\ ' como carácter de escape como en el ejemplo siguiente: si el recurso compartido es: \\servername, especifique \\servername.<p>Si el sistema de archivos es local en el equipo de puerta de enlace, use Local o localhost. Si el sistema de archivos está en un servidor que no es el equipo de puerta de enlace, use \\servername.</p> | Sí
 userid | Especifique el identificador del usuario que tiene acceso al servidor. | No (si elige encryptedCredential)
 contraseña | Especifique la contraseña del usuario (identificador de usuario). | No (si elige encryptedCredential) 
 encryptedCredential | Especifique las credenciales cifradas que puede obtener con la ejecución del cmdlet New-AzureDataFactoryEncryptValue<p>** Nota: ** tiene que usar Azure PowerShell, versión 0.8.14 o posterior para usar cmdlets como New-AzureDataFactoryEncryptValue con el parámetro type establecido en OnPremisesFileSystemLinkedService</p> | No (si opta por especificar el identificador de usuario y la contraseña en texto sin formato)
@@ -442,7 +442,7 @@ Consulte [Configuración de credenciales y seguridad](data-factory-move-data-bet
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\Contosogame-Asia",
+	      "host": "\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -599,4 +599,4 @@ false | mergeFiles | <p>Para una carpeta de origen Folder1 con la siguiente estr
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

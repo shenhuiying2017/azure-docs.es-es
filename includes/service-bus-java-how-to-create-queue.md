@@ -19,45 +19,40 @@ Para comenzar a usar colas del Bus de servicio en Azure, primero debe crear un e
 
 Para crear un nombre de espacio de servicio:
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de Azure][].
 
-2.  En el panel de navegación izquierdo del Portal de administración, haga clic en **us de servicio**.
+2.  En el panel de navegación izquierdo del Portal, haga clic en **Bus de servicio**.
 
-3.  En el panel inferior del Portal de administración, haga clic en **Crear**. 
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
+3.  En el panel inferior del Portal, haga clic en **Crear**. ![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
 
-4.  En el cuadro de diálogo **Agregar un nuevo espacio de nombres**, escriba un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible. 
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
+4.  En el cuadro de diálogo **Agregar un nuevo espacio de nombres**, escriba un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible. ![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
 
 5.  Después de asegurarse de que el nombre de espacio de nombres está disponible, seleccione el país o región en el que debe hospedarse el espacio de nombres (asegúrese de que usa el mismo país o la misma región en los que está realizando la implementación de los recursos de proceso).
 
 	IMPORTANTE: seleccione la **misma región** que vaya a seleccionar para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
 
-6. 	Deje los demás campos en el cuadro de diálogo con los valores predeterminados (**Mensajería** y **Nivel estándar**) y, a continuación, haga clic en la marca de verificación. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
+6. 	Deje los demás campos del cuadro de diálogo con los valores predeterminados (**Mensajería** y **Nivel estándar**) y, a continuación, haga clic en la marca de verificación. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
 
 	![](./media/service-bus-java-how-to-create-queue/getting-started-multi-tier-27.png)
 
-El espacio de nombres que creó tardará un momento en activarse y, a continuación, aparecerá en el Portal de administración. Espere hasta que el estado del espacio de nombres sea **Activo** antes de continuar.
+El espacio de nombres que creó tardará un momento en activarse y, después, aparecerá en el Portal de Azure. Espere hasta que el estado del espacio de nombres sea **Activo** antes de continuar.
 
 ## Obtención de credenciales de administración predeterminadas para el espacio de nombres
 
-Para realizar operaciones de administración (como la creación de una cola) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres. Puede obtener estas credenciales desde el Portal de administración de Azure.
+Para realizar operaciones de administración (como la creación de una cola) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres. Puede obtener estas credenciales en el Portal de Azure.
 
 ###Para obtener las credenciales de administración desde el portal
 
-1.  En el panel de navegación izquierdo, haga clic en el nodo **Bus de servicio** para ver la lista de espacios de nombres disponibles: 
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
+1.  En el panel de navegación izquierdo, haga clic en el nodo **Bus de servicio** para ver la lista de espacios de nombres disponibles: ![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
 
 2.  Haga clic en el espacio de nombres que acaba de crear en la lista mostrada.
 
-3.  Haga clic en **Configurar** para ver las directivas de acceso compartido para el espacio de nombres. 
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
+3.  Haga clic en **Configurar** para ver las directivas de acceso compartido para el espacio de nombres. ![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
 
 4.  Anote la clave principal o cópiela en el Portapapeles.
 
-  [Azure Management Portal]: http://manage.windowsazure.com
-  [Portal de administración de Azure]: http://manage.windowsazure.com
+  [Portal de Azure]: http://manage.windowsazure.com
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

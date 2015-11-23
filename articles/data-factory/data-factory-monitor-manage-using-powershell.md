@@ -414,8 +414,6 @@ En este paso, usará PowerShell de Azure para supervisar lo que está ocurriendo
 
 Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener la documentación completa sobre los cmdlets de la factoría de datos.
 
-## Enviar comentarios
-Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-using-powershell.md).
 
 
 [adf-tutorial]: data-factory-tutorial.md
@@ -437,4 +435,4 @@ Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar 
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

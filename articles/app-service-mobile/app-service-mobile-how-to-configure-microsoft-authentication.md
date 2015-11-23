@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/30/2015"
 	ms.author="mahender"/>
 
 # Configuración de la aplicación para usar el inicio de sesión de la cuenta Microsoft
@@ -71,4 +71,4 @@ De este modo ya estará listo para usar la cuenta Microsoft para realizar la aut
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Portal de administración de Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

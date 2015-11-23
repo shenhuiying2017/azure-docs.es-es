@@ -31,7 +31,7 @@ En este artículo se muestra cómo conectar discos nuevos y existentes a una má
 
 ## Búsqueda de la máquina virtual
 
-1. Inicie sesión en el [Portal de vista previa](https://portal.azure.com).
+1. Inicie sesión en el Portal de vista previa de Azure.
 
 2. En el menú Concentrador, haga clic en **Examinar**.
 
@@ -90,4 +90,4 @@ Una vez que se agrega el disco, debe prepararlo para su uso en el sistema operat
 
 [Acerca de las cuentas de almacenamiento de Azure]: ../storage-whatis-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

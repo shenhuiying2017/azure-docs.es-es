@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Supervisión del uso y estadísticas en un servicio Búsqueda de Azure | Microsoft Azure" 
+   pageTitle="Supervisión del uso y estadísticas en un servicio Búsqueda de Azure | Microsoft Azure | Servicio de búsqueda hospedado en la nube" 
    description="Realice el seguimiento del consumo de recursos y el tamaño de índice para Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure." 
    services="search" 
    documentationCenter="" 
@@ -57,4 +57,4 @@ Visite [Administración del servicio de búsqueda en Microsoft Azure](search-man
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

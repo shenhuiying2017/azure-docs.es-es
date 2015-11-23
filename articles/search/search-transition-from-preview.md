@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Transición de versión preliminar api-version=2014* a api-version=2015 *" 
+	pageTitle="Transición de versión preliminar api-version=2014* a api-version=2015 * | Microsoft Azure | Servicio de búsqueda hospedado en la nube" 
 	description="Obtenga información sobre cambios importantes y sobre cómo migrar el código escrito para 2014-07-31-preview o para 2014-10-20-preview a Búsqueda de Azure, api-version=2015-02-28." 
 	services="search" 
 	documentationCenter="" 
@@ -22,8 +22,8 @@ Búsqueda de Azure es un servicio de búsqueda hospedado en la nube en Microsoft
 
 Como cliente de la versión preliminar, puede usar cualquiera de estas versiones preliminares anteriores:
 
-- [2014-07-31-Preview](search-api-2014-07-31-preview.md)
-- [2014-10-20-Preview](search-api-2014-10-20-preview.md)
+- 2014-07-31-Preview
+- 2014-10-20-Preview
 
 Ahora que Búsqueda de Azure está disponible con carácter general, recomendamos realizar la transición a versiones más recientes: 2015-02-28 es la versión oficial de la API de la versión de Búsqueda de Azure disponible con carácter general. Esta versión está documentada en [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx).
 
@@ -144,4 +144,4 @@ La versión `2015-02-28` de la API responde a un Contrato de nivel de servicio (
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

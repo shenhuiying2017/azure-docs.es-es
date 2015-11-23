@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="11/11/2015" 
 	ms.author="sergkanz"/>
  
 # Notas de la versión del SDK de Application Insights para .NET
@@ -109,4 +109,4 @@ No existen notas de la versión para versiones anteriores.
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

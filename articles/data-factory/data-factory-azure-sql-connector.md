@@ -555,11 +555,9 @@ La asignación es igual que la asignación de tipo de datos de SQL Server para A
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-## Enviar comentarios
-Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-sql-connector.md).
 
 
 
 	 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

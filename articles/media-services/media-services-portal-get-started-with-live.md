@@ -190,14 +190,14 @@ Si se realizan eventos de streaming y desea limpiar los recursos aprovisionados 
 - Puede detener el extremo de streaming, a menos que desee seguir proporcionando el archivo de su evento en vivo como una secuencia a petición. Cuando el canal está en un estado detenido, no se incurrirá en ningún cargo.
 
 
-##Pasos siguientes
+##Siguientes pasos: Rutas de aprendizaje de Servicios multimedia
 
-###Rutas de aprendizaje de Servicios multimedia
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+##Envío de comentarios
 
-- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ### ¿Busca alguna otra cosa?
 
@@ -212,4 +212,4 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
 
 <!-- Images -->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

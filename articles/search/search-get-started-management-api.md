@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción a la API de REST de administración de Búsqueda de Azure | Microsoft Azure" 
+	pageTitle="Introducción a la API REST de administración de Búsqueda de Azure | Microsoft Azure | Servicio de búsqueda hospedado en la nube" 
 	description="Administre el servicio de Búsqueda de Azure hospedado en la nube mediante una API de REST de administración." 
 	services="search" 
 	documentationCenter="" 
@@ -204,4 +204,4 @@ Una vez terminado este tutorial, puede obtener más información acerca de la ad
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -74,7 +74,8 @@ Para cada disco cuya copia de seguridad se realiza, Copia de seguridad de Azure 
 Aunque la mayoría del tiempo se dedica a leer y copiar los datos, hay otras operaciones que contribuyen al tiempo total necesario para la copia de seguridad de una máquina virtual:
 
 - Tiempo necesario para [instalar o actualizar la extensión de copia de seguridad](backup-azure-vms.md#offline-vms)
-- Tiempo de espera de cola: puesto que el servicio de copia de seguridad está procesando las copias de seguridad de varios clientes, la operación de copia de seguridad podría no iniciarse inmediatamente. En los momentos de carga máxima, los tiempos de espera pueden ampliarse hasta 8 horas debido al número de copias de seguridad que se procesan. Sin embargo, el tiempo total de copia de seguridad de la máquina virtual será de menos de 24 horas para las directivas de copia de seguridad diarias.
+- Hora de la instantánea: tiempo dedicado a desencadenar una instantánea. Las instantáneas se desencadenan cerca de la hora de copia de seguridad programada.
+- Tiempo de espera de cola: puesto que el servicio de copia de seguridad está procesando las copias de seguridad de varios clientes, la operación de copia de datos de copia de seguridad de la instantánea al almacén de copia de seguridad de Azure podría no iniciarse inmediatamente. En los momentos de carga máxima, los tiempos de espera pueden ampliarse hasta 8 horas debido al número de copias de seguridad que se procesan. Sin embargo, el tiempo total de copia de seguridad de la máquina virtual será de menos de 24 horas para las directivas de copia de seguridad diarias.
 
 ## ¿Cómo se calculan las instancias protegidas?
 Las máquinas virtuales de Azure sometidas a copia de seguridad mediante el servicio Copia de seguridad de Azure estarán sujetas a los [precios de Copia de seguridad de Azure](http://azure.microsoft.com/pricing/details/backup/). El cálculo de instancias protegidas se basa en el tamaño *real* de la máquina virtual, que es la suma de todos los datos de la máquina virtual, excepto el disco de recursos. *No* se le facturará en función del tamaño máximo admitido para cada disco de datos conectado a la máquina virtual, sino de los datos reales almacenados en el disco de datos. De forma similar, los requisitos de almacenamiento de copia de seguridad se basan en la cantidad de datos almacenados con copias de seguridad de Azure, que es la suma de los datos reales de cada punto de recuperación.
@@ -102,4 +103,4 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 - [Solución de problemas de copia de seguridad de máquinas virtuales](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

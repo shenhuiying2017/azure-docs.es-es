@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso de etiquetas para organizar los recursos de Azure"
+	pageTitle="Uso de etiquetas para organizar los recursos de Azure | Microsoft Azure"
 	description="Muestra cómo aplicar etiquetas para organizar los recursos para la facturación y administración."
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/28/2015"
+	ms.date="11/11/2015"
 	ms.author="tomfitz"/>
 
 
@@ -25,8 +25,31 @@ Cuando consulta los recursos con una etiqueta determinada, puede ver recursos de
 
 Cada etiqueta que agrega a un recurso o a un grupo de recursos se agrega automáticamente a la taxonomía en toda la suscripción. También puede rellenar previamente la taxonomía de la suscripción con los nombres y los valores de etiquetas que desearía usar cuando los recursos se etiqueten en un futuro.
 
+Cada recurso o grupo de recursos puede tener un máximo de 15 etiquetas. El nombre de etiqueta está limitado a 512 caracteres y el valor de la etiqueta, a 256.
+
 > [AZURE.NOTE]Solo puede aplicar etiquetas a recursos que admiten operaciones del Administrador de recursos. Si creó una máquina virtual, una red virtual o un almacenamiento a través del modelo de implementación clásica (por ejemplo, a través del Portal de Azure o la [API de administración de servicios](../services/api-management/)), no puede aplicar una etiqueta a ese recurso. Debe volver a implementar estos recursos mediante el Administrador de recursos para admitir el etiquetado. Todos los demás recursos admiten el etiquetado.
 
+## Etiquetas de plantillas
+
+Agregar una etiqueta a los recursos durante la implementación es muy fácil. Basta con agregar el elemento **etiquetas** al recurso que va a implementar y proporcionar el nombre y el valor de la etiqueta. No es necesario que el nombre y el valor de la etiqueta existan previamente en su suscripción. Puede proporcionar hasta 15 etiquetas para cada recurso.
+
+En el ejemplo siguiente se muestra una cuenta de almacenamiento con una etiqueta.
+
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2015-06-15",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "dept": "Finance"
+            },
+            "properties": 
+            {
+                "accountType": "Standard_LRS"
+            }
+        }
+    ]
 
 ## Etiquetas del Portal de vista previa
 
@@ -140,7 +163,7 @@ Use el cmdlet **New-AzureRmTag**para agregar nuevas etiquetas a la taxonomía. E
 
 ## Etiquetado con API de REST
 
-Tanto el portal como PowerShell usan la [API de REST del Administrador de recursos](http://msdn.microsoft.com/library/azure/dn790568.aspx) en segundo plano. Si necesita integrar el etiquetado en otro entorno, puede obtener etiquetas con un comando GET en el identificador de recurso y actualizar el conjunto de etiquetas con una llamada PATCH.
+Tanto el portal como PowerShell usan la [API de REST del Administrador de recursos](https://msdn.microsoft.com/library/azure/dn848368.aspx) en segundo plano. Si necesita integrar el etiquetado en otro entorno, puede obtener etiquetas con un comando GET en el identificador de recurso y actualizar el conjunto de etiquetas con una llamada PATCH.
 
 
 ## Etiquetado y facturación
@@ -156,8 +179,8 @@ Al descargar el CSV de uso correspondiente a los servicios que admiten etiquetas
 ## Pasos siguientes
 
 - Puede aplicar restricciones y convenciones a través de su suscripción con directivas personalizadas. La directiva que defina podría requerir que se establezca una etiqueta específica para todos los recursos. Para obtener más información, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
-- Para obtener información sobre cómo usar Azure PowerShell al implementar recursos, consulte [Uso de Azure PowerShell con Administrador de recursos de Azure](./powershell-azure-resource-manager.md).
+- Para obtener información sobre cómo usar Azure PowerShell al implementar recursos, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](./powershell-azure-resource-manager.md).
 - Para obtener información sobre cómo usar la interfaz de la línea de comandos de Azure al implementar recursos, consulte [Uso de la interfaz de la línea de comandos de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](./xplat-cli-azure-resource-manager.md).
-- Para obtener información sobre cómo usar el portal de vista previa, vea [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](./resource-group-portal.md).  
+- Para obtener información sobre cómo usar el Portal de vista previa, vea [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](./resource-group-portal.md).  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

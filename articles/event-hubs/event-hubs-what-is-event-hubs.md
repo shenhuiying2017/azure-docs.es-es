@@ -1,6 +1,6 @@
 <properties
-	pageTitle="¿Qué es Centros de eventos de Azure?"
-	description="Información general de los Centros de eventos de Azure."
+	pageTitle="¿Qué son los Centros de eventos de Azure? | Microsoft Azure"
+	description="Información general de los Centros de eventos de Azure"
 	services="event-hubs"
 	documentationCenter=".net"
 	authors="nberdy"
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
 # ¿Qué es Centros de eventos de Azure?
@@ -30,7 +30,7 @@ Centros de eventos es un servicio de procesamiento de eventos que ofrece introdu
 
 Algunas otras capacidades de Centros de eventos son el seguimiento del comportamiento en aplicaciones móviles, la información sobre el tráfico de granjas de servidores web, la captura de eventos en el juego de juegos de consola o los datos de telemetría recopilados de máquinas industriales o vehículos conectados.
 
-A diferencia de [Temas y colas de Bus de servicio](../service-bus/service-bus-messaging-overview.md), los Centros de eventos se centran en ofrecer control de flujo de mensajes a escala. Las capacidades de los Centros de eventos se diferencian de las de los temas en que están fuertemente orientadas a escenarios de alto procesamiento y procesamiento de eventos. Como resultado, los Centros de eventos no implementan algunas de las capacidades de mensajería que están disponibles para los [temas](service-bus/fundamentals-service-bus-hybrid-solutions.md#topics). Si necesita esas capacidades, los temas siguen siendo la opción óptima.
+A diferencia de [Temas y colas de Bus de servicio](../service-bus/service-bus-messaging-overview.md), los Centros de eventos se centran en ofrecer control de flujo de mensajes a escala. Las capacidades de los Centros de eventos se diferencian de las de los temas en que están fuertemente orientadas a escenarios de alto procesamiento y procesamiento de eventos. Como resultado, los Centros de eventos no implementan algunas de las capacidades de mensajería que están disponibles para los [temas](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics). Si necesita esas capacidades, los temas siguen siendo la opción óptima.
 
 ## Pasos siguientes
 
@@ -39,10 +39,10 @@ Para obtener información detallada acerca de los Centros de eventos, consulte l
 - [Información general de los Centros de eventos](event-hubs-overview.md)
 - [Guía de programación de Centros de eventos](event-hubs-programming-guide.md)
 - [Preguntas más frecuentes sobre la disponibilidad y el soporte técnico de los Centros de eventos](event-hubs-availability-and-support-faq.md)
-- Empezar a trabajar con un [tutorial de Centros de eventos]
-- Una [aplicación de ejemplo completa que usa Centros de eventos]
+- Empezar a trabajar con un [tutorial de Centros de eventos][]
+- Una [aplicación de ejemplo completa que usa Centros de eventos][]
 
-[tutorial de Centros de eventos]: service-bus-event-hubs-csharp-ephcs-getstarted.md
-[aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
+[tutorial de Centros de eventos]: event-hubs-csharp-ephcs-getstarted.md
+[aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -430,4 +430,4 @@ Ahora que la infraestructura de la conexión híbrida se ha completado, es el mo
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

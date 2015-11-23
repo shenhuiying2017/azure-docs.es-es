@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Qué es Búsqueda de Azure"
+	pageTitle="¿Qué es Búsqueda de Azure? | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
 	description="Búsqueda de Azure es un servicio de búsqueda hospedado en la nube. Más información en esta información técnica y resumen de características."
 	services="search"
 	documentationCenter=""
@@ -131,4 +131,4 @@ También puede consultar estos tutoriales:
 
 [Uso de Búsqueda de Azure en .NET](search-howto-dotnet-sdk.md) [Introducción a Búsqueda de Azure](search-get-started-dotnet.md) [Búsqueda de Azure: ejemplos, tutoriales y demostraciones en vídeo](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

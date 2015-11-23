@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/29/2015"
+ ms.date="11/05/2015"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
@@ -46,4 +46,4 @@ Examine estos recursos para obtener más información sobre IoT en Azure:
 [Aprendizaje automático de Azure]: https://azure.microsoft.com/es-ES/services/machine-learning/
 [Almacenamiento de Azure]: https://azure.microsoft.com/es-ES/services/storage/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

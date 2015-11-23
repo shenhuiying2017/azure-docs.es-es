@@ -169,7 +169,7 @@ AND	[acs].[CalendarYear]				= [fis].[CalendarYear]
 ;
 ```
 
-Como Almacenamiento de datos SQL no admite combinaciones ANSI, no puede copiar este código sin cambiando ligeramente.
+Dado que Almacenamiento de datos SQL no admite combinaciones ANSI en la cláusula FROM de una instrucción UPDATE, no puede copiar este código sin cambiarlo ligeramente.
 
 Puede usar una mezcla de un CTAS y una combinación implícita para reemplazar este código:
 
@@ -206,7 +206,7 @@ DROP TABLE CTAS_acs
 ```
 
 ## Sustitución de una combinación ANSI en instrucciones delete
-A veces el mejor enfoque para eliminar los datos es el uso de CTAS. En lugar de eliminar los datos, simplemente seleccione los datos que desea conservar. Esto se aplica especialmente a las instrucciones DELETE que usan sintaxis de combinación ANSI dado que no se admite en Almacenamiento de datos SQL.
+A veces el mejor enfoque para eliminar los datos es el uso de CTAS. En lugar de eliminar los datos, simplemente seleccione los datos que desea conservar. Esto resulta especialmente cierto para las instrucciones DELETE que usan la sintaxis de unión ansi, ya que Almacenamiento de datos SQL no admite combinaciones ANSI en la cláusula FROM de una instrucción DELETE.
 
 A continuación se muestra un ejemplo de una instrucción DELETE convertida:
 
@@ -429,4 +429,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

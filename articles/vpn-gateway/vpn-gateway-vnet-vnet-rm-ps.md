@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Cree una conexión de red virtual a red virtual mediante el Administrador de recursos de Azure y PowerShell | Microsoft Azure"
+   pageTitle="Cree una conexión de red virtual a red virtual mediante el Administrador de recursos de Azure y PowerShell para redes virtuales que residen en la misma suscripción | Microsoft Azure"
    description="Este artículo le guiará para conectar redes virtuales entre sí por medio de PowerShell y el Administrador de recursos de Azure"
    services="vpn-gateway"
    documentationCenter="na"
@@ -14,18 +14,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/20/2015"
+   ms.date="11/06/2015"
    ms.author="cherylmc"/>
 
-# Configurar una conexión de red virtual a red virtual mediante el Administrador de recursos de Azure y PowerShell
+# Configuración de una conexión de red virtual a red virtual para redes virtuales en la misma suscripción mediante el Administrador de recursos de Azure y PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-Este artículo le guiará por el proceso con el modelo de implementación del Administrador de recursos. Puedes seleccionar el artículo para el modelo de implementación y la herramienta de implementación usando las pestañas superiores.
+Este artículo le guiará por el proceso con el modelo de implementación del Administrador de recursos. Puedes seleccionar el artículo para el modelo de implementación y la herramienta de implementación usando las pestañas superiores. En este momento, no tenemos una solución para las conexiones de red virtual a red virtual en redes virtuales creadas mediante el método de implementación del Administrador de recursos que residen en distintas suscripciones. El equipo está trabajando actualmente en una solución y esperamos haber establecido los pasos a final de año. Cuando estén disponibles, este artículo reflejará esos pasos. Los pasos siguientes se refieren a redes virtuales que están en la misma suscripción.
 
->[AZURE.NOTE] Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información acerca de los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
+Si las redes virtuales se crearon con el modelo de implementación clásica, vea [Creación de una conexión de red virtual a red virtual](virtual-networks-configure-vnet-to-vnet-connection.md). El modelo de implementación clásica permite conectar redes virtuales que residen en distintas suscripciones.
+
+Si quiere conectar una red virtual creada en el modelo de implementación clásica a una red virtual creada con el modelo del Administrador de recursos de Azure, vea [Conexión de redes virtuales clásicas a nuevas redes virtuales](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 La conexión de una red virtual a otra (VNet a VNet) es muy parecida a la conexión de una red virtual a la ubicación de un sitio local. Ambos tipos de conectividad usan una puerta de enlace de VPN para proporcionar un túnel seguro con IPsec/IKE. Las redes virtuales que se conecten pueden estar en regiones distintas. Incluso puede combinar la comunicación de red virtual a red virtual con configuraciones de varios sitios. Esto permite establecer topologías de red que combinen la conectividad entre entornos con la conectividad entre redes virtuales, como se muestra en el diagrama siguiente.
 
@@ -230,12 +234,15 @@ Puede utilizar el siguiente ejemplo de cmdlet. Asegúrese de cambiar los valores
 	  }
 	} 
 
+[AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+
 ## Conectar las redes virtuales existentes
 
 Si ya ha creado redes virtuales en modo de Administrador de recursos de Azure y desea conectarlas, compruebe lo siguiente:
 
 - Tiene una subred de puerta de enlace de al menos /29 o mayor para cada red virtual.
 - Los intervalos de direcciones para las redes virtuales no se superponen.
+- Sus redes virtuales están en la misma suscripción.
 
 Si necesita agregar subredes de puerta de enlace a sus redes virtuales, utilice el ejemplo siguiente, reemplazando los valores dados por los suyos propios. Asegúrese de asignar el nombre 'GatewaySubnet' a la subred de puerta de enlace. Si la asigna otro nombre, la configuración de VPN no funcionará según lo esperado.
 
@@ -251,6 +258,10 @@ Después de comprobar que las subredes de la puerta de enlace están configurada
 
 Puede agregar máquinas virtuales a las redes virtuales. [Creación de una máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-Para obtener más información sobre las puertas de enlace de VPN, vea [Preguntas más frecuentes sobre las puertas de enlace de VPN](vpn-gateway-faq.md).
+Para obtener más información sobre las Puertas de enlace de VPN, consulte [Preguntas más frecuentes sobre las Puertas de enlace de VPN](vpn-gateway-vpn-faq.md).
 
-<!----HONumber=Oct15_HO4-->
+Para obtener información sobre la API de REST, vea [Referencia de la API de REST de puerta de enlace de red de Azure](https://msdn.microsoft.com/library/azure/mt163859.aspx).
+
+Para más información sobre redes virtuales, vea [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
+
+<!---HONumber=Nov15_HO3-->

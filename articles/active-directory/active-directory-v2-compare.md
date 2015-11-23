@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/10/2015"
 	ms.author="dastrock"/>
 
 # Diferencias de la vista previa del modelo de aplicaciones v2.0
@@ -121,4 +121,4 @@ Para obtener información sobre las notificaciones específicas emitidas en toke
 ## Limitaciones de vista previa
 Hay una serie de restricciones que se deben tener en cuenta al crear una aplicación con el modelo de aplicaciones v2.0 durante la vista previa pública. Consulte el [documento de limitaciones del modelo de aplicaciones v2.0](active-directory-v2-limitations.md) para ver si alguna de estas restricciones se aplica a su escenario concreto.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

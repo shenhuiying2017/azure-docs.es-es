@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="11/06/2015" 
 	ms.author="awills"/>
 
 # Modelo de exportación de datos de Application Insights
@@ -120,43 +120,6 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 
     *Ejemplos*<br/> www.fabrikam.com<br/>www.contoso.com<br/>bretwpc711.azurewebsites.net<br/>
 
-**urlData.port**
-
-    string <telemetrytype>.urldata.port      Max: 100
-* 
-    El puerto del elemento de datos URL, si se representa en la dirección URL completa. De lo contrario, está vacío. 
-
-    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL.
-
-    *Ejemplos*<br/> 80<br/>443
-
-**urlData.protocol**
-
-    string <telemetrytype>.urldata.protocol      Max: 100
-* 
-    El protocolo (HTTP, FTP, etc.) del elemento de datos URL 
-
-    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL.
-
-    *Ejemplos*<br/> http<br/>https
-
-**urlData.queryParameters.parameter**
-
-    string <telemetrytype>.urldata.queryparameters.parameter      Max: 100
-* 
-    Una matriz de los nombres de los parámetros de consulta del elemento de datos URL 
-
-    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL.
-
-    *Ejemplos*<br/> etc<br/>extraqs<br/>pagemode<br/>pagetype
-
-**urlData.queryParameters.value**
-
-    string <telemetrytype>.urldata.queryparameters.value      Max: 100
-* 
-    Una matriz de los valores de los parámetros de consulta analizados desde el elemento de datos URL 
-
-    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL.
 
 
 ## availability
@@ -477,7 +440,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El sistema operativo del cliente 
 
-    *Valor predeterminado:* si es null, se establece según el procesamiento del agente de usuario. Consulte el apéndice para analizar el agente de usuario
+    *Valor predeterminado*: si es null, se establece basándose en el proceso del agente de usuario. Consulte el apéndice para analizar el agente de usuario
 
     *Ejemplos*<br/> Windows<br/>iOS iPad<br/>Nokia
 
@@ -531,15 +494,6 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 
     *Ejemplos*<br/> 640<br/>800<br/>1080
 
-**userAgentString**
-
-    string context.device.useragent      Max: 1000
-* 
-    La propiedad useragent del explorador del cliente 
-
-    *Valor predeterminado:* si es null, se establece en el agente de usuario HTTP capturado en el extremo de recopilación de datos.
-
-    *Ejemplos*<br/> Opera/9.80 (Windows NT 5.1) Presto/Versión 2.12.388/12.17<br/>Mozilla/5.0 (iPad; CPU OS 8\_3 como Mac OS X) AppleWebKit/Versión 600.1.4 (KHTML, como Gecko)/8.0 Mobile/12F69 Safari/600.1.4<br/>Chrome/37.0.2062.124 Safari/537.36<br/>Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)<br/>Safari/537.36<br/>+S89
 
 **aiAgentVersion**
 
@@ -581,17 +535,6 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 
     *Ejemplos*<br/> Bielorrusia<br/>Países Bajos<br/>Alemania
 
-**latitude**
-
-    long context.location.point.lat      
-* 
-    *Ejemplos*<br/> 53.9<br/>45.7788 
-
-**longitude**
-
-    long context.location.point.lon      
-* 
-    *Ejemplos*<br/> 27.5667<br/>-119.529 
 
 **state**
 
@@ -1045,7 +988,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El puerto de la dirección URL de referencia, si se representa en la dirección URL completa. De lo contrario, está vacío. 
 
-    *Derivación:* vea el apéndice para conocer la transformación de la dirección URL.
+    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL.
 
 **referrerData.protocol**
 
@@ -1063,7 +1006,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     Una matriz de los nombres de los parámetros de consulta de la dirección URL de referencia 
 
-    *Derivación:* vea el apéndice para conocer la transformación de la dirección URL.
+    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL.
 
 **referrerData.queryParameters.value**
 
@@ -1081,4 +1024,4 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * [Exportación continua](app-insights-export-telemetry.md)
 * [Ejemplos de código](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

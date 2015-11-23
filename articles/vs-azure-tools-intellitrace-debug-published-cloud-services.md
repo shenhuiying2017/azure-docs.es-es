@@ -3,7 +3,7 @@
    description="Depuración con IntelliTrace y Visual Studio de un servicio en la nube publicado"
    services="visual-studio-online"
    documentationCenter="n/a"
-   authors="patshea123"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="08/14/2015"
-   ms.author="patshea" />
+   ms.author="tarcher" />
 
 
 
@@ -37,7 +37,7 @@ Para habilitar IntelliTrace para una aplicación de Azure, debe crear y publicar
  
     Aparecerá el asistente para publicar aplicación de Azure.
 
-1. Para recopilar registros de IntelliTrace para su aplicación al publicarse en la nube, seleccione la casilla **Habilitar IntelliTrace**.
+1. Para recopilar registros de IntelliTrace para su aplicación al publicarse en la nube, seleccione la casilla de verificación **Habilitar IntelliTrace**.
 
     >[AZURE.NOTE]Puede habilitar IntelliTrace o bien la generación de perfiles al publicar su aplicación de Azure. No puede habilitar ambas cosas.
 
@@ -69,4 +69,4 @@ Puede continuar trabajando en Visual Studio mientras se descargan los registros 
 
 [Depuración de Servicios en la nube](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

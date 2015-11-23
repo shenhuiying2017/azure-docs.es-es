@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Inicio de sesión en una máquina virtual | Microsoft Azure"
-	description="Use el portal para iniciar sesión en una máquina virtual de Windows creada con el modelo de implementación clásica."
+	description="Use el portal de Azure para iniciar sesión en una máquina virtual de Windows creada con el modelo de implementación clásica."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -38,7 +38,7 @@ A continuación se facilita una guía detallada en vídeo de los pasos de este t
 
 ## Conexión a la máquina virtual
 
-1. Inicie sesión en el [Portal de Azure](http://manage.windowsazure.com).
+1. Inicie sesión en el Portal de Azure.
 
 2. Haga clic en **Máquinas virtuales** y después seleccione la máquina virtual.
 
@@ -59,6 +59,6 @@ A continuación se indican algunas cosas que puede probar:
 -	Si el botón **Conectar** está inactivo o tiene otros problemas con la conexión a Escritorio remoto, pruebe a restablecer la configuración. Desde el panel de la máquina virtual, en **Vista rápida**, haga clic en **Restablecer configuración remota**.
 -	Si experimenta problemas con la contraseña, intente restablecerla. Desde el panel de la máquina virtual, en **Vista rápida**, haga clic en **Restablecer contraseña**.
 
-Si esas sugerencias no funcionan o no son lo que necesita, vea [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). En este artículo se le guiará a través del diagnóstico y la resolución de problemas comunes.
+Si esas sugerencias no funcionan o no son lo que necesita, vea [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). En este artículo se le guiará a través del diagnóstico y la resolución de problemas comunes.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

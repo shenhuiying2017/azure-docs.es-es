@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Cómo configurar el enrutamiento de un circuito ExpressRoute | Microsoft Azure"
+   pageTitle="Cómo configurar el enrutamiento para un circuito ExpressRoute para el modelo de implementación clásica mediante PowerShell | Microsoft Azure"
    description="Este artículo le guiará por los pasos necesarios para crear y aprovisionar las configuraciones entre pares privados, públicos y de Microsoft de un circuito ExpressRoute. Este artículo también muestra cómo comprobar el estado, actualizar, o eliminar configuraciones entre pares en el circuito."
    documentationCenter="na"
    services="expressroute"
@@ -13,23 +13,22 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/04/2015"
+   ms.date="11/05/2015"
    ms.author="cherylmc"/>
 
-# Creación y modificación de la configuración de enrutamiento de ExpressRoute
+# Creación y modificación del enrutamiento de un circuito ExpressRoute mediante PowerShell
 
 > [AZURE.SELECTOR]
-[PowerShell Classic](expressroute-howto-routing-classic.md)
-[PowerShell Resource Manager](expressroute-howto-routing-arm.md)
+[PowerShell - Classic](expressroute-howto-routing-classic.md)
+[PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
 
 Este artículo le guiará por los pasos necesarios para crear y administrar la configuración de enrutamiento para un circuito ExpressRoute con los cmdlets de PowerShell y el modelo clásico de implementación. Los siguientes pasos también le mostrarán cómo comprobar el estado, actualizar, o eliminar y desaprovisionar las configuraciones entre pares para un circuito ExpressRoute.
 
->[AZURE.IMPORTANT]Es importante saber que, actualmente, Azure funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información acerca de los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
-
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 ## Requisitos previos de configuración
 
-- Necesitará la versión más reciente de los cmdlets de Azure PowerShell. Puede descargar el módulo de PowerShell más reciente desde la sección de PowerShell en la [página de descargas de Azure](http://azure.microsoft.com/downloads). Siga las instrucciones de la página [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para obtener instrucciones detalladas sobre cómo configurar el equipo para usar los módulos de Azure PowerShell. 
+- Necesitará la versión más reciente de los cmdlets de Azure PowerShell. Puede descargar el módulo de PowerShell más reciente desde la sección de PowerShell en la [página de descargas de Azure](http://azure.microsoft.com/downloads). Siga las instrucciones de la página [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para obtener una orientación paso a paso sobre cómo configurar el equipo para usar los módulos de Azure PowerShell. 
 - Asegúrese de que ha revisado la página de [requisitos previos](expressroute-prerequisites.md), la de [requisitos de enrutamiento](expressroute-routing.md) y la página de [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
 - Tiene que tener un circuito ExpressRoute activo. Siga las instrucciones para [crear un circuito ExpressRoute](expressroute-howto-circuit-classic.md) y habilite el circuito mediante el proveedor de conectividad antes de continuar. El circuito ExpressRoute debe estar en un estado habilitado y aprovisionado para poder ejecutar los cmdlets que se describen a continuación.
 
@@ -41,7 +40,7 @@ Puede configurar una, dos o las tres configuraciones entre pares (Azure privado,
 
 Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y eliminar la configuración entre pares privados de Azure para un circuito ExpressRoute.
 
-### Creación de una configuración entre pares privados de Azure
+### Creación de un emparejamiento privado de Azure
 
 1. **Importe el módulo de PowerShell para ExpressRoute.**
 	
@@ -95,7 +94,7 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
 
 	>[AZURE.IMPORTANT]Asegúrese de especificar su número AS como ASN de configuración entre pares, no como cliente ASN.
 
-### Obtención de detalles de la configuración entre pares privados de Azure
+### Obtención de detalles del emparejamiento privado de Azure
 
 Puede obtener detalles de configuración mediante el siguiente cmdlet
 
@@ -115,25 +114,26 @@ Puede obtener detalles de configuración mediante el siguiente cmdlet
 	VlanId                         : 100
 
 
-### Actualización del establecimiento de configuración entre pares privados de Azure
+### Actualización del establecimiento de configuración del emparejamiento privado de Azure
 
 Puede actualizar cualquier parte de la configuración mediante el siguiente cmdlet. En el ejemplo siguiente, se está actualizando el identificador de VLAN del circuito de 100 a 500.
 
 	Set-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 500 -SharedKey "A1B2C3D4"
 
-### Eliminación de la configuración entre pares privados de Azure
+### Eliminación del emparejamiento privado de Azure
 
 Puede quitar el establecimiento de configuración entre pares ejecutando el siguiente cmdlet.
 
+>[AZURE.WARNING]Tiene que asegurarse de que todas las redes virtuales se desvinculan del circuito ExpressRoute antes de ejecutar este cmdlet.
+
 	Remove-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
 
->[AZURE.IMPORTANT]Tiene que asegurarse de que todas las redes virtuales se desvinculan del circuito ExpressRoute antes de ejecutar este cmdlet.
 
 ## Configuración entre pares públicos de Azure
 
 Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y eliminar la configuración entre pares públicos de Azure para un circuito ExpressRoute.
 
-### Creación de una configuración entre pares públicos de Azure
+### Creación de un emparejamiento público de Azure
 
 1. **Importe el módulo de PowerShell para ExpressRoute.**
 	
@@ -188,7 +188,7 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
 
 	>[AZURE.IMPORTANT]Asegúrese de especificar su número AS como ASN de configuración entre pares y no como cliente ASN.
 
-### Obtención de detalles de la configuración entre pares públicos de Azure
+### Obtención de detalles del emparejamiento público de Azure
 
 Puede obtener detalles de configuración mediante el siguiente cmdlet
 
@@ -208,7 +208,7 @@ Puede obtener detalles de configuración mediante el siguiente cmdlet
 	VlanId                         : 200
 
 
-### Actualización del establecimiento de configuración entre pares públicos de Azure
+### Actualización del establecimiento de configuración del emparejamiento público de Azure
 
 Puede actualizar cualquier parte de la configuración mediante el siguiente cmdlet
 
@@ -216,7 +216,7 @@ Puede actualizar cualquier parte de la configuración mediante el siguiente cmdl
 
 En el ejemplo anterior se está actualizando el identificador de VLAN del circuito de 200 a 600.
 
-### Eliminación de la configuración entre pares públicos de Azure
+### Eliminación del emparejamiento público de Azure
 
 Puede quitar el establecimiento de configuración entre pares ejecutando el siguiente cmdlet
 
@@ -226,7 +226,7 @@ Puede quitar el establecimiento de configuración entre pares ejecutando el sigu
 
 Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y eliminar el establecimiento de configuración entre pares de Microsoft para un circuito ExpressRoute.
 
-### Creación de la configuración entre pares de Microsoft
+### Creación del emparejamiento de Microsoft
 
 1. **Importe el módulo de PowerShell para ExpressRoute.**
 	
@@ -278,7 +278,7 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
 		New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
 
-### Obtener detalles de la configuración entre pares de Microsoft
+### Obtención de detalles del emparejamiento de Microsoft
 
 Puede obtener detalles sobre la configuración mediante el siguiente cmdlet.
 
@@ -298,13 +298,13 @@ Puede obtener detalles sobre la configuración mediante el siguiente cmdlet.
 	VlanId                         : 300
 
 
-### Actualización del establecimiento de configuración entre pares de Microsoft
+### Actualización de la configuración de emparejamiento de Microsoft
 
 Puede actualizar cualquier parte de la configuración mediante el siguiente cmdlet.
 
 		Set-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
-### Eliminación de la configuración entre pares de Microsoft
+### Eliminación del emparejamiento de Microsoft
 
 Puede quitar el establecimiento de configuración entre pares ejecutando el siguiente cmdlet.
 
@@ -312,8 +312,10 @@ Puede quitar el establecimiento de configuración entre pares ejecutando el sigu
 
 ## Pasos siguientes
 
--  A continuación, [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
+A continuación, [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
+
+
 -  Para obtener más información sobre los flujos de trabajo, consulte [Flujos de trabajo de ExpressRoute](expressroute-workflows.md).
 -  Para obtener más información sobre el emparejamiento de circuitos, consulte [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

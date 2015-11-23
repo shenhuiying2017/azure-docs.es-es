@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Arquitectura del Bus de servicio"
+   pageTitle="Arquitectura de Bus de servicio | Microsoft Azure"
    description="Describe la arquitectura de procesamiento de mensajes del Bus de servicio de Azure."
    services="service-bus"
    documentationCenter="na"
@@ -11,19 +11,19 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/24/2015"
+   ms.workload="na"
+   ms.date="11/06/2015"
    ms.author="sethm" />
 
 # Arquitectura del Bus de servicio
 
-En la siguiente sección se describe la arquitectura de procesamiento de mensajes del Bus de servicio de Azure.
+En este artículo se describe la arquitectura de procesamiento de mensajes del Bus de servicio de Azure.
 
 ## Unidades de escala del Bus de servicio
 
 El Bus de servicio se organizada por *unidades de escala*. Una unidad de escalado es una unidad de implementación y contiene todos los componentes necesarios para ejecutar el servicio. Cada región implementa una o más unidades de escala del Bus de servicio.
 
-Un espacio de nombres del Bus de servicio se asigna a una unidad de escalado. La unidad de escalado controla todos los tipos de entidades del Bus de servicio: retransmisiones, entidades de mensajería asíncrona (colas, temas, suscripciones) y centros de notificaciones. Una unidad de escalado del Bus de servicio consta de los siguientes componentes:
+Un espacio de nombres del Bus de servicio se asigna a una unidad de escalado. La unidad de escalado controla todos los tipos de entidades del Bus de servicio: retransmisiones y entidades de mensajería asincrónica (colas, temas, suscripciones). Una unidad de escalado del Bus de servicio consta de los siguientes componentes:
 
 - **Un conjunto de nodos de puerta de enlace.** Los nodos de puerta de enlace autentican las solicitudes entrantes y controlan las solicitudes de retransmisión. Cada nodo de puerta de enlace tiene una dirección IP pública.
 
@@ -33,7 +33,7 @@ Un espacio de nombres del Bus de servicio se asigna a una unidad de escalado. La
 
 - **Un almacén de puerta de enlace.** El almacén de puerta de enlace contiene los datos para todas las entidades que se definen en esta unidad de escalado. El almacén de puerta de enlace se implementa sobre una base de datos SQL de Azure.
 
-- **Muchos almacenes de mensajería.** Los almacenes de mensajería contienen los mensajes de todas las colas, temas y suscripciones que se definen en esta unidad de escalado. También contiene todos los datos de suscripción. A menos que se habiliten las [particiones de entidades de mensajería](https://msdn.microsoft.com/library/azure/dn520246.aspx), se asigna una cola o un tema a un almacén de mensajería. Las suscripciones se almacenan en el mismo almacén de mensajería como su tema principal. Los almacenes de mensajería se implementan sobre bases de datos SQL de Azure.
+- **Muchos almacenes de mensajería.** Los almacenes de mensajería contienen los mensajes de todas las colas, temas y suscripciones que se definen en esta unidad de escalado. También contiene todos los datos de suscripción. A menos que se habiliten las [entidades de mensajería con particiones](service-bus-partitioning.md), se asigna una cola o un tema a un almacén de mensajería. Las suscripciones se almacenan en el mismo almacén de mensajería como su tema principal. Excepto para la [mensajería Premium](service-bus-premium-messaging.md) del Bus de servicio, los almacenes de mensajería se implementan sobre bases de datos SQL Azure.
 
 - **Varios almacenes de registro.** Los almacenes de registro contienen registros de dispositivos para todos los centros de notificaciones que se definen en esta unidad de escalado. Los almacenes de registro se implementan sobre bases de datos SQL de Azure.
 
@@ -69,4 +69,4 @@ Ahora que ha leído una visión general de cómo funciona el Bus de servicio, pa
 - [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
 - [Una solución de mensajería en cola mediante las colas de Bus de servicio](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

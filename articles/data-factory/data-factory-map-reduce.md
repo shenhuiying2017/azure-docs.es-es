@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Invocar programas MapReduce desde la factoría de datos de Azure
@@ -22,7 +22,7 @@ En este artículo se describe cómo invocar un programa **MapReduce** desde una 
 ## Introducción 
 Una canalización en una factoría de datos de Azure procesa los datos de los servicios de almacenamiento vinculados mediante el uso de servicios de proceso vinculados. Contiene una secuencia de actividades donde cada actividad realiza una operación de procesamiento específica. En este artículo se describe el uso de la transformación de MapReduce de la actividad de HDInsight.
  
-Vea el artículo [Pig](data-factory-pig-activity) y [Hive](data-factory-hive-activity.md) para obtener detalles acerca la ejecución de scripts de Pig/Hive en un clúster de HDInsight desde una canalización de la factoría de datos de Azure mediante transformaciones de Pig/Hive de la actividad de HDInsight.
+Consulte el artículo [Pig](data-factory-pig-activity) y [Hive](data-factory-hive-activity.md) para obtener detalles acerca de la ejecución de scripts de Pig/Hive en un clúster de HDInsight basado en Windows/Linux desde una canalización de la factoría de datos de Azure mediante transformaciones de Pig/Hive de la actividad de HDInsight.
 
 ## JSON para actividades de HDInsight mediante la transformación de MapReduce 
 
@@ -102,4 +102,4 @@ Puede descargar un ejemplo para usar la actividad de HDInsight con la transforma
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

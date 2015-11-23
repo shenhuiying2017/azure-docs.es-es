@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Administración del servicio de búsqueda en Microsoft Azure | Microsoft Azure" 
+	pageTitle="Administración del servicio de búsqueda en Microsoft Azure | Microsoft Azure | Servicio de búsqueda hospedado en la nube" 
 	description="Administración de Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -193,4 +193,4 @@ Los roles proporcionan control de acceso después de crear el servicio. Solo los
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

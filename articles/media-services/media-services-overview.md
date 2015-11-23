@@ -210,6 +210,10 @@ El [Soporte técnico de Azure](http://azure.microsoft.com/support/options/) prop
 [Guía de patrones y prácticas](https://wamsg.codeplex.com/) [Documentación en línea](https://msdn.microsoft.com/library/dn735912.aspx) [Libro electrónico descargable](https://www.microsoft.com/download/details.aspx?id=42629)
 
 
+##Envío de comentarios
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 ##Contrato de nivel de servicio (SLA)
 
 - Garantizamos la disponibilidad del 99,9% de las transacciones de API de REST para la codificación de Servicios multimedia.
@@ -218,7 +222,7 @@ El [Soporte técnico de Azure](http://azure.microsoft.com/support/options/) prop
 - Para la protección de contenido, garantizamos que procesaremos correctamente las solicitudes clave como mínimo el 99,9% del tiempo.
 - Para el indizador, atenderemos correctamente las solicitudes de tarea de indizador procesadas con una unidad reservada de codificación el 99,9% del tiempo.
 
-	Para obtener más información, vea el [Contrato de nivel de servicio de Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
+	Para obtener más información, consulte [SLA de Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
@@ -227,4 +231,4 @@ El [Soporte técnico de Azure](http://azure.microsoft.com/support/options/) prop
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

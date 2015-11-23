@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Obtenga información acerca de cómo usar el SDK de .NET de administración de Análisis de transmisiones | Microsoft Azure" 
 	description="Introducción al uso del SDK de .NET de administración de Análisis de transmisiones Obtenga información acerca de cómo configurar y ejecutar trabajos de análisis: crear un proyecto, entradas, salidas y transformaciones." 
-	keywords=".net skd,analytics jobs,event hub"
+	keywords=".net skd,trabajos de análisis, centro de eventos"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/06/2015" 
+	ms.date="11/06/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -365,4 +365,4 @@ Ha aprendido los conceptos básicos del uso de un SDK de .NET para crear y ejecu
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

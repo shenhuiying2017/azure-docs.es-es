@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
-    authors="sidneyh"/>
+    authors="torsteng"/>
 
 <tags
     ms.service="sql-database"
@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/19/2015"
-    ms.author="torsteng" />
+    ms.date="11/09/2015"
+    ms.author="torsteng;sidneyh" />
 
 # Consulta de bases de datos elásticas para consultas entre bases de datos (particionamiento vertical)
 
@@ -44,7 +44,7 @@ Una credencial representa el identificador y la contraseña de usuario que usar�
     SECRET = ‘<password>’
     [;]
     
-o para quitarlas:
+Para eliminar la credencial:
     
     DROP DATABASE SCOPED CREDENTIAL <credential_name>;  
     DROP MASTER KEY;   
@@ -184,4 +184,4 @@ Puede usar cadenas de conexión de SQL Server normales para conectar sus herrami
 <!--Image references-->
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

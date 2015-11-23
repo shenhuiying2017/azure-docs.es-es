@@ -247,12 +247,16 @@ MP3 (MPEG-1 Audio Layer 3)|No|No|Sí
 Windows Media Audio|No|Sí|Sí
 
 
+
+
 ##Rutas de aprendizaje de Servicios multimedia
 
-Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Envío de comentarios
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ##Artículos relacionados
 
@@ -262,4 +266,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de una aplicación de búsqueda geoespacial usando Búsqueda de Azure | Microsoft Azure" 
+	pageTitle="Creación de una aplicación de búsqueda geoespacial con Búsqueda de Azure | Microsoft Azure | Servicio de búsqueda hospedado en la nube" 
 	description="Cree una aplicación de búsqueda geoespacial con Bing y Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -67,7 +67,7 @@ Vamos a usar la API de Mapas de Bing para dos cosas.
 
 En este paso, usaremos la API DataFlow de Mapas de Bing para obtener las coordenadas geográficas de las direcciones de varias tiendas de bicicletas de todo el mundo.
 
-Estos datos provienen de un archivo CSV llamado store_locations.csv que se encuentra en el origen que se descargó antes. Si abre este archivo en un editor de texto o en Excel, verá que tiene una columna de identificador para cada tienda, el nombre de la tienda y su dirección.
+Estos datos provienen de un archivo CSV llamado store\_locations.csv que se encuentra en el origen que se descargó antes. Si abre este archivo en un editor de texto o en Excel, verá que tiene una columna de identificador para cada tienda, el nombre de la tienda y su dirección.
 
 Analicemos el código que explica cómo funciona esto.
 
@@ -75,7 +75,7 @@ Analicemos el código que explica cómo funciona esto.
 
 2. Vaya a la función **Main** y fíjese en que llama a **ApplyStoreData**. Pase a esta función y explore el código.
 
-3. **ApplyStoreData** carga datos de un archivo CSV llamado "store_locations.csv" en una System.Data.DataTable.
+3. **ApplyStoreData** carga datos de un archivo CSV llamado "store\_locations.csv" en una System.Data.DataTable.
 
     Este archivo contiene todas las tiendas, incluidas las direcciones que queremos cargar en Búsqueda de Azure. Al procesar una iteración en todas las filas del archivo, podemos crear un conjunto de **indexOperations** que luego se insertan en un índice de Búsqueda de Azure (creado anteriormente en la función **CreateStoresIndex()**).
 
@@ -167,4 +167,4 @@ Si quiere ampliar conocimientos, puede agregar más capacidades a la aplicación
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

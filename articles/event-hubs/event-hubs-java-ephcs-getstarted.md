@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a los Centros de eventos"
+	pageTitle="Introducción a los Centros de eventos en Java | Microsoft Azure"
 	description="Siga este tutorial para empezar a usar Centros de eventos de Azure, a enviar eventos con C y a recibirlos con Java mediante EventProcessorHost."
 	services="event-hubs"
 	documentationCenter=""
@@ -10,10 +10,10 @@
 <tags
 	ms.service="event-hubs"
 	ms.workload="core"
-	ms.tgt_pltfrm="csharp"
-	ms.devlang="csharp"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
 # Introducción a los Centros de eventos
@@ -24,21 +24,21 @@
 
 Centros de eventos es un sistema de recopilación de alta escalabilidad que puede recibir millones de eventos por segundo, habilitando una aplicación para procesar y analizar las grandes cantidades de datos generados por las aplicaciones y los dispositivos conectados. Una vez recopilados en los Centros de eventos, puede transformar y almacenar los datos usando cualquier proveedor de análisis en tiempo real o clúster de almacenamiento.
 
-Para obtener más información, consulte [Información general de los Centros de eventos de Azure].
+Para obtener más información, consulte [Información general sobre Centros de eventos][].
 
-En este tutorial, aprenderá a insertar mensajes en un Centro de eventos mediante una aplicación de consola en Java y a recuperarlos en paralelo con la biblioteca [Event Processor Host] de C#.
+En este tutorial se muestra cómo insertar mensajes en un Centro de eventos mediante una aplicación de consola en Java y a recuperarlos en paralelo con la biblioteca [Event Processor Host][] de C#.
 
-Para completar este tutorial, necesitará lo siguiente:
+Para completar este tutorial necesitará lo siguiente:
 
 + Un entorno de desarrollo de Java. Para este tutorial, asumimos que vamos a trabajar con [Eclipse](https://www.eclipse.org/).
 
-+ Microsoft Visual Studio Express 2013 para Windows.
++ Microsoft Visual Studio Express para Windows
 
 + Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
 
-## Creación de un centro de eventos
+## Creación de un Centro de eventos
 
-1. Inicie sesión en el [Portal de administración de Azure] y haga clic en **NUEVO** en la parte inferior de la pantalla.
+1. Inicie sesión en el [portal de Azure] y haga clic en **NUEVO** en la parte inferior de la pantalla.
 
 2. Haga clic en **Servicios de aplicaciones**, **Bus de servicio**, **Centro de eventos** y, finalmente, en **Creación rápida**.
 
@@ -91,11 +91,11 @@ Ya está preparado para ejecutar las aplicaciones.
 
 Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y envía y recibe datos, puede pasar a los siguientes escenarios:
 
-- Una [aplicación de ejemplo completa que usa Centros de eventos].
-- El ejemplo [Escala horizontal del procesamiento de eventos con Centros de eventos].
-- Una [solución de mensajería en cola] mediante las colas de Bus de servicio.
+- Una [aplicación de ejemplo completa que usa Centros de eventos][].
+- El ejemplo [Escala horizontal del procesamiento de eventos con Centros de eventos][].
+- Una [solución de mensajería en cola][] mediante las colas de Bus de servicio.
 
-Para obtener más información, consulte también el [Centro para desarrolladores de Java](/develop/java/).
+Para obtener más información, consulte el [Centro de desarrolladores de Java](/develop/java/).
 
 <!-- Images. -->
 [1]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub1.png
@@ -111,12 +111,12 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [22]: ./media/event-hubs-java-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[portal de Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Información general de los Centros de eventos de Azure]: http://msdn.microsoft.com/library/azure/dn836025.aspx
-[aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[Escala horizontal del procesamiento de eventos con Centros de eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[solución de mensajería en cola]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[Información general sobre Centros de eventos]: event-hubs-overview.md
+[aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Escala horizontal del procesamiento de eventos con Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

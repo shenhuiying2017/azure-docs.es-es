@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management,hpc-pack"/>
 
 <tags
 	ms.service="cloud-services"
@@ -85,7 +86,7 @@ En primer lugar, debe instalar Microsoft HPC Pack en un equipo local con un Wind
 	![Finalización][install_hpc7]
 
 ## Preparación de la suscripción de Azure
-Utilice el [Portal de administración de Azure](https://manage.windowsazure.com) para realizar los siguientes pasos con su suscripción de Azure. Estos pasos son necesarios para poder implementar más adelante los nodos de Azure desde el nodo principal local:
+Use el [Portal de Azure](https://manage.windowsazure.com) para realizar los siguientes pasos con su suscripción de Azure. Estos pasos son necesarios para poder implementar más adelante los nodos de Azure desde el nodo principal local:
 
 - Cargue un certificado de administración (necesario para las conexiones seguras entre el nodo principal y los servicios de Azure).
 
@@ -296,7 +297,7 @@ Después de probar el clúster, puede usar el administrador de clústeres de HPC
 
 	![Nodos no implementados][stop_node4]
 
-4. Para confirmar que las instancias han dejado de ejecutarse en Azure, en el [portal clásico](https://manage.windowsazure.com), haga clic en **Servicios en la nube**, después en el nombre de su servicio en la nube y, a continuación, en **Instancias**. No se implementarán instancias en el entorno de producción.
+4. Para confirmar que las instancias de rol han dejado de ejecutarse en Azure, en el [portal](https://manage.windowsazure.com), haga clic en **Servicios en la nube**, después en el nombre de su servicio en la nube y, a continuación, en **Instancias**. No se implementarán instancias en el entorno de producción.
 
 	![Sin instancias][view_instances2]
 
@@ -347,4 +348,4 @@ Después de probar el clúster, puede usar el administrador de clústeres de HPC
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

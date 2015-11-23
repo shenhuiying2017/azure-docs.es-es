@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/11/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -25,7 +25,7 @@ Históricamente, la administración de un recurso (como un servidor de base de d
 
 Normalmente, un grupo de recursos contiene recursos relacionados con una aplicación específica. Por ejemplo, un grupo puede contener una aplicación web que hospeda el sitio web público, una Base de datos SQL que almacena datos relacionales que usa el sitio y una cuenta de almacenamiento que conserva recursos no relacionales. Todos los recursos de un grupo de recursos deben compartir el mismo ciclo de vida. Para obtener más información sobre el Administrador de recursos, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).
 
-Este tema proporciona una introducción general de cómo usar grupos de recursos en el Portal de vista previa de Microsoft Azure.
+Este tema proporciona una introducción general de cómo usar grupos de recursos en el Portal de vista previa de Microsoft Azure. Actualmente, no todos los servicios son compatibles con el portal de vista previa o el Administrador de recursos. Para esos servicios, deberá usar el [portal](https://manage.windowsazure.com). Para obtener información acerca del estado de cada servicio, consulte [Compatibilidad del Administrador de recursos para servicios, regiones y versiones de API](resource-manager-supported-services.md)
 
 ## Creación de recursos y de un grupo de recursos
 
@@ -154,4 +154,4 @@ Introducción
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

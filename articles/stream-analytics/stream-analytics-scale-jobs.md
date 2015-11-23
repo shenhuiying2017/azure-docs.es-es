@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="09/29/2015"
+	ms.date="11/06/2015"
 	ms.author="jeffstok"/>
 
 # Escalar los trabajos de Análisis de transmisiones de Azure para incrementar el rendimiento #
@@ -265,4 +265,4 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

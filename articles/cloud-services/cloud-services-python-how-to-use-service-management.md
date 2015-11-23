@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="03/11/2015"
+	ms.date="11/03/2015"
 	ms.author="huvalo"/>
 
 # Uso de la administración de servicios con Python
 
-En esta guía se describe cómo ejecutar tareas comunes de administración de servicios mediante programación con Python. La clase **ServiceManagementService** del [SDK de Azure para Python][download-SDK-Python] admite el acceso mediante programación a gran parte de la funcionalidad relacionada con la administración de servicios que se encuentra disponible en el [portal de administración][management-portal] (como **crear, actualizar y eliminar servicios en la nube, implementaciones, servicios de administración de datos, máquinas virtuales y grupos de afinidad**). Esta funcionalidad puede resultar útil para compilar aplicaciones que precisan de acceso mediante programación a la administración de servicios.
+En esta guía se describe cómo ejecutar tareas comunes de administración de servicios mediante programación con Python. La clase **ServiceManagementService** del [SDK de Azure para Python](../python-how-to-install.md) admite el acceso mediante programación a gran parte de la funcionalidad relacionada con la administración de servicios que se encuentra disponible en el [portal de administración][management-portal] (como **crear, actualizar y eliminar servicios en la nube, implementaciones, servicios de administración de datos, máquinas virtuales y grupos de afinidad**). Esta funcionalidad puede resultar útil para compilar aplicaciones que precisan de acceso mediante programación a la administración de servicios.
+
+> [AZURE.NOTE]API de administración de servicios se ha sustituido por la nueva API de administración de recursos, actualmente disponible en una versión preliminar. Consulte la [documentación de administración de recursos de Azure](http://azure-sdk-for-python.readthedocs.org/) para obtener más información acerca del uso de la nueva API de administración de recursos de Python.
+
 
 ## <a name="WhatIs"> </a>Qué es la administración de servicios
 La API de administración de servicios proporciona acceso mediante programación a gran parte de la funcionalidad de administración de servicios disponible a través del [portal de administración][management-portal]. El SDK de Azure para Python le permite administrar los servicios en la nube y las cuentas de almacenamiento.
@@ -42,7 +45,7 @@ Para crear el certificado `.cer`, ejecute este comando:
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Para obtener más información acerca de los certificados de Azure, consulte [Administración de certificados en Azure](http://msdn.microsoft.com/library/windowsazure/gg981929.aspx). Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación en [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+Para obtener más información acerca de los certificados de Azure, consulte [Información general sobre los certificados de Servicios en la nube de Azure](./cloud-services-certs-create.md). Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación en [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
 Después de haber creado estos archivos, necesitará actualizar el archivo `.cer` en Azure a través de la acción "Cargar" de la pestaña "Configuración" del [portal de administración][management-portal]; además, deberá anotar dónde ha guardado el archivo `.pem`.
 
@@ -64,7 +67,7 @@ Puede crear un certificado de administración autofirmado en la máquina con `ma
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-El comando creará el archivo `.cer` y lo instalará en el almacén de certificados **Personal**. Para obtener información más detallada, consulte [Creación y carga de un certificado de administración para Azure](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx).
+El comando creará el archivo `.cer` y lo instalará en el almacén de certificados **Personal**. Para obtener más información, consulte [Introducción a los certificados para los servicios en la nube de Azure](./cloud-services-certs-create.md).
 
 Después de haber creado el certificado, necesitará cargar el archivo `.cer` en Azure mediante la acción "Cargar" de la pestaña "Configuración" del [portal de administración][management-portal].
 
@@ -167,7 +170,7 @@ Para eliminar una implementación, use el método **delete\_deployment**. En el 
 
 ## <a name="CreateStorageService"> </a>Creación de un servicio de almacenamiento
 
-Un [servicio de almacenamiento] le proporciona acceso a [blobs][azure-blobs], [tablas][azure-tables] y [colas][azure-queues]. Para crear un servicio de almacenamiento, necesita un nombre para el servicio (entre 3 y 24 caracteres en minúscula y exclusivos en Azure), una descripción, una etiqueta (hasta 100 caracteres, codificados automáticamente como base64) y una ubicación. En el ejemplo siguiente se muestra cómo crear un servicio de almacenamiento mediante la definición de una ubicación.
+Un [servicio de almacenamiento](../storage/storage-create-storage-account.md) le proporciona acceso a [blobs](../storage/storage-python-how-to-use-blob-storage.md), [tablas](../storage/storage-python-how-to-use-table-storage.md) y [colas](../storage/storage-python-how-to-use-queue-storage.md). Para crear un servicio de almacenamiento, necesita un nombre para el servicio (entre 3 y 24 caracteres en minúscula y exclusivos en Azure), una descripción, una etiqueta (hasta 100 caracteres, codificados automáticamente como base64) y una ubicación. En el ejemplo siguiente se muestra cómo crear un servicio de almacenamiento mediante la definición de una ubicación.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -398,13 +401,13 @@ Para crear finalmente la máquina virtual con la imagen capturada, use el métod
 		role_size='Small',
 		vm_image_name = image_name)
 
-Para obtener más información acerca de cómo capturar una máquina Virtual Linux, consulte [Captura de una máquina virtual de Linux.](../virtual-machines-linux-capture-image.md)
+Para obtener más información acerca de cómo capturar una máquina Virtual Linux, consulte [Captura de una máquina virtual de Linux.](../virtual-machines/virtual-machines-linux-capture-image.md)
 
-Para obtener más información acerca de cómo capturar una máquina virtual de Windows, consulte [Captura de una máquina virtual de Windows](../virtual-machines-capture-image-windows-server.md).
+Para obtener más información acerca de cómo capturar una máquina virtual de Windows, consulte [Captura de una máquina virtual de Windows](../virtual-machines/virtual-machines-capture-image-windows-server.md).
 
 ## <a name="What's Next"> </a>Pasos siguientes
 
-Ahora que ha aprendido los conceptos básicos de la administración de servicios, puede tener acceso a la [Documentación de referencia completa de la API para el SDK de Azure para Python](http://azure-sdk-for-python.readthedocs.org/en/documentation/index.html) y realizar tareas complejas fácilmente para administrar la aplicación Python.
+Ahora que ha aprendido los conceptos básicos de la administración de servicios, puede tener acceso a la [Documentación de referencia completa de la API para el SDK de Azure para Python](http://azure-sdk-for-python.readthedocs.org/) y realizar tareas complejas fácilmente para administrar la aplicación Python.
 
 Para obtener más información, consulte el [Centro para desarrolladores de Python](/develop/python/).
 
@@ -430,19 +433,6 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[download-SDK-Python]: https://www.windowsazure.com/develop/python/common-tasks/install-python/
-[servicio en la nube]: http://windowsazure.com/documentation/articles/cloud-services-what-is
-[service package]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
-[Azure PowerShell cmdlets]: https://www.windowsazure.com/develop/php/how-to-guides/powershell-cmdlets/
-[cspack commandline tool]: http://msdn.microsoft.com/library/windowsazure/gg432988.aspx
-[Deploying an Azure Service]: http://msdn.microsoft.com/library/windowsazure/gg433027.aspx
-[servicio de almacenamiento]: https://www.windowsazure.com/manage/services/storage/what-is-a-storage-account/
-[azure-blobs]: https://www.windowsazure.com/develop/python/how-to-guides/blob-service/
-[azure-tables]: https://www.windowsazure.com/develop/python/how-to-guides/table-service/
-[azure-queues]: https://www.windowsazure.com/develop/python/how-to-guides/queue-service/
-[Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
-[Cloud Services]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
-[Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
- 
+[servicio en la nube]: https://azure.microsoft.com/es-ES/documentation/services/cloud-services/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

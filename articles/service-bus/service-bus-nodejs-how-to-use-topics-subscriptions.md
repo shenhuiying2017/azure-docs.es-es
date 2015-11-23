@@ -69,7 +69,7 @@ El módulo Azure leerá las variables de entorno AZURE\_SERVICEBUS\_NAMESPACE y 
 
 Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio de nube de Azure, consulte [Servicio de nube de Node.js con almacenamiento][].
 
-Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, vea [Aplicación web de Node.js con almacenamiento][].
+Para ver un ejemplo de configuración de las variables de entorno en el Portal de Azure para un sitio web de Azure, consulte [Aplicación web Node.js con almacenamiento][].
 
 ## de un tema
 
@@ -292,7 +292,7 @@ En caso de que la aplicación sufra un error después de procesar el mensaje y a
 
 ## Eliminación de temas y suscripciones
 
-Los temas y suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del Portal de administración de Azure o mediante programación. En el siguiente ejemplo se muestra cómo eliminar el tema llamado `MyTopic`:
+Los temas y suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del Portal de Azure o mediante programación. En el siguiente ejemplo se muestra cómo eliminar el tema llamado `MyTopic`:
 
     serviceBusService.deleteTopic('MyTopic', function (error) {
         if (error) {
@@ -324,7 +324,7 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Servicio de nube de Node.js con almacenamiento]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [Aplicación web de Node.js con almacenamiento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+  [Aplicación web Node.js con almacenamiento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

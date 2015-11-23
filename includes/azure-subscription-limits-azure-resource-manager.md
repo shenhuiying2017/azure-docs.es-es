@@ -1,9 +1,10 @@
 Recurso|Límite predeterminado|Límite máximo
 ---|---|---
-Núcleos por [suscripción](http://msdn.microsoft.com/library/azure/hh531793.aspx)|20<sup>1</sup> por región|10 000 por región
-[Coadministradores](http://msdn.microsoft.com/library/azure/gg456328.aspx) por suscripción|Sin límite|Sin límite
+Máquinas virtuales por [suscripción](billing-buy-sign-up-azure-subscription.md)|20<sup>1</sup> por región|10 000 por región
+[Coadministradores](billing-add-change-azure-subscription-administrator.md) por suscripción|Sin límite|Sin límite
 [Cuentas de almacenamiento](storage-create-storage-account.md) por suscripción|100|100<sup>2</sup>
 [Grupos de recursos](resource-group-overview.md) por suscripción|800|800
+[Conjuntos de disponibilidad](../virtual-machines/virtual-machines-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) por suscripción|2000 por región|2000 por región
 Lecturas de API del Administrador de recursos|15 000 por hora|15 000 por hora
 Escrituras de API del Administrador de recursos|1200 por hora|1200 por hora
 Tamaño de recursos de API de Administrador de recursos|4194304 bytes|4194304 bytes
@@ -16,4 +17,4 @@ Tamaño de recursos de API de Administrador de recursos|4194304 bytes|4194304 by
 
 <sup>3</sup>Estas características ya no son necesarias con los grupos de recursos de Azure y el Administrador de recursos de Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

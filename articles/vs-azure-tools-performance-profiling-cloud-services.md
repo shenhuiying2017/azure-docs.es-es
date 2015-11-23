@@ -3,7 +3,7 @@
    description="Probar el rendimiento de un servicio en la nube mediante el generador de perfiles de Visual Studio"
    services="visual-studio-online"
    documentationCenter="n/a"
-   authors="patshea123"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="08/14/2015"
-   ms.author="patshea" />
+   ms.author="tarcher" />
 
 
 # Probar el rendimiento de un servicio en la nube 
@@ -146,4 +146,4 @@ Se crea una sesión de generación de perfiles para cada instancia de un rol en 
 
 [Publicación en un servicio en la nube de Azure desde Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

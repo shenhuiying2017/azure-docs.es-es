@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/17/2015"
-   ms.author="kenhoff;yossib"/>
+   ms.date="11/09/2015"
+   ms.author="kenhoff"/>
 
 
 # Introducción a la API de informes de Azure AD
@@ -168,4 +168,4 @@ El script devuelve listas de todos los informes disponibles y devuelve los resul
 - Consulte [Eventos del informe de auditoría de Azure AD](active-directory-reporting-audit-events.md) para obtener más detalles sobre el informe de auditoría.
 - Consulte [Informes y eventos de Azure AD (vista previa)](https://msdn.microsoft.com/library/azure/mt126081.aspx) para obtener más detalles sobre el servicio REST de API Graph.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

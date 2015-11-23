@@ -40,7 +40,7 @@ La puerta de enlace de datos proporciona las siguientes capacidades:
 7.	Debe tratar el origen de datos como un origen de datos local (que está detrás de un firewall) incluso si usa **ExpressRoute** y **usar la puerta de enlace** para establecer la conectividad entre el servicio y el origen de datos. 
 
 ## Instalación de la puerta de enlace: requisitos previos
-1.	Las versiones de **sistema operativo** compatibles son Windows 7, Windows 8/8.1, Windows Server 2008 R2 y Windows Server 2012.
+1.	Las versiones de **sistema operativo** compatibles son Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2.
 2.	La **configuración** recomendada del equipo de la puerta de enlace es de al menos 2 GHz, 4 núcleos, 8 GB de RAM y disco de 80 GB.
 3.	Si el equipo host está en hibernación, la puerta de enlace no podrá responder a las solicitudes de datos. Por tanto, configure un **plan de energía** adecuado en el equipo antes de instalar la puerta de enlace. La instalación de la puerta de enlace emite un mensaje si el equipo está configurado para la hibernación.
 
@@ -73,7 +73,7 @@ Esto se debe a una configuración incorrecta del servidor proxy o el firewall, q
 Los dos firewalls de los que posiblemente se trate son: firewall corporativo que se ejecuta en el enrutador central de la organización y Firewall de Windows configurado como un demonio en el equipo local donde está instalada la puerta de enlace. Estas son algunas consideraciones:
 
 - No es necesario cambiar la directiva de entrada para el firewall corporativo.
-- El firewall corporativo y Firewall de Windows deben habilitar la regla de salida para los puertos TCP: 80, 440 y de 9305 a 9354. Bus de servicio de Microsoft Azure los usa para establecer la conexión entre los servicios en la nube y Data Management Gateway.
+- El firewall corporativo y Firewall de Windows deben habilitar la regla de salida para los puertos TCP: 80, 443 y de 9305 a 9354. Bus de servicio de Microsoft Azure los usa para establecer la conexión entre los servicios en la nube y Data Management Gateway.
 
 El programa de instalación MSI configurará automáticamente las reglas de Firewall de Windows para los puertos de entrada del equipo de puerta de enlace (consulte los puertos y la sección de consideraciones de seguridad anterior).
 
@@ -385,7 +385,7 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
 	- En la sección de actividades, solo hay una actividad cuyo **type** está establecido en **Copy**.
 	- La **entrada** de la actividad está establecida en **EmpOnPremSQLTable** y la **salida** de la actividad está establecida en **OutputBlobTable**.
 	- En la sección **transformation**, **SqlSource** está especificado como **tipo de origen** y **BlobSink** está especificado como **tipo de receptor**.
-	- La consulta SQL **select * from emp** está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
+- La consulta SQL **select * from emp** está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
 
 	Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **end** es opcional, pero se utilizará en este tutorial.
 	
@@ -514,15 +514,10 @@ También puede crear un servicio vinculado de SQL Server mediante la hoja de Ser
 7.	En la hoja **Credenciales**, haga clic en la opción **Haga clic aquí para establecer las credenciales**.
 8.	En el cuadro de diálogo **Establecer credenciales**, realice lo siguiente:
 
-	![Cuadro de diálogo Establecer credenciales](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
-	1.	Seleccione la **autenticación** que desea que use el servicio Factoría de datos para conectarse a la base de datos. 
-	2.	Escriba el nombre del usuario que tiene acceso a la base de datos para el valor **NOMBRE DE USUARIO**. 
-	3.	Escriba la contraseña para el usuario para el valor **CONTRASEÑA**. 
-	4.	Haga clic en **Aceptar** para cerrar el cuadro de diálogo.  
+	![Cuadro de diálogo Establecer credenciales](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. Seleccione la **autenticación** que desea que use el servicio Factoría de datos para conectarse a la base de datos. 2. Escriba el nombre del usuario que tiene acceso a la base de datos para el valor **NOMBRE DE USUARIO**. 3. Escriba la contraseña para el usuario para el valor **CONTRASEÑA**. 4. Haga clic en **Aceptar** para cerrar el cuadro de diálogo. 
 4. Haga clic en **Aceptar** para cerrar la hoja **Credenciales**. 
 5. Haga clic en **Aceptar** en la hoja **Nuevo almacén de datos**. 	
-6. Confirme que el estado de **SqlServerLinkedService** está establecido en En línea en la hoja Servicios vinculados.
-	![Estado del servicio vinculado de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. Confirme que el estado de **SqlServerLinkedService** está establecido en En línea en la hoja Servicios vinculados. ![Estado del servicio vinculado de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 Si tiene acceso al portal desde un equipo diferente del equipo de la puerta de enlace, debe asegurarse de que la aplicación del Administrador de credenciales puede conectarse al equipo de la puerta de enlace. Si la aplicación no puede ponerse en contacto con el equipo de la puerta de enlace, no podrá establecer las credenciales del origen de datos ni probar la conexión al origen de datos.
 
@@ -578,7 +573,7 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
 		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. En Azure PowerShell, cambie a la carpeta **C:\\\Archivos de programa\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** y ejecute el script **RegisterGateway.ps1** asociado a la variable local **$Key** como se muestra en el siguiente comando para registrar el agente cliente instalado en su máquina con la puerta de enlace lógica que creó antes.
+4. En Azure PowerShell, cambie a la carpeta **C:\\Archivos de programa\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** y ejecute el script **RegisterGateway.ps1** asociado a la variable local **$Key** como se muestra en el siguiente comando para registrar el agente cliente instalado en su máquina con la puerta de enlace lógica que creó antes.
 
 		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
@@ -594,8 +589,7 @@ Puede quitar una puerta de enlace con el cmdlet **Remove-AzureDataFactoryGateway
 ## Flujo de datos de copia mediante Data Management Gateway
 Al usar una actividad de copia en una canalización de datos para introducir datos locales en la nube para su posterior procesamiento, o bien exportar los datos de resultados en la nube de nuevo a un almacén de datos local, la actividad de copia usa internamente una puerta de enlace para transferir los datos de origen de un origen de datos local a la nube y viceversa.
 
-A continuación se muestra el flujo de datos de alto nivel y el resumen de los pasos para copiar con una puerta de enlace de datos:
-![Flujo de datos mediante la puerta de enlace](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+A continuación se muestra el flujo de datos de alto nivel y el resumen de los pasos para copiar con una puerta de enlace de datos: ![Flujo de datos mediante la puerta de enlace](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	El desarrollador de datos crea una nueva puerta de enlace para una Factoría de datos de Azure mediante el [Portal de Azure](http://portal.azure.com) o un [cmdlet de PowerShell](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	El desarrollador de datos usa el panel "Servicios vinculado" para definir un nuevo servicio vinculado para un almacén de datos local con la puerta de enlace. Como parte de la configuración de los datos de servicios vinculados el desarrollador usa la aplicación Establecer credenciales, como se muestra en el tutorial paso a paso para especificar las credenciales y los tipos de autenticación. El cuadro de diálogo de la aplicación Establecer credenciales se comunicará con el almacén de datos para probar la conexión y la puerta de enlace para guardar las credenciales.
@@ -618,7 +612,4 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 	- 	Establezca la [configuración del firewall de SQL Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) para agregar la **dirección IP de la máquina de la puerta de enlace** a las **direcciones IP permitidas**.
 5.	Si copia datos desde y hacia SQL Server local a cualquier destino y los equipos de la puerta de enlace y de SQL Server son diferentes, haga lo siguiente: [configure Firewall de Windows](https://msdn.microsoft.com/library/ms175043.aspx) en el equipo de SQL Server para que la puerta de enlace pueda tener acceso a la base de datos a través de puertos en los que escucha la instancia de SQL Server. En la instancia predeterminada es el puerto 1433.
 
-## Enviar comentarios
-Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md).
-
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

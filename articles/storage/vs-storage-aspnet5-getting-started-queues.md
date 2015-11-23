@@ -3,7 +3,7 @@
 	description="Cómo empezar a usar el almacenamiento en cola de Azure en un proyecto de ASP.NET en Visual Studio"
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Introducción al almacenamiento de colas y a los servicios conectados de Visual Studio (ASP.NET 5)
 
@@ -63,7 +63,7 @@ Para obtener acceso a las colas en los proyectos de ASP.NET 5, debe incluir los 
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-3. Obtenga un objeto **CloudQueueClient** para hacer referencia a los objetos de cola en su cuenta de almacenamiento.
+3. Obtenga un objeto **CloudTableClient** para hacer referencia a los objetos de cola en la cuenta de almacenamiento.
 
 	    // Create the table client.
     	CloudQuecClient queueClient = storageAccount.CreateCloudTableClient();
@@ -74,7 +74,7 @@ Para obtener acceso a las colas en los proyectos de ASP.NET 5, debe incluir los 
 	    CloudTable messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
-**NOTA:** use todo el código anterior delante del código que aparece en las muestras siguientes.
+**NOTA:** use todo el código anterior delante del código que aparece en los ejemplos siguientes.
 
 ###Creación de una cola en código
 
@@ -185,4 +185,4 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

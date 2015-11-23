@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="11/11/2015" 
 	ms.author="genemi"/>
 
 
@@ -40,7 +40,6 @@ La información más reciente sobre los límites de recursos de Base de datos SQ
 Un objetivo fundamental de Base de datos SQL V12 era mejorar la compatibilidad con Microsoft SQL Server 2014. Entre otros ámbitos, V12 logra la paridad con SQL Server en el importante campo de la programación. Por ejemplo:
 
 
-- [Ensamblados de Common Language Runtime (CLR)](http://msdn.microsoft.com/library/ms189524.aspx)
 - [Funciones de ventana](http://msdn.microsoft.com/library/bb934097.aspx), con [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
 - [Índices XML](http://msdn.microsoft.com/library/bb934097.aspx) e [Índices XML selectivos](http://msdn.microsoft.com/library/jj670104.aspx)
 - [Seguimiento de cambios](http://msdn.microsoft.com/library/bb933875.aspx)
@@ -48,7 +47,7 @@ Un objetivo fundamental de Base de datos SQL V12 era mejorar la compatibilidad c
 - [Búsqueda de texto completo](http://msdn.microsoft.com/library/ms142571.aspx)
 
 
-Consulte [aquí](http://msdn.microsoft.com/library/azure/ee336281.aspx) para ver el pequeño conjunto de características que aún no se admite en Base de datos SQL.
+Consulte [aquí](sql-database-transact-sql-information.md) para ver el pequeño conjunto de características que aún no se admite en Base de datos SQL.
 
 
 ## Más rendimiento Premium, nuevos niveles de rendimiento
@@ -71,7 +70,7 @@ Si su programa cliente se conecta a Base de datos SQL V12, mientras el cliente s
 - 14000-14999
 
 
-Haga clic [aquí](sql-database-develop-direct-route-ports-adonet-v12.md) para obtener más información acerca de los puertos para Base de datos SQL V12. Los puertos son necesarios por las mejoras de rendimiento en Base de datos SQL V12.
+Haga clic [aquí](sql-database-develop-direct-route-ports-adonet-v12.md) para obtener más información sobre los puertos para Base de datos SQL V12. Los puertos son necesarios por las mejoras de rendimiento en Base de datos SQL V12.
 
 
 ## Mejor compatibilidad para proveedores de SaaS en la nube
@@ -92,7 +91,7 @@ La seguridad es una cuestión prioritaria para cualquiera que dirija su negocio 
 
 - [Seguridad de nivel de fila](http://msdn.microsoft.com/library/dn765131.aspx) (RLS)
 - [Enmascaramiento de datos dinámicos](sql-database-dynamic-data-masking-get-started.md)
-- [Bases de datos independientes](http://msdn.microsoft.com/library/azure/ff394108.aspx)
+- [Bases de datos independientes](http://msdn.microsoft.com/library/ff929188.aspx)
 - [Roles de aplicación](http://msdn.microsoft.com/library/ms190998.aspx) administrados con GRANT, DENY, REVOKE
 - [Cifrado de datos transparente](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
 - [Conexión a Base de datos SQL mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md)
@@ -113,7 +112,7 @@ V12 ofrece una mejora significativa en lo que a objetivos de puntos de recuperac
 | Replicación geográfica activa | • RPO < 5 minutos.<br/>• ERT < 1 hora. | • RPO < 5 segundos.<br/>• ERT < 30 segundos. |
 
 
-Para obtener más información, consulte [Continuidad del negocio en Base de datos SQL](http://msdn.microsoft.com/library/azure/hh852669.aspx).
+Para obtener más información, consulte [Continuidad del negocio en Base de datos SQL](sql-database-business-continuity.md).
 
 
 ## Más razones para actualizar ahora
@@ -162,4 +161,4 @@ Si aún no está ejecutando en V12, puede actualizar el servidor lógico siguien
 
 [Términos de uso complementarios para versiones de vista previa de Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

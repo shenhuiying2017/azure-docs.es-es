@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/29/2015"
+   ms.date="11/11/2015"
    ms.author="v-sharos"/>
 
 # Protección de datos y seguridad de StorSimple
@@ -167,7 +167,6 @@ Para ayudar a garantizar la seguridad y la integridad de los datos migrados a la
 - Cuando ingrese la clave de cifrado de almacenamiento en la nube en el servicio StorSimple Manager, la clave se cifra con la parte pública de la clave de cifrado de datos de servicio y luego se envía al dispositivo.
 - La clave de cifrado de almacenamiento en la nube no se almacena en ningún lugar del servicio y solo la conoce el dispositivo.
 - Especificar una clave de cifrado de almacenamiento en la nube es opcional. Puede enviar datos cifrados en el host al dispositivo.
-- Se recomienda cambiar la clave de cifrado de almacenamiento en la nube trimestralmente. Sin embargo, el cambio de estas claves no será obligatorio.
 
 ### Prácticas recomendadas de seguridad adicionales
 
@@ -220,7 +219,7 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 
 **P:** Perdí mi clave de cifrado de datos de servicio. ¿Qué puedo hacer?
 
-**R:** Póngase en contacto con el servicio de soporte técnico de Microsoft. Puede iniciar sesión en una sesión de asistencia en el dispositivo y ayudarle a recuperar la clave (siempre que haya al menos un dispositivo en línea). Inmediatamente después de obtener la clave de cifrado de datos de servicio, deberá cambiarla para asegurarse de que solo usted conozca la nueva clave. Para obtener instrucciones, vaya a:
+**R:** Póngase en contacto con el soporte técnico de Microsoft. Puede iniciar sesión en una sesión de asistencia en el dispositivo y ayudarle a recuperar la clave (siempre que haya al menos un dispositivo en línea). Inmediatamente después de obtener la clave de cifrado de datos de servicio, deberá cambiarla para asegurarse de que solo usted conozca la nueva clave. Para obtener instrucciones, vaya a:
 
 - [Cambiar la clave de cifrado de datos de servicio](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 
@@ -234,7 +233,7 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 
 **P:** Nuestro administrador de StorSimple ya no trabaja en la empresa. ¿Cuál debo hacer?
 
-**R:** Cambie y restablezca las contraseñas que permiten el acceso al dispositivo de StorSimple y cambie la clave de cifrado de datos de servicio para asegurarse de que personal no autorizado no conozca la información nueva. Para obtener instrucciones, vaya a:
+**R:** Cambie y restablezca las contraseñas que permiten el acceso al dispositivo de StorSimple y cambie la clave de cifrado de datos de servicio para asegurarse de personal no autorizado no conozca la información nueva. Para obtener instrucciones, vaya a:
 
 - [Use el servicio StorSimple Manager para cambiar las contraseñas de StorSimple](storsimple-change-passwords.md)
 - [Cambiar la clave de cifrado de datos de servicio](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
@@ -249,7 +248,7 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 
 **P:** El certificado para acceso remoto a Windows PowerShell para StorSimple cambió en el dispositivo. ¿Cómo actualizo mis clientes de acceso remoto?
 
-**R:** Puede descargar el certificado nuevo desde el servicio StorSimple Manager y luego proporcionarlo para instalarlo en el almacén de certificados de sus clientes de acceso remoto. Para obtener instrucciones, vaya a:
+**R:** Puede descargar el certificado nuevo desde el servicio StorSimple Manager y luego bríndelo para instalarlo en el almacén de certificados de sus clientes de acceso remoto. Para obtener instrucciones, vaya a:
 
 - [Cmdlet Import-Certificate](https://technet.microsoft.com/library/hh848630.aspx)
 
@@ -267,7 +266,7 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 
 ## Pasos siguientes
 
-[Implementación del dispositivo de StorSimple](storsimple-deployment-walkthrough.md)
+[Implementación del dispositivo StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

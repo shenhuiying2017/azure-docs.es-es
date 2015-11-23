@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
@@ -146,9 +146,7 @@ A continuación se muestra la vista detallada de cómo se usan los detalles de m
 ## Pasos siguientes
 Ahora que el contenido de Marketplace está cargado, avanzamos al **paso 3: Prueba de la oferta en ensayo**. Pero, debe seleccionar el tipo de la oferta adecuado en la lista siguiente, ya que los pasos varían según el tipo de oferta.
 
-|| Imagen de máquina virtual | Servicio de desarrolladores | Servicio de datos | Plantilla de solución |
-|---|---|---|---|---|
-| **Paso 3. Inserción de la oferta en ensayo** | [Prueba de la oferta de máquina virtual en ensayo](marketplace-publishing-vm-image-test-in-staging.md) | Prueba de la oferta de servicio de desarrolladores en ensayo | Prueba de la oferta de servicio de datos en ensayo | [Prueba de la plantilla de solución en ensayo](marketplace-publishing-solution-template-test-in-staging.md) |
+|| Imagen de máquina virtual | Servicio de desarrolladores | Servicio de datos | Plantilla de solución | |---|---|---|---|---| | **Paso 3. Inserción de la oferta en ensayo** | [Prueba de la oferta de máquina virtual en ensayo](marketplace-publishing-vm-image-test-in-staging.md) | Prueba de la oferta de servicio de desarrolladores en ensayo | Prueba de la oferta de servicio de datos en ensayo | [Prueba de la plantilla de solución en ensayo](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## Otras referencias
 - [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -162,4 +160,4 @@ Ahora que el contenido de Marketplace está cargado, avanzamos al **paso 3: Prue
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

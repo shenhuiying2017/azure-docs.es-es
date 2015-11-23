@@ -208,13 +208,4 @@ Si necesita ejecutar una canalización mensualmente en una fecha y hora específ
 	  }
 	}
 
-## Enviar comentarios
-Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-datasets.md).
-
-
-
-
-
-  
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

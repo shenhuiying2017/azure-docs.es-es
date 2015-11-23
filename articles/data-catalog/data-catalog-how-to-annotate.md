@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/17/2015"
+   ms.date="11/10/2015"
    ms.author="maroche"/>
 
 
@@ -44,6 +44,7 @@ Durante la vista previa del **Catálogo de datos de Azure**, se admiten los sigu
 | Expertos | Los expertos se pueden facilitar en el nivel de recursos de datos. Los expertos identifican usuarios o grupos con perspectivas expertas sobre los datos, y pueden actuar como puntos de contacto para los usuarios que detecten los orígenes de datos registrados y tengan preguntas que no estén respondidas en las anotaciones existentes. |
 | Solicitar acceso | La información de solicitud de acceso se puede proporcionar en el nivel de recursos de datos. Esta información es para los usuarios que detecten un origen de datos al que aún no tienen permisos para tener acceso. Los usuarios pueden escribir la dirección de correo electrónico del usuario o grupo que concede el acceso, la dirección URL del proceso o la herramienta a los que los usuarios necesitan tener acceso, o pueden especificar el propio proceso como texto. |
 
+
 ## Anotación de varios recursos
 Cuando se seleccionan varios recursos de datos en el portal del **Catálogo de datos de Azure**, los usuarios pueden anotar todos los recursos seleccionados en una sola operación. Las anotaciones se aplicarán a todos los recursos seleccionados, lo que facilita seleccionar y proporcionar una descripción y unos conjuntos de etiquetas y expertos coherentes para los recursos de datos relacionados.
 
@@ -57,4 +58,4 @@ Al igual que los metadatos extraídos del origen de datos durante el registro se
 ## Resumen
 Al registrar un origen de datos con el **Catálogo de datos de Azure**, se consigue que esos datos sean detectables mediante la copia de los metadatos descriptivos y estructurales del origen de datos en el servicio Catálogo. Cuando se ha registrado un origen de datos, los usuarios pueden proporcionar anotaciones para facilitar la detección y comprensión dentro del portal del **Catálogo de datos de Azure**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->
