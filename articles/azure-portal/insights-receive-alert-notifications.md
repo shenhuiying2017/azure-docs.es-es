@@ -18,7 +18,7 @@
 
 # Recibir notificaciones de alerta
 
-Puede recibir una alerta basada en las métricas de supervisión para los servicios de Azure o los eventos sobre ellos.
+Puede recibir una alerta basada en las métricas de supervisión para los servicios de Azure o los eventos sobre ellos. 
 
 Para una regla de alerta en un valor de métrica, cuando el valor de una métrica específica cruza un umbral asignado, la regla de alerta se activa y puede enviar una notificación. Para una regla de alerta en eventos, una regla puede enviar una notificación sobre *cada* evento o solo cuando se produzca un determinado número de eventos.
 
@@ -38,9 +38,11 @@ Puede usar la [API de REST](https://msdn.microsoft.com/library/azure/dn931945.as
 4. Puede asignar un nombre a la regla de alerta y elegir una descripción que se mostrará en el correo electrónico de notificación.
 
 5. Cuando seleccione **Métricas**, elegirá una condición y el valor de umbral para la métrica. Es el período de tiempo que Azure usa para supervisar y trazar actividades de alerta.
+
     ![Condición y umbral](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
 6. También puede elegir **Eventos** y obtener una notificación cuando se produzca un evento determinado. 
+
     ![Eventos](./media/insights-receive-alert-notifications/Insights_Events.png)
     
 >[AZURE.NOTE] En este momento los eventos solo se admiten para las aplicaciones web. 
@@ -69,4 +71,4 @@ Por supuesto, puede editar esta regla de alerta y elegir **Deshabilitar** o **Ha
 * [Realice el seguimiento del estado del servicio](insights-service-health.md) para averiguar cuándo ha sufrido Azure interrupciones del servicio o degradación del rendimiento.
  
 
-<!----HONumber=Oct15_HO4-->
+<!-----HONumber=Oct15_HO4-->
