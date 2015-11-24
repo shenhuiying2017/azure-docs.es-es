@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="10/05/2015"
+	ms.date="11/18/2015"
 	ms.author="glenga"/>
 
 
 #Creación de una aplicación HTML
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp; <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+
+>[AZURE.IMPORTANT]Este tema no está admitido actualmente por Aplicaciones móviles porque se quitó temporalmente el inicio rápido para las aplicaciones HTML/JavaScript en el Portal de Azure. Tenemos previsto ponerlo próximamente. Le agradecemos su paciencia durante la finalización de la vista previa de las aplicaciones móviles.
 
 ##Información general
 
-En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación web HTML5/JavaScript con un back-end de la aplicación móvil de Azure. Creará tanto un back-end de aplicación móvil nuevo como una aplicación web simple de la *lista de tareas pendientes* que almacene los datos de la aplicación en Azure.
+En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación web HTML5/JavaScript. Para obtener más información, consulte [¿Qué son las aplicaciones móviles?](app-service-mobile-value-prop.md)
 
 La siguiente captura de pantalla muestra la aplicación final:
 
@@ -39,7 +39,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-* [Visual Studio Community 2013] o posterior.
+* [Visual Studio Community 2013] o versión posterior.
 
 >[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Probar Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), donde podrá crear inmediatamente una aplicación móvil de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
@@ -49,9 +49,9 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## Descarga del proyecto de servidor
 
-1. En el [Portal de Azure], haga clic en **Examinar todo** > **Aplicaciones web** y, luego, haga clic en el back-end de la aplicación móvil que acaba de crear. 
+1. En el [Portal de Azure], haga clic en **Examinar todo** > **Aplicaciones web** y, luego, haga clic en el back-end de aplicación móvil que acaba de crear. 
 
-2. En el back-end de la aplicación móvil, haga clic en **Todas las configuraciones** y, en **Aplicación móvil**, haga clic en **Inicio rápido** > **HTML/JavaScript**.
+2. En el back-end de aplicación móvil, haga clic en **Todas las configuraciones** y, en **Aplicación móvil**, haga clic en **Inicio rápido** > **HTML/JavaScript**.
 
 3. En **Descargar y ejecutar el proyecto de servidor**, dentro de **Crear una nueva aplicación**, haga clic en **Descargar**, extraiga los archivos de proyecto comprimidos en el equipo local y abra la solución en Visual Studio.
 
@@ -87,7 +87,7 @@ Después, implementará el proyecto habilitado para CORS en Azure.
 
 ##Descarga y ejecución del proyecto de cliente
 
-1. De vuelta en la hoja del back-end de la aplicación móvil, haga clic en **Todas las configuraciones** y, en **Aplicación móvil**, haga clic en **Inicio rápido** > **HTML/JavaScript**. 
+1. De vuelta en la hoja del back-end de aplicación móvil, haga clic en **Todas las configuraciones** y, en **Aplicación móvil**, haga clic en **Inicio rápido** > **HTML/JavaScript**. 
 
 2.  En **Descargar y ejecutar el proyecto de HTML/Javascript**, dentro de **Crear una nueva aplicación**, haga clic en **Descargar** y guarde los archivos de proyecto comprimidos en el equipo local.
 
@@ -121,4 +121,4 @@ Después, implementará el proyecto habilitado para CORS en Azure.
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

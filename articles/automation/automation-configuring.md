@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/02/2015"
+   ms.date="11/10/2015"
    ms.author="bwren" />
 
 # Configuración de Automatización de Azure
@@ -52,6 +52,33 @@ Cuando tiene acceso a los recursos de Azure mediante los [cmdlets de Azure](http
 10. Cierre sesión en Azure y vuelva a iniciarla con la cuenta que acaba de crear. Se le pedirá que cambie la contraseña del usuario.
 11. Cree un nuevo [recurso Credencial de Automatización de Azure](http://msdn.microsoft.com/library/dn940015.aspx) para la cuenta de usuario que creó. El **Tipo de credencial** debe ser **Credencial de Windows PowerShell**.
 
+## Creación de una cuenta de automatización
+
+Una cuenta de automatización es un contenedor para los recursos de automatización de Azure. Proporciona una manera de separar los entornos u organizar aún más los flujos de trabajo. Si ya ha creado una cuenta de automatización, puede omitir este paso.
+
+1. Inicie sesión en el [portal de vista previa de Azure](https://portal.azure.com/).
+
+2. En el Portal de vista previa de Azure, haga clic en **Nuevo** > **Administración** > **Cuenta de automatización**.
+
+3. En la hoja **Agregar cuenta de automatización**, configure los detalles de la cuenta de automatización.
+
+>[AZURE.NOTE]Cuando se crea una cuenta de automatización mediante el Portal de vista previa de Azure, la cuenta y todos los recursos asociados a ella no volverán al Portal de administración clásico.
+
+A continuación se muestra la lista de parámetros de configuración:
+
+|Parámetro |Descripción |
+|:---|:---|
+| Nombre | Nombre de la cuenta de automatización; debe ser un valor único. |
+| El grupos de recursos | Los grupos de recursos simplifican la forma de ver y administrar los recursos relacionados de Azure. En el Portal de vista previa de Azure, puede elegir un grupo de recursos existente o crear uno nuevo para la cuenta de automatización, mientras que en el Portal de administración de Azure, todas las cuentas de automatización se colocarán en un grupo de recursos predeterminado. |
+| La suscripción | Elija una suscripción de la lista de suscripciones disponibles. |
+| Region | La región especifica dónde se almacenarán los recursos de automatización de la cuenta. Puede elegir cualquier región de la lista, ya que esto no afectará a la funcionalidad de su cuenta, pero sus runbooks se pueden ejecutar más rápidamente si la región de la cuenta está cerca de donde se almacenan los demás recursos de Azure. |
+| Opciones de cuenta | Esta opción permite elegir qué recursos se crearán en la nueva cuenta de automatización; seleccione **Sí** para crear un runbook de tutorial. |
+
+![Creación de cuenta](media/automation-configuration/automation-01-create-automation-account.png)
+
+>[AZURE.NOTE]Cuando una cuenta de automatización creada mediante el Portal de administración clásico se [mueve a otro grupo de recursos](../resource-group-move-resources.md) mediante el Portal de vista previa de Azure, la cuenta de automatización ya no estará disponible en el Portal de Azure clásico, ya que las cuentas de administrador de recursos de Azure no se admiten en el Portal de administración clásico.
+
+
 
 ## Uso de la credencial en un runbook
 
@@ -64,7 +91,7 @@ Puede recuperar la credencial en un runbook mediante el uso de la actividad [Get
 Deberá repetir estas líneas después de cada [punto de control](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) de su runbook. Si el runbook se suspende y luego se reanuda en otro trabajo, se deberá volver a realizar la autenticación.
 
 ## Artículos relacionados
-- [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) (Automatización de Azure: autenticación en Azure mediante Azure Active Directory)
+- [Azure Automation: Authenticating to Azure using Azure Active Directory (Automatización de Azure: autenticación en Azure mediante Azure Active Directory)](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

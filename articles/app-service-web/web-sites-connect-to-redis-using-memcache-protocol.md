@@ -112,7 +112,7 @@ Busque **Caché de objetos de Memcache** en la lista y, a continuación, haga cl
 
 ### Habilitar el complemento WordPress para Memcache
 
->[AZURE.NOTE]Siga las instrucciones que aparecen en este blog en [How to enable a Site Extension in Web Apps][8] (Habilitación de una extensión de sitio en Aplicaciones web) para instalar Visual Studio Online.
+>[AZURE.NOTE]Siga las instrucciones que aparecen en la entrada del blog [How to enable a Site Extension in Web Apps][8] (Habilitación de una extensión de sitio en Aplicaciones web) para instalar Visual Studio Team Services.
 
 En el archivo `wp-config.php`, agregue el siguiente código sobre el comentario de edición de detención cerca del final del archivo.
 
@@ -198,4 +198,4 @@ La llamada para enumerar las claves debe devolver un valor. Si no es así, inten
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

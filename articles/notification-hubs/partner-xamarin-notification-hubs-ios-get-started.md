@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/03/2015"
+	ms.date="11/17/2015"
 	ms.author="yuaxu"/>
 
 # Introducción a los Centros de notificaciones
@@ -331,4 +331,4 @@ En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iO
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

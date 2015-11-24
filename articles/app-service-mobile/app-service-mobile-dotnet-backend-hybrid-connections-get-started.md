@@ -139,11 +139,11 @@ Por último, deberá publicar el back-end de aplicación móvil en Azure y compr
 
 	Una vez completada la publicación, el servicio se reinicia y se muestra la página de inicio de back-end.
 
-4. Mediante una aplicación cliente conectada a la aplicación móvil, invoque algunas operaciones que generan cambios en la base de datos.
+4. Mediante una aplicación cliente conectada a la aplicación móvil, invoque algunas operaciones que generen cambios en la base de datos.
 
-4. En SQL Server Management Studio, conéctese a la instancia de SQL Server, abra el Explorador de objetos, expanda la base de datos **OnPremisesDB** y expanda **Tablas**.
+5. En SQL Server Management Studio, conéctese a la instancia de SQL Server, abra el Explorador de objetos, expanda la base de datos **OnPremisesDB** y expanda **Tablas**.
 
-5. Haga clic con el botón secundario en la tabla **hybridService1.TodoItems** y elija **Seleccionar las 1000 filas principales** para ver los resultados.
+6. Haga clic con el botón secundario en la tabla **hybridService1.TodoItems** y elija **Seleccionar las 1000 filas principales** para ver los resultados.
 
 	Tenga en cuenta que el back-end de aplicación móvil ha guardado en la base de datos local los cambios que se generan en la aplicación cliente mediante la conexión híbrida.
 
@@ -163,4 +163,4 @@ Por último, deberá publicar el back-end de aplicación móvil en Azure y compr
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

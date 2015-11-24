@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Acciones para corregir la pérdida de conexión transitoria | Microsoft Azure"
-	description="Acciones para evitar, diagnosticar y corregir los errores de conexión y otros errores transitorios al interactuar con la Base de datos SQL de Azure."
+	description="Acciones para solucionar, diagnosticar y evitar los errores de conexión y otros errores transitorios al interactuar con Base de datos SQL de Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/02/2015"
+	ms.date="11/17/2015"
 	ms.author="genemi"/>
 
 
 # Acciones para corregir errores de conexión y errores transitorios en Base de datos SQL
 
 
-En este tema se describe cómo evitar, diagnosticar y mitigar los errores de conexión y los errores transitorios que el programa cliente encuentra cuando interactúa con Base de datos SQL de Azure.
+En este tema se describe cómo evitar, solucionar, diagnosticar y mitigar los errores de conexión y los errores transitorios que un programa cliente encuentra cuando interactúa con Base de datos SQL de Azure.
 
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
@@ -478,4 +478,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* es una biblioteca de reintentos de uso general con licencia de Apache 2.0, escrita en **Python**, para simplificar la tarea de agregar comportamiento de reintento a prácticamente todo.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

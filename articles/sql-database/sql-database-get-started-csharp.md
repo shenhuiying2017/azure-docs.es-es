@@ -1,11 +1,12 @@
 <properties 
-   pageTitle="Creación de una Base de datos SQL de Azure con C#" 
-   description="En este artículo se muestra cómo crear una base de datos SQL de Azure con C# usando la biblioteca de Base de datos SQL de Azure para .NET." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+	pageTitle="Prueba de la Base de datos SQL: uso de C# para crear una Base de datos SQL | Microsoft Azure" 
+	description="Pruebe la Base de datos SQL para desarrollar aplicaciones SQL y C# y crear una Base de datos SQL de Azure con C# mediante la biblioteca de Base de datos SQL para. NET." 
+	keywords="probar sql,sql c#"   
+	services="sql-database" 
+	documentationCenter="" 
+	authors="stevestein" 
+	manager="jeffreyg" 
+	editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
@@ -16,7 +17,7 @@
    ms.date="09/01/2015"
    ms.author="sstein"/>
 
-# Creación de una Base de datos SQL con C&#x23;
+# Prueba de Base de datos SQL: Use C&#x23; para crear una Base de datos SQL con la biblioteca de Base de datos SQL para .NET 
 
 **Base de datos única**
 
@@ -27,9 +28,9 @@
 
 
 
-En este artículo se ofrecen comandos para crear una base de datos SQL de Azure con C# usando la [biblioteca de Base de datos SQL de Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
+Aprenda a usar los comandos C# para crear una Base de datos SQL de Azure con la [biblioteca de Base de datos SQL de Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
 
-En este artículo se muestra cómo crear una base de datos única. Para crear bases de datos elásticas, consulte [Creación de un grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md).
+Probará la Base de datos SQL mediante la creación de una Base de datos única con SQL y C#. Para crear un grupo de bases de datos elásticas, consulte [Creación de un grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md).
 
 Los fragmentos de código individuales se dividen por motivos de claridad y una aplicación de consola de ejemplo reúne todos los comandos en la sección de la parte inferior de este artículo.
 
@@ -49,7 +50,7 @@ Necesitará lo siguiente para completar los pasos de este artículo:
 
 ## Instalación de las bibliotecas necesarias
 
-Obtenga las bibliotecas de administración necesarias instalando los siguientes paquetes mediante la [consola del Administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console):
+Para configurar una Base de datos SQL con C#, obtenga las bibliotecas de administración necesarias instalando los siguientes paquetes mediante la [consola del Administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console):
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
@@ -68,41 +69,41 @@ Para crear una nueva aplicación y registrarla en el directorio activo correcto,
 
 1. Desplace el menú del lado izquierdo para buscar el servicio de **Active Directory** y ábralo.
 
-    ![AAD][1]
+    ![Prueba de la Base de datos SQL: configuración de Azure Active Directory (AAD).][1]
 
 2. Seleccione el directorio para autenticar la aplicación y haga clic en su **Nombre**.
 
-    ![Directorios][4]
+    ![Seleccione el directorio para autenticar la aplicación C# de SQL.][4]
 
 3. En la página del directorio, haga clic en **APLICACIONES**.
 
-    ![Aplicaciones][5]
+    ![La página del directorio con aplicaciones.][5]
 
-4. Haga clic en **AGREGAR** para crear una nueva aplicación.
+4. Haga clic en **AGREGAR** para crear una nueva aplicación C# para la Base de datos SQL.
 
-    ![Agregar aplicación][6]
+    ![Agregue la aplicación C# de SQL.][6]
 
-5. Haga clic en **Agregar una aplicación que mi organización está desarrollando**.
+5. Seleccione **Agregar una aplicación que mi organización está desarrollando**.
 
-5. Asigne un **NOMBRE** para la aplicación y seleccione **APLICACIÓN DE CLIENTE NATIVO**.
+5. Asigne un **NOMBRE** a la aplicación y seleccione **APLICACIÓN DE CLIENTE NATIVO**.
 
-    ![Agregar aplicación][7]
+    ![Proporcione información sobre la aplicación C# de SQL.][7]
 
-6. Suministre un **URI DE REDIRECCIÓN**. No tiene que ser un extremo real, simplemente un URI válido.
+6. Indique un **URI DE REDIRECCIÓN**. No tiene que ser un extremo real, simplemente un URI válido.
 
-    ![Agregar aplicación][8]
+    ![Agregue una dirección URL de redireccionamiento a la aplicación C# de SQL.][8]
 
 7. Finalice la creación de la aplicación, haga clic en **CONFIGURAR** y copie el **ID. DE CLIENTE** (lo necesitará en su código).
 
-    ![obtener id. de cliente][9]
+    ![Obtenga un identificador de cliente para la aplicación C# de SQL.][9]
 
 
 1. En la parte inferior de la página, haga clic en **Agregar aplicación**.
 1. Seleccione **Aplicaciones de Microsoft**.
-1. Seleccione **API de administración de servicios de Azure** y luego complete el asistente.
-2. Con la API seleccionada ahora debe conceder los permisos específicos necesarios para tener acceso a esta API seleccionando **Acceder a la administración del servicio de Azure (vista previa)**.
+1. Seleccione **API de administración de servicios de Azure** y, después, complete el asistente.
+2. Con la API seleccionada, debe conceder los permisos específicos necesarios para tener acceso a esta API seleccionando **Acceder a la administración del servicio de Azure (vista previa)**.
 
-    ![permisos][2]
+    ![Establezca permisos.][2]
 
 2. Haga clic en **GUARDAR**.
 
@@ -115,7 +116,7 @@ Se requiere el nombre de dominio para su código. Para identificar de manera sen
 1. Vaya al [Portal de vista previa de Azure](https://portal.azure.com).
 2. Mantenga el puntero sobre su nombre en la esquina superior derecha y anote el dominio que aparece en la ventana emergente.
 
-    ![Identificar nombre de dominio][3]
+    ![Identifique el nombre de dominio.][3]
 
 
 
@@ -223,9 +224,9 @@ En el ejemplo siguiente se crea una regla que abre el acceso al servidor desde c
 Para permitir que otros servicios de Azure tengan acceso a un servidor, agregue una regla de firewall y establezca tanto StartIpAddress como EndIpAddress en 0.0.0.0. Tenga en cuenta que esto permite que el tráfico de Azure de *cualquier* suscripción de Azure tenga acceso al servidor.
 
 
-## Creación de una base de datos
+## Uso de C&#x23; para crear una Base de datos SQL básica
 
-El siguiente comando creará una nueva base de datos básica si no hay una base de datos con el mismo nombre en el servidor. Si existe una base de datos con el mismo nombre, esta se actualizará.
+El siguiente comando de C# creará una nueva Base de datos SQL básica si no hay una base de datos con el mismo nombre en el servidor. Si existe una base de datos con el mismo nombre, esta se actualizará.
 
         // Create a database
 
@@ -250,7 +251,7 @@ El siguiente comando creará una nueva base de datos básica si no hay una base 
 
 
 
-## Aplicación de consola de ejemplo
+## Aplicación de consola en C&#x23; de ejemplo
 
 
     using Microsoft.Azure;
@@ -411,6 +412,7 @@ El siguiente comando creará una nueva base de datos básica si no hay una base 
 
 
 ## Pasos siguientes
+Ahora que probó la Base de datos SQL y configuró una base de datos con C#, está listo para los artículos siguientes:
 
 - [Conexión y consultas a Base de datos SQL con C#](sql-database-connect-query.md)
 - [Conexión con SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
@@ -434,4 +436,4 @@ El siguiente comando creará una nueva base de datos básica si no hay una base 
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

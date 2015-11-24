@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/10/2015"
+	ms.date="11/16/2015"
 	ms.author="jodebrui"/>
 
 
@@ -154,7 +154,7 @@ Un procedimiento almacenado compilado de forma nativa debe tener las siguientes 
 - SCHEMABINDING: son las tablas cuyas definiciones de columna no puede cambiar de ninguna forma el procedimiento almacenado que pueda afectar al procedimiento almacenado, a menos que quite el procedimiento almacenado.
 
 
-Un módulo nativo debe usar un gran [bloque ATOMIC](http://msdn.microsoft.com/library/dn452281.aspx) para la administración de transacciones. No hay ningún rol para una instrucción BEGIN TRANSACTION explícita.
+Un módulo nativo debe usar un gran [bloque ATOMIC](http://msdn.microsoft.com/library/dn452281.aspx) para la administración de transacciones. No hay ningún rol para una instrucción BEGIN TRANSACTION o ROLLBACK TRANSACTION explícita. Si el código detecta una infracción de una regla de negocio, puede finalizar el bloque ATOMIC con una instrucción [THROW](http://msdn.microsoft.com/library/ee677615.aspx).
 
 
 ### CREATE PROCEDURE típico para compilar de forma nativa
@@ -220,7 +220,7 @@ Para minimizar la latencia de red, ejecute la prueba en la misma región geográ
 
 Considere la posibilidad de supervisar los efectos de rendimiento de las implementaciones In-Memory en producción:
 
-- [Supervisión del almacenamiento de In-Memory](https://azure.microsoft.com/documentation/articles/sql-database-in-memory-oltp-monitoring/).
+- [Supervisión del almacenamiento In-Memory](https://azure.microsoft.com/documentation/articles/sql-database-in-memory-oltp-monitoring/).
 
 - [Supervisión de Base de datos SQL de Azure con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md)
 
@@ -233,4 +233,4 @@ Considere la posibilidad de supervisar los efectos de rendimiento de las impleme
 
 - [Asesor de optimización en memoria](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

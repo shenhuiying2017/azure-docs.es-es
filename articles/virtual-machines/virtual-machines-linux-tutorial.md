@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Creación de una máquina virtual que ejecuta Linux | Microsoft Azure"
-	description="Aprenda a crear una máquina virtual de Azure que ejecuta Linux usando una imagen de Azure y la interfaz de línea de comandos de Azure."
+	description="Aprenda a crear una máquina virtual Linux de Azure o una máquina virtual Ubuntu de Azure mediante una imagen de Azure y la interfaz de línea de comandos de Azure."
+	keywords="máquina virtual con linux,máquina virtual linux,Linux de Azure,ubuntu de Azure" 
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -23,11 +24,10 @@
 - [Azure Portal](virtual-machines-linux-tutorial-portal-rm.md)
 - [Azure CLI](virtual-machines-linux-tutorial.md)
 
-<br>
+<br> 
+Crear una máquina virtual de Azure (VM) que ejecuta Linux es fácil de hacer desde la línea de comandos o desde el portal. Este tutorial muestra cómo usar la interfaz de la línea de comandos (CLI) de Azure para Mac, Linux y Windows a fin de crear rápidamente una máquina virtual de servidor Ubuntu que se ejecuta en Azure, conectarse a ella mediante **ssh** y crear y montar un disco nuevo. Este tema usa una máquina virtual de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](virtual-machines-linux-create-upload-vhd.md).
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
-
-Crear una máquina virtual de Azure (VM) que ejecuta Linux es fácil de hacer desde la línea de comandos o desde el portal. Este tutorial muestra cómo utilizar la interfaz de la línea de comandos de Azure para Mac, Linux y Windows (CLI de Azure) a fin de crear rápidamente una máquina virtual de servidor Ubuntu que se ejecuta en Azure, conectarse a ella mediante **ssh**, y crear y montar un disco nuevo. (Este tema utiliza una máquina virtual de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](virtual-machines-linux-create-upload-vhd.md).)
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -43,9 +43,9 @@ El primer paso es [instalar la CLI de Azure](../xplat-cli-install.md).
 
 Bien. Ahora, asegúrese de que está en el modo de administrador de recursos escribiendo `azure config mode arm`.
 
-Mejor aún. Ahora [inicie sesión con su identificador profesional o educativo](../xplat-cli-connect.md#use-the-log-in-method) escribiendo `azure login` y siga las indicaciones para una experiencia de inicio de sesión interactiva a su cuenta de Azure.
+Mejor aún. [Inicie sesión con su identificador profesional o educativo](../xplat-cli-connect.md#use-the-log-in-method) escribiendo `azure login` y siga las indicaciones para una experiencia de inicio de sesión interactiva a su cuenta de Azure.
 
-> [AZURE.NOTE] Si tiene un identificador profesional o educativo y sabe que no tiene habilitada la autenticación en dos fases, puede usar `azure login -u` junto con el identificador profesional o educativo para iniciar una sesión sin una sesión interactiva. Si no tiene un identificador profesional o educativo, puede [crear uno desde su cuenta personal de Microsoft](resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE]Si tiene un identificador profesional o educativo y sabe que no tiene habilitada la autenticación en dos fases, puede usar `azure login -u` junto con el identificador profesional o educativo para iniciar una sesión sin una sesión interactiva. Si no tiene un identificador profesional o educativo, puede [crear uno desde su cuenta personal de Microsoft](resource-group-create-work-id-from-personal.md).
 
 ## Creación de la máquina virtual de Azure
 
@@ -64,7 +64,7 @@ Escriba `azure group create <my-group-name> westus` reemplazando _&lt;mi-nombre-
 	data:
 	info:    group create command OK
 
-Ahora cree la máquina virtual escribiendo `azure vm quick-create`, y recibirá indicaciones para especificar el resto de parámetros. Utilice el nombre del grupo de recursos que ha creado anteriormente y para el valor **ImageURN**, utilice `canonical:ubuntuserver:14.04.2-LTS:latest`, de modo que su experiencia se parezca a lo siguiente. Tenga en cuenta que el `azure vm quick-create` símbolos del sistema para obtener información básica necesaria para crear, alojar y conectarse a una VM de Linux, incluido:
+Ahora cree la máquina virtual escribiendo `azure vm quick-create`, y recibirá indicaciones para especificar el resto de parámetros. Use el nombre del grupo de recursos que creó anteriormente y, para el valor **ImageURN**, use `canonical:ubuntuserver:14.04.2-LTS:latest`, de modo que su experiencia se parezca a lo siguiente. Tenga en cuenta que el comando `azure vm quick-create` solicita información básica necesaria para crear, hospedar y conectarse a una máquina virtual de Linux, incluido:
 
 - el nombre del grupo de recursos y el nombre de la máquina virtual,
 - una ubicación de implementación,
@@ -78,7 +78,7 @@ y finalmente crea la infraestructura necesaria para hospedar la máquina virtual
 - Una red virtual con una subred
 - Una dirección IP pública
 - Un subdominio
-
+```
 	azure vm quick-create
 	info:    Executing command vm quick-create
 	Resource group name: myuniquegroupname
@@ -159,14 +159,15 @@ y finalmente crea la infraestructura necesaria para hospedar la máquina virtual
 	data:            Public IP address       :191.239.51.1
 	data:            FQDN                    :myuni-westu-1432328437727-pip.westus.cloudapp.azure.com
 	info:    vm quick-create command OK
+```
 
 Su máquina virtual está en ejecución y esperando a que se conecte.
 
-## Conexión a la máquina virtual
+## Conexión a la máquina virtual Linux
 
 Con máquinas virtuales Linux, normalmente se conecta con **ssh**.
 
-> [AZURE.NOTE] En este tema se conecta a una máquina virtual mediante nombres de usuario y contraseñas. Para utilizar pares de claves públicas y privadas para comunicarse con la máquina virtual, consulte [Utilización de SSH con Linux en Azure](virtual-machines-linux-use-ssh-key.md). Puede modificar la conectividad de **SSH** de las máquinas virtuales creadas con el comando `azure vm quick-create` mediante el comando `azure vm reset-access` para restablecer completamente el acceso de **SSH**, agregar o quitar usuarios o agregar archivos de claves públicas para proteger el acceso. Este artículo usa el nombre de usuario y la contraseña con **SSH** para mayor brevedad.
+> [AZURE.NOTE]En este tema se conecta a una máquina virtual mediante nombres de usuario y contraseñas. Para utilizar pares de claves públicas y privadas para comunicarse con la máquina virtual, consulte [Utilización de SSH con Linux en Azure](virtual-machines-linux-use-ssh-key.md). Puede modificar la conectividad de **SSH** de las máquinas virtuales creadas con el comando `azure vm quick-create` mediante el comando `azure vm reset-access` para restablecer completamente el acceso de **SSH**, agregar o quitar usuarios o agregar archivos de claves públicas para proteger el acceso. Este artículo usa el nombre de usuario y la contraseña con **SSH** para mayor brevedad.
 
 Si no está familiarizado con la conexión con **ssh**, el comando toma la forma `ssh <username>@<publicdnsaddress> -p <the ssh port>`. En este caso, usamos el nombre de usuario y la contraseña del paso anterior y el puerto 22, que es el puerto **ssh** predeterminado.
 
@@ -308,7 +309,7 @@ El disco de datos está ahora listo para usarse como `/datadrive`.
 	bin   datadrive  etc   initrd.img  lib64       media  opt   root  sbin  sys  usr  vmlinuz
 	boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
 
-> [AZURE.NOTE] También se puede conectar a la máquina virtual de Linux mediante una clave SSH para la identificación. Para obtener más información, consulte [Utilización de SSH con Linux en Azure](virtual-machines-linux-use-ssh-key.md).
+> [AZURE.NOTE]También se puede conectar a la máquina virtual de Linux mediante una clave SSH para la identificación. Para obtener más información, consulte [Utilización de SSH con Linux en Azure](virtual-machines-linux-use-ssh-key.md).
 
 ## Pasos siguientes
 
@@ -324,4 +325,4 @@ Para obtener más información sobre Linux en Azure, consulte:
 
 - [Extensión de máquina virtual Docker para Linux en Azure](virtual-machines-docker-vm-extension.md)
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

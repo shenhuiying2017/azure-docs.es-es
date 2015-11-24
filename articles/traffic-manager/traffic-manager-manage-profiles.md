@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Administrar un perfil del Administrador de tráfico de Azure
@@ -73,22 +73,16 @@ Puede ver el historial de cambios del perfil del Administrador de tráfico en el
    - Para ver los detalles de cada cambio individualmente, seleccione la fila que contiene el cambio que desea ver y haga clic en **Detalles**, en la parte inferior de la página. En la ventana **Detalles de la operación**, puede ver la representación XML del objeto de API que se creó o actualizó como parte de la operación y copiar el código XML en el Portapapeles.
 
 
-## Recursos adicionales
+## Pasos siguientes
 
-[¿Qué es el Administrador de tráfico?](traffic-manager-overview.md)
+[Agregación de un extremo](traffic-manager-endpoints.md)
 
-[Administrar extremos en el Administrador de tráfico](traffic-manager-endpoints.md)
+[Configuración del método de enrutamiento de conmutación por error](traffic-manager-configure-failover-routing-method.md)
 
-[Acerca de la supervisión del Administrador de tráfico](traffic-manager-monitoring.md)
+[Configuración del método de enrutamiento round robin](traffic-manager-configure-round-robin-routing-method.md)
 
-[Administrador de tráfico: deshabilitación, habilitación o eliminación de un perfil](disable-enable-or-delete-a-profile.md)
+[Configuración del método de enrutamiento de rendimiento](traffic-manager-configure-performance-routing-method.md)
 
-[Administrador de tráfico: deshabilitación o habilitación de un extremo](disable-or-enable-an-endpoint.md)
+[Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
 
-[Operaciones del Administrador de tráfico (referencia de la API de REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
-[Servicios en la nube](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Sitios web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

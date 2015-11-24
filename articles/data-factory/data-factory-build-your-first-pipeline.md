@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Compilación de la primera canalización mediante la Factoría de datos de Azure"
+	pageTitle="Introducción a la Factoría de datos de Azure"
 	description="En este tutorial se muestra cómo crear una canalización de datos de ejemplo que transforma los datos con HDInsight de Azure."
 	services="data-factory"
 	documentationCenter=""
@@ -16,19 +16,19 @@
 	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# Compilación de la primera canalización mediante la Factoría de datos de Azure
+# Introducción a la Factoría de datos de Azure
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 
-Este artículo le ayuda a comenzar a crear su primera canalización e implementarla en la Factoría de datos de Azure.
+Este artículo le introduce en el creación de la primera Factoría de datos de Azure.
 
 > [AZURE.NOTE]Este artículo no ofrece información general conceptual sobre el servicio Factoría de datos de Azure. Para obtener información general detallada del servicio, vea el artículo [Introducción a la Factoría de datos de Azure](data-factory-introduction.md).
 
 ## Información general del tutorial
-Este tutorial le guiará por los pasos necesarios para poner en funcionamiento la primera canalización. Se pueden crear canalizaciones y especificar todos los recursos necesarios desde el principio.
+Este tutorial le guiará por los pasos necesarios para obtener su primera factoría de datos con una canalización. Se puede crear una canalización y especificar todos los recursos necesarios desde el principio.
 
 Si desea explorar rápidamente las distintas capacidades de la factoría de datos, sin crear una desde el principio, puede usar los ejemplos que se ofrecen en el Portal de vista previa de Azure. Vea [Actualización de la Factoría de datos de Azure: implementación de ejemplo simplificada](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/) sobre cómo implementar y usar un ejemplo basado en caso de uso mediante el Portal de vista previa de Azure.
 
@@ -144,7 +144,7 @@ Antes de comenzar el tutorial, tendrá que preparar el almacenamiento de Azure c
 		FROM WebLogsRaw
 	 
 2. Para preparar el almacenamiento de Azure para el tutorial:
-	1. Descargue la [versión más reciente de [AzCopy](http://aka.ms/downloadazcopypr)](http://aka.ms/downloadazcopy) o la [versión preliminar más reciente](http://aka.ms/downloadazcopypr). Consulte el artículo [Cómo usar AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
+	1. Descargue la [versión más reciente de [AzCopy](http://aka.ms/downloadazcopypr)](http://aka.ms/downloadazcopy) o la **versión preliminar más reciente**. Consulte el artículo [Cómo usar AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
 	2. Después de instalar AzCopy, puede agregarlo a la ruta de acceso del sistema ejecutando el comando siguiente en un símbolo del sistema. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy			 
@@ -170,6 +170,6 @@ Haga lo siguiente:
 
 - Haga clic en el vínculo [Uso del editor de la Factoría de datos](data-factory-build-your-first-pipeline-using-editor.md) en la parte superior para realizar el tutorial con el Editor de Factoría de datos, que forma parte del Portal de Azure.
 - Haga clic en el vínculo [Uso de PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) en la parte superior para realizar el tutorial con PowerShell de Azure.
-- Haga clic en el vínculo [Uso de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) de la parte superior para realizar el tutorial con Visual Studio. 
+- Haga clic en el vínculo [Uso de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) en la parte superior para realizar el tutorial con Visual Studio. 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Bases de datos NoSQL - Introducción al SDK de .NET de DocumentDB | Microsoft Azure"
-	description="Aprender a crear una base de datos y configurar una cuenta de Azure DocumentDB. Crear una base de datos y colección y almacenar documentos JSON dentro de su cuenta de base de datos NoSQL."
-	keywords="Crear una base de datos, crear base de datos, base de datos nosql, bases de datos nosql, nuget, documentdb, azure, Microsoft azure"
+	pageTitle="Tutorial de NoSQL: SDK de DocumentDB para .NET | Microsoft Azure"
+	description="Tutorial de NoSQL que crea una base de datos en línea y la aplicación de consola de C# mediante el SDK de DocumentDB para .NET. DocumentDB es una base de datos NoSQL para JSON."
+	keywords="tutorial de nosql, base de datos en línea, aplicación de consola de c#"
 	services="documentdb"
 	documentationCenter=".net"
 	authors="AndrewHoh"
@@ -14,22 +14,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="11/05/2015"
+	ms.date="11/18/2015"
 	ms.author="anhoh"/>
 
-#Introducción al SDK de .NET de DocumentDB  
+# Tutorial de NoSQL: aplicación de consola de C# DocumentDB 
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-Introducción al SDK de .NET de DocumentDB Después de seguir este tutorial, tendrá una aplicación de consola que crea recursos de DocumentDB y realiza consultas en ellos.
+Bienvenido al tutorial de NoSQL para el SDK de DocumentDB para .NET. Después de seguir este tutorial, tendrá una aplicación de consola que crea recursos de DocumentDB y realiza consultas en ellos.
 
 Describiremos:
 
 - Creación y aprovisionamiento una cuenta de DocumentDB.
 - Configuración de la solución de Visual Studio
-- Creación de una base de datos
+- Creación de una base de datos en línea
 - Creación de una colección
 - Creación de documentos JSON
 - Consulta de la colección
@@ -45,7 +45,7 @@ Comencemos.
 
 Asegúrese de que dispone de lo siguiente:
 
-- Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una [evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+- Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una versión de [prueba gratuita](http://azure.microsoft.com/pricing/free-trial/).
 - [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
 
 ## Paso 1: Creación de una cuenta de DocumentDB
@@ -57,7 +57,7 @@ Creemos una cuenta de DocumentDB. Si ya tiene una cuenta que desea usar, puede i
 ##<a id="SetupVS"></a> Paso 2: Configuración de la solución de Visual Studio
 
 1. Abra **Visual Studio** en el equipo.
-2. En el menú **Archivo**, seleccione **Nuevo** y, después, elija **Proyecto**.
+2. En el menú **Archivo**, seleccione **Nuevo** y elija **Proyecto**.
 3. En el cuadro de diálogo **Nuevo proyecto**, seleccione **Plantillas**/**Visual C#**/ **Aplicación de consola**, ponga un nombre al proyecto y haga clic en **Aceptar**.
 4. En el **Explorador de soluciones**, haga clic con el botón secundario en la nueva aplicación de la consola, que se encuentra en la solución de Visual Studio.
 5. A continuación, sin dejar el menú, haga clic en **Administrar paquetes de NuGet...**
@@ -76,7 +76,7 @@ En primer lugar, agregue estas referencias al principio de la aplicación de C#,
     using Microsoft.Azure.Documents.Linq;
     using Newtonsoft.Json;
 
-> [AZURE.IMPORTANT]Para poder completar esta aplicación, asegúrese de que agregar las dependencias anteriores.
+> [AZURE.IMPORTANT]Para poder completar este tutorial de NoSQL, asegúrese de que agregar las dependencias anteriores.
 
 A continuación, guarde el punto de conexión de la cuenta de DocumentDB y la clave de acceso principal o secundaria, que se encuentran en el [Portal de vista previa de Azure](https://portal.azure.com).
 
@@ -85,7 +85,7 @@ A continuación, guarde el punto de conexión de la cuenta de DocumentDB y la cl
     private const string EndpointUrl = "<your endpoint URI>";
     private const string AuthorizationKey = "<your key>";
 
-Comenzaremos la aplicación de demostración creando una nueva instancia de **DocumentClient**. Cree una nueva tarea asincrónica llamada **GetStartedDemo** y cree una instancia de nuestro nuevo **DocumentClient**.
+Comenzaremos la aplicación de demostración mediante la creación de una nueva instancia de **DocumentClient**. Cree una nueva tarea asincrónica llamada **GetStartedDemo** y cree una instancia de nuestro nuevo **DocumentClient**.
 
 	private static async Task GetStartedDemo()
     {
@@ -112,8 +112,8 @@ Llame a la tarea asincrónica desde el método **Main** similar al código sigui
 
 Ahora que sabe cómo conectarse a una cuenta de DocumentDB y crear una instancia de la clase **DocumentClient**, vamos a echar un vistazo a cómo trabajar con recursos de DocumentDB.
 
-## Paso 4: Creación de una base de datos
-Puede crearse una [base de datos](documentdb-resources.md#databases) mediante el método [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) de la clase **DocumentClient**. Una base de datos es un contenedor lógico de almacenamiento de documentos particionado en recopilaciones. Cree la base de datos en su método **GetStartedDemo** después de su creación **DocumentClient**.
+## Paso 4: Creación de una base de datos en línea
+Puede crearse una [base de datos](documentdb-resources.md#databases) de DocumentDB mediante el método [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) de la clase **DocumentClient**. Una base de datos es un contenedor lógico de almacenamiento de documentos JSON particionado en recopilaciones. Cree la base de datos en su método **GetStartedDemo** después de su creación **DocumentClient**.
 
 	// Check to verify a database with the id=FamilyRegistry does not exist
 	Database database = client.CreateDatabaseQuery().Where(db => db.Id == "FamilyRegistry").AsEnumerable().FirstOrDefault();
@@ -159,7 +159,7 @@ Una [colección](documentdb-resources.md#collections) puede crearse mediante el 
         Console.Clear();
 	}
 
-##<a id="CreateDoc"></a>Paso 6: Creación de documentos
+##<a id="CreateDoc"></a>Paso 6: Creación de documentos JSON
 Un [documento](documentdb-resources.md#documents) puede crearse mediante el método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) de la clase **DocumentClient**. Los documentos son contenido JSON definido por el usuario (arbitrario). Ahora podemos insertar uno o varios documentos. Si ya dispone de datos que desea almacenar en la base de datos, puede usar la [herramienta de migración de datos](documentdb-import-data.md) de DocumentDB.
 
 En primer lugar, debemos crear una clase **principal**, **secundaria**, **mascota**, **dirección** y **familia**. Para agregar estas clases, agregue las siguientes subclases internas después del método **GetStartedDemo**.
@@ -279,7 +279,7 @@ A continuación, cree los documentos dentro de su método asincrónico **GetStar
 
 Ahora ha creado la siguiente colección, documentos y bases de datos en la cuenta de DocumentDB.
 
-![Diagrama que muestra la relación jerárquica entre la cuenta, la base de datos, la colección y los documentos](./media/documentdb-get-started/account-database.png)
+![Diagrama que muestra la relación jerárquica entre la cuenta, la base de datos, la colección y los documentos](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ##<a id="Query"></a>Paso 7: Consulta de recursos de DocumentDB
 
@@ -319,7 +319,7 @@ DocumentDB admite [consultas](documentdb-sql-query.md) enriquecidas contra los d
 
 El siguiente diagrama muestra la denominación de la sintaxis de la consulta de SQL DocumentDB en la recopilación creada y se aplica la misma lógica también a la consulta LINQ.
 
-![Diagrama que ilustra el ámbito y el significado de la consulta](./media/documentdb-get-started/collection-documents.png)
+![Diagrama que ilustra el ámbito y el significado de la consulta](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
 La palabra clave [FROM](documentdb-sql-query.md#from-clause) es opcional en la consulta porque las consultas de DocumentDB ya tienen como ámbito una sola colección. Por lo tanto, «FROM Families f" se puede intercambiar por "FROM root r", o cualquier otra variable de nombre que elija. DocumentDB deducirá la familia, la raíz o el nombre de variable elegido y hará referencia a la colección actual de forma predeterminada.
 
@@ -331,7 +331,7 @@ La eliminación de la base de datos creada quitará la base de datos y todos los
     await client.DeleteDatabaseAsync("dbs/" + database.Id);
 	client.Dispose();
 
-##<a id="Run"></a>Paso 9: Ejecución de la aplicación
+##<a id="Run"></a>Paso 9: Ejecución de la aplicación de consola de C#
 
 Ahora ya puede ejecutar la aplicación. Al final de su método **principal**, agregue la siguiente línea de código, que le permitirá leer la salida de la consola antes de que la aplicación deje de ejecutarse.
 
@@ -456,7 +456,7 @@ Ahora debe ver el resultado de la aplicación iniciada get. La salida mostrará 
 	  "_attachments": "attachments/"
 	} from LINQ query
 
-¡Enhorabuena! Ha creado su primera aplicación de DocumentDB.
+¡Enhorabuena! Ha completado este tutorial de NoSQL.
 
 ##<a id="GetSolution"></a> Obtención de la solución completa
 Para compilar la solución GetStarted que contiene todos los ejemplos de este artículo, necesitará lo siguiente:
@@ -464,11 +464,11 @@ Para compilar la solución GetStarted que contiene todos los ejemplos de este ar
 -   [Cuenta de DocumentDB][documentdb-create-account].
 -   La solución [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) está disponible en GitHub.
 
-Para restaurar las referencias al SDK de .NET de DocumentDB en Visual Studio, haga clic con el botón derecho en la solución **GetStarted** en el Explorador de soluciones y, después, haga clic en **Habilitar la restauración del paquete NuGet**. A continuación, en el archivo App.config, actualice los valores EndpointUrl y AuthorizationKey como se describe en [Conexión a una cuenta de DocumentDB](#Connect).
+Para restaurar las referencias al SDK de DocumentDB para .NET en Visual Studio, haga clic con el botón derecho en la solución **GetStarted** en el Explorador de soluciones y, después, haga clic en **Habilitar la restauración del paquete NuGet**. A continuación, en el archivo App.config, actualice los valores EndpointUrl y AuthorizationKey como se describe en [Conexión a una cuenta de DocumentDB](#Connect).
 
 ## Pasos siguientes
 
--   ¿Desea un ejemplo más complejo de ASP.NET MVC? Consulte [Creación de una aplicación web con ASP.NET MVC mediante DocumentDB](documentdb-dotnet-application.md).
+-   ¿Desea un tutorial de ASP.NET MVC NoSQL más complejo? Consulte [Creación de una aplicación web con ASP.NET MVC mediante DocumentDB](documentdb-dotnet-application.md).
 -	Aprenda a [supervisar una cuenta de DocumentDB](documentdb-monitor-accounts.md).
 -	Ejecute las consultas en nuestro conjunto de datos de ejemplo en el [área de consultas](https://www.documentdb.com/sql/demo).
 -	Obtenga más información sobre el modelo de programación en la sección de desarrollo de la [página de documentación de DocumentDB](../../services/documentdb/).
@@ -477,7 +477,7 @@ Para restaurar las referencias al SDK de .NET de DocumentDB en Visual Studio, ha
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 
-[keys]: media/documentdb-get-started/keys.png
+[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

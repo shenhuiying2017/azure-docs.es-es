@@ -1,11 +1,12 @@
 <properties 
-    pageTitle="Creación de una Base de datos SQL de Azure con PowerShell" 
-    description="Creación de una Base de datos SQL de Azure con PowerShell" 
-    services="sql-database" 
+    pageTitle="Nueva configuración de Base de datos SQL con PowerShell | Microsoft Azure" 
+    description="Aprenda a crear una nueva Base de datos SQL con PowerShell. Las tareas de configuración comunes de la base de datos pueden administrarse mediante los cmdlets de PowerShell." 
+    keywords="creación de una nueva base de datos SQL,configuración de base de datos"
+	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
     manager="jeffreyg" 
-    editor=""/>
+    editor="cgronlun"/>
 
 <tags
     ms.service="sql-database"
@@ -16,7 +17,7 @@
     ms.date="10/20/2015"
     ms.author="sstein"/>
 
-# Creación de una Base de datos SQL con PowerShell
+# Creación de una nueva Base de datos SQL y realización de tareas comunes de configuración de base de datos con los cmdlets de PowerShell 
 
 **Base de datos única**
 
@@ -26,14 +27,12 @@
 - [PowerShell](sql-database-get-started-powershell.md)
 
 
-## Información general
-
-Este artículo muestra cómo crear una base de datos SQL mediante PowerShell.
+Aprenda a crear una nueva Base de datos SQL y a realizar tareas comunes de configuración de base de datos con los cmdlets de PowerShell
 
 > [AZURE.IMPORTANT]Tenga en cuenta que el cmdlet Switch-AzureMode ya no está disponible a partir de la versión Vista previa de Azure PowerShell 1.0, y que los cmdlets que estaban en el módulo de Azure ResourceManager han cambiado de nombre. En los ejemplos de este artículo usaremos la nueva convención de nomenclatura de Vista previa de PowerShell 1.0. Para obtener más información detallada, consulte [Degradación del cmdlet Switch-AzureMode en Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 
-Para ejecutar los cmdlets de PowerShell, necesitará tener Azure PowerShell instalado y en marcha; asimismo, debido a la eliminación del cmdlet Switch-AzureMode, deberá descargar e instalar la versión más reciente de Azure PowerShell ejecutando el [Instalador de plataforma web de Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+Para ejecutar los cmdlets de PowerShell, necesitará tener Azure PowerShell instalado y en marcha. Debido a la eliminación del cmdlet Switch-AzureMode, deberá descargar e instalar la versión más reciente de Azure PowerShell mediante la ejecución del [Instalador de plataforma web de Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
 - Si necesita una suscripción a Azure, haga clic en la opción **PRUEBA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva para finalizar este artículo.
 
@@ -57,7 +56,7 @@ Para seleccionar la suscripción, necesita su id. de suscripción. Puede copiar 
 
 Después de ejecutar correctamente **Select-AzureRMSubscription** volverá al símbolo del sistema de PowerShell. Si tiene más de una suscripción, puede ejecutar **Get-AzureRMSubscription** y comprobar que la suscripción que desea usar muestra **IsCurrent: True**.
 
-## Creación de un grupo de recursos, un servidor y una regla de firewall
+## Configuración de la base de datos: creación de un grupo de recursos, un servidor y una regla de firewall
 
 Ya dispone de acceso para ejecutar cmdlets en su suscripción de Azure seleccionada, por lo que el siguiente paso es establecer el grupo de recursos que contiene el servidor donde se creará la base de datos. Puede editar el comando siguiente para usar cualquier ubicación válida que elija. Ejecute **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** para obtener una lista de ubicaciones válidas.
 
@@ -91,7 +90,7 @@ Para permitir que otros servicios de Azure tengan acceso al servidor, agregue un
 Para obtener más información, consulte [Firewall de Base de datos SQL de Azure](sql-database-firewall-configure.md).
 
 
-## Creación de una Base de datos SQL
+## Crear una nueva base de datos SQL
 
 Ahora ya dispone de un grupo de recursos, un servidor y una regla de firewall configurados para poder tener acceso al servidor.
 
@@ -103,7 +102,7 @@ El siguiente comando crea una nueva base de datos SQL (en blanco) en el nivel de
 
 Se mostrarán los detalles de la base de datos tras crear la base de datos correctamente.
 
-## Creación de un script de PowerShell de base de datos SQL
+## Creación de un script de PowerShell de Base de datos SQL
 
     $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     $ResourceGroupName = "resourcegroupname"
@@ -136,6 +135,7 @@ Se mostrarán los detalles de la base de datos tras crear la base de datos corre
 
 
 ## Pasos siguientes
+Después de crear una nueva Base de datos SQL y de realizar las tareas de configuración básica de la base de datos, está listo para lo siguiente:
 
 - [Conexión con SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
 
@@ -144,4 +144,4 @@ Se mostrarán los detalles de la base de datos tras crear la base de datos corre
 
 - [Base de datos SQL de Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

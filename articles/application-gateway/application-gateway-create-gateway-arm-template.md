@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/21/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 
@@ -22,10 +22,9 @@
 La Puerta de enlace de aplicaciones es el equilibrador de carga de nivel 7. Ofrece conmutación por error, enrutamiento del rendimiento de solicitudes HTTP entra distintos servidores, ya se que se encuentren en la nube o en una implementación local. La puerta de enlace de aplicaciones tiene las siguientes características de entrega de aplicaciones: equilibrio de carga HTTP, afinidad de sesión basado en cookies, descarga SSL.
 
 > [AZURE.SELECTOR]
-- [Azure Classic Powershell steps](application-gateway-create-gateway.md)
-- [Azure Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template steps](application-gateway-create-gateway-arm-template.md)
-
+- [Azure Classic PowerShell](application-gateway-create-gateway.md)
+- [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+- [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 
 <BR>
 
@@ -60,7 +59,7 @@ En este escenario, creará:
 
 Puede descargar la plantilla ARM existente para crear una red virtual y dos subredes desde github, puede realizar los cambios que desee y volver a utilizarla. Para ello, siga estos pasos.
 
-1. Navegue a https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-applicationgateway-publicip.
+1. Vaya a https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/.
 2. Haga clic en **azuredeploy.json** y luego en **RAW**.
 3. Guarde el archivo en un una carpeta local en su equipo.
 4. Si está familiarizado con las plantillas ARM, salte al paso 7.
@@ -76,8 +75,8 @@ Puede descargar la plantilla ARM existente para crear una red virtual y dos subr
 	| **skuname** | Tamaño de la instancia de SKU |
 	| **capacidad** | número de instancias |
 	| **backendaddress1** | Dirección IP del primer servidor web |
-	| **backendaddress2** | Dirección IP del segundo servidor web|
-
+	| **backendaddress2** | Dirección IP del segundo servidor web |
+	
 
 >[AZURE.IMPORTANT]Las plantillas ARM que se mantienen en github pueden cambiar con el tiempo. Asegúrese de comprobar la plantilla antes de usarla.
 	
@@ -87,37 +86,35 @@ Puede descargar la plantilla ARM existente para crear una red virtual y dos subr
 	- **name**. Nombre del recurso. Observe el uso de **[parameters('vnetName')]**, lo que significa que será el usuario quien proporcione el nombre como entrada o como archivo de parámetros durante la implementación.
 	- **properties**. Lista de propiedades para el recurso. Esta plantilla usa la red virtual y la dirección IP pública durante la creación de la Puerta de enlace de aplicaciones.
 
-7. Navegue de nuevo a https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-applicationgateway-publicip.
+7. Vuelva a https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/azuredeploy.json.
 8. Haga clic en **azuredeploy-paremeters.json** y luego en **RAW**.
 9. Guarde el archivo en un una carpeta local en su equipo.
 10. Abra el archivo que acaba de guardar y edite los valores de los parámetros. Use los siguientes valores para implementar la red Puerta de enlace de aplicaciones que se describe en nuestro escenario.
 
 		{
-		   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-		   "contentVersion": "1.0.0.0",
-		   "parameters": {
-		     "location": {
-		       "value": "East US"
-		     },
-		     "addressPrefix": {
-		      "value": "10.0.0.0/16"
-    		 },
-		     "subnetPrefix": {
-		      "value": "10.0.0.0/24"
-		     },
-		     "skuName": {
-		       "value": "Standard_Small"
-		     },
-		     "capacity": {
-		       "value": 2
-		    },
-		    "backendIpAddress1": {
-		      "value": "10.0.1.10"
-		    },
-		     "backendIpAddress2": {
-		       "value": "10.0.1.11"
-		     }
-		  }
+		  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+		{
+    	"location" : {
+        "value" : "West US"
+    	},
+    	"addressPrefix": {
+        "value": "10.0.0.0/16"
+    	},
+    	"subnetPrefix": {
+        "value": "10.0.0.0/24"
+    	},
+    	"skuName": {
+        "value": "Standard_Small"
+    	},
+    	"capacity": {
+        "value": 2
+    	},
+    	"backendIpAddress1": {
+        "value": "10.0.1.10"
+    	},
+    	"backendIpAddress2": {
+        "value": "10.0.1.11"
+    	}
 		}
 
 11. Guarde el archivo. Puede probar la plantilla de Json y la plantilla de parámetros mediante herramientas de validación de json en línea como [JSlint.com](http://www.jslint.com/)
@@ -150,7 +147,7 @@ Resultado esperado:
 	                 =======  ==========
 	                  *
 
-		ResourceId        : /subscriptions/################################/resourceGroups/AppgatewayRG
+		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
 4. Ejecute el cmdlet New-AzureResourceGroupDeployment para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que descargó y modificó antes.
 
@@ -175,7 +172,7 @@ La salida generada por la línea de comandos será la siguiente:
                    capacity         Int                        2
                    backendIpAddress1  String                     10.0.1.10
                    backendIpAddress2  String                     10.0.1.11
-
+					
 		Outputs           :
 
 
@@ -240,7 +237,7 @@ Clic para implementar es otra forma de usar plantillas ARM. Se trata de una mane
 
 
 ### Paso 1 
-El vínculo [Clic para implementar Puerta de enlace de aplicaciones](http://azure.microsoft.com/documentation/templates/101-create-applicationgateway-publicip/) le redirigirá a la página de plantilla del portal para Puerta de enlace de aplicaciones.
+El vínculo [Clic para implementar Puerta de enlace de aplicaciones](https://azure.microsoft.com/es-ES/documentation/templates/101-application-gateway-public-ip/) le redirigirá a la página de plantilla del portal para Puerta de enlace de aplicaciones.
 
 
 ### Paso 2 
@@ -276,4 +273,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

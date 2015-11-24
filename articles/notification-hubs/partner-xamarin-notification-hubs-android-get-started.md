@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="11/17/2015"
 	ms.author="wesmc"/>
 
 # Introducción a los Centros de notificaciones
@@ -514,4 +514,4 @@ En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Androi
 [Componente del Cliente de mensajería en la nube de Google]: http://components.xamarin.com/view/GCMClient/
 [Componente de mensajería de Azure]: http://components.xamarin.com/view/azure-messaging
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

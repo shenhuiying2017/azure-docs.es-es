@@ -44,7 +44,7 @@ En la tabla siguiente se proporciona información sobre las regiones y los lími
 |**Región geopolítica**|**Regiones de Azure**|**Ubicaciones de ExpressRoute**|
 |---|---|---|---|
 |**Nube del gobierno de Estados Unidos**|Gobierno de Estados Unidos|Iowa, Virginia|Ashburn, Chicago|
-|**Nube de China**|China|Este, Norte|
+|**Nube de China**|China|Beijing, Shanghai|
 
 
 No se admite la conectividad entre las regiones geopolíticas en el SKU de ExpressRoute estándar. Debe habilitar el complemento premium de ExpressRoute para admitir conectividad global. No se admite la conectividad con entornos de nube nacionales. Puede trabajar con su proveedor de conectividad si surge tal necesidad.
@@ -67,7 +67,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | Compatible | No compatible | Tokio |
 | **[InterCloud](https://www.intercloud.com/)** | Compatible | Compatible | Ámsterdam, Londres, Singapur, Washington DC |
 | **Internet Solutions - Cloud Connect** | Compatible | Compatible | Ámsterdam y Londres |
-| **Interxion** | Compatible | No compatible | Ámsterdam |
+| **Interxion** | Compatible | Compatible | Ámsterdam |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Compatible | No compatible | Ámsterdam, Chicago, Dallas, Londres, Seattle, Silicon Valley, Washington DC |
 | **Megaport** | Compatible | No compatible | Melbourne, Sidney |
 | **MTN** | Compatible | No compatible | Londres |
@@ -137,4 +137,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 - Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 - Asegúrese de que se cumplen todos los requisitos previos. Consulte [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

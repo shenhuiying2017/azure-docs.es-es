@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="11/17/2015"
    ms.author="alkohli" />
 
 # Implementar el dispositivo StorSimple local
@@ -51,7 +51,7 @@ Siga estos pasos obligatorios para configurar el dispositivo StorSimple y conect
 | Paso 4: Completar el programa de instalación mínima del dispositivo </br>Opcional: actualización del dispositivo StorSimple. | Use el servicio de administración para realizar la instalación del dispositivo y habilitarlo para proporcionar almacenamiento. |
 | Paso 5: Crear un contenedor de volúmenes. | Cree un contenedor para aprovisionar los volúmenes. Un contenedor de volúmenes tiene la configuración de la cuenta de almacenamiento, el ancho de banda y el cifrado de todos los volúmenes que contiene. |
 | Paso 6: Crear un volumen. | Aprovisione volúmenes de almacenamiento en el dispositivo StorSimple para los servidores. |
-| Paso 7: Montar, inicializar y formatear un volumen.</br>Opcional: configurar MPIO. | Conecte los servidores al almacenamiento iSCSI proporcionado por el dispositivo. Opcionalmente, configure MPIO para asegurarse de que los servidores pueden tolerar errores de vínculo, red e interfaz. |
+| Paso 7: Montar, inicializar y formatear un volumen.</br>Opcional: configurar MPIO. | Conecte los servidores al almacenamiento iSCSI proporcionado por el dispositivo. De forma opcional, puede configurar MPIO para asegurarse de que los servidores pueden tolerar errores de vínculo, red e interfaz. |
 | Paso 8: Realizar una copia de seguridad. | Configure la directiva de copia de seguridad para proteger los datos. |
 | | |
 | **OTROS PROCEDIMIENTOS** | Puede que necesite hacer referencia a estos procedimientos mientras implementa la solución. |
@@ -290,4 +290,4 @@ Siga estos pasos en el Portal de Azure para crear una copia de seguridad manual 
 
 - Use el [servicio de Administrador de StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx) para administrar el dispositivo StorSimple.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

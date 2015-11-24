@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Adición, deshabilitación, habilitación o eliminación de extremos
@@ -62,20 +62,17 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 
 >[AZURE.NOTE]No se pueden eliminar ubicaciones externas o perfiles del Administrador de tráfico como extremos mediante el uso del Portal de Azure. Debe usar Windows PowerShell. Para obtener más información, consulte [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690251.aspx).
 
-## Recursos adicionales
+## Pasos siguientes
 
-[Información general sobre el Administrador de tráfico](traffic-manager-overview.md)
 
-[Acerca de la supervisión del Administrador de tráfico](traffic-manager-monitoring.md)
+[Configuración del método de enrutamiento de conmutación por error](traffic-manager-configure-failover-routing-method.md)
 
-[Administrador de tráfico: deshabilitación, habilitación o eliminación de un perfil](disable-enable-or-delete-a-profile.md)
+[Configuración del método de enrutamiento round robin](traffic-manager-configure-round-robin-routing-method.md)
 
-[Administrador de tráfico: deshabilitación o habilitación de un extremo](disable-or-enable-an-endpoint.md)
+[Configuración del método de enrutamiento de rendimiento](traffic-manager-configure-performance-routing-method.md)
+
+[Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
 
 [Operaciones del Administrador de tráfico (referencia de la API de REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
-[Servicios en la nube](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Sitios web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -334,7 +334,7 @@ El ejemplo siguiente crea un nuevo blob en anexos y le anexa algunos datos, para
     //Read the append blob to the console window.
     Console.WriteLine(appendBlob.DownloadText());
 
-Consulte [Descripción Blobs en bloques, en anexos y en páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx) para obtener más información acerca de las diferencias entre los tres tipos de blobs.
+Consulte [Descripción de los blobs en bloques, en anexos y en páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx) para obtener más información acerca de las diferencias entre los tres tipos de blobs.
 
 ## Pasos siguientes
 
@@ -348,7 +348,7 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
 ### Guías de características adicionales
 
 - [Introducción al Almacenamiento de tablas para .NET](storage-dotnet-how-to-use-tables.md)
-- [Introducción al Almacenamiento de colas para .NET](storage-dotnet-how-to-use-queues.md)
+- [Introducción al Almacenamiento en cola para .NET](storage-dotnet-how-to-use-queues.md)
 - [Introducción al Almacenamiento de archivos para .NET](storage-dotnet-how-to-use-files.md)
 - [Uso de Base de datos SQL para almacenar datos relacionales](../sql-database/articles/sql-database-dotnet-how-to-use.md)
 - [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
@@ -366,4 +366,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->
