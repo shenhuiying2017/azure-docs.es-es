@@ -228,8 +228,11 @@ Ya ha creado las tablas y los servicios vinculados de entrada/salida. Ahora, va 
 
 1. En **Visual Studio**, haga clic en el menú **Ver** y en la opción **Explorador de servidores**.
 2. En la ventana Explorador de servidores, expanda **Azure** y **Factoría de datos**. Si aparece **Iniciar sesión en Visual Studio**, escriba la **cuenta** asociada a su suscripción de Azure y haga clic en **Continuar**. Escriba la **contraseña** y haga clic en **Iniciar sesión**. Visual Studio intenta obtener información acerca de todas las factorías de datos de Azure en su suscripción. Verá el estado de esta operación en la ventana **Lista de tareas de Factoría de datos**.  
+
 	![Explorador de servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
+
 3. Puede hacer clic con el botón derecho en una factoría de datos y seleccionar Exportar Factoría de datos a nuevo proyecto para crear un proyecto de Visual Studio basado en una factoría de datos existente.
+
 	![Exportar factoría de datos a un proyecto de VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Actualización de herramientas de Factoría de datos para Visual Studio
