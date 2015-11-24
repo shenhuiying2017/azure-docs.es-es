@@ -14,10 +14,10 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
+	ms.date="11/17/2015"
 	ms.author="heidist"/>
 
-#Creación de consultas en Búsqueda de Azure mediante llamadas REST 
+# Creación de consultas en Búsqueda de Azure mediante llamadas REST
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
@@ -29,32 +29,42 @@ En este artículo se muestra cómo crear una consulta en un índice con la [API 
 
 Los requisitos previos para la importación incluyen tener un índice existente preparado, cargado con documentos que proporcionen los datos que se pueden buscar.
 
-Al usar la API de REST, las consultas se basan en una solicitud GET HTTP. Los fragmentos de código pertenecen al [ejemplo de perfiles de puntuación](search-get-started-scoring-profiles.md).
+Para buscar el índice mediante la API de REST, emitirá una solicitud HTTP GET. Los parámetros de consulta se definirán dentro de la dirección URL de la solicitud HTTP.
 
-        static JObject ExecuteRequest(string action, string query = "")
-        {
-            // original:  string url = serviceUrl + indexName + "/" + action + "?" + ApiVersion; 
-            string url = serviceUrl + indexName + "/docs?" + action ;
-            if (!String.IsNullOrEmpty(query))
-            {
-                url += query + "&" + ApiVersion;
-            }
+**Solicitudes y encabezados de solicitud**:
 
-            string response = ExecuteGetRequest(url);
-            return JObject.Parse(response);
+En la dirección URL tendrá que proporcionar el nombre del servicio, el nombre del índice y la versión correcta de la API. En la cadena de consulta al final de la dirección URL debe proporcionar los parámetros de consulta. Uno de los parámetros en la cadena de consulta debe ser la versión correcta de la API (la versión actual de la API es "2015-02-28" en el momento de la publicación de este documento).
 
-        }
+Como encabezados de solicitud, tendrá que definir Content-Type y proporcionar la clave de administración principal o secundaria del servicio.
 
-        static string ExecuteGetRequest(string requestUri)
-        {
-            //This will execute a get request and return the response
-            using (HttpClient client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Add("api-key", primaryKey);
-                HttpResponseMessage response = client.GetAsync(requestUri).Result;        // Searches are done over port 80 using Get
-                return response.Content.ReadAsStringAsync().Result;
-            }
+	GET https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
+	Content-Type: application/JSON
+	api-key:[primary admin key or secondary admin key]
 
-        }
+Búsqueda de Azure ofrece muchas opciones para crear consultas extremadamente eficaces. Para obtener más información acerca de todos los distintos parámetros de una cadena de consulta, visite [esta página](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-<!---HONumber=Nov15_HO3-->
+**Ejemplos:**
+
+A continuación se muestran algunos ejemplos con varias cadenas de consulta. Estos ejemplos usan un índice ficticio denominado "hotels":
+
+Busque el término "quality" en todo el índice:
+
+	GET https://[service name].search.windows.net/indexes/hotels/docs?search=quality&$orderby=lastRenovationDate desc&api-version=2015-02-28
+	Content-Type: application/JSON
+	api-key:[primary admin key or secondary admin key]
+
+Busque en todo el índice:
+
+	GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&api-version=2015-02-28
+	Content-Type: application/JSON
+	api-key:[primary admin key or secondary admin key]
+
+Busque en todo el índice y ordene por un campo específico (lastRenovationDate):
+
+	GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
+	Content-Type: application/JSON
+	api-key:[primary admin key or secondary admin key]
+
+Una solicitud de consulta correcta dará como resultado un código de estado de "200 OK" y los resultados de la búsqueda se encuentran en formato JSON en el cuerpo de la respuesta. Para obtener más información, visite la sección "Respuesta" de [esta página](https://msdn.microsoft.com/library/azure/dn798927.aspx).
+
+<!---HONumber=Nov15_HO4-->

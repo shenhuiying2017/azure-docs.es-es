@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/27/2015"
+	ms.date="11/16/2015"
 	ms.author="sdanie"/>
 
 # Administración de su primera API en Administración de API de Azure
@@ -116,7 +116,7 @@ Una vez importada la API, se muestra la página de resumen de la API en el porta
 
 ![API summary][api-management-imported-api-summary]
 
-La sección de API tiene varias pestañas. La pestaña **Resumen** muestra información y métricas básicas acerca de la API. La pestaña [Configuración](api-management-howto-create-apis.md#configure-api-settings) se utiliza para ver y editar la configuración de una API. La pestaña [Operaciones](api-management-howto-add-operations.md) se utiliza para administrar las operaciones de la API. La pestaña **Seguridad** puede usarse para configurar la autenticación de proxy para el servidor back-end mediante la autenticación básica o la [autenticación mutua de certificados](api-management-howto-mutual-certificates.md) y para configurar la [autorización de usuario mediante OAuth 2.0](api-management-howto-oauth2.md). La pestaña **Problemas** se usa para ver los problemas notificados por los desarrolladores que usan las API. La pestaña **Productos** se usa para configurar los productos que contienen esta API.
+La sección de API tiene varias pestañas. La pestaña **Resumen** muestra información y métricas básicas acerca de la API. La pestaña [Configuración](api-management-howto-create-apis.md#configure-api-settings) se utiliza para ver y editar la configuración de una API. La pestaña [Operaciones](api-management-howto-add-operations.md) se utiliza para administrar las operaciones de la API. La pestaña **Seguridad** puede usarse para configurar la autenticación de puerta de enlace para el servidor back-end mediante la autenticación básica o la [autenticación mutua de certificados](api-management-howto-mutual-certificates.md) y para configurar la [autorización de usuario mediante OAuth 2.0](api-management-howto-oauth2.md). La pestaña **Problemas** se usa para ver los problemas notificados por los desarrolladores que usan las API. La pestaña **Productos** se usa para configurar los productos que contienen esta API.
 
 De forma predeterminada, cada instancia de Administración de API incluye dos productos de ejemplo:
 
@@ -243,4 +243,4 @@ La sección **Análisis** consta de las cuatro pestañas siguientes:
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

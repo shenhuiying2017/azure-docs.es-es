@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/18/2015"
+	ms.date="11/16/2015"
 	ms.author="jgao"/>
 
 
@@ -47,18 +47,19 @@ Antes de empezar este tutorial de HBase, debe contar con lo siguiente:
 	- **Nombre del clúster**: escriba un nombre para identificar este clúster.
 	- **Tipo de clúster**: seleccione **HBase**.
 	- **Sistema operativo de clústeres**: seleccione **Ubuntu**.
-	- **Suscripción**: seleccione la suscripción de Azure usada para aprovisionar este clúster.
+	- **Versión**: seleccione la versión del clúster que desea usar. Para obtener más información sobre lo que se incluye con diferentes versiones de HDInsight, consulte [Versiones de clústeres de HDInsight](hdinsight-component-versioning.md).
+    - **Suscripción**: si tiene varias suscripciones de Azure, seleccione la que desee usar.
 	- **Grupo de recursos**: agregue o seleccione un grupo de recursos de Azure. Para obtener más información, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md).
 	- **Credenciales**. Escriba una contraseña para el usuario del servicio web HTTP. El nombre de usuario predeterminado es **admin**. También debe especificar un **Nombre de usuario de SSH** y una **CONTRASEÑA** o una **CLAVE PÚBLICA**, que se usarán para autenticar al usuario de SSH. Es recomendable usar una clave pública. Para obtener más información sobre el uso de SSH con HDInsight, vea uno de los siguientes artículos:
 
 		- [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 		- [Utilización de SSH con Hadoop basado en Linux en HDInsight desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md) Haga clic en **Seleccionar** para guardar los cambios.
-	- **Origen de datos**: seleccione una cuenta de almacenamiento de Azure existente o cree una nueva para usar como sistema de archivos predeterminado para el clúster. La ubicación de la cuenta de almacenamiento determina la ubicación del clúster. Un clúster de HDInsight y la cuenta de almacenamiento de Azure dependiente deben ubicarse en el mismo centro de datos. El nombre predeterminado para el **Contenedor predeterminado** es el nombre del clúster.  
-	- **Tenga en cuenta los planes de tarifa:** seleccione el número de servidores de región para el clúster de HBase.
+	- **Origen de datos**: seleccione una cuenta de almacenamiento de Azure existente o cree una nueva para usarla como sistema de archivos predeterminado para el clúster. La ubicación de la cuenta de almacenamiento determina la ubicación del clúster. Un clúster de HDInsight y la cuenta de almacenamiento de Azure dependiente deben ubicarse en el mismo centro de datos. El nombre predeterminado del **Contenedor predeterminado** es el nombre del clúster.  
+	- **Niveles de precios de nodo**: seleccione el número de servidores de región para el clúster de HBase.
 
 		> [AZURE.WARNING]Para lograr alta disponibilidad de servicios de HBase, debe aprovisionar un clúster que contenga al menos **tres** nodos. Esto garantiza que, si un nodo deja de funcionar, las regiones de datos de HBase están disponibles en otros nodos.
 
-	- **Configuración opcional**: seleccione la versión de clúster, configure la red virtual de Azure, configure la tienda de metadatos de Hive/Oozie, configure acciones de script y agregue cuentas de almacenamiento adicionales.
+	- **Configuración opcional**: seleccione la versión de clúster, configure la red virtual de Azure, configure acciones de script y agregue cuentas de almacenamiento adicionales.
 
 4. Haga clic en **Crear**.
 
@@ -79,7 +80,7 @@ Tendrá más sentido cuando termine el siguiente procedimiento.
 
 **Para usar el shell de HBase, siga estos pasos:**
 
->[AZURE.NOTE]Los pasos que se ofrecen aquí son de un equipo de Windows. Para ver las instrucciones para conectarse a un clúster de HDInsight basado en Linux desde Linux, Unix o OS X, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X (vista previa)](hdinsight-hadoop-linux-use-ssh-unix.md) 1. Abra **PuTTY**. Consulte los requisitos previos que se enumeran al principio del artículo. 2. Si ofreció una clave SSH cuando creó la cuenta de usuario durante el proceso de aprovisionamiento, debe realizar el siguiente paso para seleccionar la clave privada que se usará al autenticarse en el clúster:
+>[AZURE.NOTE]Los pasos que se ofrecen aquí son de un equipo de Windows. Para ver las instrucciones para conectarse a un clúster de HDInsight basado en Linux desde Linux, Unix u OS X, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X (vista previa)](hdinsight-hadoop-linux-use-ssh-unix.md) 1. Abra **PuTTY**. Consulte los requisitos previos que se enumeran al principio del artículo. 2. Si ofreció una clave SSH cuando creó la cuenta de usuario durante el proceso de aprovisionamiento, debe realizar el siguiente paso para seleccionar la clave privada que se usará al autenticarse en el clúster:
 
 	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
 
@@ -114,7 +115,7 @@ Tendrá más sentido cuando termine el siguiente procedimiento.
 
 	Verá los mismos resultados que con el comando de análisis porque solo hay una fila.
 
-	Para obtener más información acerca del esquema de tabla de Hbase, consulte [Introducción al diseño de esquema de HBase][hbase-schema]. Para ver más comandos de HBase, consulte [Guía de referencia de Apache HBase][hbase-quick-start].
+	Para obtener más información acerca del esquema de la tabla de HBase, consulte [Introducción al diseño de esquema de HBase][hbase-schema]. Para ver más comandos de HBase, consulte [Guía de referencia de Apache HBase][hbase-quick-start].
 
 
 6. Salga del shell
@@ -219,7 +220,7 @@ Puede consultar datos en tablas de HBase mediante el uso de Hive. En esta secci�
 
 HBase en HDInsight se incluye con una interfaz de usuario web para la supervisión de clústeres. Mediante la interfaz de usuario web, puede solicitar estadísticas o información acerca de las regiones.
 
-SSH también se puede usar para tunelizar las solicitudes locales, como solicitudes web, al clúster de HDInsight. La solicitud se enrutará al recurso solicitado como si se hubiese originado en el nodo principal del clúster de HDInsight. Para obtener más información, consulte [UUtilización de SSH con Hadoop en HDInsight basado en Linux desde Windows (vista previa)](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel).
+SSH también se puede usar para tunelizar las solicitudes locales, como solicitudes web, al clúster de HDInsight. La solicitud se enrutará al recurso solicitado como si se hubiese originado en el nodo principal del clúster de HDInsight. Para obtener más información, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows (vista previa)](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel).
 
 **Para establecer una sesión de tunelización de SSH**
 
@@ -231,15 +232,15 @@ SSH también se puede usar para tunelizar las solicitudes locales, como solicitu
 3. En **Category** (Categoría), haga clic en **Sesión**.
 4. Entre las opciones básicas para su pantalla de sesión de PuTTY, escriba los siguientes valores:
 
-	- **Nombre de host**: dirección de SSH de su servidor de HDInsight en el campo de nombre de host (o dirección IP). La dirección SSH es el nombre de su clúster, seguido de **-ssh.azurehdinsight.net**. Por ejemplo, *mycluster-ssh.azurehdinsight.net*.
+	- **Nombre de host**: dirección de SSH de su servidor de HDInsight en el campo del nombre de host (o dirección IP). La dirección SSH es el nombre de su clúster, seguido de **-ssh.azurehdinsight.net**. Por ejemplo, *mycluster-ssh.azurehdinsight.net*.
 	- **Puerto**: 22. El puerto ssh en el odo principal 0 es 22.  
-5. En la sección **Categoría** a la izquierda del cuadro de diálogo, expanda **Conexión**, **SSH** y luego haga clic en **Túneles**.
+5. En la sección **Categoría**, situada a la izquierda del cuadro de diálogo, expanda **Conexión**, **SSH** y haga clic en **Túneles**.
 6. Proporcione la siguiente información en el formulario Opciones que controlan el desvío de puertos SSH:
 
 	- **Source port**: el puerto en el cliente que desea desviar. Por ejemplo, 9876.
 	- **Dynamic**: habilita el enrutamiento dinámico del proxy SOCKS.
 7. Haga clic en **Agregar** para agregar la configuración.
-8. Haga clic en **Abrir** en la parte inferior del cuadro de diálogo para abrir una conexión SSH.
+8. Haga clic en **Abrir**, en la parte inferior del cuadro de diálogo, para abrir una conexión SSH.
 9. Cuando se le solicite, inicie sesión en el servidor mediante una cuenta de SSH. Esto establecerá una sesión SSH y habilitará el túnel.
 
 **Para encontrar el FQDN de los zookeepers con Ambari**
@@ -247,7 +248,7 @@ SSH también se puede usar para tunelizar las solicitudes locales, como solicitu
 1. Vaya a https://<ClusterName>.azurehdinsight.net/.
 2. Escriba las credenciales de la cuenta de usuario de clúster dos veces.
 3. En el menú izquierdo, haga clic en **zookeeper**.
-4. Haga clic en uno de los tres vínculos de **Servidor de ZooKeeper** en la lista de resumen.
+4. Haga clic en uno de los tres vínculos **Servidor de ZooKeeper** en la lista de resumen.
 5. Copie el **Nombre de host**. Por ejemplo, zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net.
 
 **Para configurar un programa de cliente (Firefox) y comprobar el estado del clúster**
@@ -305,4 +306,4 @@ Para obtener más información, consulte:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

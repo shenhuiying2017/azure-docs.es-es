@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/14/2015"
+	ms.date="11/16/2015"
 	ms.author="curtand"/>
 
 # Incorporación de su propio nombre de dominio a Azure AD
@@ -212,4 +212,4 @@ Si agrega el nombre de dominio personalizado al servicio en la nube después de 
 - [Registro en Azure como una organización](sign-up-organization.md)
 - [Administración de dominios en Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

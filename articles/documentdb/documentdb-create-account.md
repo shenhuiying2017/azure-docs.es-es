@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Crear una cuenta de base de datos - versión de prueba gratuita | Microsoft Azure" 
 	description="Aprenda a crear cuentas de base de datos mediante el creador de bases de datos en línea para DocumentDB de Azure, una base de datos de documentos NoSQL administrada para JSON. Obtenga una versión de evaluación gratuita hoy mismo."
-	keywords="Free trial, online database creator, create a database, create database, documentdb, azure, Microsoft azure"
+	keywords="Prueba gratuita, creador de base de datos en línea, crear una base de datos, crear base de datos, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/25/2015" 
+	ms.date="11/18/2015" 
 	ms.author="mimig"/>
 
-# Crear una cuenta de base de datos de DocumentDB mediante el portal de vista previa de Azure
+# Creación de una cuenta de base de datos de la Base de datos de documentos
 
 Para usar Microsoft Azure DocumentDB, debe crear una cuenta de base de datos de DocumentDB mediante el portal de vista previa de Azure.
 
@@ -31,13 +31,13 @@ Ahora que tiene una cuenta de DocumentDB, el siguiente paso es crear una base de
 
 - Los ejemplos de .NET de C# en el proyecto [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) del repositorio [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) de GitHub.
 - El portal de vista previa, como se describe en [Creación de una base de datos de DocumentDB en el portal de vista previa de Azure](documentdb-create-database.md).
-- Los tutoriales de todo inclusivo: [.NET](documentdb-get-started.md), [.NET MVC](documentdb-dotnet-application.md), [Java](documentdb-java-application.md), [Node.js](documentdb-nodejs-application.md) o [Python](documentdb-python-application.md).
+- Los tutoriales que incluyen todo: [.NET](documentdb-get-started.md), [.NET MVC](documentdb-dotnet-application.md), [Java](documentdb-java-application.md), [Node.js](documentdb-nodejs-application.md) o [Python](documentdb-python-application.md).
 - Los [SDK de DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB tiene .NET, Java, Python, Node.js y SDK de la API de JavaScript. 
 
 
 Después de crear la base de datos, necesitará [agregar una o más colecciones](documentdb-create-collection.md) a la base de datos y después [agregar documentos](documentdb-view-json-document-explorer.md) a las colecciones.
 
-Cuando tenga documentos en una colección, puede usar [SQL de DocumentDB](documentdb-sql-query.md) para [ejecutar consultas](documentdb-sql-query.md#executing-queries) frente a sus documentos usando el [Explorador de consultas](documentdb-query-collections-query-explorer.md) en el portal de vista previa, la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno de los [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Cuando tenga los documentos en una colección, puede usar [SQL de DocumentDB](documentdb-sql-query.md) para [ejecutar consultas](documentdb-sql-query.md#executing-queries) en sus documentos mediante el [Explorador de consultas](documentdb-query-collections-query-explorer.md) en el portal de vista previa, la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno de los [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 Para obtener más información acerca de DocumentDB, explore estos recursos:
 
@@ -46,4 +46,4 @@ Para obtener más información acerca de DocumentDB, explore estos recursos:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

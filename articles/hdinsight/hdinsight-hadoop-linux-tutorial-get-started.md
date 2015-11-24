@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="11/16/2015"
    	ms.author="nitinme"/>
 
 # Tutorial de Hadoop: Introducción al uso de Hadoop con Hive en HDInsight en Linux
@@ -70,11 +70,9 @@ Utilice los pasos siguientes para crear un clúster nuevo:
 
 	![Proporcione las credenciales del clúster](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "Proporcione las credenciales del clúster")
 
-    > [AZURE.NOTE]SSH sirve para tener acceso remoto a un clúster de HDInsight mediante una línea de comandos. El nombre de usuario y la contraseña que usa aquí se emplean al conectarse al clúster a través de SSH. Además, el nombre de usuario SSH tiene que ser único, ya que crea una cuenta de usuario en todos los nodos del clúster de HDInsight. A continuación se indican algunos de los nombres de cuenta reservados para su uso en los servicios que se ejecutan en el clúster y no pueden usarse como nombre de usuario SSH:
-    >
-    > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
+    > [AZURE.NOTE]SSH sirve para tener acceso remoto a un clúster de HDInsight mediante una línea de comandos. El nombre de usuario y la contraseña que usa aquí se emplean al conectarse al clúster a través de SSH.
 
-	Para obtener más información sobre el uso de SSH con HDInsight, vea uno de los siguientes documentos:
+	Para obtener más información sobre el uso de SSH con HDInsight, consulta uno de los siguientes documentos:
 
 	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
@@ -86,19 +84,19 @@ Utilice los pasos siguientes para crear un clúster nuevo:
 
 	Actualmente puede seleccionar una cuenta de almacenamiento de Azure como origen de datos para un clúster de HDInsight. Use lo siguiente para comprender las entradas de la hoja **Origen de datos**.
 
-	- **Método de selección**: establézcalo en **De todas las suscripciones** para habilitar la exploración de cuentas de almacenamiento en todas sus suscripciones. Establezca esto en **Tecla de acceso** si desea especificar el **Nombre de almacenamiento** y la **Tecla de acceso** de una cuenta de almacenamiento existente.
+	- **Método de selección**: establézcalo en **Desde todas las suscripciones** para habilitar la exploración de las cuentas de almacenamiento en todas sus suscripciones. Establézcalo en **Clave de acceso** si desea especificar el **Nombre de almacenamiento** y la **Clave de acceso** de una cuenta de almacenamiento existente.
 
-	- **Seleccionar cuenta de almacenamiento / Crear nueva**: haga clic en **Seleccionar cuenta de almacenamiento** para examinar y seleccionar una cuenta de almacenamiento existente que desee asociar con el clúster. O bien, haga clic en **Crear nueva** para crear una nueva cuenta de almacenamiento. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparecerá una marca de verificación verde.
+	- **Seleccionar cuenta de almacenamiento o Crear nueva**: haga clic en **Seleccionar cuenta de almacenamiento** para buscar y seleccionar la cuenta de almacenamiento que quiera asociar al clúster. O bien, haga clic en **Crear nueva** para crear una cuenta de almacenamiento. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparecerá una marca de verificación verde.
 
 	- **Elegir contenedor predeterminado**: use esta opción para escribir el nombre del contenedor predeterminado que se usará para el clúster. Aunque se puede escribir cualquier nombre aquí, se recomienda usar el mismo nombre que el del clúster para que pueda reconocer fácilmente que el contenedor se usa para este clúster concreto.
 
-	- **Ubicación**: región geográfica en la que se encuentra o donde se creará la cuenta de almacenamiento.
+	- **Ubicación**: región geográfica en la que se encuentra la cuenta de almacenamiento o donde se creará.
 
 		> [AZURE.IMPORTANT]Seleccionar la ubicación del origen de datos predeterminado también establecerá la ubicación del clúster de HDInsight. El origen de datos del clúster y predeterminado deben encontrarse en la misma región.
 
 	Haga clic en **Seleccionar** para guardar la configuración del origen de datos.
 
-8. Haga clic en **Niveles de precios de nodo** para mostrar información acerca de los nodos que se crearán para este clúster. Establezca el número de nodos de trabajo que necesita para el clúster. El costo estimado del clúster se mostrará en la hoja.
+8. Haga clic en **Niveles de precios de nodo** para mostrar información sobre los nodos que se crearán para este clúster. Establezca el número de nodos de trabajo que necesita para el clúster. El costo estimado del clúster se mostrará en la hoja.
 
 	![Hoja Niveles de precios de nodo](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.5.png "Especifique el número de nodos de clúster")
     
@@ -114,7 +112,7 @@ Durante el aprovisionamiento|Aprovisionamiento completado
 ------------------|---------------------
 	![Indicador de aprovisionamiento en el panel de inicio](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioning.png)|![Icono de clúster aprovisionado](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioned.png)
 
-> [AZURE.NOTE]El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada **Notificaciones** en la parte izquierda de la página para comprobar el proceso de aprovisionamiento.
+> [AZURE.NOTE]El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada **Notificaciones** de la izquierda de la página para comprobar el proceso de aprovisionamiento.
 
 Una vez que termine el aprovisionamiento, haga clic en el icono del clúster desde el panel de inicio para iniciar la hoja del clúster.
 
@@ -128,14 +126,13 @@ Puede conectarse a un clúster de HDInsight en Linux desde un equipo con Linux o
 
 		ssh <username>@<clustername>-ssh.azurehdinsight.net
 
-	Debido a que aprovisionó un clúster con la opción de creación rápida, el nombre de usuario de SSH predeterminado es **hdiuser**. Por lo tanto, el comando debe ser:
-
-		ssh hdiuser@myhdinsightcluster-ssh.azurehdinsight.net
+	Reemplace &lt;username> por el nombre de usuario SSH que usó al crear el clúster. Reemplace &lt;clustername> por el nombre del clúster.
 
 2. Cuando se le solicite, escriba la contraseña que proporcionó al aprovisionar el clúster. Una vez que se conecte correctamente, el símbolo del sistema cambiará a:
 
-		hdiuser@headnode-0:~$
+		hdiuser@hn0-clustername:~$
 
+    > [AZURE.NOTE]La porción `@hn0-clustername` de la petición puede ser diferente en su clúster.
 
 ###Para conectarse desde un equipo con Windows
 
@@ -147,9 +144,9 @@ Puede conectarse a un clúster de HDInsight en Linux desde un equipo con Linux o
 
 3. Para guardar la información de conexión para un uso posterior, escriba un nombre para esta conexión en **Saved Sessions** (Sesiones guardadas) y, a continuación, haga clic en **Save** (Guardar). La conexión se agregará a la lista de sesiones guardadas.
 
-4. Haga clic en **Open** (Abrir) para conectarse al clúster. Cuando se le pida el nombre de usuario, escriba **hdiuser**. En la contraseña, escriba la que especificó al aprovisionar el clúster. Una vez que se conecte correctamente, el símbolo del sistema cambiará a:
+4. Haga clic en **Open** (Abrir) para conectarse al clúster. Cuando se le pida el nombre de usuario, escriba el nombre de usuario de SSH que usó al crear el clúster. En la contraseña, escriba la que especificó al aprovisionar el clúster. Una vez que se conecte correctamente, el símbolo del sistema cambiará a:
 
-		hdiuser@headnode-0:~$
+		hdiuser@hn0-clustername:~$
 
 ##<a name="hivequery"></a>Ejecución de una consulta de Hive
 
@@ -179,7 +176,7 @@ Una vez que se conecte al clúster con SSH, use los siguientes comandos para eje
 
 	Esta acción devuelve la siguiente salida:
 
-		Query ID = hdiuser_20150116000202_cceb9c6b-4356-4931-b9a7-2c373ebba493
+		Query ID = username_20150116000202_cceb9c6b-4356-4931-b9a7-2c373ebba493
 		Total jobs = 1
 		Launching Job 1 out of 1
 		Number of reduce tasks not specified. Estimated from input data size: 1
@@ -286,4 +283,4 @@ Si desea información sobre cómo crear o administrar un clúster de HDInsight, 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

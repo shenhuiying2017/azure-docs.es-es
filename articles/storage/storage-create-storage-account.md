@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/23/2015"
+	ms.date="11/12/2015"
 	ms.author="tamram"/>
 
 
@@ -47,7 +47,7 @@ Para obtener más información acerca de los objetivos de capacidad y rendimient
 
 1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com).
 
-2. Haga clic en **Crear nuevo**, en **Almacenamiento** y, a continuación, en **Creación rápida**.
+2. En la parte inferior de la página, haga clic en **Nuevo** en el panel de tareas. Elija **Servicios de datos** | **Almacenamiento** y después haga clic en **Creación rápida**.
 
 	![Nueva cuenta de almacenamiento](./media/storage-create-storage-account/storage_NewStorageAccount.png)
 
@@ -57,9 +57,9 @@ Para obtener más información acerca de los objetivos de capacidad y rendimient
 	>  
 	> El nombre de la cuenta de almacenamiento debe ser único dentro de Azure. El portal se indicará si ya existe el nombre de la cuenta de almacenamiento que seleccione.
 
-	Consulte [Extremos de cuenta de almacenamiento](#storage-account-endpoints) más adelante para obtener información detallada sobre la forma en que se usará este nombre para dirigir los objetos en Almacenamiento de Azure.
+	Consulte [Puntos de conexión de cuenta de almacenamiento](#storage-account-endpoints) más adelante para obtener información detallada sobre la forma en que se usará este nombre para dirigir los objetos en Almacenamiento de Azure.
 
-4. En **Ubicación/Grupo de afinidad**, seleccione una ubicación para la cuenta de almacenamiento que esté próxima a usted o a los clientes. Si otro servicio de Azure va a obtener acceso a los datos de la cuenta de almacenamiento, como un servicio en la nube o una máquina virtual de Azure, debe seleccionar un grupo de afinidad en la lista para agrupar la cuenta de almacenamiento en el mismo centro de datos que otros servicios de Azure que usa, a fin de mejorar el rendimiento y reducir los costos.
+4. En **Ubicación/Grupo de afinidad**, seleccione una ubicación para la cuenta de almacenamiento que esté próxima a usted o a los clientes. Si otro servicio de Azure va a obtener acceso a los datos de la cuenta de almacenamiento, como un servicio en la nube o una máquina virtual de Azure, debe seleccionar un grupo de afinidad en la lista para agrupar la cuenta de almacenamiento en el mismo centro de datos que otros servicios de Azure que utiliza, a fin de mejorar el rendimiento y reducir los costes.
 
 	Tenga en cuenta que debe seleccionar un grupo de afinidad cuando se crea la cuenta de almacenamiento. No puede mover una cuenta existente a un grupo de afinidad. Para obtener información sobre los grupos de afinidad, consulte [Coubicación de servicios con un grupo de afinidad](#service-co-location-with-an-affinity-group) que se muestra a continuación.
 
@@ -70,7 +70,7 @@ Para obtener más información acerca de los objetivos de capacidad y rendimient
 
 5. Si tiene más de una suscripción a Azure, aparecerá el campo **Suscripción**. En **Suscripción**, escriba la suscripción a Azure con la que desea usar la cuenta de almacenamiento.
 
-6. En **Replicación**, seleccione el nivel deseado de replicación para la cuenta de almacenamiento. La opción de replicación recomendada es la replicación con redundancia geográfica, que ofrece la durabilidad máxima de los datos. Para obtener más información sobre las opciones de replicación del Almacenamiento de Azure, consulte [Replicación de almacenamiento de Azure](storage-redundancy.md).
+6. En **Replicación**, seleccione el nivel deseado de replicación para la cuenta de almacenamiento. La opción de replicación recomendada es la replicación con redundancia geográfica, que ofrece la durabilidad máxima de los datos. Para obtener más información sobre las opciones de replicación del Almacenamiento de Azure, consulte [Replicación de Almacenamiento de Azure](storage-redundancy.md).
 
 6. Haga clic en **Crear cuenta de almacenamiento**.
 
@@ -81,7 +81,7 @@ Para obtener más información acerca de los objetivos de capacidad y rendimient
 
 ### Extremos de la cuenta de almacenamiento
 
-Cada objeto que se almacena en el Almacenamiento de Azure tiene una dirección URL única. El nombre de la cuenta de almacenamiento forma el subdominio de esa dirección. La combinación de nombre de subdominio y del dominio, específica de cada servicio, forma un *extremo* para la cuenta de almacenamiento.
+Cada objeto que se almacena en el Almacenamiento de Azure tiene una dirección URL única. El nombre de la cuenta de almacenamiento forma el subdominio de esa dirección. La combinación de nombre de subdominio y dominio, específica de cada servicio, forma un *punto de conexión* para la cuenta de almacenamiento.
 
 Por ejemplo, si la cuenta de almacenamiento se llama *mystorageaccount*, los extremos predeterminados para la cuenta de almacenamiento son:
 
@@ -97,13 +97,13 @@ Puede ver los extremos de la cuenta de almacenamiento en el panel de almacenamie
 
 La dirección URL para el acceso a un objeto en una cuenta de almacenamiento se crea anexando la ubicación del objeto en la cuenta de almacenamiento al extremo. Por ejemplo, una dirección de blob podría tener el siguiente formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*
 
-También puede configurar un nombre de dominio personalizado para usarlo con la cuenta de almacenamiento. Consulte [Configuración de un nombre de dominio personalizado para datos Blob en una cuenta de almacenamiento de Azure](storage-custom-domain-name.md) para obtener más detalles.
+También puede configurar un nombre de dominio personalizado para usarlo con la cuenta de almacenamiento. Consulte [Configuración de un nombre de dominio personalizado para datos de blob en una cuenta de almacenamiento de Azure](storage-custom-domain-name.md) para obtener más detalles.
 
 ### Coubicación de servicios con un grupo de afinidad
 
 Un *grupo de afinidad* es un grupo geográfico de los servicios de Azure y máquinas virtuales con la cuenta de almacenamiento de Azure. Un grupo de afinidad puede mejorar el rendimiento del servicio al ubicar cargas de trabajo de equipos en el mismo centro de datos o cerca de la audiencia de usuarios de destino. Además, no se aplicarán costes de facturación en la salida cuando el acceso a los datos de una cuenta de almacenamiento tenga lugar desde otro servicio que forma parte del mismo grupo de afinidad.
 
-> [AZURE.NOTE]Para crear un grupo de afinidad, abra el área <b>Configuración</b> del Portal de Azure, haga clic en <b>Grupos de afinidad</b> y, después, haga clic en el botón <b>Agregar un grupo de afinidad</b> o <b>Agregar</b>. Además puede crear y administrar los grupos de afinidad usando la API de administración de servicios de Azure. Consulte <a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">Operaciones en grupos de afinidad</a> para obtener más información.
+> [AZURE.NOTE]Para crear un grupo de afinidad, abra el área <b>Configuración</b> del Portal de Azure, haga clic en <b>Grupos de afinidad</b> y, después, haga clic en el botón <b>Agregar un grupo de afinidad</b> o en <b>Agregar</b>. Además puede crear y administrar los grupos de afinidad usando la API de administración de servicios de Azure. Consulte <a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">Operaciones en grupos de afinidad</a> para obtener más información.
 
 ## Vista, copia y regeneración de las claves de acceso de almacenamiento
 
@@ -111,7 +111,7 @@ Al crear una cuenta de almacenamiento, Azure genera dos claves de acceso de alma
 
 > [AZURE.NOTE]Se recomienda no compartir con nadie las claves de acceso de almacenamiento. Para permitir el acceso a los recursos de almacenamiento sin proporcionar sus claves de acceso, puede usar una *firma de acceso compartido*. Una firma de acceso compartido proporciona acceso a un recurso de su cuenta durante un intervalo que defina y con los permisos que especifique. Para obtener más información, consulte el [tutorial sobre firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md).
 
-En el [Portal de Azure](http://manage.windowsazure.com), use **Administrar claves** en el panel o la página **Almacenamiento** para ver, copiar y volver a generar las claves de acceso de almacenamiento que se usan para tener acceso a los servicios Blob, Tabla y Cola.
+En el [Portal de Azure](http://manage.windowsazure.com), use **Administrar claves** en el panel o la página **Almacenamiento** para ver, copiar y regenerar las claves de acceso de almacenamiento que se usan para tener acceso a los servicios Blob, Tabla y Cola.
 
 ### Copia de una clave de acceso de almacenamiento  
 
@@ -135,13 +135,13 @@ Debe cambiar las claves de acceso de su cuenta de almacenamiento periódicamente
 
 **Máquinas virtuales**: si su cuenta de almacenamiento contiene una máquina virtual que se está ejecutando, tendrá que volver a implementar todas las máquinas virtuales después de generar de nuevo las claves de acceso. Para evitar una nueva implementación, apague las máquinas virtuales antes de generar de nuevo las claves de acceso.
 
-**Servicios multimedia**: si tiene servicios multimedia que dependen de su cuenta de almacenamiento, debe volver a sincronizar las claves de acceso con los servicios multimedia después de generar de nuevo las claves.
+**Servicios multimedia**: si tiene servicios multimedia que dependen de su cuenta de almacenamiento, debe volver a sincronizar las claves de acceso con los servicios multimedia después de regenerar las claves.
 
-**Aplicaciones**: si tiene aplicaciones web o servicios en la nube que usan la cuenta de almacenamiento, perderá las conexiones si genera de nuevo las claves, a menos que las convierta. A continuación se muestra el proceso:
+**Aplicaciones**: si tiene aplicaciones web o servicios en la nube que usan la cuenta de almacenamiento, perderá las conexiones si regenera las claves, a menos que las convierta. A continuación se muestra el proceso:
 
 1. Actualice las cadenas de conexión en el código de su aplicación para hacer referencia a la clave de acceso secundaria de la cuenta de almacenamiento.
 
-2. Vuelva a generar la clave de acceso primaria para su cuenta de almacenamiento. En el [Portal de Azure](http://manage.windowsazure.com), en el panel o la página **Configurar**, haga clic en **Administrar claves**. Haga clic en **Regenerar** debajo de la clave de acceso primaria y, a continuación, en **Sí** para confirmar que desea generar una clave nueva.
+2. Vuelva a generar la clave de acceso primaria para su cuenta de almacenamiento. En el [Portal de Azure](http://manage.windowsazure.com), en el panel o en la página **Configurar**, haga clic en **Administrar claves**. Haga clic en **Regenerar** debajo de la clave de acceso primaria y, a continuación, en **Sí** para confirmar que desea generar una clave nueva.
 
 3. Actualice las cadenas de conexión en su código para hacer referencia a la nueva clave de acceso primaria.
 
@@ -171,4 +171,4 @@ Para quitar una cuenta de almacenamiento que ya no utiliza, use **Eliminar** en 
 
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->
