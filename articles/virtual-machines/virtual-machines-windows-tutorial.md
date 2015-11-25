@@ -27,6 +27,8 @@
 
 <br>
 
+
+
 Este tutorial muestra lo fácil que resulta crear una máquina virtual de Azure en unos minutos en el Portal de vista previa de Azure. Usaremos una imagen de Windows Server 2012 R2 Datacenter como ejemplo para crear la máquina virtual, pero esa es solo una de las muchas imágenes que Azure ofrece. Las imágenes disponibles dependen de su suscripción. Por ejemplo, las imágenes de escritorio pueden estar disponibles para los suscriptores MSDN.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica. Para obtener más información acerca del Administrador de recursos, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md).
@@ -110,4 +112,4 @@ Una vez creada la máquina virtual, podrá iniciar sesión en ella para administ
 * Use Azure PowerShell y la CLI de Azure para [buscar y seleccionar imágenes de máquina virtual](resource-groups-vm-searching.md).
 * Automatice la implementación y administración de máquinas virtuales y cargas de trabajo con el [Administrador de recursos de Azure](virtual-machines-how-to-automate-azure-resource-manager.md) y las [plantillas de Administrador de recursos de Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->
