@@ -26,7 +26,7 @@ La mejor manera de implementar una aplicación web es configurar un [flujo de tr
 
 ##### Implementación desde un sistema de control de código fuente hospedado en la nube
 
-* [Entrega continua con Visual Studio Online](#vso)
+* [Entrega continua a mediante Visual Studio Team Services](#vsts)
 * [Sitios web de repositorio con Git](#git)
 * [Sitios web de repositorio con Mercurial](#mercurial)
 * [Automatización de la implementación desde Dropbox](#dropbox)
@@ -52,14 +52,14 @@ La mejor manera de implementar una aplicación web es configurar un [flujo de tr
 
 Otra opción de implementación es usar un servicio basado en la nube como [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy). Para obtener más información, consulte [Deploy ASP.NET applications to Azure Web Sites](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites) (Implementación de aplicaciones ASP.NET en Sitios web de Azure).
 
-##<a name="vso"></a>Entrega continua con Visual Studio Online
+##<a name="vso"></a>Entrega continua mediante Visual Studio Team Services
 
-[Visual Studio Online](http://www.visualstudio.com/) (anteriormente, Team Foundation Service) es una solución de Microsoft basada en la nube para el control de código fuente y la colaboración en equipo. El servicio es gratuito para un equipo de hasta cinco desarrolladores. Puede hacer la entrega continua a una aplicación web en servicios de aplicaciones y el repositorio puede usar [Git o TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
+[Visual Studio Team Services](http://www.visualstudio.com/) (anteriormente, Team Foundation Service) es una solución de Microsoft basada en la nube para el control del código fuente y la colaboración en equipo. El servicio es gratuito para un equipo de hasta cinco desarrolladores. Puede hacer la entrega continua a una aplicación web en servicios de aplicaciones y el repositorio puede usar [Git o TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
 
 Para obtener más información, consulte los siguientes recursos:
 
-* [Entrega continua a Azure con Visual Studio Online y Git](../cloud-services-continuous-delivery-use-vso.md). Tutorial paso a paso que muestra cómo configurar la entrega continua desde Visual Studio Online a una aplicación web, con TFVC. TFVC es la opción de control de código fuente centralizado, al contrario que Git, que es la opción de control de código fuente distribuido.
-* [Entrega continua a Azure con Visual Studio Online y Git](../cloud-services-continuous-delivery-use-vso-git.md). Similar al tutorial anterior, pero usa Git en lugar de TFVC.
+* [Entrega continua a Azure mediante Visual Studio Team Services y TFVC](../cloud-services-continuous-delivery-use-vso.md). Tutorial paso a paso que muestra cómo configurar la entrega continua desde Visual Studio Team Services a una aplicación web, mediante TFVC. TFVC es la opción de control de código fuente centralizado, al contrario que Git, que es la opción de control de código fuente distribuido.
+* [Entrega continua a Azure mediante Visual Studio Team Services y Git](../cloud-services-continuous-delivery-use-vso-git.md). Similar al tutorial anterior, pero usa Git en lugar de TFVC.
 
 ##<a name="git"></a>Sitios web de repositorio con Git
 
@@ -142,7 +142,7 @@ Para obtener más información acerca de la implementación de la línea de coma
 
 ##<a name="ftp"></a>Copia de archivos con scripts y herramientas FTP
 
-Puede implementar contenido en la aplicación mediante el uso de [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) para copiar archivos. Crear credenciales de FTP para una aplicación web es una tarea sencilla y puede usarlas en scripts o en aplicaciones que funcionen con FTP, incluidos exploradores, como Internet Explorer, y utilidades gratuitas completas, como [FileZilla](https://filezilla-project.org/). Las aplicaciones web también admiten el protocolo FTPS más seguro.
+Puede implementar contenido en la aplicación mediante el uso del [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) para copiar archivos. Crear credenciales de FTP para una aplicación web es una tarea sencilla, y puede usarlas en scripts o en aplicaciones que funcionen con FTP, incluyendo exploradores como Internet Explorer y utilidades gratuitas completas, como [FileZilla](https://filezilla-project.org/). Las aplicaciones web también admiten el protocolo FTPS más seguro.
 
 A pesar de que es fácil copiar los archivos de la aplicación web a Azure con utilidades de FTP, no se ocupan automáticamente de tareas de implementación relacionadas, ni tampoco las coordinan, como la implementación de una base de datos o el cambio de las cadenas de conexión. Además, muchas herramientas de FTP no comparan archivos de origen y archivos de destino para omitir copiar archivos que no se han modificado. En el caso de aplicaciones de gran tamaño, si siempre se copian todos los archivos, la implementación lleva demasiado tiempo incluso para actualizaciones pequeñas, debido a que siempre se copian todos los archivos.
 
@@ -180,7 +180,7 @@ Para obtener más información, consulte el siguiente recurso:
 
 ##<a name="webdeploy"></a>Implementación desde la línea de comandos de Web Deploy
 
-[Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) es el software de Microsoft para la implementación en IIS que no solo ofrece características inteligentes de sincronización de archivos, sino que también puede realizar o coordinar muchas otras tareas relacionadas con la implementación que no se pueden automatizar cuando usa FTP. Por ejemplo, Web Deploy puede implementar una base de datos nueva o actualizaciones de base de datos junto con su aplicación web. Web Deploy también puede minimizar el tiempo que se requiere para actualizar un sitio existente, dado que puede copiar de manera inteligente solo los archivos modificados. Microsoft WebMatrix, Visual Studio, Visual Studio Online y Team Foundation Server cuentan con compatibilidad integrada para Web Deploy, pero solo puede utilizar Web Deploy directamente desde la línea de comandos para automatizar la implementación. Los comandos de Web Deploy son muy poderosos, pero la curva de aprendizaje puede ser pronunciada.
+[Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) es el software de Microsoft para la implementación en IIS que no solo ofrece características inteligentes de sincronización de archivos, sino que también puede realizar o coordinar muchas otras tareas relacionadas con la implementación que no se pueden automatizar cuando usa FTP. Por ejemplo, Web Deploy puede implementar una base de datos nueva o actualizaciones de base de datos junto con su aplicación web. Web Deploy también puede minimizar el tiempo que se requiere para actualizar un sitio existente, dado que puede copiar de manera inteligente solo los archivos modificados. Microsoft WebMatrix, Visual Studio, Visual Studio Team Services y Team Foundation Server cuentan con compatibilidad integrada para Web Deploy, pero solo puede usar Web Deploy directamente desde la línea de comandos para automatizar la implementación. Los comandos de Web Deploy son muy poderosos, pero la curva de aprendizaje puede ser pronunciada.
 
 Para obtener más información, consulte el siguiente recurso:
 
@@ -205,4 +205,4 @@ Para obtener información sobre otros temas de implementación, consulte la secc
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

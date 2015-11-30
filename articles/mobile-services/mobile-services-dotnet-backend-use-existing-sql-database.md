@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="08/01/2015"
+	ms.date="11/09/2015"
 	ms.author="glenga"/>
 
 
@@ -147,7 +147,6 @@ El modelo de datos que le gustaría usar con el servicio móvil puede ser arbitr
 
         using System.ComponentModel.DataAnnotations.Schema;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
-        using System.ComponentModel.DataAnnotations;
         using System;
 
 4. A continuación, agregue estas propiedades adicionales a cada una de las clases:
@@ -615,4 +614,4 @@ Observe que ambas implementaciones de controlador hacen un uso exclusivo de los 
 
 Para continuar, ya puede compilar la aplicación de cliente para acceder al servicio.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

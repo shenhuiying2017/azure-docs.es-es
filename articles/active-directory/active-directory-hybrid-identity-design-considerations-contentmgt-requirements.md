@@ -57,6 +57,6 @@ Al planear la solución de identidad híbrida, asegúrese de que puede responder
 [Determinación de los requisitos de control de acceso](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
 
 ## Otras referencias
-[Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

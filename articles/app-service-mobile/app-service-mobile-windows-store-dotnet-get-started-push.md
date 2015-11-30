@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="11/10/2015" 
 	ms.author="glenga"/>
 
 # Incorporación de notificaciones push a la aplicación universal Windows en tiempo de ejecución 8.1
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Información general
 
@@ -79,14 +77,13 @@ Tras habilitar las notificaciones push en la aplicación, debe actualizar el bac
 
 1. En Visual Studio, haga clic con el botón derecho en el proyecto de servidor, haga clic en **Administrar paquetes de NuGet**, busque `Microsoft.Azure.NotificationHubs` y, por último, haga clic en **Instalar**. Esto instala la biblioteca de cliente de Centros de notificaciones.
 
-3. En el proyecto de servidor, abra **Controladores** > **TodoItemController.cs** y agregue las siguientes instrucciones using:
+2. En el proyecto de servidor, abra **Controladores** > **TodoItemController.cs** y agregue las siguientes instrucciones using:
 
 		using System.Collections.Generic;
 		using Microsoft.Azure.NotificationHubs;
 		using Microsoft.Azure.Mobile.Server.Config;
-	
 
-2. En el método **PostTodoItem**, agregue el código siguiente después de la llamada a **InsertAsync**:
+3. En el método **PostTodoItem**, agregue el código siguiente después de la llamada a **InsertAsync**:
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -130,32 +127,24 @@ Tras habilitar las notificaciones push en la aplicación, debe actualizar el bac
 
 ##<a id="update-service"></a>Incorporación de notificaciones de inserción a la aplicación
 
-1. En Visual Studio, haga clic con el botón derecho en la solución y, a continuación, haga clic en **Administrar paquetes de NuGet**. 
-
-    Esto muestra el cuadro de diálogo Administrar paquetes de NuGet.
-
-2. Busque el SDK de cliente de Aplicaciones móviles del Servicio de aplicaciones que se administrará y haga clic en **Instalar**; seleccione todos los proyectos de cliente de la solución y acepte los términos de uso.
-
-    De esta forma, se descarga, instala y agrega una referencia en todos los proyectos de cliente para la biblioteca de inserción móvil de Azure para Windows.
-
-3. Abra el archivo de proyecto **App.xaml.cs** compartido y agregue las siguientes instrucciones `using`:
+1. Abra el archivo de proyecto **App.xaml.cs** compartido y agregue las siguientes instrucciones `using`:
 
 		using System.Threading.Tasks;  
         using Windows.Networking.PushNotifications;       
 
-4. En el mismo archivo, agregue la siguiente definición de método **InitNotificationsAsync** para la clase **aplicación**:
+2. En el mismo archivo, agregue la siguiente definición de método **InitNotificationsAsync** para la clase **aplicación**:
     
         private async Task InitNotificationsAsync()
         {
             var channel = await PushNotificationChannelManager
                 .CreatePushNotificationChannelForApplicationAsync();
 
-            await App.MobileService.GetPush().RegisterAsync(channel.Uri);
+            await MobileService.GetPush().RegisterAsync(channel.Uri);
         }
     
     Este código recupera el valor de ChannelURI de la aplicación desde WNS y, a continuación, lo registra con sus Aplicaciones móviles del Servicio de aplicaciones.
     
-5. En la parte superior del controlador de eventos **OnLaunched**, en **App.xaml.cs**, agregue el modificador **async** a la definición del método y la siguiente llamada al nuevo método **InitNotificationsAsync**, como en el siguiente ejemplo:
+3. En la parte superior del controlador de eventos **OnLaunched**, en **App.xaml.cs**, agregue el modificador **async** a la definición del método y la siguiente llamada al nuevo método **InitNotificationsAsync**, como en el siguiente ejemplo:
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -166,17 +155,22 @@ Tras habilitar las notificaciones push en la aplicación, debe actualizar el bac
 
     Esto garantiza que el valor de ChannelURI de corta duración se registra cada vez que se inicia la aplicación.
 
-6. En el Explorador de soluciones, haga doble clic en **Package.appxmanifest** de la aplicación Tienda Windows y, en **Notificaciones**, establezca **Capacidad de aviso** en **Sí**.
+4. En el Explorador de soluciones, haga doble clic en **Package.appxmanifest** de la aplicación Tienda Windows y, en **Notificaciones**, establezca **Capacidad de aviso** en **Sí**.
 
     En el menú **Archivo**, haga clic en **Guardar todo**.
 
-7. Repita el paso anterior para el proyecto de la aplicación de la Tienda de Windows Phone.
+5. Repita el paso anterior para el proyecto de la aplicación de la Tienda de Windows Phone.
 
 La carpeta ahora ya está lista para recibir notificaciones.
 
 ##<a id="test"></a>Prueba de las notificaciones push en su aplicación
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
+
+##<a id="more"></a>Más
+
+* Las plantillas proporcionan flexibilidad para enviar inserciones multiplataforma e inserciones localizadas. [Uso del cliente administrado para Aplicaciones móviles de Azure](app-service-mobile-dotnet-how-to-use-client-library.md) muestra cómo registrar plantillas.
+* Las etiquetas permiten dirigirse a clientes segmentados con inserciones. [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) muestra cómo agregar etiquetas a la instalación de un dispositivo.
 
 <!-- Anchors. -->
 
@@ -185,4 +179,4 @@ La carpeta ahora ya está lista para recibir notificaciones.
 
 <!-- Images. -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

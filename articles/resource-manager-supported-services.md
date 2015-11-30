@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/11/2015"
+   ms.date="11/18/2015"
    ms.author="tomfitz"/>
 
 # Compatibilidad del Administrador de recursos para servicios, regiones y versiones de API
@@ -38,6 +38,29 @@ Máquinas virtuales (clásicas) hace referencia a recursos que se implementaron 
 
 Los recursos de Máquinas virtuales (clásicas) se pueden mover a un nuevo grupo de recursos, pero no a una nueva suscripción.
 
+## Redes
+
+| Servicio | Administrador de recursos habilitado | Portal de vista previa | Mover recursos | API de REST | Esquema |
+| ------- | ------- | -------- | -------------- | -------- | ------ |
+| Puerta de enlace de aplicaciones | Sí | | | | |
+| DNS | Sí | | | [Creación de una zona DNS](https://msdn.microsoft.com/library/azure/mt130622.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Equilibrador de carga | Sí | | | [Cree un equilibrador de carga](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Redes virtuales | Sí | [Sí](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) | No | [Cree una red virtual:](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Administrador de tráfico | Sí | No | | [Creación de un perfil del Administrador de tráfico](https://msdn.microsoft.com/library/azure/mt163581.aspx) | |
+| ExpressRoute | Sí | No | No | [REST de ExpressRoute](https://msdn.microsoft.com/library/azure/mt586720.aspx) | |
+
+## Datos y almacenamiento
+
+| Servicio | Administrador de recursos habilitado | Portal de vista previa | Mover recursos | API de REST | Esquema |
+| ------- | ------- | ------- | -------------- | -------- | ------ |
+| DocumentDB | Sí | [Sí](https://portal.azure.com/#create/Microsoft.DocumentDB) | Sí | [REST de DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
+| Almacenamiento | Sí | [Sí](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | No | [Creación de almacenamiento](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [Cuenta de almacenamiento](resource-manager-template-storage.md) |
+| Caché en Redis | Sí | [Sí](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | Sí | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
+| Base de datos SQL | Sí | [Sí](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | Sí | [Crear base de datos](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
+| Search | Sí | [Sí](https://portal.azure.com/#create/Microsoft.Search) | Sí | [REST de Búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
+| Almacenamiento de datos SQL | Sí | [Sí](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
+| StorSimple | No | No | - | - | - | | Memoria caché administrada | No | No | - | - | - |
+
 ## Web y móvil
 
 | Servicio | Administrador de recursos habilitado | Portal de vista previa | Mover recursos | API de REST | Esquema |
@@ -54,19 +77,6 @@ Al trabajar con aplicaciones web, no se puede mover solo un plan del Servicio de
 - Mover todos los recursos de un grupo de recursos a otro grupo de recursos, si el grupo de recursos de destino no tiene ya recursos Microsoft.Web.
 - Mover las aplicaciones web a un grupo de recursos distinto, pero mantener el plan del Servicio de aplicaciones del grupo de recursos original.
 
-
-## Datos y almacenamiento
-
-| Servicio | Administrador de recursos habilitado | Portal de vista previa | Mover recursos | API de REST | Esquema |
-| ------- | ------- | ------- | -------------- | -------- | ------ |
-| DocumentDB | Sí | [Sí](https://portal.azure.com/#create/Microsoft.DocumentDB) | Sí | [REST de DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
-| Almacenamiento | Sí | [Sí](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | | [Creación de almacenamiento](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [Cuenta de almacenamiento](resource-manager-template-storage.md) |
-| Caché en Redis | Sí | [Sí](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | Sí | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| Base de datos SQL | Sí | [Sí](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | Sí | [Crear base de datos](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
-| Search | Sí | [Sí](https://portal.azure.com/#create/Microsoft.Search) | Sí | [REST de Búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
-| Almacenamiento de datos SQL | Sí | [Sí](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | No | No | - | - | - | | Memoria caché administrada | No | No | - | - | - |
-
 ## Análisis
 
 | Servicio | Administrador de recursos habilitado | Portal de vista previa | Mover recursos | API de REST | Esquema |
@@ -76,17 +86,6 @@ Al trabajar con aplicaciones web, no se puede mover solo un plan del Servicio de
 | HDInsights | Sí | [Sí](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
 | Factoría de datos | Sí | [Sí](https://portal.azure.com/#create/Microsoft.DataFactory) | Sí | [Crear factoría de datos](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
 | Aprendizaje automático | No | No | - | - | - | | Catálogo de datos | No | No | - | - | - |
-
-## Redes
-
-| Servicio | Administrador de recursos habilitado | Portal de vista previa | Mover recursos | API de REST | Esquema |
-| ------- | ------- | -------- | -------------- | -------- | ------ |
-| Puerta de enlace de aplicaciones | Sí | | | | |
-| DNS | Sí | | | [Creación de una zona DNS](https://msdn.microsoft.com/library/azure/mt130622.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| Equilibrador de carga | Sí | | | [Cree un equilibrador de carga](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| Redes virtuales | Sí | [Sí](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) | No | [Cree una red virtual:](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| Administrador de tráfico | Sí | No | | [Creación de un perfil del Administrador de tráfico](https://msdn.microsoft.com/library/azure/mt163581.aspx) | |
-| ExpressRoute | Sí | No | No | [REST de ExpressRoute](https://msdn.microsoft.com/library/azure/mt586720.aspx) | |
 
 ## Multimedia y CDN
 
@@ -148,7 +147,7 @@ Para detectar qué regiones están disponibles para un tipo de recurso determina
 
 ### PowerShell
 
-En el ejemplo siguiente se muestra cómo obtener las regiones admitidas para sitios web mediante la versión de vista previa 1.0 de Azure PowerShell. Para obtener más información sobre la versión de vista previa 1.0, consulte [Vista previa de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+En el ejemplo siguiente se muestra cómo obtener las regiones admitidas para sitios web mediante la versión de vista previa 1.0 de Azure PowerShell. Para obtener más información sobre la versión de vista previa 1.0, consulte [Versión preliminar de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
     PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
@@ -234,4 +233,4 @@ Puede abrir el archivo y buscar el elemento **apiVersions**.
 - Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para obtener información sobre cómo implementar recursos, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

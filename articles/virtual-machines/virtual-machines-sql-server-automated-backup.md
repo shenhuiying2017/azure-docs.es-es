@@ -1,30 +1,26 @@
 <properties
-   pageTitle="Copia de seguridad automatizada para máquinas virtuales SQL Server | Microsoft Azure"
-   description="Explica la característica Copia de seguridad automatizada para SQL Server que se ejecuta en Máquinas virtuales de Azure."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar"
-   tags="azure-resource-manager" />
+	pageTitle="Copia de seguridad automatizada para máquinas virtuales SQL Server | Microsoft Azure"
+	description="Explica la característica Copia de seguridad automatizada para SQL Server que se ejecuta en Máquinas virtuales de Azure."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"
+	tags="azure-resource-manager" />
 <tags
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
-   ms.author="jroth" />
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="11/12/2015"
+	ms.author="jroth" />
 
 # Copia de seguridad automatizada para SQL Server en Máquinas virtuales de Azure
 
+Copia de seguridad automatizada configura automáticamente [Copia de seguridad administrada para Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) para todas las bases de datos existentes y nuevas en una máquina virtual de Azure que ejecuta SQL Server 2014 Standard y Enterprise. Esto le permite configurar copias de seguridad de datos normales que utilizan el almacenamiento de blobs de Azure.
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
-
-
-
-Copia de seguridad automatizada configura automáticamente [Copia de seguridad administrada para Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) para todas las bases de datos existentes y nuevas de una máquina virtual de Azure que disponga de SQL Server 2014 Standard o Enterprise. Esto le permite configurar copias de seguridad de datos normales que utilizan el almacenamiento de blobs de Azure.
-
->[AZURE.NOTE]Copia de seguridad automatizada se basa en el agente de IaaS de SQL Server. Para instalar y configurar el agente, debe disponer del agente de máquina virtual de Azure en la máquina virtual de destino. Las imágenes de la galería de la máquina virtual más recientes tienen esta opción habilitada de forma predeterminada, pero el agente de máquina virtual de Azure puede faltar en las máquinas virtuales existentes. Si usa su propia imagen de máquina virtual, también tendrá que instalar el agente de IaaS de SQL Server. Para obtener más información, vea [Agente de máquina virtual y extensiones](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
 ## Configuración de Copia de seguridad automatizada
 
@@ -40,7 +36,11 @@ En la siguiente tabla se describen las opciones que pueden configurarse para Cop
 
 ## Configuración de Copia de seguridad automatizada en el Portal
 
-Puede usar el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409) para configurar Copia de seguridad automatizada cuando cree una nueva máquina virtual de SQL Server 2014. La siguiente captura muestra estas opciones en **CONFIGURACIÓN OPCIONAL** | **COPIA DE SEGURIDAD AUTOMATIZADA DE SQL**.
+Puede usar el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409) para configurar la opción Copia de seguridad automatizada cuando cree una nueva máquina virtual de SQL Server 2014.
+
+>[AZURE.NOTE]Copia de seguridad automatizada se basa en el agente de IaaS de SQL Server. Para instalar y configurar el agente, debe disponer del agente de máquina virtual de Azure en la máquina virtual de destino. Las imágenes de la galería de la máquina virtual más recientes tienen esta opción habilitada de forma predeterminada, pero el agente de máquina virtual de Azure puede faltar en las máquinas virtuales existentes. Si usa su propia imagen de máquina virtual, también tendrá que instalar el agente de IaaS de SQL Server. Para obtener más información, consulte [Agente de máquina virtual y extensiones](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+
+La siguiente captura del portal muestra estas opciones en **CONFIGURACIÓN OPCIONAL** | **COPIA DE SEGURIDAD AUTOMATIZADA DE SQL**.
 
 ![Configuración de Copia de seguridad automática de SQL en el Portal de Azure](./media/virtual-machines-sql-server-automated-backup/IC778483.jpg)
 
@@ -74,7 +74,7 @@ Para habilitar el cifrado, modifique el script anterior para pasar el parámetro
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -AutoBackupSettings $autobackupconfig | Update-AzureVM
 
-Para deshabilitar la copia de seguridad automática, ejecute el script sin el parámetro **-Enable** en **New-AzureVMSqlServerAutoBackupConfig**. Al igual que la instalación, la deshabilitación de Copia de seguridad automatizada puede tardar algunos minutos.
+Para deshabilitar la copia de seguridad automática, ejecute el mismo script sin el parámetro **-Enable** en el elemento **New-AzureVMSqlServerAutoBackupConfig**. Al igual que la instalación, la deshabilitación de Copia de seguridad automatizada puede tardar algunos minutos.
 
 ## Deshabilitación y desinstalación del agente de IaaS de SQL Server
 
@@ -106,12 +106,12 @@ Los siguientes productos son compatibles con las características del agente de 
 
 ## Pasos siguientes
 
-Copia de seguridad automatizada configura Copia de seguridad administrada en máquinas virtuales de Azure. Por lo tanto, es importante [revisar la documentación de Copia de seguridad administrada](https://msdn.microsoft.com/library/dn449496.aspx) para comprender el comportamiento y las implicaciones.
+Copia de seguridad automatizada configura Copia de seguridad administrada en máquinas virtuales de Azure. Por lo tanto, es importante [revisar la documentación de la Copia de seguridad administrada](https://msdn.microsoft.com/library/dn449496.aspx) para comprender el comportamiento y las implicaciones.
 
-Puede encontrar directrices sobre copia de seguridad y restauración adicionales para SQL Server en máquinas virtuales de Azure en el siguiente tema: [Copias de seguridad y restauración para SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-backup-and-restore.md).
+Puede encontrar directrices adicionales sobre la copia de seguridad y la restauración para SQL Server en máquinas virtuales de Azure en el siguiente tema: [Copias de seguridad y restauración para SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-backup-and-restore.md).
 
-Una característica relacionada para máquinas virtuales de SQL Server es [Aplicación de revisiones automatizada para SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-automated-patching.md).
+Una característica relacionada de las máquinas virtuales de SQL Server es la [Aplicación de revisiones automatizada para SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-automated-patching.md).
 
 Revise otros [recursos para ejecutar SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

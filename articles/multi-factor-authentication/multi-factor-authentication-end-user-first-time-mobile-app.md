@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015"
 	ms.author="billmath"/>
 
 # Uso de una aplicación móvil como método de contacto con Azure Multi-Factor Authentication
@@ -73,4 +73,4 @@ Si está usando una cuenta de terceros con la aplicación móvil, escriba el nom
 >[AZURE.NOTE]Si ve "Agregar cuenta profesional", esto es para Unión al área de trabajo y no para la autenticación multifactor. Puede pasar esto por alto.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

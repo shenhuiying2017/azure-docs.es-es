@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Acerca de la supervisión del Administrador de tráfico
@@ -108,15 +108,11 @@ En la tabla siguiente se describe el comportamiento de la supervisión del Admin
 
 ## Otras referencias
 
-[¿Qué es el Administrador de tráfico?](traffic-manager-overview.md)
+[Creación de un perfil](traffic-manager-manage-profiles.md)
 
-[Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-load-balancing-methods.md)
-
-[Servicios en la nube](http://go.microsoft.com/fwlink/p/?LinkId=314074)
-
-[Sitios web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[Agregación de un extremo](traffic-manager-endpoints.md)
 
 [Solución de problemas de estado degradado en Administrador de tráfico de Azure](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

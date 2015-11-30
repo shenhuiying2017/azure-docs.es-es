@@ -1,6 +1,6 @@
 El [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) admite la implementación continua en Aplicaciones web de herramientas de control de código fuente y de repositorio como BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial y TFS. Estas herramientas se pueden utilizar para mantener el contenido y el código de una aplicación y, a continuación, aplicar rápida y fácilmente los cambios realizados en la aplicación web de Azure en el momento que se desee.
 
-En este artículo, aprenderá a utilizar Git para publicar directamente desde su equipo local en Aplicaciones web (en Azure, este método de publicación se denomina **Git local**). También aprenderá a habilitar la implementación continua desde sitios repositorio como BitBucket, CodePlex, Dropbox, GitHub o Mercurial. Para obtener información acerca de la utilización de TFS para la implementación continua, consulte [Entrega continua a Azure con Visual Studio Online].
+En este artículo, aprenderá a utilizar Git para publicar directamente desde su equipo local en Aplicaciones web (en Azure, este método de publicación se denomina **Git local**). También aprenderá a habilitar la implementación continua desde sitios repositorio como BitBucket, CodePlex, Dropbox, GitHub o Mercurial. Para obtener información acerca de la utilización de TFS para la implementación continua, consulte [Entrega continua a Azure con Visual Studio Team Services].
 
 > [AZURE.NOTE]Muchos de los comandos de Git que se describen en este artículo se ejecutan automáticamente al crear una aplicación web con las [Herramientas de la línea de comandos de Azure para Mac y Linux](/develop/nodejs/how-to-guides/command-line-tools/).
 
@@ -296,6 +296,6 @@ Estos son los errores o problemas que suelen aparecer al utilizar Git para publi
 [Creación de un repositorio (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Inicio rápido: Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Uso de Dropbox para compartir repositorios de Git]: https://gist.github.com/trey/2722927
-[Entrega continua a Azure con Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
+[Entrega continua a Azure con Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

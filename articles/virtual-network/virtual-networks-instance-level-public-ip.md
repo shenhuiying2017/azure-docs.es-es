@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Dirección IP pública de nivel de instancia (ILPIP)"
+   pageTitle="Dirección IP pública de nivel de instancia (ILPIP) | Microsoft Azure"
    description="Descripción de ILPIP (PIP) y su administración"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/10/2015"
+   ms.date="11/11/2015"
    ms.author="telmos" />
 
 # Dirección IP pública de nivel de instancia
-Una IP pública de nivel de instancia (ILPIP) es una dirección IP que se puede asignar directamente a la máquina virtual o instancia de rol, en lugar de a un servicio en la nube en el que reside la máquina virtual o instancia de rol. Esto no reemplaza a la dirección VIP (Virtual IP o IP virtual) que está asignada al servicio en la nube. Es más bien una dirección IP adicional que puede usar para conectarse directamente a la máquina virtual o instancia de rol.
+Una IP pública de nivel de instancia (ILPIP) es una dirección IP pública que se puede asignar directamente a la máquina virtual o a la instancia de rol, en lugar de a un servicio en la nube en el que reside la máquina virtual o la instancia de rol. Esto no reemplaza a la dirección VIP (Virtual IP o IP virtual) que está asignada al servicio en la nube. Es más bien una dirección IP adicional que puede usar para conectarse directamente a la máquina virtual o instancia de rol.
 
 >[AZURE.NOTE]Antes, a la ILPIP se la llamaba PIP, que significa Public IP (dirección IP pública).
 
@@ -33,8 +33,6 @@ Cuando se crea un servicio en la nube en Azure, los registros de DNS A correspon
 
 ## ¿Por qué debo solicitar una ILPIP?
 Si desea que pueda conectarse a la máquina virtual o instancia de rol mediante una dirección IP asignada directamente a ella, en lugar de usar la VIP:&lt;número de puerto&gt; del servicio en la nube, solicite una ILPIP para la máquina virtual o la instancia de rol. - **FTP pasivo**: Por tener una ILPIP en la máquina virtual, puede recibir tráfico en cualquier puerto, no tendrá que abrir un extremo para recibir tráfico. Esto habilita escenarios como FTP pasivo donde los puertos se seleccionan dinámicamente. - **IP saliente**: El tráfico saliente procedente de la máquina virtual sale con la ILPIP como origen y esto identifica de forma única a la máquina virtual en entidades externas.
-
->[AZURE.NOTE]El uso de ILPIP reservadas puede incurrir en un coste adicional para su suscripción de Azure. Para obtener más información sobre los precios de ILPIP, consulte [Precios de las direcciones IP](http://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## Solicitud de una ILPIP durante la creación de máquinas virtuales
 El script de PowerShell siguiente crea un nuevo servicio en la nube denominado *FTPService*, a continuación, recupera una imagen de Azure y crea una máquina virtual denominada *FTPInstance* usando la imagen recuperada, establece la máquina virtual para usar una ILPIP y agrega la máquina virtual al nuevo servicio:
@@ -125,4 +123,4 @@ También puede asociar una ILPIP a una máquina virtual mediante un archivo de c
 [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

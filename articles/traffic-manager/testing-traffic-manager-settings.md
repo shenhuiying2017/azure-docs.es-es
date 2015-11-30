@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Pruebas de configuración del Administrador de tráfico
@@ -57,4 +57,4 @@ Hay servicios gratuitos de indagación y de búsqueda DNS basada en web disponib
 [Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](../about-traffic-manager-balancing-methods.md) [Administrador de tráfico](../traffic-manager.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

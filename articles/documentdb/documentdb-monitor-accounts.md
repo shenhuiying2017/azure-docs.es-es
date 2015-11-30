@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2015" 
+	ms.date="11/18/2015" 
 	ms.author="mimig"/>
 
-# Supervisión de una cuenta de DocumentDB mediante el Portal de vista previa de Azure 
+# Supervisión de una cuenta de DocumentDB 
 
 Puede supervisar las cuentas de DocumentDB en el [Portal de vista previa de Microsoft Azure](https://portal.azure.com/). Para cada cuenta de DocumentDB, existen métricas de rendimiento, como solicitudes y errores de servidor, y métricas de uso, como consumo de almacenamiento.
 
@@ -90,4 +90,4 @@ Ahora puede tratar esta parte como otra parte de métricas y personalizar las m�
 Para obtener más información acerca de la capacidad de DocumentDB, consulte [Administración de la capacidad de DocumentDB](documentdb-manage.md).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

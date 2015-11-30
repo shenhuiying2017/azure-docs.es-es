@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="11/13/2015"
 	ms.author="szark"/>
 
 
@@ -79,4 +79,4 @@ La estrategia de Oracle es ofrecer una amplia cartera de soluciones para nubes p
 
 SUSE Linux Enterprise Server en Azure es una plataforma probada que brinda confiabilidad y seguridad de nivel superior para la informática en nube. La versátil plataforma Linux de SUSE se integra de manera fluida con los servicios en la nube de Azure para brindar un entorno de nube fácilmente administrable. Y con más de 9.200 aplicaciones certificadas de más de 1.800 fabricantes de software independiente para SUSE Linux Enterprise Server, SUSE garantiza que las cargas de trabajo que se ejecutan de manera compatible en el centro de datos pueden implementarse con confianza en Azure.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

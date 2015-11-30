@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/08/2015"
+   ms.date="11/18/2015"
    ms.author="juliako"/>
 
 
@@ -106,4 +106,4 @@ La cuenta de almacenamiento de diagnósticos ahora se puede especificar en el ar
 
 [Información de compatibilidad y retirada del SDK de Azure para .NET y API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

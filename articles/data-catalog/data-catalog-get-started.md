@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="11/20/2015"
    ms.author="derrickv"/>
 
 # Introducción al Catálogo de datos de Azure
@@ -38,7 +38,7 @@ En este ejercicio, instale el ejemplo de Adventure Works para el Motor de base d
 
 La base de datos OLTP de Adventure Works admite escenarios de procesamiento de transacciones en línea estándar para un fabricante de bicicletas ficticio (Adventure Works Cycles) que incluye fabricación, ventas y compras. La base de datos de Adventure Works DW muestra cómo crear un almacenamiento de datos.
 
-Las bases de datos se encuentran en http://msftdbprodsamples.codeplex.com/ y pueden instalarse siguiendo los pasos descritos en la sección [Cómo instalar las bases de datos de ejemplo de Adventure Works 2014].
+Las bases de datos se encuentran en [CodePlex.com](http://msftdbprodsamples.codeplex.com/) y pueden instalarse siguiendo los pasos descritos en la sección [Archivo Léame de bases de datos de ejemplo de Adventure Works 2014](https://msftdbprodsamples.codeplex.com/downloads/get/880669).
 
 En este ejercicio se instalan las bases de datos de ejemplo de Adventure Works que se usan en los ejercicios restantes. Si decide omitir este ejercicio y usar sus propios orígenes de datos empresariales, esté preparado para recordar los nombres, etiquetas y otros metadatos.
 
@@ -232,4 +232,4 @@ En este tutorial exploró capacidades esenciales de la vista previa del **Catál
 [12]: ./media/data-catalog-get-started/ownership.png
 [13]: ./media/data-catalog-get-started/crowdsource.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

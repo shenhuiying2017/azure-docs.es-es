@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/30/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 # Preguntas frecuentes sobre el Catálogo de datos de Azure
@@ -172,4 +172,4 @@ Si tiene problemas o necesita ayuda con la vista previa del **Catálogo de datos
 
 Diríjase al [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Las preguntas formuladas ahí tendrán respuesta aquí.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

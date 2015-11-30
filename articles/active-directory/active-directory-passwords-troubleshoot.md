@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Solución de problemas de administración de contraseñas
@@ -698,6 +698,22 @@ Una práctica recomendada para solucionar problemas con la escritura diferida de
                 <li class="unordered">
 										Si tiene habilitados filtros de contraseña y un usuario selecciona una contraseña que no cumple los criterios de filtrado, se producirá un error en la operación de restablecimiento o modificación.&lt;br>&lt;br></li>
               </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>HR 8023042</p>
+            </td>
+            <td>
+              <p>El motor de sincronización devolvió un error hr=80230402, mensaje=Error al intentar obtener un objeto debido a que hay entradas duplicadas con el mismo delimitador</p>
+            </td>
+            <td>
+              <p>ADSync</p>
+            </td>
+            <td>
+              <p>Este evento se produce cuando se habilita el mismo identificador de usuario en varios dominios. Por ejemplo, si se están sincronizando los bosques de cuentas y recursos y tienen el mismo identificador de usuario presente y habilitado en cada uno, es posible que se produzca este error.  </p>
+              <p>Este error también puede producirse si usa un atributo delimitador que no sea único (como un alias o UPN) y dos usuarios comparten el mismo atributo delimitador.</p>
+              <p>Para resolver este problema, asegúrese de no tener ningún usuario duplicado dentro de los dominios y de estar utilizando un atributo de delimitador único para cada usuario.</p>
             </td>
           </tr>
           <tr>
@@ -1462,19 +1478,17 @@ Si esto no resuelve el problema, recomendamos que eche un vistazo a [Solución d
 
 <br/> <br/> <br/>
 
-**Recursos adicionales**
+## Vínculos a la documentación de restablecimiento de la contraseña
+A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-
-* [Qué es la administración de contraseñas](active-directory-passwords.md)
-* [Funcionamiento de la administración de contraseñas](active-directory-passwords-how-it-works.md)
-* [Introducción a la administración de contraseñas](active-directory-passwords-getting-started.md)
-* [Personalización de la administración de contraseñas](active-directory-passwords-customize.md)
-* [Prácticas recomendadas de administración de contraseñas](active-directory-passwords-best-practices.md)
-* [Visión operativa con los informes de administración de contraseñas](active-directory-passwords-get-insights.md)
-* [Preguntas más frecuentes sobre la administración de contraseñas](active-directory-passwords-faq.md)
-* [Más información](active-directory-passwords-learn-more.md)
-* [Administración de contraseñas en MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
-
+* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema
+* [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis diferentes componentes del servicio y lo que hace cada uno.
+* [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
+* [**Personalizar**](active-directory-passwords-customize.md) : obtenga información sobre cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización.
+* [**Prácticas recomendadas**](active-directory-passwords-best-practices.md): obtenga información sobre cómo implementar rápidamente y administrar eficazmente las contraseñas de la organización.
+* [**Obtener perspectivas**](active-directory-passwords-get-insights.md): obtenga información sobre nuestras capacidades integradas de creación de informes.
+* [**Preguntas más frecuentes**](active-directory-passwords-faq.md): obtenga respuestas a las preguntas más frecuentes.
+* [**Más información**](active-directory-passwords-learn-more.md): profundice en los detalles técnicos del funcionamiento del servicio.
 
 
 
@@ -1483,4 +1497,4 @@ Si esto no resuelve el problema, recomendamos que eche un vistazo a [Solución d
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

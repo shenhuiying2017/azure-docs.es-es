@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/13/2015" 
 	ms.author="genemi"/>
 
 
@@ -30,9 +30,9 @@ Este tema es un buen lugar para empezar a trabajar con conectividad de cliente a
 
 
 - [Instrucciones para conectar con Base de datos SQL de Azure mediante programación](http://msdn.microsoft.com/library/azure/ee336282.aspx) - Se incluye lo siguiente:
- - [Puertos y firewalls](sql-database-configure-firewall-settings.md/)
+ - [Puertos y firewalls](sql-database-configure-firewall-settings.md)
  - Cadenas de conexión
-- [Administración de recursos de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/dn338083.aspx) - Se incluye lo siguiente:
+- [Administración de recursos de la Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn338083.aspx): en esta exposición se incluye lo siguiente:
  - Regulador de recursos
  - Cumplimiento de límites
  - Limitaciones
@@ -169,4 +169,4 @@ Se proporcionan varios ejemplos de código para clientes que se ejecutan en Wind
 
 - [Bibliotecas de conexiones para la base de datos SQL y SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

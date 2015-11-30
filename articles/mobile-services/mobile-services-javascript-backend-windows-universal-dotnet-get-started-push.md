@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/10/2015" 
 	ms.author="glenga"/>
 
 
@@ -44,7 +44,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 &nbsp;&nbsp;7. Abra el archivo de código App.xaml.cs compartido y observe que se ha agregado una llamada al nuevo método **UploadChannel** en el controlador de eventos **OnLaunched**. Así se garantiza que se intentará registrar el dispositivo siempre que se inicie la aplicación.
 
-&nbsp;&nbsp;8. Repita los pasos anteriores para agregar las notificaciones de inserción al proyecto de aplicación de la Tienda de Windows Phone y, en el archivo App.xaml.cs compartido, quite la llamada extra a **UploadChannel** y el contenedor condicional `#if...#endif` restante. Ahora los dos proyectos pueden compartir una misma llamada a **UploadChannel**.
+&nbsp;&nbsp;8. Repita los pasos anteriores para agregar las notificaciones push al proyecto de aplicación de la Tienda de Windows Phone y, en el archivo App.xaml.cs compartido, quite la llamada extra al **Cliente de servicio móvil**, **UploadChannel** y el contenedor condicional `#if...#endif` restante. Ahora los dos proyectos pueden compartir una misma llamada a **UploadChannel**.
 
 &nbsp;&nbsp;Tenga en cuenta que también puede simplificar el código generado unificando las definiciones [MobileServiceClient] del contenedor `#if...#endif` en una única definición sin contenedor, que deben usar las dos versiones de la aplicación.
 
@@ -100,4 +100,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

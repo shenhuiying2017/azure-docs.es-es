@@ -18,13 +18,6 @@
 
 # Configurar Application Insights: páginas web
 
-*Application Insights se encuentra en su versión de vista previa.*
-
-
-[Application Insights de Visual Studio](http://azure.microsoft.com/services/application-insights) supervisa su aplicación activa para ayudarle a [detectar y diagnosticar problemas y excepciones de rendimiento][detect], y [descubrir cómo se usa la aplicación][knowUsers].
-
-
-<a name="selector1"></a>
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
@@ -37,7 +30,7 @@ Si ya ha configurado la telemetría de servidor para su aplicación web [ASP.NET
 
 ## Abrir su recurso de Application Insights
 
-Inicie sesión en el [portal de Azure](http://portal.azure.com).
+Inicie sesión en el [Portal de Azure](http://portal.azure.com)
 
 Si ya ha configurado la supervisión del lado del servidor de su aplicación, ya tendrá un recurso:
 
@@ -200,4 +193,4 @@ Seleccione el evento que desea ver con mayor detalle. En la página de detalles,
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

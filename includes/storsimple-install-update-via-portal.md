@@ -1,6 +1,6 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 11/16/15-->
 
-#### Para instalar la Actualización 1.2 desde el Portal de administración
+#### Instalar la actualización 1.2 desde el Portal de Azure
 
 1. En la página de servicio de StorSimple, seleccione el dispositivo. Vaya a **Dispositivos** > **Mantenimiento**.
 
@@ -61,8 +61,8 @@
 
     ![Página de mantenimiento](./media/storsimple-install-update-via-portal/InstallUpdate12_10M.png)
 
-13. Ahora verá que las actualizaciones del modo de mantenimiento están disponibles. Estas actualizaciones son actualizaciones perjudiciales que provocan tiempos de inactividad del dispositivo y solo pueden aplicarse a través de la interfaz de Windows PowerShell del dispositivo. Siga las instrucciones de [Instalar actualizaciones en el modo de mantenimiento](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple) para instalar estas actualizaciones mediante Windows PowerShell para StorSimple.
+13. Ahora verá que las actualizaciones del modo de mantenimiento están disponibles. Estas actualizaciones son actualizaciones perjudiciales que provocan tiempos de inactividad del dispositivo y solo pueden aplicarse a través de la interfaz de Windows PowerShell del dispositivo. Siga las instrucciones que encontrará en [Instalar actualizaciones en el modo de mantenimiento](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple), para instalar estas actualizaciones mediante Windows PowerShell para StorSimple.
 
 > [AZURE.NOTE]En determinados casos, el mensaje que indica que las actualizaciones del modo de mantenimiento están disponibles pueden mostrarse hasta 24 horas después de que las actualizaciones del modo de mantenimiento se apliquen correctamente en el dispositivo.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

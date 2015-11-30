@@ -17,7 +17,7 @@
 	ms.author="omark"/>
 
 # ¿Qué es Servicios de aplicaciones de Azure?
-Servicios de aplicaciones de Azure es el único servicio en la nube que integra todo lo que necesita para crear fácil y rápidamente aplicaciones web y móviles para cualquier plataforma o dispositivo. Diseñado para desarrolladores, el Servicio de aplicaciones es una plataforma totalmente administrada con características eficaces como DevOps integrados, integración continua con Visual Studio Online y GitHub, compatibilidad con entornos de producción y ensayo y aplicación de revisiones automática.
+Servicios de aplicaciones de Azure es el único servicio en la nube que integra todo lo que necesita para crear fácil y rápidamente aplicaciones web y móviles para cualquier plataforma o dispositivo. Diseñado para desarrolladores, el Servicio de aplicaciones es una plataforma totalmente administrada con características eficaces como DevOps integrados, integración continua con Visual Studio Team Services y GitHub, compatibilidad con entornos de producción y ensayo y aplicación de revisiones automática.
 
 Servicios de aplicaciones de Azure es un servicio único que incluye todas las capacidades existentes de Sitios web de Azure, Servicios móviles de Azure y Servicios de Biztalk de Azure, a la vez que agrega nuevas capacidades. [Obtenga más información](http://azure.microsoft.com/documentation/services/app-service/) acerca de cómo Servicios de aplicaciones se relaciona estos servicios existentes.
 
@@ -30,7 +30,7 @@ Centrado en el desarrollo rápido de aplicaciones web y móviles, así como en l
 
 - **Integración sencilla**: integre datos a través de las nubes y automatice los procesos empresariales en cuestión de minutos con una experiencia de diseño visual simple. Integre fácilmente la lógica con cualquier aplicación web o móvil a través de las API de REST estándar. Cree soluciones B2B de integración de aplicaciones empresariales sofisticadas con EDI, directivas empresariales (moro de reglas), etc. mediante la plataforma BizTal líder del sector.
 
-- **Productividad del desarrollador incomparable**: optimizada para DevOps, con compatibilidad de integración continua con Visual Studio Online y Github, para que pueda centrarse rápidamente en mejorar sus aplicaciones sin preocuparse por la infraestructura. Implemente actualizaciones de aplicaciones con capacidades de prueba en producción, reversión y almacenamiento provisional incorporadas.
+- **Productividad del desarrollador incomparable**: optimizada para DevOps, con compatibilidad de integración continua con Visual Studio Team Services y Github, para que pueda centrarse rápidamente en mejorar sus aplicaciones sin preocuparse por la infraestructura. Implemente actualizaciones de aplicaciones con capacidades de prueba en producción, reversión y almacenamiento provisional incorporadas.
 
 - **Preparado para las empresas**: disfrute de la tranquilidad que proporcionan una administración y una seguridad de nivel empresarial. Proporcione administración delegada y basada en funciones; proteja y administre fácilmente datos que pasan a las aplicaciones móviles; y proteja sus activos con la capacidad de copia de seguridad y restauración incorporadas. Para su tranquilidad, Servicios de aplicaciones es compatible con PCI. Mantenga el control con los entornos dedicados y la capacidad de implementar a través de nubes públicas y privadas. Benefíciese de los más de 25 años de experiencia de Microsoft y de nuestro contrato de nivel de servicio empresarial.
 
@@ -59,4 +59,4 @@ Con Servicios de aplicaciones Azure, es tan fácil como seleccionar un idioma.
 [Cree una nueva aplicación](http://go.microsoft.com/fwlink/?LinkId=523751) inmediatamente de forma gratuita. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso. Sin complicaciones.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -18,9 +18,13 @@
 
 # ¿Qué es el centro de IoT de Azure?
 
-Bienvenido al Centro de IoT de Azure. En este artículo se proporciona información general sobre el Centro de IoT de Azure y se describe por qué es aconsejable usar este servicio cuando se implementa una solución IoT.
+Bienvenido al Centro de IoT de Azure. En este artículo se ofrece información general sobre el Centro de IoT de Azure y se describe por qué debería usar este servicio cuando se implementa una solución IoT.
 
-El Centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y un back-end de soluciones. El Centro de IoT de Azure ofrece un confiable sistema de mensajería a escala de dispositivo a nube y viceversa. Asimismo, permite establecer comunicaciones seguras mediante el uso de credenciales de seguridad por cada dispositivo y funciones de control de acceso; además, incluye bibliotecas de dispositivos para las plataformas y los lenguajes más populares.
+El Centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y un back-end de soluciones. Centro de IoT de Azure:
+
+- Ofrece una mensajería confiable de dispositivo a nube y de nube a dispositivo a escala.
+- Habilita las comunicaciones seguras con las credenciales de seguridad de cada dispositivo y el control de acceso.
+- Incluye bibliotecas de dispositivos para las plataformas y los lenguajes más populares.
 
 ![El centro de IoT como puerta de enlace de nube][img-architecture]
 
@@ -42,11 +46,11 @@ Además de los requisitos anteriores, toda solución de IoT debe ser capaz de of
 
 El Centro de IoT de Azure aborda las dificultades de conectividad de dispositivos de las maneras siguientes:
 
--   **Autenticación por dispositivo y conectividad segura**. Puede aprovisionar cada dispositivo con su propia clave de seguridad para permitirle conectarse al Centro de IoT. Un back-end de soluciones puede crear listas blancas y negras de dispositivos individuales, lo que permite controlar por completo el acceso a los dispositivos.
+-   **Autenticación por dispositivo y conectividad segura**. Puede aprovisionar cada dispositivo con su propia clave de seguridad para permitirle conectarse al Centro de IoT. El [registro de identidades del Centro de IoT][lnk-devguide-identityregistry] almacena identidades y claves en una solución. Un back-end de soluciones puede crear listas blancas y negras de dispositivos individuales, lo que permite controlar por completo el acceso a los dispositivos.
 
 -   **Amplio conjunto de bibliotecas de dispositivos**. Los SDK de dispositivos de IoT de Azure están disponibles y son compatibles con una amplia gama de lenguajes y plataformas: C para muchas distribuciones de Linux, Windows y RTOS. Los SDK de dispositivos IoT de Azure admiten lenguajes administrados como C#, Java y JavaScript.
 
--   **Extensibilidad y protocolos de IoT**. Si la solución no puede hacer uso de las bibliotecas de dispositivos, el Centro de IoT de Azure expone un protocolo público que permite a los dispositivos usar los protocolos HTTP 1.1 y AMQP 1.0 de forma nativa. También puede ampliar el Centro de IoT para ofrecer compatibilidad con MQTT v3.1.1 con el componente de código abierto de [Puerta de enlace de protocolos de IoT de Azure][protocol-gateway]. Es posible ejecutar la Puerta de enlace de protocolos de IoT de Azure en la nube o de manera local y ampliarla para admitir protocolos personalizados.
+-   **Extensibilidad y protocolos de IoT**. Si la solución no puede hacer uso de las bibliotecas de dispositivos, el Centro de IoT de Azure expone un protocolo público que permite a los dispositivos usar los protocolos HTTP 1.1 y AMQP 1.0 de forma nativa. También puede ampliar el Centro de IoT para ofrecer compatibilidad con MQTT v3.1.1 con el componente de código abierto de [puerta de enlace de protocolo de IoT de Azure][protocol-gateway]. Es posible ejecutar la Puerta de enlace de protocolos de IoT de Azure en la nube o de manera local y ampliarla para admitir protocolos personalizados.
 
 -   **Escalabilidad.** El centro de IoT de Azure se puede escalar a millones de dispositivos conectados de manera simultánea y a millones de eventos por segundo.
 
@@ -57,6 +61,16 @@ Estas ventajas son genéricas para varios patrones de comunicación. El Centro d
 -   **Mensajería fiable de nube a dispositivo (o *comandos*).** El back-end de soluciones puede usar el Centro de IoT para enviar mensajes con garantía de entrega al menos una vez a dispositivos individuales. Cada mensaje tiene una configuración de período de vida individual y el back-end puede solicitar confirmación de entrega y vencimiento para garantizar la visibilidad completa del ciclo de vida de los mensajes de nube a dispositivo. Esto le permite implementar la lógica de negocios que incluye las operaciones que se ejecutan en dispositivos.
 
 También puede implementar otros patrones comunes, como la carga y descarga de archivos, aprovechando las ventajas de las características específicas de IoT del Centro de IoT, como la administración de identidades de dispositivo uniforme, la supervisión de conectividad y la escalabilidad.
+
+En el artículo [Comparación del Centro de IoT y los Centros de eventos][lnk-compare] se describen las diferencias clave entre estos dos servicios y se resaltan las ventajas del uso del Centro de IoT en sus soluciones de IoT.
+
+## Puertas de enlace
+
+Una puerta de enlace en una solución IoT es normalmente una [puerta de enlace de protocolo][lnk-gateway] implementada en la nube o una [puerta de enlace de campo][lnk-field-gateway] implementada localmente con sus dispositivos. Una puerta de enlace de protocolo realiza la traducción de protocolos, por ejemplo, de MQTT a AMQP. Una puerta de enlace de campo ofrece servicios de administración locales para los dispositivos y puede ser un dispositivo especializada o software que se ejecute en una pieza de hardware existente. Ambos tipos de puerta de enlace actúan como intermediario entre los dispositivos y el Centro de IoT.
+
+Una puerta de enlace de campo es diferente de un dispositivo de enrutamiento de tráfico simple (como un firewall o un dispositivo NAT) porque normalmente desempeña un rol activo en la administración del acceso y del flujo de la información en su solución.
+
+Una solución puede incluir tanto puertas de enlace de protocolo como de campo.
 
 ## ¿Cómo funciona el Centro de IoT?
 
@@ -70,22 +84,29 @@ El Centro de IoT de Azure implementa el modelo de [comunicación asistida por se
 - La comunicación bidireccional de dispositivos con conexión esporádica debido a problemas de alimentación o de conectividad puede realizarse mediante el mantenimiento de comandos y notificaciones en los dispositivos hasta que uno de ellos se conecte para recibirlos. El Centro de IoT mantiene colas específicas de dispositivos para los comandos que envía.
 - Los datos de carga de aplicaciones se protegen por separado para proteger el tránsito a través de las puertas de enlace a un servicio determinado.
 
-El patrón de comunicación asistida por servicio se ha usado de manera satisfactoria en el sector móvil a grandes escalas para implementar servicios de notificación push como, por ejemplo, el [Servicio de notificación de Windows](https://msdn.microsoft.com/library/windows/apps/mt187203.aspx), el [Servicio de mensajería en la nube de Google](https://developers.google.com/cloud-messaging/) y el [Servicio de notificaciones push de Apple](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9).
+El sector móvil ha usado correctamente el patrón de comunicación asistida por servicio a gran escala para implementar servicios de notificación push como, por ejemplo, el [Servicio de notificación de Windows][lnk-wns], el [Servicio de mensajería en la nube de Google][lnk-google-messaging] y el [Servicio de notificaciones push de Apple][lnk-apple-push].
 
 ## Pasos siguientes
 
 Para obtener más información sobre el Centro de IoT de Azure, consulte estos vínculos:
 
-* [Introducción al centro de IoT]
-* [Conectar el dispositivo]
-* [Procesamiento de mensajes de dispositivo a la nube]
+* [Introducción al centro de IoT][lnk-get-started]
+* [Conectar el dispositivo][lnk-connect-device]
+* [Procesamiento de mensajes de dispositivo a la nube][lnk-d2c]
 
-[Introducción al centro de IoT]: iot-hub-csharp-csharp-getstarted.md
-[Conectar el dispositivo]: https://azure.microsoft.com/develop/iot/
-[Procesamiento de mensajes de dispositivo a la nube]: iot-hub-csharp-csharp-process-d2c.md
-[protocol-gateway]: https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
 
+[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
+[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
+[lnk-d2c]: iot-hub-csharp-csharp-process-d2c.md
+[protocol-gateway]: https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md
 [lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "Comunicación asistida por servicios, publicación de blog de Clemens Vasters"
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-gateway]: iot-hub-protocol-gateway.md
+[lnk-field-gateway]: iot-hub-guidance.md#field-gateways
+[lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
+[lnk-wns]: https://msdn.microsoft.com/library/windows/apps/mt187203.aspx
+[lnk-google-messaging]: https://developers.google.com/cloud-messaging/
+[lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

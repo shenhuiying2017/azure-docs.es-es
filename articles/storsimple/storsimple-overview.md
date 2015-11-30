@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/14/2015"
+   ms.date="11/16/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # Serie StorSimple 8000: una solución de almacenamiento en la nube híbrida 
@@ -54,7 +54,7 @@ La solución de Microsoft Azure StorSimple incluye los siguientes componentes:
 
 - **Dispositivo de Microsoft Azure StorSimple**: una matriz de almacenamiento híbrida local que contiene unidades de estado sólido y discos duros, en conjunto con controladores redundantes y funcionalidades de conmutación automática por error. Los controladores administran la organización en niveles del almacenamiento y ponen los datos actualmente utilizados (o activos) en el almacenamiento local (en el dispositivo o en servidores locales), mientras que mueven los datos usados con menos frecuencia a la nube.
 - **Dispositivo virtual de StorSimple**: también conocido como Aplicación virtual de StorSimple, se trata de una versión de software del dispositivo de StorSimple que replica la arquitectura y la mayoría de las funcionalidades del dispositivo de almacenamiento híbrido físico. El dispositivo virtual de StorSimple se ejecuta en un solo nodo en una máquina virtual de Azure. El dispositivo virtual es adecuado para usarlo en escenarios de prueba y en escenarios piloto de menor tamaño. 
-- **Servicio StorSimple Manager**: extensión del Portal de administración de Azure que permite administrar un dispositivo de StorSimple o un dispositivo virtual de StorSimple desde una única interfaz web. Puede utilizar el servicio StorSimple Manager para crear y administrar servicios, ver y administrar dispositivos, ver alertas, administrar volúmenes y ver y administrar las directivas de copia de seguridad y el catálogo de copias de seguridad.
+- **Servicio StorSimple Manager**: es una extensión del Portal de Azure que le permite administrar un dispositivo StorSimple o un dispositivo virtual StorSimple desde una única interfaz web. Puede utilizar el servicio StorSimple Manager para crear y administrar servicios, ver y administrar dispositivos, ver alertas, administrar volúmenes y ver y administrar las directivas de copia de seguridad y el catálogo de copias de seguridad.
 - **Windows PowerShell para StorSimple**: una interfaz de línea de comandos que puede usar para administrar el dispositivo de StorSimple. Windows PowerShell para StorSimple tiene características que le permite registrar su dispositivo de StorSimple, configurar la interfaz de red en su dispositivo, instalar ciertos tipos de actualizaciones, solucionar problemas con su dispositivo mediante el acceso a la sesión de soporte y cambiar el estado del dispositivo. Puede tener acceso a Windows PowerShell para StorSimple si se conecta a la consola serial o si usa la comunicación remota de Windows PowerShell.
 - **Cmdlets de Azure PowerShell StorSimple**: un conjunto de cmdlets de Windows PowerShell que permiten automatizar las tareas de nivel de servicio y de migración desde la línea de comandos. Para obtener más información sobre los cmdlets de Azure PowerShell, consulte la [referencia de los cmdlets](https://msdn.microsoft.com/library/dn920427.aspx).
 - **Snapshot Manager de StorSimple**: un complemento de MMC que usa grupos de volúmenes y el Servicio de instantáneas de volumen de Windows para generar copias de seguridad coherentes con la aplicación. Además, puede usar StorSimple Snapshot Manager para crear programaciones de copias de seguridad y clonar o restaurar volúmenes. 
@@ -182,7 +182,7 @@ StorSimple ajusta y reordena las asignaciones de datos y almacenamiento a medida
 El proceso de organización en niveles del almacenamiento se produce como sigue:
 
 1. Un administrador del sistema configura una cuenta de almacenamiento en la nube de Microsoft Azure.
-2. El administrador usa la consola en serie y el servicio StorSimple Manager (que se ejecuta en el Portal de administración de Azure) para configurar el servidor de dispositivo y archivos, y crear directivas de protección de datos y volúmenes. Las máquinas locales (como servidores de archivo) usan Interfaz estándar de equipos pequeños de Internet (iSCSI) para acceder al dispositivo StorSimple.
+2. El administrador usa la consola en serie y el servicio StorSimple Manager (que se ejecuta en el Portal de Azure) para configurar el servidor del dispositivo y de los archivos, y así crear directivas de protección de datos y volúmenes. Las máquinas locales (como servidores de archivo) usan Interfaz estándar de equipos pequeños de Internet (iSCSI) para acceder al dispositivo StorSimple.
 3. Inicialmente, StorSimple almacena los datos en el nivel de SSD rápido del dispositivo.
 4. A medida que el nivel de SSD empieza a carecer de capacidad, StorSimple desduplica y comprime los bloques de datos más antiguos y los mueve al nivel de unidades de disco duro.
 5. Si el nivel de unidades de disco duro comienza a carecer de capacidad, StorSimple cifra los bloques de datos más antiguos y los envía de forma segura a la cuenta de almacenamiento de Microsoft Azure a través de HTTPS.
@@ -243,12 +243,12 @@ Antes de implementar la solución Microsoft Azure StorSimple, se recomienda que 
 | objetivo de tiempo de recuperación (RTO) | La cantidad máxima de tiempo que debe emplearse antes de que un proceso o sistema empresarial esté completamente restaurado tras un desastre.| 
 |SCSI conectado en serie (SAS) | Un tipo de unidad de disco duro (HDD).|
 | clave de cifrado de datos de servicio | Una clave a disposición de cualquier nuevo dispositivo StorSimple que se registra en el servicio StorSimple Manager. Los datos de configuración transferidos entre el servicio StorSimple Manager y el dispositivo se cifran con una clave pública y, a continuación, se pueden descifrar únicamente en el dispositivo mediante una clave privada. La clave de cifrado de datos de servicio permite al servicio obtener esta clave privada para el descifrado.|
-| clave de registro del servicio | Una clave que le ayuda a registrar el dispositivo StorSimple con el servicio StorSimple Manager para que aparezca en el Portal de administración para diversas tareas administrativas.|
+| clave de registro del servicio | Una clave que le ayuda a registrar el dispositivo StorSimple con el servicio StorSimple Manager, para que así aparezca en el Portal de Azure para diversas tareas administrativas.|
 | Small Computer System Interface (SCSI) | Un conjunto de estándares para conectar físicamente equipos y pasar datos entre ellos.|
 | unidad de estado sólido (SSD) | Un disco que no contiene piezas móviles; por ejemplo, una unidad flash.|
 | Cuenta de almacenamiento | Un conjunto de credenciales de acceso vinculado a la cuenta de almacenamiento para un proveedor de servicios de nube determinado.| 
 | Adaptador de StorSimple para SharePoint| Un componente de Microsoft Azure StorSimple que extiende de manera transparente el almacenamiento de StorSimple y la protección de datos a las granjas de servidores de SharePoint.|
-| Servicio StorSimple Manager | Una extensión del Portal de administración de Azure que le permite administrar su Azure StorSimple en las instalaciones y dispositivos virtuales.|
+| Servicio StorSimple Manager | Una extensión del Portal de Azure que le permite administrar su Azure StorSimple en local y en dispositivos virtuales.|
 | StorSimple Snapshot Manager | Un complemento de Microsoft Management Console (MMC) para administrar las operaciones de copia de seguridad y restauración en Microsoft Azure StorSimple.|
 | realizar copia de seguridad | Una característica que permite al usuario realizar una copia de seguridad interactiva de un volumen. Es una forma alternativa de realizar una copia de seguridad manual de un volumen en lugar de realizar una copia de seguridad automatizada a través de una directiva definida.|
 | aprovisionamiento fino | Un método para optimizar la eficacia con la que se utiliza el espacio de almacenamiento disponible en sistemas de almacenamiento. En el aprovisionamiento fino, el almacenamiento se asigna entre varios usuarios según el espacio mínimo requerido por cada usuario en un momento dado. Consulte también *Aprovisionamiento grueso*.|
@@ -271,4 +271,4 @@ Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-secu
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

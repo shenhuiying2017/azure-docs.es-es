@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="11/12/2015" 
 	ms.author="byvinyal"/>
 
 #Registros de transmisión y la consola
@@ -58,7 +58,7 @@ console.log("My trace statement").
 
 Haga clic en el nombre de la aplicación web que quiere configurar para navegar hasta ella.
   
-![][DiagnosticsLogs] Luego haga clic en **Configuración (1)** > **Registros de diagnóstico (2)** y **Active** **Registro de la aplicación (Sistema de archivos)(3)**. La opción **Nivel** le permite cambiar el nivel de gravedad de las trazas que se capturan. Debe configurar esto en **Detallado** si solo está intentando familiarizarse con la característica, ya que esto asegurará que se registran las instrucciones de seguimiento.
+![][DiagnosticsLogs] A continuación, haga clic en **Configuración (1)** > **Registros de diagnóstico (2)** y **Active** el **Registro de la aplicación (Sistema de archivos)(3)**. La opción **Nivel** le permite cambiar el nivel de gravedad de las trazas que se capturan. Debe configurar esto en **Detallado** si solo está intentando familiarizarse con la característica, ya que esto asegurará que se registran las instrucciones de seguimiento.
 
 Haga clic en **SAVE** en la parte superior del cuadro y estará listo para ver los registros.
 
@@ -92,4 +92,4 @@ cd
 [StreamingLogsScreenshot]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

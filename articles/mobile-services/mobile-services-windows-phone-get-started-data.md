@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/11/2015" 
 	ms.author="glenga"/>
 
 
@@ -95,12 +95,12 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
 
   	De esta forma, se crea una nueva instancia de **MobileServiceClient** que se usa para obtener acceso al servicio móvil.
 
-6. En el archivo MainPage.xaml.cs, agregue o quite la marca de comentario en las siguientes instrucciones `using`:
+6. En el archivo MainPage.cs, agregue o quite la marca de comentario en las siguientes instrucciones `using`:
 
        	using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json;
 
-7. En este mismo archivo, reemplace la definición de clase **TodoItem** por el siguiente código:
+7. En esta carpeta DataModel, reemplace la definición de clase **TodoItem** por el siguiente código:
 
         public class TodoItem
         {
@@ -193,4 +193,4 @@ Este tutorial demostró los aspectos básicos de la habilitación de una aplicac
 [sitio de ejemplos de código para desarrolladores]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

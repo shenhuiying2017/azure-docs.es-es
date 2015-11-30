@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="kwill-MSFT"
-   manager="adinah"
+   manager="carmonm"
    editor="joaoma" />
 
 <tags 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
-# Solución de problemas de estado degradado en Administrador de tráfico de Azure
-En esta página se describirá cómo solucionar problemas del perfil del Administrador de tráfico de Azure, que muestra un estado degradado y proporcionar algunos puntos clave para entender los sondeos del administrador de tráfico.
+# Solución de problemas de estado degradado en el Administrador de tráfico de Azure
 
+En esta página se describirá cómo solucionar problemas del perfil del Administrador de tráfico de Azure, que muestra un estado degradado y proporcionar algunos puntos clave para entender los sondeos del administrador de tráfico.
 
 Ha configurado un perfil de Administrador de tráfico orientado a algunos de sus servicios hospedados cloudapp.net y, tras unos segundos, verá el estado como Degradado.
 
@@ -80,4 +80,4 @@ Si el sondeo está usando el protocolo HTTPs, podrá agregar el parámetro "--no
 [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

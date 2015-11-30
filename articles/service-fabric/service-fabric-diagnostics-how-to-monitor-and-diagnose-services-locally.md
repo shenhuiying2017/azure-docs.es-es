@@ -20,7 +20,7 @@
 # Supervisión y diagnóstico de servicios en una configuración de desarrollo de máquina local
 Acciones como supervisar, detectar, diagnosticar y solucionar problemas permite a los servicios continuar con una interrupción mínima de la experiencia del usuario. Aunque resulta fundamental en un entorno de producción implementado real, la eficacia dependerá de la adopción de un modelo similar durante el desarrollo de servicios para garantizar que funciona cuando pasa a una configuración del mundo real. Service Fabric facilita a los desarrolladores de servicio la implementación de diagnóstico que puede funcionar sin problemas en el desarrollo local de máquina única y en configuraciones de clúster de producción del mundo real.
 
-## Seguimiento y registro
+## Por qué usar ETW para seguimiento y registro
 [Seguimiento de eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) es la tecnología recomendada para los mensajes de seguimiento en Service Fabric. Los motivos para esto son:
 
 * ETW es rápido. Se creó como una tecnología de seguimiento que tiene un impacto mínimo en los tiempos de ejecución de código.
@@ -31,51 +31,33 @@ Acciones como supervisar, detectar, diagnosticar y solucionar problemas permite 
 
 ## Ver eventos del sistema de Service Fabric en Visual Studio
 
-Service Fabric emite los eventos ETW para ayudar a los desarrolladores de aplicaciones a comprender qué ocurre en la plataforma. Para ver estos eventos, sigue estos pasos:
+Service Fabric emite los eventos ETW para ayudar a los desarrolladores de aplicaciones a comprender qué ocurre en la plataforma. En caso de que lo haya hecho todavía, continúe y siga los pasos de [Creación de su primera aplicación en Visual Studio](./service-fabric-create-your-first-application-in-visual-studio.md) para poner una aplicación en funcionamiento con el Visor de eventos de diagnóstico en el que se muestran los mensajes de seguimiento.
 
-1. Debe tener los siguientes requisitos previos instalados.
-   * Visual Studio 2015
-   * SDK de Service Fabric
-
-2. Inicie Visual Studio como administrador.
-
-3. Cree un proyecto (o abra uno existente) para un actor o servicio con o sin estado.
-
-  ![Crear una aplicación de Service Fabric](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject.png)
-
-  ![Crear un servicio de Service Fabric](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject-2.png)
-
-4. Presione F5 para depurar la aplicación. Los eventos de Service Fabric deben aparecer en la ventana de eventos de diagnóstico. Cada evento tiene información de metadatos estándar que indica el nodo, la aplicación y el servicio del que procede el evento. También puede filtrar la lista de eventos mediante el cuadro "Filtrar eventos" en la parte superior de las ventanas, por ejemplo, puede filtrar en el nombre del nodo o el nombre de servicio.
-
-  ![Visor de eventos de diagnósticos de Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
-
-5. Si la ventana de eventos de diagnóstico no aparece automáticamente, vaya a la pestaña Explorador de servidores en Visual Studio, haga clic con el botón secundario en el clúster de Service Fabric y elija "Ver eventos de diagnóstico" en el menú contextual.
+1. Si la ventana de eventos de diagnóstico no aparece automáticamente, vaya a la pestaña Explorador de servidores en Visual Studio, haga clic con el botón secundario en el clúster de Service Fabric y elija "Ver eventos de diagnóstico" en el menú contextual.
 
   ![Abrir el Visor de eventos de diagnósticos de Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
+
+2. Cada evento tiene información de metadatos estándar que indica el nodo, la aplicación y el servicio del que procede el evento. También puede filtrar la lista de eventos mediante el cuadro "Filtrar eventos" en la parte superior de las ventanas, por ejemplo, puede filtrar en el nombre del nodo o el nombre de servicio. Además, mirando los detalles de un evento también puede pausar con el botón encima de la ventana y reanudar la operación sin ninguna pérdida de eventos posteriormente.
+
+  ![Visor de eventos de diagnósticos de Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
 
 ## Agregue sus propios seguimientos personalizados al código de aplicación
 Las plantillas de proyecto de Visual Studio de Service Fabric contienen código de ejemplo. El código muestra cómo agregar seguimientos de ETW de código de aplicación personalizado que aparecerán en el visor de ETW de Visual Studio junto con seguimientos desde Service Fabric. La ventaja de este método es que los metadatos se agregan automáticamente a los seguimientos y el Visor de diagnóstico de Visual Studio ya está configurado para mostrarlos.
 
-Para los proyectos creados desde las **plantillas de servicio** (con o sin estado):
+Para los proyectos creados desde las **plantillas de servicio** (con o sin estado), solo tiene que buscar la implementación de `RunAsync`:
 
-1. Abra el archivo **Service.cs**. La llamada a`ServiceEventSource.Current.Message` del método *RunAsync* muestra un ejemplo de un seguimiento de ETW personalizado desde el código de la aplicación.
-2. En el archivo **ServiceEventSource.cs**, las sobrecargas del método `ServiceEventSource.Message` muestran una opción de cómo crear seguimientos ETW personalizados.
+1. La llamada a `ServiceEventSource.Current.ServiceMessage` del método `RunAsync` muestra un ejemplo de un seguimiento de ETW personalizado desde el código de la aplicación.
+2. En el archivo **ServiceEventSource.cs** encontrará una sobrecarga para el método `ServiceEventSource.ServiceMessage` que se debe usar para eventos de alta frecuencia debido a razones de rendimiento.
 
 Para los proyectos creados desde las **plantillas de acto** (con o sin estado):
 
 1. Abra el archivo **"NombreProyecto".cs** donde *NombreProyecto* es el nombre que eligió para su proyecto de Visual Studio.  
-2. Busque el código `ActorEventSource.Current.ActorMessage(this, "Doing Work");` en el método *DoWorkAsync*. Esto es un ejemplo de un seguimiento ETW personalizado del código de aplicación.  
-3. En el archivo **ActorEventSource.cs**, las sobrecargas del método `ActorEventSource.ActorMessage` muestran una opción de cómo crear seguimientos ETW personalizados.
+2. Busque el código `ActorEventSource.Current.ActorMessage(this, "Doing Work");` en el método *DoWorkAsync*. Esto es un ejemplo de un seguimiento ETW personalizado creado a partir del código de aplicación.  
+3. En el archivo **ActorEventSource.cs** encontrará una sobrecarga para el método `ActorEventSource.ActorMessage` que se debe usar para los eventos de alta frecuencia debido a razones de rendimiento.
 
 Después de agregar seguimiento ETW personalizado al código del servicio, puede crear, implementar y ejecutar la aplicación de nuevo para ver sus eventos en el visor de diagnósticos. Si depura la aplicación con F5, el Visor de diagnóstico se abrirá automáticamente.
 
-##Próximamente
-El mismo código de seguimiento que agregó a la aplicación anterior para diagnósticos locales funcionará con las herramientas que puede usar para ver estos eventos al ejecutar el mismo código en un clúster de Azure. Pronto estarán disponibles los detalles al respecto.
-
 ## Pasos siguientes
+El mismo código de seguimiento que agregó a la aplicación anteriormente para diagnósticos locales funcionará con herramientas que puede usar para ver estos eventos cuando ejecute la aplicación en un clúster de Azure. Consulte estos artículos que tratan de las diferentes opciones para las herramientas y que describen cómo se pueden configurar. * [Recopilación de registros de un clúster de Service Fabric en Azure mediante WAD (Diagnósticos de Microsoft Azure) y Visión operativa](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) * [Uso de ElasticSearch como almacén de seguimiento de aplicaciones de Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-* [Introducción al estado de Service Fabric](service-fabric-health-introduction.md)
-* [Supervisión de diagnósticos y rendimiento de actores de Service Fabric de Azure](service-fabric-reliable-actors-diagnostics.md)
-* [Diagnóstico de servicios de confianza con estado](service-fabric-reliable-services-diagnostics.md)
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

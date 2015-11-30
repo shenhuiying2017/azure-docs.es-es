@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="11/17/2015"
    ms.author="jesseb"/>
 
 # Uso de Visual Studio para simplificar la escritura y la administración de las aplicaciones de Service Fabric
@@ -34,8 +34,24 @@ La implementación de una aplicación combina los pasos siguientes en una operac
 4. Eliminación de cualquier instancia de aplicación en ejecución
 5. Creación de una nueva instancia de aplicación
 
-En Visual Studio, puede implementar una aplicación eligiendo Implementar solución en el menú Compilar. Al presionar **F5** también se implementará su aplicación y se asociará el depurador a todas las instancias de aplicación.
+En Visual Studio, al presionar **F5** también se implementará su aplicación y se asociará el depurador a todas las instancias de aplicación. Puede usar **CTRL+F5** para implementar una aplicación sin depurar o bien, publicar en un clúster local o remoto mediante el perfil de publicación. Consulte [Publicación de una aplicación en un clúster remoto con Visual Studio](service-fabric-publish-app-remote-cluster.md).
 
+### Conservar datos entre series de pruebas
+
+A menudo, probará servicios localmente agregando la entrada de datos de prueba, modificando algunos bloques de código y depurando de nuevo localmente. Las herramientas de Service Fabric de Visual Studio ofrecen una útil propiedad llamada **Mantener datos al inicio** para mantener los datos que se especificaron en la sesión anterior y permitirle volver a usarlos.
+
+### Habilitar la propiedad Mantener datos al inicio
+
+1. En el menú de acceso directo del proyecto de la aplicación, elija **Propiedades** (o elija la tecla **F4**).
+1. En la ventana **Propiedades**, establezca la propiedad **Mantener datos al inicio** en **Sí**.
+
+	![Establecer la propiedad Mantener datos al inicio][preservedata]
+
+Cuando ejecute la aplicación de nuevo, el script de implementación tratará ahora la implementación como una actualización con el modo automático no supervisado para actualizar rápidamente la aplicación a una versión más reciente con una cadena de fecha anexada. El proceso de actualización conserva todos los datos especificados en una sesión de depuración anterior.
+
+![Ejemplo de la nueva versión de aplicación con la fecha anexada][preservedate]
+
+Los datos se conservan aprovechando la capacidad de actualización de la plataforma de Service Fabric. Para más información sobre la actualización de una aplicación, consulte [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md).
 
 ## Adición de un servicio a su aplicación de Service Fabric
 
@@ -53,15 +69,14 @@ El nuevo servicio se agregará a la solución y al paquete de aplicación existe
 
 ## Empaquetado de la aplicación de Service Fabric
 
-Se tiene que crear un paquete de aplicación para implementar la aplicación y sus servicios en un clúster. El paquete organiza el manifiesto de aplicación, los manifiestos de servicio y otros archivos necesarios en un diseño específico. Visual Studio configura y administra el paquete en la carpeta del proyecto de aplicación, en el directorio 'pkg'. Haga clic en **Paquete** para crear o actualizar el paquete de aplicación. Puede que desee hacerlo si implementa la aplicación mediante scripts de Powershell personalizados.
+Se tiene que crear un paquete de aplicación para implementar la aplicación y sus servicios en un clúster. El paquete organiza el manifiesto de aplicación, los manifiestos de servicio y otros archivos necesarios en un diseño específico. Visual Studio configura y administra el paquete en la carpeta del proyecto de aplicación, en el directorio 'pkg'. Haga clic en **Paquete** en el menú contextual **Aplicación** para crear o actualizar el paquete de aplicación. Puede que quiera hacerlo si implementa la aplicación mediante scripts de PowerShell personalizados.
 
 ## Eliminación de una aplicación
 
-Puede quitar una aplicación del clúster local mediante el Explorador de servidores. De esta manera se revertirán los pasos de implementación descritos anteriormente:
+Puede deshacer el aprovisionamiento de un tipo de aplicación desde el clúster local mediante el Explorador de Service Fabric. Al explorador del clúster se puede acceder desde el punto de conexión de la puerta de enlace HTTP del clúster (normalmente, 19080 o 19007), por ejemplo, http://localhost:19080/Explorer. De esta manera se revertirán los pasos de implementación descritos anteriormente:
 
 1. Eliminar cualquier instancia de aplicación en ejecución
 2. Anular el registro del tipo de aplicación
-3. Quitar el paquete de aplicación del almacén de imágenes
 
 ![Eliminación de una aplicación](./media/service-fabric-manage-application-in-visual-studio/removeapplication.png)
 
@@ -70,6 +85,7 @@ Puede quitar una aplicación del clúster local mediante el Explorador de servid
 
 - [Modelo de aplicación de Service Fabric](service-fabric-application-model.md)
 - [Implementación de la aplicación de Service Fabric](service-fabric-deploy-remove-applications.md)
+- [Administración de los parámetros de la aplicación en varios entornos](service-fabric-manage-multiple-environment-app-configuration.md)
 - [Depuración de la aplicación de Service Fabric](service-fabric-debugging-your-application.md)
 - [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
 
@@ -78,5 +94,7 @@ Puede quitar una aplicación del clúster local mediante el Explorador de servid
 [manageservicefabric]: ./media/service-fabric-manage-application-in-visual-studio/manageservicefabric.png
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
+[preservedata]: ./media/service-fabric-manage-application-in-visual-studio/preservedata.png
+[preservedate]: ./media/service-fabric-manage-application-in-visual-studio/preservedate.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="11/15/2015" 
 	ms.author="ricksal"/>
 
 # Registro de las aplicaciones para usar un inicio de sesión de la cuenta de Azure Active Directory
@@ -66,4 +66,4 @@ Ahora está preparado para usar Azure Active Directory para realizar la autentic
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

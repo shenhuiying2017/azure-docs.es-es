@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="11/16/2015"
    ms.author="elfish"/>
 
 #Diseño para la continuidad del negocio
@@ -49,13 +49,13 @@ Deberá usar la replicación geográfica si su aplicación cumple los criterios 
 
 ##Cuándo elegir la replicación geográfica estándar vs la replicación geográfica activa
 
-Las bases de datos de nivel Standard no admiten la opción de usar la replicación geográfica activa, por lo que si su aplicación usa bases de datos Standard y cumple los criterios anteriores, deberá usar la replicación geográfica estándar. Por el contrario, con las bases de datos Premium, se pueden elegir cualquiera de las opciones. La replicación geográfica estándar se ha diseñado como una solución de recuperación ante desastres más sencilla y menos costosa. Resulta especialmente adecuada para aplicaciones que usan la replicación solo para la protección frente a eventos imprevistos como, por ejemplo, las interrupciones. Con la replicación geográfica estándar, solo podrá usar la región emparejada de recuperación ante desastres para la recuperación y no podrá crear más de una base de datos secundaria. Esta última característica es fundamental para el escenario de actualización de la aplicación. Por ello, si este escenario es fundamental para su aplicación, deberá habilitar la replicación geográfica activa. Vea la sección [Actualización de la aplicación sin tiempo de inactividad](sql-database-business-continuity-application-upgrade.md) para obtener más detalles.
+Las bases de datos de nivel Standard no admiten la opción de usar la replicación geográfica activa, por lo que si su aplicación usa bases de datos Standard y cumple los criterios anteriores, deberá usar la replicación geográfica estándar. Por el contrario, con las bases de datos Premium, se pueden elegir cualquiera de las opciones. La replicación geográfica estándar se ha diseñado como una solución de recuperación ante desastres más sencilla y menos costosa. Resulta especialmente adecuada para aplicaciones que usan la replicación solo para la protección frente a eventos imprevistos como, por ejemplo, las interrupciones. Para realizar la recuperación con la replicación geográfica estándar, solo podrá usar la región emparejada de recuperación ante desastres y tan solo podrá crear una base de datos secundaria por cada base de datos principal que tenga. Es posible que una base de datos secundaria adicional sea necesaria para el escenario de actualización de la aplicación. Por ello, si este escenario es fundamental para su aplicación, deberá habilitar la replicación geográfica activa. Vea la sección [Actualización de la aplicación sin tiempo de inactividad](sql-database-business-continuity-application-upgrade.md) para obtener más detalles.
 
 > [AZURE.NOTE]La replicación geográfica activa también admite el acceso de solo lectura a la base de datos secundaria, lo que proporciona capacidad adicional para las cargas de trabajo de solo lectura.
 
 ##Cómo habilitar la replicación geográfica
 
-Puede habilitar la replicación geográfica mediante el Portal de Azure o mediante una llamada a la API de REST o mediante el comando de PowerShell.
+Puede habilitar la replicación geográfica mediante el Portal de Azure, mediante una llamada a la API de REST o mediante el comando de PowerShell.
 
 ###Portal de Azure
 
@@ -74,31 +74,28 @@ Puede habilitar la replicación geográfica mediante el Portal de Azure o median
 
 ###PowerShell
 
-Use el cmdlet de PowerShell [AzureSqlDatabaseCopy Start](https://msdn.microsoft.com/library/dn720220.aspx) para automatizar la configuración de la replicación geográfica.
+Use el cmdlet de PowerShell [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) para crear una configuración de la replicación geográfica. Este comando es sincrónico y se devuelve cuando las bases de datos principales y secundarias están sincronizadas.
 
-Para crear la replicación geográfica con una base de datos secundaria no legible para una base de datos Premium o Standard:
+Configurar la replicación geográfica con una base de datos secundaria no legible, para una base de datos Premium o Standard:
 		
-		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy -OfflineSecondary
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "None"
+
 Para crear la replicación geográfica con una base de datos secundaria legible para una base de datos Premium:
 
-		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
 		 
-Este comando es asincrónico. Cuando vuelva, use el cmdlet [AzureSqlDatabaseCopy Get](https://msdn.microsoft.com/library/dn720235.aspx) para comprobar el estado de esta operación. El campo ReplicationState del objeto devuelto tendrá el valor CATCH\_UP cuando se complete la operación.
-
-		Get-AzureSqlDatabaseCopy -ServerName "PrimaryServerName" -DatabaseName "PrimaryDatabaseName" -PartnerServer "SecondaryServerName"
-
 
 ###API de REST 
 
-Use la API [Iniciar copia de base de datos](https://msdn.microsoft.com/library/azure/dn509576.aspx) API para crear mediante programación una configuración de replicación geográfica.
+Use la API [Crear base de datos](https://msdn.microsoft.com/library/mt163685.aspx) con el elemento *createMode* establecido como *NonReadableSecondary* o *Secondary*, para crear mediante programación una base de datos secundaria de replicación geográfica.
 
-Esta API es asincrónica. Cuando vuelva, use la API[Obtener copia de la base de datos](https://msdn.microsoft.com/library/azure/dn509570.aspx) para comprobar el estado de esta operación. El campo ReplicationState del cuerpo de la respuesta tendrá el valor CATCH\_UP cuando se complete la operación.
+Esta API es asincrónica. Cuando vuelva, use la API [Obtener vínculo de replicación](https://msdn.microsoft.com/library/mt600778.aspx) para comprobar el estado de la operación. El campo *ReplicationState* del cuerpo de la respuesta tendrá el valor CATCHUP cuando se complete la operación.
 
 
 ##Cómo elegir la configuración de conmutación por error 
 
-Al diseñar la aplicación para la continuidad del negocio, debe tener en cuenta varias opciones de configuración. La elección dependerá de la topología de la implementación de la aplicación y de las partes de las aplicaciones que sean más vulnerables a las interrupciones. Consulte [Diseño de soluciones de nube para la recuperación ante desastres mediante la replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md) para obtener instrucciones.
+Al diseñar la aplicación para la continuidad del negocio, debe tener en cuenta varias opciones de configuración. La elección dependerá de la topología de la implementación de la aplicación y de las partes de las aplicaciones que sean más vulnerables a las interrupciones. Consulte [Diseño de soluciones de nube para la recuperación ante desastres mediante la replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md), para obtener más instrucciones.
 
- 
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="11/12/2015" 
 	ms.author="luisca"/>
 
 # Guía de inicio rápido para la API de recomendaciones de Aprendizaje automático
@@ -27,7 +27,7 @@ En este documento se describe cómo incorporar su servicio o aplicación para us
 Para usar las recomendaciones de Aprendizaje automático de Azure, debe hacer lo siguiente:
 
 * Crear un modelo: un modelo es un contenedor de los datos de uso, datos del catálogo y el modelo de recomendación.
-* Importar datos de catálogo: es un paso opcional. Un catálogo contiene información de metadatos sobre los elementos. Si no se cargan los datos del catálogo, los servicios de recomendaciones obtendrán información sobre el catálogo de forma implícita en los datos de uso.
+* Importar datos del catálogo: un catálogo contiene información de metadatos sobre los elementos. 
 * Importar datos de uso: los datos de uso se pueden cargar en una de las dos formas siguientes (o ambas):
 	* Mediante la carga de un archivo que contiene los datos de uso.
 	* Mediante el envío de eventos de adquisición de datos. Normalmente, carga un archivo de uso para poder crear un modelo de recomendación inicial (arranque) y usarlo hasta que el sistema reúne suficientes datos con el formato de adquisición de datos.
@@ -673,4 +673,4 @@ XML de OData
 Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso. Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse. Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia. © 2014 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

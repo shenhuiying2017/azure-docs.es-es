@@ -111,7 +111,6 @@ Los inicializadores estándar están todos establecidos por los paquetes NuGet w
 
 * `AccountIdTelemetryInitializer` establece la propiedad AccountId.
 * `AuthenticatedUserIdTelemetryInitializer` establece la propiedad AuthenticatedUserId establecida por el SDK de JavaScript.
-* `OperationNameTelemetryInitializer` actualiza la propiedad del contexto `Operation.Id` de todos los elementos de telemetría cuyo seguimiento se realizó al tratar una solicitud con el `RequestTelemetry.Id` automáticamente generado.
 * `AzureRoleEnvironmentTelemetryInitializer` actualiza las propiedades `RoleName` y `RoleInstance` del contexto `Device` para todos los elementos de telemetría con información extraída del entorno de tiempo de ejecución de Azure.
 * `BuildInfoConfigComponentVersionTelemetryInitializer` actualiza la propiedad `Version` del contexto `Component` para todos los elementos de telemetría con el valor extraído del archivo `BuildInfo.config` que produce MS Build.
 * `ClientIpHeaderTelemetryInitializer` actualiza la propiedad `Ip` del contexto `Location` de todos los elementos de telemetría según el encabezado HTTP `X-Forwarded-For` de la solicitud.
@@ -128,7 +127,7 @@ Los inicializadores estándar están todos establecidos por los paquetes NuGet w
 * `SessionTelemetryInitializer` actualiza la propiedad `Id` del contexto `Session` para todos los elementos de telemetría con valor extraído de la cookie `ai_session` que genera el código de instrumentación JavaScript de Application Insights que se ejecuta en el explorador del usuario. 
 * `SyntheticTelemetryInitializer` actualiza las propiedades de los contextos `User`, `Session` y `Operation` de todos los elementos de telemetría de los que se realiza un seguimiento al tratar una solicitud de un origen sintético, como una prueba de disponibilidad o un bot de motor de búsqueda. De forma predeterminada, [Explorador de métricas](app-insights-metrics-explorer.md) no muestra telemetría sintética.
 * `UserAgentTelemetryInitializer` actualiza la propiedad `UserAgent` del contexto `User` de todos los elementos de telemetría según el encabezado HTTP `User-Agent` de la solicitud.
-* `UserTelemetryInitializer` actualiza las propiedades `Id` y `AcquisitionDate` del contexto `User` para todos los elementos de telemetria con valores extraídos de la cookie `ai_user` que genera el código de instrumentación JavaScript de Application Insights que se ejecuta en el explorador del usuario.
+* `UserTelemetryInitializer` actualiza las propiedades `Id` y `AcquisitionDate` del contexto `User` para todos los elementos de telemetría con valores extraídos de la cookie `ai_user` que genera el código de instrumentación JavaScript de Application Insights que se ejecuta en el explorador del usuario.
 
 
 ## Procesadores de telemetría (ASP.NET)
@@ -137,9 +136,20 @@ Los procesadores de telemetría pueden filtrar y modificar cada elemento de tele
 
 También puede [escribir sus propios procesadores de telemetría](app-insights-api-filtering-sampling.md#filtering).
 
-Hay un procesador estándar (desde la versión 2.0.1):
+También hay un [procesador de telemetría de muestreo](app-insights-api-filtering-sampling.md#sampling) estándar (desde 2.0.1):
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor` - El [muestreo](app-insights-api-filtering-sampling.md#sampling) reduce el volumen de telemetría mientras que sigue permitiendo la navegación entre elementos de telemetría relacionados para diagnóstico.
+```XML
+
+    <TelemetryProcessors>
+     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+     <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+     <SamplingPercentage>10</SamplingPercentage>
+     </Add>
+   </TelemetryProcessors>
+
+```
 
 
 
@@ -252,4 +262,4 @@ Para obtener una nueva clave, [cree un nuevo recurso en el portal de Application
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

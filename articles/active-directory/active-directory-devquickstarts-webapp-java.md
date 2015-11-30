@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="11/14/2015"
 	ms.author="brandwe"/>
 
 
@@ -21,7 +21,9 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Azure AD facilita la externalización de la administración de identidad de su aplicación web, proporcionando un inicio y cierre de sesión únicos con solo unas pocas líneas de código. En las aplicaciones web Asp.NET, puede realizar esto con la implementación de Microsoft del middleware OWIN orientado a la comunidad incluido en .NET Framework 4.5. Aquí usaremos OWIN para: - Iniciar sesión para el usuario en la aplicación con Azure AD como proveedor de identidad. -Mostrar alguna información sobre el usuario. - Cerrar sesión para el usuario de la aplicación.
+Azure AD facilita la externalización de la administración de identidad de su aplicación web, proporcionando un inicio y cierre de sesión únicos con solo unas pocas líneas de código. En las aplicaciones web Java, puede realizar esto con la implementación de Microsoft del ADAL4J orientado a la comunidad.
+
+  Aquí usaremos ADAL4J para: - Iniciar sesión para el usuario en la aplicación con Azure AD como proveedor de identidad. -Mostrar alguna información sobre el usuario. - Cerrar sesión para el usuario de la aplicación.
 
 Para ello, deberá hacer lo siguiente:
 
@@ -1388,7 +1390,7 @@ public final class AuthParameterNames {
 }
 ```
 
-3. Por último, cree un archivo llamado `AadController.java` que es el controlador de nuestro modelo MVC, que nos dará nuestro controlador JSP y expondará el punto de conexión de la URL `secure/aad` a nuestra aplicación. Además, también incluimos la consulta de Graph en este archivo.
+3. Por último, cree un archivo llamado `AadController.java` que es el controlador de nuestro modelo MVC, que nos dará nuestro controlador JSP y expondrá el punto de conexión de la URL `secure/aad` a nuestra aplicación. Además, también incluimos la consulta de Graph en este archivo.
 
 Copie y pegue lo siguiente:
 
@@ -1742,4 +1744,4 @@ Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se p
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

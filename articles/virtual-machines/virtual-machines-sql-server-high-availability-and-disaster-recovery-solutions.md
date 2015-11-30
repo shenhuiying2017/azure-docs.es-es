@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Alta disponibilidad y recuperación ante desastres para SQL Server | Microsoft Azure"
-   description="Este tutorial utiliza los recursos creados con el modelo de implementación clásica y describe los diversos tipos de estrategias HADR para SQL Server cuando se ejecuta en máquinas virtuales de Azure."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" 
-   tags="azure-service-management"/>
+	pageTitle="Alta disponibilidad y recuperación ante desastres para SQL Server | Microsoft Azure"
+	description="Este tutorial utiliza los recursos creados con el modelo de implementación clásica y describe los diversos tipos de estrategias HADR para SQL Server cuando se ejecuta en máquinas virtuales de Azure."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar" 
+	tags="azure-service-management"/>
 <tags 
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
-   ms.author="jroth" />
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="11/13/2015"
+	ms.author="jroth" />
 
 # Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure
 
@@ -104,9 +104,14 @@ Para obtener más información, consulte [Configuración de los grupos de dispon
 
 ### Compatibilidad del agente de escucha del grupo de disponibilidad
 
-Los agentes de escucha del grupo de disponibilidad son compatibles con máquinas virtuales de Azure que ejecutan Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2. Esta compatibilidad es posible mediante el uso de extremos de carga equilibrada en las máquinas virtuales de Azure que tengan habilitado Direct Server Return (DSR) y sean nodos del grupo de disponibilidad. Debe seguir pasos de configuración especiales para que los agentes de escucha funcionen tanto con las aplicaciones de cliente que se ejecutan en Azure como con las que se ejecutan localmente.
+Los agentes de escucha del grupo de disponibilidad son compatibles con máquinas virtuales de Azure que ejecutan Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2. Esta compatibilidad es posible gracias al uso de puntos de conexión de carga equilibrada habilitados en las máquinas virtuales de Azure y que son nodos del grupo de disponibilidad. Debe seguir pasos de configuración especiales para que los agentes de escucha funcionen tanto con las aplicaciones de cliente que se ejecutan en Azure como con las que se ejecutan localmente.
 
-Los clientes deben conectarse al agente de escucha desde una máquina que se encuentre en un servicio en la nube diferente de los nodos de Grupo de disponibilidad AlwaysOn. Si el grupo de disponibilidad abarca varias subredes de Azure (por ejemplo, una implementación que comprende varias regiones de Azure), la cadena de conexión de cliente debe incluir "MultisubnetFailover = True". Esto se traduce en intentos de conexión en paralelo a las réplicas de las diferentes subredes. Para obtener instrucciones sobre la forma de configurar un agente de escucha, consulte [Configuración de un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
+Existen dos opciones principales para configurar el agente de escucha: externa (público) o interna. El agente de escucha externo (público) está asociado a una IP virtual pública (VIP) que es accesible a través de internet. Si usa un agente de escucha externo, debe habilitar Direct Server Return, lo que significa que debe conectarse al agente de escucha desde un equipo que no esté en el mismo servicio en la nube que los nodos de grupo de disponibilidad AlwaysOn. La otra opción, es un agente de escucha interno que utilice un Equilibrador de carga interno (ILB). Un agente de escucha interno sólo admite clientes dentro de la misma red virtual.
+
+Si el grupo de disponibilidad abarca varias subredes de Azure (como por ejemplo, una implementación que comprenda varias regiones de Azure), la cadena de conexión de cliente debe incluir "**MultisubnetFailover = True**". Esto se traduce en intentos de conexión en paralelo a las réplicas de las diferentes subredes. Para obtener instrucciones acerca de cómo configurar un agente de escucha, consulte
+
+- [Configurar un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
+- [Configurar un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md).
 
 Puede seguir conectándose a cada réplica de disponibilidad por separado conectándose directamente a la instancia del servicio. Además, puesto que los grupos de disponibilidad AlwaysOn son compatibles con las versiones anteriores de los clientes de creación de reflejo de la base de datos, puede conectarse a las réplicas de disponibilidad como asociados de creación de reflejo de la base de datos siempre y cuando las réplicas estén configuradas de forma similar a la creación de reflejo de la base de datos:
 
@@ -147,4 +152,4 @@ Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de
 - [Instalación de un nuevo bosque de Active Directory en Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Crear el clúster WSFC para grupos de disponibilidad AlwaysOn en la VM de Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

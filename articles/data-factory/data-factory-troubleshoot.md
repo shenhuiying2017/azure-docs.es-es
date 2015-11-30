@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="11/12/2015" 
 	ms.author="spelluru"/>
 
 # Solución de problemas de la factoría de datos
@@ -382,4 +382,4 @@ En este escenario, el conjunto de datos está en estado de error debido a un err
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

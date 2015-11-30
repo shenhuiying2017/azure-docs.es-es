@@ -12,19 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
 
 
 # Configurar Application Insights: seguimiento de dependencias
 
-*Application Insights se encuentra en su versión de vista previa.*
-
-
-[Application Insights de Visual Studio](http://azure.microsoft.com/services/application-insights) supervisa su aplicación activa para ayudarle a [detectar y diagnosticar problemas y excepciones de rendimiento][detect], y [descubrir cómo se usa la aplicación][knowUsers].
-
-
-<a name="selector1"></a>
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
@@ -97,7 +90,7 @@ En el panel de control de la aplicación web de Azure, agregue la extensión App
 
 ### Si se trata de un proyecto de servicios en la nube de Azure
 
-[Agregue scripts a roles web y de trabajo](app-insights-cloudservices.md).
+[Agregar scripts a roles web y de trabajo](app-insights-cloudservices.md).
 
 ## <a name="diagnosis"></a> Diagnóstico de problemas de rendimiento de dependencia
 
@@ -202,4 +195,4 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

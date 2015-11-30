@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
-# Pruebas de configuración del Administrador de tráfico
+# Pruebe la configuración del Administrador de tráfico
 
 La mejor forma de probar la configuración del Administrador de tráfico es configurar varios clientes y luego desactivar los extremos del perfil, que constan de servicios en la nube y sitios web, de uno en uno. Las siguientes sugerencias le ayudarán a probar el perfil del Administrador de tráfico.
 
@@ -61,22 +61,15 @@ Para probar eficazmente un método de enrutamiento del tráfico de rendimiento, 
 
 Hay servicios gratuitos de indagación y de búsqueda DNS basada en web disponibles. Algunos de estos proporcionan la capacidad de comprobar la resolución de nombres DNS desde varias ubicaciones. Realice una búsqueda en "Búsqueda DNS" para obtener ejemplos. Otra opción es usar una solución de terceros como, por ejemplo, Gomez o Keynote, para confirmar que los perfiles distribuyen el tráfico según lo esperado.
 
-## Otras referencias
+## Pasos siguientes
 
-[Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-load-balancing-methods.md)
+[Consideraciones de rendimiento sobre el Administrador de tráfico](traffic-manager-performance-considerations.md)
 
-[Administrador de tráfico: deshabilitación, habilitación o eliminación de un perfil](disable-enable-or-delete-a-profile.md)
+[Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
 
-[Administrador de tráfico: deshabilitación o habilitación de un extremo](disable-or-enable-an-endpoint.md)
 
-[¿Qué es el Administrador de tráfico?](traffic-manager-overview.md)
 
-[Servicios en la nube](http://go.microsoft.com/fwlink/p/?LinkId=314074)
-
-[Sitios web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[Operaciones del Administrador de tráfico (referencia de la API de REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

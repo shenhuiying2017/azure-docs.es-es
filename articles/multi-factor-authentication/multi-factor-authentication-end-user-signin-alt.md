@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Inicio de sesión mediante un método alternativo con Azure Multi-Factor Authentication
@@ -33,4 +33,4 @@ En la siguiente sección se mostrará cómo iniciar sesión con un método alter
 
 <li>Elija un método alternativo e inicie sesión.</li>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

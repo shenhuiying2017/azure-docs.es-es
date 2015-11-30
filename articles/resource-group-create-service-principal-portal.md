@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/29/2015"
+   ms.date="11/17/2015"
    ms.author="tomfitz"/>
 
 # Creación de aplicación de Active Directory y entidad de servicio mediante el portal
 
 ## Información general
-Si tiene una aplicación que necesita tener acceso a un recurso o modificarlo en su suscripción, puede usar el portal para crear una aplicación de Active Directory y asignarla a un rol con los permisos correctos. Si crea una aplicación de Active Directory a través del portal, en realidad se crea la aplicación y una entidad de servicio. La entidad de servicio se utiliza al establecer los permisos.
+Si tiene una aplicación o un proceso automatizado que necesita tener acceso a un recurso o modificarlo en su suscripción, puede usar el portal para crear una aplicación de Active Directory y asignarla a un rol con los permisos correctos. Si crea una aplicación de Active Directory a través del portal, en realidad se crea la aplicación y una entidad de servicio. La entidad de servicio se utiliza al establecer los permisos.
 
-En este tema se muestra cómo crear una nueva aplicación y entidad de servicio mediante el portal de Azure. Actualmente, debe usar el portal de Microsoft Azure para crear una nueva aplicación de Active Directory. Esta capacidad se agregará al portal de vista previa de Azure en una versión posterior. Puede utilizar el portal de vista previa para asignar la aplicación a un rol.
+En este tema se muestra cómo crear una nueva aplicación y entidad de servicio mediante el portal de Azure. Actualmente, debe usar el portal de Microsoft Azure para crear una nueva aplicación de Active Directory. Esta capacidad se agregará al portal de vista previa de Azure en una versión posterior. Puede utilizar el portal de vista previa para asignar la aplicación a un rol. También puede llevar a cabo estos pasos a través de Azure PowerShell o CLI de Azure. Para más información, vea [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
 
 ## Conceptos
 1. Azure Active Directory (AAD): un servicio de administración de identidades y acceso creado para la nube. Para obtener más información, consulte [¿Qué es Azure Active Directory?](active-directory/active-directory-whatis.md)
@@ -82,7 +82,7 @@ El portal ahora debería tener la aplicación seleccionada.
 
      ![guardar][13]
 
-     Se muestra la clave guardada, y tiene la posibilidad de copiarla.
+     Se muestra la clave guardada, y tiene la posibilidad de copiarla. No podrá recuperar la clave más tarde, por lo que querrá recuperarla ahora.
 
      ![clave guardada][8]
 
@@ -90,6 +90,9 @@ El portal ahora debería tener la aplicación seleccionada.
   
      ![id. de cliente][5]
 
+5. En algunos casos, debe pasar el id. del inquilino con su solicitud de autenticación. Para recuperar el id. de inquilino, seleccione **Ver puntos de conexión** y recupere el id. como se muestra a continuación.
+
+     ![id. de inquilino](./media/resource-group-create-service-principal-portal/save-tenant.png)
 
 La aplicación está ahora lista y la entidad de servicio creada en el inquilino. Al iniciar sesión como una entidad de servicio asegúrese de usar lo siguiente:
 
@@ -98,7 +101,17 @@ La aplicación está ahora lista y la entidad de servicio creada en el inquilino
 
 ## Asignación de la aplicación a un rol
 
-Puede utilizar el [portal de vista previa](https://portal.azure.com) para asignar la aplicación de Active Directory a un rol que tenga acceso al recurso al que necesita tener acceso. Para obtener información sobre la asignación de la aplicación a un rol, consulte [Control de acceso basado en roles de Azure Active Directory](active-directory/role-based-access-control-configure.md).
+Debe asignar la aplicación a un rol para concederle permisos para realizar acciones. Puede utilizar el [portal de vista previa](https://portal.azure.com) para asignar la aplicación de Active Directory a un rol con los permisos correctos.
+
+Para empezar a usar el control de acceso en el portal de vista previa, seleccione el icono **Acceso**.
+
+![seleccionar usuarios](./media/resource-group-create-service-principal-portal/select-users.png)
+
+Seleccione el rol al que quiere asignar la aplicación y busque la aplicación.
+
+![seleccionar usuarios](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+
+Para más información sobre el trabajo con los usuarios, las aplicaciones y los roles, vea [Administración del acceso con el Portal de administración de Azure](active-directory/role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
 
 ## Obtención de token de acceso en el código
 
@@ -149,4 +162,4 @@ En la aplicación, agregue un método similar al siguiente para recuperar el tok
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

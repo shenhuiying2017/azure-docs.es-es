@@ -23,12 +23,11 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]En este artículo se aborda el modelo de implementación clásica. Si está buscando el modelo de implementación del Administrador de recursos de Azure, vaya a [Introducción a la creación de un equilibrador de carga orientado a Internet mediante el administrador de recursos](load-balancer-get-started-internet-arm-ps.md).
-
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación clásico. También puede [obtener información sobre cómo crear un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure](load-balancer-get-started-internet-arm-cli.md).
 
 Los servicios en la nube se configuran automáticamente con un equilibrador de carga y se pueden personalizar mediante el modelo de servicio.
 
-Puede aprovechar el SDK de Azure para .NET 2.5 para actualizar el servicio en la nube. La configuración de extremos para los servicios en la nube se realiza en el archivo [definición de servicio](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef.
+Puede aprovechar el SDK de Azure para .NET 2.5 para actualizar el servicio en la nube. La configuración de puntos de conexión para los servicios en la nube se realiza en el archivo [definición de servicio](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef.
 
 En el ejemplo siguiente se muestra cómo se configura un archivo servicedefinition.csdef para una implementación en la nube:
 
@@ -66,7 +65,7 @@ A continuación se muestra un sondeo de estado:
     	<LoadBalancerProbe name=“MyProbe” protocol=“http” path=“Probe.aspx” intervalInSeconds=“5” timeoutInSeconds=“100“ />
  	 	</LoadBalancerProbes>
 
-El equilibrador de carga combina la información del extremo y la información del sondeo para crear una dirección URL en forma de http://{DIP de VM}:80/Probe.aspx que se puede usar para consultar el estado del servicio.
+El equilibrador de carga combina la información del punto de conexión y la información del sondeo para crear una dirección URL en forma de http://{DIP de VM}:80/Probe.aspx que se puede usar para consultar el estado del servicio.
 
 El servicio detecta sondeos periódicos desde la misma dirección IP. Se trata de la solicitud de sondeo de estado procedente del host del nodo donde se ejecuta la máquina virtual. El servicio debe responder con un código de estado HTTP 200 para que el equilibrador de carga asuma que el estado del servicio es correcto. Cualquier otro código de estado HTTP (por ejemplo, el 503) extrae directamente la máquina virtual de la rotación.
 
@@ -82,4 +81,4 @@ Compruebe el esquema de definición del [sondeo de estado](https://msdn.microsof
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

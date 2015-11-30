@@ -643,10 +643,10 @@ En Visual Studio, desde el menú **Compilación**, haga clic en **Generar soluci
 
 Este tutorial ha mostrado cómo crear una aplicación cliente del Bus de servicio y un servicio mediante las capacidades de mensajería asíncrona del Bus de servicio. Para obtener un tutorial similar que use la [mensajería retransmitida](service-bus-messaging-overview.md/#Relayed-messaging) del Bus de servicio, consulte el [tutorial de mensajería retransmitida del Bus de servicio](service-bus-relay-tutorial.md).
 
-Para obtener más información acerca del Bus de servicio, consulte los temas siguientes.
+Para obtener más información sobre el [Bus de servicio](https://azure.microsoft.com/services/service-bus/), vea los temas siguientes:
 
 - [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
 - [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
 - [Arquitectura del Bus de servicio](service-bus-architecture.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

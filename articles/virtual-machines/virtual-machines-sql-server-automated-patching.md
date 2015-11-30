@@ -1,37 +1,38 @@
 <properties
-   pageTitle="Aplicación automatizada de revisiones de SQL Server en máquinas virtuales | Microsoft Azure"
-   description="Explica la característica Aplicación de revisión automatizada para Máquinas virtuales de SQL Server que se ejecuta en Azure."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar"
-   tags="azure-resource-manager" />
+	pageTitle="Aplicación automatizada de revisiones de SQL Server en máquinas virtuales | Microsoft Azure"
+	description="Explica la característica Aplicación de revisión automatizada para Máquinas virtuales de SQL Server que se ejecuta en Azure."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"
+	tags="azure-resource-manager" />
 <tags
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
-   ms.author="jroth" />
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="11/12/2015"
+	ms.author="jroth" />
 
 # Aplicación de revisión automatizada para SQL Server en Máquinas virtuales de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
-
-
 Aplicación de revisión automatizada establece una ventana de mantenimiento para Máquinas virtuales de Azure con SQL Server 2012 o 2014. Actualizaciones automatizadas solo puede instalarse durante esta ventana de mantenimiento. Para SQL Server, esto garantiza que se actualiza el sistema y que cualquier reinicio asociado se producto en el mejor momento posible para la base de datos. Depende del agente de Iaas de SQL Server.
 
->[AZURE.NOTE]Aplicación de revisión automatizada se basa en el agente de Iaas de SQL Server. Para instalar y configurar el agente, debe disponer del agente de máquina virtual de Azure en la máquina virtual de destino. Las imágenes de la galería de la máquina virtual más recientes tienen esta opción habilitada de forma predeterminada, pero el agente de máquina virtual de Azure puede faltar en las máquinas virtuales existentes. Si usa su propia imagen de máquina virtual, también tendrá que instalar el agente de IaaS de SQL Server. Para obtener más información, vea [Agente de máquina virtual y extensiones](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
 ## Configuración de Aplicación de revisión automatizada en el Portal
 
-Puede usar el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409) para configurar Aplicación de revisión automatizada cuando cree una nueva máquina virtual de SQL Server. La siguiente captura muestra estas opciones en **CONFIGURACIÓN OPCIONAL** | **APLICACIÓN DE REVISIÓN AUTOMATIZADA DE SQL**.
+Puede usar el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409) para configurar Aplicación de revisión automatizada cuando cree una nueva máquina virtual de SQL Server.
+
+>[AZURE.NOTE]Aplicación de revisión automatizada se basa en el agente de Iaas de SQL Server. Para instalar y configurar el agente, debe disponer del agente de máquina virtual de Azure en la máquina virtual de destino. Las imágenes de la galería de la máquina virtual más recientes tienen esta opción habilitada de forma predeterminada, pero el agente de máquina virtual de Azure puede faltar en las máquinas virtuales existentes. Si usa su propia imagen de máquina virtual, también tendrá que instalar el agente de IaaS de SQL Server. Para obtener más información, consulte [Agente de máquina virtual y extensiones](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+
+La siguiente captura del portal muestra estas opciones en **CONFIGURACIÓN OPCIONAL** | **APLICACIÓN DE REVISIÓN AUTOMATIZADA DE SQL**.
 
 ![Aplicación de revisión automática de SQL en el Portal de Azure](./media/virtual-machines-sql-server-automated-patching/IC778484.jpg)
 
-Para las máquinas virtuales de SQL Server 2012 o 2014, seleccione la configuración **Aplicación de revisión automatizada** en la sección **Configuración** de las propiedades de la máquina virtual. En la ventana **Aplicación de revisión automatizada**, puede habilitar la característica, establecer la programación de mantenimiento y la hora de inicio, y elegir la duración de la ventana de mantenimiento. Esto se muestra en la siguiente captura de pantalla.
+Para las máquinas virtuales de SQL Server 2012 o 2014, seleccione la configuración **Aplicación de revisión automatizada** en la sección **Configuración** de las propiedades de la máquina virtual. En la ventana **Aplicación de revisión automatizada**, puede habilitar la característica, establecer la programación de mantenimiento y la hora de inicio y elegir la duración de la ventana de mantenimiento. Esto se muestra en la siguiente captura de pantalla.
 
 ![Configuración de Aplicación de revisión automatizada en el Portal de Azure](./media/virtual-machines-sql-server-automated-patching/IC792132.jpg)
 
@@ -41,7 +42,7 @@ Para las máquinas virtuales de SQL Server 2012 o 2014, seleccione la configurac
 
 También puede usar PowerShell para configurar Aplicación de revisión automatizada.
 
-En el ejemplo siguiente, se usa PowerShell para configurar Aplicación de revisión automatizada en una máquina virtual de SQL Server existente. El comando **New-AzureVMSqlServerAutoPatchingConfig** configura una nueva ventana de mantenimiento para actualizaciones automáticas.
+En el ejemplo siguiente, se usa PowerShell para configurar Aplicación de revisión automatizada en una máquina virtual de SQL Server existente. El comando **New-AzureVMSqlServerAutoPatchingConfig** configura una nueva ventana de mantenimiento para las actualizaciones automáticas.
 
     $aps = New-AzureVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
@@ -70,7 +71,7 @@ Para desinstalar el agente de IaaS de SQL Server, use la siguiente sintaxis:
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension –Uninstall | Update-AzureVM
 
-También puede desinstalar la extensión con el comando **Remove-AzureVMSqlServerExtension**:
+También puede desinstalar la extensión mediante el comando **Remove-AzureVMSqlServerExtension**:
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Remove-AzureVMSqlServerExtension | Update-AzureVM
 
@@ -88,8 +89,8 @@ Los siguientes productos son compatibles con las características del agente de 
 
 ## Pasos siguientes
 
-Una característica relacionada para máquinas virtuales de SQL Server es [Copia de seguridad automatizada para SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-automated-backup.md).
+Una característica relacionada de las máquinas virtuales de SQL Server es la [Copia de seguridad automatizada para SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-automated-backup.md).
 
 Revise otros [recursos para ejecutar SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

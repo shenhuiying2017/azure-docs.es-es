@@ -278,7 +278,7 @@ Si intenta eliminar un elemento sin el campo "Id" ya establecido, no hay forma d
 
 ##<a name="#custom-api"></a>Llamada a una API personalizada
 
-Una API personalizada le permite definir extremos personalizados que exponen la funcionalidad del servidor que no se asigna a una operación de inserción, actualización, eliminación o lectura. Al usar una API personalizada, puede tener más control sobre la mensajería, incluida la lectura y el establecimiento de encabezados de mensajes HTTP y la definición del formato del cuerpo de un mensaje diferente de JSON. Para obtener un ejemplo de cómo crear una API personalizada en el servicio móvil, vea [Definición de un extremo de API personalizada](mobile-services-dotnet-backend-define-custom-api.md).
+Una API personalizada le permite definir extremos personalizados que exponen la funcionalidad del servidor que no se asigna a una operación de inserción, actualización, eliminación o lectura. Al usar una API personalizada, puede tener más control sobre la mensajería, incluida la lectura y el establecimiento de encabezados de mensajes HTTP y la definición del formato del cuerpo de un mensaje diferente de JSON. Para obtener un ejemplo de cómo crear una API personalizada en el servicio móvil, vea [Definición de un punto de conexión de API personalizada](mobile-services-dotnet-backend-define-custom-api.md).
 
 Puede llamar a una API personalizada al llamar a una de las sobrecargas del método [InvokeApiAsync] en el cliente. Por ejemplo, la siguiente línea de código envía una solicitud POST a la API **completeAll** del servicio móvil:
 
@@ -292,17 +292,17 @@ Tenga en cuenta que se trata de una llamada de método con tipo, lo que requiere
 
 El cliente de Servicios móviles permite registrar las notificaciones de inserción con Centros de notificaciones de Azure. Al registrar, se obtiene un identificador del servicio de notificaciones push (PNS) específico de la plataforma. A continuación, proporcione este valor junto con las etiquetas cuando se cree el registro. El código siguiente registra la aplicación de Windows para las notificaciones push en el Servicio de notificaciones de Windows.(WNS):
 
-		private async void InitNotificationsAsync()
-		{
-		    // Request a push notification channel.
-		    var channel =
-		        await PushNotificationChannelManager
-		            .CreatePushNotificationChannelForApplicationAsync();
+	private async void InitNotificationsAsync()
+	{
+	    // Request a push notification channel.
+	    var channel =
+	        await PushNotificationChannelManager
+	            .CreatePushNotificationChannelForApplicationAsync();
 
-		    // Register for notifications using the new channel and a tag collection.
-			var tags = new List<string>{ "mytag1", "mytag2"};
-		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
-		}
+	    // Register for notifications using the new channel and a tag collection.
+		var tags = new List<string>{ "mytag1", "mytag2"};
+	    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
+	}
 
 Tenga en cuenta que en este ejemplo se incluyen dos etiquetas en el registro. Para obtener más información sobre las aplicaciones de Windows, consulte [Incorporación de notificaciones push a la aplicación](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md).
 
@@ -310,6 +310,18 @@ Las aplicaciones de Xamarin requieren código adicional para poder registrar una
 
 >[AZURE.NOTE]Cuando necesite enviar notificaciones a los usuarios registrados específicos, es importante requerir autenticación antes del registro y, a continuación, comprobar que el usuario está autorizado para registrarse con una etiqueta específica. Por ejemplo, se debe comprobar que un usuario no se registra con una etiqueta de Id. de usuario de otra persona. Para obtener más información, consulte [Envío de notificaciones de inserción a usuarios autenticados](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
+##<a name="pull-notifications"></a>Cómo: usar notificaciones periódicas en una aplicación de Windows
+
+Windows admite notificaciones periódicas (notificaciones push) para actualizar los iconos dinámicos. Con las notificaciones periódicas habilitadas, Windows tendrá acceso periódico a un punto de conexión de la API personalizada para actualizar el icono dinámico en el menú Inicio. Para usar notificaciones periódicas, debe [definir una API personalizada](mobile-services-javascript-backend-define-custom-api.md) que devuelva datos XML en un formato específico de icono. Para obtener más información, consulte [Notificaciones periódicas](https://msdn.microsoft.com/library/windows/apps/hh761461.aspx).
+
+El siguiente ejemplo activa las notificaciones periódicas para solicitar datos de la plantilla de icono desde un punto de conexión personalizado de *iconos*:
+
+    TileUpdateManager.CreateTileUpdaterForApplication().StartPeriodicUpdate(
+        new System.Uri(MobileService.ApplicationUri, "/api/tiles"),
+        PeriodicUpdateRecurrence.Hour
+    ); 
+
+Seleccione un valor [PeriodicUpdateRecurrance](https://msdn.microsoft.com/library/windows/apps/windows.ui.notifications.periodicupdaterecurrence.aspx) que se adapte mejor a la frecuencia de actualización de sus datos.
 
 ##<a name="optimisticconcurrency"></a>Uso de la simultaneidad optimista
 
@@ -428,7 +440,7 @@ Algunos controles en tiempo de ejecución administrado son compatibles con una i
 		lb.ItemsSource = items;
 
 
-Para usar la nueva colección en aplicaciones de Windows Phone 8 y "Silverlight", utilice los métodos de extensión `ToCollection` en `IMobileServiceTableQuery<T>` y `IMobileServiceTable<T>`. Para cargar datos realmente, llame a `LoadMoreItemsAsync()`.
+Para usar la nueva colección en aplicaciones de Windows Phone 8 y "Silverlight", use los métodos de extensión `ToCollection` en `IMobileServiceTableQuery<T>` y `IMobileServiceTable<T>`. Para cargar datos realmente, llame a `LoadMoreItemsAsync()`.
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 	await items.LoadMoreItemsAsync();
@@ -754,4 +766,4 @@ Esta propiedad convierte todas las propiedades en minúsculas durante la seriali
 [API personalizada en los SDK del cliente de Servicios móviles de Azure]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

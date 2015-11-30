@@ -67,6 +67,6 @@ Si bien la autenticación y la autorización son elementos esenciales para permi
 [Determinación de los requisitos de respuesta a incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
 
 ## Otras referencias
-[Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

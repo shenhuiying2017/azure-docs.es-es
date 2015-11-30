@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/10/2015"
+	ms.date="11/16/2015"
 	ms.author="curtand"/>
 
 
@@ -51,10 +51,10 @@ Para usar los cmdlets de Windows PowerShell, primero debe instalarlos.
 2.  Realice una de las operaciones siguientes:
 
 	- Para configurar la contraseña de un usuario para que caduque, ejecute el cmdlet siguiente con el nombre principal de usuario (UPN) o el identificador de usuario del usuario: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$false`
-  	
+
 	- Para configurar las contraseñas de todos los usuarios de la organización de modo que caduquen, use el siguiente cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$false`
 
-## Configuración de una contraseña para que no caduque
+## Configure una contraseña para que no caduque nunca
 
 1. Conéctese a Windows PowerShell con sus credenciales de administrador de empresa.
 
@@ -64,4 +64,4 @@ Para usar los cmdlets de Windows PowerShell, primero debe instalarlos.
 
 	- Para configurar las contraseñas de todos los usuarios de una organización para que nunca caduquen, ejecute el siguiente cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

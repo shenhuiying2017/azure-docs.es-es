@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/05/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Introducción al Almacén de Azure Data Lake mediante la línea de comandos de Azure
@@ -37,7 +37,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
 - **Habilite su suscripción de Azure** para la versión de vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup). 
 - **CLI de Azure** - Vea [Instalar y configurar la CLI de Azure](../xplat-cli-install.md) para obtener información de instalación y configuración. Asegúrese de reiniciar el equipo después de instalar la CLI.
 
-##Inicio de sesión en la suscripción de Azure
+##Iniciar sesión en su suscripción de Azure
 
 Siga los pasos que se documentan en [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](xplat-cli-connect.md) y conéctese a su suscripción con el método __login__.
 
@@ -62,7 +62,7 @@ Abra un símbolo del sistema, el shell o sesión de Terminal y ejecute los coman
 		azure account list
 
 
-4. Si tiene varias suscripciones de Azure, puede usar el comando siguiente para establecer la suscripción que usarán los comandos de la CLI de Azure.
+4. Si tiene varias suscripciones de Azure, puede usar el comando siguiente para establecer la suscripción que usarán los comandos de la CLI de Azure:
 
 		azure account set <subscriptionname>
 
@@ -90,7 +90,7 @@ Por ejemplo:
 
 Puede cargar los datos en el Almacén de Data Lake directamente en el nivel raíz o en la carpeta que creó en la cuenta. Los fragmentos de código siguientes muestran cómo cargar algunos datos de ejemplo en la carpeta (**miNuevaCarpeta**) que creó en la sección anterior.
 
-Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData). Descargue el archivo y almacénelo en un directorio local en el equipo, como C:\\sampledata.
+Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData). Descargue el archivo y almacénelo en un directorio local en el equipo, como C:\\sampledata.
 
 	azure datalake store filesystem import <dataLakeStoreAccountName> "<source path>" "<destination path>"
 
@@ -192,4 +192,4 @@ Cuando se le solicite, escriba **Y** para eliminar la cuenta.
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

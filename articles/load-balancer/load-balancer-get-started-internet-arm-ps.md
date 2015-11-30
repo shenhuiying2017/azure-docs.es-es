@@ -23,13 +23,13 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación del Administrador de recursos. Si está buscando el modelo de implementación clásica de Azure, vaya a [Introducción a la creación de un equilibrador de carga orientado a Internet mediante la implementación clásica](load-balancer-get-started-internet-classic-portal.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puede [obtener información sobre cómo crear un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure](load-balancer-get-started-internet-arm-cli.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 Los pasos siguientes muestran cómo crear un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure con PowerShell. Con el Administrador de recursos de Azure, los elementos para crear un equilibrador de carga orientado a Internet se configuran individualmente y después se colocan juntos para crear un recurso.
 
-Esta página describiremos la secuencia de tareas individuales que debe realizarse para crear un equilibrador de carga y explicaremos con detalle cada una de ellas.
+Aquí se tratará la secuencia de tareas individuales que debe realizarse para crear un equilibrador de carga y se explicará con detalle qué se hace para lograr el objetivo.
 
 ## ¿Qué se necesita para crear un equilibrador de carga orientado a Internet?
 
@@ -37,18 +37,19 @@ Para implementar un equilibrador de carga, debe crear y configurar los objetos s
 
 - Configuración de direcciones IP front-end: contiene direcciones IP públicas para el tráfico de red entrante. 
 
-- Grupo de direcciones de back-end: contiene interfaces de red (NIC) para recibir tráfico proveniente del equilibrador de carga.
+- Grupo de direcciones de back-end: contiene interfaces de red (NIC) para que las máquinas virtuales reciban tráfico de red del equilibrador de carga.
 
-- Reglas de equilibrio de carga: contiene reglas que asignan un puerto público en el equilibrador de carga a puertos en las NIC en el grupo de direcciones de back-end.
+- Reglas de equilibrio de carga: contiene reglas que asignan un puerto público en el equilibrador de carga al del grupo de direcciones de back-end.
 
-- Reglas NAT de entrada: contiene reglas que asignan un puerto público en el equilibrador de carga a un puerto en una NIC individual en el grupo de direcciones de back-end.
+- Reglas NAT de entrada: contiene reglas que asignan un puerto público en el equilibrador de carga a un puerto para una máquina virtual específica en el grupo de direcciones de back-end.
 
-- Sondeos: contiene los sondeos de estado que se utilizan para comprobar la disponibilidad de las máquinas virtuales vinculadas a las NIC en el grupo de direcciones de back-end.
+- Sondeos: contiene los sondeos de estado que se usan para comprobar la disponibilidad de las instancias de las máquinas virtuales del grupo de direcciones de back-end.
 
-Puede obtener más información acerca de los componentes del equilibrador de carga con el Administrador de recursos de Azure en [Compatibilidad del Administrador de recursos de Azure con el Equilibrador de carga](load-balancer-arm.md).
+Para más información sobre los componentes del equilibrador de carga con el Administrador de recursos de Azure en [Compatibilidad del Administrador de recursos de Azure con el Equilibrador de carga](load-balancer-arm.md).
 
 
 ## Configurar PowerShell para que use el Administrador de recursos
+
 Asegúrese de contar con la versión de producción más reciente del módulo de Azure para PowerShell y de tener configurado correctamente PowerShell para obtener acceso a su suscripción a Azure.
 
 ### Paso 1
@@ -112,11 +113,11 @@ Cree una dirección IP pública (PIP) llamada *PublicIP* para que la use un grup
 
 ### Paso 1 
 
-Cree un grupo de direcciones IP front-end llamado *LB-Frontend* que use la dirección IP pública *PublicIp*.
+Cree un grupo de direcciones IP front-end llamado *LB-Frontend* que usa la dirección IP pública *PublicIp*.
 
 	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP 
 
-### Paso 2 
+### Paso 2 
 
 Cree un grupo de direcciones de back-end llamado *LB-backend*.
 
@@ -281,4 +282,4 @@ Use el comando Remove-AzureLoadBalancer para eliminar un equilibrador de carga c
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

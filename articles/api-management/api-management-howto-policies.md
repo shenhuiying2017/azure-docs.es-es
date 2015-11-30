@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 
@@ -23,7 +23,7 @@ En Administración de API de Azure, las directivas constituyen una eficaz funcio
 
 Consulte la [Referencia de directivas][] para obtener una lista de declaraciones de directiva con su configuración.
 
-Las directivas se aplican en el proxy que se encuentra entre el consumidor de la API y la API administrada. El proxy recibe todas las solicitudes y normalmente las reenvía sin modificar a la API subyacente. Sin embargo, una directiva puede aplicar cambios a la solicitud de entrada y a la respuesta de salida.
+Las directivas se aplican en la puerta de enlace que se encuentra entre el consumidor de la API y la API administrada. La puerta de enlace recibe todas las solicitudes y normalmente las reenvía sin modificar a la API subyacente. Sin embargo, una directiva puede aplicar cambios a la solicitud de entrada y a la respuesta de salida.
 
 Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de Administración de API, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control][] y [Establecer variable][] se basan en expresiones de directiva. Para obtener más información, consulte [Directivas avanzadas][] y [Expresiones de directiva][].
 
@@ -73,7 +73,7 @@ Para limitar las solicitudes de entrada y aceptar solo las procedentes de una di
 
 ![Save][policies-save]
 
-Cuando complete la configuración de las declaraciones de la directiva, haga clic en Guardar; los cambios se propagarán inmediatamente al proxy de Administración de API.
+Cuando complete la configuración de las declaraciones de la directiva, haga clic en Guardar; los cambios se propagarán inmediatamente a la puerta de enlace de Administración de API.
 
 ##<a name="sections"> </a>Descripción de la configuración de directivas
 
@@ -128,4 +128,4 @@ Visualice el siguiente vídeo acerca de expresiones de directivas.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

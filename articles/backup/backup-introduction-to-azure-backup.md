@@ -1,26 +1,17 @@
 <properties
-	pageTitle="Introducción a Copia de seguridad de Azure | Microsoft Azure"
-	description="Este artículo proporciona información general sobre el servicio de copia de seguridad de Azure que permite a los clientes realizar copias de seguridad en Azure."
+	pageTitle="¿Qué es Copia de seguridad de Azure? | Microsoft Azure"
+	description="Con los servicios de recuperación y Copia de seguridad de Azure puede realizar una copia de seguridad y restaurar los datos y aplicaciones de servidores de Windows, equipos cliente de Windows, servidores SCDPM o máquinas virtuales de Azure."
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
-	editor="tysonn"/>
+	editor="tysonn"
+	keywords="copia de seguridad y restauración; servicios de recuperación"/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/01/2015"
-	ms.author="aashishr"; "trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
-# Introducción a la Copia de seguridad de Azure
-Este artículo proporciona una introducción de alto nivel de la solución de copia de seguridad integrada en la nube de Microsoft, que permite a los clientes realizar una copia de seguridad de sus datos presente en local o en Azure.
-
-## ¿Qué es la Copia de seguridad de Azure?
-La Copia de seguridad de Azure es un servicio de Azure de varios inquilinos que le permite realizar la copia de seguridad de los datos presentes en cualquier lugar: en local o en Azure. Reemplaza su solución de copia de seguridad local o remota existente por una oferta confiable, segura y rentable basada en la nube. También ofrece la flexibilidad de protección de los activos que se ejecutan en la nube. La Copia de seguridad de Azure se basa en una infraestructura de clase mundial escalable, duradera y de alta disponibilidad. Con esta solución, puede hacer una copia de seguridad de datos y aplicaciones desde sus servidores de System Center Data Protection Manager (SCDPM), los servidores de Windows, las máquinas cliente de Windows o las máquinas virtuales de Azure IaaS. La Copia de seguridad de Azure y SCDPM son las tecnologías fundamentales que constituyen la solución de copia de seguridad integrada en la nube de Microsoft.
+# ¿Qué es la Copia de seguridad de Azure?
+La Copia de seguridad de Azure es un servicio de Azure de varios inquilinos que le permite realizar una copia de seguridad y el restablecimiento de sus datos localmente o en Azure. Reemplaza su solución de copia de seguridad local o remota existente por una solución de copia de seguridad en la nube confiable, segura y rentable. También ofrece la flexibilidad de protección de los activos que se ejecutan en la nube. La Copia de seguridad de Azure se basa en una infraestructura de clase mundial escalable, duradera y de alta disponibilidad. Con esta solución, puede hacer una copia de seguridad de datos y aplicaciones desde sus servidores de System Center Data Protection Manager (SCDPM), los servidores de Windows, las máquinas cliente de Windows o las máquinas virtuales de Azure IaaS. La Copia de seguridad de Azure y SCDPM son las tecnologías fundamentales que constituyen la solución de copia de seguridad integrada en la nube de Microsoft.
 
 > [AZURE.VIDEO what-is-azure-backup]
 
@@ -69,8 +60,7 @@ Las características clave de esta solución son:
 | Microsoft SQL Server | Windows Server | [System Center DPM](backup-azure-backup-sql.md) |
 | Microsoft SharePoint | Windows Server | [System Center DPM](backup-azure-backup-sharepoint.md) |
 | Microsoft Exchange | Windows Server | System Center DPM |
-| Máquinas virtuales de IaaS de Azure (Windows)| - | [Copia de seguridad de Azure (Extensión de máquina virtual)](backup-azure-vms-introduction.md) |
-| Máquinas virtuales de IaaS de Azure (Linux) | - | [Copia de seguridad de Azure (Extensión de máquina virtual)](backup-azure-vms-introduction.md) |
+| Máquinas virtuales de IaaS de Azure (Windows)| - | [Copia de seguridad de Azure (Extensión de máquina virtual)](backup-azure-vms-introduction.md) | | Máquinas virtuales de IaaS de Azure (Linux) | - | [Copia de seguridad de Azure (Extensión de máquina virtual)](backup-azure-vms-introduction.md) |
 
 
 ## Pasos siguientes
@@ -78,4 +68,4 @@ Las características clave de esta solución son:
 - La pregunta frecuente sobre el servicio de Copia de seguridad de Azure aparece [aquí](backup-azure-backup-faq.md).
 - Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

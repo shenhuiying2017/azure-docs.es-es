@@ -1,24 +1,23 @@
 1. Abra el archivo de proyecto mainpage.xaml.cs y agregue el siguiente fragmento de código a la clase MainPage:
 	
         private MobileServiceUser user;
-        private async System.Threading.Tasks.Task Authenticate()
+        private async Task Authenticate()
         {
             while (user == null)
             {
                 string message;
                 try
                 {
-                    user = await App.MobileService
-                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-                    message =
-                        string.Format("You are now logged in - {0}", user.UserId);
+                    user = await App.MobileServiceDotNetClient.LoginAsync(MobileServiceAuthenticationProvider.Twitter);
+                    message = string.Format("You are now logged in - {0}", user.UserId);
                 }
                 catch (InvalidOperationException)
                 {
                     message = "You must log in. Login Required";
                 }
 
-                MessageBox.Show(message);
+                var dialog = new MessageDialog(message);
+                await dialog.ShowAsync();
             }
         }
 
@@ -51,4 +50,4 @@
 
    	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

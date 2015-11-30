@@ -14,14 +14,10 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
-	ms.author="szarkos"/>
+	ms.date="11/13/2015"
+	ms.author="szark"/>
 
 # Preparación de una máquina virtual SLES u openSUSE para Azure
-
-
-- [Preparación de una máquina virtual SLES 11 SP3 para Azure](#sles11)
-- [Preparación de una máquina virtual openSUSE 13.1+ para Azure](#osuse)
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -29,15 +25,18 @@
 
 En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE u openSUSE en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
-
-**Notas sobre la instalación de SLES/openSUSE**
-
  - [SUSE Studio](http://www.susestudio.com) puede crear y administrar fácilmente sus imágenes de SLES / openSUSE para Hyper-V y Azure. Este es el enfoque recomendado para personalizar sus propias imágenes SUSE y openSUSE. Las siguientes imágenes oficiales de la Galería de SUSE Studio se pueden descargar o clonar en su propio SUSE Studio:
 
   - [SLES 11 SP3 para Azure en la galería de SUSE Studio](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
   - [openSUSE 13.1 para Azure en la galería de SUSE Studio](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
 
-- El formato VHDX no se admite en Azure, solo **VHD fijo**. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
+
+- Como alternativa a la creación de su propio VHD, SUSE también publica imágenes de BYOS (“Bring Your Own Subscription” en inglés o aporte su propia suscripción) para SLES en [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007).
+
+
+**Notas sobre la instalación de SLES/openSUSE**
+
+- El formato VHDX no se admite en Azure, solo el **VHD fijo**. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
 
 - Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas. LVM o [RAID](virtual-machines-linux-configure-raid.md) se pueden utilizar en discos de datos si así se prefiere.
 
@@ -46,7 +45,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 - El tamaño de todos los archivos VHD debe ser múltiplo de 1 MB.
 
 
-## <a id="sles11"> </a>Preparación de SUSE Linux Enterprise Server 11 SP3 ##
+## Preparación de SUSE Linux Enterprise Server 11 SP3 ##
 
 1. Seleccione la máquina virtual en el panel central del Administrador de Hyper-V.
 
@@ -100,7 +99,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 ----------
 
-## <a id="osuse"> </a>Preparación de openSUSE 13.1+ ##
+## Preparación de openSUSE 13.1+ ##
 
 1. Seleccione la máquina virtual en el panel central del Administrador de Hyper-V.
 
@@ -180,4 +179,4 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 13. Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

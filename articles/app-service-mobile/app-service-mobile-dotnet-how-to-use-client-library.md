@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Trabajo con la biblioteca de cliente administrada de Aplicaciones móviles del Servicio de aplicaciones (Windows | Xamarin) | Microsoft Azure"
-	description="Aprenda a usar a un cliente .NET para Aplicaciones móviles del Servicio de aplicaciones de Azure con aplicaciones de Windows y Xamarin."
+	pageTitle="Biblioteca de cliente administrada de Aplicaciones móviles del Servicio de aplicaciones (Windows | Xamarin) | Microsoft Azure"
+	description="Aprenda a usar un cliente .NET para Aplicaciones móviles del Servicio de aplicaciones de Azure con aplicaciones de Windows y Xamarin."
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777"
@@ -16,7 +16,7 @@
 	ms.date="11/05/2015" 
 	ms.author="glenga"/>
 
-# Uso del cliente administrado para Aplicaciones móviles de Azure.
+# Uso del cliente administrado para Aplicaciones móviles de Azure
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
 
@@ -24,7 +24,7 @@
 
 ##Información general 
 
-En esta guía se muestra cómo realizar escenarios comunes con la biblioteca de cliente administrada para Aplicaciones móviles del Servicio de aplicaciones de Azure para Windows y Xamarin. Si no tiene experiencia en el uso de Aplicaciones móviles, considere primero la opción de completar el tutorial [Guía de inicio rápido de Aplicaciones móviles](app-service-mobile-windows-store-dotnet-get-started.md). En esta guía, nos centramos en el SDK administrado de cliente. Para obtener más información sobre el SDK de servidor para el back-end de .NET, consulte [Trabajo con el back-end de .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+En esta guía se muestra cómo realizar escenarios comunes con la biblioteca de cliente administrada para Aplicaciones móviles del Servicio de aplicaciones de Azure para Windows y Xamarin. Si no tiene experiencia en el uso de Aplicaciones móviles, considere primero la opción de completar el tutorial [Guía de inicio rápido de Aplicaciones móviles](app-service-mobile-windows-store-dotnet-get-started.md). En esta guía, nos centramos en el SDK administrado de cliente. Para obtener más información sobre el SDK de servidor para el back-end de .NET, consulte [Back-end de .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ##<a name="setup"></a>Configuración y requisitos previos
 
@@ -46,7 +46,7 @@ El tipo del cliente con tipo correspondiente en C# es el siguiente:
 
 Tenga en cuenta que [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) se usa para definir la asignación *PropertyName* entre el tipo de cliente y la tabla.
 
-##<a name="create-client"></a>Creación del cliente de Aplicación móvil
+##<a name="create-client"></a>Creación del cliente de aplicación móvil
 
 El código siguiente crea el objeto `MobileServiceClient` que se usa para acceder al back-end de la aplicación móvil.
 
@@ -84,7 +84,7 @@ En esta sección se describe cómo generar consultas al back-end de la aplicaci�
 
 ### <a name="filtering"></a>Filtro de datos devueltos
 
-El siguiente código muestra cómo filtrar los datos incluyendo una cláusula `Where` en una consulta. Devuelve todos los elementos de `todoTable` cuya propiedad `Complete` es igual a `false`. La función `Where` aplica un predicado de filtrado de fila a la consulta en la tabla.
+El siguiente código muestra cómo filtrar los datos incluyendo una cláusula `Where` en una consulta. Devuelve todos los elementos de `todoTable` cuya propiedad `Complete` es igual a `false`. La función `Where` aplica un predicado de filtrado de filas a la consulta en la tabla.
 
 	// This query filters out completed TodoItems and
 	// items without a timestamp.
@@ -239,7 +239,7 @@ A continuación, se muestra un ejemplo en el que se usa una dirección de correo
 
 ###Trabajar con valores de Id.
 
-Aplicaciones móviles admite valores de cadena personalizados únicos para columna **id** de la tabla. Esto permite a las aplicaciones usar valores personalizados como direcciones de correo electrónico o nombres de usuario para el Id.
+El servicio Aplicaciones móviles admite valores de cadena personalizados únicos para la columna **id** de la tabla. Esto permite a las aplicaciones usar valores personalizados como direcciones de correo electrónico o nombres de usuario para el Id.
 
 Los identificadores de cadena proporcionan las siguientes ventajas:
 
@@ -310,12 +310,46 @@ Xamarin apps require some additional code to be able to register a Xamarin app r
 >[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 >-->
 
+## Registro de plantillas de inserción para enviar notificaciones entre plataformas
+
+Para registrar plantillas, basta con pasar las plantillas con el método **MobileService.GetPush(). RegisterAsync()** en la aplicación cliente.
+
+        MobileService.GetPush().RegisterAsync(channel.Uri, newTemplates());
+
+Las plantillas serán de tipo JObject y pueden contener varias plantillas con el formato JSON siguiente:
+
+        public JObject newTemplates()
+        {
+            // single template for Windows Notification Service toast
+            var template = "<toast><visual><binding template="ToastText01"><text id="1">$(message)</text></binding></visual></toast>";
+            
+            var templates = new JObject
+            {
+                ["generic-message"] = new JObject
+                {
+                    ["body"] = template,
+                    ["headers"] = new JObject
+                    {
+                        ["X-WNS-Type"] = "wns/toast"
+                    },
+                    ["tags"] = new JArray()
+                },
+                ["more-templates"] = new JObject {...}
+            };
+            return templates;
+        }
+
+El método **RegisterAsync()** también acepta iconos secundarios:
+
+        MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObject secondaryTiles);
+
+Para enviar notificaciones mediante estas plantillas registradas, trabaje con [API de Centros de notificaciones](https://msdn.microsoft.com/library/azure/dn495101.aspx).
 
 ##<a name="optimisticconcurrency"></a>Uso de la simultaneidad optimista
 
 En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiempo. Si no se produjera la detección de conflictos, la última escritura sobrescribiría cualquier actualización anterior incluso si no fuese el resultado deseado. El *control de simultaneidad optimista* asume que cada transacción puede confirmarse y, por lo tanto, no usa ningún bloqueo de recursos. Antes de confirmar una transacción, el control de simultaneidad optimista comprueba que ninguna otra transacción haya modificado los datos. Si los datos se han modificado, la transacción de confirmación se desecha.
 
-Aplicaciones móviles es compatible con el control de simultaneidad optimista mediante el seguimiento de cambios en cada elemento gracias al uso de la columna de propiedades del sistema `__version` que se definió en cada tabla en el back-en de la aplicación móvil. Cada vez que se actualiza un registro, Aplicaciones móviles establece la propiedad `__version` para ese registro en un nuevo valor. Durante cada solicitud de actualización, la propiedad `__version` del registro incluido con la solicitud se compara con la misma propiedad del registro en el servidor. Si la versión que pasa con la solicitud no coincide con el back-end, la biblioteca de cliente genera `MobileServicePreconditionFailedException<T>`. El tipo incluido con la excepción es el registro del back-end que contiene la versión del registro del servidor. A continuación, la aplicación puede usar esta información para decidir si ejecutar la solicitud de actualización de nuevo con el valor `__version` correcto del back-end para confirmar los cambios.
+El servicio Aplicaciones móviles es compatible con el control de simultaneidad optimista gracias al seguimiento de cambios en cada elemento mediante la columna de propiedades del sistema `__version` que se definió en cada tabla en el back-end de la aplicación móvil. Cada vez que se actualiza un registro, el servicio Aplicaciones móviles establece la propiedad `__version` para ese registro en un nuevo valor. Durante cada solicitud de actualización, la propiedad `__version` del registro incluido con la solicitud se compara con la misma propiedad del registro en el servidor. Si la versión que pasa con la solicitud no coincide con el back-end, la biblioteca de cliente genera `MobileServicePreconditionFailedException<T>`. El tipo incluido con la excepción es el registro del back-end que contiene la versión del registro del servidor. A continuación, la aplicación puede usar esta información para decidir si ejecutar la solicitud de actualización de nuevo con el valor `__version` correcto del back-end para confirmar los cambios.
 
 Para habilitar la simultaneidad optimista, la aplicación define una columna en la clase de tabla para la propiedad del sistema `__version`. La siguiente definición proporciona un ejemplo.
 
@@ -417,7 +451,7 @@ En esta sección se describe cómo mostrar objetos de datos devueltos mediante e
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-Algunos controles del runtime administrado son compatibles con una interfaz denominada [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Esta interfaz permite a los controles solicitar datos adicionales cuando el usuario se desplaza. Existe compatibilidad integrada de esta interfaz para las aplicaciones universales de Windows 8.1 a través de `MobileServiceIncrementalLoadingCollection`, que administra automáticamente las llamadas desde los controles. Para usar `MobileServiceIncrementalLoadingCollection` en las aplicaciones de Windows, realice las siguientes acciones:
+Algunos controles en tiempo de ejecución administrado son compatibles con una interfaz denominada [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Esta interfaz permite a los controles solicitar datos adicionales cuando el usuario se desplaza. Existe compatibilidad integrada de esta interfaz para las aplicaciones universales de Windows 8.1 mediante `MobileServiceIncrementalLoadingCollection`, que administra automáticamente las llamadas desde los controles. Para usar `MobileServiceIncrementalLoadingCollection` en las aplicaciones de Windows, realice las siguientes acciones:
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -427,14 +461,14 @@ Algunos controles del runtime administrado son compatibles con una interfaz deno
 		lb.ItemsSource = items;
 
 
-Para usar la nueva colección en aplicaciones de Windows Phone 8 y "Silverlight", utilice los métodos de extensión `ToCollection` en `IMobileServiceTableQuery<T>` y `IMobileServiceTable<T>`. Para cargar datos realmente, llame a `LoadMoreItemsAsync()`.
+Para usar la nueva colección en aplicaciones de Windows Phone 8 y "Silverlight", use los métodos de extensión `ToCollection` en `IMobileServiceTableQuery<T>` y `IMobileServiceTable<T>`. Para cargar datos realmente, llame a `LoadMoreItemsAsync()`.
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 	await items.LoadMoreItemsAsync();
 
 Cuando use la colección creada mediante la llamada a `ToCollectionAsync` o `ToCollection`, obtendrá una colección que puede enlazarse a los controles de la interfaz de usuario. Esta colección es para la paginación, es decir, un control puede solicitar a la colección cargar más elementos y la colección lo hará para el control. En este momento, no hay ningún código de usuario implicado y el control iniciará el flujo. Sin embargo, puesto que la colección está cargando datos desde la red, cabe esperar que a veces se produzca un error en la carga. Para gestionar esos errores, puede reemplazar el método `OnException` de `MobileServiceIncrementalLoadingCollection` para gestionar excepciones resultantes de las llamadas a `LoadMoreItemsAsync` que han realizado los controles.
 
-Para finalizar, imagine que la tabla contiene muchos campos, pero solo desea que se muestren algunos en el control. Puede usar la guía de la sección ["Selección de columnas específicas"](#selecting) anterior para seleccionar las columnas específicas para mostrar en la IU.
+Para finalizar, imagine que la tabla contiene muchos campos, pero solo desea que se muestren algunos en el control. Puede usar la guía de la sección ["Selección de columnas específicas"](#selecting) anterior para seleccionar las columnas específicas para mostrar en la interfaz de usuario.
 
 <!--- We want to just point to the authentication topic when it's done
 ##<a name="authentication"></a>How to: Authenticate users
@@ -634,7 +668,7 @@ Esta sección muestra formas en que puede personalizar los encabezados de solici
 
 ### <a name="headers"></a>Personalización de encabezados de solicitud
 
-Para admitir su escenario de aplicación específico, deberá personalizar la comunicación con el back-end de la aplicación móvil. Por ejemplo, es posible que desee agregar un encabezado personalizado a cada solicitud saliente o cambiar los códigos de estado de las respuestas. Puede hacer esto proporcionando un [DelegatingHandler] personalizado, como en el ejemplo siguiente:
+Para admitir su escenario de aplicación específico, deberá personalizar la comunicación con el back-end de la aplicación móvil. Por ejemplo, es posible que desee agregar un encabezado personalizado a cada solicitud saliente o cambiar los códigos de estado de las respuestas. Para ello, proporcione un valor [DelegatingHandler] personalizado, como en el ejemplo siguiente:
 
     public async Task CallClientWithHandler()
     {
@@ -706,6 +740,6 @@ Esta propiedad convierte todas las propiedades en minúsculas durante la seriali
 [Fiddler]: http://www.telerik.com/fiddler
 [API personalizada en los SDK del cliente de Servicios móviles de Azure]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
-[DelegatingHandler]: https://msdn.microsoft.com/es-ES/library/system.net.http.delegatinghandler(v=vs.110).aspx
+[DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

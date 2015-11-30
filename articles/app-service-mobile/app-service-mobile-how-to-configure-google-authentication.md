@@ -16,37 +16,63 @@
 	ms.date="08/28/2015"
 	ms.author="mahender"/>
 
-# Configuración de la aplicación para usar el inicio de sesión de Google
+# Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de Google
 
 [AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-En este tema se muestra cómo configurar las aplicaciones móviles para usar Google como proveedor de autenticación.
+En este tema se muestra cómo configurar Servicio de aplicaciones de Azure para usar Google como proveedor de autenticación.
 
 Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta de Google asociada a una dirección de correo electrónico verificada. Para crear una cuenta de Google, vaya a <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
-1. Inicie sesión en el [Portal de administración de Azure] y vaya a la aplicación móvil. Copie la **Dirección URL**. La usará más adelante con la aplicación de Google.
+
+	> [AZURE.NOTE]
+	This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
+
+
+## <a name="register"> </a>Registro de la aplicación con Google
+
+1. Inicie sesión en el [Portal de administración de Azure] y vaya a la aplicación. Copie la **dirección URL**. La usará para configurar la aplicación de Google.
  
-2. Haga clic en **Configuración**, **Autenticación del usuario** y luego en **Google**. Copie la **URI de redirección**. La usará para configurar la aplicación de Google.
+2. Diríjase al sitio web [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303), inicie sesión con las credenciales de su cuenta de Google, haga clic en **Crear proyecto**, proporcione un **Nombre de proyecto**, y haga clic en **Crear**.
 
-3. Diríjase al sitio web [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303), inicie sesión con las credenciales de su cuenta de Google, haga clic en **Crear proyecto**, proporcione un **Nombre de proyecto**, y haga clic en **Crear**.
+3. En la barra de navegación de la izquierda, haga clic en **API y autenticación** y luego, en **API sociales**, haga clic en **API de Google+** > **Habilitar API**.
 
-4. En la barra de navegación de la izquierda, haga clic en **API y autenticación** y luego, en **API sociales**, haga clic en **API de Google+** > **Habilitar API**.
+4. Haga clic en **API y autenticación** > **Credenciales** > **Pantalla de consentimiento de OAuth**, seleccione su **Dirección de correo electrónico**, escriba un **Nombre de producto** y haga clic en **Guardar**.
 
-5. Haga clic en **API y autenticación** > **Credenciales** > **Pantalla de consentimiento de OAuth**, seleccione su **Dirección de correo electrónico**, escriba un **Nombre de producto** y haga clic en **Guardar**.
+5. En la pestaña **Credenciales**, haga clic en **Agregar credenciales** > **Id. de cliente de OAuth 2.0** y luego seleccione **Aplicación web**.
 
-6. En la pestaña **Credenciales**, haga clic en **Agregar credenciales** > **Id. de cliente de OAuth 2.0** y luego seleccione **Aplicación web**.
+6. Pegue la **URL** del Servicio de aplicaciones que copió anteriormente en **Orígenes de JavaScript autorizados** y luego pegue el **URI de redirección** que copió antes en el **URI de redirección autorizado**. El URI de redireccionamiento es la dirección URL de la aplicación anexada a la ruta de acceso, _/.auth/login/google/callback_. Por ejemplo: `https://contoso.azurewebsites.net/.auth/login/google/callback`. Asegúrese de que está utilizando el esquema HTTPS. A continuación, haga clic en **Crear**.
 
-7. Pegue la **URL** de las aplicaciones móviles que copió anteriormente en **Orígenes de JavaScript autorizados** y luego pegue el **URI de redirección** que copió antes en el **URI de redirección autorizado**. Este URI de redirección es la puerta de enlace de la aplicación móvil anexada a la ruta de acceso, _/signin-google_. Por ejemplo: `https://contosogateway.azurewebsites.net/signin-google`. Asegúrese de que está utilizando el esquema HTTPS. A continuación, haga clic en **Crear**.
 
-8. En la siguiente pantalla, tome nota de los valores de id. de cliente y el secreto del cliente.
+	> [AZURE.NOTE]Si usa la puerta de enlace en lugar de la característica Autenticación o autorización del Servicio de aplicaciones, la URL de redireccionamiento usará en su lugar la URL de la puerta de enlace con la ruta de acceso _/signin-google_.
+
+
+7. En la siguiente pantalla, tome nota de los valores de id. de cliente y el secreto del cliente.
+
 
     > [AZURE.IMPORTANT]El secreto de cliente es una credencial de seguridad importante, No comparta este secreto con nadie ni lo distribuya en una aplicación cliente.
 
-9. De vuelta en el [Portal de administración de Azure], en la hoja de configuración de Google de la aplicación móvil, pegue los valores de Id. de cliente y Secreto de cliente que obtuvo anteriormente. A continuación, haga clic en **Guardar**.
 
-     ![][1]
+## <a name="secrets"> </a>Adición de información de Google a la aplicación
+
+
+	> [AZURE.NOTE]
+	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Google**. Paste in the values you obtained earlier and click **Save**.
+
+
+8. De nuevo en el [Portal de administración de Azure], vaya a la aplicación. Haga clic en **Configuración** y luego en **Autenticación o autorización**.
+
+9. Si esta característica no está habilitada, mueva el interruptor a la posición de **activada**.
+
+10. Haga clic en **Google**. Pegue los valores de identificador de la aplicación y de secreto de la aplicación que obtuvo previamente y habilite opcionalmente los ámbitos que requiere la aplicación. y, a continuación, haga clic en **Aceptar**.
+
+    ![][1]
+	
+11. De forma predeterminada, el Servicio de aplicaciones proporciona inicio de sesión, pero no restringe el acceso al contenido y las API del sitio, esto es responsabilidad del código de la aplicación. Si desea que el sitio esté totalmente protegido por el inicio de sesión de Google, cambie la lista desplegable **Acción por realizar cuando no se autentique la solicitud** para usar la opción **Google**. Para ello, todas las solicitudes deberán estar autenticadas; las solicitudes sin autenticar se redirigirán para iniciar sesión con Google.
+
+12. Haga clic en **Guardar**.
 
 De este modo ya estará listo para usar Google para realizar la autenticación en la aplicación.
 
@@ -69,4 +95,4 @@ De este modo ya estará listo para usar Google para realizar la autenticación e
 [Portal de administración de Azure]: https://portal.azure.com/
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

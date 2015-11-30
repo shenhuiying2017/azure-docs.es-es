@@ -12,26 +12,20 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
 
 
 # Configurar Application Insights para ASP.NET
 
-*Application Insights se encuentra en su versión de vista previa.*
-
-<a name="selector1"></a>
-
-[Application Insights de Visual Studio](http://azure.microsoft.com/services/application-insights) supervisa su aplicación activa para ayudarle a [detectar y diagnosticar problemas y excepciones de rendimiento][detect], y [descubrir cómo se usa la aplicación][knowUsers]. Funciona instalando un SDK en la aplicación. El SDK envía telemetría sobre la aplicación al servicio de Application Insights, donde analiza y visualiza el comportamiento de la aplicación.
-
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Agregue el SDK a su aplicación en Visual Studio y obtendrá gráficos de solicitudes de servidor, tiempos de respuesta y errores.
+El SDK de Application Insights envía telemetría desde su aplicación web en directo al Portal de Azure, donde puede iniciar sesión y ver los gráficos de rendimiento y uso de la aplicación.
 
 ![Gráficos de supervisión de rendimiento de ejemplo](./media/app-insights-asp-net/10-perf.png)
 
-También podrá usar la API para supervisar el uso en detalle.
+También podrá investigar y correlacionar solicitudes específicas, excepciones y eventos de registro. Puede usar la API para agregar la telemetría para supervisar el rendimiento y el uso en detalle.
 
 #### Antes de comenzar
 
@@ -174,4 +168,4 @@ Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copi
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

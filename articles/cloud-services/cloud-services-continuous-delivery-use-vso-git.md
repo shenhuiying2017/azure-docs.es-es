@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Entrega continua con Git y Visual Studio Online en Azure" 
-	description="Aprenda a configurar los proyectos de equipo de Visual Studio Online para que usen Git para compilarse e implementarse automáticamente en la característica aplicación web de Servicio de aplicaciones de Azure o en los servicios en la nube."
+	pageTitle="Entrega continua con Git y Visual Studio Team Services en Azure" 
+	description="Aprenda a configurar los proyectos de equipo de Visual Studio Team Services para usar Git para que se compilen y se implementen automáticamente en la característica aplicación web de Servicio de aplicaciones de Azure o en los servicios en la nube."
 	services="cloud-services"
 	documentationCenter=".net"
 	authors="kempb"
@@ -16,21 +16,20 @@
 	ms.date="09/02/2015"
 	ms.author="kempb"/>
 
-# Entrega continua a Azure con Visual Studio Online y Git
+# Entrega continua a Azure con Visual Studio Team Services y Git
 
-Puede usar proyectos de equipo de Visual Studio Online para hospedar en un repositorio Git el código fuente, y compilarlo e implementarlo automáticamente en aplicaciones web o servicios en la nube de Azure cada vez que se inserta una confirmación en el repositorio.
+Puede usar proyectos de equipo de Visual Studio Team Services para hospedar en un repositorio Git el código fuente, y compilarlo e implementarlo automáticamente en aplicaciones web o servicios en la nube de Azure cada vez que se inserta una confirmación en el repositorio.
 
 Necesitará Visual Studio 2013 y tener instalado el SDK de Azure. Si aún no tiene Visual Studio 2013, descárguelo; para ello, haga clic en el vínculo **Empezar de forma gratuita** [en www.visualstudio.com](http://www.visualstudio.com). Instale el SDK de Azure desde [aquí](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 
-> [AZURE.NOTE]Necesita una cuenta en línea de Visual Studio para completar este tutorial:
-> puede [abrir una cuenta de Visual Studio Online de forma gratuita](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE]Necesita una cuenta de Visual Studio Team Services para completar este tutorial: puede [abrir una cuenta de Visual Studio Team Services de forma gratuita](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
-Para configurar un servicio en la nube que se compile e implemente automáticamente en Azure con Visual Studio Online, siga los pasos que aparecen a continuación:
+Para configurar un servicio en la nube que se compile e implemente automáticamente en Azure con Visual Studio Team Services, siga los pasos que aparecen a continuación:
 
 ## Paso 1: crear un repositorio Git
 
-1. Si no tiene una cuenta de Visual Studio Online, puede obtenerla [aquí](http://go.microsoft.com/fwlink/?LinkId=397665). Cuando cree un proyecto de equipo, elija Git como el sistema de control de código fuente. Siga las instrucciones para conectar Visual Studio al proyecto de equipo.
+1. Si no tiene una cuenta de Visual Studio Team Services, puede obtenerla [aquí](http://go.microsoft.com/fwlink/?LinkId=397665). Cuando cree un proyecto de equipo, elija Git como el sistema de control de código fuente. Siga las instrucciones para conectar Visual Studio al proyecto de equipo.
 
 2. En **Team Explorer**, haga clic en el vínculo **Clonar este repositorio**.
 
@@ -50,7 +49,7 @@ Para configurar un servicio en la nube que se compile e implemente automáticame
 
 	![][7]
 
-4. Si es la primera vez que usa Git en Visual Studio Online, deberá proporcionar alguna información que le identifique en Git. En el área **Cambios pendientes** de **Team Explorer**, escriba su nombre de usuario y dirección de correo electrónico. Escriba un comentario para la confirmación y, a continuación, pulse el botón **Confirmar**.
+4. Si es la primera vez que usa Git en Visual Studio Team Services, deberá proporcionar alguna información que le identifique en Git. En el área **Cambios pendientes** de **Team Explorer**, escriba su nombre de usuario y dirección de correo electrónico. Escriba un comentario para la confirmación y, a continuación, pulse el botón **Confirmar**.
 
 	![][8]
 
@@ -58,31 +57,31 @@ Para configurar un servicio en la nube que se compile e implemente automáticame
 
 6. Ahora ha confirmado los cambios en la copia local del repositorio. A continuación, sincronice dichos cambios con el servidor, para lo que debe elegir el vínculo **Sincronizar**.
 
-## Paso 3: conectar el proyecto a Azure
+## Paso 3: Conexión del proyecto a Azure
 
-1. Ahora que tiene un repositorio Git en Visual Studio Online con código fuente, esta en disposición de conectarlo a Azure. En el [Portal de administración de Azure](http://manage.windowsazure.com), seleccione el servicio en la nube o la aplicación web, o bien cree unos nuevos haciendo clic en el icono + situado en la parte inferior izquierda y seleccionando **Servicio en la nube** o **Aplicación web** y, a continuación, **Creación rápida**.
+1. Ahora que tiene un repositorio Git en Visual Studio Team Services con código fuente, está en disposición de conectarlo a Azure. En el [Portal de administración de Azure](http://manage.windowsazure.com), seleccione el servicio en la nube o la aplicación web, o bien cree unos nuevos haciendo clic en el icono + situado en la parte inferior izquierda y seleccionando **Servicio en la nube** o **Aplicación web** y, a continuación, **Creación rápida**.
 
 	![][9]
 
-3. Para servicios en la nube, elija el vínculo **Configurar publicación con Visual Studio Online**. Para aplicaciones web, elija el vínculo **Configurar implementación desde control de código fuente**.
+3. Para servicios en la nube, elija el vínculo **Configurar publicación con Visual Studio Team Services**. Para aplicaciones web, elija el vínculo **Configurar implementación desde control de código fuente**.
 
 	![][10]
 
-2. En el asistente, escriba el nombre de la cuenta de Visual Studio Online en el cuadro de texto y elija el vínculo **Autorizar ahora**. Puede que se le solicite que inicie sesión.
+2. En el asistente, escriba el nombre de la cuenta de Visual Studio Team Services en el cuadro de texto y elija el vínculo **Autorizar ahora**. Puede que se le solicite que inicie sesión.
 
 	![][11]
 
-3. En el cuadro de diálogo emergente **Solicitud de conexión**, elija **Aceptar** para autorizar a Azure a que configure el proyecto del equipo en Visual Studio Online.
+3. En el cuadro de diálogo emergente **Solicitud de conexión**, elija **Aceptar** para autorizar a Azure a que configure el proyecto del equipo en Visual Studio Team Services.
 
 	![][12]
 
-4. Si la autorización se realiza correctamente, verá una lista desplegable que contiene los proyectos del equipo de Visual Studio Online. Seleccione el nombre del proyecto de equipo que ha creado en los pasos anteriores y presione el botón de la marca de verificación del asistente.
+4. Si la autorización se realiza correctamente, verá una lista desplegable que contiene los proyectos del equipo de Visual Studio Team Services. Seleccione el nombre del proyecto de equipo que ha creado en los pasos anteriores y presione el botón de la marca de verificación del asistente.
 
 	![][13]
 
-	La próxima vez que inserte una confirmación en el repositorio, Visual Studio Online creará e implementará su proyecto en Azure.
+	La próxima vez que inserte una confirmación en el repositorio, Visual Studio Team Services creará e implementará su proyecto en Azure.
 
-## Paso 4: desencadenar una recompilación y una nueva implementación del proyecto
+## Paso 4: Desencadenamiento de una recompilación y nueva implementación del proyecto
 
 1. En Visual Studio, abra un archivo y cámbielo. Por ejemplo, cambie el archivo `_Layout.cshtml` de la carpeta Views\\Shared de un rol web de MVC.
 
@@ -102,7 +101,7 @@ Para configurar un servicio en la nube que se compile e implemente automáticame
 
 	![][38]
 
-6. Elija el vínculo **Insertar** para insertar la confirmación en el repositorio en Visual Studio Online. (También puede usar el botón **Sincronizar** para copiar las confirmaciones en el repositorio. La diferencia es que **Sincronizar** también extrae los últimos cambios del repositorio).
+6. Elija el vínculo **Insertar** para insertar la confirmación en el repositorio en Visual Studio Team Services. (También puede usar el botón **Sincronizar** para copiar las confirmaciones en el repositorio. La diferencia es que **Sincronizar** también extrae los últimos cambios del repositorio).
 
 	![][39]
 
@@ -124,7 +123,7 @@ Para configurar un servicio en la nube que se compile e implemente automáticame
 
 	![][25]
 
-11. En la pestaña **Desencadenador**, verá que la definición de compilación está configurada para compilar en cada protección de forma predeterminada. (Para un servicio en la nube, Visual Studio Online compila e implementa automáticamente la bifurcación principal en el entorno de ensayo. Aún así, tendrá que realizar un paso manual para implementar en el sitio activo. En el caso de una aplicación web que no tenga un entorno de ensayo, la bifurcación principal se implementa directamente en el sitio activo.
+11. En la pestaña **Desencadenador**, verá que la definición de compilación está configurada para compilar en cada protección de forma predeterminada. (Para un servicio en la nube, Visual Studio Team Services compila e implementa automáticamente la bifurcación principal en el entorno de ensayo. Aún así, tendrá que realizar un paso manual para implementar en el sitio activo. En el caso de una aplicación web que no tenga un entorno de ensayo, la bifurcación principal se implementa directamente en el sitio activo.
 
 	![][26]
 
@@ -217,7 +216,7 @@ Cuando usa Git, realiza cambios habitualmente en una bifurcación de trabajo y l
 
 	![][43]
 
-10. Haga clic en el vínculo **Confirmaciones no sincronizadas** y elija el botón **Sincronizar** o el vínculo **Insertar** para copiar los cambios en la copia de la bifurcación de trabajo en Visual Studio Online.
+10. Haga clic en el vínculo **Confirmaciones no sincronizadas** y elija el botón **Sincronizar** o el vínculo **Insertar** para copiar los cambios en la copia de la bifurcación de trabajo en Visual Studio Team Services.
 
 	![][45]
 
@@ -225,7 +224,7 @@ Cuando usa Git, realiza cambios habitualmente en una bifurcación de trabajo y l
 
 ## Pasos siguientes
 
-Para ver más sugerencias sobre el uso de Git con Visual Studio Online, consulte [Desarrollo y uso compartido del código de Git con Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) y para obtener información sobre el uso de un repositorio de Git no administrado por Visual Studio Online para publicar en Azure, consulte [Implementación continua mediante GIT en el Servicio de aplicaciones de Azure](../web-sites-publish-source-control.md). Para obtener más información sobre Visual Studio Online, consulte [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861).
+Para ver más sugerencias sobre el uso de Git con Visual Studio Team Services, consulte [Desarrollo y uso compartido del código de Git con Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) y para obtener información sobre el uso de un repositorio de Git no administrado por Visual Studio Team Services para publicar en Azure, consulte [Implementación continua mediante GIT en el Servicio de aplicaciones de Azure](../web-sites-publish-source-control.md). Para obtener más información sobre Visual Studio Team Services, consulte [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG
@@ -273,4 +272,4 @@ Para ver más sugerencias sobre el uso de Git con Visual Studio Online, consulte
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/05/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Introducción al Almacén de Azure Data Lake mediante SDK de .NET
@@ -65,7 +65,7 @@ Aprenda a utilizar el SDK de .NET del Almacén de Azure Data Lake para crear una
 
 7. Abra el archivo **Program.cs** y sustituya el bloque de código existente por el siguiente. Además, se proporcionan los valores para los parámetros en el fragmento de código.
 
-	Este código recorre el proceso de creación de un Almacén de Data Lake, de creación de carpetas en el almacén, de la carga de archivos, de la descarga de archivos y finalmente de la eliminación de la cuenta. Si busca algunos datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	Este código recorre el proceso de creación de un Almacén de Data Lake, de creación de carpetas en el almacén, de la carga de archivos, de la descarga de archivos y finalmente de la eliminación de la cuenta. Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 	
 		using System;
 		using System.Collections.Generic;
@@ -223,4 +223,4 @@ Aprenda a utilizar el SDK de .NET del Almacén de Azure Data Lake para crear una
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

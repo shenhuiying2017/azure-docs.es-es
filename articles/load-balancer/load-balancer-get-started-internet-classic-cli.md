@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Introducción a la creación de un equilibrador de carga orientado a Internet en un modelo de implementación clásica con la CLI de Azure | Microsoft Azure"
-   description="Obtenga información sobre cómo crear un equilibrador de carga orientado a Internet en el modelo de implementación clásica con la CLI de Azure."
+   description="Obtener información sobre cómo crear un equilibrador de carga orientado a Internet en el modelo de implementación clásica con la CLI de Azure"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación clásico. También puede [obtener información sobre cómo crear un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure](load-balancer-get-started-internet-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación clásico. También puede [obtener información sobre cómo crear un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure](load-balancer-get-started-internet-arm-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -45,21 +45,24 @@ Esta guía muestra cómo crear un equilibrador de carga de Internet basado en el
 
 ## Crear punto de conexión y conjunto de equilibrador de carga 
 
-En esta situación se supone que se han creado las máquinas virtuales "web1" y "web2". Esta guía creará un conjunto de equilibrador de carga mediante el puerto 80 como puerto público y 80 como puerto local. También se configura un puerto de sondeo en el puerto 80 y se llama al conjunto de equilibrador de carga "lbset".
+En esta situación se supone que se han creado las máquinas virtuales "web1" y "web2". Esta guía creará un conjunto de equilibrador de carga mediante el puerto 80 como puerto público y el puerto 80 como puerto local. También se configura un puerto de sondeo en el puerto 80 y se llama al conjunto de equilibrador de carga "lbset".
 
 
 ### Paso 1 
 
 Crear el primer punto de conexión y conjunto de equilibrador de carga mediante `azure network vm endpoint create` para la máquina virtual "web1"
 
-	azure network endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset 
+	azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset 
 
+Parámetros usados:
 
+**-k**: puerto de máquina virtual local<br> **-o**: protocolo<BR> **-t**: puerto de sondeo<BR> **-b**: nombre del equilibrador de carga<BR>
+ 
 ## Paso 2 
 
 Agregar una segunda máquina virtual "web2" al conjunto de equilibrador de carga
 
-	azure network endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
+	azure vm endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
 
 ## Paso 3 
 
@@ -140,4 +143,4 @@ Tendrá que eliminar el punto de conexión asociado al conjunto de equilibrador 
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

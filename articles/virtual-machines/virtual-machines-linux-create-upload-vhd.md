@@ -26,7 +26,7 @@ En este artículo se muestra cómo puede crear y cargar un disco duro virtual (V
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-Una máquina virtual en Azure ejecuta el sistema operativo basado en la imagen que elige cuando crea la máquina virtual. Las imágenes se almacenan en formato VHD en archivos .vhd en una cuenta de almacenamiento. Para más información, vea [Discos de Azure](virtual-machines-disks-vhds.md) e [Imágenes de Azure](virtual-machines-images.md).
+Una máquina virtual en Azure ejecuta el sistema operativo basado en la imagen que elige cuando crea la máquina virtual. Las imágenes se almacenan en formato VHD en archivos .vhd en una cuenta de almacenamiento. Para obtener más detalles, consulte [Discos en Azure](virtual-machines-disks-vhds.md) e [Imágenes en Azure](virtual-machines-images.md).
 
 Al crear la máquina virtual, puede personalizar parte de la configuración del sistema operativo para adaptarla a la aplicación que desea ejecutar. Para obtener instrucciones, consulte [Creación de una máquina virtual personalizada](virtual-machines-create-custom.md).
 
@@ -36,7 +36,7 @@ Al crear la máquina virtual, puede personalizar parte de la configuración del 
 ## Requisitos previos
 En este artículo se supone que tiene los siguientes elementos:
 
-- **Un certificado de administración**: ha creado un certificado de administración para la suscripción para la que desea cargar un VHD, y ha exportado el certificado a un archivo .cer. Para más información sobre cómo crear certificados de Azure, vea [Información general sobre los certificados de Azure](../cloud-services/cloud-services-certs-create.md).
+- **Un certificado de administración**: ha creado un certificado de administración para la suscripción para la que desea cargar un VHD, y ha exportado el certificado a un archivo .cer. Para más información sobre cómo crear certificados de Azure, consulte [Información general sobre los certificados de Azure](../cloud-services/cloud-services-certs-create.md).
 
 - **Sistema operativo Linux instalado en un archivo .vhd**: ha instalado un sistema operativo Linux compatible en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, puede utilizar una solución de virtualización como Hyper-V para crear el archivo .vhd e instalar el sistema operativo. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
@@ -55,16 +55,17 @@ Azure admite varias distribuciones de Linux (consulte [Distribuciones aprobadas]
 
 - **[Distribuciones basadas en CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
+- **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES y openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 - **[Otras distribuciones no aprobadas](virtual-machines-linux-create-upload-vhd-generic.md)**
 
 Consulte también las **[notas de instalación de Linux](virtual-machines-linux-create-upload-vhd-generic.md#linuxinstall)** para obtener más sugerencias sobre la preparación de imágenes de Linux para Azure.
 
-Tras seguir los pasos de las guías enumeradas anteriormente debería contar con un archivo VHD listo para cargarse en Azure.
+Tras seguir los pasos de las guías enumeradas anteriormente, debería contar con un archivo VHD listo para cargarse en Azure.
 
 <a id="connect"> </a>
-## Paso 2: Preparación de la conexión a Azure
+## Paso 2: preparación de la conexión a Azure
 
 Antes de cargar el archivo .vhd, debe establecer una conexión segura entre el equipo y la suscripción de Azure.
 
@@ -105,7 +106,7 @@ Use el método de Azure AD para iniciar sesión:
 
 	Donde `<PathToFile>` es la ruta completa al archivo .publishsettings.
 
-	Para obtener más información, consulte [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-connect.md).
+	Para obtener más información, consulte [Conectar a Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-connect.md).
 
 
 ### Si usa Azure PowerShell
@@ -143,7 +144,7 @@ Use el método de Azure AD para iniciar sesión:
 > [AZURE.NOTE]Se recomienda que use el método más reciente de Azure Active Directory para iniciar sesión en su suscripción de Azure desde la CLI de Azure o Azure PowerShell.
 
 <a id="upload"> </a>
-## Paso 3: Carga de la imagen en Azure
+## Paso 3: cargar la imagen en Azure
 
 ### Si usa la CLI de Azure
 
@@ -163,11 +164,11 @@ Desde la ventana de Azure PowerShell que ha usado en el paso anterior, escriba:
 
 Para obtener más información, consulte [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
-> [AZURE.NOTE]La [versión de vista previa de Azure Powershell 1.0](https://azure.microsoft.com/es-ES/blog/azps-1-0-pre/) cambia considerablemente el modo en que trata los cmdlets del modelo de implementación del Administrador de recursos y de la implementación clásica. En este artículo todavía no se usa la versión de vista previa.
+> [AZURE.NOTE]La [versión de vista previa de Azure Powershell 1.0](https://azure.microsoft.com/es-ES/blog/azps-1-0-pre/) cambia considerablemente el modo de gestionar los cmdlets del modelo de implementación clásico y del Administrador de recursos. En este artículo todavía no se usa la versión de vista previa.
 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

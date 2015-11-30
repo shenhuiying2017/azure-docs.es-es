@@ -43,7 +43,7 @@ El procedimiento de solución de problemas se puede dividir en tres tareas disti
 2.	[Recopilación de datos](#collect)
 3.	[Mitigación del problema](#mitigate)
 
-Las [Aplicaciones web del Servicio de aplicaciones](/services/app-service/web/) ofrecen diversas opciones en cada paso.
+El servicio [Aplicaciones web del Servicio de aplicaciones](/services/app-service/web/) ofrece diversas opciones en cada paso.
 
 <a name="observe" />
 ### 1\. Observación y supervisión del comportamiento de la aplicación
@@ -87,7 +87,7 @@ Consulte también [Mantenimiento de Sitios web de Azure activos y supervisión d
 
 También puede supervisar el rendimiento de la aplicación aprovechando las _extensiones de sitio_.
 
-Cada aplicación web del Servicio de aplicaciones proporciona un punto de conexión de administración extensible que le permite aprovechar un eficaz conjunto de herramientas implementadas como extensiones del sitio. Estas herramientas van desde editores de código fuente, como [Visual Studio Online](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx) hasta herramientas de administración de recursos conectados, como una base de datos MySQL conectada a una aplicación web.
+Cada aplicación web del Servicio de aplicaciones proporciona un punto de conexión de administración extensible que le permite aprovechar un eficaz conjunto de herramientas implementadas como extensiones del sitio. Estas herramientas van desde editores de código fuente, como [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx) hasta herramientas de administración de recursos conectados, como una base de datos MySQL conectada a una aplicación web.
 
 [Azure Application Insights](/services/application-insights/) y [New Relic](/marketplace/partners/newrelic/newrelic/) son dos de las extensiones de sitio de supervisión del rendimiento que se encuentran disponibles. Para usar New Relic, instale a un agente en tiempo de ejecución. Para usar Application Insights de Azure, vuelva a compilar el código con un SDK; también puede instalar una extensión que proporciona acceso a datos adicionales. El SDK permite escribir código para supervisar el uso y el rendimiento de la aplicación con más detalle.
 
@@ -135,7 +135,7 @@ El Portal de soporte técnico del Servicio de aplicaciones de Azure le proporcio
 
 Si el problema está sucediendo justo ahora, haga clic en **Analizar** > **Diagnósticos** > **Diagnosticar ahora** para crear una sesión de diagnóstico, que recopilará registros HTTP, registros del visor de eventos, volcados de memoria, registros de errores PHP e informes de procesos PHP.
 
-Después de la recopilación de los datos, también se ejecuta un análisis de los datos y se proporciona un informe HTML.
+Después de la recopilación de los datos, también se ejecuta un análisis de ellos y se proporciona un informe HTML.
 
 En caso de que quiera descargar los datos, de forma predeterminada se almacenarían en la carpeta D:\\home\\data\\DaaS.
 
@@ -150,14 +150,14 @@ Puede tener acceso a este panel en el vínculo **https://&lt;Your nombre de la a
 Algunas de las cosas que proporciona Kudu son:
 
 -	Configuración del entorno de la aplicación
--	Secuencia de registro
+-	transmisión de registro
 -	Volcado de diagnóstico
 -	Depuración de la consola en la que puede ejecutar cmdlets de Powershell y comandos básicos de DOS.
 
 
 Otra característica útil de Kudu es que, en caso de que la aplicación inicie excepciones de primera oportunidad, puede usar Kudu y la herramienta Procdump de SysInternals para crear volcados de memoria. Estos volcados de memoria son instantáneas del proceso y a menudo pueden ayudarle solucionar problemas más complicados de su aplicación web.
 
-Para obtener más información sobre las características disponibles en Kudu, consulte [Herramientas en línea de Sitios web de Azure que debe conocer](/blog/windows-azure-websites-online-tools-you-should-know-about/).
+Para obtener más información sobre las características disponibles en Kudu, consulte [Herramientas de Azure Websites Team Services que debe conocer](/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 ### 3\. Mitigación del problema
@@ -186,4 +186,4 @@ Suele ser la manera más sencilla de recuperarse de problemas que solo tienen lu
 
 También puede administrar la aplicación web con Azure Powershell. Para obtener más información, vea [Uso de Azure PowerShell con el Administrador de recursos de Azure](powershell-azure-resource-manager.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

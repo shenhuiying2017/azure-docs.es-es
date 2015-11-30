@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/25/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 
@@ -68,4 +68,4 @@ Los patrones descritos anteriormente son solo dos formas posibles en que un alma
 ## Resumen
 El registro de orígenes de datos en **Catálogo de datos de Azure** facilita su detección y comprensión. Mediante el registro y anotación de los archivos y directorios de macrodatos que representan conjuntos de datos lógicos, puede facilitar a los usuarios la búsqueda y el uso de los orígenes de macrodatos que necesitan.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

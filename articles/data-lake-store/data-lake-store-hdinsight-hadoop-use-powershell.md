@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/06/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Aprovisionamiento de un clúster de HDInsight con el Almacén de Data Lake mediante Azure PowerShell
@@ -87,7 +87,7 @@ Siga estos pasos para crear un Almacén de Data Lake.
 
 	El resultado debe ser **True**.
 
-4. Cargue datos de ejemplo a Azure Data Lake. Los usaremos más adelante en este artículo para comprobar que se puede acceder a los datos desde un clúster de HDInsight. Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+4. Cargue datos de ejemplo a Azure Data Lake. Los usaremos más adelante en este artículo para comprobar que se puede acceder a los datos desde un clúster de HDInsight. Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 
 		
 		$myrootdir = "/"
@@ -294,4 +294,4 @@ Una vez que configure el clúster de HDInsight para que use el Almacén de Data 
 [makecert]: https://msdn.microsoft.com/es-ES/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/es-ES/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

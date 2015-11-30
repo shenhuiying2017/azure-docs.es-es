@@ -31,7 +31,7 @@ Un tipo de aplicación es una categorización de una aplicación, que consta de 
 
 Las clases (o "tipos") de aplicaciones y servicios se describen mediante archivos XML (manifiestos de aplicación y manifiestos de servicio) que son las plantillas en las que se puede crear una instancia de las aplicaciones. El código de las diversas instancias de aplicación se ejecutará como procesos independientes, incluso cuando lo hospede el mismo nodo de Service Fabric. Asimismo, el ciclo de vida de cada instancia de aplicación se puede administrar (es decir, actualizar) de forma independiente. En el siguiente diagrama se muestra cómo los tipos de aplicación constan de tipos de servicio, que a su vez constan de código, configuración y paquetes.
 
-![ApplicationTypes y ServiceTypes de Service Fabric][Image1]
+![ApplicationTypes y ServiceTypes de Service Fabric][Imagen1]
 
 Dos archivos de manifiesto se usan para describir aplicaciones y servicios: el manifiesto de servicio y el manifiesto de aplicación, que aparecen detallados en las secciones subsiguientes.
 
@@ -39,7 +39,7 @@ Puede haber una o más instancias de un tipo de servicio activas en el clúster.
 
 En el siguiente diagrama se muestra la relación entre aplicaciones e instancias de servicio, particiones y réplicas.
 
-![Particiones y réplicas dentro de un servicio][Image2]
+![Particiones y réplicas dentro de un servicio][Imagen2]
 
 
 ## Describir un servicio
@@ -135,6 +135,8 @@ Al igual que los manifiestos de servicio, los atributos **Versión** son cadenas
 
 > [AZURE.NOTE]Un manifiesto de aplicación puede contener varias importaciones y servicios predeterminados del manifiesto de servicio. Cada importación del manifiesto de servicio puede tener varias versiones independientemente.
 
+Para información sobre cómo mantener diferentes parámetros de aplicación y servicio para entornos individuales, vea [Administración de los parámetros de la aplicación en varios entornos](service-fabric-manage-multiple-environment-app-configuration.md).
+
 <!--
 For more information about other features supported by application manifests, refer to the following articles:
 
@@ -169,6 +171,12 @@ D:\TEMP\MYAPPLICATIONTYPE
 ~~~
 
 Las carpetas reciben un nombre para coincidir con los atributos **Nombre** de cada elemento correspondiente. Por ejemplo, si el manifiesto de servicio contenía dos paquetes de código con los nombres **MiCódigoA** y **MiCódigoB**, tendría que haber dos carpetas con los mismos nombres que incluyeran los archivos binarios necesarios para cada paquete de código.
+
+### Uso de SetupEntryPoint
+Los escenarios típicos para usar SetupEntryPoint son donde necesita hacer algo antes de que se inicie el servicio o debe realizar una operación con privilegios más elevados. Entre los ejemplos se incluyen: la configuración y la inicialización de las variables de entorno que puede usar el ejecutable del servicio puede usar. Esto incluye no solo los ejecutables creados con los modelos de programación de Service Fabric sino también los exe que se usan simplemente. Por ejemplo, si implementa una aplicación nodejs, el npm.exe necesitaría variaciones de entornos configuradas. -ACL un recurso como un certificado
+
+Los siguientes son los pasos para garantizar que su código (exe), archivo por lotes o PowerShell se empaquetan correctamente en un proyecto de Visual Studio.
+
 
 ### Creación de un paquete mediante Visual Studio
 
@@ -221,15 +229,11 @@ Una vez que la aplicación se empaqueta correctamente y supera la verificación,
 
 ## Pasos siguientes
 
-[Implementar y quitar aplicaciones][10]
-
-<!--Image references-->
-[1]: ./media/service-fabric-application-model/application-model.jpg
-[2]: ./media/service-fabric-application-model/vs-package-command.png
-[Image1]: media/service-fabric-application-model/Service1.jpg
-[Image2]: media/service-fabric-application-model/Service2.jpg
+[Implementar y quitar aplicaciones][10] [Administración de los parámetros de la aplicación en varios entornos][11] [RunAs: ejecución de una aplicación Service Fabric con permisos de seguridad diferentes][12] <!--Image references--> [1]: ./media/service-fabric-application-model/application-model.jpg [2]: ./media/service-fabric-application-model/vs-package-command.png [Imagen1]: media/service-fabric-application-model/Service1.jpg [Imagen2]: media/service-fabric-application-model/Service2.jpg
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
+[11]: service-fabric-manage-multiple-environment-app-configuration.md
+[12]: service-fabric-application-runas-security.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

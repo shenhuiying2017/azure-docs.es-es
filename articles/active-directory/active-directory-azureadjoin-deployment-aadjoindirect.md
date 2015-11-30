@@ -1,11 +1,12 @@
 <properties 
 	pageTitle="Escenarios de uso y consideraciones de implementación de Azure AD Join | Microsoft Azure" 
-	description="Enumera y explica los diferentes escenarios de implementación disponibles para Azure AD Join." 
+	description="Un tema que explica cómo los administradores pueden configurar Azure AD Join para sus usuarios finales (empleados, estudiantes, otros usuarios). También describe los distintos escenarios reales de uso de Azure AD Join." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""/>
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/21/2015" 
+	ms.date="11/17/2015" 
 	ms.author="femila"/>
 
 # Escenarios de uso y consideraciones de implementación de Azure AD Join 
@@ -23,9 +24,7 @@ Escenario 1: Empresas principalmente en la nube
 --------------------------------------------------------
 Azure AD Join puede resultarle ventajoso si actualmente opera y administra identidades para su negocio en la nube o tiene pensado trasladarse a la nube en un futuro cercano. Puede usar una cuenta que haya creado en Azure AD para iniciar sesión en Windows 10. Mediante [el proceso de configuración rápida](active-directory-azureadjoin-user-frx.md) o la unión a Azure AD mediante [la experiencia de configuración básica](active-directory-azureadjoin-user-upgrade.md), sus usuarios pueden unir sus equipos a Azure AD. Ahora, los usuarios disfrutan de acceso SSO a sus recursos de nube, como Office 365 en el explorador o en las aplicaciones de Office.
 
-Escenario 2: Instituciones educativas
-----------------------------------------------------------------------------------
-Las instituciones educativas tienen habitualmente dos tipos de usuarios: profesores y estudiantes. A los profesores se les considera miembros más a largo plazo de la organización, y lo deseable es crear cuentas locales para ellos. Pero los estudiantes son miembros más a corto plazo de la organización y, por lo tanto, se pueden administrar en Azure AD de modo que la escala de directorio se puede mover a la nube en lugar de al entorno local. Los estudiantes ahora pueden iniciar sesión en Windows con su cuenta de Azure AD y obtener acceso a los recursos de Office 365 en las aplicaciones de Office.
+Escenario 2: Instituciones educativas ---------------------------------------------------------------------------------- Las instituciones educativas tienen habitualmente dos tipos de usuarios: profesores y estudiantes. A los profesores se les considera miembros más a largo plazo de la organización, y lo deseable es crear cuentas locales para ellos. Pero los estudiantes son miembros más a corto plazo de la organización y, por lo tanto, se pueden administrar en Azure AD de modo que la escala de directorio se puede mover a la nube en lugar de al entorno local. Los estudiantes ahora pueden iniciar sesión en Windows con su cuenta de Azure AD y obtener acceso a los recursos de Office 365 en las aplicaciones de Office.
 
 Escenario 3: Los negocios minoristas
 ---------------------------------------------------------------------------------------
@@ -53,7 +52,7 @@ Las empresas pueden proporcionar cuentas exclusivamente en la nube a organizacio
 *	Windows 10 (SKU de Professional y Enterprise)
 
 ### Tareas de administrador
-* [Configuración del registro de dispositivos y MFA](active-directory-azureadjoin-setup.md)
+* [Configuración del registro de dispositivos](active-directory-azureadjoin-setup.md)
 
 ### Tareas de usuario
 * [Configuración de un nuevo dispositivo de Windows 10 con Azure AD durante la instalación](active-directory-azureadjoin-user-frx.md)
@@ -77,14 +76,18 @@ Puede configurar a los usuarios y empleados para que usen sus dispositivos perso
 
 ### Tareas de administrador
 
-* [Configuración del registro de dispositivos y MFA](active-directory-azureadjoin-setup.md)
+* [Configuración del registro de dispositivos](active-directory-azureadjoin-setup.md)
 
 ### Tareas de usuario
 * [Unión de un dispositivo de Windows 10 personal a su organización](active-directory-azureadjoin-personal-device.md)
 
 
 ## Información adicional
-* [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-overview.md)
+* [Windows 10 para la empresa: formas de usar dispositivos para trabajar](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
+* [Autenticación de identidades sin contraseñas a través de Microsoft Passport](active-directory-azureadjoin-passport.md)
+* [Conozca los escenarios de uso de Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

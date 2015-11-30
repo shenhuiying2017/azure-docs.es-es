@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="11/16/2015"
    	ms.author="nitinme"/>
 
 
@@ -82,7 +82,7 @@ El Portal de vista previa de Azure es una herramienta de administración basada 
 
 	![Hoja Niveles de precios de nodo](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.5.png "Especifique el número de nodos de clúster")
     
-    > [AZURE.IMPORTANT]Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
+    > [AZURE.IMPORTANT]Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o al cambiar el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
     >
     > Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -99,6 +99,8 @@ El Portal de vista previa de Azure es una herramienta de administración basada 
     	>[AZURE.NOTE]El clúster de HDInsight basado en Windows solo se puede colocar en una red virtual clásica.
 
 	* Haga clic en **Tiendas de metadatos externas** para especificar la base de datos SQL que quiere usar para guardar los metadatos de Hive y Oozie asociados al clúster.
+    
+        > [AZURE.NOTE]La configuración de la tienda de metadatos no está disponible para los tipos de clúster de HBase.
 
 		![Hoja de tiendas de metadatos personalizados](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.7.png "Especificar tiendas de metadatos externas")
 
@@ -106,7 +108,7 @@ El Portal de vista previa de Azure es una herramienta de administración basada 
 
 		>[AZURE.NOTE]La base de datos SQL de Azure usada para la tienda de metadatos debe permitir la conectividad con otros servicios de Azure, incluido HDInsight de Azure. En el panel de la base de datos SQL de Azure, en el lado derecho, haga clic en el nombre de servidor. Este es el servidor en el que se ejecuta la instancia de base de datos SQL. Cuando se encuentre en la vista de servidor, haga clic en **Configurar** y luego, en **Servicios de Azure**, haga clic en **Sí** y en **Guardar**.
 
-	* **Acciones de script** si quiere usar un script personalizado para personalizar un clúster, conforme se crea el clúster. Para obtener más información sobre acciones de script, consulte [Personalización de clústeres de HDInsight con una acción de script](hdinsight-hadoop-customize-cluster-linux.md). En la hoja Acciones de script, proporcione los detalles como se muestra en la captura de pantalla.
+	* **Acciones de script** si quiere usar un script personalizado para personalizar un clúster, conforme se crea el clúster. Para más información sobre acciones de script, vea [Personalización de clústeres de HDInsight con una acción de script](hdinsight-hadoop-customize-cluster-linux.md). En la hoja Acciones de script, proporcione los detalles como se muestra en la captura de pantalla.
 
 		![Hoja de acción de script](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.8.png "Especifique una acción de script")
 
@@ -116,7 +118,7 @@ El Portal de vista previa de Azure es una herramienta de administración basada 
 
 		Haga clic en **Seleccionar** hasta volver a la hoja **Nuevo clúster de HDInsight**.
 
-10. En la hoja **Nuevo clúster de HDInsight**, asegúrese de que **Anclar a Panel de inicio** está seleccionado y haga clic en **Crear**. Esto creará el clúster y agregará un icono para él en el panel de inicio de su Portal de Azure. El icono indicará que el clúster está aprovisionando y cambiará para mostrar el icono de HDInsight cuando se haya completado el proceso.
+10. En la hoja **Nuevo clúster de HDInsight**, asegúrese de que la opción **Anclar a Panel de inicio** está seleccionada y haga clic en **Crear**. Esto creará el clúster y agregará un icono para él en el panel de inicio de su Portal de Azure. El icono indicará que el clúster está aprovisionando y cambiará para mostrar el icono de HDInsight cuando se haya completado el proceso.
 
 	| Durante el aprovisionamiento | Aprovisionamiento completado |
 	| ------------------ | --------------------- |
@@ -128,23 +130,23 @@ El Portal de vista previa de Azure es una herramienta de administración basada 
 
 	![Hoja de clúster](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.Cluster.Blade.png "Propiedades de clúster")
 
-	Use lo siguiente para comprender los iconos del principio de esta hoja y de la sección **Conceptos básicos**:
+	Use la siguiente información para comprender los iconos de la parte superior de esta hoja y de la sección **Conceptos básicos**:
 
-	* **Configuración** y **Toda la configuración**: muestran la hoja **Configuración** del clúster, que permite acceder a información de configuración detallada para el clúster.
+	* **Configuración** y **Toda la configuración**: muestra la hoja **Configuración** del clúster, que permite obtener acceso a información de configuración detallada para el clúster.
 
-	* **Panel**, **Panel del clúster** y **URL**: se trata de formas de acceder al panel del clúster, que es un portal web para ejecutar trabajos en el clúster.
+	* **Panel**, **Panel del clúster** y **URL**: se trata de formas de tener acceso al panel del clúster, que es un portal web que ejecuta trabajos en el clúster.
 
-	* **Shell seguro**: información necesaria para acceder al clúster mediante SSH.
+	* **Shell seguro**: información necesaria para obtener acceso al clúster mediante SSH.
 
 	* **Eliminar**: elimina el clúster de HDInsight.
 
 	* **Inicio rápido** (![icono de nube y rayo = inicio rápido](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)): muestra información que le ayudará a empezar a usar HDInsight.
 
-	* **Usuarios** (![icono de usuarios](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png)): permite establecer permisos para la _administración del portal_ de este clúster para otros usuarios de la suscripción de Azure.
+	* **Usuarios** (![icono de usuarios](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png)): permite establecer permisos para la _administración del portal_ de este clúster para otros usuarios de su suscripción de Azure.
 
 		> [AZURE.IMPORTANT]Esto _solo_ afecta al acceso y los permisos para este clúster en el Portal de vista previa de Azure, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
 
-	* **Etiquetas** (![icono de etiqueta](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)): las etiquetas permiten establecer pares de clave-valor para definir una taxonomía personalizada de los servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y luego usar un valor común para todos los servicios asociados a un proyecto específico.
+	* **Etiquetas** (![icono de etiqueta](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)): las etiquetas permiten establecer pares de clave-valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y luego usar un valor común para todos los servicios asociados a un proyecto específico.
 
 ##Pasos siguientes
 
@@ -167,4 +169,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

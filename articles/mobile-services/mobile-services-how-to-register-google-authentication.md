@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/27/2015" 
+	ms.date="11/15/2015" 
 	ms.author="glenga"/>
 
 # Registro de las aplicaciones para el inicio de sesión de Google con Servicios móviles
@@ -34,10 +34,13 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
 6. En la pestaña **Credenciales**, haga clic en **Agregar credenciales** > **Id. de cliente de OAuth 2.0** y luego seleccione **Aplicación web**.
 
-7. Escriba la dirección URL de su servicio móvil en **Orígenes de JavaScript autorizados**, reemplace la dirección URL generada en **Autorizar URI de redirección** por la dirección URL de su servicio móvil anexada a la ruta de acceso `/login/google` y luego haga clic en **Crear identificador de cliente**.
+7. Escriba la dirección URL de su servicio móvil en **Orígenes de JavaScript autorizados**, reemplace la dirección URL generada en **Autorizar URI de redirección** por uno de los siguientes formatos de dirección URL y luego haga clic en **Crear identificador de cliente**:
+ 
+	+ **Back-end de .NET**: `https://<mobile_service>.azure-mobile.net/signin-google`
+	+ **Back-end de JavaScript**: `https://<mobile_service>.azure-mobile.net/login/google` 
 
-	>[AZURE.NOTE]Para un servicio móvil de back-end de .NET publicado en Azure con Visual Studio, la dirección URL de redireccionamiento es la dirección URL del servicio móvil con la ruta de acceso _signin-google_ anexada como servicio .NET, como `https://todolist.azure-mobile.net/signin-google`. &nbsp;
-	
+	 >[AZURE.NOTE]Asegúrese de usar el formato correcto de ruta de acceso a dirección URL de redireccionamiento para su tipo de back-end de Servicios móviles. Si es incorrecto, la autenticación no se realizará correctamente.
+
 8. En la siguiente pantalla, tome nota de los valores de id. de cliente y el secreto del cliente.
 
     > [AZURE.IMPORTANT]El secreto de cliente es una credencial de seguridad importante, No comparta este secreto con nadie ni lo distribuya en una aplicación cliente.
@@ -56,4 +59,4 @@ Ahora está listo para configurar el servicio móvil para utilizar inicio de ses
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

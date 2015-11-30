@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Configuración del método de enrutamiento round robin
@@ -35,21 +35,21 @@ Un patrón del método de enrutamiento del tráfico es proporcionar un conjunto 
 
 ## Pasos siguientes
 
-[Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-load-balancing-methods.md)
+
+[Hacer que un dominio de Internet de la empresa indique un dominio del Administrador de tráfico](traffic-manager-point-internet-domain.md)
+
+[Métodos de enrutamiento del Administrador de tráfico](traffic-manager-routing-methods.md)
+
+[Configuración del método de enrutamiento de conmutación por error](traffic-manager-configure-failover-routing-method.md)
+
+[Configuración del método de enrutamiento de rendimiento](traffic-manager-configure-performance-routing-method.md)
+
+[Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
 
 [Administrador de tráfico: deshabilitación, habilitación o eliminación de un perfil](disable-enable-or-delete-a-profile.md)
 
 [Administrador de tráfico: deshabilitación o habilitación de un extremo](disable-or-enable-an-endpoint.md)
 
-[¿Qué es el Administrador de tráfico?](../traffic-manager-overview.md)
-
-[Servicios en la nube](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Sitios web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[Operaciones del Administrador de tráfico (referencia de la API de REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
-
-[Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

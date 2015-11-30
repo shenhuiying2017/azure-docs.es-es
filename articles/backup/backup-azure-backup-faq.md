@@ -1,16 +1,17 @@
 <properties
    pageTitle="P+F de Copia de seguridad de Azure | Microsoft Azure"
-   description="Preguntas más frecuentes sobre el servicio de copia de seguridad de Azure"
+   description="Preguntas más frecuentes sobre la Solución de Copia de seguridad de Azure: agente de copia de seguridad, copia de seguridad y retención, recuperación, seguridad y otras preguntas comunes sobre el servicio de Copia de seguridad de Azure."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
    manager="shreeshd"
-   editor=""/>
+   editor=""
+   keywords="solución de copia de seguridad; servicio de copia de seguridad"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
-# Copia de seguridad de Azure - Preguntas más frecuentes
-A continuación se muestra una lista de las preguntas más frecuentes acerca de la Copia de seguridad de Azure. Si tiene alguna pregunta adicional sobre Copia de seguridad de Azure, vaya al [foro de discusión](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) y publique sus preguntas. Alguien de nuestra comunidad le ayudará a obtener respuestas. Si una pregunta es frecuente, se agregará a este artículo para que se pueda encontrar de forma rápida y sencilla.
+# P+F de servicio de Copia de seguridad de Azure
+A continuación se muestra una lista de las preguntas más frecuentes acerca de la Copia de seguridad de Azure. Si tiene alguna pregunta adicional sobre la solución Copia de seguridad de Azure, vaya al [foro de discusión](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) y publique sus preguntas. Alguien de nuestra comunidad le ayudará a obtener respuestas. Si una pregunta es frecuente, se agregará a este artículo para que se pueda encontrar de forma rápida y sencilla.
 
 ## Instalación y configuración
 **P1. ¿Qué es la lista de sistemas operativos compatibles desde la que puedo realizar copias de seguridad en Azure con la Copia de seguridad de Azure?** <br/> R1. Copia de seguridad de Azure admite lista de sistemas operativos siguiente
@@ -80,7 +81,7 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 
 **P17. ¿Funciona el agente de Copia de seguridad de Azure en un servidor que usa la desduplicación de Windows Server 2012?** <br/>A17: Sí. El servicio del agente convierte los datos desduplicados en datos normales cuando prepara la operación de copia de seguridad. A continuación, optimiza los datos para la copia de seguridad, los cifra y los envía al servicio de copia de seguridad en línea.
 
-**P18. ¿Se eliminan los datos de copia de seguridad si cancelo una copia de seguridad después de que se inicie?** <br/>R18: No. El almacén de copia de seguridad almacena la copia de seguridad de los datos que se transfieren hasta el momento de la cancelación. Copia de seguridad de Azure usa un mecanismo de punto de comprobación para que los datos de copia de seguridad se comprueben en un punto ocasionalmente durante la copia de seguridad y el siguiente proceso de copia de seguridad pueda validar la integridad de los archivos. La siguiente copia de seguridad desencadenada sería incremental respecto a los datos de los que se haya creado una copia de seguridad anteriormente. Esto permite usar mejor el ancho de banda, por lo que no es necesario transferir los mismos datos reiteradamente.
+**P18. ¿Se eliminan los datos de copia de seguridad si cancelo una copia de seguridad después de que se inicie?** <br/> R18: No. El almacén de copia de seguridad almacena la copia de seguridad de los datos que se transfieren hasta el momento de la cancelación. Copia de seguridad de Azure usa un mecanismo de punto de comprobación para que los datos de copia de seguridad se comprueben en un punto ocasionalmente durante la copia de seguridad y el siguiente proceso de copia de seguridad pueda validar la integridad de los archivos. La siguiente copia de seguridad desencadenada sería incremental respecto a los datos de los que se haya creado una copia de seguridad anteriormente. Esto permite usar mejor el ancho de banda, por lo que no es necesario transferir los mismos datos reiteradamente.
 
 **P19. ¿Por qué aparece la advertencia "Las copias de seguridad de Azure no se han configurado para este servidor" aunque programé previamente copias de seguridad periódicas?** <br/>R19: Esto puede ocurrir cuando la configuración de la programación de copia de seguridad almacenada en el servidor local no es la misma que la configuración almacenada en el almacén de copia de seguridad. Cuando el servidor o la configuración se recuperan a un estado válido conocido, las programaciones de copia de seguridad pueden perder la sincronización. Si esto sucede, debe volver a configurar la directiva de copia de seguridad y elegir **Ejecutar copia de seguridad ahora** para volver a sincronizar el servidor local con Azure.
 
@@ -175,4 +176,4 @@ El tamaño de origen de datos se mide según se menciona a continuación
 
 Una vez que las copias de seguridad se realizan correctamente con la nueva ubicación de caché, puede quitar la carpeta de la memoria caché original.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

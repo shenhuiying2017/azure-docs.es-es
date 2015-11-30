@@ -4,36 +4,36 @@
 	description="Procedimientos para crear reglas avanzadas para un grupo, entre los que se incluyen parámetros y operadores de reglas de expresiones."
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
+	authors="curtand"
 	manager="stevenpo"
 	editor=""/>
 
 <tags
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/09/2015" 
-	ms.author="femila"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/17/2015"
+	ms.author="curtand"/>
 
 
 # Uso de atributos para crear reglas avanzadas
-El Portal de administración de Azure proporciona la flexibilidad necesaria para configurar una regla más avanzada para habilitar pertenencias dinámicas para grupos.
+El Portal de Azure proporciona la flexibilidad necesaria para configurar reglas avanzadas en Azure Active Directory (Azure AD) para habilitar suscripciones dinámicas más complejas para grupos de Azure AD.
 
-**Para crear la regla avanzada** En el Portal de administración de Azure, en la pestaña **Configurar** del grupo, seleccione el botón de radio **Regla avanzada** y, a continuación, escriba la regla avanzada en el cuadro de texto proporcionado. Puede crear la regla avanzada mediante la siguiente información.
+**Para crear la regla avanzada** En el Portal de Azure, en la pestaña **Configurar** del grupo, seleccione la opción **Regla avanzada** y, a continuación, escriba la regla avanzada en el cuadro de texto proporcionado. Puede crear la regla avanzada mediante la siguiente información.
 
 ## Construcción del cuerpo de una regla avanzada
 La regla avanzada que se puede crear para las pertenencias dinámicas para grupos es esencialmente una expresión binaria que consta de tres partes y da como resultado true o false. Las tres partes son:
 
 - Parámetro a la izquierda
 - Operador binario
-- Constante a la derecha 
+- Constante a la derecha
 
 Una regla avanzada completa se parece a esto: (leftParameter binaryOperator "RightConstant"), donde los paréntesis de apertura y cierre son necesarios para toda la expresión binaria, las comillas dobles son necesarias para la constante de la derecha y la sintaxis para el parámetro izquierdo es user.property. Una regla avanzada puede constar de más de una expresión binaria separadas por los operadores lógicos -and, -or y -not. Los siguientes son ejemplos de una regla avanzada construida correctamente:
 
-- (user.department -eq "Sales") -or (user.department -eq "Marketing") 
-- (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE") 
+- (user.department -eq "Sales") -or (user.department -eq "Marketing")
+- (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 
 Para obtener una lista completa de los parámetros y los operadores de regla de expresión admitidos, vea las secciones siguientes.
 
@@ -152,13 +152,13 @@ Operadores permitidos
 Ahora puede rellenar los miembros de un grupo en función del atributo de administrador de un usuario.
 Para configurar un grupo como un grupo de “Administrador”
 --------------------------------------------------------------------------------
-1. En el Portal de administrador, haga clic en la pestaña **Configurar** y luego seleccione **REGLA AVANZADA**. 
+1. En el Portal de administrador, haga clic en la pestaña **Configurar** y luego seleccione **REGLA AVANZADA**.
 2. Escriba la regla con la siguiente sintaxis: Direct Reports for *Direct Reports for {Identificador de usuario del administrador}*
-3. Al guardar esta regla, todos los usuarios que la cumplen se unirán como miembros del grupo. Tenga en cuenta que pueden pasar unos cuando minutos hasta que empiece a llenarse el grupo. 
+3. Al guardar esta regla, todos los usuarios que la cumplen se unirán como miembros del grupo. Tenga en cuenta que pueden pasar unos cuando minutos hasta que empiece a llenarse el grupo.
 
 
 ## Información adicional
-A continuación presentamos algunos temas que proporcionarán información adicional acerca de Azure Active Directory.
+Estos artículos proporcionan información adicional sobre Azure Active Directory.
 
 * [Solución de problemas relacionados con las pertenencias dinámicas para grupos](active-directory-accessmanagement-troubleshooting.md)
 
@@ -168,4 +168,4 @@ A continuación presentamos algunos temas que proporcionarán información adici
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="11/17/2015"
    ms.author="v-sharos" />
 
 # Implemente el dispositivo StorSimple local en el Portal de Government
@@ -238,7 +238,7 @@ Para conectarse a Windows PowerShell para StorSimple, deberá usar software de e
 
 La actualización del dispositivo puede tardar entre varias horas. Realice los pasos siguientes para detectar y aplicar las actualizaciones en el dispositivo.
 
-<!-- > [AZURE.NOTE] Si tiene una puerta de enlace configurada en una interfaz de red que no sea Data 0, deberá deshabilitar las interfaces de red Data 2 y Data 3 antes de instalar la actualización. Vaya a **Dispositivos > Configurar** y deshabilite las interfaces Data 2 y Data 3. Deberá volver a habilitar estas interfaces después de actualiza el dispositivo.-->
+<!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### Para actualizar su dispositivo
 
@@ -277,4 +277,4 @@ Configure un [dispositivo virtual](storsimple-virtual-device.md).
 Use el [servicio de Administrador de StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx) para administrar el dispositivo StorSimple.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

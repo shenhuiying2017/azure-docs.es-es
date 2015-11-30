@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Diagnóstico de errores y excepciones en aplicaciones de ASP.NET con Application Insights" 
-	description="Configure la aplicación para disponer de una experiencia de diagnóstico convincente capturando excepciones junto con la telemetría de solicitud." 
+	description="Capture las excepciones de las aplicaciones ASP.NET junto con la telemetría de solicitudes." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -12,10 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
- 
-# Diagnóstico de errores y excepciones en aplicaciones de ASP.NET con Application Insights  
+
+
+# Configurar Application Insights: diagnosticar excepciones
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
 
 Supervisando la aplicación con [Visual Studio Application Insights][start], puede correlacionar las solicitudes con error con las excepciones y otros eventos tanto en el cliente como en el servidor, y así diagnosticar rápidamente las causas.
 
@@ -64,7 +68,7 @@ Para obtener datos de diagnóstico específicos de su aplicación, puede inserta
 
 Tiene varias opciones:
 
-* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) normalmente se usa para supervisar patrones de uso, pero los datos que envía también aparecen en Eventos personalizados en la búsqueda de diagnósticos. Los eventos tienen nombre y pueden llevar propiedades de cadena y métricas numéricas en las que puede [filtrar las búsquedas de diagnósticos][diagnostic].
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) normalmente se usa para supervisar patrones de uso, pero los datos que envía también aparecen en Eventos personalizados en la búsqueda de diagnóstico. Los eventos tienen nombre y pueden llevar propiedades de cadena y métricas numéricas en las que puede [filtrar las búsquedas de diagnósticos][diagnostic].
 * [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) le permite enviar datos más grandes, como la información de POST.
 * [TrackException()](#exceptions) envía seguimientos de la pila. [Más información sobre excepciones](#exceptions).
 * Si ya utiliza un marco de registro como Log4Net o NLog, puede [capturar aquellos registros][netlogs] y verlos en la búsqueda de diagnósticos junto con datos de solicitud y excepción.
@@ -448,4 +452,4 @@ Tenga en cuenta que será diferente del recuento de "Excepciones" calculado por 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

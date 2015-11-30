@@ -101,7 +101,7 @@ Puede calcular el porcentaje de disponibilidad de un servicio en un período de 
 %Availability =  ((Total Time – Total Downtime) / Total Time ) * 100
 ```
 
-Esto es útil para fines de SLA (La [supervisión de SLA](#SLA-monitoring) se describe con más detalle más adelante en esta guía). La definición de _tiempo de inactividad_ depende del servicio. Por ejemplo, Visual Studio Online define el tiempo de inactividad como el período durante el cual los intentos de un cliente para conectarse al servicio tardan más de 120 segundos y todas las operaciones básicas de lectura y escritura producen un error después de establecer la conexión dentro de ese período.
+Esto es útil para fines de SLA (La [supervisión de SLA](#SLA-monitoring) se describe con más detalle más adelante en esta guía). La definición de _tiempo de inactividad_ depende del servicio. Por ejemplo, Visual Studio Team Services define el tiempo de inactividad como el período durante el cual los intentos de un cliente para conectarse al servicio tardan más de 120 segundos y todas las operaciones básicas de lectura y escritura producen un error después de establecer la conexión dentro de ese período.
 
 ## Supervisión del rendimiento
 Como el sistema se somete a condiciones de carga cada vez mayores a medida que el volumen de usuarios incrementa y el tamaño de los conjuntos de datos a los que tienen acceso crece, los errores posibles en uno o varios componentes son cada vez más probables. Con frecuencia, el error de componentes está precedido por una disminución del rendimiento. Si puede detectar esa disminución, puede tomar medidas proactivas para remediar la situación.
@@ -612,4 +612,4 @@ En muchos casos, los informes se pueden generar mediante procesos por lotes seg�
 - La página [Descripción de la supervisión de alertas y notificaciones en Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) del sitio web de Microsoft.
 - La página de [Application Insights](app-insights-get-started/) del sitio web de Microsoft.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

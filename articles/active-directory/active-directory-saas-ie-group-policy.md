@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/28/2015"
+   ms.date="11/18/2015"
    ms.author="liviodlc"/>
 
 #Implementación de la extensión de panel de acceso para Internet Explorer mediante la directiva de grupo
@@ -128,7 +128,36 @@ Además de ejecutar el programa de instalación, todas las extensiones de Intern
 
 Ahora, la extensión debería estar habilitada para los equipos de la unidad organizativa seleccionada. [Más información acerca de cómo usar la directiva de grupo para habilitar o deshabilitar complementos de Internet Explorer.](https://technet.microsoft.com/library/dn454941.aspx)
 
-##Paso 5: Prueba de la implementación
+##Paso 5 (opcional): deshabilitar el mensaje "Recordar contraseña"
+
+Cuando los usuarios inician sesión en sitios web mediante la extensión del panel de acceso, es posible que Internet Explorer muestre el siguiente mensaje preguntándole "¿Desea almacenar su contraseña?"
+
+![](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
+
+Si desea impedir que los usuarios vean este mensaje, a continuación, siga estos pasos para evitar que Autocompletar recuerde las contraseñas:
+
+1. En la ventana **Editor de administración de directivas de grupo**, vaya a la ruta de acceso indicada a continuación. Tenga en cuenta que esta opción de configuración solo está disponible en **Configuración de usuario**.
+	- `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/`
+
+2. Busque el valor denominado **Activar la función Autocompletar para nombres de usuario y contraseñas en formularios**.
+
+	> [AZURE.NOTE]Es posible que las versiones anteriores de Active Directory muestren esta configuración del modo siguiente: **No permitir que autocompletar guarde las contraseñas**. La configuración de esa opción varía de la descrita en este tutorial.
+
+	![No olvide buscar esto en Configuración de usuario.](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
+
+3. Haga clic con el botón derecho en la configuración anterior y seleccione **Editar**.
+
+4. En la ventana **Activar la función Autocompletar para nombres de usuario y contraseñas en formularios**, seleccione **Deshabilitado**.
+
+	![Seleccione Deshabilitar](./media/active-directory-saas-ie-group-policy/disable-passwords.png)
+
+5. Haga clic en **Aceptar** para aplicar estos cambios y cerrar la ventana.
+
+Los usuarios ya no podrán almacenar sus credenciales ni usar Autocompletar para tener acceso a las credenciales almacenadas previamente. Sin embargo, esta directiva permite a los usuarios seguir usando Autocompletar para otros tipos de campos de formulario, como campos de búsqueda.
+
+> [AZURE.WARNING]Si se habilita esta directiva después de que los usuarios hayan decidido almacenar algunas credenciales, esta directiva *no* borrará las credenciales que ya se han almacenado.
+
+##Paso 6: Prueba de la implementación
 
 Siga estos pasos para comprobar si la implementación de la extensión se realizó correctamente:
 
@@ -148,4 +177,4 @@ Siga estos pasos para comprobar si la implementación de la extensión se realiz
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

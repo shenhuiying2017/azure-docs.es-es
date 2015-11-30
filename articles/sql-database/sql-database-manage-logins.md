@@ -79,34 +79,34 @@ CREATE LOGIN login1 WITH password='<ProvidePassword>';
 
 #### Uso de nuevos inicios de sesión
 
-Para conectarse a Base de datos SQL de Microsoft Azure con los inicios de sesión que cree, debe conceder primero permisos de nivel de base de datos a cada inicio de sesión con el comando ``CREATE USER``. Para obtener más información, vea [Concesión de permisos de nivel de base de datos a un inicio de sesión](https://msdn.microsoft.com/library/ee336235.aspx#DatabasePerms).
+Para conectarse a Base de datos SQL de Microsoft Azure con los inicios de sesión que cree, debe conceder primero permisos de nivel de base de datos a cada inicio de sesión con el comando ``CREATE USER``. Para obtener más información, consulte la sección **Conceder acceso de base de datos a un inicio de sesión** que tiene a continuación.
 
-Dado que algunas herramientas implementan el flujo de datos tabulares (TDS) de manera diferente, es posible que tenga que anexar el nombre del servidor de Base de datos SQL de Azure al inicio de sesión en la cadena de conexión con la notación ``<login>@<server>``. En estos casos, separe el inicio de sesión y el nombre del servidor de Base de datos SQL de Azure con el símbolo ``@``. Por ejemplo, si el inicio de sesión se denomina **login1** y el nombre completo del servidor de Base de datos SQL de Azure es **servername.database.windows.net**, el parámetro de nombre de usuario de la cadena de conexión debe ser: ****login1@servername**. Esta restricción impone limitaciones sobre el texto que puede elegir para el nombre de inicio de sesión. Para obtener más información, vea [CREATE LOGIN (Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx).
+Dado que algunas herramientas implementan los flujos de datos tabulares (TDS) de manera diferente, es posible que tenga que anexar el nombre del servidor de la Base de datos SQL de Azure al inicio de la sesión de la cadena de conexión, mediante la notación ``<login>@<server>``. En estos casos, debe separar el inicio de sesión y el nombre del servidor de la Base de datos SQL de Azure mediante el símbolo ``@``. Por ejemplo, si el inicio de sesión se denomina **login1** y el nombre completo del servidor de la Base de datos SQL de Azure es **servername.database.windows.net**, el parámetro del nombre de usuario de la cadena de conexión debe ser: ****login1@servername**. Esta restricción impone limitaciones sobre el texto que puede elegir para el nombre de inicio de sesión. Para obtener más información, consulte [CREAR INICIO DE SESIÓN (Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx).
 
 ## Conceder permisos de nivel de servidor a un inicio de sesión
 
-Para que los inicios de sesión que no sean de entidad de seguridad a nivel de servidor administren la seguridad de nivel de servidor, Base de datos SQL de Azure ofrece dos roles de seguridad: **loginmanager**, para crear inicios de sesión y **dbmanager** para crear bases de datos. Solo pueden agregarse usuarios de la base de datos **maestra** a estos roles de base de datos.
+Para que solo los inicios de sesión principales de nivel de servidor administren la seguridad del nivel de servidor, la Base de datos SQL de Azure ofrece dos roles de seguridad: **loginmanager**, para crear inicios de sesión y **dbmanager** para crear bases de datos. Solo pueden agregarse usuarios de la base de datos **maestra** a estos roles de base de datos.
 
-> [AZURE.NOTE]Para crear inicios de sesión o bases de datos, se debe estar conectado a la base de datos **maestra** (que es una representación lógica de **maestra**).
+> [AZURE.NOTE]Para crear inicios de sesión o bases de datos, debe estar conectado a la base de datos **maestra** (la cual es una representación lógica de **maestra**).
 
 ### El rol loginmanager
 
-Al igual que el rol fijo de servidor **securityadmin** para una instancia local de SQL Server, el rol de base de datos **loginmanager** de Base de datos SQL de Azure tiene permiso para crear inicios de sesión. Solo el inicio de sesión de entidad de seguridad a nivel de servidor (creado por el proceso de aprovisionamiento) o los miembros del rol de base de datos **loginmanager** pueden crear inicios de sesión.
+Al igual que el rol fijo de servidor **securityadmin** de una instancia local de SQL Server, el rol de base de datos **loginmanager** de la Base de datos SQL de Azure, tiene permiso para crear inicios de sesión. Solo el inicio de sesión principal de nivel de servidor (creado por el proceso de aprovisionamiento) o los miembros del rol de base de datos **loginmanager** pueden crear inicios de sesión.
 
 ### El rol dbmanager
 
-El rol de base de datos **dbmanager** de Base de datos SQL de Microsoft Azure es similar al rol fijo de servidor **dbcreator** para una instancia local de SQL Server. Solo el inicio de sesión de entidad de seguridad a nivel de servidor (creado por el proceso de aprovisionamiento) o los miembros del rol de base de datos **dbmanager** pueden crear bases de datos. Una vez que un usuario es miembro del rol de base de datos **dbmanager**, puede crear una base de datos con el comando ``CREATE DATABASE`` de Base de datos SQL de Azure, pero ese comando se debe ejecutar en la base de datos maestra. Para obtener más información, vea [CREATE DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/dn268335.aspx).
+El rol de base de datos **dbmanager** de la Base de datos SQL de Microsoft Azure es similar al rol de servidor fijo **dbcreator** de una instancia local de SQL Server. Solo el inicio de sesión principal de nivel de servidor (creado por el proceso de aprovisionamiento) o los miembros del rol de base de datos **dbmanager** pueden crear bases de datos. Una vez que un usuario es miembro del rol de base de datos **dbmanager**, este puede crear una base de datos con el comando ``CREATE DATABASE`` de la Base de datos SQL de Azure, pero tenga en cuenta que ese comando se debe ejecutar en la base de datos maestra. Para obtener más información, consulte [CREAR BASE DE DATOS (Transact-SQL)](https://msdn.microsoft.com/library/dn268335.aspx).
 
 ### Cómo asignar roles de nivel de servidor de Base de datos SQL
 
 Para crear un inicio de sesión y un usuario asociado que pueda crear bases de datos u otros inicios de sesión, realice los pasos siguientes:
 
-1. Conéctese a la base de datos **maestra** con las credenciales del inicio de sesión de entidad de seguridad a nivel de servidor (creado por el proceso de aprovisionamiento) o las credenciales de un miembro existente del rol de base de datos **loginmanager**.
-2. Cree un inicio de sesión con el comando ``CREATE LOGIN``. Para obtener más información, vea [CREATE LOGIN (Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx).
-3. Cree un usuario para ese inicio de sesión en la base de datos maestra con el comando ``CREATE USER``. Para obtener más información, vea [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
-4. Use el procedimiento almacenado ``sp_addrolememeber`` para agregar un nuevo usuario al rol de base de datos **dbmanager**, al rol de base de datos loginmanager o a ambos.
+1. Conéctese a la base de datos **maestra** con las credenciales del inicio de sesión principal de nivel de servidor (creado por el proceso de aprovisionamiento) o con las credenciales de un miembro existente del rol de base de datos **loginmanager**.
+2. Crear un inicio de sesión con el comando ``CREATE LOGIN``. Para obtener más información, consulte [CREAR INICIO DE SESIÓN (Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx).
+3. Cree un usuario para ese inicio de sesión en la base de datos maestra con el comando ``CREATE USER``. Para obtener más información, consulte [CREAR USUARIO (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
+4. Use el procedimiento almacenado ``sp_addrolememeber`` para agregar un nuevo usuario al rol de base de datos **dbmanager**, al rol de base de datos loginmanager, o a ambos.
 
-En el ejemplo de código siguiente se muestra cómo crear un inicio de sesión denominado **login1** y el usuario de base de datos correspondiente denominado **login1User** que puede crear bases de datos y otros inicios de sesión mientras está conectado a la base de datos **maestra**:
+En el ejemplo de código siguiente se muestra cómo crear un inicio de sesión denominado **login1** y su usuario de base de datos correspondiente denominado **login1User**, el cual puede crear bases de datos y otros inicios de sesión mientras está conectado a la base de datos **maestra**:
 
 ```
 -- first, connect to the master database
@@ -125,10 +125,10 @@ Todos los inicios de sesión deben crearse en la base de datos **maestra**. Desp
 Para crear una cuenta de usuario en otra base de datos, suponiendo que no se ha creado un inicio de sesión o una base de datos, realice los pasos siguientes:
 
 1. Conéctese a la base de datos **maestra** (con un inicio de sesión que tenga los roles **loginmanager** y **dbmanager**).
-2. Cree un inicio de sesión con el comando ``CREATE LOGIN``. Para obtener más información, vea [CREATE LOGIN (Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx). La autenticación de Windows no es compatible.
-3. Cree una base de datos con el comando ``CREATE DATABASE``. Para obtener más información, vea [CREATE DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/dn268335.aspx).
+2. Crear un inicio de sesión mediante el comando ``CREATE LOGIN``. Para obtener más información, consulte [CREAR INICIO DE SESIÓN (Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx). La autenticación de Windows no es compatible.
+3. Crear una base de datos con el comando ``CREATE DATABASE``. Para obtener más información, consulte [CREAR BASE DE DATOS (Transact-SQL)](https://msdn.microsoft.com/library/dn268335.aspx).
 4. Establezca una conexión con la nueva base de datos (con el inicio de sesión que creó la base de datos).
-5. Cree un usuario en la nueva base de datos con el comando ``CREATE USER``. Para obtener más información, vea [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
+5. Crear un usuario en la nueva base de datos con el comando ``CREATE USER``. Para obtener más información, consulte [CREAR USUARIO (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
 
 En el ejemplo de código siguiente se muestra cómo crear un inicio de sesión denominado **login1** y una base de datos denominada **database1**:
 
@@ -140,7 +140,7 @@ CREATE DATABASE database1;
 
 > [AZURE.NOTE]Debe usar una contraseña segura al crear un inicio de sesión. Para obtener más información, consulte [Contraseñas seguras](https://msdn.microsoft.com/library/ms161962.aspx).
 
-En el ejemplo siguiente se muestra cómo crear un usuario de base de datos denominado **login1User** en la base de datos **database1** que corresponde al inicio de sesión **login1**. Para ejecutar el ejemplo siguiente, primero debe crear una nueva conexión a database1, usando un inicio de sesión con el permiso **ALTER ANY USER** en esa base de datos. Cualquier usuario que se conecte como miembro del rol **db\_owner** tendrá ese permiso, como el inicio de sesión que creó la base de datos.
+En el ejemplo siguiente se muestra cómo crear un usuario de base de datos denominado **login1User** en la base de datos **database1** que corresponde al inicio de sesión **login1**. Para ejecutar el ejemplo siguiente, primero debe crear una nueva conexión a database1, mediante un inicio de sesión con el permiso **ALTER ANY USER** de esa base de datos. Cualquier usuario que se conecte como miembro del rol **db\_owner** obtendrá ese permiso, como el inicio de sesión que creó la base de datos.
 
 ```
 -- Establish a new connection to the database1 database
@@ -157,7 +157,7 @@ Este modelo de permisos de nivel de base de datos de Base de datos SQL de Azure 
 ## Visualización de los inicios de sesión y las bases de datos
 
 
-Para ver inicios de sesión y bases de datos en el servidor de Base de datos SQL de Azure, use las vistas ``sys.sql_logins`` y ``sys.databases``, respectivamente, de la base de datos maestra. En el ejemplo siguiente se muestra cómo mostrar una lista de todos los inicios de sesión y las bases de datos del servidor de Base de datos SQL de Azure.
+Para ver los inicios de sesión y las bases de datos en el servidor de la Base de datos SQL de Azure, use las vistas ``sys.sql_logins`` y ``sys.databases``, respectivamente, de la base de datos maestra. En el ejemplo siguiente se muestra cómo mostrar una lista de todos los inicios de sesión y las bases de datos del servidor de Base de datos SQL de Azure.
 
 ```
 -- first, connect to the master database
@@ -167,6 +167,6 @@ SELECT * FROM sys.databases;
 
 ## Consulte también
 
-[Instrucciones y limitaciones de seguridad de Base de datos SQL de Azure](sql-database-security-guidelines.md) [Conexión a Base de datos SQL con autenticación de Azure Active Directory](sql-database-aad-authentication.md)
+[Instrucciones y limitaciones de seguridad de la Base de datos SQL de Azure](sql-database-security-guidelines.md) [Conexión a la Base de datos SQL mediante la autenticación de Azure Active Directory](sql-database-aad-authentication.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -16,7 +16,7 @@
 	ms.date="09/28/2015" 
 	ms.author="mimig"/>
 
-# Creación de una colección de DocumentDB en el portal de vista previa de Azure
+# Creación de una colección de DocumentDB
 
 Para usar Microsoft Azure DocumentDB, debe tener una [cuenta de DocumentDB](documentdb-create-account.md), una [base de datos](documentdb-create-database.md), una colección y documentos. En este tema se describe cómo crear una colección de DocumentDB en el portal de vista previa de Azure.
 
@@ -65,4 +65,4 @@ Ahora que tiene una colección, el paso siguiente es agregar o importar document
 
 Cuando tenga documentos en una colección, puede usar [SQL de DocumentDB](documentdb-sql-query.md) para [ejecutar consultas](documentdb-sql-query.md#executing-queries) en sus documentos mediante el [Explorador de consultas](documentdb-query-collections-query-explorer.md) en el portal de vista previa, la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno de los [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

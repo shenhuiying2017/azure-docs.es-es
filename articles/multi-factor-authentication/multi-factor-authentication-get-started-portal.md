@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Implementación del Portal de usuarios para Servidor Azure Multi-Factor Authentication
@@ -189,4 +189,4 @@ La autoinscripción del usuario ahora está completa y el usuario inicia sesión
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

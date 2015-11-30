@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/10/2015"
+	ms.date="11/16/2015"
 	ms.author="sdanie"/>
 
 # Implementación de una instancia del servicio Administración de API de Azure en varias regiones de Azure
 
 Administración de API admite la implementación en varias regiones, lo que permite a los publicadores de API distribuir un único servicio de Administración de API en el número de regiones de Azure deseado. Esto ayuda a reducir la latencia de solicitud que perciben los usuarios de API distribuidos geográficamente y, además, mejora la disponibilidad del servicio en caso de que una región se quede sin conexión.
 
-Al crear inicialmente un servicio de Administración de API, este contiene solo una [unidad][] y reside en una sola región de Azure, designada como región principal. Pueden agregarse otras regiones fácilmente a través del Portal de Azure. El servidor proxy de Administración de API se implementa en cada región y el tráfico de llamada se enruta al servidor proxy más cercano. Cuando una región se queda sin conexión, el tráfico se redirige automáticamente al siguiente servidor proxy más cercano.
+Al crear inicialmente un servicio de Administración de API, este contiene solo una [unidad][] y reside en una sola región de Azure, designada como región principal. Pueden agregarse otras regiones fácilmente a través del Portal de Azure. El servidor puerta de enlace de Administración de API se implementa en cada región y el tráfico de llamada se enruta a la puerta de enlace más cercana. Cuando una región se queda sin conexión, el tráfico se redirige automáticamente a la siguiente puerta de enlace más cercana.
 
 > [AZURE.IMPORTANT]La implementación en varias regiones solo está disponible en el nivel **[Premium][]**.
 
@@ -75,4 +75,4 @@ Una vez que se quiten las regiones deseadas, haga clic en **Guardar**.
 [unidad]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

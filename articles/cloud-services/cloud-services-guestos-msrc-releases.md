@@ -13,12 +13,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="10/18/2015"
+   ms.date="11/13/2015"
    ms.author="yuemlu"/>
 
 # SO invitado de Azure 
 
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
+
+## SO invitado de noviembre
+
+| Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-112 | [3104517] | Actualización de seguridad acumulativa para Internet Explorer | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
+| MS15-114 | [3100213] | Actualización de seguridad de Windows Journal para tratar la ejecución remota de código | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
+| MS15-115 | [3105864] | Actualización de seguridad de Microsoft Windows para tratar la ejecución remota de código | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
+| MS15-117 | [3101722] | Actualización de seguridad de NDIS para tratar la elevación de privilegios | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
+| MS15-118 | [3104507] | Actualización de seguridad de .NET Framework para tratar la elevación de privilegios | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
+| MS15-119 | [3104521] | Actualización de seguridad de Winsock para tratar la elevación de privilegios | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
+| MS15-120 | [3102939] | Actualización de seguridad de IPSec para tratar la denegación de servicio | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
+| MS15-121 | [3081320] | Actualización de seguridad a Schannel para tratar la suplantación de identidad | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
+| MS15-122 | [3105256] | Actualización de seguridad de Kerberos tratar la omisión de la característica de seguridad | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
+| Documento informativo sobre seguridad de Microsoft | [3097966] | La revelación de forma involuntaria de los certificados digitales puede provocar la suplantación de identidades | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
+
 
 ## SO invitado de octubre
 
@@ -147,7 +163,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-014 | [3004361][3004361] | Una vulnerabilidad de SMB podría permitir la omisión de la característica de seguridad | 4,17; 3,24; 2,36 | N/D |
 | MS15-015 | [3031432][3031432] | Una vulnerabilidad de Microsoft Windows podría permitir la elevación de privilegios | 4,17; 3,24; 2,36 | N/D |
 | MS15-016 | [3029944][3029944] | Una vulnerabilidad del componente de gráficos de Microsoft podría permitir la divulgación de información | 4,17; 3,24; 2,36 | N/D |
-| N/D | [3004375][3004375] | Actualización para mejorar la auditoría de línea de comandos de Windows<p/>**Nota**: se instala pero la clave del registro para habilitarlo está desactivada | 4,17; 3,24; 2,36 | N/D |
+| N/D | [3004375][3004375] | Actualización para mejorar la auditoría de línea de comandos de Windows<p/>** Nota **: se instala pero la clave del registro para habilitarlo está desactivada | 4,17; 3,24; 2,36 | N/D |
  
 
 ## SO invitado de enero
@@ -182,6 +198,16 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [2999802][2999802] | Se imprimen líneas sólidas en lugar de líneas de puntos en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 | N/D | [2896881][2896881] | Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 
+[3104517]: http://support.microsoft.com/kb/3104517
+[3100213]: http://support.microsoft.com/kb/3100213
+[3105864]: http://support.microsoft.com/kb/3105864
+[3101722]: http://support.microsoft.com/kb/3101722
+[3104507]: http://support.microsoft.com/kb/3104507
+[3104521]: http://support.microsoft.com/kb/3104521
+[3102939]: http://support.microsoft.com/kb/3102939
+[3081320]: http://support.microsoft.com/kb/3081320
+[3105256]: http://support.microsoft.com/kb/3105256
+[3097966]: http://support.microsoft.com/kb/3097966
 
 [3096441]: http://support.microsoft.com/kb/3096441
 [3089659]: http://support.microsoft.com/kb/3089659
@@ -305,4 +331,4 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

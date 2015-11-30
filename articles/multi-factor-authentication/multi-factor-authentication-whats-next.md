@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Configuración de Azure Multi-Factor Authentication
@@ -365,4 +365,4 @@ Para asegurarse de que se protegen las cuentas de usuario, debe restaurar Multi-
 <li>En la página Configuración del servicio, en administrar la configuración de dispositivo de usuario, seleccione o anule la selección de la opción para **permitir a los usuarios suspender la autenticación multifactor haciendo que se recuerde el dispositivo **.</li>
 ![Suspender dispositivos](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Establezca el número de días que desea permitir la suspensión. El valor predeterminado es 14 días.</li> <li>Haga clic en Guardar.</li> <li>Haga clic en Cerrar.</li>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

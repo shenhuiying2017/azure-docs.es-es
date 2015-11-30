@@ -21,45 +21,49 @@ Puede usar la actividad HDInsightStreamingActivity para invocar un trabajo de st
 
 La actividad de streaming de HDInsight en una [canalización](data-factory-create-pipelines.md) de Factoría de datos ejecuta programas de streaming de Hadoop en [su propio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) clúster de HDInsight o en uno basado en Windows/Linux [a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en las [actividades de transformación de datos](data-factory-data-transformation-activities.md) que presenta una descripción general de la transformación de datos y las actividades de transformación admitidas.
 
-## Ejemplo
+## Ejemplo de JSON
+El clúster de HDInsight se rellena automáticamente con los programas de ejemplo (wc.exe y cat.exe) y los datos (davinci.txt). De forma predeterminada, el nombre del contenedor usado por el clúster de HDInsight es el nombre del propio clúster. Por ejemplo, si el nombre del clúster es myhdicluster, el nombre del contenedor de blobs asociado sería myhdicluster.
 
 	{
 	    "name": "HadoopStreamingPipeline",
-	    "properties":
-	    {
-	        "description" : "Hadoop Streaming Demo",
-	        "activities":
-	        [
-	           {
-	               "name": "RunHadoopStreamingJob",
-	               "description": "Run a Hadoop streaming job",
-	               "type": "HDInsightStreaming",
-	               "inputs": [ ],
-	               "outputs": [ {"name": "OutputTable"} ],
-	               "linkedServiceName": "HDInsightLinkedService",
-	               "typeProperties":
-	               {
-	                   "mapper": "cat.exe",
-	                   "reducer": "wc.exe",
-	                   "input":  "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt",
-	                   "output": " wasb://adfsample@<account name>.blob.core.windows.net/example/data/StreamingOutput/wc.txt",
-	                   "filePaths": [ 
-	                       "adfsample/example/apps/wc.exe" , 
-	                       "adfsample/example/apps/cat.exe" 
-	                   ],
-	                   "fileLinkedService" : "StorageLinkedService",
-	                   "arguments":[
-	                   ]
-	               },
-	               "policy":
-	               {
-	                   "concurrency": 1,
-	                   "executionPriorityOrder": "NewestFirst",
-	                   "retry": 1,
-	                   "timeout": "01:00:00"
-	               }
+	    "properties": {
+	        "description": "Hadoop Streaming Demo",
+	        "activities": [
+	            {
+	                "type": "HDInsightStreaming",
+	                "typeProperties": {
+	                    "mapper": "cat.exe",
+	                    "reducer": "wc.exe",
+	                    "input": "wasb://<nameofthecluster>@spestore.blob.core.windows.net/example/data/gutenberg/davinci.txt",
+	                    "output": "wasb://<nameofthecluster>@spestore.blob.core.windows.net/example/data/StreamingOutput/wc.txt",
+	                    "filePaths": [
+	                        "<nameofthecluster>/example/apps/wc.exe",
+	                        "<nameofthecluster>/example/apps/cat.exe"
+	                    ],
+	                    "fileLinkedService": "StorageLinkedService"
+	                },
+	                "outputs": [
+	                    {
+	                        "name": "StreamingOutputDataset"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00",
+	                    "concurrency": 1,
+	                    "executionPriorityOrder": "NewestFirst",
+	                    "retry": 1
+	                },
+	                "scheduler": {
+	                    "frequency": "Day",
+	                    "interval": 1
+	                },
+	                "name": "RunHadoopStreamingJob",
+	                "description": "Run a Hadoop streaming job",
+	                "linkedServiceName": "HDInsightLinkedService"
 	            }
-	        ]
+	        ],
+	        "start": "2014-01-04T00:00:00Z",
+	        "end": "2014-01-05T00:00:00Z"
 	    }
 	}
 
@@ -78,5 +82,112 @@ Tenga en cuenta lo siguiente:
 > [AZURE.NOTE]Como se muestra en el ejemplo, deberá especificar un conjunto de datos de salida para la actividad de streaming de Hadoop para la propiedad **outputs**. Esto es simplemente un conjunto de datos ficticio que es necesario para la programación de la canalización. No es necesario especificar ningún conjunto de datos de entrada para la actividad de la propiedad **inputs**.
 
 	
+## Ejemplo
+La canalización de este tutorial ejecuta el programa de asignación/reducción de transmisión por secuencias del recuento de palabras en el clúster de HDInsight de Azure.
 
-<!---HONumber=Nov15_HO3-->
+### Servicios vinculados
+
+#### Servicio vinculado de almacenamiento
+En primer lugar, cree un servicio vinculado para vincular el almacenamiento de Azure usado por el clúster de HDInsight de Azure con la Factoría de datos de Azure. Si copia/pega el código siguiente, no olvide reemplazar el nombre y la clave de la cuenta por el nombre y la clave de su Almacenamiento de Azure.
+
+	{
+	    "name": "StorageLinkedService",
+	    "properties": {
+	        "type": "AzureStorage",
+	        "typeProperties": {
+	            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>"
+	        }
+	    }
+	}
+
+#### Servicio vinculado de HDInsight de Azure
+A continuación, cree un servicio vinculado para vincular el clúster de HDInsight de Azure con la Factoría de datos de Azure. Si copia/pegar el código siguiente, reemplace el nombre del clúster de HDInsight por el nombre de su clúster de HDInsight y cambie los valores de nombre de usuario y contraseña.
+	
+	{
+	    "name": "HDInsightLinkedService",
+	    "properties": {
+	        "type": "HDInsight",
+	        "typeProperties": {
+	            "clusterUri": "https://<HDInsight cluster name>.azurehdinsight.net",
+	            "userName": "admin",
+	            "password": "**********",
+	            "linkedServiceName": "StorageLinkedService"
+	        }
+	    }
+	}
+
+### Conjuntos de datos
+
+#### Conjunto de datos de salida
+La canalización de este ejemplo no toma ninguna entrada. Deberá especificar un conjunto de datos de salida para la actividad de transmisión por secuencias de HDInsight. Esto es simplemente un conjunto de datos ficticio que es necesario para la programación de la canalización.
+
+	{
+	    "name": "StreamingOutputDataset",
+	    "properties": {
+	        "published": false,
+	        "type": "AzureBlob",
+	        "linkedServiceName": "StorageLinkedService",
+	        "typeProperties": {
+	            "folderPath": "adftutorial/streamingdata/",
+	            "format": {
+	                "type": "TextFormat",
+	                "columnDelimiter": ","
+	            },
+	        },
+	        "availability": {
+	            "frequency": "Day",
+	            "interval": 1
+	        }
+	    }
+	}
+
+### Canalización
+
+La canalización de este ejemplo tiene solo una actividad de tipo: **HDInsightStreaming**.
+
+El clúster de HDInsight se rellena automáticamente con los programas de ejemplo (wc.exe y cat.exe) y los datos (davinci.txt). De forma predeterminada, el nombre del contenedor usado por el clúster de HDInsight es el nombre del propio clúster. Por ejemplo, si el nombre del clúster es myhdicluster, el nombre del contenedor de blobs asociado sería myhdicluster.
+
+	{
+	    "name": "HadoopStreamingPipeline",
+	    "properties": {
+	        "description": "Hadoop Streaming Demo",
+	        "activities": [
+	            {
+	                "type": "HDInsightStreaming",
+	                "typeProperties": {
+	                    "mapper": "cat.exe",
+	                    "reducer": "wc.exe",
+	                    "input": "wasb://<blobcontainer>@spestore.blob.core.windows.net/example/data/gutenberg/davinci.txt",
+	                    "output": "wasb://<blobcontainer>@spestore.blob.core.windows.net/example/data/StreamingOutput/wc.txt",
+	                    "filePaths": [
+	                        "<blobcontainer>/example/apps/wc.exe",
+	                        "<blobcontainer>/example/apps/cat.exe"
+	                    ],
+	                    "fileLinkedService": "StorageLinkedService"
+	                },
+	                "outputs": [
+	                    {
+	                        "name": "StreamingOutputDataset"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00",
+	                    "concurrency": 1,
+	                    "executionPriorityOrder": "NewestFirst",
+	                    "retry": 1
+	                },
+	                "scheduler": {
+	                    "frequency": "Day",
+	                    "interval": 1
+	                },
+	                "name": "RunHadoopStreamingJob",
+	                "description": "Run a Hadoop streaming job",
+	                "linkedServiceName": "HDInsightLinkedService"
+	            }
+	        ],
+	        "start": "2014-01-04T00:00:00Z",
+	        "end": "2014-01-05T00:00:00Z"
+	    }
+	}
+
+<!---HONumber=Nov15_HO4-->

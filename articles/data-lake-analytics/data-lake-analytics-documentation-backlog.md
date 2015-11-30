@@ -24,10 +24,11 @@ Seguiremos agregando nueva documentación para proporcionar compatibilidad con A
 
 Ámbito |Tema. | Prioridad | Estado | Asignado a | Solicitado por 
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
-U-SQL | Consulta distribuida | 1 | En espera | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Consulta distribuida | 1 | En espera | [@edmacauley](https://github.com/edmacauley) |
+U-SQL | Mover datos entre WASB y ADLS | 1 | Pending | tbd | Ye Xing (ml)
 U-SQL | Procesando JSON | 2 | Pending | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
 Servicio | Interactuando con Curl | 3 |Pending |[@mumian](https://github.com/mumian)
-U-SQL | Tablas con particiones |1 | En proceso | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Tablas con particiones |1 | En curso | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Optimización del rendimiento | 2 | Pending | [@MikeRys](https://github.com/mikerys) | 
 U-SQL | Guía del programador | 2 | Pending | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Introducción a U-SQL desde un origen T-SQL | 1 | Pending | [@edmacauley](https://github.com/edmacauley) | [@MikeRys](https://github.com/mikerys)
@@ -53,4 +54,4 @@ Existen varias formas de proporcionar comentarios en el trabajo pendiente:
 * Enviar una solicitud de incorporación de cambios en este documento en el [repositorio de contenido de Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Enviar un correo electrónico a [adlafeedback en microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

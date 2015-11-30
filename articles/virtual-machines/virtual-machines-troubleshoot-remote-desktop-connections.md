@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Solución de problemas de conexión a Escritorio remoto en una máquina virtual de Windows | Microsoft Azure"
-	description="Buscar y solucionar problemas comunes al conectarse a una máquina virtual de Windows con RDP. Obtenga pasos rápidos de mitigación, ayuda específica por mensaje de error y solución de problemas detallada de red."
+	pageTitle="Solución de problemas con la conexión del Escritorio remoto a una máquina virtual de Azure | Microsoft Azure"
+	description="Solución de problemas con la conexión del Escritorio remoto de una máquina virtual de Windows. Obtenga pasos rápidos de mitigación, ayuda por cada mensaje de error y soluciones detalladas de problemas de red."
+	keywords="Error de escritorio remoto, error de conexión del escritorio remoto, no se puede conectar a la máquina virtual, solución de problemas con el escritorio remoto"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -19,42 +20,37 @@
 
 # Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows
 
+Pueden crearse varios errores en el Escritorio remoto (RDP) si intenta conectarse a la Máquina virtual de Azure basada en Windows. El problema puede estar en el software RDP de la máquina virtual, el equipo host subyacente, la conexión de red o en el lado de cliente desde donde conectarse. Este artículo le ayudará a determinar las causas y corregirlas.
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-
-Puede haber varias razones por las que el Escritorio remoto (RDP) no pueda conectarse una máquina virtual de Azure con Windows. El problema puede estar en el software RDP de la máquina virtual, el equipo host subyacente, la conexión de red o en el lado de cliente desde donde conectarse. Este artículo le ayudará a determinar las causas y corregirlas.
-
-En este artículo solo se aplica a máquinas virtuales de Azure con Windows. Para solucionar los problemas de las conexiones a *máquinas virtuales de Azure con Linux*, consulte [este artículo](virtual-machines-troubleshoot-ssh-connections.md).
+En este artículo solo se aplica a máquinas virtuales de Azure con Windows. En cuanto a las máquinas virtuales que ejecutan Linux, consulte [Solucionar problemas con la conexión SSH a una Máquina virtual de Azure](virtual-machines-troubleshoot-ssh-connections.md).
 
 Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure o de desbordamiento de pila](http://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](http://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico**.
 
 En la primera sección "Pasos básicos" se enumeran los pasos para tratar problemas de conexión comunes, en la segunda sección se ofrecen pasos de resolución por mensaje de error específico y en la última sección se ayuda a realizar la solución de problemas detallada de cada componente de red.
 
-## Pasos básicos - Modelo de implementación clásica
+## Pasos para corregir errores comunes del Escritorio remoto en el modelo de implementación clásica
 
 Estos pasos básicos pueden ayudarlo a solucionar la mayoría de los errores comunes en la conexión a Escritorio remoto que se producen en las máquinas virtuales creadas con el modelo de implementación clásica. Después de realizar cada paso, intente volver a conectarse a la máquina virtual.
 
-- Restablezca el servicio de escritorio remoto desde el [portal de Azure](https://portal.azure.com) para solucionar problemas de inicio con el servidor RDP.<br> 
-	Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual Windows > **Restablecer acceso remoto**.
+- Restablezca el servicio de escritorio remoto desde el [portal de Azure](https://portal.azure.com) para solucionar problemas de inicio con el servidor RDP.<br> Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual Windows > **Restablecer acceso remoto**.
 
-    ![Restablecer acceso remoto](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
+    ![Captura de pantalla que muestra el proceso de restablecimiento de la configuración de RDP](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
 
-- Reinicie la máquina Virtual para tratar otros problemas de inicio.<br>
-	Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual Windows > **Reiniciar**.
+- Reinicie la máquina Virtual para tratar otros problemas de inicio.<br> Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual Windows > **Reiniciar**.
 
-- Cambie el tamaño de la máquina virtual para corregir cualquier problema de host.<br>
-	Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual Windows > Configuración > **Tamaño**. Para obtener información detallada, vea [Cambiar el tamaño de la máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
+- Cambie el tamaño de la máquina virtual para corregir cualquier problema de host.<br> Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual Windows > Configuración > **Tamaño**. Para obtener información detallada, vea [Cambiar el tamaño de la máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
 
 - Revise la captura de pantalla o el registro de la consola de la máquina virtual para corregir problemas de arranque. Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual Windows > **Diagnóstico de arranque**.
 
 - Compruebe el estado de los recursos de máquina virtual para ver si hay algún problema en la plataforma. Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual Windows > **Comprobar estado**
--  
 
-## Pasos básicos - Modelo de implementación del Administrador de recursos
+## Pasos para corregir errores comunes del Escritorio remoto en el modelo de implementación del Administrador de recursos
 
 Estos pasos básicos pueden ayudarlo a solucionar la mayoría de los errores comunes en la conexión a Escritorio remoto que se producen en las máquinas virtuales creadas con el modelo de implementación del Administrador de recursos. Después de realizar cada paso, intente volver a conectarse a la máquina virtual.
 
-- Restablezca el acceso remoto con PowerShell<br> a. Si todavía no lo hizo, [instale Azure PowerShell y conéctese a su suscripción de Azure](../powershell-install-configure.md) mediante el método de Azure AD.
+- Restablezca el acceso remoto con PowerShell<br> a. Si todavía no lo tiene, [instale Azure PowerShell y conéctese a su suscripción de Azure](../powershell-install-configure.md) mediante el método de Azure AD.
 
 	b. Cambie al modo Administrador de recursos.
 
@@ -67,14 +63,14 @@ Estos pasos básicos pueden ayudarlo a solucionar la mayoría de los errores com
 	Set-AzureVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
 	```
 
-- Reinicie la máquina Virtual para tratar otros problemas de inicio.<br> Haga clic en Examinar todo > Máquinas virtuales > su máquina virtual Windows > **Reiniciar**.
+- Reinicie la máquina virtual para tratar otros problemas de inicio.<br> Haga clic en Examinar todo > Máquinas virtuales > su máquina virtual Windows > **Reiniciar**.
 
 - Cambie el tamaño de la máquina virtual para corregir cualquier problema de host.<br> Haga clic en Examinar todo > Máquinas virtuales > su máquina virtual Windows > Configuración > **Tamaño**.
 
 - Revise la captura de pantalla o el registro de la consola de la máquina virtual para corregir problemas de arranque. Haga clic en Examinar todo > Máquinas virtuales > su máquina virtual Windows > **Diagnóstico de arranque**.
 
 
-## Solucionar problemas de errores comunes de RDP
+## Solucionar problemas específicos con la conexión del Escritorio remoto
 
 Éstos son los errores más comunes que pueden surgir al intentar usar Escritorio remoto en una máquina virtual de Azure:
 
@@ -84,7 +80,7 @@ Estos pasos básicos pueden ayudarlo a solucionar la mayoría de los errores com
 
 3. [Error de conexión de Escritorio remoto: se ha producido un error de autenticación. No se puede conectar con la autoridad de seguridad local](#rdpauth).
 
-4. [Error de Seguridad de Windows: Las credenciales no funcionaron](#wincred).
+4. [Error de Seguridad de Windows: las credenciales no funcionaron](#wincred).
 
 5. [Error de conexión de Escritorio remoto: este equipo no se puede conectar al equipo remoto](#rdpconnect).
 
@@ -123,7 +119,7 @@ La parte de la dirección de este archivo RDP tiene el nombre de dominio complet
 
 Causa: el VM de destino no encuentra la autoridad de seguridad en la parte del nombre de usuario de las credenciales.
 
-Si el nombre de usuario tiene el formato *autoridadDeSeguridad*\*nombreDeUsuario* (ejemplo: CORP\\User1), la parte *autoridadDeSeguridad* es el nombre del equipo de la máquina virtual (para la autoridad de seguridad local) o un nombre de dominio de Active Directory.
+Si el nombre de usuario tiene la forma *autoridadDeSeguridad*\*nombreDeUsuario* (ejemplo: CORP\\User1), la parte *autoridadDeSeguridad* es el nombre del equipo de la máquina virtual (para la autoridad de seguridad local) o un nombre de dominio de Active Directory.
 
 Posibles soluciones:
 
@@ -156,7 +152,7 @@ Todos los equipos de Windows tiene un grupo local Usuarios de Escritorio remoto,
 
 Asegúrese de que la cuenta que usa para conectarse tiene derechos de inicio de sesión de Escritorio remoto. Como solución alternativa, use una cuenta de dominio o de administrador local para conectarse a través de Escritorio remoto y, seguidamente, use el complemento Administración de equipos (**Herramientas del sistema > Usuarios y grupos locales > Grupos > Usuarios de Escritorio remoto**) para agregar la cuenta deseada al grupo local Usuarios de Escritorio remoto.
 
-## Solución de problemas detallada
+## Soluciones detalladas a problemas con el Escritorio remoto
 
 Si no se produjeron estos errores y aún no se pudo conectar a la máquina virtual a través de Escritorio remoto, lea [este artículo](virtual-machines-rdp-detailed-troubleshoot.md) para descubrir otras causas.
 
@@ -173,4 +169,4 @@ Si no se produjeron estos errores y aún no se pudo conectar a la máquina virtu
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

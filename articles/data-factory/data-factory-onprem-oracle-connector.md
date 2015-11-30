@@ -13,12 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="11/12/2015" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos desde Oracle local mediante Factoría de datos de Azure 
 
 En este artículo se describe cómo se puede usar la actividad de copia de la Factoría de datos para mover datos de Oracle a otro almacén de datos. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
+
+## Instalación 
+Para que el servicio Factoría de datos de Azure pueda conectarse a la base de datos de Oracle local, debe instalar lo siguiente:
+
+- Data Management Gateway en el mismo equipo que hospede la base de datos o en un equipo independiente para evitar la competencia por los recursos con la base de datos. Data Management Gateway es un software que conecta orígenes de datos locales a servicios en la nube de forma segura y administrada. Consulte el artículo [Mover datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener más información acerca de Data Management Gateway. 
+- [Oracle Data Access Components (ODAC) para Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Debe estar instalado en el equipo host en el que está instalada la puerta de enlace.
+
 
 ## Ejemplo: copia de datos de Oracle a un blob de Azure
 
@@ -238,7 +245,7 @@ Por ejemplo: select * from MyTable <p>Si no se especifica, la instrucción SQL q
 
 ### Asignación de tipos para Oracle
 
-Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de tipos de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
+Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
 
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
@@ -271,7 +278,26 @@ UNSIGNED INTEGER | Number
 VARCHAR2 | String
 XML | String
 
+## Sugerencias de solución de problemas
+
+****Problema: ** se visualiza el siguiente **mensaje de error**: La actividad de copia detectó parámetros no válidos: “UnknownParameterName”. Mensaje detallado: No se encuentra el proveedor de datos .NET Framework solicitado. Puede que no esté instalado".
+
+**Causas posibles**
+
+1. No se instaló el proveedor de datos de .NET Framework para Oracle.
+2. El proveedor de datos de .NET Framework para Oracle se instaló en .NET Framework 2.0 y no se encuentra en las carpetas de .NET Framework 4.0. 
+
+**Resolución o solución alternativa**
+
+1. Si no ha instalado el proveedor de .NET para Oracle, [instálelo](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html) e intente de nuevo este escenario. 
+2. Si recibe el mensaje de error incluso después de instalar el proveedor, haga lo siguiente: 
+	1. Abra la configuración de máquina de .NET 2.0 desde la carpeta: <system disk>:\\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
+	2. Busque **Proveedor de datos de Oracle para .NET** y deberá ser capaz de encontrar una entrada similar a continuación en **system.data** -> **DbProviderFactories**: "<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />"
+2.	Copie esta entrada en el archivo machine.config en la siguiente carpeta v4.0: <system disk>:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config, y cambie la versión a 4.xxx.x.x.
+3.	Instale “<ODP.NET Installed Path>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll” en la caché global de ensamblados (GAC) mediante la ejecución de “gacutil /i [provider path]”.
+
+
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

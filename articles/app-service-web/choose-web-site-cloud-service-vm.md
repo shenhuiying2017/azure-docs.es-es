@@ -161,8 +161,8 @@ Soporte para SSL|X|X|X|En el caso de las aplicaciones web del Servicio de aplica
 Integración de Visual Studio|X|X|X|
 Depuración remota|X|X|X|
 Código de implementación con TFS|X|X|X|
-Aislamiento de red con [Red virtual de Azure](../services/virtual-network/)|X|X|X|Consulte también [Integración de redes virtuales de Sitios web Azure](../blog/2014/09/15/azure-websites-virtual-network-integration/)
-Soporte técnico para el [Administrador de tráfico de Azure](../services/traffic-manager/)|X|X|X|
+Aislamiento de red con [Red virtual de Azure](/services/virtual-network/)|X|X|X|Consulte también [Integración de redes virtuales de Sitios web Azure](/blog/2014/09/15/azure-websites-virtual-network-integration/)
+Soporte técnico para el [Administrador de tráfico de Azure](/services/traffic-manager/)|X|X|X|
 Supervisión de extremo integrado|X|X|X|
 Acceso de escritorio remoto a los servidores||X|X|
 Instalación de cualquier MSI personalizado||X|X|
@@ -204,4 +204,4 @@ Para conocer con mayor profundidad las opciones que ha elegido para su aplicaci�
   [Almacenamiento]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

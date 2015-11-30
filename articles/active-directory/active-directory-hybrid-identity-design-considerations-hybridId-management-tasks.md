@@ -62,6 +62,6 @@ Uno de los objetivos de un administrador de identidades es poder reunir todos lo
 
 
 ## Otras referencias
-[Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

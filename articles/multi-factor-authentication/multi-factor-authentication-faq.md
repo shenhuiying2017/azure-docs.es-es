@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # P+F sobre Azure Multi-Factor Authentication
@@ -125,12 +125,6 @@ El servicio Azure Multi-Factor Authentication envía mensajes de texto mediante 
 
 Las comprobaciones de mensaje de texto también son más confiables en algunos países como Estados Unidos y Canadá. Se aconseja a los usuarios que experimentan dificultades para recibir mensajes de texto de forma confiable al utilizar Azure Multi-Factor Authentication que seleccionen los métodos de aplicación móvil o llamada de teléfono en su lugar. La aplicación móvil es muy útil porque las notificaciones de aplicación móvil se pueden recibir tanto a través de conexiones Wi-Fi como de red móvil y su código de acceso se muestra incluso cuando el dispositivo no tiene ninguna señal. La aplicación Azure Authenticator está disponible para [Windows Phone](http://www.windowsphone.com/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
-**P: ¿puedo utilizar tokens de hardware con el servidor MFA de Azure?**
-
-Si está utilizando el servidor MFA de Azure, los tokens de TOTP OATH de terceros se pueden importar y usarse para MFA. Actualmente se admite la importación de tokens de TOTP OATH de terceros en un formato anterior de PSKC que puede producir Gemalto para sus tokens y se admite la importación de tokens en formato CSV. Al importar tokens en formato CSV, el archivo CSV debe contener un número de serie, la clave secreta en formato Base32 y un intervalo de tiempo (normalmente 30 segundos).
-
-Por lo tanto, si los tokens de ActiveIdentity son tokens TOTP OATH y puede obtener el archivo de clave secreta en un archivo CSV que puede importarse en el servidor MFA de Azure, podrá utilizarlos. Los tokens OATH pueden utilizarse con AD FS, con RADIUS cuando el sistema cliente puede procesar las respuestas de desafío de acceso y con autenticación basada en formularios de IIS.
-
 
 ## Errors
 
@@ -151,4 +145,4 @@ Actualmente, la comprobación de seguridad adicional solo puede utilizarse con a
 
 Una forma de solucionar este problema es tener una cuenta de usuario independiente para las operaciones relacionadas con la administración, diferenciándolas de las operaciones no administrativas. Más adelante puede vincular los buzones entre la cuenta de administrador y una cuenta sin derechos administrativos, y así que podrá iniciar sesión en Outlook con su cuenta sin derechos administrativos. Para obtener más detalles acerca de esta información, consulte [Dar a un administrador la capacidad de abrir y ver el contenido del buzón de correo de un usuario] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1)).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

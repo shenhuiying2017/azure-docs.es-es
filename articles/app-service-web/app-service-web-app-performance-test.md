@@ -28,13 +28,13 @@ Durante la vista previa pública, puede probar el rendimiento de su aplicación 
 
 *	Necesitará una [suscripción de Azure][AzureSubscription], si no tiene ya una. Aprenda cómo puede [abrir una cuenta de Azure de forma gratuita][AzureFreeTrial].
 
-*	Necesitará una cuenta de [Visual Studio Online (VSO)][WhatIsVSO] para mantener su historial de pruebas de rendimiento. Cree su nueva cuenta al configurar su prueba de rendimiento o use una cuenta existente si usted es el propietario de la cuenta. [¿Qué más puedo hacer con una cuenta de Visual Studio Online?](#VSOAccount)
+*	Necesitará una cuenta de [Visual Studio Team Services (VSTS)][WhatIsVSTS] para mantener su historial de pruebas de rendimiento. Cree su nueva cuenta al configurar su prueba de rendimiento o use una cuenta existente si usted es el propietario de la cuenta. [¿Qué más puedo hacer con una cuenta de Visual Studio Team Services?](#VSTSAccount)
 
 *	Implemente su aplicación para realizar pruebas en un entorno que no sea de producción. Haga que su aplicación use un plan de Servicio de aplicaciones que no sea el plan usado en la producción. De esa manera, no afectará a los clientes existentes ni ralentizará la aplicación en producción.
 
 ## Configurar y ejecutar la prueba de rendimiento
 
-0.	Inicie sesión en el [Portal de vista previa de Azure][AzurePortal]. Para usar una cuenta de Visual Studio Online que posea, inicie sesión como propietario de la cuenta.
+0.	Inicie sesión en el [Portal de vista previa de Azure][AzurePortal]. Para usar una cuenta de Visual Studio Team Services que posea, inicie sesión como propietario de la cuenta.
 
 0.	Vaya a la aplicación web.
 
@@ -44,11 +44,11 @@ Durante la vista previa pública, puede probar el rendimiento de su aplicación 
 
 	![Ir a Herramientas, Prueba de rendimiento][ExpandedTools]
  
-0.	Ahora vinculará una cuenta de [Visual Studio Online (VSO)][WhatIsVSO] para mantener su historial de pruebas de rendimiento.
+0.	Ahora vinculará una cuenta de [Visual Studio Team Services (VSTS)][WhatIsVSTS] para mantener su historial de pruebas de rendimiento.
 
-	Si tiene una cuenta VSO para usarla, seleccione esa cuenta. Si no es así, cree una cuenta nueva.
+	Si tiene una cuenta VSTS para usar, seleccione esa cuenta. Si no es así, cree una cuenta nueva.
 
-	![Seleccionar la cuenta de VSO existente o crear una cuenta nueva][ExistingNewVSOAccount]
+	![Seleccionar la cuenta de VSTS existente o crear una cuenta nueva][ExistingNewVSTSAccount]
 
 0.	Crear su prueba de rendimiento. Establezca los detalles y ejecute la prueba. Puede ver los resultados en tiempo real mientras se ejecuta la prueba.
 
@@ -74,42 +74,42 @@ Agradecemos sus comentarios. Para preguntas o problemas, póngase en contacto co
 
 ##	Preguntas y respuestas
 
-####P: ¿Hay un límite en el tiempo durante el cual puedo ejecutar una prueba? 
+#### P: ¿Hay un límite en el tiempo durante el cual puedo ejecutar una prueba? 
 
 R: Sí, puede ejecutar la prueba hasta una hora en el Portal de vista previa de Azure.
 
-####P: ¿Cuánto tiempo puedo ejecutar las pruebas de rendimiento? 
+#### P: ¿Cuánto tiempo puedo ejecutar las pruebas de rendimiento? 
 
-R: Tras la vista previa pública, obtendrá 20.000 minutos de usuarios virtuales (VUM) de manera gratuita cada mes con su cuenta de Visual Studio Online. Un VUM es el número de usuarios virtuales multiplicados por el número de minutos de su prueba. Si sus necesidades superan el límite gratuito, puede adquirir más tiempo y pagar solo por lo que use.
+R: Tras la vista previa pública, obtendrá 20.000 minutos de usuarios virtuales (VUM) de manera gratuita cada mes con su cuenta de Visual Studio Team Services. Un VUM es el número de usuarios virtuales multiplicados por el número de minutos de su prueba. Si sus necesidades superan el límite gratuito, puede adquirir más tiempo y pagar solo por lo que use.
 
-####P: ¿Dónde puedo comprobar cuántos VUM he usado hasta ahora?
+#### P: ¿Dónde puedo comprobar cuántos VUM he usado hasta ahora?
 
 R: Puede comprobar este importe en el portal de vista previa de Azure.
 
-![Ir a su cuenta de VSO][VSOAccount]
+![Ir a su cuenta de VSTS][VSTSAccount]
 
 ![Comprobar los VUM usados][CheckTestTime]
 
 <a name="VSOAccount"></a>
-####P: ¿Qué más puedo hacer con una cuenta de Visual Studio Online?
+#### P: ¿Qué más puedo hacer con una cuenta de Visual Studio Team Services?
 
-R: Para encontrar su cuenta nueva, vaya a ```https://{accountname}.visualstudio.com```. Comparta su código, compile, pruebe, realice un seguimiento del trabajo y entregue software: todo ello en la nube con cualquier lenguaje o herramienta. Obtenga más información sobre la manera en que las características y los servicios de [Visual Studio Online][WhatIsVSO] ayudan al equipo a colaborar con mayor facilidad y a implementar de forma continua.
+R: Para encontrar su cuenta nueva, vaya a ```https://{accountname}.visualstudio.com```. Comparta su código, compile, pruebe, realice un seguimiento del trabajo y entregue software: todo ello en la nube con cualquier lenguaje o herramienta. Obtenga más información sobre la manera en que las características y los servicios de [Visual Studio Team Services][WhatIsVSTS] ayudan al equipo a colaborar con mayor facilidad y a implementar de forma continua.
 
 <!--Image references-->
 [WebApp]: ./media/app-service-web-app-performance-test/azure-np-web-apps.png
 [TestOverview]: ./media/app-service-web-app-performance-test/azure-np-perf-test-overview.png
 [ExpandedTools]: ./media/app-service-web-app-performance-test/azure-np-web-app-details-tools-expanded.png
-[ExistingNewVSOAccount]: ./media/app-service-web-app-performance-test/azure-np-no-vso-account.png
+[ExistingNewVSTSAccount]: ./media/app-service-web-app-performance-test/azure-np-no-vso-account.png
 [NewTest]: ./media/app-service-web-app-performance-test/azure-np-new-performance-test.png
 [TestRunning]: ./media/app-service-web-app-performance-test/azure-np-running-perf-test.png
 [TestDone]: ./media/app-service-web-app-performance-test/azure-np-perf-test-done.png
-[VSOAccount]: ./media/app-service-web-app-performance-test/azure-np-vso-accounts.png
+[VSTSAccount]: ./media/app-service-web-app-performance-test/azure-np-vso-accounts.png
 [CheckTestTime]: ./media/app-service-web-app-performance-test/azure-np-vso-accounts-vum-summary.png
 
 <!--Reference links -->
 [AzurePortal]: https://portal.azure.com
 [AzureSubscription]: https://account.windowsazure.com/subscriptions
 [AzureFreeTrial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[WhatIsVSO]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
+[WhatIsVSTS]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

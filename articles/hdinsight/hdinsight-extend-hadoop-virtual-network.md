@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/28/2015"
+   ms.date="11/18/2015"
    ms.author="larryfr"/>
 
 
@@ -64,9 +64,9 @@ Para obtener más información sobre las características, las ventajas y la fun
 >
 > Se recomienda encarecidamente designar una única subred para cada clúster.
 >
-> No se puede usar una Red virtual de Azure v1 (clásica) con HDInsight basado en Linux. La Red virtual debe ser v2 (Administrador de recursos de Azure) para se muestre como opción durante el proceso de creación de un clúster de HDInsight en el Portal de vista previa de Azure o para que se pueda usar para crear un clúster en la CLI de Azure o Azure PowerShell.
+> Los clústeres basados en Windows requieren una red virtual v1 (clásica), mientras que los clústeres basados en Linux requieren una red virtual v2 (Administrador de recursos de Azure). Si no dispone del tipo correcto de red, no se podrá usar cuando cree el clúster.
 >
-> Si tiene recursos en una red v1 y quiere que dichos recursos puedan acceder directamente a HDInsight a través de una red virtual, vea [Conexión de redes virtuales clásicas con nuevas redes virtuales](../virtual-network/virtual-networks-arm-asm-s2s.md) para obtener información sobre cómo conectar una Red virtual v2 a una Red virtual v1. Una vez establecida la conexión, puede crear el clúster de HDInsight en la Red Virtual v2.
+> Si dispone de recursos en una red virtual que no se puede usar por el clúster que planea crear, puede crear una nueva red virtual que se pueda usar por el clúster y conectarla a la red virtual incompatible. Luego puede crear el clúster en la versión de la red que requiere y podrá tener acceso a los recursos de la otra red puesto que los dos están combinadas. Para más información sobre cómo conectar redes virtuales clásicas y nuevas, vea [Conexión de redes virtuales clásicas a redes virtuales nuevas](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
 Para obtener más información sobre el aprovisionamiento de un clúster de HDInsight en una red virtual, consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md).
 
@@ -176,4 +176,4 @@ Los siguientes ejemplos demuestran cómo usar HDInsight con Red virtual de Azure
 
 Para obtener más información acerca de Redes virtuales de Azure, consulte la [Información general sobre Red virtual de Azure](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

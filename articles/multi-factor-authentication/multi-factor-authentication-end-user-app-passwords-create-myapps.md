@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Creación de contraseñas de aplicación con el Portal myapps 365 para Azure Multi-Factor Authentication
@@ -39,4 +39,4 @@ Si no usa la autenticación multifactor con Office 365 ni tiene una suscripción
 <li>Escriba un nombre para la contraseña de aplicación y haga clic en **Siguiente**</li>
 <li>Copie la contraseña de aplicación en el Portapapeles y péguela en la aplicación.</li>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

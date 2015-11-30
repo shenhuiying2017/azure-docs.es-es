@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/15/2015"
+   ms.date="11/16/2015"
    ms.author="mihaelab"/>
 
 #Obtención de detalles de la recuperación ante desastres
@@ -26,7 +26,7 @@ Obtener los detalles de una recuperación ante desastres implica lo siguiente:
 - Realizar la recuperación. 
 - Validar la integridad de la aplicación tras la recuperación.
 
-Dependiendo del [diseño para la continuidad del negocio](sql-database-business-continuity.md), el flujo de ejecución del proceso de obtención de detalles puede variar. A continuación se describen prácticas recomendadas de obtención de detalles de la recuperación ante desastres en el contexto de base de datos SQL de Azure.
+Dependiendo de cómo [diseñó su aplicación para la continuidad del negocio](sql-database-business-continuity.md), el flujo de trabajo para la ejecución del proceso de obtención de detalles puede variar. A continuación se describen prácticas recomendadas de obtención de detalles de la recuperación ante desastres en el contexto de base de datos SQL de Azure.
 
 ##Restauración geográfica
 
@@ -34,51 +34,33 @@ Para evitar la posible pérdida de datos durante la obtención de detalles de la
  
 ####Simulación de interrupción
 
-- Simular la interrupción mediante la eliminación o el cambio de nombre de la base de datos de origen puede producir un error de conectividad de la aplicación. De este modo, podrá validar la detección de interrupciones/alertas y medir el RTO durante la recuperación.
+Puede simular la interrupción mediante la eliminación o el cambio de nombre de la base de datos de origen. Tenga en cuenta que esto puede producir un error de conectividad de la aplicación.
 
 ####Recuperación
 
 - Realice la restauración geográfica de la base de datos en un servidor diferente, tal como se describe [aquí](sql-database-disaster-recovery.md). 
-- Cambie la configuración de la aplicación para conectarse a las bases de datos recuperadas y siga las directrices de la guía [Finalización de una base de datos recuperada](sql-database-recovered-finalize.md) para completar la recuperación.
+- Cambie la configuración de la aplicación para conectarse a las bases de datos recuperadas y siga las directrices de la guía [Configuración de una base de datos recuperada](sql-database-disaster-recovery.md) para completar la recuperación.
 
 ####Validación
 
 - Complete la obtención de detalles mediante la comprobación de la integridad de la aplicación posterior a la recuperación (es decir, las cadenas de conexión, los inicios de sesión, la comprobación de funciones básicas u otras validaciones que formen parte de los procedimientos estándar de validación de aplicaciones).
 
-##Replicación geográfica estándar
+##Replicación geográfica
 
-Una base de datos protegida mediante replicación geográfica estándar solo puede tener una base de datos secundaria no legible. El ejercicio de obtención de detalles incluirá la finalización forzada del vínculo, momento en que la base de datos estará sin protección. Además, existe una posibilidad de que se pierdan datos, por lo que no recomendamos a los clientes realizar esta prueba en las bases de datos de producción. En su lugar, se recomienda crear una copia del entorno de producción y utilizarlo para comprobar el flujo de trabajo de conmutación por error de la aplicación.
+En una base de datos protegida mediante replicación geográfica, el ejercicio de obtención de detalles incluirá la conmutación por error planeada de la base de datos secundaria. La conmutación por error planeada, garantiza que las bases de datos principal y secundaria permanezcan sincronizadas cuando se cambian los roles. A diferencia de la conmutación por error no planeada, esta operación no provocará la pérdida de datos, por lo que la obtención de detalles se puede realizar en el entorno de producción.
 
 ####Simulación de interrupción
 
-- Simule la carga de trabajo en la base de datos principal. Pueden perderse datos si la base de datos principal está activa en el momento de la finalización. Esto hará que la obtención de detalles sea más realista.
-- Elimine la base de datos principal o [realice la finalización forzada](sql-database-disaster-recovery.md) del vínculo en la base de datos secundaria.
+Para simular una interrupción puede deshabilitar la aplicación web o la máquina virtual conectada a la base de datos. Esto provocará errores de conectividad de los clientes web.
 
 ####Recuperación
 
-- Cambie la configuración de la aplicación para conectarse a la anterior base de datos secundaria de solo lectura que pasará a estar totalmente accesible. La aplicación usará dicha base de datos como nueva base de datos principal. 
-- Siga las directrices de la guía [Finalización de una base de datos recuperada](sql-database-recovered-finalize.md) para completar la recuperación.
+- Asegúrese de que la configuración de la aplicación en la región de recuperación ante desastres, está conformada según la base de datos secundaria anterior; recuerde que esta se convertirá en una base de datos principal nueva y totalmente accesible. 
+- Realice la [conmutación por error planeada](sql-database-geo-replication-powershell.md#initiate-a-planned-failover) para hacer que la base de datos secundaria se convierta en una primaria
+- Siga las instrucciones de la guía [Configurar una base de datos recuperada](sql-database-disaster-recovery.md) para completar la recuperación.
 
 ####Validación
 
 - Complete la obtención de detalles mediante la comprobación de la integridad de la aplicación posterior a la recuperación (es decir, las cadenas de conexión, los inicios de sesión, la comprobación de funciones básicas u otras validaciones que formen parte de los procedimientos estándar de validación de aplicaciones).
 
-##Replicación geográfica activa
-
-La obtención de detalles de la recuperación ante desastres se realizará mediante el uso de un servidor de destino paralelo y con la creación de otro conjunto de bases de datos secundarias incluidos en el servidor. Deberá usar una versión de prueba del nivel de aplicación para comprobar el estado de funcionamiento y la integridad de los datos mediante la ejecución de pruebas en dicho servidor tras la finalización forzada.
-
-####Simulación de interrupción
-
-- [Cree un nuevo vínculo de replicación geográfica activa](sql-database-business-continuity-design.md) desde la base de datos principal a un servidor de pruebas secundario. Pueden perderse datos si la base de datos principal está activa en el momento de la finalización. Esto hará que la obtención de detalles sea más realista.
-- [Realice la finalización forzada](sql-database-disaster-recovery.md) del vínculo en la base de datos secundaria que reside en el servidor de pruebas.
-
-####Recuperación
-
-- Cambie la configuración de la aplicación para conectarse a la anterior base de datos secundaria de solo lectura que estará disponible para la escritura tras la finalización.
-- Siga las directrices de la guía [Finalización de una base de datos recuperada](sql-database-recovered-finalize.md) para completar la recuperación.
-
-####Validación
-
-- Complete la obtención de detalles mediante la comprobación de la integridad de la aplicación posterior a la recuperación (es decir, las cadenas de conexión, los inicios de sesión, la comprobación de funciones básicas u otras validaciones que formen parte de los procedimientos estándar de validación de aplicaciones).
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

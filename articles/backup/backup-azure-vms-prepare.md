@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="11/17/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 # Preparación del entorno de copia de seguridad de máquinas virtuales de Azure
@@ -173,10 +173,7 @@ Si se ejecuta la máquina virtual, se instala la extensión de copia de segurida
 - No se admite la copia de seguridad de máquinas virtuales basadas en el Administrador de recursos de Azure (también conocido como IaaS V2).
 - No se admite la copia de seguridad de máquinas virtuales con más de 16 discos de datos.
 - No se admite la copia de seguridad de máquinas virtuales con el almacenamiento Premium.
-- No se admite la copia de seguridad de máquinas virtuales con varias direcciones IP reservadas.
 - No se admite la copia de seguridad de máquinas virtuales con una dirección IP reservada y ningún punto de conexión definido.
-- No se admite la copia de seguridad de máquinas virtuales con varias NIC.
-- No se admite la copia de seguridad de máquinas virtuales en una configuración con equilibrio de carga (interna o accesible desde Internet).
 - No se admite el reemplazo de una máquina virtual existente durante la restauración. Primero, elimine la máquina virtual existente y los discos asociados y, a continuación, restaure los datos de copia de seguridad.
 - No se admite la restauración y copia de seguridad entre regiones.
 - La copia de seguridad de máquinas virtuales con el servicio Copia de seguridad de Azure se admite en todas las regiones públicas de Azure. Seguidamente se ofrece una [lista de comprobación](http://azure.microsoft.com/regions/#services) de las regiones admitidas. Si la región que está buscando hoy en día no es compatible, no aparecerá en la lista desplegable durante la creación del almacén.
@@ -194,4 +191,4 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 - [Copia de seguridad de máquinas virtuales](backup-azure-vms.md)
 - [Administrar copia de seguridad de máquina virtual](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

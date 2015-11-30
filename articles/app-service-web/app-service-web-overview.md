@@ -41,7 +41,7 @@ Aplicaciones web del Servicio de aplicaciones de Azure es una plataforma totalme
 
 - **Galería de Aplicaciones web**: seleccione en una lista ampliable de plantillas de aplicaciones web existentes. Aproveche lo mejor de la comunidad de aplicaciones OSS mediante la instalación con un solo clic de paquetes como Wordpress, Joomla y Drupal. Comience con buen pie el proceso de desarrollo de su aplicación usando marcos de trabajo como .NET MVC, Django y CakePHP.
 - **Ajuste de escala automático**: Aplicaciones web le permite ampliar y reducir rápidamente sus recursos para hacer frente a cualquier carga de trabajo entrante de los clientes. Manualmente seleccione el número y tamaño de las máquinas virtuales o configure el escalado automático para escalar los servidores en función de la carga o programación.
-- **Integración continua**: configure la integración continua y los flujos de trabajo de implementación con VSO, GitHub, TeamCity, Hudson o BitBucket, lo que permite compilar, probar e implementar automáticamente la aplicación web en cada comprobación del código o pruebas de integración correctas.
+- **Integración continua**: configure la integración continua y los flujos de trabajo de implementación con VSTS, GitHub, TeamCity, Hudson o BitBucket, lo que permite compilar, probar e implementar automáticamente la aplicación web en cada comprobación del código o pruebas de integración correctas.
 - **Espacios de implementación**: realice una [implementación de ensayo][Slots] para comprobar el código en un entorno de preproducción que sea idéntico al de la aplicación web de producción del Servicio de aplicaciones de Azure. Cuando esté satisfecho, publique una nueva versión de la aplicación sin tiempo de inactividad mediante una operación de intercambio. 
 - **Prueba de producción**: lleve las implementaciones de ensayo a un nivel superior y realice pruebas A/B para comprobar el nuevo código con una fracción configurable de su tráfico dinámico. 
 - **Trabajos web**: ejecute cualquier programa o script en las máquinas virtuales de Aplicaciones web. Ejecute los trabajos de forma continua o según una programación y escale para ejecutar en varias máquinas virtuales. Use el [SDK de Trabajos web][Webjobs] de Azure para la integración con el Almacenamiento de Azure o el bus de servicio.
@@ -65,4 +65,4 @@ Para obtener más información sobre la plataforma de Servicio de aplicaciones d
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

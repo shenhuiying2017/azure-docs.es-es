@@ -207,6 +207,8 @@ La tienda de metadatos contiene metadatos de Hive y Oozie, como información sob
 
 Con la opción de configuración de la tienda de metadatos podrá especificar una tienda de metadatos externa con la Base de datos SQL. Esto permite conservar la información de metadatos cuando se elimina un clúster, porque se almacena externamente en la base de datos. Para obtener instrucciones sobre cómo crear una Base de datos SQL en Azure, consulte [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md).
 
+> [AZURE.NOTE]La configuración de la tienda de metadatos no está disponible para los tipos de clúster de HBase.
+
 ###<a id="scriptaction"></a>Acción de script
 
 Puede instalar componentes adicionales o personalizar la configuración del clúster mediante scripts durante el aprovisionamiento de clúster. Dichos scripts se invocan mediante la **acción de script**. Para obtener más información, consulte [Personalización de un clúster de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
@@ -280,4 +282,4 @@ En este artículo, aprendió información básica acerca de cómo crear un clús
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Uso de Sqoop con HDInsight"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

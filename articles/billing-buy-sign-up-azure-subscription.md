@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="11/18/2015"
 	ms.author="genli"/>
 
 # Compra de una suscripción de Azure o registro para obtener una
@@ -61,4 +61,4 @@ Si compró créditos de Azure bajo licencia Open a un revendedor, siga estos pas
 2. Escriba la clave de producto y, a continuación, active la opción de contrato.</br>![CLAVE DE ACTIVACIÓN DEL SERVICIO EN LÍNEA](./media/billing-buy-sign-up-azure-subscription/OSAkey.png)
 3. Seleccione **Activar**.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->
