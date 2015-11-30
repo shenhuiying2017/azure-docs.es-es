@@ -342,7 +342,7 @@ Las interpolaciones le permiten definir la pendiente con la que la potenciación
 
 `boostingDuration` debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de duración ISO 8601). El patrón de este es:
 
-     [-]P[nD][T[nH][nM][nS]]
+     [-]P\[nD]\[T\[nH]\[nM]\[nS]\]
 
 La tabla siguiente proporciona varios ejemplos.
 

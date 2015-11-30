@@ -163,7 +163,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-014 | [3004361][3004361] | Una vulnerabilidad de SMB podría permitir la omisión de la característica de seguridad | 4,17; 3,24; 2,36 | N/D |
 | MS15-015 | [3031432][3031432] | Una vulnerabilidad de Microsoft Windows podría permitir la elevación de privilegios | 4,17; 3,24; 2,36 | N/D |
 | MS15-016 | [3029944][3029944] | Una vulnerabilidad del componente de gráficos de Microsoft podría permitir la divulgación de información | 4,17; 3,24; 2,36 | N/D |
-| N/D | [3004375][3004375] | Actualización para mejorar la auditoría de línea de comandos de Windows<p/>** Nota **: se instala pero la clave del registro para habilitarlo está desactivada | 4,17; 3,24; 2,36 | N/D |
+| N/D | [3004375][3004375] | Actualización para mejorar la auditoría de línea de comandos de Windows<p/>**Nota**: se instala pero la clave del registro para habilitarlo está desactivada | 4,17; 3,24; 2,36 | N/D |
  
 
 ## SO invitado de enero

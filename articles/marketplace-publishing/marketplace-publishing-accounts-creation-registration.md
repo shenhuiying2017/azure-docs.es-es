@@ -22,7 +22,7 @@ Este artículo le guía a través del proceso necesario de creación y registro 
 ## 1\. Creación de una cuenta Microsoft
 > [AZURE.WARNING]Para finalizar el proceso de publicación, debe crear una cuenta Microsoft. Esta cuenta se usará para registrarse e iniciar sesión tanto en el portal de publicación como en el Panel de vendedores. Solo debe tener una cuenta Microsoft para sus ofertas de Azure Marketplace. Esta no debe ser específica para servicios u ofertas.
 
-La dirección que constituye el nombre de usuario debe estar en su dominio y ser controlada por su equipo de TI (por ejemplo, publishing@example.com)). Los pagos, la información fiscal y los informes se tramitarán con esta cuenta.
+La dirección que constituye el nombre de usuario debe estar en su dominio y controlada por su equipo de TI (por ejemplo, publishing@yourcompany.com). Los pagos, la información fiscal y los informes se tramitarán con esta cuenta.
 
   >[AZURE.WARNING]No se admiten palabras como "Azure" y "Microsoft" en el registro de la cuenta Microsoft. Evite el uso de estas palabras para completar el proceso de creación y registro de cuentas.
 
@@ -167,7 +167,12 @@ El portal de publicación de Azure se usa para publicar y administrar sus oferta
 ## Pasos siguientes
 Ahora que ya se creó y se registró la cuenta, haga clic en el tipo de artefacto (máquina virtual, servicio de programador, servicio de datos, plantilla de soluciones) que desea publicar en Azure Marketplace. Visite uno de los artículos siguientes para obtener más información sobre cómo publicar su oferta respectiva:
 
-|| Imagen de máquina virtual | Servicio para desarrolladores | Servicio de datos | Plantilla de solución | |----|-----|-----|-----|-----| |**Paso 2: Creación de la oferta** | [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md)| [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md) | [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md) | [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md) | || [Requisitos previos técnicos de imagen de la máquina virtual][link-single-vm-prereq] | Requisitos previos técnicos de servicio de desarrolladores | Requisitos previos técnicos de servicio de datos | [Requisitos previos técnicos de plantilla de solución](marketplace-publishing-solution-template-creation-prerequisites.md) | [Guía de publicación de imágenes de máquina virtual][link-single-vm] | Guía de publicación de servicios de desarrolladores | Guía de publicación de servicios de datos | [Guía de publicación de plantillas de solución](marketplace-publishing-solution-template-creation.md) | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] |
+|| Imagen de máquina virtual | Servicio para desarrolladores | Servicio de datos | Plantilla de solución |
+|----|-----|-----|-----|-----|
+|**Paso 2: Creación de la oferta** | [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md)| [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md) | [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md) | [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md) |
+|| [Requisitos previos técnicos de imagen de la máquina virtual][link-single-vm-prereq] | Requisitos previos técnicos de servicio de desarrolladores | Requisitos previos técnicos de servicio de datos | [Requisitos previos técnicos de plantilla de solución](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [Guía de publicación de imágenes de máquina virtual][link-single-vm] | Guía de publicación de servicios de desarrolladores | Guía de publicación de servicios de datos | [Guía de publicación de plantillas de solución](marketplace-publishing-solution-template-creation.md)
+|| [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] |
 
 ## Consulte también
 - [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)

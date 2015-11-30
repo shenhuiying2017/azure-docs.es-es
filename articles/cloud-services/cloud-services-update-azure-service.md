@@ -57,7 +57,7 @@ La siguiente tabla muestra los cambios permitidos en un servicio durante una act
 |Incorporación de nuevos certificados|Sí|Sí|Sí|
 |Cambio de certificados existentes|Sí|Sí|Sí|
 |Implementación de nuevo código|Sí|Sí|Sí|
-* Requiere Azure SDK 1.5 o versiones posteriores.
+\*Requiere Azure SDK 1.5 o versiones posteriores.
 
 > [AZURE.WARNING]Cambiar el tamaño de la máquina virtual destruirá los datos locales.
 
@@ -178,6 +178,8 @@ El siguiente diagrama ilustra cómo se distribuyen los dos roles que contiene un
 > [AZURE.NOTE]Tenga en cuenta que Azure controla cómo se asignan las instancias en los dominios de actualización. No es posible especificar las instancias que se asignan a un dominio determinado.
 
 ## Pasos siguientes
-[Administración de servicios en la nube](cloud-services-how-to-manage.md)<br> [Supervisión de servicios en la nube](cloud-services-how-to-monitor.md)<br> [Configuración de servicios en la nube](cloud-services-how-to-cofigure.md)<br>
+[Administración de servicios en la nube](cloud-services-how-to-manage.md)<br>
+[Supervisión de servicios en la nube](cloud-services-how-to-monitor.md)<br>
+[Configuración de servicios en la nube](cloud-services-how-to-cofigure.md)<br>
 
 <!---HONumber=Nov15_HO4-->

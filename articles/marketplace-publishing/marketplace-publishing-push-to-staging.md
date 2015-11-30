@@ -144,7 +144,9 @@ A continuación se muestra una vista detallada de cómo se utiliza la informaci�
 ## Pasos siguientes
 Ahora que el contenido de Marketplace está cargado, avanzamos a la prueba de la oferta en ensayo. Sin embargo, debe seleccionar el tipo de la oferta adecuado en la lista siguiente, ya que los pasos varían según el tipo de oferta.
 
-|| Imagen de máquina virtual | Servicio de desarrolladores | Servicio de datos | Plantilla de solución | |---|---|---|---|---| | **Paso 3. Inserción de la oferta en ensayo** | [Prueba de la oferta de máquina virtual en ensayo](marketplace-publishing-vm-image-test-in-staging.md) | Prueba de la oferta de servicio de desarrolladores en ensayo | Prueba de la oferta de servicio de datos en ensayo | [Prueba de la plantilla de solución en ensayo](marketplace-publishing-solution-template-test-in-staging.md) |
+|| Imagen de máquina virtual | Servicio de desarrolladores | Servicio de datos | Plantilla de solución |
+|---|---|---|---|---|
+| **Paso 3. Inserción de la oferta en ensayo** | [Prueba de la oferta de máquina virtual en ensayo](marketplace-publishing-vm-image-test-in-staging.md) | Prueba de la oferta de servicio de desarrolladores en ensayo | Prueba de la oferta de servicio de datos en ensayo | [Prueba de la plantilla de solución en ensayo](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## Consulte también
 - [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
