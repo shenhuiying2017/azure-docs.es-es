@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="09/16/2015"
+	ms.date="11/06/2015"
 	ms.author="jroth" />
 
 # Configuración de un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure
@@ -31,19 +31,20 @@ En este tema se muestra cómo configurar un agente de escucha para un grupo de d
 
 El grupo de disponibilidad puede contener réplicas que son solo locales, solo de Azure o abarcan ambas, locales y de Azure, para configuraciones híbridas. Las réplicas de Azure pueden residir en la misma región o en varias regiones mediante varias redes virtuales (VNet). En los pasos siguientes se supone que ya tiene [configurado un grupo de disponibilidad](virtual-machines-sql-server-alwayson-availability-groups-gui.md) pero no un agente de escucha.
 
-Tenga en cuenta las siguientes limitaciones en el agente de escucha del grupo de disponibilidad en Azure con ILB:
+## Instrucciones y limitaciones de los agentes de escucha internos
+Tenga en cuenta las siguientes instrucciones acerca del agente de escucha del grupo de disponibilidad en Azure mediante ILB:
 
 - El agente de escucha del grupo de disponibilidad es compatible con Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2.
 
-- La aplicación cliente debe residir en un servicio en la nube diferente al que contiene el grupo de disponibilidad de las máquinas virtuales. Azure no es compatible con Direct Server Return cuando el cliente y el servidor se encuentran en el mismo servicio en la nube.
+- Solo se admite un agente de escucha de grupo de disponibilidad interno para cada servicio en la nube, ya que el agente de escucha se configura según el ILB y solo hay un ILB por cada servicio en la nube. Sin embargo, es posible crear varios agentes de escucha externos. Para obtener más información, consulte [Configurar un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md).
 
-- Solo se admite un agente de escucha de grupo de disponibilidad para cada servicio en la nube porque el agente de escucha se configura para que use bien la dirección VIP del servicio en la nube o bien la dirección VIP del equilibrador de carga interno. Tenga en cuenta que esta limitación aún está en efecto aunque Azure ahora es compatible con la creación de varias direcciones VIP en un servicio en la nube determinado.
+- No se puede crear un agente de escucha interno en el mismo servicio en la nube donde también haya creado un agente de escucha externo mediante el servicio en la nube público VIP.
 
-## Determinación de la accesibilidad del agente de escucha
+## Determinar la accesibilidad del agente de escucha
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Este artículo se centra en la creación de un agente de escucha que usa un **equilibrador de carga interno (ILB)**. Si necesita un agente de escucha público o externo, vea la versión de este artículo que indica los pasos necesarios para configurar un [agente de escucha externo](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
+Este artículo se centra en la creación de un agente de escucha que usa un **equilibrador de carga interno (ILB)**. Si necesita un agente de escucha público o externo, consulte la versión de este artículo que indica los pasos necesarios para configurar un [agente de escucha externo](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
 
 ## Creación de extremos de máquina virtual de carga equilibrada con Direct Server Return
 
@@ -51,19 +52,19 @@ En ILB, debe crear primero el equilibrador de carga interno. Esto se hace en el 
 
 [AZURE.INCLUDE [load-balanced-endpoints](../../includes/virtual-machines-ag-listener-load-balanced-endpoints.md)]
 
-1. En **ILB**, debe asignar una dirección IP estática. En primer lugar, examine la configuración actual de la red virtual ejecutando el comando siguiente:
+1. En el **ILB**, debe asignar una dirección IP estática. En primer lugar, examine la configuración actual de la red virtual ejecutando el comando siguiente:
 
 		(Get-AzureVNetConfig).XMLConfiguration
 
-1. Tome nota del nombre de **Subnet** de la subred que contiene las VM que hospedan las réplicas. Este se usará en el parámetro **$SubnetName** en el script.
+1. Tome nota del nombre de la **Subred** que contenga las máquinas virtuales que hospeden las réplicas. Este se usará en el parámetro **$SubnetName** en el script.
 
-1. Luego tome nota del nombre de **VirtualNetworkSite** y el **AddressPrefix** inicial de la subred que contiene las VM que hospedan las réplicas. Busque una dirección IP disponible pasando ambos valores al comando **Test-AzureStaticVNetIP** y examinando el parámetro **AvailableAddresses**. Por ejemplo, si el nombre de la red virtual fuera *MyVNet* y tuviera un intervalo de direcciones de subred que se empezase por *172.16.0.128*, el siguiente comando mostraría las direcciones disponibles:
+1. A continuación, en la subred que contiene las máquinas virtuales que hospedan las réplicas, tome nota del nombre del elemento **VirtualNetworkSite** y del elemento **AddressPrefix** inicial. Busque una dirección IP disponible pasando ambos valores al comando **Test-AzureStaticVNetIP** y examinando el parámetro **AvailableAddresses**. Por ejemplo, si el nombre de la red virtual fuera *MyVNet* y tuviera un intervalo de direcciones de subred que empezase por *172.16.0.128*, el siguiente comando mostraría las direcciones disponibles:
 
 		(Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 
 1. Elija una de las direcciones disponibles y úsela en el parámetro **$ILBStaticIP** del script siguiente.
 
-3. Copie el siguiente script de PowerShell en un editor de texto y establezca los valores de variable que se ajusten a su entorno (observe que se han proporcionado los valores predeterminados para algunos parámetros). Tenga en cuenta que las implementaciones existentes que usan grupos de afinidad no pueden agregar ILB. Para obtener más información sobre requisitos de ILB, vea [Equilibrador de carga interno](../load-balancer/load-balancer-internal-overview.md). Además, si el grupo de disponibilidad abarca regiones de Azure, debe ejecutar el script una vez en cada centro de datos del servicio en la nube y los nodos que residen en ese centro de datos.
+3. Copie el siguiente script de PowerShell en un editor de texto y establezca los valores de variable que se ajusten a su entorno (observe que se han proporcionado los valores predeterminados para algunos parámetros). Tenga en cuenta que las implementaciones existentes que usan grupos de afinidad no pueden agregar ILB. Para obtener más información sobre los requisitos de ILB, consulte [Equilibrador de carga interno](../load-balancer/load-balancer-internal-overview.md). Además, si el grupo de disponibilidad abarca regiones de Azure, debe ejecutar el script una vez en cada centro de datos del servicio en la nube y los nodos que residen en ese centro de datos.
 
 		# Define variables
 		$ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
@@ -83,7 +84,7 @@ En ILB, debe crear primero el equilibrador de carga interno. Esto se hace en el 
 
 1. Una vez configuradas las variables, copie el script del editor de texto en la sesión de Azure PowerShell para ejecutarlo. Si el mensaje todavía muestra >>, escriba ENTER de nuevo para asegurarse de que el script comienza a ejecutarse. Nota
 
->[AZURE.NOTE]El Portal de administración de Azure no es compatible en este momento con el equilibrador de carga interno, por lo que no verá el ILB o los extremos en el portal. Sin embargo, **Get-AzureEndpoint** devuelve una dirección IP interna si el equilibrador de carga se está ejecutando en ella. De lo contrario, devuelve null.
+>[AZURE.NOTE]El Portal de administración de Azure no es compatible en este momento con el equilibrador de carga interno, por lo que no verá el ILB o los extremos en el portal. Sin embargo, el parámetro **Get-AzureEndpoint** devuelve una dirección IP interna si el equilibrador de carga se está ejecutando en ella. De lo contrario, devuelve null.
 
 ## Comprobación de que KB2854082 está instalado si es necesario.
 
@@ -114,8 +115,8 @@ En ILB, debe crear primero el equilibrador de carga interno. Esto se hace en el 
 		
 		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code. 
 		
-		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
-		# cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
+		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+		# cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
 1. Una vez establecidas las variables, abra una ventana de Windows PowerShell con privilegios elevados, copie el script del editor de texto y péguelo en la sesión de Azure PowerShell para ejecutarlo. Si el mensaje todavía muestra >>, escriba ENTER de nuevo para asegurarse de que el script comienza a ejecutarse.
 
@@ -137,4 +138,4 @@ En ILB, debe crear primero el equilibrador de carga interno. Esto se hace en el 
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

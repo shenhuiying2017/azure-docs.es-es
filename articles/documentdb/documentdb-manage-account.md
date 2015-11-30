@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="11/18/2015" 
 	ms.author="anhoh"/>
 
-# Administración de una cuenta de DocumentDB mediante el portal de vista previa de Azure
+# Administración de una cuenta de DocumentDB
 
 Obtenga información sobre cómo trabajar con claves, la configuración de coherencia y cómo eliminar una cuenta desde el Portal de vista previa de Azure.
 
@@ -30,9 +30,9 @@ En el [Portal de vista previa de Microsoft Azure](https://portal.azure.com/), ob
 
 ### Visualización y copia de una clave de acceso en el portal de vista previa de Azure
 
-1.      En el [Portal de vista previa de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB. 
+1.      En el [Portal de vista previa de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB. 
 
-2.      En la lente **Resumen**, haga clic en **Claves**.
+2.      En la lente **Resumen**, haga clic en **Claves**.
 
 3.      En la hoja **Claves**, haga clic en el botón **Copiar**, a la derecha de la clave que quiere copiar.
 
@@ -65,7 +65,7 @@ DocumentDB admite cuatro niveles diferenciados de coherencia de datos que el usu
 
 - Una coherencia **alta** garantiza que las operaciones de lectura siempre devolverán el último valor que se escribió.
 
-- La coherencia de **Uso vinculado** garantiza que las lecturas no quedarán obsoletas. Garantiza de forma específica que les lecturas serán, como máximo, de *K* versiones anteriores a la última versión que se escribió.
+- La coherencia de **Uso vinculado** garantiza que las lecturas no quedarán obsoletas. Garantiza de forma específica que les lecturas serán, como máximo, de K versiones anteriores a la última versión que se escribió.
 
 - La coherencia de **Sesión** garantiza lecturas monotónicas (nunca se leen datos antiguos, nuevos y antiguos en ese orden), operaciones de escritura monotónicas (las operaciones se ordenan) y que usted leerá los elementos escritos más recientes desde un único punto de vista del cliente.
 
@@ -96,13 +96,13 @@ Para quitar del Portal de vista previa de Azure una cuenta de DocumentDB que ya 
 
 ![Eliminación de una cuenta de DocumentDB en el portal de vista previa de Azure](./media/documentdb-manage-account/image009.png)
 
-1.      En el [Portal de vista previa de Azure](https://portal.azure.com/), obtenga acceso a la cuenta de DocumentDB que quiere eliminar. 
+1.      En el [Portal de vista previa de Azure](https://portal.azure.com/), obtenga acceso a la cuenta de DocumentDB que quiere eliminar. 
 
-2.      En la hoja **Cuenta de DocumentDB**, haga clic en el comando **Eliminar**.
+2.      En la hoja **Cuenta de DocumentDB**, haga clic en el comando **Eliminar**.
 
-3.      En la hoja de confirmación que aparece, escriba el nombre de la cuenta de DocumentDB para confirmar que quiere eliminarla.
+3.      En la hoja de confirmación que aparece, escriba el nombre de la cuenta de DocumentDB para confirmar que quiere eliminarla.
 
-4.      En la hoja de confirmación, haga clic en el botón **Eliminar**.
+4.      En la hoja de confirmación, haga clic en el botón **Eliminar**.
 
 ## <a id="next"></a>Pasos siguientes
 
@@ -113,4 +113,4 @@ Para obtener más información sobre DocumentDB, consulte la documentación corr
  
  
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="11/16/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -44,6 +44,8 @@ Las contraseñas se sincronizan con más frecuencia que la ventana de sincroniza
 Al habilitar la característica de sincronización de contraseñas por primera vez, se realizará una sincronización inicial de las contraseñas de todos los usuarios en el ámbito de Active Directory local en Azure Active Directory. No puede definir explícitamente el conjunto de usuarios cuyas contraseñas se sincronizarán con la nube. Posteriormente, cuando un usuario local cambie una contraseña, la característica de sincronización de contraseñas detectará y sincronizará la contraseña cambiada, normalmente en cuestión de minutos. La característica de sincronización de contraseñas reintenta automáticamente las sincronizaciones de contraseñas de usuario erróneas. Si se produce un error al intentar sincronizar una contraseña, el error se registra en el visor de eventos.
 
 La sincronización de una contraseña no influye en los usuarios con la sesión iniciada actualmente. Si un usuario que ha iniciado sesión en un servicio en la nube también cambia la contraseña local, la sesión del servicio en la nube continuará sin interrupciones. Sin embargo, si el servicio en la nube requiere que el usuario vuelva a realizar la autenticación, debe proporcionarse la nueva contraseña. En este punto, el usuario debe proporcionar la nueva contraseña: la contraseña que se ha sincronizado recientemente desde Active Directory local a la nube.
+
+> [AZURE.NOTE]Solo se admite la sincronización de la contraseña para el usuario del tipo de objeto de Active Directory. No se admite para el tipo de objeto iNetOrgPerson.
 
 ### Funcionamiento de la sincronización de contraseñas con Servicios de dominio de Azure AD
 
@@ -156,4 +158,4 @@ No es necesario forzar una sincronización completa de todas las contraseñas, p
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

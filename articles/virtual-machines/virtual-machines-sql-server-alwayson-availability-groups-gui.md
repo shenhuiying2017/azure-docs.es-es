@@ -65,7 +65,7 @@ Comience con una nueva cuenta de prueba de Azure. Cuando haya terminado de confi
 
 1. Haga clic en el botón **Nuevo** en la esquina inferior izquierda de la página, como se muestra a continuación.
 
-	![Haga clic en Nuevo en el Portal](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665511.gif)
+	![Haga clic en Nuevo, en el Portal](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665511.gif)
 
 1. Haga clic en **Servicios de red**, después, haga clic en **Red Virtual,** y finalmente en **Creación personalizada**, tal como se muestra a continuación.
 
@@ -544,4 +544,4 @@ Ha implementado correctamente SQL Server AlwaysOn creando un grupo de disponibil
 
 Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en máquinas virtuales de Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

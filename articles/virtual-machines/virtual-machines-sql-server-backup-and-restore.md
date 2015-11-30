@@ -14,17 +14,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/05/2015"
+	ms.date="11/13/2015"
 	ms.author="jroth" />
 
 # Copias de seguridad y restauración para SQL Server en Máquinas virtuales de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
-
-
 ## Información general
 
 Realizar una copia de seguridad de los datos en bases de datos de SQL Server es una parte importante de la estrategia en la protección frente a la pérdida de datos debido a errores de usuario o de aplicaciones. Esto ocurre igualmente para SQL Server que se ejecuta en Máquinas virtuales de Azure (VM).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
 Para SQL Server que se ejecuta en Máquinas virtuales de Azure, puede usar técnicas de copia de seguridad y restauración nativas mediante discos conectados para el destino de los archivos de copia de seguridad. No obstante, hay un límite en el número de discos que se pueden acoplar a una máquina virtual de Azure según el [tamaño de la máquina virtual](virtual-machines-size-specs.md). Existe también una sobrecarga de la administración de discos que tener en cuenta.
 
@@ -42,11 +41,11 @@ Las razones para realizar las copias de seguridad de base de datos y la propia t
 
 - Deberá realizar copias de seguridad de base de datos para proporcionar protección frente a errores de usuario o para fines de archivado, razones legales o fines administrativos.
 
-- Puede realizar prácticamente copias de seguridad instantáneas y restauraciones rápidas con la característica Copia de seguridad de instantánea de archivos de SQL Server en Microsoft SQL Server 2016 Community Technology Preview 2 (CTP2). Para obtener más información, vea [Copias de seguridad de instantáneas de archivo para archivos de base de datos en Azure](https://msdn.microsoft.com/library/mt169363.aspx).
+- Puede realizar copias de seguridad de forma prácticamente instantánea y restauraciones rápidas gracias a la característica Copia de seguridad de instantánea de archivos de SQL Server en Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3). Para obtener más información, vea [Copias de seguridad de instantáneas de archivo para archivos de base de datos en Azure](https://msdn.microsoft.com/library/mt169363.aspx).
 
-## Copia de seguridad y restauración en Microsoft SQL Server 2016 Community Technology Preview 2 (CTP2)
+## Copia de seguridad y restauración en Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3)
 
-Microsoft SQL Server 2016 Community Technology Preview 2 (CTP2) admite las características de [copia de seguridad y restauración de blobs de Azure](https://msdn.microsoft.com/library/jj919148.aspx) que se encuentran en SQL Server 2014 y se describen a continuación. Sin embargo, también incluye las siguientes mejoras:
+Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3) admite las características de la [copia de seguridad y restauración de los blobs de Azure](https://msdn.microsoft.com/library/jj919148.aspx) que se encuentran en SQL Server 2014 y se describen a continuación. Sin embargo, también incluye las siguientes mejoras:
 
 - **Seccionamiento**: cuando realiza una copia de seguridad de Almacenamiento de blobs de Microsoft Azure, SQL Server 2016 admite la copia de seguridad de varios blobs para habilitar la copia de seguridad de bases de datos de gran tamaño, hasta un máximo de 12,8 TB.
 
@@ -93,4 +92,4 @@ Aunque la copia de seguridad y la restauración pueden usarse para migrar los da
 
 Revise otros [recursos para ejecutar SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

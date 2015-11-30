@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/09/2015"
+   ms.date="11/12/2015"
    ms.author="tomfitz"/>
 
 # Funciones de la plantilla del Administrador de recursos de Azure
@@ -494,6 +494,25 @@ En el siguiente ejemplo se convierte el valor del parámetro proporcionado por e
         "upperCaseAppName": "[toUpper(parameters('appName'))]"
     }
 
+## trim
+
+**trim (stringToTrim)**
+
+Quita todos los caracteres de espacio en blanco iniciales y finales de la cadena especificada.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| stringToTrim | Sí | La cadena que se recortará.
+
+En el ejemplo siguiente se recortan los caracteres de espacio en blanco del valor de parámetro proporcionado por el usuario.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "trimAppName": "[trim(parameters('appName'))]"
+    }
+
 
 ## uniqueString
 
@@ -529,6 +548,21 @@ En el ejemplo siguiente se muestra cómo crear un nombre único para una cuenta 
         "type": "Microsoft.Storage/storageAccounts", 
         ...
 
+## uri
+
+**uri (baseUri, relativeUri)**
+
+Crea un URI absoluto mediante la combinación de la cadena de relativeUri y baseUri.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| baseUri | Sí | La cadena de uri base.
+| relativeUri | Sí | La cadena de uri relativo que se agregará a la cadena de uri base.
+
+En el ejemplo siguiente se muestra cómo crear un URI absoluto en el vínculo de la plantilla. El resultado es ****http://contoso.com/resources/nested/azuredeploy.json**.
+
+    "templateLink": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]"
+
 
 ## variables
 
@@ -547,4 +581,4 @@ Devuelve el valor de variable. El nombre de la variable especificada debe defini
 - Para iterar una cantidad de veces específica al crear un tipo de recurso, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 - Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

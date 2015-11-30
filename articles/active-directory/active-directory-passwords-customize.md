@@ -13,15 +13,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Personalización de la administración de contraseñas para ajustarse a las necesidades de su organización
 A fin de ofrecer la mejor experiencia posible a los usuarios, se recomienda explorar y jugar con todas las opciones de configuración de administración de contraseñas que están a su disposición. De hecho, puede empezar a explorarlas de inmediato en la pestaña de configuración de la **extensión de Active Directory** en el [Portal de administración de Azure](https://manage.windowsazure.com). Este tema le guiará a través de todas las diferentes personalizaciones de la Administración de contraseñas que puede realizar como administrador desde la pestaña **Configurar** del directorio dentro del [Portal de administración de Azure](https://manage.windowsazure.com), entre las que se incluyen las siguientes:
 
-- [**Personalización del aspecto de la Administración de contraseñas**](#password-managment-look-and-feel)
-- [**Personalización del comportamiento de la Administración de contraseñas del usuario**](#password-management-behavior)
-- [**Personalización de las notificaciones de Administración de contraseñas**](#password-management-notifications)
+| Tema. | |
+| --------- | --------- |
+| ¿Cómo se habilita o deshabilita el restablecimiento de contraseña? | [Configuración: usuarios habilitados para el restablecimiento de contraseña](#users-enabled-for-password-reset) |
+| ¿Cómo se limita el ámbito de restablecimiento de contraseña a un conjunto específico de usuarios? | [Restricción del restablecimiento de contraseña a usuarios específicos](#restrict-access-to-password-reset) |
+| ¿Cómo se pueden cambiar los métodos de autenticación que se admiten? | [Configuración: métodos de autenticación disponibles para los usuarios](#authentication-methods-available-to-users) |
+| ¿Cómo se puede cambiar el número de métodos de autenticación necesarios? | [Configuración: número de métodos de autenticación necesarios](#number-of-authentication-methods-required) |
+| ¿Cómo se configuran preguntas de seguridad personalizadas? | [Configuración: preguntas de seguridad personalizadas](#custom-security-questions) |
+| ¿Cómo se configuran preguntas de seguridad localizadas predefinidas? | [Configuración: preguntas de seguridad basadas en el conocimiento](#knowledge-based-security-questions) |
+| ¿Cómo puedo cambiar el número de preguntas de seguridad que son necesarias? | [Configuración: número de preguntas de seguridad de registro o restablecimiento](#number-of-questions-required-to-register) |
+| ¿Cómo puedo forzar a que mis usuarios se registren al iniciar sesión? | [Implementación de restablecimiento de contraseña basado en registro forzoso](#require-users-to-register-when-signing-in) |
+| ¿Cómo puedo forzar a que mis usuarios confirmen de nuevo su registro periódicamente? | [Configuración: número de días antes de que los usuarios deban confirmar nuevamente sus datos de autenticación](#number-of-days-before-users-must-confirm-their-contact-data) |
+| ¿Cómo puedo personalizar cómo los usuarios se ponen en contacto con un administrador? | [Configuración: personalización del vínculo "póngase en contacto con su administrador"](#customize-the-contact-your-administrator-link) |
+| ¿Cómo puedo permitir que los usuarios desbloqueen cuentas de AD sin restablecer una contraseña? | [Configuración: permitir que los usuarios desbloqueen sus cuentas de AD sin restablecer una contraseña](#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| ¿Cómo se pueden habilitar las notificaciones de restablecimiento de contraseña para los usuarios? | [Configuración: notificar a los usuarios cuando sus contraseñas se han restablecido](#notify-users-and-admins-when-their-own-password-has-been-reset) |
+| ¿Cómo se pueden habilitar las notificaciones de restablecimiento de contraseña para los administradores? | [Configuración: notificar a otros administradores cuando un administrador restablezca su propia contraseña](#notify-admins-when-other-admins-reset-their-own-passwords) |
+| ¿Cómo se puede personalizar la apariencia del restablecimiento de contraseña? | [Configuración: nombre, marca y logotipo de la empresa ](#password-managment-look-and-feel) |
+
 
 ## Aspecto de la Administración de contraseñas
 En la siguiente tabla se describe la forma en la que cada control afecta a la experiencia de los usuarios que se registran para el restablecimiento de contraseña y que restablecen sus contraseñas. Puede configurar estas opciones en la sección **Propiedades de directorio** de la pestaña **Configurar** del [Portal de administración de Azure](https://manage.windowsazure.com).
@@ -46,7 +60,9 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
             <tr>
               <td>
-                <p>Nombre de directorio</p>
+                <div id="directory-name">
+                  <p>Nombre de directorio</p>
+                </div>
               </td>
               <td>
                 <p>Determina lo que ven los usuarios o administradores de la organización en las comunicaciones por correo electrónico sobre restablecimiento de contraseñas.</p>
@@ -72,7 +88,9 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
             <tr>
               <td>
-                <p>Aspecto de la página de inicio de sesión y del panel de acceso</p>
+                <div id="sign-in-and-access-panel-page-appearance">
+                  <p>Aspecto de la página de inicio de sesión y del panel de acceso</p>
+                </div>
               </td>
               <td>
                 <p>Determina si los usuarios que visitan la página de restablecimiento de contraseña ven el logotipo de Microsoft o su propio logotipo personalizado. Este elemento de configuración agrega también su marca al panel de acceso y a la página de inicio de sesión.</p>
@@ -134,7 +152,9 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
             <tr>
               <td>
-                <p>Usuarios habilitados para restablecer la contraseña</p>
+                <div id="users-enabled-for-password-reset">
+                  <p>Usuarios habilitados para restablecer la contraseña</p>
+                </div>
               </td>
               <td>
                 <p>Determina si está habilitado el restablecimiento de contraseña para los usuarios en este directorio. </p>
@@ -166,7 +186,9 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
             <tr>
               <td>
-                <p>Restricción de acceso para restablecer la contraseña</p>
+                <div id="restrict-access-to-password-reset">
+                  <p>Restricción de acceso para restablecer la contraseña</p>
+                </div>
               </td>
               <td>
                 <p>Determina si el restablecimiento de contraseña se permite solo a un determinado grupo de usuarios. (Solo visible si <strong>Usuarios habilitados para restablecer la contraseña</strong> está establecido en <strong>Sí</strong>).</p>
@@ -194,7 +216,9 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
             <tr>
               <td>
-                <p>Grupo que puede realizar el restablecimiento de contraseña</p>
+                <div id="group-that-can-perform-password-reset">
+                  <p>Grupo que puede realizar el restablecimiento de contraseña</p>
+                </div>
               </td>
               <td>
                 <p>Determina qué grupo de usuarios finales puede utilizar el restablecimiento de contraseña. </p>
@@ -231,7 +255,9 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
             <tr>
               <td>
-                <p>Métodos de autenticación disponibles para los usuarios</p>
+                <div id="authentication-methods-available-to-users">
+                  <p>Métodos de autenticación disponibles para los usuarios</p>
+                </div>
               </td>
               <td>
                 <p>Determina qué desafíos puede utilizar un usuario para restablecer su contraseña.</p>
@@ -295,7 +321,9 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
             <tr>
               <td>
-                <p>Número de métodos de autenticación requeridos</p>
+                <div id="number-of-authentication-methods-required">
+                  <p>Número de métodos de autenticación requeridos</p>
+                </div>
               </td>
               <td>
                 <p>Determina el número mínimo de métodos de autenticación disponibles que un usuario debe superar para restablecer su contraseña.</p>
@@ -332,7 +360,9 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
             <tr>
               <td>
-                <p>Número de preguntas necesarias para registrarse</p>
+                <div id="number-of-questions-required-to-register">
+                  <p>Número de preguntas necesarias para registrarse</p>
+                </div>
               </td>
               <td>
                 <p>Determina el número mínimo de preguntas que un usuario debe responder al registrarse para la opción de preguntas de seguridad.</p>
@@ -361,7 +391,9 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
             <tr>
               <td>
-                <p>Número de preguntas necesarias para restablecimiento </p>
+                <div id="number-of-questions-required-to-reset">
+                  <p>Número de preguntas necesarias para restablecimiento </p>
+                </div>
               </td>
               <td>
                 <p>Determina el número mínimo de preguntas que debe responder el usuario cuando restablece una contraseña.</p>
@@ -393,7 +425,9 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
             <tr>
               <td>
-                <p>Preguntas de seguridad basadas en el conocimiento</p>
+                <div id="knowledge-based-security-questions">
+                  <p>Preguntas de seguridad basadas en el conocimiento</p>
+                </div>
               </td>
               <td>
                 <p>Define las preguntas de seguridad predefinidas que los usuarios pueden elegir al registrarse para el restablecimiento de contraseña y al restablecer sus contraseñas.</p>
@@ -442,7 +476,9 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
             <tr>
               <td>
-                <p>Preguntas de seguridad personalizadas</p>
+                <div id="custom-security-questions">
+                  <p>Preguntas de seguridad personalizadas</p>
+                </div>
               </td>
               <td>
                 <p>Define las preguntas de seguridad entre las que los usuarios pueden elegir al registrarse para el restablecimiento de contraseña y al restablecer sus contraseñas.</p>
@@ -493,13 +529,22 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
             <tr>
               <td>
-                <p>¿Es necesario que los usuarios se registren cuando inician sesión en el panel de acceso?</p>
+                <div id="require-users-to-register-when-signing-in">
+                  <p>¿Es necesario que los usuarios se registren al iniciar sesión?</p>
+                </div>
                 <p>
                   
                 </p>
               </td>
               <td>
-                <p>Determina si un usuario debe registrar datos de contacto para el restablecimiento de la contraseña la próxima vez que inicie sesión en el panel de acceso.</p>
+                <p>Determina si un usuario debe registrar los datos de contacto para el restablecimiento de contraseña la próxima vez que inicie sesión.  
+                </p>
+                <p>Esta funcionalidad sirve para cualquier página de inicio de sesión único que usa una cuenta educativa o profesional. Tales páginas incluyen todas las de Office 365, el Portal de administración de Azure, el panel de acceso y las aplicaciones desarrolladas federadas o personalizadas que usan Azure AD para iniciar sesión.
+                </p>
+                <p>
+                  
+                </p>
+                <p>El registro forzoso solo se aplica a los usuarios que están habilitados para el restablecimiento de contraseña, por lo que si ha usado la característica "restringir el acceso al restablecimiento de contraseña" y ha limitado el restablecimiento de contraseña a un grupo de usuarios específico, solo los usuarios de ese grupo deberán registrarse para el restablecimiento de contraseña al iniciar sesión.</p>
                 <p>
                   
                 </p>
@@ -534,7 +579,9 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
             <tr>
               <td>
-                <p>Cantidad de días que los usuarios disponen para confirmar sus datos de contacto</p>
+                <div id="number-of-days-before-users-must-confirm-their-contact-data">
+                  <p>Cantidad de días que los usuarios disponen para confirmar sus datos de contacto</p>
+                </div>
               </td>
               <td>
                 <p>Cuando está activada la opción para <strong>obligar a los usuarios a registrarse</strong>, esta configuración determina el período de tiempo que puede transcurrir hasta que un usuario deba confirmar nuevamente sus datos. </p>
@@ -568,7 +615,9 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
             <tr>
               <td>
-                <p>¿Desea personalizar el vínculo para ponerse en contacto con el administrador?</p>
+                <div id="customize-the-contact-your-administrator-link">
+                  <p>¿Desea personalizar el vínculo para ponerse en contacto con el administrador?</p>
+                </div>
               </td>
               <td>
                 <p>Controla si el vínculo para ponerse en contacto con el administrador (ubicado a la izquierda) que aparece en el portal de restablecimiento de contraseña cuando se produce un error o el usuario tarda demasiado tiempo en una operación apunta a una dirección de correo electrónico o una dirección URL personalizada.</p>
@@ -612,7 +661,9 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
             <tr>
               <td>
-                <p>Dirección de correo electrónico o dirección URL personalizada</p>
+                <div id="custom-email-address-or-URL">
+                  <p>Dirección de correo electrónico o dirección URL personalizada</p>
+                </div>
               </td>
               <td>
                 <p>Controla la dirección URL o de correo electrónico a la que apunta el vínculo <strong>Póngase en contacto con el administrador</strong>. </p>
@@ -644,14 +695,16 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
             <tr>
               <td>
-                <p>Escritura diferida de contraseñas en el directorio local</p>
+                <div id="write-back-passwords-to-on-premises-directory">
+                  <p>Escritura diferida de contraseñas en el directorio local</p>
+                </div>
               </td>
               <td>
                 <p>Controla si la escritura diferida de contraseñas está habilitada para este directorio y, si lo está, indica el estado del servicio de escritura diferida local.</p>
                 <p>
                   
                 </p>
-                <p>Esto resulta útil si desea deshabilitar temporalmente el servicio debido a una interrupción.</p>
+                <p>Esta configuración es útil si desea deshabilitar temporalmente el servicio sin volver a configurar Azure AD Connect.</p>
               </td>
               <td>
                 <p>
@@ -688,6 +741,41 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
                 </ul>
               </td>
             </tr>
+             <tr>
+              <td>
+                <div id="allow-users-to-unlock-accounts-without-resetting-their-password">
+                  <p>Permitir a los usuarios desbloquear las cuentas sin restablecer la contraseña</p>
+                </div>
+              </td>
+              <td>
+              
+              <p>Designa si los usuarios que visitan el portal de restablecimiento de contraseña tendrán la opción de desbloquear sus cuentas de Active Directory locales sin restablecer su contraseña. De forma predeterminada, Azure AD siempre desbloqueará las cuentas al realizar un restablecimiento de contraseña; esta opción le permite separar esas dos operaciones.</p>
+              
+              <p>Si se establece en "sí", los usuarios tendrán la opción de restablecer su contraseña y desbloquear la cuenta, o de desbloquear la cuenta sin restablecer la contraseña. </p>
+              
+              <p>Si se establece en "no", los usuarios solo podrán realizar una operación combinada de restablecimiento de contraseña y desbloqueo de cuenta.</p>
+
+              </td>
+              <td>
+                <p>
+                  <strong>Nota:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Para poder usar esta característica, debe instalar la versión de agosto de 2015 de Azure AD Connect o la más reciente (v. 1.0.8667.0 o superior).<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">Haga clic aquí para descargar la versión más reciente de Azure AD Connect.</a></li>
+                        
+                  <li class="unordered">
+                    <strong>Nota:</strong> para probar esta función, deberá habilitar la escritura diferida de contraseñas y usar una cuenta que tenga como origen el entorno local (por ejemplo, un usuario federado o con contraseña sincronizada) y que tenga una cuenta bloqueada. Los usuarios que no procedan del entorno local y no tengan una cuenta bloqueada no verán la opción para desbloquear sus cuentas.</li>
+                </ul>
+                <p>
+                  <strong>Portal de restablecimiento de contraseña:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Después de habilitar esta opción, cuando un usuario con una cuenta local que está bloqueado llega al portal de restablecimiento de contraseña, tendrá la opción de desbloquear su cuenta sin restablecer su contraseña.<br><br>Tenga en cuenta que si usa la escritura diferida de contraseñas, las cuentas ya están desbloqueadas automáticamente cuando se restablece la contraseña, y que esta opción simplemente desacopla esas operaciones.<br><br>Esta es una opción especialmente útil si encuentra que muchas de las llamadas a su departamento de soporte técnico tienen que ver con solicitudes de desbloqueo de cuentas.</li>
+                </ul>
+              </td>
+            </tr>
           </tbody></table>
 
 ## Notificaciones de Administración de contraseñas
@@ -713,7 +801,9 @@ En la tabla siguiente se describe cómo afecta cada control a la experiencia de 
             </tr>
             <tr>
               <td>
-                <p>Notificar a los administradores cuando otros administradores restablezcan sus contraseñas</p>
+                <div id="notify-admins-when-other-admins-reset-their-own-passwords">
+                  <p>Notificar a los administradores cuando otros administradores restablezcan sus contraseñas</p>
+                </div>
               </td>
               <td>
                 <p>Determina si a todos los administradores globales se les notificará mediante un mensaje a su dirección de correo electrónico principal cuando otro administrador de cualquier tipo restablezca su contraseña.</p>
@@ -741,7 +831,9 @@ En la tabla siguiente se describe cómo afecta cada control a la experiencia de 
             </tr>
             <tr>
               <td>
-                <p>Notificar a los usuarios y administradores cuando se haya restablecido su contraseña</p>
+                <div id="notify-users-and-admins-when-their-own-password-has-been-reset">
+                  <p>Notificar a los usuarios y administradores cuando se haya restablecido su contraseña</p>
+                </div>
               </td>
               <td>
                 <p>Determina si los usuarios finales y los administradores que restablecen sus contraseñas reciben o no una notificación por correo electrónico de que se ha restablecido su contraseña.</p>
@@ -765,17 +857,19 @@ En la tabla siguiente se describe cómo afecta cada control a la experiencia de 
 
 <br/> <br/> <br/>
 
-**Recursos adicionales**
+## Vínculos a documentación de restablecimiento de contraseña
+A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
+
+* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema
+* [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis diferentes componentes del servicio y lo que hace cada uno.
+* [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
+* [**Prácticas recomendadas**](active-directory-passwords-best-practices.md): obtenga información sobre cómo implementar rápidamente y administrar eficazmente las contraseñas de la organización.
+* [**Obtener perspectivas**](active-directory-passwords-get-insights.md): obtenga información sobre nuestras capacidades integradas de creación de informes.
+* [**Preguntas más frecuentes**](active-directory-passwords-faq.md): obtenga respuestas a las preguntas más frecuentes.
+* [**Solución de problemas**](active-directory-passwords-troubleshoot.md): obtenga información sobre cómo solucionar rápidamente los problemas del servicio.
+* [**Más información**](active-directory-passwords-learn-more.md): profundice en los detalles técnicos del funcionamiento del servicio.
 
 
-* [Qué es la administración de contraseñas](active-directory-passwords.md)
-* [Funcionamiento de la administración de contraseñas](active-directory-passwords-how-it-works.md)
-* [Introducción a la Administración de contraseñas](active-directory-passwords-getting-started.md)
-* [Prácticas recomendadas de la Administración de contraseñas](active-directory-passwords-best-practices.md)
-* [Visión operativa con los informes de administración de contraseñas](active-directory-passwords-get-insights.md)
-* [Preguntas más frecuentes sobre la administración de contraseñas](active-directory-passwords-faq.md)
-* [Solución de problemas de administración de contraseñas](active-directory-passwords-troubleshoot.md)
-* [Más información](active-directory-passwords-learn-more.md)
-* [Administración de contraseñas en MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+[001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

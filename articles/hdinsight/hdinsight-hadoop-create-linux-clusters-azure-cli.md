@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="11/17/2015"
    	ms.author="larryfr"/>
 
 #Crear clústeres basados en Linux en HDInsight con la CLI de Azure
@@ -70,7 +70,7 @@ Los siguientes pasos se deben realizar desde un símbolo del sistema, el shell o
     * __clusterName__: el nombre del clúster de HDInsight. Este nombre debe ser único o se producirá un error en la implementación.
     * __clusterStorageAccountName__: el nombre de la cuenta de Almacenamiento de Azure que se creará para el clúster de HDInsight. Este nombre debe ser único o se producirá un error en la implementación.
     * __clusterLoginPassword__: la contraseña del usuario del administrador de clúster. Debe ser una contraseña segura, ya que se usa para el acceso a sitios web y a los servicios REST del clúster.
-    * __sshUserName__: el nombre del primer usuario SSH para crear para este clúster. SSH se usará para acceder de forma remota al clúster con esta cuenta. El nombre debe ser único y no puede ser el nombre de una cuenta que ya esté en uso en el clúster. Los nombres no válidos incluyen root, storm y hbase.
+    * __sshUserName__: el nombre del primer usuario SSH para crear para este clúster. SSH se usará para acceder de forma remota al clúster con esta cuenta.
     * __sshPublicKey__: si usa la plantilla que requiere una clave pública SSH, debe agregarla en esta línea. Para obtener más información sobre cómo generar claves públicas y trabajar con ellas, consulte los siguientes artículos:
 
         * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -121,4 +121,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

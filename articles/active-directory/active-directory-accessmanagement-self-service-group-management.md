@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Configuración de Azure AD para la administración del acceso a la aplicación de autoservicio | Microsoft Azure"
-	description="La información general de la administración de grupos de autoservicio permite a los usuarios crear y administrar grupos de seguridad en Microsoft Azure Active Directory (AD) y les ofrece la posibilidad de emitir solicitudes de pertenencia a grupos de seguridad."
+	pageTitle="Configuración de Azure Active Directory para la administración del acceso a la aplicación de autoservicio | Microsoft Azure"
+	description="La información general de la administración de grupos de autoservicio permite a los usuarios crear y administrar grupos de seguridad en Azure Active Directory y les ofrece la posibilidad de emitir solicitudes de pertenencia a grupos de seguridad."
 	services="active-directory"
 	documentationCenter=""
-    authors="femila"
-	manager="stevenpo" 
+  authors="curtand"
+	manager="stevenpo"
 	editor=""
-	tags="azure-classic-portal"/>
+	/>
 
 <tags
 	ms.service="active-directory"
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
-	ms.author="femila"/>
+	ms.date="11/17/2015"
+	ms.author="curtand"/>
 
-#Configuración de Azure AD para la administración del acceso a la aplicación de autoservicio
+# Configuración de Azure Active Directory para la administración del acceso a la aplicación de autoservicio
 
-La administración de grupos de autoservicio permite a los usuarios crear y administrar grupos de seguridad en Microsoft Azure Active Directory (AD) y les ofrece la posibilidad de emitir solicitudes de pertenencia a grupos de seguridad, que posteriormente pueden ser aprobadas o rechazadas por el propietario del grupo. Mediante el uso de características de administración de grupos de autoservicio, el control cotidiano de la pertenencia a grupos puede delegarse a personas que comprenden el contexto empresarial de dicha pertenencia. Tenga en cuenta que las características de administración de grupo de autoservicio solo están disponibles para grupos de seguridad y de Office 365, no para grupos de seguridad habilitados para correo ni listas de distribución.
+La administración de grupos de autoservicio permite a los usuarios crear y administrar grupos de seguridad en Azure Active Directory (Azure AD) y les ofrece la posibilidad de emitir solicitudes de pertenencia a grupos de seguridad, que posteriormente pueden ser aprobadas o rechazadas por el propietario del grupo. Mediante el uso de características de administración de grupos de autoservicio, el control cotidiano de la pertenencia a grupos puede delegarse a personas que comprenden el contexto empresarial de dicha pertenencia. Las características de administración de grupo de autoservicio solo están disponibles para grupos de seguridad y de Office 365, no para grupos de seguridad habilitados para correo ni listas de distribución.
 
 La administración de grupos de autoservicio actualmente está formada por dos escenarios esenciales: la administración de grupos delegada y la administración de grupos de autoservicio.
 
@@ -29,19 +29,19 @@ La administración de grupos de autoservicio actualmente está formada por dos e
 
 - **Administración de grupos de autoservicio**: por ejemplo, dos usuarios que disponen de sitios de SharePoint Online configurados de forma independiente, pero que realmente desean facilitar la concesión de acceso a los equipos del otro. Por ello, crean un grupo en Azure AD, y en SharePoint Online cada uno de ellos selecciona ese mismo grupo para proporcionar acceso a sus sitios. Cuando alguien desea tener acceso, lo solicita en el Panel de acceso, y tras la aprobación obtiene acceso a ambos sitios de SharePoint Online automáticamente. Posteriormente, uno de ellos decide que todas las personas que tengan acceso a su sitio también deben obtener acceso a una aplicación SaaS en particular. Este solicita al administrador de su aplicación SaaS que agregue derechos de acceso para esta aplicación a su sitio. Desde ese momento, las solicitudes que apruebe darán acceso a los dos sitios de SharePoint Online y también a esta aplicación SaaS.
 
+## Puesta a disposición de un grupo para el autoservicio del usuario final
 
+En el Portal de Azure, en la pestaña **Configurar**, establezca el conmutador **Administración de grupos delegados** en Habilitado y, a continuación, establezca el **conmutador Los usuarios pueden crear grupos** en Habilitado.
 
-##Puesta a disposición de un grupo para el autoservicio del usuario final
+Cuando el conmutador **Los usuarios pueden crear grupos** está establecido en **Habilitado**, todos los usuarios del directorio pueden crear grupos de seguridad y agregar miembros a estos grupos. Estos grupos nuevos también aparecerán en el Panel de acceso para todos los demás usuarios, y que otros usuarios pueden crear solicitudes para unirse a ellos si la configuración de directiva del grupo lo permite. Si este parámetro se establece en Deshabilitado, los usuarios no podrán crear grupos ni cambiar los grupos existentes de los que sean propietarios, pero podrán seguir administrando la pertenencia a los grupos y aprobar las solicitudes de otros usuarios para unirse a ellos.
 
-En el Portal de administración de Azure, en la pestaña Configurar, establezca el conmutador Administración de grupos delegados en Habilitado y, a continuación, establezca el conmutador Los usuarios pueden crear grupos en Habilitado.
+También puede utilizar el conmutador **Usuarios que pueden usar el autoservicio para grupos de seguridad** para conseguir un control de acceso más detallado sobre las capacidades de administración de grupos de autoservicio para los usuarios. Cuando el conmutador **Los usuarios pueden crear grupos** se establece en Habilitado, todos los usuarios de su directorio pueden crear nuevos grupos de seguridad y agregar miembros a estos grupos. Además, al establecer el conmutador **Usuarios que pueden utilizar el autoservicio para grupos de seguridad** en Algunos, está restringiendo la administración del grupo de seguridad a solo un grupo limitado de usuarios. Cuando este modificador se establece en Algunos, se crea un grupo denominado SSGMSecurityGroupsUsers en el directorio, y los usuarios a los que haya hecho miembros de este grupo serán los únicos que puedan crear nuevos grupos de seguridad y agregar miembros a estos grupos dentro del directorio. Al establecer el conmutador **Usuarios que pueden utilizar el autoservicio para grupos de seguridad** en Todos, permite a todos los usuarios del directorio crear nuevos grupos de seguridad.
 
-Cuando el conmutador **Los usuarios pueden crear grupos** está establecido en **Habilitado**, todos los usuarios del directorio pueden crear grupos de seguridad y agregar miembros a estos grupos. Tenga en cuenta que estos grupos nuevos también aparecerán en el Panel de acceso para todos los demás usuarios, y que otros usuarios pueden crear solicitudes para unirse a ellos si la configuración de directiva del grupo lo permite. Si este parámetro se establece en Deshabilitado, los usuarios no podrán crear grupos ni cambiar los grupos existentes de los que sean propietarios, pero podrán seguir administrando la pertenencia a los grupos y aprobar las solicitudes de otros usuarios para unirse a ellos.
+También puede utilizar el campo **Grupos que pueden usar el autoservicio para grupos de seguridad** (establecido de forma predeterminada en "SSGMSecurityGroupsUsers") para especificar su propio nombre personalizado para un grupo que contenga todos los usuarios con la capacidad de utilizar el autoservicio y crear nuevos grupos de seguridad en el directorio.
 
-También puede utilizar el conmutador Usuarios que pueden utilizar el autoservicio para grupos de seguridad para conseguir un control de acceso más detallado sobre las capacidades de administración de grupos de autoservicio para los usuarios. Cuando el conmutador Los usuarios pueden crear grupos se establece en Habilitado, todos los usuarios de su directorio pueden crear nuevos grupos de seguridad y agregar miembros a estos grupos. Además, al establecer el conmutador Usuarios que pueden utilizar el autoservicio para grupos de seguridad en Algunos, está restringiendo la administración del grupo de seguridad a solo un grupo limitado de usuarios. Cuando este modificador se establece en Algunos, se crea un grupo denominado SSGMSecurityGroupsUsers en el directorio, y los usuarios a los que haya hecho miembros de este grupo serán los únicos que puedan crear nuevos grupos de seguridad y agregar miembros a estos grupos dentro del directorio. Al establecer el conmutador Usuarios que pueden utilizar el autoservicio para grupos de seguridad en Todos, permite a todos los usuarios del directorio crear nuevos grupos de seguridad.
+## Información adicional
 
-También puede utilizar el campo Grupos que pueden utilizar el autoservicio para grupos de seguridad (establecido de forma predeterminada en "SSGMSecurityGroupsUsers") para especificar su propio nombre personalizado para un grupo que contenga todos los usuarios con la capacidad de utilizar el autoservicio y crear nuevos grupos de seguridad en el directorio.
-
-A continuación presentamos algunos temas que proporcionarán información adicional acerca de Azure Active Directory.
+Estos artículos proporcionan información adicional sobre Azure Active Directory.
 
 * [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)
 
@@ -49,4 +49,4 @@ A continuación presentamos algunos temas que proporcionarán información adici
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

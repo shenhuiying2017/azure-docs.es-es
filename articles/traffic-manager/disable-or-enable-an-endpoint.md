@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Deshabilitación o habilitación de un extremo de Administrador de tráfico
@@ -40,14 +40,8 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 
 [Administrador de tráfico: deshabilitación, habilitación o eliminación de un perfil](disable-enable-or-delete-a-profile.md)
 
-[¿Qué es el Administrador de tráfico?](../traffic-manager.md)
+[Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
 
-[Servicios en la nube](http://go.microsoft.com/fwlink/?LinkId=314074)
+[Consideraciones de rendimiento sobre el Administrador de tráfico](traffic-manager-performance-considerations.md)
 
-[Sitios web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-
-[Operaciones del Administrador de tráfico (referencia de la API de REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

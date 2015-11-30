@@ -72,7 +72,7 @@ Para muestrear los datos desde las páginas web, ponga una línea extra en el [f
 	}); 
 ```
 
-* Establezca un porcentaje (10 en estos ejemplos) que es igual a 100/N donde N es un número entero: por ejemplo 50 (= 100/2), 33,33 (= 100/3), 25 (= 100/4), 10 (= 100/5). 
+* Establezca un porcentaje (10 en estos ejemplos) que es igual a 100/N donde N es un número entero: por ejemplo 50 (= 100/2), 33,33 (= 100/3), 25 (= 100/4) o 10 (= 100/10). 
 * Si tiene una gran cantidad de datos, puede utilizar frecuencias de muestreo muy bajas, como 0,1.
 * Si establece el muestreo en la página web y el servidor, asegúrese de establecer el mismo porcentaje de muestreo en ambos lados.
 * Los lados de cliente y servidor se coordinarán para seleccionar elementos relacionados.
@@ -172,7 +172,7 @@ Puede pasar valores de cadena desde el archivo .config proporcionando propiedade
     // If you have more processors:
     builder.Use((next) => new AnotherProcessor(next));
 
-    TelemetryConfiguration.Active.TelemetryChannel = builder.Build();
+    builder.Build();
 
     ```
 
@@ -409,4 +409,4 @@ Puede agregar tantos inicializadores como desee.
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

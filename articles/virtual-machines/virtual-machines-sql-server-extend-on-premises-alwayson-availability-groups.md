@@ -1,38 +1,37 @@
 <properties 
-   pageTitle="Ampliación de los grupos de disponibilidad AlwaysOn locales a Azure | Microsoft Azure"
-   description="Este tutorial utiliza los recursos creados con el modelo de implementación clásica y describe cómo utilizar el Asistente para agregar réplica en SQL Server Management Studio (SSMS) para agregar una réplica del grupo de disponibilidad AlwaysOn en Azure."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar"
-   tags="azure-service-management"/>
+	pageTitle="Ampliación de los grupos de disponibilidad AlwaysOn locales a Azure | Microsoft Azure"
+	description="Este tutorial utiliza los recursos creados con el modelo de implementación clásica y describe cómo utilizar el Asistente para agregar réplica en SQL Server Management Studio (SSMS) para agregar una réplica del grupo de disponibilidad AlwaysOn en Azure."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"
+	tags="azure-service-management"/>
 
 <tags 
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
-   ms.author="jroth" />
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="11/13/2015"
+	ms.author="jroth" />
 
 # Ampliación de los grupos de disponibilidad AlwaysOn locales a Azure
 
 Los grupos de disponibilidad AlwaysOn proporcionan alta disponibilidad para los grupos de la base de datos mediante la adición de las réplicas secundarias. Estas réplicas permiten la conmutación por error en bases de datos en caso de error. Además puede usarse para descargar las cargas de trabajo de lectura o tareas de copia de seguridad.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
- 
-
 Puede ampliar los grupos de disponibilidad locales a Microsoft Azure al aprovisionar una o más máquinas virtuales de Azure con SQL Server y, a continuación, agregarlas a los grupos de disponibilidad locales como réplicas.
 
 Este tutorial supone que tiene lo siguiente:
 
-- Una suscripción de Azure activa. Puede [registrarse para una prueba gratuita](http://azure.microsoft.com/pricing/free-trial).
+- Una suscripción de Azure activa. Puede [suscribirse a una evaluación gratuita](http://azure.microsoft.com/pricing/free-trial).
 
 - Un grupo de disponibilidad AlwaysOn local existente. Para obtener más información sobre los grupos de disponibilidad, consulte [Grupos de disponibilidad AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx).
 
 - Conectividad entre la red local y la red virtual de Azure. Para obtener más información acerca de la creación de esta red virtual, consulte [Configurar una VPN de sitio a sitio en el Portal de administración](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
 ## Asistente para agregar una réplica de Azure
 
@@ -104,4 +103,4 @@ Además de usar el **Asistente para agregar una réplica de Azure** para ampliar
 
 Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, consulte [SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,12 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="11/10/2015"
 	ms.author="danlep"/>
 
 
 
 # Creación y administración de una cuenta de Lote de Azure en el Portal de vista previa de Azure
+
+> [AZURE.SELECTOR]
+- [Azure preview portal](batch-account-create-portal.md)
+- [Batch Management .NET](batch-management-dotnet.md)
 
 En este artículo se muestra cómo usar el [Portal de vista previa de Azure](https://portal.azure.com) para crear y administrar la cuenta de Lote de Azure, así como sus valores de configuración, por ejemplo, las claves de cuenta. Para autenticar todas las solicitudes de la API de Lote necesita una dirección URL de cuenta de Lote y una clave de acceso asociada. Y, todos los recursos de Lote (como grupos, trabajos y tareas) de la carga de trabajo de Lote se asocian con una cuenta de Lote específica.
 
@@ -80,4 +84,4 @@ Para ver y administrar las claves de acceso, haga clic en el icono de llave.
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

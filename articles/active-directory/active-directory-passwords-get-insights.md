@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Visión operativa con los informes de la administración de contraseñas
@@ -153,18 +153,17 @@ Este usuario no es miembro del grupo de usuarios de restablecimiento de contrase
 El restablecimiento de contraseña se ha deshabilitado por completo para este inquilino. Consulte [aquí](http://aka.ms/ssprtroubleshoot) para resolver este problema. | Con error
 El usuario restableció la contraseña correctamente.|Succeeded
 
-**Recursos adicionales**
+## Vínculos a la documentación de restablecimiento de la contraseña
+A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-
-* [Qué es la administración de contraseñas](active-directory-passwords.md)
-* [Funcionamiento de la administración de contraseñas](active-directory-passwords-how-it-works.md)
-* [Introducción a la administración de contraseñas](active-directory-passwords-getting-started.md)
-* [Personalización de la administración de contraseñas](active-directory-passwords-customize.md)
-* [Prácticas recomendadas de la administración de contraseñas](active-directory-passwords-best-practices.md)
-* [Preguntas más frecuentes sobre la administración de contraseñas](active-directory-passwords-faq.md)
-* [Solución de problemas de administración de contraseñas](active-directory-passwords-troubleshoot.md)
-* [Más información](active-directory-passwords-learn-more.md)
-* [Administración de contraseñas en MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema
+* [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis diferentes componentes del servicio y lo que hace cada uno.
+* [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
+* [**Personalizar**](active-directory-passwords-customize.md) : obtenga información sobre cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización.
+* [**Prácticas recomendadas**](active-directory-passwords-best-practices.md): obtenga información sobre cómo implementar rápidamente y administrar eficazmente las contraseñas de la organización.
+* [**Preguntas más frecuentes**](active-directory-passwords-faq.md): obtenga respuestas a las preguntas más frecuentes.
+* [**Solución de problemas**](active-directory-passwords-troubleshoot.md): obtenga información sobre cómo solucionar rápidamente los problemas del servicio.
+* [**Más información**](active-directory-passwords-learn-more.md): profundice en los detalles técnicos del funcionamiento del servicio.
 
 
 
@@ -172,4 +171,4 @@ El usuario restableció la contraseña correctamente.|Succeeded
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

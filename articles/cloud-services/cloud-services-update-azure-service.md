@@ -28,7 +28,7 @@ El número predeterminado de dominios de actualización es 5. Puede especificar 
 
 Al realizar una actualización local de uno o varios roles en el servicio, Azure actualiza los conjuntos de instancias de rol según el dominio de actualización al que pertenecen. Azure actualiza todas las instancias de un dominio de actualización dado (deteniéndolas, actualizándolas, conectándolas de nuevo), y luego pasa al dominio siguiente. Al detener solo las instancias que se ejecutan en el dominio de actualización en ese moment, Azure se asegura de que una actualización se realiza con el menor impacto posible en el servicio que está en ejecución. Para obtener más información, consulte [Cómo se realiza una actualización](https://msdn.microsoft.com/library/azure/Hh472157.aspx#proceed) más adelante en este artículo.
 
-> [AZURE.NOTE] Aunque en el contexto de Azure hay pequeñas diferencias entre los distintos tipos de actualización, en este documento el término "actualización" se usa de forma general en las explicaciones de los procesos y las descripciones de las características.
+> [AZURE.NOTE]Aunque en el contexto de Azure hay pequeñas diferencias entre los distintos tipos de actualización, en este documento el término "actualización" se usa de forma general en las explicaciones de los procesos y las descripciones de las características.
 
 El servicio tiene que definir al menos dos instancias de un rol para que ese rol se actualice localmente sin tiempo de inactividad. Si consta de una única instancia de un rol, el servicio no estará disponible hasta que haya finalizado la actualización local.
 
@@ -59,7 +59,7 @@ La siguiente tabla muestra los cambios permitidos en un servicio durante una act
 |Implementación de nuevo código|Sí|Sí|Sí|
 \*Requiere Azure SDK 1.5 o versiones posteriores.
 
-> [AZURE.WARNING] Cambiar el tamaño de la máquina virtual destruirá los datos locales.
+> [AZURE.WARNING]Cambiar el tamaño de la máquina virtual destruirá los datos locales.
 
 
 Los elementos siguientes no se admiten durante una actualización:
@@ -81,7 +81,7 @@ El diagrama a continuación ilustra cómo tiene lugar la actualización si actua
 
 ![Actualización de rol](media/cloud-services-update-azure-service/IC345880.png "Actualización de rol")
 
-> [AZURE.NOTE] Al actualizar un servicio desde una instancia única a varias instancias, el servicio se desactiva mientras se realiza la actualización debido a la forma en la que Azure actualiza los servicios. La disponibilidad de servicio garantizada por el contrato de nivel de servicio solo se aplica a los servicios que se implementan con más de una instancia. En la lista siguiente se describe cómo afectará a los datos de cada unidad cada escenario de actualización de servicio de Azure:
+> [AZURE.NOTE]Al actualizar un servicio desde una instancia única a varias instancias, el servicio se desactiva mientras se realiza la actualización debido a la forma en la que Azure actualiza los servicios. La disponibilidad de servicio garantizada por el contrato de nivel de servicio solo se aplica a los servicios que se implementan con más de una instancia. En la lista siguiente se describe cómo afectará a los datos de cada unidad cada escenario de actualización de servicio de Azure:
 >
 >Reinicio de máquina virtual:
 >
@@ -119,10 +119,13 @@ El diagrama a continuación ilustra cómo tiene lugar la actualización si actua
 
 Durante una actualización automática, el controlador de tejido de Azure evalúa periódicamente el estado del servicio en la nube para determinar cuándo es seguro introducir el siguiente UD. Esta evaluación de estado se realiza por rol y tiene en cuenta únicamente las instancias de la versión más reciente (es decir, instancias de las UD que ya se han introducido). Comprueba que un número mínimo de instancias de rol, para cada rol, hayan alcanzado un estado terminal satisfactorio.
 
+### Tiempo de espera de inicio de la instancia de rol 
+Fabric Controller esperará 30 minutos a que cada instancia de rol llegue a un estado Iniciado. Si ha transcurrido la duración del tiempo de espera, Fabric Controller seguirá avanzando hasta la siguiente instancia de rol.
+
 ## Reversión de una actualización
 Azure proporciona flexibilidad en la administración de servicios durante una actualización, permitiéndole iniciar operaciones adicionales en un servicio, una vez que el controlador de tejido de Azure acepta la solicitud de actualización inicial. Solo puede realizar una reversión cuando una actualización se encuentra en el estado de implementación **en curso**. Se considera que una actualización está en curso, siempre que haya por lo menos una instancia del servicio que aún no se ha actualizado a la nueva versión. Para ver si se permite una reversión, compruebe que el valor de la marca RollbackAllowed, devuelto por las operaciones [Obtener implementación](https://msdn.microsoft.com/library/azure/ee460804.aspx) y [Obtener propiedades de servicio en la nube](https://msdn.microsoft.com/library/azure/ee460806.aspx), está establecido en true.
 
-> [AZURE.NOTE] Solo tiene sentido realizar una reversión en una actualización **local**, porque las actualizaciones de intercambio de VIP implican reemplazar una instancia en ejecución completa del servicio con otra.
+> [AZURE.NOTE]Solo tiene sentido realizar una reversión en una actualización **local**, porque las actualizaciones de intercambio de VIP implican reemplazar una instancia en ejecución completa del servicio con otra.
 
 La reversión de una actualización en curso tiene los efectos siguientes en la implementación:
 
@@ -172,11 +175,11 @@ El siguiente diagrama ilustra cómo se distribuyen los dos roles que contiene un
 
 ![Distribución de dominios de actualización](media/cloud-services-update-azure-service/IC345533.png "Distribución de dominios de actualización")
 
-> [AZURE.NOTE] Tenga en cuenta que Azure controla cómo se asignan las instancias en los dominios de actualización. No es posible especificar las instancias que se asignan a un dominio determinado.
+> [AZURE.NOTE]Tenga en cuenta que Azure controla cómo se asignan las instancias en los dominios de actualización. No es posible especificar las instancias que se asignan a un dominio determinado.
 
 ## Pasos siguientes
 [Administración de servicios en la nube](cloud-services-how-to-manage.md)<br>
 [Supervisión de servicios en la nube](cloud-services-how-to-monitor.md)<br>
 [Configuración de servicios en la nube](cloud-services-how-to-cofigure.md)<br>
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="11/12/2015"
    ms.author="cherylmc"/>
 
 # Creación y modificación del enrutamiento para un circuito ExpressRoute mediante el Administrador de recursos de Azure y PowerShell
@@ -133,7 +133,7 @@ Puede obtener detalles de configuración mediante el siguiente cmdlet
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt	
+		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt	
 
 
 ### Actualización del establecimiento de configuración del emparejamiento privado de Azure
@@ -389,10 +389,10 @@ Puede quitar el establecimiento de configuración entre pares ejecutando el sigu
 Paso siguiente, vincule una red virtual a un circuito ExpressRoute. Puede usar [esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) cuando se trabaja con el modo de implementación del Administrador de recursos de Azure. Actualmente estamos trabajando en los pasos de PowerShell.
 
 
--  Para obtener más información sobre los flujos de trabajo de ExpressRoute, consulte [Flujos de trabajo de ExpressRoute](expressroute-workflows.md).
+-  Para más información sobre los flujos de trabajo de ExpressRoute, vea [Flujos de trabajo de ExpressRoute](expressroute-workflows.md).
 
--  Para obtener más información sobre el emparejamiento de circuitos, consulte [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md)
+-  Para más información sobre el emparejamiento de circuitos, vea [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md).
 
--  Para más información sobre redes virtuales, consulte [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
+-  Para más información sobre redes virtuales, vea [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

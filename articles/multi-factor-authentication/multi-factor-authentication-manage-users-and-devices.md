@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Administración de la configuración de usuario con Azure Multi-Factor Authentication en la nube
@@ -80,4 +80,4 @@ Los administradores tienen la capacidad de restablecer Multi-Factor Authenticati
 <li>En la parte superior, haga clic en Usuarios.</li>
 <li>En la parte inferior de la página, haga clic en Admin. Multi-Factor Auth. Con esto se abrirá la página de Multi-Factor Authentication. <li>Busque al usuario que desea administrar y active la casilla situada junto a su nombre. Puede que necesite cambiar la vista en la parte superior.</li> <li>Se abrirá el vínculo **Administrar configuración de usuario** a la derecha. Haga clic en él.</li> <li>Coloque una marca de verificación en la opción Restaurar Multi-Factor Authentication en todos los dispositivos suspendidos.</li> ![Eliminar contraseñas de aplicación](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png)<li>Haga clic en Guardar.</li> <li>Haga clic en Cerrar.</li>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

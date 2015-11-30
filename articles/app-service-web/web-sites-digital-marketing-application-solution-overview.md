@@ -33,7 +33,7 @@ Cree rápidamente aplicaciones nuevas a partir de un CMS popular en la galería 
 
 Azure Marketplace proporciona plantillas provenientes de los sistemas de administración de contenido (CMS) de sitios web populares, como Orchard, Umbrado, Drupal y [WordPress]. Puede crear una aplicación web usando el tipo de CMS de su preferencia. Puede elegir entre varios backends de bases de datos para satisfacer sus necesidades, incluida [Base de datos SQL de Azure] y [MySQL].
 
-Los recursos web existentes pueden ejecutarse en Aplicaciones web, ya sean .NET, PHP, JAVA, Node.js o Python. Puede moverlos a Aplicaciones web con sus herramientas [FTP] conocidas. Si crea campañas de marketing digital con frecuencia, es posible que ya disponga de recursos web en un sistema de administración de control de código fuente. Puede implementar en Aplicaciones web directamente desde opciones de control de código fuente populares, como [Visual Studio], [Visual Studio Online] y [Git]\: local, GitHub, BitBucket, DropBox, Mercurial, etc.
+Los recursos web existentes pueden ejecutarse en Aplicaciones web, ya sean .NET, PHP, JAVA, Node.js o Python. Puede moverlos a Aplicaciones web con sus herramientas [FTP] conocidas. Si crea campañas de marketing digital con frecuencia, es posible que ya disponga de recursos web en un sistema de administración de control de código fuente. Puede implementar directamente en Aplicaciones web desde opciones de control de código fuente ya conocidas, como por ejemplo, [Visual Studio], [Visual Studio Team Services] y [Git]\: local, GitHub, BitBucket, DropBox, Mercurial, etc.
 
 ## Mantener la agilidad
 
@@ -101,7 +101,7 @@ En el nivel **Estándar**, supervise las notificaciones de correo electrónico r
 [Base de datos SQL de Azure]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
 [FTP]: web-sites-deploy.md#ftp
 [Visual Studio]: web-sites-dotnet-get-started.md
-[Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso.md
+[Visual Studio Team Services]: ../cloud-services-continuous-delivery-use-vso.md
 [Git]: web-sites-publish-source-control.md
 
 [implementación en una ranura de ensayo]: web-sites-staged-publishing.md
@@ -138,4 +138,4 @@ En el nivel **Estándar**, supervise las notificaciones de correo electrónico r
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Deshabilitación, habilitación o eliminación de un perfil
@@ -46,8 +46,12 @@ Puede deshabilitar un perfil de Administrador de tráfico existente de para que 
 
 [Administrador de tráfico: deshabilitación o habilitación de un extremo](disable-or-enable-an-endpoint.md)
 
-[¿Qué es el Administrador de tráfico?](traffic-manager-overview.md)
+[Configuración del método de enrutamiento de conmutación por error](traffic-manager-configure-failover-routing-method.md)
 
- 
+[Configuración del método de enrutamiento round robin](traffic-manager-configure-round-robin-routing-method.md)
 
-<!---HONumber=Oct15_HO3-->
+[Configuración del método de enrutamiento de rendimiento](traffic-manager-configure-performance-routing-method.md)
+
+[Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
+
+<!---HONumber=Nov15_HO4-->

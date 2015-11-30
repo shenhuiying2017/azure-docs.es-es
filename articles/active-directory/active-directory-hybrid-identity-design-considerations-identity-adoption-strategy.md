@@ -17,7 +17,7 @@
 	ms.author="billmath"/>
 
 
-# Definición de una estrategia de adopción de identidades híbridas
+# Definición de una estrategia de adopción de identidad híbrida
 
 En esta tarea, se definirá la estrategia de adopción de identidades híbridas para que una solución de identidad híbrida cumpla los requisitos empresariales que se trataron en:
 
@@ -187,6 +187,6 @@ La autenticación multifactor está disponible de forma predeterminada para los 
 [Determinación de los requisitos de protección de datos](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
 ## Consulte también
-[Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Información general sobre las consideraciones de diseño]((active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="09/16/2015"
+	ms.date="11/13/2015"
 	ms.author="jroth" />
 
 # Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure
@@ -29,21 +29,25 @@ En este tema se muestra cómo configurar un agente de escucha para un grupo de d
 
 El grupo de disponibilidad puede contener réplicas que son solo locales, solo de Azure o abarcan ambas, locales y de Azure, para configuraciones híbridas. Las réplicas de Azure pueden residir en la misma región o en varias regiones mediante varias redes virtuales (VNet). En los pasos siguientes se supone que ya tiene [configurado un grupo de disponibilidad](virtual-machines-sql-server-alwayson-availability-groups-gui.md) pero no un agente de escucha.
 
-Tenga en cuenta las siguientes limitaciones en el agente de escucha del grupo de disponibilidad en Azure cuando se implementa con la dirección VIP pública del servicio de nube:
+## Instrucciones y limitaciones de los agentes de escucha externos
+
+Tenga en cuenta las siguientes instrucciones acerca del agente de escucha del grupo de disponibilidad en Azure cuando se implementa con la dirección VIP pública del servicio en la nube:
 
 - El agente de escucha del grupo de disponibilidad es compatible con Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2.
 
 - La aplicación cliente debe residir en un servicio en la nube diferente al que contiene el grupo de disponibilidad de las máquinas virtuales. Azure no es compatible con Direct Server Return cuando el cliente y el servidor se encuentran en el mismo servicio en la nube.
 
-- Solo se admite un agente de escucha de grupo de disponibilidad para cada servicio en la nube porque el agente de escucha se configura para que use bien la dirección VIP del servicio en la nube o bien la dirección VIP del equilibrador de carga interno. Tenga en cuenta que esta limitación aún está en efecto aunque Azure ahora es compatible con la creación de varias direcciones VIP en un servicio en la nube determinado.
+- Los pasos descritos en este artículo le mostrarán de forma predeterminada cómo configurar un agente de escucha para usar la dirección IP Virtual (VIP) del servicio en la nube. De todos modos, es posible reservar y crear varias direcciones VIP para el servicio en la nube. Esto le permitirá usar los pasos de este artículo para crear varios agentes de escucha asociados a una VIP diferente. Para obtener información sobre cómo crear varias direcciones VIP, consulte [Varias direcciones VIP por cada servicio en la nube](load-balancer-multivip.md).
 
 - Si crea un agente de escucha para un entorno híbrido, la red local debe tener conectividad a Internet pública así como a la VPN de sitio a sitio con la red virtual de Azure. Cuando se encuentra en la subred de Azure, el agente de escucha del grupo de disponibilidad solo está disponible con la dirección IP pública del servicio en la nube respectivo.
+
+- No se puede crear un agente de escucha externo en el mismo servicio en la nube donde también haya creado un agente de escucha interno mediante el Equilibrador de carga interno (ILB).
 
 ## Determinación de la accesibilidad del agente de escucha
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Este artículo se centra en la creación de un agente de escucha que usa **equilibrio de carga externo**. Si quiere un agente de escucha que sea privado para su red virtual, vea la versión de este artículo que indica los pasos necesarios para configurar un [agente de escucha con ILB](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+Este artículo se centra en la creación de un agente de escucha que usa **equilibrio de carga externo**. Si quiere un agente de escucha que sea privado para su red virtual, consulte la versión de este artículo que indica los pasos necesarios para configurar un [agente de escucha con ILB](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
 
 ## Creación de extremos de máquina virtual de carga equilibrada con Direct Server Return
 
@@ -114,11 +118,11 @@ El equilibrio de carga externo usa la dirección IP virtual pública del servici
 
 ## Prueba del agente de escucha del grupo de disponibilidad (por Internet)
 
-Para obtener acceso al agente de escucha desde el exterior de la red virtual, debe usar equilibrio de carga público o externo (descrito en este tema) en lugar de ILB, que es accesible únicamente dentro de la misma red virtual. En la cadena de conexión, especifique el nombre del servicio en la nube. Por ejemplo, si tiene un servicio en la nube de nombre *mycloudservice*, la instrucción de sqlcmd sería como sigue:
+Para obtener acceso al agente de escucha desde el exterior de la red virtual, debe usar equilibrio de carga público o externo (descrito en este tema) en lugar de ILB, que es accesible únicamente dentro de la misma red virtual. En la cadena de conexión, especifique el nombre del servicio en la nube. Por ejemplo, si tiene un servicio en la nube denominado *mycloudservice*, la instrucción sqlcmd sería tal como sigue:
 
 	sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-A diferencia del ejemplo anterior, se debe usar autenticación de SQL, ya que el autor de la llamada no puede usar la autenticación de Windows por Internet. Para obtener más información, vea [Grupo de disponibilidad AlwaysOn en VM de Azure: escenarios de conectividad de cliente](http://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). Al usar la autenticación de SQL, asegúrese de que crea el mismo inicio de sesión en ambas réplicas. Para obtener más información sobre cómo solucionar problemas de inicio de sesión con grupos de disponibilidad, vea [Asignación de inicios de sesión o utilización de un usuario contenido de base de datos SQL para conectar con otras réplicas y asignarlas a las bases de datos de disponibilidad](http://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
+A diferencia del ejemplo anterior, se debe usar autenticación de SQL, ya que el autor de la llamada no puede usar la autenticación de Windows por Internet. Para obtener más información, consulte [Grupo de disponibilidad AlwaysOn en la máquina virtual de Azure: escenarios de conectividad de cliente](http://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). Al usar la autenticación de SQL, asegúrese de que crea el mismo inicio de sesión en ambas réplicas. Para obtener más información sobre cómo solucionar problemas de inicio de sesión con grupos de disponibilidad, consulte [Asignar inicios de sesión o usar un usuario de base de datos SQL contenido para conectar con otras réplicas y asignarlas a las bases de datos de disponibilidad](http://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 
 Si las réplicas AlwaysOn están en subredes diferentes, los clientes tendrán que especificar **MultisubnetFailover=True** en la cadena de conexión. Esto se traduce en intentos de conexión en paralelo con las réplicas de las diferentes subredes. Tenga en cuenta que este escenario incluye una implementación de grupo de disponibilidad AlwaysOn entre regiones.
 
@@ -126,4 +130,4 @@ Si las réplicas AlwaysOn están en subredes diferentes, los clientes tendrán q
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

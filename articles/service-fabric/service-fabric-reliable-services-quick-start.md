@@ -13,22 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="11/15/2015"
    ms.author="vturecek"/>
 
 # Introducción a Reliable Services de Service Fabric de Microsoft Azure
 
-Una aplicación de Service Fabric contiene uno o varios servicios que ejecutan el código. Este tutorial le guiará a través del proceso de creación de aplicaciones de Service Fabric "Hello World" sin estado y con estado mediante el modelo de programación [*Reliable Services*](service-fabric-reliable-services-introduction.md).
-
-Un servicio sin estado es el tipo de servicio que existe principalmente en aplicaciones en la nube hoy en día. El servicio se considera sin estado porque el propio servicio no contiene datos que se necesiten almacenar de forma fiable o ofrecer con alta disponibilidad: en otras palabras, si una instancia de un servicio sin estado se cierra, se perderá todo su estado interno. En estos tipos de servicios, el estado debe almacenarse en un almacén externo, como Tablas de Azure o en una base de datos SQL, para que resulten fiables y tengan una alta disponibilidad.
-
-Service Fabric presenta una nueva clase de servicio con estado: un servicio que puede mantener el estado de forma fiable en el propio servicio, colocados con el código que lo está usando. Service Fabric ofrece una alta disponibilidad de su estado sin necesidad de conservar el estado de un almacén externo.
-
-En este tutorial, implementará un servicio sin estado y con estado que mantenga un contador interno. En el servicio sin estado, el valor del contador se pierde cuando el servicio se reinicia o se mueve. Sin embargo, en el servicio con estado, el estado del contador se vuelve fiable gracias a Service Fabric de modo que si la ejecución del servicio se interrumpe por algún motivo en el medio del recuento, puede retomarse desde donde se quedó.
+Una aplicación de Service Fabric contiene uno o varios servicios que ejecutan el código. En esta guía se muestra cómo crear aplicaciones de Service Fabric con estado y sin estado mediante [Reliable Services](service-fabric-reliable-services-introduction.md).
 
 ## Creación de un servicio sin estado
 
-Comencemos con un servicio sin estado.
+Un servicio sin estado es el tipo de servicio que existe principalmente en aplicaciones en la nube hoy en día. El servicio se considera sin estado porque el propio servicio no contiene datos que se necesiten almacenar de forma fiable o ofrecer con alta disponibilidad: en otras palabras, si una instancia de un servicio sin estado se cierra, se perderá todo su estado interno. En estos tipos de servicios, el estado debe almacenarse en un almacén externo, como Tablas de Azure o en una base de datos SQL, para que resulten fiables y tengan una alta disponibilidad.
 
 Inicie Visual Studio 2015 RC como **Administrador** y cree un nuevo proyecto de **Aplicación de Service Fabric** denominado *HelloWorld*:
 
@@ -46,7 +40,7 @@ La solución contiene ahora dos proyectos:
 
 ## Implementación del servicio
 
-Abra el archivo **HelloWorld.cs** en el proyecto de servicio. En el Service Fabric, un servicio puede ejecutar cualquier tipo de lógica de negocios. La API de servicios proporciona dos puntos de entrada para el código:
+Abra el archivo **HelloWorldStateless.cs** en el proyecto de servicio. En el Service Fabric, un servicio puede ejecutar cualquier tipo de lógica de negocios. La API de servicios proporciona dos puntos de entrada para el código:
 
  - Llama a un método de punto de entrada abierto denominado *RunAsync* donde puede comenzar la ejecución de cualquier carga de trabajo que desee, como cargas de trabajo de proceso de larga duración.
 
@@ -60,7 +54,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
  - Punto de entrada de comunicación en el que puede conectar la pila de comunicación que desee, como la API web, donde puede empezar a recibir las solicitudes de los usuarios u otros servicios.
 
 ```C#
-protected override ICommunicationListener CreateCommunicationListener()
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
     ...
 }
@@ -74,15 +68,20 @@ En este tutorial, nos centraremos en el método de punto de entrada `RunAsync()`
 ### RunAsync
 
 ```C#
-protected override async Task RunAsync(CancellationToken cancellationToken)
+protected override async Task RunAsync(CancellationToken cancelServiceInstance)
 {
-    // TODO: Replace the following with your own logic.
+    // TODO: Replace the following sample code with your own logic.
 
     int iterations = 0;
-    while (!cancellationToken.IsCancellationRequested)
+    // This service instance continues processing until the instance is terminated.
+    while (!cancelServiceInstance.IsCancellationRequested)
     {
+
+        // Log what the service is doing
         ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", iterations++);
-        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+
+        // Pause for 1 second before continue processing.
+        await Task.Delay(TimeSpan.FromSeconds(1), cancelServiceInstance);
     }
 }
 ```
@@ -96,11 +95,13 @@ La plataforma llama a este método cuando hay una instancia del servicio colocad
 
 Esta orquestación es administrada por el sistema para mantener el servicio con una alta disponibilidad y correctamente equilibrado.
 
-`RunAsync()` se ejecuta en su propia **tarea**. Tenga en cuenta en el fragmento de código anterior presentamos un bucle **while** (no es necesario programar una tarea independiente para la carga de trabajo). La cancelación de la carga de trabajo es un esfuerzo cooperativo organizado por el token de cancelación proporcionado. El sistema esperará a que la tarea finalice (ya sea mediante una realización correcta, una cancelación o con errores) antes de moverla. Es **importante** respetar el token de cancelación, finalizar cualquier trabajo y cerrar `RunAsync()` lo antes posible cuando el sistema solicita la cancelación.
+`RunAsync()` se ejecuta en su propia **tarea**. Tenga en cuenta en el fragmento de código anterior presentamos un bucle **while**; no es necesario programar una tarea independiente para la carga de trabajo. La cancelación de la carga de trabajo es un esfuerzo cooperativo organizado por el token de cancelación proporcionado. El sistema esperará a que la tarea finalice (ya sea mediante una realización correcta, una cancelación o con errores) antes de moverla. Es **importante** respetar el token de cancelación, finalizar cualquier trabajo y cerrar `RunAsync()` lo antes posible cuando el sistema solicita la cancelación.
 
 En este ejemplo de servicio sin estado, el número se almacena en una variable local. Pero dado que se trata de un servicio sin estado, el valor que se va a almacenar solo existe para el ciclo de vida actual de la instancia de servicio en que se encuentra. Cuando se mueve o se reinicia el servicio, el valor se pierde.
 
 ## Creación de un servicio con estado
+
+Service Fabric presenta una nueva clase de servicio con estado: un servicio que puede mantener el estado de forma fiable en el propio servicio, colocados con el código que lo está usando. Service Fabric ofrece una alta disponibilidad de su estado sin necesidad de conservar el estado de un almacén externo.
 
 Para cambiar el valor sin estado del contador a una alta disponibilidad y persistencia, incluso cuando se mueve o reinicia el servicio, necesitamos un servicio con estado.
 
@@ -117,27 +118,40 @@ La aplicación ahora debería tener dos servicios: el servicio sin estado *Hello
 Abra **HelloWorldStateful.cs** en *HelloWorldStateful*, que contiene el método `RunAsync` siguiente:
 
 ```C#
-protected override async Task RunAsync(CancellationToken cancellationToken)
+protected override async Task RunAsync(CancellationToken cancelServicePartitionReplica)
 {
-    // TODO: Replace the following with your own logic.
+    // TODO: Replace the following sample code with your own logic.
+
+    // Gets (or creates) a replicated dictionary called "myDictionary" in this partition.
     var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 
-    while (!cancellationToken.IsCancellationRequested)
+    // This partition's replica continues processing until the replica is terminated.
+    while (!cancelServicePartitionReplica.IsCancellationRequested)
     {
+
+        // Create a transaction to perform operations on data within this partition's replica.
         using (var tx = this.StateManager.CreateTransaction())
         {
+
+            // Try to read a value from the dictionary whose key is "Counter-1".
             var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
-            ServiceEventSource.Current.ServiceMessage(
-                this,
-                "Current Counter Value: {0}",
+
+            // Log whether the value existed or not.
+            ServiceEventSource.Current.ServiceMessage(this, "Current Counter Value: {0}",
                 result.HasValue ? result.Value.ToString() : "Value does not exist.");
 
+            // If the "Counter-1" key doesn't exist, set its value to 0
+            // else add 1 to its current value.
             await myDictionary.AddOrUpdateAsync(tx, "Counter-1", 0, (k, v) => ++v);
 
+            // Committing the transaction serializes the changes and writes them to this partition's secondary replicas.
+            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
+            // discarded, and nothing is sent to this partition's secondary replicas.
             await tx.CommitAsync();
         }
 
-        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+        // Pause for 1 second before continue processing.
+        await Task.Delay(TimeSpan.FromSeconds(1), cancelServicePartitionReplica);
     }
 }
 ```
@@ -204,4 +218,4 @@ Una vez que los servicios se estén ejecutando, podrá ver los eventos ETW gener
 
 [Referencia para desarrolladores de servicios confiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="09/30/2015"
+   ms.date="11/15/2015"
    ms.author="sdash"/>
 
 # Application Insights para los Servicios en la nube de Azure
@@ -58,7 +58,7 @@ Como alternativa, puede enviar datos de todos los roles a un único recurso, per
 
     ![Haga clic con el botón secundario en el proyecto y seleccione Administrar paquetes de Nuget.](./media/app-insights-cloudservices/03-nuget.png)
 
-2. Agregue el paquete NuGet [Application Insights para Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Esta versión del SDK incluye módulos que agregan el contexto de servidor, como la información de roles.
+2. Agregue el paquete NuGet [Application Insights para Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Esta versión del SDK incluye módulos que agregan el contexto de servidor, como la información de roles. Para los roles de trabajo, use Application Insights para servicios de Windows.
 
     ![Busque "Application Insights"](./media/app-insights-cloudservices/04-ai-nuget.png)
 
@@ -69,9 +69,9 @@ Como alternativa, puede enviar datos de todos los roles a un único recurso, per
  
     ```XML
      
-    <Role name="WorkerRoleA"> 
+     <Role name="WorkerRoleA"> 
       <Setting name="Telemetry.AI.InstrumentationKey" value="YOUR IKEY" /> 
-    </Role>
+     </Role>
     ```
  
     En una función de inicio adecuado, establezca la clave de instrumentación a partir del valor de configuración:
@@ -90,6 +90,20 @@ Como alternativa, puede enviar datos de todos los roles a un único recurso, per
 4. Establezca el archivo ApplicationInsights.config para que se copie siempre en el directorio de salida. 
 
     (En el archivo .config, verá mensajes pidiéndole colocar allí la clave de instrumentación. Sin embargo, para las aplicaciones de nube es mejor establecerla desde el archivo .cscfg. De esta forma se garantiza que el rol se identifica correctamente en el portal).
+
+## Habilitar Diagnóstico de Azure
+
+Diagnóstico de Azure envía contadores de rendimiento, registros de eventos de Windows y registros de seguimiento de su aplicación a Application Insights.
+
+En el Explorador de soluciones, abra las propiedades de cada rol. Habilite **Enviar diagnósticos a Application Insights**.
+
+![En Propiedades, seleccione Habilitar diagnósticos, Enviar a Application Insights.](./media/app-insights-cloudservices/05-wad.png)
+
+Repita el procedimiento para las demás funciones.
+
+### Habilitar Diagnóstico de Azure en una Live App o en una máquina virtual de Azure
+
+También puede habilitar diagnósticos cuando la aplicación ya se está ejecutando en Azure abriendo sus propiedades en el Explorador de servidores o Cloud Explorer en Visual Studio.
 
 
 ## Uso del SDK para generar telemetría
@@ -208,4 +222,4 @@ Para obtener la vista completa de 360 grados de la aplicación, hay algunas cosa
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

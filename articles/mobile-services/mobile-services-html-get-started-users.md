@@ -35,7 +35,7 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Primero d
 
 3. En el directorio de aplicaciones, inicie uno de los archivos de comandos siguientes desde la subcarpeta **server**.
 
-	+ **launch-windows** (equipos con Windows) 
+	+ **.\\start-iisexpress.ps1** (equipos Windows) 
 	+ **launch-mac.command** (equipos con Mac OS X)
 	+ **launch-linux.sh** (equipos con Linux)
 
@@ -68,7 +68,7 @@ A continuación, actualizará la aplicación para permitir la autenticación ant
 
 	Esto le permite iniciar sesión en los Servicios móviles desde la página.
 
-2. En el archivo app.js, localice la línea de código situada al final del archivo que llama a la función refreshTodoItems y reemplácela por el código siguiente:
+2. En el archivo page.js, localice la línea de código situada al final del archivo que llama a la función refreshTodoItems y reemplácela por el código siguiente:
 	
 		function refreshAuthDisplay() {
 			var isLoggedIn = client.currentUser !== null;
@@ -137,4 +137,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 [Servicios móviles con HTML/JavaScript en Referencia conceptual de Servicios móviles HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

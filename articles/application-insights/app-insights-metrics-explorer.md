@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="11/15/2015" 
 	ms.author="awills"/>
  
 # Exploración de métricas en Application Insights
@@ -196,7 +196,7 @@ Si desea que los datos se exporten continuamente para procesarlos externamente, 
 
 ### Power BI
 
-Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportarlos a Power BI](app-insights-export-power-bi.md).
+Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportarlos a Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## Pasos siguientes
 
@@ -212,4 +212,4 @@ Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportar
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

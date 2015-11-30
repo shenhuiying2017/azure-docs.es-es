@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Más información sobre la administración de contraseñas
@@ -25,6 +25,7 @@ Si ya ha implementado la administración de contraseñas, o simplemente desea ob
   - [Modelo de seguridad de la escritura diferida de contraseñas](#password-writeback-security-model)
 * [**¿Cómo funciona el portal de restablecimiento de contraseñas?**](#how-does-the-password-reset-portal-work)
   - [¿Qué datos sirven para restablecer la contraseña?](#what-data-is-used-by-password-reset)
+  - [Cómo obtener acceso a los datos de restablecimiento de la contraseña de los usuarios](#how-to-access-password-reset-data-for-your-users)
 
 ## Información general sobre la escritura diferida de contraseñas
 La escritura diferida de contraseñas es un componente de [Azure Active Directory Connect](active-directory-aadconnect) que los suscriptores actuales de Azure Active Directory Premium pueden habilitar y utilizar. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
@@ -261,24 +262,121 @@ En la tabla siguiente se describe dónde y cómo se usan estos datos durante el 
           </tr>
         </tbody></table>
 
-<br/> <br/> <br/>
+###Cómo obtener acceso a los datos de restablecimiento de la contraseña de los usuarios
+####Datos configurables mediante la sincronización
+Desde el entorno local, se pueden sincronizar los campos siguientes:
 
-**Recursos adicionales**
+* Teléfono móvil
+* Teléfono del trabajo
 
+####Datos configurables con Azure AD PowerShell
+Es posible acceder a los siguientes campos mediante Azure AD PowerShell y la API Graph:
 
-* [Qué es la administración de contraseñas](active-directory-passwords.md)
-* [Funcionamiento de la administración de contraseñas](active-directory-passwords-how-it-works.md)
-* [Introducción a la administración de contraseñas](active-directory-passwords-getting-started.md)
-* [Personalización de la administración de contraseñas](active-directory-passwords-customize.md)
-* [Prácticas recomendadas de administración de contraseñas](active-directory-passwords-best-practices.md)
-* [Visión operativa con los informes de administración de contraseñas](active-directory-passwords-get-insights.md)
-* [Preguntas más frecuentes sobre la administración de contraseñas](active-directory-passwords-faq.md)
-* [Solución de problemas de Administración de contraseñas](active-directory-passwords-troubleshoot.md)
-* [Administración de contraseñas en MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* Correo electrónico alternativo
+* Teléfono móvil
+* Teléfono del trabajo
+* Teléfono de autenticación
+* Correo electrónico de autenticación
+
+####Datos configurables solamente con la IU de registro
+Solo se puede acceder a los campos siguientes a través del interfaz de usuario de registro SSPR (https://aka.ms/ssprsetup):
+
+* Preguntas y respuestas de seguridad
+
+####¿Qué ocurre cuando se registra un usuario?
+Cuando se registre un usuario, la página de registro **siempre** establecerá los campos siguientes:
+
+* Teléfono de autenticación
+* Correo electrónico de autenticación
+* Preguntas y respuestas de seguridad
+
+Si ha proporcionado un valor para **Teléfono móvil** o **Correo electrónico alternativo**, los usuarios podrán usarlos inmediatamente los restablecer sus contraseñas, incluso si no se han registrado para el servicio. Además, los usuarios verán esos valores cuando se registren por primera vez, y podrán modificarlos si lo desean. Sin embargo, después de que se registren correctamente, estos valores se conservarán en los campos **Teléfono de autenticación** y **Correo electrónico de autenticación**, respectivamente.
+
+Esto puede ser una forma útil de desbloquear grandes cantidades de usuarios para usar SSPR mientras se sigue permitiendo que los usuarios validen esta información a través del proceso de registro.
+
+####Establecimiento de datos de restablecimiento de contraseñas con PowerShell
+Puede establecer valores para los siguientes campos con Azure AD PowerShell.
+
+* Correo electrónico alternativo
+* Teléfono móvil
+* Teléfono del trabajo
+
+Para empezar, primero deberá [descargar e instalar el módulo de Azure AD PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Una vez instalado, puede seguir los pasos siguientes para configurar cada campo.
+
+#####Correo electrónico alternativo
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
+```
+
+#####Teléfono móvil
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -MobilePhone "+1 1234567890"
+```
+
+#####Teléfono del trabajo
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
+```
+
+####Lectura de datos de restablecimiento de contraseñas con PowerShell
+Puede leer valores de los siguientes campos con Azure AD PowerShell.
+
+* Correo electrónico alternativo
+* Teléfono móvil
+* Teléfono del trabajo
+* Teléfono de autenticación
+* Correo electrónico de autenticación
+
+Para empezar, primero deberá [descargar e instalar el módulo de Azure AD PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Una vez instalado, puede seguir los pasos siguientes para configurar cada campo.
+
+#####Correo electrónico alternativo
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select AlternateEmailAddresses
+```
+
+#####Teléfono móvil
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select MobilePhone
+```
+
+#####Teléfono del trabajo
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select PhoneNumber
+```
+
+#####Teléfono de autenticación
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select PhoneNumber
+```
+
+#####Correo electrónico de autenticación
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
+```
+
+## Vínculos a la documentación de restablecimiento de la contraseña
+A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
+
+* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema
+* [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis diferentes componentes del servicio y lo que hace cada uno.
+* [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
+* [**Personalizar**](active-directory-passwords-customize.md) : obtenga información sobre cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización.
+* [**Prácticas recomendadas**](active-directory-passwords-best-practices.md): obtenga información sobre cómo implementar rápidamente y administrar eficazmente las contraseñas de la organización.
+* [**Obtener perspectivas**](active-directory-passwords-get-insights.md): obtenga información sobre nuestras capacidades integradas de creación de informes.
+* [**Preguntas más frecuentes**](active-directory-passwords-faq.md): obtenga respuestas a las preguntas más frecuentes.
+* [**Solución de problemas**](active-directory-passwords-troubleshoot.md): obtenga información sobre cómo solucionar rápidamente los problemas del servicio.
 
 
 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

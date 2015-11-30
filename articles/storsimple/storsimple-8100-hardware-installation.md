@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/13/2015"
+   ms.date="11/16/2015"
    ms.author="alkohli" />
 
 # Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8100.
@@ -225,7 +225,7 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
      2,3 | Interfaces de red de 10 GbE
      6 | Puertos serie
 
-2. Consulte el siguiente diagrama de cableado de red. (La configuración de red mínima se muestra mediante líneas azules continuas. La configuración adicional requerida para alta disponibilidad y rendimiento se muestra mediante líneas de puntos. 
+2. Consulte el siguiente diagrama de cableado de red. (La configuración de red mínima se muestra mediante líneas azules continuas. La configuración adicional requerida para alta disponibilidad y rendimiento se muestra mediante líneas de puntos.
 
 		
     ![Colocación del cable de red del dispositivo 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
@@ -248,11 +248,11 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
 Cuando se realiza el cableado del dispositivo, la configuración mínima requiere:
 
 
-- Al menos dos interfaces de red conectadas en cada controlador con una para el acceso a la nube y otra para iSCSI. El puerto DATA 0 se habilita y configura automáticamente mediante la consola serie del dispositivo. Además del puerto DATA 0, también es necesario configurar otro puerto de datos a través del Portal de administración. En este caso, conecte el puerto DATA 0 a la LAN principal (red con acceso a Internet). Los demás puertos de datos pueden conectarse al segmento de la LAN SAN/iSCSI (VLAN) de la red, dependiendo del rol deseado.
+- Al menos dos interfaces de red conectadas en cada controlador con una para el acceso a la nube y otra para iSCSI. El puerto DATA 0 se habilita y configura automáticamente mediante la consola serie del dispositivo. Además del puerto DATA 0, también es necesario configurar otro puerto de datos a través del Portal de Azure. En este caso, conecte el puerto DATA 0 a la LAN principal (red con acceso a Internet). Los demás puertos de datos pueden conectarse al segmento de la LAN SAN/iSCSI (VLAN) de la red, dependiendo del rol deseado.
 
-- Interfaces idénticas en cada controlador conectadas a la misma red para garantizar la disponibilidad si se produce un error en un controlador. Por ejemplo, si decide conectar los puertos DATA 0 y DATA 3 para uno de los controladores, necesitará conectar los puertos DATA 0 y DATA 3 correspondientes en el otro controlador.
+- Interfaces idénticas en cada controlador conectadas a la misma red para garantizar la disponibilidad si se produce conmutación por error en un controlador. Por ejemplo, si decide conectar los puertos DATA 0 y DATA 3 para uno de los controladores, necesitará conectar los puertos DATA 0 y DATA 3 correspondientes en el otro controlador.
 	
-Tenga en cuenta para alta disponibilidad y rendimiento:
+Tenga en cuenta lo siguiente para alta disponibilidad y rendimiento:
 
 
 - Cuando sea posible, configure un par de interfaz de red para el acceso a la nube (1 GbE) y otro par para iSCSI (se recomiendan 10 GbE) en cada controlador. 
@@ -291,4 +291,4 @@ Ahora su dispositivo dispondrá de los cables de alimentación, de acceso a la r
 
 Obtenga información sobre cómo [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
-<!-----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

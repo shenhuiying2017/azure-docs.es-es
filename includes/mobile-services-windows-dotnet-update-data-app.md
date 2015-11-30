@@ -1,9 +1,5 @@
 
-1. En el archivo MainPage.xaml.cs, agregue o quite la marca de comentario en las siguientes instrucciones using: 
-
-		using Microsoft.WindowsAzure.MobileServices;
-
-2. Reemplace la definición de clase TodoItem por el código siguiente:
+2. Reemplace la definición de clase TodoItem por el código siguiente: 
 
 	    public class TodoItem
 	    {
@@ -20,13 +16,19 @@
 
 	>[AZURE.NOTE]En un proyecto de aplicación universal de Windows, la clase TodoItem se define en un archivo de código independiente en la carpeta compartida DataModel.
 
-3. En MainPage.xaml.cs, elimine o convierta en comentario la línea que define la colección de elementos existente y luego quite la marca de comentario o agregue las siguientes líneas y reemplace _&lt;suCliente&gt;_ por el campo `MobileServiceClient` que se agregó al archivo App.xaml.cs cuando conectó su proyecto al servicio móvil:
+1. En el archivo MainPage.cs, agregue o quite la marca de comentario en las siguientes instrucciones using:
+
+		using Microsoft.WindowsAzure.MobileServices;
+
+
+4. Elimine o convierta en comentario la línea que define la colección de elementos existente y luego quite la marca de comentario o agregue las siguientes líneas y reemplace _&lt;suCliente&gt;_ por el campo `MobileServiceClient` que se agregó al archivo App.xaml.cs cuando conectó su proyecto al servicio móvil:
 
 		private MobileServiceCollection<TodoItem, TodoItem> items;
 		private IMobileServiceTable<TodoItem> todoTable = 
 		    App.<yourClient>.GetTable<TodoItem>();
 		  
 	Este código crea una colección de enlaces (elementos) compatible con los servicios móviles y una clase proxy para la tabla de base de datos (todoTable).
+
 
 4. En el método **InsertTodoItem**, quite la línea de código que define la propiedad **TodoItem.Id**, agregue el modificador **async** al método y quite la marca de comentario de la siguiente línea de código:
 
@@ -70,4 +72,4 @@
 
 Ahora que se ha actualizado la aplicación para utilizar Servicios móviles para almacenamiento back-end, es momento de probar la aplicación con Servicios móviles.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

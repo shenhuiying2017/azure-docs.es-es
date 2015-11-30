@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Introducción a la administración de contraseñas
@@ -186,7 +186,7 @@ Antes de poder habilitar y utilizar la escritura diferida, debe asegurarse de co
   
 - Tiene instalada la herramienta Azure AD Connect y preparó el entorno de AD para que se sincronice con la nube. Para obtener más instrucciones, consulte [Uso de la infraestructura de identidad local en la nube](active-directory-aadconnect.md).
 
-  >[AZURE.NOTE]Antes de probar la escritura diferida de contraseñas, asegúrese de finalizar primero una importación y sincronización completas de AD y Azure AD en
+  >[AZURE.NOTE]Antes de probar la escritura diferida de contraseñas, asegúrese de finalizar primero una importación y sincronización completas de AD y Azure AD en Azure AD Connect.
 
 - Si utiliza Sincronización de Azure AD o Azure AD Connect, se deberá abrir el puerto **TCP 443** de salida (y, en algunos casos, el puerto **TCP 9350-9354**). Vea el [Paso 3: configurar el firewall](#step-3-configure-your-firewall) para obtener más información. Ya no se admite el uso de DirSync para este escenario. Si todavía usa DirSync, actualice a la versión más reciente de Azure AD Connect antes de implementar la escritura diferida de contraseñas.
 
@@ -280,9 +280,7 @@ Si no está seguro de cuál es la cuenta a la que se hace referencia en el párr
 8.	En la lista desplegable que aparece en la parte superior, seleccione **Objetos de usuario descendientes**.
 9.	En el cuadro de diálogo **Entrada de permiso** que aparece, active la casilla correspondiente a **Restablecer contraseña**, **Cambiar contraseña**, **Escribir permisos** en `lockoutTime` y **Escribir permisos** en `pwdLastSet`.
 
-    ![][026]
-    ![][027]
-    ![][028]
+    ![][026] ![][027] ![][028]
 
 10.	Luego haga clic en **Aplicar o Aceptar** en todos los cuadros de diálogo abiertos.
 
@@ -306,18 +304,17 @@ Ahora que la escritura diferida de contraseñas está habilitada, para saber si 
 
 <br/> <br/> <br/>
 
-**Recursos adicionales**
+## Vínculos a la documentación de restablecimiento de la contraseña
+A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-
-* [Qué es la administración de contraseñas](active-directory-passwords.md)
-* [Funcionamiento de la administración de contraseñas](active-directory-passwords-how-it-works.md)
-* [Personalización de la administración de contraseñas](active-directory-passwords-customize.md)
-* [Prácticas recomendadas de administración de contraseñas](active-directory-passwords-best-practices.md)
-* [Visión operativa con los informes de administración de contraseñas](active-directory-passwords-get-insights.md)
-* [Preguntas más frecuentes sobre la administración de contraseñas](active-directory-passwords-faq.md)
-* [Solución de problemas de administración de contraseñas](active-directory-passwords-troubleshoot.md)
-* [Más información](active-directory-passwords-learn-more.md)
-* [Administración de contraseñas en MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema
+* [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis diferentes componentes del servicio y lo que hace cada uno.
+* [**Personalizar**](active-directory-passwords-customize.md) : obtenga información sobre cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización.
+* [**Prácticas recomendadas**](active-directory-passwords-best-practices.md): obtenga información sobre cómo implementar rápidamente y administrar eficazmente las contraseñas de la organización.
+* [**Obtener perspectivas**](active-directory-passwords-get-insights.md): obtenga información sobre nuestras capacidades integradas de creación de informes.
+* [**Preguntas más frecuentes**](active-directory-passwords-faq.md): obtenga respuestas a las preguntas más frecuentes.
+* [**Solución de problemas**](active-directory-passwords-troubleshoot.md): obtenga información sobre cómo solucionar rápidamente los problemas del servicio.
+* [**Más información**](active-directory-passwords-learn-more.md): profundice en los detalles técnicos del funcionamiento del servicio.
 
 
 
@@ -354,4 +351,4 @@ Ahora que la escritura diferida de contraseñas está habilitada, para saber si 
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

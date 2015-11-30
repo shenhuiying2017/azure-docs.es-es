@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # ¿Qué es el Administrador de tráfico?
@@ -164,12 +164,12 @@ Si desea incluir las ilustraciones de este tema como diapositivas de PowerPoint 
 
 ## Pasos siguientes
 
-[Servicios en la nube](http://go.microsoft.com/fwlink/p/?LinkId=314074)
+[Métodos de enrutamiento del Administrador de tráfico](traffic-manager-routing-methods.md)
 
-[Sitios web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[Supervisión del Administrador de tráfico](traffic-manager-monitoring.md)
 
-[Operaciones del Administrador de tráfico (referencia de la API de REST)](http://go.microsoft.com/fwlink/p/?LinkId=313584)
+[Creación de un perfil](traffic-manager-manage-profiles.md)
 
 [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

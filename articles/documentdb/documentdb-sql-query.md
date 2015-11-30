@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Consultas SQL en una base de datos de DocumentDB: consulta SQL | Microsoft Azure" 
-	description="Obtenga información sobre cómo DocumentDB admite consultas SQL en documentos JSON jerárquicos para indexación automática. Descubra un entorno de base de datos de consulta SQL que carece realmente de esquema." 
-	keywords="Consultar base de datos, consultas sql, consulta sql, lenguaje de consulta estructurado, documentdb, azure, Microsoft azure"
+	pageTitle="Consulta de SQL en un DocumentDB, una base de datos NoSQL | Microsoft Azure" 
+	description="Aprenda a utilizar las instrucciones de consulta de SQL para consultar DocumentDB, una base de datos NoSQL. Como lenguaje de consulta de JSON, se pueden utilizar consultas de SQL para el análisis de macrodatos." 
+	keywords="sql query, sql queries, sql syntax, json query language, database concepts and sql queries"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.date="11/18/2015" 
 	ms.author="arramac"/>
 
-# Consulta SQL dentro de DocumentDB
-Microsoft Azure DocumentDB admite la consulta de documentos con SQL (lenguaje de consulta estructurado) en documentos JSON jerárquicos. Base de documentos realmente no tiene esquemas. En virtud de su compromiso con el modelo de datos JSON que se encuentra directamente en el motor de base de datos, proporciona índices automáticos de documentos JSON sin necesidad de un esquema explícito o de la creación de índices secundarios.
+# Consulta de SQL en DocumentDB
+Microsoft Azure DocumentDB admite la consulta de documentos con SQL (lenguaje de consulta estructurado) como lenguaje de consulta de JSON. Base de documentos realmente no tiene esquemas. En virtud de su compromiso con el modelo de datos JSON que se encuentra directamente en el motor de base de datos, proporciona índices automáticos de documentos JSON sin necesidad de un esquema explícito o de la creación de índices secundarios.
 
 Durante el diseño del lenguaje de consulta de DocumentDB, teníamos dos objetivos en mente:
 
--	**Adoptar SQL**: en lugar de inventar un nuevo lenguaje de consulta, queríamos adoptar el lenguaje SQL. Después de todo, SQL es uno de los lenguajes de consulta más familiares y populares. SQL de DocumentDB proporciona un modelo de programación formal para consultas enriquecidas en documentos JSON.
--	**Ampliar SQL**: igual que una base de datos de documentos JSON capaz de ejecutar JavaScript directamente en el motor de base de datos, queríamos usar el modelo de programación de JavaScript como base para nuestro lenguaje de consulta. SQL de DocumentDB se basa en el sistema de tipos de JavaScript, la evaluación de expresiones y la invocación de funciones. A su vez, este proporciona un modelo de programación natural para proyecciones relacionales, navegación jerárquica por documentos JSON, autocombinaciones e invocación de funciones definidas por el usuario (UDF) escritas íntegramente en JavaScript, entre otras características. 
+-	En lugar de inventar un nuevo lenguaje de consulta, preferimos ofrecer compatibilidad con el lenguaje SQL. SQL es uno de los lenguajes de consulta más familiares y populares. SQL de DocumentDB proporciona un modelo de programación formal para consultas enriquecidas en documentos JSON.
+-	Igual que una base de datos de documentos JSON capaz de ejecutar JavaScript directamente en el motor de base de datos, queríamos usar el modelo de programación de JavaScript como base para nuestro lenguaje de consulta. SQL de DocumentDB se basa en el sistema de tipos de JavaScript, la evaluación de expresiones y la invocación de funciones. A su vez, este proporciona un modelo de programación natural para proyecciones relacionales, navegación jerárquica por documentos JSON, autocombinaciones, consultas espaciales e invocación de funciones definidas por el usuario (UDF) escritas íntegramente en JavaScript, entre otras características. 
 
 Creemos que estas capacidades son clave para reducir la fricción entre la aplicación y la base de datos, y que son cruciales para la productividad de los desarrolladores.
 
@@ -31,9 +31,9 @@ Se recomienda comenzar por ver el vídeo siguiente, donde Aravind Ramachandran m
 
 > [AZURE.VIDEO dataexposedqueryingdocumentdb]
 
-Luego vuelva a este artículo, donde empezaremos por guiarle a través de algunos documentos JSON y comandos SQL sencillos.
+Luego, vuelva a este artículo, donde comenzaremos con un tutorial de consulta SQL que le guiará a través de algunos documentos sencillos de JSON y comandos SQL.
 
-## Introducción a los comandos SQL (lenguaje de consulta estructurado) en DocumentDB
+## Introducción a los comandos SQL en DocumentDB
 Para consultar SQL de DocumentDB trabajando, empezaremos con unos documentos JSON sencillos y realizaremos algunas consultas fáciles con él. Tenga en cuenta estos dos documentos JSON sobre dos familias. No olvide que, con Base de datos de documentos, no es preciso que creemos ningún esquema ni índice secundario de forma explícita. Simplemente tenemos que insertar los documentos JSON en una colección DocumentDB y posteriormente realizar una consulta. Aquí tenemos un documento JSON sencillo para la familia Andersen, los padres, los hijos (y sus mascotas), la dirección y la información de registro. El documento tiene cadenas, números, booleanos, matrices y propiedades anidadas.
 
 **Documento**
@@ -57,7 +57,7 @@ Para consultar SQL de DocumentDB trabajando, empezaremos con unos documentos JSO
 	}
 
 
-Aquí se muestra un segundo documento con una sutil diferencia: se usan `givenName` y `familyName` en lugar de `firstName` y `lastName`.
+Aquí se muestra un segundo documento con una sutil diferencia: se usa `givenName` y `familyName` en lugar de `firstName` y `lastName`.
 
 **Documento**
 
@@ -164,7 +164,7 @@ Nos gustaría llamar la atención sobre algunos aspectos destacados del lenguaje
 
 ## Indexación de DocumentDB
 
-Antes de entrar en la gramática de SQL de DocumentDB, vale la pena explorar el diseño de indexación de DocumentDB.
+Antes de entrar en la sintaxis de SQL de DocumentDB, vale la pena explorar el diseño de indexación de DocumentDB.
 
 El objetivo de los índices de base de datos es atender consultas en sus diversas formas con un consumo de los recursos mínimo (como CPU y entrada y salida) mientras se proporcionan un buen rendimiento y una latencia baja. A menudo, la elección del índice adecuado para consultar una base de datos requiere mucha planificación y experimentación. Este enfoque plantea un desafío para las bases de datos sin esquemas en las que los datos no cumplen un esquema estricto y evolucionan rápidamente.
 
@@ -180,7 +180,7 @@ Por lo tanto, al diseñar el subsistema de indización de DocumentDB, establecem
 
 -	Eficacia de almacenamiento: para obtener rentabilidad, se enlaza la sobrecarga de almacenamiento en el disco del índice y es predecible. Esto es fundamental porque DocumentDB permite que el desarrollador haga concesiones basadas en el coste entre la sobrecarga de índices y el rendimiento de las consultas.
 
-Consulte los [ejemplos de DocumentDB](https://github.com/Azure/azure-documentdb-net) en MSDN para ver ejemplos en los que se muestra cómo configurar la directiva de indexación para una colección. Adentrémonos ahora en los detalles de la gramática de SQL de DocumentDB.
+Consulte los [ejemplos de DocumentDB](https://github.com/Azure/azure-documentdb-net) en MSDN para ver casos en los que se muestra cómo configurar la directiva de indexación para una colección. Adentrémonos ahora en los detalles de la sintaxis de SQL de DocumentDB.
 
 
 ## Conceptos básicos de una consulta SQL de DocumentDB
@@ -188,7 +188,8 @@ Todas las consultas constan de una cláusula SELECT y cláusulas FROM y WHERE op
     
     SELECT <select_list> 
     [FROM <from_specification>] 
-    [WHERE <filter_condition>]    
+    [WHERE <filter_condition>]
+    [ORDER BY <sort_specification]    
 
 
 ## Cláusula FROM
@@ -198,7 +199,7 @@ Una consulta como `SELECT * FROM Families` indica que toda la colección Familie
 
 - Puede establecerse para la colección un alias como `SELECT f.id FROM Families AS f`, o simplemente `SELECT f.id FROM Families f`. Aquí, `f` es el equivalente de `Families`. `AS` es una palabra clave opcional para establecer un alias para el identificador.
 
--	Tenga en cuenta que, una vez establecido un alias, no podrá enlazarse el origen original. Por ejemplo, `SELECT Families.id FROM Families f` no es válido sintácticamente porque el identificador "Families" no puede resolverse.
+-	Tenga en cuenta que, una vez establecido un alias, no podrá enlazarse el origen original. Por ejemplo, `SELECT Families.id FROM Families f` no es válido sintácticamente porque el identificador "Families" ya no puede resolverse.
 
 -	Todas las propiedades a las que es necesario hacer referencia deben estar completas. A falta de un cumplimiento del esquema estricto, esto se impone para evitar cualquier enlace ambiguo. Por lo tanto, `SELECT id FROM Families f` no es válido sintácticamente porque la propiedad `id` no está enlazada.
 	
@@ -322,7 +323,7 @@ Para otros operadores de comparación como >, >=, !=, < y <=, se aplican las sig
 Si el resultado de la expresión escalar del filtro es Undefined, el documento correspondiente no se incluiría en el resultado, pues Undefined no es igual lógicamente a "true".
 
 ### Palabra clave BETWEEN
-También puede usar la palabra clave BETWEEN para expresar consultas en intervalos de valores como en ANSI SQL. BETWEEN puede usarse en cualquier tipo primitivo JSON (números, cadenas, booleanos y null).
+También puede usar la palabra clave BETWEEN para expresar consultas en intervalos de valores como en ANSI SQL. BETWEEN puede utilizarse con cadenas o números.
 
 Por ejemplo, esta consulta devuelve todos los documentos de la familia en los que el curso del primer hijo se encuentra entre 1 y 5 (ambos inclusive).
 
@@ -375,7 +376,7 @@ Este ejemplo devuelve todos los documentos en los que el estado es cualquiera de
 
 IN equivale a encadenar varias cláusulas OR; sin embargo, puesto que puede obtenerse mediante un índice único, DocumentDB admite un [límite](documentdb-limits.md) superior para el número de argumentos especificados dentro de una cláusula IN.
 
-### Operadores ternario (?) y de combinación (??)
+### Operadores ternario (?) y de fusión (??)
 El operador ternario y el operador de combinación pueden usarse para crear expresiones condicionales, de forma similar a lenguajes de programación populares como C# y JavaScript.
 
 El operador ternario (?) puede ser muy útil al construir nuevas propiedades JSON sobre la marcha. Así, ahora puede escribir consultas para clasificar los niveles de clase en formato de lenguaje natural, por ejemplo Principiante/Intermedio/Avanzado, como se muestra a continuación.
@@ -390,7 +391,7 @@ También puede anidar las llamadas al operador como en la consulta siguiente.
 
 Como ocurre con otros operadores de consulta, si las propiedades a las que se hace referencia en la expresión condicional faltan en cualquier documento, o si los tipos que se comparan son diferentes, esos documentos se excluirán de los resultados de la consulta.
 
-El operador de combinación (??) se puede usar para comprobar eficazmente la presencia de una propiedad (es decir, si se ha definido) en un documento. Esto es útil cuando se consultan datos semiestructurados o de tipos combinados. Por ejemplo, esta consulta devuelve el valor "lastName" si está presente o "surname" si no lo está.
+El operador de fusión (??) se puede usar para comprobar eficazmente la presencia de una propiedad (es decir, si esta se ha definido) en un documento. Esto es útil cuando se consultan datos semiestructurados o de tipos combinados. Por ejemplo, esta consulta devuelve el valor "lastName" si está presente o "surname" si no lo está.
 
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
@@ -705,7 +706,7 @@ Y la siguiente es una consulta que recupera las familias ordenadas por fecha de 
 	  }
 	]
 	
-## Conceptos avanzados de base de datos de consulta SQL
+## Conceptos avanzados de base de datos y consultas SQL
 ### Iteración
 Se ha agregado una nueva construcción mediante la palabra clave **IN** en SQL de DocumentDB que proporcionar compatibilidad con la iteración en las matrices JSON. El origen FROM proporciona compatibilidad con la iteración. Empecemos con el ejemplo siguiente:
 
@@ -741,7 +742,7 @@ Se ha agregado una nueva construcción mediante la palabra clave **IN** en SQL d
 	  ]
 	]
 
-Analicemos ahora otra consulta que realice una iteración sobre elementos secundarios de la recopilación. Observe la diferencia en la matriz de salida. En este ejemplo se divide `children`, se quita el formato de los resultados y los convierte en una sola matriz.
+Analicemos ahora otra consulta que realice una iteración sobre elementos secundarios de la recopilación. Observe la diferencia en la matriz de salida. En este ejemplo se divide `children` y se reducen los resultados a una sola matriz.
 
 **Consultar**
 
@@ -851,7 +852,7 @@ En el ejemplo siguiente se muestra una combinación más convencional:
 Lo primero que hay que tener en cuenta es que `from_source` de la cláusula **JOIN** es un iterador. Por lo tanto, el flujo en este caso es como sigue:
 
 -	Amplía cada elemento secundario **c** en la matriz.
--	Aplique un producto cruzado con la raíz del documento **f** con cada elemento secundario **c** del que se quitó el formato en el primer paso.
+-	Aplique un producto cruzado con la raíz del documento **f** con cada elemento secundario **c** que se redujo en el primer paso.
 -	Por último, proyecte solo la propiedad de nombre **f** del objeto raíz. 
 
 El primer documento (`AndersenFamily`) contiene únicamente un elemento secundario, por lo que el conjunto de resultados contiene solo un objeto correspondiente a este documento. El segundo documento (`WakefieldFamily`) contiene dos elementos secundarios. De este modo, el producto cruzado produce un objeto independiente para cada elemento secundario, lo que da lugar a dos objetos, uno para cada elemento secundario correspondiente a este documento. Tenga en cuenta que los campos raíces de estos dos documentos serán los mismos, justo como esperaría en un producto cruzado.
@@ -943,7 +944,7 @@ Base de datos de documentos proporciona un modelo de programación para ejecutar
 ###Funciones definidas por el usuario (UDF)
 Junto con los tipos ya definidos en este artículo, el lenguaje SQL de DocumentDB ofrece compatibilidad para las funciones definidas por el usuario (UDF). En particular, se admiten las UDF escalares allí donde los desarrolladores puedan proporcionar cero o muchos argumentos y devolver un solo resultado de argumento. Cada uno de estos argumentos se comprueba para ver si se trata de valores JSON legales.
 
-La gramática del lenguaje SQL de Base de datos de documentos se amplía para admitir una lógica de aplicación personalizada usando estas funciones definidas por el usuario. Las funciones definidas por el usuario pueden registrarse con DocumentDB y, a continuación, se puede hacer referencia a ellas como parte de una consulta de SQL. De hecho, las UDF están exquisitamente diseñadas para su invocación por parte de las consultas. Como resultado de esta opción, las UDF no tienen acceso al objeto de contexto que los otros tipos de JavaScript (procedimientos y desencadenadores almacenados) tienen. Puesto que las consultas se ejecutan como de solo lectura, pueden ejecutarse en réplicas principales o secundarias. Por consiguiente, las UDF están diseñadas para ejecutarse en réplicas secundarias, a diferencia de otros tipos de JavaScript.
+La sintaxis del lenguaje SQL de DocumentDB se amplía para admitir una lógica de aplicación personalizada usando estas funciones definidas por el usuario. Las funciones definidas por el usuario pueden registrarse con DocumentDB y, a continuación, se puede hacer referencia a ellas como parte de una consulta de SQL. De hecho, las UDF están exquisitamente diseñadas para su invocación por parte de las consultas. Como resultado de esta opción, las UDF no tienen acceso al objeto de contexto que los otros tipos de JavaScript (procedimientos y desencadenadores almacenados) tienen. Puesto que las consultas se ejecutan como de solo lectura, pueden ejecutarse en réplicas principales o secundarias. Por consiguiente, las UDF están diseñadas para ejecutarse en réplicas secundarias, a diferencia de otros tipos de JavaScript.
 
 A continuación, vemos un ejemplo de cómo puede registrarse una UDF en la base de datos de Base de datos de documentos, concretamente en una recopilación de documentos.
 
@@ -1386,8 +1387,6 @@ Este es otro ejemplo que usa ARRAY\_LENGTH para obtener el número de hijos por 
       "numberOfChildren": 1
     }]
 
-Contiene funciones integradas y gramática de SQL para DocumentDB. Ahora veamos cómo funciona la consulta LINQ y cómo interactúa con la gramática que hemos visto hasta ahora.
-
 ### Funciones espaciales
 
 DocumentDB admite las siguientes funciones integradas de Open Geospatial Consortium (OGC) para realizar consultas geoespaciales. Para obtener más información sobre la compatibilidad geoespacial en DocumentDB, consulte [Uso de datos geoespaciales en Azure DocumentDB](documentdb-geospatial.md).
@@ -1429,7 +1428,7 @@ Las funciones espaciales pueden usarse para realizar consultas de proximidad con
       "id": "WakefieldFamily"
     }]
 
-Si incluye la indexación espacial en la directiva de indexación, las "consultas de distancia" se atenderán eficazmente a través del índice. Para obtener más detalles sobre la indexación espacial, consulte la sección siguiente. Aunque no tenga un índice espacial para las rutas de acceso especificadas, podrá realizar consultas espaciales mediante la especificación del encabezado de solicitud `x-ms-documentdb-query-enable-scan` con el valor establecido en "true". En. NET, para hacerlo es preciso pasar el argumento **FeedOptions** opcional en consultas en las que [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) está establecido en true.
+Si incluye la indexación espacial en la directiva de indexación, las "consultas de distancia" se atenderán eficazmente a través del índice. Para obtener más detalles sobre la indexación espacial, consulte la sección siguiente. Aunque no tenga un índice espacial para las rutas de acceso especificadas, aún podrá realizar consultas espaciales mediante la especificación del encabezado de solicitud `x-ms-documentdb-query-enable-scan` con el valor establecido en "true". En. NET, para hacerlo es preciso pasar el argumento **FeedOptions** opcional a consultas en las que [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) está establecido en true.
 
 ST\_WITHIN puede usarse para comprobar si un punto se encuentra dentro de un polígono. Normalmente, los polígonos se usan para representar límites, como códigos postales, límites estatales o formaciones naturales. Una vez más, si incluye la indexación espacial en la directiva de indexación, las consultas "interiores" se atenderán eficazmente a través del índice.
 
@@ -1481,12 +1480,12 @@ Estas funciones también se pueden usar para validar polígonos. Por ejemplo, aq
       	}
     }]
     
-Contiene funciones integradas y gramática de SQL para DocumentDB. Ahora veamos cómo funciona la consulta LINQ y cómo interactúa con la gramática que hemos visto hasta ahora.
+Que contiene funciones espaciales y sintaxis de SQL para DocumentDB. Ahora veamos cómo funciona la consulta LINQ y cómo interactúa con la sintaxis que hemos visto hasta ahora.
 
 ## LINQ para lenguaje SQL de Base de datos de documentos
 LINQ es un modelo de programación de .NET que expresa cálculos como consultas de secuencias de objetos. Base de datos de documentos proporciona una biblioteca del cliente para interactuar con LINQ facilitando una conversión entre objetos JSON y .NET y una asignación a partir de un subconjunto de consultas de LINQ a consultas de Base de datos de documentos.
 
-En la imagen que se muestra a continuación vemos la arquitectura de consultas compatibles con LINQ que usa Base de datos de documentos. Con el cliente de DocumentDB, los desarrolladores pueden crear un objeto **IQueryable** que consulta directamente al proveedor de consultas de DocumentDB, que, a continuación, convierte la consulta de LINQ en una consulta de DocumentDB. La consulta pasa entonces al servidor de Base de datos de documentos para recuperar un conjunto de resultados en formato JSON. Los resultados devueltos se deserializan en una secuencia de objetos .NET en el cliente.
+En la imagen que se muestra a continuación vemos la arquitectura de consultas compatibles con LINQ que usa Base de datos de documentos. Con el cliente de DocumentDB, los desarrolladores pueden crear un objeto **IQueryable** que consulta directamente al proveedor de consultas de DocumentDB que, a continuación, convierte la consulta de LINQ en una consulta de DocumentDB. La consulta pasa entonces al servidor de Base de datos de documentos para recuperar un conjunto de resultados en formato JSON. Los resultados devueltos se deserializan en una secuencia de objetos .NET en el cliente.
 
 ![Arquitectura de consultas compatibles con LINQ que usa DocumentDB][1]
  
@@ -1933,7 +1932,7 @@ En el segundo ejemplo se muestra una consulta más compleja que devuelve varios 
 
 Si los resultados de una consulta no caben en una sola página, la API de REST devuelve un token de continuación a través del encabezado de respuesta `x-ms-continuation-token`. Los clientes pueden paginar los resultados incluyendo el encabezado en resultados posteriores. El número de resultados por página también se puede controlar a través del encabezado numérico `x-ms-max-item-count`.
 
-Para administrar la directiva de coherencia de datos para consultas, use el encabezado `x-ms-consistency-level` como todas las solicitudes de la API de REST. Para que la sesión sea coherente, también es necesario enviar el último encabezado de cookie `x-ms-session-token` de la solicitud de la consulta. Tenga en cuenta que la directiva de índices de la recopilación consultada también puede afectar a la coherencia de los resultados de la consulta. En el caso de las recopilaciones, con la configuración de la directiva de índices predeterminada, el índice siempre es actual con el contenido del documento y los resultados de la consulta coincidirán con la coherencia elegida para los datos. Si la directiva de índices se suaviza para los perezosos, las consultas pueden devolver resultados obsoletos. Para obtener más información, consulte [Niveles de coherencia de Base de datos de documentos][consistency-levels].
+Para administrar la directiva de coherencia de datos para consultas, use el encabezado `x-ms-consistency-level` como todas las solicitudes de la API de REST. Para que la sesión sea coherente, también es necesario enviar el último encabezado de cookie `x-ms-session-token` en la solicitud de la consulta. Tenga en cuenta que la directiva de índices de la recopilación consultada también puede afectar a la coherencia de los resultados de la consulta. En el caso de las recopilaciones, con la configuración de la directiva de índices predeterminada, el índice siempre es actual con el contenido del documento y los resultados de la consulta coincidirán con la coherencia elegida para los datos. Si la directiva de índices se suaviza para los perezosos, las consultas pueden devolver resultados obsoletos. Para obtener más información, consulte [Niveles de coherencia de Base de datos de documentos][consistency-levels].
 
 Si la directiva de índices configurada de la recopilación no puede admitir la consulta especificada, el servidor de Base de datos de documentos devuelve 400 de "solicitud incorrecta". Esto se devuelve para las consultas por rango en rutas de acceso configuradas para búsquedas hash (igualdad) y rutas de acceso excluidas de forma explícita de los índices. Se puede especificar el encabezado `x-ms-documentdb-query-enable-scan` para permitir que la consulta realice un examen si algún índice no está disponible.
 
@@ -2027,9 +2026,9 @@ En el ejemplo siguiente se muestran combinaciones, expresadas a través de Selec
 
 El cliente de .NET se itera automáticamente a través de todas las páginas de resultados de la consulta de los bloques foreach, como se muestra anteriormente. Las opciones de consulta especificadas en la sección de la API de REST también están disponibles en el SDK de .NET mediante las clases `FeedOptions` y `FeedResponse` del método CreateDocumentQuery. El número de páginas se puede controlar con el valor `MaxItemCount`.
 
-Los desarrolladores también pueden controlar de forma explícita la paginación mediante la creación de `IDocumentQueryable` con el objeto `IQueryable` y, a continuación, la lectura de los valores ` ResponseContinuationToken` y volviéndolos a pasar como `RequestContinuationToken` en `FeedOptions`. Se puede establecer `EnableScanInQuery` para habilitar los exámenes cuando la directiva de indexación configurada no pueda admitir la consulta.
+Los desarrolladores también pueden controlar de forma explícita la paginación mediante la creación de `IDocumentQueryable` con el objeto `IQueryable` y, a continuación, la lectura de los valores ` ResponseContinuationToken` y su nuevo paso como `RequestContinuationToken` en `FeedOptions`. Se puede establecer `EnableScanInQuery` para habilitar los exámenes cuando la directiva de indexación configurada no pueda admitir la consulta.
 
-Consulte los [ejemplos de .NET de DocumentDB](https://github.com/Azure/azure-documentdb-net) para obtener más ejemplos que contengan consultas.
+Consulte los [ejemplos de .NET de DocumentDB](https://github.com/Azure/azure-documentdb-net) para obtener más casos que contengan consultas.
 
 ### API del servidor de JavaScript 
 Base de datos de documentos proporciona un modelo de programación para ejecutar una lógica de aplicación basada en JavaScript directamente en las recopilaciones usando procedimientos y desencadenadores almacenados. La lógica de JavaScript registrada en un nivel de recopilación puede emitir operaciones de base de datos en las operaciones de los documentos de la recopilación especificada. Estas operaciones se incluyen en transacciones ACID ambientales.
@@ -2073,7 +2072,7 @@ En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servi
 2.	[Especificación de SQL de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3.	[Ejemplos de .NET de DocumentDB](https://github.com/Azure/azure-documentdb-net)
 4.	[Niveles de coherencia de Base de datos de documentos][consistency-levels]
-5.	SQL ANSI 2011 [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+5.	ANSI SQL 2011 [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)
 7.	Especificación de JavaScript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
@@ -2089,4 +2088,4 @@ En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servi
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="11/17/2015"
    ms.author="masnider;jesseb"/>
 
 # Información general sobre los servicios fiables
@@ -52,7 +52,7 @@ Los servicios fiables de Service Fabric son diferentes de los servicios que haya
 ## Ciclo de vida del servicio
 Si el servicio está con estado o sin estado, los servicios fiables proporcionan un ciclo de vida simple que permite conectar rápidamente el código y empezar a trabajar. Realmente solo existen uno o dos métodos que se deben implementar para poner su servicio en funcionamiento.
 
-+ CreateCommunicationListener: aquí es donde el servicio define la pila de comunicación que desea utilizar. La pila de comunicación, como [API web](service-fabric-reliable-services-communication-webapi.md), es lo que define los extremos de escucha para el servicio (cómo lo alcanzarán los clientes), así como de qué manera dichos mensajes que aparecen acaban interactuando con el resto del código de servicio.
++ CreateServiceReplicaListeners/CreateServiceInstanceListeners: aquí es donde el servicio define la pila de comunicaciones que quiere usar. La pila de comunicación, como [API web](service-fabric-reliable-services-communication-webapi.md), es lo que define los extremos de escucha para el servicio (cómo lo alcanzarán los clientes), así como de qué manera dichos mensajes que aparecen acaban interactuando con el resto del código de servicio.
 
 + RunAsync: aquí es donde el servicio ejecuta su lógica empresarial. El token de cancelación que se proporciona es una señal de cuándo debe detenerse ese trabajo. Por ejemplo, si tiene un servicio que necesita extraer mensajes constantemente de una ReliableQueue y procesarlos, aquí sería donde se produciría ese trabajo.
 
@@ -60,16 +60,16 @@ Los eventos principales del ciclo de vida de un servicio fiable son los siguient
 
 1. Se construye el objeto de servicio (lo que se deriva de StatelessService o StatefulService).
 
-2. Se llama al método CreateCommunicationListener, proporcionando al servicio una oportunidad para devolver un agente de escucha de comunicación de su agrado.
+2. Se llama al método CreateServiceReplicaListeners/CreateServiceInstanceListeners, lo que permite al servicio devolver uno o varios agentes de escucha de comunicación que elija.
   + Tenga en cuenta que esto es opcional, aunque la mayoría de los servicios expondrán algún extremo directamente.
 
-3. Una vez creado el agente de escucha de comunicación, se abre
-  + Los agentes de escucha de comunicación disponen de un método llamado Open(), al que se llama en este momento y que devuelve la dirección de escucha para el servicio. Si el servicio fiable utiliza uno de los ICommunicationListeners integrados, esto es controlado por usted.
+3. Una vez creados los agente de escucha de comunicación, se abre.
+  + Los agentes de escucha de comunicación disponen de un método llamado OpenAsync(), al que se llama en este momento y que devuelve la dirección de escucha para el servicio. Si el servicio fiable utiliza uno de los ICommunicationListeners integrados, esto es controlado por usted.
 
-4. Una vez que el agente de escucha de comunicación es Open(), se llama a la llamada RunAsync() del servicio principal.
+4. Una vez que el agente de escucha de comunicación está abierto, se llama al método RunAsync() del servicio principal.
   + Tenga en cuenta que RunAsync es opcional. Si el servicio realiza todo su trabajo en respuesta a llamadas de usuario solamente, entonces no es necesario que implemente RunAsync().
 
-Cuando se está cerrando el servicio (ya sea cuando se ha eliminado o simplemente cuando se esté moviendo desde una ubicación determinada) el orden de llamada es el mismo. Primero se llama a Close() en el agente de escucha de comunicación y, a continuación, se cancela el token de cancelación que se pasó a RunAsync().
+Cuando se está cerrando el servicio (ya sea cuando se ha eliminado, actualizado o simplemente cuando se esté moviendo desde una ubicación determinada) el orden de llamada es el mismo. Primero se llama a CloseAsync() en los agentes de escucha de comunicación y, a continuación, se cancela el token de cancelación que se pasó a RunAsync().
 
 ## Servicios de ejemplo
 Tras conocer este modelo de programación, echemos un vistazo rápido a dos servicios diferentes para ver cómo encajan estas piezas.
@@ -79,7 +79,7 @@ Un servicio sin estado es aquel en el que literalmente no se mantiene ningún es
 
 Por ejemplo, tomemos una calculadora que no tenga memoria y que recibe todos los términos y las operaciones que debe realizar a la vez.
 
-En este caso, el RunAsync() del servicio puede estar vacío, ya que no hay ningún procesamiento de tareas en segundo plano que necesite hacer el servicio. Cuando se cree el servicio de calculadora, devolverá un CommunicationListener (por ejemplo, [API web](service-fabric-reliable-services-communication-webapi.md)), lo que abre un extremo de escucha en algún puerto. Este extremo de escucha se enlazará con los diferentes métodos (por ejemplo: "Add (n1, n2)") que definen la API pública de la calculadora.
+En este caso, el RunAsync() del servicio puede estar vacío, ya que no hay ningún procesamiento de tareas en segundo plano que necesite hacer el servicio. Cuando se cree el servicio de calculadora, devolverá un ICommunicationListener (por ejemplo, [API web](service-fabric-reliable-services-communication-webapi.md)), lo que abre un punto de conexión de escucha en algún puerto. Este extremo de escucha se enlazará con los diferentes métodos (por ejemplo: "Add (n1, n2)") que definen la API pública de la calculadora.
 
 Cuando se realiza una llamada desde un cliente, se invoca el método adecuado y el servicio de calculadora realiza las operaciones en los datos proporcionados y devuelve el resultado. No se almacena ningún estado.
 
@@ -92,11 +92,11 @@ Un servicio con estado es el que debe tener alguna parte del estado coherente y 
 
 Actualmente la mayoría de servicios almacena su estado externamente debido a que el almacén externo es lo que proporciona fiabilidad, disponibilidad, escalabilidad y coherencia para ese estado. En Service Fabric, los servicios con estado no se requieren para almacenar su estado externamente debido a que Service Fabric se encarga de estos requisitos para el código de servicio y el estado del servicio.
 
-Supongamos que queremos escribir un servicio que tomó solicitudes de una serie de conversiones que debían realizarse en una imagen y la imagen que necesitaba convertirse. Para este servicio devolvería un CommunicationListener (supongamos que WebAPI) que abre un puerto de comunicaciones y permite envíos a través de una API como `ConvertImage(Image i, IList<Conversion> conversions)`. En esta API el servicio podría tomar la información y almacenar la solicitud en un ReliableQueue y, a continuación, devolver algún token al cliente, por lo que podría realizar un seguimiento de la solicitud (dado que las solicitudes podrían tardar algún tiempo).
+Supongamos que queremos escribir un servicio que tomó solicitudes de una serie de conversiones que debían realizarse en una imagen y la imagen que necesitaba convertirse. Para este servicio devolvería un agente de escucha de comunicación (supongamos que WebAPI) que abre un puerto de comunicaciones y permite envíos a través de una API como `ConvertImage(Image i, IList<Conversion> conversions)`. En esta API el servicio podría tomar la información y almacenar la solicitud en un ReliableQueue y, a continuación, devolver algún token al cliente, por lo que podría realizar un seguimiento de la solicitud (dado que las solicitudes podrían tardar algún tiempo).
 
-En este servicio RunAsync podría ser más complejo: el servicio tendría un bucle dentro de su RunAsync que extrae las solicitudes de la ReliableQueue, realiza las conversiones enumeradas y almacena los resultados en un ReliableDictionary para que cuando el cliente regrese puedan obtener sus imágenes convertidas. Para asegurarse de que incluso si algo falla la imagen no se pierda, este servicio fiable podría extraer de la cola, realizar las conversiones y almacenar el resultado en una transacción, de modo que el mensaje solo se quite de la cola y los resultados se almacenen en el diccionario de resultados cuando se completan las conversiones. Si algo falla en el medio (por ejemplo, el equipo en el que se está ejecutando esta instancia del código), la solicitud permanece en la cola a la espera de volver a ser procesado.
+En este servicio RunAsync podría ser más complejo: el servicio tendría un bucle dentro de su RunAsync que extrae las solicitudes de la IReliableQueue, realiza las conversiones enumeradas y almacena los resultados en un IReliableDictionary para que cuando el cliente regrese puedan obtener sus imágenes convertidas. Para asegurarse de que incluso si algo falla la imagen no se pierda, este servicio fiable podría extraer de la cola, realizar las conversiones y almacenar el resultado en una transacción, de modo que el mensaje solo se quite de la cola y los resultados se almacenen en el diccionario de resultados cuando se completan las conversiones. Si algo falla en el medio (por ejemplo, el equipo en el que se está ejecutando esta instancia del código), la solicitud permanece en la cola a la espera de volver a ser procesado.
 
-Una cosa a tener en cuenta acerca de este servicio es que parece un servicio .NET normal, la única diferencia es que las estructuras de datos que se van a usar (ReliableQueue y ReliableDictionary) son proporcionadas por Service Fabric de servicio y, por tanto, se vuelven altamente fiables, disponibles y coherentes.
+Una cosa a tener en cuenta acerca de este servicio es que parece un servicio .NET normal, la única diferencia es que las estructuras de datos que se van a usar (IReliableQueue y IReliableDictionary) son proporcionadas por Service Fabric de servicio y, por tanto, se vuelven altamente fiables, disponibles y coherentes.
 
 ## Cuándo utilizar las API de servicios fiables
 Si cualquiera de las siguientes caracterizan sus necesidades de servicio de aplicación, deberá considerar las API de servicios fiables:
@@ -130,4 +130,4 @@ Si cualquiera de las siguientes caracterizan sus necesidades de servicio de apli
 + [Lea el modelo de programación de actores fiables](service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

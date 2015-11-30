@@ -4,7 +4,7 @@
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
-   manager="Adinah" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 # Cómo administrar registros DNS con CLI
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-operations-recordsets-cli.md)
-- [Azure Powershell](dns-operations-recordsets.md)
+- [PowerShell](dns-operations-recordsets.md)
 
 En esta guía se explica cómo administrar conjuntos de registros y registros de zonas DNS.
 
@@ -236,7 +236,7 @@ Se puede usar el modificador opcional “-q” para suprimir el mensaje de confi
 
 ##Otras referencias
 
-[Introducción sobre la creación de registros y conjuntos de registros](dns-getstarted-create-recordset-cli.md)<BR> [Realización de operaciones en zonas DNS](dns-operations-dnszones-cli.md)<BR> [Automatización de operaciones con el SDK de .NET](dns-sdk.md)
+[Delegar un dominio a DNS de Azure](dns-domain-delegation.md)<BR> [Administrar zonas DNS](dns-operations-dnszones-cli.md)<BR> [Automatizar operaciones mediante el SDK de .NET](dns-sdk.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

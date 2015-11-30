@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="11/16/2015"
 	ms.author="billmath"/>
 
 # Preguntas más frecuentes sobre Azure Active Directory Connect
@@ -27,9 +27,9 @@ La instalación no funcionará en este caso. El administrador global que desee i
 
 Solo se admite la instalación de Azure AD Connect mediante el Asistente para instalación. No se admite la instalación silenciosa y desatendida.
 
-## Instalación rápida
+**P: Tengo un bosque en el que no se puede contactar con un dominio. ¿Cómo se puede instalar Azure AD Connect?**
 
-## Instalación personalizada
+Hemos escuchado estos comentarios y solucionaremos este problema en versiones futuras.
 
 ## Red
 **P: Tengo un firewall, dispositivo de red o algo más que limita las conexiones de tiempo máximo que pueden permanecer abiertas en mi red. ¿Cuál debería ser mi umbral de tiempo de espera del lado de cliente al usar Azure AD Connect?**
@@ -39,6 +39,39 @@ Todo el software de redes, dispositivos físicos o cualquier otra cosa que limit
 **P: ¿Qué hago si recibo un correo electrónico en el que se me solicita que renueve el certificado de Office 365?**
 
 Utilice las instrucciones que se describen en el artículo para resolver [aquí](active-directory-aadconnect-o365-certs.md) la renovación del certificado.
+
+**P: ¿Se admiten los dominios de una sola etiqueta (SLD)?**
+
+No, Azure AD Connect no admite bosques/dominios locales con dominios de una sola etiqueta.
+
+**P: ¿Se admiten los nombres de NetBios con puntos?**
+
+No, Azure AD Connect no admite bosques/dominios locales en los que el nombre de NetBios contenga un punto "." en el nombre.
+
+## Environment
+
+**P: ¿Se admite cambiar el nombre del servidor después de haber instalado Azure AD Connect?**
+
+No. Cambiar el nombre del servidor hará que el motor de sincronización no pueda conectarse a la Base de datos SQL y el servicio no podrá iniciarse.
+
+## Datos de identidad
+
+**P: El atributo UPN (userPrincipalName) de Azure AD no coincide con el UPN local, ¿por qué?**
+
+Consulte estos artículos:
+
+- [Los nombres de usuario de Office 365, Azure o Intune no coinciden con el UPN local o el identificador de inicio de sesión alternativo](https://support.microsoft.com/es-ES/kb/2523192)
+- [Los cambios no son sincronizados por la herramienta de sincronización de Azure Active Directory después de cambiar el UPN de una cuenta de usuario para usar un dominio federado diferente](https://support.microsoft.com/es-ES/kb/2669550)
+
+## Configuración personalizada
+
+**P: ¿Dónde se documentan los cmdlets de PowerShell para Azure AD Connect?**
+
+A excepción de los cmdlets documentados en este sitio, el resto de cmdlets de PowerShell que se encuentran en Azure AD Connect no se admiten para uso del cliente.
+
+**P: ¿Puedo usar la función "Exportación/importación de servidor" que se encuentra en el administrador del servicio para mover la configuración entre servidores?**
+
+No. Esta opción no recuperará todas las opciones de configuración y no debe usarse. En su lugar, debe usar al Asistente para crear la configuración base en el segundo servidor y utilizar el editor de reglas de sincronización para generar scripts de PowerShell para mover cualquier regla personalizada entre servidores.
 
 ## Solución de problemas
 
@@ -57,4 +90,4 @@ Utilice las instrucciones que se describen en el artículo para resolver [aquí]
 
 - Use este vínculo para obtener soporte técnico mediante el Portal de Azure.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

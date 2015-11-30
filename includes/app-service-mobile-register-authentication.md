@@ -1,5 +1,5 @@
 
-A continuación, debe registrar la aplicación en el sitio del proveedor de identidades y, a continuación, establecerá las credenciales generadas por el proveedor en el back-end de la aplicación móvil.
+En primer lugar, debe registrar la aplicación en el sitio del proveedor de identidades y, a continuación, establecerá las credenciales generadas por el proveedor en el back-end de la aplicación móvil.
 
 1. Configure el proveedor de identidades preferido siguiendo las instrucciones específicas del proveedor: 
 	
@@ -15,4 +15,4 @@ A continuación, debe registrar la aplicación en el sitio del proveedor de iden
 <!-- URLs. -->
 [Azure portal]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

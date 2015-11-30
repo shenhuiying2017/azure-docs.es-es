@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="11/13/2015" 
 	ms.author="josephd"/>
 
 # Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas
@@ -32,11 +32,11 @@ Esta configuración simula un servidor DirSync en el entorno de producción de A
 - Una red virtual entre locales hospedada en Azure (TestVNET).
 - Una conexión VPN de sitio a sitio.
 - Una suscripción de prueba de Office 365 FastTrack.
-- Un servidor DirSync y un controlador de dominio secundario en la red virtual TestVNET.
+- Un servidor DirSync que ejecute la herramienta Azure AD Connect y un controlador de dominio secundario en la red virtual TestVNET.
 
 Esta configuración proporciona una base y un punto de partida común desde el que puede:
 
-- Desarrollar y probar aplicaciones para Office 365 basadas en la sincronización con un dominio de Active Directory local mediante la sincronización de contraseñas.
+- Desarrollar y probar aplicaciones para Office 365 basadas en la sincronización con un dominio de Active Directory local mediante la sincronización de contraseñas.
 - Realizar pruebas de esta carga de trabajo de TI basada en la nube.
 
 Hay tres fases principales para configurar este entorno de prueba de nube híbrida:
@@ -59,22 +59,21 @@ Esta es su configuración actual.
 
 ## Fase 2: configuración de la versión de prueba de Office 365 FastTrack
 
-Para iniciar la versión de prueba de Office 365 FastTrack, necesita un nombre de compañía ficticio y una cuenta de Microsoft. Se recomienda que utilice una variante del nombre de compañía Contoso como nombre de su compañía, que es una compañía ficticia que se usa en el contenido de ejemplo de Microsoft, pero no es obligatorio.
+Para iniciar la versión de prueba de Office 365 FastTrack, necesita un nombre de compañía ficticio y una cuenta de Microsoft. Le recomendamos que use una variante del nombre de la compañía Contoso como nombre de su compañía; esta es una compañía ficticia que se usa en el contenido de ejemplo de Microsoft, pero no es obligatorio.
 
 A continuación, regístrese para obtener una nueva cuenta de Microsoft. Vaya a ****http://outlook.com** y cree una cuenta con una dirección de correo electrónico como user123@outlook.com. Regístrese para una prueba de Office 365 FastTrack con esa cuenta.
 
-A continuación, regístrese para obtener una nueva prueba de Office 365 FastTrack.
+A continuación, regístrese para obtener una nueva prueba de Office 365 Enterprise E3.
 
 1.	Inicie sesión en CLIENT1 con las credenciales de cuenta CORP\\User1.
-2.	Abra Internet Explorer y vaya a ****http://fasttrack.office.com**.
-3.	Haga clic en **Introducción a FastTrack**.
-4.	En la página Introducción a FastTrack, en **Primero, regístrese para obtener la versión de prueba de Office 365**, haga clic en **Para empresas, regístrese aquí**.
-5.	En la página Paso 1, rellene la página, especifique la nueva cuenta de Microsoft en **Dirección de correo electrónico de trabajo** y haga clic en **Siguiente**.
-6.	En la página Paso 2, escriba el nombre de una cuenta de Office 365 inicial en el primer campo, el nombre de la compañía ficticia y una contraseña. Anote la dirección de correo electrónico resultante (por ejemplo, user123@contoso123.onmicrosoft.com) y la contraseña en una ubicación segura. Necesitará esta información para completar el asistente de configuración de la herramienta de sincronización de Active Directory en la fase 3. Haga clic en **Siguiente**.
-7.	En la página Paso 3, escriba el número de teléfono de su smartphone o teléfono móvil con función de mensajes de texto y, a continuación, haga clic en **Enviar mensaje**.
-8.	Cuando reciba el mensaje de texto en el teléfono, escriba el código de verificación y haga clic en **Crear mi cuenta**. 
-9.	Cuando Office 365 haya finalizado la creación de la cuenta, haga clic en **Ya está listo**.
-10.	Ahora debería ver la página principal del portal de Office 365. En la cinta de opciones superior, haga clic en **Administrar** y, a continuación, haga clic en **Office 365**. Aparecerá la página del centro de administración de Office 365. Mantenga esta página abierta en CLIENT1.
+2.	Abra Internet Explorer y vaya a ****https://go.microsoft.com/fwlink/p/?LinkID=403802**.
+3.	Realice paso a paso el proceso de registro de la versión de prueba de Office 365 Enterprise E3.
+
+Cuando se le pida la **dirección de correo electrónico de empresa**, escriba su nueva cuenta de Microsoft.
+
+Cuando deba crear una identificación, escriba el nombre de una cuenta de Office 365 inicial, el nombre de la compañía ficticia y una contraseña. Anote la dirección de correo electrónico resultante (por ejemplo, user123@contoso123.onmicrosoft.com) y la contraseña en una ubicación segura. Necesitará esta información para completar la configuración de Azure AD Connect en la fase 3.
+
+Cuando complete estos pasos, deberá ver la página principal del portal de Office 365. En la cinta de opciones superior, haga clic en **Administrar** y, a continuación, haga clic en **Office 365**. Aparecerá la página del centro de administración de Office 365. Mantenga esta página abierta en CLIENT1.
 
 Esta es su configuración actual.
 
@@ -85,17 +84,17 @@ Esta es su configuración actual.
 En primer lugar, cree una máquina virtual de Azure de DS1 con estos comandos en el símbolo del sistema de Azure PowerShell en el equipo local. Antes de ejecutar estos comandos, introduzca los valores de las variables y quite los caracteres < and >.
 
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$cred1=Get-Credential â€“Message "Type the name and password of the local administrator account for DS1."
-	$cred2=Get-Credential â€“UserName "CORP\User1" â€“Message "Now type the password for the CORP\User1 account."
+	$cred1=Get-Credential -Message "Type the name and password of the local administrator account for DS1."
+	$cred2=Get-Credential -UserName "CORP\User1" -Message "Now type the password for the CORP\User1 account."
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DS1 -InstanceSize Medium -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
-	New-AzureVM â€“ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 A continuación, conéctese a la máquina virtual de DS1.
 
-1.	En la página de máquinas virtuales del Portal de administración de Azure, haga clic en **En ejecución** en la columna de estado de la máquina virtual DS1.
+1.	En la página de máquinas virtuales del Portal de administración de Azure, haga clic en **En ejecución** en la columna de ESTADO de la máquina virtual DS1.
 2.	En la barra de tareas, haga clic en **Conectar**. 
 3.	Cuando se le pida que abra DS1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
@@ -115,22 +114,12 @@ A continuación, instale .NET 3.5 en DS1 con este comando en el símbolo del si
 
 	Add-WindowsFeature NET-Framework-Core
 
-A continuación, instale la sincronización de directorios en DS1.
-
-1.	Inicie Internet Explorer, escriba ****http://go.microsoft.com/fwlink/?LinkID=278924** en la barra de direcciones y, a continuación, presione ENTRAR. Cuando se le solicite ejecutar dirsync.exe, haga clic en la flecha junto a **Guardar**, después en **Guardar como** y, a continuación, haga clic en **Guardar **para guardar el archivo en la carpeta Descargas. Para obtener más información acerca de cómo instalar la herramienta, consulte [Instalación o actualización de la herramienta de sincronización de directorios](http://technet.microsoft.com/library/jj151800).
-2.	Abra la carpeta **Descargas**, haga clic con el botón derecho en el archivo **dirsync** y, a continuación, haga clic en **Ejecutar como administrador**.
-3.	En la página de bienvenida del Asistente de configuración de sincronización de Active Directory, haga clic en **Siguiente**. 
-4.	En la página Términos de licencia, haga clic en **Acepto** y, después, en **Siguiente**.
-5.	En la página Seleccionar instalación de carpeta, haga clic en **Siguiente**. La instalación puede tardar varios minutos en completarse.
-6.	En la página Finalizado, desactive **Iniciar el Asistente de configuración ahora** y haga clic en **Finalizar**.
-7.	En la pantalla Inicio, haga clic en **user1** y, después, en **Cerrar sesión**.
-
 A continuación, habilite la sincronización de directorios de la versión de prueba de Office 365 FastTrack.
 
 1.	En CLIENT1, en la página **Centro de administración de Office 365**, en el panel izquierdo, haga clic en **Usuarios** y, a continuación, en **Usuarios activos**.
 2.	Para la **Sincronización de Active Directory**, haga clic en **Configurar**.
 3.	En la página de configuración y administración de la sincronización de Active Directory, en el paso 3, haga clic en **Activar**.
-4.	Cuando le pregunten **¿Desea activar la sincronización de Active Directory?**, haga clic en **Activar**. Después de hacer esto, aparece el mensaje **Se ha activado la sincronización de Active Directory** en el paso 3.
+4.	Cuando le pregunten **¿Desea activar la sincronización de Active Directory?**, haga clic en **Activar**. Una vez hecho esto, aparecerá el mensaje **Se ha activado la sincronización de Active Directory** en el paso 3.
 5.	Deje la página **Configuración y administración de la sincronización de Active Directory** abierta en CLIENT1.
 
 A continuación, inicie sesión en DC1 con la cuenta CORP\\User1 y abra un símbolo del sistema de Windows PowerShell con nivel de administrador. Ejecute estos comandos uno por uno para crear una nueva unidad organizativa denominada contoso\_users y agregue dos cuentas de usuario nuevas para Marci Kaufman y Lynda Meyer.
@@ -139,22 +128,21 @@ A continuación, inicie sesión en DC1 con la cuenta CORP\\User1 y abra un símb
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName lyndam -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Lynda Meyer" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
 
-Cuando ejecute cada comando de Windows PowerShell, se le solicitará la nueva contraseña del usuario. Anote estas contraseñas y guárdelas en una ubicación segura. Las necesitará más adelante.
+Cuando ejecute cada comando de Windows PowerShell, se le solicitará la nueva contraseña de usuario. Anote estas contraseñas y guárdelas en una ubicación segura. Las necesitará más adelante.
 
-A continuación, configure la sincronización de directorios en DS1.
+A continuación, instale y configure la herramienta Azure AD Connect en DS1.
 
-1.	Inicie una sesión con la cuenta de CORP\\User1 DS1.
-2.	En la pantalla **Inicio**, escriba **Sincronización de directorios**.
-3.	Haga clic con el botón derecho en **Configuración de la sincronización de directorios** y, a continuación, haga clic en **Ejecutar como administrador**. Así se inicia al Asistente de configuración.
-4.	En la página de bienvenida, haga clic en **Siguiente**.
-5.	En la página de credenciales de Active Directory de Microsoft Azure, escriba la dirección de correo electrónico y la contraseña de la cuenta inicial que creó al configurar la versión de prueba de Office 365 FastTrack en la fase 2. Haga clic en Siguiente. 
-6.	En la página Credenciales de Active Directory, escriba **CORP\\User1** en **Nombre de usuario** y la contraseña de la cuenta User1 en **Contraseña**. Haga clic en **Siguiente**.
-7.	En la página Implementación híbrida, seleccione **Habilitar implementación híbrida** y haga clic en **Siguiente**.
-8.	En la página de sincronización de contraseñas, seleccione **Habilitar sincronización de contraseñas** y, a continuación, haga clic en **Siguiente**.
-9.	Se muestra la página Configuración. Cuando se complete la configuración, haga clic en **Siguiente**.
-10.	En la página final, haga clic en **Finalizar**. Cuando se le solicite, haga clic en **Aceptar**.
+1.	Inicie Internet Explorer, escriba ****https://www.microsoft.com/download/details.aspx?id=47594** en la barra de **direcciones** y, a continuación, presione ENTRAR.
+2.	Ejecute el programa de instalación de Microsoft Azure AD Connect.
+3.	En el escritorio, haga doble clic en **Azure AD Connect**.
+4.	En la página de **Bienvenida**, seleccione **Acepto los términos de licencia y el aviso de privacidad** y, a continuación, haga clic en **Continuar**.
+5.	En la página **Configuración rápida**, haga clic en **Usar configuración rápida**.
+6.	En la página **Conectar a Azure AD**, escriba la dirección de correo electrónico y la contraseña de la cuenta inicial que creó al configurar la versión de prueba de Office 365 FastTrack en la fase 2. Haga clic en **Siguiente**.
+7.	En la página **Conectar a AD DS**, escriba **CORP\\User1** en **Nombre de usuario** y la contraseña de la cuenta User1 en **Contraseña**. Haga clic en Siguiente.
+8.	En la página **Listo para configurar**, revise la configuración y, a continuación, haga clic en **Instalar**.
+9.	En la página **Completar la configuración**, haga clic en **Salir**.
 
-A continuación, compruebe que las cuentas de usuario en el dominio CORP están sincronizadas con Office 365. Tenga en cuenta que pueden pasar unas horas antes de que se produzca la sincronización.
+A continuación, compruebe que las cuentas de usuario en el dominio CORP están sincronizadas con Office 365. Tenga en cuenta que pueden pasar unos minutos antes de que se produzca la sincronización.
 
 En CLIENT1, en la página **Configuración y administración de la sincronización de Active Directory**, haga clic en el vínculo **usuarios** en el paso 6 de esta página. Si la sincronización de directorios se ha realizado correctamente, debería ver algo parecido a esto.
 
@@ -162,7 +150,7 @@ En CLIENT1, en la página **Configuración y administración de la sincronizaci�
 
 La columna **Estado** indica que la cuenta se obtuvo mediante la sincronización con un dominio de Active Directory.
 
-A continuación, se muestra la sincronización de contraseñas de Office 365 con la cuenta de Active Directory de Lynda Myer.
+A continuación, se muestra la sincronización de contraseñas de Office 365 con la cuenta de Active Directory de Lynda Myer.
 
 1.	En CLIENT1, en la página **Usuarios activos**, seleccione la cuenta de **Lynda Meyer**.
 2.	En las propiedades de la cuenta de Lynda Meyer, en **Licencia asignada**, haga clic en **Editar**.
@@ -170,7 +158,7 @@ A continuación, se muestra la sincronización de contraseñas de Office 365 co
 4.	Seleccione **Microsoft Office 365 Plan E3** y haga clic en **Guardar**.
 5.	Cierre Internet Explorer.
 6.	Inicie Internet Explorer y vaya a ****http://portal.microsoftonline.com**.
-7.	Inicie sesión con las credenciales de Office 365 de Lynda Meyer. Su nombre de usuario será lyndam@<*su nombre ficticio*>.onmicrosoft.com. La contraseña es la de la cuenta de usuario de Active Directory de Lynda Meyer.
+7.	Inicie sesión con las credenciales de Office 365 de Lynda Meyer. Su nombre de usuario será lyndam@<*su nombre ficticio*>.onmicrosoft.com. La contraseña es la de la cuenta de usuario de Active Directory de Lynda Meyer.
 8.	Tras realizar correctamente el inicio de sesión, verá la página principal del portal de Office 365 con **Marquemos hoy la diferencia**.
 
 Esta es su configuración actual.
@@ -197,7 +185,4 @@ Este entorno ya está preparado para realizar pruebas de aplicaciones de Office�
 
 [Instrucciones de implementación de los servicios de infraestructura de Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

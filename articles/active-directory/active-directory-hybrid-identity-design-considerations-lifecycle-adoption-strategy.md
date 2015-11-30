@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: determinación de la estrategia de adopción de ciclo de vida de identidad híbrida| Microsoft Azure"
+	pageTitle="Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: determinación de la estrategia de adopción de ciclo de vida de identidad híbrida | Microsoft Azure"
 	description="Ayuda a definir las tareas de administración de identidades híbridas según las opciones disponibles para cada fase del ciclo de vida."
 	documentationCenter=""
 	services="active-directory"
@@ -67,7 +67,7 @@ Los servicios de Azure AD basados en licencias (basados en derechos) funcionan m
 Azure Active Directory ofrece inicio de sesión único y seguridad mejorada de acceso a aplicaciones para miles de aplicaciones SaaS y aplicaciones web locales. Para obtener una lista detallada de la galería de aplicaciones de Azure Active Directory con las aplicaciones SaaS compatibles, consulte la lista de compatibilidad de federación de Azure Active Directory, que incluye aquellos proveedores de identidad que sirven para implementar el inicio de sesión único.
 
 ## Definición de la administración de sincronización
-la integración de directorios locales con Azure AD hace que los usuarios sean más productivos proporcionando una identidad común para tener acceso a recursos de nube y locales. Con esta integración, los usuarios y las organizaciones pueden aprovechar lo siguiente:
+La integración de directorios locales con Azure AD hace que los usuarios sean más productivos al proporcionar una identidad común para acceder tanto a los recursos en la nube como a los locales. Con esta integración, los usuarios y las organizaciones pueden aprovechar lo siguiente:
 
 - Las organizaciones pueden proporcionar a los usuarios una identidad híbrida común entre servicios en la nube o locales al aprovechar Windows Server Active Directory y, a continuación, conectarse a Active Directory de Azure. 
 - Los administradores pueden proporcionar acceso condicional basado en el recurso de la aplicación, dispositivo e identidad de usuario, ubicación de red y autenticación multifactor.
@@ -91,6 +91,6 @@ Revise la siguiente tabla para comparar las opciones de sincronización:
 
 
 ## Otras referencias
-[Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

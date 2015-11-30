@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/15/2015" 
 	ms.author="awills"/>
  
 # Exportación de telemetría desde Application Insights
@@ -21,14 +21,14 @@
 
 La Exportación continua está disponible durante el período de evaluación gratuita y en los [planes de precios Estándar y Premium](http://azure.microsoft.com/pricing/details/application-insights/).
 
-(Si desea hacer una [exportación puntual](app-insights-metrics-explorer.md#export-to-excel) de lo que ve en una hoja de búsqueda o de métricas, haga clic en Exportar en la parte superior de la hoja).
+(Si desea hacer una [exportación puntual](app-insights-metrics-explorer.md#export-to-excel) de lo que ve en una hoja de búsqueda o de métricas, haga clic en Exportar en la parte superior de la hoja. Si desea ver datos de Power BI, use [el adaptador](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) que *no* usa la exportación continua).
 
 ## Crear una cuenta de almacenamiento
 
 Si aún no tiene una cuenta de almacenamiento "clásica", cree una ahora.
 
 
-1. Cree una cuenta de almacenamiento "clásica" en su suscripción en el [portal de Azure](https://portal.azure.com).
+1. Cree una cuenta de almacenamiento "clásica" en su suscripción en el [Portal de Azure](https://portal.azure.com).
 
     ![En el portal de Azure, elija Nuevo, Datos, Almacenamiento.](./media/app-insights-export-telemetry/030.png)
 
@@ -141,22 +141,13 @@ Abra la hoja Exportación continua y edite la exportación. Modifique el destino
 
 La exportación continua se reiniciará.
 
-## Exportación a Power BI
+## Ejemplos de exportación
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) presenta los datos en objetos visuales enriquecidos y variados, con la capacidad de reunir información de varios orígenes. Puede transmitir los datos de telemetría sobre el rendimiento y el uso de las aplicaciones de Application Insights a Power BI.
-
-[Transmisiones de Application Insights a Power BI](app-insights-export-power-bi.md)
-
-![Ejemplo de vista en Power BI de los datos de uso de Application Insights](./media/app-insights-export-telemetry/210.png)
-
-## Exportación a SQL
-
-Otra opción consiste en trasladar los datos a una base de datos SQL, donde puede realizar análisis más eficaces.
-
-Contamos con ejemplos que muestran dos métodos alternativos al traslado de los datos desde el almacenamiento de blobs a una base de datos:
 
 * [Exportación a SQL con un rol de trabajo][exportcode]
 * [Exportación a SQL con el Análisis de transmisiones][exportasa]
+* [Exportación a PowerBI mediante Análisis de transmisiones](app-insights-export-power-bi.md)
+ * Tenga en cuenta que esta no es la manera estándar de usar Power BI. Hay [un adaptador](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) que no requiere Exportación continua.
 
 
 En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HDInsight](http://azure.microsoft.com/services/hdinsight/) en la nube. HDInsight ofrece diversas tecnologías para administrar y analizar Big Data.
@@ -217,4 +208,4 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

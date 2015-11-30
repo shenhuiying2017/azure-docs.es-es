@@ -21,14 +21,14 @@
 
 La mayoría de las organizaciones grandes y medianas contarán probablemente con una [respuesta a los incidentes de seguridad](https://technet.microsoft.com/library/cc700825.aspx) para ayudar al responsable de TI a emprender acciones en función del nivel de incidente. El sistema de administración de identidades es un componente importante en el proceso de respuesta a incidentes, ya que se puede usar para ayudar a identificar quién ha realizado una acción específica en el destino. La solución de identidad híbrida debe ser capaz de proporcionar funcionalidades de supervisión e informes que TI puede aprovechar para realizar acciones con el fin de identificar y mitigar las posibles amenazas. En un plan de respuesta a incidentes típico tendrá las siguientes fases:
 
-1.	Evaluación inicial
+1.	Evaluación inicial.
 2.	Comunicación de incidentes
 3.	Control de daños y reducción de riesgos
 4.	Identificación de lo que se ha puesto en peligro y la gravedad
 5.	Conservación de evidencias
 6.	Notificación a las partes interesadas
 7.	Recuperación del sistema
-8.	Documentación
+8.	Documentación.
 9.	Evaluación de daños y costos
 10.	Revisión del proceso y el plan.
 
@@ -60,6 +60,6 @@ Durante la fase de control de daños y reducción de riesgos, es importante redu
 [Definición de la estrategia de protección de datos](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
 
 ## Otras referencias
-[Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

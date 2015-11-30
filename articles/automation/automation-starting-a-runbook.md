@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/28/2015"
+   ms.date="11/13/2015"
    ms.author="bwren;sngun"/>
 
 # Inicio de un runbook en Automatización de Azure
@@ -93,7 +93,7 @@ La tabla siguiente le ayudará a determinar el método para iniciar el runbook d
   </td>
  </tr>
  <tr>
-  <td><a href="http://msdn.microsoft.com/library/azure/dn857355.aspx">Desde otro runbook</a></td>
+  <td><a href="http://azure.microsoft.com/documentation/articles/automation-child-runbooks/">Desde otro runbook</a></td>
   <td>
    <ul>
     <li>Permite usar un runbook como una actividad en otro runbook</li>
@@ -150,7 +150,7 @@ Si el runbook requiere parámetros, debe proporcionarlos como una [tabla hash](h
 
 ## Parámetros de runbook
 
-Cuando se inicia un runbook mediante el Portal de administración de Azure o Windows PowerShell, la instrucción se envía a través del servicio web de Automatización de Azure. Este servicio no admite parámetros con tipos de datos complejos. Si necesita proporcionar un valor para un parámetro complejo, se debe llamar en línea desde otro runbook, tal como se describe en [Inicio de un runbook desde otro runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx).
+Cuando se inicia un runbook mediante el Portal de administración de Azure o Windows PowerShell, la instrucción se envía a través del servicio web de Automatización de Azure. Este servicio no admite parámetros con tipos de datos complejos. Si necesita proporcionar un valor para un parámetro complejo, se debe llamar en línea desde otro runbook, tal como se describe en [Runbooks secundarios en la Automatización de Azure](automation-child-runbooks.md).
 
 El servicio web de Automatización de Azure proporciona una funcionalidad especial para parámetros mediante ciertos tipos de datos, tal como se describe en las secciones siguientes.
 
@@ -216,7 +216,7 @@ Esta acción devuelve la siguiente salida:
 
 ### Credenciales
 
-Si el parámetro es de tipo de datos **PSCredential**, puede proporcionar el nombre de un [recurso de credenciales](http://msdn.microsoft.com/library/azure/dn940015.aspx) de Automatización de Azure. El runbook recuperará la credencial con el nombre que especifique.
+Si el parámetro es de tipo de datos **PSCredential**, puede proporcionar el nombre de un [recurso de credenciales](automation-credentials.md) de Automatización de Azure. El runbook recuperará la credencial con el nombre que especifique.
 
 Considere el siguiente runbook de prueba que acepta un parámetro denominado credential.
 
@@ -238,6 +238,6 @@ Suponiendo que el nombre de usuario de la credencial era *jsmith*, esto da como 
 
 ## Artículos relacionados
 
-- [Inicio de un runbook desde otro runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
+- [Runbooks secundarios en la Automatización de Azure](automation-child-runbooks.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

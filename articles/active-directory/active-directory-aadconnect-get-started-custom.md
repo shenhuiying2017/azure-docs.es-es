@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="11/16/2015"
 	ms.author="billmath;andkjell"/>
 
 # Instalación personalizada de Azure AD Connect
@@ -46,7 +46,7 @@ Al instalar los servicios de sincronización, puede dejar desactivada la secció
 Configuración opcional | Descripción
 ------------- | ------------- |
 Nombre de SQL Server | Permite especificar el nombre de SQL Server y el nombre de la instancia. Elija esta opción si ya dispone de un servidor de base de datos que le gustaría utilizar.
-Cuenta de servicio | De forma predeterminada, Azure AD Connect creará una cuenta de servicio local para los servicios de sincronización que se van a utilizar. la contraseña se genera automáticamente y es desconocida para la persona que instala Azure AD Connect. Si utiliza un servidor SQL remoto, necesita una cuenta de servicio en el dominio y conocer la contraseña. En esos casos, especifique la cuenta de servicio para usar. |
+Cuenta de servicio | De forma predeterminada, Azure AD Connect creará una cuenta de servicio local para los servicios de sincronización que se van a utilizar. la contraseña se genera automáticamente y es desconocida para la persona que instala Azure AD Connect. Si utiliza un servidor SQL remoto, necesita una cuenta de servicio en el dominio y conocer la contraseña. En esos casos, especifique la cuenta de servicio para usar. Asegúrese de que el usuario que ejecuta la instalación es una SA en SQL, por lo que se puede crear un inicio de sesión para la cuenta de servicio. Consulte [Permisos y cuentas de Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
 Permisos | De forma predeterminada, Azure AD Connect creará cuatro grupos locales en el servidor cuando se instalen los servicios de sincronización. Estos grupos son: grupo Administradores, grupo Operadores, grupo Examinar y grupo Restablecimiento de contraseña. Si desea especificar sus propios grupos puede hacerlo aquí. Los grupos deben ser locales en el servidor y no se pueden encontrar en el dominio. |
 
 
@@ -59,7 +59,7 @@ Después de instalar los componentes necesarios, se le pedirá que especifique e
 
 Inicio de sesión único | Descripción
 ------------- | ------------- |
-Sincronización de contraseñas |Los usuarios puedan iniciar sesión en los Servicios en la nube de Microsoft (como Office 365, Dynamics CRM y Windows InTune) con la misma contraseña que usan para iniciar sesión en la red local. La contraseña del usuario se sincroniza en Azure mediante un hash de contraseña y la autenticación se produce en la nube. Vea [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md) para obtener más información.
+Sincronización de contraseñas |Los usuarios puedan iniciar sesión en los Servicios en la nube de Microsoft (como Office 365, Dynamics CRM y Windows InTune) con la misma contraseña que usan para iniciar sesión en la red local. La contraseña del usuario se sincroniza en Azure mediante un hash de contraseña y la autenticación se produce en la nube. Consulte [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md) para obtener más información.
 Federación con AD FS|Los usuarios puedan iniciar sesión en los Servicios en la nube de Microsoft (como Office 365, Dynamics CRM y Windows InTune) con la misma contraseña que usan para iniciar sesión en la red local. Los usuarios se redirigen a la instancia local de AD FS para iniciar sesión y la autenticación se realiza de forma local.
 No configurar| No se instalará ni configurará ninguna característica. Elija esta opción si ya tiene un servidor de federación de terceros u otra solución existente ya instalada.
 
@@ -96,9 +96,9 @@ Mi propio atributo|Esta opción le permite seleccionar su propio atributo. **Lim
 
 - **Delimitador de origen**: el atributo sourceAnchor es un atributo que es inmutable durante la duración de un objeto de usuario. Es la clave principal que vincula el usuario local con el usuario de Azure AD. Puesto que no se puede cambiar el atributo, debe pensar en un atributo que sea adecuado usar. Un buen candidato es objectGUID. Este atributo no cambiará a menos que la cuenta de usuario se mueva entre bosques o dominios. En un entorno de varios bosque donde se muevan cuentas entre bosques, debe utilizarse otro atributo, como un atributo con el identificador de empleado. Atributos que hay que evitar son aquellos que podrían cambiar si combina una persona o cambian las asignaciones. No se pueden utilizar los atributos con un signo @, por lo que no se puede utilizar el correo electrónico y userPrincipalName. El atributo también distingue mayúsculas de minúsculas por lo que si mueve un objeto entre bosques, asegúrese de conservar las mayúsculas y minúsculas. Para los atributos binarios el valor está codificado en base 64, pero para otros tipos de atributo permanecerá en su estado sin codificar. En escenarios de federación y en algunas interfaces de Azure AD, este atributo se conoce también como immutableID. En los [conceptos de diseño](active-directory-aadconnect-design-concepts.md#sourceAnchor) puede encontrar más información sobre el delimitador de origen.
 
-- **UserPrincipalName**: el atributo userPrincipalName es el atributo que los usuarios van a usar al iniciar sesión en Azure AD y Office 365. Los dominios utilizados, también conocidos como sufijo UPN, deben comprobarse en Azure AD antes de que se sincronicen los usuarios. Se recomienda encarecidamente mantener el atributo userPrincipalName predeterminado. Si este atributo no es enrutable y no se puede comprobar, se puede seleccionar otro atributo, por ejemplo, correo electrónico, como atributo que contiene el identificador de inicio de sesión. Este se conoce como **Alternate ID**. El valor del atributo Alternate ID debe seguir el estándar RFC822. El atributo Alternate ID puede usarse como solución de inicio de sesión tanto con el inicio de sesión único (SSO) de contraseña como con el SSO de federación.
+- **UserPrincipalName**: el atributo userPrincipalName es el atributo que los usuarios van a usar al iniciar sesión en Azure AD y Office 365. Los dominios utilizados, también conocidos como sufijo UPN, deben comprobarse en Azure AD antes de que se sincronicen los usuarios. Se recomienda encarecidamente mantener el atributo userPrincipalName predeterminado. Si este atributo no es enrutable y no se puede comprobar, se puede seleccionar otro atributo, por ejemplo, correo electrónico, como atributo que contiene el identificador de inicio de sesión. Este se conoce como **Id. alternativo**. El valor del atributo Alternate ID debe seguir el estándar RFC822. El atributo Alternate ID puede usarse como solución de inicio de sesión tanto con el inicio de sesión único (SSO) de contraseña como con el SSO de federación.
 
->[AZURE.WARNING]El uso de un identificador alternativo no es compatible con todas las cargas de trabajo de Office 365. Para obtener más información, vea [Configuración del identificador de inicio de sesión alternativo](https://technet.microsoft.com/library/dn659436.aspx.).
+>[AZURE.WARNING]El uso de un identificador alternativo no es compatible con todas las cargas de trabajo de Office 365. Para obtener más información, consulte [Configuración del identificador de inicio de sesión alternativo](https://technet.microsoft.com/library/dn659436.aspx.).
 
 
 
@@ -121,11 +121,11 @@ Características opcionales | Descripción
 -------------------    | ------------- |
 Implementación híbrida de Exchange |La característica Implementación híbrida de Exchange permite la coexistencia de buzones de Exchange tanto en ámbito local como en Azure mediante la sincronización de un conjunto específico de [atributos](active-directory-aadconnectsync-attributes-synchronzied.md#exchange-hybrid-writeback) de Azure AD en el directorio local.
 Aplicación Azure AD y filtro de atributos|Al habilitar la aplicación de Azure AD y el filtro de atributos, el conjunto de atributos sincronizados se puede adaptar a un conjunto específico de una página posterior del asistente. Esto abre dos páginas de configuración adicionales en el asistente.  
-Sincronización de contraseñas | Puede habilitar esta opción si seleccionó la federación como solución de inicio de sesión. A continuación, la sincronización de contraseñas se puede usar como opción de copia de seguridad. Para obtener más información, vea [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md).
-Escritura diferida de contraseñas|Al habilitar la escritura diferida de contraseñas, los cambios de contraseña que se originan con Azure AD se volverán a escribir en su directorio local. Para obtener más información, vea [Introducción a la administración de contraseñas](active-directory-passwords-getting-started.md).
-Escritura diferida de grupos |Si utiliza la función **Grupos en Office 365**, puede tener estos grupos en Active Directory local como un grupo de distribución. Esta opción sólo está disponible si dispone de Exchange en su Active Directory local. Para obtener más información, vea [Escritura diferida de grupos](active-directory-aadconnect-feature-preview.md#group-writeback).
-Escritura diferida de dispositivos | Permite realizar una escritura diferida de objetos de dispositivo en Azure AD para su Active Directory local para escenarios de acceso condicional. Para obtener más información, vea [Habilitación de escritura diferida de dispositivos en Azure AD Connect](active-directory-aadconnect-get-started-custom-device-writeback.md).
-Sincronización de atributos de las extensiones de directorios|Al habilitar la sincronización de atributos de las extensiones de directorios, los atributos adicionales especificados se sincronizarán con Azure AD. Para obtener más información, vea [Extensiones de directorio](active-directory-aadconnect-feature-preview.md#directory-extensions).
+Sincronización de contraseñas | Puede habilitar esta opción si seleccionó la federación como solución de inicio de sesión. A continuación, la sincronización de contraseñas se puede usar como opción de copia de seguridad. Para obtener más información, consulte [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md).
+Escritura diferida de contraseñas|Al habilitar la escritura diferida de contraseñas, los cambios de contraseña que se originan con Azure AD se volverán a escribir en su directorio local. Para obtener más información, consulte [Introducción a la administración de contraseñas](active-directory-passwords-getting-started.md).
+Escritura diferida de grupos |Si usa la función **Grupos en Office 365**, puede tener estos grupos en Active Directory local como un grupo de distribución. Esta opción sólo está disponible si dispone de Exchange en su Active Directory local. Para obtener más información, consulte [Escritura diferida de grupos](active-directory-aadconnect-feature-preview.md#group-writeback).
+Escritura diferida de dispositivos | Permite realizar una escritura diferida de objetos de dispositivo en Azure AD para su Active Directory local para escenarios de acceso condicional. Para obtener más información, consulte [Habilitación de escritura diferida de dispositivos en Azure AD Connect](active-directory-aadconnect-get-started-custom-device-writeback.md).
+Sincronización de atributos de las extensiones de directorios|Al habilitar la sincronización de atributos de las extensiones de directorios, los atributos adicionales especificados se sincronizarán con Azure AD. Para obtener más información, consulte [Extensiones de directorio](active-directory-aadconnect-feature-preview.md#directory-extensions).
 
 ### Aplicación Azure AD y filtro de atributos
 Si desea limitar qué atributos sincronizar con Azure AD, empiece seleccionando los servicios que usa. Si configura esta página, cualquier servicio nuevo se debe seleccionar explícitamente volviendo a ejecutar el asistente para instalación.
@@ -141,7 +141,7 @@ Con las extensiones de directorios puede extender el esquema en Azure AD con atr
 
 ![Filtrado de sincronización](./media/active-directory-aadconnect-get-started-custom/extension2.png)
 
-Para obtener más información, vea [Extensiones de directorio](active-directory-aadconnect-feature-preview.md#directory-extensions).
+Para obtener más información, consulte [Extensiones de directorio](active-directory-aadconnect-feature-preview.md#directory-extensions).
 
 ## Configuración de federación con AD FS
 La configuración de AD FS con Azure AD Connect es muy sencilla y solo se necesitan unos cuantos clics. Es necesario lo siguiente antes de la instalación.
@@ -225,7 +225,7 @@ Con el modo provisional es posible el proceso de instalación de un nuevo servid
 
 En modo provisional, es posible realizar los cambios necesarios en el motor de sincronización y revisar lo que se va a exportar. Cuando la configuración esté correcta, vuelva a ejecutar al Asistente para la instalación y deshabilite el modo provisional. Esto permitirá que los datos se exporten a Azure AD. Asegúrese de deshabilitar al otro servidor al mismo tiempo para que solo un servidor esté exportando activamente.
 
- Para obtener más información, vea [Modo provisional](active-directory-aadconnectsync-operations.md#staging-mode).
+ Para obtener más información, consulte [Modo provisional](active-directory-aadconnectsync-operations.md#staging-mode).
 
 ### Comprobación de la configuración de la federación
 
@@ -242,8 +242,8 @@ Además, realice los pasos de comprobación siguientes:
 
 
 ## Pasos siguientes
-Ahora que ha instalado Azure Connect de AD puede [comprobar la instalación y asignar licencias](active-directory-aadconnect-whats-next.md).
+Ahora que ha instalado Azure AD Connect puede [comprobar la instalación y asignar licencias](active-directory-aadconnect-whats-next.md).
 
-Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
+Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

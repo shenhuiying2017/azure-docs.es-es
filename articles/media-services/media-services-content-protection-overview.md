@@ -23,12 +23,12 @@ Servicios multimedia de Microsoft Azure le permite proteger su contenido multime
 
 - La siguiente imagen muestra el flujo de trabajo "Cifrado dinámico común DRM de PlayReady o Widevine". Para obtener más información, consulte [Uso de cifrado dinámico común DRM de PlayReady o Widevine](media-services-protect-with-drm.md).
 
-	![Protección con PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
+![Protección con PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
 
 - La siguiente imagen muestra el flujo de trabajo "Cifrado dinámico de AES-128". Para obtener más información, consulte [Uso del cifrado dinámico AES-128 y del servicio de entrega de claves](media-services-protect-with-aes128.md).
 
-	![Protección con AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
+![Protección con AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
 >[AZURE.NOTE]Para poder usar el cifrado dinámico, primero debe obtener al menos una unidad reservada de streaming en el extremo de streaming desde la que desea transmitir el contenido cifrado.
 
@@ -80,7 +80,7 @@ Las licencias contienen los derechos y restricciones que desea para el tiempo de
 
 ###Restricción de token
 
-La directiva de autorización de clave de acceso podría tener una o más restricciones de autorización: abrir, restricción de token o restricción de IP. La directiva con restricción token debe ir acompañada de un token emitido por un Servicio de tokens seguros (STS). Servicios multimedia admite tokens en formato Token de web simple (SWT) y en formato Token de web JSON (JWT). Los Servicios multimedia no proporcionan Servicios de tokens seguros. Puede crear un STS personalizado o aprovechar el Servicio de control de acceso (ACS) de Microsoft Azure para emitir tokens. Se debe configurar el STS para crear un token firmado con las notificaciones de clave y emisión que especificó en la configuración de restricción de tokens. El servicio de entrega de claves de Servicios multimedia devolverá la clave solicitada (o licencia) al cliente si el token es válido y las reclamaciones del token coinciden con las configuradas para la clave (o licencia).
+La directiva de autorización de claves de acceso podría tener una o más restricciones de autorización: abrir o restricción de token. La directiva con restricción token debe ir acompañada de un token emitido por un Servicio de tokens seguros (STS). Servicios multimedia admite tokens en formato Token de web simple (SWT) y en formato Token de web JSON (JWT). Los Servicios multimedia no proporcionan Servicios de tokens seguros. Puede crear un STS personalizado o aprovechar el Servicio de control de acceso (ACS) de Microsoft Azure para emitir tokens. Se debe configurar el STS para crear un token firmado con las notificaciones de clave y emisión que especificó en la configuración de restricción de tokens. El servicio de entrega de claves de Servicios multimedia devolverá la clave solicitada (o licencia) al cliente si el token es válido y las reclamaciones del token coinciden con las configuradas para la clave (o licencia).
 
 Al configurar la directiva de restricción de token, debe especificar los parámetros de clave de comprobación principal, emisor y público. La clave de comprobación principal contiene la clave con la que se firmó el token y el emisor es el servicio de tokens seguros que emite el token. El público (a veces denominado ámbito) describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Servicios multimedia valida que estos valores del token coincidan con los valores de la plantilla.
 
@@ -88,11 +88,11 @@ Al configurar la directiva de restricción de token, debe especificar los parám
 
 AMS también le permite entregar MPEG DASH cifrado con DRM de Widevine. PlayReady y Widewine se cifran según la especificación de cifrado común (CENC). Puede usar el [.NET SDK de AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir de la versión 3.5.1) o la API de REST para configurar AssetDeliveryConfiguration para usar Widevine.
 
-Actualmente, Servicios multimedia no proporciona un servidor de licencias de Widevine. Puede usar los siguientes partners de AMS para ayudarle a entregar licencias de Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+A partir del SDK de Servicios multimedia para .NET versión 3.5.2, Servicios multimedia permite configurar la plantilla de licencia Widevine y obtener licencias de Widevine. También puede usar los siguientes asociados de AMS para ayudarle a entregar licencias de Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 ##Escenarios comunes
 
-###Protección del contenido en el almacenamiento, entrega de soportes de streaming cifrados dinámicamente, use el servicio de entrega de claves\\licencia AMS  
+###Protección del contenido en el almacenamiento, entrega de soportes de streaming cifrados dinámicamente, use el servicio de entrega de claves\\licencia AMS
 
 1. Introduzca un archivo intermedio de alta calidad en un recurso. Aplique una opción de cifrado de almacenamiento al recurso.
 2. Configure de extremos de streaming.
@@ -137,6 +137,5 @@ Para obtener más información, consulte [Integración del servicio de licencia 
 [Uso de ACS de Azure para emitir tokens](http://mingfeiy.com/acs-with-key-services).
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
- 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

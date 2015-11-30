@@ -29,7 +29,7 @@ El Portal de Azure ofrece dos formas de crear e implementar un servicio en la nu
 
 En este tema se explica cómo usar el método Creación rápida para crear un nuevo servicio en la nube y, luego, usar **Cargar** para cargar e implementar un paquete de servicios en la nube en Azure. Cuando usa este método, el Portal de Azure pone a su disposición los vínculos pertinentes para completar todos los requisitos que vaya necesitando sobre la marcha. Si está listo para implementar su servicio en la nube una vez creado, puede hacer las dos cosas a la vez usando **Creación personalizada**.
 
-> [AZURE.NOTE]Si tiene pensado publicar su servicio en la nube desde Visual Studio Online (VSO), use Creación rápida y, a continuación, configure la publicación VSO desde **Creación rápida** o el panel. Para obtener más información, consulte [Entrega continua a Azure usando Visual Studio Online][TFSTutorialForCloudService] o la ayuda de la página **Inicio rápido**.
+> [AZURE.NOTE]Si tiene pensado publicar su servicio en la nube desde Visual Studio Team Services (VSTS), use Creación rápida y, a continuación, configure la publicación VSTS desde **Creación rápida** o el panel. Para obtener más información, consulte [Entrega continua a Azure usando Visual Studio Team Services][TFSTutorialForCloudService] o la ayuda de la página **Inicio rápido**.
 
 ## Conceptos
 se necesitan tres componentes para implementar una aplicación como servicio en la nube en Azure:
@@ -153,4 +153,4 @@ Hay tres características del servicio en la nube que requieren configuraciones 
 * [Administración de su servicio en la nube](cloud-services-how-to-manage.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

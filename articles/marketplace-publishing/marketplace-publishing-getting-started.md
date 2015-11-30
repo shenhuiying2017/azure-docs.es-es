@@ -16,19 +16,19 @@
    ms.date="10/09/2015"
    ms.author="hascipio" />
 
-# Publicación de una oferta en Microsoft Azure Marketplace
-Este artículo se ofrece para ayudar a los vendedores a crear e implementar su solución, por ejemplo, la imagen de máquina virtual única, la plantilla de solución, el servicio de desarrolladores o el servicio de datos en Azure Marketplace, para que otros socios y clientes de Azure la compren y la usen.
+# Publicación de una oferta en Azure Marketplace
+Este artículo sirve de ayuda para crear e implementar una solución en Azure Marketplace para que otros socios y clientes de Azure la compren y la usen.
 
-Lo primero que le convendría hacer como publicador es definir el tipo de solución que ofrece su compañía. Azure Marketplace admite varios tipos de soluciones distintos y cada uno de ellos requiere que se establezca un conjunto de trabajo ligeramente diferente para publicar correctamente en Marketplace.
+Lo primero que le convendría hacer como publicador es definir el tipo de solución que ofrece su compañía. Azure Marketplace admite varias soluciones y cada una de ellas requiere que se establezca un conjunto de trabajo ligeramente diferente para publicar correctamente en Marketplace.
 
-**Tipos de soluciones:**
+Tipos de soluciones:
 
-- Servicios de datos
-- Servicios de desarrollador
-- Máquinas virtuales
-- Plantillas de solución
+- Imagen de máquina virtual
+- Servicio de desarrolladores
+- Servicio de datos
+- Plantilla de solución
 
-Algunos pasos se comparten entre los distintos tipos de soluciones. Aquí se ofrece una breve introducción a los pasos que debe completar para cualquier tipo de solución.
+Algunos pasos se comparten entre los distintos tipos de soluciones. En este artículo se ofrece una breve introducción a los pasos que debe completar para cualquier tipo de solución.
 
 **Antes de empezar cualquier trabajo en Azure Marketplace, debe obtener la probación previa. No se aplica a los publicadores de servicios de datos.**
 
@@ -50,7 +50,7 @@ Algunos pasos se comparten entre los distintos tipos de soluciones. Aquí se ofr
 - [Solución de problemas comunes de publicación en Marketplace][suppt-common]
 
 ## Recursos adicionales
-- Para obtener más información sobre los portales que se usan, visite [Portales que necesitará](marketplace-publishing-portals.md)
+- Para más información sobre los portales que se usan, vea [Portales que necesitará](marketplace-publishing-portals.md).
 
 **Máquinas virtuales**
 
@@ -75,4 +75,4 @@ Algunos pasos se comparten entre los distintos tipos de soluciones. Aquí se ofr
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

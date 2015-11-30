@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Consulte Datos de Application Insights en Power BI" 
-	description="Use Power BI para supervisar el rendimiento y el uso de la aplicación." 
+	pageTitle="Usar Análisis de transmisiones para exportar Power BI desde Application Insights" 
+	description="Muestra cómo usar Análisis de transmisiones para procesar los datos exportados." 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -12,16 +12,18 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/15/2015" 
 	ms.author="awills"/>
  
-# Vistas de datos de Application Insights en Power BI
+# Usar Análisis de transmisiones para alimentar Power BI desde Application Insights
 
 [Microsoft Power BI](https://powerbi.microsoft.com/) presenta los datos en objetos visuales enriquecidos y variados, con la capacidad de reunir información de varios orígenes. Puede transmitir los datos de telemetría sobre el rendimiento y el uso de las aplicaciones web o de dispositivo de Application Insights a Power BI.
 
+> [AZURE.NOTE]La manera más fácil de obtener datos en Power BI de Application Insights es [mediante el adaptador](https://powerbi.microsoft.com/es-ES/documentation/powerbi-content-pack-application-insights/) que encontrará en la Galería de Power BI en Servicios. Lo que se describe en este artículo es actualmente más versátil, pero también es una demostración de cómo usar Análisis de transmisiones con Application Insights.
+
 ![Ejemplo de vista en Power BI de los datos de uso de Application Insights](./media/app-insights-export-power-bi/010.png)
 
-En este artículo, le mostraremos cómo exportar datos de Application Insights y utilizar el Análisis de transmisiones para transmitir los datos a Power BI. El [Análisis de transmisiones](http://azure.microsoft.com/services/stream-analytics/) es un servicio de Azure que vamos a usar como un adaptador.
+En este artículo, le mostraremos cómo exportar datos de Application Insights y utilizar el Análisis de transmisiones para transmitir los datos a Power BI. [Análisis de transmisiones](http://azure.microsoft.com/services/stream-analytics/) es un servicio de Azure que vamos a usar como un adaptador.
 
 ![Ejemplo de vista en Power BI de los datos de uso de Application Insights](./media/app-insights-export-power-bi/020.png)
 
@@ -42,7 +44,7 @@ Si aún no lo ha intentado, ahora es el momento de empezar. Application Insights
 
 La exportación continua siempre envía los datos a una cuenta de almacenamiento de Azure, por lo que necesitará crear primero el almacenamiento.
 
-1. Cree una cuenta de almacenamiento "clásica" en su suscripción en el [portal de Azure](https://portal.azure.com).
+1. Cree una cuenta de almacenamiento "clásica" en su suscripción en el [Portal de Azure](https://portal.azure.com).
 
     ![En el portal de Azure, elija Nuevo, Datos, Almacenamiento.](./media/app-insights-export-power-bi/030.png)
 
@@ -130,7 +132,7 @@ En este ejemplo:
 
 * `webapplication27` es el nombre del recurso de Application Insights, **todo en minúsculas**.
 * `1234...` es la clave de instrumentación que copió del recurso de Application Insights, **omitiendo guiones**. 
-* `PageViews` es el tipo de datos que desea analizar. Los tipos disponibles dependen del filtro definido en la Exportación continua. Examine los datos exportados para ver los demás tipos disponibles y consulte el [modelo de exportación de datos](app-insights-export-data-model.md).
+* `PageViews` es el tipo de datos que desea analizar. Los tipos disponibles dependen del filtro definido en la Exportación continua. Examine los datos exportados para ver los demás tipos disponibles y vea el [modelo de exportación de datos](app-insights-export-data-model.md).
 * `/{date}/{time}` es un patrón escrito literalmente.
 
 > [AZURE.NOTE]Inspeccione el almacenamiento para asegurarse de que obtiene la ruta de acceso correcta.
@@ -205,7 +207,28 @@ Pegue esta consulta:
 
 * Esta consulta explora la telemetría de métricas para obtener la hora del evento y el valor de métrica. Los valores de métrica están dentro de una matriz, por eso usamos el patrón OUTER APPLY GetElements para extraer las filas. "myMetric" es el nombre de la métrica en este caso. 
 
+#### Consulta para incluir los valores de propiedades de dimensión
 
+```SQL
+
+    WITH flat AS (
+    SELECT
+      MySource.context.data.eventTime as eventTime,
+      InstanceId = MyDimension.ArrayValue.InstanceId.value,
+      BusinessUnitId = MyDimension.ArrayValue.BusinessUnitId.value
+    FROM MySource
+    OUTER APPLY GetArrayElements(MySource.context.custom.dimensions) MyDimension
+    )
+    SELECT
+     eventTime,
+     InstanceId,
+     BusinessUnitId
+    INTO AIOutput
+    FROM flat
+
+```
+
+* Esta consulta incluye valores de las propiedades de dimensión sin depender de la fijación de una dimensión determinada en un índice fijo en la matriz de dimensión.
 
 ## Ejecución del trabajo
 
@@ -239,4 +262,4 @@ Noam Ben Zeev muestra cómo exportar a Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Más ejemplos y tutoriales](app-insights-code-samples.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

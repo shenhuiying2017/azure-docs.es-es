@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="tamram"/>
 
 
@@ -144,17 +144,22 @@ La diferencia entre las dos formas es importante para un escenario principal: re
 
 >[AZURE.IMPORTANT]Los URI de firma de acceso compartido están asociados a la clave de la cuenta que se utiliza para crear la firma y a la directiva de acceso almacenada correspondiente (en su caso). Si no se especifica una directiva de acceso almacenada, la única forma de revocar una firma de acceso compartido es cambiar la clave de la cuenta.
 
-## Ejemplos de firmas de acceso compartido
+## Por ejemplo: crear y usar las firmas de acceso compartido
 
 A continuación figuran algunos ejemplos de ambos tipos de firmas de acceso compartido, SAS de cuenta y SAS de servicio.
 
-### Ejemplo de SAS de cuenta
+Para ejecutar estos ejemplos, debe descargar y hacer referencia a estos paquetes:
+
+- Versión 6.x o posterior de la [Biblioteca de cliente de Almacenamiento de azure para .NET](http://www.nuget.org/packages/WindowsAzure.Storage) (para usar la cuenta SAS).
+- [Administrador de configuración Azure](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 
+
+### Ejemplo: cuenta SAS
 
 En el ejemplo de código siguiente se crea una SAS de cuenta que es válida para los servicios Blob y Archivo y da al cliente permisos de lectura, escritura y lista para acceder a las API de nivel de servicio. La SAS de cuenta restringe el protocolo a HTTPS, por lo que la solicitud se debe realizar con HTTPS.
 
     static string GetAccountSASToken()
     {
-        // To create the account SAS, you need to use your shared key credentials.
+        // To create the account SAS, you need to use your shared key credentials. Modify for your account.
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -218,21 +223,13 @@ Para usar la SAS de cuenta a fin de acceder a las API de nivel de servicio para 
         Console.WriteLine(serviceProperties.HourMetrics.Version);
     }
 
-### Ejemplo de SAS de servicio
+### Ejemplo: servicio SAS con directiva de acceso almacenada
 
-En el ejemplo de código siguiente se crea una directiva de acceso almacenada en un contenedor y luego se genera una SAS de servicio para el contenedor. Esta SAS se puede proporcionar luego a los clientes para que tengan permisos de lectura y escritura en el contenedor:
+En el ejemplo de código siguiente se crea una directiva de acceso almacenada en un contenedor y luego se genera una SAS de servicio para el contenedor. Esta SAS se puede proporcionar a los clientes para que tengan permisos de lectura y escritura en el contenedor. Cambie el código para usar su propio nombre de cuenta:
 
-    // The connection string for the storage account.  Modify for your account.
-    string storageConnectionString =
-       "DefaultEndpointsProtocol=https;" +
-       "AccountName=myaccount;" +
-       "AccountKey=<account-key>";
-    
-    // As an alternative, you can retrieve storage account information from an app.config file. 
-    // This is one way to store and retrieve a connection string if you are 
-    // writing an application that will run locally, rather than in Microsoft Azure.
-    
-    // string storageConnectionString = ConfigurationManager.AppSettings["StorageAccountConnectionString"];
+    // Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
     
     // Create the storage account with the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
@@ -246,6 +243,9 @@ En el ejemplo de código siguiente se crea una directiva de acceso almacenada en
     
     // Get the current permissions for the blob container.
     BlobContainerPermissions blobPermissions = container.GetPermissions();
+
+    // Clear the container's shared access policies to avoid naming conflicts.
+    blobPermissions.SharedAccessPolicies.Clear();
     
     // The new shared access policy provides read/write access to the container for 24 hours.
     blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy()
@@ -261,16 +261,16 @@ En el ejemplo de código siguiente se crea una directiva de acceso almacenada en
     // the container is private, so that it can't be accessed anonymously.
     blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
     
-    // Set the permission policy on the container.
+    // Set the new stored access policy on the container.
     container.SetPermissions(blobPermissions);
     
     // Get the shared access signature token to share with users.
     string sasToken =
        container.GetSharedAccessSignature(new SharedAccessBlobPolicy(), "mypolicy");
 
-Un cliente en posesión de una SAS de servicio puede usarla desde el código para autenticar una solicitud de lectura y escritura en un blob del contenedor. Por ejemplo, el código siguiente usa el token de SAS para crear un nuevo blob en bloques en el contenedor:
+Un cliente en posesión de una SAS de servicio puede usarla desde el código para autenticar una solicitud de lectura y escritura en un blob del contenedor. Por ejemplo, el código siguiente usa el token SAS para crear un nuevo blob en bloques en el contenedor. Cambie el código para usar su propio nombre de cuenta:
 
-    Uri blobUri = new Uri("https://myaccount.blob.core.windows.net/mycontainer/myblob.txt");
+    Uri blobUri = new Uri("https://<myaccount>.blob.core.windows.net/mycontainer/myblob.txt");
     
     // Create credentials with the SAS token. The SAS token was created in previous example.
     StorageCredentials credentials = new StorageCredentials(sasToken);
@@ -281,7 +281,7 @@ Un cliente en posesión de una SAS de servicio puede usarla desde el código par
     // Upload the blob. 
     // If the blob does not yet exist, it will be created. 
     // If the blob does exist, its existing content will be overwritten.
-    using (var fileStream = System.IO.File.OpenRead(@"c:\Test\myblob.txt"))
+    using (var fileStream = System.IO.File.OpenRead(@"c:\Temp\myblob.txt"))
     {
     	blob.UploadFromStream(fileStream);
     }
@@ -317,9 +317,11 @@ Las firmas de acceso compartido son útiles para ofrecer permisos limitados a su
 - [Uso del Almacenamiento de archivos de Azure con Windows](storage-dotnet-how-to-use-files.md)
 - [Administración del acceso a los recursos de almacenamiento de Azure](storage-manage-access-to-resources.md)
 - [Delegación de acceso con una firma de acceso compartido](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [Presentación de tablas y colas SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [Presentación de tablas y colas SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
+[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

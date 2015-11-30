@@ -156,7 +156,7 @@ Para obtener una lista completa de las aplicaciones SaaS que han sido previament
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Veracode.jpg)| [Veracode](https://go.microsoft.com/fwLink/?LinkID=530231&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Wikispace.jpg)| [Wikispaces](https://go.microsoft.com/fwLink/?LinkID=403223&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Work.jpg)| [Work.com](https://go.microsoft.com/fwLink/?LinkID=510259&clcid=0x409)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Workday.jpg)| [Sincronización de entrada de Workday](https://msdn.microsoft.com/library/azure/dn762434.aspx)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Workday.jpg)| [Sincronización de entrada de Workday](active-directory-saas-workday-inbound-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Workday.jpg)| [Workday](https://go.microsoft.com/fwLink/?LinkID=286020&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Workrite.jpg)| [Workrite](https://go.microsoft.com/fwLink/?LinkID=530242&clcid=0x409)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_xMattersOnDemand.jpg)| [xMatters OnDemand](https://go.microsoft.com/fwLink/?LinkID=403231&clcid=0x409)|
@@ -176,4 +176,4 @@ Para obtener una lista completa de las aplicaciones SaaS que han sido previament
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

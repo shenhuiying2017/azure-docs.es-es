@@ -18,7 +18,7 @@
 
 
 #Introducción a SQL Data Sync de Azure (vista previa)
-En este tutorial aprenderá los fundamentos del uso de SQL Data Sync de Azure mediante el Portal de Azure (vista previa).
+En este tutorial aprenderá los fundamentos del uso de SQL Data Sync de Azure mediante el Portal de administración de Azure.
 
 En este tutorial se presupone una experiencia previa mínima en SQL Server y Base de datos SQL de Azure. En este tutorial, creará un grupo de sincronización híbrido (sesiones de SQL Server y Base de datos SQL) completamente configurado y sincronizado en función de cómo lo programe.
 
@@ -202,4 +202,4 @@ Para obtener más información acerca de Base de datos SQL y SQL Data Sync, cons
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

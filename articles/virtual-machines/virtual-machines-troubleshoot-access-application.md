@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="11/17/2015"
 	ms.author="dkshir"/>
 
 # Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure
@@ -100,17 +100,29 @@ Si puede tener acceso a la aplicación, asegúrese de que el dispositivo perimet
 - El tráfico de solicitud saliente de aplicaciones desde el equipo cliente hasta la máquina virtual de Azure.
 - El tráfico de respuesta de aplicación entrante desde la máquina virtual de Azure.
 
+## Solucionar problemas de conectividad de punto de conexión
+
+Si tiene problemas al conectar a un punto de conexión como puede ser el del escritorio remoto, puede intentar los siguientes pasos para solucionar varios problemas generales:
+
+- Reiniciar la máquina virtual
+- Volver a crear el punto de conexión
+- Conectarse desde otra ubicación
+- Cambiar el tamaño de la máquina virtual
+- Volver a crear la máquina virtual
+
+Para obtener más información, consulte [Solución de problemas con la conectividad del punto de conexión (RDP, SSH, HTTP u otros errores)](https://social.msdn.microsoft.com/Forums/azure/es-ES/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
+
 ## Pasos siguientes
 
-Si ha efectuado los pasos del 1 al 3 de este artículo y necesita ayuda adicional para corregir el problema, puede:
+Si ha efectuado los pasos anteriores que se indican en este artículo y necesita ayuda adicional para corregir el problema, puede:
 
 - Obtener ayuda de expertos de Azure de todo el mundo. Enviar su problema a los foros de MSDN Azure o de desbordamiento de pila. Para obtener más información, consulte [Foros de Microsoft Azure](http://azure.microsoft.com/support/forums/).
-- Registrar un incidente de soporte técnico de Azure. Vaya al [Sitio de soporte técnico de Azure](http://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico** en **Soporte técnico y de facturación**.
+- Registrar un incidente de soporte técnico de Azure. Vaya al [Sitio del soporte técnico de Azure](http://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico** en **Soporte técnico y facturación**.
 
 ## Recursos adicionales
 
-[Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
+[Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows ](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
 [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

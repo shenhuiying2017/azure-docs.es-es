@@ -143,9 +143,9 @@ Hay diferentes métodos de establecer la propiedad de versión de la aplicación
 
     Para permitir que MSBuild genere números de versión, establezca la versión como `1.0.*` en AssemblyReference.cs.
 
-## Supervisión de servidores back-end
+## Supervisar servidores back-end y aplicaciones de escritorio
 
-[Uso de la API básica](app-insights-windows-desktop.md)
+[Use el módulo de SDK de Windows Server](app-insights-windows-desktop.md).
 
 
 ## Visualización de datos
@@ -185,15 +185,15 @@ A continuación, puede:
 
 ## Modificación de valores o nombres de propiedad
 
-Cree un filtro (app-insights-api-filtering-sampling.md#filtering). Esto le permite modificar o filtrar telemetría antes de que se envíe desde su aplicación a Application Insights.
+Cree un [filtro](app-insights-api-filtering-sampling.md#filtering). Esto le permite modificar o filtrar telemetría antes de que se envíe desde su aplicación a Application Insights.
 
 ## Enumeración de usuarios específicos y su uso
 
-Si solo desea [buscar usuarios específicos](#search-specific-users), puede establecer el [identificador de usuario autenticado](app-insights-api-custom-events-metrics/#authenticated-users).
+Si solo desea [buscar usuarios específicos](#search-specific-users), puede establecer el [identificador de usuario autenticado](app-insights-api-custom-events-metrics.md#authenticated-users).
 
 Si desea obtener una lista de usuarios con datos como las páginas que ven o la frecuencia con la que inician sesión, tiene dos opciones:
 
-* [Establezca el identificador de usuario autenticado](app-insights-api-custom-events-metrics/#authenticated-users), [exporte a una base de datos](app-insights-code-sample-export-sql-stream-analytics.md) y use las herramientas adecuadas para analizar los datos de usuario.
+* [Establezca el identificador de usuario autenticado](app-insights-api-custom-events-metrics.md#authenticated-users), [exporte a una base de datos](app-insights-code-sample-export-sql-stream-analytics.md) y use las herramientas adecuadas para analizar los datos de usuario.
 * Si solo dispone de un número reducido de usuarios, envíe eventos o métricas personalizados, mediante el uso de los datos de interés como el valor de métrica o el nombre de evento y el establecimiento del identificador de usuario como una propiedad. Para analizar las vistas de página, reemplace la llamada trackPageView de JavaScript estándar. Para analizar la telemetría en el servidor, use un inicializador de telemetría para agregar el identificador de usuario para toda la telemetría de servidor. Después puede filtrar y segmentar las métricas y las búsquedas en el identificador de usuario.
 
 
@@ -232,7 +232,7 @@ Entre las métricas que se pueden mostrar en el Explorador de métricas se encue
 ### Si no ve ningún dato de contadores de rendimiento
 
 * El **servidor IIS** en su propia máquina o en una VM. [Instale el Monitor de estado](app-insights-monitor-performance-live-website-now.md). 
-* **Sitio web de Azure**: aún no se admiten los contadores de rendimiento. Hay varias métricas que se puede obtener como parte estándar del sitio web de Azure en el panel de control.
+* **Sitio web de Azure**: todavía no se admiten los contadores de rendimiento. Hay varias métricas que se puede obtener como parte estándar del sitio web de Azure en el panel de control.
 * **Servidor Unix**: [instale collectd](app-insights-java-collectd.md)
 
 ### Para mostrar más contadores de rendimiento
@@ -240,4 +240,4 @@ Entre las métricas que se pueden mostrar en el Explorador de métricas se encue
 * En primer lugar, [agregue un nuevo gráfico](app-insights-metrics-explorer.md) y compruebe si el contador está en el conjunto básico que se ofrece.
 * Si no es así, [agregue el contador al conjunto recopilado por el módulo del contador de rendimiento](app-insights-web-monitor-performance.md#system-performance-counters).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="11/16/2015"
    ms.author="v-sharos" />
 
 # Usar el servicio de Administrador de StorSimple para administrar su cuenta de almacenamiento
@@ -113,7 +113,7 @@ Cuando se crea una cuenta de almacenamiento, Microsoft Azure genera dos claves d
 
 Normalmente, las aplicaciones usan solo una de las claves para acceder a los datos. Después de un período de tiempo, puede hacer que sus aplicaciones pasen a usar la clave secundaria. Después de hacer que sus aplicaciones cambien a la clave secundaria, puede retirar la primera clave y, a continuación, generar una nueva clave. Al usar las dos claves de esta forma permite que las aplicaciones accedan a los datos sin incurrir en tiempo de inactividad.
 
-Las claves de la cuenta de almacenamiento siempre se almacenan en el servicio en un formato cifrado. Sin embargo, pueden restablecerse mediante el servicio de Administrador de StorSimple. El servicio puede obtener la clave principal y secundaria de todas las cuentas de almacenamiento de la misma suscripción, incluidas las cuentas creadas en el servicio de almacenamiento, así como las cuentas de almacenamiento predeterminadas que se generaron cuando se creó el servicio de Administrador de StorSimple. El servicio de Administrador de StorSimple siempre obtendrá estas claves del Portal de administración y, a continuación, las almacenará de forma cifrada.
+Las claves de la cuenta de almacenamiento siempre se almacenan en el servicio en un formato cifrado. Sin embargo, pueden restablecerse mediante el servicio de Administrador de StorSimple. El servicio puede obtener la clave principal y secundaria de todas las cuentas de almacenamiento de la misma suscripción, incluidas las cuentas creadas en el servicio de almacenamiento, así como las cuentas de almacenamiento predeterminadas que se generaron cuando se creó el servicio de Administrador de StorSimple. El servicio de StorSimple Manager siempre obtendrá estas claves del Portal de Azure y, a continuación, las almacenará de forma cifrada.
 
 ## Flujo de trabajo de rotación
 
@@ -151,4 +151,4 @@ Para informar al servicio de Administrador de StorSimple del cambio, tendrá que
 - Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-security.md).
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

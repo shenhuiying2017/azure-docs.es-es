@@ -85,7 +85,7 @@ Si no ha habilitado las copias de seguridad automáticas, puede crear una [copia
 
 Puede usar una [implementación de ensayo](web-sites-staged-publishing.md). Esta opción le permite publicar actualizaciones en una implementación provisional que se ejecuta en paralelo a su implementación de producción.
 
-Si usa Visual Studio Online, puede configurar una implementación continua desde el control de código fuente:
+Si usa Visual Studio Team Services, puede configurar una implementación continua desde el control de código fuente:
 
 - [Uso del control de versiones de Team Foundation (TFVC)](../cloud-services-continuous-delivery-use-vso.md) 
 - [Uso de Git](../cloud-services-continuous-delivery-use-vso-git.md)
@@ -103,4 +103,4 @@ Si usa Visual Studio Online, puede configurar una implementación continua desde
 
   
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

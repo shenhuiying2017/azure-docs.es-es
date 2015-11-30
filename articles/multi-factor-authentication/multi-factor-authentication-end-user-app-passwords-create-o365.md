@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015"
 	ms.author="billmath"/>
 
 # Creación o eliminación de contraseñas de aplicación en el portal de Office 365 para Azure Multi-Factor Authentication
@@ -68,4 +68,4 @@ Si usa la autenticación multifactor con Office 365, le interesará crear contra
 <li>Aparece una ventana emergente que le pide que confirme la eliminación.</li>
 <li>Haga clic en **Sí**.</li>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

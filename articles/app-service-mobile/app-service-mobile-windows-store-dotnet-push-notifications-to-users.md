@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/14/2015"
+	ms.date="11/17/2015"
 	ms.author="yuaxu"/>
 
 # Envío de notificaciones entre plataformas a un usuario específico
@@ -109,4 +109,4 @@ Vuelva a publicar el proyecto de back-end móvil y ejecute cualquiera de las apl
 [plantillas]: https://msdn.microsoft.com/es-ES/library/dn530748.aspx
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

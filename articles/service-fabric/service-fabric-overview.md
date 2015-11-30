@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Información general de Service Fabric | Microsoft Azure" 
-   description="Información general de Service Fabric donde las aplicaciones se componen de microservicios. Service Fabric es una plataforma de sistemas distribuidos que se usa para crear aplicaciones escalables, confiables y fáciles de administrar para la nube." 
+   description="Información general de Service Fabric donde las aplicaciones se componen de muchos microservicios para ofrecer escala y resiliencia. Service Fabric es una plataforma de sistemas distribuidos que se usa para crear aplicaciones escalables, confiables y fáciles de administrar para la nube." 
    services="service-fabric" 
    documentationCenter=".net" 
    authors="msfussell" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA" 
-   ms.date="08/25/2015"
+   ms.date="11/18/2015"
    ms.author="mfussell"/>
 
 # Información general de Service Fabric
@@ -89,13 +89,15 @@ Usando Service Fabric, puede:
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
 
-* Para obtener más información: [Información general técnica](service-fabric-technical-overview.md).
+* Para obtener más información: 
+	* [¿Por qué usar un enfoque de microservicios para crear aplicaciones?](service-fabric-overview-microservices.md).
+	* [Introducción técnica](service-fabric-technical-overview.md).
 * Configurar el [entorno de desarrollo](service-fabric-get-started.md) de Service Fabric.  
-* Elección de un [marco](service-fabric-choose-framework.md) para su servicio
+* Selección de un [marco de modelo de programación](service-fabric-choose-framework.md) para el servicio.
 
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

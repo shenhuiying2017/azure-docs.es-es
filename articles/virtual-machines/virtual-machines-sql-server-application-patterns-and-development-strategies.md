@@ -327,4 +327,4 @@ Para obtener más información sobre cuál de estos métodos de programación el
 
 Para obtener más información sobre cómo ejecutar SQL Server en Máquinas virtuales de Azure, consulte [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

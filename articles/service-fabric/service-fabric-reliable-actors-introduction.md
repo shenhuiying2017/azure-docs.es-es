@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Descripción general de Actores confiables de Service Fabric"
+   pageTitle="Descripción general de Reliable Actors de Service Fabric | Microsoft Azure"
    description="Introducción al modelo de programación de Actores confiables de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
@@ -36,10 +36,10 @@ public interface ICalculatorActor : IActor
 }
 ```
 
-Un tipo de actor puede implementar la interfaz anterior de la siguiente manera:
+Un tipo de actor podría implementar esta interfaz de la siguiente manera:
 
 ```csharp
-public class CalculatorActor : Actor, ICalculatorActor
+public class CalculatorActor : StatelessActor, ICalculatorActor
 {
     public Task<double> AddAsync(double valueOne, double valueTwo)
     {
@@ -81,9 +81,9 @@ Los actores de Service Fabric son virtuales, lo que significa que su duración n
 Para proporcionar una alta confiabilidad y escalabilidad, Service Fabric distribuye actores en el clúster y los migra automáticamente desde los nodos con errores hasta las correctos según sea necesario. La clase `ActorProxy` del cliente realiza la resolución necesaria para localizar el actor mediante el identificador [partición](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) y abre un canal de comunicación con él. El `ActorProxy` también vuelve a intentarlo en caso de que se produzcan errores de comunicación y conmutaciones por error. Esto garantiza que los mensajes se entreguen de forma confiable a pesar de la presencia de errores, pero también significa que es posible que una implementación de actor obtenga mensajes duplicados del mismo cliente.
 
 ## Simultaneidad
-### Simultaneidad basada en turno
+### Acceso basada en turnos
 
-El tiempo de ejecución de los actores ofrece una simultaneidad simple basada en turnos para los métodos de actor. Esto significa que no puede haber más un subproceso activo dentro del código del actor en ningún momento.
+El tiempo de ejecución de los actores ofrece un modelo simple basado en turnos para obtener acceso a los métodos de actor. Esto significa que no puede haber más un subproceso activo dentro del código del actor en ningún momento.
 
 Un turno consiste en la ejecución completa de un método de actor en respuesta a la solicitud de otros actores o clientes, o la ejecución completa de la devolución de llamada de un [temporizador o recordatorio](service-fabric-reliable-actors-timers-reminders.md). Aunque estos métodos y devoluciones de llamada son asincrónicos, el tiempo de ejecución de los actores no los intercala (un turno debe completarse por completo antes de que se permita uno nuevo). En otras palabras, la devolución de llamada de un método de actor, un temporizador o recordatorio que se esté ejecutando se debe completar totalmente antes de que se permita una llamada a un método o una devolución de llamada nuevas. Un método o una devolución de llamada se consideran completados si la ejecución se ha devuelto desde el método o la devolución de llamada y se ha completado la tarea devuelta por el método o la devolución de llamada. Merece la pena resaltar que la simultaneidad basada en turnos se respeta incluso entre devoluciones de llamada, temporizadores y métodos diferentes.
 
@@ -121,12 +121,12 @@ El tiempo de ejecución de los actores ofrece estas garantías de simultaneidad 
 Los actores de Fabric permiten crear actores con o sin estado.
 
 ### Actores sin estado
-Los actores sin estado, que se derivan de la clase base ``Actor``, no tiene ningún estado administrado por el tiempo de ejecución de los actores. Sus variables miembro se conservan a lo largo de su duración en memoria, como cualquier otro tipo. NET. Sin embargo, cuando se recolectan tras un período de inactividad, su estado se pierde. De forma similar, el estado puede perderse debido a las conmutaciones por error, que se producen durante las actualizaciones, las operaciones de equilibrio de recursos o como consecuencia de errores en el proceso de actor o en su nodo de hospedaje.
+Los actores sin estado, que se derivan de la clase base `StatelessActor`, no tiene ningún estado administrado por el tiempo de ejecución de los actores. Sus variables miembro se conservan a lo largo de su duración en memoria, como cualquier otro tipo. NET. Sin embargo, cuando se recolectan tras un período de inactividad, su estado se pierde. De forma similar, el estado puede perderse debido a las conmutaciones por error, que se producen durante las actualizaciones, las operaciones de equilibrio de recursos o como consecuencia de errores en el proceso de actor o en su nodo de hospedaje.
 
 A continuación se muestra un ejemplo de un actor sin estado.
 
 ```csharp
-class HelloActor : Actor, IHello
+class HelloActor : StatelessActor, IHello
 {
     public Task<string> SayHello(string greeting)
     {
@@ -136,12 +136,12 @@ class HelloActor : Actor, IHello
 ```
 
 ### Actores con estado
-Los actores con estado tienen un estado que debe conservarse entre las recolecciones de elementos no utilizados y las conmutaciones por error. Se derivan de la clase base `Actor<TState>`, donde `TState` es el tipo de estado que debe conservarse. Es posible obtener acceso al estado en los métodos de actor a través de la propiedad `State` en la clase base.
+Los actores con estado tienen un estado que debe conservarse entre las recolecciones de elementos no utilizados y las conmutaciones por error. Se derivan de `StatefulActor<TState>`, donde `TState` es el tipo de estado que debe conservarse. Es posible obtener acceso al estado en los métodos de actor a través de la propiedad `State` en la clase base.
 
 A continuación se muestra un ejemplo de un actor con estado que obtiene acceso al estado.
 
 ```csharp
-class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
+class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
 {
     public Task<List<Voicemail>> GetMessagesAsync()
     {
@@ -198,4 +198,4 @@ Las devoluciones de llamada de temporizador se pueden marcar con el atributo `Re
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

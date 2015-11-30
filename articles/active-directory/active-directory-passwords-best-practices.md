@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Implementación de la Administración de contraseñas y formación a los usuarios para que la utilicen
@@ -48,12 +48,14 @@ Antes de que un usuario pueda utilizar el restablecimiento de contraseña, deben
 Tiene varias opciones para especificar los datos de los usuarios de su organización que se usarán para restablecer la contraseña.
 
 - Editar usuarios en el [Portal de administración de Azure](https://manage.windowsazure.com) o en el [Portal de administración de Office 365](https://portal.microsoftonline.com)
-- Usar AADSync para sincronizar las propiedades de usuario en Azure AD desde un dominio de Active Directory local
-- Usar Windows PowerShell para editar las propiedades de usuario
+- Usar Sincronización de Azure AD para sincronizar las propiedades de usuario en Azure AD desde un dominio de Active Directory local
+- [Siga los pasos indicados aquí](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users) para usar Windows PowerShell para editar las propiedades de usuario.
 - Permitir a los usuarios que registren sus propios datos guiándolos al portal de registro en [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
-- Requerir a los usuarios que se registren para el restablecimiento de contraseña al iniciar sesión en el panel de acceso en [http://myapps.microsoft.com](http://myapps.microsoft.com) mediante el establecimiento de la opción de configuración **Requerir que los usuarios se registren en el autoservicio de restablecimiento de contraseña** en **Sí**
+- Requerir a los usuarios que se registren para el restablecimiento de contraseña al iniciar sesión en su cuenta de Azure AD mediante el establecimiento de la opción de configuración [**¿Desea exigir a los usuarios que se registren al iniciar sesión?**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) en **Sí**.
 
-No es necesario que los usuarios se registren en el restablecimiento de contraseña para que el sistema funcione. Por ejemplo, si ya tiene números de teléfono en el directorio local, puede sincronizarlos en Azure AD y de este modo se utilizarán para restablecer la contraseña automáticamente.
+No es necesario que los usuarios se registren en el restablecimiento de contraseña para que el sistema funcione. Por ejemplo, si ya tiene números de teléfono móvil o de oficina en el directorio local, puede sincronizarlos en Azure AD y de este modo se utilizarán para restablecer la contraseña automáticamente.
+
+También puede obtener más información sobre [cómo usa los datos el restablecimiento de la contraseña](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) y [cómo puede rellenar los campos individuales de autenticación con PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
 
 ## ¿Cuál es la mejor forma de aplicar el restablecimiento de contraseña para los usuarios?
 Estos son los pasos de implementación generales para restablecer la contraseña:
@@ -121,24 +123,25 @@ Puede cargar los datos de autenticación a través del [Portal de administració
 
 Consulte [Qué datos se utilizan por el restablecimiento de contraseña](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) para ver cómo se puede utilizar cada una de estas propiedades.
 
+Consulte [Cómo tener acceso a los datos de restablecimiento de la contraseña de los usuarios desde PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users) para ver cómo se puede leer y establecer estos datos con PowerShell.
+
 ## Ejemplo de materiales de formación
 Estamos trabajando en materiales de formación de ejemplo que puede utilizar para hacer que su organización de TI y sus usuarios se pongan al día rápidamente sobre cómo implementar y usar el restablecimiento de contraseña. Permanezca atento.
 
 
 <br/> <br/> <br/>
 
-**Recursos adicionales**
+## Vínculos a la documentación de restablecimiento de la contraseña
+A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-
-* [Qué es la administración de contraseñas](active-directory-passwords.md)
-* [Funcionamiento de la administración de contraseñas](active-directory-passwords-how-it-works.md)
-* [Introducción a la administración de contraseñas](active-directory-passwords-getting-started.md)
-* [Personalización de la administración de contraseñas](active-directory-passwords-customize.md)
-* [Visión operativa con los informes de administración de contraseñas](active-directory-passwords-get-insights.md)
-* [Preguntas más frecuentes sobre la administración de contraseñas](active-directory-passwords-faq.md)
-* [Solución de problemas de administración de contraseñas](active-directory-passwords-troubleshoot.md)
-* [Más información](active-directory-passwords-learn-more.md)
-* [Administración de contraseñas en MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema
+* [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis diferentes componentes del servicio y lo que hace cada uno.
+* [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
+* [**Personalizar**](active-directory-passwords-customize.md) : obtenga información sobre cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización.
+* [**Obtener perspectivas**](active-directory-passwords-get-insights.md): obtenga información sobre nuestras capacidades integradas de creación de informes.
+* [**Preguntas más frecuentes**](active-directory-passwords-faq.md): obtenga respuestas a las preguntas más frecuentes.
+* [**Solución de problemas**](active-directory-passwords-troubleshoot.md): obtenga información sobre cómo solucionar rápidamente los problemas del servicio.
+* [**Más información**](active-directory-passwords-learn-more.md): profundice en los detalles técnicos del funcionamiento del servicio.
 
 
 
@@ -150,4 +153,4 @@ Estamos trabajando en materiales de formación de ejemplo que puede utilizar par
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

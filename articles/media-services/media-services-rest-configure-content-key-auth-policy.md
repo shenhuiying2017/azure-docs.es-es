@@ -464,6 +464,7 @@ Agregue AuthorizationPolicy a ContentKey tal como se muestra [aquí](#AddAuthori
         None = 0,
         PlayReadyLicense = 1,
         BaselineHttp = 2,
+        Widevine = 3
     }
 
 
@@ -482,4 +483,4 @@ Ahora que ha configurado la directiva de autorización de la clave de contenido,
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Actualización desde la versión anterior de Visual Studio Online de Application Insights" 
+	pageTitle="Actualización desde la versión anterior de Visual Studio Team Services de Application Insights" 
 	description="Actualización de los proyectos existentes"
 	services="application-insights" 
     documentationCenter=""
@@ -15,9 +15,9 @@
 	ms.date="06/19/2015" 
 	ms.author="awills"/>
  
-# Actualización desde la versión anterior de Visual Studio Online de Application Insights
+# Actualización desde la versión anterior de Visual Studio Team Services de Application Insights
 
-Este documento solo resulta de interés si tiene un proyecto que todavía está utilizando la versión anterior de Application Insights, que formaba parte de Visual Studio Online. Esa versión se desactivará en su momento, y por lo tanto, le recomendamos que actualice a la nueva versión, que es un servicio en Microsoft Azure.
+Este documento solo resulta de interés si tiene un proyecto que todavía está utilizando la versión anterior de Application Insights, que formaba parte de Visual Studio Team Services. Esa versión se desactivará en su momento, y por lo tanto, le recomendamos que actualice a la nueva versión, que es un servicio en Microsoft Azure.
 
 ## ¿Qué versión tengo?
 
@@ -73,4 +73,4 @@ O bien examine el proyecto en el Explorador de soluciones de Visual Studio y en 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

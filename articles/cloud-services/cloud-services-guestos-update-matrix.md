@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="11/06/2015"
+   ms.date="11/13/2015"
    ms.author="yuemlu"/>
 
 # Matriz de compatibilidad del SDK y lanzamientos del SO invitado de Azure.
@@ -28,6 +28,43 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 
 
 ## Actualizaciones de noticias
+###### **12 de noviembre de 2015**  
+El 7 de agosto de 2014, Microsoft anunció que el soporte para .NET Framework 4, 4.5 y 4.5.1 finalizará el 12 de enero de 2016. Se recomienda que, para el 12 de enero de 2016, los clientes y desarrolladores completen la actualización en contexto a .NET Framework 4.5.2 para seguir recibiendo soporte técnico y actualizaciones de seguridad. Visite la directiva de ciclo de vida de soporte técnico de Microsoft .NET Framework para obtener más detalles.
+
+El 27 de octubre, anunciamos que, Azure actualizará .NET Framework en la familia 2.x, 3.x y 4.x del sistema operativo invitado de Azure (SO invitado) a .NET Framework 4.5.2 en la próxima versión del SO invitado de noviembre. Desde entonces, hemos recibido comentarios de clientes para posponer la actualización automática a una versión de SO con .NET 4.5.2 y proporcionar una imagen con .NET 4.5.2 para validación de pruebas.
+
+Para contemplar los requisitos de los clientes y proporcionar una actualización sin problemas a .NET 4.5.2, Azure actualizará .NET Framework en la familia 2.x, 3.x y 4.x del sistema operativo invitado de Azure (SO invitado) a .NET Framework 4.5.2 en la versión del SO invitado de enero de 2016. Los servicios en la nube que se ejecutan en la familia 2.x, 3.x y 4.x del SO invitado con las actualizaciones automáticas habilitadas se actualizarán al SO invitado de enero de 2016 con .NET Framework 4.5.2. En noviembre, el programa .NET Framework instalado en el SO predeterminado no se cambiará. Con el fin de ayudar a los clientes a validar su servicio en la nube con .NET 4.5.2, Azure proporcionará un segundo conjunto de versiones de SO de noviembre 201511-02 para .NET 4.5.2 para implementación manual.
+
+En la tabla siguiente se muestran los cambios que se aplicarán.
+ 
+| Familia del SO invitado | .NET Framework instalado antes que la versión de SO invitado 201511-02 | .NET Framework instalado en la versión de SO invitado 201511-02 | .NET Framework instalado en la versión de SO invitado 201512-01 | .NET Framework instalado en la versión de SO invitado 201601-01 o posterior |
+| --------------- | ---------------- | ---------------- | ---------------- | ---------------- |
+| Familia 2.x del SO basada en Windows Server 2008 R2 | .NET 3.5 y .NET 4.0 | .NET 3.5 y .NET 4.5.2 | .NET 3.5 y .NET 4.0 | .NET 3.5 y .NET 4.5.2 |
+| Familia 3.x del SO basada en Windows Server 2012 | .NET 4.5 | .NET 4.5.2 | .NET 4.5 | .NET 4.5.2 | 
+| Familia 4.x del SO basada en Windows Server 2012 R2 | .NET 4.5.1 | .NET 4.5.2 | .NET 4.5.1 | .NET 4.5.2 | 
+ 
+Si se encuentra en la actualización manual del SO invitado, habrá dos versiones del SO invitado publicadas para todas las familias del SO invitado en noviembre.
+
+   • WA-GUEST-OS-4.26\_201511-01, WA-GUEST-OS-3.33\_201511-01 y WA-GUEST-OS-2.45\_201511-01 (predeterminado)
+
+   Estas incluyen el MSRC de noviembre y los paquetes acumulativos de Windows de octubre.
+
+   • WA-GUEST-OS-4.26\_201511-02, WA-GUEST-OS-3.33\_201511-02 y WA-GUEST-OS-2.45\_201511-02
+
+   Estas incluyen el MSRC de noviembre, los paquetes acumulativos de Windows de octubre y .NET Framework actualizado a 4.5.2.
+
+
+
+Antes de actualizar, estas son algunas de las opciones para ayudar a validar el servicio en la nube con .NET 4.5.2:
+
+1. 	Implemente un rol de servicio en la nube de prueba en la versión 201511-02 y lleve a cabo la validación de compatibilidad de aplicaciones. 
+
+2. 	Instale .NET 4.5.2 en un rol de servicio en la nube de prueba y lleve a cabo la validación de compatibilidad de aplicaciones. Consulte [Instalación de .NET en un rol de servicio en la nube] para obtener instrucciones.
+
+3. 	Lleve a cabo la validación de compatibilidad de aplicaciones en una VM independiente, ya sea localmente o en una VM de Azure con .NET 4.5.2 instalado.
+
+
+
 
 ###### **15 de octubre de 2015**
 La implementación del SO invitado de octubre comienza hoy, 15 de octubre de 2015, y está previsto que se lance el 13 de noviembre de 2015.
@@ -131,6 +168,8 @@ Admite .NET 4.0, 4.5, 4.5.1, 4.5.2 (Nota 2)
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 4\.26 | WA-GUEST-OS-4.26\_201511-02 | Proyectado para el 10 de diciembre de 2015 | Se actualizará cuando se publique la versión 4.28 | TBD |
+| 4\.26 | WA-GUEST-OS-4.26\_201511-01 | Proyectado para el 10 de diciembre de 2015 | Se actualizará cuando se publique la versión 4.28 | TBD |
 | 4\.25 | WA-GUEST-OS-4.25\_201510-01 | 6 de noviembre de 2015 | Se actualizará cuando se lance la versión 4.27 | TBD |
 | 4\.24 | WA-GUEST-OS-4.24\_201509-01 | 1 de octubre de 2015 | Se actualizará cuando se lance la versión 4.26 | TBD |
 | 4\.23 | WA-GUEST-OS-4.23\_201508-02 | 9 de septiembre de 2015 | 6 de diciembre de 2015 | TBD |
@@ -158,6 +197,8 @@ Admite .NET 4.0, 4.5
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 3\.33 | WA-GUEST-OS-3.33\_201511-02 | Proyectado para el 10 de diciembre de 2015 | Se actualizará cuando se lance la versión 3.35 | TBD |
+| 3\.33 | WA-GUEST-OS-3.33\_201511-01 | Proyectado para el 10 de diciembre de 2015 | Se actualizará cuando se lance la versión 3.35 | TBD |
 | 3\.32 | WA-GUEST-OS-3.32\_201510-01 | 6 de noviembre de 2015 | Se actualizará cuando se lance la versión 3.34 | TBD |
 | 3\.31 | WA-GUEST-OS-3.31\_201509-01 | 1 de octubre de 2015 | Se actualizará cuando se lance la versión 3.33 | TBD |
 | 3\.30 | WA-GUEST-OS-3.30\_201508-02 | 9 de septiembre de 2015 | 6 de diciembre de 2015 | TBD |
@@ -186,6 +227,8 @@ Admite .NET 3.5, 4.0
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 2\.45 | WA-GUEST-OS-2.45\_201511-02 | Proyectado para el 10 de diciembre de 2015 | Se actualizará cuando se publique la versión 2.47 | TBD |
+| 2\.45 | WA-GUEST-OS-2.45\_201511-01 | Proyectado para el 10 de diciembre de 2015 | Se actualizará cuando se publique la versión 2.47 | TBD |
 | 2\.44 | WA-GUEST-OS-2.44\_201510-01 | 6 de noviembre de 2015 | Se actualizará cuando se lance la versión 2.46 | TBD |
 | 2\.43 | WA-GUEST-OS-2.43\_201509-01 | 1 de octubre de 2015 | Se actualizará cuando se lance la versión 2.45 | TBD |
 | 2\.42 | WA-GUEST-OS-2.42\_201508-02 | 9 de septiembre de 2015 | 6 de diciembre de 2015 | TBD |
@@ -330,7 +373,7 @@ Debido a la implementación parcial de los dos últimos lanzamientos, los usuari
 | 2\.19 rel3 | WA-GUEST-OS-2.19\_201309-03 | 9 de octubre de 2013 | N/D | 14 de mayo de 2014 |
 | 2\.19 rel1 | WA-GUEST-OS-2.19\_201309-01 | 23 de septiembre de 2013 | N/D | 14 de mayo de 2014 |
 
-
+[Instalación de .NET en un rol de servicio en la nube]: https://azure.microsoft.com/es-ES/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Configuración de actualización del SO invitado de Azure]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -351,4 +394,4 @@ Debido a la implementación parcial de los dos últimos lanzamientos, los usuari
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

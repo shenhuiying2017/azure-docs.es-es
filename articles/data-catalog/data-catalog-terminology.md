@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/20/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 # Terminología del Catálogo de datos de Azure
@@ -55,6 +55,12 @@ Entre los metadatos descriptivos de un activo de datos se puede incluir informac
 
 Una vista previa en el Catálogo de datos de Azure es una instantánea de hasta 20 registros que se puede extraer del origen de datos durante el registro y almacenar en el catálogo con los metadatos de recursos de datos. La vista previa puede ayudar a los usuarios que descubren un activo de datos a comprender mejor su función y objetivo. En otras palabras, ver datos de ejemplo puede resultar más valioso que ver tan solo los nombres de columna y los tipos de datos. Las vistas previas solo se admiten para las tablas y vistas y deben seleccionarse explícitamente por el usuario durante el registro.
 
+## Perfil de datos
+
+Un perfil de datos en el Catálogo de datos de Azure es una instantánea de metadatos de nivel de tabla y columna sobre un activo de los datos registrados que se puede extraer del origen de datos durante el registro y almacenar en el catálogo con los metadatos de activos de datos. El perfil de datos puede ayudar a los usuarios que descubren un activo de datos a comprender mejor su función y objetivo. De forma similar a las vistas previas, los perfiles de datos deben ser seleccionados explícitamente por el usuario durante el registro.
+
+> [AZURE.NOTE]Extraer un perfil de datos puede ser una operación costosa en tablas y vistas grandes, y puede aumentar significativamente el tiempo necesario para registrar un origen de datos.
+
 ## Perspectiva del usuario
 
 En el Catálogo de datos de Azure, cualquier usuario puede proporcionar metadatos descriptivos para un recurso de datos registrados. Cada usuario tiene una perspectiva distinta de los datos y su uso. Por ejemplo, el administrador de un servidor puede proporcionar los detalles de su contrato de nivel de servicio (SLA) o windows de respaldo; un administrador de datos puede proporcionar vínculos a la documentación para los procesos de negocio admitidos por los datos; un analista puede proporcionar una descripción en los términos que sean más relevantes para otros analistas y que pueden ser más valiosos para aquellos usuarios que necesitan descubrir y comprender los datos.
@@ -80,4 +86,4 @@ El registro es el acto de extraer metadatos de recursos de datos de un origen de
 
 - [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md): este artículo ofrece un tutorial integral que muestra cómo usar el Catálogo de datos de Azure para la detección del orígenes de datos.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

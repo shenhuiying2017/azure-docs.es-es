@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="11/18/2015"
    ms.author="v-sharos" />
 
 # Usar el servicio de Administrador de StorSimple para administrar volúmenes
@@ -21,7 +21,7 @@
 
 Este tutorial explica cómo usar el servicio de Administrador de StorSimple para crear y administrar volúmenes en el dispositivo StorSimple y en el dispositivo virtual de StorSimple.
 
-El servicio Administrador de StorSimple es una extensión del Portal de Azure que permite administrar la solución de StorSimple desde una interfaz web única. Además de administrar volúmenes, puede usar el servicio de Administrador de StorSimple para crear y administrar servicios de StorSimple, ver y administrar dispositivos, ver alertas, y ver y administrar las directivas de copia de seguridad y el catálogo de copias de seguridad.
+El servicio de Administrador de StorSimple es una extensión del Portal de Azure que le permite administrar la solución de StorSimple desde una interfaz web única. Además de administrar volúmenes, puede usar el servicio de Administrador de StorSimple para crear y administrar servicios de StorSimple, ver y administrar dispositivos, ver alertas, y ver y administrar las directivas de copia de seguridad y el catálogo de copias de seguridad.
 
 > [AZURE.NOTE]Azure StorSimple solo puede crear volúmenes con aprovisionamiento fino. No es posible crear volúmenes total o parcialmente aprovisionados en un sistema de Azure StorSimple.
 >
@@ -65,21 +65,21 @@ Ya [creó un volumen](storsimple-deployment-walkthrough-u1.md#step-6-create-a-vo
 
 3. Haga clic en **Agregar** en la parte inferior de la página. Se iniciará el Asistente para agregar volúmenes.
 
-     ![Agregar configuración básica del asistente de volumen](./media/storsimple-manage-volumes/HCS_AddVolume1M.png)
+     ![Agregar configuración básica del asistente de volumen](./media/storsimple-manage-volumes/AddVolume1.png)
 
 4. En el Asistente para agregar volúmenes, en **Configuración básica**, haga lo siguiente:
 
   1. Proporcione un **Nombre** para el volumen.
   2. Especifique la **Capacidad aprovisionada** para el volumen en GB o TB. La capacidad debe estar entre 1 y 64 TB para un dispositivo físico. La capacidad máxima que se puede aprovisionar para un volumen en un dispositivo virtual de StorSimple es de 30 TB.
-  3. En la lista desplegable, seleccione el **Tipo de uso** para el volumen. Elija **Volumen de archivado** si trabaja con datos de archivado a los que se accede con menos frecuencia. Para los demás casos de uso, seleccione **Volumen por niveles**. (Los volúmenes en niveles se denominaban anteriormente volúmenes primarios).
+  3. En la lista desplegable, seleccione el **Tipo de uso** para el volumen. Si está usando este volumen para datos de archivo, seleccione la casilla ** Usar este volumen para los datos de archivo a los que accede con menos frecuencia**. Para los demás casos de uso, seleccione simplemente **Volumen por niveles**. (Los volúmenes en niveles se denominaban anteriormente volúmenes primarios).
   5. Haga clic en el icono de flecha ![Icono de flecha](./media/storsimple-manage-volumes/HCS_ArrowIcon.png) para ir a la página **Configuración adicional**.
 
-     ![Agregar configuración adicional del asistente de volumen](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
+        ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/AddVolume2.png)
    
 5. En **Configuración adicional**, agregue un nuevo registro de control de acceso (ACR):
   
   1. Seleccione un registro de control de acceso (ACR) de la lista desplegable. También puede agregar un nuevo ACR. Los ACR determinan qué hosts pueden acceder a los volúmenes haciendo coincidir el IQN del host con el que aparece en el registro.
-  2. En **Copia de seguridad predeterminada para este volumen**, recomendamos que habilite una copia de seguridad predeterminada seleccionando la casilla **Habilitar** .
+  2. Le recomendamos que habilite una copia de seguridad predeterminada seleccionando la casilla **Habilitar una copia de seguridad predeterminada para este volumen**.
    3. Haga clic en el icono de marca de verificación ![Icono de marca de verificación](./media/storsimple-manage-volumes/HCS_CheckIcon.png) para crear el volumen con la configuración especificada.
 
 El nuevo volumen ya está listo para usarse.
@@ -113,9 +113,10 @@ Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen a
   - Modificar los ACR, siempre que el volumen esté desconectado. Si el volumen está conectado, primero deberá desconectarlo. Consulte los pasos indicados en [Desconectar un volumen](#take-a-volume-offline) antes de modificar el ACR.
   - Modificar la lista de ACR después de desconectar el volumen.
  
-    > [AZURE.NOTE]No se puede cambiar la opción **Habilitar una copia de seguridad predeterminada** para el volumen.
+    > [AZURE.NOTE]En cuanto a l volumen, no puede cambiar la opción **Habilitar una copia de seguridad predeterminada para este volumen**.
 
-6. Guarde los cambios haciendo clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-manage-volumes/HCS_CheckIcon.png). El portal mostrará un mensaje de actualización del volumen. Presentará en la pantalla un mensaje de confirmación cuando el volumen se haya actualizado correctamente.
+6. Guarde los cambios haciendo clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-manage-volumes/HCS_CheckIcon.png). El Portal de Azure
+7.  mostrará un mensaje de actualización del volumen. Presentará en la pantalla un mensaje de confirmación cuando el volumen se haya actualizado correctamente.
 
 7. Si se va a expandir un volumen, realice los pasos siguientes en el equipo host Windows:
 
@@ -191,8 +192,8 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 ## Pasos siguientes
 
 - Aprenda cómo [clonar un volumen de StorSimple](storsimple-clone-volume.md).
-- Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Obtenga información sobre cómo [usar el servicio Administrador de StorSimple para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="11/16/2015"
    ms.author="v-sharos" />
 
 # Implementar el complemento MMC del Administrador de instantáneas StorSimple
@@ -129,7 +129,7 @@ Siga estos pasos para conectar Administrador de instantáneas StorSimple a un di
 
     ![Configuración de un dispositivo](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png)
 
-3. En el cuadro de lista **Dispositivo**, seleccione la dirección IP del dispositivo de Microsoft Azure StorSimple o el dispositivo virtual. En el cuadro de texto **Contraseña**, escriba la contraseña de Administrador de instantáneas StorSimple que ha creado para el dispositivo en el Portal de administración de Microsoft Azure. Haga clic en **Aceptar**.
+3. En el cuadro de lista **Dispositivo**, seleccione la dirección IP del dispositivo de Microsoft Azure StorSimple o el dispositivo virtual. En la casilla **Contraseña**, escriba la contraseña de StorSimple Snapshot Manager que creó para el dispositivo en el Portal de Azure. Haga clic en **Aceptar**.
 
 4. Administrador de instantáneas StorSimple busca el dispositivo que ha identificado. Si el dispositivo está disponible, Administrador de instantáneas StorSimple agrega una conexión. También puede [comprobar la conexión al dispositivo](#to-verify-the-connection) para confirmar que la conexión se agregó correctamente.
 
@@ -257,4 +257,4 @@ Para reinstalar Administrador de instantáneas StorSimple, siga los pasos descri
 
 - Para obtener más información acerca de Snapshot Manager de StorSimple, vaya a [Use Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

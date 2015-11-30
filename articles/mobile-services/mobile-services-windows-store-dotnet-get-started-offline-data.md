@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="11/06/2015" 
 	ms.author="donnam"/>
 
 # Uso de la sincronización de datos sin conexión en servicios móviles
@@ -38,7 +38,7 @@ Este tutorial requiere lo siguiente:
 * Finalización del tutorial [Introducción a los servicios móviles].
 * [SDK de servicios móviles de Azure versión 1.3.0 (o posterior)][Mobile Services SDK Nuget]
 * [Almacén de SQLite de servicios móviles de Azure versión 1.0.0 (o posterior)][SQLite store nuget]
-* [SQLite para Windows 8.1](www.sqlite.org/downloads)
+* [SQLite para Windows 8.1](http://www.sqlite.org/download.html)
 * Una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28). 
 
 ## <a name="enable-offline-app"></a>Actualización de la aplicación para que admita características sin conexión
@@ -278,4 +278,4 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

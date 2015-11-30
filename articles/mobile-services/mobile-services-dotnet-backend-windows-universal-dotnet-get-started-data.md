@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/10/2015" 
 	ms.author="glenga"/>
 
 # Incorporación de Servicios móviles a una aplicación existente
@@ -67,7 +67,7 @@ En este punto, se conectan al nuevo servicio móvil las aplicaciones de la Tiend
 
 ##Actualización de la aplicación para utilizar el servicio móvil
 
-En esta sección, se actualiza la aplicación universal para Windows para usar el servicio móvil como servicio back-end para la aplicación. Solo debe realizar cambios en el archivo de proyecto MainPage.xaml.cs de la carpeta de proyecto GetStartedWithData.Shared.
+En esta sección, se actualiza la aplicación universal para Windows para usar el servicio móvil como servicio back-end para la aplicación. Solo debe realizar cambios en el archivo de proyecto MainPage.cs de la carpeta de proyecto GetStartedWithData.Shared.
 
 [AZURE.INCLUDE [mobile-services-windows-dotnet-update-data-app](../../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
@@ -121,4 +121,4 @@ Este tutorial muestra los aspectos básicos de la habilitación de un proyecto d
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

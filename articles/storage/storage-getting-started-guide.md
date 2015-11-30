@@ -13,15 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="11/12/2015" 
 	ms.author="tamram;selcint"/>
 
 # Introducción en cinco minutos a Almacenamiento de Azure 
 
-Es fácil empezar a realizar tareas de desarrollo con Almacenamiento de Azure. Este tutorial muestra cómo ejecutar rápidamente una aplicación de Almacenamiento de Azure. A continuación se muestra dos escenarios para empezar fácilmente con Almacenamiento de Azure:
+## Información general
 
-- [Ejecución de la primera aplicación de Almacenamiento de Azure de forma local en el Emulador de almacenamiento de Azure](#run-your-first-azure-storage-application-locally-against-the-azure-storage-emulator)
-- [Ejecución de la primera aplicación de Almacenamiento de Azure en Almacenamiento de Azure en la nube](#run-your-first-azure-storage-application-against-azure-storage-in-the-cloud)
+El SDK de Azure incluye plantillas de Inicio rápido para usar el Almacenamiento de Azure desde Microsoft Visual Studio Puede
+
+Es fácil empezar a realizar tareas de desarrollo con Almacenamiento de Azure. Este tutorial muestra cómo ejecutar rápidamente una aplicación de Almacenamiento de Azure. A continuación se muestra dos escenarios para empezar fácilmente con Almacenamiento de Azure:
 
 Si desea obtener más información sobre Almacenamiento de Azure antes de entrar en el código, consulte [Pasos siguientes](#next-steps).
 
@@ -40,7 +41,7 @@ La versión más reciente de los archivos binarios de la biblioteca de cliente d
 
 Al desarrollar una aplicación que utiliza el almacenamiento de Azure, se pueden ejecutar en el [Emulador de almacenamiento de Azure](storage-use-emulator.md). El emulador de almacenamiento proporciona un entorno local que emula los servicios de Blob, Cola y Tabla de Azure con fines de desarrollo. Puede usar el emulador de almacenamiento para probar la aplicación de almacenamiento de forma local, sin necesidad de crear una suscripción de Azure o una cuenta de almacenamiento y sin incurrir en ningún gasto.
 
-Para probarlo, crearemos una sencilla aplicación de Almacenamiento de Azure con uno de los proyectos de ejemplo de la guía rápida de Azure en Visual Studio. Este tutorial se centra en los proyectos de ejemplo de **Almacenamiento de blobs de Azure**, **Almacenamiento de tablas de Azure** y **Almacenamiento de colas de Azure**:
+Para probarlo, crearemos una sencilla aplicación de Almacenamiento de Azure con uno de los proyectos de ejemplo del tutorial de Inicio rápido de Azure en Visual Studio. Este tutorial se centra en los proyectos de ejemplo de **Almacenamiento de blobs de Azure**, **Almacenamiento de tablas de Azure** y **Almacenamiento de colas de Azure**:
 
 1. Inicie Visual Studio.
 2. En el menú **Archivo**, haga clic en **Nuevo proyecto**.
@@ -107,4 +108,4 @@ Para obtener más información sobre Almacenamiento de Azure, consulte los sigui
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="11/11/2015" 
 	ms.author="awills"/>
 
 # Modelo de exportación de datos de Application Insights
@@ -218,7 +218,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 
     string basicexception.problemid      Max: 100
 * 
-    *Derivación*: consulte el apéndice para el análisis de la pila de llamadas. 
+    *Derivación*: consulte el apéndice para el análisis de la pila de llamadas 
 
 **Exceptions.Assembly**
 
@@ -314,7 +314,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 
     string context.application.version      Max: 100
 * 
-    La versión de la aplicación de la aplicación cliente 
+    La versión de la aplicación de la aplicación cliente. No está disponible si está establecido como Unknown. 
 
     *Ejemplos*<br/> 2015.5.21.3<br/>NokiaMailBye\_CD\_20150227.4
 
@@ -330,7 +330,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     Identificador único del elemento de telemetría. Se asigna en el extremo de recopilación de datos. 
 
-    *Derivación:* UUID4 generado.
+    *Derivación:* UUID4 generado
 
     *Ejemplos*<br/> edc6eaf3-3459-46a0-bb81-bedc24913864
 
@@ -374,39 +374,12 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El identificador de la implementación del servidor 
 
-**deviceId**
-
-    string context.device.id      Max: 100
-* 
-    Una identificación única del cliente. Un id. generado que debe almacenarse localmente en el dispositivo y no debe ser PII como dirección MAC o id. no modificable similar.   
-
-**deviceModel**
-
-    string context.device.devicemodel      Max: 100
-* 
-    El modelo de dispositivo del cliente de hardware móvil 
-
-    *Ejemplos*<br/> Otros<br/>iPad<br/>Nokia 503s
 
 **deviceName**
 
     string context.device.name      Max: 100
 * 
     El nombre del dispositivo en el que se está ejecutando la aplicación 
-
-**deviceType**
-
-    string context.device.type      Max: 100
-* 
-    El tipo de dispositivo del hardware de cliente 
-
-    *Ejemplos*<br/> PC<br/>Móvil<br/>Tableta
-
-**language**
-
-    string context.device.language      Max: 100
-* 
-    El idioma de la aplicación en el cliente. Si no se proporciona explícitamente en el elemento de telemetría, se obtiene mediante el procesamiento del campo de agente de usuario. 
 
 **locale**
 
@@ -422,17 +395,6 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El nombre de la máquina del servidor. En el proceso virtualizado, este elemento de datos es equivalente al host subyacente. En el cálculo dedicado, es el nombre del equipo. 
 
-**networkType**
-
-    string context.device.network      Max: 100
-* 
-    El tipo de red del cliente 
-
-**oemName**
-
-    string context.device.oemname      Max: 100
-* 
-    El nombre del OEM para que el cliente de hardware móvil 
 
 **operatingSystem**
 
@@ -440,7 +402,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El sistema operativo del cliente 
 
-    *Valor predeterminado*: si es null, se establece basándose en el proceso del agente de usuario. Consulte el apéndice para analizar el agente de usuario
+    *Valor predeterminado:* si es null, se establece según el procesamiento del agente de usuario. Consulte el apéndice para analizar el agente de usuario
 
     *Ejemplos*<br/> Windows<br/>iOS iPad<br/>Nokia
 
@@ -472,7 +434,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El alto de la pantalla de la aplicación en el hardware del cliente en el momento en que se registra el elemento de telemetría. Si no se proporciona explícitamente, se obtiene mediante una transformación del elemento de datos de resolución de pantalla. 
 
-    *Derivación:* analizado desde context.device.screenresolution si está presente.
+    *Derivación:* analizado desde context.device.screenresolution si está presente
 
     *Ejemplos*<br/> 360<br/>1280<br/>1920
 
@@ -490,7 +452,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El ancho de pantalla de la aplicación en el hardware de cliente en el momento en que se registra el elemento de telemetría. Si no se proporciona explícitamente, se obtiene mediante una transformación del elemento de datos de resolución de pantalla. 
 
-    *Derivación:* analizado desde context.device.screenresolution si está presente.
+    *Derivación:* analizado desde context.device.screenresolution si está presente
 
     *Ejemplos*<br/> 640<br/>800<br/>1080
 
@@ -515,7 +477,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     La dirección IPv4 del cliente con el formato xxx.xxx.xxx.xxx.   
 
-    *Valor predeterminado:* si es null, se establece en la dirección IP HTTP capturada en el extremo de recopilación de datos.
+    *Valor predeterminado:* si es null, se establece en la dirección IP HTTP capturada en el extremo de recopilación de datos
 
     *Ejemplos*<br/> 0.123.63.143<br/>123.203.131.197
 
@@ -576,7 +538,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     Indica que se generó el elemento de telemetría debido a pruebas sintéticas y actividad de usuario no real. 
 
-    *Valor predeterminado:* si es null, el agente de usuario se inspecciona con una lista de agentes sintéticos conocidos. Si se encuentra una coincidencia, el valor se establece en true.<br/>Si el agente de usuario es null, se establece en false.
+    *Valor predeterminado:* si es null, el agente de usuario se inspecciona con una lista de agentes sintéticos conocidos. Si se encuentra una coincidencia, el valor se establece en true.<br/>Si el agente de usuario es null, se establece en false
 
 **session.Id**
 
@@ -584,13 +546,14 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     Identificador único de una interacción de usuarios reales con una aplicación. Esta interacción es una "" sesión"". Toda la telemetría generada por la aplicación con la misma iKey debe contener este identificador único. <br/><br/>Una sesión se define mediante los eventos consecutivos dentro de la misma interacción del usuario. Un período de más de 30 minutos sin un evento de telemetría señala el final de una sesión.   
 
-    *Valor predeterminado:* no válido en MetricType, BillingType.
+    *Valor predeterminado:* no válido en MetricType, BillingType
 
     *Ejemplos*<br/> CFFC8B21-9828-4F56-AD7C-B6B5AC26B133
 
 **accountAcquisitionDate**
 
-    datetime context.user.accountAcquisitionDate      
+    datetime context.user.accountAcquisitionDate  
+    
 **anonUserId**
 
     string context.user.anonId      Max: 100
@@ -602,9 +565,11 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 **anonymousUserAcquisitionDate**
 
     datetime context.user.anonAcquisitionDate      
+
 **authenticatedUserAcquisitionDate**
 
-    datetime context.user.authAcquisitionDate      
+    datetime context.user.authAcquisitionDate     
+ 
 **authUserId**
 
     string context.user.authId      Max: 100
@@ -709,7 +674,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     Indica si la solicitud es correcta. Un código de respuesta de 200s se considera correcto. 
 
-    *Valor predeterminado:* si es null, se establece en true.
+    *Valor predeterminado:* si es null, se establece en true
 
 
 ## sessionmetric
@@ -768,7 +733,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El primer evento de la sesión. Se obtiene a partir de event.name y está disponible como una segmentación o agregación para las métricas sessionMetric 
 
-    *Derivación:* con origen en event.name.
+    *Derivación:* con origen en event.name
 
 **entryUrl**
 
@@ -776,7 +741,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     La primera dirección URL de la sesión. Se obtiene a partir de urlData.base y está disponible como una segmentación o agregación para las métricas sessionMetric 
 
-    *Derivación:* con origen en &lt;telemetryType&gt;.Url.
+    *Derivación:* con origen en &lt;telemetryType&gt;.Url
 
 **eventCount**
 
@@ -796,7 +761,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El último evento de la sesión. Se obtiene a partir de event.name y está disponible como una segmentación o agregación para las métricas sessionMetric 
 
-    *Derivación:* con origen en event.name.
+    *Derivación:* con origen en event.name
 
 **exitUrl**
 
@@ -804,7 +769,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     La última dirección URL de la sesión. Se obtiene a partir de urlData.base y está disponible como una segmentación o agregación para las métricas sessionMetric 
 
-    *Derivación:* con origen en &lt;telemetryType&gt;.Url.
+    *Derivación:* con origen en &lt;telemetryType&gt;.Url
 
 **pageBounceCount**
 
@@ -812,7 +777,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El contador de sesiones de devolución que representa este elemento de telemetría sessionMetric. Una sesión de devolución es una sesión que se crea basada en un elemento de telemetría de una sola vista. 
 
-    *Derivación:* si sessionMetric.viewCount + sessionMetric.requestCount = 1, entonces 1; si no, 0.
+    *Derivación:* si sessionMetric.viewCount + sessionMetric.requestCount = 1, entonces 1; si no, 0
 
 **pageCount**
 
@@ -964,7 +929,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     Una parte de la dirección URL de referencia, excluido el host y los parámetros de consulta. Es el URI raíz. Este valor puede usarse para la segmentación o la agregación. 
 
-    *Derivación:* vea el apéndice para conocer la transformación de la dirección URL.
+    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL
 
 **referrerData.hashTag**
 
@@ -972,7 +937,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El texto del hashtag de la dirección URL de referencia 
 
-    *Derivación:* vea el apéndice para conocer la transformación de la dirección URL.
+    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL
 
 **referrerData.host**
 
@@ -980,7 +945,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El host de la dirección URL de referencia. Si la dirección URL es un URI local, se representa como vacío 
 
-    *Derivación:* vea el apéndice para conocer la transformación de la dirección URL.
+    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL
 
 **referrerData.port**
 
@@ -988,7 +953,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El puerto de la dirección URL de referencia, si se representa en la dirección URL completa. De lo contrario, está vacío. 
 
-    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL.
+    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL
 
 **referrerData.protocol**
 
@@ -996,7 +961,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El protocolo (HTTP, FTP, etc.) de la dirección URL de referencia 
 
-    *Derivación:* vea el apéndice para conocer la transformación de la dirección URL.
+    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL
 
     *Ejemplos*<br/> http<br/>https
 
@@ -1006,7 +971,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     Una matriz de los nombres de los parámetros de consulta de la dirección URL de referencia 
 
-    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL.
+    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL
 
 **referrerData.queryParameters.value**
 
@@ -1014,7 +979,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     Una matriz de valores de los parámetros de consulta analizados desde la dirección URL de referringData. 
 
-    *Derivación:* vea el apéndice para conocer la transformación de la dirección URL.
+    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL
 
 
 
@@ -1024,4 +989,4 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * [Exportación continua](app-insights-export-telemetry.md)
 * [Ejemplos de código](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

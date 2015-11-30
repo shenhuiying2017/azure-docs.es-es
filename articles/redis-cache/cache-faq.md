@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="11/18/2015" 
 	ms.author="sdanie"/>
 
 # P+F de Caché en Redis de Azure
@@ -49,7 +49,7 @@ A partir de esta tabla, podemos extraer las conclusiones siguientes.
 
 | Nivel de precios | Tamaño | Ancho de banda disponible | Tamaño de clave de 1 KB |
 |----------------------|--------|----------------------------|--------------------------------|
-| **Tamaños de caché estándar** | &nbsp; | **(Mbps)** | **Solicitudes por segundo (RPS)** |
+| **Tamaños de caché estándar** | &nbsp; |**Megabits por segundo (Mbps)** | **Solicitudes por segundo (RPS)** |
 | C0 | 250 MB | 5 | 600 |
 | C1 | 1 GB | 100 | 12200 |
 | C2 | 2,5 GB | 200 | 24000 |
@@ -181,7 +181,7 @@ Puede usar cualquiera de los comandos enumerados en [Comandos de Redis](http://r
 
 -	En Microsoft Patterns & Practices se puede encontrar la guía siguiente.
 	-	[Caching guidance](https://github.com/mspnp/azure-guidance/blob/master/Caching.md) (Guía de memoria en caché).
-	-	[Azure Cloud Application Design and Implementation Guidance](https://github.com/mspnp/azure-guidance) (Guía de implementación de diseño y aplicaciones de Azure Cloud)
+	-	[Azure Cloud Application Design and Implementation Guidance (Guía de implementación de diseño y aplicaciones de Azure Cloud)](https://github.com/mspnp/azure-guidance)
 -	[Patrones de caché comunes con Caché en Redis de Azure](cache-howto-common-cache-patterns.md)
 
 <a name="cache-reference"></a>
@@ -189,7 +189,7 @@ Puede usar cualquiera de los comandos enumerados en [Comandos de Redis](http://r
 
 Caché en Redis de Microsoft Azure se basa en la popular Caché de Redis de código abierto, que proporciona acceso a una caché de Redis segura y dedicada, administrada por Microsoft. Está disponible una variedad de [clientes de Redis](http://redis.io/clients) para muchos lenguajes de programación. Cada cliente tiene su propia API que realiza llamadas a la instancia de Caché de Redis mediante los [comandos de Redis](http://redis.io/commands).
 
-Dado que cada cliente es diferente, no hay no una referencia de clase centralizada en MSDN; en cambio, cada cliente mantiene su propia documentación de referencia. Además de la documentación de referencia, hay varios tutoriales en Azure.com que muestra cómo empezar a trabajar con Caché en Redis de Azure con distintos idiomas y clientes de la caché en la página [Documentación de Caché de Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/).
+Dado que cada cliente es diferente, no hay no una referencia de clase centralizada en MSDN; en cambio, cada cliente mantiene su propia documentación de referencia. Además de la documentación de referencia, hay varios tutoriales en Azure.com que muestra cómo empezar a trabajar con Caché en Redis de Azure con distintos idiomas y clientes de la caché en la página [Documentación de Caché de Redis](http://azure.microsoft.com/documentation/services/redis-cache/).
 
 
 ## ¿Qué oferta de caché de Azure es adecuada para mí?
@@ -220,4 +220,4 @@ Si ya es cliente del Servicio de caché administrado de Azure, puede seguir usan
 ### Caché en rol
 Si usa Caché en rol para autohospedar la memoria caché, puede seguir usando este método. Como Caché en rol es un componente de software autohospedado y no un servicio hospedado de Microsoft, no ofrece ningún contrato de nivel de servicio. Los usuarios de Caché en rol pueden migrar a Caché en Redis de Azure para aprovechar su completo conjunto de características y obtener un contrato de nivel de servicio.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

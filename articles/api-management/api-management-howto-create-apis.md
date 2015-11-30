@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 # Creación de API en Administración de API de Azure
@@ -55,7 +55,7 @@ Puede usar la pestaña **Configuración** para comprobar y editar la configuraci
 
 ![API settings][api-management-api-settings]
 
-Para configurar **Autenticación proxy** para el servicio web que implementa la API, seleccione la pestaña **Seguridad**. El menú desplegable **Con credenciales** se puede usar para configurar la **Autenticación básica** o la autenticación **Mutua de certificados**. Para usar la autenticación básica, solo tiene que escribir las credenciales deseadas. Para obtener información sobre el uso de la autenticación mutua de certificados, consulte [Cómo asegurar servicios back-end con la autenticación mutua de certificados en Administración de API de Azure][].
+Para configurar **Autenticación de puerta de enlace** para el servicio web que implementa la API, seleccione la pestaña **Seguridad**. El menú desplegable **Con credenciales** se puede usar para configurar la **Autenticación básica** o la autenticación **Mutua de certificados**. Para usar la autenticación básica, solo tiene que escribir las credenciales deseadas. Para obtener información sobre el uso de la autenticación mutua de certificados, consulte [Cómo asegurar servicios back-end con la autenticación mutua de certificados en Administración de API de Azure][].
 
 La pestaña **Seguridad** también se puede usar para configurar la **Autorización de usuario** con OAuth 2.0. Para obtener más información, consulte [Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Administración de API de Azure][].
 
@@ -96,4 +96,4 @@ Una vez creada una API y definida la configuración, los pasos siguientes permit
 [Cómo asegurar servicios back-end con la autenticación mutua de certificados en Administración de API de Azure]: api-management-howto-mutual-certificates.md
 [Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Administración de API de Azure]: api-management-howto-oauth2.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

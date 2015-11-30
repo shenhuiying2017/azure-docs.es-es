@@ -27,7 +27,7 @@ Haga clic en el vínculo correspondiente para ver las propiedades **acciones** y
 
 | Nombre de rol | Descripción |
 | --------- | ----------- |
-| [Colaborador de servicio de administración de API](#api-management-service-contributor) | Puede administrar los componentes de Application Insights |
+| [Colaborador de servicio de administración de API](#api-management-service-contributor) | Puede administrar servicios de administración de API |
 | [Colaborador de componentes de Application Insights](#application-insights-component-contributor) | Puede administrar los componentes de Application Insights |
 | [Operador de automatización](#automation-operator) | Puede iniciar, detener, suspender y reanudar trabajos |
 | [Colaborador de BizTalk](#biztalk-contributor) | Puede administrar los servicios de BizTalk |
@@ -53,7 +53,7 @@ Haga clic en el vínculo correspondiente para ver las propiedades **acciones** y
 | [Administrador de acceso de usuario](#user-access-administrator) | Puede administrar el acceso de usuarios a los recursos de Azure |
 | [Colaborador de la máquina virtual clásica](#classic-virtual-machine-contributor) | Puede administrar máquinas virtuales clásicas, pero no la cuenta de almacenamiento o la red virtual a la que están conectadas |
 | [Colaborador de la máquina virtual](#virtual-machine-contributor) | Puede administrar máquinas virtuales, pero no la cuenta de almacenamiento o la red virtual a la que están conectadas |
-| [Colaborador de la red clásica](#classic-network-contributor) | Puede administrar máquinas virtuales, pero no la cuenta de almacenamiento o la red virtual a la que están conectadas |
+| [Colaborador de la red clásica](#classic-network-contributor) | Puede administrar IP reservadas y redes virtuales clásicas |
 | [Colaborador de plan web](#web-plan-contributor) | Puede administrar planes web |
 | [Colaborador de sitio web](#website-contributor) | Puede administrar sitios web, pero no los planes web a los que están conectados |
 
@@ -480,4 +480,4 @@ Puede administrar sitios web, pero no los planes web a los que están conectados
 ## Temas de RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

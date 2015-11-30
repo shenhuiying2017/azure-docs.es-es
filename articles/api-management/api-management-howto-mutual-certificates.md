@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 # Cómo asegurar servicios back-end con la autenticación mutua de certificados en Administración de API de Azure
@@ -54,7 +54,7 @@ Haga clic en **Cargar** para cargar el certificado.
 
 ![Certificado cargado][api-management-certificate-uploaded]
 
-Cuando el certificado se carga, aparece en la pestaña **Certificados de cliente**. Si cuenta con varios certificados, anote el asunto o los cuatro últimos caracteres de la huella digital con los que se selecciona el certificado al configurar una API para usar certificados (conforme a la sección [Configurar una API para realizar la autenticación proxy con un certificado mutuo][] que aparece más abajo).
+Cuando el certificado se carga, aparece en la pestaña **Certificados de cliente**. Si cuenta con varios certificados, anote el asunto o los cuatro últimos caracteres de la huella digital con los que se selecciona el certificado al configurar una API para usar certificados (conforme a la sección [Configurar una API para realizar la autenticación de puerta de enlace con un certificado mutuo][] que aparece más abajo).
 
 ## <a name="step1a"> </a>Eliminar un certificado de cliente
 
@@ -70,7 +70,7 @@ Si alguna API está usando el certificado, aparecerá una pantalla de advertenci
 
 ![Confirmar eliminación][api-management-confirm-delete-policy]
 
-## <a name="step2"> </a>Configurar una API para realizar la autenticación proxy con un certificado mutuo
+## <a name="step2"> </a>Configurar una API para realizar la autenticación de puerta de enlace con un certificado mutuo
 
 Haga clic en **API** en el menú **Administración de API** de la izquierda, en el nombre de la API en cuestión y en la pestaña **Seguridad**.
 
@@ -90,7 +90,7 @@ Haga clic en **Guardar** para guardar el cambio de configuración de la API.
 
 ![Guardar cambios de API][api-management-save-api]
 
->Cuando se especifica un certificado para la autenticación proxy del servicio back-end de una API, el certificado se integra en la directiva de dicha API y puede verse en el editor de directivas.
+>Cuando se especifica un certificado para la autenticación de puerta de enlace del servicio back-end de una API, el certificado se integra en la directiva de dicha API y puede verse en el editor de directivas.
 
 ![Directiva de certificados][api-management-certificate-policy]
 
@@ -133,7 +133,7 @@ Para obtener más información, consulte el vídeo siguiente:
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
 [Delete a client certificate]: #step1a
-[Configurar una API para realizar la autenticación proxy con un certificado mutuo]: #step2
+[Configurar una API para realizar la autenticación de puerta de enlace con un certificado mutuo]: #step2
 [Test the configuration by calling an operation in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
@@ -141,4 +141,4 @@ Para obtener más información, consulte el vídeo siguiente:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

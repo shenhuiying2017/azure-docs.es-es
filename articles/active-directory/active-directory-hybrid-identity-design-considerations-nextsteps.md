@@ -42,4 +42,7 @@ La consulta de los siguientes recursos con frecuencia proporciona las noticias y
 - [Blog de Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configurationmgr/)
 - [Blog del equipo de Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/)
 
-<!---HONumber=Nov15_HO3-->
+## Consulte también
+[Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
+
+<!---HONumber=Nov15_HO4-->

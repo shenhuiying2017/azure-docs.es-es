@@ -59,7 +59,7 @@ La mayoría de los servicios de Azure son compatibles con ExpressRoute.
 	**Los siguientes servicios no son compatibles:**
 
 	- Servicio CDN
-	- Prueba de carga de Visual Studio Online
+	- Pruebas de carga de Visual Studio Team Services
 	- Multi-Factor Authentication
 
 ## Datos y conexiones
@@ -258,4 +258,4 @@ Consulte [Asociados y ubicaciones de ExpressRoute](expressroute-locations.md) pa
 Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a través de Internet a pesar de que se haya configurado ExpressRoute para su red. Si está en una ubicación que está configurada para conectarse a servicios de Office 365 a través de ExpressRoute, se conectará a través de ExpressRoute.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

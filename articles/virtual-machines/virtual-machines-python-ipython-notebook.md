@@ -3,7 +3,7 @@
 	description="Obtenga información sobre cómo implementar Jupyter/IPhyton Notebook en una máquina virtual de Linux creada con el modelo de implementación del administrador de recursos en Azure."
 	services="virtual-machines"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="crwilcox"
 	manager="wpickett"
 	editor=""
 	tags=“azure-service-management,azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/20/2015"
-	ms.author="huvalo"/>
+	ms.date="11/10/2015"
+	ms.author="crwilcox"/>
 
 # Jupyter Notebook en Azure
 
@@ -41,7 +41,7 @@ El primer paso es crear una máquina virtual (VM) que se ejecute en Azure. Esta 
 
 Siga las instrucciones que aparecen [aquí][portal-vm-linux] para crear una máquina virtual de la distribución *Ubuntu*. En este tutorial se usa Ubuntu Server 14.04 LTS. Asumiremos que el nombre de usuario es *azureuser*.
 
-Una vez que se implementa la máquina virtual, es necesario abrir una regla de seguridad en el grupo de seguridad de red. En el portal, vaya a **Grupos de seguridad de red** y abra la pestaña del grupo de seguridad que corresponde a la máquina virtual. Debe agregar una regla de seguridad de entrada con la configuración siguiente: **TCP** para el protocolo, ***** para el puerto de origen (público) y **9999** para el puerto de destino (privado).
+Una vez que se implementa la máquina virtual, es necesario abrir una regla de seguridad en el grupo de seguridad de red. En el Portal de vista previa de Azure, vaya a **Grupos de seguridad de red** y abra la pestaña del Grupo de seguridad que corresponde a la máquina virtual. Debe agregar una regla de seguridad de entrada con la configuración siguiente: **TCP** para el protocolo, ***** para el puerto de origen (público) y **9999** para el puerto de destino (privado).
 
 ![Instantánea](./media/virtual-machines-python-ipython-notebook/azure-add-endpoint.png)
 
@@ -199,4 +199,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 [repositorio]: https://github.com/ipython/ipython
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

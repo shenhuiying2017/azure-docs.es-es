@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/23/2015"
+   ms.date="10/06/2015"
    ms.author="lodipalm"/>
 
 # Uso de Power BI con Almacenamiento de datos SQL
@@ -37,7 +37,7 @@ La manera más fácil de trasladarse entre la instancia de Almacenamiento de dat
 2.	Haga clic en el botón Abrir en Power BI.
 3.	Si no puede iniciar sesión directamente, o bien no tiene una cuenta de Power BI, deberá iniciar sesión.  
 4.	Se le dirigirá a la página de conexión a Almacenamiento de datos SQL, con la información de su instancia de Almacenamiento de datos SQL previamente rellenada.
-5.  Después de escribir las credenciales, estará completamente conectado a su instancia de Almacenamiento de datos SQL. 
+5.  Una vez haya escrito sus credenciales estará completamente conectado a su Almacenamiento de datos SQL. 
 
 ## Conexión a través del Portal de Power BI
 Además de utilizar el botón Abrir en Power BI, los usuarios también pueden conectarse a su instancia de Almacenamiento de datos SQL a través del Portal de Power BI.
@@ -63,4 +63,4 @@ Puede encontrar el nombre completo del servidor y el nombre de la base de datos 
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

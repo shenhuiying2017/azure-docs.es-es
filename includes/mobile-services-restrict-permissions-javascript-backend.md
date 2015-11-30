@@ -7,4 +7,4 @@ Para proteger los extremos, debe restringir el acceso a solo los clientes autent
 
 	 De esta forma, se garantiza que todas las operaciones contra la tabla requieren un usuario autenticado, que es necesario para este tutorial. Puede establecer permisos diferentes en cada operación para admitir su escenario concreto.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

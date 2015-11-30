@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/21/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 # ¿Qué es el Catálogo de datos de Azure?
 
-El **Catálogo de datos de Microsoft Azure** es un servicio en la nube totalmente administrado que actúa como un sistema de registro y sistema de detección para orígenes de datos empresariales. **Catálogo de datos de Azure** proporciona capacidades que permiten a cualquier usuario (desde analistas hasta científicos de datos y desarrolladores) registrar, detectar, comprender y usar orígenes de datos.
+El **Catálogo de datos de Microsoft Azure** es un servicio en la nube totalmente administrado que actúa como un sistema de registro y sistema de detección para orígenes de datos empresariales. **Catálogo de datos de Azure ** proporciona capacidades que permiten a cualquier usuario (desde analistas hasta científicos de datos y desarrolladores) detectar, comprender y consumir orígenes de datos y colaborar con sus conocimientos para crear y dar soporte a una comunidad y cultura de datos.
 
 ## Descripción del problema: información general y motivación
 
@@ -48,7 +48,9 @@ Cuando se combinan, estos desafíos presentan una barrera importante para las em
 
 Una vez que se ha registrado un origen de datos, a continuación sus metadatos se pueden enriquecer, por parte del usuario que realizó el registro o por parte de otros usuarios de la empresa. Cualquier usuario puede anotar un origen de datos proporcionando descripciones, etiquetas u otros metadatos, como la documentación y procesos para solicitar acceso al origen de datos. Estos metadatos descriptivos complementan a los metadatos estructurales (como nombres de columna y tipos de datos) registrados desde el origen de datos, para que sean más fáciles de detectar y comprender.
 
-El descubrimiento y comprensión de los orígenes de datos y su uso es el propósito principal de registrar los orígenes. Cuando los usuarios de empresa necesitan datos para sus esfuerzos (que podrían ser de inteligencia empresarial, desarrollo de aplicaciones, ciencia de los datos o cualquier otra tarea donde se requieren los datos correctos) pueden usar la experiencia de detección del **Catálogo de datos de Azure** para encontrar rápidamente los datos que se ajusten a sus necesidades, comprender los datos para evaluar su adecuación para un propósito y consumir datos abriendo el origen de datos en la herramienta que desee.
+El descubrimiento y comprensión de los orígenes de datos y su uso es el propósito principal de registrar los orígenes. Cuando los usuarios de empresa necesitan datos para sus esfuerzos (que podrían ser de inteligencia empresarial, desarrollo de aplicaciones, ciencia de los datos o cualquier otra tarea donde se requieren los datos correctos) pueden usar la experiencia de detección del **Catálogo de datos de Azure** para encontrar rápidamente los datos que se ajusten a sus necesidades, comprender los datos para evaluar su adecuación para un propósito y consumir datos abriendo el origen de datos en la herramienta que desee. Al mismo tiempo, **Catálogo de datos de Azure** permite a los usuarios contribuir al catálogo mediante el etiquetado, documentación y anotación de orígenes de datos que ya se han registrado y registrando nuevos orígenes de datos que puede detectar, comprender y consumir la comunidad de usuarios del catálogo.
+
+![Capacidades del Catálogo de datos de Azure](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
 ## Registrar orígenes de datos
 
@@ -66,6 +68,8 @@ El proceso de registro implica tres pasos básicos:
 - Vista de SQL Server
 - Tabla de base de datos de Oracle
 - Vista de la Base de datos de Oracle
+- Tabla de Teradata
+- Vista de Teradata
 - Dimensión multidimensional de SQL Server Analysis Services
 - Medida multidimensional de SQL Server Analysis Services
 - KPI multidimensional de SQL Server Analysis Services
@@ -73,6 +77,9 @@ El proceso de registro implica tres pasos básicos:
 - Informe de SQL Server Reporting Services
 - Blob de almacenamiento de Azure
 - Directorio de almacenamiento de Azure
+- Archivo HDFS
+- Directorio HDFS
+- Tabla de Hive
 
 Se agregarán orígenes de datos y tipos de recursos adicionales durante la vista previa del **Catálogo de datos de Azure**.
 
@@ -86,7 +93,7 @@ Cuando se complete el registro, se pueden detectar y consumir los orígenes de d
 -	Los orígenes de datos registrados son más fáciles de comprender una vez detectados. Los metadatos proporcionados por el usuario se presentan para cualquier usuario del **Catálogo de datos de Azure** que vea el origen de datos anotado, lo cual ayuda a proporcionar contexto e información adicionales. Normalmente, la mayoría de los orígenes de datos no incluyen descripciones significativas ni documentación, y los que lo hacen a menudo se centran en las audiencias técnicas de desarrollador de bases de datos o DBA. Mediante el enriquecimiento de orígenes de datos en el **Catálogo de datos de Azure** mediante descripciones y etiquetas adecuadas para la audiencia, los usuarios pueden ayudar a garantizar que los usuarios que detectan los datos puedan entender sus detalles y su uso previsto.
 -  Cada origen de datos registrado puede incluir información de acceso a solicitudes, para que los usuarios pueden comprender con facilidad y seguir los procesos existentes para solicitar el acceso al origen de datos y sus datos.
 
-> [AZURE.NOTE]Cada usuario del **Catálogo de datos de Azure** puede agregar sus propias etiquetas y descripciones para los atributos y recursos de datos. El **Catálogo de datos de Azure** realizará un seguimiento del valor y el origen de cada anotación y mostrará el usuario y la fecha en que se agregó la anotación. Este enfoque de micromecenazgo de los metadatos garantiza que todos los usuarios con una perspectiva de los datos y su uso puedan compartir sus opiniones y recursos con la comunidad de usuarios en general.
+> [AZURE.NOTE]Cada usuario del **Catálogo de datos de Azure** puede agregar sus propias etiquetas y descripciones para los atributos y recursos de datos. El **Catálogo de datos de Azure** realizará un seguimiento del valor y el origen de cada anotación y mostrará el usuario que lo agregó. Este enfoque de micromecenazgo de los metadatos garantiza que todos los usuarios con una perspectiva de los datos y su uso puedan compartir sus opiniones y recursos con la comunidad de usuarios en general.
 
 ## Explorar, descubrir y comprender
 
@@ -122,4 +129,4 @@ El objetivo final de la detección de datos es encontrar los datos que necesita 
 
 > [AZURE.NOTE]Para la vista previa privada del Catálogo de datos de Azure, de forma directa solo se admitirán y estarán disponibles Microsoft Excel y el Administrador de informes de SQL Server Reporting Services en el menú **Abrir en**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -18,6 +18,10 @@
 
 
 #Utilidad de migración de Almacenamiento de datos (vista previa)
+
+> [AZURE.SELECTOR]
+- [Download Migration Utility](https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip)
+
 La Utilidad de migración de Almacenamiento de datos es una herramienta diseñada para migrar el esquema y los datos de SQL Server y Base de datos de SQL Azure a Almacenamiento de datos SQL de Azure. Durante la migración del esquema, la herramienta asigna automáticamente el esquema correspondiente del origen al destino. Una vez migrado el esquema, a los usuarios también se les ofrece la opción de mover datos a través de scripts generados automáticamente.
 
 Además de migración de datos y el esquema, esta herramienta ofrece a los usuarios la opción de generar informes de compatibilidad que resumen las incompatibilidades entre las instancias de origen y de destino que podrían impedir la migración optimizada.
@@ -31,7 +35,7 @@ La herramienta se puede iniciar fácilmente haciendo clic en el icono del escrit
 Después de autenticarse, la herramienta mostrará una lista de bases de datos que se encuentran en el servidor que se conectó. Puede comenzar la migración seleccionando la base de datos que desea migrar y después hacer clic en «Migrar seleccionado».
  
 ##Informe de migración
-Si se selecciona «Comprobar compatibilidad de la base de datos» en la herramienta, se generará un informe de resumen de todas las incompatibilidades de los objetos de la base de datos que quiere migrar. Puede encontrar una lista más exhaustiva de algunas de las funciones de SQL Server que no están presentes en Almacenamiento de datos SQL en nuestra [documentación de migración][]. Una vez generado el informe, podrá guardarlo y abrirlo en Excel.
+Si se selecciona «Comprobar compatibilidad de la base de datos» en la herramienta, se generará un informe de resumen de todas las incompatibilidades de los objetos de la base de datos que quiere migrar. Puede encontrar una lista más exhaustiva de algunas de las funciones de SQL Server que no están presentes en el Almacenamiento de datos SQL en nuestra [documentación de migración][]. Una vez generado el informe, podrá guardarlo y abrirlo en Excel.
 
 Tenga en cuenta que cuando se genera el esquema de migración, la mayoría de los problemas identificados como «Objeto» se ajustarán para permitir la migración inmediata de los datos. Revise los cambios para asegurarse de que no desea realizar ajustes adicionales antes de aplicar el esquema.
 
@@ -48,7 +52,7 @@ Si hace clic en la opción «Migrar datos», puede generar scripts BCP que mueve
 Después de rellenar los parámetros anteriores, basta con que haga clic en la opción de ejecutar migración y se generará un conjunto de dos paquetes en la ubicación especificada. Ejecute el archivo de exportación para exportar datos desde el origen de migración a archivos sin formato y ejecute el archivo de importación para importar los datos en Almacenamiento de datos SQL.
 
 ## Pasos siguientes
-Ahora que migró algunos datos, vea cómo [desarrollarlos][].
+Ahora que migró algunos datos, aprenda a [desarrollarlos][].
 
 <!--Image references-->
 
@@ -57,4 +61,4 @@ Ahora que migró algunos datos, vea cómo [desarrollarlos][].
 [desarrollarlos]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-overview-develop/
 [aquí]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

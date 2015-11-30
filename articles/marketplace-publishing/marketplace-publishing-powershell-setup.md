@@ -16,10 +16,10 @@
    ms.date="10/08/2015"
    ms.author="hascipio"/>
 
-# Configuración de Azure PowerShell para crear una oferta para Azure Marketplace
-Para obtener información detallada sobre cómo configurar PowerShell en Azure, visite [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md). Un enfoque sencillo es usar el método de certificado, que descarga e importa un certificado necesario para autenticar. Para obtener el certificado necesario, use el cmdlet *Get-AzurePublishSettingsFile*. Guarde el archivo cuando se le solicite. Para importar el certificado en una sesión de PowerShell, use el *Import-AzurePublishSettingsFile*.
+# Configurar Azure PowerShell para crear una oferta para Azure Marketplace
+Para obtener información detallada sobre cómo configurar PowerShell en Azure, vea [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md). Un enfoque sencillo es usar el método de certificado, que descarga e importa un certificado necesario para la autenticación. Para obtener el certificado necesario, use el cmdlet **Get-AzurePublishSettingsFile**. Guarde el archivo cuando se le pida. Para importar el certificado en una sesión de PowerShell, use el cmdlet **Import-AzurePublishSettingsFile**.
 
-Para configurar y almacenar la configuración común de la suscripción de Microsoft Azure para la sesión de PowerShell, use los cmdlets *Set-AzureSubscription* y *Select-AzureSubscription*:
+Para configurar y almacenar la configuración común de la suscripción de Microsoft Azure para la sesión de PowerShell, use los cmdlets **Set-AzureSubscription** y **Select-AzureSubscription**:
 
         Set-AzureSubscription -SubscriptionName “mySubName” -CurrentStorageAccountName “mystorageaccount”
         Select-AzureSubscription -SubscriptionName "mySubName" –Current
@@ -30,4 +30,4 @@ El primer comando asocia una cuenta de almacenamiento predeterminada con la susc
 - [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 - [Creación de una imagen de máquina virtual para Marketplace](marketplace-publishing-vm-image-creation.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -90,4 +90,4 @@
 
 9. Haga clic con el botón secundario en el proyecto de aplicación de la Tienda Windows Phone, haga clic en **Establecer como proyecto de inicio** y repita el paso anterior para comprobar que la aplicación de la Tienda Windows Phone también se ejecuta correctamente.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -55,6 +55,8 @@ Para ello, en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715
 A continuación, puede seleccionar o crear el plan del Servicio de aplicaciones para la nueva aplicación.
   
  ![][createASP]
+
+Para crear un nuevo plan de Servicio de aplicaciones, haga clic en **+ Crear nuevo**, escriba el nombre del **plan del Servicio de aplicaciones** y seleccione una **ubicación** adecuada. Haga clic en el **Plan de tarifa** y seleccione un plan de tarifa adecuado para el servicio. Seleccione **Ver todos** para ver más opciones de precios, como **Gratis** y **Compartido**. Una vez haya seleccionado el nivel de precios, haga clic en el botón **Seleccionar**.
  
 ## Cambio de una aplicación a un plan del Servicio de aplicaciones diferente
 
@@ -98,4 +100,4 @@ Los planes del Servicio de aplicaciones representan un conjunto de característi
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

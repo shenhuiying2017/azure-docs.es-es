@@ -340,7 +340,9 @@ Las interpolaciones le permiten definir la pendiente con la que la potenciación
 
 `boostingDuration` es un atributo de la función de índice de actualización. Se usa para establecer un período de caducidad después del que se detendrá la potenciación de un documento determinado. Por ejemplo, para potenciar una línea de productos o marca durante un período de promoción de 10 días, debe especificar el período de 10 días como "P10D" para dichos documentos. O bien, para elevar próximos eventos en la próxima semana, especifique "-P7D".
 
-`boostingDuration` debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de duración ISO 8601). El patrón de este es: "[-]P[nD][T[nH][nM][nS]]".
+`boostingDuration` debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de duración ISO 8601). El patrón de este es:
+
+     [-]P\[nD]\[T\[nH]\[nM]\[nS]\]
 
 La tabla siguiente proporciona varios ejemplos.
 
@@ -370,4 +372,4 @@ Para obtener más ejemplos, consulte [Esquema XML: tipos de datos (sitio web de 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

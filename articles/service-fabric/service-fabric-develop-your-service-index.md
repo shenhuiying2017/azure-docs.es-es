@@ -79,7 +79,7 @@ A continuación se describen la comunicación con los servicios de confianza y l
 
 - [Comunicación con los servicios](service-fabric-connect-and-communicate-with-services.md)
 - [Modelo de comunicación de servicio](service-fabric-reliable-services-communication.md)
-- [Pila de comunicación predeterminada ofrecida por el marco de servicios de confianza](service-fabric-reliable-services-communication-default.md)
+- [Pila de comunicación predeterminada ofrecida por el marco de servicios de confianza](service-fabric-reliable-services-communication-remoting.md)
 - [Pila de comunicación basada en WCF de servicios de confianza](service-fabric-reliable-services-communication-wcf.md)
 - [Introducción a los servicios de la API web de Service Fabric de Microsoft Azure con el autohospedaje de OWIN (VS 2015 RC)](service-fabric-reliable-services-communication-webapi.md)
 
@@ -87,4 +87,4 @@ Los servicios de confianza emiten eventos y contadores de rendimiento, que se pu
 
 - [Diagnóstico de servicios de confianza con estado](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

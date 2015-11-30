@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""/>
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -30,7 +31,7 @@ Mientras que la unión a un dominio de la manera tradicional le va a seguir prop
 
 ## ¿Por qué las empresas deben adoptar Azure AD Join? 
 
- * **Si su empresa opera principalmente en la nube**: si tiene, o se va a pasar a, un modelo donde piensa reducir su superficie local y desea funcionar más en la nube, Azure AD Join puede resultarle ventajoso. Quizá ha creado cuentas de Azure AD manualmente o a través de la sincronización de su AD local. En cualquier caso, tiene una cuenta de Azure AD y puede usarla para iniciar sesión en Windows 10. Los usuarios pueden unir sus equipos a Azure AD a través del proceso de configuración rápida o mediante la experiencia de configuración básica. Ahora, los usuarios disfrutan de acceso SSO a sus recursos de nube, como Office 365 en el explorador o en las aplicaciones de Office. 
+* **Si su empresa opera principalmente en la nube**: si tiene, o se va a pasar a, un modelo donde piensa reducir su superficie local y desea funcionar más en la nube, Azure AD Join puede resultarle ventajoso. Quizá ha creado cuentas de Azure AD manualmente o a través de la sincronización de su AD local. En cualquier caso, tiene una cuenta de Azure AD y puede usarla para iniciar sesión en Windows 10. Los usuarios pueden unir sus equipos a Azure AD a través del proceso de configuración rápida o mediante la experiencia de configuración básica. Ahora, los usuarios disfrutan de acceso SSO a sus recursos de nube, como Office 365 en el explorador o en las aplicaciones de Office. 
 * **Instituciones educativas**: uno de los escenarios más importantes sobre los que oímos hablar es el de las instituciones educativas y sus dos tipos de usuarios: profesores y estudiantes. A los profesores se les considera miembros más a largo plazo de la organización, y lo deseable es crear cuentas locales para ellos. Pero los estudiantes son miembros más a corto plazo de la organización y, por lo tanto, se pueden administrar en Azure AD de modo que la escala de directorio se puede mover a la nube en lugar de al entorno local. Los estudiantes ahora pueden iniciar sesión en Windows con su cuenta de Azure AD y obtener acceso a los recursos de Office 365 en las aplicaciones de Office. 
 * **Negocios minoristas**: otra área de preocupación para los clientes es su deseo de simplificar la administración de los trabajadores de temporada. De nuevo, los empleados a jornada completa, más a largo plazo, se pueden crear como cuentas locales y usarían normalmente equipos unidos a un dominio. Pero los trabajadores de temporada son miembros más a corto plazo de la organización y, por lo tanto, es necesario administrarlos con licencias de usuario que se puedan mover fácilmente. La creación de estos usuarios en la nube con licencias de Office 365 permite a estos usuarios obtener los beneficios de iniciar sesión en aplicaciones de Windows y Office con una cuenta de Azure AD, y mantener al mismo tiempo la movilidad de sus licencias una vez que abandonan su puesto de trabajo. 
 * **Otras empresas**: y aparte de los escenarios que se han descrito anteriormente, puede encontrar que aun manteniendo a los usuarios en su directorio local de AD, podría beneficiarse de la unión de sus usuarios a Azure AD gracias a la experiencia de unión simplificada, la administración de dispositivos en Azure AD, la inscripción automática de MDM y el inicio de sesión único en recursos de Azure AD y locales.  
@@ -67,8 +68,12 @@ Con Azure AD Join, obtendrá lo siguiente:
 | Inicio de sesión único (SSO) desde el escritorio para trabajar en aplicaciones, sitios web y recursos de forma local y en aplicaciones en la nube que usan Azure AD para la autenticación. | Registro automático en el directorio empresarial (Azure AD) e inscripción automática en MDM. (Característica de Azure AD Premium) | Proporciona SSO entre aplicaciones y en sitios web y recursos con esta cuenta profesional. |
 | Los usuarios pueden agregar su MSA personal para tener acceso a sus imágenes y archivos personales sin que por ello se vean afectados los datos empresariales (la configuración de movilidad sigue funcionando con la cuenta profesional). La cuenta MSA permite SSO y ya no controla la movilidad de la configuración. | Autoservicio de restablecimiento de contraseña (SSPR) en Winlogon (posibilidad de restablecer contraseñas olvidadas) (Para esto, necesita la edición Premium). | Proporciona acceso a la parte principal de la Tienda corporativa, o a alguna de sus secciones, para que los usuarios puedan comprar y usar aplicaciones de línea de negocio en sus dispositivos personales. | |
 
-## Pasos siguientes
-* [Conozca los escenarios de uso y las consideraciones de implementación de Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
+## Información adicional
+* [Windows 10 para la empresa: formas de usar dispositivos para trabajar](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
+* [Autenticación de identidades sin contraseñas a través de Microsoft Passport](active-directory-azureadjoin-passport.md)
+* [Conozca los escenarios de uso de Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

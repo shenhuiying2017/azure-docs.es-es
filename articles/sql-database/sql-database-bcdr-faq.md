@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="11/16/2015"
    ms.author="elfish"/>
 
 # Preguntas frecuentes sobre la continuidad del negocio
@@ -48,7 +48,7 @@ Para la recuperación tras una interrupción: use la opción [Obtener base de da
 
 ## 7\. ¿Cómo puedo restaurar de forma masiva restaurar las bases de datos de mi servidor?
 
-No existe ninguna funcionalidad integrada para restaurar de forma masiva. Puede utilizar la secuencia de comandos [Base de datos SQL de Azure: recuperación completa del servidor](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) para realizar esta tarea.
+No existe ninguna funcionalidad integrada para restaurar de forma masiva. El script denominado [Base de datos SQL de Azure: recuperación completa del servidor](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666), es un ejemplo de uno de los diferentes modos de realizar esta tarea.
 
 ## 8\. ¿Cuál es la diferencia entre la replicación geográfica estándar y la replicación geográfica activa?
 
@@ -58,11 +58,6 @@ En la replicación geográfica activa, todas las bases de datos secundarias son 
 
 ## 9\. ¿Cuál es el retraso de replicación cuando se utiliza la replicación geográfica estándar o la replicación geográfica activa?
 
-La replicación geográfica utiliza un proceso de copia continua. Por lo tanto, utilice la vista de administración dinámica (DMV) [sys.dm\_continuous\_copy\_status](https://msdn.microsoft.com/library/azure/dn741329.aspx) para obtener la última hora de replicación, entre otros datos.
+Use la vista de administración dinámica (DMV) [sys.dm\_geo\_replication\_link\_status](https://msdnstage.redmond.corp.microsoft.com/library/mt575504.aspx) para obtener la última hora de la replicación, el retraso de la replicación y otro tipo de información acerca del vínculo de la replicación.
 
-
-
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

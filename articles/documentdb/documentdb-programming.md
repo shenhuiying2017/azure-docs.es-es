@@ -50,7 +50,7 @@ Este enfoque de *"JavaScript como un T-SQL moderno"* libera a los desarrolladore
 	-	Agrega una capa de abstracción en la parte superior de los datos sin procesar, lo cual permite a los arquitectos de datos desarrollar sus aplicaciones de forma independiente de los datos. Esto supone una especial ventaja cuando los datos no tienen esquema, debido a débiles suposiciones que se deben integrar en la aplicación si tienen que tratar directamente con los datos.  
 	-	Esta abstracción permite a las empresas mantener seguros sus datos simplificando el acceso desde los scripts.  
 
-Se admite la creación y ejecución de operadores de consulta personalizada, procedimientos almacenados y desencadenadores de base de datos a través de la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) y los [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx) en muchas plataformas: .NET, Node.js y JavaScript, entre otras. <b>Este tutorial utiliza el [SDK de Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)</b> para ilustrar la sintaxis y el uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF).
+Se admite la creación y ejecución de operadores de consulta personalizada, procedimientos almacenados y desencadenadores de base de datos a través de la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) y los [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx) en muchas plataformas: .NET, Node.js y JavaScript, entre otras. **Este tutorial utiliza el [SDK de Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** para ilustrar la sintaxis y el uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF).
 
 ## Procedimientos almacenados
 
@@ -751,7 +751,7 @@ __.chain()
 </table>
 
 ## Compatibilidad con el tiempo de ejecución
-El [SDK del lado servidor de JavaScript de DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) ofrece compatibilidad con la mayoría de características del lenguaje JavaScript habituales, según el estándar [ECMA-262](documentdb-interactions-with-resources.md).
+El [SDK del lado servidor de JavaScript de DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) ofrece compatibilidad con la mayoría de características del lenguaje JavaScript habituales, según el estándar [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### Seguridad
 Los procedimientos almacenados y desencadenadores de JavaScript se encuentran en un espacio aislado para que los efectos de un script no se filtren al otro sin pasar por el aislamiento de la transacción de instantánea en el nivel de la base de datos. Los entornos de tiempo de ejecución se agrupan pero se borran del contexto tras cada ejecución. Por lo tanto se garantiza su seguridad de cualquier efecto secundario no intencionado entre ellos.
@@ -760,7 +760,7 @@ Los procedimientos almacenados y desencadenadores de JavaScript se encuentran en
 Los procedimientos almacenados, desencadenadores y UDF se precompilan implícitamente en formato de código byte para evitar los costes de compilación en el momento de cada invocación de script. Esto garantiza que las invocaciones de los procedimientos almacenados son rápidos y tienen poca superficie.
 
 ## Compatibilidad con SDK de cliente
-Además del cliente [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), DocumentDB es compatible con [.NET](https://msdn.microsoft.com/library/azure/dn783362.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) y los [SDK de Python](http://dl.windowsazure.com/documentDB/pythondocs/). Los procedimientos almacenados, desencadenadores y UDF también se pueden crear y ejecutar mediante cualquiera de estos SDK. En el siguiente ejemplo se muestra cómo crear y ejecutar un procedimiento almacenado mediante el cliente.NET. Observe cómo los tipos de .NET se pasan al procedimiento almacenado como JSON y se vuelven a leer.
+Además del cliente [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), DocumentDB es compatible con [.NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) y los [SDK de Python](http://dl.windowsazure.com/documentDB/pythondocs/). Los procedimientos almacenados, desencadenadores y UDF también se pueden crear y ejecutar mediante cualquiera de estos SDK. En el siguiente ejemplo se muestra cómo crear y ejecutar un procedimiento almacenado mediante el cliente.NET. Observe cómo los tipos de .NET se pasan al procedimiento almacenado como JSON y se vuelven a leer.
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -793,7 +793,7 @@ Además del cliente [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), 
 	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(createdStoredProcedure.SelfLink, document, 1920);
 
 
-En este ejemplo se muestra cómo usar el [SDK de .NET](https://msdn.microsoft.com/library/azure/dn783362.aspx) para crear un desencadenador previo y generar un documento con el desencadenador habilitado.
+En este ejemplo se muestra cómo usar el [SDK de .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx) para crear un desencadenador previo y generar un documento con el desencadenador habilitado.
 
 	Trigger preTrigger = new Trigger()
 	{
@@ -903,7 +903,7 @@ Aquí el desencadenador previo que se debe ejecutar con la solicitud se especifi
 
 ## Código de ejemplo
 
-Puede encontrar más ejemplos de código del lado servidor (entre los que se incluyen [upsert](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) y [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) en nuestro [repositorio de Github](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+Encontrará más ejemplos de código del lado servidor (entre los que se incluyen [upsert](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) y [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) en nuestro [repositorio de Github](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
 ¿Desea compartir el impresionante procedimiento almacenado? Envíenos una solicitud de extracción.
 
@@ -921,4 +921,4 @@ También puede encontrar útiles las siguientes referencias y recursos en su rut
 -	[Arquitectura de base de datos orientada a servicios](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hospedaje de runtime de .NET en Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

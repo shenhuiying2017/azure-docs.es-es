@@ -65,7 +65,7 @@ Para obtener una guía práctica para la solución de problemas integral en apli
 	+ [Apéndice 2: Uso de Wireshark para capturar tráfico de red]
 	+ [Apéndice 3: Uso del Analizador de mensajes de Microsoft para capturar tráfico de red]
 	+ [Apéndice 4: Uso de Excel para ver métricas y datos de registro]
-	+ [Apéndice 5: Supervisión con Application Insights para Visual Studio Online]
+	+ [Apéndice 5: Supervisión de Visual Studio Team Services mediante Application Insights]
 
 ## <a name="introduction"></a>Introducción
 
@@ -125,7 +125,7 @@ Puede usar el Portal de Microsoft Azure, en <a href="https://portal.azure.com" t
 
 El Portal de Azure también puede proporcionar notificaciones de los incidentes que afectan a los diversos servicios de Azure. Nota: antes, esta información estaba disponible, junto con los datos históricos, en el Panel de servicios de Azure, en <a href="http://status.azure.com" target="_blank">http://status.azure.com</a>.
 
-Mientras que el portal recopila la información sobre el estado desde el interior de los centros de datos de Azure (supervisión del interior al exterior), también puede adoptar un método que vaya del exterior al interior para generar transacciones sintéticas que accedan periódicamente a la aplicación web hospedada por Azure desde varias ubicaciones. Los servicios que ofrecen <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a> y Application Insights para Visual Studio Online son algunos ejemplos de este método que va del exterior al interior. Para más información sobre Application Insights para Visual Studio Online, consulte el apéndice "[Apéndice 5: Supervisión con Application Insights para Visual Studio Online]."
+Mientras que el portal recopila la información sobre el estado desde el interior de los centros de datos de Azure (supervisión del interior al exterior), también puede adoptar un método que vaya del exterior al interior para generar transacciones sintéticas que accedan periódicamente a la aplicación web hospedada por Azure desde varias ubicaciones. Los servicios que ofrecen <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a> y Application Insights para Visual Studio Team Services son algunos de los ejemplos de este enfoque detallado. Para más información sobre Application Insights para Visual Studio Team Services, consulte el apéndice "[Apéndice 5: supervisión de Visual Studio Team Services mediante Application Insights]".
 
 ### <a name="monitoring-capacity"></a>Supervisión de la capacidad
 
@@ -827,14 +827,14 @@ Para importar los datos del registro de Almacenamiento en Excel después de desc
 
 En el paso 1 del **Asistente para importar texto**, seleccione **Punto y coma** como el único delimitador y elija la comilla doble como **Calificador de texto**. Luego, haga clic en **Finalizar** y elija dónde quiere colocar los datos del libro.
 
-### <a name="appendix-5"></a>Apéndice 5: Supervisión con Application Insights para Visual Studio Online
+### <a name="appendix-5"></a>Apéndice 5: supervisión de Visual Studio Team Services mediante Application Insights
 
-También puede usar la característica Application Insights para Visual Studio Online como parte de la supervisión del rendimiento y la disponibilidad. Esta herramienta puede:
+Asimismo, también puede usar la característica Application Insights para Visual Studio Team Services como parte de la supervisión del rendimiento y la disponibilidad. Esta herramienta puede:
 
 - Comprobar que el servicio web está disponible y responde adecuadamente. Tanto si la aplicación es un sitio web como si es una aplicación para dispositivo que utiliza un servicio web, puede probar la URL cada pocos minutos desde ubicaciones de todo el mundo e informar si hay algún problema.
 - Diagnosticar rápidamente los problemas de rendimiento o las excepciones del servicio web. Averigüe si la CPU u otros recursos se están ampliando, observe el seguimiento de la pila de las excepciones y busque fácilmente en los seguimientos de registros. Si el rendimiento de la aplicación desciende por debajo de los límites aceptables, podemos enviarle un correo electrónico. Puede supervisar servicios web de .NET y de Java.
 
-Cuando se escribió este documento, Application Insights se encontraba en una versión preliminar. Puede ver más información en <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">Application Insights para Visual Studio Online en MSDN</a>.
+Cuando se escribió este documento, Application Insights se encontraba en una versión preliminar. Podrá encontrar más información en <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">Application Insights para Visual Studio Team Services en MSDN</a>.
 
 
 <!--Anchors-->
@@ -897,7 +897,7 @@ Cuando se escribió este documento, Application Insights se encontraba en una ve
 [Apéndice 2: Uso de Wireshark para capturar tráfico de red]: #appendix-2
 [Apéndice 3: Uso del Analizador de mensajes de Microsoft para capturar tráfico de red]: #appendix-3
 [Apéndice 4: Uso de Excel para ver métricas y datos de registro]: #appendix-4
-[Apéndice 5: Supervisión con Application Insights para Visual Studio Online]: #appendix-5
+[Apéndice 5: Supervisión de Visual Studio Team Services mediante Application Insights]: #appendix-5
 
 <!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png
@@ -911,4 +911,4 @@ Cuando se escribió este documento, Application Insights se encontraba en una ve
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

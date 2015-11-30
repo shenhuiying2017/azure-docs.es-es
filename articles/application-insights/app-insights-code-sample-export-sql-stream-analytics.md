@@ -21,7 +21,7 @@ En este artículo se muestra cómo trasladar los datos de telemetría desde [App
 
 La Exportación continua traslada los datos de telemetría a Almacenamiento de Azure en formato JSON. Analizaremos los objetos JSON mediante Análisis de transmisiones de Azure y crearemos filas en una tabla de base de datos.
 
-(De manera más general, la Exportación continua es la forma de realizar su propio análisis de la telemetría que las aplicaciones envían a Application Insights. Se puede adaptar este ejemplo de código para realizar otras operaciones con la telemetría exportada, como la agregación de datos y la publicación de datos en el conjunto de visualización de PowerBI).
+(De manera más general, la Exportación continua es la forma de realizar su propio análisis de la telemetría que las aplicaciones envían a Application Insights. Se puede adaptar este ejemplo de código para realizar otras operaciones con la telemetría exportada, como la adición de datos).
 
 Comenzaremos con la suposición de que ya dispone de la aplicación que desea supervisar.
 
@@ -300,6 +300,7 @@ Después de unos minutos, vuelva a las herramientas de administración de SQL Se
 ## Artículos relacionados
 
 * [Exportación a SQL con un rol de trabajo](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Exportación a PowerBI mediante Análisis de transmisiones](app-insights-export-power-bi.md)
 * [Referencia detallada del modelo de datos para los tipos y valores de propiedad.](app-insights-export-data-model.md)
 * [Exportación continua en Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -314,4 +315,4 @@ Después de unos minutos, vuelva a las herramientas de administración de SQL Se
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

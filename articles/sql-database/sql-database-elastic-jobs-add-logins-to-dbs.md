@@ -17,7 +17,7 @@
 
 # Cómo agregar usuarios a un grupo de bases de datos elásticas
 
-La característica **Trabajos de base de datos elástica** (vista previa) le permite ejecutar un script de Transact-SQL transversalmente en un grupo de bases de datos, que puede incluir una colección de bases de datos personalizada definida por el usuario, un **grupo de bases de datos elásticas** o un **conjunto de particiones de bases de datos elásticas** en Base de datos de SQL de Azure. Para ejecutar el script, deberá agregar un usuario con los permisos adecuados en cada base de datos en la que se ejecute el trabajo. Para obtener más información, vea [Administración de bases de datos e inicios de sesión en su base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx) o [Adición de usuarios a la base de datos SQL de Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/).
+La característica **Trabajos de base de datos elástica** (vista previa) le permite ejecutar un script de Transact-SQL transversalmente en un grupo de bases de datos, que puede incluir una colección de bases de datos personalizada definida por el usuario, un **grupo de bases de datos elásticas** o un **conjunto de particiones de bases de datos elásticas** en Base de datos de SQL de Azure. Para ejecutar el script, deberá agregar un usuario con los permisos adecuados en cada base de datos en la que se ejecute el trabajo. Para obtener más información, vea [Administración de bases de datos e inicios de sesión en su base de datos SQL de Azure](sql-database-manage-logins.md) o [Adición de usuarios a la base de datos SQL de Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/).
 
 ## Requisitos previos
 * Instale los [componentes de trabajo elástico](sql-database-elastic-jobs-service-installation.md). 
@@ -36,7 +36,7 @@ La característica **Trabajos de base de datos elástica** (vista previa) le per
 
 ## Pasos siguientes
 
-Para crear y administrar trabajos, consulte [Creación y administración de trabajos de Base de datos elástica](sql-database-elastic-jobs-create-and-manage.md).
+Para crear y administrar trabajos mediante el Portal de Azure, consulte [Crear y administrar trabajos de bases de datos elásticas](sql-database-elastic-jobs-create-and-manage.md). Para crear trabajos mediante PowerShell, consulte [Crear y administrar trabajos de bases de datos elásticas de la Base de datos SQL mediante PowerShell (vista previa)](sql-database-elastic-jobs-powershell.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -44,4 +44,4 @@ Para crear y administrar trabajos, consulte [Creación y administración de trab
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

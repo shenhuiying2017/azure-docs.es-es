@@ -13,11 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/06/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 # Notas de la versión del Catálogo de datos de Azure
 
+## Notas de la versión del 20 de noviembre de 2015 del Catálogo de datos de Azure
+
+### Apertura de orígenes de datos en Power BI Desktop
+
+Al usar la opción "Abrir en Power BI Desktop" del portal de **Catálogo de datos de Azure**, es posible que los usuarios se encuentren uno o dos problemas en la aplicación Power BI Desktop:
+
+- Se mostrará un cuadro de diálogo con el título "No se puede abrir el documento"
+- A continuación, se abre la aplicación Power BI Desktop, pero el archivo parece vacío
+
+Para cada situación, se puede resolver el problema descargando e instalando la versión más reciente de Power BI Desktop de [PowerBI.com](https://powerbi.com).
+
+## Notas de la versión del 13 de noviembre de 2015 del Catálogo de datos de Azure
+
+### Registro y conexión a Teradata
+
+Para conectarse a orígenes de datos de Teradata, los usuarios deben tener instalados los controladores ODBC de Teradata correctos que coinciden con el valor de bits (32 bits o 64 bits) del software que se va a usar.
+
+A partir de esta fecha de lanzamiento de ADC, el [Controlador ODBC de Teradata para Windows (versión 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) más reciente será compatible con Office 2013, pero no con Office 2016.
 
 ## Notas de la versión del 6 de noviembre de 2015 del Catálogo de datos de Azure
 
@@ -78,4 +96,4 @@ Para obtener más información, vea [Configuración de directivas de autenticaci
 
 Para localizar el archivo RegistrationTool.exe.config, inicie la herramienta de registro y, a continuación, abra la utilidad Administrador de tareas de Windows. En la pestaña Detalles del Administrador de tareas, haga clic con el botón derecho en RegistrationTool.exe y elija Abrir ubicación de archivo en el menú emergente.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

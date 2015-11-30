@@ -548,13 +548,10 @@ Para eliminar una cola y todos los mensajes que contenga, llame al cmdlet Remove
     $QueueName = "yourqueuename"
     Remove-AzureStorageQueue –Name $QueueName –Context $Ctx
 
-### Cómo administrar la cola de mensajes
-Actualmente, Azure PowerShell no proporciona cmdlets para administrar directamente los mensajes en cola. Para realizar operaciones en mensajes en cola, puede usar las clases que se proporcionan en la [Biblioteca de cliente de almacenamiento de Azure para .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
-
 #### Cómo insertar un mensaje en una cola
 Para insertar un mensaje en una cola ya existente, primero deberá crear una instancia nueva de la clase [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx). A continuación, llame al método [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx). Se puede crear un CloudQueueMessage a partir de una cadena (en formato UTF-8) o de una matriz de bytes.
 
-En el siguiente ejemplo le mostraremos cómo agregar un mensaje a una cola. Primero, el ejemplo establece una conexión a Almacenamiento de Azure mediante el contexto de cuenta de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. A continuación, éste recupera la cola especificada usando el cmdlet [Get-AzureStorageQueue](https://msdn.microsoft.com/library/azure/dn806377.aspx). Si la cola existe, se usa el cmdlet [New-Object](http://technet.microsoft.com/library/hh849885.aspx) para crear una instancia de la clase [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx). Después, el ejemplo llama al método [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) en este objeto de mensaje para agregarlo a la cola. Aquí tiene el código que recupera una cola e inserta el mensaje 'MessageInfo':
+En el siguiente ejemplo le mostraremos cómo agregar un mensaje a una cola. Primero, el ejemplo establece una conexión a Almacenamiento de Azure mediante el contexto de cuenta de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. A continuación, este recupera la cola especificada mediante el cmdlet [Get-AzureStorageQueue](https://msdn.microsoft.com/library/azure/dn806377.aspx). Si la cola existe, se usa el cmdlet [New-Object](http://technet.microsoft.com/library/hh849885.aspx) para crear una instancia de la clase [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx). A continuación, el ejemplo llama al método [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) en este objeto de mensaje para agregarlo a la cola. Aquí tiene el código que recupera una cola e inserta el mensaje 'MessageInfo':
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
@@ -597,14 +594,14 @@ El código quita un mensaje de una cola en dos pasos. Cuando llama al método [M
 ## Cómo administrar archivos y recursos compartidos de archivos de Azure
 El Almacenamiento de archivos de Azure ofrece almacenamiento compartido para aplicaciones que usan el protocolo SMB estándar. Las máquinas virtuales y los servicios en la nube de Microsoft Azure pueden compartir datos de archivo entre componentes de aplicaciones a través de recursos compartidos montados y las aplicaciones locales pueden acceder a datos de archivo de un recurso compartido a través de la API de Almacenamiento de archivos o Azure PowerShell.
 
-Para obtener más información sobre el Almacenamiento de archivos de Azure, vea [Uso de Almacenamiento de archivos de Azure con Windows](storage-dotnet-how-to-use-files.md) y [API de REST del servicio de archivos](http://msdn.microsoft.com/library/azure/dn167006.aspx).
+Para obtener más información sobre el Almacenamiento de archivos de Azure, consulte [Uso del Almacenamiento de archivos de Azure con Windows](storage-dotnet-how-to-use-files.md) y [API de REST del servicio de archivos](http://msdn.microsoft.com/library/azure/dn167006.aspx).
 
 ## Cómo establecer y consultar el análisis de almacenamiento
-Puede usar el [Análisis de almacenamiento de Azure](storage-analytics.md) para recopilar métricas para sus cuentas de almacenamiento de Azure y sus datos de registro acerca de las solicitudes enviadas a su cuenta de almacenamiento. Puede usar las métricas de almacenamiento para supervisar el estado de una cuenta de almacenamiento y los registros de almacenamiento para diagnosticar y solucionar los problemas que surjan con su cuenta de almacenamiento. Las métricas de almacenamiento no están habilitadas de forma predeterminada para los servicios de almacenamiento. Puede habilitar la supervisión mediante el Portal de administración de Azure, Windows PowerShell o mediante programación a través de una API de almacenamiento. Los registros de almacenamiento se dan en el lado servidor y le permiten grabar en la cuenta de almacenamiento detalles de solicitudes correctas e incorrectas. Estos registros le permiten no solo ver detalles de lectura y escritura, sino que también le permitirán eliminar operaciones de tablas, colas, blobs y las razones por las cuales las solicitudes fallaron.
+Puede usar el [Análisis de almacenamiento de Azure](storage-analytics.md) para recopilar métricas para sus cuentas de almacenamiento de Azure y sus datos de registro, acerca de las solicitudes enviadas a su cuenta de almacenamiento. Puede usar las métricas de almacenamiento para supervisar el estado de una cuenta de almacenamiento y los registros de almacenamiento para diagnosticar y solucionar los problemas que surjan con su cuenta de almacenamiento. Las métricas de almacenamiento no están habilitadas de forma predeterminada para los servicios de almacenamiento. Puede habilitar la supervisión mediante el Portal de administración de Azure, Windows PowerShell o mediante programación a través de una API de almacenamiento. Los registros de almacenamiento se dan en el lado servidor y le permiten grabar en la cuenta de almacenamiento detalles de solicitudes correctas e incorrectas. Estos registros le permiten no solo ver detalles de lectura y escritura, sino que también le permitirán eliminar operaciones de tablas, colas, blobs y las razones por las cuales las solicitudes fallaron.
 
 Para obtener más información sobre cómo habilitar y ver los datos de las Métricas de almacenamiento con PowerShell, consulte [Cómo habilitar las Métricas de almacenamiento mediante PowerShell](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell).
 
-Para obtener información sobre cómo habilitar y recuperar los datos de registro del almacenamiento con PowerShell, vea [Cómo habilitar el registro de almacenamiento con PowerShell](http://msdn.microsoft.com/library/azure/dn782840.aspx#HowtoenableStorageLoggingusingPowerShell) y [Buscar sus datos de registro de almacenamiento](http://msdn.microsoft.com/library/azure/dn782840.aspx#FindingyourStorageLogginglogdata). Para obtener información detallada sobre el uso de las Métricas de almacenamiento y los Registros de almacenamiento para solucionar los problemas de almacenamiento que surjan, consulte [Supervisar, diagnosticar y solucionar problemas en Almacenamiento de Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
+Para obtener información sobre cómo habilitar y recuperar los datos de Registro de almacenamiento con PowerShell, consulte [Cómo habilitar el Registro de almacenamiento mediante PowerShell](http://msdn.microsoft.com/library/azure/dn782840.aspx#HowtoenableStorageLoggingusingPowerShell) y [Buscar los datos de registro de almacenamiento](http://msdn.microsoft.com/library/azure/dn782840.aspx#FindingyourStorageLogginglogdata). Para obtener información detallada sobre el uso de las Métricas de almacenamiento y los Registros de almacenamiento para solucionar los problemas de almacenamiento que surjan, consulte [Supervisar, diagnosticar y solucionar problemas en Almacenamiento de Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
 ## Cómo administrar una firma de acceso compartido (SAS) y la directiva de acceso almacenada
 Las firmas de acceso compartido son una parte importante del modelo de seguridad de cualquier aplicación que use Almacenamiento de Azure, ya que, entre otras cosas, facilitan permisos limitados a su cuenta de almacenamiento a aquellos clientes que no han de tener la clave de cuenta. De forma predeterminada, solamente el dueño de la cuenta de almacenamiento puede obtener acceso a blobs, tablas y colas en esa cuenta. Si su servicio o aplicación han de facilitar estos recursos a otros clientes sin tener que compartir la clave de acceso, tiene tres opciones:
@@ -615,15 +612,15 @@ Las firmas de acceso compartido son una parte importante del modelo de seguridad
 
 Una firma de acceso compartido puede presentar una de estas dos formas:
 
-- **SAS Ad hoc **: cuando se crea una SAS ad-hoc, la hora de inicio, la hora de finalización y los permisos para la firma de acceso compartido se especifican en el URI de SAS. Este tipo de SAS puede crearse en un contenedor, blob, tabla o cola y no se puede revocar.
-- **SAS con directiva de acceso almacenada:** se define una directiva de acceso almacenada en un contenedor de recursos (un contenedor de blobs, una tabla o una cola) y se puede usar para administrar las restricciones de una o varias firmas de acceso compartido. Cuando asocia una SAS a una directiva de acceso almacenada, la SAS hereda las restricciones (hora de inicio, hora de expiración y permisos) definidas para la directiva de acceso almacenada. Este tipo de SAS se puede revocar.
+- **SAS ad hoc **: cuando se crea una SAS ad hoc, la hora de inicio, la hora de finalización y los permisos para la Firma de acceso compartido se especifican en el URI de la SAS. Este tipo de SAS puede crearse en un contenedor, blob, tabla o cola y no se puede revocar.
+- **SAS con directiva de acceso almacenada:** se define una directiva de acceso almacenada en un contenedor de recursos, un contenedor de blobs, una tabla o una cola, y puede usarla para administrar las restricciones de una o varias firmas de acceso compartido. Cuando asocia una SAS a una directiva de acceso almacenada, la SAS hereda las restricciones (hora de inicio, hora de expiración y permisos) definidas para la directiva de acceso almacenada. Este tipo de SAS se puede revocar.
 
-Para obtener más información, vea [el tutorial de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) y [Administración del acceso a los recursos de almacenamiento de Azure](storage-manage-access-to-resources.md).
+Para obtener más información, consulte el [Tutorial de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) y el artículo acerca de la [Administración del acceso a los recursos de almacenamiento de Azure](storage-manage-access-to-resources.md).
 
-En las siguientes secciones, obtendrá información sobre cómo crear un token de firma de acceso compartido y una directiva de acceso almacenada para las tablas de Azure. Azure PowerShell también proporciona cmdlets similares para contenedores, blobs y colas. Para ejecutar los scripts de esta sección, descargue [Azure PowerShell versión 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) o posterior.
+En las siguientes secciones, obtendrá información sobre cómo crear un token de firma de acceso compartido y una directiva de acceso almacenada para las tablas de Azure. Azure PowerShell también proporciona cmdlets similares para contenedores, blobs y colas. Para ejecutar los scripts de esta sección, descargue [la versión 0.8.14 de Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) o posterior.
 
 ### Cómo crear una directiva basada en el token de firma de acceso compartido
-Use el cmdlet New-AzureStorageTableStoredAccessPolicy para crear una nueva directiva de acceso almacenada. A continuación, llame al [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx) para crear un nuevo token de firma de acceso compartido basado en las nuevas directivas para una tabla de almacenamiento de Azure.
+Use el cmdlet New-AzureStorageTableStoredAccessPolicy para crear una nueva directiva de acceso almacenada. A continuación, llame al cmdlet [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx) para crear un nuevo token de firma de acceso compartido basado en las nuevas directivas, para una tabla de almacenamiento de Azure.
 
     $policy = "policy1"
     New-AzureStorageTableStoredAccessPolicy -Name $tableName -Policy $policy -Permission "rd" -StartTime "2015-01-01" -ExpiryTime "2016-01-01" -Context $Ctx
@@ -652,7 +649,7 @@ Use el cmdlet Remove-AzureStorageTableStoredAccessPolicy para eliminar una direc
 
 
 ## Cómo usar el servicio Almacenamiento de Azure desarrollado para el gobierno de Estados Unidos y Azure desarrollado para China
-Un entorno de Azure es una implementación independiente de Microsoft Azure, como por ejemplo [Azure Government para el gobierno de EE. UU.](http://azure.microsoft.com/features/gov/), [AzureCloud para el servicio global de Azure](https://manage.windowsazure.com) y [AzureChinaCloud para el servicio de Azure operado por 21Vianet en China](http://www.windowsazure.cn/). Puede implementar el nuevo entorno de Azure para el gobierno de los EE. UU. y Azure para China.
+Un entorno de Azure es una implementación independiente de Microsoft Azure como, por ejemplo, [Azure Government para el gobierno de EE. UU.](http://azure.microsoft.com/features/gov/), [AzureCloud para el servicio global de Azure](https://manage.windowsazure.com) y [AzureChinaCloud para el servicio de Azure operado por 21Vianet en China](http://www.windowsazure.cn/). Puede implementar el nuevo entorno de Azure para el gobierno de los EE. UU. y Azure para China.
 
 Para usar Almacenamiento de Azure con AzureChinaCloud, necesitará crear un contexto de almacenamiento que esté asociado con AzureChinaCloud. Siga estos pasos para comenzar:
 
@@ -668,7 +665,7 @@ Para usar Almacenamiento de Azure con AzureChinaCloud, necesitará crear un cont
 
     	$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
 
-Para usar el almacenamiento de Azure con [Azure Government para EE. UU.](http://azure.microsoft.com/features/gov/), deberá precisar un nuevo entorno y crear un nuevo contexto de almacenamiento con este entorno:
+Para usar el almacenamiento de Azure con [ para EE. UU. Government para EE. UU.](http://azure.microsoft.com/features/gov/), deberá precisar un nuevo entorno y crear un nuevo contexto de almacenamiento con este entorno:
 
 1. Llame al cmdlet [Add-AzureEnvironment](http://msdn.microsoft.com/library/azure/dn790364.aspx) para crear un nuevo entorno de Azure para su centro de datos privado.
 
@@ -736,4 +733,4 @@ En esta guía ha aprendido a administrar Almacenamiento de Azure con Azure Power
 [Next Steps]: #next
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

@@ -19,16 +19,16 @@
 
 # Ejemplos de configuración de la extensión de máquina virtual de Windows de Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
 
 
 
 Este artículo proporciona un ejemplo de configuración para configurar las extensiones de máquina virtual de Azure para máquinas virtuales Windows.
 
 
-Para obtener más información sobre estas extensiones, haga clic aquí: [Información general de las extensiones de máquinas virtuales de Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+Para obtener más información sobre estas extensiones, consulte [Información general sobre las extensiones de máquinas virtuales de Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
-Para obtener más información sobre la creación de plantillas de extensión, haga clic aquí: [Creación de plantillas de extensión.](virtual-machines-extensions-authoring-templates.md)
+Para obtener más información sobre la creación de plantillas de extensión, consulte [Creación de plantillas de extensión.](virtual-machines-extensions-authoring-templates.md)
 
 En este artículo se indican los valores de configuración esperados para algunas de las extensiones de Windows.
 
@@ -285,12 +285,13 @@ Antes de implementar la extensión, compruebe la versión más reciente de la ex
 
 ### Diagnóstico de Azure
 
-Haga clic aquí para obtener información general sobre la [Extensión de diagnósticos de Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx/)
+Para obtener más detalles acerca de cómo configurar los diagnósticos, consulte [Extensión de diagnósticos de Azure](virtual-machines-extensions-diagnostics-windows-template.md)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
             "type": "IaaSDiagnostics",
-            "typeHandlerVersion": "1.4",
+            "typeHandlerVersion": "1.5",
+			"autoUpgradeMinorVersion": true,
             "settings": {
               "xmlCfg": "[base64(variables('wadcfgx'))]",
               "storageAccount": "[parameters('diagnosticsStorageAccount')]"
@@ -308,4 +309,4 @@ Este es un ejemplo de una plantilla de máquina virtual completa con la extensi�
 
 [Extensión de script personalizada en una máquina virtual de Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="11/16/2015"
 	ms.author="antonba"/>
 
 # Configuración de conexiones VPN en Administración de API de Azure
 
-La compatibilidad con VPN de Administración de API le permite conectar el proxy de Administración de API a una red virtual de Azure. Esto permite a los clientes de Administración de API conectarse de forma segura a sus servicios web back-end del entorno local o que, por el contrario, no son inaccesibles a la Internet pública.
+La compatibilidad con VPN de Administración de API le permite conectar la puerta de enlace de Administración de API a una red virtual de Azure. Esto permite a los clientes de Administración de API conectarse de forma segura a sus servicios web back-end del entorno local o que, por el contrario, no son inaccesibles a la Internet pública.
 
 ## <a name="enable-vpn"> </a>Habilitación de conexiones VPN
 
@@ -36,9 +36,9 @@ Seleccione una VPN y la subred para cada región. La lista de VPN se rellena en 
 
 ![Selección de una VPN][api-management-setup-vpn-select]
 
-Haga clic en **Guardar** en la parte inferior de la pantalla. No podrá realizar otras operaciones en el servicio Administración de API desde el Portal de administración de Azure mientras se esté actualizando. El proxy de servicio seguirá estando disponible y las llamadas en tiempo de ejecución no se debería ver afectadas.
+Haga clic en **Guardar** en la parte inferior de la pantalla. No podrá realizar otras operaciones en el servicio Administración de API desde el Portal de administración de Azure mientras se esté actualizando. La puerta de enlace de servicio seguirá estando disponible y las llamadas en tiempo de ejecución no se debería ver afectadas.
 
-Tenga en cuenta que la dirección VIP del proxy cambiará cada vez que se habilite o deshabilite VPN.
+Tenga en cuenta que la dirección VIP de la puerta de enlace cambiará cada vez que se habilite o deshabilite VPN.
 
 ## <a name="connect-vpn"> </a>Conexión a un servicio web detrás de VPN
 
@@ -68,4 +68,4 @@ Después de que el servicio Administración de API se conecta a la VPN, el acces
 [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure]: api-management-howto-api-inspector.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

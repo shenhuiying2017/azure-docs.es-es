@@ -122,7 +122,7 @@ Una vez que haya encontrado la aplicación, puede comenzar por seguir las instru
 
 Si la aplicación no se encuentra en la Galería de aplicaciones de Azure AD, tienes estas opciones:
 
-*	**Agregar una aplicación que no aparezca en la lista**: use la categoría Personalizada de la Galería de aplicaciones del Portal de administración de Azure para conectar una aplicación que usa su organización pero que no está incluida en la lista. Puede agregar cualquier aplicación que admita SAML 2.0 como aplicación federada o cualquier aplicación que tenga una página de inicio de sesión basada en HTML para usar SSO con contraseña. Para obtener más información, consulte este artículo en [Agregar su propia aplicación](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+*	**Agregar una aplicación que no aparezca en la lista**: use la categoría Personalizada de la Galería de aplicaciones del Portal de administración de Azure para conectar una aplicación que usa su organización pero que no está incluida en la lista. Puede agregar cualquier aplicación que admita SAML 2.0 como aplicación federada o cualquier aplicación que tenga una página de inicio de sesión basada en HTML para usar SSO con contraseña. Para obtener más información, consulte este artículo en [Agregar su propia aplicación](active-directory-saas-custom-apps.md).
 
 
 *	**Agregar una aplicación propia que está desarrollando**: si ha desarrollado la aplicación usted mismo, siga las instrucciones de la documentación para desarrolladores de Azure AD para implementar un inicio de sesión único federado o el aprovisionamiento mediante la API Graph de Azure AD. Para obtener más información, vea estos recursos:
@@ -220,4 +220,4 @@ Estos vínculos utilizan los mismos mecanismos de control de acceso que el panel
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -28,11 +28,8 @@ Con los Centros de notificaciones puede enviar fácilmente notificaciones de ins
 Los Centros de notificaciones se pueden usar tanto para escenarios empresariales como de consumidores. Por ejemplo:
 
 - Envíe notificaciones de noticias de última hora a millones de personas con baja latencia (los Centros de notificaciones posibilitan las aplicaciones de Bing instaladas previamente en todos los dispositivos Windows y Windows Phone).
-
 - Envíe cupones basados en la ubicación a segmentos de usuarios.
-
 - Envíe notificaciones de eventos a usuarios o grupos para aplicaciones deportivas, de finanzas o de juegos.
-
 - Informe a los usuarios de eventos empresariales; por ejemplo, si tienen mensajes o correos electrónicos nuevos, o clientes potenciales.
 - Envíe contraseñas únicas necesarias para la autenticación multifactor.
 
@@ -69,7 +66,7 @@ Sin embargo, en un alto nivel, todos los sistemas de notificación de plataforma
 
 ##Los desafíos de las notificaciones de inserción
 
-A pesar de que estos sistemas son muy potentes, de todos modos dejan mucho trabajo al desarrollador de aplicaciones para poder implementar incluso escenarios comunes de notificaciones de inserción, como la difusión o el envío de notificaciones de inserción a un usuario.
+A pesar de que estos sistemas son muy potentes, de todos modos dejan mucho trabajo al desarrollador de aplicaciones para poder implementar incluso escenarios comunes de notificaciones de inserción, como la difusión o el envío de notificaciones de inserción a usuarios segmentados.
 
 Las notificaciones de inserción son una de las características más solicitadas en los servicios en la nube para las aplicaciones móviles. El motivo es que la infraestructura que se requiere para hacerlas funcionar es muy complejo y, en gran parte, no está relacionada con la lógica de negocios principal de la aplicación. Algunas de las dificultades que presenta la creación de una infraestructura de inserción a petición son:
 
@@ -88,15 +85,10 @@ Los Centros de notificaciones eliminan la complejidad: ya no es necesario admini
 ![][1]
 
 
-
-
-
-
 Los Centros de notificaciones proporcionan una infraestructura de notificaciones push lista para usar con las ventajas siguientes:
 
 - **Varias plataformas.**
 	+  Compatibilidad con las principales plataformas móviles. Los centros de notificaciones pueden enviar notificaciones de inserción a aplicaciones de la Tienda Windows, iOS, Android y Windows Phone.
-
 
 	+  Los centros de notificaciones proporcionan una interfaz común para enviar notificaciones a todas las plataformas compatibles. No se requieren protocolos específicos de la plataforma. El back-end de la aplicación puede enviar notificaciones en formatos específicos para una plataforma o independientes de la plataforma. La aplicación solo se comunica con los Centros de notificaciones.
 
@@ -115,7 +107,7 @@ Los Centros de notificaciones proporcionan una infraestructura de notificaciones
 
 	- *Segmentación*:inserción en segmentos complejos definidos por expresiones de etiquetas (por ejemplo, dispositivos de Sevilla que siguen al Betis).
 
-	Cada dispositivo, cuando envía su identificador a un centro de notificaciones, puede especificar una o más _etiquetas_. Para obtener más información acerca las [etiquetas](http://msdn.microsoft.com/library/azure/dn530749.aspx). Las etiquetas no deben ser aprovisionadas previamente ni eliminadas. Las etiquetas brindan una manera simple de enviar notificaciones a usuarios o grupos de interés. Como las etiquetas pueden contener cualquier identificador específico para una aplicación (como identificadores de usuario o grupo), al usarlas se libera al back-end de la aplicación de la carga de tener que almacenar y administrar identificadores de dispositivo.
+	Cada dispositivo, cuando envía su identificador a un centro de notificaciones, puede especificar una o más _etiquetas_. Para obtener más información acerca las [etiquetas]. Las etiquetas no deben ser aprovisionadas previamente ni eliminadas. Las etiquetas brindan una manera simple de enviar notificaciones a usuarios o grupos de interés. Como las etiquetas pueden contener cualquier identificador específico para una aplicación (como identificadores de usuario o grupo), al usarlas se libera al back-end de la aplicación de la carga de tener que almacenar y administrar identificadores de dispositivo.
 
 - **Personalización**: cada dispositivo puede tener una o más plantillas para lograr la localización o la personalización dispositivo a dispositivo sin que el código del back-end se vea afectado.
 
@@ -124,6 +116,18 @@ Los Centros de notificaciones proporcionan una infraestructura de notificaciones
 - **Telemetría completa**: disponible en el portal y mediante programación.
 
 
+##Integración con las Aplicaciones móviles del Servicio de aplicaciones
+
+Para facilitar una experiencia perfecta y unificadora en servicios de Azure, [Aplicaciones móviles del Servicio de aplicaciones] tiene compatibilidad integrada para notificaciones push con centros de notificaciones. Las [Aplicaciones móviles del Servicio de aplicaciones] ofrecen una plataforma de desarrollo de aplicaciones móviles altamente escalable y disponible globalmente para desarrolladores empresariales e integradores de sistemas que proporciona un amplio conjunto de funcionalidades a desarrolladores móviles.
+
+Los desarrolladores de aplicaciones móviles pueden usar centros de notificaciones con el siguiente flujo de trabajo:
+
+1. Recuperar controlador PNS de dispositivo
+2. Registrar el dispositivo y las [plantillas](optional) con los centros de notificaciones a través de la API adecuada del registro del SDK de cliente de aplicaciones móviles
+    + Tenga en cuenta que las aplicaciones móviles eliminan todas las etiquetas en los registros por motivos de seguridad. Trabaje con centros de notificaciones desde su back-end directamente para asociar etiquetas a dispositivos.
+3. Enviar notificaciones desde su back-end de aplicación con los centros de notificaciones
+
+Estas son algunas ventajas para los desarrolladores con esta integración:- **Los SDK de cliente de aplicaciones móviles**. Estos SDK de multiplataforma ofrecen API simples para el registro y se comunican con el centro de notificaciones vinculado con la aplicación móvil automáticamente. Los desarrolladores no necesitan revisar las credenciales de los centros de notificaciones y trabajar con un servicio adicional. + Los SDK etiquetan automáticamente el dispositivo especificado con el id. de usuario autenticado de Aplicaciones móviles para habilitar la inserción en el escenario de usuario. + Los SDK usan automáticamente el id. de instalación de Aplicaciones móviles como GUID para registrar con los centros de notificaciones, evitando a los desarrolladores el problema de mantener varios GUID de servicio. - **Modelo de instalación.** Aplicaciones móviles funciona con el modelo de inserción más reciente de los centros de notificaciones para representar todas las propiedades de inserción asociadas a un dispositivo en una instalación de JSON que se alinea con los servicios de notificación de inserción y es sencillo de usar. - **Flexibilidad.** Los desarrolladores siempre pueden elegir trabajar con los centros de notificaciones directamente, incluso con la integración implementada. - **Experiencia en integrada en el [portal de Azure].** La inserción como capacidad se representa visualmente en Aplicaciones móviles y los desarrolladores pueden trabajar fácilmente con el centro de notificaciones asociado a través de Aplicaciones móviles.
 
 
 
@@ -156,5 +160,9 @@ Las referencias pertinentes para la API administrada de .NET referidas a las not
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
+  [Aplicaciones móviles del Servicio de aplicaciones]: https://azure.microsoft.com/es-ES/documentation/articles/app-service-mobile-value-prop/
+  [templates]: https://msdn.microsoft.com/es-ES/library/azure/dn530748.aspx
+  [portal de Azure]: https://portal.azure.com
+  [etiquetas]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

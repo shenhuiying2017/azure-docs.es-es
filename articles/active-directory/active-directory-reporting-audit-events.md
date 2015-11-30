@@ -19,25 +19,12 @@
 # Eventos del Informe de auditoría de Azure Active Directory
 El Informe de auditoría de Azure Active Directory ayuda a los clientes a identificar las acciones con privilegios que se produjeron en su Azure Active Directory. Las acciones con privilegios incluyen cambios de elevación (por ejemplo, creación de roles o restablecimientos de contraseña), cambios de configuraciones de directiva (por ejemplo, directivas de contraseña) o cambios de configuración de directorio (por ejemplo, cambios en la configuración de la federación de dominio). Los informes proporcionan el registro de auditoría para el nombre del evento, el actor que realizó la acción, el recurso de destino que se ve afectado por el cambio y la fecha y hora (en UTC). Los clientes pueden recuperar la lista de eventos de auditoría para su Azure Active Directory a través del [Portal de administración de Azure](https://manage.windowsazure.com/), como se describe en [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
 
-## Retención de informes de auditoría
-Los eventos del informe de auditoría de Azure AD se conservan durante 180 días. Para obtener más información acerca de la retención de los informes, consulte [Directivas de retención de informes de Azure Active Directory](active-directory-reporting-retention.md).
-
-Para los clientes interesados en almacenar eventos de auditoría durante períodos de retención más largos, se puede utilizar la API de informes para extraer periódicamente los eventos de auditoría en un almacén de datos independiente. Consulte [Introducción a la API de informes](active-directory-reporting-api-getting-started.md) para obtener más información.
-
-## Propiedades que se incluyen con cada evento de auditoría
-
-Propiedad | Descripción
-------------- | --------------------------------------------------------------
-Fecha y hora | La fecha y la hora en que se produjo el evento de auditoría
-Actor | El usuario o la entidad de servicio que realizó la acción
-Acción | La acción que se realizó
-Destino | El usuario o la entidad de servicio en que se realizó la acción
 
 ## Lista de eventos del informe de auditoría
 <!--- audit event descriptions should be in the past tense --->
 
 Eventos | Descripción del evento
------------------------------------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Eventos de usuario** |
 Agregar usuario | Agregó un usuario al directorio.
 Eliminar usuario | Eliminó un usuario del directorio.
@@ -45,7 +32,7 @@ Establecer propiedades de la licencia | Estableció las propiedades de la licenc
 Restablecer contraseña de usuario | Restableció la contraseña de un usuario en el directorio.
 Cambiar la contraseña de usuario | Cambió la contraseña de un usuario en el directorio.
 Cambiar la licencia de usuario | Cambió la licencia asignada a un usuario en el directorio. Para ver qué licencias se han actualizado, examine el evento "Actualizar usuario" inmediatamente antes o después de este evento.
-Actualizar usuario | Actualizó un usuario en el directorio. [Vea a continuación](#quotupdate-userquot-attributes) los atributos que se pueden actualizar.
+Actualizar usuario | Actualizó un usuario en el directorio. [Consulte a continuación](#quotupdate-userquot-attributes) los atributos que se pueden actualizar.
 Establecer el cambio forzado de la contraseña de usuario | Estableció la propiedad que fuerza a un usuario a cambiar su contraseña en el inicio de sesión.
 **Eventos de grupo** |
 Agregar grupo | Se crea un grupo en el directorio.
@@ -65,6 +52,15 @@ Quitar entrada de delegación | Se elimina [OAuth2PermissionGrant](https://msdn.
 Agregar miembro de rol a Rol | Agregó un usuario a un rol del directorio.
 Quitar miembro de rol de Rol | Quitó un usuario de un rol del directorio.
 Establecer la información de contacto de la compañía | Establecer preferencias de contacto a nivel de compañía. Incluye direcciones de correo electrónico para marketing, así como notificaciones técnicas sobre Microsoft Online Services.
+**Eventos B2B** |
+Invitaciones por lotes cargadas. | Un administrador ha cargado un archivo que contiene invitaciones para enviar a usuarios asociados.
+Invitaciones por lotes procesadas. | Se ha procesado un archivo que contiene invitaciones a usuarios asociados.
+Invitar a usuario externo. | Se ha sido invitado a un usuario externo al directorio.
+Canjear invitación a usuario externo. | Un usuario externo ha canjeado su invitación al directorio.
+Agregar usuario externo al grupo. | Se ha asignado una suscripción a un usuario externo a un grupo del directorio.
+Asignar usuario externo a la aplicación. | Se ha asignado a un usuario externo acceso directo a una aplicación.
+Creación de inquilinos viral. | Se ha creado un nuevo inquilino en Azure AD mediante el canje de una invitación.
+Creación de usuarios viral. | Se ha creado un usuario en un inquilino existente en Azure AD mediante el canje de una invitación.
 **Eventos de directorio** |
 Agregar asociado a la compañía | Agregó un asociado al directorio.
 Quitar asociado de la compañía | Quitó un asociado del directorio.
@@ -89,6 +85,21 @@ Promote tenant to partner
 
 --->
 
+## Retención de informes de auditoría
+Los eventos del informe de auditoría de Azure AD se conservan durante 180 días. Para obtener más información acerca de la retención de los informes, consulte [Directivas de retención de informes de Azure Active Directory](active-directory-reporting-retention.md).
+
+Para los clientes interesados en almacenar eventos de auditoría durante períodos de retención más largos, se puede utilizar la API de informes para extraer periódicamente los eventos de auditoría en un almacén de datos independiente. Consulte [Introducción a la API de informes](active-directory-reporting-api-getting-started.md) para obtener más información.
+
+## Propiedades que se incluyen con cada evento de auditoría
+
+Propiedad | Descripción
+------------- | --------------------------------------------------------------
+Fecha y hora | La fecha y la hora en que se produjo el evento de auditoría
+Actor | El usuario o la entidad de servicio que realizó la acción
+Acción | La acción que se realizó
+Destino | El usuario o la entidad de servicio en que se realizó la acción
+
+
 ## Atributos de "Actualizar usuario"
 El evento de auditoría "Actualizar usuario" incluye información adicional sobre los atributos de usuario que se actualizaron. Para cada atributo, se incluye el valor anterior y el valor nuevo.
 
@@ -108,4 +119,4 @@ TelephoneNumber | Número de teléfono del usuario.
 
 Los registros de auditoría son un control necesario para muchas regulaciones de conformidad. Para que los clientes que usan el Informe de auditoría de Azure Active Directory cumplan las regulaciones de conformidad, se recomienda que el cliente envíe una copia de este tema de ayuda con la copia del informe de auditoría exportado del cliente para ayudar a explicar los detalles del informe. Si el auditor desea conocer las regulaciones de conformidad que cumple actualmente Azure, diríjalo a la [página Conformidad](http://azure.microsoft.com/support/trust-center/compliance/) del Centro de confianza de Microsoft Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->
