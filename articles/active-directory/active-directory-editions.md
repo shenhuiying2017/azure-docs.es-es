@@ -28,7 +28,7 @@ Para mejorar su Azure Active Directory, puede agregar funcionalidades de pago co
 Las suscripciones a Office 365 incluyen características adicionales de Azure Active Directory que se describen en la siguiente tabla de comparación.
 
 
-> [AZURE.NOTE]Para ver las opciones de precios de estas ediciones, consulte [Active Directory de Azure Precios](https://azure.microsoft.com/es-ES/pricing/details/active-directory/). <br>Las ediciones premium y básica de Azure Active Directory no se admiten actualmente en China. Póngase en contacto con nosotros en el Foro de Azure Active Directory para obtener más información.
+> [AZURE.NOTE]Para ver las opciones de precios de estas ediciones, consulte [Precios de Azure Active Directory](https://azure.microsoft.com/es-ES/pricing/details/active-directory/). <br>Las ediciones premium y básica de Azure Active Directory no se admiten actualmente en China. Póngase en contacto con nosotros en el Foro de Azure Active Directory para obtener más información.
 
 
 - **Edición básica de Azure Active Directory**: esta edición, concebida para los trabajadores de tareas con primeras necesidades en la nube, proporciona soluciones de administración de identidades de autoservicio y de acceso a las aplicaciones basado en la nube. Con la edición básica de Azure Active Directory, obtiene características de mejora de la productividad y reducción de costos, como administración de acceso basado en grupo, autoservicio de restablecimiento de contraseña para aplicaciones en la nube y proxy de aplicaciones de Azure Active Directory (para publicar aplicaciones web locales con Azure Active Directory), y todas ellas respaldadas por un contrato de nivel de servicio empresarial con un tiempo de actividad del 99,9 por ciento.
