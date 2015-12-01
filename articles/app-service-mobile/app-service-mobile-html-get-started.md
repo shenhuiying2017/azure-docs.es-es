@@ -47,7 +47,11 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ##Creación de un nuevo back-end de aplicación móvil
 
+Siga estos pasos para crear un nuevo back-end de aplicación móvil.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usarse por las aplicaciones del cliente móvil. Después, descargará un proyecto de servidor para un back-end de "lista de tareas" sencillo y lo publicará en Azure.
 
 ## Descarga del proyecto de servidor
 
@@ -61,7 +65,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ##Activación de CORS en el proyecto de servidor
 
-El uso compartido de recursos entre orígenes (CORS) es una manera de que la aplicación basada en la web indique desde qué dominios las solicitudes están seguras para que el explorador las permita. Debe agregar una entrada de CORS para cada sitio web que vaya a tener acceso a su back-end de aplicación móvil. La configuración de CORS se ajusta con los comportamientos estándar de API web de ASP.NET. Para obtener más información, consulte [Habilitación de solicitudes entre orígenes en API web de ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api#enable-cors).
+El uso compartido de recursos entre orígenes (CORS) es una manera de que la aplicación basada en la web indique desde qué dominios las solicitudes están seguras para que el explorador las permita. Debe agregar una entrada de CORS para cada sitio web que vaya a tener acceso a su back-end de aplicación móvil. La configuración de CORS se ajusta con los comportamientos estándar de API web de ASP.NET. Para más información, consulte [Habilitación de solicitudes entre orígenes en API web de ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api#enable-cors).
 
 De forma predeterminada, el proyecto de inicio rápido de cliente que descargará desde el portal se ejecuta en localhost en el puerto 8000. Por este motivo, la próxima vez, habilitará CORS para `http://localhost:8000` en el proyecto de servidor.
 
@@ -89,7 +93,7 @@ Después, implementará el proyecto habilitado para CORS en Azure.
 
 ##Descarga y ejecución del proyecto de cliente
 
-1. De vuelta en la hoja del back-end de aplicación móvil, haga clic en **Todas las configuraciones** y, en **Aplicación móvil**, haga clic en **Inicio rápido** > **HTML/JavaScript**. 
+1. De nuevo en la hoja del back-end de aplicación móvil, haga clic en **Todas las configuraciones** y, en **Aplicación móvil**, haga clic en **Inicio rápido** > **HTML/JavaScript**. 
 
 2.  En **Descargar y ejecutar el proyecto de HTML/Javascript**, dentro de **Crear una nueva aplicación**, haga clic en **Descargar** y guarde los archivos de proyecto comprimidos en el equipo local.
 
@@ -123,4 +127,4 @@ Después, implementará el proyecto habilitado para CORS en Azure.
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

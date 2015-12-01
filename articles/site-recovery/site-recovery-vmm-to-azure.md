@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/12/2015"
+	ms.date="11/18/2015"
 	ms.author="raynew"/>
 
 #  Configuración de la protección entre un sitio de VMM local y Azure
@@ -153,29 +153,31 @@ Generación de una clave de registro en el almacén. Después de descargar el pr
 8. Haga clic en *Next* para finalizar el proceso. Después del registro, la Recuperación del sitio de Azure recupera los metadatos del servidor VMM. El servidor se muestra en la pestaña *Servidores VMM* de la página **Servidores** del almacén.
 
 >[AZURE.NOTE]El proveedor de Azure Site Recovery también puede instalarse mediante la siguiente línea de comandos. Este método se puede usar para instalar el proveedor en un Server CORE para Windows Server 2012 R2.
->
->1. Descargue el archivo de instalación del proveedor y la clave de registro en una carpeta, por ejemplo, C:\\ASR.
->2. Detenga el servicio System Center Virtual Machine Manager.
->3. Ejecute los siguientes comandos con privilegios de **Administrador** desde el símbolo del sistema para extraer el instalador del proveedor:
->
+
+1. Descargue el archivo de instalación del proveedor y la clave de registro en una carpeta, por ejemplo, C:\\ASR.
+1. Detenga el servicio System Center Virtual Machine Manager.
+1. Ejecute los siguientes comandos con privilegios de **Administrador** desde el símbolo del sistema para extraer el instalador del proveedor:
+
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
->4. Ejecute el comando siguiente para instalar el proveedor:
->
+1. Ejecute el comando siguiente para instalar el proveedor:
+
 		C:\ASR> setupdr.exe /i
->5. Ejecute el comando siguiente para registrar el proveedor:
->
+1. Ejecute el comando siguiente para registrar el proveedor:
+
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
- ####Lista de parámetros de instalación de la línea de comandos####
->
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
+
+  
+#### Lista de parámetros de instalación de la línea de comandos
+
  - **/Credentials**: parámetro obligatorio que especifica la ubicación donde se encuentra el archivo de clave de registro.  
  - **/FriendlyName**: parámetro obligatorio para el nombre del servidor host Hyper-V que aparece en el portal de Azure Site Recovery.
  - **/EncryptionEnabled**: parámetro opcional que solo es necesario usar en el escenario de VMM a Azure si se requiere el cifrado de las máquinas virtuales en reposo en Azure. Asegúrese de que el nombre del archivo que proporciona tiene la extensión **.pfx**.
  - **/proxyAddress**: parámetro opcional que especifica la dirección del servidor proxy.
  - **/proxyport**: parámetro opcional que especifica el puerto del servidor proxy.
  - **/proxyUsername**: parámetro opcional que especifica el nombre de usuario de proxy (si el proxy requiere autenticación).
- - **/proxyPassword**: parámetro opcional que especifica la contraseña para autenticarse con el servidor proxy (si el proxy requiere autenticación).
+ - **/proxyPassword**: parámetro opcional que especifica la contraseña para autenticarse con el servidor proxy (si el proxy requiere autenticación).  
 
 
 ## Paso 4: Creación de una cuenta de almacenamiento de Azure
@@ -267,7 +269,16 @@ Una vez que los servidores, las nubes y las redes se configuran correctamente, p
 
 4. En la pestaña de configuración de las propiedades de la máquina virtual, se pueden modificar las siguientes propiedades de red.
 
-    1. El número de adaptadores de red de la máquina virtual de destino: el número de adaptadores de red en la máquina virtual de destino depende del tamaño de la máquina virtual elegida. El número de adaptadores de red de máquinas virtuales de destino es el mínimo número de adaptadores de red en la máquina virtual de origen y el número máximo de adaptadores de red compatible con el tamaño de la máquina virtual elegida.  
+
+	1.  Número de adaptadores de red de la máquina virtual de destino: el número de adaptadores de red viene determinado por el tamaño que especifique para la máquina virtual de destino. Compruebe las [especificaciones de tamaño de la máquina virtual](../virtual-machines/virtual-machines-size-specs.md#size-tables) para conocer el número de NIC compatibles con el tamaño de la máquina virtual. 
+
+		Cuando se modifica el tamaño de una máquina virtual y se guarda la configuración, cambia el número del adaptador de red cuando se abre la página **Configurar** la siguiente vez. El número de adaptadores de red de las máquinas virtuales de destino es como mínimo el número de adaptadores de red en la máquina virtual de origen y el número máximo de adaptadores de red admitidos por el tamaño de la máquina virtual elegida. Se explica a continuación:
+
+
+		- Si el número de adaptadores de red en el equipo de origen es menor o igual al número de adaptadores permitido para el tamaño de la máquina de destino, el destino tendrá el mismo número de adaptadores que el origen.
+		- Si el número de adaptadores para la máquina virtual de origen supera el número permitido para el tamaño de destino, entonces se utilizará el tamaño máximo de destino.
+		- Por ejemplo, si una máquina de origen tiene dos adaptadores de red y el tamaño de la máquina de destino es compatible con cuatro, el equipo de destino tendrá dos adaptadores. Si el equipo de origen tiene dos adaptadores pero el tamaño de destino compatible solo admite uno, el equipo de destino tendrá solo un adaptador. 	
+
 
 	1. Red de la máquina virtual de destino: la red a la que se conecta la máquina virtual está determinada por la asignación de red de la red de la máquina virtual de origen. En el caso de que la máquina virtual de origen tenga más de un adaptador de red y las redes de origen se asignen a distintas redes en el destino, el usuario tendría que elegir entre una de las redes de destino.
 
@@ -276,6 +287,8 @@ Una vez que los servidores, las nubes y las redes se configuran correctamente, p
 	1. IP de destino: si el adaptador de red de la máquina virtual de origen se configura para usar la dirección IP estática, el usuario puede proporcionar la dirección IP para la máquina virtual de destino. El usuario puede usar esta capacidad para mantener la dirección IP de la máquina virtual de origen después de una conmutación por error. Si no se proporciona la dirección IP, no se ofrecerá ninguna dirección IP disponible al adaptador de red en el momento de la conmutación por error. En el caso de que la dirección IP de destino proporcionada por el usuario ya esté en uso por parte de otra máquina virtual que ya se esté ejecutando en Azure, es posible que se produzca un error en la conmutación por error.
 
 		![Modificación de las propiedades de red](./media/site-recovery-vmm-to-azure/MultiNic.png)
+
+>[AZURE.NOTE]No se admiten las máquinas virtuales Linux que usan direcciones IP estáticas.
 
 ## Prueba de la implementación
 Para probar la implementación puede realizar una prueba de conmutación por error para una máquina virtual individual o crear un plan de recuperación que incluya numerosas máquinas virtuales y realizar una conmutación por error de prueba para el plan. La conmutación por error de prueba simula su mecanismo de conmutación por error y recuperación en una red aislada. Observe lo siguiente:
@@ -309,7 +322,7 @@ Hay dos maneras de ejecutar una prueba de conmutación por error en Azure.
 Si desea ejecutar una conmutación por error de prueba para una máquina virtual habilitada para protección en Azure sin especificar una red de Azure de destino, no es necesario preparar nada. Para ejecutar una conmutación por error de prueba con una red de Azure de destino, es necesario crear una nueva red de Azure que esté aislada de su red de Azure de producción (el comportamiento predeterminado cuando se crea una nueva red de Azure). Veamos cómo [ejecutar una prueba de conmutación por error](site-recovery-failover.md#run-a-test-failover) para obtener más detalles.
 
 
-También necesitará configurar la infraestructura de la máquina virtual replicada para que funcione según lo previsto. Por ejemplo, una máquina virtual con controlador de dominio y DNS se pueden replicar en Azure con Azure Site Recovery y se puede crear en la red de prueba mediante pruebas de conmutación por error. Consulte la sección [Consideraciones sobre la conmutación por error de prueba para Active Directory](site-recovery-active-directory.md#considerations-for-test-failover) para obtener más información.
+También necesitará configurar la infraestructura de la máquina virtual replicada para que funcione según lo previsto. Por ejemplo, una máquina virtual con controlador de dominio y DNS se pueden replicar en Azure con Azure Site Recovery y se puede crear en la red de prueba mediante pruebas de conmutación por error. Consulte la sección [Consideraciones sobre la conmutación por error de prueba para Active Directory](site-recovery-active-directory.md#considerations-for-test-failover) para más información.
 
 Para ejecutar un conmutación por error de prueba, realice lo siguiente:
 
@@ -347,4 +360,4 @@ Para ejecutar un conmutación por error de prueba, realice lo siguiente:
 
 <LI>Si tiene preguntas, visite el <a href="http://go.microsoft.com/fwlink/?LinkId=313628">foro de Servicios de recuperación de Azure</a>.</LI> </UL>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

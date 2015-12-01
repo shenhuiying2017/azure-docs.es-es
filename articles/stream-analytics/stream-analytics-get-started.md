@@ -14,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/06/2015"
+	ms.date="11/23/2015"
 	ms.author="jeffstok" />
 
 
@@ -50,7 +50,7 @@ Para crear un Centro de eventos:
 	![Directivas de acceso compartido en las que puede crear una nueva directiva con permisos para Administrar.](./media/stream-analytics-get-started/stream-ananlytics-shared-access-policies.png)
 
 5.	Haga clic en **Guardar** en la parte inferior de la página.
-6.	Vaya al **Panel** y haga clic en **Información de conexión** en la parte inferior de la página y luego copie y guarde la información de conexión.
+6.	Navegue al **Panel** y haga clic en **Información de conexión** en la parte inferior de la página y luego copie y guarde la información de conexión.
 
 ## Configuración e inicio de la aplicación del generador de eventos
 
@@ -91,7 +91,7 @@ Ahora que tenemos un flujo de eventos de telecomunicaciones, podemos configurar 
 
 	* **Región**: seleccione la región donde desea ejecutar el trabajo. Considere la posibilidad de colocar el trabajo y el centro de eventos en la misma región para garantizar un mejor rendimiento y asegurarse de no pagar la transferencia de datos entre regiones.
 
-	* **Cuenta de almacenamiento**: elija la cuenta de almacenamiento que desea usar para almacenar los datos de supervisión de todos los trabajos de Análisis de transmisiones que se ejecutan en esta región. Tiene la opción de elegir una cuenta de almacenamiento existente o crear uno nuevo.
+	* **Cuenta de almacenamiento**: elija la cuenta de almacenamiento de Azure que desea usar para almacenar los datos de supervisión de todos los trabajos de Análisis de transmisiones que se ejecutan en esta región. Tiene la opción de elegir una cuenta de almacenamiento existente o crear uno nuevo.
 
 3.	Haga clic en **Análisis de transmisiones** en el panel izquierdo para ver una lista de los trabajos de Análisis de transmisiones.
 
@@ -115,7 +115,7 @@ Ahora que tenemos un flujo de eventos de telecomunicaciones, podemos configurar 
 	* **Nombre de directiva de Centro de eventos**: seleccione la directiva del Centro de eventos que creó anteriormente en este tutorial.
 
 	* **Grupo de consumidores del Centro de eventos**: escriba el grupo de consumidores que creó anteriormente en este tutorial.
-5.	Haga clic con el botón secundario.
+5.	Haga clic con el botón derecho.
 6.	Especifique los siguientes valores:
 
 	* **Formato del serializador de eventos**: JSON
@@ -130,8 +130,8 @@ Análisis de secuencias admite un modelo de consulta declarativo sencillo para d
 Para validar la consulta con datos de trabajo reales, puede usar la característica **Datos de ejemplo** para extraer los eventos del streaming y crear un archivo .JSON de los eventos para las pruebas. Los pasos siguientes muestran cómo hacerlo y también hemos proporcionado un archivo de ejemplo [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) con fines de prueba.
 
 1.	Seleccione la entrada del Centro de eventos y haga clic en **Datos de ejemplo** en la parte inferior de la página.
-2.	En el cuadro de diálogo que aparece, especifique una **Hora de inicio** para empezar a recopilar datos y una **Duración** para indicar la cantidad de datos adicionales que se consumirá.
-3.	Haga clic en el botón de comprobación para empezar muestrear datos de la entrada. El archivo de datos puede tardar un minuto o dos en crearse. Una vez finalizado el proceso, haga clic en **Detalles**, descargue el archivo .JSON que se genera y guárdelo.
+2.	En el cuadro de diálogo que aparece, especifique una **Hora de inicio** para empezar a recopilar datos y una **Duración** para indicar la cantidad de datos adicionales que se consumirán.
+3.	Haga clic en el botón de comprobación para empezar a muestrear datos de la entrada. El archivo de datos puede tardar un minuto o dos en crearse. Una vez finalizado el proceso, haga clic en **Detalles**, descargue el archivo .JSON que se genera y guárdelo.
 
 	![Descargar y guardar datos procesados en un archivo JSON](./media/stream-analytics-get-started/stream-analytics-download-save-json-file.png)
 
@@ -237,7 +237,7 @@ Si todavía no tiene un contenedor para el almacenamiento de blobs, siga estos p
 Puesto que ya se han especificado la entrada, la consulta y la salida del trabajo, estamos preparados para iniciar el trabajo de Análisis de transmisiones para la detección de fraudes en tiempo real.
 
 1.	Desde **PANEL** del trabajo, haga clic en **INICIAR** en la parte inferior de la página.
-2.	En el cuadro de diálogo que aparece, seleccione **HORA DE INICIO DEL TRABAJO** y luego haga clic en el botón de comprobación en la parte inferior del cuadro de diálogo. El estado del trabajo cambiará a **Iniciando** y en breve pasará a **En ejecución**.
+2.	En el cuadro de diálogo que aparece, seleccione **HORA DE INICIO DEL TRABAJO** y después haga clic en el botón de comprobación en la parte inferior del cuadro de diálogo. El estado del trabajo cambiará a **Iniciando** y en breve pasará a **En ejecución**.
 
 ## Consulta de la salida de la detección de fraudes
 
@@ -257,4 +257,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

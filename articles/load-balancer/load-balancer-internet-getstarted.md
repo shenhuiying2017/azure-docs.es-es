@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/12/2015"
+   ms.date="11/19/2015"
    ms.author="joaoma" />
 
 # Introducción a la configuración del equilibrador de carga accesible desde Internet
@@ -136,4 +136,4 @@ En el ejemplo siguiente, agregará un equilibrador de carga denominado "webfarm"
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

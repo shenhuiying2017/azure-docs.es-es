@@ -54,34 +54,34 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 
 ### Azure para producción
 
-| **Proveedor de servicios** |**Microsoft Azure** | **Office 365** | **Ubicaciones** |
+| **Proveedor de servicios** |**Microsoft Azure** | **Office 365 y CRM Online** | **Ubicaciones** |
 |-----------------------|--------------------|----------------|---------------|
 | **[Aryaka Networks](http://www.aryaka.com/)** | Compatible | Compatible | Ámsterdam, Silicon Valley, Singapur, Washington DC |
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Compatible | Compatible | Ámsterdam, Londres, Dallas, Silicon Valley, Washington DC |
-| **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Compatible | Compatible | Ámsterdam, Londres, Silicon Valley, Singapur, Tokyo, Washington DC |
-|**China Telecom Global** | Próximamente | No compatible | Hong Kong+ |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Compatible | Compatible | Ámsterdam, Dallas, Londres, Silicon Valley, Singapur, Washington DC |
+| **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Compatible | Compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Singapur, Tokio, Washington DC |
+|**China Telecom Global** | Próximamente | No compatible | Hong Kong |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Compatible | No compatible | Ámsterdam y Londres |
-| **Comcast** | Compatible | No compatible | Silicon Valley, Washington DC |
+| **Comcast** | Compatible | Compatible | Silicon Valley, Washington DC |
 | **CoreSite** | Compatible | No compatible | Los Ángeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Compatible | Compatible | Ámsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Ángeles, Melbourne, Nueva York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapur, Sidney, Tokio, Washington DC |
-| **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | Compatible | No compatible | Tokio |
-| **[InterCloud](https://www.intercloud.com/)** | Compatible | Compatible | Ámsterdam, Londres, Singapur, Washington DC |
+| **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | Compatible | No compatible | Osaka, Tokyo |
+| **[InterCloud](https://www.intercloud.com/)** | Compatible | Compatible | Ámsterdam+, Londres, Singapur, Washington DC |
 | **Internet Solutions - Cloud Connect** | Compatible | Compatible | Ámsterdam y Londres |
 | **Interxion** | Compatible | Compatible | Ámsterdam |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Compatible | No compatible | Ámsterdam, Chicago, Dallas, Londres, Seattle, Silicon Valley, Washington DC |
 | **Megaport** | Compatible | No compatible | Melbourne, Sidney |
 | **MTN** | Compatible | No compatible | Londres |
+| **NEXTDC** | Compatible | Compatible | Melbourne, Sidney+ |
 | **NTT Communications** | Compatible | No compatible | Londres+, Tokio |
-| **NEXTDC** | Compatible | No compatible | Melbourne, Sidney+ |
 | **[Orange](http://www.orange-business.com/)** | Compatible | No compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Singapur, Washington DC |
 | **PCCW Global Limited** | Compatible | No compatible | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Compatible | No compatible | Singapur |
-| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Compatible | Compatible | Ámsterdam, Chennai+, Hong Kong, Londres, Mumbai+, Singapur |
+| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Compatible | Compatible | Ámsterdam, Chennai, Hong Kong, Londres, Mumbai, Singapur, Washington DC |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Compatible | Compatible | Ámsterdam y Londres |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Compatible | No compatible | Melbourne, Sidney |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Compatible | Compatible | Hong Kong, Londres, Silicon Valley, Sidney, Washington DC |
 | **Vodafone** | Compatible | No compatible | Londres | 
-| **[Zayo Group](http://www.zayo.com/)** | Compatible | No compatible | Chicago, Silicon Valley, Washington DC |
+| **[Zayo Group](http://www.zayo.com/)** | Compatible | Compatible | Chicago, Los Ángeles, Nueva York, Silicon Valley, Washington DC |
 
  **+** indica próximamente
 
@@ -137,4 +137,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 - Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 - Asegúrese de que se cumplen todos los requisitos previos. Consulte [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

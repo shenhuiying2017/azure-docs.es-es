@@ -6,7 +6,7 @@ Hay unas cuantas opciones para administrar el entorno virtual existente en Azure
 
 ### Opción 1: utilizar FTP
 
-Con un cliente FTP, conéctese al servidor y podrá eliminar la carpeta env. Tenga en cuenta que algunos clientes FTP (por ejemplo, los exploradores web) pueden ser de solo lectura y no le permiten eliminar carpetas, por lo que deberá asegurarse de usar un cliente FTP con esa capacidad. El nombre de host FTP y el usuario se muestran en la hoja de la aplicación web en el [portal de Azure](https://portal.azure.com).
+Con un cliente FTP, conéctese al servidor y podrá eliminar la carpeta env. Tenga en cuenta que algunos clientes FTP (por ejemplo, los exploradores web) pueden ser de solo lectura y no le permiten eliminar carpetas, por lo que deberá asegurarse de usar un cliente FTP con esa capacidad. El nombre de host FTP y el usuario se muestran en la hoja de la aplicación web en el [Portal de Azure](https://portal.azure.com).
 
 ### Opción2: alternar el tiempo de ejecución
 
@@ -21,4 +21,4 @@ A continuación se ofrece una alternativa que aprovecha el hecho de que el scrip
 
 Si ha personalizado el script de implementación, puede cambiar el código en deploy.cmd para forzarlo a eliminar la carpeta env.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

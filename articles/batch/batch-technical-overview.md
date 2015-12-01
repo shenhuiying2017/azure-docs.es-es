@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Información técnica de Lote de Azure | Microsoft Azure"
+	pageTitle="Datos básicos del servicio Lote de Azure | Microsoft Azure"
 	description="Información acerca de los conceptos, los flujos de trabajo y los escenarios del servicio Lote de Azure para cargas de trabajo HPC y paralelas a gran escala"
 	services="batch"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/26/2015"
+	ms.date="11/19/2015"
 	ms.author="danlep"/>
 
+# Datos básicos de Lote de Batch
 
-# Información técnica de Lote de Azure para cargas de trabajo HPC y paralelas a gran escala
 Lote de Azure le ayudará a ejecutar aplicaciones a gran escala paralelas y de informática de alto rendimiento (HPC) de manera eficaz en la nube. Es un servicio de plataforma que programa el trabajo de proceso intensivo para que se ejecute en una colección administrada de máquinas virtuales (nodos de proceso) y puede escalar los recursos de proceso para satisfacer las necesidades del trabajo. Con el servicio de Lote, defina mediante programación los recursos de proceso de Azure y los trabajos por lotes a gran escala que se ejecutan a petición o según una programación y no es necesario configurar y administrar manualmente un clúster de HPC, máquinas virtuales individuales, redes virtuales o un programador de trabajos.
 
 ## Casos de uso
@@ -48,11 +48,11 @@ Para obtener una comparación de Lote con otras opciones de solución HPC en Azu
 
 Estos escenarios usan las API de Lote para crear y administrar grupos de nodos de ejecución y programar los trabajos y tareas que se ejecutan en ellos. Escriba aplicaciones cliente o front-end para ejecutar trabajos y tareas bajo demanda, según una programación, o como parte de un flujo de trabajo mayor administrado mediante herramientas como [Factoría de datos de Azure](https://azure.microsoft.com/documentation/services/data-factory/).
 
-Consulte [Aspectos básicos de la API de Lote de Azure](batch-api-basics.md) para obtener más información acerca de los conceptos de Lote.
+Para más información acerca de los conceptos de Lote, consulte [Aspectos básicos sobre la API de Lote de Azure](batch-api-basics.md).
 
 ### Cuentas que necesita
 
-+ **Cuenta y suscripción de Azure**: si aún no tiene una cuenta, puede activar los [beneficios de suscripción a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [prueba gratuita](http://azure.microsoft.com/pricing/free-trial/).
++ **Cuenta de Azure y suscripción**: si aún no tiene una cuenta, puede activar las [ventajas de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 + **Cuenta de lotes**: use el nombre y la dirección URL de una cuenta de Lotes y una clave de acceso como credenciales al realizar las llamadas API de Lote. Todos los recursos de Lote de proceso como nodos de proceso, grupos, trabajos y tareas están asociados a una cuenta de Lote. Una forma de crear una cuenta de Lote y administrar claves de acceso para la cuenta es usar el [Portal de vista previa de Azure](batch-account-create-portal.md).
 
@@ -103,4 +103,4 @@ En la Figura 2 se muestra un flujo de trabajo que usa una aplicación cliente .N
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

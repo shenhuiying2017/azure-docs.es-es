@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/19/2015"
    ms.author="lodipalm;barbkess"/>
 
-# Creación de un Almacenamiento de datos SQL con el Portal de vista previa de Azure#
+# Creación de Almacenamiento de datos SQL
 
 > [AZURE.SELECTOR]
 - [Azure preview portal](sql-data-warehouse-get-started-provision.md)
@@ -46,6 +46,7 @@ En este tutorial, aprenderá lo siguiente:
 
 
 ## Paso 2: Configurar y crear un servidor
+
 En la base de datos SQL y Almacenamiento de datos SQL, cada base de datos se asigna a un servidor y cada servidor se asigna a una ubicación geográfica. El servidor se llama a un servidor lógico de SQL.
 
 > [AZURE.NOTE] <a name="note"></a>Un servidor lógico de SQL:
@@ -75,6 +76,7 @@ En la base de datos SQL y Almacenamiento de datos SQL, cada base de datos se asi
     ![Configuración de un servidor nuevo](./media/sql-data-warehouse-get-started-provision/configure-server.png)
 
 ## Paso 3: Configurar y crear una base de datos
+
 Ahora que seleccionó el servidor SQL lógico, está listo para terminar de crear la base de datos.
  
 2. En la hoja **Almacenamiento de datos SQL**, rellene los campos que quedan. 
@@ -103,6 +105,7 @@ Ahora que seleccionó el servidor SQL lógico, está listo para terminar de crea
 
 
 ## Paso 4: Configurar el acceso al servidor de firewall para la dirección IP de cliente
+
 Para conectarse al servidor desde la dirección IP actual, agregue su dirección IP de cliente a las reglas de firewall. Este paso muestra cómo hacerlo.
 
 1. Haga clic en **Examinar** > **Servidores SQL Server** > elija el servidor > **Configuración** > **Firewall**.
@@ -123,9 +126,8 @@ Para conectarse al servidor desde la dirección IP actual, agregue su dirección
 
 Una vez configurado el firewall, podrá establecer conexiones desde su escritorio a la base de datos de Almacenamiento de datos SQL que acaba de crear.
 
-
 ## Pasos siguientes
 
 Ahora que ha creado una base de datos de ejemplo para Almacenamiento de datos SQL, está listo para [Conectar](./sql-data-warehouse-get-started-connect.md) la base de datos.
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

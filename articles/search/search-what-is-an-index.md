@@ -28,31 +28,30 @@ Búsqueda de Azure es un servicio de búsqueda hospedado en la nube que proporci
 
 ##¿Qué es un índice?
 
-Un *índice* es un almacenamiento persistente de *documentos* y otras construcciones usadas por el servicio Búsqueda de Azure. Los documentos son una unidad básica de datos que se pueden buscar. Por ejemplo, un minorista puede tener un documento para cada SKU, una organización de noticias puede tener un documento para cada artículo y una organización de streaming multimedia puede tener un documento para cada vídeo o canción de la biblioteca. Estos conceptos pueden equipararse a equivalentes de base de datos más conocidos: un *índice* es conceptualmente similar a una *tabla* y los *documentos* son más o menos equivalentes a las *filas* de una tabla.
+Un *índice* es un almacenamiento persistente de *documentos* y otras construcciones usadas por el servicio Búsqueda de Azure. Los documentos representan una unidad básica de datos que se pueden buscar. Por ejemplo, un minorista puede tener un documento para cada SKU, una organización de noticias puede tener un documento para cada artículo y una organización de streaming multimedia puede tener un documento para cada vídeo o canción de la biblioteca. Estos conceptos pueden equipararse a equivalentes de base de datos más conocidos: un *índice* es conceptualmente similar a una *tabla* y los *documentos* son más o menos equivalentes a las *filas* de una tabla.
 
-El índice que contiene documentos es un conjunto de datos sin formato, normalmente un subconjunto de los datos creado o capturado durante las operaciones normales del negocio mediante procesos informatizados, como transacciones de ventas, publicación de contenido y actividades de compra, suelen almacenarse en bases de datos relacional o NoSQL. Un índice obtiene sus documentos al insertar o extraer un conjunto de datos que contiene las filas de otros orígenes de datos para el índice.
-
-Comprendido dentro de los límites de las operaciones del motor de búsqueda de un índice, un índice contiene todos los datos que se pueden buscar usados para procesar un índice, ejecutar una consulta o devolver uno de los siguientes: una lista de resultados de búsqueda, una estructura de navegación con facetas o una página de detalles de un solo documento. En Búsqueda de Azure, un índice también puede contener datos que no se pueden buscar usados internamente en expresiones de filtro o en los perfiles de puntuación que proporcionan los criterios usados para aumentar una puntuación de clasificación de la búsqueda.
+El índice es un conjunto de datos sin formato, normalmente un subconjunto de los datos creado o capturado durante las operaciones normales del negocio mediante procesos informatizados, como transacciones de ventas, publicación de contenido y actividades de compra, que suele almacenarse en bases de datos relacionales o NoSQL. Un índice obtiene sus documentos al insertar o extraer un conjunto de datos que contiene las filas de otros orígenes de datos para el índice.
 
 ##¿Cuándo debo crear un índice?
 
-Como parte del aprovisionamiento de un servicio de búsqueda para su uso por la aplicación, deberá crear un índice. La creación de un índice es una tarea que se centra principalmente en la definición de su esquema. Como mínimo, consta de la definición de los campos y del establecimiento de los atributos. Si lo desea, puede extender un índice para incluir los perfiles, sugerencias y los valores predeterminados personalizados de puntuación.
+Como parte del aprovisionamiento de un servicio de búsqueda para su uso por la aplicación, deberá crear un índice. Hacer que un índice esté disponible para las operaciones de búsqueda es una tarea de dos partes. En primer lugar, se define el esquema y se publica en Búsqueda de Azure. En segundo lugar, se rellena el índice con un conjunto de datos definidos por el usuario que cumpla con el esquema.
 
-Para crear un esquema que define un índice, puede usar el Portal o escribir código que llama al SDK de .NET o a la API de REST.
-
-Cuando ya está definido el esquema y creado el índice, rellenarlo es una operación independiente. Para obtener más información sobre la ingesta de datos después de la creación del índice, consulte [Importación de datos a Búsqueda de Azure](search-what-is-data-import.md).
+Para crear un esquema que define un índice, puede usar el Portal o escribir código que llama al SDK de .NET o a la API de REST (consulte las pestañas en la parte superior de este tema). Para más información sobre la ingesta de datos después de la creación del índice, consulte [Importación de datos a Búsqueda de Azure](search-what-is-data-import.md).
 
 ##Especificación del esquema JSON de un índice
 
+Un índice es un documento JSON que contiene secciones para campos y atributos, perfiles de puntuación, proveedores de sugerencias, un perfil de puntuación predeterminado y opciones de CORS.
+
+ ![][1]
+
 Las secciones principales de un índice de Búsqueda de Azure, como se articula en el formato de intercambio de datos JSON, son las siguientes.
 
-|Elementos del esquema|Descripción|
+|Sección|Descripción|
 |--------------|-----------|
-|Fields (recopilación)|Fields define un documento. Un conjunto de datos de inserción o de extracción en un índice debe proporcionar valores o nulos para cada campo, compatible con el tipo de datos y la longitud del campo expresados en el esquema.|
-|[Atributos](#index-attributes)|Propiedades o anotaciones en el campo que especifican el tipo de datos, la longitud, el valor y los comportamientos permitidos para ese campo. Puede especificar si el campo es un campo de búsqueda, si se puede recuperar u ordenar, campo por campo. También puede especificar las modificaciones del analizador de lenguaje en el nivel de campo.
-|[Perfiles de puntuación](https://msdn.microsoft.com/library/azure/dn798928.aspx)|Criterios que se usan para mejorar la clasificación de un resultado de búsqueda que tiene más de las características establecidas en el perfil. Por ejemplo, supongamos que un término de búsqueda coincide con un nombre de producto y con la descripción del producto, quizá quiera que las coincidencias del nombre del producto se clasifiquen en una posición superior que las que se encuentran en la descripción.|
+|Fields (recopilación)|Fields define un documento. Un conjunto de datos de inserción o de extracción en un índice debe proporcionar valores o nulos para cada campo, compatible con el tipo de datos y la longitud del campo expresados en el esquema. Los campos tienen [atributos](#index-attributes), que son propiedades o anotaciones usadas para marcar un campo con el fin de habilitar comportamientos relacionados con la búsqueda para ese campo. Por ejemplo, puede especificar si el campo es un campo de búsqueda, si se puede recuperar u ordenar, campo por campo. También puede especificar las modificaciones del analizador de lenguaje en el nivel de campo.
 |[Proveedores de sugerencias](https://msdn.microsoft.com/library/azure/mt131377.aspx)|También conocidas como autocompletar o consultas de escritura anticipada, se definen como una sección en el índice.|
-|[Analizadores de idioma predeterminado]()|Si lo desea, también puede especificarlos en el nivel de índice para aplicarlos globalmente a todos los campos.|
+|[Perfiles de puntuación](https://msdn.microsoft.com/library/azure/dn798928.aspx)|Criterios que se usan para mejorar la clasificación de un resultado de búsqueda que tiene más de las características establecidas en el perfil. Por ejemplo, supongamos que un término de búsqueda coincide con un nombre de producto y con la descripción del producto, quizá quiera que las coincidencias del nombre del producto se clasifiquen en una posición superior que las que se encuentran en la descripción. Puede crear varios perfiles.|
+|Perfil de puntuación predeterminado|Opcionalmente, puede invalidar la lógica integrada que procesa una puntuación de la clasificación de búsqueda mediante la especificación de uno de los perfiles de puntuación como el valor predeterminado.|
 |Opciones de CORS|Opcionalmente, permite compartir recursos entre orígenes, donde las solicitudes para un recurso usado por una página web se emiten a través de un límite de dominios. CORS está siempre desactivado, a menos que lo habilite específicamente para su índice.|
 
 <a name="index-attributes"></a>
@@ -72,9 +71,11 @@ Los atributos se establecen en campos individuales para especificar cómo se usa
 
 ##¿Cómo se usan los índices en Búsqueda de Azure?
 
+Los datos del índice se usan para construir una lista de resultados de búsqueda, una estructura de navegación por facetas o una página de detalles para un único documento. En Búsqueda de Azure, un índice también puede contener datos que no se pueden buscar usados internamente en expresiones de filtro o en los perfiles de puntuación que proporcionan los criterios usados para aumentar una puntuación de clasificación de la búsqueda.
+
 Todas las operaciones relacionadas con datos realizadas con Búsqueda de Azure consumen o devuelven datos de un índice. No hay excepciones: el servicio no puede apuntar a otros orígenes de datos además del índice para devolver datos externos en una respuesta emitida por su servicio de búsqueda.
 
-Para las aplicaciones que acumulan datos y operan en ellos, como las transacciones de ventas de una aplicación comercial en línea, un índice de Búsqueda de Azure será un origen de datos adicional en la solución general. El índice es un almacenamiento de datos dedicado usado únicamente por el servicio de búsqueda. Contar con un origen de datos dedicado y próximo al servicio de búsqueda garantiza la coherencia en la búsqueda de resultados, reduce la volatilidad, reduce el número de idas y vueltas entre la aplicación y Búsqueda de Azure y mejora el rendimiento general de las operaciones de búsqueda porque no hay competencia por los datos o los recursos.
+Obviamente, para las aplicaciones que acumulan datos y operan en ellos, como las transacciones de ventas de una aplicación comercial en línea, un índice de Búsqueda de Azure será un origen de datos adicional en la solución general. Aunque podría parecer redundante tener un almacenamiento de datos dedicado solo para la búsqueda, contar con él ofrece los beneficios siguientes: coherencia en los resultados de búsqueda, volatilidad reducida, menor número de idas y vueltas entre la aplicación y Búsqueda de Azure y rendimiento general mejorado de las operaciones de búsqueda porque no hay contención para los datos o los recursos.
 
 ##Guía para definir un esquema
 
@@ -82,11 +83,11 @@ Los esquemas se crean como estructuras JSON. Debe crear un índice para cada sol
 
 Al diseñar el índice, tómese su tiempo en la fase de planeación y reflexione cada decisión. El cambio de un índice después de la implementación implica volver a generar y volver a cargar los datos. Si crea el índice en el código, este paso será mucho más fácil que si lo crea manualmente en el portal.
 
-Es esencial contar con una comprensión sólida de los datos de origen originales para crear un buen esquema. Desea hacer comparar los tipos de datos, saber qué campo usar como *clave* para que identifique de forma única cada documento en el índice y qué campos se deben exponer en una lista de resultados de búsqueda o página de detalles.
+Es esencial contar con una comprensión sólida de los datos de origen originales para crear un buen esquema. Desea hacer coincidir los tipos de datos, saber qué campo usar como *clave* para que identifique de forma única cada documento en el índice y qué campos se deben exponer en una lista de resultados de búsqueda o página de detalles.
 
 **Inicio con datos relacionales**
 
-Los datos relacionales pueden ser difíciles transformar un conjunto de datos sin formato. Si es posible, intente usar el almacenamiento de datos o la base de datos informes de su empresa, si está disponible. Suele ser la mejor opción porque el modelo ya está desnormalizado. De lo contrario, tendrá que se basarse en las consultas para obtener el conjunto de filas que necesita. Para ver un ejemplo y una explicación de cómo hacerlo, consulte [Modelado de la base de datos de inventario de AdventureWorks para Búsqueda de Azure](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx).
+Los datos relacionales pueden ser difíciles transformar un conjunto de datos sin formato. Si es posible, intente usar el almacenamiento de datos o la base de datos informes de su empresa, si está disponible. Suele ser la mejor opción porque el modelo ya está desnormalizado. De lo contrario, tendrá que se basarse en las consultas para obtener el conjunto de filas que necesita. Para ver un ejemplo y una explicación de cómo hacerlo, consulte la entrada del blog [Modeling the AdventureWorks Inventory Database for Azure Search](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx) (Modelado de la base de datos de inventario de AdventureWorks para Búsqueda de Azure).
 
 **Inclusión de datos binarios**
 
@@ -100,6 +101,9 @@ Como se puede imaginar, el índice se debe sincronizar periódicamente con otros
 
 Dado que Búsqueda de Azure es un servicio de búsqueda totalmente administrado, el almacenamiento de datos se trata como una operación interna. Como programador, es importante entender que no se pueden omitir las API de Búsqueda de Azure para conectarse directamente al índice, ni se puede supervisar el tamaño del índice o el mantenimiento excepto a través de notificaciones del portal o llamadas a API. No hay ninguna funcionalidad para realizar copias de seguridad o restaurar un índice, ni para optimizar o ajustar el rendimiento en el nivel de almacenamiento. En segundo plano, los datos se almacenan como almacenamiento de blobs, pero la mejor manera de pensar en el almacenamiento físico y en la administración de un índice es considerarlos un detalle de implementación que podría cambiar en el futuro. Una de las principales ventajas del servicio es el enfoque sin intervención humana para administrar físicamente los recursos de proceso de la aplicación de búsqueda.
 
-Si los requisitos de almacenamiento de datos o el volumen de consultas cambian con el tiempo, puede aumentar o disminuir la capacidad agregando o moviendo particiones y réplicas. Para obtener más información, consulte [Administración del servicio de Búsqueda en Azure](search-manage.md) o [Límites de servicio](search-limits-quotas-capacity.md).
+Si los requisitos de almacenamiento de datos o el volumen de consultas cambian con el tiempo, puede aumentar o disminuir la capacidad agregando o moviendo particiones y réplicas. Para más información, consulte [Administración del servicio de Búsqueda en Azure](search-manage.md) o [Límites de servicio](search-limits-quotas-capacity.md).
 
-<!---HONumber=Nov15_HO4-->
+<!--Image References-->
+[1]: ./media/search-what-is-an-index/search-JSON-indexSchema.png
+
+<!---HONumber=AcomDC_1125_2015-->

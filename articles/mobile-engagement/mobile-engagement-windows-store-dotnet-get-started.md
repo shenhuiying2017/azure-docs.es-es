@@ -55,21 +55,19 @@ En los siguientes pasos se supone el uso de Visual Studio de 2015 aunque los pas
 
     ![][1]
 
-> [AZURE.IMPORTANT]Azure Mobile Engagement no admite aún aplicaciones universales de Windows 10.
-
 Ahora ha creado un nuevo proyecto de aplicación universal de Windows en el que se integrará el SDK de Azure Mobile Engagement.
 
 ###Conectar la aplicación al back-end de Mobile Engagement
 
-1. Instale el paquete de NuGet [MicrosoftAzure.MobileEngagement] en su proyecto. Si desea usar las plataformas Windows y Windows Phone, necesitará hacer esto para los dos proyectos. El mismo paquete de Nuget colocará los binarios específicos de la plataforma correcta en cada proyecto.
+1. Instale el paquete de NuGet [MicrosoftAzure.MobileEngagement] en el proyecto. Si desea usar las plataformas Windows y Windows Phone, necesitará hacer esto para los dos proyectos. En Windows 8.x y Windows Phone 8.1, el mismo paquete de Nuget coloca los archivos binarios específicos de la plataforma correctos en cada proyecto.
 
-2. Abra **Package.appxmanifest** y asegúrese de que se ha agregado la siguiente funcionalidad allí:
+2. Abra **Package.appxmanifest** y asegúrese de que la siguiente se agrega a él:
 
 		Internet (Client)
 
 	![][2]
 
-3. Ahora, copie la cadena de conexión que copió anteriormente para la aplicación Mobile Engagement y péguela en el archivo `Resources\EngagementConfiguration.xml`, entre las etiquetas `<connectionString>` y `</connectionString>`:
+3. Copie la cadena de conexión que copió anteriormente para la aplicación Mobile Engagement y péguela en el archivo `Resources\EngagementConfiguration.xml`, entre las etiquetas `<connectionString>` y `</connectionString>`:
 
 	![][3]
 
@@ -81,20 +79,29 @@ Ahora ha creado un nuevo proyecto de aplicación universal de Windows en el que 
 
 			using Microsoft.Azure.Engagement;
 
-	b. Inicialice el SDK en el método **OnLaunched**:
+	b. Agregue un método dedicado a la inicialización y configuración de Engagement:
+
+           private void InitEngagement(IActivatedEventArgs e)
+           {
+             EngagementAgent.Instance.Init(e);
+
+			 //... rest of the code
+           }
+
+    c. Inicialice el SDK del método **OnLaunched**:
 
 			protected override void OnLaunched(LaunchActivatedEventArgs e)
 			{
-			  EngagementAgent.Instance.Init(e);
+			  InitEngagement(e);
 
 			  //... rest of the code
 			}
 
-	c. Inserte lo siguiente en el método **OnActivated** y agregue el método si aún no está presente:
+	c. Inserte el siguiente código en el método **OnActivated** y agregue el método si aún no está presente:
 
 			protected override void OnActivated(IActivatedEventArgs e)
 			{
-			  EngagementAgent.Instance.Init(e);
+			  InitEngagement(e);
 
 			  //... rest of the code
 			}
@@ -107,7 +114,7 @@ Para comenzar a enviar datos y asegurarse de que los usuarios estén activos, de
 
 		using Microsoft.Azure.Engagement.Overlay;
 
-2. Reemplace la clase base de **MainPage** de **Page** por **EngagementPage**:
+2. Reemplace la clase base de **MainPage** de **Page** por **EngagementPageOverlay**:
 
 		class MainPage : EngagementPageOverlay
 
@@ -119,35 +126,27 @@ Para comenzar a enviar datos y asegurarse de que los usuarios estén activos, de
 
 	b. Reemplace **Page** en el nombre de etiqueta XML por **engagement:EngagementPageOverlay**.
 	
-> [AZURE.IMPORTANT]Si la página invalida el método `OnNavigatedTo`, no olvide llamar a `base.OnNavigatedTo(e)`. De lo contrario, no se informará de la actividad (`EngagementPage` llama a `StartActivity` en su método `OnNavigatedTo`). Esto es especialmente importante en un proyecto de Windows Phone, donde la plantilla predeterminada tiene un método `OnNavigatedTo`.
+> [AZURE.IMPORTANT]Si la página invalida el método `OnNavigatedTo`, no olvide llamar a `base.OnNavigatedTo(e)`. De lo contrario, no se informará de la actividad (`EngagementPage` llama a `StartActivity` en su método `OnNavigatedTo`). Esto es especialmente importante en un proyecto de Windows Phone cuando la plantilla predeterminada tiene un método `OnNavigatedTo`.
 
-##<a id="monitor"></a>Conectar la aplicación con la supervisión en tiempo real
+##<a id="monitor"></a>Conexión de la aplicación con la supervisión en tiempo real
 
 [AZURE.INCLUDE [Conectar la aplicación con la supervisión en tiempo real](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-##<a id="integrate-push"></a>Habilitación de notificaciones push y mensajería en la aplicación
+##<a id="integrate-push"></a>Habilitación de las notificaciones de inserción y la mensajería en aplicación
 
 Mobile Engagement permite interactuar y llegar a los usuarios mediante notificaciones push y mensajería en la aplicación en el contexto de las campañas. Este módulo se denomina REACH en el portal de Mobile Engagement. En las secciones siguientes se instala la aplicación para recibirlos.
 
 ###Habilitar la aplicación para recibir notificaciones de inserción de WNS
 
-1. En el archivo `Package.appxmanifest`, en la pestaña **Aplicación**, en **Notificaciones**, establezca **Capacidad de aviso:** en **Sí**.
+1. En el archivo `Package.appxmanifest`, en la pestaña **Aplicación**, en **Notificaciones**, seleccione **Sí** en **Capacidad de aviso:**.
 
 	![][5]
 
 ###Inicializar el SDK de REACH
 
-1. En `App.xaml.cs`, llame a **EngagementReach.Instance.Init();** en la función **OnLaunched** justo después de la inicialización del agente:
+En `App.xaml.cs`, llame a **EngagementReach.Instance.Init();** en la función **InitEngagement** inmediatamente después de la inicialización del agente:
 
-		protected override void OnLaunched(LaunchActivatedEventArgs e)
-		{
-		   EngagementAgent.Instance.Init(e);
-		   EngagementReach.Instance.Init(e);
-		}
-
-2. En `App.xaml.cs`, llame a **EngagementReach.Instance.Init();** en la función **OnActivated** justo después de la inicialización del agente:
-
-		protected override void OnActivated(IActivatedEventArgs e)
+        private void InitEngagement(IActivatedEventArgs e)
 		{
 		   EngagementAgent.Instance.Init(e);
 		   EngagementReach.Instance.Init(e);
@@ -157,8 +156,8 @@ Ahora está todo listo para enviar un aviso. Ahora comprobaremos que ha llevado 
 
 ###Concesión de acceso a Mobile Engagement para enviar notificaciones
 
-1. Abra [Centro de desarrollo de Tienda Windows] en el explorador web, inicie sesión y cree una cuenta, si es necesario.
-2. Haga clic en **Panel** en la esquina superior derecha y, a continuación, haga clic en **Crear una nueva aplicación** desde el menú del panel izquierdo. 
+1. Abra el [Centro de desarrollo de Windows] en el explorador web, inicie sesión y cree una cuenta, en caso de que sea necesario.
+2. Haga clic en **Panel** en la esquina superior derecha y, a continuación, haga clic en **Crear una nueva aplicación** en el menú del panel izquierdo. 
 
 	![][9]
 
@@ -166,7 +165,7 @@ Ahora está todo listo para enviar un aviso. Ahora comprobaremos que ha llevado 
 
 	![][10]
 
-3. Una vez creada la aplicación, vaya a **Servicios -> Notificaciones de inserción** en el menú izquierdo.
+3. Una vez creada la aplicación, navegue a **Servicios -> Notificaciones de inserción** en el menú izquierdo.
 
 	![][11]
 
@@ -178,11 +177,11 @@ Ahora está todo listo para enviar un aviso. Ahora comprobaremos que ha llevado 
 
 	![][13]
 
-6. Desplácese a la **Configuración** del portal de Mobile Engagement y haga clic en la sección **Inserción nativa** de la izquierda. A continuación, haga clic en el botón **Editar** para especificar el **Identificador de seguridad de paquete (SID)** y su **Clave secreta** tal como se muestra a continuación:
+6. Navegue a **Configuración** en el portal de Mobile Engagement y haga clic en la sección **Inserción nativa** de la izquierda. A continuación, haga clic en el botón **Editar** para especificar el **Identificador de seguridad de paquete (SID)** y su **Clave secreta** como se muestra a continuación:
 
 	![][6]
 
-8. Por último, asegúrese de que asoció la aplicación de Visual Studio a esta aplicación creada en la tienda de aplicaciones. Debe hacer clic en **Asociar aplicación con la Tienda** de Visual Studio para ello.
+8. Por último, asegúrese de que asoció la aplicación de Visual Studio a esta aplicación creada en la tienda de aplicaciones. Para ello, debe hacer clic en **Asociar aplicación con la Tienda** en Visual Studio.
 
 	![][7]
 
@@ -190,14 +189,14 @@ Ahora está todo listo para enviar un aviso. Ahora comprobaremos que ha llevado 
 
 [AZURE.INCLUDE [Crear campaña de inserción de Windows](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-Si la aplicación se estaba ejecutando, verá entonces una notificación desde la aplicación; si, por el contrario, la aplicación estaba cerrada, verá una notificación del sistema. Si ve una notificación desde la aplicación pero no una notificación del sistema y está ejecutando la aplicación en modo de depuración en Visual Studio, debería probar **Eventos de ciclo de vida -> Suspender** en la barra de herramientas para asegurarse de que realmente se suspende la aplicación. Si acaba de hacer clic en el botón de inicio mientras se depura la aplicación en Visual Studio, no siempre se suspenderá y, mientras vea la notificación como desde la aplicación, no se mostrará como notificación del sistema.
+Si la aplicación se estaba ejecutando, verá entonces una notificación desde la aplicación; si, por el contrario, la aplicación estaba cerrada, verá una notificación del sistema. Si ve una notificación en la aplicación pero no una notificación del sistema y la aplicación se ejecuta en modo de depuración en Visual Studio, debería probar **Eventos de ciclo de vida -> Suspender** en la barra de herramientas para asegurarse de que la aplicación está realmente suspendida. Si acaba de hacer clic en el botón de inicio mientras se depura la aplicación en Visual Studio, no siempre se suspenderá y, mientras vea la notificación como desde la aplicación, no se mostrará como notificación del sistema.
 
 ![][8]
 
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9864592
-[Centro de desarrollo de Tienda Windows]: https://dev.windows.com
+[Centro de desarrollo de Windows]: https://dev.windows.com
 [Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
@@ -214,4 +213,4 @@ Si la aplicación se estaba ejecutando, verá entonces una notificación desde l
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

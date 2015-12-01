@@ -40,7 +40,11 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ##Creación de un nuevo back-end de Aplicaciones móviles de Azure
 
+Siga estos pasos para crear un nuevo back-end de aplicación móvil.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usarse por las aplicaciones del cliente móvil. Después, descargará un proyecto de servidor para un back-end de "lista de tareas" sencillo y lo publicará en Azure.
 
 ## Configuración del proyecto de servidor
 
@@ -81,4 +85,4 @@ Una vez configurado el back-end de aplicación móvil, puede crear una nueva apl
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->
