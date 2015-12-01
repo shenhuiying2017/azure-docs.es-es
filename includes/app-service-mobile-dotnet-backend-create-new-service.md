@@ -1,14 +1,10 @@
-
-
-Siga estos pasos para crear un nuevo back-end de aplicación móvil.
-
 1. Inicie sesión en el [Portal de Azure].
 
-2. En la esquina superior izquierda de la ventana, haga clic en el botón **+NUEVO** > **Web + Móvil** > **Aplicación móvil** e indique un nombre para el back-end de la aplicación móvil.
+2. En la esquina superior izquierda de la ventana, haga clic en el botón **+NUEVO** > **Web y móvil** > **Aplicación móvil** e indique un nombre para el back-end de la aplicación móvil.
 
 3. En el cuadro **Grupo de recursos**, seleccione un grupo de recursos existente. Si no tiene grupos de recursos, escriba el mismo nombre que la aplicación.
  
-	En este punto, se selecciona el plan del Servicio de aplicaciones predeterminado, que se encuentra en el nivel Gratis. La configuración del plan del Servicio de aplicaciones determina la ubicación, características, costo y recursos de procesos asociados a la aplicación. Puede seleccionar un plan de Servicio de aplicaciones ya existente o crear uno nuevo. Para obtener más información acerca de los planes de Servicios de aplicaciones y cómo crear un nuevo plan, consulte [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
+	En este punto, se selecciona el plan del Servicio de aplicaciones predeterminado, que se encuentra en el nivel Gratis. La configuración del plan del Servicio de aplicaciones determina la ubicación, características, costo y recursos de procesos asociados a la aplicación. Puede seleccionar un plan de Servicio de aplicaciones ya existente o crear uno nuevo. Para más información acerca de los planes de Servicios de aplicaciones y cómo crear un nuevo plan, consulte [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 4. Use el plan del Servicio de aplicaciones predeterminado, seleccione un plan diferente o [cree un nuevo plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan) y, a continuación, haga clic en **Crear**.
 	
@@ -30,9 +26,8 @@ Siga estos pasos para crear un nuevo back-end de aplicación móvil.
 
 	La creación de la base de datos puede tardar unos minutos. Use el área de **notificaciones** para supervisar el progreso de la implementación. No puede continuar hasta que la base de datos esté implementada correctamente.
 
-Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usarse por las aplicaciones del cliente móvil. Después, descargará un proyecto de servidor para un back-end de "lista de tareas" sencillo y lo publicará en Azure.
 
 <!-- URLs. -->
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

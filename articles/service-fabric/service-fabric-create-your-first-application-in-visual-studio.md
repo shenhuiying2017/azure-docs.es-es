@@ -18,7 +18,7 @@
 
 # Creación de la primera aplicación de Service Fabric en Visual Studio
 
-El SDK de Service Fabric incluye un complemento para Visual Studio que proporciona herramientas y plantillas para crear, depurar e implementar aplicaciones de Service Fabric. Este tema le guiará por el proceso de creación de su primera aplicación en Visual Studio.
+El SDK de Service Fabric incluye un complemento para Visual Studio que proporciona herramientas y plantillas para crear, implementar y depurar aplicaciones de Service Fabric. Este tema le guiará por el proceso de creación de su primera aplicación en Visual Studio.
 
 ## Requisitos previos
 
@@ -54,11 +54,11 @@ Una aplicación de Service Fabric puede contener uno o varios servicios, cada un
 
 	- **Definición de aplicación**: el manifiesto de aplicación y los archivos de parámetros de la aplicación asociados definen la aplicación y permiten configurarla específicamente para un entorno determinado.
 
-  Para obtener información general del contenido del proyecto de servicio, consulte [Introducción a Reliable Services](service-fabric-reliable-services-quick-start.md).
+    Para obtener información general del contenido del proyecto de servicio, consulte [Introducción a Reliable Services](service-fabric-reliable-services-quick-start.md).
 
 ## Implemente la aplicación y depúrela
 
-Ahora que tenemos una aplicación, probemos a ejecutarla.
+Ahora que tiene una aplicación, puede probar a ejecutarla.
 
 1. Presione F5 en Visual Studio para implementar la aplicación, con el fin de depurarla.
 
@@ -88,9 +88,9 @@ Ahora que tenemos una aplicación, probemos a ejecutarla.
 
 5. Haga clic con el botón derecho en la aplicación de bandeja del sistema del Administrador de clústeres local y elija Administrar clúster Local para iniciar el Explorador de Service Fabric.
 
-  ![Inicie el Explorador de Service Fabric desde el Administrador de clústeres locales][systray-launch-sfx]
+    ![Inicie el Explorador de Service Fabric desde el Administrador de clústeres locales][systray-launch-sfx]
 
-  El Explorador de Service Fabric ofrece una representación visual de un clúster, incluidos el conjunto de las aplicaciones implementadas y el conjunto de nodos físicos que lo componen.
+    El Explorador de Service Fabric ofrece una representación visual de un clúster, incluidos el conjunto de las aplicaciones implementadas y el conjunto de nodos físicos que lo componen. Para aprender más sobre Service Fabric, consulte [Visualización del clúster](service-fabric-visualizing-your-cluster).
 
 6. En el panel izquierdo, expanda **Clúster > Nodos** y busque el nodo en que se ejecuta el código.
 
@@ -102,14 +102,25 @@ Ahora que tenemos una aplicación, probemos a ejecutarla.
 
 8. Vuelva al Visor de eventos de diagnóstico y observe los mensajes. Tenga en cuenta que el contador no ha dejado de incrementarse, aunque los eventos realmente proceden de otro nodo.
 
-  ![Visor de eventos de diagnóstico después de la conmutación por error][diagnostic-events-viewer-detail-post-failover]
+    ![Visor de eventos de diagnóstico después de la conmutación por error][diagnostic-events-viewer-detail-post-failover]
+
+### Limpiar
+
+  Antes de concluir, es importante recordar que el clúster local es real. Incluso después de detener el depurador y de cerrar Visual Studio, las aplicaciones se seguirán ejecutando en segundo plano. Según la naturaleza de las aplicaciones, esta actividad en segundo plano puede consumir importantes recursos en su máquina. Tiene varias opciones para administrar esto:
+
+  1. Para quitar una aplicación individual y todos sus datos, utilice la acción **Quitar aplicación** en el Explorador de Service Fabric.
+
+  2. Para cerrar el clúster pero mantener los datos y los seguimientos de la aplicación, haga clic en **Detener clúster** en la aplicación de bandeja del sistema.
+
+  3. Para eliminar totalmente el clúster, haga clic en **Quitar clúster** en la aplicación de bandeja del sistema. Tenga en cuenta que esta opción generará otra implementación lenta la próxima vez que presione F5 en Visual Studio y solo debe usarse si no piensa usar el clúster local durante algún tiempo o necesita urgentemente reclamar los recursos.
+
 
 
 ## Pasos siguientes
 
+- [Vea cómo puede exponer los servicios a Internet con WebAPI](service-fabric-add-a-web-frontend.md)
 - [Más información sobre cómo crear clústeres en Azure](service-fabric-cluster-creation-via-portal.md)
 - [Más información acerca de cómo crear Reliable Services](service-fabric-reliable-services-quick-start.md)
-- [Vea cómo puede exponer los servicios a Internet con WebAPI](service-fabric-add-a-web-frontend.md)
 - [Intente crear un servicio con el modelo de programación de Actor confiable](service-fabric-reliable-actors-get-started.md)
 
 <!-- Image References -->
@@ -125,4 +136,4 @@ Ahora que tenemos una aplicación, probemos a ejecutarla.
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

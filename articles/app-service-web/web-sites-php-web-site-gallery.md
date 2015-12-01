@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="10/15/2015"
+	ms.date="11/13/2015"
 	ms.author="tomfitz"/>
 
 # Creación de una aplicación web de WordPress en el Servicio de aplicaciones de Azure
@@ -40,7 +40,7 @@ Azure Marketplace pone a disposición del usuario una gran variedad de populares
 
 1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com/).
 
-2. Haga clic en **Nuevo > Marketplace**.
+2. Haga clic en **Nuevo**.
 	
     ![Crear nuevo][5]
 	
@@ -124,4 +124,4 @@ Para obtener más información sobre cómo trabajar con las aplicaciones web del
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

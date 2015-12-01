@@ -31,7 +31,7 @@ En este tema se describe cómo evitar, solucionar, diagnosticar y mitigar los er
 Un error transitorio es un error cuya causa subyacente se pronto solucionará por sí sola. Una causa ocasional de errores transitorios es cuando el sistema de Azure rápidamente desplaza recursos de hardware para equilibrar mejor la carga de varias cargas de trabajo. Durante este período de tiempo de reconfiguración, puede perderse la conexión con Base de datos SQL de Azure.
 
 
-Si su programa cliente usa ADO.NET, se notifica al programa los errores transitorios a través del inicio de una excepción **SqlException**. La propiedad **Number** se puede comparar con la lista de errores transitorios, que se encuentra cerca de la parte superior del tema: [Mensajes de error para los programas de cliente de Base de datos SQL](sql-database-develop-error-messages).
+Si su programa cliente usa ADO.NET, se notifica al programa los errores transitorios a través del inicio de una excepción **SqlException**. La propiedad **Number** se puede comparar con la lista de errores transitorios, que se encuentra cerca de la parte superior del tema: [Mensajes de error para los programas de cliente de Base de datos SQL](sql-database-develop-error-messages.md).
 
 
 ### Comparación de conexión y comando
@@ -94,7 +94,7 @@ También puede establecer un número máximo de reintentos antes de que el progr
 
 Los ejemplos de código con lógica de reintento, en una variedad de lenguajes de programación, están disponibles en:
 
-- [Ejemplos de código de inicio rápido](sql-database-develop-quick-start-client-code-samples.md). 
+- [Ejemplos de código de inicio rápido](sql-database-develop-quick-start-client-code-samples.md).
 
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
@@ -478,4 +478,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* es una biblioteca de reintentos de uso general con licencia de Apache 2.0, escrita en **Python**, para simplificar la tarea de agregar comportamiento de reintento a prácticamente todo.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

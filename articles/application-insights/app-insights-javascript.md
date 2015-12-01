@@ -12,32 +12,39 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/03/2015"
+	ms.date="11/17/2015"
 	ms.author="awills"/>
 
-# Application Insights para y aplicaciones web de JavaScript
+# Application Insights para aplicaciones web de JavaScript
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Obtenga información sobre el rendimiento y el uso de su página web. Agregue Visual Studio Application Insights a su página y averigüe cuántos usuarios tiene, la frecuencia con que vuelven y las páginas que más usan. También obtendrá informes de tiempos de carga y las posibles excepciones. Agregue algunos [eventos y métricas personalizados][track] y podrá analizar en detalle las características más usadas y los errores más comunes; asimismo, podrá optimizar la página para tener éxito con los usuarios.
+Obtenga información sobre el rendimiento y el uso de su página web. Agregue Visual Studio Application Insights a su página y averigüe cuántos usuarios tiene, la frecuencia con que vuelven y las páginas que más usan. También obtendrá informes de tiempos de carga y las posibles excepciones. Agregue algunos [eventos y métricas personalizados](app-insights-api-custom-events-metrics.md) y podrá analizar en detalle las características más usadas y los errores más comunes; asimismo, podrá optimizar la página para tener éxito con los usuarios.
 
 ![Seleccione Nuevo, Servicios para desarrolladores, Application Insights.](./media/app-insights-javascript/16-page-views.png)
 
-Si ya ha configurado la telemetría de servidor para su aplicación web [ASP.NET][greenbrown] o [Java][java], tendrá una idea clara tanto desde el punto de vista del cliente como del servidor. Las dos secuencias se integrarán en el portal de Application Insights.
+Si ya ha configurado la telemetría de servidor para su aplicación web [ASP.NET](app-insights-asp-net.md) o [Java](app-insights-java-get-started.md), tendrá una idea clara tanto desde el punto de vista del cliente como del servidor. Las dos secuencias se integrarán en el portal de Application Insights.
 
 #### Demostración rápida
 
 Si no tiene una suscripción de Azure y le gustaría probar Application Insights en la página web, visite [Probar Application Insights](http://aka.ms/ainow).
 
-## Creación de recursos en Application Insights
+## Apertura de un recurso de Application Insights
 
 El recurso de Application Insights es donde se muestran los datos sobre el rendimiento y el uso de la página. (Si ha ya creado un recurso, quizá para recopilar datos de su servidor web, omita este paso).
 
-En el [Portal de Azure](http://portal.azure.com), cree un nuevo recurso de Application Insights:
+Inicie sesión en el [Portal de Azure](http://portal.azure.com).
+
+Si ya ha configurado la supervisión del lado del servidor de su aplicación, ya tendrá un recurso:
+
+![Seleccione Examinar, Servicios para desarrolladores, Application Insights.](./media/app-insights-javascript/01-find.png)
+
+Si no tiene uno, créelo:
 
 ![Seleccione Nuevo, Servicios para desarrolladores, Application Insights.](./media/app-insights-javascript/01-create.png)
 
-*¿Tiene ya alguna pregunta?* [Más información sobre cómo crear un recurso][new].
+
+*¿Tiene ya alguna pregunta?* [Más información sobre cómo crear un recurso](app-insights-create-new-resource.md).
 
 
 ## Agregar el script de SDK a la aplicación o la página web
@@ -72,7 +79,7 @@ En la hoja de información general de la aplicación, hay un gráfico cerca de l
 ![](./media/app-insights-javascript/05-browser-page-load.png)
 
 
-*¿Aún no hay datos? Haga clic en **Actualizar** en la parte superior de la página. ¿Todavía nada? Consulte [Solución de problemas][qna].*
+*¿Aún no hay datos? Haga clic en **Actualizar** en la parte superior de la página. ¿Todavía nada? Consulte [Solución de problemas](app-insights-troubleshoot-faq.md).*
 
 Haga clic en ese gráfico y obtendrá una versión más detallada:
 
@@ -143,9 +150,9 @@ En la hoja Búsqueda de diagnóstico, establezca Filtros en Vista de página.
 
 Seleccione el evento que desea ver con mayor detalle. En la página de detalles, haga clic en "..." para ver aún más detalles.
 
-> [AZURE.NOTE]Si usa [Buscar][diagnostic], tenga en cuenta que tiene que hacer coincidir palabras completas: "Acerc" y "cerca de" no coinciden con "Acerca de", pero "Acerca d*" sí lo hace. Tampoco puede iniciar un término de búsqueda con un carácter comodín. Por ejemplo, "*cerc" no coincide con "Acerca".
+> [AZURE.NOTE]Si usa [Buscar](app-insights-diagnostic-search.md), tenga en cuenta que tiene que hacer coincidir palabras completas: "Acerc" y "cerca de" no coinciden con "Acerca de", pero "Acerca d*" sí lo hace. Tampoco puede iniciar un término de búsqueda con un carácter comodín. Por ejemplo, "*cerc" no coincide con "Acerca".
 
-> [Más información sobre Búsqueda de diagnóstico][diagnostic]
+> [Más información sobre Búsqueda de diagnóstico](app-insights-diagnostic-search.md)
 
 ### Propiedades de la vista de página
 
@@ -155,16 +162,20 @@ Seleccione el evento que desea ver con mayor detalle. En la página de detalles,
 
 ¿Desea averiguar qué hacen los usuarios con su aplicación? Mediante la inserción de llamadas en el código de cliente y servidor, puede enviar su propia telemetría a Application Insights. Por ejemplo, puede averiguar el número de usuarios que crean pedidos sin completarlos o qué errores de validación aparecen con más frecuencia, o el promedio de puntuación en un juego.
 
-* [Más información sobre la API de eventos y métricas personalizados][track].
+* [Más información sobre las API para eventos y métricas personalizados](app-insights-api-custom-events-metrics.md).
 * [Referencia de API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## Telemetría de servidor
 
-Si no lo ha hecho aún, puede obtener información de su servidor y mostrar los datos junto con los datos del lado cliente, lo que le permite evaluar el rendimiento en el servidor y diagnosticar cualquier problema.
+Si no lo ha hecho aún, puede obtener información de su servidor y mostrar los datos junto con los datos del lado cliente, lo que le permite evaluar el rendimiento en el servidor y diagnosticar cualquier problema. Agregue el SDK de Application Insights a la aplicación:
 
-* [Agregar Application Insights a una aplicación de ASP.NET][greenbrown]
-* [Agregar Application Insights a una aplicación web de Java][java]
+* [Agregar el SDK a una aplicación ASP.NET](app-insights-asp-net.md)
+* [Agregar el SDK a una aplicación web Java](app-insights-java-get-started.md)
 
+O bien, si la aplicación web ya está activa, puede agregar telemetría de servidor sin necesidad de compilar o implementar de nuevo:
+
+* [Supervisión de una aplicación ASP.NET activa](app-insights-monitor-performance-live-website-now.md)
+* [Supervisión de una aplicación Java activa](app-insights-java-live.md)
 
 ## <a name="video"></a> Vídeo: Seguimiento del uso
 
@@ -172,18 +183,8 @@ Si no lo ha hecho aún, puede obtener información de su servidor y mostrar los 
 
 ## <a name="next"></a> Pasos siguientes
 
-[Seguimiento del uso con eventos y métricas personalizados][track]
+* [Seguir el uso](app-insights-web-track-usage.md)
+* [Eventos y métricas personalizados](app-insights-api-custom-events-metrics.md)
+* [Compilación - Métrica - Aprendizaje](app-insights-overview-usage.md)
 
-
-
-
-<!--Link references-->
-
-[diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
-[java]: app-insights-java-get-started.md
-[new]: app-insights-create-new-resource.md
-[qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-api-custom-events-metrics.md
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -112,7 +112,6 @@ Ahora, va a crear un servicio vinculado para un clúster de HDInsight de Azure a
 		      "version": "3.1",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
-		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
 		  }
@@ -125,7 +124,6 @@ Ahora, va a crear un servicio vinculado para un clúster de HDInsight de Azure a
 	Versión | Con esto se especifica que la versión de HDInsight se crea para que sea 3.1.
 	ClusterSize | Así se crea un clúster de HDInsight de un nodo.
 	TimeToLive | Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine.
-	JobsContainer | Especifica el nombre del contenedor de trabajos que se creará para almacenar los registros que genere HDInsight.
 	linkedServiceName | Especifica la cuenta de almacenamiento que se usará para almacenar los registros que genere HDInsight.
 2. Ejecute el cmdlet **New-AzureDataFactoryLinkedService** para crear el servicio vinculado llamado HDInsightOnDemandLinkedService.
 
@@ -156,7 +154,7 @@ Ahora, va a crear el conjunto de datos de salida que representa los datos almace
 		  }
 		}
 
-	En el ejemplo anterior, se crea un conjunto de datos llamado **AzureBlobOutput** y se especifica la estructura de los datos que generará el script de Hive. Además, se especifica que los resultados se almacenan en el contenedor de blobs llamado **data** y en la carpeta llamada **partitioneddata**. La sección **availability** especifica que el conjunto de datos de salida se genera mensualmente.
+	En el ejemplo anterior, cree un conjunto de datos llamado **AzureBlobOutput** y especifique la estructura de los datos que generará el script de Hive. Además, especifique que los resultados se almacenan en el contenedor de blobs llamado **data** y en la carpeta llamada **partitioneddata**. La sección **availability** especifica que el conjunto de datos de salida se genera mensualmente.
 
 2. Ejecute el comando siguiente en Azure PowerShell para crear el conjunto de datos Factoría de datos.
 
@@ -203,13 +201,13 @@ En este paso, creará la primera canalización:
 
 	En el ejemplo anterior, se crea una canalización que consta de una sola actividad que usa Hive para procesar los datos en un clúster de HDInsight.
 
-	El archivo de script de Hive, partitionweblogs.hql, se almacena en la cuenta de almacenamiento de Azure (especificada mediante scriptLinkedService, denominada StorageLinkedService) y en un contenedor llamado **script**.
+	El archivo de script de Hive, partitionweblogs.hql, se almacena en la cuenta de almacenamiento de Azure (especificada mediante scriptLinkedService, llamada StorageLinkedService) y en un contenedor llamado **script**.
 
-	La sección **extendedProperties** se usa para especificar la configuración de tiempo de ejecución que se pasará al script de Hive como valores de configuración de Hive (por ejemplo, ${hiveconf:PartitionedData}).
+	La sección **defines** se usa para especificar la configuración de tiempo de ejecución que se pasará al script de Hive como valores de configuración de Hive (por ejemplo, ${hiveconf:PartitionedData}).
 
 	Las propiedades **start** y **end** de la canalización especifican el período activo de esta.
 
-	En el JSON de actividad, se especifica que el script de Hive se ejecuta en el equipo que especifica el servicio vinculado: **HDInsightOnDemandLinkedService**.
+	En el JSON de actividad, se especifica que el script de Hive se ejecuta en el equipo que especifica el servicio vinculado (**HDInsightOnDemandLinkedService**).
 2. Ejecute el comando siguiente para crear la tabla Factoría de datos.
 
 		New-AzureDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
@@ -238,7 +236,7 @@ En este paso, se usará Azure PowerShell para supervisar lo que está ocurriendo
 		LatencyStatus     :
 		LongRetryCount    : 0
 
-3.	Ejecute **Get-AzureDataFactoryRun** para obtener la información de la actividad que se ejecuta para un segmento específico.
+3.	Ejecute **Get-AzureDataFactoryRun** para obtener información de la actividad que se ejecuta para un segmento específico.
 
 		Get-AzureDataFactoryRun $df -TableName AzureBlobOutput -StartDateTime 2014-01-01
 
@@ -269,9 +267,9 @@ Vea [Referencia de cmdlets de factoría de datos](https://msdn.microsoft.com/lib
 
 
 ## Pasos siguientes
-En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight de Azure a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte el [Tutorial: Copia de datos de un blob de Azure a SQL Azure](./data-factory-get-started.md).
+En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight de Azure a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure en SQL Azure](./data-factory-get-started.md).
 
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

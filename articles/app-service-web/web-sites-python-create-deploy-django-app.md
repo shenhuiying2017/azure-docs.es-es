@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="hero-article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/16/2015"
+	ms.author="huvalo"/>
 
 
 # Creación de aplicaciones web con Django en Azure
@@ -57,7 +57,7 @@ Debe tener Python y Git instalados, pero asegúrese de que tiene Python 2.7 o 3.
 El primer paso para crear la aplicación consiste en crear la aplicación web a través del [Portal de Azure](https://portal.azure.com).
 
 1. Inicie sesión en el Portal de Azure, haga clic en el botón **Nuevo** situado en la esquina inferior izquierda.
-2. Elija **Web + móvil ** > **Azure Marketplace** > **Aplicaciones web**.
+2. Haga clic en **Web y móvil**.
 3. En el cuadro de búsqueda, escriba "python".
 4. En los resultados de búsqueda, seleccione **Django**, a continuación, haga clic en **Crear**.
 5. Configure la nueva aplicación Django, por ejemplo, la creación de un nuevo plan para el Servicio de aplicaciones y un nuevo grupo de recursos para él. A continuación, haga clic en **Crear**.
@@ -183,7 +183,7 @@ Presione F5 para iniciar la depuración y el explorador web abrirá automáticam
 
 ![](./media/web-sites-python-create-deploy-django-app/windows-browser-django.png)
 
-Puede establecer puntos de interrupción en los orígenes, utilizar las ventanas Inspección, etc. Consulte la [Documentación sobre Python Tools para Visual Studio] para obtener más información sobre las distintas características.
+Puede establecer puntos de interrupción en los orígenes, utilizar las ventanas Inspección, etc. Consulte la [Documentación sobre Python Tools para Visual Studio] para más información sobre las distintas características.
 
 ### Realización de cambios
 
@@ -332,6 +332,10 @@ Para Python 2.7:
 Para Python 3.4:
 
     python -m venv env
+
+o
+
+	pyvenv env
 
 Instale los paquetes externos requeridos por la aplicación. Puede utilizar el archivo requirements.txt en la raíz del repositorio para instalar los paquetes en su entorno virtual:
 
@@ -514,4 +518,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 [Documentación sobre Python Tools para Visual Studio]: http://aka.ms/ptvsdocs
 [Documentación de Django]: https://www.djangoproject.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

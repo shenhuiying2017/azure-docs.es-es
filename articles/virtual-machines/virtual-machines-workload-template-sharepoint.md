@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Implementación de granjas de servidores SharePoint con plantillas del ARM | Microsoft Azure"
-	description="Implemente fácilmente una granja de SharePoint de tres o nueve servidores con plantillas del Administrador de recursos y el portal de Azure, Azure PowerShell o la CLI de Azure."
+	description="Implemente fácilmente una granja de SharePoint de tres o nueve servidores con plantillas del Administrador de recursos y el Portal de vista previa de Azure, Azure PowerShell o la CLI de Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -52,7 +52,7 @@ Dependiendo de la plantilla, es posible que Azure tarde algún tiempo en generar
 
 > [AZURE.NOTE]Este artículo contiene comandos para la versión preliminar de Azure PowerShell 1.0. Para ejecutar estos comandos en Azure PowerShell 0.9.8 y versiones anteriores, reemplace **New-AzureRMResourceGroup** por **New-AzureResourceGroup**, reemplace **New-AzureRMResourceGroupDeployment** por **New-AzureResourceGroupDeployment** y agregue el comando **Switch-AzureMode AzureResourceManager** antes del comando **New-AzureResourceGroup**. Para obtener más información, consulte la [versión de vista previa de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
-Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y una ubicación de centro de datos de Azure en el siguiente conjunto de comandos. Quite todo el contenido entre comillas, incluidos los caracteres < and >.
+Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y una ubicación de centro de datos de Azure en el siguiente conjunto de comandos. Elimine todo el contenido dentro de las comillas, incluidos los caracteres < and >.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
@@ -124,7 +124,7 @@ Dependiendo de la plantilla, es posible que Azure tarde algún tiempo en generar
 
 > [AZURE.NOTE]Este artículo contiene comandos para la versión preliminar de Azure PowerShell 1.0. Para ejecutar estos comandos en Azure PowerShell 0.9.8 y versiones anteriores, reemplace **New-AzureRMResourceGroup** por **New-AzureResourceGroup**, reemplace **New-AzureRMResourceGroupDeployment** por **New-AzureResourceGroupDeployment** y agregue el comando **Switch-AzureMode AzureResourceManager** antes del comando **New-AzureResourceGroup**. Para obtener más información, consulte la [versión de vista previa de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
-Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y una ubicación de centro de datos de Azure en el siguiente conjunto de comandos. Quite todo el contenido entre comillas, incluidos los caracteres < and >.
+Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y una ubicación de centro de datos de Azure en el siguiente conjunto de comandos. Elimine todo el contenido dentro de las comillas, incluidos los caracteres < and >.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
@@ -186,4 +186,4 @@ Cuando haya finalizado la ejecución de la plantilla, tendrá una nueva granja S
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

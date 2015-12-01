@@ -102,7 +102,6 @@ Ahora, va a crear un servicio vinculado para un clúster de HDInsight a petició
 	Versión | Con esto se especifica que la versión de HDInsight se crea para que sea 3.1. 
 	ClusterSize | Así se crea un clúster de HDInsight de un nodo. 
 	TimeToLive | Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine.
-	JobsContainer | Especifica el nombre del contenedor de trabajos que se creará para almacenar los registros que genere HDInsight.
 	linkedServiceName | Especifica la cuenta de almacenamiento que se usará para almacenar los registros que genere HDInsight.
 
 4. Guarde el archivo **HDInsightOnDemandLinkedService1.json**.
@@ -112,7 +111,7 @@ Ahora, va a crear el conjunto de datos de salida que representa los datos almace
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en **Agregar**, y haga clic en **Nuevo elemento**. 
 2. Seleccione **Blob de Azure** en la lista y haga clic en **Agregar**. 
-3. Reemplace el código **JSON** en el editor por el siguiente: en el fragmento de código JSON, se crea un conjunto de datos llamado **AzureBlobOutput** y se especifica la estructura de los datos que generará el script de Hive. Además, se especifica que los resultados se almacenan en el contenedor de blobs llamado **data** y en la carpeta llamada **partitioneddata**. La sección **availability** especifica que el conjunto de datos de salida se genera mensualmente.
+3. Reemplace el código **JSON** en el editor por el siguiente: en el fragmento de código JSON, cree un conjunto de datos llamado **AzureBlobOutput** y especifique la estructura de los datos que generará el script de Hive. Además, especifique que los resultados se almacenan en el contenedor de blobs llamado **data** y en la carpeta llamada **partitioneddata**. La sección **availability** especifica que el conjunto de datos de salida se genera mensualmente.
 	
 		{
 		  "name": "AzureBlobOutput",
@@ -179,13 +178,13 @@ En este paso, creará la primera canalización:
 
  	En el fragmento de código JSON, se crea una canalización que consta de una sola actividad que usa Hive para procesar los datos en un clúster de HDInsight.
 	
-	El archivo de script de Hive, **partitionweblogs.hql**, se guarda en la cuenta de almacenamiento de Azure (lo que se especifica mediante el scriptLinkedService, denominado **AzureStorageLinkedService1**) y en un contenedor llamado **script**.
+	El archivo de script de Hive, **partitionweblogs.hql**, se guarda en la cuenta de almacenamiento de Azure (que especifica scriptLinkedService, llamada **AzureStorageLinkedService1**) y en un contenedor llamado **script**.
 
-	La sección **extendedProperties** se usa para especificar la configuración de tiempo de ejecución que se pasará al script de Hive como valores de configuración de Hive (por ejemplo, ${hiveconf:PartitionedData}).
+	La sección **defines** se usa para especificar la configuración de tiempo de ejecución que se pasará al script de Hive como valores de configuración de Hive (por ejemplo, ${hiveconf:PartitionedData}).
 
 	Las propiedades **start** y **end** de la canalización especifican el período activo de esta.
 
-	En el JSON de actividad, se especifica que el script de Hive se ejecuta en el proceso especificado por el servicio vinculado: **HDInsightOnDemandLinkedService**.
+	En el JSON de actividad, se especifica que el script de Hive se ejecuta en el proceso que especifica el servicio vinculado (**HDInsightOnDemandLinkedService**).
 3. Guarde el archivo **HiveActivity1.json**.
 
 ### Agregar partitionweblogs.hql como una dependencia 
@@ -197,32 +196,32 @@ Al publicar la solución en el paso siguiente, se carga el archivo HQL en el con
 
 ### Publicación e implementación de las entidades de Factoría de datos
 
-18. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y, después, haga clic en **Publicar**. 
-19. Si aparece el cuadro de diálogo **Iniciar sesión en tu cuenta Microsoft**, escriba sus credenciales para la cuenta con suscripción de Azure y haga clic en **Iniciar sesión**.
+18. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y haga clic en **Publicar**. 
+19. Si ve el cuadro de diálogo **Iniciar sesión en tu cuenta Microsoft**, escriba las credenciales de la cuenta que tiene la suscripción de Azure y haga clic en **Iniciar sesión**.
 20. Debería ver el siguiente cuadro de diálogo:
 
 	![Cuadro de diálogo Publicar](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
 
 21. En la página Configurar la factoría de datos, haga lo siguiente:
 	1. Seleccione la opción **Crear nueva factoría de datos**.
-	2. Escriba **FirstPipelineUsingVS** para **Nombre**. 
+	2. Escriba **FirstPipelineUsingVS** en **Nombre**. 
 	
-		> [AZURE.IMPORTANT]El nombre de la Factoría de datos de Azure debe ser único de forma global. Si recibe el error **El nombre de la factoría de datos "FirstPipelineUsingVS" no está disponible** al publicar, cambie el nombre (por ejemplo, a sunombreFirstPipelineUsingVS). Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
+		> [AZURE.IMPORTANT]El nombre de la Factoría de datos de Azure debe ser único de forma global. Si recibe el error **El nombre "FirstPipelineUsingVS" de la factoría de datos no está disponible** al realizar la publicación, cambie el nombre (por ejemplo, a suNombreFirstPipelineUsingVS). Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
 		> 
 		> El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
-	3. Seleccione la suscripción correcta para el campo **Suscripción**. 
-	4. Seleccione el **Grupo de recursos** para la factoría de datos que se va a crear. 
-	5. Seleccione la **Región** de la factoría de datos. 
-	6. Haga clic en **Siguiente** para cambiar a la página **Publicar elementos**. (Presione la tecla **TAB** para salir del campo Nombre si el botón **Siguiente** está deshabilitado). 
-23. En la página **Publicar elementos**, asegúrese de que todas las factorías de datos están seleccionadas y haga clic en **Siguiente** para cambiar a la página **Resumen**.     
-24. Revise el resumen y haga clic en **Siguiente** para iniciar el proceso de implementación y ver el **Estado de implementación**.
+	3. Seleccione la suscripción correcta en el campo **Suscripción**. 
+	4. Seleccione el **grupo de recursos** de la factoría de datos que se va a crear. 
+	5. Seleccione la **región** de la factoría de datos. 
+	6. Haga clic en **Siguiente** para cambiar a la página **Publicar elementos**. (Si el botón **Siguiente** está deshabilitado, presione la tecla **TAB** para salir del campo Nombre). 
+23. En la página **Publicar elementos**, asegúrese de que todas las entidades de Factorías de datos están seleccionadas y haga clic en **Siguiente** para cambiar a la página **Resumen**.     
+24. Revise el resumen y haga clic en **Siguiente** para iniciar el proceso de implementación y ver el **estado de implementación**.
 25. En la página **Estado de implementación**, debería ver el estado del proceso de implementación. Cuando se haya completado la implementación, haga clic en Finalizar. 
  
 
 ## Uso del Explorador de servidores para revisar las entidades de Factoría de datos
 
-1. En **Visual Studio**, haga clic en el menú **Ver** y en la opción **Explorador de servidores**.
-2. En la ventana Explorador de servidores, expanda **Azure** y **Factoría de datos**. Si aparece **Iniciar sesión en Visual Studio**, escriba la **cuenta** asociada a su suscripción de Azure y haga clic en **Continuar**. Escriba la **contraseña** y haga clic en **Iniciar sesión**. Visual Studio intenta obtener información acerca de todas las factorías de datos de Azure en su suscripción. Verá el estado de esta operación en la ventana **Lista de tareas de Factoría de datos**.
+1. En **Visual Studio**, haga clic en **Ver** en el menú y, a continuación, en **Explorador de servidores**.
+2. En la ventana Explorador de servidores, expanda **Azure** y **Factoría de datos**. Si aparece **Iniciar sesión en Visual Studio**, especifique la **cuenta** asociada a su suscripción de Azure y haga clic en **Continuar**. Escriba la **contraseña** y haga clic en **Iniciar sesión**. Visual Studio intenta obtener información acerca de todas las factorías de datos de Azure en su suscripción. El estado de esta operación se verá en la ventana **Lista de tareas de Factoría de datos**.
 
 	![Explorador de servidores](./media/data-factory-build-your-first-pipeline-using-vs/server-explorer.png)
 3. Puede hacer clic con el botón derecho en una factoría de datos y seleccionar **Exportar Factoría de datos a nuevo proyecto** para crear un proyecto de Visual Studio basado en una factoría de datos existente.
@@ -234,14 +233,14 @@ Al publicar la solución en el paso siguiente, se carga el archivo HQL en el con
 Para actualizar las herramientas de Factoría de datos de Azure para Visual Studio, haga lo siguiente:
 
 1. Haga clic en el menú **Herramientas** y seleccione **Extensiones y actualizaciones**.
-2. Seleccione **Actualizaciones** en el panel izquierdo y, luego, seleccione **Galería de Visual Studio**.
+2. Seleccione **Actualizaciones** en el panel izquierdo y, a continuación, seleccione **Galería de Visual Studio**.
 3. Seleccione **Herramientas de Factoría de datos de Azure para Visual Studio** y haga clic en **Actualizar**. Si no ve esta entrada, ya tiene la versión más reciente de las herramientas. 
 
-Consulte [Supervisión de los conjuntos de datos y la canalización](data-factory-monitor-manage-pipelines.md) para obtener instrucciones sobre cómo usar el Portal de vista previa de Azure para supervisar la canalización y los conjuntos de datos que ha creado en este tutorial.
+Consulte [Supervisión y administración de canalizaciones de la Factoría de datos de Azure](data-factory-monitor-manage-pipelines.md) para obtener instrucciones sobre cómo usar el Portal de vista previa de Azure para supervisar la canalización y los conjuntos de datos creados en este tutorial.
  
 
 ## Pasos siguientes
-En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte el [Tutorial: Copia de datos de un blob de Azure en SQL Azure](data-factory-get-started.md).
+En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure en SQL Azure](data-factory-get-started.md).
   
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

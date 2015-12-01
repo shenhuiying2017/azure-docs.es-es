@@ -3,7 +3,7 @@
 	description="Aprenda a crear una sencilla aplicación web de Node.js e impleméntela en un servicio en la nube de Azure."
 	services="cloud-services"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="08/31/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 # Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure
@@ -27,7 +27,7 @@ En este tutorial se muestra cómo crear una aplicación de Node.js simple con Se
 
 Para obtener más información sobre los Servicios en la nube y sobre su comparación con Sitios web Azure y Máquinas virtuales, consulte [Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales](../choose-web-site-cloud-service-vm.md).
 
->[AZURE.TIP]¿Desea compilar un sitio web sencillo? Si el escenario solo requiere un sitio web de front-end sencillo, considere el <a href="/documentation/articles/web-sites-nodejs-develop-deploy-mac/">uso de una aplicación web ligera</a>. Puede actualizar a un Servicio en la nube más adelante, cuando su aplicación web sea más grande y sus requisitos cambien.
+>[AZURE.TIP]¿Desea compilar un sitio web sencillo? Si el escenario solo requiere un sitio web de front-end sencillo, considere el <a href="../app-service-web/web-sites-nodejs-develop-deploy-mac.md">uso de una aplicación web ligera</a>. Puede actualizar a un Servicio en la nube más adelante, cuando su aplicación web sea más grande y sus requisitos cambien.
 
 
 Siguiendo este tutorial, podrá compilar una aplicación web sencilla hospedada en un rol web. Utilizará el emulador de proceso para probar su aplicación localmente y, a continuación, la implementará con las herramientas de línea de comandos de PowerShell.
@@ -197,4 +197,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Node
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

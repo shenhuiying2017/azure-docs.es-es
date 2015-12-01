@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Introducción a Servidor Azure Multi-Factor Authentication
@@ -106,8 +106,7 @@ Subred IP|Máscara de red|Rango de direcciones IP
 1. Haga doble clic en el archivo ejecutable. Esto comenzará la instalación.
 2. En la pantalla Seleccionar carpeta de instalación, asegúrese de que la carpeta sea correcta y haga clic en Siguiente.
 3. Una vez completada la instalación, haga clic en Finalizar. Se inicia al asistente de configuración.
-4. En la pantalla de bienvenida del Asistente de configuración, coloque una marca de verificación en **Omitir el uso del Asistente para configuración de autenticación** y haga clic en **Siguiente**.  Se cerrará al Asistente y se iniciará el servidor.
-![Nube](./media/multi-factor-authentication-get-started-server/skip2.png)
+4. En la pantalla de bienvenida del Asistente de configuración, coloque una marca de verificación en **Omitir el uso del Asistente para configuración de autenticación** y haga clic en **Siguiente**. Se cerrará al Asistente y se iniciará el servidor. ![Nube](./media/multi-factor-authentication-get-started-server/skip2.png)
 
 5. De vuelta en la página desde la que hemos descargado el servidor, haga clic en el botón **Generar credenciales de activación**. Copie esta información en Servidor Azure Multi-Factor Authentication en los cuadros correspondientes y haga clic en **Activar**.
 
@@ -186,4 +185,4 @@ Método|Descripción
 [Sincronización con Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md)|Información sobre la instalación y configuración de la sincronización entre Active Directory y el servidor de MFA de Azure.
 [Implementación del servicio web móvil de la aplicación móvil del servidor de Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md)|Información sobre la instalación y configuración del servicio web del servidor de Azure MFA.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

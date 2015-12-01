@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Conexión de una aplicación móvil a un SaaS empresarial | Microsoft Azure"
 	description="Obtenga información acerca de cómo realizar llamadas a recursos empresariales como SharePoint Online"
+	keywords="servicio de aplicaciones de azure,servicio de aplicaciones,aplicación móvil,back-end de móvil,saas,saas de azure,enterprise mobile"
 	documentationCenter=""
 	authors="mattchenderson"
 	manager="dwrede"
@@ -187,4 +188,4 @@ Para crear un documento de Word, usará el paquete de NuGet OpenXML. Instale est
 [Inicio de sesión único de la biblioteca de autenticación de Azure Active Directory]: app-service-mobile-ios-aad-sso.md
 [Extensión de servicio de aplicación de back-end de .NET de Aplicaciones móviles]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->
