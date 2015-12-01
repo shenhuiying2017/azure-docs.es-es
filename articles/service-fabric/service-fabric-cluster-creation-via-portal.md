@@ -178,11 +178,14 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPath -A
 Register your application type with service fabric.
 
 ```powershell
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount" ````
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount"
+````
 
 Cree una nueva instancia del tipo de aplicación que acaba de registrar.
 
-```powershell New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0 ````
+```powershell
+New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0
+````
 
 Ahora abra el explorador que haya escogido y conecte con el punto de conexión en el que está escuchando la aplicación. Para nuestra aplicación de ejemplo, la dirección URL sería.
 

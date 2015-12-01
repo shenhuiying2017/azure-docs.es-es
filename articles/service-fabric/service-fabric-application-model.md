@@ -229,7 +229,14 @@ Una vez que la aplicación se empaqueta correctamente y supera la verificación,
 
 ## Pasos siguientes
 
-[Implementar y quitar aplicaciones][10] [Administración de los parámetros de la aplicación en varios entornos][11] [RunAs: ejecución de una aplicación Service Fabric con permisos de seguridad diferentes][12] <!--Image references--> [1]: ./media/service-fabric-application-model/application-model.jpg [2]: ./media/service-fabric-application-model/vs-package-command.png [Imagen1]: media/service-fabric-application-model/Service1.jpg [Imagen2]: media/service-fabric-application-model/Service2.jpg
+[Implementar y quitar aplicaciones][10]
+[Administración de los parámetros de la aplicación en varios entornos][11]
+[RunAs: ejecución de una aplicación Service Fabric con permisos de seguridad diferentes][12]
+<!--Image references-->
+[1]: ./media/service-fabric-application-model/application-model.jpg
+[2]: ./media/service-fabric-application-model/vs-package-command.png
+[Imagen1]: media/service-fabric-application-model/Service1.jpg
+[Imagen2]: media/service-fabric-application-model/Service2.jpg
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
