@@ -82,7 +82,7 @@ Obtenga las bibliotecas javax.mail, por ejemplo desde <http://www.oracle.com/tec
         Session mailSession = Session.getDefaultInstance(properties, auth);
 
 4.  Cree su mensaje y asigne los valores **Para**, **De**, **Asunto** y los valores de contenido. Esto se muestra en la sección [Creación de un correo electrónico](#bkmk_HowToCreateEmail).
-5.  Envíe el mensaje a través de un objeto *javax.mail.Transport*. Esto se muestra en la sección [Envío de un correo electrónico][Envío de un correo electrónico].
+5.  Envíe el mensaje a través de un objeto *javax.mail.Transport*. Esto se muestra en la sección [Envío de un correo electrónico](Envío de un correo electrónico).
 
 ## Creación de un correo electrónico
 
@@ -205,4 +205,4 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
   [servicio de correo electrónico basado en la nube]: https://sendgrid.com/email-solutions
   [entrega de correos electrónicos transaccional]: https://sendgrid.com/transactional-email
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->

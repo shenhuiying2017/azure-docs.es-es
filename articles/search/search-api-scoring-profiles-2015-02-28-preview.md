@@ -302,7 +302,7 @@ En esta sección se muestra la sintaxis y la plantilla de perfiles de puntuació
 </tr><tr>
 <td>índice de actualización</td>	<td>La función de puntuación del índice de actualización se usa para modificar las puntuaciones de clasificación de los elementos basados en valores de campos de DateTimeOffset. Por ejemplo, un elemento con una fecha más reciente puede clasificarse por encima de los elementos más antiguos. (Tenga en cuenta que también es posible clasificar elementos, como eventos del calendario con fechas futuras, de manera que los elementos más cercanos al presente tengan una clasificación más alta que los elementos más alejados en el futuro). En la versión actual del servicio, uno de los extremos del intervalo se corregirá a la hora actual. El otro extremo es un momento en el pasado basado en el elemento "boostingDuration". Para elevar un intervalo de horas en el futuro use un "boostingDuration" negativo. La velocidad a la que cambia la potenciación desde un intervalo máximo y mínimo viene determinada por la interpolación aplicada al perfil de puntuación (consulte la figura siguiente). Para invertir el factor de potenciación aplicado, seleccione un factor de potenciación de menos de 1.</td>
 </tr><tr>
-<td>índice de actualización | boostingDuration</td>	<td>Establece un período de caducidad después del que se detendrá la potenciación de un documento determinado. Consulte [Establecer boostingDuration ][#bkmk_boostdur] en la sección siguiente para obtener información sobre la sintaxis y ejemplos.</td>
+<td>índice de actualización | boostingDuration</td>	<td>Establece un período de caducidad después del que se detendrá la potenciación de un documento determinado. Consulte [Establecer boostingDuration ](#bkmk_boostdur) en la sección siguiente para obtener información sobre la sintaxis y ejemplos.</td>
 </tr><tr>
 <td>distancia</td>	<td>La función de puntuación de la distancia se usa para afectar a la puntuación de documentos en función de la cercanía o distancia respecto a una ubicación geográfica de referencia. La ubicación de referencia se proporciona como parte de la consulta en un parámetro (mediante la opción de cadena «scoringParameterquery») como argumento lon, lat.</td>
 </tr><tr>
@@ -372,4 +372,4 @@ Para obtener más ejemplos, consulte [Esquema XML: tipos de datos (sitio web de 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->
