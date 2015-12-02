@@ -21,7 +21,7 @@
 El tema siguiente describe las distintas operaciones que se pueden realizar con Azure AD Connect Health.
 
 ## Habilitación de notificaciones de correo electrónico
-Puede configurar el Servicio de Azure AD Connect Health para enviar notificaciones por correo electrónico cuando se generen alertas que indiquen que el estado de la infraestructura de identidad no es correcto. Esto ocurrirá cuando se genere una alerta y también cuando se marque como resuelta. Siga las instrucciones que aparecen a continuación para configurar las notificaciones de correo electrónico.  
+Puede configurar el Servicio de Azure AD Connect Health para enviar notificaciones por correo electrónico cuando se generen alertas que indiquen que el estado de la  infraestructura de identidad no es correcto. Esto ocurrirá cuando se genere una alerta y también cuando se marque como resuelta. Siga las instrucciones que aparecen a continuación para configurar las notificaciones de correo electrónico.
 
 
 >[AZURE.NOTE] Las notificaciones de correo electrónico están deshabilitadas de forma predeterminada.
@@ -121,7 +121,8 @@ Para permitir a un usuario acceder al nivel de *todas las instancias de servicio
 6. Después de finalizar la asignación de roles, los usuarios y grupos aparecerán en la lista.<br>
 ![Lista de usuarios de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
-Estos pasos permitirán a los usuarios y grupos enumerados el acceso según sus roles asignados.
+Estos pasos permitirán a los usuarios y grupos enumerados el acceso según sus roles asignados.  
+
 >[AZURE.NOTE]
 - Los administradores globales siempre tienen acceso total a todas las operaciones, pero las cuentas de los administradores globales no estarán presentes en la lista anterior.
 - La característica "Invitar a usuarios" NO se admite dentro de Azure AD Connect Health.
@@ -148,4 +149,4 @@ Puede quitar un usuario o grupo agregado a la parte Control de acceso basado en 
 * [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!--------HONumber=Nov15_HO2-->
+<!---------HONumber=Nov15_HO2-->

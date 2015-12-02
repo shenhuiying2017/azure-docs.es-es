@@ -385,7 +385,7 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
 	- En la sección de actividades, solo hay una actividad cuyo **type** está establecido en **Copy**.
 	- La **entrada** de la actividad está establecida en **EmpOnPremSQLTable** y la **salida** de la actividad está establecida en **OutputBlobTable**.
 	- En la sección **transformation**, **SqlSource** está especificado como **tipo de origen** y **BlobSink** está especificado como **tipo de receptor**.
-- La consulta SQL **select * from emp** está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
+	- La consulta SQL **select * from emp** está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
 
 	Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **end** es opcional, pero se utilizará en este tutorial.
 	
@@ -618,4 +618,4 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 	- 	Establezca la [configuración del firewall de SQL Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) para agregar la **dirección IP de la máquina de la puerta de enlace** a las **direcciones IP permitidas**.
 5.	Si copia datos desde y hacia SQL Server local a cualquier destino y los equipos de la puerta de enlace y de SQL Server son diferentes, haga lo siguiente: [configure Firewall de Windows](https://msdn.microsoft.com/library/ms175043.aspx) en el equipo de SQL Server para que la puerta de enlace pueda tener acceso a la base de datos a través de puertos en los que escucha la instancia de SQL Server. En la instancia predeterminada es el puerto 1433.
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

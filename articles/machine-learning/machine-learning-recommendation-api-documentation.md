@@ -47,11 +47,14 @@ La creación de un modelo de recomendación suele ser suficiente para permitir q
 
 ###2\.2. Compilación de rango
 
-Las características pueden mejorar el modelo de recomendación, pero para ello se requiere el uso de características significativas. Con este fin se introdujo una nueva compilación, una compilación de rango. Esta compilación clasifica la utilidad de las características. Una característica significativa es una característica con una puntuación de rango de 2 para arriba. Una vez que conozca cuáles de las características son significativas, desencadene una compilación de recomendación con la lista (o sublista) de características significativas. Es posible utilizar estas características para la mejora de los elementos fríos y calientes. Para poder usarlas con los elementos calientes, se debe configurar el parámetro de compilación `UseFeatureInModel`. Para poder usarlas con los elementos fríos, se debe configurar el parámetro de compilación `AllowColdItemPlacement`. Nota: no es posible habilitar `AllowColdItemPlacement` sin habilitar `UseFeatureInModel`.
+Las características pueden mejorar el modelo de recomendación, pero para ello se requiere el uso de características significativas. Con este fin se introdujo una nueva compilación, una compilación de rango. Esta compilación clasifica la utilidad de las características. Una característica significativa es una característica con una puntuación de rango de 2 para arriba.
+Una vez que conozca cuáles de las características son significativas, desencadene una compilación de recomendación con la lista (o sublista) de características significativas. Es posible utilizar estas características para la mejora de los elementos fríos y calientes. Para poder usarlas con los elementos calientes, se debe configurar el parámetro de compilación `UseFeatureInModel`. Para poder usarlas con los elementos fríos, se debe configurar el parámetro de compilación `AllowColdItemPlacement`.
+Nota: no es posible habilitar `AllowColdItemPlacement` sin habilitar `UseFeatureInModel`.
 
 ###2\.3. Razonamiento de recomendación
 
-El razonamiento de la recomendación es otro aspecto del uso de características. De hecho, el motor de recomendaciones de Aprendizaje automático de Azure puede utilizar características para proporcionar explicaciones de recomendaciones (también conocido como razonamiento), lo que conduce a una mayor confianza en el elemento recomendado del consumidor de la recomendación. Para habilitar el razonamiento, los parámetros `AllowFeatureCorrelation` y `ReasoningFeatureList` deben configurarse antes de solicitar una compilación de recomendación.
+El razonamiento de la recomendación es otro aspecto del uso de características. De hecho, el motor de recomendaciones de Aprendizaje automático de Azure puede utilizar características para proporcionar explicaciones de recomendaciones (también conocido como razonamiento), lo que conduce a una mayor confianza en el elemento recomendado del consumidor de la recomendación.
+Para habilitar el razonamiento, los parámetros `AllowFeatureCorrelation` y `ReasoningFeatureList` deben configurarse antes de solicitar una compilación de recomendación.
 
 ##3\. Limitaciones
 
@@ -262,7 +265,9 @@ OData XML
 
 ###5\.4. Actualizar modelo
 
-Puede actualizar la descripción del modelo o el Id. de compilación activa.<br> <ins>Id. de compilación activa</ins>: cada compilación para cada modelo tiene un Id. de compilación. El Id. de compilación activa es la primera compilación correcta de cada nuevo modelo. Una vez que tiene un Id. de compilación activa y realiza compilaciones adicionales para el mismo modelo, necesitará establecerlo explícitamente como el Id. de compilación predeterminado si lo desea. Cuando se usan recomendaciones, si no se especifica el Id. de compilación que desea usar, se utilizará automáticamente el predeterminado.<br> Este mecanismo le permite tener un modelo de recomendación en producción para compilar nuevos modelos y probarlos antes de promoverlos a producción.
+Puede actualizar la descripción del modelo o el Id. de compilación activa.<br>
+<ins>Id. de compilación activa</ins>: cada compilación para cada modelo tiene un Id. de compilación. El Id. de compilación activa es la primera compilación correcta de cada nuevo modelo. Una vez que tiene un Id. de compilación activa y realiza compilaciones adicionales para el mismo modelo, necesitará establecerlo explícitamente como el Id. de compilación predeterminado si lo desea. Cuando se usan recomendaciones, si no se especifica el Id. de compilación que desea usar, se utilizará automáticamente el predeterminado.<br>
+Este mecanismo le permite tener un modelo de recomendación en producción para compilar nuevos modelos y probarlos antes de promoverlos a producción.
 
 
 | Método HTTP | URI |
@@ -793,7 +798,11 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 </pre>
 
 ##7\. Reglas de negocio de modelo
-Hay 4 tipos de reglas: <strong>BlockList</strong>: le permite proporcionar una lista de elementos que no desea devolver en los resultados de la recomendación. <strong>Upsale</strong>: le permite exigir los elementos que se devolverán en los resultados de la recomendación. <strong>WhiteList</strong>: le permite proporcionar la lista de elementos que solo se pueden devolver como resultados de recomendación (lo contrario a BlockList). <strong>PerSeedBlockList</strong>; le permite proporcionar por elemento una lista de elementos que no se pueden devolver como resultados de recomendación.
+Hay 4 tipos de reglas:
+<strong>BlockList</strong>: le permite proporcionar una lista de elementos que no desea devolver en los resultados de la recomendación.
+<strong>Upsale</strong>: le permite exigir los elementos que se devolverán en los resultados de la recomendación.
+<strong>WhiteList</strong>: le permite proporcionar la lista de elementos que solo se pueden devolver como resultados de recomendación (lo contrario a BlockList).
+<strong>PerSeedBlockList</strong>; le permite proporcionar por elemento una lista de elementos que no se pueden devolver como resultados de recomendación.
 
 
 ###7\.1. Obtener reglas de modelo
@@ -979,7 +988,9 @@ Nota: el tamaño máximo de archivo es de 200 MB.
 
 código de estado HTTP: 200
 
-La API devuelve un informe de la importación. - `feed\entry\content\properties\LineCount` - Número de líneas aceptadas. - `feed\entry\content\properties\ErrorCount` - Número de líneas que no se insertaron debido a un error.
+La API devuelve un informe de la importación.
+- `feed\entry\content\properties\LineCount` - Número de líneas aceptadas.
+- `feed\entry\content\properties\ErrorCount` - Número de líneas que no se insertaron debido a un error.
 
 XML de OData
 
@@ -1493,7 +1504,23 @@ Recupera los primeros 2 KB de contenido de archivos de uso.
 
 código de estado HTTP: 200
 
-La respuesta se devuelve en formato de texto sin procesar: <pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 </pre>
+La respuesta se devuelve en formato de texto sin procesar:
+<pre>85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+</pre>
 
 
 ###9\.5. Obtener el archivo de uso de modelo
@@ -1516,7 +1543,42 @@ Recupera el contenido completo del archivo de uso.
 
 código de estado HTTP: 200
 
-La respuesta se devuelve en formato de texto sin procesar: <pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 </pre>
+La respuesta se devuelve en formato de texto sin procesar:
+<pre>
+85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+</pre>
 
 ###9\.6. Eliminar archivo de uso
 Elimina el archivo de uso del modelo especificado.
@@ -1727,9 +1789,19 @@ OData
 
   En esta sección se explican las diferentes API relacionadas con compilaciones. Hay tres tipos de compilación: una compilación de recomendación, una compilación de rango y una compilación FBT (artículos que con frecuencia se compran juntos).
 
-El objetivo de la compilación de recomendación es generar un modelo de recomendación que se usa en las predicciones. Las predicciones (para este tipo de compilación) se presentan en dos modos: * I2I - también llamada Recomendaciones de elemento a elemento: dado un elemento o una lista de elementos, esta opción predecirá una lista de elementos que pueden ser de gran interés. * U2I - también llamada Recomendaciones de usuario a elemento: dado un id. de usuario (y opcionalmente una lista de elementos), esta opción predecirá una lista de elementos que pueden ser de gran interés para el usuario especificado (y su selección de elementos adicional). Las recomendaciones de U2I se basan en el historial de elementos que eran de interés para el usuario hasta el momento en que se creó el modelo.
+El objetivo de la compilación de recomendación es generar un modelo de recomendación que se usa en las predicciones. Las predicciones (para este tipo de compilación) se presentan en dos modos: 
+* I2I - también llamada Recomendaciones de elemento a elemento: dado un elemento o una lista de elementos, esta opción predecirá una lista de elementos que pueden ser de gran interés. 
+* U2I - también llamada Recomendaciones de usuario a elemento: dado un id. de usuario (y opcionalmente una lista de elementos), esta opción predecirá una lista de elementos que pueden ser de gran interés para el usuario especificado (y su selección de elementos adicional). Las recomendaciones de U2I se basan en el historial de elementos que eran de interés para el usuario hasta el momento en que se creó el modelo.
 
-Una compilación de rango es una compilación técnica que le permite aprender acerca de la utilidad de sus características. Normalmente, para obtener el mejor resultado en un modelo de recomendación relacionado con características, debe realizar los siguientes pasos: - Desencadene una compilación de rango (a no ser que la puntuación de sus características sea estable) y espere a obtener la puntuación de las características. - Recupere el rango de sus características mediante la llamada a la API [Obtener información de características](#101-get-features-info-for-last-rank-build). - Configure una compilación de recomendación con los siguientes parámetros: - `useFeatureInModel` - Establecer en True. - `ModelingFeatureList` - Establecer en una lista de características separadas por coma con una puntuación de 2,0 o más (según los rangos recuperados en el paso anterior). - `AllowColdItemPlacement` - Establecer en True. - De manera opcional puede establecer `EnableFeatureCorrelation` en True y `ReasoningFeatureList` en la lista de características que desea usar para las explicaciones (normalmente la misma lista de características usada en el modelado o una sublista). - Desencadene la compilación de recomendación con los parámetros configurados.
+Una compilación de rango es una compilación técnica que le permite aprender acerca de la utilidad de sus características. Normalmente, para obtener el mejor resultado en un modelo de recomendación relacionado con características, debe realizar los siguientes pasos: 
+- Desencadene una compilación de rango (a no ser que la puntuación de sus características sea estable) y espere a obtener la puntuación de las características.
+- Recupere el rango de sus características mediante la llamada a la API [Obtener información de características](#101-get-features-info-for-last-rank-build).
+- Configure una compilación de recomendación con los siguientes parámetros:
+	- `useFeatureInModel` - Establecer en True.
+	- `ModelingFeatureList` - Establecer en una lista de características separadas por coma con una puntuación de 2,0 o más (según los rangos recuperados en el paso anterior).
+	- `AllowColdItemPlacement` - Establecer en True. 
+	- De manera opcional puede establecer `EnableFeatureCorrelation` en True y `ReasoningFeatureList` en la lista de características que desea usar para las explicaciones (normalmente la misma lista de características usada en el modelado o una sublista). 
+- Desencadene la compilación de recomendación con los parámetros configurados.
 
 Nota: si no configura ningún parámetro (por ejemplo, invoca la compilación de recomendación sin parámetros) o no deshabilita explícitamente el uso de características (por ejemplo, `UseFeatureInModel` se establece en False), el sistema configurará los parámetros relacionados con características para los valores explicados anteriormente en caso de que exista una compilación de rango.
 
@@ -1980,9 +2052,17 @@ La respuesta incluye una entrada por compilación. Cada entrada tiene los siguie
 - `feed/entry/content/properties/ExecutionTime`: duración de la compilación.
 - `feed/entry/content/properties/ProgressStep`: detalles acerca de la fase actual de una compilación en curso.
 
-Estado de compilación válido: Created: se ha creado la entrada de solicitud de compilación. -Queued: se desencadenó la solicitud de compilación y está en cola.-Building: la compilación está en curso. -Success: la compilación finalizó correctamente. -Error: la compilación finalizó con un error. -Cancelled: se canceló la compilación. Cancelling: la compilación se está cancelando.
+Estado de compilación válido: 
+- Created: se ha creado la entrada de solicitud de compilación. 
+- Queued: se desencadenó la solicitud de compilación y está en cola.
+- Building: la compilación está en curso.
+- Success: la compilación finalizó correctamente.
+- Error: la compilación finalizó con un error.
+- Cancelled: se canceló la compilación. Cancelling: la compilación se está cancelando.
 
-Valores válidos para el tipo de compilación: Rango: compilación de rango. -Recomendación: compilación de recomendación.
+Valores válidos para el tipo de compilación: Rango:
+- compilación de rango.
+- Recomendación: compilación de recomendación.
 
 
 OData XML
@@ -2055,10 +2135,18 @@ La respuesta incluye una entrada por compilación. Cada entrada tiene los siguie
 - `feed/entry/content/properties/ExecutionTime`: duración de la compilación.
 - `feed/entry/content/properties/ProgressStep`: detalles acerca de la fase actual de una compilación en curso.
 
-Estado de compilación válido: Created: se ha creado la entrada de solicitud de compilación. -Queued: se desencadenó la solicitud de compilación y está en cola.-Building: la compilación está en curso. -Success: la compilación finalizó correctamente. -Error: la compilación finalizó con un error. -Cancelled: se canceló la compilación. Cancelling: la compilación se está cancelando.
+Estado de compilación válido:
+- Created: se ha creado la entrada de solicitud de compilación.
+- Queued: se desencadenó la solicitud de compilación y está en cola.
+- Building: la compilación está en curso.
+- Success: la compilación finalizó correctamente.
+- Error: la compilación finalizó con un error.
+- Cancelled: se canceló la compilación. Cancelling: la compilación se está cancelando.
 
 
-Valores válidos para el tipo de compilación: Rango: compilación de rango. -Recomendación: compilación de recomendación.
+Valores válidos para el tipo de compilación:
+- Rango: compilación de rango.
+- Recomendación: compilación de recomendación.
 
 
 OData XML
@@ -2147,7 +2235,9 @@ Recupera parámetros de compilación.
 
 código de estado HTTP: 200
 
-Esta API devuelve una colección de elementos de clave y valor. Cada elemento representa un parámetro y su valor:- `feed/entry/content/properties/Key`: nombre del parámetro de compilación. `feed/entry/content/properties/Value`: valor del parámetro de compilación.
+Esta API devuelve una colección de elementos de clave y valor. Cada elemento representa un parámetro y su valor:
+- `feed/entry/content/properties/Key`: nombre del parámetro de compilación.
+- `feed/entry/content/properties/Value`: valor del parámetro de compilación.
 
 En la tabla siguiente se muestra el valor que representa cada clave.
 
@@ -2357,7 +2447,11 @@ Obtenga recomendaciones de la compilación activa de tipo "Recommendation" o "Fb
 código de estado HTTP: 200
 
 
-La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id`: id. de elemento recomendado - `Feed\entry\content\properties\Name`: nombre del elemento. - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza. - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:
+- `Feed\entry\content\properties\Id`: id. de elemento recomendado
+- `Feed\entry\content\properties\Name`: nombre del elemento.
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 En la respuesta de ejemplo a continuación se incluyen 10 elementos recomendados.
 
@@ -2534,7 +2628,11 @@ Obtiene recomendaciones de una compilación concreta de tipo "Recomendación" o 
 código de estado HTTP: 200
 
 
-La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id`: id. de elemento recomendado - `Feed\entry\content\properties\Name`: nombre del elemento. - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza. - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:
+- `Feed\entry\content\properties\Id`: id. de elemento recomendado
+- `Feed\entry\content\properties\Name`: nombre del elemento.
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.1
 
@@ -2560,7 +2658,13 @@ Obtenga recomendaciones de la compilación activa de tipo o "Fbt" basadas en las
 código de estado HTTP: 200
 
 
-La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes: - `Feed\entry\content\properties\Id1`: id. de elemento recomendado. - `Feed\entry\content\properties\Name1`: nombre del elemento. - `Feed\entry\content\properties\Id2`. id. del segundo elemento recomendado (opcional). - `Feed\entry\content\properties\Name2`: nombre del segundo elemento (opcional). - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; cuanto más alto el número, mayor confianza. - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de la recomendación).
+La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes:
+- `Feed\entry\content\properties\Id1`: id. de elemento recomendado.
+- `Feed\entry\content\properties\Name1`: nombre del elemento.
+- `Feed\entry\content\properties\Id2`. id. del segundo elemento recomendado (opcional).
+- `Feed\entry\content\properties\Name2`: nombre del segundo elemento (opcional).
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; cuanto más alto el número, mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de la recomendación).
 
 En la respuesta de ejemplo siguiente se incluyen 3 elementos recomendados.
 
@@ -2646,7 +2750,13 @@ Obtenga recomendaciones de una compilación concreta de tipo "Fbt".
 código de estado HTTP: 200
 
 
-La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes: - `Feed\entry\content\properties\Id1`: id. de elemento recomendado. - `Feed\entry\content\properties\Name1`: nombre del elemento. - `Feed\entry\content\properties\Id2`. id. del segundo elemento recomendado (opcional). - `Feed\entry\content\properties\Name2`: nombre del segundo elemento (opcional). - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; cuanto más alto el número, mayor confianza. - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de la recomendación).
+La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes:
+- `Feed\entry\content\properties\Id1`: id. de elemento recomendado.
+- `Feed\entry\content\properties\Name1`: nombre del elemento.
+- `Feed\entry\content\properties\Id2`. id. del segundo elemento recomendado (opcional).
+- `Feed\entry\content\properties\Name2`: nombre del segundo elemento (opcional).
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; cuanto más alto el número, mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de la recomendación).
 
 Vea un ejemplo de respuesta en 12.3
 
@@ -2675,7 +2785,11 @@ Notas: 1. No hay ninguna recomendación de usuario para la generación de FBT. 2
 código de estado HTTP: 200
 
 
-La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id`: id. de elemento recomendado - `Feed\entry\content\properties\Name`: nombre del elemento. - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza. - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:
+- `Feed\entry\content\properties\Id`: id. de elemento recomendado
+- `Feed\entry\content\properties\Name`: nombre del elemento.
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.1
 
@@ -2706,7 +2820,11 @@ Notas: 1. No hay ninguna recomendación de usuario para la generación de FBT. 2
 código de estado HTTP: 200
 
 
-La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id`: id. de elemento recomendado - `Feed\entry\content\properties\Name`: nombre del elemento. - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza. - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:
+- `Feed\entry\content\properties\Id`: id. de elemento recomendado
+- `Feed\entry\content\properties\Name`: nombre del elemento.
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.1
 
@@ -2737,7 +2855,11 @@ Nota: no hay ninguna recomendación de usuario para la generación de FBT.
 código de estado HTTP: 200
 
 
-La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id`: id. de elemento recomendado - `Feed\entry\content\properties\Name`: nombre del elemento. - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza. - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:
+- `Feed\entry\content\properties\Id`: id. de elemento recomendado 
+- `Feed\entry\content\properties\Name`: nombre del elemento.
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.1
 
@@ -2771,7 +2893,11 @@ Nota: no hay ninguna recomendación de usuario para la generación de FBT.
 código de estado HTTP: 200
 
 
-La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id`: id. de elemento recomendado - `Feed\entry\content\properties\Name`: nombre del elemento. - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza. - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:
+- `Feed\entry\content\properties\Id`: id. de elemento recomendado
+- `Feed\entry\content\properties\Name`: nombre del elemento.
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.1
 
@@ -2800,7 +2926,11 @@ Recupere la lista de elementos usados en la compilación activa o en la compilac
 
 código de estado HTTP: 200
 
-La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id`: id. de elemento recomendado - `Feed\entry\content\properties\Name`: nombre del elemento. - `Feed\entry\content\properties\Rating`: N/D. - `Feed\entry\content\properties\Reasoning`: N/D.
+La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:
+- `Feed\entry\content\properties\Id`: id. de elemento recomendado
+- `Feed\entry\content\properties\Name`: nombre del elemento.
+- `Feed\entry\content\properties\Rating`: N/D.
+- `Feed\entry\content\properties\Reasoning`: N/D.
 
 XML de OData
 
@@ -2830,7 +2960,10 @@ XML de OData
 </feed>
 
 ##14\. Notificaciones
-Las recomendaciones de Aprendizaje automático de Azure crean notificaciones cuando se producen errores persistentes en el sistema. Hay 3 tipos de notificaciones: 1. Error de compilación: esta notificación se desencadena con cada error de compilación. 2. Error de procesamiento de adquisición de datos: esta notificación se desencadena cuando tenemos más de 100 errores en los últimos 5 minutos en el procesamiento de eventos de uso por modelo. 3. Error de consumo de recomendación: esta notificación se desencadena cuando tenemos más de 100 errores en los últimos 5 minutos en el procesamiento de solicitudes de recomendación por modelo.
+Las recomendaciones de Aprendizaje automático de Azure crean notificaciones cuando se producen errores persistentes en el sistema. Hay 3 tipos de notificaciones: 
+1. Error de compilación: esta notificación se desencadena con cada error de compilación.
+2. Error de procesamiento de adquisición de datos: esta notificación se desencadena cuando tenemos más de 100 errores en los últimos 5 minutos en el procesamiento de eventos de uso por modelo.
+3. Error de consumo de recomendación: esta notificación se desencadena cuando tenemos más de 100 errores en los últimos 5 minutos en el procesamiento de solicitudes de recomendación por modelo.
 
 
 ###14\.1. Obtener notificaciones

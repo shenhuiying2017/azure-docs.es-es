@@ -75,7 +75,7 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
 	![Clústeres de HDInsight](./media/hdinsight-provision-clusters/hdinsight.clusters.png)
 
-	> [AZURE.NOTE]El *clúster de HDInsight de Azure* se llama también *clúster de Hadoop en HDInsight* o *clúster de HDInsight*. En algunas ocasiones, se usa indistintamente con el *clúster de Hadoop*. Todos estos nombres se refieren a los clústeres de Hadoop hospedados en el entorno de Microsoft Azure.
+	> [AZURE.NOTE] El *clúster de HDInsight de Azure* se llama también *clúster de Hadoop en HDInsight* o *clúster de HDInsight*. En algunas ocasiones, se usa indistintamente con el *clúster de Hadoop*. Todos estos nombres se refieren a los clústeres de Hadoop hospedados en el entorno de Microsoft Azure.
 
 	Dentro de un tipo de clúster determinado, existen distintos roles para los diversos nodos, los que permiten que un cliente dimensione esos nodos en un rol determinado según los detalles de su carga de trabajo. Por ejemplo, un clúster de Hadoop puede crear sus nodos de trabajo con una gran cantidad de memoria si el tipo de análisis que se realiza requiere mucha memoria.
 
@@ -111,7 +111,7 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 	El uso de esos nodos se factura a los clientes por la duración del clúster. La facturación comienza una vez que se crea un clúster y se detiene cuando se elimina el clúster (no es posible eliminar la asignación de los clústeres ni tampoco se pueden poner en espera) El tamaño del clúster afecta el precio del mismo. Con fines de aprendizaje, se recomienda utilizar 1 nodo de datos. Para obtener más información sobre los precios de HDInsight, consulte [HDInsight Precios](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 
-	>[AZURE.NOTE]El límite de tamaño del clúster varía entre las suscripciones a Azure. Póngase en contacto con el servicio de soporte relacionado con la facturación para aumentar el límite.
+	>[AZURE.NOTE] El límite de tamaño del clúster varía entre las suscripciones a Azure. Póngase en contacto con el servicio de soporte relacionado con la facturación para aumentar el límite.
 
 - **Región/red virtual (conocida también como ubicación)**
 
@@ -146,7 +146,7 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
 	![Almacenamiento de HDInsight](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
-	>[AZURE.NOTE]Un contenedor de almacenamiento de blobs proporciona una agrupación de un conjunto de blobs, tal como se muestra en la imagen:
+	>[AZURE.NOTE] Un contenedor de almacenamiento de blobs proporciona una agrupación de un conjunto de blobs, tal como se muestra en la imagen:
 
 	![Almacenamiento de blobs de Azure](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
 
@@ -163,7 +163,7 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
 ## Opciones de configuración avanzada
 
->[AZURE.NOTE]Esta sección se aplica actualmente solo a los clústeres de HDInsight basado en Windows.
+>[AZURE.NOTE] Esta sección se aplica actualmente solo a los clústeres de HDInsight basado en Windows.
 
 ### Personalización de clústeres mediante la personalización de clústeres de HDInsight
 
@@ -298,29 +298,29 @@ Puede revisar la sección [opciones de configuración básica](#basic-configurat
 
 			![Virtual network blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Specify virtual network details")
 
-			>[AZURE.NOTE] Windows based HDInsight cluster can only be placed into a classical virtual network.
+			>[AZURE.NOTE] El clúster de HDInsight basado en Windows solo se puede colocar en una red virtual clásica.
   
 
   		
-		* **External Metastores**: Specify an Azure SQL database to store Hive and Oozie metadata associated with the cluster.
+		* **Tiendas de metadatos externas**: especifique una Base de datos SQL de Azure para guardar los metadatos de Hive y Oozie asociados con el clúster.
  
             > [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
 
 			![Custom metastores blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.7.png "Specify external metastores")
 
 
-			For **Use an existing SQL DB for Hive** metadata, click **Yes**, select a SQL database, and then provide the username/password for the database. Repeat these steps if you want to **Use an existing SQL DB for Oozie metadata**. Click **Select** till you are back on the **Optional Configuration** blade.
+			Para **Usar una Base de datos SQL existente para metadatos de Hive**, haga clic en **Sí**, seleccione una Base de datos SQL y, a continuación, proporcione el nombre de usuario y la contraseña para la base de datos. Repita estos pasos si desea **Usar una Base de datos SQL existente para los metadatos de Oozie**. Haga clic en **Seleccionar** hasta volver a la hoja **Configuración opcional**.
 
 
-			>[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Azure Services**, click **Yes**, and then click **Save**.
+			>[AZURE.NOTE] La base de datos SQL de Azure usada para la tienda de metadatos debe permitir la conectividad con otros servicios de Azure, incluido HDInsight de Azure. En el panel de la base de datos SQL de Azure, en el lado derecho, haga clic en el nombre de servidor. Este es el servidor en el que se ejecuta la instancia de base de datos SQL. Cuando se encuentre en la vista de servidor, haga clic en **Configurar** y luego, en **Servicios de Azure**, haga clic en **Sí** y en **Guardar**.
 		
-  		* **Script Actions** if you want to use a custom script to customize a cluster, as the cluster is being created. For more information about script actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md). On the Script Actions blade provide the details as shown in the screen capture.
+  		* Seleccione **Acciones de script** si desea usar un script personalizado para personalizar un clúster, conforme se crea el clúster. Para obtener más información acerca de acciones de script, consulte [Personalización de un clúster de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster.md). En la hoja Acciones de script, proporcione los detalles como se muestra en la captura de pantalla.
   	
 
 			![Script action blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.8.png "Specify script action")
 
 
-    	* **Azure Storage Keys**: Specify additional storage accounts to associate with the cluster. In the **Azure Storage Keys** blade, click **Add a storage key**, and then select an existing storage account or create a new account.
+    	* **Claves de Almacenamiento de Azure**: especifique cuentas de almacenamiento adicionales para asociar con el clúster. En la hoja **Claves de almacenamiento de Azure**, haga clic en **Agregar una clave de almacenamiento** y, a continuación, seleccione una cuenta de almacenamiento existente o cree una nueva cuenta.
     
 
 			![Additional storage blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.9.png "Specify additional storage accounts")
@@ -335,7 +335,7 @@ Puede revisar la sección [opciones de configuración básica](#basic-configurat
 
 
 	
-	> [AZURE.NOTE]El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada **Notificaciones** de la izquierda de la página para comprobar el proceso de aprovisionamiento.
+	> [AZURE.NOTE] El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada **Notificaciones** de la izquierda de la página para comprobar el proceso de aprovisionamiento.
 	
 
 5. Cuando termine la creación, haga clic en el icono del clúster desde el panel de inicio para iniciar la hoja del clúster. La hoja de clúster proporciona información esencial sobre el clúster, como el nombre, el grupo de recursos al que pertenece, la ubicación, el sistema operativo, la dirección URL para el panel del clúster, etc.
