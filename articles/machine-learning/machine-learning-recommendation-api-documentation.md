@@ -101,7 +101,8 @@ Crea una solicitud "crear modelo".
 
 código de estado HTTP: 200
 
-- `feed/entry/content/properties/id`: contiene el Id. de modelo. **Nota**: el Id. de modelo distingue mayúsculas de minúsculas.
+- `feed/entry/content/properties/id`: contiene el Id. de modelo.
+**Nota**: el Id. de modelo distingue mayúsculas de minúsculas.
 
 XML de OData
 
@@ -867,10 +868,10 @@ OData XML
 
 | Método HTTP | URI |
 |:--------|:--------|
-|POST |`<rootURI>/AddRule?apiVersion=%271.0%27`|
-|ENCABEZADO |`"Content-Type", "text/xml"`|
+|POST     |`<rootURI>/AddRule?apiVersion=%271.0%27`|
+|ENCABEZADO   |`"Content-Type", "text/xml"`|
 
-|	Nombre de parámetro |	Valores válidos |
+|	Nombre de parámetro	|	Valores válidos						|
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
 ||| 
@@ -1334,7 +1335,8 @@ En esta sección se muestra cómo enviar eventos en tiempo real a las recomendac
   		</EventData>
 		</Event>
 
-**Respuesta**: código de estado HTTP: 200
+**Respuesta**:
+código de estado HTTP: 200
 
 ###9\.2. Mostrar archivos de uso de modelo
 Recupera los metadatos de todos los archivos de uso de modelo.
@@ -1505,7 +1507,8 @@ Recupera los primeros 2 KB de contenido de archivos de uso.
 código de estado HTTP: 200
 
 La respuesta se devuelve en formato de texto sin procesar:
-<pre>85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+<pre>
+85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
@@ -1619,7 +1622,9 @@ Elimina todos los archivos de uso del modelo.
 código de estado HTTP: 200
 
 ##10\. Características
-En esta sección se muestra cómo recuperar información de características, como las funciones importadas y sus valores, su rango, y cuándo se ha asignado este rango. Las características se importan como parte de los datos del catálogo y luego su rango se asocia cuando se realiza una compilación de rango. El rango de las características puede cambiar según el patrón de los datos de uso y el tipo de elementos. Pero para que el uso y los elementos sean coherentes, el rango debe tener solo pequeñas fluctuaciones. El rango de características es un número no negativo. El número 0 significa que la característica no fue clasificada (sucede si se invoca esta API antes de completar la primera compilación de rango). La fecha en que se atribuye el rango se conoce como la actualización de la puntuación.
+En esta sección se muestra cómo recuperar información de características, como las funciones importadas y sus valores, su rango, y cuándo se ha asignado este rango. Las características se importan como parte de los datos del catálogo y luego su rango se asocia cuando se realiza una compilación de rango.
+El rango de las características puede cambiar según el patrón de los datos de uso y el tipo de elementos. Pero para que el uso y los elementos sean coherentes, el rango debe tener solo pequeñas fluctuaciones.
+El rango de características es un número no negativo. El número 0 significa que la característica no fue clasificada (sucede si se invoca esta API antes de completar la primera compilación de rango). La fecha en que se atribuye el rango se conoce como la actualización de la puntuación.
 
 ###10\.1. Obtener información de características (para la última compilación de rango)
 Recupera la información de características, incluida la clasificación de la última compilación correcta de rango.
@@ -1789,18 +1794,18 @@ OData
 
   En esta sección se explican las diferentes API relacionadas con compilaciones. Hay tres tipos de compilación: una compilación de recomendación, una compilación de rango y una compilación FBT (artículos que con frecuencia se compran juntos).
 
-El objetivo de la compilación de recomendación es generar un modelo de recomendación que se usa en las predicciones. Las predicciones (para este tipo de compilación) se presentan en dos modos: 
-* I2I - también llamada Recomendaciones de elemento a elemento: dado un elemento o una lista de elementos, esta opción predecirá una lista de elementos que pueden ser de gran interés. 
+El objetivo de la compilación de recomendación es generar un modelo de recomendación que se usa en las predicciones. Las predicciones (para este tipo de compilación) se presentan en dos modos:
+* I2I - también llamada Recomendaciones de elemento a elemento: dado un elemento o una lista de elementos, esta opción predecirá una lista de elementos que pueden ser de gran interés.
 * U2I - también llamada Recomendaciones de usuario a elemento: dado un id. de usuario (y opcionalmente una lista de elementos), esta opción predecirá una lista de elementos que pueden ser de gran interés para el usuario especificado (y su selección de elementos adicional). Las recomendaciones de U2I se basan en el historial de elementos que eran de interés para el usuario hasta el momento en que se creó el modelo.
 
-Una compilación de rango es una compilación técnica que le permite aprender acerca de la utilidad de sus características. Normalmente, para obtener el mejor resultado en un modelo de recomendación relacionado con características, debe realizar los siguientes pasos: 
+Una compilación de rango es una compilación técnica que le permite aprender acerca de la utilidad de sus características. Normalmente, para obtener el mejor resultado en un modelo de recomendación relacionado con características, debe realizar los siguientes pasos:
 - Desencadene una compilación de rango (a no ser que la puntuación de sus características sea estable) y espere a obtener la puntuación de las características.
 - Recupere el rango de sus características mediante la llamada a la API [Obtener información de características](#101-get-features-info-for-last-rank-build).
 - Configure una compilación de recomendación con los siguientes parámetros:
 	- `useFeatureInModel` - Establecer en True.
 	- `ModelingFeatureList` - Establecer en una lista de características separadas por coma con una puntuación de 2,0 o más (según los rangos recuperados en el paso anterior).
-	- `AllowColdItemPlacement` - Establecer en True. 
-	- De manera opcional puede establecer `EnableFeatureCorrelation` en True y `ReasoningFeatureList` en la lista de características que desea usar para las explicaciones (normalmente la misma lista de características usada en el modelado o una sublista). 
+	- `AllowColdItemPlacement` - Establecer en True.
+	- De manera opcional puede establecer `EnableFeatureCorrelation` en True y `ReasoningFeatureList` en la lista de características que desea usar para las explicaciones (normalmente la misma lista de características usada en el modelado o una sublista).
 - Desencadene la compilación de recomendación con los parámetros configurados.
 
 Nota: si no configura ningún parámetro (por ejemplo, invoca la compilación de recomendación sin parámetros) o no deshabilita explícitamente el uso de características (por ejemplo, `UseFeatureInModel` se establece en False), el sistema configurará los parámetros relacionados con características para los valores explicados anteriormente en caso de que exista una compilación de rango.
@@ -2052,16 +2057,17 @@ La respuesta incluye una entrada por compilación. Cada entrada tiene los siguie
 - `feed/entry/content/properties/ExecutionTime`: duración de la compilación.
 - `feed/entry/content/properties/ProgressStep`: detalles acerca de la fase actual de una compilación en curso.
 
-Estado de compilación válido: 
-- Created: se ha creado la entrada de solicitud de compilación. 
+Estado de compilación válido:
+- Created: se ha creado la entrada de solicitud de compilación.
 - Queued: se desencadenó la solicitud de compilación y está en cola.
 - Building: la compilación está en curso.
 - Success: la compilación finalizó correctamente.
 - Error: la compilación finalizó con un error.
-- Cancelled: se canceló la compilación. Cancelling: la compilación se está cancelando.
+- Cancelled: se canceló la compilación.
+- Cancelling: la compilación se está cancelando.
 
-Valores válidos para el tipo de compilación: Rango:
-- compilación de rango.
+Valores válidos para el tipo de compilación:
+- Rango: compilación de rango.
 - Recomendación: compilación de recomendación.
 
 
@@ -2141,7 +2147,8 @@ Estado de compilación válido:
 - Building: la compilación está en curso.
 - Success: la compilación finalizó correctamente.
 - Error: la compilación finalizó con un error.
-- Cancelled: se canceló la compilación. Cancelling: la compilación se está cancelando.
+- Cancelled: se canceló la compilación.
+- Cancelling: la compilación se está cancelando.
 
 
 Valores válidos para el tipo de compilación:
@@ -2766,7 +2773,9 @@ Obtenga recomendaciones de la compilación activa de tipo "Recommendation" marca
 
 La API devolverá una lista de elementos predichos según el historial de uso del usuario.
 
-Notas: 1. No hay ninguna recomendación de usuario para la generación de FBT. 2. Si la compilación activa es FBT, este método devuelve un error.
+Notas: 
+1. No hay ninguna recomendación de usuario para la generación de FBT.
+2. Si la compilación activa es FBT, este método devuelve un error.
 
 | Método HTTP | URI |
 |:--------|:--------|
@@ -2799,7 +2808,9 @@ Obtenga recomendaciones de la compilación activa de tipo "Recommendation" marca
 
 La API devolverá una lista de elementos predichos según el historial de uso del usuario y los elementos suministrados adicionales.
 
-Notas: 1. No hay ninguna recomendación de usuario para la generación de FBT. 2. Si la compilación activa es FBT, este método devuelve un error.
+Notas: 
+1. No hay ninguna recomendación de usuario para la generación de FBT.
+2. Si la compilación activa es FBT, este método devuelve un error.
 
 
 | Método HTTP | URI |
@@ -2856,7 +2867,7 @@ código de estado HTTP: 200
 
 
 La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:
-- `Feed\entry\content\properties\Id`: id. de elemento recomendado 
+- `Feed\entry\content\properties\Id`: id. de elemento recomendado
 - `Feed\entry\content\properties\Name`: nombre del elemento.
 - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
 - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
@@ -2902,7 +2913,8 @@ La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tie
 Vea un ejemplo de respuesta en 12.1
 
 ##13\. Historial de uso del usuario
-Una vez creado un modelo de recomendación, el sistema le permite recuperar el historial del usuario (los elementos asociados a un usuario específico) usado para la compilación. La API permite recuperar el historial del usuario
+Una vez creado un modelo de recomendación, el sistema le permite recuperar el historial del usuario (los elementos asociados a un usuario específico) usado para la compilación.
+La API permite recuperar el historial del usuario
 
 Nota: el historial del usuario actualmente solo está disponible para compilaciones de recomendación.
 

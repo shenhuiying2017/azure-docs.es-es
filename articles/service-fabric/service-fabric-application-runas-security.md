@@ -88,11 +88,25 @@ Ahora agreguemos el archivo MySetup.bat al proyecto de Visual Studio para probar
 
 ![CopyToOutput de Visual Studio para el archivo por lotes de SetupEntryPoint][Image1]
 
-Ahora abra el archivo MySetup.bat y agregue los siguientes comandos. ~~~ REM Set a system environment variable. This requires administrator privilege setx -m TestVariable "MyValue" echo System TestVariable set to > test.txt echo %TestVariable% >> test.txt
+Ahora abra el archivo MySetup.bat y agregue los siguientes comandos.
+~~~
+REM Set a system environment variable. This requires administrator privilege
+setx -m TestVariable "MyValue"
+echo System TestVariable set to > test.txt
+echo %TestVariable% >> test.txt
 
-REM To delete this system variable us REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f ~~~
+REM To delete this system variable us
+REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
+~~~
 
-A continuación, compile e implemente la solución en un clúster de desarrollo local. Una vez iniciado el servicio, tal como se muestra en el explorador de Service Fabric, puede ver que la ejecución de MySetup.bat fue correcta de dos maneras. Abra un símbolo del sistema de PowerShell y escriba ~~~ [Environment]::GetEnvironmentVariable("TestVariable","Machine") ~~~ De esta forma ~~~ PS C:\\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue ~~~
+A continuación, compile e implemente la solución en un clúster de desarrollo local. Una vez iniciado el servicio, tal como se muestra en el explorador de Service Fabric, puede ver que la ejecución de MySetup.bat fue correcta de dos maneras. Abra un símbolo del sistema de PowerShell y escriba
+~~~
+ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
+~~~
+De esta forma
+~~~
+PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue
+~~~
 
 En segundo lugar, anote el nombre del nodo en el que el servicio se implementó e inició en el explorador de Service Fabric, por ejemplo, Nodo 1 y, a continuación, navegue hasta la carpeta de trabajo de la instancia de aplicación para buscar el archivo out.txt que muestra el valor de **TestVariable**. Por ejemplo, si se implementó en el nodo 2, puede ir a esta ruta de acceso para ver el valor de MyApplicationType
 
@@ -103,9 +117,16 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ##  Inicio de comandos de PowerShell desde SetupEntryPoint
 Para poder ejecutar PowerShell desde el punto **SetupEntryPoint** puede ejecutar PowerShell.exe en un archivo por lotes que apunte a un archivo de PowerShell. En primer lugar, agregue un archivo de PowerShell para el proyecto de servicio, por ejemplo, MySetup.ps1. Recuerde que debe establecer las propiedades como *Copiar si es posterior* para que este archivo también se incluya en el paquete de servicio. El ejemplo siguiente muestra un archivo por lotes de ejemplo para iniciar un archivo de PowerShell denominado MySetup.ps1 que establece una variable de entorno de sistema denominada *TestVariable*.
 
-MySetup.bat para iniciar el archivo de PowerShell. ~~~ powershell.exe - ExecutionPolicy Bypass - Command ".\\MySetup.ps1" ~~~
+MySetup.bat para iniciar el archivo de PowerShell.
+~~~
+powershell.exe - ExecutionPolicy Bypass - Command ".\\MySetup.ps1"
+~~~
 
-En el archivo de PowerShell, agregue lo siguiente para establecer una variable de entorno de sistema ~~~ [Environment]:: SetEnvironmentVariable ("TestVariable", "MyValue", "Machine") [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt ~~~
+En el archivo de PowerShell, agregue lo siguiente para establecer una variable de entorno de sistema
+~~~
+[Environment]:: SetEnvironmentVariable ("TestVariable", "MyValue", "Machine")
+[Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
+~~~
 
 ## Aplicación de RunAsPolicy a servicios 
 Anteriormente vio cómo aplicar la directiva RunAs a un SetupEntryPoint. Vamos a ir algo más allá para averiguar cómo crear diferentes entidades de seguridad que se puedan aplicar como directivas de servicio.
