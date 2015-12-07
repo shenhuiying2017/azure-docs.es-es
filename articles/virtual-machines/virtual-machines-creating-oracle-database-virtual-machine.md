@@ -178,7 +178,7 @@ Para permitir el acceso remoto a la base de datos (por ejemplo, desde un equipo 
 ##Habilitar el acceso remoto al Administrador corporativo de la Base de datos de Oracle
 Si desea habilitar el acceso remoto al Administrador corporativo de la Base de datos de Oracle, abra el puerto 5500 de del firewall y cree un extremo de máquina virtual para 5500 en el portal de Azure (mediante los pasos indicados anteriormente para abrir el puerto 1521 y crear un extremo para 1521). A continuación, para ejecutar el Administrador corporativo de Oracle desde el equipo remoto, abra un explorador en la dirección URL en forma de `http://<<unique_domain_name>>:5500/em`.
 
-> [AZURE.NOTE] (Puede determinar el valor de *\<\<unique\_domain\_name\>\>* dentro del [Portal de Azure](https://ms.portal.azure.com/) haciendo clic en **Máquinas virtuales** y, luego, seleccionando la máquina virtual que está usando para ejecutar la base de datos Oracle).
+> [AZURE.NOTE] Puede determinar el valor de *\<\<unique\_domain\_name\>\>* dentro del [Portal de Azure](https://ms.portal.azure.com/) haciendo clic en **Máquinas virtuales** y, luego, seleccionando la máquina virtual que está usando para ejecutar la base de datos Oracle).
 
 ##Configuración de opciones conocidas y paquetes de opciones avanzadas
 Si eligió la **base de datos Oracle con opciones conocidas** o la **base de datos Oracle con paquetes de opciones avanzadas**, el paso siguiente consiste en configurar las características de complemento en su instalación de Oracle. Consulte la documentación de Oracle para obtener instrucciones acerca de cómo configurarlas en Windows, ya que las configuraciones pueden variar ampliamente en función de sus necesidades para cada componente individual.
@@ -200,4 +200,4 @@ Ahora que ha configurado la máquina virtual y que ha creado su base de datos, c
 
 -	[Oracle Database DBA 12c versión 1 de dos días](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!----HONumber=AcomDC_1125_2015-->
