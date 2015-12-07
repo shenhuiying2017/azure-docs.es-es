@@ -62,11 +62,11 @@ Como parte de la implementación de Azure Site Recovery, instalará el proveedor
 - Debe ejecutar las versiones más recientes del proveedor y del agente.
 - Todos los servidores de Hyper-V de un almacén de credenciales deben tener las mismas versiones.
 - El proveedor necesitará conectarse a Azure Site Recovery a través de Internet. Puede seleccionar hacerlo sin un proxy, utilizando la configuración de proxy que ya está definida en el servidor VMM o la configuración de proxy personalizada que estableció durante la instalación del proveedor. Para usar un servidor proxy existente, asegúrese de que están permitidas las direcciones URL para conectarse a Azure a través del firewall:
-	- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net
  
 - Para usar un proxy personalizado, configúrelo antes de instalar el proveedor. Durante la configuración del proveedor, deberá especificar la dirección y el puerto del servidor proxy, y las credenciales que pueden utilizarse para el acceso. Tenga en cuenta que no se admite el proxy basado en HTTPS.
 
@@ -145,11 +145,11 @@ Instale el proveedor y el agente. Si va a instalar en un clúster de Hyper-V, re
 	- Si el proxy predeterminado en el servidor de Hyper-V requiere autenticación, debe utilizar un servidor proxy personalizado. Escriba los detalles del proxy predeterminado y especifique las credenciales.
 	- Si desea utilizar un servidor proxy personalizado, debe configurarlo antes de instalar el proveedor.
 	- Las siguientes direcciones URL deben ser accesibles desde el host de Hyper-v
-		- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
 
 	- Permita las direcciones IP que se describen en [Intervalos de direcciones IP de los centros de datos de Azure](http://go.microsoft.com/fwlink/?LinkId=511094) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
 
@@ -240,8 +240,13 @@ Agregue máquinas virtuales a grupos de protección para habilitar su protecció
 		![Configuración de propiedades de la máquina virtual](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
 	- Establecer la configuración de una máquina virtual adicional en *Elementos protegidos* > **Grupos de protección** > *nombre\_grupo\_protección* > **Máquinas virtuales** *nombre\_máquina\_virtual* > **Configurar**, incluidos:
 
-		- **Adaptadores de red**: el número de adaptadores de red viene determinado por el tamaño que especifique para la máquina virtual de destino. Compruebe las [especificaciones de tamaño de la máquina virtual](../virtual-machines/virtual-machines-size-specs.md#size-tables) para conocer el número de NIC compatibles con el tamaño de la máquina virtual. 
-		
+		- **Adaptadores de red**: el número de adaptadores de red viene determinado por el tamaño que especifique para la máquina virtual de destino.
+			- Grande (A3) y A6: 2
+			- Extra grande (A4) y A7:
+			- A9: 2
+			- D3: 2
+			- D4: 4
+			- D13: 4
 
 			Al modificar el tamaño de una máquina virtual y guardar la configuración, el número del adaptador de red cambiará la próxima vez que abra la página **Configurar**. El número de adaptadores de red de máquinas virtuales de destino es el mínimo número de adaptadores de red en la máquina virtual de origen y el número máximo de adaptadores de red compatible con el tamaño de la máquina virtual elegida. Se explica a continuación:
 

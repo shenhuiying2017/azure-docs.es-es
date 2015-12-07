@@ -252,21 +252,33 @@ Your app is now properly configured to communicate with the v2.0 endpoint using 
 
 //Rutas (Sección 4)
 
-app.get('/', function(req, res){ res.render('index', { user: req.user }); });
+app.get('/', function(req, res){
+  res.render('index', { user: req.user });
+});
 
-app.get('/account', ensureAuthenticated, function(req, res){ res.render('account', { user: req.user }); });
+app.get('/account', ensureAuthenticated, function(req, res){
+  res.render('account', { user: req.user });
+});
 
-app.get('/login', passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }), function(req, res) { log.info('Login was called in the Sample'); res.redirect('/'); });
+app.get('/login',
+  passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+  function(req, res) {
+    log.info('Login was called in the Sample');
+    res.redirect('/');
+});
 
-app.get('/logout', function(req, res){ req.logout(); res.redirect('/'); });
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 
 ```
 
--	Let's review these in detail:
-    -	The `/` route will redirect to the index.ejs view passing the user in the request (if it exists)
-    - The `/account` route will first ***ensure we are authenticated*** (we implement that below) and then pass the user in the request so that we can get additional information about the user.
-    - The `/login` route will call our azuread-openidconnect authenticator from `passport-azuread` and if that doesn't succeed will redirect the user back to /login
-    - The `/logout` will simply call the logout.ejs (and route) which clears cookies and then return the user back to index.ejs
+-	Analicemos esto con detalle:
+    -	La ruta `/` realizará la redirección a la vista index.ejs pasando el usuario en la solicitud (si existe).
+    - La ruta `/account` primero ***se asegurará de que estamos autenticados*** (lo que se implementará a continuación) y, seguidamente, pasará el usuario en la solicitud para que podamos obtener información adicional sobre él.
+    - La ruta `/login` llamará al autenticador azuread-openidconnect desde `passport-azuread`  y, si esto no produce un resultado satisfactorio, redirigirá el usuario a /login.
+    - `/logout` simplemente llamará a logout.ejs (y a la ruta), que borra las cookies y devuelve el usuario a index.ejs.
 
 
 - For the last part of `app.js`, let's add the EnsureAuthenticated method that is used in `/account` above.
@@ -275,7 +287,15 @@ app.get('/logout', function(req, res){ req.logout(); res.redirect('/'); });
 
 // Middleware de rutas sencillo para asegurarse de que el usuario está autenticado. (Sección 4)
 
-// Use este middleware de ruta en cualquier recurso que se tenga que proteger. Si / / la se autentica la solicitud (normalmente a través de una sesión de inicio de sesión persistente), // se llevará a cabo la solicitud. De lo contrario, se redirigirá al usuario a la función // login page. function ensureAuthenticated(req, res, next) { if (req.isAuthenticated()) { return next(); } res.redirect('/login') } ```
+// Use este middleware de ruta en cualquier recurso que se tenga que proteger.  Si
+//   la se autentica la solicitud (normalmente a través de una sesión de inicio de sesión persistente),
+//   se llevará a cabo la solicitud. De lo contrario, se redirigirá al usuario a la función
+//   login page.
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  res.redirect('/login')
+}
+```
 
 - Por último, crearemos el propio servidor en `app.js`:
 

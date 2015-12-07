@@ -500,7 +500,9 @@ En este paso, descargará un archivo que contiene información acerca de su susc
 
 	Este comando inicia un explorador y se desplaza a la página de descarga. Si se le solicita, inicie sesión con la cuenta asociada a su suscripción de Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->La descarga del archivo se inicia automáticamente; si esto no ocurre, puede hacer clic en el vínculo al comienzo de la página para descargar el archivo manualmente. Guarde el archivo y anote la ruta de acceso del archivo.
+	<!-- ![The download page][download-publishing-settings] -->
+
+	La descarga del archivo debe iniciarse automáticamente; si esto no ocurre, puede hacer clic en el vínculo al comienzo de la página para descargar el archivo manualmente. Guarde el archivo y anote la ruta de acceso del archivo.
 
 2. Escriba el siguiente comando para importar la configuración.
 

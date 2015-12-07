@@ -165,7 +165,7 @@ Se le pedirá que proporcione las credenciales de una cuenta de administrador de
 
 Tiene que actualizar los servidores DNS de la red virtual para que Azure asigne a las máquinas virtuales las direcciones IP de los dos nuevos controladores de dominio que se usarán como sus servidores DNS. Tenga en cuenta que este procedimiento usa valores de la tabla V (para la configuración de red virtual) y de la tabla M (para las máquinas virtuales).
 
-1.	En el panel izquierdo del **Portal de vista previa de Azure**, haga clic en Examinar todo > Redes virtuales y después en el nombre de la red virtual (Tabla V – Elemento 1 – Columna Valor).
+1.	En el panel izquierdo del [Portal de vista previa de Azure](https://portal.azure.com/), haga clic en **Examinar todo > Redes virtuales** y después en el nombre de la red virtual (Tabla V – Elemento 1 – Columna Valor).
 2.	En el panel de la red virtual, haga clic en **Toda la configuración**.
 3.	En el panel **Configuración**, haga clic en **Servidores DNS**.
 4.	En el panel **Servidores DNS**, escriba lo siguiente:

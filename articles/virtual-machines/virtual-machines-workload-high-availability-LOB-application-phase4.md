@@ -30,7 +30,7 @@ Debe completar esta fase antes de pasar a la [fase 5](virtual-machines-workload-
 
 Hay dos máquinas virtuales de servidor web en las que puede implementar aplicaciones ASP.NET o aplicaciones más antiguas que pueden hospedarse en Internet Information Services (IIS) 8 en Windows Server 2012 R2.
 
-> [AZURE.NOTE]Este artículo contiene comandos para la versión preliminar de Azure PowerShell 1.0. Para ejecutar estos comandos en Azure PowerShell 0.9.8 y versiones anteriores, reemplace todas las instancias de "-AzureRM" por "-Azure" y agregue el comando **Switch-AzureMode AzureResourceManager** antes de ejecutar ningún comando. Para obtener más información, consulte [Versión preliminar de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE] Este artículo contiene comandos para la versión preliminar de Azure PowerShell 1.0. Para ejecutar estos comandos en Azure PowerShell 0.9.8 y versiones anteriores, reemplace todas las instancias de "-AzureRM" por "-Azure" y agregue el comando **Switch-AzureMode AzureResourceManager** antes de ejecutar ningún comando. Para obtener más información, consulte [Versión preliminar de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 En primer lugar, configure el equilibrio de carga interno para que Azure distribuya el tráfico de cliente a la aplicación de línea de negocio de manera uniforme entre los dos servidores web. Esto requiere que especifique una instancia de equilibrio de carga que conste de un nombre y su propia dirección IP, y se asigne en el espacio de direcciones de subred que asignó a la red virtual de Azure.
 

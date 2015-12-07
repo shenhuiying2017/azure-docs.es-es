@@ -425,7 +425,7 @@ En el siguiente diagrama se muestran los puertos que se abrirán en el firewall 
 
 - [Usar Power BI en un entorno híbrido](https://msdn.microsoft.com/library/dn798994.aspx)
 
->[AZURE.NOTE] [Submit feedback and contact information through Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
+>[AZURE.NOTE] [Envíe comentarios e información de contacto a través de Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### Contenido de la Comunidad
 

@@ -19,7 +19,7 @@
 
 # Crear un clúster de MongoDB en Ubuntu mediante una plantilla del Administrador de recursos de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
 
 
 MongoDB es una base de datos de documentos de código abierto que ofrece alto rendimiento, alta disponibilidad y escalado automático. MongoDB puede instalarse como una base de datos independiente o en un clúster, aprovechando las capacidades integradas de réplica. En algunos casos, puede usar la replicación para aumentar la capacidad de lectura. Los clientes tienen la capacidad de enviar operaciones de lectura y escritura a diferentes servidores. También es posible mantener copias en diferentes centros de datos para aumentar la localidad y la disponibilidad de los datos de las aplicaciones distribuidas. Con MongoDB, la replicación también proporciona redundancia y aumenta la disponibilidad de los datos. Con varias copias de los datos en servidores de bases de datos diferentes, la replicación protege una base de datos de la pérdida de un único servidor. La replicación también permite la recuperación tras errores de hardware e interrupciones del servicio. Con las copias adicionales de los datos, puede dedicar una recuperación ante desastres, creación de informes o copia de seguridad.

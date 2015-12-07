@@ -71,7 +71,7 @@ Cuando se cree la organización, descargue el starter kit.
 
 ![][4]
 
-> [AZURE.NOTE]Si recibe un mensaje que le advierte que se restablecerán las claves, está bien continuar como si no tuviéramos ninguna infraestructura existente configurada todavía.
+> [AZURE.NOTE] Si recibe un mensaje que le advierte que se restablecerán las claves, está bien continuar como si no tuviéramos ninguna infraestructura existente configurada todavía.
 
 El archivo zip del starter kit contiene sus claves y archivos de configuración de la organización.
 
