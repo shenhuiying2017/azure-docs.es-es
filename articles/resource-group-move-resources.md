@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="11/19/2015" 
 	ms.author="tomfitz"/>
 
 # Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
@@ -28,7 +28,7 @@ Hay algunas consideraciones importantes cuando se mueve un recurso:
 
 1. No puede cambiar la ubicación del recurso. Si se mueve un recurso, solo se mueve a un nuevo grupo de recursos. El nuevo grupo de recursos puede tener una ubicación diferente, pero no cambia la ubicación del recurso.
 2. El grupo de recursos de destino debe contener únicamente los recursos que comparten el mismo ciclo de vida de aplicación que los recursos que se van a mover.
-3. Si usa Azure PowerShell, asegúrese de que está utilizando la versión más reciente. El comando **Move-AzureResource** se actualiza con frecuencia. Para actualizar su versión, ejecute el Instalador de plataforma web de Microsoft y compruebe si hay disponible una nueva versión. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
+3. Si usa Azure PowerShell, asegúrese de que está utilizando la versión más reciente. El comando **Move-AzureRmResource** se actualiza con frecuencia. Para actualizar su versión, ejecute el Instalador de plataforma web de Microsoft y compruebe si hay disponible una nueva versión. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
 4. La operación de traslado puede tardar en completarse y durante ese tiempo el símbolo del sistema de PowerShell esperará hasta que se haya completado la operación.
 5. Al mover los recursos, el grupo de origen y el grupo de destino se bloquean durante la operación. Las operaciones de escritura y eliminación están bloqueadas en los grupos hasta que se completa el movimiento.
 
@@ -39,15 +39,20 @@ No todos los servicios admiten actualmente la capacidad de traslado de recursos.
 Por ahora, los servicios que admiten el traslado a un nuevo grupo de recursos y a una nueva suscripción son:
 
 - Administración de API
-- DocumentDB de Azure
-- Búsqueda de Azure
-- Aplicaciones web de Azure (se aplican algunas [limitaciones](app-service-web/app-service-move-resources.md))
+- Automatización
+- Lote
 - Factoría de datos
+- DocumentDB
+- Clústeres de HDInsight
 - Almacén de claves
+- Aplicaciones lógicas
 - Mobile Engagement
+- Centros de notificaciones
 - Visión operativa
 - Caché en Redis
+- Search
 - Base de datos SQL
+- Aplicaciones web (se aplican algunas [limitaciones](app-service-web/app-service-move-resources.md))
 
 Los servicios que admiten el traslado a un nuevo grupo de recursos, pero no una nueva suscripción son:
 
@@ -73,12 +78,13 @@ Para mover recursos existentes a otro grupo de recursos o a otra suscripción, u
 
 El primer ejemplo muestra cómo trasladar un recurso a un nuevo grupo de recursos.
 
-    PS C:\> Move-AzureRmResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
+    PS C:\> $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
+    PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
 
 El segundo ejemplo muestra cómo trasladar varios recursos a un nuevo grupo de recursos.
 
-    PS C:\> $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
-    PS C:\> $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
+    PS C:\> $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
+    PS C:\> $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
     PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
 
 Para moverlos a una nueva suscripción, especifique un valor para el parámetro **DestinationSubscriptionId**.
@@ -97,4 +103,4 @@ En el cuerpo de la solicitud, especifique el grupo de recursos de destino y los 
 - [Uso del Portal de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md)
 - [Uso de etiquetas para organizar los recursos de Azure](./resource-group-using-tags.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

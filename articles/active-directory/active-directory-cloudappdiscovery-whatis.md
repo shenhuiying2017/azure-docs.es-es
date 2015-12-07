@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Búsqueda de aplicaciones de nube no sancionadas con Cloud App Discovery | Microsoft Azure"
-	description="En este tema se describe qué es Cloud App Discovery y por qué debería usarlo."
+	description="Ofrece información sobre la búsqueda y la administración de aplicaciones con Cloud App Discovery, sobre cuáles son los beneficios y sobre cómo funciona."
 	services="active-directory"
+	keywords="cloud app discovery, administrar aplicaciones"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
-	editor="lisatoft"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="11/20/2015"
 	ms.author="markusvi"/>
 
 # Búsqueda de aplicaciones de nube no sancionadas con Cloud App Discovery
@@ -47,4 +48,4 @@ Para empezar con Cloud App Discovery, vea [Introducción a Cloud App Discovery](
 - [Registro de cambios del agente de Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
 - [Preguntas más frecuentes de Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

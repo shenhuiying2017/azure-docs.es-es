@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Aspectos básicos de las API de Lote de Azure | Microsoft Azure"
-	description="Conozca los conceptos básicos del servicio Lote y sus API desde el punto de vista del desarrollador."
+	pageTitle="Información general sobre las características de Lote de Azure | Microsoft Azure"
+	description="Conozca las características del servicio Lote y sus API desde el punto de vista del desarrollo."
 	services="batch"
 	documentationCenter=".net"
 	authors="yidingzhou"
@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="10/15/2015"
+	ms.date="11/19/2015"
 	ms.author="yidingz;v-marsma"/>
 
-# Aspectos básicos sobre la API de Lote de Azure
+# Información general de las características de Lote de Azure
 
 Este artículo proporciona información general básica de las principales características de las API del servicio Lote de Azure. Tanto si desarrolla una solución informática distribuida mediante las API [REST de Lote][batch_rest_api] o [.NET de Lote][batch_net_api], usará muchas de las entidades y características que se describen a continuación.
 
-> [AZURE.TIP]Si desea información general técnica de alto nivel sobre el servicio Lote, consulte [Información general técnica sobre Lote de Azure](batch-technical-overview.md).
+> [AZURE.TIP]Si quiere información general técnica de alto nivel sobre el servicio Lote, vea [Aspectos básicos de Lote de Azure](batch-technical-overview.md).
 
 ## <a name="workflow"></a>Flujo de trabajo del servicio Lote
 
@@ -354,4 +354,4 @@ Cada nodo de un grupo recibe un id. único y el nodo en el que se ejecuta una ta
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

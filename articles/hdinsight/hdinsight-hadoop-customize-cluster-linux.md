@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="11/20/2015"
 	ms.author="larryfr"/>
 
 # Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)
@@ -60,7 +60,7 @@ Nombre | Script
 
 2. En __Configuración opcional__, de la hoja **Acciones de script**, haga clic en **Agregar acción de script** para proporcionar detalles sobre la acción de script, tal como se muestra a continuación:
 
-	![Uso de la acción de script para personalizar un clúster](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png "Uso de la acción de script para personalizar un clúster")
+	![Uso de la acción de script para personalizar un clúster](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png)
 
 	| Propiedad | Valor |
 	| -------- | ----- |
@@ -80,12 +80,12 @@ En esta sección, usamos plantillas del Administrador de recursos de Azure (ARM)
 ### Antes de empezar
 
 * Para obtener información acerca de la configuración de una estación de trabajo para que ejecute cmdlets de HDInsight PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
-* Para obtener instrucciones sobre cómo crear plantillas ARM, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
-* Si todavía no ha utilizado Azure PowerShell con el Administrador de recursos, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](powershell-azure-resource-manager)
+* Para obtener instrucciones sobre cómo crear plantillas ARM, consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
+* Si todavía no ha utilizado Azure PowerShell con el Administrador de recursos, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md)
 
 ### Creación de clústeres mediante la acción de script
 
-1. Copie la plantilla siguiente en una ubicación en el equipo. Esta plantilla instala R en el nodo principal, así como en los nodos de trabajo en el clúster. También puede comprobar si la plantilla JSON es válida. Pegue la plantilla de contenido en [JSONLint](http://jsonlint.com/), una herramienta de validador JSON en línea.
+1. Copie la plantilla siguiente en una ubicación en el equipo. Esta plantilla instala R en el nodo principal, así como en los nodos de trabajo en el clúster. También puede comprobar si la plantilla JSON es válida. Pegue la plantilla de contenido en [JSONLint](http://jsonlint.com/), herramienta de validación JSON en línea.
 
 			{
 		    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -270,7 +270,7 @@ En esta sección, usamos plantillas del Administrador de recursos de Azure (ARM)
 		ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
 
-6. Para crear una implementación nueva para el grupo de recursos, ejecute el comando **New-AzureRmResourceGroupDeployment** y proporcione los parámetros necesarios. Los parámetros incluirán un nombre para la implementación, el nombre del grupo de recursos y la ruta de acceso o dirección URL a la plantilla que creó. Si la plantilla requiere parámetros, tiene que pasar también esos parámetros. En este caso, la acción de script para instalar R en el clúster no requiere ningún parámetro.
+6. Para crear otra implementación del grupo de recursos, ejecute el comando **New-AzureRmResourceGroupDeployment** y especifique los parámetros necesarios. Los parámetros incluirán un nombre para la implementación, el nombre del grupo de recursos y la ruta de acceso o dirección URL a la plantilla que creó. Si la plantilla requiere parámetros, tiene que pasar también esos parámetros. En este caso, la acción de script para instalar R en el clúster no requiere ningún parámetro.
 
 
 		New-AzureRmResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
@@ -293,7 +293,7 @@ En esta sección, usamos plantillas del Administrador de recursos de Azure (ARM)
 
 ## Use una acción de script de PowerShell de Azure
 
-En esta sección, usamos el cmdlet [Add-AzureRMHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) para invocar scripts mediante la acción de script para personalizar un clúster. Antes de continuar, asegúrese de que ha instalado y configurado PowerShell de Azure. Para obtener información sobre cómo configurar una estación de trabajo para que ejecute cmdlets de HDInsight PowerShell, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+En esta sección, usamos el cmdlet [Add-AzureRMHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) para invocar scripts mediante la acción de script con el fin de personalizar un clúster. Antes de continuar, asegúrese de que ha instalado y configurado PowerShell de Azure. Para información sobre cómo configurar una estación de trabajo para que ejecute cmdlets de HDInsight PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
 Lleve a cabo los siguiente pasos:
 
@@ -329,15 +329,31 @@ Lleve a cabo los siguiente pasos:
 	| --------- | ---------- |
 	| Configuración | Objeto de configuración al que se agrega la información de la acción de script. |
 	| Nombre | Nombre de la acción de script. |
-	| NodeType | Especifica el nodo en el que se ejecuta el script de personalización. Los valores válidos son **HeadNode** (para instalar en el nodo principal), **WorkerNode** (para instalar en todos los nodos de datos) o **ZookeeperNode** (para instalar en el nodo zookeeper). |
+	| NodeType | Especifica el nodo en el que se ejecuta el script de personalización. Los valores válidos son **HeadNode** (para instalar en el nodo principal), **WorkerNode** (para instalar en todos los nodos de datos) o **ZookeeperNode** (para instalar en el nodo de Zookeeper). |
 	| Parámetros | Parámetros requeridos por el script. |
 	| URI | Especifica el URI para el script que se ejecuta. |
 
+4. Establecimiento del usuario admin/HTTPS para el clúster:
+
+        $httpCreds = get-credential
+        
+    Cuando se le solicite, escriba el nombre 'admin' e indique una contraseña.
+
+5. Establecimiento de las credenciales SSH:
+
+        $sshCreds = get-credential
+    
+    Cuando se le solicite, escriba el nombre de usuario SSH y la contraseña. Si desea proteger la cuenta SSH con un certificado en lugar de una contraseña, use una contraseña en blanco y establezca `$sshPublicKey` en el contenido de la clave pública del certificado que quiera usar. Por ejemplo:
+    
+        $sshPublicKey = Get-Content .\path\to\public.key -Raw
+    
 4. Por último, cree el clúster:
         
-        New-AzureRmHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes $clusterNodes
+        New-AzureRmHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes $clusterNodes -HttpCredential $httpCreds -SshCredential $sshCreds -OSType Linux
+    
+    Si usa una clave pública para proteger la cuenta SSH, debe especificar también `-SshPublicKey $sshPublicKey` como parámetro.
 
-Cuando el sistema lo pida, escriba las credenciales para el clúster. El clúster puede tardar varios minutos en crearse.
+El clúster puede tardar varios minutos en crearse.
 
 ## Use una acción de script desde .NET SDK de HDInsight
 
@@ -380,7 +396,7 @@ El .NET SDK de HDInsight proporciona bibliotecas de cliente que facilitan el tra
         private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
         private const string NewClusterVersion = "3.2";
         private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
-        private const OSType NewClusterOSType = OSType.Windows;
+        private const OSType NewClusterOSType = OSType.Linux;
 
         private const string ExistingStorageName = "<STORAGE ACCOUNT NAME>.blob.core.windows.net";
         private const string ExistingStorageKey = "<STORAGE ACCOUNT KEY>";
@@ -474,11 +490,11 @@ Puede usar la interfaz de usuario web de Ambari para ver la información registr
 
 ### Uso de la interfaz de usuario web de Ambari
 
-1. Abra el explorador web y vaya a https://CLUSTERNAME.azurehdinsight.net. Reemplace CLUSTERNAME por el nombre del clúster de HDInsight.
+1. Abra el explorador y vaya a https://CLUSTERNAME.azurehdinsight.net. Reemplace CLUSTERNAME por el nombre del clúster de HDInsight.
 
 	Cuando se le solicite, escriba el nombre de cuenta de administrador (admin) y la contraseña de administrador para el clúster. Tendrá que volver a escribir las credenciales de administrador en un formulario web.
 
-2. En los vínculos de la parte superior de la página, seleccione la entrada __ops__. Esto mostrará una lista de las operaciones actuales y anteriores realizadas en el clúster a través de Ambari.
+2. En la barra de la parte superior de la página, seleccione la entrada __ops__. Esto mostrará una lista de las operaciones actuales y anteriores realizadas en el clúster a través de Ambari.
 
 	![Barra de interfaz de usuario web de Ambari con ops seleccionado](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
 
@@ -525,7 +541,7 @@ Hay dos tipos de componentes de código abierto que están disponibles en el ser
 
 > [AZURE.WARNING]Los componentes ofrecidos con HDInsight son totalmente compatibles. Además, el soporte técnico de Microsoft le ayudará a aislar y resolver problemas relacionados con estos componentes.
 >
-> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarle a solucionar el problema. Esto podría resolver el problema o pedirle que forme parte de los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/es-ES/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Además, los proyectos de Apache tienen sitios del proyecto en [http://apache.org](http://apache.org), por ejemplo, [Hadoop](http://hadoop.apache.org/) y [Spark](http://spark.apache.org/).
+> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarle a solucionar el problema. Esto podría resolver el problema o pedirle que forme parte de los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la Comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/es-ES/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Además, los proyectos de Apache tienen sitios de proyecto en [http://apache.org](http://apache.org), por ejemplo, [Hadoop](http://hadoop.apache.org/) y [Spark](http://spark.apache.org/).
 
 El servicio HDInsight proporciona varias maneras de utilizar los componentes personalizados. Independientemente de cómo se use el componente o cómo se instale en el clúster, se aplica el mismo nivel de soporte técnico. A continuación, se muestra una lista de las maneras más comunes que se pueden usar los componentes personalizados en los clústeres de HDInsight:
 
@@ -549,4 +565,4 @@ Consulte la siguiente información y ejemplos sobre la creación y uso de script
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fases durante la creación del clúster"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10 | Microsoft Azure" 
-	description="En este tema se explica cómo los administradores pueden configurar directivas de grupo para permitir que los dispositivos unidos a un dominio se conecten a la red empresarial." 
+	description="Explica cómo los administradores pueden configurar directivas de grupo para permitir que los dispositivos unidos a un dominio se conecten a la red empresarial." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -8,13 +8,10 @@
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/17/2015" 
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article"
+
+	ms.date="11/19/2015" 
+
 	ms.author="femila"/>
 
 # Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10
@@ -53,14 +50,16 @@ Para habilitar el acceso condicional, puede crear una directiva que permita el a
 
 ## Instrucciones de implementación
 
-1. Implemente Azure Active Directory Connect: Azure AD Connect permitirá el aprovisionamiento de los equipos del entorno local como objetos de dispositivo en la nube. Para implementar Azure AD Connect, consulte Habilitación del directorio para la administración híbrida con Azure AD Connect.
 
+## Paso 1: Implementar Azure Active Directory Connect
 
-Si siguió la [instalación personalizada para Azure Connect AD](https://azure.microsoft.com/es-ES/documentation/articles/active-directory-aadconnect-get-started-custom/) (no la instalación rápida), debe seguir el procedimiento **Creación de un punto de conexión de servicio (SCP) en Active Directory local**, que se describe a continuación.
+AD Connect permitirá el aprovisionamiento de los equipos del entorno local como objetos de dispositivo en la nube. Para implementar Azure AD Connect, consulte Habilitación del directorio para la administración híbrida con Azure AD Connect.
 
-Si tiene una configuración federada con Azure AD antes de instalar Azure AD Connect (por ejemplo, si ha implementado antes los Servicios de federación de Active Directory (AD FS)) deberá seguir el procedimiento **Configuración de reglas de notificación de AD FS** que se indica a continuación.
+ - Si siguió la [instalación personalizada para Azure Connect AD](https://azure.microsoft.com/es-ES/documentation/articles/active-directory-aadconnect-get-started-custom/) (no la instalación rápida), debe seguir el procedimiento **Creación de un punto de conexión de servicio (SCP) en Active Directory local**, que se describe a continuación.
+ - Si tiene una configuración federada con Azure AD antes de instalar Azure AD Connect (por ejemplo, si ha implementado antes los Servicios de federación de Active Directory (AD FS)) deberá seguir el procedimiento **Configuración de reglas de notificación de AD FS** que se indica a continuación.
 
 ### Creación de un punto de conexión de servicio (SCP) en Active Directory local
+
 Los dispositivos unidos a un dominio usarán este objeto para detectar información del inquilino de Azure AD en el momento del registro automático en el servicio de registro de dispositivos de Azure. En el servidor de Azure AD Connect, ejecute los siguientes comandos de PowerShell:
 
     Import-Module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1";
@@ -71,7 +70,7 @@ Los dispositivos unidos a un dominio usarán este objeto para detectar informaci
 
 >[AZURE.NOTE]Reemplace [*nombre de la cuenta del conector*] por la cuenta de dominio usada como cuenta del conector de AD.
 
->[AZURE.NOTE]El nombre de usuario de la credencial que se escribió cuando se muestra el mensaje emergente Get-Credential, debe tener el formato **user@example.com*
+>[AZURE.NOTE]El nombre de usuario de la credencial que se escribió cuando se muestra el mensaje emergente Get-Credential, debe tener el formato **user@example.com*.
 
 ### Configuración de reglas de notificaciones de AD FS
 Este procedimiento permite el registro instantáneo de un equipo en Azure DRS al permitir que los equipos se autentiquen mediante Kerberos o NTLM a través de AD FS. Sin este paso, los equipos llegarán a Azure AD con retraso (en función de los tiempos de sincronización de Azure AD Connect).
@@ -112,7 +111,9 @@ En el servidor de AD FS (o en una sesión conectada al servidor de AD FS) ejecut
 
 >[AZURE.NOTE]Los equipos con Windows 10 se autenticarán con la autenticación integrada de Windows en un punto de conexión activo de WS-Trust hospedado por AD FS. Debe asegurarse de que este punto de conexión esté habilitado. Si usa el proxy de autenticación web, debe asegurarse también de que este punto de conexión se publique a través del proxy. Para ello, compruebe que adfs/services/trust/13/windowstransport se muestra como habilitado en la consola de administración de AD FS en Servicio > Puntos de conexión.
 
-## Configuración del registro automático de dispositivos mediante la directiva de grupo de Active Directory
+
+## Paso 2: Configurar el registro automático de dispositivos mediante la directiva de grupo de Active Directory
+
 Puede usar una directiva de grupo de Active Directory para configurar sus dispositivos Windows 10 unidos a un dominio y registrarse automáticamente en Azure AD. Para ello, consulte las siguientes instrucciones paso a paso:
 
 1. 	Abra el Administrador del servidor y vaya a **Herramientas** > **Administración de directivas de grupo**.
@@ -126,7 +127,7 @@ Puede usar una directiva de grupo de Active Directory para configurar sus dispos
  - Una unidad organizativa (OU) específica en AD donde se encontrarán los equipos unidos a un dominio de Windows 10.
  - Un grupo de seguridad específico que contiene equipos unidos a un dominio de Windows 10 que se registrarán automáticamente con Azure AD.
  
->[AZURE.NOTE]Esta plantilla de directiva de grupo ha cambiado su nombre en Windows 10. Si va a ejecutar la herramienta de directiva de grupo desde un equipo con Windows 10, la directiva aparecerá como: <br> **Registrar los equipos asociados a un dominio como dispositivos** y la directiva se encontrará en la siguiente ubicación:<br> ***Configuración de equipos/Directivas/Plantillas administrativas/Componentes de Windows/Registro de dispositivos***
+>[AZURE.NOTE]Esta plantilla de directiva de grupo ha cambiado su nombre en Windows 10. Si va a ejecutar la herramienta de directiva de grupo desde un equipo con Windows 10, la directiva aparecerá como: <br> **Registrar los equipos asociados a un dominio como dispositivos** y la directiva se encontrará en la siguiente ubicación:<br> ***Configuración de equipos/Directivas/Plantillas administrativas/Componentes de Windows/Registro de dispositivos***.
 
  
 ## Información adicional
@@ -136,4 +137,4 @@ Puede usar una directiva de grupo de Active Directory para configurar sus dispos
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

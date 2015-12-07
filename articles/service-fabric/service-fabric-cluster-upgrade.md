@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/03/2015"
+   ms.date="11/23/2015"
    ms.author="chackdan"/>
 
 # Descripción de un clúster de Service Fabric
@@ -74,15 +74,17 @@ Para abrir un nuevo puerto en todas las máquinas virtuales en un tipo de nodo, 
 
 1. **Agregue un sondeo nuevo al equilibrador de carga adecuado**
 
- Si ha implementado el clúster con el portal, el equilibrador de carga se denomina "loadBalancer-0", "loadBalancer-1" y así sucesivamente, uno para cada tipo de nodo. Dado que los nombres de equilibrador de carga solo son únicos en un grupo de recursos, es mejor buscarlos en un determinado grupo.
+    Si ha implementado el clúster con el portal, el equilibrador de carga se denomina "loadBalancer-0", "loadBalancer-1" y así sucesivamente, uno para cada tipo de nodo. Dado que los nombres de equilibrador de carga solo son únicos en un grupo de recursos, es mejor buscarlos en un determinado grupo.
 
- ![AddingProbes][addingProbes]
+    ![AddingProbes][AddingProbes]
+
 
 2. **Agregue una nueva regla al equilibrador de carga**
 
-  Agregue una nueva regla al mismo equilibrador de carga mediante el sondeo que creó en el paso anterior.
+    Agregue una nueva regla al mismo equilibrador de carga mediante el sondeo que creó en el paso anterior.
 
-  ![AddingLBRules][AddingLBRules]
+    ![AddingLBRules][AddingLBRules]
+
 
 ### Propiedades de colocación
 
@@ -111,4 +113,4 @@ Si debe actualizar la imagen de sistema operativo que usa, debe hacerlo una máq
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

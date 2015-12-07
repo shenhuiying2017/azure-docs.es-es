@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Configuración del acceso condicional local mediante el Registro de dispositivos de Azure Active Directory | Microsoft Azure"
 	description="Guía paso a paso para habilitar el acceso condicional a aplicaciones locales mediante Servicios de federación de Active Directory (AD FS) en Windows Server 2012 R2."
@@ -14,8 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
+
 
 # Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory
 
@@ -75,8 +75,7 @@ Siga la lista de comprobación mostrada a continuación para habilitar y configu
 | Habilite el Registro de dispositivos en el inquilino de Azure Active Directory para permitir que los dispositivos se unan al área de trabajo. De forma predeterminada, Multi-Factor Authentication no está habilitada para el servicio. Aunque se recomienda usar Multi-Factor Authentication al registrar un dispositivo. Antes de habilitar Multi-Factor Authentication en ADRS, asegúrese de que AD FS está configurado para un proveedor de Multi-Factor Authentication. | [Habilitación del Registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md) |
 | Los dispositivos detectarán el servicio Registro de dispositivos de Azure Active Directory buscando registros DNS conocidos. Debe configurar el DNS de su compañía para que los dispositivos puedan detectar el servicio Registro de dispositivos de Azure Active Directory. | [Configuración de la detección del Registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md) |
 
-##Parte 2: implementación de Servicios de federación de Active Directory Windows Server 2012 R2 y configuración de una relación de federación con Azure Active Directory.
-
+##Parte 2: implementación de Servicios de federación de Active Directory Windows Server 2012 R2 y configuración de una relación de federación con Azure AD.
 
 | Tarea | Referencia |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
@@ -91,7 +90,7 @@ Siga la lista de comprobación mostrada a continuación para habilitar y configu
 | Complete la parte 2 de Habilitación de reescritura de dispositivos en Azure AD Connect. Tras la finalización, vuelva a esta guía. | [Habilitación de reescritura de dispositivos en Azure AD] (#Upgrade your Active Directory Domain Services Schema) |
 	 
 
-##[Opcional] Parte 4: habilitación de autenticación multifactor
+##[Opcional] Parte 4: Habilitar Multi-factor Authentication
 
 Se recomienda encarecidamente configurar una de las distintas opciones de Multi-Factor Authentication. Si desea requerir MFA, consulte [Selección de la solución de seguridad multifactor más adecuada](multi-factor-authentication-get-started.md). Incluye una descripción de cada solución y vínculos para ayudarle a configurar la solución que haya elegido.
 
@@ -124,7 +123,7 @@ Esto le ayudará a integrar un inquilino de Azure AD con Active Directory local 
    
 
 
-## Actualización del esquema de Servicios de dominio de Active Directory
+## Actualizar el esquema de Servicios de dominio de Active Directory
 > [AZURE.NOTE]La actualización del esquema de Active Directory no se puede revertir. Se recomienda realizar la operación primero en un entorno de prueba.
 
 1. Inicie sesión en el controlador de dominio con una cuenta que tenga derechos de administrador de organización y de administrador de esquema.
@@ -150,7 +149,7 @@ Esto le ayudará a integrar un inquilino de Azure AD con Active Directory local 
 ### Habilitación de la autenticación del dispositivo en AD FS
 
 1. En el servidor de federación, abra la consola de administración de AD FS y navegue hasta **AD FS** > **Directivas de autenticación**.
-2. Seleccione E**ditar autenticación principal global…** en el panel **Acciones**.
+2. Seleccione **Editar autenticación principal global…** en el panel **Acciones**.
 3. Active **Habilitar autenticación de dispositivo** y seleccione **Aceptar**.
 4. De forma predeterminada, AD FS quitará periódicamente los dispositivos no usados de Active Directory. Debe deshabilitar esta tarea cuando use el Registro de dispositivos de Azure Active Directory para que los dispositivos se pueden administrar en Azure.
 
@@ -205,14 +204,14 @@ Los pasos siguientes le indicarán cómo implementar este escenario:
 2. Busque la aplicación a la que se aplicará la nueva regla de acceso. Haga clic con el botón derecho en la aplicación y seleccione Editar reglas de notificación...
 3. Seleccione la pestaña **Reglas de autorización de emisión** y luego **Agregar regla…**
 4. En la lista desplegable de plantillas **Regla de notificaciones**, seleccione **Permitir o denegar usuarios según notificación entrante**. Seleccione **Siguiente**.
-5. En el campo Nombre de regla de notificaciones:, especifique: **Permitir acceso desde dispositivos registrados**
+5. En el campo Nombre de regla de notificaciones:, especifique: **Permitir acceso desde dispositivos registrados**.
 6. En la lista desplegable Tipo de notificación entrante:, seleccione **Es usuario registrado**.
-7. En el campo Valor de notificación entrante:, especifique: **true**
+7. En el campo Valor de notificación entrante:, especifique: **true**.
 8. Seleccione el botón de radio **Permitir acceso a usuarios con esta notificación entrante**.
 9. Seleccione **Finalizar** y luego **Aplicar**.
 10. Quite todas las reglas que son más permisivas que la regla que acaba de crear. Por ejemplo, quite la regla **Permitir acceso a todos los usuarios** predeterminada.
 
-Ahora, la aplicación está configurada para permitir el acceso solo cuando el usuario procede de un dispositivo registrado y unido al área de trabajo. Para ver directivas de acceso más avanzadas, consulte [Administración de riesgos con el control de acceso multifactor](https://technet.microsoft.com/es-ES/library/dn280949.aspx).
+Ahora, la aplicación está configurada para permitir el acceso solo cuando el usuario procede de un dispositivo registrado y unido al área de trabajo. Para ver directivas de acceso más avanzadas, vea [Administración de riesgos con el control de acceso multifactor](https://technet.microsoft.com/library/dn280949.aspx).
 
 A continuación, configurará un mensaje de error personalizado para la aplicación. El mensaje de error notificará a los usuarios que han de unir el dispositivo al área de trabajo para tener acceso a la aplicación. Puede usar HTML personalizado y Windows PowerShell para crear un mensaje personalizado de acceso denegado a la aplicación.
 
@@ -238,4 +237,4 @@ Ahora, cuando los usuarios accedan a la aplicación desde un dispositivo que no 
 
 ![Captura de pantalla de un error cuando los usuarios no han registrado su dispositivo en Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

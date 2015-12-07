@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/12/2015"
+   ms.date="11/19/2015"
    ms.author="joaoma" />
 
 # Configuración del equilibrador de carga para SQL Always On
@@ -67,4 +67,4 @@ Encontrará más detalles creando un Alwayson de SQL en [Tutorial: grupos de dis
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

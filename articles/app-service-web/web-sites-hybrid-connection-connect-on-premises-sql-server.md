@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/13/2015"
 	ms.author="cephalin"/>
 
 # Conexión a un servidor SQL local desde una aplicación web en el Servicio de aplicaciones de Azure mediante Conexiones híbridas
@@ -139,7 +139,7 @@ A continuación, creará una conexión híbrida y un servicio de BizTalk para la
 <a name="CreateHC"></a>
 ## C. Creación de una conexión híbrida y un servicio de BizTalk ##
 
-1. En el portal, desplace hacia abajo la hoja de la aplicación web y haga clic en **Estado de la característica de red** > **Configurar los extremos de la conexión híbrida**.
+1. En el portal, vaya a configuración y haga clic en **Redes** > **Configurar los puntos de conexión híbrida**.
 
 	![Hybrid connections][CreateHCHCIcon]
 
@@ -363,4 +363,4 @@ Ya ha creado e implementado una aplicación web ASP.NET que usa una conexión h�
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

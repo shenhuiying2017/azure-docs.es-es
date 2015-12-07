@@ -3,7 +3,7 @@
 	description="Vea cómo habilitar el acceso mediante Escritorio remoto para las máquinas virtuales que hospedan su aplicación Node.js de Azure." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="mwasson"/>
+	ms.date="11/20/2015" 
+	ms.author="robmcm"/>
 
 
 # Habilitación de Escritorio remoto en Azure
@@ -74,7 +74,7 @@ Después de publicar la definición del servicio de actualización, puede conect
 
     ![Indicador de seguridad de Windows][5]
 
-4.  Haga clic en **Conectar** y, a continuación, aparecerá un indicador de seguridad para que escriba las credenciales de acceso a la instancia. Escriba la contraseña creada en el [paso 1](paso 1: configuración del servicio para el acceso de Escritorio remoto mediante Azure PowerShell) y haga clic en **Aceptar**.
+4.  Haga clic en **Conectar** y, a continuación, aparecerá un indicador de seguridad para que escriba las credenciales de acceso a la instancia. Escriba la contraseña creada en el [paso 1][paso 1: configuración del servicio para el acceso de Escritorio remoto mediante Azure PowerShell] y haga clic en **Aceptar**.
 
     ![indicador de nombre de usuario/contraseña][6]
 
@@ -116,4 +116,4 @@ Cuando ya no necesite conexiones de Escritorio remoto a las instancias de rol en
   [Uso de Escritorio de remoto con los roles de Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

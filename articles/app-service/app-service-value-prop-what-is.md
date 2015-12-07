@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="¿Qué es Servicios de aplicaciones de Azure?" 
 	description="Descubra por qué Servicios de aplicaciones de Azure es la mejor plataforma para el desarrollo de aplicaciones web y móviles." 
+	keywords="servicio de aplicaciones, servicio de aplicaciones de azure, costo de servicio de aplicaciones, escala, escalable, implementación de aplicaciones, implementación de aplicaciones de azure"
 	services="app-service" 
 	documentationCenter="" 
 	authors="omarkmsft" 
@@ -59,4 +60,4 @@ Con Servicios de aplicaciones Azure, es tan fácil como seleccionar un idioma.
 [Cree una nueva aplicación](http://go.microsoft.com/fwlink/?LinkId=523751) inmediatamente de forma gratuita. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso. Sin complicaciones.
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

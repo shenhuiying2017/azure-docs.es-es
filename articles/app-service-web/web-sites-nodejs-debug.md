@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/18/2015"
 	ms.author="tarcher"/>
 
 # Cómo depurar una aplicación web de Node.js en el Servicio de aplicaciones de Azure
@@ -63,7 +63,7 @@ Se puede tener acceso a los registros de diagnósticos de tres formas; mediante 
 
 	npm install azure-cli -g
 
-Una vez instaladas, se puede tener acceso a ellas mediante el comando 'azure'. Las herramientas de línea de comandos se deben configurar primero para usar su suscripción de Azure. Para obtener información sobre cómo llevar a cabo esta tarea, consulte la sección **Descarga e importación de la configuración de publicación** del artículo [Uso de las herramientas de línea de comandos de Azure].
+Una vez instaladas, se puede tener acceso a ellas mediante el comando 'azure'. Las herramientas de línea de comandos se deben configurar primero para usar su suscripción de Azure. Para obtener información sobre cómo llevar a cabo esta tarea, consulte la sección **Descarga e importación de la configuración de publicación** del artículo [Uso de las herramientas de línea de comandos de Azure](../xplat-cli-connect).
 
 ###FTP
 
@@ -73,7 +73,7 @@ Para tener acceso a la información de diagnóstico a través de FTP, visite el 
 
 La URL de FTP devuelta en el panel es para el directorio **LogFiles**, que contendrá los siguientes subdirectorios:
 
-* [Deployment Method]: Si usa un método de implementación como Git, se creará un directorio del mismo nombre que contendrá información relacionada con las implementaciones.
+* [Deployment Method](web-sites-deploy): si usa un método de implementación como Git, se creará un directorio del mismo nombre que contendrá información relacionada con las implementaciones.
 
 * nodejs: La información de Stdout y stderr capturada desde todas las instancias de su aplicación (cuando loggingEnabled es verdadero).
 
@@ -89,7 +89,7 @@ De esta manera se descargará un archivo **diagnostics.zip** en el directorio ac
 
 * LogFiles
 
-	* [Deployment method]: Si usa un método de implementación como Git, se creará un directorio del mismo nombre que contendrá información relacionada con las implementaciones.
+	* [Deployment Method](web-sites-deploy): si usa un método de implementación como Git, se creará un directorio del mismo nombre que contendrá información relacionada con las implementaciones.
 
 	* nodejs: La información de Stdout y stderr capturada desde todas las instancias de su aplicación (cuando loggingEnabled es verdadero).
 
@@ -106,7 +106,7 @@ De esta manera se devolverá una secuencia de eventos de registro que se actuali
 
 En este artículo ha aprendido a habilitar y la información de diagnóstico y a tener acceso a ella en Azure. Si bien esta información es útil para comprender los problemas que se producen con su aplicación, puede indicar un problema con un módulo que está usando o que la versión de Node.js que usan las aplicaciones web del Servicio de aplicaciones es diferente a la usada en su entorno de implementación.
 
-Para obtener información sobre el trabajo con módulos en Azure, consulte [Uso de módulos Node.js con aplicaciones de Azure].
+Para obtener información sobre el trabajo con módulos en Azure, consulte [Uso de módulos Node.js con aplicaciones de Azure](../nodejs-use-node-modules-azure-apps).
 
 Para obtener información sobre la especificación de una versión de Node.js para su aplicación, consulte [Especificación de una versión de Node.js en una aplicación de Azure].
 
@@ -121,10 +121,10 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [IISNode]: https://github.com/tjanczuk/iisnode
 [léame de IISNode]: https://github.com/tjanczuk/iisnode#readme
 [How to Use The Azure Command-Line Interface]: ../xplat-cli-install.md
-[Uso de módulos Node.js con aplicaciones de Azure]: ../nodejs-use-node-modules-azure-apps.md
+[Using Node.js Modules with Azure Applications]: ../nodejs-use-node-modules-azure-apps.md
 [Especificación de una versión de Node.js en una aplicación de Azure]: ../nodejs-specify-node-version-azure-apps.md
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

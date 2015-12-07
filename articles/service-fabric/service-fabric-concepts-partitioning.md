@@ -3,7 +3,7 @@
    description="Describe cómo crear particiones de los servicios de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="bscholl"
+   authors="bmscholl"
    manager="timlt"
    editor=""/>
 
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
 # Cómo crear particiones de los servicios confiables de Service Fabric
-Este artículo proporciona una introducción a los conceptos básicos de la partición de los servicios confiables Service Fabric. El código fuente que se usa en el artículo también está disponible en [Github (agregar vínculo final)](http://Github.com).
+Este artículo proporciona una introducción a los conceptos básicos de la partición de los servicios confiables Service Fabric. El código fuente que se usa en el artículo también está disponible en [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
 
 ## Qué es la creación de particiones
-La creación de particiones no es exclusiva de Service Fabric, en realidad es una función básica de la compilación de servicios escalables. En un sentido amplio, podemos considerar la partición como un estado de división (datos) y procesamiento en unidades accesibles más pequeñas para mejorar el rendimiento y escalabilidad. Una forma conocida de partición es [la partición de datos] (https://en.wikipedia.org/wiki/Partition_(database)) también conocida como particionamiento.
+La creación de particiones no es exclusiva de Service Fabric, en realidad es una función básica de la compilación de servicios escalables. En un sentido amplio, podemos considerar la partición como un estado de división (datos) y procesamiento en unidades accesibles más pequeñas para mejorar el rendimiento y escalabilidad. Una forma conocida de partición es la [partición de datos][wikipartition] también conocida como particionamiento.
 
 
 ### Creación de particiones de los servicios sin estado de Service Fabric
@@ -59,7 +59,7 @@ Si piensa en el ejemplo de nuevo, verá fácilmente que la partición que contie
 Para ello, debe hacer dos cosas desde el punto de vista del particionamiento:
 
 - Pruebe a particionar el estado para que se distribuya uniformemente en todas las particiones.
-- [Cree informes de métricas de cada una de las réplicas para el servicio](service-fabric-reliable-services-advanced-usage.md). Service Fabric permite crear informes de métricas, como la cantidad de memoria o el número de registros, en un servicio. Según las métricas del informe, Service Fabric detecta que algunas particiones atienden cargas mayores que otras y reequilibra el clúster moviendo las réplicas a nodos más adecuados.
+- [Cree informes de métricas de cada una de las réplicas para el servicio](service-fabric-resource-balancer-dynamic-load-reporting.md). Service Fabric permite crear informes de métricas, como la cantidad de memoria o el número de registros, en un servicio. Según las métricas del informe, Service Fabric detecta que algunas particiones atienden cargas mayores que otras y reequilibra el clúster moviendo las réplicas a nodos más adecuados.
 
 A veces no se puede saber la cantidad de datos que habrá en una partición determinada y, por lo general, se recomienda realizar ambas acciones: primero adoptar una estrategia para distribuir los datos uniformemente en las particiones y, después, crear informes de la carga. El primer método evita situaciones como las descritas en el ejemplo de la votación, mientras que el segundo ayuda a suavizar las diferencias temporales en el acceso o la carga con el tiempo.
 
@@ -75,7 +75,7 @@ Otra consideración para planear el particionamiento es los recursos disponibles
 
 Entonces, ¿qué ocurre si se producen restricciones de recursos en un clúster en ejecución? La respuesta es que solo tiene que escalar horizontalmente el clúster para dar cabida a los nuevos requisitos.
 
-[La guía de planeación de la capacidad](manisdoc.md) ofrece orientación para determinar cuántos nodos necesita su clúster.
+[La guía de planeación de la capacidad](service-fabric-capacity-planning.md) ofrece orientación para determinar cuántos nodos necesita su clúster.
 
 ## Cómo particionar
 En esta sección se describe cómo empezar a particionar el servicio.
@@ -324,7 +324,7 @@ También merece la pena tener en cuenta que la dirección URL publicada es liger
 16. Una vez implementado, puede comprobar el servicio y todas sus particiones en el Explorador de Service Fabric. ![Servicio](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
 17. En un explorador, escriba `http://localhost:8090/?lastname=somename` probar la lógica de particionamiento. Verá que todos los apellidos que empiezan por la misma letra se almacenan en la misma partición. ![Browser](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
-Todo el código fuente del ejemplo está disponible en [Github](www.github.com).
+Todo el código fuente del ejemplo está disponible en [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
 
 ## Pasos siguientes
 
@@ -334,4 +334,6 @@ Para obtener información sobre los conceptos de Service Fabric, vea lo siguient
 
 - [Escalabilidad de los servicios de Service Fabric](service-fabric-concepts-scalability.md)
 
-<!---HONumber=Nov15_HO4-->
+[wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
+
+<!---HONumber=AcomDC_1125_2015-->

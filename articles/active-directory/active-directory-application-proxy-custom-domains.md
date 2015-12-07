@@ -3,7 +3,7 @@
 	description="Explica cómo trabajar con dominios personalizados en el proxy de la aplicación de Azure AD."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
+	authors="kgremban"
 	manager="StevenPo"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 # Uso de dominios personalizados en el proxy de la aplicación de Azure AD
 > [AZURE.NOTE]Proxy de aplicación es una característica que solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
@@ -53,4 +53,4 @@ Hay mucho más que puede hacer con el proxy de la aplicación:
 * [Registro en Azure como una organización](sign-up-organization.md)
 * [Identidad de Azure](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

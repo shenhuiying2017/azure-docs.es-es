@@ -3,7 +3,7 @@
 	description="Aplicación de ejemplo de recomendación de aprendizaje automático de Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="luisca" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -89,4 +89,4 @@ Para obtener una descripción completa de la API, consulte la documentación de 
 La aplicación de ejemplo no está diseñada para ejecutarse en un entorno de producción. Los datos proporcionados en el catálogo son muy pequeños y no constituyen un modelo de recomendación significativo. Los datos se proporcionan como una demostración.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

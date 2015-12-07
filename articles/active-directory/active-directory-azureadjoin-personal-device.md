@@ -1,20 +1,21 @@
+
+
 <properties 
 	pageTitle="Unión de un dispositivo personal a su organización | Microsoft Azure" 
-	description="En este tema se explica cómo los usuarios pueden registrar sus equipos personales con Windows 10 en su red corporativa, y se proporcionan pasos de implementación para un escenario BYOD." 
+	description="Explica cómo los usuarios pueden registrar sus equipos personales con Windows 10 en su red corporativa, y se ofrecen pasos de implementación para un escenario BYOD." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
-
 <tags 
 	ms.service="active-directory" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Unión de un dispositivo personal a su organización
@@ -39,4 +40,4 @@ Para unir un dispositivo de Windows 10 a su organización
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

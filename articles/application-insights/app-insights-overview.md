@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # ¿Qué es Application Insights?
@@ -21,7 +21,7 @@ Application Insights es un servicio de análisis extensible que supervisa su apl
 
 ![Cree un gráfico de estadísticas de la actividad del usuario o explore en profundidad eventos específicos.](./media/app-insights-overview/00-sample.png)
 
-Funciona tanto con aplicaciones web como independientes en una amplia variedad de plataformas: .NET o J2EE, hospedadas localmente o en la nube; aplicaciones de dispositivos en Windows, iOS, Android, OSX y otras plataformas.
+Funciona tanto con aplicaciones web como independientes en una amplia variedad de plataformas: .NET o J2EE, hospedadas localmente o en la nube.
 
 Application Insights está destinada al equipo de desarrollo. Con ella, puede:
 
@@ -32,7 +32,7 @@ Application Insights está destinada al equipo de desarrollo. Con ella, puede:
  *  Alertas sobre cambios en el rendimiento o bloqueos.
  *  Métricas para ayudar a diagnosticar problemas de rendimiento, como tiempos de respuesta, uso de CPU o seguimiento de dependencias.
  *  Pruebas de disponibilidad para aplicaciones web.
- *  Informes y alertas de excepciones y bloqueos
+ *  Informes y alertas de excepciones.
  *  Búsqueda eficaz de registros de diagnósticos (lo que incluye seguimientos de registro de sus marcos de registro favoritos).
 
 El SDK para cada plataforma incluye una variedad de módulos que supervisan la aplicación de inmediato. Además, puede codificar su propia telemetría para realizar análisis más detallados y adaptados.
@@ -53,13 +53,10 @@ Hay un SDK para una variedad creciente de plataformas. Actualmente, la lista inc
  * [Servicios en la nube de Azure](app-insights-cloudservices.md)
  * [Servidores de J2EE][java]
  * [Páginas web][client]\: HTML + JavaScript
- * [Windows Phone, Tienda Windows, aplicaciones universales de Windows 10 e integración directa con el portal para desarrolladores de Windows 10][windows]
- * [Escritorio de Windows][desktop]
- * [iOS][ios]
- * [Android][android]
+ * [Aplicaciones de servidor y escritorio de Windows][desktop]
  * [Otras plataformas][platforms]\: Node.js, PHP, Python, Ruby, Joomla, SharePoint y WordPress
 
-Application Insights también puede obtener telemetría de las aplicaciones web de ASP.NET existentes en IIS sin volver a compilarlas.
+Application Insights también puede obtener telemetría de las aplicaciones web de ASP.NET existentes sin volver a compilarlas.
 
 Si su aplicación tiene cliente, servidor u otros componentes, puede instrumentarlos. Los datos se integrarán en el portal de Application Insights para que, por ejemplo, pueda correlacionar eventos en el cliente con eventos en el servidor.
 
@@ -87,9 +84,9 @@ El impacto sobre el rendimiento es muy pequeño. Seguimiento de llamadas que no 
 
 ## Primeros pasos
 
-1. En primer lugar, necesita una suscripción a [Microsoft Azure](http://azure.com). Suscribirse es gratis, y puede elegir el [nivel de precios](https://azure.microsoft.com/pricing/details/application-insights/) gratuito de Application Insights.
+1. Necesita una suscripción a [Microsoft Azure](http://azure.com). Suscribirse es gratis y puede elegir el [plan de tarifa](https://azure.microsoft.com/pricing/details/application-insights/) gratuito de Application Insights.
 
-2. Inicie sesión en el [Portal de Azure](http://portal.azure.com)
+2. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
 3. Cree un recurso en Application Insights. Aquí es donde verá los datos de la aplicación.
 
     ![Agregar, Servicios para desarrolladores, Application Insights.](./media/app-insights-overview/11-new.png)
@@ -154,4 +151,4 @@ Para obtener más detalles, elija el tipo de aplicación en Introducción, en la
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -24,7 +24,7 @@ En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada
 
 ##Para crear una máquina virtual Oracle WebLogic Server 12c en Azure
 
-1. Inicie sesión en el [Portal de Azure](https://ms.portal.azure.com/).
+1. Inicie sesión en el [portal de vista previa de Azure](https://ms.portal.azure.com/).
 
 2. Haga clic en **Marketplace**, en **Proceso** y, a continuación, escriba **Oracle** en el cuadro de búsqueda.
 
@@ -52,7 +52,7 @@ En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada
 
 ##Para configurar su máquina virtual Oracle WebLogic Server 12c en Azure
 
-1. Inicie sesión en el [Portal de Azure](https://ms.portal.azure.com/).
+1. Inicie sesión en el [portal de vista previa de Azure](https://ms.portal.azure.com/).
 
 2.	Haga clic en **Máquinas virtuales**.
 
@@ -129,7 +129,7 @@ En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada
 
 10.	Cree un extremo para la máquina virtual:
 
-	1. Inicie sesión en el [Portal de Azure](https://ms.portal.azure.com/).
+	1. Inicie sesión en el [portal de vista previa de Azure](https://ms.portal.azure.com/).
 
 	2.	Haga clic en **Examinar**.
 
@@ -173,7 +173,7 @@ En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada
 
 	8.	Especifique un nombre para la regla y, opcionalmente, una descripción y, luego, haga clic en **Finalizar**.
 
-12.	Para ver la aplicación de carro de la compra que se ejecuta en Internet, abra un explorador en la dirección URL en forma de `http://<<unique_domain_name>>/shoppingcart`. (Para determinar el valor de <<*unique\_domain\_name*>> dentro del [Portal de Azure](https://ms.portal.azure.com/), haga clic en **Máquinas virtuales** y después seleccione la máquina virtual que está usando para ejecutar Oracle WebLogic Server).
+12.	Para ver la aplicación de carro de la compra que se ejecuta en Internet, abra un explorador en la dirección URL en forma de `http://<<unique_domain_name>>/shoppingcart`. (Para determinar el valor de <<*unique\_domain\_name*>> dentro del [Portal de vista previa de Azure](https://ms.portal.azure.com/), haga clic en **Máquinas virtuales** y después seleccione la máquina virtual que está usando para ejecutar Oracle WebLogic Server).
 
 
 ##Recursos adicionales
@@ -187,4 +187,4 @@ Ahora que ha configurado la máquina virtual que se está ejecutando en el Oracl
 
 -	[Imágenes de máquina virtual de Oracle para Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

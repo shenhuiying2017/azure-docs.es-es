@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="09/27/2015"
+   ms.date="11/17/2015"
    ms.author="tamram" />
 
 # Objetivos de escalabilidad y rendimiento del almacenamiento de Azure
+
+## Información general
 
 Este tema trata cuestiones de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure. Para ver un resumen de otros límites de Azure, consulte [Suscripción de Azure y límites de servicio, cuotas y restricciones](../azure-subscription-service-limits.md).
 
@@ -29,15 +31,26 @@ Este tema trata cuestiones de rendimiento y escalabilidad de Almacenamiento de M
 
 Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, puede compilar la aplicación de forma que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento. Consulte [Detalles de precios de almacenamiento](http://azure.microsoft.com/pricing/details/storage/) para obtener información sobre los precios por volumen.
 
-## Objetivos de escalabilidad para las cuentas de almacenamiento estándar
+
+## Objetivos de escalabilidad para blobs, colas, tablas y archivos
 
 [AZURE.INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
-## Objetivos de escalabilidad para cuentas de Almacenamiento Premium
+## Objetivos de escalabilidad para discos de máquinas virtuales 
 
-[AZURE.INCLUDE [azure-storage-limits-premium-storage](../../includes/azure-storage-limits-premium-storage.md)]
+[AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-## Límites de almacenamiento - Administrador de recursos de Azure
+Consulte [Tamaños de máquina virtual](../virtual-machines/virtual-machines-size-specs.md) para obtener información adicional.
+
+### Cuentas de almacenamiento estándar
+
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-standard](../../includes/azure-storage-limits-vm-disks-standard.md)]
+
+### Cuentas de almacenamiento premium
+
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-premium](../../includes/azure-storage-limits-vm-disks-premium.md)]
+
+## Objetivos de escalabilidad para el Administrador de recursos de Azure
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -72,8 +85,4 @@ Las particiones afectan al equilibrio de carga y la escalabilidad de cada uno de
 - [Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure](storage-performance-checklist.md)
 - [Almacenamiento de Microsoft Azure: un servicio de almacenamiento en nube altamente disponible con gran coherencia](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

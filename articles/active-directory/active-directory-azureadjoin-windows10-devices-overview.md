@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Windows 10 para empresa: formas de usar dispositivos para trabajar | Microsoft Azure" 
-	description="Proporciona información general sobre la implementación de dispositivos Windows 10 para las empresas, contrastando las distintas formas en que un dispositivo se puede aprovisionar y usar en una empresa." 
+	description="Ofrece información general sobre la implementación de dispositivos Windows 10 para las empresas, contrastando las distintas formas en que un dispositivo se puede aprovisionar y usar en una empresa." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Windows 10 para empresa: formas de usar dispositivos para trabajar
@@ -34,4 +34,4 @@ En los temas siguientes se proporciona información acerca de las distintas capa
 | Implementación | [Escenarios de uso y consideraciones de implementación de Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md) <br><br> [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)<br><br>[Consideraciones de implementación de Azure AD Join](active-directory-azureadjoin-passport-deployment.md)<br><br> |
 | Tareas de usuario | [Configuración de un nuevo dispositivo de Windows 10 con Azure AD durante la instalación](active-directory-azureadjoin-user-frx.md) <br><br> [Configuración de un dispositivo de Windows 10 con Azure AD desde Configuración](active-directory-azureadjoin-user-upgrade.md) <br><br> [Unión de un dispositivo Windows 10 personal a su organización](active-directory-azureadjoin-personal-device.md) |
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

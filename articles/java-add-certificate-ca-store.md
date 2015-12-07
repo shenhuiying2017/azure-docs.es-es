@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="11/19/2015" 
 	ms.author="robmcm"/>
 
 # Incorporación de un certificado al almacén de certificados CA de Java
@@ -56,4 +56,4 @@ Para obtener más información sobre los certificados raíz que usa Azure, consu
 
 Para obtener más información sobre Java, consulte el [Centro para desarrolladores de Java](/develop/java/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

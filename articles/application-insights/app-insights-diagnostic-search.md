@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Uso de Búsqueda de diagnóstico en Application Insights
@@ -36,6 +36,9 @@ Por ejemplo, si la aplicación es un servicio web, la hoja de información gener
 El cuerpo principal de Búsqueda de diagnóstico es una lista de elementos de telemetría: solicitudes de servidor, vistas de página, eventos personalizados que haya codificado, etc. En la parte superior de la lista hay un gráfico de resumen que muestra los recuentos de eventos con el paso del tiempo.
 
 Los eventos normalmente aparecen en la búsqueda de diagnóstico antes de que aparezcan en el explorador de métrica. Aunque la hoja se actualiza a intervalos, puede hacer clic en Actualizar si espera un evento determinado.
+
+
+> [AZURE.NOTE]Si la aplicación genera mucha telemetría (y usa la versión del SDK de ASP.NET 2.0.0-beta3 o posterior), el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de únicamente una fracción representativa de eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionarán o se deseleccionarán como grupo, por lo que puede navegar entre los eventos relacionados. [Más información sobre el muestreo](app-insights-sampling.md).
 
 
 ## Inspección de elementos individuales
@@ -182,7 +185,7 @@ Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o 
 
 ## <a name="add"></a>Pasos siguientes
 
-* [Envío de registros y telemetría personalizada a Application Insights][trace].
+* [Envío de registros y telemetría personalizada a Application Insights.][trace]
 * [Configuración de pruebas de disponibilidad y de capacidad de respuesta][availability]
 * [Solución de problemas][qna]
 
@@ -200,4 +203,4 @@ Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

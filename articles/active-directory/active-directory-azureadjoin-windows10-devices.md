@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Uso de dispositivos con Windows 10 en el área de trabajo | Microsoft Azure" 
-	description="Proporciona una instantánea de las capacidades que pueden obtener los usuarios y los responsables de TI, comparando las distintas formas en que un dispositivo se puede aprovisionar y usar en una empresa con Windows 10." 
+	description="Ofrece una instantánea de las capacidades que pueden obtener los usuarios y los responsables de TI, comparando las distintas formas en que un dispositivo se puede aprovisionar y usar en una empresa con Windows 10." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Uso de dispositivos de Windows 10 en el área de trabajo
@@ -173,4 +173,4 @@ Los usuarios que actualizan desde dispositivos unidos a un dominio de Windows 8.
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

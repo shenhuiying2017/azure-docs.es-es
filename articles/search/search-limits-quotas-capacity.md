@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="11/19/2015"
 	ms.author="heidist"/>
 
 # Límites de servicio en la Búsqueda de Azure
@@ -40,6 +40,8 @@ Número máximo de indexadores|3
 Número máximo de orígenes de datos de indexador|3
 Número máximo de documentos indizados por invocación de indizador|10\.000
 Tiempo de ejecución máximo del indexador|3 minutos
+Número máximo de perfiles de puntuación por índice|16
+Número máximo de funciones por perfil|8
 
 Tenga en cuenta que no hay cuotas ni límites máximos asociados a las consultas. Las consultas por segundo (QPS) son variables, en función de la competición y del ancho de banda disponible para los recursos del sistema. Los recursos de proceso y almacenamiento de Azure que respaldan su servicio compartido se comparten por varios suscriptores, por lo que llevar a cabo QPS para su solución variará en función de cuántas otras cargas de trabajo se ejecutan al mismo tiempo.
 
@@ -62,6 +64,8 @@ Servicios de búsqueda máximos|12 por cada suscripción de Azure
 Número máximo de indexadores|50 por servicio Búsqueda
 Número máximo de orígenes de datos de indexador|50 por servicio Búsqueda
 Número máximo de documentos indizados por invocación de indizador|Sin límite
+Número máximo de perfiles de puntuación por índice|16
+Número máximo de funciones por perfil|8
 
 La capacidad en la Búsqueda de Azure se puede adquirir en incrementos denominados unidades de búsqueda. El nivel de precios estándar permite hasta 36 unidades de búsqueda por servicio de búsqueda. Este límite invalida los límites individuales de las particiones y réplicas. Por ejemplo, no se puede escalar verticalmente su servicio hasta 12 particiones y 6 réplicas, porque hacerlo le exigiría 72 unidades de búsqueda (12 x 6), superando así el límite de 36 unidades de búsqueda por servicio.
 
@@ -134,4 +138,4 @@ Las claves de API se usan para la autenticación del servicio. Hay dos tipos. La
 - Máximo de 1000 documentos devueltos por página de resultados de búsqueda
 - Máximo de 100 sugerencias devueltas por solicitud de Sugerir API
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

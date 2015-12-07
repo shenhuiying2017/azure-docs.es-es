@@ -3,7 +3,7 @@
    description="Este artículo contiene varios temas para administrar un entorno de Automatización de Azure. Actualmente incluye la retención de datos y la realización de copias de seguridad de la recuperación ante desastres en Automatización de Azure."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="SnehaGunda"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -65,7 +65,7 @@ No es posible exportar certificados desde Automatización de Azure. Debe asegura
 
 ### Configuraciones DSC
 
-Puede exportar las configuraciones a archivos de script con el Portal de administración de Azure o con el cmdlet [Get-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) en Windows PowerShell. Estas configuraciones se pueden importar y usar en otra cuenta de automatización.
+Puede exportar las configuraciones a archivos de script con el Portal de administración de Azure o con el cmdlet [Export-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) en Windows PowerShell. Estas configuraciones se pueden importar y usar en otra cuenta de automatización.
 
 
 ##Replicación geográfica en Automatización de Azure
@@ -84,4 +84,4 @@ La siguiente tabla muestra los emparejamientos de la región primaria y secundar
 
 En el improbable caso de que se pierdan datos de una región primaria, Microsoft intenta recuperarlos. Cuando no es posible recuperar los datos principales, se lleva a cabo la conmutación por error geográfica y se notificará a los clientes afectados al respecto a través de su suscripción.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

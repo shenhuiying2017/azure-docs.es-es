@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/19/2015"
     ms.author="v-dedomi"/>
 
 # Uso del complemento subordinado de Azure con Jenkins Continuous Integration
@@ -204,4 +204,4 @@ En esta sección, creará una tarea de Jenkins que se ejecutará en un nodo subo
 
 Jenkins creará luego un nodo subordinado con la plantilla que creó en la sección anterior y ejecutará el script especificado en el paso de compilación de esta tarea.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

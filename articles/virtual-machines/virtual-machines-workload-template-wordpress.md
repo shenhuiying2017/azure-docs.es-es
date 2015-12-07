@@ -29,7 +29,7 @@ Puede ejecutar la plantilla con el Portal de vista previa de Azure, Azure PowerS
 
 ## Portal de vista previa de Azure
 
-Para implementar esta carga de trabajo mediante una plantilla del Administrador de recursos y el portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
+Para implementar esta carga de trabajo mediante una plantilla del Administrador de recursos y el Portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-wordpress/azure-portal-template.png)
 
@@ -67,7 +67,7 @@ Aquí tiene un ejemplo.
 
 A continuación, ejecute el bloque de comandos en el símbolo del sistema de Azure PowerShell.
 
-Al ejecutar el comando **New-AzureRmResourceGroupDeployment**, se le pedirá que proporcione los valores de una serie de parámetros. Una vez especificados todos los valores de parámetro, **New-AzureRmResourceGroupDeployment** crea y configura las máquinas virtuales.
+Al ejecutar el comando **New-AzureRMResourceGroupDeployment**, se le pedirá que proporcione los valores de una serie de parámetros. Una vez especificados todos los valores de parámetro, **New-AzureRmResourceGroupDeployment** crea y configura las máquinas virtuales.
 
 Una vez completada la ejecución de la plantilla, ahora dispondrá del servidor WordPress ejecutándose en Ubuntu en su nuevo grupo de recursos.
 
@@ -106,4 +106,4 @@ Una vez completada la ejecución de la plantilla, ahora dispondrá del servidor 
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

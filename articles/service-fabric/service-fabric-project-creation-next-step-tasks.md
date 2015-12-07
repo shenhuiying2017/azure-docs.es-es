@@ -23,7 +23,17 @@ La aplicación de Service Fabric se ha creado. En este artículo se describe la 
 Cada nueva aplicación incluye un proyecto de aplicación. Puede haber uno o dos proyectos adicionales según el tipo de servicio elegido.
 
 ### El proyecto de aplicación
-El proyecto de aplicación consta de:-Un conjunto de referencias a los servicios que conforman la aplicación. -Dos perfiles (local y nube) que puede usar para mantener las preferencias para trabajar con entornos diferentes, como un punto de conexión de clúster y si se va a realizar las implementaciones de actualización de forma predeterminada. -Dos archivos de parámetros de aplicación (local y nube) que puede usar para mantener las configuraciones de la aplicación específicas del entorno, como el número de particiones que se van a crear para un servicio. -Un script de implementación que puede usar para implementar la aplicación desde la línea de comandos o como parte de una canalización de integración continua automatizada. -El manifiesto de aplicación, que describe la aplicación.
+El proyecto de aplicación consiste en:
+
+- Un conjunto de referencias a los servicios que conforman la aplicación.
+
+- Dos perfiles de publicación (local y en la nube) que puede usar para conservar las preferencias para trabajar con entornos diferentes, como un punto de conexión de clúster y si va a realizar implementaciones de actualización de forma predeterminada.
+
+- Dos archivos de parámetro de aplicación (local y en la nube) que puede usar para mantener configuraciones de aplicaciones específicas del entorno, como el número de particiones para crear un servicio.
+
+- Un script de implementación que puede usar para implementar la aplicación desde la línea de comandos o como parte de una canalización de integración continua automatizada.
+
+- El manifiesto de aplicación que describe la aplicación.
 
 ### Reliable Services
 Cuando se agregan nuevos Reliable Services, Visual Studio agrega un proyecto de servicio a la solución. El proyecto de servicio contiene una clase que se extiende desde `StatelessService` o `StatefulService` en función del tipo elegido.
@@ -36,7 +46,11 @@ El proyecto de actor define el tipo de actor y su estado, para los actores con e
 Tenga en cuenta que los proyectos de actor no contienen ningún comportamiento de inicio predeterminado, ya que los actores deben activarlos otros servicios. Considere la posibilidad de agregar un servicio fiable o un proyecto ASP.NET para crear e interactuar con los actores.
 
 ### ASP.NET 5
-Las plantillas de ASP.NET 5 proporcionadas para su uso en aplicaciones de Service Fabric son casi idénticas a las que están disponibles para los proyectos ASP.NET 5 creados de forma independiente. Las únicas diferencias son:-El proyecto contiene una carpeta **PackageRoot** para almacenar el ServiceManifest junto con los paquetes Data y Config. - El proyecto hace referencia a un paquete de NuGet adicional (Microsoft.ServiceFabric.AspNet.Hosting), que actúa como un puente entre DNX y Service Fabric.
+Las plantillas de ASP.NET 5 proporcionadas para su uso en aplicaciones de Service Fabric son casi idénticas a las que están disponibles para los proyectos ASP.NET 5 creados de forma independiente. Las únicas diferencias son:
+
+- El proyecto contiene una carpeta **PackageRoot** para almacenar ServiceManifest junto con los paquetes de datos y configuración.
+
+- El proyecto hace referencia a un paquete de NuGet adicional (Microsoft.ServiceFabric.AspNet.Hosting), que actúa como un puente entre DNX y Service Fabric.
 
 ## Pasos siguientes
 ### Adición de un front-end web a la aplicación
@@ -67,4 +81,4 @@ Para obtener información sobre cómo puede configurar un proceso de integració
 [reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

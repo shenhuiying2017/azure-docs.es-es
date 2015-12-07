@@ -21,7 +21,7 @@
 ## Elementos principales
 
 - [convenciones de sintaxis](https://msdn.microsoft.com/library/ms177563.aspx)
-- reglas de nomenclatura de objetos
+- [reglas de nomenclatura de objetos](https://msdn.microsoft.com/library/ms175874.aspx)
 - [palabras clave reservadas](https://msdn.microsoft.com/library/ms189822.aspx)
 - [intercalaciones](https://msdn.microsoft.com/library/ff848763.aspx)
 - [comentarios](https://msdn.microsoft.com/library/ms181627.aspx)
@@ -38,7 +38,7 @@
 
 - [BEGIN...END](https://msdn.microsoft.com/library/ms190487.aspx)
 - [BREAK](https://msdn.microsoft.com/library/ms181271.aspx)
-- DECLARE
+- [DECLARE @local\_variable](https://msdn.microsoft.com/library/ms188927.aspx)
 - [IF...ELSE](https://msdn.microsoft.com/library/ms182717.aspx)
 - [RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx)
 - [SET@variable\_local](https://msdn.microsoft.com/library/ms189484.aspx)
@@ -70,8 +70,7 @@
 - [IS [NOT] NULL](https://msdn.microsoft.com/library/ms188795.aspx)
 - [LIKE](https://msdn.microsoft.com/library/ms179859.aspx)
 - [NOT](https://msdn.microsoft.com/library/ms189455.aspx)
-- NULL y UNKNOWN
-- [OR](https://msdn.microsoft.com/library/ms188361.aspx)
+- [O bien](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### Operadores bit a bit
 
@@ -80,8 +79,8 @@
 - [^ (OR exclusiva bit a bit)](https://msdn.microsoft.com/library/ms190277.aspx)
 - [~ (NOT bit a bit)](https://msdn.microsoft.com/library/ms173468.aspx)
 - [^= (OR EQUALS exclusiva bit a bit)](https://msdn.microsoft.com/library/cc627413.aspx)
-- |= (OR EQUALS bit a bit)
-- de la puntuación (AND EQUALS bit a bit)
+- [|= (OR EQUALS bit a bit)](https://msdn.microsoft.com/library/cc627409.aspx)
+- [&= (AND EQUALS bit a bit)](https://msdn.microsoft.com/library/cc627427.aspx)
 
 ## Funciones
 
@@ -172,7 +171,7 @@
 - [POWER](https://msdn.microsoft.com/library/ms174276.aspx)
 - [QUOTENAME](https://msdn.microsoft.com/library/ms176114.aspx)
 - [RADIANS](https://msdn.microsoft.com/library/ms189742.aspx)
-- VRANK
+- [RANK](https://msdn.microsoft.com/library/ms176102.aspx)
 - [REPLACE](https://msdn.microsoft.com/library/ms186862.aspx)
 - [REPLICATE](https://msdn.microsoft.com/library/ms174383.aspx)
 - [REVERSE](https://msdn.microsoft.com/library/ms180040.aspx)
@@ -183,8 +182,7 @@
 - [SCHEMA\_ID](https://msdn.microsoft.com/library/ms188797.aspx)
 - [SCHEMA\_NAME](https://msdn.microsoft.com/library/ms175068.aspx)
 - [SERVERPROPERTY](https://msdn.microsoft.com/library/ms174396.aspx)
-- SESSION\_ID
-- SESSION\_USER
+- [SESSION\_USER](https://msdn.microsoft.com/library/ms177587.aspx)
 - [SIGN](https://msdn.microsoft.com/library/ms188420.aspx)
 - [SIN](https://msdn.microsoft.com/library/ms188377.aspx)
 - [SMALLDATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213396.aspx)
@@ -219,7 +217,6 @@
 - [USER\_NAME](https://msdn.microsoft.com/library/ms188014.aspx)
 - [VAR](https://msdn.microsoft.com/library/ms186290.aspx)
 - [VARP](https://msdn.microsoft.com/library/ms188735.aspx)
-- VERSION
 - [YEAR](https://msdn.microsoft.com/library/ms186313.aspx)
 - [XACT\_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
@@ -290,4 +287,4 @@ Para obtener más información de referencia, vea [Información general de refer
 
 <!--MSDN references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

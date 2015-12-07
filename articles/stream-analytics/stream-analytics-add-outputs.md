@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Agregar salidas | Microsoft Azure" 
-	description="Agregue el segmento de la ruta de aprendizaje de salidas."
+	description="Agregar salidas a los trabajos de Análisis de transmisiones | segmento de ruta de aprendizaje."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/10/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Agregar salidas
+# Cómo **agregar salidas** a los trabajos de Análisis de transmisiones
 
 Los trabajos de Análisis de transmisiones de Azure pueden estar conectados a una o más salidas, que definen una conexión a un receptor de datos existente. Conforme el trabajo del Análisis de transmisiones se procesa y transforma los datos entrantes, se escribe una secuencia de eventos de salida en la salida de su trabajo.
 
@@ -63,4 +63,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

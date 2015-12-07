@@ -33,11 +33,12 @@ En los temas siguientes se describe el modelo de aplicación de Service Fabric, 
 ## Actualizar una aplicación
 Lea lo siguiente para obtener información sobre cómo actualizar una aplicación:
 
-- [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
-- [Parámetros de actualización](service-fabric-application-upgrade-parameters.md)
-- [Temas avanzados](service-fabric-application-upgrade-advanced.md)
-- [Solucionar problemas de errores de una actualización de aplicación](service-fabric-application-upgrade-troubleshooting.md)
+- [Actualización de la aplicación de Service Fabric con Visual Studio](service-fabric-application-upgrade.md)
+- [Actualización de aplicaciones de Service Fabric con PowerShell](service-fabric-application-upgrade-powershell.md)
 - [Tutorial de actualización de la aplicación](service-fabric-application-upgrade-tutorial.md)
+- [Parámetros de actualización](service-fabric-application-upgrade-parameters.md)
+- [Actualización manual y actualización con un paquete de diferencias](service-fabric-application-upgrade-advanced.md)
+- [Solucionar problemas de errores de una actualización de aplicación](service-fabric-application-upgrade-troubleshooting.md)
 - [Actualización de la aplicación de Service Fabric: serialización de datos](service-fabric-application-upgrade-data-serialization.md)
 
 ## Escalar y crear particiones de servicios de aplicaciones
@@ -49,4 +50,4 @@ En los siguientes artículos se describen el escalado y la creación de particio
 ## Administración de un clúster
 - [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

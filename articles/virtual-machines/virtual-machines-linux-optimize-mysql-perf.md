@@ -38,11 +38,11 @@ Tenga en cuenta que existen límites en cuanto al número de discos que puede ag
 En este artículo se da por supuesto que ya ha creado una máquina virtual Linux y que MYSQL está instalado y configurado. Para obtener más información acerca de cómo empezar, consulte Instalación de MySQL en Azure.
 
 ###Configuración de RAID en Azure
-Los siguientes pasos muestran cómo crear RAID en Azure mediante el Portal de administración de Azure. También puede configurar RAID mediante scripts de Windows PowerShell. En este ejemplo, configuraremos RAID 0 con 4 discos.
+Los siguientes pasos muestran cómo crear RAID en Azure mediante el Portal de Azure. También puede configurar RAID mediante scripts de Windows PowerShell. En este ejemplo, configuraremos RAID 0 con 4 discos.
 
 ####Paso 1: Agregación de un disco de datos a la máquina virtual  
 
-En la página de máquinas virtuales del Portal de administración de Azure, haga clic en la máquina virtual a la que desea agregar un disco de datos. En este ejemplo, la máquina virtual es mysqlnode1.
+En la página de máquinas virtuales del portal de Azure, haga clic en la máquina virtual a la que desea agregar un disco de datos. En este ejemplo, la máquina virtual es mysqlnode1.
 
 ![][1]
 
@@ -348,4 +348,4 @@ Consulte las instrucciones oficiales de mysql para obtener parámetros de config
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

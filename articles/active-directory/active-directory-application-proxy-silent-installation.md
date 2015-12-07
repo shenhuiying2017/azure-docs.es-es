@@ -3,8 +3,8 @@
 	description="Explica cómo realizar una instalación silenciosa del conector de Proxy de aplicación de Azure AD para proporcionar acceso remoto seguro a las aplicaciones locales."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
-	manager="steven.powell"
+	authors="kgremban"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 # Cómo instalar de forma silenciosa el conector de Proxy de aplicación de Azure AD
 
@@ -46,21 +46,21 @@ Para ello, puede usar cualquiera de los métodos siguientes:
 
 1. Cree el objeto de credenciales de Windows PowerShell ejecutando el siguiente código, donde "username" y "password" se deben sustituir por el nombre de usuario y la contraseña del directorio:
 
-        $User = "<username>" 
-        $PlainPassword = '<password>' 
-        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force 
-        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword 
-    
+        $User = "<username>"
+        $PlainPassword = '<password>'
+        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+
 2. Vaya a **C:\\Program Files\\Microsoft AAD App Proxy Connector** y ejecute el script con el objeto de credenciales de PowerShell que creó: donde $cred es el nombre de dicho objeto:
 
-        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred 
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
 
 
 ### Registrar el conector utilizando un token creado sin conexión
 
 1. Cree un token sin conexión mediante la clase AuthenticationContext con los valores del código, por ejemplo:
 
-        
+
         using System;
         using System.Diagnostics;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -142,4 +142,4 @@ Hay mucho más que puede hacer con el proxy de la aplicación:
 * [Registro en Azure como una organización](sign-up-organization.md)
 * [Identidad de Azure](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

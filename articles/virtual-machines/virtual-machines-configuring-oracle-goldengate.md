@@ -14,7 +14,7 @@
 	ms.date="06/22/2015"
 	ms.author="bbenz" />
 
-	
+
 #Configuración de Oracle GoldenGate para Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
@@ -95,7 +95,7 @@ En versiones posteriores de la Base de datos de Oracle y de Oracle GoldenGate, e
 ##1\. Configurar la base de datos en los sitios A y B
 En esta sección se explica cómo realizar los requisitos previos de la base de datos en los sitios A y B. Debe realizar todos los pasos de esta sección en ambos sitios: sitios A y B.
 
-En primer lugar, establezca un escritorio remoto para los sitios A y B a través del Portal de administración. Abra un símbolo del sistema de Windows y cree un directorio de inicio para los archivos de instalación de Oracle GoldenGate:
+En primer lugar, establezca un escritorio remoto para los sitios A y B a través del Portal de Azure. Abra un símbolo del sistema de Windows y cree un directorio de inicio para los archivos de instalación de Oracle GoldenGate:
 
 	mkdir C:\OracleGG
 
@@ -285,7 +285,7 @@ Inicie el proceso de administrador:
 
 ###Crear procesos de extracción y bombeo de datos en el sitio A
 
-Deberá crear los procesos Extract y de bombeo de datos en los sitios A y B. Establezca un escritorio remoto en los sitios A y B a través del Portal de administración. Abra una ventana de intérprete de comandos GGSCI. Ejecute los comandos siguientes en el sitio A:
+Deberá crear los procesos Extract y de bombeo de datos en los sitios A y B. Establezca un escritorio remoto en los sitios A y B a través del Portal de Azure. Abra una ventana de intérprete de comandos GGSCI. Ejecute los comandos siguientes en el sitio A:
 
 	GGSCI (MachineGG1) 14> add extract ext1 tranlog begin now
 	EXTRACT added.
@@ -602,4 +602,4 @@ Establezca un escritorio remoto en el sitio A y compruebe si la replicación ha 
 ##Recursos adicionales
 [Imágenes de máquina virtual de Oracle para Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

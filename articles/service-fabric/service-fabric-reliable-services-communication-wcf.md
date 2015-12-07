@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="11/12/2015"
+   ms.date="11/17/2015"
    ms.author="bharatn@microsoft.com"/>
 
 # Pila de comunicación basada en WCF de servicios fiables
-El marco de servicios de confianza permite a los autores de servicio decidir la pila de comunicación que desean usar para su servicio. Pueden conectar la pila de comunicaciones que deseen mediante el `ICommunicationListener` devuelto desde el método [`CreateCommunicationListener`](../service-fabric-reliable-service-communication.md). El marco de trabajo proporciona una implementación basada en WCF de la pila de comunicación para los autores de servicio que desean utilizar la comunicación basada en WCF.
+El marco de servicios de confianza permite a los autores de servicio decidir la pila de comunicación que desean usar para su servicio. Pueden conectar la pila de comunicaciones que deseen mediante el `ICommunicationListener` devuelto desde los métodos [CreateServiceReplicaListeners o CreateServiceInstanceListeners](service-fabric-reliable-service-communication.md). El marco de trabajo proporciona una implementación basada en WCF de la pila de comunicación para los autores de servicio que desean utilizar la comunicación basada en WCF.
 
 ## Agente de escucha de comunicación WCF
 La implementación específica de WCF de `ICommunicationListener` es proporcionada por la clase `Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener`.
@@ -47,7 +47,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 ```
 
 ## Escritura de clientes para la pila de comunicación de WCF
-Para que los clientes de escritura se comuniquen con los servicios mediante WCF, el marco de trabajo proporciona `WcfClientCommunicationFactory`, que es la implementación específica de WCF de [`ClientCommunicationFactoryBase`](../service-fabric-reliable-service-communication.md).
+Para que los clientes de escritura se comuniquen con los servicios mediante WCF, el marco de trabajo proporciona `WcfClientCommunicationFactory`, que es la implementación específica de WCF de [`ClientCommunicationFactoryBase`](service-fabric-reliable-service-communication.md).
 
 ```csharp
 
@@ -114,4 +114,4 @@ var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
 
 * [Web API con OWIN en Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

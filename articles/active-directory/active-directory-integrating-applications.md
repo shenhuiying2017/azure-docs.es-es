@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/25/2015"
+   ms.date="11/24/2015"
    ms.author="mbaldwin" />
 
 # Integración de aplicaciones con Azure Active Directory
@@ -349,6 +349,6 @@ Para que un administrador de la compañía quite el acceso de una aplicación a 
 
 - Descripción del [manifiesto de aplicación de Azure Active Directory](active-directory-application-manifest.md)
 
-- Visite la [Guía del desarrollador de Active Directory](active-directory-developer's guide.md)
+- Visite la [Guía del desarrollador de Azure Active Directory](active-directory-developers-guide.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -18,6 +18,14 @@
 
 #Notas de la versión del SDK de Windows Universal Apps
 
+##3\.2.0 (20/11/2015)
+
+-   Se ha agregado compatibilidad para aplicaciones de la Plataforma universal de Windows de Windows 10.
+-   Se ha agregado una función de uso compartido de canales de inserción para solucionar los conflictos de canales (ahora es compatible con los Centros de notificaciones de Azure).
+-   Bloqueo fijo al solicitar el identificador del dispositivo justo después de la inicialización.
+-   Mejoras de los registros de consola.
+-   Bloqueo solucionado durante el análisis de algunas excepciones no controladas.
+
 ##3\.1.0 (05/21/2015)
 
 -   El identificador de dispositivo de Mobile Engagement ahora se basa en un GUID que se genera durante la instalación.
@@ -41,4 +49,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

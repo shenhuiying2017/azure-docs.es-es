@@ -3,9 +3,9 @@
 	description="Aprenda a usar una aplicación web en el Servicio de aplicaciones de Azure con io.js." 
 	services="app-service\web" 
 	documentationCenter="nodejs" 
-	authors="felixrieseberg" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/03/2015"
-	ms.author="mwasson" />
+	ms.date="11/20/2015"
+	ms.author="robmcm" />
 
 # Uso de io.js con aplicaciones web del Servicio de aplicaciones de Azure
 
@@ -27,7 +27,7 @@ Aunque Aplicaciones web del [Servicio de aplicaciones de Azure](http://go.micros
 
 Tras la implementación de una aplicación de Node.js, Aplicaciones web del Servicio de aplicaciones ejecuta varios comandos pequeños para asegurarse de que el entorno está configurado correctamente. Mediante un script de implementación, este proceso se puede personalizar para que incluya la descarga y configuración de io.js.
 
-El [script de implementación de io.js] está disponible en GitHub. Para habilitar io.js en una aplicación web, solo es preciso copiar **.deployment**, **deploy.cmd** y **IISNode.yml** en la raíz de la carpeta de aplicaciones e implementarlos en Aplicaciones web.
+El [script de implementación de io.js](https://github.com/felixrieseberg/iojs-azure) está disponible en GitHub. Para habilitar io.js en una aplicación web, solo es preciso copiar **.deployment**, **deploy.cmd** y **IISNode.yml** en la raíz de la carpeta de aplicaciones e implementarlos en Aplicaciones web.
 
 El primer archivo, **.deployment**, indica a Aplicaciones Web que ejecute **deploy.cmd** tras la implementación. Este script ejecuta todos los pasos habituales de una aplicación de Node.js, pero también descarga la versión más reciente de io.js. Por último, **IISNode.yml** configura Aplicaciones Web para que utilice el binario de io.js que se acaba de descargar, en lugar de un binario de Node.js preinstalado.
 
@@ -58,7 +58,7 @@ En este artículo ha aprendido a usar io.js con Aplicaciones web del Servicio de
 [io.js]: https://iojs.org
 [distribución de io.js]: https://iojs.org/dist/
 [io.js en GitHub]: https://github.com/iojs/io.js
-[script de implementación de io.js]: https://github.com/felixrieseberg/iojs-azure
+[io.js Deployment Script]: https://github.com/felixrieseberg/iojs-azure
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

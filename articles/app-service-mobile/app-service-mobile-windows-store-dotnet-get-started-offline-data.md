@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.date="11/22/2015"
 	ms.author="wesmc"/>
 
 # Activación de la sincronización sin conexión para la aplicación de Windows
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Información general
 
@@ -36,7 +34,7 @@ Este tutorial requiere lo siguiente:
 
 * Visual Studio 2013 en Windows 8.1.
 * Finalización del tutorial [Creación de una aplicación para Windows][create a windows app].
-* [Almacén SQLite de Servicios móviles de Azure versión 2.0.0-beta][sqlite store nuget]
+* [Almacén SQLite de Servicios móviles de Azure versión 2.0.0-beta2][sqlite store nuget]
 * [SQLite para Windows 8.1](http://www.sqlite.org/downloads)
 
 ## Actualización de la aplicación cliente para que admita características sin conexión
@@ -184,11 +182,10 @@ En esta sección, modificará la aplicación cliente para simular un escenario s
 
 1. Edite App.xaml.cs en el proyecto compartido. Convierta en comentario la inicialización de **MobileServiceClient** y agregue las siguientes líneas, que utilizan una dirección URL de una aplicación móvil no válida:
 
-         public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://your-service.azurewebsites.fail",
-            "https://your-gateway.azurewebsites.fail",
-            ""
-        );
+         public static MobileServiceClient MobileService = 
+				new MobileServiceClient("https://your-service.azurewebsites.fail");
+
+	Tenga en cuenta que, cuando la aplicación también usa autenticación, el inicio de sesión dará error. También puede mostrar el comportamiento sin conexión deshabilitando las redes Wi-Fi y móvil en el dispositivo o usar el modo avión.
 
 2. Presione **F5** para compilar y ejecutar la aplicación. Observe que la sincronización no se pudo actualizar cuando se inició la aplicación.
 3. Escriba algunos nuevos elementos de lista de tareas y haga clic en **Guardar** para cada uno. Se produce un error de inserción en cada uno con `PushResult.Status=CancelledByNetworkError`. Los nuevos elementos todo solo están en el almacén local hasta que se puedan insertar en el back-end de aplicación móvil. 
@@ -197,17 +194,15 @@ En esta sección, modificará la aplicación cliente para simular un escenario s
 
 4. Cierre la aplicación y reiníciela para comprobar que los nuevos elementos que creó se mantienen en el almacén local.
 
-5. (Opcional) Use Visual Studio para ver la tabla de base de datos SQL de Azure y observar que los datos de la base de datos de back-end no han cambiado.
+5. En Visual Studio, abra el **Explorador de servidores**. Vaya a la base de datos en **Azure**->**Bases de datos SQL**. Haga clic con el botón derecho en la base de datos y seleccione **Abrir en el Explorador de objetos de SQL Server**. Ahora puede buscar la tabla de base de datos SQL y su contenido. Compruebe que no han cambiado los datos de la base de datos back-end.
 
-   En Visual Studio, abra el **Explorador de servidores**. Vaya a la base de datos en **Azure**->**Bases de datos SQL**. Haga clic con el botón derecho en la base de datos y seleccione **Abrir en el Explorador de objetos de SQL Server**. Ahora puede buscar la tabla de base de datos SQL y su contenido.
-
-6. (Opcional) Use una herramienta REST como Fiddler o Postman para consultar el back-end móvil mediante una consulta GET con la forma `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`. 
+6. (Opcional) Use una herramienta REST como Fiddler o Postman para consultar el back-end móvil mediante una consulta GET con la forma `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`.
 
 ## <a name="update-online-app"></a>Actualización de la aplicación para volver a conectar el back-end de la aplicación móvil
 
 En esta sección se vuelve a conectar al back-end de aplicación móvil. De este modo se simula que la aplicación pasa de un estado sin conexión a un estado en línea con el back-ende de aplicación móvil. Cuando ejecute la aplicación por primera vez, el controlador de eventos `OnNavigatedTo` llamará a `InitLocalStoreAsync`. Esto llamará a su vez a `SyncAsync` para sincronizar el almacén local con la base de datos back-end. Por lo tanto, la aplicación intentará sincronizarse en el inicio.
 
-1. En el proyecto compartido, abra App.xaml.cs. Quite los comentarios de la inicialización anterior de `MobileServiceClient` para usar las direcciones URL y la puerta de enlace correctas de la aplicación móvil.
+1. En el proyecto compartido, abra App.xaml.cs. Quite los comentarios de la inicialización anterior de `MobileServiceClient` para usar las direcciones URL correctas de la aplicación móvil y la puerta de enlace.
 
 2. Presione la tecla **F5** para volver a compilar y ejecutar el proyecto. La aplicación sincroniza los cambios locales con el back-end de la aplicación móvil de Azure mediante las operaciones de inserción y extracción una vez que se ejecuta el controlador de eventos `OnNavigatedTo`.
 
@@ -215,7 +210,7 @@ En esta sección se vuelve a conectar al back-end de aplicación móvil. De este
 
 4. En la aplicación, haga clic en la casilla situada junto a algunos elementos para completarlos en el almacén local.
 
-  `UpdateCheckedTodoItem` llama a `SyncAsync` para sincronizar cada elemento completo con el back-end de la aplicación móvil. `SyncAsync` llama a las operaciones de inserción y extracción. Sin embargo, tenga en cuenta que **cada vez que se ejecuta una extracción en una tabla en la que el cliente ha realizado cambios, primero se ejecuta una inserción de forma automática en el contexto de sincronización de cliente**. De este modo, se asegurará de que todas las tablas del almacén local, junto con las relaciones, sean coherentes. Así que, en este caso, podríamos haber eliminado la llamada a `PushAsync` porque esta se ejecuta automáticamente cuando se ejecuta una extracción. Este comportamiento puede producir una inserción inesperada si no se está al tanto de la operación. Para obtener más información sobre este comportamiento, consulte [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
+  `UpdateCheckedTodoItem` llama a `SyncAsync` para sincronizar cada elemento completo con el back-end de la aplicación móvil. `SyncAsync` llama a las operaciones de inserción y extracción. Sin embargo, tenga en cuenta que **cada vez que se ejecuta una extracción en una tabla en la que el cliente ha realizado cambios, primero se ejecuta una inserción de forma automática en el contexto de sincronización de cliente**. De este modo, se asegurará de que todas las tablas del almacén local, junto con las relaciones, sean coherentes. Así que, en este caso, podríamos haber eliminado la llamada a `PushAsync` porque esta se ejecuta automáticamente cuando se ejecuta una extracción. Este comportamiento puede producir una inserción inesperada si no se está al tanto de la operación. Para más información sobre este comportamiento, consulte [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
 
 
 ##Resumen
@@ -251,7 +246,7 @@ Cuando queremos sincronizar el almacén local con el servidor, usamos los métod
 
 * [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]
 
-* [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure] (nota: el vídeo trata sobre Servicios móviles, pero la sincronización sin conexión funciona de forma similar en Aplicaciones móviles de Azure)
+* [Descripción de la nube: sincronización sin conexión en Servicios móviles de Azure] (nota: el vídeo trata sobre Servicios móviles, pero la sincronización sin conexión funciona de forma similar en Aplicaciones móviles de Azure)
 
 * [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure]
 
@@ -278,7 +273,7 @@ Cuando queremos sincronizar el almacén local con el servidor, usamos los métod
 [azure mobile app sdk nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
 [sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/2.0.0-beta
  
-[Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Descripción de la nube: sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/20/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
@@ -74,16 +74,7 @@ Las opciones disponibles incluyen:
 
 | Opción | Detalles | Valor predeterminado |
 | ---- | ----- | ----- |
-| /q | Instalación desatendida | - |
-| /p:"ubicación" | Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. | C:\Archivos de programa\Microsoft Azure Recovery Services Agent |
-| /s:"ubicación" | Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. | C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch |
-| /m | Participar en Microsoft Update | - |
-| /nu | No comprobar si hay actualizaciones cuando finalice la instalación | - |
-| /d | Desinstala el agente de Servicios de recuperación de Microsoft Azure | - |
-| /ph | Dirección de host del proxy | - |
-| /po | Número de puerto de host del proxy | - |
-| /pu | Nombre de usuario de host del proxy | - |
-| /pw | Contraseña del proxy | - |
+| /q | Instalación desatendida | - | | /p:"ubicación" | Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent | | /s:"ubicación" | Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | Participar en Microsoft Update | - | | /nu | No comprobar si hay actualizaciones cuando finalice la instalación | - | | /d | Desinstala el agente de Servicios de recuperación de Microsoft Azure | - | | /ph | Dirección de host del proxy | - | | /po | Número de puerto de host del proxy | - | | /pu | Nombre de usuario de host del proxy | - | | /pw | Contraseña del proxy | - |
 
 
 ### Registro con el servicio de Copia de seguridad de Azure
@@ -181,8 +172,6 @@ La directiva de retención define cuánto tiempo se conservan los puntos de recu
 ```
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
-
-> [AZURE.NOTE]Actualmente, los cmdlet de PowerShell no son compatibles con la configuración de directivas de retención a largo plazo. Use la consola de la interfaz de usuario de Copia de seguridad de Azure para establecer políticas de retención a largo plazo.
 
 La directiva de retención debe estar asociada con la directiva principal mediante el cmdlet [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405):
 
@@ -595,4 +584,4 @@ Para obtener más información sobre Copia de seguridad de Azure para Windows Se
 - [Introducción a la Copia de seguridad de Azure](backup-configure-vault.md)
 - [Copia de seguridad de servidores Windows](backup-azure-backup-windows-server.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

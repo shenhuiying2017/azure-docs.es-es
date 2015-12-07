@@ -92,8 +92,13 @@ Aquí le mostramos cómo funciona:
 
 Para facilitar este proceso, se proporciona un conjunto de [ejemplos de código](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) que crean un punto de conexión de servicio web SCIM y demuestran el aprovisionamiento automático. Uno de los ejemplos es de un proveedor que mantiene un archivo con filas de valores separados por comas que representan a usuarios y grupos. El otro es de un proveedor que funciona en el servicio de identidad y administración de acceso de Amazon Web Services.
 
+**Requisitos previos**
 
-**Requisitos previos** * Visual Studio 2013 o posterior * [Azure SDK para .NET](https://azure.microsoft.com/es-ES/downloads/) * Máquina de Windows compatible con ASP.NET Framework 4.5 para su uso como punto de conexión SCIM. Se debe poder tener acceso a esta máquina desde la nube * [Una suscripción de Azure con una versión de prueba o con licencia de Azure AD Premium](https://azure.microsoft.com/es-ES/services/active-directory/) * El ejemplo de Amazon AWS requiere bibliotecas del [Kit de herramientas de AWS para Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). Consulte el archivo Léame incluido con el ejemplo para obtener más información
+* Visual Studio 2013 o posterior.
+* [SDK de Azure para .NET](https://azure.microsoft.com/es-ES/downloads/)
+* Equipo de Windows que admite el ASP.NET framework 4.5 que se usará como punto de conexión SCIM. Este equipo debe ser accesible desde la nube
+* [Una suscripción de Azure con una versión de prueba o con licencia de Azure AD Premium](https://azure.microsoft.com/es-ES/services/active-directory/)
+* El ejemplo de Amazon AWS requiere bibliotecas de [AWS Toolkit for Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). Consulte el archivo Léame incluido con el ejemplo para obtener más información
 
 ###Introducción
 
@@ -370,7 +375,7 @@ Los recursos del grupo se identifican mediante el identificador de esquema http:
 
 La siguiente ilustración muestra los mensajes que Azure Active Directory enviará a un servicio SCIM para administrar el ciclo de vida de un usuario en otro almacén de identidades. El diagrama también muestra cómo un servicio SCIM implementado mediante las bibliotecas de Common Language Infrastructure proporcionadas por Microsoft para la creación de dichos servicios traducirá esas solicitudes a llamadas a los métodos de un proveedor.
 
-![][4] Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios
+![][4] *Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
 
 **1.** Azure Active Directory consultará el servicio para un usuario con un valor de atributo externalId que coincida con el valor de atributo mailNickname de un usuario en Azure Active Directory. La consulta se expresará como una solicitud de Protocolo de transferencia de hipertexto como esta, donde jyoung es un ejemplo de un mailNickname de un usuario en Azure Active Directory:
 
@@ -433,7 +438,7 @@ En el caso del ejemplo anterior de una consulta para un usuario con un valor esp
 * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
 * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
-**2.** Si la respuesta a una consulta al servicio para un usuario con un valor de atributo externalId que coincide con el valor de atributo mailNickname de un usuario en Azure Active Directory no devuelve ningún usuario, Azure Active Directory solicitará al servicio que aprovisione un usuario correspondiente a uno en Azure Active Directory. Este es un ejemplo de dicha solicitud:
+**2.** Si la respuesta a una consulta al servicio para un usuario con un valor de atributo externalId que coincide con el valor de atributo mailNickname de un usuario en Azure Active Directory no devuelve ningún usuario, Azure Active Directory solicitará al servicio que aprovisione un usuario correspondiente al de Azure Active Directory. Este es un ejemplo de dicha solicitud:
 
     POST https://.../scim/Users HTTP/1.1
     Authorization: Bearer ...
@@ -677,7 +682,7 @@ La siguiente ilustración muestra los mensajes que Azure Active Directory enviar
 * Las solicitudes para recuperar grupos estipulan que el atributo members se excluirá de cualquier recurso proporcionado en respuesta a la solicitud.  
 * Las solicitudes para determinar si un atributo de referencia tiene un valor determinado serán solicitudes sobre el atributo members.  
 
-![][5] Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios
+![][5] * Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
 
 	
 <!--Image references-->
@@ -687,4 +692,4 @@ La siguiente ilustración muestra los mensajes que Azure Active Directory enviar
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

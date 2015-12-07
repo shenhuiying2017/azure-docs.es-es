@@ -33,7 +33,7 @@ Para integrar la aplicación con Azure AD, siga la [instrucciones para desarroll
 
 * Proporcione credenciales para una cuenta o inquilino de prueba con la aplicación que el equipo de Azure AD puede usar para probar la integración.  
 
-* Proporcione instrucciones sobre cómo el equipo de Azure AD puede iniciar sesión y conectarse a una instancia de Azure AD para la aplicación mediante el [marco de consentimiento de Azure AD](https://azure.microsoft.com/es-ES/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework).
+* Proporcione instrucciones sobre cómo el equipo de Azure AD puede iniciar sesión y conectarse a una instancia de Azure AD para la aplicación mediante el [marco de consentimiento de Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework).
 
 * Proporcione las instrucciones que sean necesarias para que el equipo de Azure AD pruebe el inicio de sesión único con la aplicación.
 
@@ -65,11 +65,11 @@ Para integrar la aplicación con Azure AD, siga la [instrucciones para desarroll
 
 ##Integración SAML
 
-Cualquier aplicación compatible con SAML 2.0 se puede integrar directamente con un inquilino de Azure AD mediante [estas instrucciones para agregar una aplicación personalizada](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx). Una vez que haya probado que la integración de la aplicación funciona con Azure AD, envíe la información siguiente a <waadpartners@microsoft.com>.
+Cualquier aplicación compatible con SAML 2.0 se puede integrar directamente con un inquilino de Azure AD mediante [estas instrucciones para agregar una aplicación personalizada](active-directory-saas-custom-apps.md). Una vez que haya probado que la integración de la aplicación funciona con Azure AD, envíe la información siguiente a <waadpartners@microsoft.com>.
 
 * Proporcione credenciales para una cuenta o inquilino de prueba con la aplicación que el equipo de Azure AD puede usar para probar la integración.  
 
-* Proporcione los valores de dirección URL de inicio de sesión de SAML, de dirección URL del emisor (identificador de entidad) y de dirección URL de respuesta (servicio de consumidor de aserciones) para la aplicación, tal y como se describe [aquí](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx). Si normalmente proporciona estos valores como parte de un archivo de metadatos SAML, envíelos también.
+* Proporcione los valores de dirección URL de inicio de sesión de SAML, de dirección URL del emisor (identificador de entidad) y de dirección URL de respuesta (servicio de consumidor de aserciones) para la aplicación, tal y como se describe [aquí](active-directory-saas-custom-apps.md). Si normalmente proporciona estos valores como parte de un archivo de metadatos SAML, envíelos también.
 
 * Proporcione una breve descripción de cómo configurar Azure AD como proveedor de identidades en la aplicación mediante SAML 2.0. Si la aplicación admite la configuración de Azure AD como proveedor de identidades a través de un portal administrativo de autoservicio, asegúrese de que las credenciales proporcionadas anteriormente incluyen la capacidad para configurar esto.
 
@@ -89,7 +89,7 @@ Cualquier aplicación compatible con SAML 2.0 se puede integrar directamente con
 > 
 > Dirección URL de suscripción a una aplicación donde van los clientes para suscribirse o adquirir la aplicación:
 > 
-> Elija hasta tres categorías donde desea que se anuncie la aplicación (para ver las categorías disponibles, consulte [Azure Active Directory Marketplace](https://azure.microsoft.com/es-ES/marketplace/active-directory/)):
+> Elija hasta tres categorías donde quiere que se anuncie la aplicación (para ver las categorías disponibles, vea [Azure Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/))):
 > 
 > Adjunte un icono pequeño de la aplicación (archivo PNG, 45 px por 45 px, color de fondo sólido):
 > 
@@ -97,4 +97,4 @@ Cualquier aplicación compatible con SAML 2.0 se puede integrar directamente con
 > 
 > Adjunte el logotipo de la aplicación (archivo PNG, 150 px por 122 px, color de fondo transparente):
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

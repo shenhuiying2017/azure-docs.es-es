@@ -62,7 +62,6 @@ Hay cuatro botones en la barra de herramientas que puede usar para crear entidad
 2. Verá la plantilla JSON para crear un servicio vinculado a un proceso en el lienzo del Editor a la derecha. Haga lo siguiente:
 	1. En **Clúster de HDInsight a petición**, especifique los valores para las propiedades siguientes: 
 		1. En la propiedad **clusterSize**, especifique el tamaño del clúster de HDInsight que desea que el servicio Factoría de datos cree en tiempo de ejecución. 
-		2. En la propiedad **jobsContainer**, especifique el nombre del contenedor de blobs predeterminado donde desea que se almacenen los registros de clúster.
 		3. En la propiedad **timeToLive**, especifique el tiempo de inactividad permitido antes de que se elimine el clúster de HDInsight. Por ejemplo: 00:05:00 indica que el clúster debería eliminarse después de 5 minutos de tiempo de inactividad.
 		4. En la propiedad **version**, especifique la versión de HDInsight para el clúster (valor predeterminado: versión 3.1).
 		5. En la propiedad **linkedServiceName**, especifique el servicio de almacenamiento vinculado de Azure que se asociará con el clúster de HDInsight. 
@@ -221,4 +220,4 @@ Consulte el tema [Introducción a la Factoría de datos de Azure][data-factory-g
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

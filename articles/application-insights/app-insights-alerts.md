@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Definición de alertas en Application Insights
@@ -215,6 +215,11 @@ remoteDependencyFailed| [Dependencia](app-insights-configuration-with-applicatio
 request,<br/>requestFailed|[Solicitud de servidor](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
 
+## Consulte también
+
+
+* [Crear Application Insights y recursos de pruebas web a partir de plantillas](app-insights-powershell.md)
+
 <!--Link references-->
 
 [availability]: app-insights-monitor-web-app-availability.md
@@ -225,4 +230,4 @@ request,<br/>requestFailed|[Solicitud de servidor](app-insights-configuration-wi
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

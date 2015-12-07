@@ -109,7 +109,7 @@ Cree una dirección IP pública que usará el grupo de direcciones IP front-end:
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip 
 
->[AZURE.NOTE]La propiedad de etiqueta nombre de dominio de dirección IP pública será el FQDN del equilibrador de carga.
+>[AZURE.NOTE]La propiedad de etiqueta nombre de dominio de dirección IP pública será el prefijo del FQDN del equilibrador de carga.
 
 ## Creación de un grupo de direcciones IP front-end y un grupo de direcciones back-end
 
@@ -282,4 +282,4 @@ Use el comando Remove-AzureLoadBalancer para eliminar un equilibrador de carga c
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

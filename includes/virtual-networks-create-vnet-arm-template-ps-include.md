@@ -4,9 +4,9 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 
 1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
 
-3. Si es necesario, ejecute el cmdlet **New-AzureRMResourceGroup** para crear un nuevo grupo de recursos. El siguiente comando crea un grupo de recursos denominado *TestRG* en la región *Central US* de Azure. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](resource-group-overview.md).
+3. Si es necesario, ejecute el cmdlet **New-AzureRmResourceGroup** para crear un nuevo grupo de recursos. El siguiente comando crea un grupo de recursos denominado *TestRG* en la región *Central US* de Azure. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](resource-group-overview.md).
 
-		New-AzureRMResourceGroup -Name TestRG -Location centralus
+		New-AzureRmResourceGroup -Name TestRG -Location centralus
 		
 	Este es el resultado esperado del comando anterior:
 
@@ -20,9 +20,9 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 		                    *
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
-4. Ejecute el cmdlet **New-AzureRMResourceGroupDeployment** para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que descargó y modificó antes.
+4. Ejecute el cmdlet **New-AzureRmResourceGroupDeployment** para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que descargó y modificó antes.
 
-		New-AzureRMResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
+		New-AzureRmResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
 			-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 			
 	Este es el resultado esperado del comando anterior:
@@ -46,10 +46,10 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 		
 		Outputs           :
 
-5. Ejecute el cmdlet **Get-AzureRMVirtualNetwork** para ver las propiedades de la nueva red virtual, tall y como se muestra a continuación.
+5. Ejecute el cmdlet **Get-AzureRmVirtualNetwork** para ver las propiedades de la nueva red virtual, tall y como se muestra a continuación.
 
 
-		Get-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 		
 	Este es el resultado esperado del comando anterior:
 		
@@ -92,4 +92,4 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 		                      }
 		                    ]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

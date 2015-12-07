@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/12/2015"
+   ms.date="11/19/2015"
    ms.author="joaoma" />
 
 # Cambio de la configuración de tiempo de espera de inactividad de TCP para el equilibrador de carga
@@ -166,4 +166,4 @@ Actualizar la configuración de los extremos de entrada de carga equilibrada esp
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

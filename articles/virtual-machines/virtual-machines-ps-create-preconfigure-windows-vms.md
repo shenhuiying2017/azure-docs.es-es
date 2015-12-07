@@ -20,7 +20,7 @@
 # Crear máquinas virtuales de Windows con PowerShell y el modelo de implementación clásica 
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
 - [Powershell - Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 - [PowerShell - Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
@@ -265,4 +265,4 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="11/21/2015" 
 	ms.author="awills"/>
 
 # La detección y el diagnóstico se bloquean en las aplicaciones de la Tienda Windows y de Windows Phone con Application Insights
@@ -102,4 +102,4 @@ Si compila en la configuración de lanzamiento, los eventos se almacenan en el d
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Introducción detallada sobre los planes del Servicio de aplicaciones de Azure" 
 	description="Obtenga información acerca de cómo funcionan los planes del Servicio de aplicaciones de Azure y cómo benefician a su experiencia de administración." 
+	keywords="servicio de aplicaciones, servicio de aplicaciones de azure, escala, escalable, plan del servicio de aplicaciones, costo del servicio de aplicaciones"
 	services="app-service" 
 	documentationCenter="" 
 	authors="btardif" 
@@ -56,7 +57,7 @@ A continuación, puede seleccionar o crear el plan del Servicio de aplicaciones 
   
  ![][createASP]
 
-Para crear un nuevo plan de Servicio de aplicaciones, haga clic en **+ Crear nuevo**, escriba el nombre del **plan del Servicio de aplicaciones** y seleccione una **ubicación** adecuada. Haga clic en el **Plan de tarifa** y seleccione un plan de tarifa adecuado para el servicio. Seleccione **Ver todos** para ver más opciones de precios, como **Gratis** y **Compartido**. Una vez haya seleccionado el nivel de precios, haga clic en el botón **Seleccionar**.
+Para crear un nuevo plan de Servicio de aplicaciones, haga clic en **+ Crear nuevo**, escriba el nombre del **plan del Servicio de aplicaciones** y seleccione una **ubicación** adecuada. Haga clic en el **Plan de tarifa** y seleccione un plan de tarifa adecuado para el servicio. Seleccione **Ver todos** para ver más opciones de precios, como **Gratis** y **Compartido**. Una vez haya seleccionado el plan de tarifa, haga clic en el botón **Seleccionar**.
  
 ## Cambio de una aplicación a un plan del Servicio de aplicaciones diferente
 
@@ -100,4 +101,4 @@ Los planes del Servicio de aplicaciones representan un conjunto de característi
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

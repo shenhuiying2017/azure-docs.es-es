@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Servicios vinculados de procesos | Microsoft Azure" 
-	description="Obtenga información sobre los entornos de procesos que puede usar en las canalizaciones de la Factoría de datos de Azure para transformar y procesar datos." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Servicios vinculados de procesos | Microsoft Azure"
+	description="Obtenga información sobre los entornos de procesos que puede usar en las canalizaciones de la Factoría de datos de Azure para transformar y procesar datos."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/09/2015" 
+<tags
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/09/2015"
 	ms.author="spelluru"/>
 
 # Servicios vinculados de procesos
@@ -33,7 +33,7 @@ El servicio Factoría de datos de Azure crea el clúster de HDInsight a petició
 Tenga en cuenta los siguientes puntos **importantes** acerca del servicio vinculado de HDInsight a petición:
 
 - No verá el clúster de HDInsight a petición creado en su suscripción de Azure; el servicio Factoría de datos de Azure administra el clúster de HDInsight a petición en su nombre.
-- Los registros de trabajos que se ejecutan en un clúster de HDInsight a petición se copian en la cuenta de almacenamiento asociada al clúster de HDInsight. Puede tener acceso a estos registros desde el Portal de Azure en la hoja **Detalles de ejecución de la actividad**. Consulte el artículo [Supervisión y administración de canalizaciones](data-factory-monitor-manage-pipelines.md) para obtener más información. 
+- Los registros de trabajos que se ejecutan en un clúster de HDInsight a petición se copian en la cuenta de almacenamiento asociada al clúster de HDInsight. Puede tener acceso a estos registros desde el Portal de Azure en la hoja **Detalles de ejecución de la actividad**. Consulte el artículo [Supervisión y administración de canalizaciones](data-factory-monitor-manage-pipelines.md) para obtener más información.
 - Se le cobrará solo por el tiempo en el que el clúster de HDInsight esté en ejecución y realizando trabajos.
 
 > [AZURE.IMPORTANT]Normalmente se tarda más de **15 minutos** en aprovisionar un clúster de HDInsight a petición de Azure.
@@ -46,7 +46,6 @@ Tenga en cuenta los siguientes puntos **importantes** acerca del servicio vincul
 	    "type": "HDInsightOnDemand",
 	    "typeProperties": {
 	      "clusterSize": 4,
-	      "jobsContainer": "adfjobs",
 	      "timeToLive": "00:05:00",
 	      "version": "3.1",
 		  "osType": "linux",
@@ -64,13 +63,12 @@ Tenga en cuenta los siguientes puntos **importantes** acerca del servicio vincul
 Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
 type | La propiedad type se debe establecer en **HDInsightOnDemand**. | Sí
-clusterSize | El tamaño del clúster a petición. Especifique el número de nodos que desea que haya en este clúster a petición. | Sí 
-jobscontainer | El contenedor de blobs que contiene los datos usados por los trabajos de pig/hive/paquete y donde se almacenarán los registros de clúster. | Sí
-timetolive | <p>El tiempo de inactividad permitido para el clúster de HDInsight a petición. Especifica cuánto tiempo permanecerá el clúster de HDInsight a petición activo después de la finalización de una ejecución de actividad si no hay ningún otro trabajo activo en el clúster.</p><p>Por ejemplo, si una ejecución de actividad tarda 6 minutos y timetolive está establecido en 5 minutos, el clúster permanece activo durante 5 minutos después de los 6 minutos de procesamiento de la ejecución de actividad. Si se realiza otra ejecución de actividad con un margen de 6 minutos, la procesa el mismo clúster.</p><p>La creación de un clúster de HDInsight a petición es una operación costosa (puede tardar bastante), por lo que se recomienda usar esta opción cuando sea necesario para mejorar el rendimiento de una factoría de datos mediante la reutilización de un clúster de HDInsight a petición.</p><p>Si establece el valor de timetolive en 0, el clúster se elimina en cuanto se procese la ejecución de actividad. Por otra parte, si establece un valor alto, el clúster puede permanecer inactivo innecesariamente, lo que conlleva unos costos elevados. Por lo tanto, es importante que establezca el valor adecuado en función de sus necesidades.</p><p>Varias canalizaciones pueden compartir la misma instancia del clúster de HDInsight a petición si el valor de la propiedad timetolive está correctamente configurado</p> | Sí
+clusterSize | El tamaño del clúster a petición. Especifique el número de nodos que desea que haya en este clúster a petición. | Sí
+timetolive | <p>El tiempo de inactividad permitido para el clúster de HDInsight a petición. Especifica cuánto tiempo permanecerá activo el clúster de HDInsight a petición después de la finalización de una ejecución de actividad si no hay ningún otro trabajo activo en el clúster.</p><p>Por ejemplo, si una ejecución de actividad tarda 6 minutos y timetolive está establecido en 5 minutos, el clúster permanece activo durante 5 minutos después de los 6 minutos de procesamiento de la ejecución de actividad. Si se realiza otra ejecución de actividad con un margen de 6 minutos, la procesa el mismo clúster.</p><p>La creación de un clúster de HDInsight a petición es una operación costosa (puede tardar bastante), por lo que se recomienda usar esta opción cuando sea necesario para mejorar el rendimiento de una factoría de datos con la reutilización de un clúster de HDInsight a petición.</p><p>Si establece el valor de timetolive en 0, el clúster se elimina en cuanto se procesa la ejecución de actividad. Por otra parte, si establece un valor alto, el clúster puede permanecer inactivo innecesariamente, lo que conlleva unos costos elevados. Por lo tanto, es importante que establezca el valor adecuado en función de sus necesidades.</p><p>Varias canalizaciones pueden compartir la misma instancia del clúster de HDInsight a petición si el valor de la propiedad timetolive está correctamente configurado</p>. | Sí
 versión | Versión del clúster de HDInsight. | No
 linkedServiceName | El almacén de blobs que usará el clúster a petición para almacenar y procesar datos. | Sí
 additionalLinkedServiceNames | Especifica cuentas de almacenamiento adicionales para el servicio vinculado de HDInsight, de forma que el servicio Factoría de datos pueda registrarlas en su nombre. | No
-osType | Tipo de sistema operativo. Los valores permitidos son: windows (valor predeterminado) y linux | No 
+osType | Tipo de sistema operativo. Los valores permitidos son: windows (valor predeterminado) y linux | No
 
 ### Propiedades avanzadas
 
@@ -95,7 +93,6 @@ yarnConfiguration | Especifica los parámetros de configuración Yarn (yarn-site
 	    "type": "HDInsightOnDemand",
 	    "typeProperties": {
 	      "clusterSize": 16,
-	      "jobsContainer": "adfjobs",
 	      "timeToLive": "01:30:00",
 	      "version": "3.1",
 	      "linkedServiceName": "adfods1",
@@ -123,14 +120,14 @@ yarnConfiguration | Especifica los parámetros de configuración Yarn (yarn-site
 	  }
 	}
 
-## Traer su propio entorno de procesos 
+## Traer su propio entorno de procesos
 
 En este tipo de configuración, los usuarios pueden registrar un entorno de procesos existente como un servicio vinculado en la Factoría de datos. El usuario administra el entorno de procesos y el servicio Factoría de datos lo usa para ejecutar las actividades.
- 
+
 Este tipo de configuración se admite para los entornos de procesos siguientes:
 
 - HDInsight de Azure
-- Azure Batch 
+- Azure Batch
 - Aprendizaje automático de Azure.
 
 ## Servicio vinculado de HDInsight de Azure
@@ -169,10 +166,10 @@ linkedServiceName | Nombre del servicio vinculado para el almacenamiento de blob
 Puede crear un servicio vinculado de Lote de Azure para registrar un grupo de lotes de máquinas virtuales (VM) en una factoría de datos. Puede ejecutar actividades personalizadas .NET con Lote de Azure o HDInsight de Azure.
 
 Consulte los temas siguientes si no está familiarizado con el servicio Lote de Azure:
- 
 
-- [Información técnica de Lote de Azure](../batch/batch-technical-overview.md) para obtener información general del servicio Lote de Azure.
-- Cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) para crear una cuenta de Lote de Azure (o) [Portal de administración de Azure](../batch/batch-technical-overview.md) para crear la cuenta de Lote de Azure mediante el Portal de administración de Azure. Consulte el tema [Uso de Azure PowerShell para administrar la cuenta de Lote de Azure](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) para obtener instrucciones detalladas sobre cómo usar este cmdlet.
+
+- [Aspectos básicos de Lote de Azure](../batch/batch-technical-overview.md) para obtener información general del servicio Lote de Azure.
+- Cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) para crear una cuenta de Lote de Azure (o) [Portal de administración de Azure](../batch/batch-account-create-portal.md) para crear la cuenta de Lote de Azure con el Portal de administración de Azure. Consulte el tema [Uso de Azure PowerShell para administrar la cuenta de Lote de Azure](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) para obtener instrucciones detalladas sobre cómo usar este cmdlet.
 - Cmdlet [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) para crear un grupo de Lote de Azure.
 
 ### Ejemplo
@@ -191,8 +188,8 @@ Consulte los temas siguientes si no está familiarizado con el servicio Lote de 
 	}
 
 Agregue "**.<nombre de región>**" al nombre de la cuenta de lote para la propiedad **accountName**. Ejemplo:
-	
-			"accountName": "mybatchaccount.eastus" 
+
+			"accountName": "mybatchaccount.eastus"
 
 Otra opción es proporcionar el extremo batchUri tal como se muestra a continuación.
 
@@ -237,7 +234,7 @@ apiKey | La API del modelo de área de trabajo publicado. | Sí
 
 
 ## Servicio vinculado con el Análisis con Azure Data Lake
-Cree un servicio vinculado de **Análisis de Azure Data Lake** para vincular un servicio de proceso de Análisis de Azure Data Lake a una factoría de datos de Azure antes de usar la [actividad U-SQL de Análisis de Data Lake](data-factory-usql-activity.md) en una canalización.
+Cree un servicio vinculado con **Análisis con Azure Data Lake** para vincular un servicio de proceso de Análisis con Azure Data Lake a un generador de datos de Azure antes de usar la [actividad U-SQL de Análisis con Data Lake](data-factory-usql-activity.md) en una canalización.
 
 En el ejemplo siguiente se proporciona la definición de JSON de un servicio vinculado de Análisis con Azure Data Lake.
 
@@ -249,7 +246,7 @@ En el ejemplo siguiente se proporciona la definición de JSON de un servicio vin
 	            "accountName": "adftestaccount",
 	            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
 	            "authorization": "<authcode>",
-				"sessionId": "<session ID>", 
+				"sessionId": "<session ID>",
 	            "subscriptionId": "<subscription id>",
 	            "resourceGroupName": "<resource group name>"
 	        }
@@ -263,9 +260,9 @@ Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
 Tipo | La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. | Sí
 accountName | Nombre de la cuenta de Análisis de Azure Data Lake | Sí
-dataLakeAnalyticsUri | Identificador URI de Análisis de Azure Data Lake. | No 
-authorization | El código de autorización se recupera automáticamente después de hacer clic en el botón **Autorizar** situado en el Editor de Factoría de datos y de completar el inicio de sesión de OAuth. | Sí 
-subscriptionId | Identificador de suscripción de Azure. | No (si no se especifica, se usa la suscripción de la factoría de datos). 
+dataLakeAnalyticsUri | Identificador URI de Análisis de Azure Data Lake. | No
+authorization | El código de autorización se recupera automáticamente después de hacer clic en el botón **Autorizar** situado en el Editor de la factoría de datos y de completar el inicio de sesión de OAuth. | Sí
+subscriptionId | Identificador de suscripción de Azure. | No (si no se especifica, se usa la suscripción de la factoría de datos).
 resourceGroupName | Nombre del grupo de recursos de Azure. | No (si no se especifica, se usa el grupo de recursos de la factoría de datos).
 sessionId | Identificador de sesión de la sesión de autorización de OAuth. Cada identificador de sesión es único y solo puede usarse una vez. Esto se genera automáticamente en el Editor de Factoría de datos. | Sí
 
@@ -274,13 +271,4 @@ sessionId | Identificador de sesión de la sesión de autorización de OAuth. Ca
 
 Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Factoría de datos. Consulte el artículo [Conector SQL de Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para obtener más información acerca de este servicio vinculado.
 
-
-  
-
-
-
-     
- 
-   
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

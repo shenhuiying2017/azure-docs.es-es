@@ -3,9 +3,9 @@
 	description="Un tutorial que le enseña a usar WebMatrix para desarrollar una aplicación Node.js e implementarla en aplicaciones web del Servicio de aplicaciones de Azure." 
 	services="app-service\web" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/03/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 # Creación e implementación de una aplicación web Node.js en Azure con WebMatrix
 
-Este tutorial muestra la forma de usar WebMatrix para desarrollar una aplicación node.js e implementarla en aplicaciones web del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714). WebMatrix es una herramienta gratuita de desarrollo web de Microsoft que incluye todo lo que se necesita para el desarrollo de sitios o aplicaciones web. WebMatrix incluye varias características que facilitan el uso de Node.js, incluida la finalización de código, plantillas pregeneradas y compatibilidad del editor para Jade, LESS y CoffeeScript. Obtenga más información sobre [WebMatrix para Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409).
+Este tutorial muestra la forma de usar WebMatrix para desarrollar una aplicación node.js e implementarla en aplicaciones web del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714). WebMatrix es una herramienta gratuita de desarrollo web de Microsoft que incluye todo lo que se necesita para el desarrollo de sitios o aplicaciones web. WebMatrix incluye varias características que facilitan el uso de Node.js, incluida la finalización de código, plantillas pregeneradas y compatibilidad del editor para Jade, LESS y CoffeeScript. Obtenga más información sobre [WebMatrix](https://www.microsoft.com/web/webmatrix/).
 
 Una vez completada esta guía, dispondrá una aplicación web Node.js que se ejecuta en el Servicio de aplicaciones de Azure.
  
@@ -85,7 +85,7 @@ Puede modificar y volver a publicar su aplicación fácilmente. En este caso, re
 
 	![Visualización de index.jade de webmatrix][webmatrix-modify-index]
 
-2. Cambie la segunda línea a lo siguiente:
+2. Cambie la línea del párrafo a lo siguiente:
 
 		p Welcome to #{title} with WebMatrix on Azure!
 
@@ -126,4 +126,4 @@ Si tiene problemas con la aplicación después de la implementación en Azure, c
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

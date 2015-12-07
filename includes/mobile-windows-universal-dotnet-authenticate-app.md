@@ -1,5 +1,5 @@
 
-1. Open the shared project file MainPage.cs and add the following code snippet to the MainPage class:
+1. Abra el archivo de proyecto compartido MainPage.cs y agregue el siguiente fragmento de código a la clase MainPage:
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -32,13 +32,13 @@
             return success;
         }
 
-    This code authenticates the user with a Facebook login. If you are using an identity provider other than Facebook, change the value of **MobileServiceAuthenticationProvider** above to the value for your provider.
+    Este código autentica al usuario con un inicio de sesión de Facebook. Si está usando un proveedor de identidades diferente al de Facebook, cambie el valor de **MobileServiceAuthenticationProvider** anterior por el valor de su proveedor.
 
-3. Comment-out or delete the call to the **RefreshTodoItems** method in the existing **OnNavigatedTo** method override.
+3. Elimine o convierta en comentario la llamada al método **RefreshTodoItems** en el reemplazo del método **OnNavigatedTo** existente.
 
-	This prevents the data from being loaded before the user is authenticated. Next, you will add a **Sign in** button to the app that triggers authentication.
+	Esto impide que los datos se carguen antes de que el usuario se haya autenticado. A continuación, agregará un botón **Iniciar sesión** a la aplicación que desencadena la autenticación.
 
-4. Add the following code snippet to the MainPage class:
+4. Agregue el siguiente fragmento de código a la clase MainPage:
 
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -52,17 +52,17 @@
             }
         }
 		
-5. In the Windows Store app project, open the MainPage.xaml project file and add the following **Button** element just before the element that defines the **Save** button:
+5. En el proyecto de aplicación de la Tienda Windows, abra el archivo de proyecto MainPage.xaml y agregue el siguiente elemento **Botón** inmediatamente antes del elemento que define el botón **Guardar**:
 
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. In the Windows Phone Store app project, add the following **Button** element in the **ContentPanel**, after the **TextBox** element:
+6. En el proyecto de la aplicación de la Tienda de Windows Phone, agregue el siguiente elemento **Button** a **ContentPanel**, después del elemento **TextBlock**:
 
         <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
         	Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
 
-8. Open the shared App.xaml.cs project file and add the following code:
+8. Abra el archivo de proyecto App.xaml.cs compartido y agregue el siguiente código:
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
@@ -79,12 +79,14 @@
             base.OnActivated(args);
         }
 
-	If the **OnActivated** method already exists, just add the `#if...#endif` code block.
+	Si el método **OnActivated** ya existe, agregue el bloque de código `#if...#endif`.
 
-9. Press the F5 key to run the Windows Store app, click the **Sign in** button, and sign into the app with your chosen identity provider. 
+9. Presione la tecla F5 para ejecutar la aplicación de la Tienda Windows, haga clic en el botón **Iniciar sesión e inicie sesión** en la aplicación con el proveedor de identidad que haya elegido.
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query your backend and make updates to data.
+   	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores, y podrá consultar su back-end y realizar actualizaciones de los datos.
 
-10. Right-click the Windows Phone Store app project, click **Set as StartUp Project**, then repeat the previous step to verify that the Windows Phone Store app also runs correctly.  
+10. Haga clic con el botón secundario en el proyecto de aplicación de la Tienda Windows Phone, haga clic en **Establecer como proyecto de inicio** y repita el paso anterior para comprobar que la aplicación de la Tienda Windows Phone también se ejecuta correctamente.
 
  
+
+<!---HONumber=AcomDC_1125_2015-->

@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="11/19/2015"
 	ms.author="jgao"/>
 
 
 #Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight
 
 ##Versiones de HDInsight y componentes de Hadoop
-HDInsight de Azure es compatible con varias versiones de clústeres de Hadoop que se pueden implementar en cualquier momento. Cada versión crea una versión específica de la distribución HortonWorks Data Platform (HDP) y un conjunto de componentes que están incluidos en esa distribución. En la tabla siguiente se detallan las versiones de componente asociadas a las versiones de clúster de HDInsight. Tenga en cuenta que la versión de clúster predeterminada que usa HDInsight de Azure actualmente es la 3.1 y, desde 07/11/2014, basada en HDP 2.1.8.
+HDInsight de Azure es compatible con varias versiones de clústeres de Hadoop que se pueden implementar en cualquier momento. Cada versión crea una versión específica de la distribución HortonWorks Data Platform (HDP) y un conjunto de componentes que están incluidos en esa distribución. En la tabla siguiente se detallan las versiones de componente asociadas a las versiones de clúster de HDInsight. Tenga en cuenta que la versión de clúster predeterminada que usa HDInsight de Azure actualmente es la 3.2 y, desde el 19/11/2015, basada en HDP 2.2.8.
 
 
 Componente|HDInsight versión 3.2|HDInsight versión 3.1 (predeterminada)|HDInsight versión 3.0|HDInsight versión 2.1
@@ -66,7 +66,7 @@ Algunas de las características más destacadas de la plataforma de HDInsight in
 
 - **Storm** : Storm en HDInsight de Azure ya está disponible con carácter general y ofrece una manera rápida y fácil de implementar análisis en tiempo real con solo unos cuantos clics y en pocos minutos. Apache Storm en HDInsight de Azure es un proyecto de código abierto en el ecosistema de Apache Hadoop que proporciona acceso a una plataforma de análisis capaz de procesar millones de eventos de forma confiable. Ahora los usuarios de Hadoop pueden obtener información a medida que ocurren los eventos, además de información de eventos anteriores. Microsoft también proporciona integración con Visual Studio, lo que facilita la interacción de los desarrolladores con Storm. Ahora puede desarrollar, implementar y depurar topologías de Storm desde Visual Studio.
 
-- **HDInsight en Linux**: HDInsight de Azure ofrece la opción de crear clústeres Hadoop que se ejecutan en máquinas virtuales (VM) de Linux (Ubuntu). Puede usar esta opción si conoce Linux o Unix, si realiza una migración desde una solución de Hadoop basada en Linux existente o si desea una integración simple con los componentes del ecosistema de Hadoop creados para Linux. Puede crear un clúster de HDInsight en Linux desde un equipo cliente que ejecuta Windows o Linux mediante el portal de vista previa de Azure, la CLI de Azure o SDK de .NET de HDInsight (solo Windows).
+- **HDInsight en Linux**: HDInsight de Azure ofrece la opción de crear clústeres Hadoop que se ejecutan en máquinas virtuales (VM) de Linux (Ubuntu). Puede usar esta opción si conoce Linux o Unix, si realiza una migración desde una solución de Hadoop basada en Linux existente o si desea una integración simple con los componentes del ecosistema de Hadoop creados para Linux. Puede crear un clúster de HDInsight en Linux desde un equipo cliente que ejecuta Windows o Linux mediante el portal de vista previa de Azure, la CLI de Azure o el SDK de .NET de HDInsight (solo Windows).
 
 - **Tamaños de máquinas virtuales adicionales**: los clústeres de HDInsight ahora están disponibles en varios tamaños y tipos de máquinas virtuales. Los clústeres de HDInsight ahora pueden usar los tamaños A2 a A7 creados para fines generales; nodos de la serie D que cuentan con unidades de estado sólido (SSD) y procesadores un 60 por ciento más rápidos; y tamaños A8 y A9 con compatibilidad InfiniBand para una red rápida. Los clientes de Apache HBase en HDInsight de Azure se pueden beneficiar de las configuraciones de memoria más grandes de la serie D para aumentar el rendimiento. Los clientes de Apache Storm en HDInsight de Azure también pueden beneficiarse de la memoria adicional para cargar grandes conjuntos de datos de referencia, así como de CPU más rápidas, para obtener un mayor rendimiento.
 
@@ -162,4 +162,4 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

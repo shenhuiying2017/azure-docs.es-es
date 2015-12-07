@@ -3,7 +3,7 @@
 	description="Configurar una máquina virtual de ciencia de datos"
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm" 
 	editor="cgronlun"  />
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/23/2015"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Máquinas virtuales de ciencia de datos en Azure
 
-Este menú vincula a temas en los que se describe cómo configurar los diversos entornos de ciencia de datos usados por el proceso de análisis de Cortana (CAPS).
+Este menú vincula a temas en los que se describe cómo configurar los diversos entornos de ciencia de datos usados por el proceso de análisis de Cortana (CAP).
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
@@ -34,10 +34,10 @@ Se ofrecen instrucciones que describen cómo configurar una máquina virtual de 
 
 * [Configuración de una máquina virtual de Azure como servidor del Notebook de IPython para realizar análisis avanzados](machine-learning-data-science-setup-sql-server-virtual-machine.md) muestra cómo aprovisionar una máquina virtual de SQL Server de Azure con el Notebook de IPython y otras herramientas que se usan para realizar ciencia de datos en los casos en que pueda usarse una base de datos SQL para almacenar los datos.
 
-Una vez aprovisionadas y configuradas, estas máquinas virtuales están preparadas para usarse como servidores de Bloc de notas de IPython para la exploración y el procesamiento de datos, y para otras tareas necesarias junto con los procesos de ciencia de datos en la nube y de Aprendizaje automático de Azure. Los pasos siguientes del proceso de ciencia de datos se asignan en la [Guía de aprendizaje: procesamiento avanzado de datos en Azure](machine-learning-data-science-advanced-data-processing.md) y pueden incluir pasos que muevan datos a SQL Server o HDInsight, los procese y muestree allí como preparación para el aprendizaje a partir de los datos con Aprendizaje automático de Azure.
+Una vez aprovisionadas y configuradas, estas máquinas virtuales están preparadas para usarse como servidores de Bloc de notas de IPython para la exploración y el procesamiento de datos, y para otras tareas necesarias junto con el Aprendizaje automático de Azure y el Proceso de análisis de Cortana (CAP). Los pasos siguientes del proceso de ciencia de datos se asignan en la [Ruta de acceso de aprendizaje de CAP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) y pueden incluir pasos que muevan datos a SQL Server o HDInsight, los procese y muestree allí como preparación para el aprendizaje a partir de los datos con Aprendizaje automático de Azure.
 
 
 > [AZURE.NOTE]Las máquinas virtuales de Azure tienen unas tarifas del tipo **pague solo por lo que use**. Para asegurarse de que no se le facture cuando no use la máquina virtual, debe estar en el estado **Detenida (desasignada)** en el [Portal de administración de Azure](http://manage.windowsazure.com/). Para obtener instrucciones paso a paso sobre cómo desasignar la máquina virtual, consulte [Apagado y desasignación de la máquina virtual cuando no esté en uso](machine-learning-data-science-setup-virtual-machine.md#shutdown).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

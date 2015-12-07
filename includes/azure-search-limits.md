@@ -11,5 +11,7 @@ Servicios de búsqueda máximos|12 por cada suscripción de Azure
 Número máximo de indexadores|10 por servicio Búsqueda
 Número máximo de orígenes de datos|10 por servicio Búsqueda
 Número máximo de documentos que se pueden indexar en una sola invocación de indexador|Sin límite
+Número máximo de perfiles de puntuación por índice|16
+Número máximo de funciones por perfil|8
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

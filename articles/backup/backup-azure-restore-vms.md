@@ -49,9 +49,9 @@ Puede restaurar una máquina virtual en una nueva máquina virtual desde las cop
   - Especifique el nombre de la máquina virtual: en un servicio de nube determinado, el nombre de la máquina virtual debe ser único. Si planea reemplazar una máquina virtual existente con el mismo nombre, primero elimine la máquina virtual existente y los discos de datos y, a continuación, restaure los datos de copia de seguridad de Azure.
   - Seleccione un servicio de nube para la máquina virtual: esto es obligatorio para la creación de una máquina virtual. Puede usar un servicio de nube existente o crear un nuevo servicio de nube.
 
-        Sea cual sea el nombre del servicio en la nube que se elija, este debe ser exclusivo. Habitualmente, el nombre del servicio en la nube queda asociado a una URL de acceso público de esta forma: [cloudservice].cloudapp.net. Azure no permite crear un nuevo servicio en la nube si el nombre elegido ya está en uso. Si se decide crea un nuevo servicio en la nube, este recibirá el mismo nombre que la máquina virtual, en cuyo caso el nombre de la VM elegida deberá ser exclusivo también para poder aplicarse al servicio en la nube que se le asocie.
+        Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
 
-        Solo se muestran servicios en la nube y redes virtuales que no están asociadas con ningún grupo de afinidad en los detalles de la instancia de restauración. [Más información](https://msdn.microsoft.com/es-es/library/azure/jj156085.aspx).
+        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 2. Seleccione una cuenta de almacenamiento para la máquina virtual: esto es obligatorio para la creación de una máquina virtual. Puede seleccionar desde cuentas de almacenamiento existentes en la misma región que el almacén de copia de seguridad de Azure. No se admiten cuentas de almacenamiento redundantes de zona ni de almacenamiento Premium.
 
@@ -101,8 +101,36 @@ El problema surge porque el modo DSRM no está presente en Azure. Así que para 
 
 Obtenga más información sobre el [problema de reversión de USN](https://technet.microsoft.com/library/dd363553) y las estrategias sugeridas para corregirlo.
 
+## Restauración de máquinas virtuales con configuraciones de red especiales
+Copia de seguridad de Azure es compatible con copia de seguridad para las siguientes configuraciones de red especiales de máquinas virtuales.
+
+- Máquinas virtuales en el equilibrador de carga (interno y externo)
+- Máquinas virtuales con varias direcciones IP reservadas
+- Paso 3: Creación de máquinas virtuales con varias NIC
+
+Estas configuraciones exigen las siguientes consideraciones al restaurarlas.
+
+>[AZURE.TIP]Use el flujo de restauración basado en PowerShell para volver a crear la configuración de red especial posterior a la restauración de máquinas virtuales.
+
+### Restauración a partir de la interfaz de usuario:
+Al restaurar desde la interfaz de usuario, **elija siempre un nuevo servicio en la nube**. Tenga en cuenta que, puesto que portal solo acepta parámetros obligatorios durante el flujo de restauración, las máquinas virtuales restauradas con la interfaz de usuario perderán la configuración de red especial que posean. En otras palabras, las máquinas virtuales restauradas serán máquinas virtuales normales sin configuración de equilibrador de carga ni de varias NIC o varias IP reservadas.
+
+### Restauración a partir de PowerShell:
+PowerShell tiene la capacidad de restaurar solo los discos de máquina virtual de la copia de seguridad y no crear la máquina virtual. Esto resulta útil al restaurar máquinas virtuales que requieran las configuraciones de red especiales mencionadas anteriormente.
+
+Con el fin de volver a crear por completo los discos de máquina virtual posteriores a la restauración, siga estos pasos:
+
+1. Restaure los discos desde el almacén de copia de seguridad mediante [PowerShell con Copia de seguridad de Azure](https://azure.microsoft.com/en-in/documentation/articles/backup-azure-vms-automation/#restore-an-azure-vm).
+
+2. Cree la configuración de máquina virtual necesaria para el equilibrador de carga/varias NIC/varias IP reservadas mediante los cmdlets de PowerShell y úsela para crear la máquina virtual de la configuración que quiera.
+	- Creación de una máquina virtual en el servicio en la nube con el [equilibrador de carga interno ](https://azure.microsoft.com/es-ES/documentation/articles/load-balancer-internal-getstarted/)
+	- Creación de una máquina virtual para conectarse al [equilibrador de carga accesible desde Internet](https://azure.microsoft.com/es-ES/documentation/articles/load-balancer-internet-getstarted)
+	- Creación de una máquina virtual con [varias NIC](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-multiple-nics)
+	- Creación de una máquina virtual con [varias direcciones IP reservadas](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-reserved-public-ip/)
+  
+
 ## Pasos siguientes
 - [Solución de errores](backup-azure-vms-troubleshoot.md#restore)
 - [Administración de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

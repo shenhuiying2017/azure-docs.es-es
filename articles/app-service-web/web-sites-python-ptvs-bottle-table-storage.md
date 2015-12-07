@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/18/2015"
+	ms.author="huvalo"/>
 
 
 # Bottle y Almacenamiento de tablas de Azure en Azure con Python Tools 2.2 para Visual Studio 
@@ -67,13 +67,11 @@ En esta sección, vamos a crear un proyecto de Visual Studio con la utilización
 
 Necesita una cuenta de almacenamiento de Azure para usar operaciones de almacenamiento. Siga estos pasos para crear una cuenta de almacenamiento.
 
-1.  Inicie sesión en el [Portal de Azure].
+1.  Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
-2. Haga clic en el icono **Nuevo** situado en la parte inferior izquierda del portal y haga clic en **Datos + Almacenamiento** > **Almacenamiento**. Asigne un nombre único a la cuenta de almacenamiento y cree un [grupo de recursos](../resource-group-overview.md) nuevo para ella.
+2. Haga clic en el icono **Nuevo** situado en la parte superior izquierda del portal y haga clic en **Datos + Almacenamiento** > **Cuenta de almacenamiento**. Haga clic en el botón **Crear** y, a continuación, asigne un nombre único a la cuenta de almacenamiento y cree un [grupo de recursos](../resource-group-overview.md) nuevo para ella.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
-
-	Una vez creada la cuenta de almacenamiento, el botón **Notificaciones** emitirá el mensaje **CORRECTO** en color verde y la hoja de la cuenta de almacenamiento se abrirá para mostrar que pertenece al nuevo grupo de recursos que ha creado.
+  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->Una vez creada la cuenta de almacenamiento, el botón **Notificaciones** emitirá el mensaje **CORRECTO** en color verde y la hoja de la cuenta de almacenamiento se abrirá para mostrar que pertenece al nuevo grupo de recursos que ha creado.
 
   	<!-- ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png) -->
 
@@ -102,6 +100,8 @@ En esta sección, vamos a configurar nuestra aplicación para usar la cuenta de 
 1.  El código que implementa el repositorio de Almacenamiento de tablas de Azure se encuentra en **models/azuretablestorage.py**. Consulte la [documentación] para obtener más información sobre cómo usar el servicio Tabla en Python.
 
 1.  Presione `F5` para ejecutar la aplicación. Los sondeos creados con **Create Sample Polls** (Crear sondeos de ejemplo) y los datos enviados al votar se serializarán en el Almacenamiento de tablas de Azure.
+
+	> [AZURE.NOTE]El entorno virtual de Python 2.7 pueden producir una interrupción de excepción en Visual Studio. Presione `F5` para continuar cargando el proyecto web.
 
 1.  Vaya a la página **Acerca de** para comprobar que la aplicación usa el repositorio de **Almacenamiento de tablas de Azure**.
 
@@ -198,7 +198,6 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 
 <!--External Link references-->
 [Examinar]: https://portal.azure.com
-[Portal de Azure]: https://portal.azure.com
 [SDK de Azure para .NET]: http://azure.microsoft.com/downloads/
 [Herramientas de Python para Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=624025
@@ -216,4 +215,4 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 [SDK de Azure para Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -14,10 +14,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/10/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Registros de operaciones
+# Descripción de los registros de operaciones del Análisis de transmisiones
 
 Todos los servicios de Azure ofrecen mensajes de registro operativo a los usuarios para registrar los detalles relacionados con las operaciones de administración. En el Análisis de transmisiones de Azure, esta información se puede usar para depuración, como ver el estado del trabajo, el progreso del trabajo y los mensajes de error para realizar el seguimiento del progreso de un trabajo con el tiempo, desde el inicio hasta el procesamiento y la salida.
 
@@ -96,4 +96,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

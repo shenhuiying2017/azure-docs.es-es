@@ -27,11 +27,11 @@ A fin de ofrecer la mejor experiencia posible a los usuarios, se recomienda expl
 | ¿Cómo se puede cambiar el número de métodos de autenticación necesarios? | [Configuración: número de métodos de autenticación necesarios](#number-of-authentication-methods-required) |
 | ¿Cómo se configuran preguntas de seguridad personalizadas? | [Configuración: preguntas de seguridad personalizadas](#custom-security-questions) |
 | ¿Cómo se configuran preguntas de seguridad localizadas predefinidas? | [Configuración: preguntas de seguridad basadas en el conocimiento](#knowledge-based-security-questions) |
-| ¿Cómo puedo cambiar el número de preguntas de seguridad que son necesarias? | [Configuración: número de preguntas de seguridad de registro o restablecimiento](#number-of-questions-required-to-register) |
+| ¿Cómo se puede cambiar el número de preguntas de seguridad que son necesarias? | [Configuración: número de preguntas de seguridad de registro o restablecimiento](#number-of-questions-required-to-register) |
 | ¿Cómo puedo forzar a que mis usuarios se registren al iniciar sesión? | [Implementación de restablecimiento de contraseña basado en registro forzoso](#require-users-to-register-when-signing-in) |
-| ¿Cómo puedo forzar a que mis usuarios confirmen de nuevo su registro periódicamente? | [Configuración: número de días antes de que los usuarios deban confirmar nuevamente sus datos de autenticación](#number-of-days-before-users-must-confirm-their-contact-data) |
+| ¿Cómo se puede forzar a que los usuarios confirmen de nuevo su registro periódicamente? | [Configuración: número de días antes de que los usuarios deban confirmar nuevamente sus datos de autenticación](#number-of-days-before-users-must-confirm-their-contact-data) |
 | ¿Cómo puedo personalizar cómo los usuarios se ponen en contacto con un administrador? | [Configuración: personalización del vínculo "póngase en contacto con su administrador"](#customize-the-contact-your-administrator-link) |
-| ¿Cómo puedo permitir que los usuarios desbloqueen cuentas de AD sin restablecer una contraseña? | [Configuración: permitir que los usuarios desbloqueen sus cuentas de AD sin restablecer una contraseña](#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| ¿Cómo se puede permitir que los usuarios desbloqueen cuentas de AD sin restablecer una contraseña? | [Configuración: permitir que los usuarios desbloqueen sus cuentas de AD sin restablecer una contraseña](#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | ¿Cómo se pueden habilitar las notificaciones de restablecimiento de contraseña para los usuarios? | [Configuración: notificar a los usuarios cuando sus contraseñas se han restablecido](#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | ¿Cómo se pueden habilitar las notificaciones de restablecimiento de contraseña para los administradores? | [Configuración: notificar a otros administradores cuando un administrador restablezca su propia contraseña](#notify-admins-when-other-admins-reset-their-own-passwords) |
 | ¿Cómo se puede personalizar la apariencia del restablecimiento de contraseña? | [Configuración: nombre, marca y logotipo de la empresa ](#password-managment-look-and-feel) |
@@ -857,10 +857,10 @@ En la tabla siguiente se describe cómo afecta cada control a la experiencia de 
 
 <br/> <br/> <br/>
 
-## Vínculos a documentación de restablecimiento de contraseña
+## Vínculos a la documentación de restablecimiento de la contraseña
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema
+* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password.md): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema.
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis diferentes componentes del servicio y lo que hace cada uno.
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
 * [**Prácticas recomendadas**](active-directory-passwords-best-practices.md): obtenga información sobre cómo implementar rápidamente y administrar eficazmente las contraseñas de la organización.
@@ -872,4 +872,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

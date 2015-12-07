@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/20/2015"
+   ms.date="11/24/2015"
    ms.author="rickbyh"/>
 
 # Instrucciones y limitaciones de seguridad de Base de datos SQL de Azure
@@ -109,4 +109,6 @@ Tenga en cuenta los siguientes puntos para que las aplicaciones de Base de datos
 
 [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md)
 
-<!---HONumber=Nov15_HO3-->
+[Centro de seguridad para el Motor de base de datos de SQL Server y Base de datos SQL Azure](https://msdn.microsoft.com/library/bb510589)
+
+<!---HONumber=AcomDC_1125_2015-->

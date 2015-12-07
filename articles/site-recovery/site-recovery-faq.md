@@ -78,11 +78,11 @@ No es una opción admitida. Envíenos sus comentarios a través del [foro de com
 ## Compatibilidad de versiones
 
 ### ¿Qué versiones de hosts y clústeres de Windows Server son compatibles?
-Windows Server 2012 y Windows Server 2012 R2 pueden usarse cuando se elige la réplica de Hyper-V para permitir la replicación y protección entre sitios de Hyper-V.
+Windows Server 2012 y Windows Server 2012 R2 pueden usarse cuando se elige la réplica de Hyper-V para permitir la replicación y protección entre dos sitios de Hyper-V locales. Windows Server 2012 R2 es necesario cuando desea configurar la replicación desde un servidor de Hyper-v en Azure.
 
 
-### ¿Qué versiones de sistemas operativos invitados de Hyper-V son compatibles?
-La lista más actualizada de los sistemas operativos invitados compatibles está disponible en el tema [Acerca de las máquinas virtuales y los sistemas operativos invitados](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
+### ¿Qué versiones de sistemas operativos invitados son compatibles?
+Para la protección de una ubicación local a otra, la lista más actualizada de los sistemas operativos invitados compatibles está disponible en el tema [Acerca de las máquinas virtuales y los sistemas operativos invitados](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). Para escenarios de Hyper-v a Azure, Recuperación de sitios de Azure admite todos los sistemas operativos invitados compatibles con Azure. Para obtener información sobre el escenario de VMware a Azure, consulte [este artículo](site-recovery-vmware-to-azure.md#before-you-start)
 
 ### ¿Puedo configurar la protección de máquinas virtuales cuando se ejecuta Hyper-V en un sistema operativo cliente?
 
@@ -148,12 +148,6 @@ No se requiere ninguna configuración específica. Los componentes de proveedor 
 ### ¿El servidor de Hyper-V debe ser miembro del dominio?
 
 No, el servidor no necesita estar en un dominio.
-
-### ¿Qué versiones de hosts y clústeres de Windows Server son compatibles?
-Se pueden usar Windows Server 2012 y Windows Server 2012 R2 cuando se utiliza la replicación de ASR e Hyper-V entre sitios de Hyper-V y Azure.
-
-### ¿Qué versiones de sistemas operativos invitados son compatibles?
-La lista más actualizada de los sistemas operativos invitados compatibles está disponible en el artículo [Acerca de las máquinas virtuales y los sistemas operativos invitados](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 
 ## Implementación entre dos centros de datos VMM
 
@@ -256,4 +250,4 @@ Para empezar a implementar ASR:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

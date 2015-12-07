@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Llamada a una aplicación de API desde un cliente autenticado" 
 	description="Aprenda a llamar a una aplicación de API de Azure desde un cliente de aplicación web autenticado por Azure Active Directory." 
+	keywords="servicio de aplicaciones, servicio de aplicaciones de azure,autenticación,autenticación de azure,api,api de autenticación"
 	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
@@ -64,7 +65,7 @@ En este tutorial, se supone que sabe cómo trabajar con proyectos web en Visual 
 
 	Siga las instrucciones que aparecen en [Implementación de una aplicación de API](app-service-dotnet-deploy-api-app.md).
 
-	En el [Portal de vista previa de Azure], la hoja **Definición de API** de la aplicación de API ahora muestra los métodos Get y Post del proyecto de API de web que implementó.
+	En el [Portal de vista previa de Azure], la hoja **Definición de API** de la aplicación de API ahora muestra los métodos Get y Post del proyecto de API web que implementó.
 
 	![](./media/app-service-api-authentication-client-flow/apiappinportal.png)
 
@@ -76,13 +77,13 @@ En este tutorial, se supone que sabe cómo trabajar con proyectos web en Visual 
 
 	![](./media/app-service-api-authentication-client-flow/aadblade.png)
 
-	Además, la pestaña **Configurar** de la aplicación de AAD en el [Portal de Azure] tiene la dirección URL del id. de la aplicación de la aplicación de API y la dirección URL de respuesta.
+	Además, la pestaña **Configurar** de la aplicación de AAD en el [Portal de Azure] tiene la dirección URL del id. de aplicación de la aplicación de API y la dirección URL de respuesta.
 
 	![](./media/app-service-api-authentication-client-flow/aadconfig.png)
 
 ## Creación y protección de una aplicación web con AAD
 
-En esta sección, descargará y configurará un proyecto web configurado para la autenticación de AAD. El proyecto tiene una página **Acerca de** que muestra información de notificaciones del usuario conectado.
+En esta sección, descargará y configurará un proyecto web configurado para la autenticación de AAD. El proyecto tiene una página **Acerca de** que muestra información de notificaciones del usuario con sesión iniciada.
 
 ![](./media/app-service-api-authentication-client-flow/aboutpagestart.png)
 
@@ -90,7 +91,7 @@ Más adelante, modificará esta página al agregar una sección para mostrar inf
 
 1. Descargue el proyecto web desde el [repositorio WebApp-GroupClaims-DotNet](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/).
  
-2. Siga las instrucciones para la **Ejecución del ejemplo** en el [archivo Léame](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/master/README.md), con las siguientes excepciones:
+2. Siga las instrucciones de **Ejecución del ejemplo** en el [archivo Léame](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/master/README.md), con las siguientes excepciones:
  
 	* Puede utilizar Visual Studio 2015, a pesar de que el archivo Léame indica que se debe usar Visual Studio 2013. 
 
@@ -196,7 +197,7 @@ En esta sección, agregará automáticamente código generado para una interfaz 
 
 	![](./media/app-service-api-authentication-client-flow/homepage.png)
 
-6. Haga clic en **Iniciar sesión** y luego escriba las credenciales de un usuario en el dominio de AAD que utiliza para esta aplicación.
+6. Haga clic en **Iniciar sesión** y luego escriba las credenciales de un usuario en el dominio de AAD que usa para esta aplicación.
 
 	![](./media/app-service-api-authentication-client-flow/signedin.png)
 
@@ -218,13 +219,13 @@ La aplicación requiere acceso a una base de datos de SQL Server identificada en
 
 ## Agradecimientos
 
-Agradecemos a Govind S. Yadav ([@govindsyadav](https://twitter.com/govindsyadav)) por su ayuda en el desarrollo de este tutorial.
+Agradecemos a Govind S. Yadav ([@govindsyadav](https://twitter.com/govindsyadav)) su ayuda en el desarrollo de este tutorial.
 
 ## Pasos siguientes
 
-Aprendió a realizar la autenticación de flujo de cliente para aplicaciones de API del Servicio de aplicaciones. Para obtener información sobre otras formas de controlar la autenticación en aplicaciones de API, consulte [Autenticación de aplicaciones de API y aplicaciones móviles](../app-service/app-service-authentication-overview.md).
+Aprendió a realizar la autenticación de flujo de cliente para aplicaciones de API del Servicio de aplicaciones. Para información sobre otras formas de controlar la autenticación en aplicaciones de API, consulte [Autenticación de aplicaciones de API y aplicaciones móviles](../app-service/app-service-authentication-overview.md).
 
 [Portal de Azure]: https://manage.windowsazure.com/
 [Portal de vista previa de Azure]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

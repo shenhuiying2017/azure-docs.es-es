@@ -27,7 +27,6 @@ Este documento describe cómo explorar datos en cuatro entornos diferentes usado
 - Los datos del **contenedor de blobs de Azure** se exploran mediante el paquete [Pandas](http://pandas.pydata.org/) de Python.
 - Los **datos de SQL Server** se exploran mediante SQL y un lenguaje de programación como Python.
 - Los datos de las **tablas de Hive** se exploran mediante consultas de Hive.
-- Estudio de aprendizaje automático de Azure 
 - Los datos del **Estudio de aprendizaje automático de Azure (AML)** se exploran mediante módulos AML.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

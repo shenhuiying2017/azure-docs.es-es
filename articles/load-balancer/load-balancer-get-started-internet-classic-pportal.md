@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Introducción a la creación de un equilibrador de carga orientado a Internet en un modelo de implementación clásica con el Portal de vista previa | Microsoft Azure"
+   pageTitle="Introducción a la creación de un equilibrador de carga orientado a Internet en un modelo de implementación clásica con el portal de Azure | Microsoft Azure"
    description="Obtenga información acerca de cómo crear un equilibrador de carga orientado a Internet en el modelo de implementación clásica mediante el Portal de vista previa."
    services="load-balancer"
    documentationCenter="na"
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación clásico. También puede [obtener información sobre cómo crear un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure](load-balancer-get-started-internet-arm-ps).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación clásico. También puede [obtener información sobre cómo crear un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure](load-balancer-get-started-internet-arm-ps.md).
 
  
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
@@ -66,4 +66,4 @@ Para crear un modelo de implementación de equilibrador de carga orientado a Int
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

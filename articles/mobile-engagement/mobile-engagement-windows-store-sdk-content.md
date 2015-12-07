@@ -44,6 +44,8 @@ En esta carpeta se incluyen todos los recursos que necesita Mobile Engagement. A
 
 ### Carpeta /overlay
 
+- `EngagementBaseOverlay.cs`: código base usado por las superposiciones `Announcement` y `Notification`.
+
 - `EngagementOverlayAnnouncement.xaml` : el diseño xaml `Announcement`.
 
 - `EngagementOverlayAnnouncement.xaml.cs`: el código vinculado `EngagementOverlayAnnouncement.xaml`.
@@ -55,4 +57,4 @@ En esta carpeta se incluyen todos los recursos que necesita Mobile Engagement. A
 - `EngagementPageOverlay.cs`: el código de visualización de anuncios y notificaciones de `Overlay`.
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

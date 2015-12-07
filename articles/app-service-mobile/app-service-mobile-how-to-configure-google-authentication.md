@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="11/20/2015"
 	ms.author="mahender"/>
 
 # Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de Google
@@ -24,16 +24,14 @@
 
 En este tema se muestra cómo configurar Servicio de aplicaciones de Azure para usar Google como proveedor de autenticación.
 
-Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta de Google asociada a una dirección de correo electrónico verificada. Para crear una cuenta de Google, vaya a <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta de Google asociada a una dirección de correo electrónico verificada. Para crear una cuenta de Google, vaya a [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
-
-	> [AZURE.NOTE]
-	This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
+> [AZURE.NOTE]En este tema se muestra el uso de la característica Autenticación/autorización del Servicio de aplicaciones. Esto reemplaza a la puerta de enlace del Servicio de aplicaciones en la mayoría de las aplicaciones. Las diferencias que se aplican al uso de la puerta de enlace se indican con notas a lo largo de ese tema.
 
 
 ## <a name="register"> </a>Registro de la aplicación con Google
 
-1. Inicie sesión en el [Portal de administración de Azure] y vaya a la aplicación. Copie la **dirección URL**. La usará para configurar la aplicación de Google.
+1. Inicie sesión en el [Portal de administración de Azure] y vaya a la aplicación. Copie la **Dirección URL**. La usará para configurar la aplicación de Google.
  
 2. Diríjase al sitio web [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303), inicie sesión con las credenciales de su cuenta de Google, haga clic en **Crear proyecto**, proporcione un **Nombre de proyecto**, y haga clic en **Crear**.
 
@@ -57,9 +55,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
 ## <a name="secrets"> </a>Adición de información de Google a la aplicación
 
-
-	> [AZURE.NOTE]
-	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Google**. Paste in the values you obtained earlier and click **Save**.
+> [AZURE.NOTE]Si usa la puerta de enlace del Servicio de aplicaciones, omita esta sección y en su lugar, vaya a la puerta de enlace en el portal. Seleccione **Configuración**, **Identidad** y, luego, **Google**. Pegue los valores que obtuvo anteriormente y haga clic en **Guardar**.
 
 
 8. De nuevo en el [Portal de administración de Azure], vaya a la aplicación. Haga clic en **Configuración** y luego en **Autenticación o autorización**.
@@ -69,8 +65,10 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 10. Haga clic en **Google**. Pegue los valores de identificador de la aplicación y de secreto de la aplicación que obtuvo previamente y habilite opcionalmente los ámbitos que requiere la aplicación. y, a continuación, haga clic en **Aceptar**.
 
     ![][1]
-	
-11. De forma predeterminada, el Servicio de aplicaciones proporciona inicio de sesión, pero no restringe el acceso al contenido y las API del sitio, esto es responsabilidad del código de la aplicación. Si desea que el sitio esté totalmente protegido por el inicio de sesión de Google, cambie la lista desplegable **Acción por realizar cuando no se autentique la solicitud** para usar la opción **Google**. Para ello, todas las solicitudes deberán estar autenticadas; las solicitudes sin autenticar se redirigirán para iniciar sesión con Google.
+
+	De forma predeterminada, el Servicio de aplicaciones ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio y a las API. Debe autorizar a los usuarios en el código de la aplicación.
+
+17. (Opcional) Para restringir el acceso al sitio solo a los usuarios autenticados mediante Google, establezca **Acción por realizar cuando no se autentique la solicitud** en **Google**. Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a Google para la autenticación.
 
 12. Haga clic en **Guardar**.
 
@@ -95,4 +93,4 @@ De este modo ya estará listo para usar Google para realizar la autenticación e
 [Portal de administración de Azure]: https://portal.azure.com/
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

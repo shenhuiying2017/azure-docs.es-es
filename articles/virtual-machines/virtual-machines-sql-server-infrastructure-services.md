@@ -28,9 +28,9 @@ Para crear una máquina virtual de SQL Server en Azure, primero debe obtener una
 
 ### Implementar una instancia de SQL Server en una única máquina virtual
 
-Cuando se haya registrado para una suscripción, la manera más sencilla de implementar una máquina virtual de SQL Server en Azure es [aprovisionar una imagen de la galería de máquinas de SQL Server en el Portal de administración de Azure](virtual-machines-provision-sql-server.md). Esas imágenes incluyen licencias de SQL Server en el precio de la máquina virtual.
+Cuando se haya registrado para una suscripción, la manera más sencilla de implementar una máquina virtual de SQL Server en Azure es [aprovisionar una imagen de la galería de máquinas de SQL Server en el Portal de Azure](virtual-machines-provision-sql-server.md). Esas imágenes incluyen licencias de SQL Server en el precio de la máquina virtual.
 
->[AZURE.NOTE]Use el [nuevo portal](https://manage.windowsazure.com) para aprovisionar y administrar máquinas virtuales de SQL Server. De forma predeterminada, usa Almacenamiento premium y ofrece revisiones automatizadas, copias de seguridad automatizadas y configuraciones AlwaysOn.
+>[AZURE.NOTE]Use el Portal de vista previa de Azure para aprovisionar y administrar máquinas virtuales de SQL Server. De forma predeterminada, usa Almacenamiento premium y ofrece revisiones automatizadas, copias de seguridad automatizadas y configuraciones AlwaysOn.
 
 En la tabla siguiente se ofrece una matriz de imágenes de SQL Server disponibles en la galería de máquinas virtuales.
 
@@ -53,7 +53,7 @@ Para determinar la mejor configuración de la máquina virtual para la imagen de
 Además de revisar las prácticas recomendadas para mejorar el rendimiento, otras tareas iniciales incluyen lo siguiente:
 
 - [Revisar los procedimientos recomendados para mejorar la seguridad de SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-security-considerations.md)
-- [Configurar la conectividad](virtual-machines-sql-server-connectivity.md).
+- [Configurar la conectividad.](virtual-machines-sql-server-connectivity.md)
 
 ### Migración de los datos
 
@@ -138,7 +138,7 @@ El [Programa para la mejora de la experiencia del cliente (CEIP)](https://techne
 
 Si crea una máquina virtual mediante una imagen de SQL Server ofrecida por la plataforma, puede encontrar los medios de instalación de SQL Server guardados en la máquina virtual en el directorio **C:\\SqlServer\_SQLMajorVersion.SQLMinorVersion\_Full**. Puede ejecutar el programa de instalación desde este directorio para llevar a cabo cualquier acción de instalación como agregar o quitar características, agregar una nueva instancia o reparar la instancia si lo permite el espacio en disco.
 
->[AZURE.NOTE]Azure ofrece varias versiones de las imágenes de SQL Server en el portal. Si la fecha de lanzamiento de la versión de la imagen ofrecida por la plataforma de SQL Server es el 15 de mayo de 2014 o posterior, contiene la clave de producto de forma predeterminada. Si aprovisiona una máquina virtual mediante una imagen de SQL Server ofrecida por la plataforma que se publica antes de esta fecha, esa máquina virtual no contiene la clave de producto. Como práctica recomendada, se recomienda seleccionar siempre la versión de la imagen más reciente al aprovisionar una nueva máquina virtual.
+>[AZURE.NOTE]Azure ofrece varias versiones de las imágenes de SQL Server. Si la fecha de lanzamiento de la versión de la imagen ofrecida por la plataforma de SQL Server es el 15 de mayo de 2014 o posterior, contiene la clave de producto de forma predeterminada. Si aprovisiona una máquina virtual mediante una imagen de SQL Server ofrecida por la plataforma que se publica antes de esta fecha, esa máquina virtual no contiene la clave de producto. Como práctica recomendada, se recomienda seleccionar siempre la versión de la imagen más reciente al aprovisionar una nueva máquina virtual.
 
 ## Recursos
 
@@ -148,4 +148,4 @@ Si crea una máquina virtual mediante una imagen de SQL Server ofrecida por la p
 - [Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Máquinas virtuales de Azure](virtual-machines-about.md) 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

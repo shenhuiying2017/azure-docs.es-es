@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/31/2015"
+   ms.date="11/19/2015"
    ms.author="tomfitz"/>
 
 # Vínculos de recursos: esquema de plantilla
@@ -129,4 +129,4 @@ El ejemplo siguiente aplica un bloqueo de solo lectura a una aplicación web.
 
 - Para obtener más información sobre la estructura de la plantilla, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

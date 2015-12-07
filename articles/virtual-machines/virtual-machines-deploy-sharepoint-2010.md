@@ -73,11 +73,11 @@ En el portal de Azure, los usuarios también pueden cargar una imagen en la que 
 
 **Ilustración 2: Información general de los pasos para cargar una imagen**
 
-## Implementación de SharePoint 2010 en Azure 
+## Implementación de SharePoint 2010 en Azure
 
 Puede implementar SharePoint 2010 en Azure con el modelo de implementación clásica siguiendo estos pasos:
 
-1. Inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com/) a través de la cuenta de suscripción de Azure. Si no tiene una cuenta de Azure, [regístrese para obtener una evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+1. Inicie sesión en el [Portal de Azure](http://manage.windowsazure.com/) a través de la cuenta de suscripción de Azure. Si no tiene una cuenta de Azure, [regístrese para obtener una evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 2. Para crear una máquina virtual con el sistema operativo base, en el Portal de Azure, haga clic en **Nuevo > Proceso > Máquina virtual > De la galería**.
 3. Aparecerá el cuadro de diálogo **Elegir una imagen**. Haga clic en la imagen de la plataforma **Windows Server 2008 R2 SP1** y, a continuación, en la flecha derecha.
 4. Aparece el cuadro de diálogo **Configuración de la máquina virtual**. Proporcione la siguiente información:
@@ -225,7 +225,7 @@ Siga estos pasos para escalar horizontalmente un entorno de BI en Azure:
 1. Aprovisionamiento:
 	- Aprovisione una conexión VPN entre la instalación local y Azure a través de Red virtual de Azure. Para obtener más información, consulte [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
 	- Use el portal de Azure para aprovisionar una máquina virtual nueva a través de una imagen de archivo desde la biblioteca de imágenes. Puede cargar imágenes de carga de trabajo de BI de SharePoint Server o SQL Server en la biblioteca de imágenes y cualquier usuario autorizado puede elegir esas máquinas virtuales de componentes de BI para crear el entorno de escalamiento horizontal.
-2. Instalación: 
+2. Instalación:
 	- Si su organización no tiene imágenes prediseñadas de componentes de BI de SharePoint Server o SQL Server, instale SharePoint Server y SQL Server en las máquinas virtuales a través de la conexión de Escritorio remoto.
 	- Para obtener más información acerca de la instalación de SharePoint, vaya a [Instalación de SharePoint Server 2010 mediante Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx) o [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/).
 	- Para obtener más información acerca de la instalación de SQL Server, vaya a [Instalar SQL Server mediante SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
@@ -288,4 +288,4 @@ La correcta implementación de SharePoint Server en Máquinas virtuales de Azure
 
 [Probar la vista previa de TI de SharePoint Server 2016 en Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

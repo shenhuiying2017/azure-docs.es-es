@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="11/19/2015"
 	ms.author="tomfitz"/>
 
 #Creación de una aplicación web PHP-MySQL en el Servicio de aplicaciones de Azure e implementación mediante Git
@@ -27,7 +27,7 @@
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
-En este tutorial se muestra cómo crear una aplicación web PHP-MySQL y cómo implementarla en el [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) mediante Git. Usará [PHP][install-php], la herramienta de línea de comandos MySQL (parte de [MySQL][install-mysql]), un servidor web y [Git][install-git] instalados en el equipo. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo, incluidos Windows, Mac y Linux. Una vez completada esta guía, tendrá una aplicación web PHP/MySQL que se ejecutará en Azure.
+En este tutorial se muestra cómo crear una aplicación web PHP-MySQL y cómo implementarla en el [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) mediante Git. Usará [PHP][install-php], la herramienta de línea de comandos MySQL (parte de [MySQL][install-mysql]) y el [Git][install-git] instalado en el equipo. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo, incluidos Windows, Mac y Linux. Una vez completada esta guía, tendrá una aplicación web PHP/MySQL que se ejecutará en Azure.
 
 Aprenderá a:
 
@@ -40,9 +40,8 @@ Mediante este tutorial, se compilará una aplicación web de registro sencilla e
 
 ##Configuración del entorno de desarrollo
 
-En este tutorial se supone que tiene instalados en el equipo [PHP][install-php], la herramienta de línea de comandos MySQL (parte de [MySQL][install-mysql]), un servidor web y [Git][install-git].
+En este tutorial se supone que tiene instalados en el equipo [PHP][install-php], la herramienta de línea de comandos MySQL (parte de [MySQL][install-mysql]) y [Git][install-git].
 
-> [AZURE.NOTE]Si está realizando este tutorial en Windows, puede configurar el equipo para PHP y configurar automáticamente IIS (el servidor web integrado en Windows) mediante la instalación del <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">SDK de Azure para PHP</a>.
 
 ##<a id="create-web-site-and-set-up-git"></a>Creación de una aplicación web y configuración de la publicación Git
 
@@ -51,9 +50,9 @@ Siga estos pasos para crear una aplicación web y una base de datos MySQL:
 1. Inicie sesión en el [Portal de Azure][management-portal].
 2. Haga clic en el icono **Nuevo**.
 
-3. Elija **Web + móvil ** y, a continuación, **Azure Marketplace**.
+3. Haga clic en **Ver todo** junto a **Marketplace**.
 
-4. Haga clic en **Aplicaciones web** y, a continuación, en **Aplicación web + MySQL**. A continuación, haga clic en **Crear**.
+4. Haga clic en **Web + móvil** y, a continuación, en **Aplicación web + MySQL**. A continuación, haga clic en **Crear**.
 
 4. Escriba un nombre válido para el grupo de recursos.
 
@@ -67,9 +66,9 @@ Siga estos pasos para crear una aplicación web y una base de datos MySQL:
 
 	![Crear una base de datos MySQL][new-mysql-db]
 
-7. Una vez creada la aplicación web, verá el nuevo grupo de recursos. Haga clic en el nombre de la aplicación web para configurar las opciones.
+7. Una vez creada la aplicación web, verá la nueva hoja de aplicación web.
 
-7. Haga clic en **Configurar la implementación continua**.
+7. En **Configuración**, haga clic en **Implementación continua** y, a continuación, en _Configurar los valores obligatorios_.
 
 	![Configuración de la publicación Git][setup-publishing]
 
@@ -91,7 +90,7 @@ Para conectarse a la base de datos MySQL que se ejecuta en aplicaciones web, nec
 
 	![Seleccionar base de datos][select-database]
 
-2. En el resumen de base de datos, elija **Propiedades**.
+2. En la **Configuración** de la base de datos, seleccione **Propiedades**.
 
     ![Seleccionar propiedades][select-properties]
 
@@ -107,7 +106,7 @@ Registration es una sencilla aplicación PHP que permite registrarse en un event
 
 * **index.php**: muestra un formulario de registro y una tabla que contiene la información de los usuarios inscritos.
 
-Para compilar y ejecutar la aplicación localmente, realice los pasos siguientes. Tenga en cuenta que en estos pasos se supone que tiene PHP, la herramienta de línea de comandos MySQL (parte de MySQL) y un servidor web configurado en la máquina local, además de tener habilitada la [extensión PDO para MySQL][pdo-mysql].
+Para compilar y ejecutar la aplicación localmente, realice los pasos siguientes. Tenga en cuenta que en estos pasos se supone que tiene PHP y la herramienta de línea de comandos MySQL (parte de MySQL) configurado en la máquina local, además de tener habilitada la [extensión PDO para MySQL][pdo-mysql].
 
 1. Conéctese al servidor MySQL remoto usando los valores de `Data Source`, `User Id`, `Password` y `Database` recuperados anteriormente:
 
@@ -119,9 +118,9 @@ Para compilar y ejecutar la aplicación localmente, realice los pasos siguientes
 
 3. Pegue el comando siguiente `CREATE TABLE` para crear la tabla `registration_tbl` en la base de datos:
 
-		mysql> CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
+		CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
 
-4. En el directorio raíz del servidor web, cree una carpeta denominada `registration` y un archivo llamado `index.php`.
+4. En la raíz de la carpeta de la aplicación local, cree el archivo **index.php**.
 
 5. Abra el archivo **index.php** en un editor de texto o entorno de desarrollo integrado y agregue el código siguiente. A continuación, realice los cambios necesarios marcados con comentarios `//TODO:`.
 
@@ -210,7 +209,11 @@ Para compilar y ejecutar la aplicación localmente, realice los pasos siguientes
 		</body>
 		</html>
 
-Ahora puede dirigirse a ****http://localhost/registration/index.php** para probar la aplicación.
+4.  En un terminal, vaya a la carpeta de la aplicación y escriba el siguiente comando:
+
+		php -S localhost:8000
+
+Ahora puede dirigirse a ****http://localhost:8000/** para probar la aplicación.
 
 
 ##Publicación de la aplicación
@@ -300,4 +303,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,6 +1,6 @@
-###En Xamarin Studio
+####Configurar el proyecto de iOS en Xamarin Studio
 
-1. En Xamarin.Studio, abra **Info.plist** y actualice el **identificador de agrupación de trabajos** con el identificador que ha creado anteriormente.
+1. En Xamarin.Studio, abra **Info.plist** y actualice el **identificador de agrupación de trabajos** con el identificador que ha creado antes con su nuevo id. de la aplicación.
 
     ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png)
 
@@ -16,7 +16,7 @@
 
     De esta forma, se garantiza que el proyecto usa el nuevo perfil para la firma de código. Para ver la documentación oficial de aprovisionamiento de dispositivos Xamarin, consulte [Aprovisionamiento de dispositivos Xamarin].
 
-### En Visual Studio
+####Configurar el proyecto de iOS en Visual Studio
 
 1. En Visual Studio, haga clic con el botón derecho en el proyecto y después haga clic en **Propiedades**.
 
@@ -33,4 +33,4 @@
 
 [Aprovisionamiento de dispositivos Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

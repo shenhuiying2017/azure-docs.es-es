@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/21/2015"
+   ms.date="11/20/2015"
    ms.author="telmos" />
 
 #Crear rutas definidas por el usuario (UDR) en PowerShell
@@ -38,29 +38,29 @@ Para crear la tabla de rutas y la ruta necesaria para la subred front-end según
 
 3. Cree una ruta que se use para enviar todo el tráfico destinado a la subred de back-end (192.168.2.0/24) para enrutarse a la aplicación virtual **FW1** (192.168.0.4).
 
-		$route = New-AzureRouteConfig -Name RouteToBackEnd `
+		$route = New-AzureRmRouteConfig -Name RouteToBackEnd `
 		    -AddressPrefix 192.168.2.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
 4. Cree una tabla de ruta llamada **UDR-FrontEnd** en la región **westus** que contenga la ruta creada anteriormente.
 
-		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-FrontEnd -Route $route
 
 5. Cree una variable que contenga la red virtual donde está la subred. En nuestro escenario, la red virtual se llama **TestVNet**.
 
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 
 6. Asocie la tabla de ruta creada anteriormente a la subred **FrontEnd**.
 		
-		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
 
->[AZURE.WARNING] La salida del comando anterior muestra el contenido del objeto de configuración de red virtual, que solo existe en el equipo donde se ejecuta PowerShell. Debe ejecutar el cmdlet **AzureVirtualNetwork Set** para guardar esta configuración en Azure.
+>[AZURE.WARNING]La salida del comando anterior muestra el contenido del objeto de configuración de red virtual, que solo existe en el equipo donde se ejecuta PowerShell. Debe ejecutar el cmdlet **AzureVirtualNetwork Set** para guardar esta configuración en Azure.
 
 7. Guarde la nueva configuración de subred de Azure.
 
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet
+		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 	Resultado esperado:
 
@@ -115,23 +115,23 @@ Para crear la tabla de rutas y la ruta necesaria para la subred back-end según 
 
 1. Cree una ruta que se use para enviar todo el tráfico destinado a la subred de front-end (192.168.1.0/24) para enrutarse a la aplicación virtual **FW1** (192.168.0.4).
 
-		$route = New-AzureRouteConfig -Name RouteToFrontEnd `
+		$route = New-AzureRmRouteConfig -Name RouteToFrontEnd `
 		    -AddressPrefix 192.168.1.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
 4. Cree una tabla de ruta llamada **UDR-BackEnd** en la región **uswest** que contenga la ruta creada anteriormente.
 
-		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-BackEnd -Route $route
 
 5. Asocie la tabla de ruta creada anteriormente a la subred **BackEnd**.
 
-		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
+		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -RouteTable $routeTable
 
 7. Guarde la nueva configuración de subred de Azure.
 
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet
+		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 	Resultado esperado:
 
@@ -185,12 +185,12 @@ Para habilitar el reenvío IP de la NIC que se usa en **FW1**, siga estos pasos.
 
 1. Cree una variable que contenga la configuración de la NIC usada por FW1. En nuestro escenario, la NIC se llama **NICFW1**.
 
-		$nicfw1 = Get-AzureNetworkInterface -ResourceGroupName TestRG -Name NICFW1
+		$nicfw1 = Get-AzureRmNetworkInterface -ResourceGroupName TestRG -Name NICFW1
 
 2. Habilite el reenvío IP y guarde la configuración de NIC.
 
 		$nicfw1.EnableIPForwarding = 1
-		Set-AzureNetworkInterface -NetworkInterface $nicfw1
+		Set-AzureRmNetworkInterface -NetworkInterface $nicfw1
 
 	Resultado esperado:
 
@@ -236,4 +236,4 @@ Para habilitar el reenvío IP de la NIC que se usa en **FW1**, siga estos pasos.
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

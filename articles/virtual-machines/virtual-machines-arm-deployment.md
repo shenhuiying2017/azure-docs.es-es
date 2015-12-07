@@ -48,7 +48,7 @@ Para usar Azure AD para autenticar las solicitudes con el Administrador de recur
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]Anote el identificador de la aplicación que se devuelve después de crear la aplicación, ya que la necesitará para el siguiente paso. Asimismo, también puede encontrar el identificador de la aplicación en el campo de id. de cliente de la aplicación en la sección de Active Directory del portal.
+	>[AZURE.NOTE]Anote el identificador de la aplicación que se devuelve después de crear la aplicación, ya que la necesitará para el siguiente paso. También puede encontrar el identificador de la aplicación en el campo de id. de cliente de la aplicación en la sección de Active Directory del portal de vista previa de Azure.
 
 3. Reemplace {application-id} por el identificador que acaba de anotar y, a continuación, cree la entidad de servicio correspondiente a la aplicación:
 
@@ -86,16 +86,7 @@ Ahora que la aplicación Azure Active Directory se crea y se instala la bibliote
 
 1.	Abra el archivo Program.cs para el proyecto que ha creado y, a continuación, agregue las siguientes instrucciones using a la parte superior del archivo:
 
-        using Microsoft.Azure;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.Azure.Management.Resources;
-		using Microsoft.Azure.Management.Resources.Models;
-		using Microsoft.Azure.Management.Storage;
-		using Microsoft.Azure.Management.Storage.Models;
-		using Microsoft.Azure.Management.Network;
-		using Microsoft.Azure.Management.Network.Models;
-		using Microsoft.Azure.Management.Compute;
-		using Microsoft.Azure.Management.Compute.Models;
+    using Microsoft.Azure; using Microsoft.IdentityModel.Clients.ActiveDirectory; using Microsoft.Azure.Management.Resources; using Microsoft.Azure.Management.Resources.Models; using Microsoft.Azure.Management.Storage; using Microsoft.Azure.Management.Storage.Models; using Microsoft.Azure.Management.Network; using Microsoft.Azure.Management.Network.Models; using Microsoft.Azure.Management.Compute; using Microsoft.Azure.Management.Compute.Models;
 
 
 2. Agregue el método siguiente a la clase Program para obtener el token necesario para crear las credenciales:
@@ -349,7 +340,7 @@ Ahora que ha creado todos los recursos auxiliares, puede crear una máquina virt
 2.	Agregue el código siguiente al método Main para llamar al método que acaba de agregar:
 
 		CreateVirtualMachine(credential);
-        Console.ReadLine();
+    Console.ReadLine();
 
 ##Paso 5: Adición del código para eliminar los recursos
 
@@ -384,4 +375,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 	![Crear una aplicación de AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -82,7 +82,7 @@ Esta regla se usa para definir qué grupos se deben aprovisionar a ADD. Los grup
 
 ### Reglas de unión
 
-La tercera sección se usa para configurar cómo se relacionan los objetos del espacio conector con los objetos del metaverso. La regla que hemos examinado antes no tiene ninguna configuración para Reglas de unión, por lo que vamos a examinar la regla **In from AD – User Join** en su lugar.
+La tercera sección se usa para configurar cómo se relacionan los objetos del espacio conector con los objetos del metaverso. La regla que hemos examinado antes no tiene ninguna configuración para Reglas de unión, por lo que vamos a examinar en su lugar la regla **In from AD – User Join**.
 
 ![Editar regla de sincronización entrante](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulejoinrules.png)
 
@@ -150,4 +150,4 @@ Ahora conocemos lo suficiente de las reglas de sincronización para poder compre
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

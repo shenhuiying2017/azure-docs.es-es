@@ -27,9 +27,9 @@ Recientemente se han incluido plantillas del Administrador de recursos de Azure 
 
 ## Opciones de herramienta
 
-### Interfaz gráfica de usuario: El Portal de Azure o el Portal de vista previa
+### Interfaz gráfica de usuario: Portal de Azure o Portal de vista previa de Azure
 
-La interfaz gráfica de usuario del Portal de Azure es una manera fácil de probar una máquina virtual, especialmente si no tiene experiencia con Azure. Use el [Portal de Azure](http://manage.windowsazure.com) o el [Portal de vista previa de Azure](http://portal.azure.com) para crear la máquina virtual. Para obtener instrucciones generales, vea [Creación de una máquina virtual personalizada][] y seleccione cualquier imagen de Linux en la **Galería**. Tenga en cuenta que el [Portal de Azure](http://manage.windowsazure.com) solo crea máquinas virtuales con el modelo de implementación clásica.
+La interfaz gráfica de usuario del portal es una manera fácil de probar una máquina virtual, especialmente si no tiene experiencia con Azure. Use el [Portal de Azure](http://manage.windowsazure.com) o el [Portal de vista previa de Azure](http://portal.azure.com) para crear la máquina virtual. Para obtener instrucciones generales, vea [Creación de una máquina virtual personalizada][] y seleccione cualquier imagen de Linux en la **Galería**. Tenga en cuenta que el [Portal de Azure](http://manage.windowsazure.com) solo crea máquinas virtuales con el modelo de implementación clásica.
 
 ### Shell de comandos: CLI de Azure o Azure PowerShell
 
@@ -103,4 +103,4 @@ Para usar una imagen basada en una máquina virtual de Azure existente *capture*
 [Creación de una máquina virtual que ejecuta Linux]: virtual-machines-linux-tutorial.md
 [Creación de una máquina virtual personalizada]: virtual-machines-create-custom.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -128,23 +128,9 @@ Los usuarios también pueden usar la consola de consultas (editor de subárbol) 
 
 *https://&#60;Hadoop nombreDeClúster>.azurehdinsight.net/Home/HiveEditor*
 
-en un explorador web. Tenga en cuenta que deberá indicar las credenciales de clúster de Hadoop para iniciar sesión. Además, puede [enviar trabajos de Hive mediante PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
+en un explorador web. Tenga en cuenta que deberá indicar las credenciales de clúster de Hadoop para iniciar sesión.
 
-
-## Envío de una consulta de Hive (old)
-
-En este documento se describen distintas formas de enviar consultas de Hive a los clústeres de Hadoop administrados por un servicio HDInsight de Azure. (antigua introducción - incorporación TBD)
-
-
-Las consultas de subárbol se pueden enviar desde la consola de línea de comandos de Hadoop del nodo principal del clúster de Hadoop. Para ello, inicie sesión en el nodo principal del clúster de Hadoop, abra la consola de la línea de comandos de Hadoop y envíe las consultas de Hive desde allí. Para obtener instrucciones sobre cómo hacerlo, vea [Envío de consultas de Hive a clústeres Hadoop de HDInsight en el proceso de análisis avanzado](machine-learning-data-science-process-hive-tables.md).
-
-Los usuarios también pueden usar la consola de consultas (editor de subárbol) escribiendo la dirección URL
-
-https://&#60;Hadoop nombreDeClúster>.azurehdinsight.net/Home/HiveEditor
-
-en un explorador web. Tenga en cuenta que se le pedirá que indique las credenciales de clúster de Hadoop para iniciar sesión, por lo que deberá tener estas credenciales a mano.
-
-Además, puede [enviar trabajos de Hive mediante PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
+Además, puede realizar la [Ejecución de consultas de Hive con PowerShell](../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
 
 
 ## <a name="create-tables"></a> Creación de tablas y base de datos de Hive
@@ -168,11 +154,11 @@ Esta es la consulta de subárbol que crea una tabla de subárbol.
 
 Estas son las descripciones de los campos que los usuarios necesitan para conectar y otras configuraciones:
 
-- **&#60;nombre de base de datos>**: nombre de la base de datos que los usuarios desean crear. Si los usuarios solo desean usar la base de datos predeterminada, se puede omitir la consulta *crear base de datos...* 
+- **&#60;nombre de base de datos>**: nombre de la base de datos que los usuarios desean crear. Si los usuarios solo desean usar la base de datos predeterminada, se puede omitir la consulta *crear base de datos...*. 
 - **&#60;nombre de tabla>**: nombre de la tabla que los usuarios quieren crear en la base de datos especificada. Si los usuarios quieren usar la base de datos predeterminada, se puede hacer referencia directamente a la tabla con *&#60;nombre de tabla>* sin &#60;nombre de base de datos>.
 - **&#60;separador de campos>**: separador que delimita los campos del archivo de datos que se cargará en la tabla de Hive. 
 - **&#60;separador de líneas>**: separador que delimita las líneas del archivo de datos. 
-- **&#60;ubicación de almacenamiento>**: ubicación de almacenamiento de Azure para guardar los datos de tablas de Hive. Si los usuarios no especifican *LOCATION &#60;ubicación de almacenamiento>*, la base de datos y las tablas se almacenan de forma predeterminada en el directorio *hive/warehouse/* del contenedor predeterminado del clúster Hive. Si un usuario desea especificar la ubicación de almacenamiento, la ubicación de almacenamiento debe estar dentro del contenedor predeterminado para la base de datos y las tablas. A esta ubicación tiene que hacerse referencia como ubicación relativa al contenedor predeterminado del clúster en el formato de *'wasb:///&#60;directorio 1>/'* o *'wasb:///&#60;directorio 1>/&#60;directorio 2>/'*, etc. Después de ejecutar la consulta, se crearán los directorios relativos dentro del contenedor predeterminado. 
+- **&#60;ubicación de almacenamiento>**: ubicación de almacenamiento de Azure para guardar los datos de tablas de Hive. Si los usuarios no especifican *LOCATION &#60;ubicación de almacenamiento>*, la base de datos y las tablas se almacenan de forma predeterminada en el directorio *hive/warehouse/* del contenedor predeterminado del clúster Hive. Si un usuario desea especificar la ubicación de almacenamiento, la ubicación de almacenamiento debe estar dentro del contenedor predeterminado para la base de datos y las tablas. A esta ubicación tiene que hacerse referencia como ubicación relativa al contenedor predeterminado del clúster con el formato *'wasb:///&#60;directorio 1>/'* o *'wasb:///&#60;directorio 1>/&#60;directorio 2>/'*, etc. Después de ejecutar la consulta, se crearán los directorios relativos dentro del contenedor predeterminado. 
 - **TBLPROPERTIES("skip.header.line.count"="1")**: si el archivo de datos tiene una línea de encabezado, los usuarios deben agregar esta propiedad **al final** de la consulta *create table*. De lo contrario, se cargará la línea de encabezado como registro en la tabla. Si el archivo de datos no tiene una línea de encabezado, se puede omitir esta configuración en la consulta. 
 
 ## <a name="load-data"></a>Carga de datos en tablas de Hive
@@ -180,7 +166,7 @@ Esta es la consulta de subárbol que carga datos en una tabla de subárbol.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-- **&#60;ruta de acceso a datos de blob>**: si el archivo blob que se va a cargar en la tabla de Hive se encuentra en el contenedor predeterminado del clúster Hadoop de HDInsight, *&#60;ruta de acceso a datos de blob>* debe tener el formato *"wasb:///&#60;directorio de este contenedor>/&#60;nombre del archivo de blob>"*. El archivo blob también puede estar en un contenedor adicional del clúster de Hadoop de HDInsight. En este caso, *&#60;ruta de acceso a datos de blob>* debe tener el formato *"wasb://&#60;nombre del contenedor>@&#60;nombre de cuenta de almacenamiento>.blob.core.windows.net/&#60;nombre de archivo de blob>"*.
+- **&#60;ruta de acceso a datos de blob>**: si el archivo de blob que se va a cargar en la tabla de Hive se encuentra en el contenedor predeterminado del clúster Hadoop de HDInsight, *&#60;ruta de acceso a datos de blob>* debe tener el formato *"wasb:///&#60;directorio de este contenedor>/&#60;nombre del archivo de blob>"*. El archivo blob también puede estar en un contenedor adicional del clúster de Hadoop de HDInsight. En este caso, *&#60;ruta de acceso a datos de blob>* debe tener el formato *"wasb://&#60;nombre del contenedor>@&#60;nombre de cuenta de almacenamiento>.blob.core.windows.net/&#60;nombre de archivo de blob>"*.
 
 	>[AZURE.NOTE]Los datos blob que se van a cargar en la tabla de subárbol tienen que estar en el contenedor adicional o predeterminado de la cuenta de almacenamiento para el clúster de Hadoop. De lo contrario, la consulta *LOAD DATA* generará un error indicando que no puede obtener acceso a los datos.
 
@@ -204,7 +190,7 @@ Esta es la consulta de subárbol que crea una tabla con particiones y carga dato
 	LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name> 
 		PARTITION (<partitionfieldname>=<partitionfieldvalue>);
 
-Al consultar tablas con particiones, se recomienda agregar la condición de partición al **comienzo** de la cláusula `where` ya que esto mejora la eficacia de la búsqueda de manera significativa.
+Al consultar tablas con particiones, se recomienda agregar la condición de partición al **comienzo** de la cláusula `where`, ya que esto mejora la eficacia de la búsqueda de manera significativa.
 
     select 
 		field1, field2, ..., fieldN
@@ -264,4 +250,4 @@ Después de seguir este procedimiento, debe tener una tabla con datos en el form
 
 En la última sección, se describen los parámetros que los usuarios pueden ajustar para que se pueda mejorar el rendimiento de las consultas de subárbol.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

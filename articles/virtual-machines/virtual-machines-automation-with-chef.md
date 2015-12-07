@@ -71,7 +71,7 @@ Cuando se cree la organización, descargue el starter kit.
 
 ![][4]
 
-> [AZURE.NOTE] Si recibe un mensaje que le advierte que se restablecerán las claves, está bien continuar como si no tuviéramos ninguna infraestructura existente configurada todavía.
+> [AZURE.NOTE]Si recibe un mensaje que le advierte que se restablecerán las claves, está bien continuar como si no tuviéramos ninguna infraestructura existente configurada todavía.
 
 El archivo zip del starter kit contiene sus claves y archivos de configuración de la organización.
 
@@ -111,7 +111,7 @@ A continuación, [descargue e instale](http://downloads.getchef.com/chef-dk/wind
 
 Instálelo en su ubicación predeterminada de c:\\opscode. Esta instalación tardará unos 10 minutos.
 
-Confirme que la variable PATH contiene entradas para C:\\opscode\\chefdk\\bin;C:\\opscode\\chefdk\\embedded\\bin;c:\\users\\yourusername.chefdk\\gem\\ruby\\2.0.0\\bin
+Confirme que la variable PATH contiene entradas paraC:\\opscode\\chefdk\\bin;C:\\opscode\\chefdk\\embedded\\bin;c:\\users\\yourusername.chefdk\\gem\\ruby\\2.0.0\\bin
 
 Si no están ahí, asegúrese de agregar estas rutas de acceso.
 
@@ -125,7 +125,7 @@ Ejecute el siguiente comando.
 
 	chef gem install knife-azure ––pre
 
-> [AZURE.NOTE] El argumento –pre garantiza que está recibiendo la versión de RC más reciente del complemento Knife Azure que ofrece acceso al conjunto más reciente de API.
+> [AZURE.NOTE]El argumento –pre garantiza que está recibiendo la versión de RC más reciente del complemento Knife Azure que ofrece acceso al conjunto más reciente de API.
 
 Es probable que también se instalen varias dependencias al mismo tiempo.
 
@@ -202,9 +202,9 @@ A continuación aparecerá un ejemplo del comando.
 
 Los parámetros son totalmente explicativos. Sustituir sus variables concretas y ejecutar.
 
-> [AZURE.NOTE] Mediante la línea de comandos, estoy automatizando mis reglas de filtro de red de extremos mediante el parámetro –tcp-endpoints. He abierto los puertos 80 y 3389 para proporcionar acceso a mi página web y la sesión de RDP.
+> [AZURE.NOTE]Mediante la línea de comandos, estoy automatizando mis reglas de filtro de red de extremos mediante el parámetro –tcp-endpoints. He abierto los puertos 80 y 3389 para proporcionar acceso a mi página web y la sesión de RDP.
 
-Cuando haya ejecutado el comando, pase al Portal de Azure y verá que su máquina comienza a aprovisionar.
+Cuando haya ejecutado el comando, pase al Portal de vista previa de Azure y verá que su máquina comienza a aprovisionar.
 
 ![][13]
 
@@ -239,4 +239,4 @@ Espero que esto les haya resultado útil. Empiece hoy su viaje de su infraestruc
 
 <!--Link references-->
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

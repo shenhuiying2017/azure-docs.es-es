@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="11/24/2015"
 	ms.author="jgao"/>
 
 # Administración de clústeres de Hadoop en HDInsight mediante el portal de vista previa de Azure
@@ -94,8 +94,8 @@ La instalación de software personalizado en el clúster mediante la Conexión a
 	
 	- Para personalizar el menú, haga doble clic en cualquier lugar del menú y, después, haga clic en **Personalizar**.
 	- **Configuración** y **Toda la configuración**: muestra la hoja **Configuración** del clúster, que permite obtener acceso a información de configuración detallada para el clúster.
-	- **Panel**, **Panel de clúster** y **Dirección URL**: todas son formas de acceder al panel del clúster, que es la web de Ambari para los clústeres basados en Linux.
-	- **Escritorio remoto**: conéctese al clúster mediante RDP.
+	- **Panel**, **Panel de clúster** y **Dirección URL: todas son formas de acceder al panel del clúster, que es la web de Ambari para los clústeres basados en Linux.
+- **Escritorio remoto**: conéctese al clúster mediante RDP.
 	- **Escalar clúster**: permite cambiar el número de nodos de trabajo de este clúster.
 	- **Eliminar**: elimina el clúster.
 	- **Inicio rápido** (![icono de nube y rayo = inicio rápido](./media/hdinsight-administer-use-portal-linux/quickstart.png)): muestra información que le ayudará a empezar a usar HDInsight.
@@ -157,7 +157,7 @@ Vea también [Pausa o apagado de clústeres](#pauseshut-down-clusters).
 ##Escalado de clústeres
 La característica de escalado de clústeres permite cambiar la cantidad de nodos de trabajo que usa un clúster que se ejecuta en HDInsight de Azure sin necesidad de volver a crear el clúster.
 
->[AZURE.NOTE]Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades. Vea [Familiarizarse con la interfaz del portal del clúster](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
+>[AZURE.NOTE]Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades. Vea [Enumeración y visualización de clústeres](hdinsight-adminster-use-management-portal/#list-and-show-clusters).
 
 A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de datos de cada tipo de clúster compatible con HDInsight:
 
@@ -211,8 +211,7 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
 
 ##Pausa o apagado de clústeres
 
-La mayoría de los trabajos de Hadoop son trabajos por lotes que se ejecutan sol ocasionalmente. En la mayoría de los clústeres de Hadoop, hay grandes períodos de tiempo en los que el clúster no se usa para el procesamiento. Con HDInsight, los datos se almacenan en Almacenamiento de Azure, por lo que puede eliminar un clúster de forma segura cuando no está en uso.
-También se le cargará por un clúster de HDInsight aunque no esté en uso. Como en muchas ocasiones los cargos por el clúster son más que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no estén en uso.
+La mayoría de los trabajos de Hadoop son trabajos por lotes que se ejecutan sol ocasionalmente. En la mayoría de los clústeres de Hadoop, hay grandes períodos de tiempo en los que el clúster no se usa para el procesamiento. Con HDInsight, los datos se almacenan en Almacenamiento de Azure, por lo que puede eliminar un clúster de forma segura cuando no está en uso. También se le cargará por un clúster de HDInsight aunque no esté en uso. Como en muchas ocasiones los cargos por el clúster son más que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no estén en uso.
 
 Hay muchas maneras de programar el proceso:
 
@@ -267,7 +266,7 @@ De manera predeterminada, estos servicios se conceden para el acceso. Puede revo
 
 ##Búsqueda de la cuenta de almacenamiento predeterminada
 
-Cada clúster de HDInsight tiene una cuenta de almacenamiento predeterminada. La cuenta de almacenamiento predeterminada y sus claves para un clúster están en **Configuración**/**Propiedades**/**Claves de almacenamiento de Azure**. Vea [Enumeración y visualización de clústeres](list-and-show-clusters).
+Cada clúster de HDInsight tiene una cuenta de almacenamiento predeterminada. La cuenta de almacenamiento predeterminada y sus claves para un clúster están en **Configuración**/**Propiedades**/**Claves de almacenamiento de Azure**. Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
 
 	
 ##Búsqueda del grupo de recursos 
@@ -277,14 +276,14 @@ En el modo ARM, cada clúster de HDInsight se crea con un grupo de recursos de A
 - La lista de clústeres tiene una columna **Grupo de recursos**.
 - Icono **Esencial** del clúster.  
 
-Vea [Enumeración y visualización de clústeres](list-and-show-clusters).
+Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
    
 ##Apertura de la consola de consulta de HDInsight
 
 La consola de consulta de HDInsight incluye las siguientes características:
 
-- **Galería de introducción**: para usar la galería, consulte [Información sobre Hadoop con la Galería de introducción de HDInsight de Azure](hdinsight-learn-hadoop-use-sample-gallery.md).
-- **Editor Hive**: interfaz de web de GUI para el envío de trabajos de Hive. Consulte [Ejecución de consultas de Hive mediante la consola de consulta](hdinsight-hadoop-use-hive-query-console.md).
+- **Galería de introducción**: para usar la galería, vea [Información sobre Hadoop con la Galería de introducción de HDInsight de Azure](hdinsight-learn-hadoop-use-sample-gallery.md).
+- **Editor Hive**: interfaz de web de GUI para el envío de trabajos de Hive. Vea [Ejecución de consultas de Hive mediante la consola de consulta](hdinsight-hadoop-use-hive-query-console.md).
 
 	![portal de hdinsight editor hive](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
 
@@ -339,7 +338,7 @@ Para supervisar el clúster, examinar el sistema de archivos y comprobar los reg
 
 ##Apertura de la UI de Yarn
 
-Para usar la interfaz de usuario de Yarn, haga clic en **UI de Hadoop** en la consola de consulta de HDInsight. Vea [Apertura de la consola de consulta de HDInsight](#open-hdinsight-query-console).
+Para usar la interfaz de usuario de Yarn, haga clic en **UI de Yarn** en la consola de consulta de HDInsight. Vea [Apertura de la consola de consulta de HDInsight](#open-hdinsight-query-console).
 
 ##Conexión a los clústeres mediante RDP
 
@@ -400,4 +399,4 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el por
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Línea de comandos de Hadoop"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->
