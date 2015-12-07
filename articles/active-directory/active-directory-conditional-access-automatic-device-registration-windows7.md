@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio
@@ -52,4 +52,12 @@ A continuación, abra un símbolo del sistema en el equipo con Windows 7 y ejecu
 
 El registro de eventos de Windows en el equipo con Windows 7 mostrará mensajes relacionados con Unión al área de trabajo. Puede encontrar mensajes para eventos de Unión al área de trabajo con éxito y sin éxito. El registro de eventos puede encontrarse en el Visor de eventos en Registros de aplicaciones y servicios> Microsoft-Unión al área de trabajo.
 
-<!---HONumber=Nov15_HO1-->
+## Otros temas
+
+- [Información general sobre el Registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
+- [Registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio](active-directory-conditional-access-automatic-device-registration.md)
+- [Configuración del registro automático de dispositivos para dispositivos Windows 8.1 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+
+ 
+
+<!---HONumber=AcomDC_1125_2015-->

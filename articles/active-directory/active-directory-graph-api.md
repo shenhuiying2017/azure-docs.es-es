@@ -17,7 +17,7 @@
 
 # API Graph de Azure Active Directory
 
-> *Comience inmediatamente con la [Guía de inicio rápido de la API Graph](active-directory-graph-api-quickstart.md) y la [documentación de referencia interactiva de la API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).*
+> [AZURE.IMPORTANT]Esta función también está disponible mediante [Microsoft Graph](https://graph.microsoft.io/), una API unificada que incluye las API de otros servicios de Microsoft como Outlook, OneDrive, OneNote, Organizador y Office Graph, accesible con un único punto de conexión y un solo token de acceso.
 
 La API Graph de Azure Active Directory proporciona acceso mediante programación a Azure AD a través de los extremos de la API de REST. Las aplicaciones pueden usar la API Graph para ejecutar operaciones de creación, lectura, actualización y eliminación (CRUD) en objetos y datos de directorio. Por ejemplo, la API Graph admite las siguientes operaciones comunes en un objeto de usuario:
 
@@ -33,7 +33,7 @@ La API Graph de Azure Active Directory proporciona acceso mediante programación
 
 Además de en objetos de usuario, puede realizar las mismas operaciones en otros objetos, como grupos y aplicaciones. Para llamar a la API Graph en un directorio, la aplicación debe estar registrada con Azure AD y configurada para que permita el acceso al directorio. Esto se logra normalmente a través de un flujo de consentimiento de usuario o administrador.
 
-Para empezar a usar la API Graph de Azure Active Directory, vea la [Guía de inicio rápido de la API Graph](active-directory-graph-api-quickstart.md) o la [documentación de referencia interactiva de la API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+Para empezar a usar la API Graph de Azure Active Directory, vea la [Guía de inicio rápido de API Graph](active-directory-graph-api-quickstart.md) o la [documentación sobre la referencia interactiva de API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
 
 ## Características
@@ -42,13 +42,13 @@ La API Graph ofrece las siguientes características:
 
 - **Extremos de la API de REST**: la API Graph es un servicio RESTful formado por extremos a los que se accede mediante solicitudes HTTP estándar. La API Graph admite tipos de contenido XML o notación de objetos JavaScript (JSON) en solicitudes y respuestas. Para obtener más información, vea [Referencia de la API de REST de Azure AD Graph](https://msdn.microsoft.com/library/azure/hh974478.aspx).
 
-- **Autenticación con Azure AD**: todas las solicitudes enviadas a la API Graph se deben autenticar anexando un token web JSON (JWT) al encabezado de autorización de la solicitud. Para conseguir este token, es necesario enviar una solicitud al extremo del token de Azure AD y facilitar unas credenciales válidas. Puede usar el flujo de credenciales de cliente OAuth 2.0 o el flujo de concesión de código de autorización para conseguir un token con el que llamar a Graph. Para obtener más información, vea [OAuth 2.0 en Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx).
+- **Autenticación con Azure AD**: todas las solicitudes enviadas a la API Graph se deben autenticar anexando un token web JSON (JWT) al encabezado Authorization de la solicitud. Para conseguir este token, es necesario enviar una solicitud al extremo del token de Azure AD y facilitar unas credenciales válidas. Puede usar el flujo de credenciales de cliente OAuth 2.0 o el flujo de concesión de código de autorización para conseguir un token con el que llamar a Graph. Para obtener más información, vea [OAuth 2.0 en Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 
-- **Autorización basada en roles (RBAC)**: en la API Graph se usan grupos de seguridad para llevar a cabo la RBAC. Por ejemplo, si quiere saber si un usuario tiene acceso a un recurso determinado, la aplicación puede llamar a la operación [Comprobar pertenencia a grupos (transitiva)](https://msdn.microsoft.com/library/azure/dn151601.aspx), que devuelve true o false.
+- **Autorización basada en roles (RBAC)**: en la API Graph se usan grupos de seguridad para llevar a cabo la RBAC. Por ejemplo, si quiere saber si un usuario tiene acceso a un recurso determinado, la aplicación puede llamar a la operación [Comprobar pertenencia a grupos (transitiva)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#FunctionsandactionsongroupsCheckmembershipinaspecificgrouptransitive), que devuelve true o false.
 
 - **Consulta diferencial**: si quiere ver los cambios realizados en un directorio entre dos períodos de tiempo sin tener que realizar consultas frecuentes a la API Graph, puede hacer una solicitud de consulta diferencial. Este tipo de solicitud solo devolverá los cambios hechos entre la solicitud de consulta diferencial anterior y la solicitud actual. Para obtener más información, vea [Consulta diferencial de la API de Azure AD Graph](https://msdn.microsoft.com/library/azure/jj836245.aspx).
 
-- **Extensiones de directorio**: si va a desarrollar una aplicación que necesite leer o escribir propiedades únicas para objetos de directorio, puede registrar y usar valores de extensión con la API Graph. Por ejemplo, si su aplicación necesita una propiedad de usuario de Skype para cada usuario, puede registrar la nueva propiedad en el directorio para que esté disponible en todos los objetos de usuario. Para obtener más información, vea [Extensiones de esquema de directorio de la API de Azure AD Graph](https://msdn.microsoft.com/library/azure/dn720459.aspx).
+- **Extensiones de directorio**: si va a desarrollar una aplicación que necesite leer o escribir propiedades únicas para objetos de directorio, puede registrar y usar valores de extensión con la API Graph. Por ejemplo, si su aplicación necesita una propiedad de usuario de Skype para cada usuario, puede registrar la nueva propiedad en el directorio para que esté disponible en todos los objetos de usuario. Para más información, vea [Extensiones de esquema de directorio de la API de Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
 ## Escenarios
 
@@ -62,8 +62,8 @@ La API Graph admite muchos escenarios de aplicación. Los siguientes escenarios 
 
 [Inicio rápido para la API de Azure AD Graph](active-directory-graph-api-quickstart.md)
 
-[Documentación de AD Graph de REST](https://msdn.microsoft.com/library/azure/hh974476.aspx)
+[Documentación de AD Graph de REST](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
 [Guía del desarrollador de Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

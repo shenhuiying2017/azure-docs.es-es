@@ -238,7 +238,6 @@ El servicio Factoría de datos de Azure admite la creación de un clúster a pet
 1. Haga clic en **Nuevo proceso** en la barra de comandos y seleccione **Clúster de HDInsight a petición** en el menú.
 2. En el script JSON, haga lo siguiente: 
 	1. En la propiedad **clusterSize**, especifique el tamaño del clúster de HDInsight.
-	2. En la propiedad **jobsContainer**, especifique el nombre del contenedor predeterminado donde se almacenarán los registros del clúster. Para este tutorial, especifique **adfjobscontainer**.
 	3. En la propiedad **timeToLive**, especifique cuánto tiempo el clúster puede estar inactivo antes de que se elimine. 
 	4. En la propiedad **version**, especifique la versión de HDInsight que quiere usar. Si excluye esta propiedad, se usa la versión más reciente.  
 	5. En **linkedServiceName**, especifique el elemento **StorageLinkedService** que creó en el tutorial Introducción. 
@@ -248,7 +247,6 @@ El servicio Factoría de datos de Azure admite la creación de un clúster a pet
 				    "properties": {
 		    	    "type": "HDInsightOnDemandLinkedService",
 		    	    "clusterSize": "4",
-		    	    "jobsContainer": "adfjobscontainer",
 		    	    "timeToLive": "00:05:00",
 		    	    "version": "3.1",
 		    	    "linkedServiceName": "HDInsightStorageLinkedService"
@@ -328,7 +326,7 @@ En este paso, creará los siguientes procesos:
 4. Repita los pasos del 1 al 3 con el contenido de los archivos siguientes: 
 	1. EnrichGameLogsPipeline.json
 	2. AnalyzeMarketingCampaignPipeline.json
-4. Cierre las hojas de Factoría de datos presionando **X** (esquina superior derecha) para ver la página principal (hoja **FACTORÍA DE DATOS**) para Factoría de datos.
+4. Cierre las hojas de la Factoría de datos presionando **X** (esquina superior derecha) para ver la página principal (hoja **FACTORÍA DE DATOS**) de la Factoría de datos.
 
 ### Vista de diagrama
 
@@ -394,7 +392,7 @@ En este paso, creará los siguientes procesos:
 
 	![Hoja SEGMENTO DE DATOS RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	Si se produjo un error, verá el estado **Error** aquí. Puede que también vea los dos segmentos con el estado **Listo** o con el estado **PendingValidation**, según la rapidez con la que se procesen.
+	Si se produjo un error, verá el estado **Error** aquí. Puede que también vea los dos segmentos con el estado **Listo** o con el estado **Validación pendiente**, según la rapidez con la que se procesen.
 
 	Si el segmento no está en el estado **Listo**, puede ver los segmentos ascendentes que no están en estado Listo y bloquean la ejecución del segmento actual en la lista **Segmentos ascendentes que no están listos**.
  
@@ -526,4 +524,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises] p
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

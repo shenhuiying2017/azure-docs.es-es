@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Aplicación Aprendizaje de máquina: Análisis de opinión | Microsoft Azure"
-	description="La API de análisis de texto es un conjunto de análisis de texto que se encuentra integrado en el aprendizaje automático de Azure. La API puede utilizarse para analizar el texto no estructurado para tareas como el análisis de opiniones y la extracción de frases clave."
+	pageTitle="API de aprendizaje automático: análisis de texto | Microsoft Azure"
+	description="API de análisis de texto proporcionadas por Aprendizaje automático de Azure. Se puede usar para analizar texto no estructurado para análisis de opiniones, extracción de frases clave y detección de idiomas."
 	services="machine-learning"
 	documentationCenter=""
-	authors="LuisCabrer"
+	authors="onewth"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,25 +13,54 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/11/2015"
-	ms.author="luisca"/>
+	ms.date="11/17/2015"
+	ms.author="onewth"/>
 
 
-# Aplicación Aprendizaje automático: Text Analytics Service para el análisis de las opiniones#
-##Información general
-La API de análisis de texto es un conjunto de [servicios web](https://datamarket.azure.com/dataset/amla/text-analytics) de análisis de texto creado con Aprendizaje automático de Azure. La API puede utilizarse para analizar el texto no estructurado para tareas como el análisis de opiniones y la extracción de frases clave. No se necesitan datos de formación para utilizar esta API, simplemente pase los datos del texto. Por el momento solo se admite el idioma inglés. Esta API usa técnicas de procesamiento de lenguaje natural avanzadas.
+# API de aprendizaje automático: análisis de texto de opinión, extracción de frases clave y detección de idiomas
+
+## Información general
+
+La API de análisis de texto es un conjunto de [servicios web](https://datamarket.azure.com/dataset/amla/text-analytics) de análisis de texto creado con Aprendizaje automático de Azure. La API puede usarse para analizar el texto no estructurado para tareas como el análisis de opiniones, la extracción de frases clave y la detección de idiomas. No se necesitan datos de formación para usar esta API, simplemente pase los datos del texto. Esta API usa técnicas de procesamiento de lenguaje natural avanzadas para proporcionar las mejores predicciones.
+
+Puede ver el análisis de texto en acción en nuestro [sitio de demostración](https://text-analytics-demo.azurewebsites.net/), donde también encontrará [ejemplos](https://text-analytics-demo.azurewebsites.net/Home/SampleCode) sobre cómo implementar el análisis de texto en C# y Python.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
- 
-## Análisis de opiniones##
-La API devuelve una puntuación numérica comprendida entre 0 y 1. Las puntuaciones cercanas a 1 indican una opinión positiva, y las puntuaciones cercanas a 0 indican una opinión negativa. La puntuación de las opiniones se genera mediante técnicas de clasificación. Las funciones de entrada en el clasificador incluyen n-gramas, funciones generadas a partir de etiquetas de categorías gramaticales e incrustaciones de palabras.
- 
-## Extracción de la frase clave##
-La API devuelve una lista de cadenas que representan los puntos clave de la conversación en el texto de entrada. Empleamos las técnicas del kit de herramientas de procesamiento de lenguaje natural sofisticadas de Microsoft Office.
 
-## Definición de la API##
+---
 
-###GetSentiment###
+## Análisis de opiniones
+
+La API devuelve una puntuación numérica comprendida entre 0 y 1. Las puntuaciones cercanas a 1 indican una opinión positiva, y las puntuaciones cercanas a 0 indican una opinión negativa. La puntuación de las opiniones se genera mediante técnicas de clasificación. Las funciones de entrada en el clasificador incluyen n-gramas, funciones generadas a partir de etiquetas de categorías gramaticales e incrustaciones de palabras. Actualmente, el inglés es el único idioma que se admite.
+ 
+## Extracción de la frase clave
+
+La API devuelve una lista de cadenas que representan los puntos clave de la conversación en el texto de entrada. Empleamos las técnicas del kit de herramientas de procesamiento de lenguaje natural sofisticadas de Microsoft Office. Actualmente, el inglés es el único idioma que se admite.
+
+## Detección de idiomas
+
+La API devuelve el idioma detectado y una puntuación numérica comprendida entre 0 y 1. Las puntuaciones cercanas a 1 indican una certeza del 100 % de que el idioma identificado es verdadero. Se admiten un total de 120 idiomas.
+
+---
+
+## Definición de la API
+
+### Encabezados
+
+Asegúrese de incluir los encabezados correctos en la solicitud, que debería ser como sigue:
+
+	Authorization: Basic <creds>
+	Accept: application/json
+               
+	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
+
+Puede encontrar la clave de su cuenta en [Microsoft Azure Marketplace ](https://datamarket.azure.com/account/keys).
+
+---
+
+## API de respuesta única
+
+### GetSentiment
 
 **URL**
 
@@ -39,20 +68,11 @@ La API devuelve una lista de cadenas que representan los puntos clave de la conv
 
 **Solicitud de ejemplo**
 
-En la siguiente llamada GET, vamos a solicitar la opinión sobre la frase *Hola a todos*.
+En la siguiente llamada, vamos a solicitar el análisis de opinión para la frase "Hello World":
 
-    GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment?Text=hello+world
+	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment?Text=hello+world
 
-Encabezados:
-
-	Authorization: Basic <creds>
-	Accept: application/json
-               
-	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
-
-La clave de la cuenta se puede obtener [aquí](https://datamarket.azure.com/account/keys).
-
-**Respuesta de ejemplo**
+Esto devolverá una respuesta como sigue:
 
 	{
 	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
@@ -61,7 +81,7 @@ La clave de la cuenta se puede obtener [aquí](https://datamarket.azure.com/acco
 
 ---
 
-###GetKeyPhrases###
+### GetKeyPhrases
 
 **URL**
 
@@ -69,34 +89,62 @@ La clave de la cuenta se puede obtener [aquí](https://datamarket.azure.com/acco
 
 **Solicitud de ejemplo**
 
-En la siguiente llamada GET, vamos a solicitar la opinión sobre las frases clave del texto *Era un hotel maravilloso donde quedarse, con una decoración única y un personal amable*.
+En la siguiente llamada, vamos a solicitar las frases clave encontradas en el texto "It was a wonderful hotel to stay at, with unique decor and friendly staff":
 
 	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?
 	Text=It+was+a+wonderful+hotel+to+stay+at,+with+unique+decor+and+friendly+staff
 
-Encabezados:
-
-	Authorization: Basic <creds>
-	Accept: application/json
-               
-	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey)
-
-La clave de la cuenta se puede obtener [aquí](https://datamarket.azure.com/account/keys).
-
-
-**Respuesta de ejemplo**
+Esto devolverá una respuesta como sigue:
 
 	{
-	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata","KeyPhrases":[
-	    "wonderful hotel","unique decor","friendly staff"]
+	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
+	  "KeyPhrases":[
+	    "wonderful hotel",
+	    "unique decor",
+	    "friendly staff"
+	  ]
 	}
  
 ---
 
-##API de lote
-El servicio de análisis de texto permite realizar extracciones de opiniones y frases clave en el modo por lotes. Para GetSentimentBatch y GetKeyPhrasesBatch, cada uno de los registros puntuados cuenta como una transacción. Por lo tanto, por ejemplo, si obtiene una opinión sobre 1000 registros en una sola llamada, se deducirán 1000 transacciones.
+### GetLanguage
 
-###GetSentimentBatch###
+**URL**
+
+	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguage
+
+**Solicitud de ejemplo**
+
+En la siguiente llamada GET, se precisa la opinión de las frases clave en el texto *Hello World*.
+
+	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguages?
+	Text=Hello+World
+
+Esto devolverá una respuesta como sigue:
+
+	{
+	  "UnknownLanguage": false,
+	  "DetectedLanguages": [{
+	    "Name": "English",
+	    "Iso6391Name": "en",
+	    "Score": 1.0
+	  }]
+	}
+
+**Parámetros opcionales**
+
+`NumberOfLanguagesToDetect` es un parámetro opcional. El valor predeterminado es 1.
+
+---
+
+## API de lote
+
+El servicio de análisis de texto permite realizar extracciones de opiniones y frases clave en el modo por lotes. Tenga en cuenta que cada uno de los registros puntuó recuentos como una transacción. A modo de ejemplo, si solicita una opinión para 1000 registros en una sola llamada, se deducirán 1000 transacciones.
+
+Tenga en cuenta que los identificadores especificados en el sistema son los identificadores que devuelve el sistema. El servicio web no comprueba que estos identificadores sean únicos. Es responsabilidad del autor de la llamada hacerlo.
+
+
+### GetSentimentBatch
 
 **URL**
 
@@ -104,49 +152,36 @@ El servicio de análisis de texto permite realizar extracciones de opiniones y f
 
 **Solicitud de ejemplo**
 
-En la siguiente llamada POST, vamos a solicitar las opiniones sobre las siguientes frases: Hola a todos, Hola tontos, Hola a mis colegas en el cuerpo de la solicitud
+En la siguiente llamada POST, vamos a solicitar las opiniones sobre las frases "Hello World", "Hello Foo World" y "Hello My World" en el cuerpo de la solicitud:
 
-    POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch 
+	POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch 
 
-Cuerpo:
+Cuerpo de la solicitud:
 
 	{"Inputs":
 	[
 	    {"Id":"1","Text":"hello world"},
-    	{"Id":"2","Text":"hello foo world"},
-    	{"Id":"3","Text":"hello my world"},
+    	    {"Id":"2","Text":"hello foo world"},
+    	    {"Id":"3","Text":"hello my world"},
 	]}
-
-
-Encabezados:
-
-	Authorization: Basic <creds>
-	Accept: application/json
-
-	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
-
-
-La clave de la cuenta se puede obtener [aquí](https://datamarket.azure.com/account/keys).
-
-**Respuesta de ejemplo**
 
 En la respuesta siguiente, obtendrá la lista de puntuaciones asociadas a sus identificadores de texto:
 
 	{
-	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata", "SentimentBatch":
-		[{"Score":0.9549767,"Id":"1"},
-		 {"Score":0.7767222,"Id":"2"},
-		 {"Score":0.8988889,"Id":"3"}
-		],  
-		"Errors":[
-		   {"Id": "4", Message:"Record cannot be null/empty"}
-		]
+	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata", 
+	  "SentimentBatch":
+	  [
+		{"Score":0.9549767,"Id":"1"},
+		{"Score":0.7767222,"Id":"2"},
+		{"Score":0.8988889,"Id":"3"}
+	  ],  
+	  "Errors":[]
 	}
 
 
 ---
 
-###GetKeyPhrasesBatch###
+### GetKeyPhrasesBatch
 
 **URL**
 
@@ -154,19 +189,17 @@ En la respuesta siguiente, obtendrá la lista de puntuaciones asociadas a sus id
 
 **Solicitud de ejemplo**
 
-En la siguiente llamada POST, vamos a solicitar la lista de opiniones para las frases clave de los siguientes textos:
+En este ejemplo, vamos a solicitar la lista de opiniones para las frases clave de los siguientes textos:
 
-*Era un hotel maravilloso donde quedarse, con una decoración única y un personal amable*
- 
-*Fue una conferencia muy bien desarrollada, con charlas muy interesantes*
+* "It was a wonderful hotel to stay at, with unique decor and friendly staff"
+* "It was an amazing build conference, with very interesting talks"
+* "The traffic was terrible, I spent three hours going to the airport"
 
-*El tráfico fue terrible, tardé tres horas en ir al aeropuerto*
+Esta solicitud se realiza como una llamada POST al punto de conexión :
 
+    POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrasesBatch
 
-
-	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrasesBatch
-
-Cuerpo:
+Cuerpo de la solicitud:
 
 	{"Inputs":
 	[
@@ -174,18 +207,6 @@ Cuerpo:
 		{"Id":"2","Text":"It was an amazing build conference, with very interesting talks"},
 		{"Id":"3","Text":"The traffic was terrible, I spent three hours going to the airport"}
 	]}
-
-Encabezados:
-
-	Authorization: Basic <creds>
-	Accept: application/json
-               
-	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey)
-
-La clave de la cuenta se puede obtener [aquí](https://datamarket.azure.com/account/keys).
-
-
-**Respuesta de ejemplo**
 
 En la respuesta siguiente, obtendrá la lista de las frases clave asociadas a sus identificadores de texto:
 
@@ -196,16 +217,48 @@ En la respuesta siguiente, obtendrá la lista de las frases clave asociadas a su
 		   {"KeyPhrases":["amazing build conference","interesting talks"],"Id":"2"},
 		   {"KeyPhrases":["hours","traffic","airport"],"Id":"3" }
 		],
-		"Errors":[
-		   {"Id": "4", Message:"Record cannot be null/empty"}
-		]
+		"Errors":[]
 	}
 
 ---
 
-**Notas relacionadas con el procesamiento por lotes**
+### GetLanguageBatch
 
-Los identificadores especificados en el sistema son los identificadores que devuelve el sistema. El servicio web no comprueba que los identificadores sean únicos. Es responsabilidad del autor de la llamada hacerlo.
- 
+En la siguiente llamada POST, vamos a solicitar la detección de idioma para las dos entradas de texto:
 
-<!---HONumber=Nov15_HO1-->
+    POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguageBatch
+
+Cuerpo de la solicitud:
+
+    {
+      "Inputs": [
+        {"Text": "hello world", "Id": "1"},
+        {"Text": "c'est la vie", "Id": "2"}
+      ]
+    }
+
+Esto devuelve la respuesta siguiente, donde se detecta inglés en la primera entrada y francés en la segunda:
+
+    {
+       "LanguageBatch": [{
+         "Id": "1",
+         "DetectedLanguages": [{
+            "Name": "English",
+            "Iso6391Name": "en",
+            "Score": 1.0
+         }],
+         "UnknownLanguage": false
+       },
+       {
+         "Id": "2",
+         "DetectedLanguages": [{
+            "Name": "French",
+            "Iso6391Name": "fr",
+            "Score": 1.0
+         }],
+         "UnknownLanguage": false
+       }],
+       "Errors": []
+    }
+
+<!---HONumber=AcomDC_1125_2015-->

@@ -53,8 +53,8 @@ Siga estos pasos para generar la clave de autenticación SSH.
 -	Seleccione y copie la clave pública en **Clave** y guárdela en un archivo denominado **publicKey.pem**. No haga clic en **Guardar clave pública**, porque el formato de archivo de la clave pública guardada es diferente de la clave pública que queremos.
 -	Haga clic en **Guardar clave privada** y guárdela en un archivo denominado **privateKey.ppk**.
 
-###Paso 2: Creación de la imagen en el Portal de Azure.
-En el [Portal de Azure](https://portal.azure.com/), haga clic en **Nuevo** en la barra de tareas y cree una imagen siguiendo estas instrucciones. Elija una imagen de Linux según sus necesidades. En este ejemplo se usa la imagen de Ubuntu 14.04.
+###Paso 2: Creación de la imagen en el Portal de vista previa de Azure.
+En el [Portal de vista previa de Azure](https://portal.azure.com/), haga clic en **Nuevo** en la barra de tareas y cree una imagen siguiendo estas instrucciones, elija una imagen de Linux según sus necesidades. En este ejemplo se usa la imagen de Ubuntu 14.04.
 
 ![][3]
 
@@ -76,7 +76,7 @@ Los extremos en Azure constan de un protocolo (TCP o UDP), junto con un puerto p
 
 El puerto TCP 80 es el número de puerto predeterminado que escucha Apache. Abrir este puerto con un extremo de Azure le permitirá a usted y a otros clientes de Internet acceder al servidor web Apache.
 
-En el Portal de Azure, haga clic en **Examinar -> Máquina virtual** y, luego, haga clic en la máquina virtual que creó.
+En el Portal de vista previa de Azure, haga clic en **Examinar -> Máquina virtual** y, a continuación, haga clic en la máquina virtual que creó.
 
 ![][5]
 
@@ -102,7 +102,7 @@ Haga clic en **Aceptar** para agregar el extremo a la máquina virtual.
 ###Paso 2: Conexión a la imagen creada
 Puede elegir cualquier herramienta SSH para conectarse a la nueva máquina virtual. En este ejemplo, se usa Putty.
 
-En primer lugar, obtenga el nombre DNS de la máquina virtual desde el Portal de Azure. Haga clic en **Examinar -> Máquinas virtuales** -> el nombre de la máquina virtual**-> Propiedades** y, luego, preste atención al campo **Nombre de dominio** del icono **Propiedades**.
+En primer lugar, obtenga el nombre DNS de la máquina virtual desde el Portal de vista previa de Azure. Haga clic en **Examinar -> Máquinas virtuales** -> el nombre de la máquina virtual**-> Propiedades** y, luego, preste atención al campo **Nombre de dominio** del icono **Propiedades**.
 
 Obtenga el número de puerto para las conexiones SSH desde el campo **SSH**. Aquí tiene un ejemplo.
 
@@ -456,4 +456,4 @@ Una vez que haya configurado la pila LAMP correctamente, puede implementar la ap
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -59,10 +59,12 @@ El contrato de datos es la solución recomendada para garantizar que sus datos s
 
 ## Pasos siguientes
 
-[Tutorial de actualización](service-fabric-application-upgrade-tutorial.md)
+[Actualización de la aplicación de Service Fabric con Visual Studio](service-fabric-application-upgrade.md)
+
+[Actualización de aplicaciones de Service Fabric con PowerShell](service-fabric-application-upgrade-powershell.md)
 
 [Parámetros de actualización](service-fabric-application-upgrade-parameters.md)
 
-[Temas avanzados](service-fabric-application-upgrade-advanced.md)
+[Actualización manual y actualización con un paquete de diferencias](service-fabric-application-upgrade-advanced.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

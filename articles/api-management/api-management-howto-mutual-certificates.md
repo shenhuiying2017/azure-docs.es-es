@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Cómo asegurar servicios back-end con la autenticación mutua de certificados en Administración de API de Azure" 
-	description="Obtenga información acerca de cómo asegurar los servicios back-end con la autenticación mutua de certificados en Administración de API de Azure." 
+	pageTitle="Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Administración de API de Azure" 
+	description="Averigüe cómo asegurar servicios back-end con la autenticación de certificados de cliente en Administración de API de Azure" 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="11/23/2015" 
 	ms.author="sdanie"/>
 
-# Cómo asegurar servicios back-end con la autenticación mutua de certificados en Administración de API de Azure
+# Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Administración de API de Azure
 
-Administración de API permite acceder de forma segura al servicio back-end de una API con certificados mutuos. Esta guía muestra cómo administrar certificados en el portal del publicador de API y cómo configurar una API para acceder al servicio back-end correspondiente con un certificado.
+Administración de API permite acceder de forma segura al servicio back-end de una API con certificados de cliente. Esta guía muestra cómo administrar certificados en el portal del publicador de API y cómo configurar una API para acceder al servicio back-end correspondiente con un certificado.
 
 Para obtener más información sobre cómo administrar certificados con la API de REST de Administración de API, consulte [Entidad de certificado de la API REST de Administración de API de Azure][].
 
 ## <a name="prerequisites"> </a>Requisitos previos
 
-Esta guía muestra cómo configurar la instancia de servicio de Administración de API para acceder al servicio back-end de una API con la autenticación mutua de certificados. Antes de realizar los pasos de este tema, configure el servicio back-end para la autenticación mutua de certificados y asegúrese de disponer de acceso al certificado y a la contraseña correspondiente para poder cargarlo en el portal del publicador de Administración de API.
+Esta guía muestra cómo configurar la instancia de servicio de Administración de API para acceder al servicio back-end de una API con la autenticación de certificados de cliente. Antes de realizar los pasos de este tema, configure el servicio back-end para la autenticación de certificados de cliente y asegúrese de disponer de acceso al certificado y a la contraseña correspondiente para poder cargarlo en el portal del publicador de Administración de API.
 
 ## <a name="step1"> </a>Cargar un certificado de cliente
 
@@ -54,7 +54,7 @@ Haga clic en **Cargar** para cargar el certificado.
 
 ![Certificado cargado][api-management-certificate-uploaded]
 
-Cuando el certificado se carga, aparece en la pestaña **Certificados de cliente**. Si cuenta con varios certificados, anote el asunto o los cuatro últimos caracteres de la huella digital con los que se selecciona el certificado al configurar una API para usar certificados (conforme a la sección [Configurar una API para realizar la autenticación de puerta de enlace con un certificado mutuo][] que aparece más abajo).
+Cuando el certificado se carga, aparece en la pestaña **Certificados de cliente**. Si cuenta con varios certificados, anote el asunto o los cuatro últimos caracteres de la huella digital con los que se selecciona el certificado al configurar una API para usar certificados (conforme a la sección [Configurar una API para realizar la autenticación de puerta de enlace con un certificado de cliente][] que aparece más abajo).
 
 ## <a name="step1a"> </a>Eliminar un certificado de cliente
 
@@ -70,15 +70,15 @@ Si alguna API está usando el certificado, aparecerá una pantalla de advertenci
 
 ![Confirmar eliminación][api-management-confirm-delete-policy]
 
-## <a name="step2"> </a>Configurar una API para realizar la autenticación de puerta de enlace con un certificado mutuo
+## <a name="step2"> </a>Configurar una API para realizar la autenticación de puerta de enlace con un certificado de cliente
 
 Haga clic en **API** en el menú **Administración de API** de la izquierda, en el nombre de la API en cuestión y en la pestaña **Seguridad**.
 
 ![Seguridad de API][api-management-api-security]
 
-Seleccione **Certificados mutuo**s en la lista desplegable **Con credenciales**.
+Seleccione **Certificados de cliente**s en la lista desplegable **Con credenciales**.
 
-![Certificados mutuos][api-management-mutual-certificates]
+![Certificados de cliente][api-management-mutual-certificates]
 
 Seleccione el certificado que desea en la lista desplegable **Certificado de cliente**. Si aparecen varios certificados, revise el asunto o los últimos cuatro caracteres de la huella digital (conforme a la sección anterior) para determinar cuál es el certificado correcto.
 
@@ -96,7 +96,7 @@ Haga clic en **Guardar** para guardar el cambio de configuración de la API.
 
 ## Pasos siguientes
 
-Para obtener más información, consulte el vídeo siguiente:
+Para más información sobre otras formas de proteger el servicio back-end, como la autenticación HTTP básica o de secretos compartidos, vea el siguiente vídeo.
 
 > [AZURE.VIDEO last-mile-security]
 
@@ -133,7 +133,7 @@ Para obtener más información, consulte el vídeo siguiente:
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
 [Delete a client certificate]: #step1a
-[Configurar una API para realizar la autenticación de puerta de enlace con un certificado mutuo]: #step2
+[Configurar una API para realizar la autenticación de puerta de enlace con un certificado de cliente]: #step2
 [Test the configuration by calling an operation in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
@@ -141,4 +141,4 @@ Para obtener más información, consulte el vídeo siguiente:
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -68,13 +68,15 @@ En este artículo se describen los distintos parámetros que se aplican durante 
 ## Pasos siguientes
 
 
-[Tutorial de actualización](service-fabric-application-upgrade-tutorial.md)
+[Actualización de la aplicación de Service Fabric con Visual Studio](service-fabric-application-upgrade.md)
 
-[Temas avanzados](service-fabric-application-upgrade-advanced.md)
+[Actualización de aplicaciones de Service Fabric con PowerShell](service-fabric-application-upgrade-powershell.md)
+
+[Actualización manual y actualización con un paquete de diferencias](service-fabric-application-upgrade-advanced.md)
 
 [Solucionar problemas de una actualización de aplicación ](service-fabric-application-upgrade-troubleshooting.md)
 
 [Serialización de datos](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

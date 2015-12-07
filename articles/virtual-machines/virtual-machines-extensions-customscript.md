@@ -71,7 +71,7 @@ Este escenario muestra cómo usar un almacenamiento no predeterminado en la mism
       Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
 
 
-### Agregar la extensión de script personalizada desde el portal
+### Agregar la extensión de script personalizada desde el portal de vista previa de Azure
 
 Vaya a la máquina virtual en el <a href="https://portal.azure.com/ " target="_blank">Portal de vista previa de Azure </a> y especifique el archivo de scripts que se debe ejecutar para agregar la extensión.
 
@@ -91,4 +91,4 @@ Para obtener información sobre cómo usar la extensión de scripts personalizad
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="11/20/2015"
 	ms.author="mahender"/>
 
 # Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de la cuenta Microsoft
@@ -25,8 +25,7 @@
 En este tema se muestra cómo configurar Servicio de aplicaciones de Azure para usar la cuenta Microsoft como proveedor de autenticación.
 
 
-	> [AZURE.NOTE]
-	This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
+> [AZURE.NOTE]En este tema se muestra el uso de la característica Autenticación/autorización del Servicio de aplicaciones. Esto reemplaza a la puerta de enlace del Servicio de aplicaciones en la mayoría de las aplicaciones. Las diferencias que se aplican al uso de la puerta de enlace se indican con notas a lo largo de ese tema.
 
 
 ## <a name="register"> </a>Registro de la aplicación con la cuenta Microsoft
@@ -37,7 +36,7 @@ En este tema se muestra cómo configurar Servicio de aplicaciones de Azure para 
 
 4. Haga clic en **Crear aplicación** y, a continuación, escriba el **nombre de la aplicación** y haga clic en **Acepto**.
 
-5. Haga clic en **Configuración de API**. Seleccione **Sí** para **Aplicación cliente móvil o de escritorio**. En el campo **Dirección URL de redireccionamiento** introduzca la **Dirección URL de redireccionamiento** de su aplicación y haga clic en **Guardar**. El URI de redireccionamiento es la dirección URL de la aplicación anexada a la ruta de acceso _/.auth/login/microsoftaccount/callback_. Por ejemplo: `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Asegúrese de que está utilizando el esquema HTTPS.
+5. Haga clic en **Configuración de API**. Seleccione **Sí** para **Aplicación cliente móvil o de escritorio**. En el **dirección URL de redireccionamiento** introduzca su aplicación **dirección URL de redireccionamiento** y haga clic en **Guardar**. El URI de redireccionamiento es la dirección URL de la aplicación anexada a la ruta de acceso _/.auth/login/microsoftaccount/callback_. Por ejemplo, `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Asegúrese de que está utilizando el esquema HTTPS.
 
 	![][0]
 
@@ -53,9 +52,7 @@ En este tema se muestra cómo configurar Servicio de aplicaciones de Azure para 
 
 ## <a name="secrets"> </a>Adición de información de la cuenta de Microsoft a la aplicación
 
-
-	> [AZURE.NOTE]
-	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Microsoft Account**. Paste in the values you obtained earlier and click **Save**.
+> [AZURE.NOTE]Si usa la puerta de enlace del Servicio de aplicaciones, omita esta sección y en su lugar, vaya a la puerta de enlace en el portal. Seleccione **Configuración**, **Identidad** y, luego, **Cuenta Microsoft**. Pegue los valores que obtuvo anteriormente y haga clic en **Guardar**.
 
 
 7. De nuevo en el [Portal de administración de Azure], vaya a la aplicación. Haga clic en **Configuración** y luego en **Autenticación o autorización**.
@@ -66,7 +63,9 @@ En este tema se muestra cómo configurar Servicio de aplicaciones de Azure para 
 
     ![][1]
 	
-11. De forma predeterminada, el Servicio de aplicaciones proporciona inicio de sesión, pero no restringe el acceso al contenido y las API del sitio, esto es responsabilidad del código de la aplicación. Si desea que el sitio esté totalmente protegido por el inicio de sesión de Cuenta Microsoft, cambie la lista desplegable **Acción por realizar cuando no se autentique la solicitud** para usar la opción **Cuenta Microsoft**. Para ello, todas las solicitudes deberán estar autenticadas; las solicitudes sin autenticar se redirigirán para iniciar sesión con Cuenta Microsoft.
+	De forma predeterminada, el Servicio de aplicaciones ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio y a las API. Debe autorizar a los usuarios en el código de la aplicación.
+
+17. (Opcional) Para restringir el acceso al sitio solo a los usuarios autenticados mediante la cuenta Microsoft, establezca **Acción por realizar cuando no se autentique la solicitud** en **Cuenta Microsoft**. Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a la cuenta Microsoft para la autenticación.
 
 11. Haga clic en **Guardar**.
 
@@ -91,4 +90,4 @@ De este modo ya estará listo para usar la cuenta Microsoft para realizar la aut
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Portal de administración de Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

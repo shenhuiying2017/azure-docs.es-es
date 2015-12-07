@@ -136,7 +136,7 @@ El comando **azure group log show** puede devolver mucha información. Para solu
       },
       "properties": {
         "statusCode": "Conflict",
-        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name 
+        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name
           mysite already exists."},{"Code":"Conflict"},{"ErrorEntity":{"Code":"Conflict","Message":"Website with given name mysite already exists.","ExtendedCode":
           "54001","MessageTemplate":"Website with given name {0} already exists.","Parameters":["mysite"],"InnerErrors":null}}],"Innererror":null}"
       },
@@ -259,7 +259,7 @@ Para CLI de Azure, puede usar **azure location list**. Dado que la lista de ubic
     }
 
 ### API de REST
-        
+
 Para la API de REST, consulte [Obtención de información sobre un proveedor de recursos](https://msdn.microsoft.com/library/azure/dn790534.aspx).
 
 ## Creación de nombres de recursos únicos
@@ -315,7 +315,7 @@ Para ser específicos sobre núcleos, por ejemplo, puede comprobar las regiones 
 
 ## Comprobación del registro del proveedor de recursos
 
-Los recursos son administrados por los proveedores de recursos, y es posible que una cuenta o suscripción esté habilitada para utilizar un proveedor determinado. Si están habilitadas para utilizar un proveedor, también se deben registrar para su uso. La mayoría de los proveedores se registran automáticamente mediante el Portal de Azure o la interfaz de línea de comandos que esté utilizando; pero no ocurre con todos.
+Los recursos son administrados por los proveedores de recursos, y es posible que una cuenta o suscripción esté habilitada para utilizar un proveedor determinado. Si están habilitadas para utilizar un proveedor, también se deben registrar para su uso. La mayoría de los proveedores se registran automáticamente mediante el Portal de vista previa de Azure o la interfaz de línea de comandos que esté utilizando; pero no ocurre con todos.
 
 ### PowerShell
 
@@ -434,4 +434,4 @@ Para dominar la creación de plantillas, lea [Creación de plantillas del Admini
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

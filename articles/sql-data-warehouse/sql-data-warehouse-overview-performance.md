@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="11/23/2015"
    ms.author="barbkess;JRJ@BigBangData.co.uk;mausher;nicw"/>
 
 # Información general sobre rendimiento y escala
-Al colocar el Almacenamiento de datos en la nube, ya no es necesario preocuparse por los problemas de hardware de bajo nivel. Lejos quedan los días en que había que investigar qué tipo de procesadores, qué cantidad de memoria o qué tipo de almacenamiento era necesario para obtener un rendimiento excelente en el almacenamiento de datos. En su lugar, Almacenamiento de datos SQL formula esta pregunta: ¿con qué rapidez se desean procesar los datos?
+Al colocar el Almacenamiento de datos en la nube, ya no es necesario preocuparse por los problemas de hardware de bajo nivel. Lejos quedan los días en que había que investigar qué tipo de procesadores, qué cantidad de memoria o qué tipo de almacenamiento era necesario para obtener un rendimiento excelente en el almacenamiento de datos. En su lugar, Almacenamiento de datos SQL formula esta pregunta: ¿con qué rapidez se desean analizar los datos?
 
 Almacenamiento de datos SQL es una plataforma de base de datos distribuida basada en la nube y diseñada para ofrecer un gran rendimiento de escala cuando se tiene el control total de los recursos usados para resolver las consultas. Simplemente ajustando el número de unidades de almacenamiento de datos asignada al almacenamiento de datos, puede escalar con flexibilidad el tamaño de los recursos de almacenamiento en cuestión de segundos. Como plataforma distribuida, de escala horizontal, Almacenamiento de datos SQL permite procesar grandes volúmenes de datos de manera eficiente y eficaz mientras permite mantener el control total del costo de la solución.
 
@@ -77,4 +77,4 @@ Consulte el artículo [Introducción al desarrollo][] para obtener orientación 
 
 <!--Other web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
 
 
@@ -195,4 +195,4 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

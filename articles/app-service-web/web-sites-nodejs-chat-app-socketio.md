@@ -3,9 +3,9 @@
 	description="Este tutorial muestra el uso de socket.io en una aplicación web node.js hospedada en Azure."
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="10/30/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 
 
 # Creación de una aplicación de chat Node.js con Socket.IO en el Servicio de aplicaciones de Azure
 
-Socket.IO proporciona comunicación en tiempo real entre su servidor node.js y los clientes con WebSockets. También es compatible con la reserva a otros transportes (como el sondeo largo) que funcionan con otros exploradores. Este tutorial le guiará por el hospedaje de una aplicación de chat basada en Socket.IO como una aplicación web de Azure, y le mostrará cómo [escalar](#scale-out) la aplicación con [Caché en Redis de Azure](http://azure.microsoft.com/documentation/services/cache). Para obtener más información sobre Socket.IO, consulte [http://socket.io/][socketio].
+Socket.IO proporciona comunicación en tiempo real entre su servidor node.js y los clientes con WebSockets. También es compatible con la reserva a otros transportes (como el sondeo largo) que funcionan con otros exploradores. Este tutorial le guiará por el hospedaje de una aplicación de chat basada en Socket.IO como una aplicación web de Azure, y le mostrará cómo [escalar](#scale-out) la aplicación con [Caché en Redis de Azure](/documentation/services/cache). Para obtener más información sobre Socket.IO, consulte [http://socket.io/][socketio].
 
 > [AZURE.NOTE]Los procedimientos de esta tarea se aplican a [Aplicaciones web del Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714); para Servicios en la nube, consulte <a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">Creación de una aplicación de chat Node.js con Socket.IO en un servicio en la nube de Azure</a>.
 
@@ -119,7 +119,7 @@ Las aplicaciones Socket.IO se pueden escalar horizontalmente con un __adaptador_
 
 ###Crear una caché de Redis
 
-Realice los pasos de [Creación de una memoria caché en Caché en Redis de Azure](https://azure.microsoft.com/es-ES/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache) para crear una caché nueva.
+Realice los pasos de [Creación de una memoria caché en Caché en Redis de Azure](/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache) para crear una caché nueva.
 
 > [AZURE.NOTE]Guarde el __Nombre de host__ y la __Clave principal__ de la caché, ya que los necesitará en los siguientes pasos.
 
@@ -285,4 +285,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

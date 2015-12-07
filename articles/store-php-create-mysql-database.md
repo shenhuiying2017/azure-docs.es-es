@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.date="11/19/2015"
 	ms.author="robmcm"/>
 
 #Creación una base de datos MySQL en Azure
@@ -27,4 +27,4 @@ En <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/taskli
 
 Para obtener más información, consulte el [Centro para desarrolladores de PHP](/develop/php/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

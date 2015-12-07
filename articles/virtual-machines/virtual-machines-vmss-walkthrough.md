@@ -3,7 +3,7 @@
 	description="Empiece a crear y administrar sus primeros conjuntos de escalado de máquinas virtuales de Azure"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="gbowerman"
+	authors="davidmu1"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,672 +14,596 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
-	ms.author="guybo"/>
+	ms.date="11/19/2015"
+	ms.author="davidmu"/>
 
 # Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-create-windows-powershell-service-manager.md).
 
-
-Este documento es una guía rápida para empezar a crear y administrar sus primeros conjuntos de escalado de máquinas virtuales de Azure durante la vista previa pública.
-
-En la guía, se da por supuesto que ya conoce el uso de las plantillas del Administrador de recursos de Azure (ARM) para implementar recursos de Azure como máquinas virtuales y redes virtuales. De lo contrario, los tres primeros vínculos de la sección Recursos proporcionan una introducción al Administrador de recursos.
-
-## ¿Qué son los conjuntos de escalado de máquinas virtuales y por qué usarlos?
-
-Los conjuntos de escalado de máquinas virtuales son un recurso de procesos de Azure que puede usar para implementar y administrar un conjunto de máquinas virtuales idénticas.
-
-Con todas las máquinas virtuales configuradas de la misma manera, los conjuntos de escalado de máquinas virtuales están diseñados para admitir el escalado automático verdadero (no es necesario aprovisionar las máquinas virtuales antes) y, por tanto, facilitan la creación de servicios a gran escala cuyo objetivo son las cargas de trabajo en contenedor, de macroproceso y macrodatos, y cualquier aplicación que necesite escalar los recursos de procesos, ya sea escalarlos o reducirlos horizontalmente. Las operaciones de escalado se equilibran implícitamente entre dominios de error y de actualización. Para obtener una introducción a los conjuntos de escalado de máquinas virtuales, consulte el reciente [anuncio en el blog de Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview).
-
-## Creación de conjuntos de escalado de máquinas virtuales y trabajo con ellos
-
-Los conjuntos de escalado de máquinas virtuales se pueden definir e implementar mediante plantillas JSON y llamadas REST igual que las máquinas virtuales individuales del Administrador de recursos de Azure. Por lo tanto, pueden usarse los métodos de implementación estándar del Administrador de recursos de Azure, y este documento lo guiará por algunos ejemplos.
-
-Las áreas específicas de la integración de los conjuntos de escalado de máquinas virtuales, como la compatibilidad con comandos imperativos en lenguajes de programación y scripting, y la integración completa en el portal están en desarrollo y se presentarán en fases durante la vista previa.
-
-## Implementación y administración de conjuntos de escalado de máquinas virtuales con el Portal de Azure
-
-En un principio, no se puede crear un conjunto de escalado de máquinas virtuales desde cero en el Portal de Azure. Se está trabajando en la compatibilidad con el portal y, en la primera fase de este trabajo, solo se pueden ver en el portal los conjuntos de escalado que ya creó. Además, tendrá que adoptar un enfoque de plantilla o script para crearlos. En todos los casos, se da por supuesto que "portal" se refiere al nuevo Portal de Azure: [https://portal.azure.com/](https://portal.azure.com/).
-
-Sin embargo, puede emplear la capacidad del portal de implementar una plantilla para implementar cualquier recurso, incluidos los conjuntos de escalado. Una manera fácil de implementar un conjunto de escalado sencillo es usar un vínculo como este:
-
-_https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>_
-
-Se puede encontrar un conjunto de plantillas de ejemplo para conjuntos de escalado de máquinas virtuales en el repositorio GitHub de plantillas de inicio rápido de Azure aquí: [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates). Busque las plantillas con _vmss_ en el título.
-
-En el archivo Léame de estas plantillas, verá un botón como este que se vincula con la característica de implementación con el portal.
-
-Para implementar el conjunto de escalado, haga clic en el botón y después rellene los parámetros que son necesarios en el portal. Nota: Si no está seguro de si un recurso admite mayúsculas o la mezcla de mayúsculas y minúsculas, es más seguro usar siempre los valores de parámetro en minúsculas.
-
-**Supervisión del recurso de conjunto de escalado de máquinas virtuales en el portal o el Explorador de recursos**
-
-Una vez implementado un conjunto de escalado, se mostrará una vista básica de él en el portal pero en un principio, durante la vista previa, no se mostrarán las propiedades detalladas ni se permitirá profundizar en las máquinas virtuales que se ejecutan en el conjunto de escalado de máquinas virtuales.
-
-Hasta que se aplique la integración completa en el portal, se recomienda usar el **Explorador de recursos de Azure**: [https://resources.azure.com](https://resources.azure.com) para ver los conjuntos de escalado de máquinas virtuales. Los conjuntos de escalado de máquinas virtuales son un recurso en Microsoft.Compute, por lo que en este sitio puede verlos si expande los vínculos siguientes:
-
-Suscripciones -> su suscripción -> resourceGroups -> proveedores -> Microsoft.Compute -> virtualMachineScaleSets -> su conjunto de escalado de máquinas virtuales -> etc.
-
-## Implementación y administración de conjuntos de escalado de máquinas virtuales mediante PowerShell
-
-Puede implementar plantillas de conjunto de escalado de máquinas virtuales y recursos de consulta con cualquier versión actual de Azure PowerShell.
-
-**Nota importante:** Los ejemplos que se muestran a continuación son para [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/), que introdujo el prefijo _AzureRm_ para muchos comandos. Si está usando una versión anterior de PowerShell, como 0.9.8 o anterior, quite "**Rm**" de los comandos de ejemplo. En los ejemplos también se supone que ya estableció una conexión de inicio de sesión a Azure en su entorno de PowerShell (_Login-AzureRmAccount_).
-
-Ejemplos:
-
-&#35; **Crear un grupo de recursos**
-
-New-AzureRmResourcegroup -name myrg -location 'Sudeste de Asia'
-
-&#35; **Crear un conjunto de escalado de máquinas virtuales con 2 máquinas virtuales**
-
-New-AzureRmResourceGroupDeployment -name dep1 -vmSSName myvmss -instanceCount 3 -ResourceGroupName myrg -TemplateUri [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json)
-
-Se le pedirá cualquier parámetro que falte (por ejemplo, la ubicación, el nombre de usuario o la contraseña en este ejemplo).
-
-&#35; **Obtener datos del conjunto de escalado de máquinas virtuales**
-
-Get-AzureRmResource -name myvmss -ResourceGroupName myrg -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
-
-&#35; o para obtener más detalles, canalícelo a través de | ConvertTo-Json -Depth 10
-
-&#35; o para tener aún más detalles, agregue –debug al comando.
-
-& #35; Escalado o reducción horizontales
-
-New-AzureRmResourceGroupDeployment -name dep2 -vmSSName myvmss -instanceCount 2 -ResourceGroupName myrg –TemplateUri [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json)
-
-& #35; **Quitar un conjunto de escalado**
-
-& #35; Fácil: quite el grupo de recursos completo y todo lo que contiene:
-
-Remove-AzureRmResourceGroup -Name myrg
-
-& #35; Preciso: quite un recurso específico:
-
-Remove-AzureRmResource -Name myvmss -ResourceGroupName myrg -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
-
-### Comandos de PowerShell imperativos para conjuntos de escalado
-
-Una próxima compilación de Azure PowerShell incluirá un conjunto de comandos imperativos para crear y administrar conjuntos de escalado de máquinas virtuales sin usar plantillas. Esta compilación está disponible en la vista previa aquí: [https://github.com/AzureRT/azure-powershell/releases](https://github.com/AzureRT/azure-powershell/releases). Aquí se pueden encontrar ejemplos de cómo usar la API imperativa:
-
-[https://github.com/huangpf/azure-powershell/blob/vmss/src/ResourceManager/Compute/Commands.Compute.Test/ScenarioTests/VirtualMachineScaleSetTests.ps1](https://github.com/huangpf/azure-powershell/blob/vmss/src/ResourceManager/Compute/Commands.Compute.Test/ScenarioTests/VirtualMachineScaleSetTests.ps1)
-
-## Implementación y administración de conjuntos de escalado de máquinas virtuales mediante la CLI de Azure
-
-Puede implementar plantillas de conjuntos de escalado de máquinas virtuales y recursos de consulta con cualquier versión actual de la CLI de Azure.
-
-La manera más fácil de instalar la CLI es desde un contenedor de Docker. Para instalarla, consulte: [https://azure.microsoft.com/blog/run-azure-cli-as-a-docker-container-avoid-installation-and-setup/](https://azure.microsoft.com/blog/run-azure-cli-as-a-docker-container-avoid-installation-and-setup/).
-
-Para usar la CLI, consulte: [https://azure.microsoft.com/documentation/articles/xplat-cli/](https://azure.microsoft.com/documentation/articles/xplat-cli/).
-
-### Ejemplos de CLI de conjunto de escalado de máquinas virtuales
-
-&#35; **crear un grupo de recursos**
-
-azure group create myrg "Sudeste de Asia"
-
-&#35; **crear un conjunto de escalado de máquinas virtuales**
-
-azure group deployment create -g myrg -n dep2 --template-uri [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json)
-
-& #35; esto debería pedir parámetros dinámicamente o podría especificarlos como argumentos
-
-&#35; **obtener datos del conjunto de escalado**
-
-azure resource show -n vmssname -r Microsoft.Compute/virtualMachineScaleSets -o 2015-06-15 -g myrg
-
-&#35; o para obtener más detalles:
-
-azure resource show –n vmssname –r Microsoft.Compute/virtualMachineScaleSets –o 2015-06-15 –g myrg –json –vv
-
-Una compilación de la CLI de Azure próxima incluirá comandos imperativos para implementar y administrar conjuntos de escalado de máquinas virtuales directamente sin plantillas y realizar operaciones en máquinas virtuales en conjuntos de escalado de máquinas virtuales. Puede realizar un seguimiento de esta compilación aquí: [https://github.com/AzureRT/azure-xplat-cli/releases/](https://github.com/AzureRT/azure-xplat-cli/releases/).
-
-## Plantillas de conjunto de escalado de máquinas virtuales
-
-Esta sección lo guía por una plantilla simple de Azure para crear un conjunto de escalado de máquinas virtuales y la contrasta con las plantillas que se usan para crear máquinas virtuales de instancia única. También hay una práctica explicación en vídeo de una plantilla de conjunto de escalado de máquinas virtuales aquí: [https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player).
-
-### Anatomía de una plantilla
-
-Empecemos con una plantilla simple que crea un conjunto de escalado de máquinas virtuales con máquinas virtuales de Ubuntu y desglosemos sus componentes. Este ejemplo también crea los recursos de los que depende un conjunto de escalado de máquinas virtuales, como la red virtual, la cuenta de almacenamiento, etc. Este ejemplo se puede encontrar aquí: [https://raw.githubusercontent.com/gbowerman/azure-myriad/master/vmss-ubuntu-vnet-storage.json](https://raw.githubusercontent.com/gbowerman/azure-myriad/master/vmss-ubuntu-vnet-storage.json). Tenga en cuenta que, para este ejemplo de tipo "Hola a todos", no habrá una manera directa de conectarse a las máquinas virtuales en el conjunto de escalado de máquinas virtuales desde fuera de la red virtual, ya que las máquinas virtuales tienen asignadas direcciones IP internas. Consulte la sección de escenarios y ejemplos de [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates) para ver formas de conectarse desde fuera mediante equilibradores de carga o equipos de inicio de sesión seguro.
-
-### Encabezado de la plantilla
-
-Especifique el esquema y la versión del contenido:
-
-{
-
-   "$schema": "http://schema.management.azure.com/schemas/2015-01-01-preview/deploymentTemplate.json",
-
-   "contentVersion": "1.0.0.0",
-
-### Parámetros
-
-Como con cualquier plantilla del Administrador de recursos de Azure (ARM), en esta sección se definen los parámetros que se especifican durante la implementación, lo que en este ejemplo incluye el nombre del conjunto de escalado de máquinas virtuales, el número de instancias de máquina virtual con las que empezar y una cadena única que se usará al crear cuentas de almacenamiento (use siempre minúsculas al escribir valores para objetos como cuentas de almacenamiento a menos que sepa si se acepta algo diferente).
-
-````
- "parameters": {
-
-    "vmSSName": {
-
-      "type": "string",
-
-      "metadata": {
-
-        "description": "Scale Set name, also used in this template as a base for naming resources (hence limited less than 10 characters)."
-
-      },
-
-      "maxLength": 10
-
-    },
-
-    "instanceCount": {
-
-      "type": "int",
-
-      "metadata": {
-
-        "description": "Number of VM instances"
-
-      },
-
-      "maxValue": 100
-
-    },
-
-    "adminUsername": {
-
-      "type": "string",
-
-      "metadata": {
-
-        "description": "Admin username on all VMs."
-
-      }
-
-    },
-
-    "adminPassword": {
-
-      "type": "securestring",
-
-      "metadata": {
-
-        "description": "Admin password on all VMs."
-
-      }
-
-    }
-
-  },
-````
-
-### Variables
-
-Un componente estándar de la plantilla del ARM que define las variables a las que se hará referencia más adelante en la plantilla. En este ejemplo vamos a usar variables para definir qué sistema operativo queremos, algunos detalles de la configuración de red, la configuración de almacenamiento y la ubicación. Para ubicación, usaremos la función _location()_, que la tomará del grupo de recursos donde se va a implementar.
-
-Tenga en cuenta que se define una matriz de cadenas únicas para un prefijo de cuenta de almacenamiento. Consulte la sección Almacenamiento para obtener una explicación.
-
-````
-  "variables": {
-
-    "apiVersion": "2015-06-15",
-
-    "newStorageAccountSuffix": "[concat(parameters('vmssName'), 'sa')]",
-
-    "uniqueStringArray": [
-
-      "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '0')))]",
-
-      "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '1')))]",
-
-      "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '2')))]",
-
-      "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '3')))]",
-
-      "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '4')))]"
-
-    ],
-
-    "vmSize": "Standard\_A1",
-
-    "vhdContainerName": "[concat(parameters('vmssName'), 'vhd')]",
-
-    "osDiskName": "[concat(parameters('vmssName'), 'osdisk')]",
-
-    "virtualNetworkName": "[concat(parameters('vmssName'), 'vnet')]",
-
-    "subnetName": "[concat(parameters('vmssName'), 'subnet')]",
-
-    "nicName": "[concat(parameters('vmssName'), 'nic')]",
-
-    "ipConfigName": "[concat(parameters('vmssName'), 'ipconfig')]",
-
-    "addressPrefix": "10.0.0.0/16",
-
-    "subnetPrefix": "10.0.0.0/24",
-
-    "storageAccountType": "Standard\_LRS",
-
-    "location": "[resourceGroup().location]",
-
-    "osType": {
-
-      "publisher": "Canonical",
-
-      "offer": "UbuntuServer",
-
-      "sku": "15.10",
-
-      "version": "latest"
-
-    },
-
-    "imageReference": "[variables('osType')]"
-
-  },
-````
-
-### Recursos
-
-En esta sección se define cada tipo de recurso.
-
-````
-   "resources": [
-````
-
-
-**Almacenamiento.** Cuando se crea un conjunto de escalado de máquinas virtuales, se especifica una matriz de cuentas de almacenamiento. Después, los discos de sistema operativo para las instancias de máquina virtual se distribuirán uniformemente entre cada cuenta. En el futuro, los conjuntos de escalado de máquinas virtuales pasarán a adoptar un enfoque de disco administrado donde no es necesario administrar cuentas de almacenamiento y, en su lugar, basta con describir las propiedades de almacenamiento como parte de la definición del conjunto de escalado. Por ahora, creará tantas cuentas de almacenamiento como necesite por adelantado. Recomendamos crear 5 cuentas de almacenamiento, que admitirán cómodamente hasta 100 máquinas virtuales en un conjunto de escalado (el máximo actual).
-
-Cuando se crea un conjunto de cuentas de almacenamiento, se distribuyen entre las particiones en un sello de almacenamiento y el esquema de distribución depende de las primeras letras del nombre de la cuenta de almacenamiento. Por este motivo, para lograr un rendimiento óptimo, se recomienda que cada cuenta de almacenamiento que cree empiece por una letra diferente del alfabeto. Puede asignarles nombre manualmente o, para este ejemplo, use la función uniqueString() para proporcionar una distribución pseudoaleatoria:
-
-````
-    {
-
-      "type": "Microsoft.Storage/storageAccounts",
-
-      "name": "[concat(variables('uniqueStringArray')[copyIndex()], variables('newStorageAccountSuffix'))]",
-
-      "location": "[variables('location')]",
-
-      "apiVersion": "[variables('apiVersion')]",
-
-      "copy": {
-
-        "name": "storageLoop",
-
-        "count": 5
-
-      },
-
-      "properties": {
-
-        "accountType": "[variables('storageAccountType')]"
-
-      }
-
-    },
-````
-
-**Red virtual.** Cree una red virtual. Tenga en cuenta que puede tener varios conjuntos de escalado, así como máquinas virtuales individuales, en la misma red virtual.
-
-````
-    {
-
-      "type": "Microsoft.Network/virtualNetworks",
-
-      "name": "[variables('virtualNetworkName')]",
-
-      "location": "[variables('location')]",
-
-      "apiVersion": "[variables('apiVersion')]",
-
-      "properties": {
-
-        "addressSpace": {
-
-          "addressPrefixes": [
-
-            "[variables('addressPrefix')]"
-
-          ]
-
-        },
-
-        "subnets": [
-
-          {
-
-            "name": "[variables('subnetName')]",
-
-            "properties": {
-
-              "addressPrefix": "[variables('subnetPrefix')]"
-
-            }
-
-          }
-
-        ]
-
-      }
-
-    },
-````
-
-### El recurso virtualMachineScaleSets
-
-En muchos aspectos, el recurso _virtualMachineScaleSets_ es como un recurso _virtualMachines_. Ambos los proporciona el proveedor de recursos Microsoft.Compute y se encuentran en el mismo nivel. La principal diferencia es que se proporciona un valor _capacity_ que indica cuántas máquinas virtuales se están creando, valor que se define aquí para todas las máquinas virtuales en el conjunto de escalado de máquinas virtuales.
-
-Observe cómo la sección _dependsOn_ hace referencia a las cuentas de almacenamiento y la red virtual creadas arriba y capacity hace referencia al parámetro _instanceCount_.
-
-````
-    {
-
-      "type": "Microsoft.Compute/virtualMachineScaleSets",
-
-      "name": "[parameters('vmssName')]",
-
-      "location": "[variables('location')]",
-
-      "apiVersion": "[variables('apiVersion')]",
-
-      "dependsOn": [
-
-        "[concat('Microsoft.Storage/storageAccounts/', variables('uniqueStringArray')[0], variables('newStorageAccountSuffix'))]",
-
-        "[concat('Microsoft.Storage/storageAccounts/', variables('uniqueStringArray')[1], variables('newStorageAccountSuffix'))]",
-
-        "[concat('Microsoft.Storage/storageAccounts/', variables('uniqueStringArray')[2], variables('newStorageAccountSuffix'))]",
-
-        "[concat('Microsoft.Storage/storageAccounts/', variables('uniqueStringArray')[3], variables('newStorageAccountSuffix'))]",
-
-        "[concat('Microsoft.Storage/storageAccounts/', variables('uniqueStringArray')[4], variables('newStorageAccountSuffix'))]",
-
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
-
-      ],
-
-      "sku": {
-
-        "name": "[variables('vmSize')]",
-
-        "tier": "Standard",
-
-        "capacity": "[parameters('instanceCount')]"
-
-      },
-````
-
-**Propiedades**
-
-Los conjuntos de escalado de máquinas virtuales poseen una configuración upgradePolicy. Las versiones futuras serán compatibles con las actualizaciones segmentadas (por ejemplo, cambiar la configuración del 20% de mis máquinas virtuales a la vez), pero por ahora se puede establecer upgradePolicy en manual o automática. Manual significa que, si cambia la plantilla y vuelve a implementarla, los cambios solo surtirán efecto cuando se creen nuevas máquinas virtuales o se actualicen las extensiones, por ejemplo, al aumentar _capacity_. Automática significa que se actualizan todas las máquinas virtuales en una "ráfaga" y se reinicia todo. La opción manual suele ser un enfoque más seguro. Puede eliminar máquinas virtuales individuales y volver a implementarlas según sea necesario para actualizarlas gradualmente.
-
-````
-      "properties": {
-
-         "upgradePolicy": {
-
-         "mode": "Manual"
-
-        },
-````
-
-**Propiedades -> virtualMachineProfile**
-
-Aquí hace referencia a las cuentas de almacenamiento creadas antes como contenedores para máquinas virtuales. No es necesario crear antes los contenedores en sí, solo las cuentas.
-
-````
-        "virtualMachineProfile": {
-
-          "storageProfile": {
-
-            "osDisk": {
-
-              "vhdContainers": [
-
-                "[concat('https://', variables('uniqueStringArray')[0], variables('newStorageAccountSuffix'), '.blob.core.windows.net/', variables('vhdContainerName'))]",
-
-                "[concat('https://', variables('uniqueStringArray')[1], variables('newStorageAccountSuffix'), '.blob.core.windows.net/', variables('vhdContainerName'))]",
-
-                "[concat('https://', variables('uniqueStringArray')[2], variables('newStorageAccountSuffix'), '.blob.core.windows.net/', variables('vhdContainerName'))]",
-
-                "[concat('https://', variables('uniqueStringArray')[3], variables('newStorageAccountSuffix'), '.blob.core.windows.net/', variables('vhdContainerName'))]",
-
-                "[concat('https://', variables('uniqueStringArray')[4], variables('newStorageAccountSuffix'), '.blob.core.windows.net/', variables('vhdContainerName'))]"
-
-              ],
-
-              "name": "[variables('osDiskName')]",
-
-              "caching": "ReadOnly",
-
-              "createOption": "FromImage"
-
-            },
-
-            "imageReference": "[variables('imageReference')]"
-
-          },
-````
-
-**Propiedades -> osProfile**
-
-Una diferencia entre los conjuntos de escalado de máquinas virtuales y las máquinas virtuales individuales es que el nombre del equipo es un prefijo. Las instancias de máquina virtual en el conjunto de escalado de máquinas virtuales se crearán con nombres como: myvm\_0, myvm\_1, etc.
-
-````
-          "osProfile": {
-
-            "computerNamePrefix": "[parameters('vmSSName')]",
-
-            "adminUsername": "[parameters('adminUsername')]",
-
-            "adminPassword": "[parameters('adminPassword')]"
-
-          },
-````
-
-**Propiedades -> networkProfile**
-
-Al definir el perfil de red para un conjunto de escalado de máquinas virtuales, recuerde que la configuración de NIC y la configuración IP tienen nombre. La configuración de NIC tiene una configuración "_primary_" y el id. de subred hace referencia al recurso de subred que se creó como parte de la red virtual arriba.
-
-````
-          "networkProfile": {
-
-            "networkInterfaceConfigurations": [
-
-              {
-
-                "name": "[variables('nicName')]",
-
-                "properties": {
-
-                  "primary": "true",
-
-                  "ipConfigurations": [
-
-                    {
-
-                      "name": "[variables('ipConfigName')]",
-
-                      "properties": {
-
-                        "subnet": {
-
-                          "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'), '/subnets/', variables('subnetName'))]"
-
-                        }
-
-                      }
-
-                    }
-
-                  ]
-
-                }
-
-              }
-
-            ]
-
-          }
-````
-
-**Propiedades -> extensionProfile**
-
-El ejemplo anterior no requiere un perfil de extensión. Puede ver uno en acción en esta plantilla que implementa Apache y PHP con la extensión CustomScript: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale). Tenga en cuenta que en este ejemplo las propiedades de IP de red también hacen referencia a un equilibrador de carga. Los equilibradores de carga se describirán con más detalle en la sección Escenarios con conjuntos de escalado de máquinas virtuales.
-
-## Escenarios con conjuntos de escalado de máquinas virtuales
-
-En esta sección, se explican algunos escenarios típicos con conjuntos de escalado de máquinas virtuales y plantillas de ejemplo. Aunque por ahora requieren plantillas, algunos se integrarán en el portal en el futuro. Además, algunos servicios de Azure de niveles superiores (por ejemplo, Lote, Service Fabric, servicio Contenedor de Azure) usarán estos escenarios.
-
-## RDP o SSH para instancias de conjunto de escalado de máquinas virtuales
-
-Se crea un conjunto de escalado de máquinas virtuales dentro de una red virtual y a las máquinas virtuales individuales no se les asignan direcciones IP públicas. Esto es algo bueno, ya que normalmente no desea los costos ni la sobrecarga administrativa que supone la asignación de direcciones IP independientes a todos los recursos sin estado en la cuadrícula de procesos y puede conectarse fácilmente a estas máquinas virtuales desde otros recursos en la red virtual, incluidas aquellas con direcciones IP públicas, como los equilibradores de carga o las máquinas virtuales independientes.
-
-Aquí se describen dos maneras sencillas de conectarse a máquinas virtuales de un conjunto de escalado de máquinas virtuales:
-
-### Conexión a máquinas virtuales mediante reglas NAT
-
-Puede crear una dirección IP pública, asignarla a un equilibrador de carga y definir reglas NAT entrantes que asignen un puerto de la dirección IP a un puerto de una máquina virtual en el conjunto de escalado de máquinas virtuales. Por ejemplo,
-
-IP pública->Puerto 50000 -> vmss\_0->Puerto 22 IP pública->Puerto 50001 -> vmss\_1->Puerto 22 IP pública->Puerto 50002-> vmss\_2->Puerto 22
-
-Aquí hay un ejemplo de creación de un conjunto de escalado de máquinas virtuales que usa reglas NAT para permitir la conexión SSH a cada máquina virtual de un conjunto de escalado mediante una sola dirección IP pública: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat).
-
-Este es un ejemplo que hace lo mismo con RDP y Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat).
-
-### Conexión a máquinas virtuales mediante un "equipo de inicio de sesión seguro"
-
-Si crea un conjunto de escalado de máquinas virtuales y una máquina virtual independiente en la misma red virtual, la máquina virtual independiente y las máquinas virtuales del conjunto de escalado de máquinas virtuales pueden conectarse entre sí mediante sus direcciones IP internas como se define en la red virtual y la subred.
-
-Si crea una dirección IP pública y la asigna a la máquina virtual independiente, puede conectarse mediante RDP o SSH a la máquina virtual independiente y después conectarse desde esa máquina a las instancias del conjunto de escalado de máquinas virtuales. En este punto, es posible que observe que un simple conjunto de escalado de máquinas virtuales es de forma inherente más seguro que una simple máquina virtual independiente con una dirección IP pública en su configuración predeterminada.
-
-Para obtener un ejemplo de este enfoque, esta plantilla crea un clúster sencillo de Mesos compuesto por una máquina virtual maestra independiente que administra un clúster de máquinas virtuales basado en un conjunto de escalado de máquinas virtuales: [https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json).
-
-## Equilibrio de carga round robin en instancias de conjunto de escalado de máquinas virtuales
-
-Si desea entregar trabajo a un clúster de proceso de máquinas virtuales con un enfoque "round robin", puede configurar un equilibrador de carga de Azure con reglas de equilibrio de carga según corresponda. También puede definir sondeos para comprobar que la aplicación se esté ejecutando; estos hacen ping a puertos con un protocolo, un intervalo y una ruta de acceso de solicitud especificados.
-
-Este es un ejemplo que crea un conjunto de escalado de máquinas virtuales con máquinas virtuales que ejecutan un servidor web de IIS y usa un equilibrador de carga para equilibrar la carga que recibe cada máquina virtual. También usa el protocolo HTTP para hacer ping a una dirección URL específica en cada máquina virtual: [https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json). Examine el tipo de recurso Microsoft.Network/loadBalancers, networkProfile y extensionProfile en virtualMachineScaleSet.
-
-## Instancias de conjunto de escalado de máquinas virtuales con Escalado automático de Azure
-
-Si desea variar el número de instancias (_capacity_) del conjunto de escalado de máquinas virtuales según el uso de CPU, memoria o disco, u otros eventos, existe un amplio conjunto de configuraciones de escalado automático en el proveedor de recursos Microsoft.Insights. Puede leer sobre las configuraciones disponibles en la documentación de REST de Insights: [https://msdn.microsoft.com/library/azure/dn931953.aspx](https://msdn.microsoft.com/library/azure/dn931953.aspx).
-
-El escalado automático de Insights se integra directamente con los conjuntos de escalado de máquinas virtuales. Para configurarlo, se define un tipo de recurso Microsoft.Insights/autoscaleSettings que tiene un _targetResourceUri_ y un _metricResourceUri_ que hacen referencia al conjunto de escalado. Cuando se define el conjunto de escalado, se incluye un _extensionProfile_ que instala el agente de Diagnósticos de Azure (WAD) en Windows o la extensión de diagnósticos de Linux (LDE) en Linux. Aquí hay un ejemplo de Linux que agrega máquinas virtuales hasta un límite predefinido cuando el promedio de uso de la CPU es >50% con una granularidad de tiempo de 1 minuto durante un período de muestreo de 5 minutos:
-
-[https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale).
-
-En el futuro, el escalado automático con conjuntos de escalado de máquinas virtuales también se integrará directamente con el Portal de Azure.
-
-## Implementación de un conjunto de escalado de máquinas virtuales como un clúster de proceso en un administrador de clústeres PaaS
-
-A veces, los conjuntos de escalado de máquinas virtuales se describen como un rol de trabajo de próxima generación. Es una descripción válida pero también existe el riesgo de confundir las características del conjunto de escalado con las del rol de trabajo v1 de PaaS.
-
-En cierto sentido, los conjuntos de escalado de máquinas virtuales proporcionan un verdadero "rol de trabajo" o recurso de trabajo, pues suministran un recurso de proceso generalizado que no depende de la plataforma ni del tiempo de ejecución, es personalizable y se integra en IaaS del Administrador de recursos de Azure.
-
-Un rol de trabajo de PaaS v1, aunque está limitado en cuanto a la compatibilidad con la plataforma y el tiempo de ejecución (solo imágenes de la plataforma Windows), incluye servicios (como intercambio de VIP, parámetros de actualización configurables o una configuración específica para la implementación de aplicaciones y para tiempo de ejecución) que no están _todavía_ disponibles en los conjuntos de escalado de máquinas virtuales o que se ofrecerán con otros servicios de PaaS de nivel superior como Service Fabric. Teniendo esto en cuenta, puede considerar los conjuntos de escalado de máquinas virtuales como una infraestructura que admite PaaS, es decir, las soluciones de PaaS como Service Fabric o los administradores de clústeres como Mesos pueden partir de los conjuntos de escalado de máquinas virtuales como una capa de proceso escalable.
-
-Este es un ejemplo de un clúster de Mesos que implementa un conjunto de escalado de máquinas virtuales en la misma red virtual que una máquina virtual independiente. La máquina virtual independiente es maestra en Mesos y el conjunto de escalado de máquinas virtuales representa un conjunto de nodos subordinados: [https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json). Las versiones futuras del [servicio Contenedor de Azure](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) implementarán versiones más complejas o reforzadas de este escenario basado en conjuntos de escalado de máquinas virtuales.
-
-## Escalado y reducción verticales de un conjunto de escalado de máquinas virtuales
-
-Para aumentar o disminuir el número de máquinas virtuales en un conjunto de escalado de máquinas virtuales, basta con cambiar la propiedad _capacity_ y volver a implementar la plantilla. Esta sencillez facilita la escritura de su propia capa de escalado personalizada si quiere definir eventos personalizados de escalado que no sean compatibles con el escalado automático de Azure.
-
-Si va a volver a implementar una plantilla para modificar la capacidad, puede definir una plantilla mucho más pequeña que solo incluya la SKU y la capacidad actualizada. Aquí se muestra un ejemplo de esto: [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
-
-## Guía sobre el escalado y el rendimiento del conjunto de escalado de máquinas virtuales
-
-- Durante la vista previa pública, no cree más de 500 máquinas virtuales en varios conjuntos de escalado de máquinas virtuales a la vez. Este límite aumentará en el futuro.
-- No planee más de 40 máquinas virtuales por cuenta de almacenamiento.
-- Distancie las primeras letras de los nombres de las cuentas de almacenamiento lo más posible. Las plantillas de conjunto de escalado de máquinas virtuales de ejemplo en la página de [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/) muestran cómo hacerlo.
-- Si usa máquinas virtuales personalizadas, no planee más de 40 máquinas virtuales por conjunto de escalado de máquinas virtuales en una única cuenta de almacenamiento. Necesitará copiar antes la imagen en la cuenta de almacenamiento para poder comenzar la implementación del conjunto de escalado de máquinas virtuales. Consulte las preguntas más frecuentes para obtener más información.
-- No planee más de 2048 máquinas virtuales por red virtual. Este límite aumentará en el futuro.
-- El número de máquinas virtuales que se pueden crear está limitado por la cuota de núcleos de proceso en cualquier región. Puede que necesite ponerse en contacto con soporte al cliente para aumentar el límite de cuota de proceso incluso si ya tiene un límite alto de núcleos para su uso con los servicios en la nube o IaaS v1. Para consultar la cuota, puede ejecutar el siguiente comando en la CLI de Azure: _azure vm list-usage_, y el siguiente comando de PowerShell: _Get-AzureRmVMUsage_ (si usa una versión de PowerShell anterior a 1.0, use _Get-AzureVMUsage_).
-
-
-## Preguntas más frecuentes sobre los conjuntos de escalado de máquinas virtuales
-
-**P. ¿Cuántas máquinas virtuales puede tener en un conjunto de escalado de máquinas virtuales?**
-
-R: 100 si usa imágenes de plataforma que se puedan distribuir entre varias cuentas de almacenamiento. Si usa imágenes personalizadas, hasta 40, porque las imágenes personalizadas se limitan a una única cuenta de almacenamiento durante la vista previa.
-
-**¿Qué otros límites de recursos existen para los conjuntos de escalado de máquinas virtuales?**
-
-R: Se aplican los límites de servicio de Azure existentes: [https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/).
-
-También existe un límite de creación de no más de 500 máquinas virtuales en varios conjuntos de escalado por región durante el período de vista previa.
-
-**P. ¿Se admiten discos de datos en los conjuntos de escalado de máquinas virtuales?**
-
-R: No en la versión inicial. Las opciones para almacenar datos son:
-
-- Archivos de Azure (unidades compartidas SMB)
-
-- Unidad de sistema operativo
-
-- Unidad temporal (local, no respaldada por almacenamiento de Azure)
-
-- Servicio de datos externo (por ejemplo, base de datos remota, tablas de Azure, blobs de Azure)
-
-**P. ¿Qué regiones de Azure admiten conjuntos de escalado de máquinas virtuales?**
-
-R: Cualquier región que admita el Administrador de recursos de Azure admite conjuntos de escalado de máquinas virtuales.
-
-**P. ¿Cómo se crea un conjunto de escalado de máquinas virtuales con una imagen personalizada?**
-
-R: Deje la propiedad vhdContainers en blanco; por ejemplo:
-
-````
-"storageProfile": {
-   "osDisk": {
-      "name": "vmssosdisk",
-      "caching": "ReadOnly",
-      "createOption": "FromImage",
-      "image": {
-         "uri": [https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd](https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd)
-     },
-     "osType": "Windows"
-  }
-},
-````
-
-**P. Si reduzco la capacidad de mi conjunto de escalado de máquinas virtuales de 20 a 15, ¿qué máquinas virtuales se quitarán?**
-
-R: Se quitarán las últimas 5 (índices más grandes).
-
-**P. ¿Y si después aumento la capacidad de 15 a 18?**
-
-Si la aumenta a 18, se crearán máquinas virtuales con los índices 15, 16 y 17. En ambos casos, las máquinas virtuales se equilibran entre dominios de error y de actualización.
-
-**P. Si uso varias extensiones en un conjunto de escalado de máquinas virtuales, ¿se puede aplicar una secuencia de ejecución?**
-
-R: No directamente pero, para la extensión customScript, su script podría esperar a que se completara otra extensión (por ejemplo, supervisando el registro de extensiones; consulte [https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install\_lap.sh](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)).
-
-**P. ¿Funcionan los conjuntos de escalado de máquinas virtuales con los conjuntos de disponibilidad de Azure?**
-
-R: Sí. Un conjunto de escalado es de forma implícita un conjunto de disponibilidad con 3 dominios de error y 5 dominios de actualización. No es necesario configurar nada en virtualMachineProfile. En futuras versiones, es probable que los conjuntos de escalado abarquen varios inquilinos pero, por ahora, un conjunto de escalado es un único conjunto de disponibilidad.
-
-## Pasos siguientes
-
-Durante la vista previa para conjuntos de escalado de máquinas virtuales, se estará desarrollando la documentación y se comunicarán más características de integración como el portal y el escalado automático.
-
-Sus comentarios son muy importantes para ayudarnos a crear un servicio que proporcione las características que necesita. Háganos saber qué funciona y qué no, además de qué se podría mejorar. Puede enviar sus comentarios a [vmssfeedback@microsoft.com](mailto:vmssfeedback@microsoft.com).
-
-## Recursos
-
-| **Tema.** | **Vínculo** |
-| --- | --- |
-| Información general del Administrador de recursos de Azure | [https://azure.microsoft.com/documentation/articles/resource-group-overview/](https://azure.microsoft.com/documentation/articles/resource-group-overview/) |
-| Plantillas del Administrador de recursos de Azure | [https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) |
-| Funciones de la plantilla del Administrador de recursos de Azure | [https://azure.microsoft.com/documentation/articles/resource-group-template-functions/](https://azure.microsoft.com/documentation/articles/resource-group-template-functions/) |
-| Plantillas de ejemplo (github) | [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) |
-| Guía de API de REST de conjuntos de escalado de máquinas virtuales | [https://msdn.microsoft.com/library/mt589023.aspx](https://msdn.microsoft.com/library/mt589023.aspx) |
-| Vídeos sobre los conjuntos de escalado de máquinas virtuales | [https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/) [https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman) [https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player) |
-| Ajustes de escalado automático (MSDN) | [https://msdn.microsoft.com/library/azure/dn931953.aspx](https://msdn.microsoft.com/library/azure/dn931953.aspx) |
-| Solución de problemas de implementaciones de grupo de recursos en Azure | [https://azure.microsoft.com/documentation/articles/resource-group-deploy-debug/](https://azure.microsoft.com/documentation/articles/resource-group-deploy-debug/) |
-
-<!---HONumber=Nov15_HO3-->
+Los conjuntos de escala de máquinas virtuales facilitan la implementación y administración de máquinas virtuales idénticas como un conjunto. Los conjuntos de escala proporcionan una capa de proceso altamente escalable y personalizable para aplicaciones de gran escala y admiten imágenes de la plataforma Windows, imágenes de la plataforma Linux, imágenes personalizadas y extensiones. Para más información acerca de los conjuntos de escala, consulte [Conjuntos de escala de máquinas virtuales](virtual-machines-vmss-overview.md).
+
+Este tutorial muestra cómo crear un conjunto de escala de máquinas virtuales de Windows y cómo escalar automáticamente los equipos en el conjunto. Esto se hace creando una plantilla del Administrador de recursos de Azure e implementándola con Azure PowerShell. Para más información sobre las plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
+
+La plantilla que cree en este tutorial será similar a cualquier plantilla que pueda encontrarse en la galería de plantillas. Para más información, consulte [Implementación de un conjunto simple de escala de máquinas virtuales con máquinas virtuales de Windows y un Jumpbox](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview).
+
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+
+[AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-include.md)]
+
+## Paso 1: Creación de un grupo de recursos y una cuenta de almacenamiento
+
+1.	**Inicie sesión en Microsoft Azure**. Abra la ventana de Microsoft Azure PowerShell y ejecute **Login-AzureRmAccount**.
+
+2.	**Cree un grupo de recursos**: todos los recursos deben implementarse en un grupo de recursos. Para este tutorial, nombre el grupo de recursos como **vmss-test1**. Consulte [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
+
+3.	**Implemente una cuenta de almacenamiento en el nuevo grupo de recursos**: este tutorial usa varias cuentas de almacenamiento para facilitar el conjunto de escala de máquinas virtuales. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) para crear una cuenta de almacenamiento denominada **vmssstore1**. Mantenga la ventana de Azure PowerShell abierta para llevar a cabo pasos explicados más adelante en este tutorial.
+
+## Paso 2: Creación de la plantilla
+Las plantillas del Administrador de recursos de Azure le permiten implementar y administrar los distintos recursos de Azure en conjunto mediante una descripción de JSON de los recursos y los parámetros de implementación asociados.
+
+1.	En el editor de texto que prefiera, cree el archivo C:\\VMSSTemplate.json y agregue la estructura inicial de JSON para admitir la plantilla.
+
+	```
+	{
+		"$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json",
+		"contentVersion": "1.0.0.0",
+		"parameters": {
+		}
+		"variables": {
+		}
+		"resources": [
+		]
+	}
+	```
+
+2.	Los parámetros no siempre son necesarios, pero facilitan la administración de la plantilla. Proporcionan una manera de especificar valores para la plantilla, describen el tipo del valor, el valor predeterminado, en caso de ser necesario, y, posiblemente, los valores permitidos del parámetro.
+
+	Agregue estos parámetros en el elemento primario de los parámetros que agregó a la plantilla:
+
+	- Un nombre para la máquina virtual de jumpbox que se utiliza para tener acceso a las máquinas del conjunto de escala.
+	- Un nombre para la cuenta de almacenamiento donde se almacena la plantilla.
+	- El número de instancias de máquinas virtuales para crear inicialmente en el conjunto de escala.
+	- El nombre y la contraseña de la cuenta de administrador en las máquinas virtuales.
+	- Un prefijo para los nombres de las cuentas de almacenamiento que usan las máquinas virtuales en el conjunto de escala.
+
+
+	```
+	"vmName": {
+		"type": "string"
+	},
+	"vmSSName": {
+		"type": "string"
+	},
+	"instanceCount": {
+		"type": "string"
+	},
+	"adminUsername": {
+		"type": "string"
+	},
+	"adminPassword": {
+		"type": "securestring"
+	},
+	"storageAccountName": {
+		"type": "string"
+	},
+	"vmssStoragePrefix": {
+		"type": "string"
+	}
+	```
+
+
+3.	Pueden usarse variables en una plantilla para especificar los valores que pueden cambiar con frecuencia o los valores que se deben crear a partir de una combinación de valores de parámetro.
+
+	Agregue estas variables en el elemento primario de las variables que agregó a la plantilla:
+
+	- Nombres DNS que usan las interfaces de red.
+	- El tamaño de las máquinas virtuales que se usan en el conjunto de escala. Para más información sobre los tamaños de máquina virtual, consulte [Tamaños de máquina virtual](virtual-machines-size-specs.md).
+	- La información de la imagen de plataforma para definir el sistema operativo que se ejecutará en las máquinas virtuales en el conjunto de escala. Para más información acerca de la selección de imágenes, consulte [Seleccione y navegue por imágenes de máquina virtual de Azure con PowerShell y la CLI de Azure](resource-groups-vm-searching.md).
+	- Los nombres de direcciones IP y los prefijos para la red virtual y las subredes.
+	- Los nombres y los identificadores de la red virtual, el equilibrador de carga y las interfaces de red.
+	- Los nombres de cuentas de almacenamiento para las cuentas asociadas a las máquinas en el conjunto de escala.
+	- Configuración de la extensión de diagnósticos que se instala en las máquinas virtuales. Para más información sobre la extensión de diagnósticos, consulte [Crear una máquina virtual de Windows con supervisión y diagnóstico mediante la plantilla del Administrador de recursos de Azure](virtual-machines-extensions-diagnostics-windows-template.md)
+
+	```
+	"dnsName1": "[concat(parameters('resourcePrefix'),'dn1')] ",
+	"dnsName2": "[concat(parameters('resourcePrefix'),'dn2')] ",
+	"vmSize": "Standard_A0",
+	"imagePublisher": "MicrosoftWindowsServer",
+	"imageOffer": "WindowsServer",
+	"imageVersion": "2012-R2-Datacenter",
+	"addressPrefix": "10.0.0.0/16",
+	"subnetName": "Subnet",
+	"subnetPrefix": "10.0.0.0/24",
+	"publicIP1": "[concat(parameters('resourcePrefix'),'ip1')]",
+	"publicIP2": "[concat(parameters('resourcePrefix'),'ip2')]",
+	"loadBalancerName": "[concat(parameters('resourcePrefix'),'lb1')]",
+	"virtualNetworkName": "[concat(parameters('resourcePrefix'),'vn1')]",
+	"nicName1": "[concat(parameters('resourcePrefix'),'nc1')]",
+	"nicName2": "[concat(parameters('resourcePrefix'),'nc2')]",
+	"vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+	"publicIPAddressID1": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIP1'))]",
+	"publicIPAddressID2": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIP2'))]",
+	"lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
+	"nicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName2'))]",
+	"frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
+	"storageAccountType": "Standard_LRS",
+	"storageAccountPrefix": [ "a", "g", "m", "s", "y" ],
+	"diagnosticsStorageAccountName": "[concat('a', parameters('vmssStorageSuffix'))]",
+	"accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/','Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
+	"wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB="4096" xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error"/> <WindowsEventLog scheduledTransferPeriod="PT1M" > <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="Security!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="System!*[System[(Level = 1 or Level = 2)]]" /></WindowsEventLog>",
+	"wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor(_Total)\\% Processor Time" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU utilization" locale="es-ES"/></PerformanceCounterConfiguration>",
+	"wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId="')]",
+	"wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
+	"wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
+	```
+
+4.	En este tutorial, implemente los recursos y las extensiones siguientes:
+
+ - Microsoft.Storage/storageAccounts
+ - Microsoft.Network/virtualNetworks
+ - Microsoft.Network/publicIPAddresses
+ - Microsoft.Network/loadBalancers
+ - Microsoft.Network/networkInterfaces
+ - Microsoft.Compute/virtualMachines
+ - Microsoft.Compute/virtualMachineScaleSets
+ - Microsoft.Insights.VMDiagnosticsSettings
+ - Microsoft.Insights/autoscaleSettings
+
+	Para más información sobre los recursos del Administrador de recursos, consulte [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md).
+
+	Agregue el recurso de la cuenta de almacenamiento en el elemento primario de recursos que agregó a la plantilla. Esta plantilla utiliza un bucle para crear las 5 cuentas de almacenamiento recomendadas donde se almacenan los discos del sistema operativo y los datos de diagnóstico. Este conjunto de cuentas puede admitir hasta 100 máquinas virtuales en un conjunto de escala, lo cual es el máximo actual. Cada cuenta de almacenamiento se denomina con un indicador de letra, que se definió en las variables, y se combina con el sufijo que proporcionó en los parámetros de la plantilla.
+
+	```
+	{
+		"type": "Microsoft.Storage/storageAccounts",
+		"name": "[concat(variables('storagePrefix')[copyIndex()], parameters('vmssStorageSuffix'))]",
+		"apiVersion": "2015-05-01-preview",
+		"copy": {
+			"name": "storageLoop",
+			"count": 5
+		},
+		"location": "[resourceGroup().location]",
+		"properties": {
+			"accountType": "[variables('storageAccountType')]"
+		}
+	},
+	```
+
+5.	Agregue el recurso de red virtual. Consulte [Proveedor de recursos de red](../virtual-network/resource-groups-networking.md) para más información.
+
+	```
+	{
+		"apiVersion": "2015-06-15",
+		"type": "Microsoft.Network/virtualNetworks",
+		"name": "[variables('virtualNetworkName')]",
+		"location": "[resourceGroup().location]",
+		"properties": {
+			"addressSpace": {
+				"addressPrefixes": [
+					"[variables('addressPrefix')]"
+				]
+			},
+			"subnets": [
+				{
+					"name": "[variables('subnetName')]",
+					"properties": {
+						"addressPrefix": "[variables('subnetPrefix')]"
+					}
+				}
+			]
+		}
+	},
+	```
+
+6.	Agregue los recursos de dirección IP públicos que usan la interfaz de red y el equilibrador de carga.
+
+	```
+	{
+		"apiVersion": "2015-06-15",
+		"type": "Microsoft.Network/publicIPAddresses",
+		"name": "[variables('publicIP1')]",
+		"location": "[resourceGroup().location]",
+		"properties": {
+			"publicIPAllocationMethod": "Dynamic",
+			"dnsSettings": {
+				"domainNameLabel": "[variables('dnsName1')]"
+			}
+		}
+	},
+	{
+		"apiVersion": "2015-06-15",
+		"type": "Microsoft.Network/publicIPAddresses",
+		"name": "[variables('publicIP2')]",
+		"location": "[resourceGroup().location]",
+		"properties": {
+			"publicIPAllocationMethod": "Dynamic",
+			"dnsSettings": {
+				"domainNameLabel": "[variables('dnsName2')]"
+			}
+		}
+	},
+	```
+
+7.	Agregue el recurso de equilibrador de carga que usa el conjunto de escala. Para más información, consulte [Compatibilidad del Administrador de recursos de Azure con el equilibrador de carga](../load-balancer/oad-balancer-arm.md)
+
+	```
+	{
+		"apiVersion": "2015-06-15",
+		"name": "[variables('loadBalancerName')]",
+		"type": "Microsoft.Network/loadBalancers",
+		"location": "[resourceGroup().location]",
+		"dependsOn": [
+			"[concat('Microsoft.Network/publicIPAddresses/', variables('publicIP1'))]"
+		],
+		"properties": {
+			"frontendIPConfigurations": [
+				{
+					"name": "loadBalancerFrontEnd",
+					"properties": {
+						"publicIPAddress": {
+							"id": "[variables('publicIPAddressID1')]"
+						}
+					}
+				}
+			],
+			"backendAddressPools": [
+				{
+					"name": "bepool1"
+				}
+			],
+			"inboundNatPools": [
+				{
+					"name": "natpool1",
+					"properties": {
+						"frontendIPConfiguration": {
+							"id": "[variables('frontEndIPConfigID')]"
+						},
+						"protocol": "tcp",
+						"frontendPortRangeStart": 50000,
+						"frontendPortRangeEnd": 50500,
+						"backendPort": 3389
+					}
+				}
+			]
+		}
+	},
+	```
+
+8.	Agregue el recurso de interfaz de red que utiliza la máquina virtual de jumpbox.
+
+
+	```
+	{
+		"apiVersion": "2015-05-01-preview",
+		"type": "Microsoft.Network/networkInterfaces",
+		"name": "[variables('nicName1')]",
+		"location": "[resourceGroup().location]",
+		"dependsOn": [
+			"[concat('Microsoft.Network/publicIPAddresses/', variables('publicIP2'))]",
+			"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+		],
+		"properties": {
+			"ipConfigurations": [
+				{
+					"name": "ipconfig1",
+					"properties": {
+						"privateIPAllocationMethod": "Dynamic",
+						"publicIPAddress": {
+							"id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP2'))]"
+						},
+						"subnet": {
+							"id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/',variables('subnetName'))]"
+						}
+					}
+				}
+			]
+		}
+	},
+	```
+
+
+9.	Agregue el recurso de máquina virtual en la misma red que el conjunto de escala. Dado que las máquinas en un conjunto de escala de máquinas virtuales no son accesibles directamente mediante una dirección IP pública, se crea una máquina virtual de jumpbox en la misma red virtual como conjunto de escala y se usa para tener acceso remoto a las máquinas en el conjunto.
+
+	```
+	{
+		"apiVersion": "2015-05-01-preview",
+		"type": "Microsoft.Compute/virtualMachines",
+		"name": "[parameters('vmName')]",
+		"location": "[resourceGroup().location]",
+		"dependsOn": [
+			"[concat('Microsoft.Network/networkInterfaces/', variables('nicName1'))]"
+		],
+		"properties": {
+			"hardwareProfile": {
+				"vmSize": "[variables('vmSize')]"
+			},
+			"osProfile": {
+				"computername": "[parameters('vmName')]",
+				"adminUsername": "[parameters('adminUsername')]",
+				"adminPassword": "[parameters('adminPassword')]"
+			},
+			"storageProfile": {
+				"imageReference": {
+					"publisher": "[variables('imagePublisher')]",
+					"offer": "[variables('imageOffer')]",
+					"sku": "[variables('imageVersion')]",
+					"version": "latest"
+				},
+				"osDisk": {
+					"name": "davidmuos1",
+					"vhd": {
+						"uri":  "[concat('https://',parameters('storageAccountName'),'.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'os1.vhd')]"
+					},
+					"caching": "ReadWrite",
+					"createOption": "FromImage"        
+				}
+			},
+			"networkProfile": {
+				"networkInterfaces": [
+					{
+						"id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName1'))]"
+					}
+				]
+			}
+		}
+	},
+	```
+
+10.	Agregue el recurso de conjunto de escala de máquinas virtuales y especifique la extensión de diagnósticos que está instalada en todas las máquinas virtuales del conjunto de escala. Muchos de los valores para este recurso son similares al recurso de máquina virtual. Estas son la diferencias principales:
+
+	- **capacity**: especifica cuántas máquinas virtuales se deben inicializar en el conjunto de escala. Puede establecer este valor si especifica un valor para el parámetro instanceCount.
+
+	- **upgradePolicy**: especifica cómo se realizan las actualizaciones a las máquinas virtuales en el conjunto de escala. Manual especifica que solo las máquinas virtuales nuevas se actualicen con los cambios de una plantilla cuando ésta se vuelve a implementar. Automático especifica que todas las máquinas en el conjunto de escala se actualizan y se reinician.
+
+	El conjunto de escala de máquinas virtuales no se crea hasta que todas las cuentas de almacenamiento se crean como se especifica en el elemento dependsOn.
+
+	```
+	{
+		"type": "Microsoft.Compute/virtualMachineScaleSets",
+		"apiVersion": "2015-06-15",
+		"name": "[parameters('vmSSName')]",
+		"location": "[resourceGroup().location]",
+		"dependsOn": [
+			"[concat('Microsoft.Storage/storageAccounts/a', parameters('vmssStorageSuffix'))]",
+			"[concat('Microsoft.Storage/storageAccounts/g', parameters('vmssStorageSuffix'))]",
+			"[concat('Microsoft.Storage/storageAccounts/m', parameters('vmssStorageSuffix'))]",
+			"[concat('Microsoft.Storage/storageAccounts/s', parameters('vmssStorageSuffix'))]",
+			"[concat('Microsoft.Storage/storageAccounts/y', parameters('vmssStorageSuffix'))]",
+			"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+			"[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
+		],
+		"sku": {
+			"name": "[variables('vmSize')]",
+			"tier": "Standard",
+			"capacity": "[parameters('instanceCount')]"
+		},
+		"properties": {
+			"upgradePolicy": {
+				"mode": "Manual"
+			},
+			"virtualMachineProfile": {
+				"storageProfile": {
+					"osDisk": {
+						"vhdContainers": [
+							"[concat('https://a', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
+							"[concat('https://g', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
+							"[concat('https://m', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
+							"[concat('https://s', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
+							"[concat('https://y', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]"
+						],
+						"name": "vmssosdisk",
+						"caching": "ReadOnly",
+						"createOption": "FromImage"
+					},
+					"imageReference": {
+						"publisher": "[variables('imagePublisher')]",
+						"offer": "[variables('imageOffer')]",
+						"sku": "[variables('imageVersion')]",
+						"version": "latest"
+					}
+				},
+				"osProfile": {
+					"computerNamePrefix": "[parameters('vmSSName')]",
+					"adminUsername": "[parameters('adminUsername')]",
+					"adminPassword": "[parameters('adminPassword')]"
+				},
+				"networkProfile": {
+					"networkInterfaceConfigurations": [
+						{
+							"name": "[variables('nicName2')]",
+							"properties": {
+								"primary": "true",
+								"ipConfigurations": [
+									{
+										"name": "ip1",
+										"properties": {
+											"subnet": {
+												"id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/',variables('subnetName'))]"
+											},
+											"loadBalancerBackendAddressPools": [
+												{
+													"id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/loadBalancers/',variables('loadBalancerName'),'/backendAddressPools/bepool1')]"
+												}
+											],
+											"loadBalancerInboundNatPools": [
+												{
+													"id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/loadBalancers/',variables('loadBalancerName'),'/inboundNatPools/natpool1')]"
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				"extensionProfile": {
+					"extensions": [
+						{
+							"name": "Microsoft.Insights.VMDiagnosticsSettings",
+							"properties": {
+								"publisher": "Microsoft.Azure.Diagnostics",
+								"type": "IaaSDiagnostics",
+								"typeHandlerVersion": "1.5",
+								"autoUpgradeMinorVersion": true,
+								"settings": {
+									"xmlCfg": "[base64(concat(variables('wadcfgxstart'),variables('wadmetricsresourceid'),variables('wadcfgxend')))]",
+									"storageAccount": "[variables('diagnosticsStorageAccountName')]"
+								},
+								"protectedSettings": {
+									"storageAccountName": "[variables('diagnosticsStorageAccountName')]",
+									"storageAccountKey": "[listkeys(variables('accountid'), '2015-05-01-preview').key1]",
+									"storageAccountEndPoint": "https://core.windows.net"
+								}
+							}
+						}
+					]
+				}
+			}
+		}
+	},
+	```
+
+11.	Agregue el recurso autoscaleSettings que define cómo el conjunto de escala se ajusta según el uso del procesador en las máquinas del conjunto. Para este tutorial, éstos son los valores importantes:
+
+ - **metricName**: este es el mismo que el contador de rendimiento que definimos en la variable wadperfcounter. Con esta variable, la extensión de diagnósticos recopila los datos del contador **Processor(\_Total)\\% Processor Time**.
+ - **metricResourceUri**: este es el identificador de recursos del conjunto de escala de máquinas virtuales.
+ - **timeGrain**: ésta es la granularidad de las métricas que se recopilan. En esta plantilla, se establece en 1 minuto.
+ - **statistic**: determina cómo se combinan las métricas para dar cabida a la acción de escalado automático. Los valores posibles son: Average, Min y Max. En esta plantilla estamos buscando el uso total de CPU promedio entre las máquinas virtuales del conjunto de escala.
+ - **timeWindow**: este es el intervalo de tiempo en que se recopilan los datos de instancia. Debe estar comprendido entre 5 minutos y 12 horas.
+ - **timeAggregation**: este determina la manera en que se deberían combinar los datos recopilados en el tiempo. El valor predeterminado es Average. Los valores posibles son: Average, Minimum, Maximum, Last, Total, Count.
+ - **operator**: este es el operador que se utiliza para comparar los datos de métrica y el umbral. Los valores posibles son: Equals, NotEquals, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual.
+ - **threshold**: este es el valor que desencadena la acción de escalado. En esta plantilla, los equipos se agregan al conjunto de escala que se establece cuando el uso promedio de CPU entre máquinas del conjunto es más de un 50%.
+ - **direction**: este determina la acción que se realiza cuando se alcanza el valor de umbral. Los valores posibles son Increase o Decrease. En esta plantilla, se aumenta el número de máquinas virtuales en el conjunto de escala si el umbral es más de un 50% en la ventana de tiempo definido.
+ - **type**: este es el tipo de acción que debe realizarse y que se debe establecer en ChangeCount.
+ - **value**: este es el número de máquinas virtuales que se agregan o se quitan del conjunto de escala. Este valor debe ser 1 o un valor superior. El valor predeterminado es 1. En esta plantilla, el número de máquinas en el conjunto de escala aumenta en 1 cuando se alcanza el umbral.
+ - **cooldown**: es la cantidad de tiempo de espera desde la última acción de escalada hasta antes de que se produzca la siguiente acción. Este valor debe estar comprendido entre 1 minuto y 1 semana.
+
+	```
+	{
+		"type": "Microsoft.Insights/autoscaleSettings",
+		"apiVersion": "2015-04-01",
+		"name": "[concat(parameters('resourcePrefix'),'as1')]",
+		"location": "[resourceGroup().location]",
+		"dependsOn": [
+			"[concat('Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
+		],
+		"properties": {
+			"enabled": true,
+			"name": "[concat(parameters('resourcePrefix'),'as1')]",
+			"profiles": [
+				{
+					"name": "Profile1",
+					"capacity": {
+						"minimum": "1",
+						"maximum": "10",
+						"default": "1"
+					},
+					"rules": [
+						{
+							"metricTrigger": {
+								"metricName": "\\Processor(_Total)\\% Processor Time",
+								"metricNamespace": "",
+								"metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]",
+								"timeGrain": "PT1M",
+								"statistic": "Average",
+								"timeWindow": "PT5M",
+								"timeAggregation": "Average",
+								"operator": "GreaterThan",
+								"threshold": 50.0
+							},
+							"scaleAction": {
+								"direction": "Increase",
+								"type": "ChangeCount",
+								"value": "1",
+								"cooldown": "PT5M"
+							}
+						}
+					]
+				}
+			],
+			"targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
+		}
+	}
+	```
+
+12.	Guarde el archivo de plantilla.    
+
+## Paso 3: Carga de la plantilla en el almacenamiento
+
+La plantilla se puede cargar desde la ventana de Microsoft Azure PowerShell siempre que sepa el nombre de cuenta y la clave principal de la cuenta de almacenamiento que creó en el paso 1.
+
+1.	En la ventana de Microsoft Azure PowerShell, puede establecer una variable que especifique el nombre de la cuenta de almacenamiento que implementó en el paso 1.
+
+		$StorageAccountName = "vmssstore1"
+
+2.	Establezca una variable que especifique la clave principal de la cuenta de almacenamiento.
+
+		$StorageAccountKey = "<primary-account-key>"
+
+	Puede obtener esta clave haciendo clic en el icono de llave al ver el recurso de la cuenta de almacenamiento en el portal de Azure.
+
+3.	Cree el objeto de contexto de la cuenta de almacenamiento que se usa para validar las operaciones con la cuenta de almacenamiento.
+
+		$ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+
+4.	Cree un nuevo contenedor de plantillas donde se pueda almacenar la plantilla que creó.
+
+		$ContainerName = "templates"
+		New-AzureStorageContainer -Name $ContainerName -Context $ctx  -Permission Blob
+
+5.	Cargue el archivo de plantillas en el nuevo contenedor.
+
+		$BlobName = "VMSSTemplate.json"
+		$fileName = "C:" + $BlobName
+		Set-AzureStorageBlobContent -File $fileName -Container $ContainerName -Blob  $BlobName -Context $ctx
+
+## Paso 4: Implementación de la plantilla
+
+Ahora que ha creado la plantilla, puede empezar a implementar los recursos. Use este comando para iniciar el proceso:
+
+		New-AzureRmResourceGroupDeployment -Name "vmss-testdeployment1" -ResourceGroupName "vmss-test1" -TemplateUri "https://vmssstore1.blob.core.windows.net/templates/VMSSTemplate.json"
+
+Cuando presione Entrar, se le pedirá que proporcione valores para las variables que asignó. Proporcione estos valores:
+
+	vmName: vmssvm1
+	vmSSName: vmsstest1
+	instanceCount: 5
+	adminUserName: vmadmin1
+	adminPassword: vmadminpass1
+	storageAccountName: vmssstore1
+	resourcePrefix: vmsstest
+
+Para que todos los recursos se implementen correctamente se tardará unos 15 minutos.
+
+>[AZURE.NOTE]También puede hacer uso de la capacidad del portal para implementar los recursos. Para ello, use este vínculo: https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
+
+## Paso 4: Supervisión de recursos
+
+Puede obtener información acerca de los conjuntos de escala de máquinas virtuales mediante estos métodos:
+
+ - El portal de Azure: actualmente puede obtener una cantidad limitada de información mediante el portal.
+ - El [explorador de recursos de Azure](https://resources.azure.com/): esta es la mejor herramienta para explorar el estado actual del conjunto de escala. Siga esta ruta de acceso y debería ver la vista de instancia del conjunto de escala que creó:
+
+		subscriptions > {your subscription} > resourceGroups > vmss-test1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
+
+ - Azure PowerShell: use este comando para más información:
+
+		Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmss-test1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
+
+ - Conéctese a la máquina virtual de jumpbox igual que lo haría con cualquier otra máquina y, a continuación, podrá obtener acceso remoto a las máquinas virtuales del conjunto de escala para supervisar los procesos individuales.
+
+>[AZURE.NOTE]Una API de REST completa para más información acerca de los conjuntos de escala se puede encontrar en [Conjuntos de escala de máquinas virtuales](https://msdn.microsoft.com/library/mt589023.aspx)
+
+## Paso 5: Eliminación de recursos
+
+Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveniente eliminar los recursos que ya no sean necesarios. No es necesario eliminar por separado cada recurso de un grupo de recursos. Puede eliminar el grupo de recursos y se eliminarán automáticamente todos sus recursos.
+
+	Remove-AzureRmResourceGroup -Name vmss-test1
+
+Si desea mantener el grupo de recursos, puede eliminar solo el conjunto de escala.
+
+	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmss-test1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
+
+<!---HONumber=AcomDC_1125_2015-->

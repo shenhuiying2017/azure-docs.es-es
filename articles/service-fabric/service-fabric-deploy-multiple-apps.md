@@ -3,7 +3,7 @@
    description="Tutorial sobre cómo empaquetar varias aplicaciones para implementarlas en un clúster de Azure Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="bscholl"
+   authors="bmscholl"
    manager=""
    editor=""/>
 
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/09/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
 
-# Implementación de varias aplicaciones existentes
+# Implementación de varias aplicaciones personalizadas
 
 En este artículo se muestra cómo empaquetar e implementar varias aplicaciones en Service Fabric con la versión de vista previa de la herramienta de empaquetado de Service Fabric, que está disponible en http://aka.ms/servicefabricpacktool.
 
@@ -194,8 +194,8 @@ Cuando la aplicación se publica correctamente en el clúster local, puede acced
 
 En este tutorial ha visto cómo empaquetar fácilmente dos aplicaciones existentes como una aplicación de Service Fabric e implementarla en Service Fabric para que pueda beneficiarse de algunas de las características del Service Fabric, como la alta disponibilidad y la integración del sistema de estado.
 
-Para obtener más información, consulte los temas siguientes:
+## Pasos siguientes
 
-[Formato de empaquetado de Service Fabric](service-fabric-deploy-existing-app.md)
+Obtenga información acerca de cómo [empaquetar una única aplicación manualmente](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

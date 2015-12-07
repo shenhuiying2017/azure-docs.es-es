@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configuración de un dispositivo de Windows 10 con Azure AD desde Configuración | Microsoft Azure" 
-	description="Se explica cómo pueden los usuarios unirse a Azure AD a través del menú Configuración de Windows 10." 
+	description="Explica cómo pueden los usuarios unirse a Azure AD a través del menú de configuración." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Configuración de un dispositivo de Windows 10 con Azure AD desde Configuración
@@ -32,16 +32,17 @@ Para unirse a Azure AD desde el menú Configuración
 4. Proporcione sus credenciales de inicio de sesión. Esta experiencia de inicio de sesión incluirá todos los pasos necesarios para completar la autenticación. Si forma parte de un inquilino federado, el administrador le brindará una experiencia de federación que hospeda su organización.
 <center> ![](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png) </center>
 5. Si la organización tiene configurada la autenticación multifactor para unirse a Azure AD, deberá proporcionar el segundo factor antes de poder continuar.
-6. Haga clic en **Aceptar** en la ventana **Permitir la administración de este dispositivo**.
+6. Haga clic en **Aceptar** en la pantalla **Permitir la administración de este dispositivo**.
 7. Verá el mensaje "El dispositivo está unido a su organización en Azure AD".
 
 
 ## Información adicional
-* [Windows 10 para empresa: formas de usar dispositivos para trabajar](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
+* [Conozca los escenarios de uso de Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 * [Autenticación de identidades sin contraseñas a través de Microsoft Passport](active-directory-azureadjoin-passport.md)
 * [Conozca los escenarios de uso de Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

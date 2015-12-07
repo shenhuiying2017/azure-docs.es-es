@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="joaoma"
-   manager="Adinah"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="11/24/2015"
    ms.author="joaoma"/>
 
 
@@ -60,7 +60,7 @@ En el ejemplo siguiente se mostrará cómo crear registros y un conjunto de regi
 
 Cree un conjunto de registros y asígnelo a una variable $rs:
 
-	PS C:\>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+	PS C:\>$rs = New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
 
 El conjunto de registros tiene el nombre relativo “www” en la zona DNS “contoso.com”, por lo que el nombre completo de los registros será “www.contoso.com”. El tipo de registro es “A” y el valor de TTL es de 60 segundos.
 
@@ -72,21 +72,21 @@ El conjunto de registros está vacío y tenemos que agregar registros para poder
 
 Agregue registros A de IPv4 al conjunto de registros “www” con la variable $rs asignada al crear el conjunto de registros en el paso 1:
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
+	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
+	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
 
-Agregar registros a un conjunto de registros mediante Add-AzureDnsRecordConfig es una operación sin conexión. Se actualiza únicamente la variable local $rs.
+Agregar registros a un conjunto de registros con Add-AzureRmDnsRecordConfig es una operación sin conexión. Se actualiza únicamente la variable local $rs.
 
 ### Paso 3
-Confirme los cambios introducidos en el conjunto de registros. Use Set-AzureDnsRecordSet para cargar los cambios del conjunto de registros en DNS de Azure:
+Confirme los cambios introducidos en el conjunto de registros. Use Set-AzureRmDnsRecordSet para cargar los cambios en el conjunto de registros de DNS de Azure:
 
 
-	Set-AzureDnsRecordSet -RecordSet $rs
+	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-Los cambios se han completado. Puede recuperar el conjunto de registros de DNS de Azure mediante Get-AzureDnsRecordSet:
+Los cambios se han completado. Puede recuperar el conjunto de registros de DNS de Azure con Get-AzureRmDnsRecordSet:
 
 
-	PS C:\> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 
 	Name              : www
@@ -117,6 +117,7 @@ También puede usar nslookup u otras herramientas DNS para consultar el nuevo co
 
 
 ## Pasos siguientes
+
 [Administración de zonas DNS](dns-operations-dnszones.md)
 
 [Administración de registros DNS](dns-operations-recordsets.md)<BR>
@@ -124,4 +125,4 @@ También puede usar nslookup u otras herramientas DNS para consultar el nuevo co
 [Automatización de operaciones de Azure con el SDK de .NET](dns-sdk.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -32,13 +32,19 @@ Puede desplazarse al explorador de Service Fabric desde el árbol situado a la i
 
 ![Panel de clúster del Explorador de Service Fabric][sfx-cluster-dashboard]
 
-El clúster contiene dos subárboles: uno para las aplicaciones y otro para los nodos.
+### Asignación de clústeres
+
+Los nodos de un clúster de Service Fabric se colocan en una cuadrícula de 2 dimensiones de dominios de error y dominios de actualización para asegurarse de que las aplicaciones siguen estando disponibles cuando se producen fallos de hardware y actualizaciones de aplicaciones. Puede ver cómo se dispone el clúster actual utilizando el mapa del clúster.
+
+![Mapa de clúster del Explorador de Service Fabric][sfx-cluster-map]
 
 ### Visualización de aplicaciones y servicios
 
+El clúster contiene dos subárboles: uno para las aplicaciones y otro para los nodos.
+
 La vista de aplicaciones le permite navegar por la jerarquía lógica de Service Fabric: aplicaciones, servicios, particiones y réplicas.
 
-En el ejemplo siguiente, la aplicación **MyApp** se compone de dos servicios: **MyStatefulService** y **WebSvcService**. Como **MyStatefulService** es un servicio con estado, incluye una partición con una réplica principal y dos réplicas secundarias. Por el contrario, el servicio WebSvcService no tiene estado y contiene una única instancia.
+En el ejemplo siguiente, la aplicación **MyApp** se compone de dos servicios: **MyStatefulService** y **WebService**. Como **MyStatefulService** es un servicio con estado, incluye una partición con una réplica principal y dos réplicas secundarias. Por el contrario, el servicio WebSvcService no tiene estado y contiene una única instancia.
 
 ![Vista de aplicación del explorador de Service Fabric][sfx-application-tree]
 
@@ -70,9 +76,11 @@ Como el explorador de Service Fabric está basado en web y se ejecuta dentro del
 
 ### Detección del punto de conexión del explorador de Service Fabric para un clúster remoto
 
-Puede detectar el punto de conexión del clúster desde el portal de Service Fabric. Para acceder al explorador de Service Fabric para un clúster determinado, simplemente conéctese a ese punto de conexión en el puerto 19007:
+Para acceder al explorador de Service Fabric para un clúster determinado, simplemente dirija el explorador a:
 
-http://&lt;your-cluster-endpoint&gt;:19007
+http://&lt;your-cluster-endpoint&gt;:19080/Explorer
+
+La dirección URL completa también está disponible en el panel de elementos esenciales del clúster del portal de Azure.
 
 ### Conexión a un clúster seguro
 
@@ -87,14 +95,10 @@ Si intenta conectarse al explorador de Service Fabric en un clúster seguro, el 
 - [Implementación de aplicaciones de Service Fabric con PowerShell](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
-[applicationview]: ./media/service-fabric-visualizing-your-cluster/applicationview.png
-[clustermap]: ./media/service-fabric-visualizing-your-cluster/clustermap.png
-[connecttocluster]: ./media/service-fabric-visualizing-your-cluster/connecttocluster.png
-[replicadetails]: ./media/service-fabric-visualizing-your-cluster/replicadetails.png
-[servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
 [sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
+[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/SfxClusterMap.png
 [sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

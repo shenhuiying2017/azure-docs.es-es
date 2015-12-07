@@ -24,11 +24,11 @@ De forma periódica se publican actualizaciones al **Catálogo de datos de Azure
 
 Desde la semana del 20 de noviembre de 2015 se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
 
-- Capacidad para ver y copiar cadenas de conexión desde dentro del portal del **Catálogo de datos de Azure** para orígenes de datos de SQL Server (incluida Base de datos SQL de Azure). Los usuarios pueden hacer clic en el vínculo "Ver cadenas de conexión" en la información de conexión para una tabla, vista o base de datos de SQL Server, para ver las cadenas de conexión de ADO.NET, ODBC, OLEDB y JDBC utilizadas para conectarse al origen de datos.
+- Capacidad para ver y copiar cadenas de conexión desde dentro del portal del **Catálogo de datos de Azure** para orígenes de datos de SQL Server (incluida la Base de datos SQL de Azure) y Oracle. Los usuarios pueden hacer clic en el vínculo "Ver cadenas de conexión" en la información de conexión para una tabla, vista o base de datos de Oracle o SQL Server, para ver las cadenas de conexión usadas para conectarse al origen de datos. Se ofrecen cadenas de conexión de ADO.NET, ODBC, OLEDB y JDBC para los orígenes de datos de SQL Server. Se ofrecen cadenas de conexión de OLEDB y ODBC para los orígenes de datos de Oracle.
 - Compatibilidad para incluir perfiles de datos al registrar tablas y vistas de Teradata.
-- Compatibilidad con "Abrir en Power BI Desktop" para SQL Server (incluida Base de datos SQL de Azure y Almacenamiento de datos SQL de Azure) y orígenes de datos de SQL Server Analysis Services.
+- Compatibilidad con "Abrir en Power BI Desktop" para orígenes de SQL Server (incluida Base de datos SQL de Azure y Almacenamiento de datos SQL de Azure), SQL Server Analysis Services, Almacenamiento de Azure y HDFS.  
 
-> [AZURE.NOTE]"Abrir en Power BI Desktop" requiere la instalación de una versión actual de Power BI Desktop. Si encuentra problemas o errores al usar esta característica, asegúrese de que tiene la versión más reciente de Power BI Desktop consultando el sitio web [PowerBI.com](https://powerbi.com).
+> [AZURE.NOTE]"Abrir en Power BI Desktop" requiere la instalación de una versión actual de Power BI Desktop. Si encuentra problemas o errores al usar esta característica, asegúrese de que tiene la versión más reciente de Power BI Desktop en [PowerBI.com](https://powerbi.com).
 
 ## Novedades de la versión correspondiente a la semana del 13 de noviembre de 2015
 
@@ -147,4 +147,4 @@ A partir de la semana del 21 de agosto de 2015, se agregaron las siguientes func
 - Solo en la edición estándar: cuando se agregan propietarios a los activos de datos, el **Catálogo de datos de Azure** admite ahora tanto cuentas de usuario como grupos de seguridad como propietarios. Para agregar un grupo de seguridad como propietario de los activos de datos seleccionados, puede especificar el nombre para mostrar del grupo o la dirección de correo electrónico UPN del grupo, si tiene alguna.
 - Compatibilidad con orígenes de datos de almacenamiento de blobs de Azure. Los usuarios pueden registrarse ahora y detectar el almacenamiento de blobs de Azure y los directorios.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

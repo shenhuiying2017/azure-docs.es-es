@@ -80,14 +80,13 @@ Para que la aplicación de la tarea de iOS se comunique con Azure AD B2C, hay al
 	<key>authority</key>
 	<string>https://login.microsoftonline.com/<your tenant name>.onmicrosoft.com/</string>
 	<key>clientId</key>
-	<string><Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
+	<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
 	<key>scopes</key>
 	<array>
-		<string><Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
+		<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
 	</array>
 	<key>additionalScopes</key>
 	<array>
-		<string></string>
 	</array>
 	<key>redirectUri</key>
 	<string>urn:ietf:wg:oauth:2.0:oob</string>
@@ -233,9 +232,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
         [self readApplicationSettings];
     }
     
-    NSDictionary* params = [self convertPolicyToDictionary:policy];
-    
-    [self getClaimsWithPolicyClearingCache:NO policy:policy params:params parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
+    [self getClaimsWithPolicyClearingCache:NO policy:policy params:nil parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
         
         if (userInfo == nil)
         {
@@ -256,50 +253,16 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 Verá que el método es bastante sencillo. Toma como entrada el objeto `samplesPolicyData` creado hace unos momentos, el elemento primario ViewController y una devolución de llamada. La devolución de llamada es interesante y vamos a mostrarla paso a paso.
 
 1. Verá que el `completionBlock` tiene ADProfileInfo como tipo que se devolverá con un objeto `userInfo`. ADProfileInfo es el tipo que contiene toda la respuesta del servidor, en notificaciones determinadas. 
-
 2. Verá `readApplicationSettings`. Este lee los datos que proporcionamos en `settings.plist`
-3. Verá que tenemos un método `convertPolicyToDictionary:policy` que toma nuestra directiva y le da forma de dirección URL para enviarla al servidor. Vamos a escribir este método auxiliar a continuación.
-4. Por último, tenemos un método `getClaimsWithPolicyClearingCache` bastante grande. Se trata de la llamada real a ADAL para iOS que tenemos que escribir. Lo haremos más adelante.
+3. Por último, tenemos un método `getClaimsWithPolicyClearingCache` bastante grande. Se trata de la llamada real a ADAL para iOS que tenemos que escribir. Lo haremos más adelante.
 
-
-Después, escribiremos este método `convertPolicyToDictionary` debajo del código que acabamos de escribir:
-
-```
-// Here we have some converstion helpers that allow us to parse passed items in to dictionaries for URLEncoding later.
-
-+(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task
-{
-    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-    
-    if (task.itemName){
-        [dictionary setValue:task.itemName forKey:@"task"];
-    }
-    
-    return dictionary;
-}
-
-+(NSDictionary*) convertPolicyToDictionary:(samplesPolicyData*)policy
-{
-    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-
-    
-    if (policy.policyID){
-        [dictionary setValue:policy.policyID forKey:@"p"];
-    }
-    
-    return dictionary;
-}
-
-```
-Este código bastante sencillo simplemente anexa una p a la directiva, por lo que la consulta debe aparecer como ?p=<policy>.
-
-Ahora vamos a escribir el método `getClaimsWithPolicyClearingCache` grande. Es lo suficientemente grande como para que tenga su propia sección.
+Ahora vamos a escribir el método grande `getClaimsWithPolicyClearingCache`. Es lo suficientemente grande como para que tenga su propia sección.
 
 #### Creación de la llamada a ADAL para iOS
 
 Si ha descargado el esqueleto desde GitHub, verá que ya tenemos algunos que nos ayudan con la aplicación de ejemplo. Siguen todos el patrón de `get(Claims|Token)With<verb>ClearningCache`. Si se usan las convenciones de Objetive C, esto es muy parecido al inglés. Por ejemplo, "get a Token with extra parameters I provide you and clear the cache" (obtener un token con parámetros adicionales que le proporciono y borrar la caché). Esto es `getTokenWithExtraParamsClearingCache()`. Bastante fácil.
 
-Vamos a escribir "get Claims and a token With the policy I provide you and don't clear the cache" (obtener notificaciones y un token con la directiva que proporciono y no borrar la caché) o `getClaimsWithPolicyClearingCache`. Siempre obtenemos un token desde ADAL, por lo que no es necesario especificar "Claims and token" (notificaciones y token) en el método. Pero, a veces, es preferible tener solo el token sin la sobrecarga de análisis de las notificaciones, por lo que proporcionamos un método sin notificaciones denominado `getTokenWithPolicyClearingCache` en el esqueleto.
+Vamos a escribir "get Claims and a token With the policy I provide you and don't clear the cache" (obtener notificaciones y un token con la directiva que proporciono y no borrar la caché) o `getClaimsWithPolicyClearingCache`. Siempre obtenemos un token desde ADAL, por lo que no es necesario especificar "Claims and token" (notificaciones y token) en el método. Pero, a veces, es preferible tener solo el token sin la sobrecarga de analizar las notificaciones, por lo que proporcionamos un método sin notificaciones denominado `getTokenWithPolicyClearingCache` en el esqueleto.
 
 Vamos a escribir el código ahora:
 
@@ -368,7 +331,7 @@ Ahora llegamos a la llamada real a ADAL y aquí es donde la llamada cambia de lo
 
 Puede ver que la llamada es bastante sencilla.
 
-**scopes**: se trata de los ámbitos que pasamos al servidor que queremos solicitar desde el servidor para el inicio de sesión del usuario. Para la vista previa de B2C, pasamos client\_id. Sin embargo, esto cambiará la lectura de ámbitos en el futuro. Entonces se actualizará este documento. **addtionalScopes**: se trata de ámbitos adicionales que podemos usar para la aplicación. Esto se usará en el futuro. **clientId**: identificador de aplicación obtenido en el portal. **redirectURI**: redireccionamiento al que se espera que se envíe de vuelta el token. **identifier**: modo de identificar al usuario, así podemos ver si hay un token que se puede usar en la caché en comparación con tener que solicitar siempre otro token al servidor. Verá que esto se transporta en un tipo denominado `ADUserIdentifier` y podemos especificar lo que queremos usar como id. Ha de usar el nombre de usuario. **promptBehavior**: esto está en desuso y debe ser AD\_PROMPT\_ALWAYS. **extraQueryParameters**: algo adicional que quiera pasar al servidor en formato codificado de dirección URL. **policy**: directiva que se invoca. La parte más importante de este tutorial.
+**SCOPES**: se trata de los ámbitos que pasamos al servidor que queremos solicitar de él para el inicio de sesión del usuario. Para la vista previa de B2C, pasamos client\_id. Sin embargo, esto cambiará la lectura de ámbitos en el futuro. Entonces se actualizará este documento. **addtionalScopes**: se trata de ámbitos adicionales que podemos usar para la aplicación. Esto se usará en el futuro. **clientId**: identificador de aplicación obtenido en el portal. **redirectURI**: redireccionamiento al que se espera que se envíe de vuelta el token. **identifier**: modo de identificar al usuario, así podemos ver si hay un token que se puede usar en la caché en comparación con tener que solicitar siempre otro token al servidor. Verá que esto se transporta en un tipo denominado `ADUserIdentifier` y podemos especificar lo que queremos usar como id. Debe usar el nombre de usuario. **promptBehavior**: esto está en desuso y debe ser AD\_PROMPT\_ALWAYS. **extraQueryParameters**: algo adicional que quiera pasar al servidor en formato codificado de dirección URL. **policy**: directiva que se invoca. La parte más importante de este tutorial.
 
 Puede ver que en completionBlock pasamos el `ADAuthenticationResult` que tiene nuestro token y la información de perfil (si la llamada se realizó correctamente).
 
@@ -652,4 +615,4 @@ Ahora puede pasar a temas más avanzados de B2C. También puede probar lo siguie
 
 [Personalización de la experiencia de usuario de la aplicación B2C >>]()
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

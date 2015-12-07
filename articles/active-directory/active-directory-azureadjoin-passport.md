@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Autenticación de identidades sin contraseñas a través de Microsoft Passport | Microsoft Azure" 
-	description="Proporciona información general de Microsoft Passport e información adicional sobre la implementación de Microsoft Passport." 
+	description="Ofrece información general de Microsoft Passport e información adicional sobre la implementación de Microsoft Passport." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Autenticación de identidades sin contraseñas a través de Microsoft Passport
@@ -29,6 +29,7 @@ La clave privada estás disponible únicamente a través de un "gesto del usuari
 La clave pública se registra en Azure Active Directory y Windows Server Active Directory (para el entorno local). Los proveedores de identidades (IDP) validan al usuario mediante la asignación de la clave pública a la clave privada y proporcionan información de inicio de sesión mediante una contraseña de un solo uso (OTP), Phonefactor o un mecanismo de notificación diferente.
 
 ## ¿Por qué las empresas deben adoptar Microsoft Passport?
+
 Con Microsoft Passport, las empresas pueden proteger sus recursos incluso más gracias a:
 
 * La configuración de Microsoft Passport con una opción preferida de hardware, lo que significa que las claves se generarán en TPM 1.2 o TPM 2.0 cuando estén disponibles y mediante software cuando TPM no lo esté. 
@@ -52,7 +53,7 @@ El diagrama anterior muestra el par de claves pública y privada y la validació
 
 1. El usuario prueba su identidad a través de varios métodos de corrección integrados (gestos, tarjetas inteligentes físicas, Multi-factor Authentication) y envía esta información al proveedor de identidades (IDP), como Azure Active Directory o Active Directory.
 
-2.  A continuación, el dispositivo crea la clave, la certifica, toma la parte pública de esta clave, la asocia con las instrucciones de la estación, inicia sesión y envía la clave al IDP para registrarla.
+2. A continuación, el dispositivo crea la clave, la certifica, toma la parte pública de esta clave, la asocia con las instrucciones de la estación, inicia sesión y envía la clave al IDP para registrarla.
 
 3. En cuanto se registra la parte pública de la clave en el IDP, desafía al dispositivo a que firme con la parte privada de la clave. El IDP valida y emite entonces el token de autenticación que permite al usuario tener acceso a los recursos protegidos.
 
@@ -71,13 +72,13 @@ En el nivel de usuario
 
 Para obtener instrucciones de implementación detalladas, consulte [Habilitar Microsoft Passport para el trabajo en la organización](active-directory-azureadjoin-passport-deployment.md).
 
+
 ## Información adicional
 
 * [Windows 10 para la empresa: formas de usar dispositivos para trabajar](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Conozca los escenarios de uso de Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Habilitar Microsoft Passport para el trabajo en la organización](active-directory-azureadjoin-passport-deployment.md)
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

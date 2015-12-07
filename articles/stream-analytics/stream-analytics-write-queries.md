@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Escribir consultas | Microsoft Azure" 
-	description="Segmento de la ruta de aprendizaje de Escribir consultas."
+	description="Escritura de consultas en Análisis de transmisiones | segmento de ruta de aprendizaje."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Escribir consultas
+# Cómo escribir consultas en Análisis de transmisiones
 
 La lógica de procesamiento de secuencia en el Análisis de transmisiones de Azure se implementa como una "consulta permanente" que se define antes de que empiece un trabajo y se ejecuta en los datos conforme llega al trabajo. La transformación de datos se expresa en un lenguaje de consultas similar a SQL, que es principalmente un subconjunto de T-SQL con algunas extensiones de lenguaje agregadas como [Basado en ventanas](https://msdn.microsoft.com/library/azure/dn835019.aspx) que se usa para expresar la semántica temporal.
 
@@ -70,4 +70,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

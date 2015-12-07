@@ -1,20 +1,21 @@
 <properties
-   pageTitle="¿Qué es la licencia de Microsoft Azure Active Directory? | Microsoft Azure"
-   description="Descripción de la licencia de Microsoft Azure AD, cómo funciona, cómo comenzar y prácticas recomendadas, incluidos Office 365, Microsoft Intune y las ediciones Basic y Premium de Azure Active Directory"
-   services="active-directory"
-   documentationCenter=""
-   authors="curtand"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="¿Qué es la licencia de Microsoft Azure Active Directory? | Microsoft Azure"
+    description="Descripción de la licencia de Microsoft Azure AD, cómo funciona, cómo comenzar y prácticas recomendadas, incluidos Office 365, Microsoft Intune y las ediciones Basic y Premium de Azure Active Directory"
+    services="active-directory"
+	keywords="Licencias de Azure AD"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="11/20/2015"
+    ms.author="curtand"/>
 
 # ¿Qué es la licencia de Microsoft Azure Active Directory?
 
@@ -25,7 +26,7 @@ Azure Active Directory (AD) es la plataforma y la solución de identidad como un
 
 > [AZURE.NOTE]Portal de administración de Azure AD es una parte del Portal de administración de Azure. Aunque para usar de Azure AD no es preciso adquirir Azure, el acceso a este portal requiere una suscripción activa a Azure o una [suscripción de prueba a Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-Para obtener una extensa información general de las capacidades de servicio de Azure AD, consulte [¿Qué es Azure AD?](active-directory-whatis.md) [Obtenga más información acerca de los niveles de servicio de Azure AD.](http://azure.microsoft.com/support/legal/sla/)
+Para una extensa información general de las capacidades de servicio de Azure AD, vea [¿Qué es Azure AD?](active-directory-whatis.md) [Obtenga más información acerca de los niveles de servicio de Azure AD.](http://azure.microsoft.com/support/legal/sla/)
 
 > [AZURE.NOTE]Las suscripciones de Azure de pago por uso de Azure son distintas: a pesar de que también se representan en el directorio, estas suscripciones permiten la creación de recursos de Azure y asignarlos a la forma de pago. En este caso, NO hay ningún número de licencias asociado a la suscripción. La asociación de los usuarios con la suscripción, el acceso de los usuarios a los recursos de suscripción de administración, se consigue mediante la concesión de permisos para que funcione en recursos de Azure asignados a la suscripción.
 
@@ -83,11 +84,11 @@ Como se indica, Azure AD dispone de distintas versiones de pago. Estas versiones
 Una vez que la suscripción esté activa, debe asignarse una licencia a usted mismo y actualizar el explorador para asegurarse de que ve todas las características. El siguiente paso es asignar licencias a los usuarios que necesitarán tener acceso a características de pago de pago de Azure AD o que tendrán que incluirse en ellas. Como se mencionó anteriormente en "Asignación de licencias", la mejor forma de hacer esto es identificar el grupo que representa a la audiencia deseada y asignarle la licencia; de esta forma, los usuarios que se agreguen o se quiten  
 del grupo durante su ciclo de vida se asignarán a la licencia o se quitarán de ella.
 
-Para asignar una licencia a un grupo o a usuarios individuales, seleccione el plan de licencia que desee asignar y haga clic en **Asignar** en la barra de comandos.
+Para asignar una licencia a un grupo o a usuarios individuales, seleccione el plan de licencia que quiera asignar y haga clic en **Asignar** en la barra de comandos.
 
 ![Planes de licencia de prueba activa](./media/active-directory-licensing-what-is/assign_licenses.png)
 
-En el cuadro de diálogo de asignación del plan deseado puede seleccionar los usuarios y agregarlos a la columna **Asignar** de la derecha. Puede desplazarse por la lista de usuarios o buscar personas específicas con la lupa que aparece en la parte superior derecha de la cuadrícula del usuario. Para asignar grupos, seleccione "Grupos" en el menú **Mostrar** y, a continuación, haga clic en el botón de comprobación de la derecha para actualizar las asignaciones que se muestran.
+En el cuadro de diálogo de asignación del plan deseado puede seleccionar los usuarios y agregarlos a la columna **Asignar** de la derecha. Puede desplazarse por la lista de usuarios o buscar personas específicas con la lupa que aparece en la parte superior derecha de la cuadrícula del usuario. Para asignar grupos, seleccione "Grupos" en el menú **Mostrar** y luego haga clic en el botón de comprobación de la derecha para actualizar las asignaciones que se muestran.
 
 ![Asignación de licencias a grupos](./media/active-directory-licensing-what-is/assign_licenses_to_groups.png)
 
@@ -109,7 +110,7 @@ Hay disponible una lista detallada de usuarios y grupos asignados, incluida la r
 
 ![Visualización de detalles de licencias asignadas para un plan de licencias](./media/active-directory-licensing-what-is/assigned_licenses_detail.png)
 
-Quitar licencias es tan fácil como asignarlas. Si el usuario se asigna directamente o en el caso de que un grupo asignado, puede quitar la licencia, para lo que debe seleccionar el tipo de licencia y, a continuación, seleccionar **Quitar**, agregar el usuario o el grupo a la lista de eliminación y, finalmente, confirmar la acción. Como alternativa, puede abrir un tipo de licencia, seleccionar el usuario o grupo específicos y pulsar **Quitar** en la barra de comandos. Para acabar con la herencia de una licencia de un usuario de un grupo, simplemente quite el usuario del grupo.
+Quitar licencias es tan fácil como asignarlas. Si el usuario se asigna directamente o en el caso de que un grupo asignado, puede quitar la licencia, para lo que debe seleccionar el tipo de licencia y luego seleccionar **Quitar**, agregar el usuario o el grupo a la lista de eliminación y, finalmente, confirmar la acción. Como alternativa, puede abrir un tipo de licencia, seleccionar el usuario o grupo específicos y pulsar **Quitar** en la barra de comandos. Para acabar con la herencia de una licencia de un usuario de un grupo, simplemente quite el usuario del grupo.
 
 ###Ampliación de pruebas
 
@@ -132,4 +133,4 @@ Ahora ya está preparado para configurar y usar algunas características de Azur
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [Compra directa de licencias de Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

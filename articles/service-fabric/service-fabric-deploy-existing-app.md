@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Implementación de una aplicación existente en Azure Service Fabric | Microsoft Azure"
+   pageTitle="Implementación de una aplicación personalizada en Azure Service Fabric | Microsoft Azure"
    description="Tutorial sobre cómo empaquetar una aplicación existente para implementarla en un clúster de Azure Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/09/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
-# Implementación de una aplicación existente en Service Fabric
+# Implementación de una aplicación personalizada en Service Fabric
 
 Puede ejecutar cualquier tipo de aplicación existente, como Node.js, Java o aplicaciones nativas, en Service Fabric. Service Fabric trata esas aplicaciones como servicios sin estado y los coloca en nodos de un clúster en función de la disponibilidad y otras métricas. Este artículo describe cómo empaquetar e implementar una aplicación existente en un clúster de Service Fabric.
 
-## Ventajas de ejecutar una aplicación existente en Service Fabric
+## Ventajas de ejecutar una aplicación personalizada en Service Fabric
 
 Hay un par de ventajas inherentes a la ejecución de la aplicación en un clúster de Service Fabric:
 
@@ -42,14 +42,66 @@ Antes de entrar en los detalles de la implementación de una aplicación existen
   El manifiesto de aplicación se usa para describir la aplicación y muestra en una lista los servicios que la componen junto con otros parámetros, como el número de instancias, que se usan para definir cómo se deben implementar los servicios. En el mundo de Service Fabric, las aplicaciones son “unidades que se pueden actualizar”. Es posible actualizar una aplicación como una sola unidad en la que los posibles errores (y posibles reversiones) son administrados por la plataforma para garantizar que el proceso de actualización sea completamente satisfactorio o, si se produce un error, no deje a la aplicación en un estado desconocido o inestable.
 
 
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <ApplicationManifest ApplicationTypeName="actor2Application"
+                       ApplicationTypeVersion="1.0.0.0"
+                       xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="actor2Pkg" ServiceManifestVersion="1.0.0.0" />
+      <ConfigOverrides />
+    </ServiceManifestImport>
+
+    <DefaultServices>
+      <Service Name="actor2">
+        <StatelessService ServiceTypeName="actor2Type">
+          <SingletonPartition />
+        </StatelessService>
+      </Service>
+    </DefaultServices>
+
+  </ApplicationManifest>
+  ```
+
 * **Manifiesto de servicio**
 
   El manifiesto de servicio describe los componentes de un servicio. Incluye datos como el nombre y tipo de servicio (información que Service Fabric usa para administrar el servicio), su código, configuración y componentes de datos y algunos parámetros adicionales que pueden usarse para configurar el servicio una vez que se implementa. No vamos a entrar en detalles sobre todos los distintos parámetros disponibles en el manifiesto de servicio, revisaremos el subconjunto que se requiere para que una aplicación existente se ejecute en Service Fabric
 
-Para obtener información detallada sobre el formato de empaquetado de Service Fabric, lea [esto](service-fabric-develop-your-service-index.md).
 
-## Estructura de archivo del paquete de aplicación
-Para implementar una aplicación en Service Fabric, la aplicación debe seguir una estructura de directorios predefinida. A continuación, se muestra un ejemplo de esta estructura:
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <ServiceManifest Name="actor2Pkg"
+                   Version="1.0.0.0"
+                   xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ServiceTypes>
+      <StatelessServiceType ServiceTypeName="actor2Type" />
+    </ServiceTypes>
+
+    <CodePackage Name="Code" Version="1.0.0.0">
+      <EntryPoint>
+        <ExeHost>
+          <Program>actor2.exe</Program>
+        </ExeHost>
+      </EntryPoint>
+    </CodePackage>
+
+    <ConfigPackage Name="Config" Version="1.0.0.0" />
+
+    <Resources>
+      <Endpoints>
+        <Endpoint Name="ServiceEndpoint" />
+      </Endpoints>
+    </Resources>
+  </ServiceManifest>
+  ```
+
+## Estructura del archivo del paquete de aplicación
+Para implementar una aplicación mediante, por ejemplo, los cmdlets de Powershell, la aplicación debe seguir una estructura de directorios predefinida.
 
 ```
 |-- AppplicationPackage
@@ -79,7 +131,7 @@ El proceso de empaquetado de una aplicación existente se basa en los siguientes
 - Actualizar el archivo de manifiesto de servicio
 - Actualizar el manifiesto de aplicación
 
->[AZURE.NOTE]Se proporciona una herramienta de empaquetado que permite crear automáticamente ApplicationPackage. La herramienta se encuentra actualmente en versión de vista previa. Puede encontrar más información [aquí](http://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE]Se proporciona una herramienta de empaquetado que permite crear automáticamente ApplicationPackage. La herramienta se encuentra actualmente en versión de vista previa. Puede descargarla [aquí](http://aka.ms/servicefabricpacktool).
 
 ### Crear la estructura de directorios del paquete
 Puede empezar creando la estructura de directorios del modo descrito anteriormente.
@@ -275,8 +327,8 @@ Si examina el directorio mediante el explorador de servidores, puede encontrar e
 ## Pasos siguientes
 En este artículo, ha aprendido los pasos básicos para empaquetar una aplicación existente e implementarla en Service Fabric. Como siguiente paso, puede consultar contenido adicional sobre este tema.
 
-- Ejemplo para empaquetar e implementar una aplicación existente en [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication), incluida la versión preliminar de la herramienta de empaquetado
-- Ejemplo para empaquetar varias aplicaciones en [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication)
-- Cómo empezar a [crear su primera aplicación de Service Fabric con Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+- Ejemplo para empaquetar e implementar una aplicación personalizada en [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), incluido un vínculo a la versión preliminar de la herramienta de empaquetado.
+- [Implementación de varias aplicaciones personalizadas](service-fabric-deploy-multiple-apps.md).
+- Cómo empezar a [crear su primera aplicación de Service Fabric con Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

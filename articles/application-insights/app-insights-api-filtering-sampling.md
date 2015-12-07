@@ -24,13 +24,15 @@ Puede escribir y configurar complementos para el SDK de Application Insights con
 Actualmente, estas características están disponibles para el SDK de ASP.NET.
 
 * El [muestreo](#sampling) reduce el volumen de la telemetría sin que ello influya en las estadísticas. Mantiene juntos los puntos de datos relacionados para que pueda navegar entre ellos a la hora de diagnosticar un problema. En el portal, se multiplican los recuentos totales para compensar el muestreo.
+ * El muestreo de tipo fijo le permite determinar el porcentaje de eventos que se transmiten.
+ * El muestreo adaptable (el predeterminado para el SDK de ASP.NET a partir de 2.0.0-beta3) ajusta automáticamente la frecuencia de muestreo según el volumen de los datos de telemetría. Puede establecer un volumen de destino.
 * El [filtrado](#filtering) permite seleccionar o modificar la telemetría en el SDK antes de enviarla al servidor. Por ejemplo, para reducir el volumen de la telemetría puede excluir las solicitudes de robots. Se trata de un enfoque más básico que el muestreo para reducir el tráfico. Permite ejercer más control sobre lo que se transmite, pero debe tener en cuenta que se verán afectadas las estadísticas: por ejemplo, si filtra todas las solicitudes correctas.
 * [Agregue propiedades](#add-properties) a cualquier telemetría enviada desde la aplicación, incluida la telemetría de los módulos estándar. Por ejemplo, puede agregar valores calculados o números de versión para filtrar los datos en el portal.
 * La [API del SDK](app-insights-api-custom-events-metrics.md) se usa para enviar métricas y eventos personalizados.
 
 Antes de comenzar:
 
-* Instale el [SDK de Application Insights](app-insights-start-monitoring-app-health-usage.md) en su aplicación. Instale manualmente los paquetes de NuGet y seleccione la *versión preliminar* más reciente.
+* Instale el [SDK de Application Insights](app-insights-start-monitoring-app-health-usage.md) en su aplicación. Instale manualmente los paquetes NuGet y seleccione la *versión preliminar* más reciente.
 * Pruebe la [API de Application Insights](app-insights-api-custom-events-metrics.md). 
 
 
@@ -38,27 +40,22 @@ Antes de comenzar:
 
 *Esta característica está en versión beta.*
 
-Se trata de la forma recomendada de reducir el tráfico conservando estadísticas precisas. El filtro selecciona los elementos relacionados, para que pueda desplazarse entre los elementos de diagnóstico. Los recuentos de evento se ajustan en el explorador de métrica para compensar por los elementos filtrados.
+El [muestreo](app-insights-sampling.md) es la forma recomendada de reducir el tráfico conservando estadísticas precisas. El filtro selecciona los elementos relacionados, para que pueda desplazarse entre los elementos de diagnóstico. Los recuentos de evento se ajustan en el explorador de métrica para compensar por los elementos filtrados.
 
-1. Actualice los paquetes de NuGet del proyecto a la *versión preliminar* más reciente de Application Insights. Haga clic con el botón derecho en el Explorador de soluciones, elija Administrar paquetes de NuGet, active la opción **Incluir versión preliminar** y busque Microsoft.ApplicationInsights.Web. 
+* Se recomienda el muestreo adaptable, ya que ajusta automáticamente el porcentaje de muestreo para lograr un volumen específico de solicitudes. Actualmente solo está disponible para la telemetría de servidor ASP.NET.  
+* También está disponible el muestreo de tasa fija, donde se especifica el porcentaje de muestreo. Está disponible para el código de aplicación web ASP.NET y páginas web de JavaScript. El cliente y el servidor sincronizarán su muestreo por lo que, en Búsqueda, puede desplazarse entre las solicitudes y las vistas de página relacionadas.
 
-2. Agregue este fragmento de código a [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+### Para habilitar el muestreo
 
-```XML
+**Actualice los paquetes NuGet de su proyecto** a la última versión *preliminar* de Application Insights: haga clic con el botón derecho en el proyecto en el Explorador de soluciones, elija Administrar paquetes de NuGet, active **Incluir versión preliminar** y busque Microsoft.ApplicationInsights.Web.
 
-    <TelemetryProcessors>
-     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+En [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), puede ajustar la velocidad máxima de telemetría que el algoritmo de adaptación tiene como objetivo:
 
-     <!-- Set a percentage close to 100/N where N is an integer. -->
-     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 10, 1 (=100/100), 0.1 (=100/1000) ... -->
-     <SamplingPercentage>10</SamplingPercentage>
-     </Add>
-   </TelemetryProcessors>
+    <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
 
-```
+### Muestreo de lado cliente
 
-
-Para muestrear los datos desde las páginas web, ponga una línea extra en el [fragmento de código de Application Insights](app-insights-javascript.md) insertado (normalmente en una página maestra como \_Layout.cshtml):
+Para obtener un muestreo de tipo fijo sobre los datos de páginas web, coloque una línea adicional en el [fragmento de código de Application Insights](app-insights-javascript.md) insertado (normalmente en una página maestra como \_Layout.cshtml):
 
 *JavaScript*
 
@@ -72,10 +69,8 @@ Para muestrear los datos desde las páginas web, ponga una línea extra en el [f
 	}); 
 ```
 
-* Establezca un porcentaje (10 en estos ejemplos) que es igual a 100/N donde N es un número entero: por ejemplo 50 (= 100/2), 33,33 (= 100/3), 25 (= 100/4) o 10 (= 100/10). 
-* Si tiene una gran cantidad de datos, puede utilizar frecuencias de muestreo muy bajas, como 0,1.
-* Si establece el muestreo en la página web y el servidor, asegúrese de establecer el mismo porcentaje de muestreo en ambos lados.
-* Los lados de cliente y servidor se coordinarán para seleccionar elementos relacionados.
+* Establezca un porcentaje (10 en este ejemplo) que es igual a 100/N donde N es un número entero: por ejemplo 50 (= 100/2), 33,33 (= 100/3), 25 (= 100/4) o 10 (= 100/10). 
+* Si también habilita el [muestreo de tipo fijo](app-insights-sampling.md) en el servidor, el cliente y el servidor sincronizarán su muestreo por lo que, en Búsqueda, puede desplazarse entre las solicitudes y las vistas de página relacionadas.
 
 [Obtenga más información sobre el muestreo](app-insights-sampling.md).
 
@@ -91,7 +86,7 @@ Para filtrar la telemetría, escriba un procesador de telemetría y regístrelo 
 
 ### Crear un procesador de telemetría
 
-1. Actualice el SDK de Application Insights a la versión más reciente (2.0.0-beta2 o posterior). Haga clic con el botón derecho en el proyecto en el Explorador de soluciones de Visual Studio y elija Administrar paquetes de NuGet. En el administrador de paquetes de NuGet, seleccione **Incluir versión preliminar** y busque Microsoft.ApplicationInsights.Web.
+1. Actualice el SDK de Application Insights a la versión más reciente (2.0.0-beta2 o posterior). Haga clic con el botón derecho en el proyecto en el Explorador de soluciones de Visual Studio y elija Administrar paquetes de NuGet. En el Administrador de paquetes de NuGet, seleccione **Incluir versión preliminar** y busque Microsoft.ApplicationInsights.Web.
 
 1. Para crear un filtro, implemente ITelemetryProcessor. Se trata de otro punto de extensibilidad como el módulo de telemetría, el inicializador de telemetría y el canal de telemetría.
 
@@ -164,7 +159,7 @@ Puede pasar valores de cadena desde el archivo .config proporcionando propiedade
  
 **Alternativamente,** se puede inicializar el filtro en el código. En una clase de inicialización adecuada (por ejemplo AppStart de Global.asax.cs) inserte el procesador en la cadena:
 
-    ```C#
+```C#
 
     var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
     builder.Use((next) => new SuccessfulDependencyFilter(next));
@@ -174,7 +169,7 @@ Puede pasar valores de cadena desde el archivo .config proporcionando propiedade
 
     builder.Build();
 
-    ```
+```
 
 Los TelemetryClients creados a partir de este punto usarán sus procesadores.
 
@@ -409,4 +404,4 @@ Puede agregar tantos inicializadores como desee.
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

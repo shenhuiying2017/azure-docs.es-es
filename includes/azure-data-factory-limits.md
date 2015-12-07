@@ -20,7 +20,7 @@ Número de reintentos de ejecuciones de la actividad Canalización | 1000 | MaxI
 
 **Recurso** | **Límite inferior predeterminado** | **Límite mínimo**
 -------- | ------------------- | -------------
-Intervalo de programación | 15 minutos | 5 minutos
+Intervalo de programación | 15 minutos | 15 minutos
 Intervalo entre reintentos | 1 segundo | 1 segundo
 Valor de tiempo de espera de reintento | 1 segundo | 1 segundo
 
@@ -29,4 +29,4 @@ Valor de tiempo de espera de reintento | 1 segundo | 1 segundo
 
 El Administrador de recursos de Azure tiene límites para las llamadas API. Se pueden realizar llamadas API a un ritmo que esté dentro de los [límites de la API del Administrador de recursos de Azure](azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

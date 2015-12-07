@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="11/17/2015"
    ms.author="jesseb"/>
 
 # Uso avanzado del modelo de programación de servicios fiables
 Service Fabric simplifica la escritura y la administración de servicios con y sin estado fiables. En esta guía se hablará de los usos avanzados del modelo de programación de los servicios fiables para obtener más control y flexibilidad sobre sus servicios. Antes de leer esta guía, familiarícese con [el modelo de programación de servicios fiables](service-fabric-reliable-services-introduction.md).
 
 ## Clases base del servicio sin estado
-La clase base StatelessService proporciona CreateCommunicationListener() y RunAsync(), que es suficiente para la mayoría de los servicios sin estado. La clase StatelessServiceBase subyace a StatelessService y expone los eventos de ciclo de vida de servicio adicionales. Puede derivar de StatelessServiceBase si necesita más control o flexibilidad. Consulte la documentación de referencia para desarrolladores en [StatelessService](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservice.aspx) y [StatelessServiceBase](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservicebase.aspx) para obtener más información.
+La clase base StatelessService proporciona RunAsync() y CreateServiceInstanceListeners(), que es suficiente para la mayoría de los servicios sin estado. La clase StatelessServiceBase subyace a StatelessService y expone los eventos de ciclo de vida de servicio adicionales. Puede derivar de StatelessServiceBase si necesita más control o flexibilidad. Consulte la documentación de referencia para desarrolladores en [StatelessService](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservice.aspx) y [StatelessServiceBase](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.services.statelessservicebase.aspx) para obtener más información.
 
 - `void OnInitialize(StatelessServiceInitializiationParameters)` OnInitialize es el primer método al que llama Service Fabric. La información de inicialización del servicio se proporciona como nombre del servicio, Id. de partición, Id. de instancia e información de paquete de código. Aquí no se debe realizar ningún procesamiento complejo. La inicialización prolongada debe realizarse en OnOpenAsync.
 
@@ -35,11 +35,7 @@ La clase base StatefulService debería ser suficiente para la mayoría de servic
 
 - `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` OnChangeRoleAsync es llamado cuando el servicio con estado está cambiando los roles, por ejemplo, a principal o secundario. Las réplicas principales reciben el estado de escritura (pueden crear y escribir en las colecciones fiables), mientras que las réplicas secundarias reciben el estado de lectura (solo pueden leer de las colecciones fiables existentes). Puede iniciar o actualizar las tareas en segundo plano en respuesta a cambios de rol, como realizar validaciones de solo lectura, la generación de informes o minería de datos en una base de datos secundaria.
 
-- `IStateProviderReplica CreateStateProviderReplica()` Se espera que un servicio con estado tenga un proveedor de estado fiable. StatefulService utiliza la clase ReliableStateManager, que proporciona colecciones fiables (por ejemplo, diccionarios y colas). Puede proporcionar su propio proveedor si desea administrar el estado por sí mismo o ampliar la funcionalidad de uno de los proveedores de estado integrados.
-
-- `bool EnableCommunicationListenerOnSecondary { get; }` De forma predeterminada, solo se crean escuchas de comunicación en Primarios. StatefulService y StatefulServiceBase permiten invalidar esta propiedad para permitir la creación de los agentes de escucha de comunicación en Secundarios. Puede permitir que Secundarios controle solicitudes de solo lectura para mejorar el rendimiento en las cargas de trabajo con muchas lecturas.
-
-    > [AZURE.NOTE]Usted es responsable de garantizar que Secundarios no intente crear o escribir en colecciones confiables. Si se intenta escribir en Secundario se producirá una excepción que, si no se controla, hará que la réplica se cierre y se vuelva a abrir.
+- `IStateProviderReplica CreateStateProviderReplica()` Se espera que un servicio con estado tenga un proveedor de estado fiable. StatefulService utiliza la clase ReliableStateManager, que proporciona colecciones fiables (por ejemplo, diccionarios y colas). Puede invalidar este método para configurar la clase ReliableStateManager pasando un ReliableStateManagerConfiguration a su constructor. Esto le permite proporcionar serializadores de estado personalizados, especificar qué ocurre cuando es posible que los datos se hayan perdido y configurar los proveedores de replicador o estado.
 
 StatefulServiceBase también proporciona los mismos cuatro eventos de ciclo de vida que StatelessServiceBase, con la misma semántica y casos de uso:
 
@@ -59,4 +55,4 @@ Para obtener temas más avanzados relacionados con Service Fabric, consulte los 
 
 - [Información general de las restricciones de ubicación](service-fabric-placement-constraint.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

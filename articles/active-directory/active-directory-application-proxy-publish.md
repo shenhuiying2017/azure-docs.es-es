@@ -3,8 +3,8 @@
 	description="Describe cómo publicar aplicaciones locales mediante el Proxy de aplicación de Azure AD."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
-	manager="StevenPo"
+	authors="kgremban"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 
 # Publicación de aplicaciones mediante el proxy de aplicación de Azure AD
@@ -54,7 +54,7 @@ Para finalizar al asistente, haga clic en la marca de verificación de la parte 
 
 1. Para las aplicaciones con autenticación previa, debe asignar los usuarios y grupos que tendrán acceso a la aplicación. <p>Para las aplicaciones que son de acceso directo, el acceso está disponible para todos los usuarios. Sin embargo, para que el usuario vea la aplicación en su lista de aplicaciones, debe asignar la aplicación a ese usuario.
 2. Tras finalizar el Asistente para agregar aplicaciones, se muestra la página Inicio rápido de Proxy de aplicación. Para asignar los usuarios, haga clic en **Asignar usuarios**. ![Pantalla de inicio rápido de Proxy de aplicación](./media/active-directory-application-proxy-publish/quickstart.png)
-3. Seleccione cada usuario o grupo que desea asignar a esta aplicación y haga clic en **Asignar**. 
+3. Seleccione cada usuario o grupo que desea asignar a esta aplicación y haga clic en **Asignar**.
 
 > [AZURE.NOTE]Para las aplicaciones de Autenticación de Windows integrada, puede asignar solo a los usuarios y grupos que se sincronizan desde Active Directory local. A los usuarios que inicien sesión con una cuenta de Microsoft y a los invitados no se les pueden asignar aplicaciones publicadas con Proxy de aplicación de Azure Active Directory. Asegúrese de que los usuarios que asigne inician sesión con sus credenciales en el mismo dominio que la aplicación que está publicando.
 
@@ -97,4 +97,4 @@ Hay mucho más que puede hacer con el proxy de la aplicación:
 
 * [Sobre la delegación limitada de Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

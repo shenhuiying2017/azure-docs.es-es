@@ -25,23 +25,23 @@ Este tema explora y compara las herramientas y opciones para administrar Bases d
 ## Portal de Azure
 
 
-El [Portal de Azure](http://portal.azure.com) es un portal de administración basado en web, donde puede crear, actualizar y eliminar servidores lógicos y Bases de datos de SQL Azure, así como supervisar los recursos de las bases de datos. Esta herramienta es fantástica si está empezando con Azure, administra un pequeño número de bases de datos o debe realizar algo rápidamente.
+El [Portal de Azure](http://portal.azure.com) es un portal de administración basado en web, donde puede crear, actualizar y eliminar servidores lógicos y bases de datos, así como supervisar la actividad de las bases de datos. Esta herramienta es fantástica si está empezando con Azure, administra un pequeño número de bases de datos o debe realizar algo rápidamente.
 
 Para obtener información más detallada acerca de cómo utilizar el portal, consulte [Administración de Bases de datos SQL mediante el portal de Azure](sql-database-manage-portal.md).
 
 ## SQL Server Management Studio y SQL Server Data Tools en Visual Studio
 
 
-SQL Server Management Studio (SSMS) y SQL Server Data Tools (SSDT) en Visual Studio son herramientas de cliente que se ejecutan en el equipo y permiten conectar, administrar y desarrollar la base de datos en la nube. Si es un programador familiarizado con Visual Studio o con otros entornos de desarrollo integrado (IDE), pruebe a usar SSDT en Visual Studio. Si necesita capacidades avanzadas de SQL que ya no son compatibles en SSDT, como la administración de bases de datos de SQL Server en entornos híbridos, utilice SSMS.
+SQL Server Management Studio (SSMS) y SQL Server Data Tools (SSDT) en Visual Studio son herramientas de cliente que se ejecutan en el equipo y permiten conectar, administrar y desarrollar la base de datos en la nube. Si es un programador familiarizado con Visual Studio o con otros entornos de desarrollo integrado (IDE), [pruebe a usar SSDT en Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Si necesita capacidades avanzadas de SQL que ya no están disponibles en SSDT, como la administración de bases de datos de SQL Server en entornos híbridos, puede usar SSMS.
 
-Para obtener más información acerca de cómo administrar Bases de datos SQL de Azure con SSMS y SSDT, consulte [Administración de Bases de datos SQL mediante SSMS](sql-database-manage-azure-ssms.md)
+Para obtener más información acerca de cómo administrar Bases de datos SQL de Azure con SSMS, consulte [Administración de Bases de datos SQL mediante SSMS](sql-database-manage-azure-ssms.md)
 
 
 ## Herramientas de línea de comandos
 
-Puede utilizar herramientas de línea de comandos como PowerShell para administrar Bases de datos SQL de Azure y automatizar las implementaciones de recursos de Azure. Microsoft recomienda esta herramienta para administrar un gran número de Bases de datos SQL de Azure e implementar los cambios de los recursos en un entorno de producción.
+Puede usar herramientas de línea de comandos como PowerShell para administrar bases de datos y grupos de bases de datos elásticas y para automatizar las implementaciones de recursos de Azure. Microsoft recomienda esta herramienta para administrar un gran número de bases de datos y automatizar la implementación y los cambios de los recursos en un entorno de producción.
 
-Para obtener más información acerca de cómo administrar Bases de datos SQL de Azure con las herramientas de línea de comandos, [haga clic aquí](sql-database-command-line-tools.md).
+Para obtener más información acerca de cómo administrar Bases de datos SQL de Azure con las herramientas de línea de comandos, consulte [Administrar Base de datos SQL con PowerShell](sql-database-command-line-tools.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

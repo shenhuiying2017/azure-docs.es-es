@@ -62,8 +62,10 @@ Los niveles de bases de datos SQL de Azure Basic, Standard y Premium se facturan
 
 [Base de datos SQL de Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
+[Precios de la edición Web y Business](https://azure.microsoft.com/pricing/details/sql-database/web-business/)
+
 [Niveles de servicio](sql-database-service-tiers.md)
 
 [Actualización de las bases de datos SQL Web o Business a niveles de servicio nuevos](sql-database-upgrade-new-service-tiers.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

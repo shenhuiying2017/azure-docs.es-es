@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Introducción al portal del cifrado de datos transparente (TDE) del Almacenamiento de datos SQL | Microsoft Azure" 
-	description="Introducción al portal del cifrado de datos transparente (TDE) del Almacenamiento de datos SQL" 
+	pageTitle="Introducción al Cifrado de datos transparente (TDE) en Almacenamiento de datos SQL | Microsoft Azure" 
+	description="Introducción al cifrado de datos transparente (TDE) en Almacenamiento de datos SQL" 
 	services="sql-data-warehouse" 
 	documentationCenter="" 
 	authors="twounder" 
-	manager="" 
+	manager="barbkess" 
 	editor=""/>
 
 <tags 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2015" 
+	ms.date="11/20/2015" 
 	ms.author="twounder"/>
  
-# Introducción al cifrado de datos transparente (TDE)
+# Introducción al cifrado de datos transparente (TDE) en Almacenamiento de datos SQL
 > [AZURE.SELECTOR]
 - [Azure Portal](sql-data-warehouse-encryption-tde.md)
 - [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
 
 El Cifrado de datos transparente (TDE) del Almacenamiento de datos SQL facilita la protección contra la amenaza de actividades malintencionadas, ya que la base de datos se cifra y descifra en tiempo real, se realizan copias de seguridad asociadas y archivos de registro de transacciones en reposo sin requerir cambios en la aplicación.
 
-TDE cifra el almacenamiento de una base de datos completa mediante el uso de una clave simétrica llamada clave de cifrado de base de datos. En Base de datos SQL la clave de cifrado de base de datos está protegida por un certificado de servidor integrado. El certificado de servidor integrado es único para cada servidor de Base de datos SQL. Microsoft alterna automáticamente estos certificados al menos cada 90 días. Para obtener una descripción general de TDE, vea [Cifrado de datos transparente (TDE)].
+TDE cifra el almacenamiento de una base de datos completa mediante el uso de una clave simétrica denominada clave de cifrado de base de datos. En Base de datos SQL la clave de cifrado de base de datos está protegida por un certificado de servidor integrado. El certificado de servidor integrado es único para cada servidor de Base de datos SQL. Microsoft alterna automáticamente estos certificados al menos cada 90 días. Para obtener una descripción general de TDE, vea [Cifrado de datos transparente (TDE)].
 
 ##Habilitar el cifrado
 
@@ -49,7 +49,7 @@ Para deshabilitar TDE para Almacenamiento de datos SQL, siga estos pasos:
 
 
 <!--Anchors-->
-[Cifrado de datos transparente (TDE)]: https://msdn.microsoft.com/es-ES/library/bb934049.aspx
+[Cifrado de datos transparente (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
@@ -61,4 +61,4 @@ Para deshabilitar TDE para Almacenamiento de datos SQL, siga estos pasos:
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

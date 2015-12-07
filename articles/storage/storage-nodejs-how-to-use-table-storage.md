@@ -3,7 +3,7 @@
 	description="Obtenga información sobre como usar el almacenamiento de tablas de Azure. Los ejemplos de código están escritos usando la API Node.js."
 	services="storage"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 # Uso del almacenamiento de tablas de Azure en Node.js
@@ -450,4 +450,4 @@ Para obtener más información, consulte los siguientes recursos:
   [Aplicación web Node.js con almacenamiento.]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

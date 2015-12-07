@@ -21,7 +21,7 @@
 # Aprovisionamiento de una máquina virtual de SQL Server en Azure
 
 > [AZURE.SELECTOR]
-- [Portal](virtual-machines-provision-sql-server.md)
+- [Azure portal](virtual-machines-provision-sql-server.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
 
 ## Información general
@@ -32,18 +32,18 @@ La galería de máquinas virtuales de Azure incluye varias imágenes que contien
 
 En este tutorial, aprenderá lo siguiente:
 
-* [Conectarse al Portal de administración de Azure y aprovisionar una máquina virtual desde la galería](#Provision)
+* [Conectarse al portal de Azure y aprovisionar una máquina virtual desde la galería](#Provision)
 * [Abrir la máquina virtual con Escritorio remoto y finalizar la configuración](#RemoteDesktop)
 * [Finalizar los pasos de configuración para conectarse a la máquina virtual con SQL Server Management Studio en otro equipo](#SSMS)
 * [Pasos siguientes](#Optional)
 
->[AZURE.NOTE]Este artículo describe cómo aprovisionar una VM de SQL Server con el Portal de administración de Azure existente. Sin embargo, también es posible crear y administrar VM de SQL Server en el [nuevo portal](https://manage.windowsazure.com). Existen algunas ventajas en el nuevo portal, como el uso de Almacenamiento premium de forma predeterminada, y otras opciones, como revisiones automatizadas, copias de seguridad automatizadas y configuraciones AlwaysOn. El contenido futuro cubrirá instrucciones paso a paso.
+>[AZURE.NOTE]Este artículo describe cómo aprovisionar una máquina virtual de SQL Server con el portal existente. Sin embargo, también es posible crear y administrar VM de SQL Server en el [nuevo portal](https://manage.windowsazure.com). Existen algunas ventajas en el nuevo portal, como el uso de Almacenamiento premium de forma predeterminada, y otras opciones, como revisiones automatizadas, copias de seguridad automatizadas y configuraciones AlwaysOn. El contenido futuro cubrirá instrucciones paso a paso.
 
 ##<a id="Provision">Aprovisionamiento de una máquina virtual de SQL Server de la galería</a>
 
-1. Inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com) con su cuenta. Si no tiene una cuenta de Azure, visite [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+1. Inicie sesión en el [Portal de Azure](http://manage.windowsazure.com) con su cuenta. Si no tiene una cuenta de Azure, visite [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-2. En el Portal de administración de Azure, en la parte inferior izquierda de la página web, haga clic sucesivamente en **+NUEVO**, **PROCESO**, **MÁQUINA VIRTUAL** y **DESDE LA GALERÍA**.
+2. En el portal de Azure, en la parte inferior izquierda de la página web, haga clic sucesivamente en **+NUEVO**, **PROCESO**, **MÁQUINA VIRTUAL** y **DESDE LA GALERÍA**.
 
 3. En la página **Elegir una imagen**, haga clic en **SQL SERVER**. A continuación, seleccione una imagen de SQL Server. Haga clic en la flecha siguiente de la parte inferior derecha de la página.
 
@@ -155,4 +155,4 @@ En la lista siguiente se proporcionan recursos adicionales para SQL Server en m�
 
 - [Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

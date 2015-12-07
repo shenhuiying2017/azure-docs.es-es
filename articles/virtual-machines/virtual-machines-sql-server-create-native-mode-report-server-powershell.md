@@ -31,7 +31,7 @@ En este tema se describe y se le guiará por la implementación y la configuraci
 
 - **Suscripción de Azure**: compruebe el número de núcleos disponibles en su suscripción de Azure. Si crea el tamaño recomendado de máquina virtual de **A3**, necesita **4** núcleos disponibles. Si usa un tamaño de máquina virtual de **A2**, necesita **2** núcleos disponibles.
 	
-	- Para comprobar el límite de núcleos de su suscripción, en el Portal de administración de Azure, haga clic en CONFIGURACIÓN en el panel izquierdo y luego en USO en el menú superior.
+	- Para comprobar el límite de núcleos de su suscripción, en el Portal de Azure, haga clic en CONFIGURACIÓN en el panel izquierdo y luego en USO en el menú superior.
 	
 	- Para aumentar la cuota de núcleos, póngase en contacto con el [soporte técnico de Azure](http://azure.microsoft.com/support/options/). Para obtener más información sobre el tamaño de la máquina virtual, consulte [Tamaños de máquinas virtuales para Azure](virtual-machines-size-specs.md).
 
@@ -43,7 +43,7 @@ En este tema se describe y se le guiará por la implementación y la configuraci
 
 ## Paso 1: Aprovisionar una máquina virtual de Azure
 
-1. Vaya al [Portal de administración de Azure](https://manage.windowsazure.com).
+1. Acceda al portal de Azure.
 
 1. Haga clic en **Máquinas virtuales** en el panel izquierdo.
 
@@ -61,7 +61,7 @@ En este tema se describe y se le guiará por la implementación y la configuraci
 
 	![siguiente](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
 
-	Si necesita la característica de suscripciones controladas por datos de Reporting Services, elija **SQL Server 2014 RTM Enterprise – Windows Server 2012 R2**. Para obtener más información sobre las ediciones de SQL Server y la compatibilidad de características, consulte [Características admitidas por las ediciones de SQL Server 2012](https://msdn.microsoft.com/library/cc645993.aspx#Reporting).
+	Si necesita la característica de suscripciones controladas por datos de Reporting Services, elija **SQL Server 2014 RTM Enterprise – Windows Server 2012 R2**. Para más información sobre las ediciones de SQL Server y la compatibilidad de características, consulte [Características admitidas por las ediciones de SQL Server 2012](https://msdn.microsoft.com/library/cc645993.aspx#Reporting).
 
 1. En la página **Configuración de la máquina virtual**, edite los siguientes campos:
 									
@@ -71,7 +71,7 @@ En este tema se describe y se le guiará por la implementación y la configuraci
 	
 	- **Nivel**: estándar
 	
-	- **Tamaño: A3** es el tamaño de máquina virtual recomendado para cargas de trabajo de SQL Server. Si una máquina virtual solo se usa como servidor de informes, un tamaño de A2 es suficiente a menos que el servidor de informes experimente una gran carga de trabajo. Para obtener información sobre precios de máquinas virtuales, consulte [Precios de Máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/).
+	- **Tamaño: A3** es el tamaño de máquina virtual recomendado para cargas de trabajo de SQL Server. Si una máquina virtual solo se usa como servidor de informes, un tamaño de A2 es suficiente a menos que el servidor de informes experimente una gran carga de trabajo. Para más información sobre precios de máquinas virtuales, consulte [Precios de Máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/).
 	
 	- **Nuevo nombre de usuario**: el nombre que ofrece se crea como administrador en la máquina virtual.
 	
@@ -83,7 +83,7 @@ En este tema se describe y se le guiará por la implementación y la configuraci
 
 	- **Servicio en la nube**: seleccione **Crear un nuevo servicio en la nube**.
 	
-	- **Nombre DNS de servicio en la nube**: este es el nombre DNS público del servicio en nube que está asociado a la máquina virtual. El nombre predeterminado es el nombre que escribió para el nombre de la máquina virtual. Si en los pasos posteriores del tema, crea un certificado SSL de confianza y luego el nombre DNS se usa para el valor de "**Emitido a**" del certificado.
+	- **Nombre DNS de servicio en la nube**: este es el nombre DNS público del servicio en la nube que está asociado a la máquina virtual. El nombre predeterminado es el nombre que escribió para el nombre de la máquina virtual. Si en los pasos posteriores del tema, crea un certificado SSL de confianza y luego el nombre DNS se usa para el valor de "**Emitido a**" del certificado.
 	
 	- **Región/grupo de afinidad/red virtual**: elija la región más cercana a sus usuarios finales.
 	
@@ -91,33 +91,33 @@ En este tema se describe y se le guiará por la implementación y la configuraci
 	
 	- **Conjunto de disponibilidad**: ninguno.
 	
-	- **EXTREMOS** Mantenga los extremos **Escritorio remoto** y **PowerShell** y luego agregue un extremo HTTP o HTTPS, en función de su entorno.
+	- **PUNTOS DE CONEXIÓN** Mantenga los puntos de conexión **Escritorio remoto** y **PowerShell** y después agregue un punto de conexión HTTP o HTTPS, en función del entorno.
 
 		- **HTTP**: los puertos públicos y privados predeterminados son **80**. Tenga en cuenta que si usa un puerto privado distinto de 80, tendrá que modificar **$HTTPport = 80** en el script de http.
 
-		- **HTTPS**: los puertos públicos y privados predeterminados son **443**. Una práctica recomendada de seguridad consiste en cambiar el puerto privado y configurar el firewall y el servidor de informes para usar el puerto privado. Para obtener más información sobre extremos, consulte [Establecimiento de comunicación con una máquina virtual](virtual-machines-set-up-endpoints.md). Tenga en cuenta que si usa un puerto distinto de 443, debe cambiar el parámetro **$HTTPsport = 443** en el script de HTTPS.
+		- **HTTPS**: los puertos públicos y privados predeterminados son **443**. Una práctica recomendada de seguridad consiste en cambiar el puerto privado y configurar el firewall y el servidor de informes para usar el puerto privado. Para más información sobre los puntos de conexión, consulte [Configuración de extremos en una máquina virtual](virtual-machines-set-up-endpoints.md). Tenga en cuenta que si usa un puerto distinto de 443, debe cambiar el parámetro **$HTTPsport = 443** en el script de HTTPS.
 	
-	- Haga clic en Siguiente. ![siguiente](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
+	- Haga clic en Siguiente.![siguiente](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
 
-1. En la última página del asistente, mantenga el valor predeterminado de **Instalar el agente de VM** seleccionado. Los pasos descritos en este tema no usan al agente de máquina virtual, pero si piensa mantener esta máquina virtual, el agente de máquina virtual y las extensiones le permitirán mejorar la máquina virtual. Para obtener más información sobre el agente de máquina virtual, vea [Agente de máquina virtual y extensiones – Parte 1](http://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Una de las extensiones predeterminadas instaladas y en ejecución es la extensión "BGINFO" que se muestra en el escritorio de la máquina virtual, información del sistema como la dirección IP interna y el espacio libre en disco.
+1. En la última página del asistente, mantenga el valor predeterminado de **Instalar el agente de VM** seleccionado. Los pasos descritos en este tema no usan al agente de máquina virtual, pero si piensa mantener esta máquina virtual, el agente de máquina virtual y las extensiones le permitirán mejorar la máquina virtual. Para más información sobre el agente de máquina virtual, consulte [VM Agent and Extensions – Part 1](http://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Una de las extensiones predeterminadas instaladas y en ejecución es la extensión "BGINFO" que se muestra en el escritorio de la máquina virtual, información del sistema como la dirección IP interna y el espacio libre en disco.
 
 1. Haga clic en Completo. ![aceptar](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC660122.gif)
 
-1. El **Estado** de la máquina virtual se muestra como **Iniciando (aprovisionamiento)** durante el proceso de aprovisionamiento y luego se muestra como **En ejecución** cuando la máquina virtual está aprovisionada y lista para usarse.
+1. El **estado** de la máquina virtual se muestra como **Iniciando (aprovisionamiento)** durante el proceso de aprovisionamiento y luego se muestra como **En ejecución** cuando la máquina virtual está aprovisionada y lista para usarse.
 
 ## Paso 2: Crear un certificado de servidor
 
->[AZURE.NOTE]Si no requiere HTTPS en el servidor de informes, puede **omitir el paso 2** e ir a la sección **Use el script para configurar el servidor de informes y HTTP**. Use el script de HTTP para configurar rápidamente el servidor de informes y el servidor de informes estará listo para su uso.
+>[AZURE.NOTE]Si no requiere HTTPS en el servidor de informes, puede **omitir el paso 2** e ir a la sección **Uso del script para configurar el servidor de informes y HTTP**. Use el script de HTTP para configurar rápidamente el servidor de informes y el servidor de informes estará listo para su uso.
 
 Para usar HTTPS en la máquina virtual, necesitará un certificado SSL de confianza. Según el escenario, puede usar uno de los dos métodos siguientes:
 
-- Un certificado SSL válido emitido por una entidad de certificación (CA) y de confianza de Microsoft. Se requiere la distribución de los certificados raíz de CA mediante el programa de certificados raíz de Microsoft. Para obtener más información sobre este programa, consulte [Programa de certificados raíz de SSL de Windows y Windows Phone 8 (entidad de certificación de miembro)](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) e [Introducción al programa de certificados raíz de Microsoft](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
+- Un certificado SSL válido emitido por una entidad de certificación (CA) y de confianza de Microsoft. Se requiere la distribución de los certificados raíz de CA mediante el programa de certificados raíz de Microsoft. Para más información sobre este programa, consulte [Windows and Windows Phone 8 SSL Root Certificate Program (Member CAs)](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) e [Introduction to The Microsoft Root Certificate Program](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
 
 - Un certificado autofirmado. No se recomiendan los certificados autofirmados para entornos de producción.
 
 ### Para usar un certificado creado por una entidad de certificación (CA) de confianza
 
-1. **Solicitar un certificado de servidor para el sitio web desde una entidad de certificación**. 
+1. **Solicite un certificado de servidor para el sitio web desde una entidad de certificación**. 
 
 	Puede utilizar el Asistente para certificados de servidor Web para generar un archivo de solicitud de certificado (Certreq.txt) que se envía a una entidad de certificación o para generar una solicitud para una entidad de certificación en línea. Por ejemplo, los Servicios de certificados de Microsoft en Windows Server 2012. Según el nivel de garantía de identificación ofrecido por el certificado del servidor, se tarda entre varios días o varios meses en que la entidad de certificación apruebe su solicitud y le envíe un archivo de certificado.
 
@@ -131,7 +131,7 @@ Para usar HTTPS en la máquina virtual, necesitará un certificado SSL de confia
 
 	>[AZURE.NOTE]El campo **Emitido a** del certificado SSL de confianza debe ser el mismo que el **Nombre DNS de servicio en la nube** que usó para la nueva máquina virtual.
 
-1. **Instale el certificado de servidor en el servidor web**. En este caso, el servidor web es la máquina virtual que hospeda el servidor de informes y el sitio web se crea en pasos posteriores al configurar Reporting Services. Para obtener más información sobre la instalación del certificado de servidor en el servidor web mediante el complemento MMC de certificado, consulte [Instalar un certificado de servidor](https://technet.microsoft.com/library/cc740068).
+1. **Instale el certificado de servidor en el servidor web**. En este caso, el servidor web es la máquina virtual que hospeda el servidor de informes y el sitio web se crea en pasos posteriores al configurar Reporting Services. Para más información sobre la instalación del certificado de servidor en el servidor web mediante el complemento MMC de certificado, consulte [Install a Server Certificate](https://technet.microsoft.com/library/cc740068).
 	
 	Si quiere usar el script incluido con este tema, para configurar el servidor de informes se requiere el valor de los certificados **Huella digital** como parámetro del script. Vea la sección siguiente para obtener más información sobre cómo obtener la huella digital del certificado.
 
@@ -141,9 +141,9 @@ Para usar HTTPS en la máquina virtual, necesitará un certificado SSL de confia
 
 Se creó un certificado autofirmado en la máquina virtual cuando se aprovisionó la máquina virtual. El certificado tiene el mismo nombre que el nombre de DNS de la máquina virtual. Para evitar errores de certificado, es necesario que el certificado sea de confianza en la propia máquina virtual y también de la confianza de todos los usuarios del sitio.
 
-1. Para confiar en la entidad de certificación raíz del certificado en la máquina virtual local, agregue el certificado a las **Entidades de certificación raíz de confianza**. A continuación se encuentra un resumen de los pasos necesarios. Para obtener pasos detallados sobre cómo confiar en la entidad de certificación, consulte [Instalar un certificado de servidor](https://technet.microsoft.com/library/cc740068).
+1. Para confiar en la entidad de certificación raíz del certificado en la máquina virtual local, agregue el certificado a las **entidades de certificación raíz de confianza**. A continuación se encuentra un resumen de los pasos necesarios. Para obtener pasos detallados sobre cómo confiar en la entidad de certificación, consulte [Install a Server Certificate](https://technet.microsoft.com/library/cc740068).
 
-	1. En el portal de administración de Azure, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
+	1. En el Portal de Azure, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
 	
 		![conectarse a máquina virtual de azure](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) Use el nombre de la máquina virtual del usuario, el nombre de usuario y la contraseña que configuró al crear la máquina virtual.
 	
@@ -151,17 +151,17 @@ Se creó un certificado autofirmado en la máquina virtual cuando se aprovision�
 		
 		![el inicio de sesión incluye la máquina virtual](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC764111.png)
 	
-	1. Ejecute mmc.exe. Para obtener más información, consulte [Visualización de certificados con el complemento MMC](https://msdn.microsoft.com/library/ms788967.aspx).
+	1. Ejecute mmc.exe. Para más información, consulte [Visualización de certificados con el complemento MMC](https://msdn.microsoft.com/library/ms788967.aspx).
 	
-	1. En el menú de la aplicación de consola **Archivo**, agregue el complemento **Certificados**, seleccione **Cuenta de equipo** cuando se le pida y luego haga clic en **Siguiente**.
+	1. En el menú **Archivo** de la aplicación de consola, agregue el complemento **Certificados**, seleccione **Cuenta de equipo** cuando se le pida y luego haga clic en **Siguiente**.
 	
 	1. Seleccione **Equipo local** para administrar y luego haga clic en **Finalizar**.
 	
-	1. Haga clic en **Aceptar** y expanda los nodos **Certificados - Personal**; luego haga clic en **Certificados**. El certificado toma el nombre DNS de la máquina virtual y agrega **cloudapp.net** al final. Haga clic con el botón derecho en el nombre del certificado y haga clic en **Copiar**.
+	1. Haga clic en **Aceptar** y expanda los nodos **Certificados - Personal**; después haga clic en **Certificados**. El certificado toma el nombre DNS de la máquina virtual y agrega **cloudapp.net** al final. Haga clic con el botón derecho en el nombre del certificado y haga clic en **Copiar**.
 	
 	1. Expanda el nodo **Entidades de certificación raíz de confianza**, haga clic con el botón derecho en **Certificados** y luego haga clic en **Pegar**.
 	
-	1. Para validar, haga doble clic en el nombre del certificado en **Entidades de certificación raíz de confianza** y compruebe que no haya ningún error; de este modo, verá el certificado. Si quiere usar el script de HTTPS incluido con este tema, para configurar el servidor de informes se requiere el valor de los certificados **Huella digital** como parámetro del script. **Para obtener el valor de huella digital**, complete los pasos siguientes. También hay un ejemplo de PowerShell para recuperar la huella digital en la sección [Usar el script para configurar el servidor de informes y HTTPS](#use-script-to-configure-the-report-server-and-HTTPS).
+	1. Para validar, haga doble clic en el nombre del certificado en **Entidades de certificación raíz de confianza** y compruebe que no haya ningún error; de este modo, verá el certificado. Si quiere usar el script de HTTPS incluido con este tema, para configurar el servidor de informes se requiere el valor de la **huella digital** de los certificados como parámetro del script. **Para obtener el valor de la huella digital**, complete los pasos siguientes. También hay un ejemplo de PowerShell para recuperar la huella digital en la sección [Uso del script para configurar el servidor de informes y HTTPS](#use-script-to-configure-the-report-server-and-HTTPS).
 		
 		1. Haga doble clic en el nombre del certificado, por ejemplo, ssrsnativecloud.cloudapp.net.
 		
@@ -185,7 +185,7 @@ En esta sección se explica cómo configurar la máquina virtual como servidor d
 
 - Use el Administrador de configuración para configurar el servidor de informes.
 
-Para obtener pasos más detallados, vea [Conectarse a la máquina virtual e iniciar el Administrador de configuración de Reporting Services](virtual-machines-sql-server-business-intelligence.md#connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager).
+Para ver pasos más detallados, consulte la sección [Conectarse a la máquina virtual e iniciar el Administrador de configuración de Reporting Services](virtual-machines-sql-server-business-intelligence.md#connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager).
 
 **Nota de autenticación:** la autenticación de Windows es el método de autenticación recomendado y es la autenticación predeterminada de Reporting Services. Solo los usuarios que están configurados en la máquina virtual pueden obtener acceso a Reporting Services y asignarse a los roles de Reporting Services.
 
@@ -193,7 +193,7 @@ Para obtener pasos más detallados, vea [Conectarse a la máquina virtual e inic
 
 Para usar el script de Windows PowerShell para configurar el servidor de informes, complete los siguientes pasos. La configuración incluye HTTP, no HTTPS:
 
-1. En el portal de administración de Azure, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
+1. En el Portal de Azure, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
 
 	![conectarse a máquina virtual de azure](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) Use el nombre de la máquina virtual del usuario, el nombre de usuario y la contraseña que configuró al crear la máquina virtual.
 
@@ -328,13 +328,13 @@ Para usar el script de Windows PowerShell para configurar el servidor de informe
 
 1. Ejecute el script.
 
-**Validación**: para comprobar que la funcionalidad del servidor de informes básica es correcta, vea la sección [Comprobar la configuración](#verify-the-configuration) más adelante en este tema.
+**Validación**: para comprobar que la funcionalidad del servidor de informes básica es correcta, consulte la sección [Comprobar la configuración](#verify-the-configuration) más adelante en este tema.
 
 ### Usar el script para configurar el servidor de informes y HTTPS
 
 Para usar Windows PowerShell para configurar el servidor de informes, complete los siguientes pasos. La configuración incluye HTTPS, no HTTP.
 
-1. En el portal de administración de Azure, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
+1. En el Portal de Azure, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
 
 	![conectarse a máquina virtual de azure](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) Use el nombre de la máquina virtual del usuario, el nombre de usuario y la contraseña que configuró al crear la máquina virtual.
 
@@ -515,11 +515,11 @@ Para usar Windows PowerShell para configurar el servidor de informes, complete l
 
 			dir cert:\LocalMachine -rec | Select-Object * | where {$_.issuer -like "*cloudapp*" -and $_.pspath -like "*root*"} | select dnsnamelist, thumbprint, issuer
 
-		El resultado será similar al siguiente. Si el script devuelve una línea en blanco, la máquina virtual no tiene un certificado configurado; por ejemplo, vea la sección [Para usar el certificado autofirmado de máquinas virtuales](#to-use-the-virtual-machines-self-signed-certificate).
+		El resultado será similar al siguiente. Si el script devuelve una línea en blanco, la máquina virtual no tiene un certificado configurado; por ejemplo, consulte la sección [Para usar el certificado autofirmado de máquinas virtuales](#to-use-the-virtual-machines-self-signed-certificate).
 	
 	OR
 	
-	- En la máquina virtual ejecute mmc.exe y luego agregue el complemento **Certificados**.
+	- En la máquina virtual, ejecute mmc.exe y luego agregue el complemento **Certificados**.
 	
 	- En el nodo **Entidades de certificación raíz de confianza**, haga doble clic en el nombre del certificado. Si está usando el certificado autofirmado de la máquina virtual, el certificado toma el nombre DNS de la máquina virtual y finaliza con **cloudapp.net**.
 	
@@ -543,7 +543,7 @@ Para usar Windows PowerShell para configurar el servidor de informes, complete l
 
 1. Ejecute el script.
 
-**Validación**: para comprobar que la funcionalidad del servidor de informes básica es correcta, vea la sección [Comprobar la configuración](#verify-the-connection) más adelante en este tema. Para comprobar el enlace de certificado, abra un símbolo del sistema con privilegios administrativos y luego ejecute el siguiente comando:
+**Validación**: para comprobar que la funcionalidad del servidor de informes básica es correcta, consulte la sección [Comprobar la configuración](#verify-the-connection) más adelante en este tema. Para comprobar el enlace de certificado, abra un símbolo del sistema con privilegios administrativos y luego ejecute el siguiente comando:
 
 	netsh http show sslcert
 
@@ -557,43 +557,43 @@ El resultado incluirá lo siguiente:
 
 Si no quiere ejecutar el script de PowerShell para configurar el servidor de informes, siga los pasos de esta sección para usar el administrador de configuración del modo nativo de Reporting Services para configurar el servidor de informes.
 
-1. En el portal de administración de Azure, seleccione la máquina virtual y haga clic en Conectar. Use el nombre de usuario y la contraseña que configuró al crear la máquina virtual.
+1. En el Portal de Azure, seleccione la máquina virtual y haga clic en Conectar. Use el nombre de usuario y la contraseña que configuró al crear la máquina virtual.
 
 	![conectarse a máquina virtual de azure](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif)
 
-1. Ejecute Windows Update e instale las actualizaciones en la máquina virtual. Si se requiere un reinicio de la máquina virtual, reinicie la máquina virtual y vuelva a conectarla a la máquina virtual desde el portal de administración de Azure.
+1. Ejecute Windows Update e instale las actualizaciones en la máquina virtual. Si se requiere un reinicio de la máquina virtual, reinicie la máquina virtual y vuelva a conectarla a la máquina virtual desde el Portal de Azure.
 
-1. En el menú Inicio en la máquina virtual, escriba **Reporting Services** y abra el **Administrador de configuración de Reporting Services**.
+1. En el menú Inicio de la máquina virtual, escriba **Reporting Services** y abra el **Administrador de configuración de Reporting Services**.
 
 1. Deje los valores predeterminados para **Nombre del servidor** e **Instancia del servidor de informes**. Haga clic en **Conectar**.
 
-1. En el panel izquierdo, haga clic en **Dirección URL del servicio web** .
+1. En el panel izquierdo, haga clic en **URL de servicio web** .
 
 1. De forma predeterminada, RS está configurado para el puerto 80 HTTP con la IP "Todas asignadas". Para agregar HTTPS:
 
-	1. En **Certificado SSL**, seleccione el certificado que quiera usar, por ejemplo, [nombre de máquina virtual].cloudapp.net. Si no aparece ningún certificado, consulte la sección **Paso 2: crear un certificado de servidor** para obtener información sobre cómo instalar y confiar en el certificado en la máquina virtual.
+	1. En **Certificado SSL**, seleccione el certificado que quiere usar, por ejemplo, [nombre de máquina virtual].cloudapp.net. Si no aparece ningún certificado, consulte la sección **Paso 2: crear un certificado de servidor** para más información sobre cómo instalar y confiar en el certificado en la máquina virtual.
 	
 	1. En **Puerto SSL**: elija 443. Si ha configurado el extremo privado HTTPS en la máquina virtual con otro puerto privado, use ese valor aquí.
 	
 	1. Haga clic en **Aplicar** y espere a que finalice la operación.
 
-1. En el panel izquierdo haga clic en **Base de datos** .
+1. En el panel izquierdo, haga clic en **Base de datos** .
 
 	1. Haga clic en **Cambiar base de datos**.
 	
 	1. Haga clic en **Crear una nueva base de datos del servidor de informes** y luego en **Siguiente**.
 	
-	1. Deje el **nombre de servidor** predeterminado como el nombre de la máquina virtual y deje el **tipo de autenticación** predeterminado como **Usuario actual** – **Seguridad integrada**. Haga clic en **Siguiente**.
+	1. Deje el valor de **nombre de servidor** predeterminado como el nombre de la máquina virtual y deje el valor de **tipo de autenticación** predeterminado como **Usuario actual** – **Seguridad integrada**. Haga clic en **Siguiente**.
 	
-	1. Deje el **Nombre de base de datos** predeterminado como **ReportServer** y haga clic en **Siguiente**.
+	1. Deje el valor de **Nombre de base de datos** predeterminado como **ReportServer** y haga clic en **Siguiente**.
 	
-	1. Deje el **Tipo de autenticación** predeterminado como **Credenciales de servicio** y haga clic en **Siguiente**.
+	1. Deje el valor de **Tipo de autenticación** predeterminado como **Credenciales de servicio** y haga clic en **Siguiente**.
 	
 	1. Haga clic en **Siguiente** en la página **Resumen**.
 	
 	1. Cuando haya completado la configuración, haga clic en **Finalizar**.
 
-1. En el panel izquierdo, haga clic en **URL del Administrador de informes**. Deje el **Directorio virtual** predeterminado como **Informes** y haga clic en **Aplicar**.
+1. En el panel izquierdo, haga clic en **URL de Administrador de informes**. Deje el valor de **Directorio virtual** predeterminado como **Informes** y haga clic en **Aplicar**.
 
 1. Haga clic en **Salir** para cerrar el Administrador de configuración de Reporting Services.
 
@@ -603,7 +603,7 @@ Si no quiere ejecutar el script de PowerShell para configurar el servidor de inf
 
 Para conectarse de forma remota al Administrador de informes o al Servidor de informes en la máquina virtual, se requiere un extremo TCP en la máquina virtual. Se requiere abrir el mismo puerto en el firewall de la máquina virtual. El extremo se creó cuando se aprovisionó la máquina virtual.
 
-En esta sección se ofrece información básica sobre cómo abrir el puerto de firewall. Para obtener más información, vea [Configurar un firewall para el acceso del Servidor de informes](https://technet.microsoft.com/library/bb934283.aspx).
+En esta sección se ofrece información básica sobre cómo abrir el puerto de firewall. Para más información, consulte [Configurar un firewall para el acceso del Servidor de informes](https://technet.microsoft.com/library/bb934283.aspx).
 
 >[AZURE.NOTE]Si ha usado el script para configurar el servidor de informes, puede omitir esta sección. El script incluía un paso para abrir el puerto de firewall.
 
@@ -655,7 +655,7 @@ Después de configurar y comprobar el servidor de informes, una tarea administra
 
 En la tabla siguiente se resumen algunas de las opciones disponibles para publicar los informes existentes desde un equipo local al servidor de informes hospedados en la máquina virtual de Microsoft Azure:
 
-- **Script de RS.exe**: use el script de RS.exe para copiar elementos de informes desde la máquina virtual de Microsoft Azure y el servidor de informes existente en ella. Para obtener más información, vea la sección "Modo nativo a modo nativo: máquina virtual de Microsoft Azure" en [Script de rs.exe de Reporting Services de ejemplo para migrar contenido entre servidores de informes](https://msdn.microsoft.com/library/dn531017.aspx).
+- **Script de RS.exe**: use el script de RS.exe para copiar elementos de informes desde la máquina virtual de Microsoft Azure y el servidor de informes existente en ella. Para más información, consulte la sección "Modo nativo a modo nativo: máquina virtual de Microsoft Azure" en [Script de rs.exe de Reporting Services de ejemplo para migrar contenido entre servidores de informes](https://msdn.microsoft.com/library/dn531017.aspx).
 
 - **Generador de informes**: la máquina virtual incluye la versión de un solo clic del Generador de informes de Microsoft SQL Server. Para iniciar el Generador de informes por primera vez en la máquina virtual:
 
@@ -663,9 +663,9 @@ En la tabla siguiente se resumen algunas de las opciones disponibles para public
 	
 	1. Vaya hasta el administrador de informes en la máquina virtual y haga clic en el **Generador de informes** en la cinta de opciones.
 
-	Para obtener más información, vea [Instalar, desinstalar y asistencia del Generador de informes](https://technet.microsoft.com/library/dd207038.aspx).
+	Para más información, consulte [Instalar, desinstalar y asistencia del Generador de informes](https://technet.microsoft.com/library/dd207038.aspx).
 
-- **SQL Server Data Tools**: si ha creado la máquina virtual con SQL Server 2012, SQL Server Data Tools se instala en la máquina virtual y se puede usar para crear **proyectos del Servidor de informes** e informes en la máquina virtual. SQL Server Data Tools puede publicar los informes en el servidor de informes en la máquina virtual.
+- **SQL Server Data Tools: máquina virtual**: si ha creado la máquina virtual con SQL Server 2012, SQL Server Data Tools se instala en la máquina virtual y se puede usar para crear **proyectos del Servidor de informes** e informes en la máquina virtual. SQL Server Data Tools puede publicar los informes en el servidor de informes en la máquina virtual.
 	
 	Si ha creado la máquina virtual con SQL server 2014, puede instalar SQL Server Data Tools- BI para Visual Studio. Para obtener más información, consulte los temas siguientes:
 
@@ -679,11 +679,11 @@ En la tabla siguiente se resumen algunas de las opciones disponibles para public
 
 	![propiedades del proyecto de ssdt para proyecto SSRS](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650114.gif)
 
-- **Usar script**: use el script para copiar el contenido del servidor de informes. Para obtener más información, vea [Script de rs.exe de Reporting Services de ejemplo para migrar contenido entre servidores de informes](https://msdn.microsoft.com/library/dn531017.aspx).
+- **Usar script**: use el script para copiar el contenido del servidor de informes. Para más información, consulte [Script de rs.exe de Reporting Services de ejemplo para migrar contenido entre servidores de informes](https://msdn.microsoft.com/library/dn531017.aspx).
 
 ## Minimizar el costo si no está usando la máquina virtual
 
->[AZURE.NOTE]Para minimizar los cargos para sus máquinas virtuales de Azure cuando no esté en uso, apague la máquina virtual desde el portal de administración de Azure. Si usa las opciones de energía de Windows dentro de una máquina virtual para apagar la máquina virtual, se le seguirá cobrando el mismo importe para la máquina virtual. Para reducir los costos, deberá apagar la máquina virtual en el Portal de administración de Azure. Si ya no necesita la máquina virtual, recuerde eliminar la máquina virtual y los archivos .vhd asociados para evitar costos de almacenamiento. Para obtener más información, vea la sección de preguntas más frecuentes en [Detalles de precios de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines).
+>[AZURE.NOTE]Para minimizar los cargos para las máquinas virtuales de Azure cuando no esté en uso, apague la máquina virtual desde el Portal de Azure. Si usa las opciones de energía de Windows dentro de una máquina virtual para apagar la máquina virtual, se le seguirá cobrando el mismo importe para la máquina virtual. Para reducir los costos, deberá apagar la máquina virtual en el Portal de Azure. Si ya no necesita la máquina virtual, recuerde eliminar la máquina virtual y los archivos .vhd asociados para evitar costos de almacenamiento. Para más información, consulte la sección de preguntas más frecuentes en [Detalles de precios de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines).
 
 ## Más información
 
@@ -693,16 +693,16 @@ En la tabla siguiente se resumen algunas de las opciones disponibles para public
 
 - Para consultar contenido similar relacionado con una implementación de varios servidores de SQL Server Business Intelligence y SharePoint 2013, consulte [Implementar SQL Server Business Intelligence en máquinas virtuales de Azure](https://msdn.microsoft.com/library/dn321998.aspx).
 
-- Para consultar información similar relacionada con implementaciones de SQL Server Business Intelligence en máquinas virtuales de Azure, consulte [SQL Server Business Intelligence en máquinas virtuales de Azure](virtual-machines-sql-server-business-intelligence.md).
+- Para consultar información similar relacionada con implementaciones de SQL Server Business Intelligence en Máquinas virtuales de Azure, consulte [SQL Server Business Intelligence en Máquinas virtuales de Azure](virtual-machines-sql-server-business-intelligence.md).
 
-- Para obtener más información sobre el costo de procesos de Azure, consulte la pestaña de máquinas virtuales de la [Calculadora de precios de Azure](http://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines).
+- Para más información sobre el costo de procesos de Azure, consulte la pestaña Máquinas virtuales de la [Calculadora de precios de Azure](http://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines).
 
 ### Contenido de la Comunidad
 
-- Para obtener instrucciones paso a paso sobre cómo crear un servidor de informes de modo nativo de Reporting Services sin usar el script, consulte [Hospedar el servicio de SQL Reporting en la máquina virtual de Azure](http://adititechnologiesblog.blogspot.in/2012/07/hosting-sql-reporting-service-on-azure.html).
+- Para ver instrucciones paso a paso sobre cómo crear un servidor de informes de modo nativo de Reporting Services sin usar el script, consulte [Hospedar el servicio de SQL Reporting en la máquina virtual de Azure](http://adititechnologiesblog.blogspot.in/2012/07/hosting-sql-reporting-service-on-azure.html).
 
 ### Vínculos a otros recursos para SQL Server en máquinas virtuales de Azure
 
 [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

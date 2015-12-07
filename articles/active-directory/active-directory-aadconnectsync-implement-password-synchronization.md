@@ -130,9 +130,11 @@ La columna de estado puede tener los valores siguientes y también indica el pro
 | Estado | Descripción |
 | ---- | ----- |
 | Correcto | La contraseña se sincronizó correctamente. |
-| SourceConnectorNotPresent | No se encontró ningún objeto en el espacio del conector de Active Directory local. |
+| FilteredByTarget | La contraseña se establece en **El usuario debe cambiar la contraseña en el siguiente inicio de sesión**. La contraseña no se ha sincronizado. |
 | NoTargetConnection | No hay ningún objeto en el metaverso o en el espacio del conector de Azure AD. |
+| SourceConnectorNotPresent | No se encontró ningún objeto en el espacio del conector de Active Directory local. |
 | TargetNotExportedToDirectory | Aún no se exportó el objeto del espacio del conector de Azure AD. |
+| MigratedCheckDetailsForMoreInfo | La entrada de registro se creó antes de la versión 1.0.9125.0 y se muestra en su estado heredado. |
 
 
 ### Desencadenamiento de una sincronización completa de todas las contraseñas
@@ -158,4 +160,4 @@ No es necesario forzar una sincronización completa de todas las contraseñas, p
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -78,6 +78,9 @@ Para ver estos eventos, abra [Buscar][diagnostic], abra Filtrar y luego elija Ev
 
 ![Obtener detalles](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
 
+
+> [AZURE.NOTE]Si la aplicación genera mucha telemetría, el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de únicamente una fracción representativa de eventos. Los eventos que forman parte de la misma operación se seleccionarán o deseleccionarán como grupo, por lo que puede navegar entre los eventos relacionados. [Más información sobre el muestreo](app-insights-sampling.md).
+
 ### Visualización de los datos de solicitud POST
 
 Los detalles de la solicitud no incluyen los datos enviados a la aplicación en una llamada a POST. Para que se notifiquen estos datos:
@@ -452,4 +455,4 @@ Tenga en cuenta que será diferente del recuento de "Excepciones" calculado por 
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

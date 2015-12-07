@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Exploración de métricas en Application Insights
@@ -68,6 +68,8 @@ La granularidad disponible depende del intervalo de tiempo que seleccione. Las g
 
 Haga clic en cualquier gráfico de la hoja de información general para ver un conjunto más detallado de las cuadrículas y gráficos relacionados. Puede editar estos gráficos y cuadrículas para centrarse en los detalles que más le interesan.
 
+O bien, simplemente puede hacer clic en el botón Explorador de métricas del encabezado de la hoja de información general.
+
 Por ejemplo, haga clic en gráfico de solicitudes con errores de la aplicación web:
 
 ![En la hoja de información general, haga clic en un gráfico](./media/app-insights-metrics-explorer/14-trix.png)
@@ -81,9 +83,9 @@ Cada punto de datos en el gráfico es un agregado de los valores de datos recibi
 
 Se agregan métricas diferentes de distintas maneras:
 
- * **Suma**: suma los valores de todos los puntos de datos recibidos durante el intervalo de muestreo o el período del gráfico.
- * **Media**: divide la suma por el número de puntos de datos recibidos durante el intervalo.
- * Se usan recuentos **únicos** para los recuentos de usuarios y cuentas. Durante el intervalo de muestreo, o durante el período del gráfico, la ilustración muestra el recuento de usuarios diferentes que se ven en ese momento.
+ * **Suma** agrega los valores de todos los puntos de datos recibidos durante el intervalo de muestreo o el período del gráfico.
+ * **Media** divide la suma por el número de puntos de datos recibidos durante el intervalo.
+ * Los recuentos **únicos** se usan para los recuentos de usuarios y cuentas. Durante el intervalo de muestreo, o durante el período del gráfico, la ilustración muestra el recuento de usuarios diferentes que se ven en ese momento.
 
 
 Puede cambiar el método de agregación:
@@ -137,7 +139,7 @@ Observe los recuentos de eventos junto a cada valor de propiedad. Al seleccionar
 
 ¿Quiere filtrar telemetría en una categoría de su propia elección? Por ejemplo, quizás divida los usuarios en distintas categorías y quiera segmentar los datos por estas categorías.
 
-[Cree su propia propiedad](app-insights-api-custom-events-metrics.md#properties). Establézcala en un [inicializador de telemetría](app-insights-api-custom-events-metrics.md#telemetry-initializers) para que aparezca en toda la telemetría, incluida la telemetría estándar enviada por distintos módulos SDK.
+[Cree su propia propiedad](app-insights-api-custom-events-metrics.md#properties). Establézcala en un [inicializador de telemetría](app-insights-api-custom-events-metrics.md#telemetry-initializers) para que aparezca en toda la telemetría, incluida la telemetría estándar enviada por diferentes módulos de SDK.
 
 ## Supresión de bots y de tráfico de prueba web
 
@@ -196,7 +198,7 @@ Si desea que los datos se exporten continuamente para procesarlos externamente, 
 
 ### Power BI
 
-Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportarlos a Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
+Si quiere obtener vistas aún más sofisticadas de los datos, puede [exportarlos a Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## Pasos siguientes
 
@@ -212,4 +214,4 @@ Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportar
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

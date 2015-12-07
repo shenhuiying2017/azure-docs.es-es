@@ -14,10 +14,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015"
+	ms.date="11/23/2015"
 	ms.author="jeffstok"/>
 
-# Descripción de entradas de Análisis de transmisiones
+# Descripción de conexiones de entradas de Análisis de transmisiones
 
 Las entradas de Análisis de transmisiones se definen como una conexión a un origen de datos. Análisis de transmisiones cuenta con integración de primera clase con el Centro de eventos de orígenes de Azure, el Centro de IoT y el almacenamiento de blobs desde dentro y fuera de la suscripción en la que se está ejecutando el trabajo. A medida que los datos se insertan en ese origen de datos, el trabajo de Análisis de transmisiones los consume y los procesa en tiempo real. Las entradas se dividen en dos tipos distintos: entradas de flujo de datos y entradas de datos de referencia.
 
@@ -201,4 +201,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

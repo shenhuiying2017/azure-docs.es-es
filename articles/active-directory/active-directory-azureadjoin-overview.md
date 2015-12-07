@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join | Microsoft Azure" 
-	description="Un tema que explica Azure AD Join." 
+	description="Ofrece información general detallada de cómo los dispositivos de Windows 10 pueden usar Azure AD Join para registrarse en Azure Active Directory." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join
@@ -68,6 +68,7 @@ Con Azure AD Join, obtendrá lo siguiente:
 | Inicio de sesión único (SSO) desde el escritorio para trabajar en aplicaciones, sitios web y recursos de forma local y en aplicaciones en la nube que usan Azure AD para la autenticación. | Registro automático en el directorio empresarial (Azure AD) e inscripción automática en MDM. (Característica de Azure AD Premium) | Proporciona SSO entre aplicaciones y en sitios web y recursos con esta cuenta profesional. |
 | Los usuarios pueden agregar su MSA personal para tener acceso a sus imágenes y archivos personales sin que por ello se vean afectados los datos empresariales (la configuración de movilidad sigue funcionando con la cuenta profesional). La cuenta MSA permite SSO y ya no controla la movilidad de la configuración. | Autoservicio de restablecimiento de contraseña (SSPR) en Winlogon (posibilidad de restablecer contraseñas olvidadas) (Para esto, necesita la edición Premium). | Proporciona acceso a la parte principal de la Tienda corporativa, o a alguna de sus secciones, para que los usuarios puedan comprar y usar aplicaciones de línea de negocio en sus dispositivos personales. | |
 
+
 ## Información adicional
 * [Windows 10 para la empresa: formas de usar dispositivos para trabajar](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
@@ -76,4 +77,4 @@ Con Azure AD Join, obtendrá lo siguiente:
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

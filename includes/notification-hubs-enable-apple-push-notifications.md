@@ -37,7 +37,7 @@ Para poder enviar notificaciones push a una aplicación iOS, debe registrar su a
 
 	* **Name** (Nombre): escriba un nombre descriptivo para la aplicación en el campo **Name** (Nombre) de la sección **App ID Description** (Descripción del identificador de la aplicación).
 	
-	* **Bundle Identifier** (Identificador de paquete): en la sección **Explicit App ID** (Identificador de aplicación explícita), escriba un **identificador de paquete** con el formato `<Organization Identifier>.<Product Name>`, tal como se menciona en la [Guía de distribución de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=613485). El *identificador de organización* y *nombre del producto* que usa debe coincidir con el identificador de la organización y con el nombre del producto que usará al crear su proyecto XCode. En la captura de pantalla que aparece a continuación, *NotificationHubs* se usa como identificador de una organización y *GetStarted* se usa como el nombre del producto. Asegurarse de que estos valores coincidan con los valores que utilizará en el proyecto XCode le permitirá usar el perfil de publicación correcto con XCode.
+	* **Bundle Identifier** (Identificador de paquete): en la sección **Explicit App ID** (Identificador de aplicación explícita), escriba un **identificador de paquete** con el formato `<Organization Identifier>.<Product Name>`, tal como se menciona en la [Guía de distribución de aplicaciones](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). El *identificador de organización* y *nombre del producto* que usa debe coincidir con el identificador de la organización y con el nombre del producto que usará al crear su proyecto XCode. En la captura de pantalla que aparece a continuación, *NotificationHubs* se usa como identificador de una organización y *GetStarted* se usa como el nombre del producto. Asegurarse de que estos valores coincidan con los valores que utilizará en el proyecto XCode le permitirá usar el perfil de publicación correcto con XCode.
 	
 	* **Push Notifications** (Notificaciones push): Seleccione la opción **Push Notifications** (Notificaciones push) en la sección **App Services** (Servicios de aplicaciones).
 
@@ -79,7 +79,7 @@ Para poder enviar notificaciones push a una aplicación iOS, debe registrar su a
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-download-cert.png)
 
-   	De esta forma, se descarga el certificado de firma y se guarda en su equipo en la carpeta de descargas.
+   	De esta forma, se descarga el certificado y se guarda en su equipo en la carpeta de descargas.
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
 
@@ -135,4 +135,4 @@ Para poder enviar notificaciones push a una aplicación iOS, debe registrar su a
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

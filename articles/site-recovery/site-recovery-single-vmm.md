@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="10/07/2015"
+	ms.date="11/18/2015"
 	ms.author="raynew"/>
 
 #  Configuración de la protección con un único servidor VMM
@@ -43,7 +43,7 @@ Para hacer que VMM tenga una alta disponibilidad, se puede implementar como una 
 ## Antes de comenzar
 
 - Los pasos del tutorial explican cómo implementar Site Recovery con un servidor VMM único e independiente.
-- Asegúrese de que cumplir los [requisitos previos](site-recovery-vmm-to-vmm.md/#before-you-start) antes de empezar la implementación.
+- Asegúrese de que cumplir los [requisitos previos](site-recovery-vmm-to-vmm.md#before-you-start) antes de empezar la implementación.
 - El único servidor VMM debe tener al menos dos nubes configuradas. Una nube actuará como la nube protegida y la otra está realizando la protección.
 - Las nubes que desea proteger deben contener lo siguiente:
 	- Uno o más grupos de hosts de VMM
@@ -63,19 +63,19 @@ Si tiene problemas al configurar este escenario, publique sus preguntas en el [F
 	- [Configuración del tejido de nube de VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
 	- [Creación de una nube privada en VMM](https://technet.microsoft.com/library/jj860425.aspx) y [Tutorial: Creación de nubes privadas con System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
 3. Agregue el servidor host de Hyper-V de origen en la que se encuentra la máquina virtual que desea proteger a la nube que va a proteger (la nube de origen). Agregue el servidor host de Hyper-V de destino a la nube en el servidor VMM que va a proporcionar la protección.
-4. [Cree](site-recovery-vmm-to-vmm.md/#step-1-create-a-site-recovery-vault) un almacén de Azure Site Recovery y genere una clave de registro del almacén.
-4. [Instale](site-recovery-vmm-to-vmm.md/#step-3-install-the-azure-site-recovery-provider) el Proveedor de Azure Site Recovery en el servidor VMM y registre el servidor en el almacén. 
-5. Asegúrese de que las nubes aparecen en el portal de Site Recovery y [configure la protección de la nube](site-recovery-vmm-to-vmm.md/#step-4-configure-cloud-protection-settings).
+4. [Cree](site-recovery-vmm-to-vmm.md#step-1-create-a-site-recovery-vault) un almacén de Azure Site Recovery y genere una clave de registro del almacén.
+4. [Instale](site-recovery-vmm-to-vmm.md#step-3-install-the-azure-site-recovery-provider) el Proveedor de Azure Site Recovery en el servidor VMM y registre el servidor en el almacén. 
+5. Asegúrese de que las nubes aparecen en el portal de Site Recovery y [configure la protección de la nube](site-recovery-vmm-to-vmm.md#step-4-configure-cloud-protection-settings).
 	- En **Ubicación de origen** y **Ubicación de destino**, especifique el nombre del servidor VMM único.
 	- En **método de replicación**, seleccione **A través de la red** para la replicación inicial porque las nubes que se encuentran en el mismo servidor.
 
-6. Opcionalmente, [configure la asignación de redes](site-recovery-vmm-to-vmm.md/#step-5-configure-network-mapping):
+6. Opcionalmente, [configure la asignación de redes](site-recovery-vmm-to-vmm.md#step-5-configure-network-mapping):
 
 	- En **Origen** y **Destino**, especifique el nombre del servidor VMM único.
 	- En **Red en origen** seleccione la red de máquinas virtuales que está configurada para la nube que protege.
 	- En **Red en destino** seleccione la red de la máquina virtual que está configurada para la nube que desea usar para la protección.
 	- La asignación de redes se puede configurar entre dos redes de máquinas virtuales (VM) en el mismo servidor VMM. Si la misma red VMM existe en dos sitios distintos, puede asignar entre las mismas redes.
-7. [Habilite la protección](site-recovery-vmm-to-vmm.md/#step-7-enable-virtual-machine-protection) de las máquinas virtuales en la nube de VMM que desea proteger. 
+7. [Habilite la protección](site-recovery-vmm-to-vmm.md#step-7-enable-virtual-machine-protection) de las máquinas virtuales en la nube de VMM que desea proteger. 
 7. En la consola del Administrador de Hyper-V, configure la replicación de la máquina virtual VMM con la réplica de Hyper-V. La máquina virtual de VMM no debe agregarse a las nubes de VMM.
 
 
@@ -86,7 +86,7 @@ Si tiene problemas al configurar este escenario, publique sus preguntas en el [F
 Los planes de recuperación agrupan máquinas virtuales que se deben conmutar por error y recuperar.
 
 1. Cuando se crea un plan de recuperación en **Origen** y **Destino**, especifique el nombre del servidor VMM único. En **Seleccionar máquinas virtuales**, se mostrarán las máquinas virtuales que están asociadas a la nube principal.
-2. A continuación, [cree y personalice planes de recuperación](https://msdn.microsoft.com/library/azure/dn337331.aspx).
+2. A continuación, [cree y personalice planes de recuperación](site-recovery-create-recovery-plans.md).
 
 
 ### Recuperación
@@ -100,4 +100,4 @@ En caso de desastre, las cargas de trabajo pueden recuperarse mediante los sigui
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -126,7 +126,7 @@ En primer lugar, proporcione el nombre del servicio en la nube y ejecute estos c
 
 A continuación, conéctese a la máquina virtual DC1.
 
-1.	En el Portal de administración de Azure, haga clic en **Máquinas virtuales** en el panel izquierdo y, a continuación, haga clic en **Iniciado** en la columna **Estado** para la máquina virtual DC1.  
+1.	En el Portal de Azure, haga clic en **Máquinas virtuales** en el panel izquierdo y, a continuación, haga clic en **Iniciado** en la columna **Estado** para la máquina virtual DC1.  
 2.	En la barra de tareas, haga clic en **Conectar**.
 3.	Cuando se le pida que abra DC1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
@@ -155,7 +155,7 @@ A continuación, configure DC1 como un controlador de dominio y servidor DNS par
 
 Una vez reiniciado DC1, vuelva a conectar la máquina virtual de DC1.
 
-1.	En la página de máquinas virtuales del Portal de administración de Azure, haga clic en **En ejecución** en la columna **Estado** de la máquina virtual de DC1.
+1.	En la página de máquinas virtuales del portal de Azure, haga clic en **En ejecución** en la columna **Estado** de la máquina virtual de DC1.
 2.	En la barra de tareas, haga clic en **Conectar**.
 3.	Cuando se le pida que abra DC1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
@@ -288,4 +288,4 @@ Para iniciar las máquinas virtuales en orden con Azure PowerShell, escriba el n
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

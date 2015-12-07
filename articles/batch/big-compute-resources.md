@@ -50,14 +50,16 @@ Implemente o amplíe su clúster de Windows o Linux HPC existente para ejecutar 
 
 HPC Pack es la solución HPC gratuita de Microsoft que se basa en las tecnologías de Microsoft Azure y Windows Server, capaz de ejecutar cargas de trabajo HPC de Windows y Linux.
 
-* [Descarga de HPC Pack 2012 R2 Update 2](https://www.microsoft.com/es-ES/download/details.aspx?id=47755)
+* [Descargar HPC Pack 2012 R2 Update 3](https://www.microsoft.com/es-ES/download/details.aspx?id=49922)
 
 * [Documentación](https://technet.microsoft.com/library/jj899572.aspx)
 
 
 * [Opciones de clúster de HPC con Microsoft HPC Pack en Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
 
-* [Irrumpir en Azure con HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+* [Irrumpir en instancias de trabajo de Azure con HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+
+* [Irrumpir en Lote de Azure con HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
 
 * [Foros de Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
@@ -121,4 +123,4 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-siz
 * Para los anuncios más recientes, vea el [blog del equipo de Microsoft HPC y Batch](http://blogs.technet.com/b/windowshpc/) y el [blog de Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Vea también [Novedades de Batch](http://azure.microsoft.com/updates/?service=batch) o suscríbase a la [fuente RSS](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

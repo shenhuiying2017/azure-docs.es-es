@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introducción a Application Insights" 
-	description="Analice el uso, la disponibilidad y el rendimiento de su aplicación web de Microsoft Azure o local con Application Insights." 
+	pageTitle="Application Insights en Microsoft Azure" 
+	description="Detecte, evalúe y diagnostique problemas en la aplicación de dispositivo o web activa. Supervise y mejore continuamente el éxito con los usuarios." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,37 +12,96 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
+ 
+# Application Insights de Visual Studio
 
-# Introducción a Application Insights para Visual Studio
+Application Insights es un servicio de análisis extensible que supervisa su aplicación activa. Le ayuda a detectar y a diagnosticar problemas de rendimiento y a comprender qué hacen los usuarios realmente con su aplicación. Está diseñado para desarrolladores, para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso de la aplicación.
 
-*Application Insights se encuentra en su versión de vista previa.*
+![Cree un gráfico de estadísticas de la actividad del usuario o explore en profundidad eventos específicos.](./media/app-insights-overview/00-sample.png)
 
-Detecte problemas, resuelva problemas y mejore continuamente sus aplicaciones. Diagnostique rápidamente cualquier problema en su aplicación activa. Sepa lo que sus usuarios hacen con ella.
+Funciona tanto con aplicaciones web como independientes en una amplia variedad de plataformas: .NET o J2EE, hospedadas localmente o en la nube.
 
-La configuración es muy sencilla y obtendrá resultados en cuestión de minutos.
+Application Insights está destinada al equipo de desarrollo. Con ella, puede:
 
-Se admiten actualmente iOS, Android y aplicaciones de Windows; aplicaciones web J2EE y ASP.NET, servicios de WCF. Las aplicaciones web se pueden ejecutar en Azure o en sus propios servidores locales. El SDK de JavaScript se ejecuta en cualquier página web.
+* [Analizar patrones de uso][knowUsers] para comprender mejor a los usuarios y mejorar continuamente la aplicación. 
+ * Recuentos de vistas de páginas, usurarios nuevos y recurrentes, ubicación geográfica, plataformas y otras estadísticas de uso principales
+ * Seguimiento de las rutas de acceso de uso para evaluar el éxito de cada característica.
+* [Detecte, evalúe y diagnostique][detect] problemas de rendimiento y corríjalos antes de que se den cuenta la mayoría de los usuarios.
+ *  Alertas sobre cambios en el rendimiento o bloqueos.
+ *  Métricas para ayudar a diagnosticar problemas de rendimiento, como tiempos de respuesta, uso de CPU o seguimiento de dependencias.
+ *  Pruebas de disponibilidad para aplicaciones web.
+ *  Informes y alertas de excepciones y bloqueos
+ *  Búsqueda eficaz de registros de diagnósticos (lo que incluye seguimientos de registro de sus marcos de registro favoritos).
+
+El SDK para cada plataforma incluye una variedad de módulos que supervisan la aplicación de inmediato. Además, puede codificar su propia telemetría para realizar análisis más detallados y adaptados.
+
+Los datos de telemetría recopilados de la aplicación se almacenan y analizan en el Portal de Azure, donde hay vistas intuitivas y herramientas eficaces que permiten realizar diagnósticos y análisis rápidos.
+
+
+
+¿Desea un análisis todavía más exhaustivo? [Exporte](app-insights-export-telemetry.md) los datos [en SQL](app-insights-code-sample-export-telemetry-sql-database.md), [en Power BI](app-insights-export-power-bi.md) o en sus propias herramientas.
+
+![Visualización de datos en Power BI](./media/app-insights-overview/210.png)
+
+## Plataformas y lenguajes
+
+Hay un SDK para una variedad creciente de plataformas. Actualmente, la lista incluye:
+
+ * [Servidores de ASP.NET][greenbrown] en Azure o en el servidor IIS
+ * [Servicios en la nube de Azure](app-insights-cloudservices.md)
+ * [Servidores de J2EE][java]
+ * [Páginas web][client]\: HTML + JavaScript
+ * [Servicios de Windows, roles de trabajo y aplicaciones de escritorio][desktop]
+ * [Otras plataformas][platforms]\: Node.js, PHP, Python, Ruby, Joomla, SharePoint y WordPress
+
+Application Insights también puede obtener telemetría de las aplicaciones web de ASP.NET existentes en IIS sin volver a compilarlas.
+
+Si su aplicación tiene cliente, servidor u otros componentes, puede instrumentarlos. Los datos se integrarán en el portal de Application Insights para que, por ejemplo, pueda correlacionar eventos en el cliente con eventos en el servidor.
+
+
+## Cómo funciona
+
+Instale un pequeño SDK en su aplicación y configure una cuenta en el portal de Application Insights. El SDK supervisa la aplicación y envía los datos de telemetría al portal. El portal le muestra gráficos estadísticos y ofrece eficaces herramientas de búsqueda para ayudarle a diagnosticar los problemas.
+
+![El SDK de Application Insights de su aplicación envía datos de telemetría al recurso de Application Insights en el Portal de Azure.](./media/app-insights-overview/01-scheme.png)
+
+El SDK cuenta con varios módulos que recopilan datos de telemetría, con el fin de contar, por ejemplo, usuarios, sesiones y el rendimiento. También puede escribir su propio código personalizado para enviar datos de telemetría al portal. La telemetría personalizada resulta especialmente útil para realizar el seguimiento de los casos de usuario: puede contar eventos como los clics de botón, la consecución de objetivos concretos o los errores de los usuarios.
+
+Para servidores ASP.NET y aplicaciones web de Azure, también puede instalar el [Monitor de estado][redfield], que tiene dos usos. Así, le permite:
+
+* Supervisar una aplicación web sin necesidad de volverla a compilar o instalar.
+* Realizar el seguimiento de llamadas a módulos dependientes.
+
+
+
+### ¿Cuál es la sobrecarga?
+
+El impacto sobre el rendimiento es muy pequeño. Seguimiento de llamadas que no son de bloqueo y que se agrupan por lotes y se envían en un subproceso independiente.
+
+
 
 ## Primeros pasos
 
-Comience con cualquier combinación, en cualquier orden, de los puntos de entrada a la izquierda de este mapa. Siga la ruta de acceso que se adapte a sus necesidades.
+1. Necesita una suscripción a [Microsoft Azure](http://azure.com). Suscribirse es gratis y puede elegir el [plan de tarifa](https://azure.microsoft.com/pricing/details/application-insights/) gratuito de Application Insights.
 
-Aplicación Insights funciona agregando un SDK a la aplicación, que envía la telemetría al [Portal de Azure](http://portal.azure.com). Hay diferentes SDK para las diversas combinaciones de plataformas, lenguajes e IDE que se admiten.
+2. Si usa Visual Studio:
 
-Obtenga una cuenta en [ Microsoft Azure](http://azure.com). Puede que ya tenga acceso a una cuenta de grupo a través de su organización, o que desee obtener una cuenta de pago por uso. Application Insights tiene un nivel gratuito, por lo que no tendrá que pagar hasta que su aplicación se haga popular. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/application-insights/).
+ * Nuevo proyecto: active la casilla **Agregar Application Insights**.
+ * Proyecto existente: haga clic con el botón secundario en el proyecto y elija **Agregar Application Insights**.
 
-Lo que desea | Lo que debe hacer | Lo que obtiene
----|---|---
- <a href="app-insights-start-monitoring-app-health-usage.md">![ASP.NET](./media/app-insights-get-started/appinsights-gs-i-01-perf.png)</a> | <a href="app-insights-start-monitoring-app-health-usage.md">Agregar el SDK de Application Insights al proyecto web</a> <br/> ![obtiene](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-start-monitoring-app-health-usage.md">![Supervisión del rendimiento y el uso](./media/app-insights-get-started/appinsights-gs-r-01-perf.png)</a>
-<a href="app-insights-monitor-performance-live-website-now.md">![Sitio ASP.NET ya activo](./media/app-insights-get-started/appinsights-gs-i-04-red2.png)</a><br/><a href="app-insights-monitor-performance-live-website-now.md">![Supervisión de rendimiento y dependencia](./media/app-insights-get-started/appinsights-gs-i-03-red.png)</a>|<a href="app-insights-monitor-performance-live-website-now.md">Instalar el monitor de estado en el servidor IIS</a> <br/> ![obtiene](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-performance-live-website-now.md">![Supervisión de dependencia de ASP.NET](./media/app-insights-get-started/appinsights-gs-r-03-red.png)</a>
-<a href="insights-perf-analytics.md">![Máquina virtual o aplicación web de Azure](./media/app-insights-get-started/appinsights-gs-i-10-azure.png)</a>|<a href="insights-perf-analytics.md">Habilitar Insights en su máquina virtual o aplicación web de Azure</a> <br/> ![obtiene](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="insights-perf-analytics.md">![Supervisión de rendimiento y dependencia](./media/app-insights-get-started/appinsights-gs-r-03-red.png)</a>
-<a href="app-insights-java-get-started.md">![Java](./media/app-insights-get-started/appinsights-gs-i-11-java.png)</a>|<a href="app-insights-java-get-started.md">Agregar el SDK al proyecto de Java</a><br/>![obtiene](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-java-get-started.md">![Supervisión del rendimiento y el uso](./media/app-insights-get-started/appinsights-gs-r-10-java.png)</a>
-<a href="app-insights-web-track-usage.md">![JavaScript](./media/app-insights-get-started/appinsights-gs-i-02-usage.png)</a>|<a href="app-insights-web-track-usage.md">Insertar el script de Application Insights en las páginas web</a><br/>![obtiene](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-web-track-usage.md">![rendimiento de vistas de página y explorador](./media/app-insights-get-started/appinsights-gs-r-02-usage.png)</a>
-<a href="app-insights-monitor-web-app-availability.md">![Disponibilidad](./media/app-insights-get-started/appinsights-gs-i-05-avail.png)</a>|<a href="app-insights-monitor-web-app-availability.md">Crear pruebas web</a><br/>![obtiene](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-web-app-availability.md">![Disponibilidad](./media/app-insights-get-started/appinsights-gs-r-05-avail.png)</a>
-<a href="app-insights-windows-get-started.md">![Windows y Windows Phone](./media/app-insights-get-started/appinsights-gs-i-06-device.png)</a>|<a href="app-insights-windows-get-started.md">Agregar Application Insights a un proyecto de aplicación de Windows</a><br/>![obtiene](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-windows-get-started.md">![Datos de uso y bloqueo](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
-<a href="app-insights-platforms.md">![iOS, Android, etc.](./media/app-insights-get-started/appinsights-gs-i-07-device.png)</a>|<a href="app-insights-platforms.md">Agregar Application Insights a la aplicación iOS o Android</a><br/>![obtiene](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-platforms.md">![Datos de uso y bloqueo](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
+Si no usa Visual Studio, o si esas opciones no están disponibles para su proyecto, [busque su plataforma aquí](app-insights-platforms.md).
+
+3. Ejecute la aplicación (en el modo de desarrollo, o publíquela) y observe cómo se acumulan los datos en el [Portal de Azure](https://portal.azure.com).
+
+## Código
+
+
+[Ejemplos y tutoriales](app-insights-code-samples.md)
+
+[Laboratorios de DK](https://www.myget.org/gallery/applicationinsights-sdk-labs): paquetes de NuGet que puede instalar (y desinstalar) como adiciones al SDK de Application Insights. ¡Pruébelos y envíenos sus comentarios!
+
 
 ## Soporte y comentarios
 
@@ -56,8 +115,7 @@ Lo que desea | Lo que debe hacer | Lo que obtiene
  * [Voz del usuario](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
 
 
-
-## <a name="video"></a>Vídeos
+## Vídeos
 
 
 > [AZURE.VIDEO 218]
@@ -67,11 +125,23 @@ Lo que desea | Lo que debe hacer | Lo que obtiene
 > [AZURE.VIDEO performance-monitoring-application-insights]
 
 
-
 <!--Link references-->
 
+[android]: https://github.com/Microsoft/ApplicationInsights-Android
+[azure]: ../insights-perf-analytics.md
+[client]: app-insights-javascript.md
+[desktop]: app-insights-windows-desktop.md
+[detect]: app-insights-detect-triage-diagnose.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[ios]: https://github.com/Microsoft/ApplicationInsights-iOS
+[java]: app-insights-java-get-started.md
+[knowUsers]: app-insights-overview-usage.md
+[platforms]: app-insights-platforms.md
+[portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

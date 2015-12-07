@@ -76,7 +76,7 @@ Para ver y administrar las claves de acceso, haga clic en el icono de llave.
 
 ## Pasos siguientes
 
-* Consulte [Aspectos básicos de la API de Lote de Azure](batch-api-basics.md) para obtener más información sobre los conceptos de Lote.
+* Para más información sobre los conceptos de Lote, vea [Información general de las características de Lote de Azure](batch-api-basics.md).
 
 * Comience a desarrollar su primera aplicación con la [biblioteca de cliente .NET de Lote](batch-dotnet-get-started.md)
 
@@ -84,4 +84,4 @@ Para ver y administrar las claves de acceso, haga clic en el icono de llave.
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

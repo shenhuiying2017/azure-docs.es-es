@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="08/22/2015" 
+	ms.date="11/23/2015" 
 	ms.author="wesmc"/>
 
 # Incorporación de notificaciones push a la aplicación Xamarin.iOS
@@ -24,7 +24,7 @@
 
 ##Información general
 
-En este tutorial, agregará notificaciones push al proyecto de [inicio rápido de Xamarin.iOS] para que cada vez que se inserte un registro, se envíe una notificación de inserción. Este tutorial está basado en el tutorial de [inicio rápido de Xamarin.iOS], que debe completar primero. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar el paquete de extensión de notificaciones push al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Este tutorial se basa en el [tutorial de inicio rápido de Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md), que debe completar primero. Agregará notificaciones push al proyecto de inicio rápido de Xamarin.iOS para que cada vez que se inserte un registro se envíe una notificación de inserción. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar el paquete de extensión de notificaciones push al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 El [simulador de iOS no admite notificaciones push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), por lo que debe usar un dispositivo iOS físico. También deberá suscribirse como [miembro del programa para desarrolladores de Apple](https://developer.apple.com/programs/ios/).
 
@@ -34,37 +34,44 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas. Puede seguir usándolas incluso después de que finalice el período de evaluación. Consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-* Un equipo Mac con [Xamarin Studio] y [Xcode] v4.4 o posterior instalado. Tenga en cuenta que es más fácil ejecutar la aplicación Xamarin.iOS en un equipo Mac con Xamarin Studio. Puede ejecutar la aplicación Xamarin.iOS mediante Visual Studio en el equipo Windows si lo desea, pero es un poco más complicado porque tiene que conectarse a un equipo Mac en red. Si está interesado en hacer eso, consulte Instalación de Xamarin.iOS en Windows.
+* Un equipo Mac con [Xamarin Studio] y [Xcode] v4.4 o posterior instalado. Puede ejecutar la aplicación Xamarin.iOS mediante Visual Studio en un equipo Windows si lo desea, pero es un poco más complicado porque tiene que conectarse a un equipo Mac en red. Si está interesado en hacerlo, consulte [Installing Xamarin.iOS on Windows] (Instalación de Xamarin.iOS en Windows).
 
-* Un dispositivo iOS físico.
+* Un dispositivo iOS físico. El simulador de iOS no admite notificaciones push.
 
-* Complete el [tutorial de inicio rápido](../app-service-mobile-xamarin-ios-get-started.md).
+* Complete el [Tutorial de inicio rápido de Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md).
 
-##<a name="create-hub"></a>Creación de un centro de notificaciones
 
-[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+##Registro de la aplicación para notificaciones de inserción en el portal para desarrolladores de Apple
 
-## <a id="register"></a>Registro de aplicaciones para notificaciones push
+[AZURE.INCLUDE [Los Centros de notificaciones Xamarin permiten notificaciones push de Apple](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
 
-[AZURE.INCLUDE [Habilitación de notificaciones de inserción de Apple](../../includes/enable-apple-push-notifications.md)]
+##Configuración de aplicaciones móviles para enviar notificaciones push
 
-## Configuración de Azure para enviar notificaciones push
+Con el fin de configurar la aplicación para enviar notificaciones, cree un nuevo centro y configúrelo para los servicios de notificación de plataforma que vaya a usar.
 
-[AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
+1. En el Portal de Azure, haga clic en **Examinar** > **Aplicaciones móviles** > la aplicación móvil > **Configuración** > **Móvil** > **Insertar** > **Centro de notificaciones** > **+ Centro de notificaciones**, proporcione un nombre y un espacio de nombres para el centro de notificaciones y después haga clic en el botón **Aceptar**.
 
-##<a id="update-server"></a>Actualización del proyecto de servidor para enviar notificaciones push
+	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-configure-notification-hub.png)
 
-[AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
+2. En la hoja Crear Centro de notificaciones, haga clic en el botón **Crear**.
 
-## <a name="publish-the-service"></a>Implementación del proyecto de servidor en Azure
+3. Haga clic en **Insertar** > **Apple (APN)** > **Cargar certificado**. Cargue el archivo de certificado de inserción. p12 que exportó anteriormente. No olvide seleccionar **Espacio aislado** si creó un certificado de inserción de desarrollo para desarrollo y pruebas. De lo contrario, elija **Producción**. El servicio ahora está configurado para trabajar con las notificaciones push en iOS.
+
+	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
+
+##Actualización del proyecto de servidor para enviar notificaciones push
+
+[AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
+
+##Implementación del proyecto de servidor en Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
-## <a name="configure-app"></a>Configuración del proyecto de Xamarin.iOS
+##Configuración del proyecto Xamarin.Forms
 
 [AZURE.INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
-## <a name="add-push"></a>Incorporación de notificaciones de inserción a la aplicación
+##Incorporación de notificaciones de inserción a la aplicación
 
 1. En **QSTodoService**, agregue la siguiente propiedad para que **AppDelegate** pueda adquirir el cliente móvil:
         
@@ -79,7 +86,7 @@ Para completar este tutorial, necesitará lo siguiente:
             }
         }
 
-1. Agregue la siguiente instrucción `using` en la parte superior del archivo **AppDelegate.cs**.
+1. Agregue la instrucción `using` siguiente en la parte superior del archivo **AppDelegate.cs**.
 
         using Microsoft.WindowsAzure.MobileServices;
 
@@ -158,4 +165,4 @@ Ha completado correctamente este tutorial.
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015--->

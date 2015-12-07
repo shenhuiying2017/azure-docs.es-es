@@ -34,8 +34,7 @@ En la primera sección "Pasos básicos" se enumeran los pasos para tratar proble
 
 Estos pasos básicos pueden ayudarlo a solucionar la mayoría de los errores comunes en la conexión a Escritorio remoto que se producen en las máquinas virtuales creadas con el modelo de implementación clásica. Después de realizar cada paso, intente volver a conectarse a la máquina virtual.
 
-- Restablezca el servicio de escritorio remoto desde el [portal de Azure](https://portal.azure.com) para solucionar problemas de inicio con el servidor RDP.<br> 
-	Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual Windows > **Restablecer acceso remoto**.
+- Restablezca el servicio de escritorio remoto desde el [Portal de vista previa de Azure](https://portal.azure.com) para solucionar problemas de inicio con el servidor RDP.<br> Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual Windows > **Restablecer acceso remoto**.
 
     ![Captura de pantalla que muestra el proceso de restablecimiento de la configuración de RDP](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
 
@@ -92,7 +91,7 @@ Estos pasos básicos pueden ayudarlo a solucionar la mayoría de los errores com
 
 Causa: el período de gracia de licencias de 120 días para el rol de servidor de Escritorio remoto expiró y necesita instalar licencias.
 
-Como solución alternativa, guarde una copia local del archivo RDP desde el Portal de Azure y ejecute este comando en un símbolo del sistema de Windows PowerShell para conectarse.
+Como solución alternativa, guarde una copia local del archivo RDP desde el portal y ejecute este comando en un símbolo del sistema de Windows PowerShell para conectarse.
 
 		mstsc <File name>.RDP /admin
 
@@ -110,7 +109,7 @@ Causa: el cliente de Escritorio remoto del equipo no pudo resolver el nombre del
 Posibles soluciones:
 
 - Si se encuentra en la intranet de una organización, asegúrese de que el equipo tiene acceso al servidor proxy y puede enviarle tráfico HTTPS.
-- Si usa un archivo RDP almacenado localmente, intente usar uno generado por el Portal de Azure. Esto garantizará que tiene el nombre DNS correcto de la máquina virtual o el servicio en la nube y el puerto de extremo de la máquina virtual. A continuación le facilitamos un archivo RDP de ejemplo generado por el Portal de Azure:
+- Si usa un archivo RDP almacenado localmente, intente usar uno generado por el portal. Esto garantizará que tiene el nombre DNS correcto de la máquina virtual o el servicio en la nube y el puerto de extremo de la máquina virtual. A continuación le facilitamos un archivo RDP de ejemplo generado por el portal:
 
 		full address:s:tailspin-azdatatier.cloudapp.net:55919
 		prompt for credentials:i:1
@@ -172,4 +171,4 @@ Si no se produjeron estos errores y aún no se pudo conectar a la máquina virtu
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/24/2015"
 	ms.author="coreyp"/>
 
 # Cómo instalar y configurar Azure PowerShell#
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="CLI de Azure">CLI de Azure</a></div>
-
-> [AZURE.NOTE]**La vista previa de Azure PowerShell 1.0** ya está disponible en la [Galería de PowerShell](http://www.powershellgallery.com/). Hay muchos cambios en esta vista previa y nos gustaría usarla para recopilar comentarios, que posteriormente incorporaremos en Azure PowerShell 1.0. **Esta vista previa no está diseñada para aplicaciones críticas**. Si ejecuta este tipo de aplicaciones, siga usando Azure PowerShell 0.9.8. Si desea usar la versión de vista previa 1.0, puede desinstalarla en cualquier momento y luego volver a 0.9.8. Para obtener las instrucciones completas de la instalación, consulte esta [entrada del blog](https://azure.microsoft.com/es-ES/blog/azps-1-0-pre/).
 
 Puede utilizar Windows PowerShell para realizar diversas tareas en Azure, tanto de manera interactiva en un símbolo del sistema como de manera automática mediante scripts. Azure PowerShell es un módulo que ofrece cmdlets para administrar Azure mediante Windows PowerShell. Puede utilizar los cmdlets para crear, probar, implementar y administrar soluciones y servicios ofrecidos a través de la plataforma de Azure. En la mayoría de los casos, puede utilizar los cmdlets para realizar las mismas tareas que se realizan a través del Portal de administración de Azure. Por ejemplo, puede crear y configurar servicios en la nube, máquinas virtuales, redes virtuales y aplicaciones web.
 
@@ -262,4 +260,4 @@ A continuación, se indican algunos de los recursos que puede utilizar para apre
 
   [Microsoft Online Services Customer Portal]: https://mocp.microsoftonline.com/site/default.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

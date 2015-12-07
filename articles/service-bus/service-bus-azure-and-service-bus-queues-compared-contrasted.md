@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Colas de Service Bus y colas de Azure: comparación y diferencias"
+   pageTitle="Colas de Bus de servicio y Colas de Azure: comparación y diferencias | Microsoft Azure"
    description="Analiza las diferencias y similitudes entre dos tipos de colas que se ofrecen en Azure."
    services="service-bus"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="09/11/2015"
+   ms.date="11/18/2015"
    ms.author="sethm" />
 
 # Colas de Service Bus y colas de Azure: comparación y diferencias
@@ -25,7 +25,7 @@ Microsoft Azure admite dos tipos de mecanismos de cola: **colas de Azure** y **c
 
 **Colas de Azure**, que forman parte de la infraestructura de [almacenamiento de Azure](http://azure.microsoft.com/services/storage/), ofrecen una interfaz de Get/Put/Peek sencilla basada en REST, que ofrece una mensajería confiable y persistente dentro de los servicios y entre ellos.
 
-Las **colas de Service Bus** forman parte de una infraestructura de [mensajería de Azure](http://azure.microsoft.com/services/messaging/) más amplia que admite la puesta en cola, así como la publicación/suscripción, la comunicación remota de servicio web y los patrones de integración. Para obtener más información sobre las colas de Service Bus, temas/suscripciones y retransmisiones, vea [Información general de patrones de mensajería de Service Bus](https://msdn.microsoft.com/library/hh410103.aspx).
+Las **colas de Service Bus** forman parte de una infraestructura de [mensajería de Azure](http://azure.microsoft.com/services/service-bus/) más amplia que admite la puesta en cola, así como la publicación/suscripción, la comunicación remota de servicio web y los patrones de integración. Para obtener más información sobre las colas de Bus de servicio, temas/suscripciones y retransmisiones, consulte [Introducción de la mensajería del Bus de servicio](service-bus-messaging-overview.md).
 
 Aunque ambas tecnologías de cola existen de manera simultánea, las colas de Azure se presentaron en primer lugar, como un mecanismo de almacenamiento de cola dedicado creado a partir de los servicios de almacenamiento de Azure. Las colas de Service Bus se generan además de la infraestructura de "mensajería asíncrona" más amplia diseñada para integrar aplicaciones o componentes de aplicación que pueden abarcar varios protocolos de comunicación, contratos de datos, dominios de confianza y/o entornos de red.
 
@@ -55,7 +55,7 @@ Como arquitecto o desarrollador de soluciones, **debe considerar el uso de colas
 
 - Su solución debe ser capaz de admitir la detección automática de duplicados.
 
-- Quiere que su aplicación procese mensajes como secuencias de larga ejecución en paralelo (los mensajes están asociados a una secuencia mediante la propiedad [SessionId](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) del mensaje). En este modelo, cada nodo de la aplicación de consumo compite por secuencias, en lugar de los mensajes. Cuando se proporciona una secuencia a un nodo de consumo, el nodo puede examinar el estado de la secuencia de aplicación mediante transacciones.
+- Quiere que su aplicación procese mensajes como secuencias de larga ejecución en paralelo (los mensajes están asociados a una secuencia mediante la propiedad [SessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) del mensaje). En este modelo, cada nodo de la aplicación de consumo compite por secuencias, en lugar de los mensajes. Cuando se proporciona una secuencia a un nodo de consumo, el nodo puede examinar el estado de la secuencia de aplicación mediante transacciones.
 
 - Su solución requiere un comportamiento transaccional y atomicidad al enviar o recibir varios mensajes desde una cola.
 
@@ -67,7 +67,7 @@ Como arquitecto o desarrollador de soluciones, **debe considerar el uso de colas
 
 - El tamaño de la cola no aumentará a más de 80 GB.
 
-- Quiere usar el agente de mensajería basado en estándares AMQP 1.0. Para obtener más información sobre AMQP, vea [Introducción al AMQP de Service Bus](https://msdn.microsoft.com/library/jj841072.aspx).
+- Quiere usar el agente de mensajería basado en estándares AMQP 1.0. Para obtener más información sobre AMQP, vea [Introducción al AMQP de Service Bus](service-bus-amqp-overview.md).
 
 - Puede idear una migración eventual desde la comunicación punto a punto basada en cola a un patrón de intercambio de mensajes que permite la integración perfecta de receptores adicionales (suscriptores), cada uno de los cuales recibe copias independientes de algunos o todos los mensajes enviados a la cola. El segundo se refiere a la capacidad de publicación o suscripción ofrecida por Service Bus de forma nativa.
 
@@ -91,11 +91,11 @@ En esta sección se comparan algunas de las capacidades de puesta en cola fundam
 |Garantía de entrega|**Al menos una vez**|**Al menos una vez**<br/><br/>**Una vez como máximo**|
 |Compatibilidad con transacciones|**No**|**Sí**<br/><br/>(mediante el uso de transacciones locales)|
 |Comportamiento de recepción|**Sin bloqueo**<br/><br/>(se completa inmediatamente si no se encuentra ningún mensaje nuevo)|**Bloque con/sin tiempo de espera**<br/><br/>(ofrece sondeo largo o la ["Técnica de cometa"](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Sin bloque**<br/><br/>(solo mediante el uso de la API administrada de .NET)|
-|API de estilo de inserción|**No**|**Sí**<br/><br/>[OnMessage](https://msdn.microsoft.com/library/jj908682.aspx) y API. de NET de [sesiones OnMessage](https://msdn.microsoft.com/library/dn790528.aspx).|
+|API de estilo de inserción|**No**|**Sí**<br/><br/>[OnMessage](https://msdn.microsoft.com/library/azure/jj908682.aspx) y API. de NET de **sesiones OnMessage**.|
 |Modo de recepción|**Ojear y alquilar**|**Ojear y bloquear**<br/><br/>**Recibir y eliminar**|
 |Modo de acceso exclusivo|**Basado en concesión**|**Basado en bloqueo**|
-|Duración de concesión/bloqueo|**30 segundos (valor predeterminado)**<br/><br/>**7 días (máximo)** (puede renovar o liberar una concesión de mensaje mediante la API de [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx).)|**60 segundos (valor predeterminado)**<br/><br/>Puede renovar un bloqueo de mensaje mediante la API de [RenewLock](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).|
-|Precisión de concesión/bloqueo|**Nivel de mensaje**<br/><br/>(cada mensaje puede tener un valor de tiempo de espera diferente, que luego puede actualizar según sea necesario al procesar el mensaje, mediante el uso de la API de [UpdateMessage](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx))|**Nivel de cola**<br/><br/>(cada cola tiene una precisión de bloqueo que se aplica a todos sus mensajes, pero puede renovar el bloqueo mediante la API de [RenewLock](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).)|
+|Duración de concesión/bloqueo|**30 segundos (valor predeterminado)**<br/><br/>**7 días (máximo)** (puede renovar o liberar una concesión de mensaje mediante la API de [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx).)|**60 segundos (valor predeterminado)**<br/><br/>Puede renovar un bloqueo de mensaje mediante la API de [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).|
+|Precisión de concesión/bloqueo|**Nivel de mensaje**<br/><br/>(cada mensaje puede tener un valor de tiempo de espera diferente, que luego puede actualizar según sea necesario al procesar el mensaje, mediante el uso de la API de [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx))|**Nivel de cola**<br/><br/>(cada cola tiene una precisión de bloqueo que se aplica a todos sus mensajes, pero puede renovar el bloqueo mediante la API de [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).)|
 |Recepción por lotes|**Sí**<br/><br/>(especificando explícitamente el número de mensajes al recuperar mensajes, hasta un máximo de 32 mensajes)|**Sí**<br/><br/>(habilitando implícitamente una propiedad de captura previa o explícitamente mediante el uso de transacciones)|
 |Envío por lotes|**No**|**Sí**<br/><br/>(mediante el uso de transacciones o de procesamiento por lotes del lado cliente)|
 
@@ -119,7 +119,7 @@ En esta sección se comparan algunas de las capacidades de puesta en cola fundam
 
 - Las colas de Azure ofrecen concesiones con la capacidad de ampliar las concesiones para mensajes. Esto permite que los trabajadores mantengan breves concesiones en los mensajes. Por lo tanto, si se bloquea a un trabajador, el mensaje se puede volver a procesar rápidamente por otro trabajador. Además, un trabajador puede ampliar la concesión de un mensaje si necesita procesarlo durante más tiempo que el tiempo de concesión actual.
 
-- Las colas de Azure ofrecen un tiempo de espera de visibilidad que puede establecer al poner en cola un mensaje o quitarlo de la cola. Además, puede actualizar un mensaje con distintos valores de concesión en tiempo de ejecución y actualizar distintos valores entre mensajes de la misma cola. Los tiempos de espera de bloqueo de Service Bus lock se definen en los metadatos de la cola; sin embargo, puede renovar el bloqueo mediante una llamada al método [RenewLock](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).
+- Las colas de Azure ofrecen un tiempo de espera de visibilidad que puede establecer al poner en cola un mensaje o quitarlo de la cola. Además, puede actualizar un mensaje con distintos valores de concesión en tiempo de ejecución y actualizar distintos valores entre mensajes de la misma cola. Los tiempos de espera de bloqueo de Service Bus lock se definen en los metadatos de la cola; sin embargo, puede renovar el bloqueo mediante una llamada al método [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx).
 
 - El tiempo de espera máximo para una operación de recepción de bloqueo en las colas de Service Bus es de 24 días. Sin embargo, los tiempos de espera basados en REST tienen un valor máximo de 55 segundos.
 
@@ -141,8 +141,8 @@ En esta sección se comparan algunas de las capacidades avanzadas ofrecidas por 
 |Compatibilidad con mensajes dudosos|**Sí**|**Sí**|
 |Actualización local|**Sí**|**Sí**|
 |Registro de transacciones del servidor|**Sí**|**No**|
-|Métricas de almacenamiento|**Sí**<br/><br/>**Métricas de minuto**: ofrece métricas en tiempo real para disponibilidad, TPS, recuentos de llamadas de API, recuentos de errores y mucho más, todo en tiempo de real (agregado por minuto y notificado en unos minutos a partir de lo que acaba de ocurrir en producción. Para obtener más información, vea [Acerca de las métricas del análisis de almacenamiento](https://msdn.microsoft.com/library/hh343258.aspx).|**Sí**<br/><br/>(consultas masivas llamando a [GetQueues](https://msdn.microsoft.com/library/hh293128.aspx))|
-|Administración de estados|**No**|**Sí**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx)|
+|Métricas de almacenamiento|**Sí**<br/><br/>**Métricas de minuto**: ofrece métricas en tiempo real para disponibilidad, TPS, recuentos de llamadas de API, recuentos de errores y mucho más, todo en tiempo de real (agregado por minuto y notificado en unos minutos a partir de lo que acaba de ocurrir en producción. Para obtener más información, vea [Acerca de las métricas del análisis de almacenamiento](https://msdn.microsoft.com/library/azure/hh343258.aspx).|**Sí**<br/><br/>(consultas masivas llamando a [GetQueues](https://msdn.microsoft.com/library/azure/hh293128.aspx))|
+|Administración de estados|**No**|**Sí**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx)|
 |Reenvío automático de mensajes|**No**|**Sí**|
 |Purgar la función de cola|**Sí**|**No**|
 |Grupos de mensajes|**No**|**Sí**<br/><br/>(mediante el uso de sesiones de mensajería)|
@@ -159,7 +159,7 @@ En esta sección se comparan algunas de las capacidades avanzadas ofrecidas por 
 
 - El reenvío automático de cola permite el reenvío automático de miles de colas de sus mensajes a una única cola, desde la que la aplicación receptora consume el mensaje. Puede usar este mecanismo para lograr seguridad, flujo de control y aislar el almacenamiento aislado entre cada publicador de mensajes.
 
-- Las colas de Azure ofrecen compatibilidad para actualizar el contenido del mensaje. Puede usar esta funcionalidad para conservar información de estado y actualizaciones incrementales de progreso en el mensaje para que se pueda procesar desde el último punto de comprobación conocido, en lugar de hacerlo desde el principio. Con las colas de Service Bus, puede habilitar el mismo escenario mediante el uso de sesiones de mensajes. Las sesiones le permiten guardar y recuperar el estado de procesamiento de la aplicación (mediante [SetState](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagesession.setstate.aspx) y [GetState](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagesession.getstate.aspx)).
+- Las colas de Azure ofrecen compatibilidad para actualizar el contenido del mensaje. Puede usar esta funcionalidad para conservar información de estado y actualizaciones incrementales de progreso en el mensaje para que se pueda procesar desde el último punto de comprobación conocido, en lugar de hacerlo desde el principio. Con las colas de Service Bus, puede habilitar el mismo escenario mediante el uso de sesiones de mensajes. Las sesiones le permiten guardar y recuperar el estado de procesamiento de la aplicación (mediante [SetState](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.setstate.aspx) y [GetState](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.getstate.aspx)).
 
 - Los mensajes con problemas de entrega, que solo se admiten por las colas de Service Bus, pueden ser útiles para aislar los mensajes que no se pueden procesar correctamente por la aplicación receptora o cuando los mensajes no pueden llegar a su destino debido a una propiedad de período de vida (TTL) expirada. El valor de TTL especifica cuánto tiempo permanece un mensaje en la cola. Con Service Bus, el mensaje se moverá a una cola especial denominada $DeadLetterQueue cuando expira el período de vida.
 
@@ -167,9 +167,9 @@ En esta sección se comparan algunas de las capacidades avanzadas ofrecidas por 
 
 - Las colas de Azure le permiten obtener un registro detallado de todas las transacciones ejecutadas con la cola, así como las métricas agregadas. Ambas opciones son útiles para depurar y entender cómo usa su aplicación las colas de Azure. También son útiles para optimizar el rendimiento de la aplicación y reducir los costos de usar colas.
 
-- El concepto de "sesiones de mensajes" admitido por el Service Bus permite que los mensajes que pertenecen a un determinado grupo lógico se asocien a un receptor específico, que a su vez crea una afinidad de sesiones entre los mensajes y sus receptores respectivos. Puede habilitar esta funcionalidad avanzada en el Service Bus estableciendo la propiedad [SessionID](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) en un mensaje. Los receptores pueden escuchar entonces en un id. de sesión específico y recibir mensajes que comparten el identificador de sesión especificado.
+- El concepto de "sesiones de mensajes" admitido por el Service Bus permite que los mensajes que pertenecen a un determinado grupo lógico se asocien a un receptor específico, que a su vez crea una afinidad de sesiones entre los mensajes y sus receptores respectivos. Puede habilitar esta funcionalidad avanzada en el Service Bus estableciendo la propiedad [SessionID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) en un mensaje. Los receptores pueden escuchar entonces en un id. de sesión específico y recibir mensajes que comparten el identificador de sesión especificado.
 
-- La funcionalidad de detección de duplicación admitida por las colas del Service Bus elimina automáticamente los mensajes duplicados enviados a una cola o tema, según el valor de la propiedad [MessageID](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx).
+- La funcionalidad de detección de duplicación admitida por las colas del Service Bus elimina automáticamente los mensajes duplicados enviados a una cola o tema, según el valor de la propiedad [MessageID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx).
 
 ## Capacidad y cuotas
 
@@ -177,7 +177,7 @@ En esta sección se comparan las colas de Azure y las colas del Service Bus desd
 
 |Criterios de comparación|Colas de Azure|Colas del Bus de servicio|
 |---|---|---|
-|Tamaño de cola máximo|**200 TB**<br/><br/>(limitado a una capacidad de cuenta de almacenamiento única)|**De 1 GB a 80 GB**<br/><br/>(definido al crear una cola y [habilitar particiones](https://msdn.microsoft.com/library/dn520246.aspx): vea la sección "Información adicional")|
+|Tamaño de cola máximo|**200 TB**<br/><br/>(limitado a una capacidad de cuenta de almacenamiento única)|**De 1 GB a 80 GB**<br/><br/>(definido al crear una cola y [habilitar particiones](service-bus-partitioning.md): vea la sección "Información adicional")|
 |Tamaño de mensaje máximo|**64 KB**<br/><br/>(48 KB cuando se usa la codificación **Base64**)<br/><br/>Azure admite mensajes de gran tamaño mediante la combinación de colas y blobs, momento en el que puede poner en cola hasta 200 GB para un solo elemento.|**256 KB**<br/><br/>(incluidos tanto el encabezado como el cuerpo, tamaño de encabezado máximo: 64 KB)|
 |TTL de mensaje máximo|**7 días**|**Sin límite**|
 |Número máximo de colas|**Sin límite**|**10.000**<br/><br/>(por espacio de nombres de servicio, se puede aumentar)|
@@ -185,7 +185,7 @@ En esta sección se comparan las colas de Azure y las colas del Service Bus desd
 
 ### Información adicional
 
-- Service Bus aplica límites de tamaño de cola. El tamaño máximo de la cola se especifica al crear la cola y puede tener un valor entre 1 y 80 GB. Si se alcanza el valor de tamaño de la cola establecido al crear la cola, se rechazarán los mensajes entrantes adicionales y el código de llamada recibirá una excepción. Para obtener más información sobre las cuotas en el Service Bus, vea [Cuotas de Service Bus](https://msdn.microsoft.com/library/ee732538.aspx).
+- Service Bus aplica límites de tamaño de cola. El tamaño máximo de la cola se especifica al crear la cola y puede tener un valor entre 1 y 80 GB. Si se alcanza el valor de tamaño de la cola establecido al crear la cola, se rechazarán los mensajes entrantes adicionales y el código de llamada recibirá una excepción. Para obtener más información sobre las cuotas en el Service Bus, vea [Cuotas de Service Bus](service-bus-quotas.md).
 
 - Puede crear colas de Service Bus en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas (que es el valor predeterminado), Service Bus crea 16 particiones por cada GB que especifique. Por lo tanto, si crea una cola con un tamaño de 5 GB, con 16 particiones el tamaño de cola máximo se convierte en (5 * 16) = 80 GB. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en el Portal de Azure.
 
@@ -222,7 +222,7 @@ En esta sección se comparan algunas de las características de administración 
 
 - Las API de mensajería asíncrona de .NET de Service Bus aprovechan las conexiones TCP de dúplex completo para mejorar el rendimiento en comparación con REST sobre HTTP, y admiten el protocolo estándar AMQP 1.0.
 
-- Los nombres de cola de Azure pueden tener de 3 a 63 caracteres de longitud, pueden contener letras minúsculas, números y guiones. Para obtener más información, vea [Nomenclatura de colas y metadatos](https://msdn.microsoft.com/library/dd179349.aspx).
+- Los nombres de cola de Azure pueden tener de 3 a 63 caracteres de longitud, pueden contener letras minúsculas, números y guiones. Para obtener más información, vea [Nomenclatura de colas y metadatos](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 - Los nombres de cola de Service Bus pueden tener hasta 260 caracteres y reglas de nomenclatura menos restrictivas. Los nombres de cola de Service Bus pueden contener letras, números, puntos (.), guiones (-) y caracteres de subrayado (\_).
 
@@ -246,9 +246,9 @@ En esta sección se comparan colas de Azure y de Service Bus desde una perspecti
 
 - Tanto las colas de Azure como las colas de Service Bus aplican el comportamiento de limitación rechazando las solicitudes a una cola que se está limitando. Sin embargo, ninguna de ellas considera facturables las solicitudes limitadas.
 
-- Las pruebas comparativas con las colas de Service Bus han demostrado que una sola cola puede lograr un rendimiento de mensajes de hasta 2.000 mensajes por segundo con un tamaño de mensaje de aproximadamente 1 KB. Para lograr un mayor rendimiento, use varias colas. Vea [Prácticas recomendadas para las mejoras de rendimiento mediante la mensajería con confianza establecida del Service Bus](https://msdn.microsoft.com/library/hh528527.aspx) para obtener más información sobre la optimización del rendimiento del Service Bus.
+- Las pruebas comparativas con las colas de Service Bus han demostrado que una sola cola puede lograr un rendimiento de mensajes de hasta 2.000 mensajes por segundo con un tamaño de mensaje de aproximadamente 1 KB. Para lograr un mayor rendimiento, use varias colas. Vea [Prácticas recomendadas para las mejoras de rendimiento mediante la mensajería con confianza establecida del Bus de servicio](service-bus-performance-improvements.md) para obtener más información sobre la optimización del rendimiento del Bus de servicio.
 
-- Cuando se alcance el rendimiento máximo de una cola de Service Bus, se devuelve un [ServerBusyException](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.serverbusyexception.aspx) (al usar la API de mensajería asíncrona de .NET) o respuesta HTTP 503 (al usar la API basada en REST) al cliente de la cola, que indica que se está limitando la cola.
+- Cuando se alcance el rendimiento máximo de una cola de Service Bus, se devuelve un [ServerBusyException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx) (al usar la API de mensajería asíncrona de .NET) o respuesta HTTP 503 (al usar la API basada en REST) al cliente de la cola, que indica que se está limitando la cola.
 
 ## Autenticación y autorización
 
@@ -264,7 +264,7 @@ En esta sección se describen las características de autenticación y autorizac
 
 - Se debe autenticar cada solicitud a cualquiera de las tecnologías de cola. No se admiten colas públicas con acceso anónimo. Con SAS, puede abordar este escenario publicando un SAS de solo escritura, SAS de solo lectura o incluso un SAS de acceso completo.
 
-- El esquema de autenticación ofrecido por las colas de Azure implica el uso de una clave simétrica, que es un código de autenticación de mensajes basado en hash (HMAC), calculado con el algoritmo SHA-256 y codificado como una cadena **Base64**. Para obtener más información sobre el protocolo respectivo, vea [Autenticar el acceso a la cuenta de almacenamiento](https://msdn.microsoft.com/library/hh225339.aspx). Las colas de Service Bus admiten un modelo similar mediante claves simétricas. Para obtener más información, vea [Autenticación con firma de acceso compartida con Service Bus](https://msdn.microsoft.com/library/dn170477.aspx).
+- El esquema de autenticación ofrecido por las colas de Azure implica el uso de una clave simétrica, que es un código de autenticación de mensajes basado en hash (HMAC), calculado con el algoritmo SHA-256 y codificado como una cadena **Base64**. Para obtener más información sobre el protocolo respectivo, consulte [Autenticación para los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx). Las colas de Service Bus admiten un modelo similar mediante claves simétricas. Para obtener más información, vea [Autenticación con firma de acceso compartida con Service Bus](service-bus-shared-access-signature-authentication.md).
 
 ## Coste
 
@@ -301,8 +301,8 @@ Dado que las colas de Service Bus ofrecen varias características avanzadas, com
 En los artículos siguientes se ofrece más orientación e información acerca del uso de las colas de Azure o las colas de Service Bus.
 
 - [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
-- [Uso del servicio de almacenamiento en cola](../storage-dotnet-how-to-use-queues.md)
-- [Prácticas recomendadas para las mejoras de rendimiento mediante la mensajería asíncrona de Service Bus](https://msdn.microsoft.com/library/hh528527.aspx)
+- [Uso del servicio de almacenamiento en cola](../storage/storage-dotnet-how-to-use-queues.md)
+- [Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica del Bus de servicio](service-bus-performance-improvements.md)
 - [Introducción a las colas y los temas de Service Bus de Azure](http://www.code-magazine.com/article.aspx?quickid=1112041)
 - [Guía para desarrolladores sobre el Service Bus](http://www.cloudcasts.net/devguide/)
 - ["Tablas de Azure y profundización en colas"](http://www.microsoftpdc.com/2009/SVC09)
@@ -311,4 +311,4 @@ En los artículos siguientes se ofrece más orientación e información acerca d
 - [Descripción de la facturación del almacenamiento de Azure: ancho de banda, transacciones y capacidad](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

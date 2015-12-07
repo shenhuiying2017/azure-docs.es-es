@@ -153,7 +153,7 @@ También necesita habilitar las redes para MySQL si desea realizar consultas des
 
 ### Creación del conjunto de carga equilibrada de MySQL
 
-Volveremos al Portal de Azure, buscaremos la máquina virtual `hadb01` y después Extremos. Crearemos un nuevo extremo, elegiremos MySQL (TCP 3306) en la lista desplegable y activaremos la casilla *Crear nuevo conjunto de carga equilibrada*. Llamaremos `lb-mysql` a nuestro extremo de carga equilibrada. Dejaremos la mayoría de las opciones como están, excepto el tiempo, que lo reduciremos a 5 (segundos, mínimo)
+Volveremos al portal y buscaremos la máquina virtual `hadb01` y después Puntos de conexión. Crearemos un nuevo extremo, elegiremos MySQL (TCP 3306) en la lista desplegable y activaremos la casilla *Crear nuevo conjunto de carga equilibrada*. Llamaremos `lb-mysql` a nuestro extremo de carga equilibrada. Dejaremos la mayoría de las opciones como están, excepto el tiempo, que lo reduciremos a 5 (segundos, mínimo)
 
 Cuando se haya creado el extremo, iremos a `hadb02`, Extremos y crearemos un nuevo extremo, pero elegiremos `lb-mysql`; después, seleccionaremos MySQL en el menú desplegable. También puede usar la CLI de Azure para este paso.
 
@@ -340,4 +340,4 @@ Se aplican las siguientes limitaciones:
 - El ajuste de MySQL es necesario para garantizar que la escritura se realiza a un ritmo apropiado y las memorias caché se vacían en disco con la máxima frecuencia posible para minimizar la pérdida de memoria.
 - El rendimiento de escritura dependerá de la interconexión de las máquinas virtuales en la conmutación virtual ya que este es el mecanismo que usa DRBD para replicar el dispositivo.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

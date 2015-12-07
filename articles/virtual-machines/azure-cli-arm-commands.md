@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Uso de la CLI de Azure con el Administrador de recursos | Microsoft Azure"
 	description="Obtenga información sobre cómo usar la CLI de Azure para Mac, Linux y Windows para administrar recursos de Azure mediante el CLI en el modo del Administrador de recursos de Azure."
-	services="virtual-machines,mobile-services,cloud-services"
+	services="virtual-machines,virtual-network,mobile-services,cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="11/18/2015"
 	ms.author="danlep"/>
 
 # Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure
@@ -45,16 +45,16 @@ Los requisitos de configuración para usar el modo del Administrador de recursos
 
 - una cuenta de Azure ([obtenga aquí una prueba gratuita](http://azure.microsoft.com/pricing/free-trial/));
 - [instalar las bibliotecas de clientes de Azure](../xplat-cli-install.md);
-- [configurar la CLI Azure](../xplat-cli-connect.md) para usar una identidad de Azure Active Directory o una entidad de servicio.
+
 
 Una vez que tiene una cuenta y ha instalado la CLI de Azure, debe:
 
-- cambie al modo del Administrador de recursos escribiendo `azure config mode arm`.
-- iniciar sesión en su cuenta de Azure escribiendo `azure login` y usando su identidad de trabajo o entidad educativa en los cuadros.
+- [configurar la CLI de Azure](../xplat-cli-connect.md) para usar una cuenta profesional o educativa o una identidad de cuenta Microsoft 
+- cambie al modo del Administrador de recursos escribiendo `azure config mode arm`
 
 
-## Cuenta de Azure: administración de la información de la cuenta y publicación de la configuración
-La herramienta usa la información de la suscripción de Azure para la conexión a su cuenta. Esta información se puede obtener en el portal de Azure en un archivo de configuración de publicación como se describe aquí. Puede importar el archivo de configuración de publicación como un valor de configuración local permanente que la herramienta usará para operaciones posteriores. Solo tiene que importar la configuración de publicación una vez.
+## cuenta de Azure: administración de la información de la cuenta
+La herramienta usa la información de la suscripción de Azure para la conexión a su cuenta.
 
 **Enumerar las suscripciones importadas**
 
@@ -1760,4 +1760,4 @@ Opciones de parámetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

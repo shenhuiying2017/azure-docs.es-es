@@ -24,14 +24,14 @@
 
 Si no puede conectarse a una máquina virtual Windows debido a que se olvidó la contraseña o por un problema con la configuración de servicio del Escritorio remoto, use el Portal de vista previa de Azure o la extensión VMAccess para restablecer la contraseña de administrador local o restablezca la configuración de servicio de Escritorio remoto.
 
-## Portal de vista previa
+## Portal de vista previa de Azure
 
-Para restablecer el servicio de Escritorio remoto en el [portal de vista previa](https://portal.azure.com), haga clic en **Examinar todo** > **Máquinas virtuales (clásico)** > *su máquina virtual Windows* > **Restablecer acceso remoto**. Aparece la siguiente página.
+Para restablecer el servicio de Escritorio remoto en el [Portal de vista previa de Azure](https://portal.azure.com), haga clic en **Examinar todo** > **Máquinas virtuales (clásico)** > *su máquina virtual Windows* > **Restablecer acceso remoto**. Aparece la siguiente página.
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-Para restablecer el nombre y la contraseña de la cuenta de administrador local en el [portal de vista previa](https://portal.azure.com), haga clic en **Examinar todo** > **Máquinas virtuales (clásico)** > *su máquina virtual Windows* > **Toda la configuración** > **Restablecimiento de contraseña**. Aparece la siguiente página.
+Para restablecer el nombre y la contraseña de la cuenta de administrador local en el [Portal de vista previa de Azure](https://portal.azure.com), haga clic en **Examinar todo** > **Máquinas virtuales (clásico)** > *su máquina virtual Windows* > **Toda la configuración** > **Restablecimiento de contraseña**. Aparece la siguiente página.
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -57,7 +57,7 @@ Si no conoce el nombre del servicio en la nube y de la máquina virtual, ejecute
 
 Si el comando **write-host** muestra **True**, el agente de la máquina virtual está instalado. Si aparece **False**, consulte las instrucciones y un vínculo a la descarga en la publicación del blog de Azure [Agente de máquina virtual y extensiones, parte 2](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409).
 
-Si ha creado la máquina virtual con el Portal de Azure, ejecute el siguiente comando adicional:
+Si ha creado la máquina virtual con el portal, ejecute el siguiente comando adicional.
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
@@ -114,4 +114,4 @@ Si no fue posible ejecutar el paquete de diagnóstico de Azure IaaS (Windows) o 
 
 [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

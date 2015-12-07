@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # Configuración del registro automático de dispositivos para dispositivos Windows 8.1 unidos a un dominio
@@ -52,4 +52,9 @@ El registro de eventos de Windows en el equipo con Windows 8.1 mostrará mensaje
 
 La Directiva de grupo habilita una tarea programada en el sistema que se ejecuta en el contexto del usuario y se desencadena en el inicio de sesión de usuario. La tarea registra silenciosamente el usuario y dispositivo en Azure AD después de completarse el inicio de sesión. La tarea programada se puede encontrar en dispositivos Windows 8.1 en la Biblioteca del Programador de tareas en **Microsoft** > **Windows** > **Unión al área de trabajo**. La tarea ejecutará y registrará todos los usuarios de Active Directory que inicien sesión.
 
-<!---HONumber=Oct15_HO3-->
+## Otros temas
+- [Información general sobre el Registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
+- [Registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio](active-directory-conditional-access-automatic-device-registration.md)
+- [Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md)
+
+<!---HONumber=AcomDC_1125_2015-->

@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/17/2015"
+   ms.date="11/23/2015"
    ms.author="tedway; neerajkh"/>
 
 # Documentación de ayuda multigeográfica
 
-Actualmente, todos los recursos de Aprendizaje automático de Azure se hospedan en la región central del sur de Estados Unidos (SCUS) de Azure. En este artículo se describe cómo crear un área de trabajo y publicar un servicio web en otras regiones de Azure.
+En este artículo se describe cómo crear un área de trabajo y publicar un servicio web en otras regiones de Azure.
 
 ## Crear un área de trabajo
 
@@ -57,4 +57,4 @@ Formule una pregunta en el [Foro de Aprendizaje automático de Azure](https://so
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

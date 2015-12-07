@@ -38,7 +38,7 @@ Ahora, puede usar el [explorador de Service Fabric para ver el clúster y la apl
 
 Puede que observe que con la versión que se implementó en el Paso 1, los objetos visuales no giran. Vamos a actualizar esta aplicación a una donde también giren los objetos visuales.
 
-Seleccione el proyecto VisualObjects.ActorService dentro de la solución VisualObjects y abra el archivo StatefulVisualObjectActor.cs. Dentro de ese archivo, vaya al método `MoveObject`, comente `this.State.Move()` y quite la marca de comentario de `this.State.Move(true)`. Este cambio hará que los objetos giren después de actualizar el servicio.
+Elija el proyecto VisualObjects.ActorService dentro de la solución VisualObjects y abra el archivo StatefulVisualObjectActor.cs. Dentro de ese archivo, vaya al método `MoveObject`, comente `this.State.Move()` y quite la marca de comentario de `this.State.Move(true)`. Este cambio hará que los objetos giren después de actualizar el servicio.
 
 También necesitamos actualizar el archivo *ServiceManifest.xml* (debajo de PackageRoot) del proyecto **VisualObjects.ActorService**. Actualice el *CodePackage* y la versión del servicio a 2.0 y las líneas correspondientes del archivo *ServiceManifest.xml*. Puede usar la opción *Editar archivos de manifiesto* de Visual Studio después de hacer clic con el botón secundario en la solución para realizar los cambios del archivo de manifiesto; vea [Tutorial de actualización de aplicación de Service Fabric](service-fabric-application-tutorial.md).
 
@@ -60,7 +60,7 @@ Ahora, necesitamos actualizar el archivo *ApplicationManifest.xml* (que se encue
 ```
 
 
-Ahora, para generar el proyecto, seleccione el proyecto **ActorService** y haga clic con el botón secundario y seleccione la compilación en Visual Studio (si selecciona Volver a generar todo, es posible que tenga que actualizar las versiones del proyecto **VisualObjects.WebService** y **VisualObjects.Common" también en su *ServiceManifest.xml* y en *ApplicationManifest.xml*, ya que el código habría cambiado). Ahora, vamos a empaquetar la aplicación actualizada y, para ello, hacemos clic con el botón secundario en el proyecto *VisualObjectsApplication* y seleccionamos el menú de Service Fabric y elegimos Paquete. Así se debe crear un paquete de aplicación que se puede implementar. Su aplicación actualizada está lista para implementarse ahora.
+Ahora, para generar el proyecto, seleccione simplemente el proyecto **ActorService** y haga clic con el botón secundario y seleccione la compilación en Visual Studio (si selecciona Volver a generar todo, es posible que tenga que actualizar las versiones de otros proyectos y también en su *ServiceManifest.xml* y en *ApplicationManifest.xml*, ya que el código habría cambiado). Ahora, vamos a empaquetar la aplicación actualizada y, para ello, hacemos clic con el botón secundario en el proyecto *VisualObjectsApplication* y seleccionamos el menú de Service Fabric y elegimos Paquete. Así se debe crear un paquete de aplicación que se puede implementar. Su aplicación actualizada está lista para implementarse ahora.
 
 
 ## Paso 3: Decidir sobre las directivas de mantenimiento y parámetros de actualización
@@ -125,4 +125,4 @@ Aprenda a usar funcionalidades avanzadas para actualizar una aplicación. Para e
 
 Solucione problemas habituales en las actualizaciones de aplicaciones consultando los pasos que figuran en [Solución de problemas de las actualizaciones de aplicaciones](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

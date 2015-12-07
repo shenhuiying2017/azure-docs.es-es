@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="11/19/2015"
 	ms.author="robmcm"/>
 
 # Ejecución de un servidor de aplicaciones Java en una máquina virtual creada con el modelo de implementación clásico
@@ -63,7 +63,7 @@ En este tutorial, se va a instalar un servidor de aplicaciones Apache Tomcat en 
 
 ## Para iniciar sesión de manera remota en la máquina virtual
 
-1. Inicie sesión en el [Portal de administración](https://manage.windowsazure.com).
+1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com).
 2. Haga clic en **Máquinas virtuales**.
 3. Haga clic en el nombre de la máquina virtual en la que desea iniciar sesión.
 4. Una vez que la máquina virtual se haya iniciado, un menú emergente en la parte inferior de la página permite las conexiones.
@@ -89,7 +89,7 @@ Ahora, si ejecuta el explorador de la máquina virtual y abre <http://localhost:
 Para ver que Tomcat se ejecuta desde máquinas externas, deberá crear un extremo y abrir un puerto.
 
 ## Para crear un extremo para la máquina virtual
-1. Inicie sesión en el [Portal de administración](https://manage.windowsazure.com).
+1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com).
 2. Haga clic en **Máquinas virtuales**.
 3. Haga clic en el nombre de la máquina virtual que ejecuta el servidor de aplicaciones Java.
 4. Haga clic en **Extremos**.
@@ -146,4 +146,4 @@ Para obtener más información sobre otros servicios (como Almacenamiento de Azu
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

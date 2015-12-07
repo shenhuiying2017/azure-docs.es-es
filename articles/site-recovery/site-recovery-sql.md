@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Recuperación ante desastres con SQL Server y Azure Site Recovery" 
+	pageTitle="Recuperación ante desastres con SQL Server y Azure Site Recovery | Microsoft Azure" 
 	description="Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de SQL Server en un sitio secundario local o en Azure." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="11/18/2015" 
 	ms.author="raynew"/>
 
 
@@ -79,7 +79,7 @@ La siguiente tabla resume nuestras recomendaciones para integrar las tecnología
 ---|---|---|---|---
 SQL Server 2014 o 2012 | Enterprise | Instancia de clúster de conmutación por error | Grupos de disponibilidad AlwaysOn | Grupos de disponibilidad AlwaysOn
  | Enterprise | Grupos de disponibilidad AlwaysOn para alta disponibilidad | Grupos de disponibilidad AlwaysOn | Grupos de disponibilidad AlwaysOn
- | Estándar | Instancia de clúster de conmutación por error (FCI) | Replicación de Site Recovery con un reflejo local | Replicación de Site Recovery con un reflejo local
+ | Standard | Instancia de clúster de conmutación por error (FCI) | Replicación de Site Recovery con un reflejo local | Replicación de Site Recovery con un reflejo local
  | Enterprise o Standard | Independiente | Replicación de Site Recovery | Replicación de Site Recovery 
 SQL Server 2008 R2 | Enterprise o Standard | Instancia de clúster de conmutación por error (FCI) | Replicación de Site Recovery con un reflejo local | Replicación de Site Recovery con un reflejo local
  | Enterprise o Standard | Independiente | Replicación de Site Recovery | Replicación de Site Recovery
@@ -105,7 +105,7 @@ Necesitará Active Directory en el sitio de recuperación secundario para que SQ
 
 Las instrucciones de este documento suponen que un controlador de dominio está disponible en la ubicación secundaria. Puede consultar la guía de soluciones de AD DR [aquí](http://aka.ms/asr-ad).
 
-##Configuración de la protección de grupos de disponibilidad AlwaysOn de SQL
+## Integración con AlwaysOn de SQL a Azure
 
 ### De local a Azure
 
@@ -135,7 +135,7 @@ A continuación se muestran los pasos necesarios para integrar AlwaysOn de SQL c
 	- ALTER AVAILABILITY GROUP: [ referencia 1](https://msdn.microsoft.com/es-ES/library/hh231018.aspx), [referencia 2](https://msdn.microsoft.com/es-ES/library/ff878601.aspx#Anchor_3)
 	- ALTER DATABASE: [referencia 1](https://msdn.microsoft.com/es-ES/library/ff877956.aspx#Security)
 
-##### Incorporación de un servidor de SQL Server
+##### 1\. Incorporación de un servidor de SQL Server
 
 Haga clic en Agregar SQL para agregar un nuevo servidor de SQL Server.
 
@@ -146,17 +146,17 @@ Proporcione los detalles de SQL Server, VMM y las credenciales que se usarán pa
 ![Agregar diálogo SQL](./media/site-recovery-sql/add-sql-dialog.png)
 
 ###### Parámetros
-1. Nombre: nombre descriptivo que quiera proporcionar para hacer referencia a este servidor SQL Server
-2. El FQDN de SQL Server: nombre de dominio completo (FQDN) del SQL Server de origen que se va a agregar. En caso de que el servidor SQL Server se instale en un clúster de conmutación por error, proporcione el FQDN del clúster y no el de cualquiera de los nodos del clúster. 
-3. Instancia de SQL Server: elija la instancia SQL predeterminada o proporcione el nombre de la instancia SQL personalizada.
-4. Servidor VMM: seleccione uno de los servidores VMM que ya se hayan registrado con Azure Site Recovery (ASR). ASR usará este servidor VMM para comunicarse con el servidor SQL Server
-5. CUENTA DE EJECUCIÓN: proporcione el nombre de una de las cuentas de ejecución que se crearon en el servidor VMM seleccionado anteriormente. Esta cuenta de ejecución se usará para tener acceso a SQL Server y debe tener permisos de lectura y de conmutación por error en los grupos de disponibilidad en el servidor SQL Server. 
+ - Nombre: nombre descriptivo que quiera proporcionar para hacer referencia a este servidor SQL Server
+ - El FQDN de SQL Server: nombre de dominio completo (FQDN) del SQL Server de origen que se va a agregar. En caso de que el servidor SQL Server se instale en un clúster de conmutación por error, proporcione el FQDN del clúster y no el de cualquiera de los nodos del clúster. 
+ - Instancia de SQL Server: elija la instancia SQL predeterminada o proporcione el nombre de la instancia SQL personalizada.
+ - Servidor VMM: seleccione uno de los servidores VMM que ya se hayan registrado con Azure Site Recovery (ASR). ASR usará este servidor VMM para comunicarse con el servidor SQL Server
+ - CUENTA DE EJECUCIÓN: proporcione el nombre de una de las cuentas de ejecución que se crearon en el servidor VMM seleccionado anteriormente. Esta cuenta de ejecución se usará para tener acceso a SQL Server y debe tener permisos de lectura y de conmutación por error en los grupos de disponibilidad en el servidor SQL Server. 
 
 Una vez que agregue SQL Server aparecerá en la pestaña de servidores de SQL.
 
 ![Lista SQL Server](./media/site-recovery-sql/sql-server-list.png)
 
-##### Incorporación de un grupo de disponibilidad de SQL
+##### 2\. Incorporación de un grupo de disponibilidad de SQL
 
 Una vez que se agrega el servidor SQL Server, el paso siguiente es agregar los grupos de disponibilidad a ASR. Para ello, profundice dentro del servidor SQL Server que agregó en el paso anterior y haga clic en Agregar un grupo de disponibilidad de SQL.
 
@@ -170,7 +170,7 @@ En el ejemplo anterior el grupo de disponibilidad DB1-AG se convertirá en princ
 
 >[AZURE.NOTE]Solamente los grupos de disponibilidad que son principales en el servidor SQL Server que agregó en el paso anterior están disponibles para agregarse a ASR. Si convirtió a un grupo de disponibilidad en principal en el servidor SQL Server, o si agrega más grupos de disponibilidad en el servidor SQL Server después una vez agregado, realice una actualización con la opción que está disponible para ello en SQL Server.
 
-#### Creación de un plan de recuperación
+#### 3\. Creación de un plan de recuperación
 
 El siguiente paso es crear un plan de recuperación con las máquinas virtuales y los grupos de disponibilidad. Seleccione el mismo servidor VMM que usó en el paso 1 como origen y Microsoft Azure como destino.
 
@@ -184,7 +184,7 @@ Puede personalizar aún más el plan de recuperación moviendo las máquinas vir
 
 ![Personalización de planes de recuperación](./media/site-recovery-sql/customize-rp.png)
 
-#### Conmutación por error
+#### 4\. Conmutación por error
 
 Una vez que se agrega un grupo de disponibilidad a un plan de recuperación hay diferentes opciones de conmutación por error disponibles.
 
@@ -201,7 +201,7 @@ La conmutación por error de prueba no se admite para los grupo de disponibilida
 
 Como alternativa, considere las siguientes opciones:
 
-######Opción 1
+###### Opción 1
 
 
 
@@ -209,12 +209,12 @@ Como alternativa, considere las siguientes opciones:
 
 2. Actualice la capa de aplicación para obtener acceso a la copia de réplica en modo de solo lectura y realizar una prueba de solo lectura de la aplicación.
 
-######Opción 2
+###### Opción 2
 
 1.	Cree una copia de la instancia de máquina virtual de SQL Server de réplica (con clon de VMM para la copia de seguridad de Azure o de sitio a sitio) y muéstrela en una red de prueba
 2.	Realice la conmutación por error de prueba con el plan de recuperación.
 
-##### Conmutación por recuperación
+#### Conmutación por recuperación
 
 Si desea que el grupo de disponibilidad vuelva a ser principal en el servidor local de SQL Server, puede hacerlo desencadenando una conmutación por error planeada en el plan de recuperación y eligiendo la dirección de Microsoft Azure al servidor VMM local
 
@@ -312,9 +312,9 @@ Si el servidor SQL Server utiliza grupos de disponibilidad para alta disponibili
 6. Cree un agente de escucha del grupo de disponibilidad o actualice el agente de escucha existente para incluir la máquina virtual de réplica asincrónica.
 7. Asegúrese de que la granja de aplicaciones está configurada con el agente de escucha. Si realiza la configuración mediante el nombre del servidor de la base de datos, actualícelo para utilizar el agente de escucha para que no tenga que volver a configurar después de la conmutación por error.
 
-Para las aplicaciones que usan transacciones distribuidas, le recomendamos usar [Site Recovery con la replicación de SAN](site-recovery-vmm-san.md) o la [Replicación de sitio a sitio de VMWare](site-recovery-vmware-to-vmware.md).
+Para las aplicaciones que usan transacciones distribuidas, le recomendamos usar [Site Recovery con la replicación de SAN](site-recovery-vmm-san.md) o la [replicación de sitio a sitio de VMWare](site-recovery-vmware-to-vmware.md).
 
-####Consideraciones del Plan de recuperación
+#### Consideraciones del Plan de recuperación
 
 1. Agregue este script de ejemplo a la biblioteca de VMM en los sitios principales y secundarios.
 
@@ -374,4 +374,4 @@ Para los clústeres SQL estándar, la conmutación por recuperación después de
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

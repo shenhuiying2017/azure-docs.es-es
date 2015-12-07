@@ -3,8 +3,8 @@
 	description="La biblioteca de cliente de almacenamiento de Azure para la vista previa de Xamarin permite a los desarrolladores crear aplicaciones de iOS, Android y de la Tienda Windows con sus interfaces de usuario nativas. Este tutorial muestra cómo utilizar Xamarin para crear una aplicación Android que usa el Almacenamiento de blobs de Azure." 
 	services="storage" 
 	documentationCenter="xamarin" 
-	authors="tamram" 
-	manager="carolz" 
+	authors="micurd" 
+	manager="" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="11/18/2015" 
 	ms.author="tamram"/>
 
 # Cómo utilizar el almacenamiento de blobs de Xamarin (vista previa)
@@ -179,4 +179,4 @@ Obtenga más información acerca de blobs, tablas y colas mediante la consulta d
 [Cómo utilizar el almacenamiento de colas de .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

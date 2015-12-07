@@ -89,10 +89,10 @@ El servicio de soporte técnico de Azure se pondrá en contacto con usted. Compl
 
 * [Creación y administración de una cuenta de Lote de Azure](batch-account-create-portal.md)
 
-* [Aspectos básicos sobre la API de Lote de Azure](batch-api-basics.md)
+* [Información general de las características de Lote de Azure](batch-api-basics.md)
 
 * [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md)
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="11/24/2015"
    ms.author="andkjell"/>
 
 # Sincronización de Azure AD Connect: tareas y consideraciones operativas
@@ -44,7 +44,7 @@ Para aplicar este método, siga estos pasos:
 
 **Preparación**
 
-1. Instale Azure AD Connect, seleccione el **modo provisional** y anule la selección de **Iniciar la sincronización** en la última página del Asistente para instalación. Esto permitirá ejecutar el motor de sincronización de forma manual.
+1. Instale Azure AD Connect, seleccione el **modo provisional** y anule la selección de **Iniciar la sincronización** en la última página del Asistente para instalación. Esto permitirá ejecutar el motor de sincronización de forma manual. ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/readytoconfigure.png)
 2. Cierre/inicie la sesión y en el menú de inicio, seleccione **Servicio de sincronización**.
 
 **Importación y sincronización**
@@ -58,7 +58,7 @@ Ahora ha almacenado provisionalmente los cambios de exportación en Azure AD y A
 
 **Verify**
 
-1. Inicie un símbolo del sistema y vaya a `%Program Files%\Microsoft Azure AD Sync\bin`
+1. Inicie un símbolo del sistema y vaya a `%Program Files%\Microsoft Azure AD Sync\bin`.
 2. Ejecute: `csexport "Name of Connector" %temp%\export.xml /f:x`<BR/> El nombre del conector puede encontrarse en Servicio de sincronización. Tendrá un nombre similar a “contoso.com – AAD” para Azure AD.
 3. Ejecute: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
 4. Ahora tiene un archivo en %temp% denominado export.csv que se puede examinar en Microsoft Excel. Este archivo contiene todos los cambios que se van a exportar.
@@ -76,7 +76,7 @@ Si el atributo tiene varios valores, no se mostrarán todos los cambios. Solo se
 **Cambio de servidor activo**
 
 1. En el servidor actualmente activo, desactive el servidor (DirSync/FIM/Azure AD Sync) para que no exporte a Azure AD o establézcalo en modo provisional (Azure AD Connect).
-2. Ejecute el Asistente para instalación en el servidor en “modo provisional” y deshabilite el “modo provisional”.
+2. Ejecute el Asistente para instalación en el servidor en **modo provisional** y deshabilite el **modo provisional**. ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/additionaltasks.png)
 
 ## Recuperación ante desastres
 Parte del diseño de implementación es planear qué hacer en caso de que se produzca un desastre en el que se pierda el servidor de sincronización. Hay diferentes modelos de uso y cuál es el que se debe usar dependerá de varios factores como:
@@ -101,7 +101,7 @@ El servidor del motor de sincronización no almacena ningún estado acerca de lo
 ### Servidor en espera de reserva - modo provisional
 Si tiene un entorno más complejo, se recomienda tener uno o más servidores en espera. Durante la instalación puede habilitar un servidor que esté en **modo provisional**.
 
-Para obtener información adicional, consulte [Modo provisional](#staging-mode).
+Para información adicional, vea [Modo provisional](#staging-mode).
 
 ### Uso de máquinas virtuales
 Un método común y admitido es ejecutar el motor de sincronización en una máquina virtual. En caso de que el host tenga un problema, la imagen con el servidor del motor de sincronización se puede migrar a otro servidor.
@@ -110,8 +110,8 @@ Un método común y admitido es ejecutar el motor de sincronización en una máq
 Si no se usa SQL Server Express que se incluye con Azure AD Connect, también se debe tener en cuenta la alta disponibilidad para SQL Server. La única solución de alta disponibilidad admitida son clústeres de SQL. Entre las soluciones no admitidas se incluyen creación de reflejos y siempre visible.
 
 ## Pasos siguientes
-Obtenga más información sobre la configuración de [sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

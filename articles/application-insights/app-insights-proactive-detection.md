@@ -3,7 +3,7 @@
 	description="Application Insights realiza un análisis profundo de la telemetría de aplicación y le advierte de los posibles problemas." 
 	services="application-insights" 
     documentationCenter="windows"
-	authors="antonfr" 
+	authors="antonfrMSFT" 
 	manager="douge"/>
 
 <tags 
@@ -25,6 +25,8 @@ Application Insights realiza un análisis profundo de la telemetría de aplicaci
 ## ¿Qué es la detección proactiva?
 
 Detección proactiva usa el aprendizaje automático y algoritmos de minería de datos para detectar patrones anómalos que afectan al rendimiento de la aplicación. Detección proactiva analiza automáticamente la telemetría de rendimiento recopilada mediante Application Insights. Le envía un correo electrónico acerca de cualquier rendimiento anormal en la aplicación. No tiene que configurar ninguna regla de umbral. Las notificaciones de detección proactiva se integran con las capacidades de análisis de Application Insights, que permite una evaluación de prioridades y diagnóstico rápidos de los problemas.
+
+La detección proactiva se encuentra en la vista preliminar y aún no está disponible para todos los usuarios de Application Insights. Si quiere probarla, póngase en contacto con AppInsightsML@microsoft.com y trabajamos con usted para configurarla.
 
 ## Acerca de las alertas proactivas
 
@@ -107,10 +109,8 @@ Hay un sitio web completo de consejos sobre cómo mejorar las respuestas del ser
 * *¿Es necesario suscribirse a este servicio para recibir notificaciones?*
  * No. Nuestro bot analiza periódicamente los datos de todos los usuarios de Application Insights y envía notificaciones si detecta problemas.
 * *¿Puedo cancelar la suscripción u hacer que mis colegas reciban las notificaciones?*
- * Haga clic en el vínculo de la alerta o el correo electrónico. Abra la configuración de anomalías.
+ * Haga clic en el vínculo para cancelar la suscripción de la alerta o el correo electrónico. 
  
-    ![](./media/app-insights-proactive-detection/01.png)
-
     Actualmente se envían a los usuarios que tienen [acceso de escritura al recurso de Application Insights](app-insights-resources-roles-access-control.md).
 * *No me quiero ver inundado por estos mensajes.*
  * Se limitan a uno por día. No obtendrá repeticiones de ningún mensaje.
@@ -128,4 +128,4 @@ Hay un sitio web completo de consejos sobre cómo mejorar las respuestas del ser
 * [Explorador de búsqueda](app-insights-diagnostic-search.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

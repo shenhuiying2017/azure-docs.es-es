@@ -14,10 +14,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# DocumentDB como salida de Análisis de transmisiones de Azure
+# Descripción de DocumentDB como salida de Análisis de transmisiones de Azure
 
 Análisis de transmisiones de Azure admite ahora [DocumentDB de Azure](http://azure.microsoft.com/services/documentdb/) como salida, habilitando el archivado de datos y las consultas de latencia baja en datos JSON no estructurados. Este documento describe la mejor manera de implementar esta integración. Aquellos que no estén familiarizados con DocumentDB pueden comenzar por la [ruta de aprendizaje de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
@@ -59,4 +59,4 @@ La creación de DocumentDB como una salida en Análisis de transmisiones genera 
 -   **Clave de partición**: el nombre del campo en los eventos de salida que se utiliza para especificar la clave de la salida de la creación de particiones entre colecciones. Para una salida de colección sencilla, se puede utilizar cualquier columna de salida arbitraria (por ejemplo, PartitionId).  
 -   **Identificador de documento**: opcional. Nombre del campo de los eventos de salida utilizado para especificar la clave principal en la que se basan las operaciones de inserción o actualización.  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

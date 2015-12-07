@@ -111,11 +111,11 @@ Inicie sesión en el primer equipo de controlador de dominio mediante las creden
 1.	En el Portal de Azure, en el panel izquierdo, haga clic en **Máquinas virtuales**.
 2.	Para conectarse a una máquina virtual, haga clic en **En ejecución** en la columna **Estado** junto a su nombre.
 3.	En la parte inferior de la página, en la barra de comandos, haga clic en **Conectar**.
-4.	El portal le informa de que se está recuperando el archivo .rdp. Haga clic en **Aceptar**.
+4.	El portal de Azure le informa de que se está recuperando el archivo .rdp. Haga clic en **Aceptar**.
 5.	Aparecerá el cuadro de diálogo de explorador que mostrará el mensaje: "¿Desea abrir o guardar ComputerName.rdp desde manage.windowsazure.com?" Haga clic en **Abrir**.
 6.	Seleccione el cuadro de diálogo **Conexión de escritorio remoto** y haga clic en **Conectar**.
 7.	En el cuadro de diálogo **Seguridad de Windows**, haga clic en **Usar otra cuenta**.
-8.	En **Nombre de usuario**, escriba el nombre del máquina virtual y nombre de usuario de la cuenta de administrador local que se creó con la máquina virtual (una cuenta de máquina local). Use el siguiente formato: *nombreDeEquipo**nombreDeCuentaDeAdministradorLocal*
+8.	En **Nombre de usuario**, escriba el nombre del máquina virtual y nombre de usuario de la cuenta de administrador local que se creó con la máquina virtual (una cuenta de máquina local). Use el siguiente formato: *nombreDeEquipo*\*nombreDeCuentaDeAdministradorLocal*
 9.	En **Contraseña**, escriba la contraseña para la cuenta de administrador local.
 10.	Haga clic en **Aceptar**.
 11.	En el cuadro de diálogo **Conexión a Escritorio remoto**, haga clic en **Sí**. El escritorio de la nueva máquina aparece en una ventana de sesión de Escritorio remoto.
@@ -248,4 +248,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 3: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

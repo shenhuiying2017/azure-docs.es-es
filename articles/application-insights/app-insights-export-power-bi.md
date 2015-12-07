@@ -12,23 +12,27 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
  
 # Usar Análisis de transmisiones para alimentar Power BI desde Application Insights
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) presenta los datos en objetos visuales enriquecidos y variados, con la capacidad de reunir información de varios orígenes. Puede transmitir los datos de telemetría sobre el rendimiento y el uso de las aplicaciones web o de dispositivo de Application Insights a Power BI.
+En este artículo se muestra cómo usar el [Análisis de transmisiones](http://azure.microsoft.com/services/stream-analytics/) para procesar datos [exportados](app-insights-export-telemetry.md) de [Application Insights de Visual Studio ](app-insights-overview.md). Como destino de ejemplo, enviamos los datos a [Microsoft Power BI](https://powerbi.microsoft.com/).
+
 
 > [AZURE.NOTE]La manera más fácil de obtener datos en Power BI de Application Insights es [mediante el adaptador](https://powerbi.microsoft.com/es-ES/documentation/powerbi-content-pack-application-insights/) que encontrará en la Galería de Power BI en Servicios. Lo que se describe en este artículo es actualmente más versátil, pero también es una demostración de cómo usar Análisis de transmisiones con Application Insights.
 
+[Microsoft Power BI](https://powerbi.microsoft.com/) presenta los datos en objetos visuales enriquecidos y variados, con la capacidad de reunir información de varios orígenes.
+
+
 ![Ejemplo de vista en Power BI de los datos de uso de Application Insights](./media/app-insights-export-power-bi/010.png)
 
-En este artículo, le mostraremos cómo exportar datos de Application Insights y utilizar el Análisis de transmisiones para transmitir los datos a Power BI. [Análisis de transmisiones](http://azure.microsoft.com/services/stream-analytics/) es un servicio de Azure que vamos a usar como un adaptador.
+El [Análisis de transmisiones](http://azure.microsoft.com/services/stream-analytics/) es un servicio de Azure que funciona como adaptador, procesando continuamente los datos exportados de Application Insights.
 
 ![Ejemplo de vista en Power BI de los datos de uso de Application Insights](./media/app-insights-export-power-bi/020.png)
 
 
-> [AZURE.NOTE]Necesita una profesional o educativa (cuenta organizativa de MSDN) para enviar datos de análisis de secuencia a Power BI.
+
 
 ## Vídeo
 
@@ -44,7 +48,7 @@ Si aún no lo ha intentado, ahora es el momento de empezar. Application Insights
 
 La exportación continua siempre envía los datos a una cuenta de almacenamiento de Azure, por lo que necesitará crear primero el almacenamiento.
 
-1. Cree una cuenta de almacenamiento "clásica" en su suscripción en el [Portal de Azure](https://portal.azure.com).
+1. Cree una cuenta de almacenamiento "clásica" en su suscripción en el [portal de Azure](https://portal.azure.com).
 
     ![En el portal de Azure, elija Nuevo, Datos, Almacenamiento.](./media/app-insights-export-power-bi/030.png)
 
@@ -132,7 +136,7 @@ En este ejemplo:
 
 * `webapplication27` es el nombre del recurso de Application Insights, **todo en minúsculas**.
 * `1234...` es la clave de instrumentación que copió del recurso de Application Insights, **omitiendo guiones**. 
-* `PageViews` es el tipo de datos que desea analizar. Los tipos disponibles dependen del filtro definido en la Exportación continua. Examine los datos exportados para ver los demás tipos disponibles y vea el [modelo de exportación de datos](app-insights-export-data-model.md).
+* `PageViews` es el tipo de datos que quiere analizar. Los tipos disponibles dependen del filtro definido en la Exportación continua. Examine los datos exportados para ver los demás tipos disponibles y vea el [modelo de datos de exportación](app-insights-export-data-model.md).
 * `/{date}/{time}` es un patrón escrito literalmente.
 
 > [AZURE.NOTE]Inspeccione el almacenamiento para asegurarse de que obtiene la ruta de acceso correcta.
@@ -153,7 +157,7 @@ Ahora seleccione el trabajo y establezca la salida.
 
 ![Seleccione el canal nuevo, haga clic en Salidas, Agregar, Power BI](./media/app-insights-export-power-bi/160.png)
 
-Proporcione su **cuenta profesional o educativa** para autorizar al análisis de secuencia para que tenga acceso a su recurso de Power BI. Luego invente un nombre para la salida y para la tabla y el conjunto de datos de Power BI de destino.
+Ofrezca su **cuenta profesional o educativa** para autorizar el Análisis de transmisiones a tener acceso al recurso de Power BI. Luego invente un nombre para la salida y para la tabla y el conjunto de datos de Power BI de destino.
 
 ![Invente tres nombres](./media/app-insights-export-power-bi/170.png)
 
@@ -185,7 +189,7 @@ Pegue esta consulta:
 
 * export-input es el alias que damos a la entrada de transmisiones
 * pbi-output es el alias que hemos definido para la salida
-* Usamos [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) porque el nombre de evento está en una matriz JSON anidada. A continuación, la opción Select selecciona el nombre de evento, junto con el recuento del número de instancias con dicho nombre en el período de tiempo. La cláusula [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) agrupa los elementos en períodos de tiempo de 1 minuto.
+* Usamos [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) porque el nombre del evento se encuentra en una matriz JSON anidada. A continuación, la opción Select selecciona el nombre de evento, junto con el recuento del número de instancias con dicho nombre en el período de tiempo. La cláusula [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) agrupa los elementos en períodos de tiempo de 1 minuto.
 
 
 #### Consulta para mostrar valores de métrica
@@ -244,7 +248,7 @@ Abra Power BI con su cuenta profesional o educativa y seleccione el conjunto de 
 
 ![En Power BI, seleccione el conjunto de datos y los campos.](./media/app-insights-export-power-bi/200.png)
 
-Ahora puede usar este conjunto de datos en los informes y paneles de [Power BI](https://powerbi.microsoft.com).
+Ahora puede usar este conjunto de datos en informes y paneles de [Power BI](https://powerbi.microsoft.com).
 
 
 ![En Power BI, seleccione el conjunto de datos y los campos.](./media/app-insights-export-power-bi/210.png)
@@ -262,4 +266,4 @@ Noam Ben Zeev muestra cómo exportar a Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Más ejemplos y tutoriales](app-insights-code-samples.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

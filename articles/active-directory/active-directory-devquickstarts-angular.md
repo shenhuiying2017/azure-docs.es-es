@@ -125,7 +125,7 @@ $scope.logout = function () {
 };
 ...
 ```
-- Puede que desee presentar información de usuario en la interfaz de usuario de la aplicación. El servicio ADAL ya se ha agregado al controlador `userDataCtrl`, por lo que puede tener acceso al objeto `userInfo` en la vista asociada, `App/Scripts/UserData.html`:
+- Puede que desee presentar información de usuario en la interfaz de usuario de la aplicación. El servicio ADAL ya se ha agregado al controlador `userDataCtrl`, por lo que puede tener acceso al objeto `userInfo` en la vista asociada, `App/Views/UserData.html`:
 
 ```js
 <p>{{userInfo.userName}}</p>
@@ -151,4 +151,4 @@ Como referencia, [aquí](https://github.com/AzureADQuickStarts/SinglePageApp-Ang
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

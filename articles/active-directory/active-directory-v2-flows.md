@@ -95,34 +95,36 @@ Una API web puede recibir access\_tokens de todos los tipos de aplicaciones, inc
 
 ![Imagen de las calles de la API web de la aplicación web](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
-Para obtener más información sobre authorization\_codes, refresh\_tokens y los pasos detallados para obtener access\_tokens, lea sobre el [protocolo OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
+Para más información sobre authorization\_codes, refresh\_tokens y los pasos detallados para obtener access\_tokens, lea sobre el [protocolo OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
 Para obtener información sobre cómo proteger una API web con el modelo de aplicaciones v2.0 y los access\_tokens de OAuth 2.0, consulte los ejemplos de código de las API web en nuestra [sección Introducción](active-directory-appmodel-v2-overview.md#getting-started).
 
 
 ## Aplicaciones móviles y nativas
-Las aplicaciones instaladas en un dispositivo, como las aplicaciones móviles y de escritorio, suelen necesitar el acceso a servicios back-end o a las API web que almacenan datos y realizan varias funciones en nombre del usuario. Estas aplicaciones pueden agregar el inicio de sesión y la autorización a los servicios back-end mediante el modelo v2.0 y el [flujo de código de autorización de OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
+Las aplicaciones instaladas en un dispositivo, como las aplicaciones móviles y de escritorio, suelen necesitar el acceso a servicios back-end o a las API web que almacenan datos y realizan varias funciones en nombre del usuario. Estas aplicaciones pueden agregar el inicio de sesión y la autorización a los servicios back-end mediante el modelo v2.0 y el [flujo de código de autorización de OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
 En este flujo, una la aplicación recibe un authorization\_code del extremo v2.0 tras el inicio de sesión del usuario, que representa el permiso de la aplicación para llamar a los servicios back-end en nombre del usuario que tiene la sesión iniciada actualmente. La aplicación podrá intercambiar el authoriztion\_code en segundo plano para un access\_token de OAuth 2.0 y un refresh\_token. La aplicación puede utilizar el access\_token para autenticar a la API web en las solicitudes HTTP y puede usar el refresh\_token para obtener access\_tokens nuevos cuando expiren los antiguos.
 
 ![Imagen de las calles de la aplicación nativa](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
+## Aplicaciones de una página (Javascript)
+Muchas aplicaciones modernas tienen una aplicación de una página escrita en front-end, principalmente en javascript, que usa a menudo marcos SPA como AngularJS, Ember.js, Durandal, etc. El modelo de aplicación de Azure AD v2.0 admite estas aplicaciones mediante el [flujo implícito de OAuth 2.0](active-directory-v2-protocols-implicit.md).
+
+En este flujo, la aplicación recibe tokens del punto e conexión de autorización de v2.0 directamente, sin necesidad de realizar ningún intercambio de servidor back-end a servidor. Esto permite la completa implementación de la lógica de autenticación y el control de sesiones en el cliente de javascript, sin necesidad de realizar ninguna redirección de páginas adicional.
+
+Para ver este escenario en acción, pruebe uno de los ejemplos de código de aplicación de páginas único en nuestra sección [Introducción](active-directory-appmodel-v2-overview.md#getting-started).
+
 ## Limitaciones de la vista previa actual
-Estos tipos de aplicaciones no son compatibles actualmente con la vista previa del modelo de aplicaciones v2.0, pero está previsto que sean compatibles a tiempo para su disponibilidad con carácter general. Las limitaciones y restricciones adicionales para la vista previa pública del modelo de aplicaciones v2.0 se describen en el [artículo de limitaciones de la vista previa v2.0](active-directory-v2-limitations.md).
-
-### Aplicaciones de una página (Javascript)
-Muchas aplicaciones modernas tienen una aplicación de una página escrita en front-end, principalmente en javascript, que usa a menudo marcos SPA como AngularJS, Ember.js, Durandal, etc. El servicio Azure AD, disponible con carácter general, admite estas aplicaciones mediante el [flujo implícito de OAuth 2.0](active-directory-v2-protocols.md#oauth2-implicit-flow); sin embargo, este flujo no está disponible aún en el modelo de aplicaciones v2.0. Lo estará en el corto plazo.
-
-Si está impaciente por tener un SPA que funcione con el modelo de aplicaciones v2.0, puede implementar la autenticación mediante el [flujo de la aplicación de servidor web](#web-apps) descrito anteriormente. Sin embargo, este no es el enfoque recomendado y la documentación para este escenario será limitada. Si desea hacerse una idea del escenario SPA, puede consultar el [ejemplo de código SPA de Azure AD, disponible con carácter general](active-directory-devquickstarts-angular.md).
+Estos tipos de aplicaciones no son compatibles actualmente con la vista previa del modelo de aplicaciones v2.0, pero está previsto que sean compatibles a tiempo para su disponibilidad con carácter general. Las limitaciones y restricciones adicionales para la vista preliminar pública del modelo de aplicaciones v2.0 se describen en el [artículo de limitaciones de la vista preliminar v2.0](active-directory-v2-limitations.md).
 
 ### Demonios/aplicaciones del lado del servidor
 Las aplicaciones que contienen procesos de larga duración o que funcionan sin la presencia de un usuario también necesitan un modo de acceder a los recursos protegidos, como las API web. Estas aplicaciones pueden autenticar y obtener tokens con la identidad de la aplicación (en lugar de una identidad delegada del usuario) mediante el [flujo de credenciales de cliente de OAuth 2.0](active-directory-v2-protocols.md#oauth2-client-credentials-grant-flow).
 
-Este flujo no es compatible actualmente con el modelo de aplicaciones v2.0, lo que quiere decir que las aplicaciones solo pueden obtener tokens una vez se haya producido un flujo de inicio de sesión de un usuario interactivo. El flujo de credenciales de cliente se agregará en un futuro próximo. Si desea ver el flujo de credenciales de cliente en el servicio Azure AD, disponible con carácter general, consulte el [ejemplo de demonio en GitHub](https://github.com/AzureADSamples/Daemon-DotNet).
+Este flujo no es compatible actualmente con el modelo de aplicaciones v2.0, lo que quiere decir que las aplicaciones solo pueden obtener tokens una vez se haya producido un flujo de inicio de sesión de un usuario interactivo. El flujo de credenciales de cliente se agregará en un futuro próximo. Si quiere ver el flujo de credenciales de cliente en el servicio Azure AD, disponible con carácter general, vea el [ejemplo de demonio en GitHub](https://github.com/AzureADSamples/Daemon-DotNet).
 
 ### API web encadenadas (en nombre de)
 Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de nivel inferior, ambas protegidas mediante el modelo de aplicaciones v2.0. Este escenario es común en los clientes nativos que tienen una API web back-end, que, a su vez, llama a un servicio de Microsoft Online, como Office 365 o Graph API.
 
-Este escenario de API web encadenada puede admitirse mediante la concesión de credenciales de portador Jwt de OAuth 2.0, también conocido como el [flujo "en nombre de"](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). Sin embargo, el flujo "en nombre de" no está implementado actualmente en la vista previa del modelo de aplicaciones v2.0. Para ver cómo funciona este flujo en el servicio Azure AD, disponible con carácter general, consulte el [ejemplo de código "en nombre de" en GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
+Este escenario de API web encadenada puede admitirse mediante la concesión de credenciales de portador Jwt de OAuth 2.0, también conocido como el [flujo "en nombre de"](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). Sin embargo, el flujo "en nombre de" no está implementado actualmente en la vista previa del modelo de aplicaciones v2.0. Para ver cómo funciona este flujo en el servicio Azure AD, disponible con carácter general, vea el [ejemplo de código "en nombre de" en GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

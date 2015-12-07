@@ -4,7 +4,7 @@
 	tags="azure-portal"
 	services="app-service\web, storage"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 
@@ -522,9 +522,7 @@ En este paso, descargará un archivo que contiene información acerca de su susc
 
 	Se le pedirá que especifique el nombre de la aplicación web y la ubicación. Proporcione un nombre único y seleccione la misma ubicación geográfica que la cuenta de Almacenamiento de Azure.
 
-	El parámetro `--git` crea un repositorio Git en Azure para esta aplicación web. También inicializa un repositorio Git en el directorio actual si no existe y agrega un [Git remoto] denominado 'azure', que se usa para publicar la aplicación en Azure. Finalmente, crea un archivo **web.config**, que contiene la configuración usada por Azure para hospedar aplicaciones Node.
-
-	> [AZURE.NOTE]Si el directorio ya contiene un repositorio de Git, el comando no reinicializará el directorio. Si se omite el parámetro `--git`, pero el directorio contiene un repositorio de Git, el comando creará el 'azure' remoto.
+	El parámetro `--git` crea un repositorio Git en Azure para esta aplicación web. También inicializa un repositorio Git en el directorio actual si no existe y agrega un [Git remoto] denominado 'azure', que se usa para publicar la aplicación en Azure. Finalmente, crea un archivo **web.config**, que contiene la configuración usada por Azure para hospedar aplicaciones Node. Si se omite el parámetro `--git`, pero el directorio contiene un repositorio de Git, el comando creará el “azure” remoto.
 
 	Después de que este comando se haya completado, verá un resultado similar al siguiente. Observe que la línea que comienza por **Website created at** contiene la dirección URL de la aplicación web.
 
@@ -645,4 +643,4 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

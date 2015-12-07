@@ -18,9 +18,9 @@
 
 # Configuración de la tunelización forzada
 
-Este artículo se aplica a las redes virtuales y las puertas de enlace de VPN creadas con el modelo de implementación clásico. Cuando las instrucciones para configurar la tunelización forzada de redes virtuales y puertas de enlace de VPN creadas mediante el modelo del Administrador de recursos estén disponibles, agregaremos un vínculo al principio de esta página.
+Este artículo se aplica a las redes virtuales y las puertas de enlace de VPN creadas con el modelo de implementación clásico. Si desea configurar la tunelización forzada para redes virtuales y puertas de enlace de VPN creadas utilizando el modelo de implementación del Administrador de recursos, consulte [Configurar la tunelización forzada mediante PowerShell y el Administrador de recursos de Azure](vpn-gateway-forced-tunneling-rm.md).
 
->[AZURE.NOTE] Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 ## Información acerca de la tunelización forzada
 
@@ -52,7 +52,7 @@ La tunelización forzada en Azure se configura a través de rutas definidas por 
 
 - La tunelización forzada debe asociarse a una red virtual que tiene una puerta de enlace de VPN de enrutamiento dinámico (no una puerta de enlace estática). Deberá establecer un "sitio predeterminado" entre los sitios locales entre entornos conectados a la red virtual.
 
-- Tenga en cuenta que la tunelización forzada ExpressRoute no se configura mediante este mecanismo, sino que se habilita mediante el anuncio de una ruta predeterminada a través de las sesiones de emparejamiento BGP de ExpressRoute. Vea la [Documentación de ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) para obtener más información.
+- Tenga en cuenta que la tunelización forzada ExpressRoute no se configura mediante este mecanismo, sino que se habilita mediante el anuncio de una ruta predeterminada a través de las sesiones de emparejamiento BGP de ExpressRoute. Consulte la [Documentación de ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) para obtener más información.
 
 ## Información general sobre la configuración
 
@@ -102,7 +102,7 @@ En el ejemplo, esta red virtual "MultiTier-VNet» tiene tres subredes: *Frontend
 
 - Una red virtual configurada.
 
-- La versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente de la sección **Windows PowerShell** de la [página de descarga](http://azure.microsoft.com/downloads/).
+- La versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente desde la sección **Windows PowerShell** de la [Página de descarga](http://azure.microsoft.com/downloads/).
 
 ## Configuración de la tunelización forzada
 
@@ -161,11 +161,4 @@ A continuación se muestran algunos cmdlets de PowerShell adicionales que pueden
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-## Pasos siguientes
-
-
-Para obtener más información sobre las rutas definidas por el usuario, vea [Rutas definidas por el usuario y reenvío IP](../virtual-network/virtual-networks-udr-overview.md).
-
-Para obtener información sobre cómo proteger el tráfico de red, vea [Qué es un grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md). Tenga en cuenta que nunca debe aplicar un grupo de seguridad de red a una subred de puerta de enlace de red virtual de Azure.
-
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/18/2015"
+   ms.date="11/19/2015"
    ms.author="juliako"/>
 
 # SDK de Azure para .NET 2.8
@@ -35,8 +35,7 @@ Para obtener una lista completa de nuevas características y actualizaciones rea
 
 ###Problemas conocidos
 
-El SDK de Azure para .NET 2.8 le permite crear paquetes de servicios en la nube de .NET 4.5.2. Sin embargo .NET Framework 4.5.2 no se instalará en las imágenes del sistema operativo invitado predeterminado hasta el lanzamiento del sistema operativo invitado de 2016. Antes de eso, .NET Framework 4.5.2 estará disponible mediante una versión de sistema operativo invitado distinta (2 de noviembre de 2015). Consulte la página [Matriz de compatibilidad del SDK y lanzamientos del SO invitado de Azure](http://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/) para comprobar cuándo se lanzará la imagen. Después de que se publique la imagen del 2 de noviembre de 2015, tendrá la posibilidad de elegir esa imagen; para ello, actualice el archivo de configuración de servicios en la nube (.cscfg). En el archivo de configuración de servicio, establezca el atributo osVersion del elemento ServiceConfiguration en la cadena "WA-GUEST-OS-4.26\_201511-02".
-
+El SDK de Azure para .NET 2.8 le permite crear paquetes de servicios en la nube de .NET 4.5.2. Sin embargo .NET Framework 4.5.2 no se instalará en las imágenes del sistema operativo invitado predeterminado hasta el lanzamiento del sistema operativo invitado de 2016. Antes de eso, .NET Framework 4.5.2 estará disponible mediante una versión de sistema operativo invitado distinta (2 de noviembre de 2015). Consulte la página [Matriz de compatibilidad del SDK y lanzamientos del SO invitado de Azure](http://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/) para comprobar cuándo se lanzará la imagen. Después de que se publique la imagen del 2 de noviembre de 2015, tendrá la posibilidad de elegir esa imagen; para ello, actualice el archivo de configuración de servicios en la nube (.cscfg). En el archivo de configuración de servicio, establezca el atributo osVersion del elemento ServiceConfiguration en la cadena "WA-GUEST-OS-4.26\_201511-02". Si elige participar para usar esta imagen, ya no obtendrá las actualizaciones automáticas para el SO invitado. Para obtener las actualizaciones automáticas, osVersion se debe establecer en "*" y .NET 4.5.2 sólo estará disponible a través de las actualizaciones automáticas en enero de 2016.
 
 ##Factoría de datos de Azure
 
@@ -57,15 +56,6 @@ Los scripts de proyectos creados en versiones anteriores del SDK no se ejecutar�
 
 El SDK 2.8 requiere la versión 1.0 de los cmdlets de Azure PowerShell. Todas las demás versiones del SDK requieren la versión 0.9.8 de los cmdlets de Azure PowerShell. Para obtener más información, consulte [este](http://go.microsoft.com/fwlink/?LinkID=623011) blog.
 
-##Herramientas de HDInsight de Azure
-
-Las nuevas actualizaciones incluyen:
-
-- Puede ejecutar una consulta de Hive en el clúster a través de HiveServer2 con casi ninguna sobrecarga y ver los registros de trabajos en tiempo real.
-- Con la nueva sección de visualización de ejecución de tareas de Hive puede profundizar más en el trabajo, encontrar más detalles e identificar posibles problemas.
-
-Para obtener información, consulte [SDK 2.8 de Azure para Visual Studio 2013 y Visual Studio 2015](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
-
 ##Extensiones de herramientas web
 
 ###Problemas conocidos
@@ -75,11 +65,22 @@ En la siguiente versión se abordarán los siguientes problemas conocidos.
 - El gesto del Explorador de servidores y la nube relacionado con el Servicio de aplicaciones en los entornos que no son de producción (como clientes de Azure China y Azure Stack) no funcionará. Para los clientes de estas áreas afectadas, la descarga del perfil de publicación del Portal de Azure ofrecerá la posibilidad de publicación. Una versión futura reparará gestos como "Adjuntar depurador" y "Ver registros de streaming" para los clientes de Azure China y Azure Stack. 
 - Los clientes pueden ver errores durante la creación del Servicio de aplicaciones cuando la instancia de App Insights en la que van a realizar la implementación se encuentra en una región distinta al Este de Estados Unidos. En estos casos, la creación de un Servicio de aplicaciones en el portal y la descarga del perfil de publicación permitirán escenarios de publicación. 
 
+##Herramientas de HDInsight de Azure
 
+###Nuevas actualizaciones
+
+- Puede ejecutar una consulta de Hive en el clúster a través de HiveServer2 con casi ninguna sobrecarga y ver los registros de trabajos en tiempo real.
+- Con la nueva sección de visualización de ejecución de tareas de Hive puede profundizar más en el trabajo, encontrar más detalles e identificar posibles problemas.
+
+Para información, vea [SDK 2.8 de Azure para Visual Studio 2013 y Visual Studio 2015](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
+
+##Otras actualizaciones
+
+Para otras actualizaciones, vea la [publicación del anuncio de Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 ##Consulte también:
 
 [Publicación de anuncio de SDK de Azure 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)
 
 [Información de compatibilidad y retirada del SDK de Azure para .NET y API](https://msdn.microsoft.com/library/azure/dn479282.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

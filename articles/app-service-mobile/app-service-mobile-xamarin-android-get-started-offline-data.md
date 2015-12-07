@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="11/22/2015"
     ms.author="wesmc"/>
 
 # Activación de la sincronización sin conexión para la aplicación móvil Xamarin.Android
@@ -42,12 +42,14 @@ El proyecto de cliente de Xamarin que descargó cuando completó el tutorial [Cr
 
 * Antes de poder realizar cualquier operación de tabla, se debe inicializar el almacén local. La base de datos del almacén local se inicializa cuando `ToDoActivity.OnCreate()` ejecuta `ToDoActivity.InitLocalStoreAsync()`. Esto crea una nueva base de datos SQLite local mediante la clase `MobileServiceSQLiteStore` que proporciona el SDK del cliente de Aplicaciones móviles de Azure. 
  
-	El método `DefineTable` crea una tabla en el almacén local que coincide con los campos del tipo proporcionado, `ToDoItem` en este caso. El tipo no tiene que incluir todas las columnas que se encuentran en la base de datos remota. Es posible almacenar solo un subconjunto de columnas. // ToDoActivity.cs
+	El método `DefineTable` crea una tabla en el almacén local que coincide con los campos del tipo proporcionado, `ToDoItem` en este caso. El tipo no tiene que incluir todas las columnas que se encuentran en la base de datos remota. Es posible almacenar solo un subconjunto de columnas.
 
+		// ToDoActivity.cs
         private async Task InitLocalStoreAsync()
         {
             // new code to initialize the SQLite store
-            string path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), localDbFilename);
+            string path = Path.Combine(System.Environment
+				.GetFolderPath(System.Environment.SpecialFolder.Personal), localDbFilename);
 
             if (!File.Exists(path))
             {
@@ -58,7 +60,8 @@ El proyecto de cliente de Xamarin que descargó cuando completó el tutorial [Cr
             store.DefineTable<ToDoItem>();
 
             // Uses the default conflict handler, which fails on conflict
-            // To use a different conflict handler, pass a parameter to InitializeAsync. For more details, see http://go.microsoft.com/fwlink/?LinkId=521416
+            // To use a different conflict handler, pass a parameter to InitializeAsync. 
+			// For more details, see http://go.microsoft.com/fwlink/?LinkId=521416.
             await client.SyncContext.InitializeAsync(store);
         }
 
@@ -73,7 +76,6 @@ El proyecto de cliente de Xamarin que descargó cuando completó el tutorial [Cr
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
 -->	// ToDoActivity.cs
-
         private async Task SyncAsync()
         {
 			try {
@@ -95,11 +97,11 @@ Ejecute la aplicación cliente al menos una vez para rellenar la base de datos d
 
 En esta sección, modificará la aplicación cliente para simular un escenario sin conexión mediante el uso de una dirección URL de aplicación no válida para el back-end. Al agregar o cambiar elementos de datos, estos cambios se conservan en el almacén local, pero no se sincronizan con el almacén de datos de back-end hasta que se restablezca la conexión.
 
-1. En la parte superior de `ToDoActivity.cs`, cambie la inicialización de `applicationURL` y `gatewayURL` para que apunte a direcciones URL no válidas:
+1. En la parte superior de `ToDoActivity.cs`, cambie la inicialización de `applicationURL` para que apunte a una dirección URL no válida:
 
-        const string applicationURL = @"https://your-service.azurewebsites.xxx/"; 
-        const string gatewayURL = @"https://your-gateway.azurewebsites.xxx";
+        const string applicationURL = @"https://your-service.azurewebsites.fail/"; 
 
+	Tenga en cuenta que, cuando la aplicación también usa autenticación, el inicio de sesión dará error. También puede mostrar el comportamiento sin conexión deshabilitando las redes Wi-Fi y móvil en el dispositivo o usar el modo avión.
 
 2. Actualice `ToDoActivity.SyncAsync` para que se detecten y simplemente se omitan `MobileServicePushFailedException` por asumirse que está sin conexión.
 
@@ -135,7 +137,7 @@ En esta sección, modificará la aplicación cliente para simular un escenario s
 
 En esta sección se volverá a conectar la aplicación al back-end móvil, que simula que la aplicación vuelve a un estado en línea. Al realizar el gesto de la actualización, los datos se sincronizarán con el back-end móvil.
 
-1. Abra `ToDoActivity.cs`. Corrija `applicationURL` y `gatewayURL` para que apunten a las direcciones URL correctas.
+1. Abra `ToDoActivity.cs`. Corrija `applicationURL` para que apunte a las direcciones URL correctas.
 
 2. Recompile y ejecute la aplicación. La aplicación intenta sincronizarse con el back-end de la aplicación móvil de Azure después de iniciarse. Compruebe que no se generan cuadros de diálogo de excepción.
 
@@ -173,4 +175,4 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 
 [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015--->

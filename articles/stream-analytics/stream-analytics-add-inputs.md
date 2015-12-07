@@ -13,11 +13,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
 
-# Agregar entradas
+# Cómo **agregar entradas** a los trabajos de Análisis de transmisiones
 
 Los trabajos de Análisis de transmisiones de Azure pueden estar conectados a una o más entradas, que definen una conexión a un origen de datos existente. A medida que los datos se envían a ese origen de datos, el trabajo de Análisis de transmisiones los consume y los procesa en tiempo real. Análisis de transmisiones cuenta con integración de primera clase con [Centro de eventos de orígenes de Azure](http://azure.microsoft.com/services/event-hubs/) y [Almacenamiento de blobs de Azure](./storage/storage-dotnet-how-to-use-blobs.md) desde dentro y fuera de la suscripción del trabajo. Hay dos tipos de entradas en el análisis de secuencia: flujos de datos y datos de referencia.
 
@@ -77,4 +77,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

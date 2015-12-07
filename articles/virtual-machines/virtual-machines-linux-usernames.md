@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Cuando aprovisiona una máquina virtual con Linux en Azure, debe especificar el nombre de un usuario no raíz que más adelante pueda usar para iniciar sesión en la máquina virtual. Puede elegir el nombre del nuevo usuario o, si el aprovisionamiento es a través del Portal de administración, puede aceptar el nombre predeterminado "azureuser".
+Cuando aprovisiona una máquina virtual con Linux en Azure, debe especificar el nombre de un usuario no raíz que más adelante pueda usar para iniciar sesión en la máquina virtual. Puede elegir el nombre del nuevo usuario o, si el aprovisionamiento es a través del Portal de Azure, puede aceptar el nombre predeterminado "azureuser".
 
 En la mayoría de los casos, este usuario no existirá en la imagen base y se crea durante el proceso de aprovisionamiento. Si el usuario ya existe en la imagen de la máquina virtual base, el agente Azure Linux sencillamente configura la contraseña (o la tecla SSH) para ese usuario de acuerdo con la información especificada al crear la máquina virtual.
 
@@ -251,4 +251,4 @@ A continuación, se indican los nombres de usuario que debería evitar al realiz
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

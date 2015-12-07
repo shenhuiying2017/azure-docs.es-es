@@ -41,7 +41,7 @@ Para resolver los errores de conexión SSH más comunes en máquinas virtuales c
 
 	![Captura de pantalla que muestra el proceso de restablecimiento de la configuración de SSH](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
 
-2. **Reinicie** la máquina virtual. Haga clic en el [Portal de vista previa de Azure](https://portal.azure.com), en **Examinar todo** > **Máquinas virtuales (clásico)** > su máquina virtual Windows > **Reiniciar**. En el [Portal de administración de Azure](https://manage.windowsazure.com), abra **Máquinas virtuales** > **Instancias** y haga clic en **Reiniciar**.
+2. **Reinicie** la máquina virtual. Haga clic en el [Portal de vista previa de Azure](https://portal.azure.com), en **Examinar todo** > **Máquinas virtuales (clásico)** > su máquina virtual Windows > **Reiniciar**. En el [Portal de Azure](https://manage.windowsazure.com), abra **Máquinas virtuales** > **Instancias** y haga clic en **Reiniciar**.
 
 3. [**Cambie el tamaño** de la máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
 
@@ -174,9 +174,9 @@ Las siguientes secciones le ayudarán a aislar la causa del error y a averiguar 
 
 ### Pasos antes de la solución de problemas
 
-En primer lugar, compruebe el estado de la máquina virtual en el portal de Azure.
+En primer lugar, compruebe el estado de la máquina virtual en el portal.
 
-En el [Portal de administración de Azure](https://manage.windowsazure.com), para las máquinas virtuales en el modelo de implementación clásica:
+En el [Portal de Azure](https://manage.windowsazure.com), para las máquinas virtuales en el modelo de implementación clásica:
 
 1. Haga clic en **Máquinas virtuales** > *Nombre de la máquina virtual*.
 2. Haga clic en el **Panel** de la máquina virtual para comprobar su estado.
@@ -287,4 +287,4 @@ En el caso de las máquinas virtuales del modelo de implementación clásica, co
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

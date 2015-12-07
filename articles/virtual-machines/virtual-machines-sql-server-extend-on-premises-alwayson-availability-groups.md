@@ -29,7 +29,7 @@ Este tutorial supone que tiene lo siguiente:
 
 - Un grupo de disponibilidad AlwaysOn local existente. Para obtener más información sobre los grupos de disponibilidad, consulte [Grupos de disponibilidad AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx).
 
-- Conectividad entre la red local y la red virtual de Azure. Para obtener más información acerca de la creación de esta red virtual, consulte [Configurar una VPN de sitio a sitio en el Portal de administración](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+- Conectividad entre la red local y la red virtual de Azure. Para obtener más información acerca de la creación de esta red virtual, consulte [Configurar una VPN de sitio a sitio en el portal de Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
@@ -103,4 +103,4 @@ Además de usar el **Asistente para agregar una réplica de Azure** para ampliar
 
 Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, consulte [SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

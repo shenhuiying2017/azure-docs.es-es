@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/18/2015" 
 	ms.author="awills"/>
 
 # Recopilación, retención y almacenamiento de datos en Application Insights 
@@ -63,6 +63,11 @@ Los recuentos de usuario y sesión no se incluyen en la cuota para calcular los 
 
 * Abra Configuración/cuotas y precios para ver el gráfico de volumen de datos.
 * O bien, en el Explorador de métricas, agregue un nuevo gráfico y seleccione **Volumen de punto de datos** como su métrica. Active la agrupación y agrupe por **Tipo de datos**.
+
+*¿Cómo puedo reducir la cantidad de datos que envía mi aplicación?*
+
+* Use [Muestreo](app-insights-sampling.md). Esta tecnología reduce la velocidad de los datos sin sesgar las métricas y sin interrumpir la capacidad de navegar entre los elementos relacionados en la búsqueda.
+* [Desactive los colectores de telemetría](app-insights-configuration-with-applicationinsights-config.md) que no necesite.
 
 
 #### ¿Cuánto tiempo se conservan los datos? 
@@ -250,4 +255,4 @@ Este producto incluye datos GeoLite2 creados por MaxMind, disponible en [http://
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

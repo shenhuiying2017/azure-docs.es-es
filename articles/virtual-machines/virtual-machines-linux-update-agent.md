@@ -90,15 +90,19 @@ Abra [la versión del Agente de Linux de Azure en Github](https://github.com/Azu
 
   Para la mayoría de las distribuciones de Linux, use:
 
-      #sudo cp waagent /usr/sbin
+    #sudo cp waagent /usr/sbin
 
   Para CoreOS, use:
 
     #sudo cp waagent /usr/share/oem/bin/
 
+  Si se trata de la nueva instalación del agente Linux de Azure, ejecute a continuación:
+ 
+    #sudo /usr/sbin/waagent -install -verbose
+
 ###Para la versión 2.1.x, use:
 
-Es necesario instalar primero el paquete `setuptools`, consulte [aquí](https://pypi.python.org/pypi/setuptools). A continuación, ejecute lo siguiente:
+Es posible que necesite instalar primero el paquete `setuptools`. Consulte [aquí](https://pypi.python.org/pypi/setuptools). A continuación, ejecute lo siguiente:
 
     #sudo python setup.py install
 
@@ -126,4 +130,4 @@ Verá que la versión del agente Linux se ha actualizado a la versión nueva.
 
 Para obtener más información sobre el agente Linux de Azure, consulte [archivo Léame del agente Linux de Azure](https://github.com/Azure/WALinuxAgent).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

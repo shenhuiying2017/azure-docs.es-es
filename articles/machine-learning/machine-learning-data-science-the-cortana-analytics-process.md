@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="11/23/2015" 
 	ms.author="bradsev;gopitk" />
 
 
@@ -27,7 +27,7 @@ Estos son los pasos del **proceso de análisis de Cortana**:
 
 El proceso es **iterativo**: la comprensión de las mejoras nuevas y existentes en el modelo evoluciona y requiere la adaptación de los pasos realizados anteriormente en la secuencia. El desarrollo de la organización existente y los procesos de planeación del proyecto se **adaptan fácilmente** para que actúen con la secuencia de pasos definida por el CAP.
 
-Los pasos del proceso se muestran en diagrama y se vinculan en la [ruta de aprendizaje de CAP](https://azure.microsoft.com/es-ES/documentation/learning-paths/cortana-analytics-process/) (se describen más abajo).
+Los pasos del proceso se muestran en diagrama y se vinculan en la [ruta de aprendizaje de CAP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) (se describen más abajo).
 
 ## Pasos de preparación 
 
@@ -83,7 +83,7 @@ Cuando ya se disponga de un conjunto de modelos que funcionan bien, pueden ser *
 
 ## Resumen y pasos siguientes
 
-El [proceso de análisis de Cortana](https://azure.microsoft.com/es-ES/documentation/learning-paths/cortana-analytics-process/) se modela como una secuencia de pasos repetidos que **ofrecen asesoramiento** sobre las tareas necesarias para usar un análisis avanzado a fin de crear aplicaciones inteligentes. Cada paso también ofrece detalles sobre cómo usar las distintas tecnologías de Microsoft para completar las tareas descritas.
+El [proceso de análisis de Cortana](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) se modela como una secuencia de pasos repetidos que **ofrecen asesoramiento** sobre las tareas necesarias para usar un análisis avanzado a fin de crear aplicaciones inteligentes. Cada paso también ofrece detalles sobre cómo usar las distintas tecnologías de Microsoft para completar las tareas descritas.
 
 Aunque el proceso de análisis de Cortana no prescribe tipos específicos de artefactos de **documentación**, es una práctica recomendada documentar los resultados de la exploración de datos, el modelado y la evaluación y guardar el código correspondiente para que el análisis pueda repetirse cuando sea necesario. Esto también permite la reutilización de los trabajos de análisis cuando se trabaja en otras aplicaciones que implican datos y tareas de predicción similares.
 
@@ -91,4 +91,4 @@ También se proporcionan tutoriales completos que muestran todos los pasos del p
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

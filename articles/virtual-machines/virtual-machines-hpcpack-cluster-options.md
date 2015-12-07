@@ -45,7 +45,7 @@ Aproveche los servicios de infraestructura y proceso de Microsoft HPC Pack para 
 
 ### Script de implementación de PowerShell
 
-* [Creación de un clúster de HPC con el script de implementación de HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md).
+* [Creación de un clúster de HPC con el script de implementación de HPC Pack IaaS.](virtual-machines-hpcpack-cluster-powershell-script.md)
 
 ### Tutoriales
 
@@ -74,11 +74,10 @@ Aproveche los servicios de infraestructura y proceso de Microsoft HPC Pack para 
 * [Envío de trabajos a un clúster de HPC Pack en Azure](virtual-machines-hpcpack-cluster-submit-jobs.md)
 
 
-
 ## Adición de nodos de rol de trabajo a un clúster de HPC Pack
 
 
-* [Irrumpir en Azure con HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+* [Irrumpir en instancias de trabajo de Azure con HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
 * [Tutorial: Configuración de un clúster híbrido con HPC Pack en Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
 
@@ -86,11 +85,16 @@ Aproveche los servicios de infraestructura y proceso de Microsoft HPC Pack para 
 
 * [Aumento y reducción de los recursos de proceso de Azure en un clúster de HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
 
+## Integración con Azure Batch 
+
+* [Irrumpir en Lote de Azure con HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
 ## Creación de clústeres RDMA para cargas de trabajo MPI
 
 * [Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](virtual-machines-windows-hpcpack-cluster-rdma.md)
 
+* [Tutorial: Ejecución de OpenFOAM con Microsoft HPC Pack en un clúster de Linux RDMA en Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

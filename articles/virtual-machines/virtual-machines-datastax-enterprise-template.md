@@ -252,7 +252,7 @@ Durante la implementación, recuerde que debe crearse una nueva cuenta de almace
 
 Durante la implementación y después de ella, puede comprobar todas las solicitudes realizadas durante el aprovisionamiento, incluidos todos los errores producidos.
 
-Para ello, vaya al [Portal de Azure](https://portal.azure.com) y haga lo siguiente:
+Para ello, vaya al [Portal de vista previa de Azure](https://portal.azure.com) y haga lo siguiente:
 
 - Haga clic en “Examinar” en la barra de navegación de la izquierda, desplácese hacia abajo y haga clic en “Grupos de recursos”.
 - Después de hacer clic en el grupo de recursos que acaba de crear, aparecerá la hoja “Grupo de recursos”.
@@ -462,7 +462,7 @@ Se da formato a los discos conectados como parte de las actividades de preparaci
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh forma parte de la carpeta shared\_scripts\\ubuntu, en el repositorio de GitHub azure-quickstart-templates y contiene funciones muy útiles para el montaje, formato y desmontaje de discos. Estas funciones se pueden usar en todas las plantillas del repositorio.
+vm-disk-utils-0.1.sh forma parte de la carpeta shared_scripts\ubuntu, en el repositorio de GitHub azure-quickstart-templates y contiene funciones muy útiles para el montaje, formato y desmontaje de discos. Estas funciones se pueden usar en todas las plantillas del repositorio.
 
 Otro fragmento interesante es el relacionado con las extensiones de máquinas virtuales de CustomScriptForLinux. Se instalan como un tipo de recurso independiente, con una dependencia en cada nodo del clúster (y la instancia OpsCenter). Aprovechan el mismo mecanismo de bucle de recursos descrito para las máquinas virtuales.
 
@@ -504,4 +504,4 @@ Este enfoque sugiere:
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

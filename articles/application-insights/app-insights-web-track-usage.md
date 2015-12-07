@@ -26,25 +26,9 @@ Application Insights de Visual Studio proporciona dos niveles de seguimiento de 
 
 ## Instalación
 
-Los datos de uso de una aplicación web proceden del explorador del cliente.
+Abra un recurso de Application Insights en el [Portal de Azure](https://portal.azure.com), haga clic en el gráfico de cargas de la página del explorador vacío y siga las instrucciones de instalación.
 
-#### Configuración de un recurso de Application Insights 
-
-Un recurso de Application Insights es un lugar en Microsoft Azure donde se analizan y muestran los datos de telemetría de su aplicación. Puede que ya haya realizado una configuración para mostrar los datos del servidor de la aplicación en [ASP.NET][greenbrown] o [J2EE][java]. Si no, puede hacerlo ahora.
-
-Lo mejor suele ser mostrar los datos de uso del cliente web en el mismo recurso que los datos del servidor. De este modo, se pueden correlacionar fácilmente los diagnósticos y las métricas de los dos extremos. Por lo tanto, si ya dispone de un recurso, vaya al paso siguiente.
-
-#### Inserción de código en las páginas web
-
-En el recurso, en el [portal de Azure][portal], abra Inicio rápido para obtener el fragmento de código que permite supervisar las páginas web.
-
-![](./media/app-insights-web-track-usage/02-monitor-web-page.png)
-
-Coloque el código en una página maestra como (en. NET) \_Layout.cshtml, o en un archivo de inclusión, para asegurarse de que se incluya en todas las páginas.
-
-El fragmento de código incluye la clave de instrumentación (iKey) que identifica el recurso. Para enviar datos a un recurso diferente, por ejemplo, durante las pruebas, basta con reemplazar el iKey.
-
-Publique las páginas web o úselas en modo de depuración para generar algunos datos de telemetría.
+[Más información](app-insights-javascript.md)
 
 
 ## Popularidad de mi aplicación web
@@ -112,7 +96,7 @@ Sin embargo, cuando explore intervalos de tiempo más pequeños (por ejemplo, un
 
 Cada sesión de usuario está asociada a un identificador de usuario único.
 
-De forma predeterminada, el usuario se identifica mediante la colocación de una cookie. Un usuario que use varios exploradores o dispositivos se contará varias veces. (No obstante, consulte [Usuarios autenticados](#authenticated-users)).
+De forma predeterminada, el usuario se identifica mediante la colocación de una cookie. Un usuario que use varios exploradores o dispositivos se contará varias veces. (No obstante, vea [Usuarios autenticados](#authenticated-users)).
 
 
 La métrica **Recuento de usuarios** en un intervalo determinado se define como el número de usuarios únicos con actividad registrada durante este intervalo. Como resultado, es posible que los usuarios con sesiones extensas se cuenten varias veces cuando se establece un intervalo de tiempo tal que la unidad es inferior a una hora o similar.
@@ -132,7 +116,7 @@ Si su aplicación agrupa a los usuarios en cuentas, también puede pasar un iden
 
       appInsights.setAuthenticatedUserContext(userId, accountId);
 
-Los identificadores de usuario y de cuenta no pueden contener espacios ni caracteres `,;=|`
+Los identificadores de usuario y de cuenta no pueden contener espacios ni caracteres `,;=|`.
 
 
 En el [explorador de métricas](app-insights-metrics-explorer.md), puede crear un gráfico de **Usuarios autenticados** y **Cuentas**.
@@ -391,4 +375,4 @@ Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo 
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->
