@@ -63,7 +63,7 @@ Para admitir la aplicación, se crea un contenedor en Almacenamiento de Azure, s
 
 	- **[account-name]**: el nombre de la cuenta de almacenamiento que creó anteriormente.
 
-	- **[account-key]**: la clave principal de la cuenta de almacenamiento. Puede encontrar la clave principal en la página Almacenamiento del Portal de vista previa de Azure.
+	- **[account-key]**: la clave principal de la cuenta de almacenamiento. Puede encontrar la clave principal en la página de Almacenamiento que se encuentra en el Portal de Azure.
 
 2. Guarde el archivo App.config.
 
@@ -208,7 +208,7 @@ Un grupo de nodos de ejecución es el primer conjunto de recursos que debe crear
 			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("[account-url]", "[account-name]", "[account-key]");
 			BatchClient client = BatchClient.Open(cred);
 
-	Reemplace los valores entre corchetes por los asociados con la cuenta de Lote, que se pueden encontrar en el [Portal de vista previa de Azure](https://portal.azure.com). Para buscar estos valores, inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com) y:
+	Reemplace los valores entre corchetes por los asociados con la cuenta de Lote, que se pueden encontrar en el [Portal de Azure](https://portal.azure.com). Para buscar estos valores, inicie sesión en el [Portal de Azure](https://portal.azure.com) y:
 
 	- **[account-name]**: haga clic en **Cuentas de Lote**, seleccione la cuenta de Lote que creó anteriormente
 	- **[account-url]**: en la hoja de cuenta de Lote, haga clic en **Propiedades** > **URL**
@@ -487,7 +487,7 @@ Dado que se le cobrará por los recursos en Azure, siempre es conveniente elimin
 			Task status: Completed
 			Task start: 7/17/2015 8:31:57 PM
 
-8. En este momento, puede ir al Portal de vista previa de Azure para ver los recursos que se han creado. Para eliminar los recursos, pulse Entrar hasta que el programa finalice.
+8. En este momento, puede ir al Portal de Azure para ver los recursos que se han creado. Para eliminar los recursos, pulse Entrar hasta que el programa finalice.
 
 ## Pasos siguientes
 
@@ -495,4 +495,4 @@ Dado que se le cobrará por los recursos en Azure, siempre es conveniente elimin
 
 2. Algunas aplicaciones generan grandes cantidades de datos que pueden ser difíciles de procesar. Una manera de resolver esto es a través de una [consulta de lista eficiente](batch-efficient-list-queries.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

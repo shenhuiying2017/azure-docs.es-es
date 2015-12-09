@@ -45,21 +45,21 @@ Los siguientes requisitos previos son necesarios para iniciar el desarrollo con 
 
 En este tutorial rápido se muestran las siguientes tareas.
 
-1.  Creación de una cuenta de Servicios multimedia (con el Portal de Azure).
+1.  Creación de una cuenta de Servicios multimedia (con el Portal de Azure clásico).
 2.  Configuración de extremos de streaming (con el Portal).
 3.  Creación y configuración de un proyecto de Visual Studio.
 5.  Conexión a la cuenta de Servicios multimedia
 6.  Creación de un nuevo recurso y carga de un archivo de vídeo
 7.  Codificación del archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptativa
-8.  Publicación del recurso y obtención de direcciones URL para streaming y descarga progresiva.  
+8.  Publicación del recurso y obtención de direcciones URL para streaming y descarga progresiva.
 9.  Reproduzca el contenido.
 
 
 ##Creación de una cuenta de Servicios multimedia con el Portal
 
-1. En el portal de Azure, haga clic en **Nuevo**, en **Servicios multimedia** y luego en **Creación rápida**.
+1. En el Portal de Azure clásico, haga clic en **Nuevo**, en **Servicios multimedia** y luego en **Creación rápida**.
 
-	![Creación rápida de Servicios multimedia](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
+![Creación rápida de Servicios multimedia](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
 
 2. En **NOMBRE**, especifique el nombre de la cuenta nueva. El nombre de cuenta de Servicios multimedia debe estar compuesto de números o letras en minúscula, sin espacios y con una longitud de entre 3 y 24 caracteres.
 
@@ -71,15 +71,15 @@ En este tutorial rápido se muestran las siguientes tareas.
 
 6. Haga clic en **Creación rápida** en la parte inferior del formulario.
 
-	Puede supervisar el estado del proceso en el área de mensajes situada en parte inferior de la ventana.
+Puede supervisar el estado del proceso en el área de mensajes situada en parte inferior de la ventana.
 
-	Cuando la cuenta se crea correctamente, el estado cambia a **Activo**.
+Cuando la cuenta se crea correctamente, el estado cambia a **Activo**.
 
-	En la parte inferior de la página, se muestra el botón **ADMINISTRAR CLAVES**. Al hacer clic en este botón, se muestra un cuadro de diálogo con el nombre de cuenta de Servicios multimedia y las claves principales y secundarias. Necesitará el nombre de cuenta y la información de la clave principal para obtener acceso mediante programación a la cuenta de Servicios multimedia.
+En la parte inferior de la página, se muestra el botón **ADMINISTRAR CLAVES**. Al hacer clic en este botón, se muestra un cuadro de diálogo con el nombre de cuenta de Servicios multimedia y las claves principales y secundarias. Necesitará el nombre de cuenta y la información de la clave principal para obtener acceso mediante programación a la cuenta de Servicios multimedia.
 
-	![Página de Servicios multimedia](./media/media-services-dotnet-get-started/wams-mediaservices-page.png)
+![Página de Servicios multimedia](./media/media-services-dotnet-get-started/wams-mediaservices-page.png)
 
-	Cuando haga doble clic en el nombre de cuenta, se mostrará la página de **inicio rápido** de forma predeterminada. La página le permite realizar algunas tareas de administración que también están disponibles en otras páginas del portal. Por ejemplo, puede cargar un archivo de vídeo desde esta página o hacerlo desde la página CONTENT.
+Al hacer doble clic en el nombre de la cuenta, se muestra la página **Inicio rápido** de forma predeterminada. La página le permite realizar algunas tareas de administración que también están disponibles en otras páginas del portal. Por ejemplo, puede cargar un archivo de vídeo desde esta página o hacerlo desde la página CONTENT.
 
 ##Configuración de extremos de streaming con el Portal
 
@@ -89,8 +89,8 @@ Servicios multimedia proporciona paquetes dinámicos que permiten entregar conte
 
 Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 
-- Codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable (más adelante en este tutorial se muestran los pasos de codificación).  
-- Obtener al menos una unidad de streaming para el **extremo de streaming** para el que planea entregar el contenido.
+- Codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable (más adelante en este tutorial se muestran los pasos de codificación).
+- Obtener al menos una unidad de streaming para el **punto de conexión de streaming** para el que planea entregar el contenido.
 
 Con el empaquetado dinámico, solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
 
@@ -102,15 +102,15 @@ Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 
 3. Para especificar el número de unidades de streaming, haga clic en la pestaña ESCALA y luego desplace el control deslizante de **capacidad reservada**.
 
-	![Página de escala](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
+![Página de escala](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
 
 4. Presione **GUARDAR** para guardar los cambios.
 
-	La asignación de cualquier nueva unidad puede tardar unos 20 minutos en finalizarse.
+La asignación de cualquier nueva unidad puede tardar unos 20 minutos en finalizarse.
 
-	>[AZURE.NOTE]Actualmente, pasar de cualquier valor positivo de unidades de streaming a ninguno puede deshabilitar el streaming hasta una hora.
-	>
-	> Se utiliza el número más elevado de unidades especificadas durante el período de 24 horas al calcular el coste. Para obtener más información acerca de los precios, consulte la página sobre [información de precios de Servicios multimedia](http://go.microsoft.com/fwlink/?LinkId=275107).
+>[AZURE.NOTE]Actualmente, pasar de cualquier valor positivo de unidades de streaming a ninguno puede deshabilitar el streaming hasta una hora.
+>
+> Se utiliza el número más elevado de unidades especificadas durante el período de 24 horas al calcular el coste. Para más información sobre precios, vea [Detalles de precios de Servicios multimedia](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 
 
@@ -118,18 +118,13 @@ Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 
 1. Cree una nueva Aplicación de consola de C# en Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1. Escriba el **Nombre**, la **Ubicación** y el **Nombre de la solución** y, a continuación, haga clic en **OK**.
 
-2. Utilice el paquete de Nuget [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) para instalar **Extensiones del SDK de Servicios multimedia de Azure para .NET**. Las extensiones del SDK .NET de Servicios multimedia son un conjunto de métodos de extensión y funciones auxiliares que simplificarán su código y facilitarán el desarrollo con Servicios multimedia. Al instalar este paquete, también se instala el **SDK de Servicios multimedia para .NET** y agrega todas las demás dependencias necesarias.
+2. Use el paquete Nuget [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) para instalar **Extensiones del SDK de Servicios multimedia de Azure para .NET**. Las extensiones del SDK .NET de Servicios multimedia son un conjunto de métodos de extensión y funciones auxiliares que simplificarán su código y facilitarán el desarrollo con Servicios multimedia. Al instalar este paquete, también se instala el **SDK de Servicios multimedia para .NET** y agrega todas las demás dependencias necesarias.
 
-3. Agregue una referencia al ensamblado System.Configuration. Este ensamblado contiene la clase **System.Configuration.ConfigurationManager** que se usa para tener acceso a los archivos de configuración, por ejemplo, App.config.
+3. Agregue una referencia al ensamblado System.Configuration. Este ensamblado contiene la clase **System.Configuration.ConfigurationManager** que se usa para acceder a los archivos de configuración, por ejemplo, App.config.
 
-4. Abra el archivo App.config (agregue el archivo al proyecto si no se ha agregado de forma predeterminada) y agregue una sección *appSettings* al archivo. Establezca los valores de la clave de nombre y la cuenta de cuenta de Servicios multimedia de Azure, tal como se muestra en el ejemplo siguiente. Para obtener el nombre de cuenta y la información de la clave, abra el portal de Azure, seleccione su cuenta de servicios multimedia y luego haga clic en el botón **ADMINISTRAR CLAVES**.
+4. Abra el archivo App.config (agregue el archivo al proyecto si no se ha agregado de forma predeterminada) y agregue una sección *appSettings* al archivo. Establezca los valores de la clave de nombre y la cuenta de cuenta de Servicios multimedia de Azure, tal como se muestra en el ejemplo siguiente. Para obtener el nombre de la cuenta y la información de la clave, abra el Portal de Azure clásico, seleccione la cuenta de servicios multimedia y haga clic en el botón **ADMINISTRAR CLAVES**.
 
-		<configuration>
-		...
-		  <appSettings>
-		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-		    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-		  </appSettings>
+<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
 		  
 		</configuration>
 
@@ -150,9 +145,9 @@ Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 
 ##Conexión a la cuenta de Servicios multimedia
 
-Cuando se usa Servicios multimedia con .NET, debe usar la clase **CloudMediaContext** para la mayoría de las tareas de programación de Servicios multimedia: conexión a la cuenta de Servicios multimedia; creación, actualización, obtención de acceso y eliminación de los siguientes objetos: activos, archivos de activos, trabajos, directivas de acceso, localizadores, etc.
+Cuando se usa Servicios multimedia con .NET, debe usar la clase **CloudMediaContext** para la mayoría de las tareas de programación de Servicios multimedia: conexión a la cuenta de Servicios multimedia; creación, actualización, acceso y eliminación de los siguientes objetos: activos, archivos de activos, trabajos, directivas de acceso, localizadores, etc.
 
-Sobrescriba la clase de programa predeterminada con el código siguiente. El código muestra cómo leer los valores de conexión del archivo App.config y cómo crear el objeto **CloudMediaContext** para conectarse a Servicios multimedia. Para obtener más información sobre cómo conectarse a Servicios multimedia, consulte [Conexión a Servicios multimedia con el SDK de Servicios multimedia para .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
+Sobrescriba la clase de programa predeterminada con el código siguiente. El código muestra cómo leer los valores de conexión del archivo App.config y cómo crear el objeto **CloudMediaContext** para conectarse a Servicios multimedia. Para más información sobre cómo conectarse a Servicios multimedia, vea [Conexión con Servicios multimedia con el SDK de Servicios multimedia para .NET.](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
 La función **Main** llama a métodos que se definirán más adelante en esta sección.
 
@@ -205,14 +200,14 @@ La función **Main** llama a métodos que se definirán más adelante en esta se
 
 ##Creación de un nuevo recurso y carga de un archivo de vídeo
 
-En Servicios multimedia, cargará (o introducirá) los archivos digitales en un recurso. La entidad **Activo** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos). Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming. Los archivos del recurso se denominan **archivos de recursos**.
+En Servicios multimedia, cargará (o introducirá) los archivos digitales en un recurso. La entidad **Activo** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos sobre estos archivos). Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming. Los archivos del recurso se denominan **archivos de recursos**.
 
-El método **UploadFile** definido a continuación llama a **CreateFromFile** (definido en las extensiones del SDK para .NET). **CreateFromFile** crea un nuevo activo en el que se carga el archivo de origen especificado.
+El método **UploadFile** que se define a continuación llama a **CreateFromFile** (que se define en las extensiones del SDK para .NET). **CreateFromFile** crea un activo en el que se carga el archivo de origen especificado.
 
 El método **CreateFromFile** toma **AssetCreationOptions**, que permite especificar una de las siguientes opciones de creación de activos:
 
 - **Ninguno**: no se utiliza cifrado. Este es el valor predeterminado. Tenga en cuenta que al usar esta opción el contenido no está protegido en tránsito o en reposo en el almacenamiento. Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción.
-- **StorageEncrypted**: use esta opción para cifrar el contenido no cifrado de manera local mediante el cifrado Estándar de cifrado avanzado (AES) de 256 bits y luego cargarlo al almacenamiento de Azure donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
+- **StorageEncrypted**: use esta opción para cifrar localmente el contenido no cifrado mediante el cifrado Estándar de cifrado avanzado (AES) de 256 bits y luego cargarlo al almacenamiento de Azure donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
 - **CommonEncryptionProtected**: use esta opción si va a cargar contenido que ya se ha cifrado y protegido con cifrado común o DRM de PlayReady (por ejemplo, Smooth Streaming protegido con DRM de PlayReady).
 - **EnvelopeEncryptionProtected**: use esta opción si va a cargar HLS cifrado con AES. Tenga en cuenta que los archivos deben haberse codificado y cifrado con Transform Manager.
 
@@ -446,4 +441,4 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

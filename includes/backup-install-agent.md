@@ -1,6 +1,6 @@
 ## Descarga, instalación y registro del agente de Copia de seguridad de Azure
 
-Después de crear el almacén de Copia de seguridad de Azure, debe instalarse un agente en cada uno de los servidores locales (servidor de Windows Server, cliente Windows o servidor de Data Protection Manager) que habilite las copias de seguridad de datos y aplicaciones en Azure.
+Después de crear el almacén de Copia de seguridad de Azure, se debe instalar un agente en cada una de las máquinas de Windows (servidor de Windows Server, cliente de Windows, servidor de System Center Data Protection Manager o la máquina del Servidor de copia de seguridad de Azure) que habilite la copia de seguridad de los datos y las aplicaciones en Azure.
 
 1. Inicie sesión en el [Portal de administración](https://manage.windowsazure.com/).
 
@@ -48,4 +48,4 @@ Después de crear el almacén de Copia de seguridad de Azure, debe instalarse un
 
     ![Configurar Copia de seguridad de Azure](./media/backup-install-agent/configure.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

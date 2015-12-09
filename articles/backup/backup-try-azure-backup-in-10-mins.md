@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="09/03/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="11/26/2015" ms.author="aashishr"; "jimpark"/>
 
 # Introducción a Copia de seguridad de Azure
 Es muy fácil configurar Copia de seguridad de Azure; los siguientes vídeos de procedimientos le ayudarán a empezar.
@@ -46,4 +46,4 @@ Siga los pasos mencionados en el vídeo [Introducción a Copia de seguridad de A
 - [Copia de seguridad de servidores Windows](backup-azure-backup-windows-server.md)
 - Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

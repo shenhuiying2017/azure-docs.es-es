@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="11/04/2015"
+	ms.date="11/30/2015"
 	ms.author="wesmc"/>
 
 # Introducción a Centros de notificaciones para aplicaciones iOS
@@ -37,7 +37,7 @@ El código completo de este tutorial se puede encontrar en GitHub [aquí](https:
 
 Este tutorial requiere lo siguiente:
 
-+ [SDK de iOS para Servicios móviles]
++ [SDK de iOS versión 1.2.4 para Servicios móviles]
 + [Xcode 7][Install Xcode]
 + Un dispositivo compatible con iOS 8 (o una versión posterior)
 + Pertenencia al programa para desarrolladores de iOS
@@ -86,7 +86,7 @@ El centro de notificaciones está ahora configurado para funcionar con APNS y ti
 
    	![][9]
 
-4. Descargue la versión 1.2.4 del [SDK de iOS para Servicios móviles] y descomprima el archivo. En XCode, haga clic con el botón derecho en el proyecto y haga clic en la opción **Add Files to** (Agregar archivos a) para agregar la carpeta **WindowsAzureMessaging.framework** al proyecto de XCode. Seleccione **Copy items if needed** (Copiar elementos si es necesario) y luego haga clic en **Add** (Agregar).
+4. Descargue el [SDK de iOS versión 1.2.4 para Servicios móviles] y descomprima el archivo. En XCode, haga clic con el botón derecho en el proyecto y haga clic en la opción **Add Files to** (Agregar archivos a) para agregar la carpeta **WindowsAzureMessaging.framework** al proyecto de XCode. Seleccione **Copy items if needed** (Copiar elementos si es necesario) y luego haga clic en **Add** (Agregar).
 
    	![][10]
 
@@ -486,7 +486,8 @@ Para obtener más información general sobre los Centros de notificaciones, cons
 
 
 <!-- URLs. -->
-[SDK de iOS para Servicios móviles]: http://go.microsoft.com/fwLink/?LinkID=266533
+[SDK de iOS versión 1.2.4 para Servicios móviles]: http://aka.ms/kymw2g
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
@@ -503,4 +504,4 @@ Para obtener más información general sobre los Centros de notificaciones, cons
 
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

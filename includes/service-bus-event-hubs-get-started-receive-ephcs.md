@@ -4,7 +4,7 @@
 
 Para poder usar [EventProcessorHost], debe tener una [cuenta de almacenamiento de Azure]\:
 
-1. Inicie sesión en el [portal de Azure] y haga clic en **NUEVO** en la parte inferior de la pantalla.
+1. Inicie sesión en el [Portal de Azure clásico][] y haga clic en **NUEVO** en la parte inferior de la pantalla.
 
 2. Haga clic en **Servicios de datos**, **Almacenamiento** y **Creación rápida** y, a continuación, escriba un nombre para la cuenta de almacenamiento. Seleccione la región deseada y, a continuación, haga clic en **Crear cuenta de almacenamiento**.
 
@@ -106,7 +106,7 @@ Para poder usar [EventProcessorHost], debe tener una [cuenta de almacenamiento d
 [procesamiento de eventos escalados horizontalmente]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [cuenta de almacenamiento de Azure]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[portal de Azure]: http://manage.windowsazure.com
+[Portal de Azure clásico]: http://manage.windowsazure.com
 
 <!-- Images -->
 
@@ -115,4 +115,4 @@ Para poder usar [EventProcessorHost], debe tener una [cuenta de almacenamiento d
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

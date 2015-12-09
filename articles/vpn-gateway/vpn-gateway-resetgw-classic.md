@@ -20,7 +20,7 @@
 # Restablecer una Puerta de enlace de VPN de Azure con PowerShell
 
 
-Este artículo te guiará a través del restablecimiento de la Puerta de enlace de VPN de Azure mediante cmdlets de PowerShell. Estas instrucciones se aplican al modelo de implementación clásica. Todavía no tenemos un cmdlet o una API de REST para restablecer la Puerta de enlace de VPN para las redes virtuales creadas mediante el modelo de implementación del Administrador de recursos. Se encuentran en proceso. Puedes indicar si la Puerta de enlace de VPN se creó usando el modelo de implementación clásico mediante la visualización de la red virtual en el portal de vista previa. Las redes virtuales creadas mediante el modelo clásico de implementación se muestran en la parte de Red virtual (clásica) del portal de vista previa.
+Este artículo te guiará a través del restablecimiento de la Puerta de enlace de VPN de Azure mediante cmdlets de PowerShell. Estas instrucciones se aplican al modelo de implementación clásica. Todavía no tenemos un cmdlet o una API de REST para restablecer la Puerta de enlace de VPN para las redes virtuales creadas mediante el modelo de implementación del Administrador de recursos. Se encuentran en proceso. Puede indicar si la puerta de enlace de VPN se creó usando el modelo de implementación clásico mediante la visualización de la red virtual en el Portal de Azure. Las redes virtuales creadas mediante el modelo clásico de implementación se muestran en la parte de Red virtual (clásica) del Portal de Azure.
 
 El restablecer la Puerta de enlace de VPN de Azure es útil si se pierde la conectividad VPN entre locales en uno o varios túneles VPN de S2S. En esta situación, todos tus dispositivos VPN locales funcionan correctamente, pero no pueden establecer túneles IPsec con las Puertas de enlace de VPN de Azure. Cuando usas el cmdlet *Reset-AzureVNetGateway*, este reiniciará la puerta de enlace y después le volverá a aplicar las configuraciones entre locales. La puerta de enlace mantendrá la dirección IP pública que ya tiene. Esto significa que no tendrás que actualizar la configuración del enrutador VPN con una nueva dirección IP pública de Puerta de enlace de VPN de Azure.
 
@@ -52,11 +52,11 @@ En el ejemplo siguiente se restablece la Puerta de enlace de VPN de Azure para l
 
 Si la conexión no se restaura después del primer reinicio, vuelve a ejecutar el mismo comando para reiniciar la segunda instancia de VM (la nueva puerta de enlace activa). Si se solicitan los dos reinicios consecutivamente, habrá un período un poco más largo donde se estén reiniciando ambas instancias de VM (activa y en espera). En este caso, ocurrirá una interrupción mayor en la conectividad de VPN, de 2 a 4 minutos, para que las máquinas virtuales completen los reinicios.
 
-Después de dos reinicios, si sigues teniendo problemas de conectividad entre locales, abre una incidencia de soporte técnico en el portal de Azure para ponerte en contacto con el soporte técnico de Microsoft Azure.
+Después de dos reinicios, si sigue teniendo problemas de conectividad entre locales, abra una incidencia de soporte técnico en el Portal de Azure clásico para ponerse en contacto con el soporte técnico de Microsoft Azure.
 
 
 ## Pasos siguientes
 	
 Para obtener más información sobre este cmdlet consulta la [Referencia de PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

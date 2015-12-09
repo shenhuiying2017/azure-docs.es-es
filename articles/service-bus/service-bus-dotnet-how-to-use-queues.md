@@ -54,7 +54,7 @@ En cualquiera de los dos casos, puede recuperar la cadena de conexión usando el
 
 ### Configuración de la cadena de conexión si usa Servicios en la nube
 
-El mecanismo de configuración de servicios es exclusivo para los proyectos de los servicios en la nube de Azure y le permite cambiar dinámicamente la configuración desde el portal de Azure sin volver a implementar la aplicación. Por ejemplo, agregue una etiqueta `Setting` al archivo de definición de servicio (.csdef), como se indica en el siguiente ejemplo.
+El mecanismo de configuración de servicios es exclusivo para los proyectos de los servicios en la nube de Azure y le permite cambiar dinámicamente la configuración desde el [Portal de Azure clásico][] sin volver a implementar la aplicación. Por ejemplo, agregue una etiqueta `Setting` al archivo de definición de servicio (.csdef), como se indica en el siguiente ejemplo:
 
 ```
 <ServiceDefinition name="Azure1">
@@ -82,11 +82,11 @@ A continuación, especifique los valores del archivo de configuración de servic
 </ServiceConfiguration>
 ```
 
-Use el nombre y los valores de clave de la firma de acceso compartido (SAS) recuperados del Portal de Azure, como se indica en la sección anterior.
+Use el nombre y los valores de clave de la firma de acceso compartido (SAS) recuperados del Portal de Azure clásico, como se indica en la sección anterior.
 
 ### Configuración de la cadena de conexión al usar Sitios web o Máquinas virtuales de Azure
 
-Cuando use sitios web o máquinas virtuales, se recomienda usar el sistema de configuración de .NET (por ejemplo, **Web.config**). Almacene la cadena de conexión usando el elemento `<appSettings>`.
+Al usar Sitios web o Máquinas virtuales, se recomienda usar el sistema de configuración de .NET (por ejemplo, **Web.config**). Almacene la cadena de conexión mediante el elemento `<appSettings>`.
 
 ```
 <configuration>
@@ -97,7 +97,7 @@ Cuando use sitios web o máquinas virtuales, se recomienda usar el sistema de co
 </configuration>
 ```
 
-Use el nombre y los valores de clave de SAS recuperados del Portal de Azure, como se indica en la sección anterior.
+Use el nombre y los valores de clave de SAS recuperados del Portal de Azure clásico, como se indica en la sección anterior.
 
 ## Creación de una cola
 
@@ -164,7 +164,7 @@ QueueClient Client =
 Client.Send(new BrokeredMessage());
 ```
 
-Los mensajes enviados a las colas del Bus de servicio y recibidos en ellas son instancias de la clase [BrokeredMessage][]. Los objetos [BrokeredMessage][] cuentan con un conjunto de propiedades estándar (como [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) y [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede configurar el cuerpo del mensaje pasando todos los objetos serializables al constructor del objeto [BrokeredMessage][] y, a continuación, se usará el **DataContractSerializer** adecuado para serializar el objeto. También puede especificar un objeto **System.IO.Stream**.
+Los mensajes enviados a las colas del bus de servicio y recibidos en ellas son instancias de la clase [BrokeredMessage][]. Los objetos [BrokeredMessage][] cuentan con un conjunto de propiedades estándar (como [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) y [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede configurar el cuerpo del mensaje pasando todos los objetos serializables al constructor del objeto [BrokeredMessage][] y, a continuación, se usará el **DataContractSerializer** adecuado para serializar el objeto. También puede especificar un objeto **System.IO.Stream**.
 
 En el ejemplo siguiente se muestra cómo enviar cinco mensajes de prueba al objeto `TestQueue` de [QueueClient][] obtenido en el ejemplo de código anterior.
 
@@ -183,7 +183,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Las colas del Bus de servicio admiten mensajes con un [tamaño máximo de 256 KB](service-bus-quotas.md) (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Si está habilitada la división en particiones, el límite superior es más elevado. Para obtener más información, consulte [Entidades de mensajería con particiones](service-bus-partitioning.md).
+Las colas del Bus de servicio admiten mensajes con un [tamaño máximo de 256 KB](service-bus-quotas.md) (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Si está habilitada la división en particiones, el límite superior es más elevado. Para obtener más información, consulte [Entidades de mensajería con particiones](service-bus-partitioning.md).
 
 ## Recepción de mensajes de una cola
 
@@ -246,7 +246,7 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
 -   Compile una aplicación que envíe y reciba mensajes desde una cola del Bus de servicio y hacia ella con el [Tutorial de .NET de mensajería asincrónica del Bus de servicio][].
 -   Descargue ejemplos de Bus de servicio en [Ejemplos de Azure][] o consulte la [información general de ejemplos de Bus de servicio][].
 
-  [Azure portal]: http://manage.windowsazure.com
+  [Portal de Azure clásico]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
   [Tutorial de .NET de mensajería asincrónica del Bus de servicio]: service-bus-brokered-tutorial-dotnet.md
@@ -259,4 +259,4 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

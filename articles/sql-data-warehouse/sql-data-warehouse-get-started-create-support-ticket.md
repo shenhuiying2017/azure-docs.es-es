@@ -22,7 +22,7 @@
 
 ## Creación de una incidencia de soporte técnico.
 
-1. Abra el [Portal de Azure][]. 
+1. Abra el [Portal de Azure clásico][]. 
 2. En la pantalla de inicio, haga clic en el icono **Ayuda y soporte técnico**.
 
     ![Ayuda y soporte técnico](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
@@ -78,10 +78,10 @@ Además, puede conectar con la comunidad de Almacenamiento de datos SQL usando l
 
 <!-- External links -->
 
-[Portal de Azure]: https://portal.azure.com/
+[Portal de Azure clásico]: https://portal.azure.com/
 [Planes de soporte técnico de Azure]: http://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
 [portal Microsoft Premier Online]: https://premier.microsoft.com/
 [Desbordamiento de pila]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [foro de MSDN Almacenamiento de datos SQL de Azure]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,12 +1,10 @@
-En esta sección se muestra cómo asegurarse de que la aplicación se conecta al back-end de Mobile Engagement mediante la característica de supervisión en tiempo real de Mobile Engagement.
+En esta sección se muestra cómo conectar la aplicación al back-end de Mobile Engagement mediante la característica de supervisión en tiempo real de Mobile Engagement.
 
-1. Desplácese hasta el portal de Mobile Engagement. Asegúrese de que se encuentra en la aplicación que estamos usando para este proyecto y luego haga clic en el botón **Interactuar** de la parte inferior.
+1. En la cuenta de **Azure Mobile Engagement**, asegúrese de seleccionar la aplicación que desea supervisar y administrar en el portal de **Mobile Engagement**. Navegue al portal de Mobile Engagement haciendo clic en el botón **Interactuar** situado en la parte inferior. 
 
 	 ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
 
-2. Entrará en el portal de Mobile Engagement. Haga clic en la pestaña **Monitor**.
-	 
-	![](./media/mobile-engagement-connect-app-with-monitor/click-monitor-tab.png)
+2. Entrará en el portal de Mobile Engagement. Si la pestaña Monitor no está seleccionada, haga clic en el **Monitor**.
 
 3. El monitor está listo para mostrar en tiempo real cualquier dispositivo que iniciará su aplicación.
 	 
@@ -14,4 +12,4 @@ En esta sección se muestra cómo asegurarse de que la aplicación se conecta al
 	
 	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

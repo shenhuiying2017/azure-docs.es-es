@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Implementación de granjas de servidores SharePoint con plantillas del ARM | Microsoft Azure"
-	description="Implemente fácilmente una granja de SharePoint de tres o nueve servidores con plantillas del Administrador de recursos y el Portal de vista previa de Azure, Azure PowerShell o la CLI de Azure."
+	description="Implemente fácilmente una granja de SharePoint de tres o nueve servidores con plantillas del Administrador de recursos y el portal de Azure, Azure PowerShell o la CLI de Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -29,13 +29,13 @@ En una granja de servidores de SharePoint Server 2013 básica, una plantilla de 
 
 ![](./media/virtual-machines-workload-template-sharepoint/three-server-sharepoint-farm.png)
 
-Puede ejecutar la plantilla con el Portal de vista previa de Azure, Azure PowerShell o la CLI de Azure.
+Puede ejecutar la plantilla con el Portal de Azure, Azure PowerShell o la CLI de Azure.
 
-> [AZURE.NOTE]También puede crear esta configuración mediante el elemento [Granja de SharePoint 2013 sin alta disponibilidad](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) en Azure Marketplace del Portal de vista previa de Azure.
+> [AZURE.NOTE]También puede crear esta configuración mediante el elemento [Granja de SharePoint 2013 sin alta disponibilidad](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) en Azure Marketplace del Portal de Azure.
 
-### Portal de vista previa de Azure
+### Portal de Azure
 
-Para implementar esta carga de trabajo mediante una plantilla del Administrador de recursos y el Portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
+Para implementar esta carga de trabajo mediante una plantilla del Administrador de recursos y el Portal de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
@@ -103,11 +103,11 @@ En una granja de servidores de SharePoint Server 2013 de alta disponibilidad, un
 
 ![](./media/virtual-machines-workload-template-sharepoint/nine-server-sharepoint-farm.png)
 
-> [AZURE.NOTE]También puede crear esta configuración mediante el elemento [Granja de alta disponibilidad de SharePoint 2013](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) en Azure Marketplace del Portal de vista previa de Azure.
+> [AZURE.NOTE]También puede crear esta configuración mediante el elemento [Granja de servidores de SharePoint 2013 de alta disponibilidad](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) en Azure Marketplace del Portal de Azure.
 
-### Portal de vista previa de Azure
+### Portal de Azure
 
-Para implementar esta carga de trabajo mediante una plantilla del Administrador de recursos y el Portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
+Para implementar esta carga de trabajo mediante una plantilla del Administrador de recursos y el Portal de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
@@ -186,4 +186,4 @@ Cuando haya finalizado la ejecución de la plantilla, tendrá una nueva granja S
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

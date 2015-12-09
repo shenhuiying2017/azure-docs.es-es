@@ -35,9 +35,9 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## Creación de una aplicación de la Tienda Windows
 
-Una vez creado el servicio móvil, puede seguir una sencilla y rápida introducción en el Portal de administración para crear una aplicación JavaScript para Tienda Windows 8.1 que se conecte al servicio móvil.
+Después de crear el servicio móvil, puede seguir una sencilla introducción rápida en el Portal de Azure clásico para crear una aplicación JavaScript para Tienda Windows 8.1 que se conecte al servicio móvil.
 
-1.  En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
+1.  En el [Portal de Azure clásico], haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
 
 
 2. En la pestaña de inicio rápido, haga clic en **Windows** en **Seleccionar plataforma** y, a continuación, expanda **Crear una nueva aplicación de la Tienda Windows**.
@@ -64,7 +64,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 4. (Opcional) Ejecute de nuevo la aplicación y tenga en cuenta que los datos guardados en el paso anterior se cargan del servicio móvil después de que se inicie la aplicación.
  
-4. De nuevo en el Portal de administración, haga clic en la pestaña **Datos** y luego haga clic en la tabla **TodoItems**.
+4. De nuevo en el [Portal de Azure clásico], haga clic en la pestaña **Datos** y luego en la tabla **TodoItems**.
 
    	Esto le permite examinar los datos que la aplicación inserta en la tabla.
 
@@ -87,6 +87,6 @@ Ahora que completó el tutorial, aprenderá a trabajar con el [Cliente de Servic
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Visual Studio 2013 Express para Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Management Portal]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

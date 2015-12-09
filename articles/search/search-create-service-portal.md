@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creación de un servicio Búsqueda de Azure en el Portal | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
-	description="Agregue una Búsqueda de Azure gratis o estándar a una suscripción existente mediante el portal de Azure Búsqueda de Azure es un servicio de búsqueda hospedado en la nube para aplicaciones personalizadas."
+	description="Agregue una Búsqueda de Azure gratis o estándar a una suscripción existente mediante el Portal de Azure clásico. Búsqueda de Azure es un servicio de búsqueda hospedado en la nube para aplicaciones personalizadas."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -17,15 +17,15 @@
 	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
-# Creación de un servicio Búsqueda de Azure en el portal de Azure
+# Creación de un servicio Búsqueda de Azure en el Portal de Azure clásico
 
-Búsqueda de Microsoft Azure es un servicio de búsqueda hospedado en la nube que le permite insertar funcionalidad de búsqueda en aplicaciones personalizadas. Proporciona un motor de búsqueda y almacenamiento para sus datos de búsqueda, a los que puede acceder y administrarlos mediante el Portal de Azure, un SDK de .NET o una API de REST. Entre las funciones clave se incluyen consultas de autocompletar, la coincidencia aproximada, la navegación con facetas, el resaltado de resultados, los perfiles de puntuación y la compatibilidad con varios idiomas. Para obtener más información acerca del funcionamiento de Búsqueda de Azure, consulte [Qué es Búsqueda de Azure](seach-what-is-search.md).
+Búsqueda de Microsoft Azure es un servicio de búsqueda hospedado en la nube que le permite insertar funcionalidad de búsqueda en aplicaciones personalizadas. Proporciona un motor de búsqueda y almacenamiento para sus datos de búsqueda, a los que puede acceder y administrarlos mediante el Portal de Azure clásico, un SDK de .NET o una API de REST. Entre las funciones clave se incluyen consultas de autocompletar, la coincidencia aproximada, la navegación con facetas, el resaltado de resultados, los perfiles de puntuación y la compatibilidad con varios idiomas. Para obtener más información acerca del funcionamiento de Búsqueda de Azure, consulte [Qué es Búsqueda de Azure](seach-what-is-search.md).
 
 ## Incorporación de Búsqueda de Azure a una suscripción de forma gratuita
 
 Como administrador, puede agregar Búsqueda de Azure a una suscripción de Azure existente sin costo alguno al seleccionar el servicio compartido (o a una tarifa estándar cuando se opta por recursos específicos).
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com).
 
 2. En la barra de salto, haga clic en **Nuevo** > **Datos + almacenamiento** > **Búsqueda**.
 
@@ -78,7 +78,7 @@ Puede consultar [Detalles de precios](http://go.microsoft.com/fwlink/p/?LinkID=5
 <a id="sub-2"></a>
 ## Buscar el nombre del servicio y las claves de API del servicio Búsqueda de Azure
 
-Después de crear el servicio, puede volver al portal de Azure para obtener la dirección URL o la `api-key`. Las conexiones con el servicio de Búsqueda de Azure requieren que tenga la URL y una `api-key` para autenticar la llamada.
+Después de crear el servicio, puede volver al Portal de Azure clásico para obtener la dirección URL o la `api-key`. Las conexiones con el servicio de Búsqueda de Azure requieren que tenga la dirección URL y una `api-key` para autenticar la llamada.
 
 1. En la barra de salto, haga clic en **Inicio** y, a continuación, haga clic en el servicio Búsqueda de Azure para abrir el panel del servicio.
 
@@ -123,4 +123,4 @@ En la siguiente información adicional, se explica cómo compilar y administrar 
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

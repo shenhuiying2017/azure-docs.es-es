@@ -18,6 +18,11 @@
 
 # <a name="getting-started"> </a>Introducción a Servicios móviles
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
@@ -44,11 +49,11 @@ Para completar este tutorial es necesario XCode y [Xamarin Studio] para OS X o e
 
 ## Creación de una aplicación Xamarin.iOS
 
-Una vez que haya creado el servicio móvil, podrá seguir una introducción rápida en el Portal de administración para crear una nueva aplicación o modificar una ya existente a fin de conectarla a dicho servicio.
+Después de crear el servicio móvil, puede seguir una sencilla introducción rápida en el Portal de Azure clásico para crear una aplicación o modificar una ya existente a fin de conectarla a dicho servicio.
 
 En esta sección se creará una nueva aplicación Xamarin.iOS que se conecta al servicio móvil.
 
-1.  En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
+1.  En el [Portal de Azure clásico], haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
 
 2. En la pestaña de inicio rápido, haga clic en **Xamarin.iOS** en **Seleccionar plataforma** y expanda **Crear una nueva aplicación Xamarin.iOS**.
 
@@ -86,7 +91,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 	> [AZURE.NOTE]Puede revisar el código de acceso al servicio móvil para consultar e insertar datos; este se encuentra en el archivo de C# TodoService.cs.
 
-4. De nuevo en el Portal de administración, haga clic en la pestaña **Datos** y luego haga clic en la tabla **TodoItems**.
+4. De nuevo en el [Portal de Azure clásico], haga clic en la pestaña **Datos** y luego en la tabla **TodoItems**.
 
 	![][11]
 
@@ -100,12 +105,12 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
 * [Introducción a la sincronización de datos sin conexión] Obtenga información sobre cómo el inicio rápido usa la sincronización de datos sin conexión para mejorar la capacidad de respuesta y reforzar la solidez de la aplicación.
 
-* [Introducción a la autenticación] Obtenga información sobre cómo autenticar a los usuarios de su aplicación con un proveedor de identidades.
+* [Introducción a la autenticación] Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
-* [Introducción a las notificaciones push] Obtenga información sobre cómo enviar una notificación push muy básica a la aplicación.
+* [Introducción a las notificaciones push] Aprenda a enviar una notificación push muy básica a la aplicación.
 
-* [Uso del cliente del componente Xamarin para Servicios móviles de Azure](partner-xamarin-mobile-services-how-to-use-client-library.md) Obtenga información sobre cómo consultar el servicio móvil, trabajar con datos y acceder a las API personalizadas.
-  
+* [Uso del cliente del componente Xamarin para Servicios móviles de Azure](partner-xamarin-mobile-services-how-to-use-client-library.md) Aprenda a consultar el servicio móvil, trabajar con datos y acceder a las API personalizadas.
+
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -134,6 +139,6 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Xamarin Studio]: http://xamarin.com/download
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-[Management Portal]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

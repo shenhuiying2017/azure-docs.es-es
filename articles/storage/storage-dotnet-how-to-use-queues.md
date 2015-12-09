@@ -244,7 +244,6 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 - Consulte la documentación de referencia del servicio de cola para obtener información detallada acerca de las API disponibles:
     - [Referencia de la biblioteca de clientes de almacenamiento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Referencia de API de REST](http://msdn.microsoft.com/library/azure/dd179355)
-- Obtenga información acerca de las tareas más avanzadas que se pueden realizar con Almacenamiento de Azure en [Almacenamiento de datos y acceso a los mismos en Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx).
 - Aprenda a simplificar el código que escriba para trabajar con Almacenamiento de Azure mediante [SDK de WebJobs de Azure](../websites-dotnet-webjobs-sdk/).
 - Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
     - Utilice [Almacenamiento de tablas](storage-dotnet-how-to-use-tables.md) para almacenar datos estructurados. 
@@ -255,7 +254,6 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
   [CloudStorageAccount]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
@@ -263,4 +261,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

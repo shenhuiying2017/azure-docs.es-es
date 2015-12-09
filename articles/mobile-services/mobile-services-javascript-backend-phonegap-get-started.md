@@ -50,7 +50,7 @@ Para completar este tutorial, se requiere lo siguiente:
 
 En esta sección, creará una aplicación de PhoneGap que se conecta al servicio móvil.
 
-1.  En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
+1.  En el [Portal de Azure clásico], haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
 
 2. En la pestaña de inicio rápido, haga clic en **PhoneGap** bajo **Seleccionar plataforma** y expanda **Creación de una aplicación de PhoneGap**.
 
@@ -111,7 +111,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 	> [AZURE.IMPORTANT]Los cambios en este proyecto de plataforma se sobrescribirán si el proyecto principal se recompila con las herramientas de PhoneGap. En su lugar, realice cambios en el directorio www raíz del proyecto tal como se describe en la sección siguiente.
 
-4. De nuevo en el Portal de administración, haga clic en la pestaña **Datos** y luego haga clic en la tabla **TodoItems**.
+4. De nuevo en el [Portal de Azure clásico], haga clic en la pestaña **Datos** y luego en la tabla **TodoItems**.
 
 	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -153,9 +153,9 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 ## Pasos siguientes
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
-* **[Incorporación de autenticación a la aplicación]** Obtenga información sobre cómo autenticar a los usuarios de su aplicación con un proveedor de identidades.  
+* **[Incorporación de autenticación a la aplicación]** Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.  
 
-* **[Incorporación de notificaciones push a la aplicación](https://msdn.microsoft.com/magazine/dn879353.aspx)** Obtenga información sobre cómo registrarse para obtener notificaciones push y enviarlas a su aplicación.
+* **[Incorporación de notificaciones push a la aplicación](https://msdn.microsoft.com/magazine/dn879353.aspx)** Obtenga información sobre cómo registrarse para obtener notificaciones de inserción y enviarlas a la aplicación.
 
 * **[Referencia conceptual de Servicios móviles con HTML/JavaScript](mobile-services-html-how-to-use-client-library.md)** Obtenga más información sobre cómo usar la biblioteca cliente de JavaScript para acceder a datos, llamar a las API personalizadas y realizar la autenticación.
 
@@ -171,9 +171,9 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 <!-- URLs. -->
 [Incorporación de autenticación a la aplicación]: mobile-services-html-get-started-users.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[Management Portal]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

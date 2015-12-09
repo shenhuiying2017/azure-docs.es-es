@@ -20,7 +20,7 @@
 
 Obtenga información sobre cómo crear una aplicación de búsqueda de .NET personalizada en Visual Studio 2013 o posterior que usa Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure, para su experiencia de búsqueda. En este tutorial se usa el [SDK de .NET para Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx) para crear las clases de los objetos y las operaciones que se usan en este ejercicio, así como la API de REST del servicio Búsqueda de Azure.
 
-Para ejecutar este ejemplo, necesita un servicio Búsqueda de Azure, para el que puede registrarse en el [portal de Azure](https://portal.azure.com).
+Para ejecutar este ejemplo, necesita un servicio Búsqueda de Azure, para el que puede registrarse en el [Portal de Azure clásico](https://portal.azure.com).
 
 > [AZURE.TIP]Descargue el código fuente de este tutorial en [Ejemplos de .NET para Búsqueda de Azure](http://go.microsoft.com/fwlink/p/?LinkId=530196). Aprenda a configurar conexiones y a enviar solicitudes en [Cómo usar la Búsqueda de Azure desde una aplicación .NET](search-howto-dotnet-sdk.md).
 
@@ -34,7 +34,7 @@ En esta aplicación, el programa **DataIndexer** compila y carga el índice usan
 
 ## Crear el servicio de Búsqueda de Azure
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com).
 
 2. En la barra de salto, haga clic en **Nuevo** > **Datos + Almacenamiento** > **Búsqueda**.
 
@@ -794,4 +794,4 @@ Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

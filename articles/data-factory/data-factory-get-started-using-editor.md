@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Tutorial: Crear una canalización con la actividad de copia mediante el editor de la factoría de datos" 
-	description="En este tutorial, creará una canalización de la factoría de datos de Azure con una actividad de copia mediante el Editor de la factoría de datos en el Portal de Azure." 
+	description="En este tutorial, creará una canalización de la Factoría de datos de Azure con una actividad de copia mediante el Editor de la Factoría de datos en el Portal de Azure clásico." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -34,13 +34,13 @@ Paso | Descripción
 [Paso 2: Crear servicios vinculados](#CreateLinkedServices) | En este paso, creará dos servicios vinculados: **StorageLinkedService** y **AzureSqlLinkedService**. StorageLinkedService vincula el Almacenamiento de Azure y AzureSqlLinkedService vincula la Base de datos SQL de Azure a ADFTutorialDataFactory. Los datos de entrada para la canalización se encuentran en un contenedor de blob en el almacenamiento de blobs de Azure y los datos de salida se almacenarán en una tabla en la base de datos SQL de Azure. Por lo tanto, agregue estos almacenes de datos como servicios vinculados en la factoría de datos.      
 [Paso 3: Creación de tablas de entrada y salida](#CreateInputAndOutputDataSets) | En el paso anterior, creó servicios vinculados que hacen referencia a los almacenes de datos que contienen datos de entrada y salida. En este paso, definirá dos tablas de factoría de datos: **EmpTableFromBlob** y **EmpSQLTable**, que representan los datos de entrada y salida que se almacenan en los almacenes de datos. Para EmpTableFromBlob, especificará el contenedor de blob que contiene un blob con los datos de origen y para EmpSQLTable, especificará la tabla SQL que se almacenará los datos de salida. También especificará otras propiedades como la estructura de los datos, la disponibilidad de los datos, etc. 
 [Paso 4: Crear y ejecutar una canalización](#CreateAndRunAPipeline) | En este paso, creará una canalización denominada **ADFTutorialPipeline** en ADFTutorialDataFactory. La canalización dispondrá de una opción para la **actividad de copia** que copia datos de entrada del blob de Azure a la tabla de salida de Azure SQL.
-[Paso 5: Supervisar intervalos y canalizaciones](#MonitorDataSetsAndPipeline) | En este paso, va a supervisar los sectores de las tablas de entrada y salida con Portal de vista previa de Azure.
+[Paso 5: Supervisar intervalos y canalizaciones](#MonitorDataSetsAndPipeline) | En este paso, va a supervisar los sectores de las tablas de entrada y salida con el Portal de Azure.
  
 
 ## <a name="CreateDataFactory"></a>Paso 1: Crear una factoría de datos de Azure
-En este paso, utilice el Portal de vista previa de Azure para crear una factoría de datos de Azure llamada **ADFTutorialDataFactory**.
+En este paso, utilice el Portal de Azure para crear una factoría de datos de Azure llamada **ADFTutorialDataFactory**.
 
-1.	Tras iniciar sesión en [Portal de vista previa de Azure][azure-preview-portal], haga clic en **NUEVO** de la esquina inferior izquierda, seleccione **Análisis de datos** en la hoja **Crear** y haga clic en **Factoría de datos** en la hoja **Análisis de datos**. 
+1.	Tras iniciar sesión en el [Portal de Azure][azure-portal], haga clic en **NUEVO** en la esquina inferior izquierda, seleccione **Análisis de datos** en la hoja **Crear** y haga clic en **Factoría de datos** en la hoja **Análisis de datos**. 
 
 	![New->DataFactory][image-data-factory-new-datafactory-menu]
 
@@ -310,9 +310,9 @@ En este paso, creará una canalización con una **actividad de copia** que usa *
  
 
 ## <a name="MonitorDataSetsAndPipeline"></a>Paso 5: Supervisar la canalización y los conjuntos de datos
-En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo en una factoría de datos de Azure. También puede usar los cmdlets de PowerShell para supervisar los conjuntos de datos y las canalizaciones. Para obtener más información acerca del uso de cmdlets para la supervisión, vea [Supervisión y administración de la factoría de datos mediante cmdlets de PowerShell][monitor-manage-using-powershell].
+En este paso, usará el Portal de Azure clásico para supervisar lo que está ocurriendo en una factoría de datos de Azure. También puede usar los cmdlets de PowerShell para supervisar los conjuntos de datos y las canalizaciones. Para obtener más información acerca del uso de cmdlets para la supervisión, vea [Supervisión y administración de la factoría de datos mediante cmdlets de PowerShell][monitor-manage-using-powershell].
 
-1. Vaya al [Portal de Azure (vista previa)][azure-preview-portal] si no lo ha abierto. 
+1. Vaya al [Portal de Azure clásico (vista previa)][azure-portal] si no lo ha abierto. 
 2. Si la hoja de **ADFTutorialDataFactory** no está abierta, ábrala haciendo clic en **ADFTutorialDataFactory** en el **Panel de inicio**. 
 3. Deben mostrarse el recuento y los nombres de las tablas y la canalización que creó en esta hoja.
 
@@ -371,7 +371,7 @@ En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo 
 
 
 ## Resumen 
-En este tutorial, ha creado una factoría de datos de Azure para copiar datos de un blob de Azure en una base de datos SQL de Azure. Ha usado el Portal de vista previa de Azure para crear la factoría de datos, los servicios vinculados, las tablas y una canalización. Estos son los pasos de alto nivel que realizó en este tutorial:
+En este tutorial, ha creado una factoría de datos de Azure para copiar datos de un blob de Azure en una base de datos SQL de Azure. Ha usado el Portal de Azure para crear la factoría de datos, los servicios vinculados, las tablas y una canalización. Estos son los pasos de alto nivel que realizó en este tutorial:
 
 1.	Cree una **factoría de datos** de Azure.
 2.	Cree **servicios vinculados** que vinculen almacenes de datos y procesos (lo que se conoce como **Servicios vinculados**) con la factoría de datos.
@@ -393,7 +393,7 @@ Para realizar este tutorial con PowerShell de Azure, consulte [Creación y super
 [msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
 [data-factory-naming-rules]: https://msdn.microsoft.com/library/azure/dn835027.aspx
 
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 [download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 [sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
@@ -488,8 +488,6 @@ Para realizar este tutorial con PowerShell de Azure, consulte [Creación y super
 
 [image-data-factory-create-resource-group]: ./media/data-factory-get-started-using-editor/CreateNewResourceGroup.png
 
-[image-data-factory-preview-storage-key]: ./media/data-factory-get-started-using-editor/PreviewPortalStorageKey.png
-
 [image-data-factory-database-connection-string]: ./media/data-factory-get-started-using-editor/DatabaseConnectionString.png
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-get-started-using-editor/NewDataFactoryMenu.png
@@ -501,4 +499,4 @@ Para realizar este tutorial con PowerShell de Azure, consulte [Creación y super
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Asignación del almacenamiento de Site Recovery | Microsoft Azure"
-	description="Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos ubicados localmente en Azure o en un sitio local secundario."
+	pageTitle="Asignación de almacenamiento en Azure Site Recovery para la replicación de máquinas virtuales de Hyper-V entre centros de datos locales | Microsoft Azure"
+	description="Preparación de la asignación de almacenamiento para la replicación de máquina virtual de Hyper-V entre dos centros de datos locales con Azure Site Recovery"
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,44 +13,37 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="10/07/2015"
+	ms.date="11/24/2015"
 	ms.author="raynew"/>
 
 
-# Asignación del almacenamiento de Azure Site Recovery
+# Preparación de la asignación de almacenamiento para la replicación de máquina virtual de Hyper-V entre dos centros de datos locales con Azure Site Recovery
 
 
-Azure Site Recovery contribuye a su estrategia de continuidad de negocio y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores virtuales. Obtenga información acerca de los escenarios de implementación posibles en [Información general sobre Site Recovery](site-recovery-overview.md).
+Azure Site Recovery contribuye a su estrategia de continuidad de negocio y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores virtuales. Este artículo describe la asignación de almacenamiento, que le ayuda a realizar un uso óptimo del almacenamiento cuando use Site Recovery para replicar máquinas virtuales de Hyper-V entre dos centros de datos locales.
 
-
-## Información acerca de este artículo
-
-La asignación del almacenamiento es un elemento importante de la implementación de Site Recovery. Garantiza que haga un uso óptimo del almacenamiento. Este artículo describe la asignación de almacenamiento y proporciona un par de ejemplos que le ayudarán a entender cómo funciona la asignación de almacenamiento.
-
-
-Publique cualquier pregunta en el [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Después de leer este artículo, publique sus preguntas en el [Foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Información general
 
-La manera en que se establece la asignación del almacenamiento depende de su escenario de implementación de Site Recovery.
+La asignación de almacenamiento solo es pertinente cuando replica máquinas virtuales de Hyper-V que se encuentran en las nubes VMM desde un centro de datos principal a un centro de datos secundario mediante la replicación SAN o réplica de Hyper-V de la siguiente manera:
 
 
-
-- **De local a local (replicación con la réplica de Hyper-V)**: asigna clasificaciones de almacenamiento en servidores VMM de origen y de destino para hacer lo siguiente:
+- **Replicación entre sitios locales con réplica de Hyper-V**: configure la asignación de almacenamiento asignando clasificaciones de almacenamiento en servidores VMM de origen y destino para realizar las siguientes acciones:
 
 	- **Identificación del almacenamiento de destino para máquinas virtuales de réplica**: las máquinas virtuales se replicará a un destino de almacenamiento (recurso compartido de SMB o volúmenes compartidos de clúster (CSV)) que elija.
 	- **Colocación de máquinas virtuales de réplica**: la asignación de almacenamiento se usa para colocar máquinas virtuales de réplica en los servidores host de Hyper-V de forma óptima. Las máquinas virtuales de réplica se colocarán en hosts que pueden tener acceso a las redes de almacenamiento asignadas.
 	- **Sin asignación de redes**: si no configura la asignación de almacenamiento, las máquinas virtuales se replicarán en la ubicación de almacenamiento predeterminada especificada en el servidor host de Hyper-V asociado a la máquina virtual de réplica.
 
-- **De local a local (replicación con SAN)**: asigna grupos de matrices de almacenamiento en un servidor VMM de origen y de destino para hacer lo siguiente:
-	- **Identificación de los grupos de almacenamiento de destino**: la asignación de almacenamiento garantiza que las LUN de un grupo de replicación se replican en el bloque de almacenamiento de destino asignado.
+- **Replicación entre sitios locales con SAN**: configure la asignación de almacenamiento asignando grupos de matrices de almacenamiento en servidores VMM de origen y destino con las siguientes especificaciones.
+	- **Especificación de grupos**: especifica las matrices para especificar qué grupo de almacenamiento secundario recibe datos de replicación desde el grupo principal.
+	- **Identificación de los grupos de almacenamiento de destino**: garantiza que las LUN de un grupo de replicación de origen se replican en el grupo de almacenamiento de destino asignado que elija.
 
+## Configuración de las clasificaciones de almacenamiento para la replicación de Hyper-V
 
+Cuando use la réplica de Hyper-V para replicar con Site Recovery, asigne entre las clasificaciones de almacenamiento en servidores VMM de origen y destino, o bien en un único servidor VMM si el mismo servidor VMM administra dos sitios. Observe lo siguiente:
 
-## Clasificaciones de almacenamiento
-
-Asigne entre las clasificaciones de almacenamiento en servidores VMM de origen y destino, o bien en un único servidor VMM si el mismo servidor VMM administra dos sitios. Cuando se configura correctamente la asignación y la replicación está habilitada, un disco duro virtual de una máquina virtual en la ubicación principal se replicará el en almacenamiento de la ubicación de destino asignada. Observe lo siguiente:
-
+- Cuando se configura correctamente la asignación y la replicación está habilitada, un disco duro virtual de una máquina virtual en la ubicación principal se replicará el en almacenamiento de la ubicación de destino asignada.
 - Las clasificaciones de almacenamiento deben estar disponibles para los grupos host ubicados en nubes de origen y de destino.
 - Las clasificaciones no necesitan tener el mismo tipo de almacenamiento. Por ejemplo, puede asignar una clasificación de origen que contenga recursos compartidos de SMB a una clasificación de destino que contenga CSV.
 - Obtenga más información en [Creación de clasificaciones de almacenamiento en VMM](https://technet.microsoft.com/library/gg610685.aspx).
@@ -70,13 +63,13 @@ Chicago | VMM\_Target | | GOLD\_TARGET | No asignado |
 
 Se configuran en la pestaña **Almacenamiento del servidor** en la página **Recursos** del portal de Site Recovery.
 
-![Configurar la asignación de almacenamiento](./media/site-recovery-storage-mapping/StorageMapping1.png)
+![Configurar la asignación de almacenamiento](./media/site-recovery-storage-mapping/storage-mapping1.png)
 
 En este ejemplo: - si una máquina virtual de réplica se crea para cualquier máquina virtual en almacenamiento GOLD (SourceShare1), se replicará en un almacenamiento de GOLD\_TARGET (TargetShare1). - Cuando se crea una máquina virtual de réplica para cualquier máquina virtual en almacenamiento SILVER (SourceShare2), se replicarán en un almacenamiento SILVER\_TARGET (TargetShare2) y así sucesivamente.
 
 Los recursos compartidos de archivo reales y sus clasificaciones asignadas en VMM aparecen en la siguiente captura de pantalla.
 
-![Clasificaciones de almacenamiento en VMM](./media/site-recovery-storage-mapping/StorageMapping2.png)
+![Clasificaciones de almacenamiento en VMM](./media/site-recovery-storage-mapping/storage-mapping2.png)
 
 ## Múltiples cuentas de almacenamiento
 
@@ -103,6 +96,6 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/D | No hay ninguna asignación, por 
 
 ## Pasos siguientes
 
-Ahora que tiene una mejor comprensión de la asignación del almacenamiento, lea las [prácticas recomendadas](site-recovery-best-practices.md) para preparar la implementación.
+Ahora que dispone de más información sobre la asignación de almacenamiento, [prepárese para la implementación de Azure Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

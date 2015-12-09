@@ -28,7 +28,7 @@ Hemos usado el siguiente software para compilar y probar este ejemplo:
 
 - [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-Para ejecutar este ejemplo, necesita un servicio Búsqueda de Azure, para el que puede registrarse en el [portal de administración de Azure](https://portal.azure.com).
+Para ejecutar este ejemplo, necesita un servicio Búsqueda de Azure, para el que puede registrarse en el [Portal de Azure clásico](https://portal.azure.com).
 
 > [AZURE.TIP]Descargue el código fuente para este tutorial en [demostración de Búsqueda de Azure en Java](http://go.microsoft.com/fwlink/p/?LinkId=530197) en Github.
 
@@ -55,7 +55,7 @@ La lista siguiente describe los archivos que son relevantes para este ejemplo.
 
 ## Creación del servicio
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com).
 
 2. En la barra de salto, haga clic en **Nuevo** > **Datos + almacenamiento** > **Búsqueda**.
 
@@ -123,7 +123,7 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 
 1. En **Project Explorer** (Explorador de proyectos), haga doble clic en **config.properties** para editar los valores de configuración que contienen el nombre del servidor y la clave de API.
 
-2. Consulte los pasos descritos anteriormente en este artículo, referentes a la obtención de la dirección URL del servicio y la clave de API en el [Portal de Azure](https://portal.azure.com), para obtener los valores que debe introducir en **config.properties**.
+2. Consulte los pasos descritos anteriormente en este artículo, referentes a la obtención de la dirección URL del servicio y la clave de API en el [Portal de Azure clásico](https://portal.azure.com), para obtener los valores que debe introducir en **config.properties**.
 
 3. En **config.properties**, reemplace "Api Key" con la clave de API del servicio. A continuación, utilice el nombre de servicio (el primer componente de la dirección URL http://servicename.search.windows.net) para reemplazar "service name" en el mismo archivo.
 
@@ -231,4 +231,4 @@ Si ya Tiene alguna experiencia con Búsqueda de Azure, puede utilizar este ejemp
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -26,7 +26,7 @@
 
 ## Creación de una cuenta de Servicios multimedia
 
-Use el Portal de Azure, .NET SDK o la API de REST para crear la cuenta de Servicios multimedia de Azure.
+Use el Portal de Azure clásico, el SDK para .NET o la API de REST para crear la cuenta de Servicios multimedia de Azure.
 
 <a id="setup_dev_env"></a>
 ## Configuración del entorno de desarrollo  
@@ -51,4 +51,4 @@ Elija .NET o la API de REST para conectarse mediante programación a los Servici
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

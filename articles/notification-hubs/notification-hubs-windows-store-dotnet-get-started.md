@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="11/23/2015"
 	ms.author="wesmc"/>
 
 # Introducción a Centros de notificaciones para aplicaciones de la Tienda Windows
@@ -37,7 +37,7 @@ El código completo de este tutorial se puede encontrar en GitHub [aquí](https:
 
 Este tutorial requiere lo siguiente:
 
-+ Microsoft Visual Studio Express 2013 para Windows con la actualización 2<br/>Esta versión de Visual Studio es necesaria para crear un proyecto de aplicación universal. Si solo desea crear un aplicación para la Tienda Windows, necesita Visual Studio 2012 Express para Windows 8.
++ Microsoft Visual Studio Express 2013 para Windows con la actualización 2 o posterior<br/>Esta versión de Visual Studio es necesaria para crear un proyecto de aplicación universal. Si solo desea crear un aplicación para la Tienda Windows, necesita Visual Studio 2012 Express para Windows 8.
 
 + Una cuenta de la Tienda Windows activa
 
@@ -283,4 +283,4 @@ Para obtener más información sobre los Centros de notificaciones, consulte [In
 [catálogo de iconos]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [información general sobre distintivos]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -69,8 +69,7 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 
 1. Abra la ventana **Explorador de servidores** de Visual Studio.
 
-2. Haga clic con el botón derecho en el nodo **Azure** y, después, haga clic en **Conectar con Microsoft Azure**.
-![Conexión a Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Haga clic con el botón derecho en el nodo **Azure** y, después, haga clic en **Conectar con Microsoft Azure**. ![Conexión a Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Inicie sesión con sus credenciales de Azure.
 
@@ -118,12 +117,10 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 
 	La cadena de conexión de almacenamiento es un ejemplo que tiene marcadores de posición para la clave de acceso y el nombre de la cuenta de almacenamiento. Se sustituirá por una cadena de conexión con el nombre y la clave de su cuenta de almacenamiento.
 
-	<pre class="prettyprint">&lt;connectionStrings&gt;
-	  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" /&gt;
-	  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-	&lt;/connectionStrings&gt;</pre>
-
-	La cadena de conexión de almacenamiento se denomina AzureWebJobsStorage porque ese es el nombre que el SDK de WebJobs usa de forma predeterminada. Aquí se usa el mismo nombre, de modo que solo tenga que establecer el valor de una cadena de conexión en el entorno de Azure.
+	<pre class="prettyprint">&lt;connectionStrings>
+  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
+  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[nombredecuenta]</mark>;AccountKey=<mark>[clavedeacceso]</mark>"/>
+&lt;/connectionStrings></pre>La cadena de conexión de almacenamiento se denomina AzureWebJobsStorage porque ese es el nombre que el SDK de WebJobs usa de forma predeterminada. Aquí se usa el mismo nombre, de modo que solo tenga que establecer el valor de una cadena de conexión en el entorno de Azure.
 
 2. En el **Explorador de servidores**, haga clic con el botón secundario en la cuenta de almacenamiento en el nodo **Almacenamiento** y, a continuación, haga clic en **Propiedades**.
 
@@ -141,17 +138,7 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 
 6. Abra el archivo *App.config* del proyecto ContosoAdsWebJob.
 
-	Este archivo tiene dos cadenas de conexión de almacenamiento, una para los datos de aplicación y otra para registro. Para este tutorial, usará la misma cuenta para ambas. Las cadenas de conexión tienen marcadores de posición para las claves de la cuenta de almacenamiento.
-  	<pre class="prettyprint">&lt;configuration&gt;
-    &lt;connectionStrings&gt;
-        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
-    &lt;/connectionStrings&gt;
-        &lt;startup&gt;
-            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
-    &lt;/startup&gt;
-&lt;/configuration&gt;</pre>
+	Este archivo tiene dos cadenas de conexión de almacenamiento, una para los datos de aplicación y otra para registro. Para este tutorial, usará la misma cuenta para ambas. Las cadenas de conexión tienen marcadores de posición para las claves de la cuenta de almacenamiento. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[nombredecuenta]</mark>;AccountKey=<mark>[clavedeacceso]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[nombredecuenta]</mark>;AccountKey=<mark>[clavedeacceso]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
 
 	De forma predeterminada, el SDK de WebJobs busca cadenas de conexión llamadas AzureWebJobsStorage y AzureWebJobsDashboard. Como opción alternativa, puede [almacenar la cadena de conexión que desee y pasarla de forma explícita al objeto `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -290,7 +277,7 @@ Después de crear algunos anuncios mientras ejecuta la aplicación en la nube, c
 
 ### Configure la aplicación web para que use una cuenta de almacenamiento y una base de datos SQL de Azure.
 
-Un procedimiento recomendado de seguridad consiste en [evitar insertar información confidencial como cadenas de conexión en archivos que se almacenen en repositorios de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Azure proporciona una manera de hacerlo: puede establecer la cadena de conexión y otros valores de configuración en el entorno de Azure, y las API de configuración de ASP.NET recogen estos valores cuando la aplicación se ejecuta en Azure. Puede definir estos valores en Azure con el **Explorador de servidores**, el portal, Windows PowerShell o la interfaz de la línea de comandos multiplataforma. Para obtener más información, consulte [Funcionamiento de las cadenas de aplicación y de las cadenas de conexión](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+Un procedimiento recomendado de seguridad consiste en [evitar insertar información confidencial como cadenas de conexión en archivos que se almacenen en repositorios de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Azure proporciona una manera de hacerlo: puede establecer la cadena de conexión y otros valores de configuración en el entorno de Azure, y las API de configuración de ASP.NET recogen estos valores cuando la aplicación se ejecuta en Azure. Puede definir estos valores en Azure con el **Explorador de servidores**, el Portal de Azure, Windows PowerShell o la interfaz de la línea de comandos multiplataforma. Para obtener más información, consulte [Funcionamiento de las cadenas de aplicación y de las cadenas de conexión](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
 En esta sección se usa el **Explorador de servidores** para definir los valores de cadena de conexión en Azure.
 
@@ -326,11 +313,11 @@ En esta sección se usa el **Explorador de servidores** para definir los valores
 
 11.	Actualice la página después de unos segundos y la miniatura aparece.
 
-	Si no aparece la miniatura, tendrá que esperar un minuto para que el WebJob se reinicie. Si después de un cierto tiempo sigue sin ver la miniatura al actualizar la página, quizás el WebJob no se inició automáticamente. En ese caso, vaya a la pestaña WebJobs en la página [Portal de Azure](https://manage.windowsazure.com) de la aplicación web y, a continuación, haga clic en **Iniciar**.
+	Si no aparece la miniatura, tendrá que esperar un minuto para que el WebJob se reinicie. Si después de un cierto tiempo sigue sin ver la miniatura al actualizar la página, quizás el WebJob no se inició automáticamente. En ese caso, vaya a la pestaña WebJobs en la página [Portal clásico](https://manage.windowsazure.com) de la aplicación web y, a continuación, haga clic en **Iniciar**.
 
 ### Visualización del panel del SDK de WebJob
 
-1. En el [Portal de Azure](https://manage.windowsazure.com), seleccione la aplicación web.
+1. En el [Portal clásico](https://manage.windowsazure.com), seleccione la aplicación web.
 
 2. Haga clic en la pestaña **WebJobs**.
 
@@ -348,7 +335,7 @@ En esta sección se usa el **Explorador de servidores** para definir los valores
 
 	El botón de **función de reproducción** de esta página sirve para que el marco de trabajo del SDK de WebJobs llame de nuevo a la función y le permite cambiar los datos que se pasan primero a la función.
 
->[AZURE.NOTE]Cuando finalice las pruebas, elimine la aplicación web y la instancia de Base de datos SQL. La aplicación web es gratuita, pero la instancia de Base de datos SQL y la cuenta de almacenamiento tienen un costo (mínimo dado su pequeño tamaño). Asimismo, si deja la aplicación ejecutándose, cualquiera que encuentre su dirección URL puede crear y ver anuncios. En el Portal de Azure, vaya a la pestaña **Panel** correspondiente a la aplicación web y, a continuación, haga clic en el botón **Eliminar** en la parte inferior de la página. A continuación, puede activar una casilla para eliminar la instancia de la Base de datos SQL al mismo tiempo. Si lo que desea es evitar temporalmente que otros tengan acceso a la aplicación, haga clic en **Detener**. En ese caso, se seguirán acumulando cargos para la cuenta de almacenamiento y la base de datos SQL. Puede seguir un procedimiento similar para eliminar la base de datos SQL y la cuenta de almacenamiento cuando ya no las necesite.
+>[AZURE.NOTE]Cuando finalice las pruebas, elimine la aplicación web y la instancia de Base de datos SQL. La aplicación web es gratuita, pero la instancia de Base de datos SQL y la cuenta de almacenamiento tienen un costo (mínimo dado su pequeño tamaño). Asimismo, si deja la aplicación ejecutándose, cualquiera que encuentre su dirección URL puede crear y ver anuncios. En el Portal clásico, vaya a la pestaña **Panel** correspondiente a la aplicación web y, a continuación, haga clic en el botón **Eliminar** en la parte inferior de la página. A continuación, puede activar una casilla para eliminar la instancia de la Base de datos SQL al mismo tiempo. Si lo que desea es evitar temporalmente que otros tengan acceso a la aplicación, haga clic en **Detener**. En ese caso, se seguirán acumulando cargos para la cuenta de almacenamiento y la base de datos SQL. Puede seguir un procedimiento similar para eliminar la base de datos SQL y la cuenta de almacenamiento cuando ya no las necesite.
 
 ## <a id="create"></a>Creación de la aplicación desde cero
 
@@ -465,7 +452,7 @@ Para agregar archivos a un proyecto o carpeta, haga clic con el botón secundari
 	- *Global.asax.cs*  
 	- En la carpeta *Controladores*: *AdController.cs*
 	- En la carpeta *Views\\Shared*: archivo *\_Layout.cshtml*.
-	- En la carpeta *Views\\Home*: *Index.cshtml*.
+- En la carpeta *Views\\Home*: *Index.cshtml*.
 	- En la carpeta *Views\\Ad* (cree primero la carpeta): cinco archivos *.cshtml*.<br/><br/>
 
 3. En el proyecto ContosoAdsWebJob, agregue los siguientes archivos desde el proyecto descargado.
@@ -802,7 +789,7 @@ Para asegurarse de que sus WebJobs siempre están en ejecución en todas las ins
 
 ### Uso del SDK de WebJobs fuera de WebJobs
 
-No es necesario que un programa que use el SDK de WebJobs se ejecute en Azure en un WebJob. Se puede ejecutar localmente, y también se puede ejecutar en otros entornos, como un rol de trabajador del servicio en la nube o un servicio de Windows. No obstante, solo puede tener acceso al panel del SDK de WebJobs a través de una aplicación web de Azure. Para usar el panel, debe conectar la aplicación web a la cuenta de almacenamiento que esté usando. Para ello, establezca la cadena de conexión AzureWebJobsDashboard en la pestaña **Configurar** del Portal de Azure. A continuación, puede obtener acceso al panel utilizando la dirección URL siguiente:
+No es necesario que un programa que use el SDK de WebJobs se ejecute en Azure en un WebJob. Se puede ejecutar localmente, y también se puede ejecutar en otros entornos, como un rol de trabajador del servicio en la nube o un servicio de Windows. No obstante, solo puede tener acceso al panel del SDK de WebJobs a través de una aplicación web de Azure. Para usar el panel, debe conectar la aplicación web a la cuenta de almacenamiento que esté usando. Para ello, establezca la cadena de conexión AzureWebJobsDashboard en la pestaña **Configurar** del Portal clásico. A continuación, puede obtener acceso al panel utilizando la dirección URL siguiente:
 
 https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
@@ -812,4 +799,4 @@ Para obtener más información, consulte [Obtención de un panel para desarrollo
 
 Para obtener más información, consulte [Recursos de documentación de WebJobs de Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

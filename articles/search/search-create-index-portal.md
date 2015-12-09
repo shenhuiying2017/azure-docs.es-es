@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creación de un índice de Búsqueda de Azure en el Portal | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
-	description="Agregue un índice al servicio Búsqueda de Azure, un servicio de búsqueda hospedado en la nube, rellenando definiciones de campo en el Portal de Azure"
+	description="Agregue un índice al servicio Búsqueda de Azure, un servicio de búsqueda hospedado en la nube, rellenando definiciones de campo en el Portal de Azure clásico."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -17,18 +17,18 @@
 	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
-# Creación de un índice de Búsqueda de Azure en el Portal de Azure
+# Creación de un índice de Búsqueda de Azure en el Portal de Azure clásico
 > [AZURE.SELECTOR]
 - [Overview](search-what-is-an-index.md)
 - [Portal](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
 - [REST API](search-create-index-rest-api.md)
 
-Puede crear rápidamente un índice en Búsqueda de Azure mediante la creación de uno en el portal de Azure. Usar el portal resulta excelente para las pruebas de prueba de concepto, pero también se puede usar para ver las definiciones de esquema y el uso de recursos para cualquier índice implementado en el servicio.
+Puede crear rápidamente un índice en Búsqueda de Azure mediante la creación de uno en el Portal de Azure clásico. Usar el portal resulta excelente para las pruebas de prueba de concepto, pero también se puede usar para ver las definiciones de esquema y el uso de recursos para cualquier índice implementado en el servicio.
 
 Para completar esta tarea, asegúrese de disponer de un servicio de Búsqueda de Azure que esté listo para funcionar. Consulte [Crear un servicio de Búsqueda de Azure en el portal](search-create-service-portal.md) si necesita ayuda para configurarlo.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com).
 
 2. Abra el panel del servicio Búsqueda de Azure. A continuación se presentan algunas formas de buscar el panel.
 	- En la barra de salto, haga clic en **Inicio**. La página principal dispone de iconos para cada servicio de su suscripción. Haga clic en el icono para abrir el panel de servicio.
@@ -89,7 +89,7 @@ El portal es diferente. En el portal, los comportamientos de búsqueda están de
 
 3. Para quitar los campos que no desee, haga clic con el botón derecho y seleccione **Eliminar**.
 
-4. Haga clic en **Aceptar** para guardar el índice recién definido y, a continuación, haga clic en **Aceptar** en la página de Agregar índice para generarlo.
+4. Haga clic en **Aceptar** para guardar el índice recién definido y luego haga clic en **Aceptar** en la página de Agregar índice para generarlo.
 
 
 ## Pasos siguientes
@@ -105,4 +105,4 @@ Una vez que se encuentre cómodo con el índice básico, considere la posibilida
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

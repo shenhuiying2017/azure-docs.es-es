@@ -73,15 +73,15 @@ Antes de comenzar a desarrollar su aplicación de Azure, obtenga las herramienta
 
 Para comenzar a usar las características del bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación.
 
-Los espacios de nombres y las entidades de mensajería del Bus de servicio se pueden administrar a través del [Portal de Azure][] o del Explorador de servidores de Visual Studio, pero los espacios de nombres solo se pueden crear en el portal.
+Los espacios de nombres y las entidades de mensajería del Bus de servicio se pueden administrar a través del [Portal de Azure clásico][] o del Explorador de servidores de Visual Studio, pero los espacios de nombres solo se pueden crear en el portal.
 
-### Para crear un espacio de nombres mediante el portal:
+### Creación de un espacio de nombres mediante el Portal de Azure clásico:
 
-1.  Inicie sesión en el [Portal de Azure][].
+1.  Inicie sesión en el [Portal de Azure clásico][].
 
-2.  En el panel de navegación izquierdo del Portal de Azure, haga clic en **Bus de servicio**.
+2.  En el panel de navegación izquierdo del Portal, haga clic en **Bus de servicio**.
 
-3.  En el panel inferior del Portal de Azure, haga clic en **Crear**.
+3.  En el panel inferior del Portal, haga clic en **Crear**.
 
     ![][5]
 
@@ -95,7 +95,7 @@ Los espacios de nombres y las entidades de mensajería del Bus de servicio se pu
 
 	![][38]
 
-El espacio de nombres que creó aparecerá en el portal de Azure, aunque puede tardar un poco en activarse. Espere hasta que el estado sea **Active** antes de continuar.
+El espacio de nombres que creó aparecerá en el Portal de Azure clásico, aunque puede tardar un poco en activarse. Espere hasta que el estado sea **Active** antes de continuar.
 
 ## Obtención de credenciales de administración predeterminadas para el espacio de nombres
 
@@ -247,7 +247,7 @@ Este proyecto se inicia como una aplicación de consola de Visual Studio. El pro
             }
         }
 
-13. En el Explorador de soluciones, haga doble clic en el archivo **App.config** para abrirlo en el editor de Visual Studio. Reemplace el contenido de **&lt;system.ServiceModel&gt;** por el siguiente código XML. Asegúrese de reemplazar *yourServiceNamespace* por el nombre de su espacio de nombres de servicio y *yourKey* por la clave SAS que recuperó del Portal de Azure:
+13. En el Explorador de soluciones, haga doble clic en el archivo **App.config** para abrirlo en el editor de Visual Studio. Reemplace el contenido de **&lt;system.ServiceModel&gt;** por el siguiente código XML. Asegúrese de reemplazar *yourServiceNamespace* por el nombre de su espacio de nombres de servicio y *yourKey* por la clave SAS que recuperó del Portal de Azure clásico:
 
         <system.serviceModel>
           <extensions>
@@ -541,7 +541,7 @@ Azure factura las instancias de rol web por hora consumida de tiempo de servidor
 
 Los siguientes pasos muestran cómo detener y eliminar su aplicación.
 
-1.  Inicie sesión en el [Portal de Azure], haga clic en **Servicios en la nube** y, a continuación, en el nombre del servicio.
+1.  Inicie sesión en el [Portal de Azure clásico][], haga clic en **Servicios en la nube** y, a continuación, en el nombre del servicio.
 
 2.  Haga clic en la pestaña **Panel** y, a continuación, en **Detener** para suspender temporalmente la aplicación. Para volver a iniciarla, haga clic en **Iniciar**. Haga clic en **Eliminar** para quitar la aplicación totalmente de Azure sin la posibilidad de restaurarla.
 
@@ -563,7 +563,7 @@ Para obtener más información sobre el bus de servicio, consulte los siguientes
   [3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-42-webpi.png
 
 
-  [Portal de Azure]: http://manage.windowsazure.com
+  [Portal de Azure clásico]: http://manage.windowsazure.com
   [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
   [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
 
@@ -610,4 +610,4 @@ Para obtener más información sobre el bus de servicio, consulte los siguientes
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -17,12 +17,10 @@
 
 4. Seleccione la aplicación que acaba de crear en la pestaña **Aplicación**:
 
-5. Haga clic en **Información de conexión** para mostrar la configuración de la conexión que se debe incluir en la integración de SDK en su aplicación móvil.
+5. Haga clic en **INFORMACIÓN DE CONEXIÓN** para mostrar la configuración de la conexión que se debe incluir en la integración del SDK en su aplicación móvil.
 
-   	![](./media/mobile-engagement-create-app-in-portal/app-main-page-select-connection-info.png)
-
-6. Copie la **Cadena de conexión**: la necesitará para identificar esta aplicación en su código de aplicación y conectar con Mobile Engagement desde su aplicación.
+6. Copie la **CADENA DE CONEXIÓN**: la necesitará para identificar esta aplicación en el código de aplicación y conectarse con Mobile Engagement desde su aplicación.
 
    	![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -34,7 +34,7 @@ Los niveles de servicio Basic, Standard y Premium tienen un SLAde tiempo de acti
 >[AZURE.NOTE]Retirada de las ediciones Web y Business. Descubra cómo [actualizar las ediciones Web y Business](sql-database-upgrade-new-service-tiers.md). Si piensa seguir usando las ediciones Web y Business, lea [P+F de Sunset](http://azure.microsoft.com/pricing/details/sql-database/web-business/).
 
 ### Niveles de servicio de la Base de datos única y niveles de rendimiento
-Para las bases de datos únicas hay varios niveles de rendimiento dentro de cada nivel de servicio, tiene la flexibilidad de elegir el nivel que mejor se adapte a las exigencias de la carga de trabajo. Si necesita escalar vertical u horizontalmente, puede cambiar fácilmente los niveles de la base de datos en el Portal de Azure sin que haya tiempo de inactividad en la aplicación. Para obtener información más detallada, consulte [Modificación de niveles de servicio y de rendimiento de la base de datos](sql-database-scale-up.md).
+Para las bases de datos únicas hay varios niveles de rendimiento dentro de cada nivel de servicio, tiene la flexibilidad de elegir el nivel que mejor se adapte a las exigencias de la carga de trabajo. Si necesita escalar verticalmente o reducir horizontalmente, puede cambiar fácilmente los niveles de la base de datos en el Portal de Azure clásico sin que haya tiempo de inactividad en la aplicación. Para obtener información más detallada, consulte [Modificación de niveles de servicio y de rendimiento de la base de datos](sql-database-scale-up.md).
 
 Las características de rendimiento que se enumeran aquí se aplican a las bases de datos creadas con la [Base de datos SQL V12](sql-database-v12-whats-new.md). En aquellas situaciones donde el hardware subyacente de Azure hospeda varias Bases de datos SQL, la base de datos seguirá recibiendo un conjunto garantizado de recursos y las características de rendimiento esperado de la base de datos individual no se ven afectadas.
 
@@ -63,11 +63,11 @@ Todas las bases de datos de un grupo también se ajustan a las características 
 ## Supervisión del rendimiento de la base de datos
 La supervisión del rendimiento de una base de datos SQL comienza con la supervisión del uso de recursos, en relación con el nivel de rendimiento elegido para la base de datos. Estos datos relevantes se exponen de las siguientes formas:
 
-1.	En el Portal de administración de Microsoft Azure.
+1.	El Portal de Microsoft Azure clásico.
 
 2.	En las vistas de administración dinámica de la base de datos de usuario y en la base de datos maestra del servidor que contiene la base de datos de usuario.
 
-En el [Portal de vista previa de Azure](https://portal.azure.com/), puede supervisar el uso de una base de datos única; para ello, debe seleccionar la base de datos y hacer clic en el gráfico **Supervisión**. Al hacer esto, se abrirá la ventana **Métrica** que se puede cambiar haciendo clic en el botón **Editar gráfico**. Agregue las siguientes métricas:
+En el [Portal de Azure](https://portal.azure.com/), puede supervisar el uso de una base de datos única; para ello, debe seleccionar la base de datos y hacer clic en el gráfico **Supervisión**. Al hacer esto, se abrirá la ventana **Métrica** que se puede cambiar haciendo clic en el botón **Editar gráfico**. Agregue las siguientes métricas:
 
 - Porcentaje de CPU
 - Porcentaje de DTU
@@ -96,4 +96,4 @@ Si desea administrar varias bases de datos como un grupo, consulte [Grupos de ba
 Ahora que conoce los niveles de Base de datos SQL, pruébelos con una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) y aprenda a [crear su primera base de datos SQL](sql-database-get-started.md).
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

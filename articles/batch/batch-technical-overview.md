@@ -54,7 +54,7 @@ Para más información acerca de los conceptos de Lote, consulte [Aspectos bási
 
 + **Cuenta de Azure y suscripción**: si aún no tiene una cuenta, puede activar las [ventajas de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-+ **Cuenta de lotes**: use el nombre y la dirección URL de una cuenta de Lotes y una clave de acceso como credenciales al realizar las llamadas API de Lote. Todos los recursos de Lote de proceso como nodos de proceso, grupos, trabajos y tareas están asociados a una cuenta de Lote. Una forma de crear una cuenta de Lote y administrar claves de acceso para la cuenta es usar el [Portal de vista previa de Azure](batch-account-create-portal.md).
++ **Cuenta de lotes**: use el nombre y la dirección URL de una cuenta de Lotes y una clave de acceso como credenciales al realizar las llamadas API de Lote. Todos los recursos de Lote de proceso como nodos de proceso, grupos, trabajos y tareas están asociados a una cuenta de Lote. Una forma de crear una cuenta de Lote y administrar claves de acceso para la cuenta es usar el [Portal de Azure](batch-account-create-portal.md).
 
 + **Cuenta de almacenamiento**: para la mayoría de los escenarios de Lote tendrá una cuenta de almacenamiento de Azure para almacenar sus entradas y salidas de datos y los scripts o archivos ejecutables que se ejecutan en los nodos de proceso. Para crear una cuenta de almacenamiento, consulte la sección [Acerca de cuentas de Almacenamiento de Azure](../storage/storage-create-storage-account.md).
 
@@ -103,4 +103,4 @@ En la Figura 2 se muestra un flujo de trabajo que usa una aplicación cliente .N
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

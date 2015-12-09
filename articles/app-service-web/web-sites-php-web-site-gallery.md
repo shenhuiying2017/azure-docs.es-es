@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creación de una aplicación web en Servicio de aplicaciones de Azure | Microsoft Azure"
-	description="Obtenga información sobre cómo crear una nueva aplicación web de Azure para un blog de WordPress mediante el Portal de vista previa de Azure."
+	description="Obtenga información sobre cómo crear una nueva aplicación web de Azure para un blog de WordPress mediante el Portal de Azure."
 	services="app-service\web"
 	documentationCenter="php"
 	authors="tfitzmac"
@@ -30,15 +30,15 @@ Aprenderá a realizar los siguientes procedimientos:
 * Cómo crear una aplicación web basada en la plantilla en el Servicio de aplicaciones de Azure.
 * Cómo configurar el Servicio de aplicaciones de Azure para la nueva aplicación web y la base de datos MySQL.
 
-Azure Marketplace pone a disposición del usuario una gran variedad de populares aplicaciones web desarrolladas por Microsoft, compañías de terceros e iniciativas de software de código abierto. Las aplicaciones web se basan en una amplia variedad de marcos populares, como [PHP](/develop/nodejs/) en este ejemplo de WordPress, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/) y [Python](/develop/python/), por nombrar algunos. Para crear una aplicación web desde Azure Marketplace, el único software que necesita es el explorador que usa para el [Portal de vista previa de Azure](https://portal.azure.com/).
+Azure Marketplace pone a disposición del usuario una gran variedad de populares aplicaciones web desarrolladas por Microsoft, compañías de terceros e iniciativas de software de código abierto. Las aplicaciones web se basan en una amplia variedad de marcos populares, como [PHP](/develop/nodejs/) en este ejemplo de WordPress, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/) y [Python](/develop/python/), por nombrar algunos. Para crear una aplicación web desde Azure Marketplace, el único software que necesita es el explorador que usa para el [Portal de Azure](https://portal.azure.com/).
 
-> [AZURE.NOTE]Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN](/es-ES/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o bien [registrarse para obtener una evaluación gratuita](/es-ES/pricing/free-trial/?WT.mc_id=A261C142F).
+> [AZURE.NOTE]Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o bien [registrarse para obtener una evaluación gratuita](/es-ES/pricing/free-trial/?WT.mc_id=A261C142F).
 >
 > Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751). Ahí puede crear de forma inmediata una aplicación web de corta duración para iniciarse en Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
 
 ## Selección de WordPress y configuración para el Servicio de aplicaciones de Azure
 
-1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
 2. Haga clic en **Nuevo**.
 	
@@ -60,7 +60,7 @@ Azure Marketplace pone a disposición del usuario una gran variedad de populares
 
 5. Seleccione un **Grupo de recursos** o cree uno nuevo.
 
-	Para obtener más información sobre los grupos de recursos, consulte [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](../resource-group-portal.md).
+	Para obtener más información acerca de los grupos de recursos, consulte [Uso del Portal de Azure para administrar los recursos de Azure](../resource-group-portal.md).
 
 5. Seleccione un **Plan de servicio de aplicaciones/Ubicación** o cree uno nuevo.
 
@@ -88,7 +88,7 @@ Azure Marketplace pone a disposición del usuario una gran variedad de populares
 
 ## Inicio y administración de la aplicación web de WordPress
 	
-7. Cuando finalice la creación de aplicaciones web, en el portal, vaya al grupo de recursos en el que creó la aplicación y podrá ver la aplicación web y la base de datos.
+7. Cuando finalice la creación de aplicaciones web, en el Portal de Azure, vaya al grupo de recursos en el que creó la aplicación y podrá ver la aplicación web y la base de datos.
 
 	El recurso adicional con el icono de bombilla es [Application Insights](/services/application-insights/), que proporciona servicios de supervisión para la aplicación web.
 
@@ -118,10 +118,9 @@ Para obtener más información sobre cómo trabajar con las aplicaciones web del
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web al Servicio de aplicaciones, consulte [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 [5]: ./media/web-sites-php-web-site-gallery/startmarketplace.png
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

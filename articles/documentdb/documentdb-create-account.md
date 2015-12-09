@@ -19,7 +19,7 @@
 
 # Creación de una cuenta de base de datos de la Base de datos de documentos
 
-Para usar Microsoft Azure DocumentDB, debe crear una cuenta de base de datos de DocumentDB mediante el portal de vista previa de Azure.
+Para usar Microsoft Azure DocumentDB, debe crear una cuenta de base de datos de DocumentDB mediante el Portal de Azure.
 
 ¿Es la primera vez que usa DocumentDB? Vea [este](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) vídeo de cuatro minutos de Scott Hanselman para saber cómo realizar las tareas más comunes en el portal en línea.
 
@@ -30,14 +30,14 @@ Para usar Microsoft Azure DocumentDB, debe crear una cuenta de base de datos de 
 Ahora que tiene una cuenta de DocumentDB, el siguiente paso es crear una base de datos de DocumentDB. Puede crear una base de datos mediante uno de los siguientes procedimientos:
 
 - Los ejemplos de .NET de C# en el proyecto [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) del repositorio [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) de GitHub.
-- El portal de vista previa, como se describe en [Creación de una base de datos de DocumentDB en el portal de vista previa de Azure](documentdb-create-database.md).
+- El portal, como se describe en [Creación de una base de datos de DocumentDB en el Portal de Azure](documentdb-create-database.md).
 - Los tutoriales que incluyen todo: [.NET](documentdb-get-started.md), [.NET MVC](documentdb-dotnet-application.md), [Java](documentdb-java-application.md), [Node.js](documentdb-nodejs-application.md) o [Python](documentdb-python-application.md).
 - Los [SDK de DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB tiene .NET, Java, Python, Node.js y SDK de la API de JavaScript. 
 
 
 Después de crear la base de datos, necesitará [agregar una o más colecciones](documentdb-create-collection.md) a la base de datos y después [agregar documentos](documentdb-view-json-document-explorer.md) a las colecciones.
 
-Cuando tenga los documentos en una colección, puede usar [SQL de DocumentDB](documentdb-sql-query.md) para [ejecutar consultas](documentdb-sql-query.md#executing-queries) en sus documentos mediante el [Explorador de consultas](documentdb-query-collections-query-explorer.md) en el portal de vista previa, la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno de los [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Cuando tenga documentos en una colección, puede usar [SQL de DocumentDB](documentdb-sql-query.md) para [ejecutar consultas](documentdb-sql-query.md#executing-queries) en sus documentos mediante el [Explorador de consultas](documentdb-query-collections-query-explorer.md) del portal, la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno de los [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 Para obtener más información acerca de DocumentDB, explore estos recursos:
 
@@ -46,4 +46,4 @@ Para obtener más información acerca de DocumentDB, explore estos recursos:
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

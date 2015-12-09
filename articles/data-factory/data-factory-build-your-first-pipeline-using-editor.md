@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Compilación de la primera canalización mediante el Editor de la Factoría de datos"
-	description="En este tutorial, creará una canalización de la factoría de datos de Azure de ejemplo con el Editor de la factoría de datos en el Portal de Azure."
+	description="En este tutorial, creará una canalización de Factoría de datos de Azure de ejemplo con el Editor de la Factoría de datos en el Portal de Azure clásico."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,7 +16,7 @@
 	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# Compilación de la primera canalización mediante el Editor de la Factoría de datos (Portal de Azure)
+# Compilación de la primera canalización de Factoría de datos de Azure mediante el Editor de la Factoría de datos (Portal de Azure clásico)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -24,7 +24,7 @@
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 
 
-En este artículo, aprenderá a usar el [Portal de vista previa de Azure](https://portal.azure.com/) para crear la primera canalización. Este tutorial consta de los siguientes pasos:
+En este artículo, aprenderá a usar el [Portal de Azure](https://portal.azure.com/) para crear la primera canalización. Este tutorial consta de los siguientes pasos:
 
 1.	Creación de la factoría de datos
 2.	Creación de los conjuntos de datos y servicios vinculados (almacenes de datos, procesos)
@@ -36,7 +36,7 @@ Este artículo no ofrece información general conceptual sobre el servicio Facto
 
 ## Paso 1: Creación de la factoría de datos
 
-1.	Tras iniciar sesión en el [Portal de vista previa de Azure](http://portal.azure.com/), haga lo siguiente:
+1.	Tras iniciar sesión en el [Portal de Azure](http://portal.azure.com/), haga lo siguiente:
 	1.	Haga clic en **NUEVO** en el menú de la izquierda. 
 	2.	Haga clic en **Análisis de datos** en la hoja **Creación**.
 	3.	Haga clic en **Factoría de datos** en la hoja **Análisis de datos**.
@@ -60,7 +60,7 @@ Este artículo no ofrece información general conceptual sobre el servicio Facto
 		![Creación de un grupo de recursos](./media/data-factory-build-your-first-pipeline-using-editor/create-resource-group.png)
 4.	Una vez seleccionado el grupo de recursos, compruebe que usa la suscripción correcta en la que quiere crear la factoría de datos.
 5.	Haga clic en **Crear** en la hoja **Nueva factoría de datos**.
-6.	Verá que la factoría de datos se crea en el **Panel de inicio** del Portal de vista previa de Azure de la manera siguiente:   
+6.	Verá que la factoría de datos se crea en el **Panel de inicio** del Portal de Azure de la manera siguiente:   
 
 	![Creación de estado de la factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 7. ¡Enhorabuena! Ya creó correctamente su primera factoría de datos. Tras crear correctamente la factoría de datos, verá la página Factoría de datos, que muestra el contenido de la misma. 	
@@ -99,7 +99,7 @@ Ahora, va a crear un servicio vinculado para un clúster de HDInsight a petició
 		  "properties": {
 		    "type": "HDInsightOnDemand",
 		    "typeProperties": {
-		      "version": "3.1",
+		      "version": "3.2",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
 		      "linkedServiceName": "StorageLinkedService"
@@ -111,7 +111,7 @@ Ahora, va a crear un servicio vinculado para un clúster de HDInsight a petició
 	
 	Propiedad | Descripción
 	-------- | -----------
-	Versión | Con esto se especifica que la versión de HDInsight se crea para que sea 3.1. 
+	Versión | Con esto se especifica que la versión de HDInsight se crea para que sea 3.2. 
 	ClusterSize | Así se crea un clúster de HDInsight de un nodo. 
 	TimeToLive | Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine.
 	linkedServiceName | Especifica la cuenta de almacenamiento que se usará para almacenar los registros que genere HDInsight.
@@ -233,4 +233,4 @@ En este paso, creará la primera canalización:
 En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure en SQL Azure](./data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -19,7 +19,7 @@
 # Creación de Almacenamiento de datos SQL con Powershell
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
@@ -71,4 +71,4 @@ Si está interesado en obtener más información sobre cómo administrar el Alma
 [firewall rules]: https://azure.microsoft.com/es-ES/documentation/articles/sql-database-configure-firewall-settings/
 [Instalación y configuración de Azure PowerShell]: powershell-install-configure.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

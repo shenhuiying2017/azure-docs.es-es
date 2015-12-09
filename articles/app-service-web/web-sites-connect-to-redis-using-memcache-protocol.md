@@ -37,7 +37,7 @@ Una vez que se implementa el sitio web escalable de WordPress y que se aprovisio
 
 ## Habilitación de las correcciones de compatibilidad de Memcache de Aplicaciones web
 
-Para configurar las correcciones de compatibilidad (shim) de Memcache, debe crear tres ajustes de aplicaciones. Puede hacerlo mediante una variedad de métodos, entre los que se incluyen el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), el [portal antiguo][3], los [cmdlets de Azure PowerShell][5] o la [interfaz de la línea de comandos de Azure][5]. En lo que respecta a esta publicación, usaremos el [Portal de Azure][4] para establecer los ajustes de la aplicación. Los valores siguientes se pueden recuperar de la hoja **Configuración** de la instancia de Caché en Redis.
+Para configurar las correcciones de compatibilidad (shim) de Memcache, debe crear tres ajustes de aplicaciones. Puede hacerlo mediante una variedad de métodos, entre los que se incluyen el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), el [Portal clásico][3], los [cmdlets de Azure PowerShell][5] o la [interfaz de la línea de comandos de Azure][5]. En lo que respecta a esta publicación, usaremos el [Portal de Azure][4] para establecer los ajustes de la aplicación. Los valores siguientes se pueden recuperar de la hoja **Configuración** de la instancia de Caché en Redis.
 
 ![Hoja de configuración de Caché en Redis de Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
@@ -180,7 +180,6 @@ La llamada para enumerar las claves debe devolver un valor. Si no es así, inten
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, vea: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 [0]: http://bit.ly/1F0m3tw
@@ -198,4 +197,4 @@ La llamada para enumerar las claves debe devolver un valor. Si no es así, inten
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

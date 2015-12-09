@@ -39,11 +39,11 @@ Para comenzar a usar el relé del bus de servicio en Azure, primero debe crear u
 
 Para crear un nombre de espacio de servicio:
 
-1.  Inicie sesión en el [Portal de Azure][].
+1.  Inicie sesión en el [Portal de Azure clásico][].
 
-2.  En el panel de navegación izquierdo del Portal de Azure, haga clic en **Bus de servicio**.
+2.  En el panel de navegación izquierdo del Portal, haga clic en **Bus de servicio**.
 
-3.  En el panel inferior del Portal de Azure, haga clic en **Crear**.
+3.  En el panel inferior del Portal, haga clic en **Crear**.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
@@ -59,7 +59,7 @@ Para crear un nombre de espacio de servicio:
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
 
-	El espacio de nombres que creó aparecerá a continuación en el Portal de Azure y tardará un poco en activarse. Espere hasta que el estado sea **Active** antes de continuar.
+	El espacio de nombres que creó aparecerá a continuación en el Portal y tardará un poco en activarse. Espere hasta que el estado sea **Active** antes de continuar.
 
 ## Obtención de credenciales de administración predeterminadas para el espacio de nombres
 
@@ -273,9 +273,9 @@ Ahora que conoce los fundamentos del servicio Retransmisión de bus de servicio,
   [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
   [Get the Service Bus NuGet Package]: #get_nuget_package
   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
-  [Portal de Azure]: http://manage.windowsazure.com
+  [Portal de Azure clásico]: http://manage.windowsazure.com
   [Autenticación con firma de acceso compartido en Bus de servicio]: service-bus-shared-access-signature-authentication.md
   [Ejemplos de Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [información general de ejemplos de Bus de servicio]: service-bus-samples.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

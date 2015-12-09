@@ -18,13 +18,18 @@
 
 # <a name="getting-started"> </a>Introducción a Servicios móviles
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
->[AZURE.TIP]Si no está familiarizado con el desarrollo para dispositivos móviles con Microsoft Azure, [empiece a trabajar con Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-xamarin-android-get-started-preview.md) en lugar de Servicios móviles de Azure; esto le dará [ventajas adicionales](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
+>[AZURE.TIP]Si no está familiarizado con el desarrollo para dispositivos móviles con Microsoft Azure, [empiece a trabajar con Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-xamarin-android-get-started-preview.md) en lugar de Servicios móviles de Azure; Aplicaciones móviles le ofrece [ventajas adicionales](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
 
 En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube a una aplicación Xamarin Android usando Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de _Lista de pendientes_ que almacena datos de la aplicación en el servicio móvil nuevo. El servicio móvil que cree utilizará los lenguajes .NET compatibles y recurrirá a Visual Studio para la lógica de negocios de servidor y para las tareas de administración. Si desea crear un servicio móvil que le permita escribir su lógica de negocios de servidor en JavaScript, consulte la [versión back-end de JavaScript] de este tema.
 
->[AZURE.NOTE]En este tema se muestra cómo crear un proyecto de servicio móvil nuevo desde el Portal de administración de Azure. Si usa Visual Studio 2013 con actualización 2, también puede agregar un proyecto de servicio móvil nuevo a una solución existente de Visual Studio. Para obtener más información, consulte [Inicio rápido: Incorporación de un servicio móvil (back-end de .NET).](http://msdn.microsoft.com/library/windows/apps/dn629482.aspx)
+>[AZURE.NOTE]En este tema se muestra cómo crear un proyecto de servicio móvil desde el Portal de Azure clásico. Si usa Visual Studio 2013 con actualización 2, también puede agregar un proyecto de servicio móvil nuevo a una solución existente de Visual Studio. Para obtener más información, consulte [Inicio rápido: Incorporación de un servicio móvil (back-end de .NET).](http://msdn.microsoft.com/library/windows/apps/dn629482.aspx)
 
 La siguiente captura de pantalla muestra la aplicación final:
 
@@ -40,11 +45,11 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Serv
 
 ## Creación de una aplicación Xamarin Android
 
-Una vez que haya creado el servicio móvil, podrá seguir una introducción rápida en el Portal de administración para crear una nueva aplicación o modificar una ya existente a fin de conectarla a dicho servicio.
+Después de crear el servicio móvil, puede seguir una sencilla introducción rápida en el Portal de Azure clásico para crear una aplicación o modificar una ya existente a fin de conectarla a dicho servicio.
 
 En esta sección va a descargar una nueva aplicación Xamarin Android y un proyecto de servicio para su servicio móvil.
 
-1. En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
+1. En el [Portal de Azure clásico], haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
 
 2. En la pestaña de inicio rápido, haga clic en **Xamarin** en **Seleccionar plataforma** y, a continuación, expanda **Crear una nueva aplicación Xamarin**.
 
@@ -125,7 +130,7 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
-[Management Portal]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [versión back-end de JavaScript]: mobile-services-android-get-started.md
 [Solución de problemas de un back-end de .NET de Servicios móviles]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
@@ -134,4 +139,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -237,7 +237,7 @@ Clic para implementar es otra forma de usar plantillas ARM. Se trata de una mane
 
 
 ### Paso 1 
-El vínculo [Clic para implementar Puerta de enlace de aplicaciones](https://azure.microsoft.com/es-ES/documentation/templates/101-application-gateway-public-ip/) le redirigirá a la página de plantilla del portal para Puerta de enlace de aplicaciones.
+El vínculo [Click to deploy Application Gateway](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/) le redirigirá a la página de plantilla del portal de Puerta de enlace de aplicaciones.
 
 
 ### Paso 2 
@@ -273,4 +273,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

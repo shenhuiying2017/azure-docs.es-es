@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/18/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # Administrar un perfil del Administrador de tráfico de Azure
@@ -85,4 +85,4 @@ Puede ver el historial de cambios del perfil del Administrador de tráfico en el
 
 [Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

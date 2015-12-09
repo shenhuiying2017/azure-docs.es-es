@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="11/11/2015"
+	ms.date="12/01/2015"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## Información general
 
-Esta guía demuestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento de blobs de Azure. Los ejemplos están escritos en C# y utilizan la biblioteca del cliente de almacenamiento de Azure para .NET. La Biblioteca del cliente de almacenamiento es un SDK que facilita la interacción con las API de REST del Almacenamiento de blobs. Los escenarios descritos en esta guía incluyen la **carga**, **enumeración**, **descarga** y **eliminación** de blobs y tardarán aproximadamente una hora en completarse. Si desea ver un vídeo introductorio, consulte [Introduction To Storage In Five Minutes](https://azure.microsoft.com/es-ES/documentation/videos/azure-storage-5-minute-overview/) (Introducción al almacenamiento en cinco minutos) o puede consultar la guía [Introducción en cinco minutos a Almacenamiento de Azure](https://azure.microsoft.com/es-ES/documentation/articles/storage-getting-started-guide/).
+Esta guía demuestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento de blobs de Azure. Los ejemplos están escritos en C# y utilizan la biblioteca del cliente de almacenamiento de Azure para .NET. La Biblioteca del cliente de almacenamiento es un SDK que facilita la interacción con las API de REST del Almacenamiento de blobs. Los escenarios descritos en esta guía incluyen la **carga**, **enumeración**, **descarga** y **eliminación** de blobs y tardarán aproximadamente una hora en completarse. Si desea ver un vídeo introductorio, consulte [Introducción a Almacenamiento de Azure en cinco minutos](https://azure.microsoft.com/documentation/videos/azure-storage-5-minute-overview/) o puede consultar [Introducción a Almacenamiento de Azure en cinco minutos](storage-getting-started-guide.md).
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -359,11 +359,10 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
   [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
 
-  [Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -17,7 +17,7 @@
    2. En **Nombre del iniciador iSCSI**, proporcione el nombre completo del iSCSI (IQN) del host de Windows. Si no tiene el IQN, vaya a [Obtener el IQN de un host de Windows Server](#get-the-iqn-of-a-windows-server-host).
    3. Recomendamos que habilite una copia de seguridad predeterminada seleccionando la casilla **Habilitar una copia de seguridad predeterminada para este volumen**. La copia de seguridad predeterminada creará una directiva que se ejecuta a las 22:30 cada día (hora del dispositivo) y crea una instantánea en la nube de este volumen.
 
-        > [AZURE.NOTE] Después de habilitar aquí la copia de seguridad, no se puede revertir. Necesitará modificar el volumen para modificar esta configuración.
+        > [AZURE.NOTE] After the backup is enabled here, it cannot be reverted. You will need to edit the volume to modify this setting.
 
         ![Add volume](./media/storsimple-create-volume/AddVolume2-include.png)
 
@@ -27,4 +27,4 @@
 
 Para ver un vídeo que muestra cómo crear un volumen de StorSimple, haga clic [aquí](http://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

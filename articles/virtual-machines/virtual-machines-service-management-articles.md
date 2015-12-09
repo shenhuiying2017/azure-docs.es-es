@@ -24,7 +24,7 @@
 
 ## Primeros pasos
 
-[Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](virtual-machines-windows-tutorial-classic-portal.md)
+[Creación de una máquina virtual que ejecuta Windows en el Portal de Azure clásico](virtual-machines-windows-tutorial-classic-portal.md)
 
 [Crear una máquina virtual personalizada que ejecute Windows en Azure](virtual-machines-windows-create-custom.md)
 
@@ -152,4 +152,4 @@
 
 [Referencia de la API de REST de Administración de servicios](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

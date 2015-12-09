@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/22/2015"
+	ms.date="11/24/2015"
 	ms.author="awills"/>
 
 # Introducción a Application Insights en un proyecto web de Java
@@ -267,7 +267,7 @@ Ahora puede publicar la aplicación en el servidor, dejar que la utilicen los us
 
 Las excepciones no controladas se recopilan automáticamente:
 
-![](./media/app-insights-java-get-started/21-exceptions.png)
+![Desplazarse hacia abajo y hacer clic en el icono de errores](./media/app-insights-java-get-started/21-exceptions.png)
 
 Para recopilar datos de otras excepciones, tiene dos opciones:
 
@@ -364,11 +364,13 @@ Ahora que ha instalado el SDK, puede utilizar la API para enviar su propia telem
 
 ## Pruebas web de disponibilidad
 
-Application Insights puede probar su sitio web a intervalos regulares para comprobar que está activo y que responde correctamente. Para configurarlo, haga clic en el gráfico de pruebas web vacío en la hoja de información general y especifique la dirección URL pública.
+Application Insights puede probar su sitio web a intervalos regulares para comprobar que está activo y que responde correctamente. [Para configurarlo][availability], desplácese hacia abajo y haga clic en Disponibilidad.
+
+![Desplazarse hacia abajo, hacer clic en Disponibilidad y luego en Agregar prueba web](./media/app-insights-java-get-started/31-config-web-test.png)
 
 Obtendrá gráficos de tiempos de respuesta, junto con notificaciones por correo electrónico si su sitio deja de funcionar.
 
-![Ejemplo de prueba web](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
+![Ejemplo de prueba web](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
 [Más información acerca de las pruebas web de disponibilidad][availability]
 
@@ -383,7 +385,7 @@ Obtendrá gráficos de tiempos de respuesta, junto con notificaciones por correo
 
 ## Pasos siguientes
 
-Para obtener más información, consulte el [Centro de desarrolladores de Java](/develop/java/).
+Para más información, consulte el [Centro para desarrolladores de Java](/develop/java/).
 
 <!--Link references-->
 
@@ -396,4 +398,4 @@ Para obtener más información, consulte el [Centro de desarrolladores de Java](
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

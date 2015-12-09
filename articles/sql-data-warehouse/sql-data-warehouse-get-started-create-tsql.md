@@ -20,7 +20,7 @@
 #Creación de Almacenamiento de datos SQL con TSQL 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-TSQL.md)
 - [PowerShell](sql-data-warehouse-get-started-create-powershell.md)
 
@@ -28,7 +28,7 @@ En este artículo se mostrará cómo crear un Almacenamiento de datos SQL median
 
 - Una suscripción de Azure. Si necesita una suscripción a Azure, haga clic en la opción **PRUEBA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva para finalizar este artículo.
 - Visual Studio. Para obtener una copia gratis de Visual Studio, consulte la página [Descargas de Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
-- Un servidor de SQL Server V12. Necesitará un servidor SQL Server V12 para crear el Almacenamiento de datos SQL. Si no tiene un servidor de SQL Server V12 disponible, se recomienda crearlo en el Portal de vista previa para que pueda crear el Almacenamiento de datos SQL en un servidor nuevo.
+- Un servidor de SQL Server V12. Necesitará un servidor SQL Server V12 para crear el Almacenamiento de datos SQL. Si no tiene un servidor de SQL Server V12 disponible, se recomienda crearlo en el Portal para que pueda crear el Almacenamiento de datos SQL en un servidor nuevo.
 
 En este artículo no se aborda cómo configurar correctamente Visual Studio ni cómo conectarse con él. Para obtener una descripción completa de cómo llevarlo a cabo, consulte la documentación de [Conexión y consultas][]. Para comenzar, tendrá que abrir el Explorador de objetos de SQL Server en Visual Studio y conectarse al servidor que va a usar para crear un Almacenamiento de datos SQL. Una vez hecho esto, podrá crear un Almacenamiento de datos SQL ejecutando el comando siguiente en la base de datos maestra:
 
@@ -76,4 +76,4 @@ Después de que su Almacenamiento de datos SQL termine el aprovisionamiento, pue
 [cargar datos de ejemplo]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [página de precios]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

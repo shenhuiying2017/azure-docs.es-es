@@ -35,7 +35,7 @@ La base de datos está asociado a un Azure SQL Server. Para conectarse a la base
 
 Para buscar el nombre del servidor completo.
 
-1. Vaya al [Portal de vista previa de Azure](https://portal.azure.com).
+1. Vaya al [Portal de Azure](https://portal.azure.com).
 2. Haga clic en **Bases de datos SQL** y haga clic en la base de datos a la que desea conectarse. Este ejemplo usa la base de datos de ejemplo AdventureWorksDW.
 3. Busque el nombre del servidor completo:
 
@@ -108,4 +108,4 @@ Ahora que puede conectarse y realizar consultas, pruebe a [visualizar los datos 
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

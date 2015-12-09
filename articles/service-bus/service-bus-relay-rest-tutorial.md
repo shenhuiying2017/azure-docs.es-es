@@ -27,9 +27,9 @@ El primer paso es crear un espacio de nombres de servicio y obtener una clave de
 
 ### Para crear un espacio de nombres de servicio y obtener una clave SAS
 
-1. Para crear un espacio de nombres en el portal de Azure, siga los pasos descritos en [Creación o modificación de un espacio de nombres de servicio de Bus de servicio](https://msdn.microsoft.com/library/hh690931.aspx).
+1. Para crear un espacio de nombres en el [Portal de Azure clásico][], siga los pasos descritos en [Creación o modificación de un espacio de nombres de servicio de Bus de servicio](https://msdn.microsoft.com/library/hh690931.aspx).
 
-2. En la ventana principal del portal de Azure, haga clic en el nombre del espacio de nombres de servicio que creó en el paso anterior.
+2. En la ventana principal del Portal, haga clic en el nombre del espacio de nombres de servicio que creó en el paso anterior.
 
 3. Haga clic en **Configurar** para ver las directivas de acceso compartido para el espacio de nombres.
 
@@ -45,13 +45,13 @@ La diferencia principal entre un contrato básico del Bus de servicio y un contr
 
 1. Abra Visual Studio como administrador: haga clic con el botón derecho en el programa en el menú **Inicio** y, a continuación, haga clic en **Ejecutar como administrador**.
 
-2. Cree un nuevo proyecto de aplicación de consola. Haga clic en el menú **Archivo**, seleccione **Nuevo** y, a continuación, **Proyecto**. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C#** (si **Visual C#** no aparece, mire en **Otros lenguajes**), seleccione la plantilla **Aplicación de consola** y asígnele el nombre **ImageListener**. Use el valor predeterminado de **Ubicación**. Haga clic en **Aceptar** para crear el proyecto.
+2. Cree un nuevo proyecto de aplicación de consola. Haga clic en el menú **Archivo**, seleccione **Nuevo** y, a continuación, **Proyecto**. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C#** (si **Visual C#** no aparece, mire en **Otros lenguajes**), seleccione la plantilla **Aplicación de consola** y asígnele el nombre **ImageListener**. Use la **Ubicación** predeterminada. Haga clic en **Aceptar** para crear el proyecto.
 
 3. Para un proyecto de C#, Visual Studio crea un archivo `Program.cs`. Esta clase contiene un método `Main()` vacío, necesario para que un proyecto de aplicación de consola se compile correctamente.
 
 4. Agregue una referencia a **System.ServiceModel.dll** al proyecto:
 
-	a. En el Explorador de soluciones, haga clic en la carpeta **Referencias** bajo la carpeta del proyecto y, a continuación, haga clic en **Agregar referencia**.
+	a. En el Explorador de soluciones, haga clic con el botón derecho en la carpeta **Referencias** bajo la carpeta del proyecto y, a continuación, haga clic en **Agregar referencia**.
 
 	b. Haga clic en la pestaña **.NET** del cuadro de diálogo **Agregar referencia** y desplácese hacia abajo hasta que vea **System.ServiceModel**. Selecciónelo y haga clic en **Aceptar**.
 
@@ -76,7 +76,7 @@ La diferencia principal entre un contrato básico del Bus de servicio y un contr
 		...
 	```
 
-8. Directamente después de la declaración del espacio de nombres, defina una nueva interfaz denominada **IImageContract** y aplique el atributo **ServiceContractAttribute** a la interfaz con un valor de `http://samples.microsoft.com/ServiceModel/Relay/`. El valor del espacio de nombres difiere del espacio de nombres que utiliza en todo el ámbito de su código. El valor del espacio de nombres se utiliza como identificador único para este contrato, y debe tener información de la versión. Para más información, consulte [Control de versiones del servicio](http://go.microsoft.com/fwlink/?LinkID=180498). La especificación del espacio de nombres impide explícitamente que el valor del espacio de nombres predeterminado se agregue al nombre del contrato.
+8. Directamente después de la declaración del espacio de nombres, defina una nueva interfaz denominada **IImageContract** y aplique el atributo **ServiceContractAttribute** a la interfaz con un valor de `http://samples.microsoft.com/ServiceModel/Relay/`. El valor del espacio de nombres difiere del espacio de nombres que utiliza en todo el ámbito de su código. El valor del espacio de nombres se utiliza como identificador único para este contrato, y debe tener información de la versión. Para obtener más información, consulte [Control de versiones del servicio](http://go.microsoft.com/fwlink/?LinkID=180498). La especificación del espacio de nombres impide explícitamente que el valor del espacio de nombres predeterminado se agregue al nombre del contrato.
 
 	```
 	[ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
@@ -193,7 +193,7 @@ Al igual que con los pasos anteriores, hay muy pocas diferencias entre implement
 
 	Al agregar el archivo, asegúrese de que está seleccionada la opción **Todos los archivos** en la lista desplegable situada junto al campo **Nombre de archivo:**. En el resto de este tutorial se supone que el nombre de la imagen es "image.jpg". Si tiene un archivo diferente, debe cambiar el nombre de la imagen o cambiar su código para compensar.
 
-4. Para asegurarse de que el servicio en ejecución puede encontrar el archivo de imagen, en el **Explorador de soluciones**, haga clic en el archivo de imagen. En el panel **Propiedades**, establezca **Copiar en el directorio de salida** en **Copiar si es posterior**.
+4. Para asegurarse de que el servicio en ejecución puede encontrar el archivo de imagen, en el **Explorador de soluciones**, haga clic con el botón derecho en el archivo de imagen. En el panel **Propiedades** , establezca **Copiar en el directorio de salida** en **Copiar si es posterior**.
 
 5. Agregue referencias a los ensamblados **System.Drawing.dll**, **System.Runtime.Serialization.dll** y **Microsoft.ServiceBus.dll** al proyecto, y agregue también las siguientes declaraciones `using` asociadas.
 
@@ -241,7 +241,7 @@ Al igual que con los pasos anteriores, hay muy pocas diferencias entre implement
 
 ### Para definir la configuración para ejecutar el servicio web en el Bus de servicio
 
-1. Haga clic con el botón derecho en el proyecto **ImageListener**. Después, haga clic en **Agregar** y, a continuación, en **Nuevo elemento**.
+1. Haga clic en el proyecto **ImageListener**. A continuación, haga clic en **Agregar** y, a continuación, en **Nuevo elemento**.
 
 2. En el **Explorador de soluciones**, haga doble clic en **App.config**, que actualmente contiene los elementos XML siguientes.
 
@@ -300,7 +300,7 @@ Al igual que con los pasos anteriores, hay muy pocas diferencias entre implement
 
 	Este paso configura un servicio que usa el valor predeterminado definido anteriormente **webHttpRelayBinding**. También usa el valor predeterminado **sbTokenProvider**, que se define en el paso siguiente.
 
-6. Después del elemento `<services>`, cree un elemento `<behaviors>` con el contenido siguiente, reemplazando "SAS\_KEY" por la clave de *Firma de acceso compartido* (SAS) que obtuvo en el Portal de Azure en el paso 1.
+6. Después del elemento `<services>`, cree un elemento `<behaviors>` con el contenido siguiente, reemplazando "SAS\_KEY" por la clave de *Firma de acceso compartido* (SAS) que obtuvo en el [Portal de Azure clásico][] en el paso 1.
 
 	```
 	<behaviors>
@@ -582,4 +582,6 @@ Ahora que ha creado una aplicación que utiliza el servicio de Retransmisión de
 
 - [Cómo usar el servicio de retransmisión del Bus de servicio](service-bus-dotnet-how-to-use-relay.md)
 
-<!---HONumber=Oct15_HO3-->
+[Portal de Azure clásico]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->
