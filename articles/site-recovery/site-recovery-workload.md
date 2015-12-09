@@ -39,7 +39,20 @@ Las características de Azure Site Recovery que contribuyen a su estrategia de p
 
 Las tecnologías de replicación de Site Recovery son compatibles con cualquier aplicación que se ejecuta en una máquina virtual. Además, hemos llevado a cabo pruebas adicionales en colaboración con los equipos de producto de las aplicaciones para mejorar aún más cada aplicación.
 
-**Carga de trabajo** | <p>**Replicación de VM de Hyper-V**</p> <p>**(para sitio secundario)**</p> | <p>**Replicación de VM de Hyper-V**</p> <p>**(para Azure)**</p> | <p>**Replicación de VM de VMware**</p> <p>**(en sitio secundario)**</p> | <p>**Replicación de VM de VMware**</p><p>**(para Azure)****</p> ---|---|---|---|--- Active Directory, DNS | Y | Y | Y | Y Aplicaciones web (IIS, SQL) | Y | Y | Y | Y SCOM | Y | Y | Y | Y Sharepoint | Y | Y | Y |Y <p>SAP</p><p>Replicación del sitio de SAP en Azure para sin clúster</p> | Y (probado por Microsoft) | Y (probado por Microsoft) | Y (probado por Microsoft) | Exchange (no DAG) | Y | Próximamente | Y | Y Escritorio remoto/VDI | Y | Y | Y | N/A <p>Linux</p> <p>(aplicaciones y sistema operativo)</p> | Y (probado por Microsoft) | Y (probado por Microsoft) | Y (probado por Microsoft) | Y (probado por Microsoft) Dynamics AX | Y | Y | Y | Y Dynamics CRM | Y | Próximamente | Y | Próximamente Oracle | Y (probado por Microsoft) | Y (probado por Microsoft) | Y (probado por Microsoft) | Y (probado por Microsoft) Servidor de archivos de Windows | Y | Y | Y | Y
+**Carga de trabajo** | <p>**Replicación de máquinas virtuales de Hyper-V**</p> <p>**(para sitio secundario)**</p> | <p>**Replicación de máquinas de Hyper-V virtual**</p> <p>**(para Azure)**</p> | <p>**Replicación de máquinas virtuales de VMware**</p> <p>**(en sitio secundario)**</p> | <p>**Replicación de máquinas virtuales de VMware**</p><p>**(para Azure)****</p>
+---|---|---|---|---
+Active Directory, DNS | Y | Y | Y | Y
+Aplicaciones web (IIS, SQL) | Y | Y | Y | Y
+SCOM | Y | Y | Y | Y
+Sharepoint | Y | Y | Y |Y
+<p>SAP</p><p>Replicación del sitio de SAP en Azure para sin clúster</p> | Y (probado por Microsoft) | Y (probado por Microsoft) | Y (probado por Microsoft) 
+Exchange (no DAG) | Y | Próximamente | Y | Y
+Escritorio remoto/VDI | Y | Y | Y | N/A
+<p>Linux</p> <p>(aplicaciones y sistema operativo)</p> | Y (probado por Microsoft) | Y (probado por Microsoft) | Y (probado por Microsoft) | Y (probado por Microsoft)
+Dynamics AX | Y | Y | Y | Y
+Dynamics CRM | Y | Próximamente | Y | Próximamente
+Oracle | Y (probado por Microsoft) | Y (probado por Microsoft) | Y (probado por Microsoft) | Y (probado por Microsoft)
+Servidor de archivos de Windows | Y | Y | Y | Y
 
 ##Protección de Active Directory y DNS
 

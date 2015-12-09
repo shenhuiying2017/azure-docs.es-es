@@ -69,7 +69,8 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 
 1. Abra la ventana **Explorador de servidores** de Visual Studio.
 
-2. Haga clic con el botón derecho en el nodo **Azure** y, después, haga clic en **Conectar con Microsoft Azure**. ![Conexión a Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Haga clic con el botón derecho en el nodo **Azure** y, después, haga clic en **Conectar con Microsoft Azure**.
+![Conexión a Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Inicie sesión con sus credenciales de Azure.
 

@@ -118,7 +118,10 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
 	    private static Boolean isVisible = false;
 
 
-	Asegúrese de actualizar los tres marcadores de posición: * **SENDER\_ID**: establezca `SENDER_ID` en el número de proyecto que obtuvo anteriormente del proyecto que creó en la [consola de Google Cloud](http://cloud.google.com/console). * **HubListenConnectionString**: establezca `HubListenConnectionString` en la cadena de conexión **DefaultListenAccessSignature** correspondiente a su centro. Puede copiar esa cadena de conexión haciendo clic en **Ver cadena de conexión** en la pestaña **Panel** de su centro en el [Portal de Azure]. * **HubName**: use el nombre del Centro de notificaciones que aparece en la parte superior de la página de Azure correspondiente a su centro (**no** la dirección URL completa). Por ejemplo, use `"myhub"`.
+	Asegúrese de actualizar los tres marcadores de posición:
+	* **SENDER\_ID**: defina `SENDER_ID` en el número de proyecto que obtuvo anteriormente desde el proyecto que creó en la [Consola de la nube de Google](http://cloud.google.com/console).
+	* **HubListenConnectionString**: defina `HubListenConnectionString` en la cadena de conexión **DefaultListenAccessSignature** correspondiente a su centro. Puede copiar esa cadena de conexión con un clic en **Ver cadena de conexión** en la pestaña **Panel** del centro en el [Portal de Azure].
+	* **HubName**: el nombre del centro de notificaciones que aparece en la parte superior de la página en Azure correspondiente a su centro (**no** la dirección URL completa). Por ejemplo, use `"myhub"`.
 
 
 
