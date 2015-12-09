@@ -30,7 +30,7 @@ Este tutorial muestra cómo crear una aplicación de [Node.js](http://nodejs.org
 
 Aprenderá a realizar los siguientes procedimientos:
 
-* Cómo crear una aplicación web en el Servicio de aplicaciones de Azure con el Portal de vista previa de Azure.
+* Creación de una aplicación web en el Servicio de aplicaciones de Azure con el Portal de Azure.
 * Cómo implementar una aplicación de Node.js en la aplicación web insertándola en el repositorio Git de la aplicación web.
 
 La aplicación completa escribe una cadena corta "hello world" en el explorador.
@@ -39,7 +39,7 @@ La aplicación completa escribe una cadena corta "hello world" en el explorador.
 
 Para ver tutoriales y código de ejemplo con aplicaciones más complejas de Node.js, o para ver otros temas sobre cómo usar Node.js en Azure, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/).
 
-> [AZURE.NOTE]Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN](/es-ES/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o bien [registrarse para obtener una evaluación gratuita](/es-ES/pricing/free-trial/?WT.mc_id=A261C142F).
+> [AZURE.NOTE]Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a Visual Studio](/es-ES/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o bien [registrarse para obtener una evaluación gratuita](/es-ES/pricing/free-trial/?WT.mc_id=A261C142F).
 >
 > Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751). Ahí puede crear de forma inmediata una aplicación web de corta duración para iniciarse en Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
 
@@ -49,9 +49,9 @@ Siga estos pasos para crear una aplicación web en el Servicio de aplicaciones d
 
 [Git](http://git-scm.com/%20target="_blank) es un sistema de control de versión distribuida que puede utilizar para implementar su sitio web de Azure. Tendrá que almacenar el código que escriba para su aplicación web en un repositorio Git local y lo implementará en Azure insertando en un repositorio remoto. Este método de implementación es una característica de las aplicaciones web del Servicio de aplicaciones.
 
-1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-2. Haga clic en el icono **+NUEVO** situado en la parte superior izquierda del portal.
+2. Haga clic en el icono **+NUEVO** situado en la parte superior izquierda del Portal de Azure.
 
 3. Haga clic en **Web y móvil** y, después, haga clic en **Aplicación web**.
 
@@ -65,7 +65,7 @@ Siga estos pasos para crear una aplicación web en el Servicio de aplicaciones d
 
 6. Seleccione un **Grupo de recursos** o cree uno nuevo.
 
-	Para obtener más información sobre los grupos de recursos, consulte [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](../resource-group-portal.md).
+	Para obtener más información acerca de los grupos de recursos, consulte [Uso del Portal de Azure para administrar los recursos de Azure](../resource-group-portal.md).
 
 7. Seleccione un **plan de servicio de aplicaciones/ubicación** o cree uno nuevo.
 
@@ -224,4 +224,4 @@ Para más información sobre cómo desarrollar aplicaciones de Node.js en Azure,
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

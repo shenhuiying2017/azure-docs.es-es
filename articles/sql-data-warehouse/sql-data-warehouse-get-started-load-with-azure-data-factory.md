@@ -59,7 +59,7 @@ Ahora que ya tenemos nuestros datos, podemos moverlos a su factoría de datos pa
 
 ## Uso de Factoría de datos de Azure
 
-Ahora que hemos reunido todas las piezas, podemos comenzar a configurar la canalización, mediante el desplazamiento a la instancia de Factoría de datos de Azure en el Portal de vista previa de Azure. Esto puede hacerse desde el [Portal de Azure](portal.azure.com) y mediante la selección de la factoría de datos en el menú izquierdo.
+Ahora que hemos reunido todas las piezas, podemos comenzar a configurar la canalización, mediante el desplazamiento a la instancia de Factoría de datos de Azure en el Portal de Azure. Esto puede hacerse desde el [Portal de Azure clásico](portal.azure.com) y mediante la selección de la factoría de datos en el menú izquierdo.
 
 A partir de aquí, se necesitan tres pasos para configurar una canalización de Factoría de datos de Azure para transferir datos a su almacenamiento de datos: vinculación de sus servicios, definición de los conjuntos de datos y creación de la canalización.
 
@@ -206,4 +206,4 @@ En la sección 'Crear e implementar', haga clic en 'Más comandos' y, a continua
 	}
 	
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

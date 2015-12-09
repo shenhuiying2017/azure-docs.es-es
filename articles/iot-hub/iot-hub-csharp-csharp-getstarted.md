@@ -22,7 +22,7 @@
 
 El centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y una aplicación back-end. Uno de los mayores desafíos relacionados con los proyectos de IoT consiste en conectar dispositivos al servidor de aplicaciones de manera segura y fiable. Para simplificar este escenario, el centro de IoT de Azure permite el envío a gran escala de mensajes de dispositivo a nube y viceversa. Asimismo, permite establecer comunicaciones seguras mediante el uso de credenciales de seguridad por cada dispositivo y funciones de control de acceso; además, incluye bibliotecas de dispositivos para las plataformas y los lenguajes más populares.
 
-Este tutorial muestra cómo usar el Portal de vista previa de Azure para crear un Centro de IoT. También muestra cómo crear una identidad de dispositivo en el Centro de IoT, cómo crear un dispositivo simulado que envía mensajes de dispositivo a nube y recibe dichos mensajes desde el back-end de la nube.
+Este tutorial muestra cómo usar el portal de Azure para crear un centro de IoT. También muestra cómo crear una identidad de dispositivo en el centro de IoT, cómo crear un dispositivo simulado que envía mensajes de dispositivo a nube y recibe dichos mensajes desde el back-end de la nube.
 
 Al final de este tutorial tendrá tres aplicaciones de consola de Windows:
 
@@ -30,7 +30,7 @@ Al final de este tutorial tendrá tres aplicaciones de consola de Windows:
 * **ReadDeviceToCloudMessages**, que lee los mensajes enviados del dispositivo a la nube y muestra su contenido.
 * **SimulatedDevice**, que se conecta a su centro de IoT con la identidad del dispositivo creada anteriormente y envía un mensaje de dispositivo a nube cada segundo.
 
-> [AZURE.NOTE]El centro de IoT ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes (incluido C, Java y Javascript), mediante los SDK del dispositivo de IoT de Azure. Consulte el [Centro para desarrolladores de IoT de Azure][] para obtener instrucciones paso a paso sobre cómo conectar el dispositivo al código de este tutorial y, en general, al Centro de IoT de Azure. Próximamente estarán disponibles SDK de servicios IoT de Azure para Java y Node.
+> [AZURE.NOTE]El centro de IoT ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes (incluido C, Java y Javascript), mediante los SDK del dispositivo de IoT de Azure. Consulte el [Centro para desarrolladores de IoT de Azure][] para obtener instrucciones paso a paso sobre cómo conectar su dispositivo al código de este tutorial y, en general, al Centro de IoT de Azure. Próximamente estarán disponibles SDK de servicios IoT de Azure para Java y Node.
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -40,7 +40,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## Crear un centro de IoT
 
-1. Inicie sesión en el [Portal de vista previa de Azure].
+1. Inicie sesión en el [Portal de Azure].
 
 2. En la barra de accesos directos, haga clic en **Nuevo**. A continuación, haga clic en **Internet de las cosas** y, a continuación, haga clic en **Centro de IoT**.
 
@@ -115,7 +115,7 @@ Información adicional sobre el Centro de IoT:
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 
 <!-- Links -->
-[Portal de vista previa de Azure]: https://portal.azure.com/
+[Portal de Azure]: https://portal.azure.com/
 
 [Envío de mensajes de nube a dispositivo con el Centro de IoT]: iot-hub-csharp-csharp-c2d.md
 [Procesamiento de mensajes de dispositivo a nube]: iot-hub-csharp-csharp-process-d2c.md
@@ -129,4 +129,4 @@ Información adicional sobre el Centro de IoT:
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

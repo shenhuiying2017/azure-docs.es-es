@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="10/28/2015"
+	ms.date="11/30/2015"
 	ms.author="krisragh"/>
 
 #Creación de una aplicación iOS
@@ -69,4 +69,4 @@ Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usar
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015--->

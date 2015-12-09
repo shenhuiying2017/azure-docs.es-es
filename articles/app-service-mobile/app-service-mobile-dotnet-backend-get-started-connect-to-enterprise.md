@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="06/19/2015"
+	ms.date="12/03/2015"
 	ms.author="mahender"/>
 
 # Conexión de una aplicación móvil a API de SaaS
@@ -32,7 +32,7 @@ Este tutorial requiere lo siguiente:
 ## <a name="configure-permissions"></a>Configuración de la aplicación para acceso delegado a SharePoint
 De manera predeterminada, el token que recibe de AAD tiene permisos limitados. Para acceder a una aplicación SaaS o a un recurso de terceros, como SharePoint Online, debe permitirlo explícitamente.
 
-1. En la sección **Active Directory** del [Portal de administración de Azure], seleccione su inquilino. Vaya a la aplicación web que creó para el Servicio de aplicaciones.
+1. En la sección **Active Directory** del [Portal de Azure clásico], seleccione su inquilino. Vaya a la aplicación web que creó para el Servicio de aplicaciones.
 
 2. En la pestaña **Configurar**, desplácese hacia la parte inferior de la página hasta llegar a la sección de permisos para otras aplicaciones. Seleccione **Office 365 SharePoint Online** y conceda el permiso delegado **Editar o eliminar archivos de usuarios**. A continuación, haga clic en **Guardar**.
 
@@ -42,13 +42,13 @@ Ahora ha configurado Azure AD para emitir un token de acceso a SharePoint para e
 
 ## <a name="store-credentials"></a>Incorporación de información de SharePoint a una aplicación móvil
 
-Para realizar una llamada a SharePoint, tiene que especificar los extremos con los que tiene que hablar la aplicación móvil. También tiene que probar la identidad de la aplicación móvil. Para ello, se utiliza un par de identificador de cliente y secreto de cliente. Ya ha obtenido y almacenado el identificador de cliente para la aplicación móvil durante la configuración del inicio de sesión de AAD. Dado que son credenciales que distinguen mayúsculas de minúsculas, no debe almacenarlas como texto no cifrado en nuestro código, sino que debe configurar estos valores como Configuración de la aplicación para nuestro sitio Código de aplicación móvil.
+Para realizar una llamada a SharePoint, tiene que especificar los extremos con los que tiene que hablar la aplicación móvil. También tiene que probar la identidad de la aplicación móvil. Para ello, se utiliza un par de identificador de cliente y secreto de cliente. Ya ha obtenido y almacenado el identificador de cliente para la aplicación móvil durante la configuración del inicio de sesión de AAD. Dado que son credenciales que distinguen mayúsculas de minúsculas, no debe almacenarlas como texto no cifrado en nuestro código, En su lugar, establecerá estos valores como configuración de la aplicación para nuestro back-end de aplicación móvil.
 
 1. Vuelva a la pestaña Aplicaciones de AAD para su inquilino y seleccione la aplicación web para su servicio de aplicaciones.
 
 2. En Configurar, desplácese hacia abajo hasta llegar a Claves. Obtendrá un Secreto de cliente generando una clave nueva. Tenga en cuenta que una vez que cree una clave y abandone la página, no hay manera de volver a sacarla del portal. En el momento de la creación debe copiar y guardar este valor en una ubicación segura. Seleccione una duración para la clave y, a continuación, haga clic en guardar y copie el valor resultante.
 
-3. En la sección Código de aplicación móvil del Portal de administración, vaya a la pestaña Configurar y desplácese hacia abajo hasta Configuración de aplicaciones. Aquí puede suministrar un par clave-valor que le ayudará a hacer referencia a las credenciales necesarias.
+3. En el back-end de aplicación móvil en el [Portal de Azure](https://portal.azure.com/), haga clic en **Toda la configuración** > **Configuración de la aplicación** y desplácese hacia abajo hasta **Configuración de la aplicación**. Aquí puede suministrar un par clave-valor que le ayudará a hacer referencia a las credenciales necesarias.
 
 * Configure SP\_Authority para que sea el extremo de autoridad de su inquilino de AAD. Debería ser igual que el valor de autoridad utilizado para su aplicación cliente. Tendrá el formato `https://login.windows.net/contoso.onmicrosoft.com`
 
@@ -183,9 +183,9 @@ Para crear un documento de Word, usará el paquete de NuGet OpenXML. Instale est
 
 <!-- URLs. -->
 
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/es-ES/sharepoint/
 [Inicio de sesión único de la biblioteca de autenticación de Azure Active Directory]: app-service-mobile-ios-aad-sso.md
 [Extensión de servicio de aplicación de back-end de .NET de Aplicaciones móviles]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

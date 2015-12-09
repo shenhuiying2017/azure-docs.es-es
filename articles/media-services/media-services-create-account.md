@@ -24,7 +24,7 @@
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
 
-El Portal de Azure proporciona una forma rápida de crear una cuenta de Servicios multimedia de Azure. Puede usar la cuenta para obtener acceso a Servicios multimedia que le permiten almacenar, cifrar, codificar, administrar y transmitir contenido multimedia en Azure. En el momento en el que crea una cuenta de Servicios multimedia, también crea una cuenta de almacenamiento asociada (o usa una ya existente) en la misma región geográfica que la cuenta de Servicios multimedia.
+El Portal de Azure clásico ofrece una forma rápida de crear una cuenta de Servicios multimedia de Azure. Puede usar la cuenta para obtener acceso a Servicios multimedia que le permiten almacenar, cifrar, codificar, administrar y transmitir contenido multimedia en Azure. En el momento en el que crea una cuenta de Servicios multimedia, también crea una cuenta de almacenamiento asociada (o usa una ya existente) en la misma región geográfica que la cuenta de Servicios multimedia.
 
 En este artículo se explica cómo usar el método Quick Create para crear una nueva cuenta de Servicios multimedia y, a continuación, asociarla a una cuenta de almacenamiento.
 
@@ -35,12 +35,12 @@ El acceso a Servicios multimedia requiere dos cuentas asociadas:
 
 -   **Una cuenta de Servicios multimedia**. La cuenta le proporciona acceso a un conjunto de Servicios multimedia basados en la nube que están disponibles en Azure. Una cuenta de Servicios multimedia no almacena el contenido multimedia real, sino que almacena metadatos sobre el contenido multimedia y trabajos de procesamiento multimedia en su cuenta. En el momento en el que cree la cuenta, seleccione una región de Servicios multimedia disponible. La región que selecciona es un centro de datos que almacena los registros de metadatos para su cuenta.
 
-    > [AZURE.NOTE]Entre las regiones de Servicios multimedia (AMS) disponibles se incluyen las siguientes: Europa del Norte, Europa occidental, Oeste de EE. UU., Este de EE. UU., Sudeste de Asia, Asia oriental, Oeste de Japón, Este de Japón. Servicios multimedia no usa grupos de afinidad.
-    >
-	> AMS ahora también está disponible en los centros de datos siguientes: Sur de Brasil, India occidental, Sur de la India e India central. Ahora puede usar el Portal de administración de Azure para [crear cuentas de servicio de medios](media-services-create-account.md#create-a-media-services-account-using-quick-create) y realizar la diversas tareas descritas [aquí](https://azure.microsoft.com/documentation/services/media-services/). Sin embargo, Codificación en directo no está habilitado en estos centros de datos. Además, no todos los tipos de unidades reservadas de codificación están disponibles en estos centros de datos.
-	>
-	>- Sur de Brasil: solo están disponibles las unidades reservadas de codificación básicas y estándar
-	>- India occidental, Sur de la India e India central: solo están disponibles unidades reservadas de codificación básicas
+> [AZURE.NOTE]Entre las regiones de Servicios multimedia (AMS) disponibles se incluyen las siguientes: Europa del Norte, Europa occidental, Oeste de EE. UU., Este de EE. UU., Sudeste de Asia, Asia oriental, Oeste de Japón, Este de Japón. Servicios multimedia no usa grupos de afinidad.
+>
+> AMS ahora también está disponible en los centros de datos siguientes: Sur de Brasil, India occidental, Sur de la India e India central. Ahora puede usar el Portal de Azure clásico para [crear cuentas de Servicios multimedia](media-services-create-account.md#create-a-media-services-account-using-quick-create) y realizar diversas tareas descritas [aquí](https://azure.microsoft.com/documentation/services/media-services/). Sin embargo, Codificación en directo no está habilitado en estos centros de datos. Además, no todos los tipos de unidades reservadas de codificación están disponibles en estos centros de datos.
+>
+>- Sur de Brasil: solo están disponibles las unidades reservadas de codificación básicas y estándar
+>- India occidental, Sur de la India e India central: solo están disponibles unidades reservadas de codificación básicas
 
 
 -   **Una cuenta de almacenamiento asociada**. La cuenta de almacenamiento es una cuenta de almacenamiento de Azure asociada a una cuenta de Servicios multimedia. La cuenta de almacenamiento proporciona almacenamiento de blobs para archivos multimedia y debe ubicarse en la misma región geográfica que la cuenta de Servicios multimedia. Cuando cree una cuenta de Servicios multimedia, podrá elegir una cuenta de almacenamiento existente en la misma región o crear una nueva cuenta de almacenamiento en la misma región. Si elimina una cuenta de Servicios multimedia, no se eliminarán los blobs de la cuenta de almacenamiento relacionada.
@@ -48,9 +48,9 @@ El acceso a Servicios multimedia requiere dos cuentas asociadas:
 <a id="quick"></a>
 ## una cuenta de Servicios multimedia mediante Quick Create
 
-1. En el [Portal de Azure][], haga clic en **Nuevo**, en **Servicios multimedia** y luego en **Creación rápida**.
+1. En el [Portal de Azure clásico][], haga clic en **Nuevo**, en **Servicios multimedia** y luego en **Creación rápida**.
 
-	![Creación rápida de Servicios multimedia](./media/media-services-create-account/wams-QuickCreate.png)
+![Creación rápida de Servicios multimedia](./media/media-services-create-account/wams-QuickCreate.png)
 
 2. En **NOMBRE**, especifique el nombre de la cuenta nueva. El nombre de la cuenta de Servicios multimedia debe estar compuesto de números o letras en minúscula, sin espacios y con una longitud de entre 3 y 24 caracteres.
 
@@ -62,17 +62,17 @@ El acceso a Servicios multimedia requiere dos cuentas asociadas:
 
 6. Haga clic en **Creación rápida** en la parte inferior del formulario.
 
-	Puede supervisar el estado del proceso en el área de mensajes situada en parte inferior de la ventana.
+Puede supervisar el estado del proceso en el área de mensajes situada en parte inferior de la ventana.
 
-	Cuando el estado cambia a Activo, la cuenta se habrá creado correctamente. Se abrirá la página **Servicios multimedia** con la nueva cuenta.
+Cuando el estado cambia a Activo, la cuenta se habrá creado correctamente. Se abrirá la página **Servicios multimedia** con la nueva cuenta.
 
-	En la parte inferior de la página, se muestra el botón **ADMINISTRAR CLAVES**. Al hacer clic en este botón, se muestra una página con el nombre de cuenta de Servicios multimedia y las claves principales y secundarias. Necesitará el nombre de cuenta y la información de la clave principal para obtener acceso mediante programación a la cuenta de Servicios multimedia.
+En la parte inferior de la página, se muestra el botón **ADMINISTRAR CLAVES**. Al hacer clic en este botón, se muestra una página con el nombre de cuenta de Servicios multimedia y las claves principales y secundarias. Necesitará el nombre de cuenta y la información de la clave principal para obtener acceso mediante programación a la cuenta de Servicios multimedia.
 
-	![Página de Servicios multimedia](./media/media-services-create-account/wams-mediaservices-page.png)
+![Página de Servicios multimedia](./media/media-services-create-account/wams-mediaservices-page.png)
 
-	Cuando haga doble clic en el nombre de cuenta, se mostrará la página de **Inicio rápido** de forma predeterminada. La página le permite realizar algunas tareas de administración que también están disponibles en otras páginas del portal. Por ejemplo, puede cargar un archivo de vídeo desde esta página o hacerlo desde la página **CONTENIDO**.
+Cuando haga doble clic en el nombre de la cuenta, se mostrará la página **Inicio rápido** de forma predeterminada. La página le permite realizar algunas tareas de administración que también están disponibles en otras páginas del portal. Por ejemplo, puede cargar un archivo de vídeo desde esta página o hacerlo desde la página **CONTENIDO**.
 
-	Además, puede ver el código que usa el SDK de Servicios multimedia de Azure para realizar las siguientes tareas: cargar, codificar y publicar vídeos. Puede hacer clic en uno de los vínculos en la sección **ESCRIBIR ALGÚN CÓDIGO**, copiar el código y usarlo en su aplicación.
+Además, puede ver el código que usa el SDK de Servicios multimedia de Azure para realizar las siguientes tareas: cargar, codificar y publicar vídeos. Puede hacer clic en uno de los vínculos en la sección **ESCRIBIR ALGÚN CÓDIGO**, copiar el código y usarlo en la aplicación.
 
 
 
@@ -101,6 +101,6 @@ El acceso a Servicios multimedia requiere dos cuentas asociadas:
 <!-- URLs. -->
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
 
-  [Portal de Azure]: http://manage.windowsazure.com/
+  [Portal de Azure clásico]: http://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

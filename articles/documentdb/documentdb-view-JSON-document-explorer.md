@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Visualización, edición, creación y carga de documentos JSON con el Explorador de documentos de DocumentDB | Microsoft Azure"
-	description="Obtenga información sobre el Explorador de documentos de DocumentDB, una herramienta del Portal de vista previa de Azure para ver, editar, crear y cargar documentos JSON con DocumentDB."
+	description="Aprenda sobre el Explorador de documentos de DocumentDB, una herramienta del Portal de Azure para ver, editar, crear y cargar documentos JSON con DocumentDB."
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -18,7 +18,7 @@
 
 # Ver, editar, crear y cargar documentos JSON con el Explorador de documentos de DocumentDB #
 
-Este artículo proporciona información general sobre el Explorador de documentos de [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), una herramienta del Portal de vista previa de Azure que permite ver, editar, crear y cargar documentos JSON con DocumentDB.
+En este artículo se proporciona información general sobre el Explorador de documentos de [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), una herramienta del Portal de Azure que permite ver, editar, crear y cargar documentos JSON con DocumentDB.
 
 Después de completar este tutorial, podrá responder a las preguntas siguientes:
 
@@ -145,4 +145,4 @@ El Explorador de documentos admite la ingesta en bloque de uno o más documentos
 
  
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

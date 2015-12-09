@@ -43,9 +43,9 @@ Este artículo no ofrece información general conceptual sobre el servicio Facto
 En este paso, use Azure PowerShell para crear una Factoría de datos de Azure llamada ADFTutorialDataFactoryPSH.
 
 1. Inicie Azure PowerShell y ejecute los comandos siguientes. Mantenga Azure PowerShell abierto hasta el final de este tutorial. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
-	- Ejecute **Add-AzureAccount** y escriba el mismo nombre de usuario y contraseña que usó para iniciar sesión en el Portal de vista previa de Azure.  
+	- Ejecute **Add-AzureAccount** y escriba el mismo nombre de usuario y contraseña que usó para iniciar sesión en el Portal de Azure.  
 	- Ejecute **Get-AzureSubscription** para ver todas las suscripciones para esta cuenta.
-	- Ejecute **Select-AzureSubscription** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que la usada en el portal de vista previa.
+	- Ejecute **Select-AzureSubscription** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que la usada en el Portal de Azure.
 2. Cambie al modo AzureResourceManager a medida que los cmdlets de la factoría de datos de Azure están disponibles.
 
 		Switch-AzureMode AzureResourceManager
@@ -109,7 +109,7 @@ Ahora, va a crear un servicio vinculado para un clúster de HDInsight de Azure a
 		  "properties": {
 		    "type": "HDInsightOnDemand",
 		    "typeProperties": {
-		      "version": "3.1",
+		      "version": "3.2",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
 		      "linkedServiceName": "StorageLinkedService"
@@ -121,7 +121,7 @@ Ahora, va a crear un servicio vinculado para un clúster de HDInsight de Azure a
 
 	Propiedad | Descripción
 	-------- | -----------
-	Versión | Con esto se especifica que la versión de HDInsight se crea para que sea 3.1.
+	Versión | Con esto se especifica que la versión de HDInsight se crea para que sea 3.2.
 	ClusterSize | Así se crea un clúster de HDInsight de un nodo.
 	TimeToLive | Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine.
 	linkedServiceName | Especifica la cuenta de almacenamiento que se usará para almacenar los registros que genere HDInsight.
@@ -272,4 +272,4 @@ En este artículo, creó una canalización con una actividad de transformación 
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

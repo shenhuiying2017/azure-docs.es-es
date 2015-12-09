@@ -12,7 +12,7 @@
 
     > [AZURE.NOTE]Como parte de este tutorial, va a crear una instancia y un nuevo servidor de Base de datos SQL. Puede reutilizar esta nueva base de datos y administrarla como lo haría con cualquier otra instancia de Base de datos SQL. Si ya hay una base de datos en la misma ubicación que el nuevo back-end de aplicación móvil, puede elegir **Usar una base de datos existente** y después seleccionar dicha base de datos. No se recomienda el uso de una base de datos en una ubicación diferente debido a los costos adicionales de ancho de banda y las elevadas latencias. Existen otras opciones de almacenamiento de datos.
 
-6. En la hoja **Configuración** para el nuevo back-end de aplicación móvil, desplácese hacia abajo hasta Móvil y haga clic en **Introducción** > la plataforma de aplicación cliente > **Conectar con base de datos**.
+6. En la hoja **Configuración** del nuevo back.end de Aplicaciones móviles, haga clic en **Inicio rápido** > la plataforma de aplicaciones cliente > **Conectar a una base de datos**.
 
 	![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-data-connection.png)
 
@@ -30,4 +30,4 @@
 <!-- URLs. -->
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

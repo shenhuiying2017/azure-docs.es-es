@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Azure Site Recovery: pruebas de rendimiento y escalado: de local a local"
-	description="En este artículo se describen las pruebas de impacto en el rendimiento de la replicación mediante Azure Site Recovery en una implementación de local a local."
-	services="site-recovery"
+	pageTitle="Azure Site Recovery: obtenga resultados de escalación y de pruebas de rendimiento para la replicación de Hyper-V entre sitios locales."
+	description="Este artículo proporciona información acerca de la prueba de rendimiento de replicación entre dos sitios locales con Azure Site Recovery."
+	services="site-recovery" 
 	documentationCenter=""
-	authors="csilauraa"
+	authors="rayne-wiselman"
 	manager="jwhit"
 	editor="tysonn"/>
 
@@ -13,24 +13,25 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="10/07/2015"
-	ms.author="lauraa"/>
+	ms.date="12/01/2015"
+	ms.author="raynew"/>
 
-# Pruebas de rendimiento y escalado: de local a local
+# Azure Site Recovery: obtenga resultados de escalación y de pruebas de rendimiento para la replicación de Hyper-V entre sitios locales.
 
-Microsoft Azure Site Recovery orquesta y administra la replicación de su centro de datos principal en una segunda ubicación para que se realice una copia de seguridad de los datos y puedan recuperarse en caso de interrupciones planeadas e imprevistas. Puede hacer una copia de seguridad de nubes privadas locales situadas en System Center Virtual Machine Manager (VMM) en otra ubicación local o en el Almacenamiento de Microsoft Azure. Para realizar la replicación, VMM usa la réplica de Hyper-V, un mecanismo de replicación que se integra en Hyper-V en Windows Server 2012 y Windows Server 2012 R2. Proporciona replicación asincrónica de máquinas virtuales de Hyper-V entre dos servidores host. Cualquier carga de trabajo del servidor que se pueden virtualizar en Hyper-V se pueden replicar. La replicación funciona a través de cualquier red basada en IP normal. La réplica de Hyper-V funciona con servidores independientes, clústeres de conmutación por error o una combinación de ambos.
+Puede usar Microsoft Azure Site Recovery para organizar y administrar la replicación de máquinas virtuales y servidores físicos en Azure, o en un centro de datos secundario. Este artículo proporciona los resultados de pruebas de rendimiento que obtuvimos al replicar máquinas virtuales de Hyper-V entre dos centros de datos locales.
 
-En este tema se describen las pruebas de impacto en el rendimiento de la replicación mediante Azure Site Recovery en una implementación de local a local. Proporciona información detallada sobre los parámetros y valores de configuración utilizados en la prueba, muestra el paso de implementación de prueba y los resultados detallados de la prueba proporcionados.
 
-## Objetivos de la prueba
 
-El objetivo es examinar cómo funciona Azure Site Recovery durante la replicación de estado estable. La replicación de estado estable se produce cuando se ha completado la replicación inicial de máquinas virtuales y se sincronizan los cambios diferenciales. Es importante medir el rendimiento mediante el estado estable porque es el estado en el que la mayoría de las máquinas virtuales permanece, a menos que se produzcan interrupciones inesperadas.
+## Información general
 
-## Ejecución de la implementación de prueba
+El objetivo de la prueba era examinar cómo funciona Azure Site Recovery durante la replicación de estado estable. La replicación de estado estable se produce cuando se ha completado la replicación inicial de máquinas virtuales y se sincronizan los cambios diferenciales. Es importante medir el rendimiento mediante el estado estable porque es el estado en el que la mayoría de las máquinas virtuales permanece, a menos que se produzcan interrupciones inesperadas.
 
-La implementación de prueba estaba formada por dos sitios locales con un servidor VMM en cada uno. Ambos servidores VMM se registran en un almacén de Azure Site Recovery. Esta implementación de prueba es típica de una implementación de la oficina central y sucursales, donde la oficina central actúa como el sitio principal y la sucursal como el sitio secundario o de recuperación.
 
-### Pasos de la implementación de prueba
+La implementación de prueba estaba formada por dos sitios locales con un servidor VMM en cada sitio. Esta implementación de prueba es típica de una implementación de la oficina central y sucursales, donde la oficina central actúa como el sitio principal y la sucursal como el sitio secundario o de recuperación.
+
+### ¿Qué hicimos?
+
+Aquí está lo que hicimos en la prueba superada:
 
 1. Cree máquinas virtuales mediante plantillas de VMM.
 
@@ -104,9 +105,9 @@ El siguiente gráfico muestra el rendimiento de las máquinas virtuales que ejec
 
 ### Conclusión
 
-Los resultados muestran claramente que Azure Site Recovery, junto con la réplica de Hyper-V, se escala bien con una sobrecarga mínima para un clúster grande. Azure Site Recovery proporciona una implementación, replicación, administración y supervisión simples. La réplica de Hyper-V proporciona la infraestructura necesaria para el escalado de replicación correcta. Para planear una implementación óptima, sugerimos descargar el [Programador de capacidad de la réplica de Hyper-V](https://www.microsoft.com/es-ES/download/details.aspx?id=39057).
+Los resultados muestran claramente que Azure Site Recovery, junto con la réplica de Hyper-V, se escala bien con una sobrecarga mínima para un clúster grande. Azure Site Recovery proporciona una implementación, replicación, administración y supervisión simples. La réplica de Hyper-V proporciona la infraestructura necesaria para el escalado de replicación correcta. Para planear una implementación óptima, sugerimos descargar el [Programador de capacidad de la réplica de Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057).
 
-## Entorno de implementación de prueba
+## Detalles del entorno de la prueba
 
 ### Sitio principal
 
@@ -194,18 +195,13 @@ La tabla resume las métricas de rendimiento y contadores que se midieron en la 
 
 |Métrica|Contador|
 |---|---|
-|CPU|\\Procesador(\_Total)\\% Hora del procesador| |Memoria disponible|\\Memoria\\MB disponibles| |E/S|\\Disco físico(\_Total)\\Transferencias de disco/s| |Operaciones de lectura de máquinas virtuales por segundo (E/S)/s|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Operaciones de lectura/s| |Operaciones de escritura de máquinas virtuales por segundo (E/S)/s|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Operaciones de escritura/s| |Rendimiento de lectura de máquinas virtuales|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Bytes leídos/s| |Rendimiento de escritura de máquinas virtuales|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Bytes escritos/s|
+|CPU|\\Procesador(\_Total)\\% Hora del procesador| |Memoria disponible|\\Memoria\\MB disponibles| |E/S|\\Disco físico(\_Total)\\Transferencias de disco/s| |Operaciones de lectura de VM por segundo (E/S)/s|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Operaciones de lectura/s| |Operaciones de escritura de VM por segundo (E/S)/s|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Operaciones de escritura/s| |Rendimiento de lectura de VM|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Bytes leídos/s| |Rendimiento de escritura de VM|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Bytes escritos/s|
 
 
 ## Pasos siguientes
 
-Para empezar a implementar ASR:
-
-- [Configuración de la protección entre un sitio de VMM local y Azure](site-recovery-vmm-to-azure.md)
-- [Configuración de la protección entre un sitio de Hyper-V local y Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Configuración de la protección entre dos sitios VMM locales](site-recovery-vmm-to-vmm.md)
-- [Configuración de la protección entre dos sitios de VMM locales con SAN](site-recovery-vmm-san.md)
-- [Configuración de la protección con un único servidor VMM](site-recovery-single-vmm.md)
+
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

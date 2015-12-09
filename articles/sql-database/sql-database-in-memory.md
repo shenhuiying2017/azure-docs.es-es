@@ -92,7 +92,7 @@ Vista previa:
 
 ## R: Instalación del ejemplo de In-Memory OLTP.
 
-Puede crear la base de datos de ejemplo AdventureWorksLT [V12] con unos cuantos clics en el [Portal de vista previa de Azure](http://portal.azure.com/). Después, los pasos de esta sección explican cómo puede mejorar la base de datos AdventureWorksLT con:
+Puede crear la base de datos de ejemplo AdventureWorksLT [V12] con unos cuantos clics en el [Portal de Azure](http://portal.azure.com/). Después, los pasos de esta sección explican cómo puede mejorar la base de datos AdventureWorksLT con:
 
 - Tablas de In-Memory.
 - Un procedimiento almacenado compilado de forma nativa.
@@ -100,7 +100,7 @@ Puede crear la base de datos de ejemplo AdventureWorksLT [V12] con unos cuantos 
 
 #### Pasos de instalación
 
-1. En el [Portal de vista previa de Azure](http://portal.azure.com/), cree una base de datos Premium en un servidor de V12. Establezca el **origen** en la base de datos de ejemplo de AdventureWorksLT [V12].
+1. En el [Portal de Azure](http://portal.azure.com/), cree una base de datos Premium en un servidor de V12. Establezca el **origen** en la base de datos de ejemplo de AdventureWorksLT [V12].
  - Para obtener instrucciones detalladas, consulte [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md).
 
 2. Conéctese a la base de datos con SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
@@ -525,4 +525,4 @@ Si una base de datos contiene cualquiera de los siguientes tipos de objetos o ti
 
 - [Supervisión del almacenamiento en memoria](sql-database-in-memory-oltp-monitoring.md) para In-Memory OLTP.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -25,9 +25,9 @@
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
-En este tutorial se muestra cómo crear una [aplicación web de Java en el Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) mediante el [Portal de vista previa de Azure](https://portal.azure.com/). El Portal de vista previa de Azure es una interfaz web que puede usarse para administrar los recursos de Azure.
+En este tutorial se muestra cómo crear una [aplicación web de Java en el Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) mediante el [Portal de Azure](https://portal.azure.com/). El Portal de Azure es una interfaz web que puede usarse para administrar los recursos de Azure.
 
-> [AZURE.NOTE]Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN][] o bien [registrarse para obtener una evaluación gratuita][].
+> [AZURE.NOTE]Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a Visual Studio][] o bien [registrarse para obtener una evaluación gratuita][].
 >
 > Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita de Servicio de aplicaciones][]. Ahí puede crear de forma inmediata una aplicación web de corta duración para iniciarse en Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
 
@@ -41,7 +41,7 @@ Hay varias maneras de configurar una aplicación de Java en una aplicación web 
  
 1. Cree una aplicación y después configure **Configuración de la aplicación**.
 
-	El Servicio de aplicaciones proporciona varias versiones de Tomcat y Jetty, con la configuración predeterminada. Si la aplicación que va a hospedar va a funcionar con una de las versiones integradas, este método de configuración de un contenedor web es el más sencillo, pero carece de las capacidades de configuración de otros métodos. Para este método, va a crear una aplicación en el portal y, después, va a ir a la hoja **Configuración de la aplicación** de la aplicación para elegir la versión de Java junto con el contenedor web de Java deseado. Al usar este método, se ejecuta la aplicación desde el disco duro local que usa el trabajo para hospedar la aplicación, por lo que no ocupa espacio en disco del inquilino. Cuando usa este modelo, no tendrá acceso para editar archivos en esta parte del sistema de archivos, lo que significa que no puede hacer cosas como configurar el archivo *server.xml* o colocar archivos de biblioteca en la carpeta */lib*. Para obtener más información, consulte la sección [Creación y configuración de una aplicación web de Java](#appsettings) más adelante en este tutorial.
+	El Servicio de aplicaciones proporciona varias versiones de Tomcat y Jetty, con la configuración predeterminada. Si la aplicación que va a hospedar va a funcionar con una de las versiones integradas, este método de configuración de un contenedor web es el más sencillo, pero carece de las capacidades de configuración de otros métodos. Para este método, va a crear una aplicación en el Portal de Azure y, después, va a ir a la hoja **Configuración de la aplicación** de la aplicación para elegir la versión de Java junto con el contenedor web de Java deseado. Al usar este método, se ejecuta la aplicación desde el disco duro local que usa el trabajo para hospedar la aplicación, por lo que no ocupa espacio en disco del inquilino. Cuando usa este modelo, no tendrá acceso para editar archivos en esta parte del sistema de archivos, lo que significa que no puede hacer cosas como configurar el archivo *server.xml* o colocar archivos de biblioteca en la carpeta */lib*. Para obtener más información, consulte la sección [Creación y configuración de una aplicación web de Java](#appsettings) más adelante en este tutorial.
   
 3. Creación de una aplicación y, después, copia y edición manual de los archivos de configuración
 
@@ -52,13 +52,13 @@ Hay varias maneras de configurar una aplicación de Java en una aplicación web 
 	* Desea configurar el contenedor web desde el principio. 
 	* Quiere usar una versión de Java que no es compatible con el Servicio de aplicaciones y desea cargarla.
 
-	En todos estos casos, puede crear una aplicación mediante el portal y después proporcionar los archivos en tiempo de ejecución adecuados manualmente. En este caso, los archivos se deducirán de las cuotas de espacio de almacenamiento para su plan de Servicio de aplicaciones. Para obtener más información, consulte [Carga de una aplicación web de Java personalizada en Azure](https://acom-sandbox.azurewebsites.net/es-ES/documentation/articles/web-sites-java-custom-upload/).
+	En todos estos casos, puede crear una aplicación mediante el Portal de Azure y después proporcionar los archivos en tiempo de ejecución adecuados manualmente. En este caso, los archivos se deducirán de las cuotas de espacio de almacenamiento para su plan de Servicio de aplicaciones. Para obtener más información, consulte [Carga de una aplicación web de Java personalizada en Azure](https://acom-sandbox.azurewebsites.net/es-ES/documentation/articles/web-sites-java-custom-upload/).
 
 ## <a name="marketplace"></a> Uso de una plantilla Java en Azure Marketplace
 
 En esta sección se muestra cómo usar Azure Marketplace para crear una aplicación web de Java. También puede usarse el mismo flujo general para crear una aplicación de API o una aplicación móvil basada en Java.
 
-1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
 2. Haga clic en **Nuevo > Marketplace**.
 
@@ -84,7 +84,7 @@ En esta sección se muestra cómo usar Azure Marketplace para crear una aplicaci
 
 8. Seleccione un **Grupo de recursos** o cree uno nuevo.
 
-	Para obtener más información sobre los grupos de recursos, consulte [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](../resource-group-portal.md).
+	Para obtener más información acerca de los grupos de recursos, consulte [Uso del Portal de Azure para administrar los recursos de Azure](../resource-group-portal.md).
 
 9. Seleccione un **plan de servicio de aplicaciones/ubicación** o cree uno nuevo.
 
@@ -116,7 +116,7 @@ Ahora que ha creado la aplicación web con un contenedor de aplicaciones, consul
 
 En esta sección se muestra cómo crear una aplicación web y configurarla para Java mediante la hoja **Configuración de la aplicación** del portal.
 
-1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
 2. Haga clic en **Nuevo > Web y móvil > Aplicación web**.
 
@@ -128,7 +128,7 @@ En esta sección se muestra cómo crear una aplicación web y configurarla para 
 
 5. Seleccione un **Grupo de recursos** o cree uno nuevo.
 
-	Para obtener más información sobre los grupos de recursos, consulte [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](../resource-group-portal.md).
+	Para obtener más información acerca de los grupos de recursos, consulte [Uso del Portal de Azure para administrar los recursos de Azure](../resource-group-portal.md).
 
 6. Seleccione un **plan de servicio de aplicaciones/ubicación** o cree uno nuevo.
 
@@ -171,9 +171,9 @@ En este momento, dispone de un servidor de aplicaciones Java que se ejecuta en l
 Para obtener más información sobre el desarrollo de aplicaciones Java en Azure, consulte el [Centro de desarrolladores de Java](/develop/java/).
 
 <!-- External Links -->
-[activar los beneficios de suscripción a MSDN]: http://go.microsoft.com/fwlink/?LinkId=623901
+[activar los beneficios de suscripción a Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [registrarse para obtener una evaluación gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
 
 [prueba gratuita de Servicio de aplicaciones]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

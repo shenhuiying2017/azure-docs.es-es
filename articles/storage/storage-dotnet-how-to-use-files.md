@@ -23,7 +23,7 @@
 
 El almacenamiento de archivos de Azure ofrece recursos compartidos de archivos en la nube mediante el protocolo SMB estándar. El almacenamiento de archivos ya está disponible y es compatible con SMB 2.1 y SMB 3.0.
 
-Puede crear recursos compartidos de archivos de Azure mediante el portal de vista previa de Azure, los cmdlets de PowerShell de Almacenamiento de Azure, las bibliotecas de cliente de Almacenamiento de Azure o la API de REST de Almacenamiento de Azure. Además, dado que los recursos compartidos de archivos son recursos compartidos de SMB, puede tener acceso a ellos a través de la API del sistema de archivos estándar y familiar.
+Puede crear recursos compartidos de archivos de Azure mediante el [Portal de Azure](portal.azure.com), los cmdlets de PowerShell de Almacenamiento de Azure, las bibliotecas de cliente de Almacenamiento de Azure o la API de REST de Almacenamiento de Azure. Además, dado que los recursos compartidos de archivos son recursos compartidos de SMB, puede tener acceso a ellos a través de la API del sistema de archivos estándar y familiar.
 
 Las aplicaciones que se ejecutan en Azure pueden montar fácilmente recursos compartidos de archivos de máquinas virtuales de Azure. Y con la última versión del almacenamiento de archivos, también se puede montar un recurso compartido de archivos desde una aplicación local que sea compatible con SMB 3.0.
 
@@ -58,9 +58,9 @@ En este tutorial introductorio se muestran los conceptos básicos del uso de Alm
 
 El almacenamiento de archivos ahora es compatible con todas las cuentas de almacenamiento, por lo que se puede usar una cuenta de almacenamiento existente o crear una cuenta de almacenamiento nueva. Para obtener información acerca de cómo crear una cuenta de almacenamiento nueva, consulte [Creación, administración o eliminación de cuentas de almacenamiento](storage-create-storage-account.md#create-a-storage-account).
 
-## Uso del Portal de vista previa de Azure para administrar un recurso compartido de archivos
+## Uso del Portal de Azure para administrar un recurso compartido de archivos
 
-El [Portal de vista previa de Azure](https://ms.portal.azure.com/) proporciona una interfaz de usuario para que los clientes administren el almacenamiento de archivos. En el Portal de vista previa puede:
+El [Portal de Azure](portal.azure.com) proporciona una interfaz de usuario para que los clientes administren el almacenamiento de archivos. En el Portal de vista previa puede:
 
 - Cargar y descargar archivos al recurso compartido de archivos y desde este.
 - Supervisar el uso real de cada recurso compartido de archivos.
@@ -81,7 +81,7 @@ Abra una ventana de Azure PowerShell haciendo clic en **Inicio** y escribiendo *
 
 ### Creación de un contexto para la cuenta y clave de almacenamiento
 
-Ahora, cree el contexto de la cuenta de almacenamiento. El contexto encapsula el nombre y la clave de cuenta de almacenamiento. Para obtener instrucciones sobre la copia de la clave de cuenta desde el portal de Azure, consulte [Vista, copia y regeneración de las claves de acceso de almacenamiento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Ahora, cree el contexto de la cuenta de almacenamiento. El contexto encapsula el nombre y la clave de cuenta de almacenamiento. Para obtener instrucciones sobre la copia de la clave de cuenta desde el [Portal de Azure](portal.azure.com), consulte [Vista, copia y regeneración de las claves de acceso de almacenamiento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 Sustituya `storage-account-name` y `storage-account-key` por el nombre y clave de su cuenta de almacenamiento en el siguiente ejemplo.
 
@@ -362,7 +362,7 @@ En el ejemplo siguiente se crea una directiva de acceso compartido en un recurso
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Para obtener más información sobre la creación y uso de firmas de acceso compartido, consulte [Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) y [Creación y uso de una firma de acceso compartido con el servicio BLOB](storage-dotnet-shared-access-signature-part-2.md).
+Para obtener más información acerca de la creación y uso de firmas de acceso compartido, consulte [Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) y [Creación y uso de una firma de acceso compartido con el servicio BLOB](storage-dotnet-shared-access-signature-part-2.md).
 
 ### Copiar archivos
 
@@ -469,7 +469,7 @@ Puede copiar un blob en un archivo de la misma manera. Si el objeto de origen es
 
 Análisis de almacenamiento de Azure admite métricas para el almacenamiento de archivos. Con los datos de las métricas, es posible seguir paso a paso las solicitudes y diagnosticar problemas.
 
-En el Portal de Azure es posible habilitar las métricas para el almacenamiento compartido. También se puede habilitar mediante programación, para lo que hay que llamar a la operación establecer propiedades del servicio de archivos a través de la API de REST o una de sus análogas de la Biblioteca del cliente de almacenamiento.
+En el [Portal de Azure](portal.azure.com) es posible habilitar las métricas para el almacenamiento de archivos. También se puede habilitar mediante programación, para lo que hay que llamar a la operación establecer propiedades del servicio de archivos a través de la API de REST o una de sus análogas de la Biblioteca del cliente de almacenamiento.
 
 ## Preguntas más frecuentes sobre el almacenamiento de archivos
 
@@ -547,7 +547,7 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 
 - [El almacenamiento de archivos de Azure ya está disponible de manera general](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
 - [Profundización en el almacenamiento de archivos de Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
-- [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx) (Introducción al servicio de archivos de Microsoft Azure)
-- [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx) (Persistencia de conexiones en archivos de Microsoft Azure)
+- [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+- [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

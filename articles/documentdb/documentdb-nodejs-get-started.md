@@ -74,9 +74,9 @@ Estupendo. Ahora que terminamos la configuración, comencemos a escribir algo de
 
 Abra *config.js* en su editor de texto preferido.
 
-A continuación, cree un objeto vacío llamado *config* y establezca las propiedades *config.endpoint* y *config.authKey* en su punto de conexión y clave de autorización de DocumentDB. Ambas opciones de configuración se encuentran en el [Portal de vista previa de Azure](https://portal.azure.com).
+A continuación, cree un objeto vacío llamado *config* y establezca las propiedades *config.endpoint* y *config.authKey* en su punto de conexión y clave de autorización de DocumentDB. Ambas opciones de configuración se encuentran en el [Portal de Azure](https://portal.azure.com).
 
-![Captura de pantalla del portal de vista previa de Azure, que muestra una cuenta de DocumentDB, con el concentrador ACTIVO resaltado, el botón CLAVES resaltado en la hoja de cuenta de DocumentDB y los valores URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves][keys]
+![Captura de pantalla del Portal de Azure, que muestra una cuenta de DocumentDB, con el concentrador ACTIVO resaltado, el botón CLAVES resaltado en la hoja de cuenta de DocumentDB y los valores URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves][keys]
 
     var config = {}
 
@@ -442,4 +442,4 @@ Después, en el archivo *config.js*, actualice los valores de config.endpoint y 
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

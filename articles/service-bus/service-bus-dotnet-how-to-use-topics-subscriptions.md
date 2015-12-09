@@ -54,7 +54,7 @@ En ambos casos, puede recuperar la cadena de conexión usando el método `CloudC
 
 ### Configuración de la cadena de conexión si usa Servicios en la nube
 
-El mecanismo de configuración de servicios es exclusivo para los proyectos de los servicios en la nube de Azure y le permite cambiar dinámicamente la configuración desde el portal de Azure sin volver a implementar la aplicación. Por ejemplo, agregue una etiqueta `Setting` al archivo de definición de servicio (****.csdef**), como se indica en el siguiente ejemplo:
+El mecanismo de configuración de servicios es exclusivo para los proyectos de los servicios en la nube de Azure y le permite cambiar dinámicamente la configuración desde el [Portal de Azure clásico][] sin volver a implementar la aplicación. Por ejemplo, agregue una etiqueta `Setting` al archivo de definición de servicio (****.csdef**), como se indica en el siguiente ejemplo:
 
 ```
 <ServiceDefinition name="Azure1">
@@ -83,11 +83,11 @@ A continuación, especifique los valores del archivo de configuración de servic
 </ServiceConfiguration>
 ```
 
-Use el nombre y los valores de clave de la firma de acceso compartido (SAS) recuperados del Portal de Azure, como se indica en la sección anterior.
+Use el nombre y los valores de clave de la firma de acceso compartido (SAS) recuperados del Portal de Azure clásico, como se indica en la sección anterior.
 
 ### Configuración de la cadena de conexión al usar Sitios web de Azure o Máquinas virtuales de Azure
 
-Al usar Sitios web o Máquinas virtuales, se recomienda usar el sistema de configuración de .NET (por ejemplo, Web.config). Almacene la cadena de conexión mediante el elemento `<appSettings>`.
+Al usar Sitios web o Máquinas virtuales, se recomienda usar el sistema de configuración de .NET (por ejemplo, Web.config). Almacene la cadena de conexión usando el elemento `<appSettings>`.
 
 ```
 <configuration>
@@ -98,7 +98,7 @@ Al usar Sitios web o Máquinas virtuales, se recomienda usar el sistema de confi
 </configuration>
 ```
 
-Use el nombre y los valores de clave de SAS recuperados del Portal de Azure, como se indica en la sección anterior.
+Use el nombre y los valores de clave de SAS recuperados del Portal de Azure clásico, como se indica en la sección anterior.
 
 ## de un tema
 
@@ -188,7 +188,7 @@ namespaceManager.CreateSubscription("TestTopic",
    highMessagesFilter);
 ```
 
-Del mismo modo, en el ejemplo que aparece a continuación, se crea una suscripción denominada **LowMessages** con [SqlFilter][] que solo selecciona los mensajes que tengan una propiedad **MessageNumber** cuyo valor sea menor o igual a 3:
+Del mismo modo, en el ejemplo que aparece a continuación, se crea una suscripción llamada **LowMessages** con un [SqlFilter][] que solo selecciona los mensajes con una propiedad **MessageNumber** menor o igual a 3:
 
 ```
 // Create a "LowMessages" filtered subscription.
@@ -200,7 +200,7 @@ namespaceManager.CreateSubscription("TestTopic",
    lowMessagesFilter);
 ```
 
-Cuando se envíe un mensaje a `TestTopic`, este se entregará siempre a los receptores suscritos al tema **AllMessages**, y se entregará de forma selectiva a los receptores suscritos a los temas **HighMessages** y **LowMessages** (según el contenido del mensaje).
+Cuando se envíe un mensaje a `TestTopic`, este se entregará siempre a los receptores suscritos a la suscripción de tema **AllMessages**, y se entregará de forma selectiva a los receptores suscritos a las suscripciones de tema **HighMessages** y **LowMessages** (según el contenido del mensaje).
 
 ## de mensajes a un tema
 
@@ -317,7 +317,7 @@ Ahora que conoce los fundamentos de los temas y las suscripciones del bus de ser
 -   Compile una aplicación que envíe y reciba mensajes desde una cola del Bus de servicio y hacia ella: [Tutorial de .NET de mensajería asincrónica del Bus de servicio][].
 -   Ejemplos de Bus de servicio: descárguelos desde [Ejemplos de Azure][] o consulte la [información general](service-bus-samples.md).
 
-  [Azure portal]: http://manage.windowsazure.com
+  [Portal de Azure clásico]: http://manage.windowsazure.com
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
@@ -328,4 +328,4 @@ Ahora que conoce los fundamentos de los temas y las suscripciones del bus de ser
   [Tutorial de .NET de mensajería asincrónica del Bus de servicio]: service-bus-brokered-tutorial-dotnet.md
   [Ejemplos de Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

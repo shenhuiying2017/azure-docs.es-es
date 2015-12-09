@@ -131,7 +131,7 @@ Llevará a cabo los pasos siguientes para ejecutar la aplicación en la nube:
 
 Un servicio en la nube de Azure es el entorno en el que se ejecutará la aplicación.
 
-1. En el explorador, abra el [Portal de Azure](http://manage.windowsazure.com).
+1. En el explorador, abra el [Portal de Azure clásico](http://manage.windowsazure.com).
 
 2. Haga clic en **Nuevo > Proceso > Servicio en la nube > Creación rápida**.
 
@@ -153,7 +153,7 @@ Un servicio en la nube de Azure es el entorno en el que se ejecutará la aplicac
 
 Cuando la aplicación se ejecute en la nube, usará una base de datos basada en la nube.
 
-1. En el [Portal de Azure](http://manage.windowsazure.com), haga clic en **Nuevo > Servicios de datos > Base de datos SQL > Creación rápida**.
+1. En el [Portal de Azure clásico](http://manage.windowsazure.com), haga clic en **Nuevo > Servicios de datos > Base de datos SQL > Creación rápida**.
 
 1. En el cuadro **Nombre de base de datos**, escriba *contosoads*.
 
@@ -189,7 +189,7 @@ Una cuenta de almacenamiento de Azure proporciona recursos para almacenar datos 
 
 En una aplicación real, normalmente crearía cuentas independientes para los datos de aplicación frente a los datos de registro, y cuentas diferentes para datos de prueba frente a datos de producción. Para este tutorial, usará solamente una cuenta.
 
-1. En el [Portal de Azure](http://manage.windowsazure.com), haga clic en **Nuevo > Servicios de datos > Almacenamiento > Creación rápida**.
+1. En el [Portal de Azure clásico](http://manage.windowsazure.com), haga clic en **Nuevo > Servicios de datos > Almacenamiento > Creación rápida**.
 
 4. En el cuadro **URL**, escriba un prefijo de dirección URL.
 
@@ -228,7 +228,7 @@ Usará una [transformación Web.config](http://www.asp.net/mvc/tutorials/deploym
 
 	Deje el archivo abierto para editarlo.
 
-2. En el [Portal de Azure](http://manage.windowsazure.com), haga clic en **Bases de datos SQL** en el panel de la izquierda, haga clic en la base de datos que creó para este tutorial, haga clic en la pestaña **Panel** y, por último, haga clic en **Mostrar cadenas de conexión**.
+2. En el [Portal de Azure clásico](http://manage.windowsazure.com), haga clic en **Bases de datos SQL** en el panel de la izquierda, haga clic en la base de datos que creó para este tutorial, haga clic en la pestaña **Panel** y, por último, haga clic en **Mostrar cadenas de conexión**.
 
 	![Mostrar cadenas de conexión](./media/cloud-services-dotnet-get-started/showcs.png)
 
@@ -236,7 +236,7 @@ Usará una [transformación Web.config](http://www.asp.net/mvc/tutorials/deploym
 
 	![Cadenas de conexión](./media/cloud-services-dotnet-get-started/connstrings.png)
 
-4. En el archivo de transformación *Web.Release.config*, elimine `{connectionstring}` y pegue en su lugar la cadena de conexión ADO.NET del portal de Azure.
+4. En el archivo de transformación *Web.Release.config*, elimine `{connectionstring}` y pegue en su lugar la cadena de conexión ADO.NET del Portal de Azure clásico.
 
 5. En la cadena de conexión que pegó en el archivo de transformación *Web.Release.config*, reemplace `{your_password_here}` por la contraseña creada para la nueva base de datos SQL.
 
@@ -345,7 +345,7 @@ La opción `<Instances>` especifica el número de máquinas virtuales en las que
 
 9. Ahora puede probar la aplicación creando, viendo y editando algunos anuncios, tal y como hizo cuando ejecutó la aplicación localmente.
 
->[AZURE.NOTE]Cuando termine la prueba, elimine o detenga el servicio en la nube. Aunque no utilice el servicio en la nube, se acumularán cargos porque se reservan recursos de máquina virtual para él. Y si lo deja ejecutando, cualquiera que encuentre su dirección URL puede crear y ver anuncios. En el [Portal de Azure](http://manage.windowsazure.com), vaya a la pestaña **Panel** correspondiente a su servicio en la nube y haga clic en el botón **Eliminar** que se encuentra en la parte inferior de la página. Si lo que desea es evitar temporalmente que otros accedan al sitio, haga clic en **Detener**. En ese caso, los cargos seguirán acumulándose. Puede seguir un procedimiento similar para eliminar la base de datos SQL y la cuenta de almacenamiento cuando ya no las necesite.
+>[AZURE.NOTE]Cuando termine la prueba, elimine o detenga el servicio en la nube. Aunque no utilice el servicio en la nube, se acumularán cargos porque se reservan recursos de máquina virtual para él. Y si lo deja ejecutando, cualquiera que encuentre su dirección URL puede crear y ver anuncios. En el [Portal de Azure clásico](http://manage.windowsazure.com), vaya a la pestaña **Panel** correspondiente a su servicio en la nube y haga clic en el botón **Eliminar** que se encuentra en la parte inferior de la página. Si lo que desea es evitar temporalmente que otros accedan al sitio, haga clic en **Detener**. En ese caso, los cargos seguirán acumulándose. Puede seguir un procedimiento similar para eliminar la base de datos SQL y la cuenta de almacenamiento cuando ya no las necesite.
 
 ## Creación de la aplicación desde cero
 
@@ -813,4 +813,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Administración de servicios en la nube](cloud-services-how-to-manage.md)
 * [Almacenamiento de Azure](/documentation/services/storage/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

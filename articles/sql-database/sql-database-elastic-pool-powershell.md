@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="11/06/2015"
+    ms.date="12/01/2015"
     ms.author="adamkr; sstein"/>
 
 # Creación de un grupo de bases de datos elásticas con PowerShell para escalar horizontalmente recursos para varias Bases de datos SQL 
@@ -236,4 +236,4 @@ Tras la creación de un grupo de bases de datos elásticas, puede administrar la
 
 Para obtener información detallada acerca de los grupos y las bases de datos elásticas, incluidos los detalles de errores y de API, vea la [Referencia acerca de los grupos de bases de datos elásticas](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

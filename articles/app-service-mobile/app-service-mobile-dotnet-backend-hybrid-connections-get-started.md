@@ -113,7 +113,7 @@ En este paso, defina una cadena de conexión para la base de datos local y modif
 
 A continuación, deberá agregar una configuración de aplicación para esta cadena de conexión nueva para poder utilizarla desde Azure.
 
-1. En el [Portal Azure] en el código de back-end de aplicación web de la aplicación móvil, haga clic en **Toda la configuración de** y luego en **Configuración de la aplicación**.
+1. En el [Portal de Azure] en el código de back-end de aplicación web de la aplicación móvil, haga clic en **Toda la configuración** y luego en **Configuración de la aplicación**.
 
 3. En la hoja **Configuración de aplicación web**, desplácese a **Cadenas de conexión** y agregue una nueva cadena de conexión de **SQL Server** denominada `OnPremisesDBConnection` con un valor como `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`.
 
@@ -158,9 +158,8 @@ Por último, deberá publicar el back-end de aplicación móvil en Azure y compr
 
 
 <!-- Links -->
-[Portal Azure]: https://portal.azure.com/
 [Portal de Azure]: https://portal.azure.com/
-[Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
+[Azure classic portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

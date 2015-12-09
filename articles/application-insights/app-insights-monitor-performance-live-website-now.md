@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/23/2015"
+	ms.date="11/25/2015"
 	ms.author="awills"/>
 
 
@@ -120,7 +120,7 @@ Para segmentar el gráfico por llamadas a diferentes dependencias, seleccione el
 
 También puede filtrar el gráfico para buscar en un depósito concreto de dependencia, tipo o rendimiento. Haga clic en Filtros.
 
-#### Contadores de rendimiento
+## Contadores de rendimiento
 
 (No para aplicaciones web de Azure). Haga clic en Servidores en la hoja de información general para ver los gráficos de contadores de rendimiento de servidor, como el uso de memoria y la ocupación de CPU.
 
@@ -128,11 +128,15 @@ Agregue un nuevo gráfico, o haga clic en cualquier gráfico para cambiar lo que
 
 También puede [cambiar el conjunto de contadores de rendimiento que se notifican mediante el SDK](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3).
 
-#### Excepciones
+## Excepciones
 
 ![Haga clic en el gráfico de excepciones de servidor.](./media/app-insights-monitor-performance-live-website-now/appinsights-039-1exceptions.png)
 
 Puede profundizar en las excepciones específicas (de los últimos siete días) y obtener seguimientos de la pila y datos de contexto.
+
+## Muestreo
+
+Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Aprenda más sobre el muestreo](app-insights-sampling.md).
 
 
 ## Solución de problemas
@@ -164,7 +168,7 @@ Esta lista puede cambiar de forma esporádica.
 ### ¿No hay telemetría?
 
   * Utilice su sitio para generar algunos datos.
-  * Espere unos minutos para dejar que lleguen los datos y, luego, haga clic en **Actualizar**.
+  * Espere unos minutos a que lleguen los datos y, luego, haga clic en **Actualizar**.
   * Abra la Búsqueda de diagnóstico (icono Buscar) para ver los eventos individuales. Los eventos suelen estar visibles en la Búsqueda de diagnóstico antes de que los datos agregados aparezcan en los gráficos.
   * Abrir el Monitor de estado y seleccione la aplicación en el panel izquierdo. Compruebe si hay algún mensaje de diagnóstico para esta aplicación en la sección "Notificaciones de configuración":
 
@@ -211,9 +215,9 @@ La compatibilidad de IIS es: IIS 7, 7.5, 8 y 8.5 (se requiere IIS)
 [availability]: app-insights-monitor-web-app-availability.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -20,6 +20,10 @@
 
 # <a name="getting-started"> </a>Introducción a Servicios móviles
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
@@ -67,7 +71,7 @@ Una vez creado el servicio móvil, descargue el proyecto de servicio móvil pers
 
 En esta sección se creará una nueva aplicación Android que se conecta al servicio móvil.
 
-1. En el [Portal de administración], haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
+1. En el [Portal de Azure clásico], haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
 
 2. En la pestaña de inicio rápido, haga clic en **Android** en **Seleccionar plataforma** y expanda **Crear una nueva aplicación Android**.
 
@@ -88,7 +92,7 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
 * [Incorporación de notificaciones de inserción a la aplicación] <br/>Aprenda a enviar una notificación push muy básica a la aplicación.
 
-* [Incorporación de autenticación a la aplicación] <br/>Obtenga información sobre cómo restringir el acceso a los datos back-end a determinados usuarios registrados de su aplicación.
+* [Incorporación de autenticación a la aplicación] <br/>Obtenga información sobre cómo restringir el acceso a los datos back-end a determinados usuarios de la aplicación registrados.
 
 * [Solución de problemas de un back-end de .NET de Servicios móviles] <br/> Aprenda a diagnosticar y corregir los problemas que pueden surgir con un back-end de .NET de Servicios móviles.
 
@@ -124,6 +128,6 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Solución de problemas de un back-end de .NET de Servicios móviles]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-[Portal de administración]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

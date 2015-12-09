@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 9/17/15-->
+<!--author=alkohli last changed: 12/01/15-->
 
 
 #### Para configurar y registrar el dispositivo
@@ -61,7 +61,7 @@
 
 13. Salga de la consola serie.
 
-14. Vuelva al Portal de administración y siga estos pasos:
+14. Vuelva al Portal de Azure clásico y siga estos pasos:
   1. Haga doble clic en el servicio de Administrador de StorSimple para acceder a la página **Inicio rápido**.
   2. Haga clic en **Ver los dispositivos conectados**.
   3. En la página **Dispositivos**, compruebe que el dispositivo se conectó correctamente al servicio consultando el estado. El estado del dispositivo debe ser **Conectado**. Si el estado del dispositivo es **Desconectado**, espere unos minutos para que el dispositivo se conecte.
@@ -76,4 +76,4 @@ Después de que el dispositivo se haya registrado correctamente y no esté en l�
 
 Para ver un vídeo que muestra cómo configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple, haga clic [aquí](http://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

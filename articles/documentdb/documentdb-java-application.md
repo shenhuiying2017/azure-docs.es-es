@@ -52,7 +52,7 @@ Para aprovisionar una cuenta de base de datos de DocumentDB en Azure:
 1. Si ya no tiene una cuenta de base de datos, cree una siguiendo las instrucciones en [Creación de una cuenta de base de datos](documentdb-create-account.md). Si ya tiene una cuenta, vaya al paso 2.
 2. Con la hoja **Claves** que se muestra en la siguiente ilustración, copie el extremo **URI** y **CLAVE PRINCIPAL** en el portapapeles y mantenga los valores a mano, ya que se utilizarán en la aplicación web que crearemos a continuación.
 
-![Creación de una cuenta de DocumentDB | Tutorial de base de datos. Captura de pantalla del portal de vista previa de Azure, que muestra una cuenta de DocumentDB, con el concentrador ACTIVO resaltado, el botón Claves resaltado en la hoja de cuenta de DocumentDB y los valores URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves][1]
+![Creación de una cuenta de DocumentDB | Tutorial de base de datos. Captura de pantalla del Portal de Azure, que muestra una cuenta de DocumentDB, con el concentrador ACTIVO resaltado, el botón Claves resaltado en la hoja de cuenta de DocumentDB y los valores URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves][1]
 
 
 ##<a id="CreateJSP"></a>Paso 2: Creación de la aplicación JSP de Java
@@ -786,4 +786,4 @@ Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://gi
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

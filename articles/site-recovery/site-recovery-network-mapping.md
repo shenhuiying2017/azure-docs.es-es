@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Asignación de redes de Azure Site Recovery | Microsoft Azure"
-	description="Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos ubicados localmente en Azure o en un sitio local secundario."
+	pageTitle="Preparación de la asignación de red para la protección de la máquina virtual de Hyper-V con VMM en Azure Site Recovery| Microsoft Azure"
+	description="Configure la asignación de red para la replicación de máquinas virtuales de Hyper-V desde un centro de datos local a Azure, o a un sitio secundario."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,48 +13,36 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="10/07/2015"
+	ms.date="12/01/2015"
 	ms.author="raynew"/>
 
 
-# Asignación de redes de Azure Site Recovery
+# Preparación de la asignación de red para la protección de la máquina virtual de Hyper-V con VMM en Azure Site Recovery
 
+Azure Site Recovery contribuye a su estrategia de continuidad de negocio y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores virtuales.
 
-Azure Site Recovery contribuye a su estrategia de continuidad de negocio y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores virtuales. Obtenga información acerca de los escenarios de implementación posibles en [Información general sobre Site Recovery](site-recovery-overview.md).
+Este artículo describe la asignación de red, que le ayuda a configurar de forma óptima los ajustes de red cuando se usa Site Recovery para replicar máquinas virtuales de Hyper-V ubicadas en nubes VMM entre dos centros de datos locales o entre un centro de datos local y Azure. Tenga en cuenta que si está replicando máquinas virtuales de Hyper-V sin una nube VMM o replicando VM de VMware o servidores físicos, este artículo no es pertinente.
 
+Después de leer este artículo, publique sus preguntas en el [Foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## Información acerca de este artículo
-
-La asignación de redes es un elemento importante al implementar VMM y Site Recovery. Coloca de forma óptima las máquinas virtuales replicadas en los servidores host de Hyper-V de destino y garantiza que las máquinas virtuales replicadas se conecten a redes adecuadas después de la conmutación por error. Este artículo describe la asignación de redes y proporciona un par de ejemplos que le ayudarán a entender cómo funciona la asignación de redes.
-
-
-Publique cualquier pregunta en el [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Información general
 
-La manera en que se establece la asignación de redes depende de su escenario de implementación de Site Recovery.
+La asignación de red se usa cuando se implementa Azure Site Recovery para replicar máquinas virtuales de Hyper-V en Azure o en un centro de datos secundario, mediante la replicación de SAN o réplica de Hyper-V.
 
-
-
-- **Servidores VMM de local a local**: la asignación de redes asigna entre redes de máquinas virtuales en un servidor VMM de origen y redes de máquinas virtuales en un servidor VMM de destino para hacer lo siguiente:
+- **Replicación de máquinas virtuales de Hyper-V en nubes VMM entre dos centros de datos locales**: la asignación de redes asigna entre redes de máquinas virtuales en un servidor VMM de origen y redes de máquinas virtuales en un servidor VMM de destino para hacer lo siguiente:
 
 	- **Conexión de máquinas virtuales después de la conmutación por error**: asegura que las máquinas virtuales se conectarán a las redes adecuadas después de la conmutación por error. La máquina virtual de réplica se conectará a la red de destino que se asigna a la red de origen.
 	- **Colocación de máquinas virtuales de réplica en los servidores host**: coloca máquinas virtuales de réplica en los servidores host de Hyper-V de forma óptima. Las máquinas virtuales de réplica se colocarán en los hosts que pueden tener acceso a las redes de máquinas virtuales asignadas.
-	- **Sin asignación de redes**: si no configura la asignación de redes, las máquinas virtuales replicadas no se conectarán a las redes de máquinas virtuales después de la conmutación por error.
+	- **Sin asignación de redes**: si no configura la asignación de redes, las máquinas virtuales replicadas no se conectarán a las redes de VM después de la conmutación por error.
 
-- **Servidores VMM de local a Azure**: la asignación de red asigna entre redes de máquinas virtuales en un servidor VMM de origen y redes de Azure de destino para hacer lo siguiente:
+- **Replicación de máquinas virtuales de Hyper-V en una nube VMM local en Azure**: la asignación de red asigna entre redes de máquinas virtuales en un servidor VMM de origen y redes de Azure de destino para hacer lo siguiente:
 	- **Conexión de máquinas virtuales después de la conmutación por error**: todas las máquinas con conmutación por error en la misma red pueden conectarse entre sí, independientemente del plan de recuperación en el que se encuentran.
 	- **Puerta de enlace de red**: si se configura una puerta de enlace de red en la red Azure de destino, las máquinas virtuales se pueden conectar a otras máquinas virtuales locales.
 	- **Sin asignación de redes**: si no configura la asignación de redes, solo las máquinas virtuales con conmutación por error en el mismo plan de recuperación podrán conectarse entre sí después de la conmutación por error en Azure.
 
-## Redes de máquinas virtuales
 
-Una red lógica de VMM proporciona una panorámica de la infraestructura de la red física. Las redes de máquinas virtuales proporcionan una interfaz de red para que las máquinas virtuales puedan conectarse a redes lógicas. Una red lógica necesita al menos una red de máquina virtual. Cuando se coloca una máquina virtual en una nube para su protección, debe estar conectado a una red de máquinas virtuales que se vincula a una red lógica asociada a la nube. Obtenga más información en:
-
-- [Redes lógicas (parte 1)](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx)
-- [Redes virtuales en VMM 2012 SP1](http://blogs.technet.com/b/scvmm/archive/2013/01/08/virtual-networking-in-vmm-2012-sp1.aspx)
-
-## Ejemplo
+## Ejemplo de asignación de red
 
 La asignación de redes se puede configurar entre redes de máquinas virtuales en dos servidores VMM o en un único servidor VMM si el mismo servidor administra dos sitios. Cuando se configura correctamente la asignación de redes y se habilita la replicación, se conectará una máquina virtual de la ubicación principal a una red y su réplica de la ubicación de destino se conectará a la red asignada.
 
@@ -133,6 +121,6 @@ Se cambia la asignación de redes de VMNetwork1-Chicago. | VM-1 se conectará a 
 
 ## Pasos siguientes
 
-Ahora que tiene una mejor comprensión de la asignación de redes, lea las [prácticas recomendadas](site-recovery-best-practices.md) para preparar la implementación.
+Ahora que dispone de más información sobre la asignación de red, [comience con la implementación de Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

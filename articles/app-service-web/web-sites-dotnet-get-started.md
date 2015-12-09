@@ -51,7 +51,7 @@ Aprenderá a realizar los siguientes procedimientos:
 Para completar este tutorial, deberá tener una cuenta de Azure. Puede:
 
 * [Abrir una cuenta de Azure gratis](/pricing/free-trial/?WT.mc_id=A261C142F). Obtenga créditos que puede usar para probar los servicios de Azure de pago. Incluso después de que se agoten los créditos, puede mantener la cuenta y usar los servicios y características gratuitos de Azure, como la característica de Aplicaciones web del Servicio de aplicaciones de Azure.
-* [Activar los beneficios de suscriptores de MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
+* [Activar los beneficios de suscripción a Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Su suscripción a Visual Studio le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
 
 Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a [Probar el Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751). Ahí puede crear de forma inmediata una aplicación web de corta duración para iniciarse en Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
 
@@ -233,7 +233,7 @@ Para obtener más información, consulte [Solución de problemas de aplicaciones
 
 ## Supervisión y administración de la aplicación web en el Portal de Azure
 
-El [Portal de Azure](/services/management-portal/) es una interfaz web que puede usar para administrar y supervisar los servicios de Azure; por ejemplo, la aplicación web que acaba de crear. En esta sección del tutorial podrá ver algo de lo que puede hacer en el portal.
+El [Portal de Azure](/services/management-portal/) es una interfaz web que puede usar para administrar y supervisar los servicios de Azure; por ejemplo, la aplicación web que acaba de crear. En esta sección del tutorial podrá ver algo de lo que puede hacer en el Portal.
 
 1. En el explorador, vaya a [https://portal.azure.com](https://portal.azure.com) e inicie sesión con sus credenciales de Azure.
 
@@ -243,7 +243,7 @@ El [Portal de Azure](/services/management-portal/) es una interfaz web que puede
 
 	![Hoja de aplicación Web](./media/web-sites-dotnet-get-started/portaldashboard.png)
 
-	Por ahora, la aplicación web no ha tenido mucho tráfico y puede que no se muestre nada en el gráfico. Si explora la aplicación, actualiza la página varias veces y después actualiza la página la página del portal, verá que aparecen algunas estadísticas.
+	Por ahora, la aplicación web no ha tenido mucho tráfico y puede que no se muestre nada en el gráfico. Si explora la aplicación, actualiza la página varias veces y después actualiza la página la página del Portal, verá que aparecen algunas estadísticas.
 
 3. Haga clic en **Configuración** para ver más opciones para configurar su aplicación web.
 
@@ -253,7 +253,7 @@ El [Portal de Azure](/services/management-portal/) es una interfaz web que puede
 
 	![](./media/web-sites-dotnet-get-started/portalconfigure1.png)
 
-4. Haga clic en **Configuración de la aplicación** para ver un ejemplo de los tipos de configuración que se pueden establecer en el portal.
+4. Haga clic en **Configuración de la aplicación** para ver un ejemplo de los tipos de configuración que se pueden establecer en el Portal.
 
 	Por ejemplo, puede controlar la versión de .NET que se usa para la aplicación web, habilitar características tales como [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/) y establecer [valores de cadena de conexión](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
@@ -300,6 +300,5 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web al Servicio de aplicaciones, consulte [Servicio de aplicaciones de Azure y los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Para obtener una guía del cambio del Portal de Azure al portal de vista previa, consulte [Referencia para navegar en el Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

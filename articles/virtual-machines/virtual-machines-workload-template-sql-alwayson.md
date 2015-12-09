@@ -1,6 +1,6 @@
 <properties
 	pageTitle="SQL Server AlwaysOn con una plantilla del Administrador de recursos de Azure | Microsoft Azure"
-	description="Implemente fácilmente cinco servidores que admitan SQL Server AlwaysOn con una plantilla del Administrador de recursos y el Portal de vista previa de Azure, Azure PowerShell o la CLI de Azure."
+	description="Implemente fácilmente cinco servidores que admitan SQL Server AlwaysOn con una plantilla del Administrador de recursos y el Portal de Azure, Azure PowerShell o la CLI de Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -25,11 +25,11 @@ Siga las instrucciones de esta sección para implementar SQL Server AlwaysOn med
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/five-server-sqlao.png)
 
-Puede ejecutar la plantilla con el Portal de vista previa de Azure, Azure PowerShell o la CLI de Azure.
+Puede ejecutar la plantilla con el Portal de Azure, Azure PowerShell o la CLI de Azure.
 
-## Portal de vista previa de Azure
+## Portal de Azure
 
-Para implementar esta carga de trabajo mediante una plantilla del Administrador de recursos de Azure y el Portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json).
+Para implementar esta carga de trabajo mediante una plantilla del Administrador de recursos de Azure y el Portal de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/azure-portal-template.png)
 
@@ -47,7 +47,7 @@ Dependiendo de la plantilla, es posible que Azure tarde algún tiempo en generar
 
 [AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
-Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y una ubicación de centro de datos de Azure en el siguiente conjunto de comandos. Elimine todo el contenido dentro de las comillas, incluidos los caracteres < and >.
+Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y una ubicación de centro de datos de Azure en el siguiente conjunto de comandos. Quite todo el contenido entre comillas, incluidos los caracteres < and >.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
@@ -107,4 +107,4 @@ Una vez completada la ejecución de la plantilla, tendrá una nueva configuraci�
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/17/2015"
+	ms.date="11/29/2015"
 	ms.author="awills"/>
 
 # Application Insights: lenguajes y plataformas
@@ -23,7 +23,7 @@ Se trata de implementaciones sobre las que tenemos noticias, que incluyen tambi√
 
 ## Idiomas
 
-+ [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
++ [C#|VB (.NET)](app-insights-asp-net.md)
 + [C#|VB (Tienda Windows)](app-insights-windows-get-started.md)
 + [C++ (Tienda Windows)](app-insights-windows-cpp.md)
 + [Java](app-insights-java-get-started.md)
@@ -37,7 +37,7 @@ Se trata de implementaciones sobre las que tenemos noticias, que incluyen tambi√
 ## Plataformas
 
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
-+ [ASP.NET](app-insights-start-monitoring-app-health-usage.md)
++ [ASP.NET](app-insights-asp-net.md)
 + [ASP.NET: para aplicaciones que ya est√°n activas](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
@@ -45,6 +45,7 @@ Se trata de implementaciones sobre las que tenemos noticias, que incluyen tambi√
 + [Servicios en la nube de Azure](app-insights-cloudservices.md)&#151;incluidos los roles web y de trabajo
 + [Concrete](https://github.com/fidmor89/appInsights-Concrete)
 + [CRM Online desde Microsoft Dynamics](app-insights-sample-mscrm.md)
++ [Docker](app-insights-docker.md)
 + [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
@@ -79,13 +80,4 @@ Se trata de implementaciones sobre las que tenemos noticias, que incluyen tambi√
 
 Si no hay todav√≠a un SDK para el lenguaje o plataforma, quiz√°s desee crear uno. Examine el c√≥digo de los SDK existentes que aparecen en el [proyecto SDK de Application Insights en GitHub](https://github.com/Microsoft/AppInsights-Home).
 
-
-
-
-[Cordova](http://cordova.apache.org/)
-
-[Aplicaciones de la Tienda Windows con JavaScript](https://msdn.microsoft.com/library/windows/apps/br211385.aspx)
-
-<!--Link references-->
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

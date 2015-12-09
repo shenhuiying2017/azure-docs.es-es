@@ -36,7 +36,7 @@ En este tutorial se muestra cómo conectarse y realizar consultas a una base de 
 
 Para conectarse a la base de datos, necesita el nombre completo del servidor (****servername**.database.windows.net*) que contiene la base de datos a la que quiere conectarse.
 
-1. Vaya al [Portal de vista previa de Azure](https://portal.azure.com).
+1. Vaya al [Portal de Azure](https://portal.azure.com).
 2. Vaya a la base de datos a la que quiere conectarse.
 3. Busque el nombre de servidor completo (se usará en los pasos siguientes):
 
@@ -83,4 +83,4 @@ Ahora que puede conectarse y realizar consultas, pruebe a [conectarse con PowerB
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

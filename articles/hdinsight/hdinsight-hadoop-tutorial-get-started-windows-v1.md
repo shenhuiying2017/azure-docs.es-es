@@ -1,7 +1,7 @@
 <properties
    pageTitle="Tutorial de Hadoop: introducción a Hadoop en Windows | Microsoft Azure"
    description="Introducción a Hadoop en HDInsight. Aprenda a aprovisionar clústeres de Hadoop en Windows, a ejecutar una consulta de Hive en datos y analizar resultados en Excel."
-   keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
+   keywords="tutorial de hadoop,hadoop en windows,clúster de hadoop,aprender hadoop,consulta de hive"
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/07/2015"
+   ms.date="11/29/2015"
    ms.author="nitinme"/>
 
 
@@ -71,10 +71,10 @@ En este tutorial solamente se usa el blob predeterminado y la cuenta de almacena
 
 **Para crear una cuenta de almacenamiento de Azure**
 
-1. Inicie sesión en el [Portal de Azure][azure-management-portal].
+1. Inicie sesión en el [Portal de Azure clásico][azure-management-portal].
 2. Haga clic en **NUEVO** en la esquina inferior izquierda y luego escriba los valores como se muestra en la imagen.
 
-	![Portal de Azure donde puede utilizar la función de creación rápida para configurar una nueva cuenta de almacenamiento.][image-hdi-storageaccount-quickcreate]
+	![Portal de Azure clásico donde puede utilizar la función de creación rápida para configurar una nueva cuenta de almacenamiento.][image-hdi-storageaccount-quickcreate]
 
 >[AZURE.NOTE]Asegúrese de crear la cuenta de almacenamiento en una ubicación admitida para el clúster. Son las siguientes: **Asia oriental**, **sudeste de Asia**, **norte de Europa**, **oeste de Europa**, **este de EE. UU.**, **oeste de EE. UU.**, **centro y norte de EE. UU.** y **centro y sur de EE. UU**.
 
@@ -82,14 +82,14 @@ Elija la nueva cuenta de almacenamiento en la lista y haga clic en **Administrar
 
 ##<a name="provision"></a>Aprovisionamiento de un clúster de Hadoop
 
-Cuando aprovisiona un clúster, aprovisiona recursos de proceso de Azure que contienen aplicaciones de Hadoop y aplicaciones relacionadas. En esta sección, se aprovisiona un clúster de HDInsight de la versión 3.1, que se basa en la versión 2.4 de Hadoop. También puede crear clústeres de Hadoop para otras versiones mediante el portal de Azure, los cmdlets de HDInsight PowerShell o el SDK .NET de HDInsight. Para obtener instrucciones, consulte [Aprovisionamiento de clústeres de HDInsight usando opciones personalizadas][hdinsight-provision]. Para obtener información acerca de las diferentes versiones de HDInsight y sus contratos de nivel de servicio, consulte la página [Control de versiones de componentes de HDInsight](hdinsight-component-versioning.md).
+Cuando aprovisiona un clúster, aprovisiona recursos de proceso de Azure que contienen aplicaciones de Hadoop y aplicaciones relacionadas. En esta sección, se aprovisiona un clúster de HDInsight de la versión 3.1, que se basa en la versión 2.4 de Hadoop. También puede crear clústeres de Hadoop para otras versiones mediante el Portal de Azure clásico, los cmdlets de HDInsight PowerShell o el SDK para .NET de HDInsight. Para obtener instrucciones, consulte [Aprovisionamiento de clústeres de HDInsight usando opciones personalizadas][hdinsight-provision]. Para obtener información acerca de las diferentes versiones de HDInsight y sus contratos de nivel de servicio, consulte la página [Control de versiones de componentes de HDInsight](hdinsight-component-versioning.md).
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
 
 **Para aprovisionar un clúster de Hadoop**
 
-1. Inicie sesión en el [Portal de Azure][azure-management-portal].
+1. Inicie sesión en el [Portal de Azure clásico][azure-management-portal].
 
 2. Haga clic en **NUEVO** en la esquina inferior izquierda y luego escriba los valores como se muestra en la imagen.
 
@@ -127,7 +127,7 @@ Cuando aprovisiona un clúster, aprovisiona recursos de proceso de Azure que con
 
 Un clúster de HDInsight aprovisionado correctamente ofrece una consola de consultas que incluye una Galería de introducción para ejecutar muestras directamente en el portal. Puede usar las muestras para aprender a trabajar con HDInsight explorando algunos escenarios básicos. Estas muestras vienen con todos los componentes necesarios como, por ejemplo, los datos objeto del análisis y las consultas que se ejecutan en los datos. Para obtener más información acerca de las muestras de la Galería de introducción, consulte [Información sobre Hadoop en HDInsight con la Galería de introducción de HDInsight](hdinsight-learn-hadoop-use-sample-gallery.md).
 
-**Para ejecutar la muestra**, en el Portal de Azure, haga clic en el nombre del clúster en el que desea ejecutar la muestra y, a continuación, haga clic en **Consola de consultas** en la parte inferior de la página. En la página web que se abre, haga clic en la pestaña **Galería de introducción** y, en la categoría **Muestras**, haga clic en la muestra que desea ejecutar. Siga las instrucciones de la página web para finalizar la muestra. En la tabla siguiente, figuran algunas de las muestras y se proporciona más información acerca de lo que hace cada una.
+**Para ejecutar la muestra**, en el Portal de Azure clásico, haga clic en el nombre del clúster en el que desea ejecutar la muestra y luego en **Consola de consultas** en la parte inferior de la página. En la página web que se abre, haga clic en la pestaña **Galería de introducción** y, en la categoría **Muestras**, haga clic en la muestra que desea ejecutar. Siga las instrucciones de la página web para finalizar la muestra. En la tabla siguiente, figuran algunas de las muestras y se proporciona más información acerca de lo que hace cada una.
 
 Muestra | ¿Para qué sirve?
 ------ | ---------------
@@ -144,7 +144,7 @@ Ahora que ha aprovisionado un clúster de HDInsight, el paso siguiente es ejecut
 
 **Para ejecutar un trabajo de Hive desde el panel del clúster**
 
-1. Inicie sesión en el [Portal de Azure][azure-management-portal].
+1. Inicie sesión en el [Portal de Azure clásico][azure-management-portal].
 2. Haga clic en **HDINSIGHT** en el panel izquierdo. Verá una lista de los clústeres, incluido el que acaba de crear en la sección anterior.
 3. Haga clic en el nombre del clúster que desea usar para ejecutar el trabajo de Hive. Después, haga clic en **Consola de consultas** en la parte inferior de la página.
 4. Se abre una página web en una pestaña de explorador diferente. Escriba la cuenta de usuario y la contraseña de Hadoop. El nombre de usuario predeterminado es **admin** y la contraseña es la que ha escrito durante el proceso de aprovisionamiento del clúster. El panel tiene este aspecto:
@@ -280,4 +280,4 @@ En este tutorial de Hadoop, ha aprendido a aprovisionar un clúster de Hadoop en
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -22,7 +22,7 @@ Aprenda a crear una aplicación de búsqueda de NodeJS personalizada que utiliza
 
 Hemos utilizado [NodeJS](https://nodejs.org) y NPM, [Sublime Text 3](http://www.sublimetext.com/3) y Windows PowerShell en Windows 8.1 para desarrollar y probar este código.
 
-Para ejecutar este ejemplo, necesita un servicio Búsqueda de Azure, para el que puede registrarse en el [portal de Azure](https://portal.azure.com).
+Para ejecutar este ejemplo, necesita un servicio Búsqueda de Azure, para el que puede registrarse en el [Portal de Azure clásico](https://portal.azure.com).
 
 > [AZURE.TIP]Descargue el código fuente de este tutorial en [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198).
 
@@ -36,7 +36,7 @@ En esta aplicación, el programa **DataIndexer** compila y carga el índice usan
 
 ## Creación del servicio
 
-1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com).
 
 2. En la barra de salto, haga clic en **Nuevo** > **Datos + Almacenamiento** > **Búsqueda**.
 
@@ -147,4 +147,4 @@ Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

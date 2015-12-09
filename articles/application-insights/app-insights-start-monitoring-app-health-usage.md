@@ -135,13 +135,14 @@ Abra estos puertos para el tráfico de salida en el firewall del servidor:
 
 Consulte [este apartado de la solución de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
 
+> [AZURE.NOTE]Si la aplicación genera muchos datos de telemetría (y está usando la versión 2.0.0-beta3, o una posterior, del SDK de ASP.NET), el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de solamente una fracción representativa de los eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre ellos. [Más información sobre el muestreo](app-insights-sampling.md).
 
 
 ## 5\. Agregar seguimiento de dependencias (y contadores de rendimiento de IIS)
 
 El SDK necesita un poco de ayuda para obtener acceso a algunos datos. En concreto, este paso adicional será necesario para medir automáticamente las llamadas de la aplicación a las bases de datos, las API de REST y otros componentes externos. Estas métricas de dependencia pueden ser inestimables para ayudar a diagnosticar problemas de rendimiento.
 
-Si realiza la ejecución en su propio servidor IIS, este paso también permitirá que los contadores de rendimiento del sistema se muestren en el [explorador de métricas](app-insights-metrics-explorer.md).
+Si realiza la ejecución en su propio servidor IIS, este paso también permitirá que los contadores de rendimiento del sistema se muestren en el [Explorador de métricas](app-insights-metrics-explorer.md).
 
 #### Si la aplicación se ejecuta en su servidor IIS
 
@@ -160,7 +161,7 @@ En el panel de control de la aplicación web de Azure, agregue la extensión App
 
 #### Si se trata de un proyecto de servicios en la nube de Azure
 
-[Agregue scripts a roles web y de trabajo](app-insights-cloudservices.md).
+[Agregar scripts a roles web y de trabajo](app-insights-cloudservices.md).
 
 
 
@@ -189,7 +190,7 @@ Asegúrese de que el proceso de MSBuild genera `buildinfo.config`. En su archivo
     </PropertyGroup> 
 ```
 
-Cuando tenga la información de la compilación, el módulo web de Application Insights agrega automáticamente la **versión de la aplicación** como una propiedad a cada elemento de telemetría. Eso le permite filtrar por versión al realizar [búsquedas de diagnósticos][diagnostic] o al [explorar métricas][metrics].
+Cuando tenga la información de la compilación, el módulo web de Application Insights agregará automáticamente la **versión de la aplicación** como una propiedad a cada elemento de telemetría. Eso le permite filtrar por versión al realizar [búsquedas de diagnósticos][diagnostic] o al [explorar métricas][metrics].
 
 Sin embargo, tenga en cuenta que el número de versión de compilación la genera únicamente MS Build, no la compilación de desarrollador en Visual Studio.
 
@@ -209,7 +210,7 @@ Se requiere [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=
 
 #### Si se trata de un proyecto nuevo:
 
-Cuando cree un proyecto en Visual Studio, asegúrese de que la opción **Agregar Application Insights** está seleccionada.
+Cuando cree un nuevo proyecto en Visual Studio, asegúrese de que la opción **Agregar Application Insights** está seleccionada.
 
 
 ![Crear un proyecto ASP.NET](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
@@ -220,7 +221,7 @@ Si el proyecto tiene páginas web, también agrega el [SDK de JavaScript][client
 
 #### ....o si se trata de un proyecto existente
 
-Haga clic con el botón secundario en el Explorador de soluciones y seleccione **Agregar Application Insights**.
+Haga clic con el botón derecho en el Explorador de soluciones y seleccione **Agregar Application Insights**.
 
 ![Elija Agregar Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -268,4 +269,4 @@ Si esta aplicación forma parte de una aplicación mayor, es posible que quiera 
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

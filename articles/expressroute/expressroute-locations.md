@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="12/02/2015"
    ms.author="cherylmc" />
 
 # Asociados de ExpressRoute y ubicaciones de emparejamiento
@@ -43,8 +43,8 @@ En la tabla siguiente se proporciona información sobre las regiones y los lími
 
 |**Región geopolítica**|**Regiones de Azure**|**Ubicaciones de ExpressRoute**|
 |---|---|---|---|
-|**Nube del gobierno de Estados Unidos**|Gobierno de Estados Unidos|Iowa, Virginia|Ashburn, Chicago|
-|**Nube de China**|China|Beijing, Shanghai|
+|**Nube del gobierno de Estados Unidos**|Gobierno de EE. UU. - Iowa, Gobierno de EE. UU. - Virginia|Iowa, Virginia|Chicago, Washington DC|
+|**Nube de China**|Este de China, Norte de China|Beijing, Shanghai|
 
 
 No se admite la conectividad entre las regiones geopolíticas en el SKU de ExpressRoute estándar. Debe habilitar el complemento premium de ExpressRoute para admitir conectividad global. No se admite la conectividad con entornos de nube nacionales. Puede trabajar con su proveedor de conectividad si surge tal necesidad.
@@ -60,16 +60,16 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Compatible | Compatible | Ámsterdam, Dallas, Londres, Silicon Valley, Singapur, Washington DC |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Compatible | Compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Singapur, Tokio, Washington DC |
 |**China Telecom Global** | Próximamente | No compatible | Hong Kong |
-| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Compatible | No compatible | Ámsterdam y Londres |
+| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Compatible | Compatible | Ámsterdam y Londres |
 | **Comcast** | Compatible | Compatible | Silicon Valley, Washington DC |
-| **CoreSite** | Compatible | No compatible | Los Ángeles | 
+| **CoreSite** | Compatible | Compatible | Los Ángeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Compatible | Compatible | Ámsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Ángeles, Melbourne, Nueva York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapur, Sidney, Tokio, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | Compatible | No compatible | Osaka, Tokyo |
 | **[InterCloud](https://www.intercloud.com/)** | Compatible | Compatible | Ámsterdam+, Londres, Singapur, Washington DC |
 | **Internet Solutions - Cloud Connect** | Compatible | Compatible | Ámsterdam y Londres |
 | **Interxion** | Compatible | Compatible | Ámsterdam |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Compatible | No compatible | Ámsterdam, Chicago, Dallas, Londres, Seattle, Silicon Valley, Washington DC |
-| **Megaport** | Compatible | No compatible | Melbourne, Sidney |
+| **Megaport** | Compatible | Compatible | Melbourne, Sidney |
 | **MTN** | Compatible | No compatible | Londres |
 | **NEXTDC** | Compatible | Compatible | Melbourne, Sidney+ |
 | **NTT Communications** | Compatible | No compatible | Londres+, Tokio |
@@ -137,4 +137,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 - Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 - Asegúrese de que se cumplen todos los requisitos previos. Consulte [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

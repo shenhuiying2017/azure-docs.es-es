@@ -4,7 +4,7 @@
 
 Para poder usar [EventProcessorHost], debe tener una [cuenta de almacenamiento de Azure]\:
 
-1. Inicie sesión en el [portal de Azure] y haga clic en **NUEVO** en la parte inferior de la pantalla.
+1. Inicie sesión en el [Portal de Azure clásico][] y haga clic en **NUEVO** en la parte inferior de la pantalla.
 
 2. Haga clic en **Servicios de datos**, **Almacenamiento** y **Creación rápida** y, a continuación, escriba un nombre para la cuenta de almacenamiento. Seleccione la región deseada y, a continuación, haga clic en **Crear cuenta de almacenamiento**.
 
@@ -92,11 +92,25 @@ Para poder usar [EventProcessorHost], debe tener una [cuenta de almacenamiento d
 
 	A continuación, modifique el método **Main** en la clase **Program** como se muestra a continuación; para ello, sustituya el nombre del Centro de eventos, la cadena de conexión, la cuenta de almacenamiento y la clave que ha copiado en las secciones anteriores:
 
-    ``` static void Main(string args) { string eventHubConnectionString = "{event hub connection string}"; string eventHubName = "{event hub name}"; string storageAccountName = "{storage account name}"; string storageAccountKey = "{storage account key}"; string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
+    ```
+	static void Main(string[] args)
+    {
+      string eventHubConnectionString = "{event hub connection string}";
+      string eventHubName = "{event hub name}";
+      string storageAccountName = "{storage account name}";
+      string storageAccountKey = "{storage account key}";
+      string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
 
-      string eventProcessorHostName = Guid.NewGuid().ToString(); EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString); Console.WriteLine("Registering EventProcessor..."); eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>().Wait();
+      string eventProcessorHostName = Guid.NewGuid().ToString();
+      EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
+      Console.WriteLine("Registering EventProcessor...");
+      eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>().Wait();
 
-      Console.WriteLine("Receiving. Press enter key to stop worker."); Console.ReadLine(); eventProcessorHost.UnregisterEventProcessorAsync().Wait(); } ````
+      Console.WriteLine("Receiving. Press enter key to stop worker.");
+      Console.ReadLine();
+      eventProcessorHost.UnregisterEventProcessorAsync().Wait();
+    }
+	````
 
 > [AZURE.NOTE]Este tutorial usa una sola instancia de [EventProcessorHost][]. Para aumentar el rendimiento, se recomienda ejecutar varias instancias de [EventProcessorHost][], como se muestra en el ejemplo de [procesamiento de eventos escalados horizontalmente]. En esos casos, las diferentes instancias se coordinan automáticamente entre sí con el fin de equilibrar la carga de los eventos recibidos. Si desea que varios destinatarios procesen *todos* los eventos, debe usar el concepto **ConsumerGroup**. Cuando se reciben eventos de distintos equipos, puede ser útil especificar nombres para las instancias de [EventProcessorHost][] según los equipos (o roles) en que se implementan. Para obtener más información acerca de estos temas, consulte [Información general de los Centros de eventos][] y [Guía de programación de Centros de eventos][].
 
@@ -106,7 +120,7 @@ Para poder usar [EventProcessorHost], debe tener una [cuenta de almacenamiento d
 [procesamiento de eventos escalados horizontalmente]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [cuenta de almacenamiento de Azure]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[portal de Azure]: http://manage.windowsazure.com
+[Portal de Azure clásico]: http://manage.windowsazure.com
 
 <!-- Images -->
 
@@ -115,4 +129,4 @@ Para poder usar [EventProcessorHost], debe tener una [cuenta de almacenamiento d
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

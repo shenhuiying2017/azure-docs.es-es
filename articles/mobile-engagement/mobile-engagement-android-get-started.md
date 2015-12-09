@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="09/22/2015"
+	ms.date="12/02/2015"
 	ms.author="piyushjo" />
 
 # Introducción a Azure Mobile Engagement para aplicaciones Android
@@ -56,7 +56,7 @@ Crearemos una aplicación básica con Android Studio para demostrar la integraci
     ![][2]
 
 3. Seleccione el factor de forma de destino y el nivel de API. A continuación, haga clic en **Siguiente**.
-	
+
 	>[AZURE.NOTE]Compromiso de Mobile requiere el nivel de API mínimo de 10 (2.3.3 Android).
 
     ![][3]
@@ -102,7 +102,7 @@ Descargar e integrar la biblioteca de SDK
 		import com.microsoft.azure.engagement.EngagementAgent;
 		import com.microsoft.azure.engagement.EngagementConfiguration;
 
-3. Vuelva al portal de Azure en la página **Información de conexión** de la aplicación y copie la **cadena de conexión**.
+3. Vuelva al Portal de Azure clásico en la página **Información de conexión** de la aplicación y copie la **cadena de conexión**.
 
 	  ![][9]
 
@@ -224,7 +224,7 @@ Para las aplicaciones reales, puede usar un icono adecuado para notificaciones s
 
 >[AZURE.TIP]Para asegurarse de usar las resoluciones de icono correctas, consulte [estos ejemplos](https://www.google.com/design/icons). Desplácese hasta la sección **Notificación**, haga clic en un icono y luego haga clic en `PNGS` para descargar el conjunto de iconos dibujables. Puede ver qué carpetas de recursos dibujables usar con qué resolución para cada versión del icono.
 
-##Creación de un proyecto del Servicio de mensajería en la nube de Google con clave de API 
+##Creación de un proyecto del Servicio de mensajería en la nube de Google con clave de API
 
 [AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
@@ -263,16 +263,16 @@ Para permitir que Mobile Engagement envíe notificaciones de inserción en su no
 
 1. Acceda al portal de Mobile Engagement.
 
-	En el Portal de Azure, asegúrese de que se encuentra en la aplicación que estamos usando para este proyecto y luego haga clic en el botón **Interactuar** en la parte inferior:
+	En el Portal de Azure clásico, asegúrese de que se encuentra en la aplicación que estamos usando para este proyecto y luego haga clic en el botón **Interactuar** en la parte inferior:
 
 	![][15]
 
 2. A continuación, haga clic en **Configuración** -> **Inserción nativa** para acceder a la clave GCM:
-	  
+
 	![][16]
 
 3. Haga clic en el icono **Editar** delante de **Clave de API**, en la sección **Configuración de GCM**, tal y como se muestra a continuación:
-	  
+
 	![][17]
 
 4. En el menú emergente, pegue la clave del servidor de GCM obtenida antes y, a continuación, haga clic en **Aceptar**.
@@ -284,13 +284,13 @@ Para permitir que Mobile Engagement envíe notificaciones de inserción en su no
 Ahora crearemos una campaña de notificación de inserción simple que enviará una notificación de inserción a nuestra aplicación.
 
 1. Vaya a la pestaña **COBERTURA** en el portal de Mobile Engagement.
-	 
+
 2. Haga clic en **Nuevo anuncio** para crear la campaña de notificaciones push.
-	 
+
 	![][20]
 
 3. Configure el primer campo de la campaña mediante los pasos siguientes:
-	 
+
 	![][21]
 
 	a. Asigne un nombre a la campaña.
@@ -310,13 +310,13 @@ Ahora crearemos una campaña de notificación de inserción simple que enviará 
 5. Ya ha terminado de configurar la campaña más básica posible. Ahora, desplácese de nuevo hacia abajo y haga clic en el botón **Crear** para guardar la campaña.
 
 6. Último paso: haga clic en **Activar** para activar su campaña y enviar notificaciones push.
-    
+
 	![][24]
 
 <!-- URLs. -->
-[SDK de Android para Mobile Engagement]: http://go.microsoft.com/?linkid=9863935
-[SDK de Android para Mobile Engagement Android]: http://go.microsoft.com/?linkid=9863935
-[Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
+[SDK de Android para Mobile Engagement]: https://aka.ms/vq9mfn
+[SDK de Android para Mobile Engagement Android]: https://aka.ms/vq9mfn
+[Mobile Engagement Android SDK documentation]: https://aka.ms/tujlkm
 [Integración de Engagement en Android]: https://azure.microsoft.com/es-ES/documentation/articles/mobile-engagement-android-integrate-engagement/#basic-reporting
 
 <!-- Images. -->
@@ -340,4 +340,4 @@ Ahora crearemos una campaña de notificación de inserción simple que enviará 
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

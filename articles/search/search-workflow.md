@@ -42,7 +42,7 @@ Hay dos niveles de precios para elegir. Se recomienda el servicio compartido (gr
 
 Después de crear el servicio, está listo para crear un índice, empezando con su definición de esquema.
 
-La manera más rápida y fácil de crear un índice es a través del Portal de Azure. Como mínimo, cada documento tiene que tener una clave única y al menos un campo que contenga datos que se puedan buscar. Para comenzar, consulte [Creación de un índice de Búsqueda de Azure en el portal](search-create-index-portal.md).
+La manera más rápida y fácil de crear un índice es a través del Portal de Azure clásico. Como mínimo, cada documento tiene que tener una clave única y al menos un campo que contenga datos que se puedan buscar. Para comenzar, consulte [Creación de un índice de Búsqueda de Azure en el portal](search-create-index-portal.md).
 
 > [AZURE.NOTE]Dentro de un índice de Búsqueda de Azure
 >
@@ -112,7 +112,7 @@ Ahora que tiene un servicio y un índice, puede experimentar con otras caracter�
 
 **Proveedores de sugerencias:** se refiere a la característica que autocompleta o anticipa la escritura de las consultas, devolviendo sugerencias para los términos de búsqueda a medida que el usuario escribe los primeros caracteres de una frase de búsqueda. Consulte [Sugerencias](https://msdn.microsoft.com/library/dn798936.aspx) o [Suggesters Class](https://msdn.microsoft.com/library/microsoft.azure.search.models.suggester.aspx) para obtener más información.
 
-**Analizadores de lenguaje:** proporcionan las reglas lingüísticas utilizadas durante el análisis de texto. El analizador de lenguaje predeterminado para Búsqueda de Azure es Lucene para inglés, pero se pueden utilizar otros o incluso varios analizadores especificándolos en el índice. Los analizadores de Lucene están disponibles en todas las API. Los procesadores de lenguaje natural de Microsoft solo están disponibles en [Versión de API de REST 2015-02-28 Preview](search-api-2015-02-28-preview.md). Consulte [Compatibilidad de idioma ](https://msdn.microsoft.com/library/dn879793.aspx) para obtener más información.
+**Analizadores de lenguaje:** proporcionan las reglas lingüísticas utilizadas durante el análisis de texto. El analizador de lenguaje predeterminado para Búsqueda de Azure es Lucene para inglés, pero se pueden utilizar otros o incluso varios analizadores especificándolos en el índice. Los analizadores de Lucene están disponibles en todas las API. Los procesadores de lenguaje natural de Microsoft solo están disponibles en [Versión de API de REST 2015-02-28 Preview](search-api-2015-02-28-preview.md). Consulte [Compatibilidad de idioma](https://msdn.microsoft.com/library/dn879793.aspx) para obtener más información.
 
 ### Paso 6: actualización de índices y documentos
 
@@ -180,7 +180,7 @@ Para utilizar datos externos, tiene que definir un campo en el índice que almac
 
 Una de la características más atractivas en Búsqueda de Azure es la facilidad con la que se puede ampliar o reducir los recursos en respuesta a la demanda. Aunque esta funcionalidad no elimina la necesidad de una planificación de capacidad, minimiza la mayoría de los riesgos. No estará limitado por el hardware adicional o el hardware equivocado para ejecutar las cargas de trabajo de búsqueda.
 
-Como último paso, revise los niveles de recursos existentes para réplicas y particiones, y determine si se necesitan ajustes. La manera más fácil de ajustar la capacidad está en el [Portal de Azure](https://ms.portal.azure.com/).
+Como último paso, revise los niveles de recursos existentes para réplicas y particiones, y determine si se necesitan ajustes. La manera más fácil de ajustar la capacidad está en el [Portal de Azure clásico](https://ms.portal.azure.com/).
 
 Recuerde que solo el nivel de precios estándar se pueden escalar o reducir. Además, según el grado de ajuste, puede tardar desde unos minutos hasta varias horas para implementar clústeres adicionales para el servicio.
 
@@ -190,4 +190,4 @@ Recuerde que solo el nivel de precios estándar se pueden escalar o reducir. Ade
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

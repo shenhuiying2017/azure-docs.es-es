@@ -40,7 +40,7 @@ Paso 2: Crear una puerta de enlace de enrutamiento dinámico
 
 ### Crear una red virtual
 
-1. Inicie sesión en el **Portal de Azure** (no en el Portal de vista previa).
+1. Inicie sesión en el **Portal de Azure clásico** (no en el Portal de Azure).
 1. En la esquina inferior izquierda de la pantalla, haga clic en **Nuevo**. En el panel de navegación, haga clic en **Servicios de red** y, a continuación, haga clic en **Red virtual**. Haga clic en **Creación personalizada** para iniciar el Asistente para configuración.
 1. En la página **Detalles de la red virtual**, escriba la información siguiente y, a continuación, haga clic en la flecha siguiente situada en la parte inferior derecha.
 	- **Nombre**: Nombre de la red virtual. Por ejemplo, "VNetEast". Este será el nombre al que hará referencia al implementar máquinas virtuales e instancias de PaaS en esta red virtual.
@@ -57,13 +57,13 @@ Paso 2: Crear una puerta de enlace de enrutamiento dinámico
  - **Espacio de direcciones**: Agregue el intervalo de direcciones IP interno que desea usar para esta red virtual, incluida la dirección IP inicial y el recuento. Es importante seleccionar un intervalo que no se superponga a ninguno de los intervalos usados para la red local. Necesitará coordinarse con el administrador de red, quien es posible que necesite definir un intervalo de direcciones IP desde el espacio de direcciones de red local para el uso en la red virtual.
  - **Agregar subred**: No se necesitan subredes adicionales, pero puede que desee crear una subred independiente para las máquinas virtuales que tengan DIP estáticas. O bien, puede que desee que las máquinas virtuales se encuentren en una subred independiente de las demás instancias de rol.
  - **Agregar subred de puerta de enlace**: La subred de puerta de enlace es necesaria para una VPN de punto a sitio. Haga clic para agregar la subred de puerta de enlace. La subred de puerta de enlace solo se utiliza para la puerta de enlace de red virtual.
-1. Una vez creada la red virtual, verá **Creado** como **Estado** en la página de redes del Portal de Azure. Una vez creada la red virtual, puede crear la puerta de enlace de enrutamiento dinámico.
+1. Una vez creada la red virtual, verá **Creado** como **Estado** en la página de redes del Portal de Azure clásico. Una vez creada la red virtual, puede crear la puerta de enlace de enrutamiento dinámico.
 
 ### Creación de una puerta de enlace de enrutamiento dinámico
 
 El tipo de puerta de enlace debe configurarse como dinámica. Las puertas de enlace de enrutamiento estáticas no funcionan con esta característica.
 
-1. En el Portal de Azure, en la página **Redes**, haga clic en la red virtual recién creada y navegue a la página **Panel**.
+1. En el Portal de Azure clásico, en la página **Redes**, haga clic en la red virtual recién creada y navegue a la página **Panel**.
 1. Haga clic en **Crear puerta de enlace**, en la parte inferior de la página **Panel**. Aparecerá un mensaje que lo solicita **¿Desea crear una puerta de enlace para la red virtual "yournetwork"?**. Haga clic en **Sí** para empezar a crear la puerta de enlace. Puede tardar unos 15 minutos en crear la puerta de enlace.
 
 ## Sección 2: Generar y cargar certificados
@@ -88,19 +88,19 @@ Si no usa una solución de certificados de empresa, deberá generar un certifica
 
 1. Una forma de crear un certificado X.509 es mediante la herramienta de creación de certificados (makecert.exe). Para usar makecert, descargue e instale [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx), que es gratis.
 2. Vaya a la carpeta de Visual Studio Tools e inicie el símbolo del sistema como administrador.
-3. El comando del ejemplo siguiente creará e instalará un certificado raíz en el almacén de certificados personales de su equipo y también creará un archivo *.cer* correspondiente que podrá cargar más adelante en el Portal de Azure.
+3. El comando del ejemplo siguiente creará e instalará un certificado raíz en el almacén de certificados personales de su equipo y también creará un archivo *.cer* correspondiente que podrá cargar más adelante en el Portal de Azure clásico.
 4. Cambie al directorio en el que el archivo .cer se va a ubicar y ejecute el comando siguiente, donde *RootCertificateName* es el nombre que desea usar para el certificado. Si ejecuta el ejemplo siguiente sin realizar ningún cambio, el resultado será un certificado raíz y el archivo *NombreCertificadoRaíz.cer* correspondiente.
 
 >[AZURE.NOTE]Puesto que ha creado un certificado raíz desde el que se generarán los certificados de cliente, puede que desee exportar este certificado junto con su clave privada y guardarlo en una ubicación segura donde se pueda recuperar.
 
     makecert -sky exchange -r -n "CN=RootCertificateName" -pe -a sha1 -len 2048 -ss My "RootCertificateName.cer"
 
-### Cargar el archivo de certificado raíz en el Portal de Azure
+### Carga del archivo de certificado raíz en el Portal de Azure clásico
 
 Deberá cargar el archivo .cer correspondiente para cada certificado de raíz en Azure. Puede cargar hasta 20 certificados.
 
-1. Cuando generó un certificado raíz en el procedimiento anterior, también creó un archivo *.cer*. Ahora podrá cargar este archivo en el portal de Azure. Tenga en cuenta que el archivo .cer no contiene la clave privada del certificado raíz. Puede cargar hasta 20 certificados raíz.
-1. En el Portal de Azure, en la página **Certificados** de la red virtual, haga clic en **Cargar un certificado raíz**.
+1. Cuando generó un certificado raíz en el procedimiento anterior, también creó un archivo *.cer*. Ahora podrá cargar este archivo en el Portal de Azure clásico. Tenga en cuenta que el archivo .cer no contiene la clave privada del certificado raíz. Puede cargar hasta 20 certificados raíz.
+1. En el Portal de Azure clásico, en la página **Certificados** de la red virtual, haga clic en **Cargar un certificado raíz**.
 1. En la página **Carga del certificado**, busque el certificado raíz .cer y, a continuación, haga clic en la marca de verificación.
 
 ### Generación de un certificado de cliente
@@ -137,7 +137,7 @@ Paso 3: Comprobar la conexión
 
 ### Creación del paquete de configuración de cliente VPN
 
-1. En el Portal de Azure, en la página **Panel** correspondiente a la red virtual, navegue al menú de vista rápida, en la esquina derecha, y haga clic en el paquete VPN que pertenece al cliente que desea conectar a la red virtual.
+1. En el Portal de Azure clásico, en la página **Panel** correspondiente a la red virtual, navegue al menú de vista rápida, en la esquina derecha, y haga clic en el paquete VPN que pertenece al cliente que desea conectar a la red virtual.
 2. 
 Se admiten los siguientes sistemas operativos de cliente:
  - Windows 7 (32 bits y 64 bits)
@@ -152,7 +152,7 @@ Se admiten los siguientes sistemas operativos de cliente:
  - Para clientes de 32 bits, seleccione **Descargar paquete de VPN de cliente de 32 bits**.
  - Para clientes de 64 bits, seleccione **Descargar paquete de VPN de cliente de 64 bits**.
 1. Su paquete de cliente puede tardar unos minutos en crearse. Una vez que se haya completado el paquete, podrá descargar el archivo. El archivo *.exe* que descargue se puede almacenar de forma segura en el equipo local.
-1. Después de generar y descargar el paquete de VPN de cliente del portal de Azure, podrá instalar el paquete de cliente en el equipo cliente desde el cual desee conectarse a la red virtual. Si planea instalar el paquete de cliente VPN en varios equipos cliente, asegúrese de que cada uno de ellos también tenga instalado un certificado de cliente. El paquete de cliente VPN contiene información de configuración para configurar el software de cliente VPN integrado en Windows. El paquete no instala software adicional.
+1. Después de generar y descargar el paquete de VPN de cliente del Portal de Azure clásico, podrá instalar el paquete de cliente en el equipo cliente desde el cual desee conectarse a la red virtual. Si planea instalar el paquete de cliente VPN en varios equipos cliente, asegúrese de que cada uno de ellos también tenga instalado un certificado de cliente. El paquete de cliente VPN contiene información de configuración para configurar el software de cliente VPN integrado en Windows. El paquete no instala software adicional.
 
 ### Instalación del paquete de configuración de VPN en el cliente e inicio de la conexión
 
@@ -193,4 +193,4 @@ Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una m
 
 Si desea obtener más información acerca de las redes virtuales, consulte la página [Documentación de redes virtuales](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -11,21 +11,21 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="11/06/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Creación de un grupo de bases de datos elásticas escalables para Bases de datos SQL en el Portal de vista previa de Azure
+# Creación de un grupo de bases de datos elásticas escalables para Bases de datos SQL en el Portal de Azure
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-elastic-pool-portal.md)
+- [Azure portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-En este artículo se muestra cómo crear un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) escalable con el Portal de vista previa de Azure. Una configuración de Base de datos SQL con grupos de base de datos elásticas simplifica la administración y el uso compartido de los recursos entre varias bases de datos.
+En este artículo se muestra cómo crear un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) escalable con el Portal de Azure. Una configuración de Base de datos SQL con grupos de base de datos elásticas simplifica la administración y el uso compartido de los recursos entre varias bases de datos.
 
 > [AZURE.NOTE]Los grupos de bases de datos elásticas están actualmente en vista previa y solo estarán disponibles en servidores con bases de datos SQL V12. Si tiene un servidor de Base de datos SQL V11, puede [usar PowerShell para actualizar a V12 y crear un grupo](sql-database-upgrade-server.md) en un solo paso.
 
@@ -38,7 +38,7 @@ Antes de comenzar, necesita una base de datos en un servidor de Base de datos SQ
 Cree un grupo de bases de datos elásticas agregando un nuevo grupo a un servidor. Puede agregar varios grupos a un servidor, pero únicamente se puede asociar un solo servidor a cada grupo. Además, es posible agregar a un grupo todas o algunas de las bases de datos de un servidor.
 
 
-En el [Portal de vista previa de Azure](https://ms.portal.azure.com/), haga clic en **Servidores SQL Server**, haga clic en el servidor que hospeda las bases de datos que desea agregar al grupo y, luego, en **Agregar grupo**.
+En el [Portal de Azure](https://portal.azure.com/), haga clic en **Servidores SQL Server**, haga clic en el servidor que hospeda las bases de datos que desea agregar al grupo y, luego, en **Agregar grupo**.
 
 ![Adición de un grupo a un servidor](./media/sql-database-elastic-pool-portal/elastic-pool-add-pool.png)
 
@@ -202,4 +202,4 @@ Después de crear un grupo de bases de datos elásticas, puede administrar las b
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 [12]: ./media/sql-database-elastic-pool-portal/pools-message.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

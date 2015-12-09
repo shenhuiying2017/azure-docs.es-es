@@ -13,10 +13,10 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 	Tenga en cuenta que los datos guardados en el paso anterior se cargan del servicio móvil después de que se inicie la aplicación.
  
-4. De nuevo en el Portal de administración, haga clic en la pestaña **Datos** y luego haga clic en la tabla **TodoItems**.
+4. De nuevo en el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en la pestaña **Datos** y luego en la tabla **TodoItems**.
 
    	Esto le permite examinar los datos que la aplicación inserta en la tabla.
 
    	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

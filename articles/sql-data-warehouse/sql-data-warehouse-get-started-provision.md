@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creación de una base de datos de almacenamiento de datos SQL en el portal de vista previa de Azure | Microsoft Azure"
-	description="Aprenda a crear un almacenamiento de datos SQL de Azure en el portal de vista previa de Azure"
+	pageTitle="Creación de una base de datos de almacenamiento de datos SQL en el Portal de Azure | Microsoft Azure"
+	description="Aprenda a crear un almacenamiento de datos SQL de Azure en el Portal de Azure"
 	services="sql-data-warehouse"
 	documentationCenter="NA"
 	authors="barbkess"
@@ -19,11 +19,11 @@
 # Creación de Almacenamiento de datos SQL
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-Este tutorial muestra cómo crear un Almacenamiento de datos SQL de Azure en solo unos minutos con el Portal de vista previa de Azure.
+Este tutorial muestra cómo crear un Almacenamiento de datos SQL de Azure en solo unos minutos con el Portal de Azure.
 
 En este tutorial, aprenderá lo siguiente:
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá lo siguiente:
 
 ## Paso 1: Iniciar sesión y comenzar
 
-1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
 2. Haga clic en **Nuevo** > **Datos y almacenamiento** > **Almacenamiento de datos SQL**.
 
@@ -99,7 +99,7 @@ Ahora que seleccionó el servidor SQL lógico, está listo para terminar de crea
 
 1. Haga clic en **Crear** para crear la base de datos de Almacenamiento de datos SQL.
 
-1. Espere unos minutos y la base de datos estará lista. Cuando finalice, debería volver al [Portal de vista previa de Azure](https://portal.azure.com). Observe que la base de datos de Almacenamiento de datos SQL se agregó al panel.
+1. Espere unos minutos y la base de datos estará lista. Cuando finalice, debería volver al [Portal de Azure](https://portal.azure.com). Observe que la base de datos de Almacenamiento de datos SQL se agregó al panel.
 
     ![Vista del portal](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
@@ -130,4 +130,4 @@ Una vez configurado el firewall, podrá establecer conexiones desde su escritori
 
 Ahora que ha creado una base de datos de ejemplo para Almacenamiento de datos SQL, está listo para [Conectar](./sql-data-warehouse-get-started-connect.md) la base de datos.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -228,11 +228,8 @@ Ya ha creado las tablas y los servicios vinculados de entrada/salida. Ahora, va 
 
 1. En **Visual Studio**, haga clic en el menú **Ver** y en la opción **Explorador de servidores**.
 2. En la ventana Explorador de servidores, expanda **Azure** y **Factoría de datos**. Si aparece **Iniciar sesión en Visual Studio**, escriba la **cuenta** asociada a su suscripción de Azure y haga clic en **Continuar**. Escriba la **contraseña** y haga clic en **Iniciar sesión**. Visual Studio intenta obtener información acerca de todas las factorías de datos de Azure en su suscripción. Verá el estado de esta operación en la ventana **Lista de tareas de Factoría de datos**.  
-
 	![Explorador de servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
-
-3. Puede hacer clic con el botón derecho en una factoría de datos y seleccionar Exportar Factoría de datos a nuevo proyecto para crear un proyecto de Visual Studio basado en una factoría de datos existente.
-
+3. Puede hacer clic con el botón derecho en una factoría de datos y seleccionar Exportar Factoría de datos a nuevo proyecto para crear un proyecto de Visual Studio basado en una factoría de datos existente.  
 	![Exportar factoría de datos a un proyecto de VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Actualización de herramientas de Factoría de datos para Visual Studio
@@ -242,6 +239,6 @@ Para actualizar las herramientas de Factoría de datos de Azure para Visual Stud
 2. Seleccione **Actualizaciones** en el panel izquierdo y, luego, seleccione **Galería de Visual Studio**.
 4. Seleccione **Herramientas de Factoría de datos de Azure para Visual Studio** y haga clic en **Actualizar**. Si no ve esta entrada, ya tiene la versión más reciente de las herramientas. 
 
-Consulte [Supervisión de los conjuntos de datos y la canalización](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) para obtener instrucciones sobre cómo usar el Portal de vista previa de Azure para supervisar la canalización y los conjuntos de datos que ha creado en este tutorial.
+Consulte [Supervisión de los conjuntos de datos y la canalización](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) para obtener instrucciones sobre cómo usar el Portal de Azure para supervisar la canalización y los conjuntos de datos creados en este tutorial.
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

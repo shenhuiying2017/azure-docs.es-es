@@ -18,6 +18,10 @@
 
 # Introducción a Servicios móviles para Android (back-end JavaScript)
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
 &nbsp;
@@ -34,7 +38,7 @@ La siguiente captura de pantalla muestra la aplicación final:
 
 ## Requisitos previos
 
-Para completar este tutorial se necesitan las [Herramientas para desarrolladores de Android](https://developer.android.com/sdk/index.html), que incluyen el entorno de desarrollo integrado Android Studio y la última plataforma Android. Se requiere Android 4.2 o versiones posteriores.
+Para completar este tutorial se requieren las [Herramientas para desarrolladores de Android](https://developer.android.com/sdk/index.html), que incluyen el entorno de desarrollo integrado de Android Studio y la última plataforma de Android. Se requiere Android 4.2 o versiones posteriores.
 
 El proyecto de inicio rápido descargado contiene el SDK de Servicios Móviles de Azure para Android.
 
@@ -47,11 +51,11 @@ El proyecto de inicio rápido descargado contiene el SDK de Servicios Móviles d
 
 ## Creación de una aplicación Android
 
-Una vez que haya creado el servicio móvil, podrá seguir una introducción rápida en el Portal de administración para crear una nueva aplicación o modificar una ya existente a fin de conectarla a dicho servicio.
+Después de crear el servicio móvil, puede seguir una sencilla introducción rápida en el Portal de Azure clásico para crear una aplicación o modificar una ya existente a fin de conectarla a dicho servicio.
 
 En esta sección se creará una nueva aplicación Android que se conecta al servicio móvil.
 
-1.  En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
+1.  En el Portal de Azure clásico, haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
 
 2. En la pestaña de inicio rápido, haga clic en **Android** en **Seleccionar plataforma** y expanda **Crear una nueva aplicación Android**.
 
@@ -93,6 +97,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Introducción a las notificaciones de inserción]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-[Management Portal]: https://manage.windowsazure.com/
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

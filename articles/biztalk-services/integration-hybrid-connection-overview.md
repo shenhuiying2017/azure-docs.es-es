@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2015"
+	ms.date="12/01/2015"
 	ms.author="mandia"/>
 
 
@@ -85,7 +85,7 @@ Port | Por qué es necesario
 --- | ---
 9350 - 9354 | Estos puertos se usan para la transmisión de datos. El administrador de retransmisiones de bus de servicio sondea el puerto 9350 para determinar si la conectividad TCP está disponible. Si lo está, asume que el puerto 9352 está también disponible. El tráfico de datos pasa por el puerto 9352. <br/><br/>Permitir conexiones salientes a estos puertos.
 5671 | Cuando se usa el puerto 9352 para el tráfico de datos, el puerto 5671 se usa como canal de control. <br/><br/>Permitir conexiones salientes a este puerto.
-80, 443 | Si los puertos 9352 y 5671 no se pueden usar, *los puertos* 80 y 443 son los puertos de reserva que se usan para la transmisión de datos y el canal de control.<br/><br/>Permitir conexiones salientes a estos puertos. <br/><br/>**Nota** No es aconsejable usar estos puertos de reserva en lugar de los restantes puertos TCP. HTTP/WebSocket se utiliza como protocolo, en lugar del TCP nativo, para los canales de datos. Podría provocar un rendimiento menor.
+80, 443 | Estos puertos se usan para algunas solicitudes de datos en Azure. Si los puertos 9352 y 5671 no se pueden usar, los *puertos* 80 y 443 son los puertos de reserva que se usan para la transmisión de datos y el canal de control.<br/><br/>Permitir conexiones salientes a estos puertos. <br/><br/>**Nota** No es aconsejable usar estos puertos de reserva en lugar de los restantes puertos TCP. HTTP/WebSocket se utiliza como protocolo, en lugar del TCP nativo, para los canales de datos. Podría provocar un rendimiento menor.
 
 
 
@@ -103,4 +103,4 @@ Port | Por qué es necesario
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

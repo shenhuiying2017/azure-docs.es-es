@@ -57,11 +57,11 @@ Los siguientes requisitos son necesarios para completar este tutorial.
 
 ## Creación de una aplicación HTML
 
-Una vez que haya creado el servicio móvil, podrá seguir una introducción rápida en el Portal de administración para crear una nueva aplicación o modificar una ya existente a fin de conectarla a dicho servicio.
+Después de crear el servicio móvil, puede seguir una sencilla introducción rápida en el Portal de Azure clásico para crear una aplicación o modificar una ya existente a fin de conectarla a dicho servicio.
 
 En esta sección, creará una aplicación de HTML que se conecta al servicio móvil.
 
-1.  En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
+1.  En el [Portal de Azure clásico], haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
 
 
 2. En la pestaña de inicio rápido, haga clic en **Windows** en **Seleccionar plataforma** y, a continuación, expanda **Crear una aplicación HTML**.
@@ -90,7 +90,7 @@ La etapa final de este tutorial consiste en hospedar y ejecutar la aplicación n
 
 1. Busque la ubicación donde guardó los archivos comprimidos del proyecto, expanda los archivos en su equipo e inicie uno de los archivos de comandos siguientes desde la subcarpeta **server**.
 
-	+ **.\\start-iisexpress.ps1** (equipos Windows)
+	+ **.\\start-iisexpress.ps1** (equipos con Windows)
 	+ **launch-mac.command** (equipos con Mac OS X)
 	+ **launch-linux.sh** (equipos con Linux)
 
@@ -108,7 +108,7 @@ La etapa final de este tutorial consiste en hospedar y ejecutar la aplicación n
 
 	> [AZURE.NOTE]Puede revisar el código de acceso al servicio móvil para consultar e insertar datos; este se encuentra en el archivo page.js.
 
-4. De nuevo en el Portal de administración, haga clic en la pestaña **Datos** y luego haga clic en la tabla **TodoItems**.
+4. De nuevo en el [Portal de Azure clásico], haga clic en la pestaña **Datos** y luego en la tabla **TodoItems**.
 
    	![][11]
 
@@ -119,7 +119,7 @@ La etapa final de este tutorial consiste en hospedar y ejecutar la aplicación n
 ## <a name="next-steps"> </a>Pasos siguientes
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
-* **[Incorporación de autenticación a la aplicación]** Obtenga información sobre cómo autenticar a los usuarios de su aplicación con un proveedor de identidades.
+* **[Incorporación de autenticación a la aplicación]** Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
 * **[Referencia conceptual de Servicios móviles con HTML/JavaScript]** Obtenga más información sobre cómo usar Servicios móviles con HTML/JavaScript.
 
@@ -147,11 +147,11 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 <!-- URLs. -->
 [Incorporación de autenticación a la aplicación]: mobile-services-html-get-started-users.md
 
-[Management Portal]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [instalador de plataforma web de Microsoft]: http://go.microsoft.com/fwlink/p/?LinkId=286333
 [última versión de Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
 [Referencia conceptual de Servicios móviles con HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

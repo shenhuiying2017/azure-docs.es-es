@@ -81,7 +81,7 @@ Ahora que tiene una cuenta, creemos nuestro nuevo proyecto de ASP.NET.
 
 8. Si decide alojarla en la nube, verá al menos una pantalla adicional que le solicitará que inicie sesión en su cuenta de Azure y proporcione valores para el nuevo sitio web. Proporcione todos los valores adicionales y continúe.
 
-  	No he elegido "Servidor de base de datos" aquí porque no estamos usando un servidor de Base de datos SQL de Azure aquí, vamos a crear una nueva cuenta de Azure DocumentDB más adelante en el Portal de vista previa de Azure.
+  	No he elegido "Servidor de base de datos" aquí porque no estamos usando un servidor de Base de datos SQL de Azure aquí, vamos a crear una nueva cuenta de Azure DocumentDB más adelante en el Portal de Azure.
 
 	Para obtener más información sobre cómo elegir un **plan del Servicio de aplicaciones** y un **grupo de recursos**, consulte [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
@@ -401,12 +401,12 @@ Lo primero que debe hacerse es agregar una clase que contenga toda la lógica pa
 
 3. Estamos leyendo algunos valores de la configuración; por tanto, abra el archivo **Web.config** de su aplicación y agregue las siguientes líneas debajo de la sección `<AppSettings>`.
 	
-    	<add key="endpoint" value="enter the URI from the Keys blade of the Azure Preview portal"/>
-    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Preview portal"/>
+    	<add key="endpoint" value="enter the URI from the Keys blade of the Azure Portal"/>
+    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Portal"/>
     	<add key="database" value="ToDoList"/>
     	<add key="collection" value="Items"/>
 	
-4. Ahora, actualice los valores de *endpoint* y *authKey* mediante la hoja Claves del Portal de vista previa de Azure. Utilice el **URI** de la hoja Claves como el valor de la configuración de endpoint y utilice **CLAVE PRINCIPAL** o **CLAVE SECUNDARIA** de la hoja Claves como el valor de la configuración de authKey.
+4. Ahora, actualice los valores de *endpoint* y *authKey* mediante la hoja Claves del Portal de Azure. Utilice el **URI** de la hoja Claves como el valor de la configuración de endpoint y utilice **CLAVE PRINCIPAL** o **CLAVE SECUNDARIA** de la hoja Claves como el valor de la configuración de authKey.
 
 
     Se encarga de cableado del repositorio de DocumentDB; agreguemos ahora nuestra lógica de aplicación.
@@ -454,7 +454,7 @@ Abra ***App\\_Start\\RouteConfig.cs***, busque la línea que empieza con "defaul
 
 Esto indica ahora a ASP.NET MVC que si no ha especificado un valor en la dirección URL para controlar el comportamiento de enrutamiento que, en lugar de **Inicio**, usa **Elemento** como controlador e **Índice** de usuario como vista.
 
-Si ejecuta la aplicación, llamará a su **ItemController**, que llamará a la clase de repositorio y usará el método GetItems para devolver todos los elementos incompletos a la vista **Vistas**\**Elemento**\**Índice**.
+Si ejecuta la aplicación, llamará a su **ItemController**, que llamará a la clase de repositorio y usará el método GetItems para devolver todos los elementos incompletos a la vista **Vistas**\\**Elemento**\\**Índice**.
 
 Si crea y ejecuta este proyecto ahora, deberá ver algo parecido a esto.
 
@@ -633,4 +633,4 @@ Para agregar la funcionalidad adicional a la aplicación, revise las API disponi
 [Operaciones CRUD básicas en ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

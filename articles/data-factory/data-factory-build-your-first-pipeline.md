@@ -30,7 +30,7 @@ Este artículo le introduce en el creación de la primera Factoría de datos de 
 ## Información general del tutorial
 Este tutorial le guiará por los pasos necesarios para obtener su primera factoría de datos con una canalización. Se puede crear una canalización y especificar todos los recursos necesarios desde el principio.
 
-Si desea explorar rápidamente las distintas capacidades de la factoría de datos, sin crear una desde el principio, puede usar los ejemplos que se ofrecen en el Portal de vista previa de Azure. Vea [Actualización de la Factoría de datos de Azure: implementación de ejemplo simplificada](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/) sobre cómo implementar y usar un ejemplo basado en caso de uso mediante el Portal de vista previa de Azure.
+Si desea explorar rápidamente las distintas funciones de la factoría de datos, sin crear una desde el principio, puede usar los ejemplos que se ofrecen en el Portal de Azure. Consulte [Azure Data Factory Update: Simplified sample deployment](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/) para información sobre cómo implementar y usar un ejemplo basado en un caso de uso mediante el Portal de Azure.
 
 ## Requisitos previos
 Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
@@ -168,8 +168,8 @@ Antes de comenzar el tutorial, tendrá que preparar el almacenamiento de Azure c
 
 Haga lo siguiente:
 
-- Haga clic en el vínculo [Uso del editor de la Factoría de datos](data-factory-build-your-first-pipeline-using-editor.md) en la parte superior para realizar el tutorial con el Editor de Factoría de datos, que forma parte del Portal de Azure.
+- Haga clic en el vínculo [Uso del Editor de la Factoría de datos](data-factory-build-your-first-pipeline-using-editor.md) en la parte superior para realizar el tutorial con el Editor de la Factoría de datos, que forma parte del Portal de Azure clásico.
 - Haga clic en el vínculo [Uso de PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) en la parte superior para realizar el tutorial con PowerShell de Azure.
 - Haga clic en el vínculo [Uso de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) en la parte superior para realizar el tutorial con Visual Studio. 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

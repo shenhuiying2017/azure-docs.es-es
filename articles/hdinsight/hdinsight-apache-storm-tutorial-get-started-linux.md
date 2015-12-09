@@ -40,11 +40,11 @@ Debe cumplir los siguientes requisitos previos para poder completar correctament
 
 Storm en HDInsight usa el almacenamiento de blobs de Azure para almacenar archivos de registro y topologías enviadas al clúster. Siga estos pasos para crear una cuenta de almacenamiento de Azure para usarla con el clúster:
 
-1. Inicie sesión en el [Portal de vista previa de Azure][preview-portal].
+1. Inicie sesión en el [Portal de Azure][preview-portal].
 
 2. Seleccione **NUEVO**, __Análisis de datos__ y __HDInsight__
 
-	![Crear un nuevo clúster en el Portal de vista previa de Azure](./media/hdinsight-apache-storm-tutorial-get-started-linux/new-cluster.png)
+	![Creación de un clúster en el Portal de Azure](./media/hdinsight-apache-storm-tutorial-get-started-linux/new-cluster.png)
 
 3. Escriba un __Nombre de clúster__ y, a continuación, seleccione __Storm__ para el __Tipo de clúster__. Si está disponible, aparecerá una marca de verificación verde junto al __Nombre del clúster__.
 
@@ -233,4 +233,4 @@ En este tutorial de Apache Storm, usó el inicio de Storm para aprender a crear 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

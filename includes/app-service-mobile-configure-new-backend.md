@@ -11,4 +11,4 @@
 	 
 Ahora el back-end de aplicación móvil está listo para usarse con la aplicación cliente.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

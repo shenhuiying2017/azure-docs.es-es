@@ -31,7 +31,7 @@ Este tutorial muestra cómo usar Power BI para conectar con Almacenamiento de da
 
 Para abrir Power BI y conectarse a la base de datos AdventureWorksDW:
 
-1. Inicie sesión en el [Portal de vista previa de Azure][].
+1. Inicie sesión en el [Portal de Azure][].
 2. Haga clic en **Bases de datos SQL** y elija su base de datos de Almacenamiento de datos SQL de AdventureWorks. 
 
     ![Buscar la base de datos][1]
@@ -106,9 +106,9 @@ Ahora que le hemos dado algún tiempo para familiarizarse con los datos de ejemp
 [desarrollar]: ./sql-data-warehouse-overview-develop.md
 [cargar]: ./sql-data-warehouse-overview-load.md
 [cargar manualmente los datos de ejemplo]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[Portal de vista previa de Azure]: https://portal.azure.com/
+[Portal de Azure]: https://portal.azure.com/
 [Power BI]: http://www.powerbi.com/
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creación de una máquina virtual con Windows en el Portal de vista previa de Azure | Microsoft Azure"
-	description="Aprenda a crear máquinas virtuales de Azure o un equipo virtual que usen Windows mediante Azure Marketplace en el Portal de vista previa de Azure"
+	pageTitle="Creación de una máquina virtual con Windows en el Portal de Azure | Microsoft Azure"
+	description="Aprenda a crear VM de Azure o un equipo virtual que usen Windows mediante Azure Marketplace en el Portal de Azure"
 	keywords="máquina virtual de Azure,crear una máquina virtual,equipo virtual,configurar una máquina virtual"
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,19 +17,17 @@
 	ms.date="08/14/2015"
 	ms.author="cynthn"/>
 
-# Creación de una máquina virtual que ejecuta Windows en el Portal de vista previa de Azure#
+# Creación de una máquina virtual que ejecuta Windows en el Portal de Azure#
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](virtual-machines-windows-tutorial.md)
-- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure portal](virtual-machines-windows-tutorial.md)
+- [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 <br>
 
-
-
-Este tutorial muestra lo fácil que resulta crear una máquina virtual de Azure en unos minutos en el Portal de vista previa de Azure. Usaremos una imagen de Windows Server 2012 R2 Datacenter como ejemplo para crear la máquina virtual, pero esa es solo una de las muchas imágenes que Azure ofrece. Las imágenes disponibles dependen de su suscripción. Por ejemplo, las imágenes de escritorio pueden estar disponibles para los suscriptores MSDN.
+Este tutorial muestra lo fácil que resulta crear una máquina virtual de Azure en unos minutos en el Portal de Azure. Usaremos una imagen de Windows Server 2012 R2 Datacenter como ejemplo para crear la máquina virtual, pero esa es solo una de las muchas imágenes que Azure ofrece. Las imágenes disponibles dependen de su suscripción. Por ejemplo, las imágenes de escritorio pueden estar disponibles para los suscriptores MSDN.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica. Para obtener más información acerca del Administrador de recursos, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md).
 
@@ -45,7 +43,7 @@ Se trata del tutorial en formato de vídeo.
 
 ## Seleccione la imagen de la máquina virtual.
 
-1. Inicie sesión en el Portal de vista previa de Azure.
+1. Inicie sesión en el Portal de Azure.
 
 2. En el menú Base de datos central, haga clic en **Nuevo** > **Proceso** > **Windows Server 2012 R2 Datacenter**.
 
@@ -89,7 +87,7 @@ Una vez creada la máquina virtual, podrá iniciar sesión en ella para administ
 
 >[AZURE.NOTE]Para obtener consejos acerca de los requisitos y la solución de problemas, vea [Conectar a una máquina virtual de Azure con RDP o SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
-1. Si no lo hizo todavía, inicie sesión en el Portal de vista previa de Azure.
+1. Si aún no lo ha hecho, inicie sesión en el Portal de Azure.
 
 2. Haga clic en la máquina virtual en el Panel de inicio. Si necesita encontrarlo, haga clic en **Examinar todo** > **Reciente** o **Examinar todo** > **Máquinas virtuales**. Después, seleccione la máquina virtual en la lista.
 
@@ -112,4 +110,4 @@ Una vez creada la máquina virtual, podrá iniciar sesión en ella para administ
 * Use Azure PowerShell y la CLI de Azure para [buscar y seleccionar imágenes de máquina virtual](resource-groups-vm-searching.md).
 * Automatice la implementación y administración de máquinas virtuales y cargas de trabajo con el [Administrador de recursos de Azure](virtual-machines-how-to-automate-azure-resource-manager.md) y las [plantillas de Administrador de recursos de Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

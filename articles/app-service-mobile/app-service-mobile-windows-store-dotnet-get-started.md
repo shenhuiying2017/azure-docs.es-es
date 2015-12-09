@@ -36,7 +36,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * [Visual Studio Community 2013] o versión posterior.
 
->[AZURE.NOTE]Si desea empezar a usar Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita de Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). Allí puede crear de forma inmediata una aplicación móvil de corta duración para iniciarse en el Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
+>[AZURE.NOTE]Si desea empezar a usar el Servicio de aplicaciones de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://tryappservice.azure.com/?appServiceName=mobile). Allí puede crear de forma inmediata una aplicación móvil de corta duración para iniciarse en el Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
 
 ##Creación de un nuevo back-end de Aplicaciones móviles de Azure
 
@@ -85,4 +85,4 @@ Una vez configurado el back-end de aplicación móvil, puede crear una nueva apl
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015--->

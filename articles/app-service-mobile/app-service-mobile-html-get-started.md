@@ -23,7 +23,7 @@
 &nbsp;  
 <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
->[AZURE.IMPORTANT]Este tema no está admitido actualmente por Aplicaciones móviles porque se quitó temporalmente el inicio rápido para las aplicaciones HTML/JavaScript en el Portal de Azure. Tenemos previsto ponerlo próximamente. Le agradecemos su paciencia durante la finalización de la vista previa de las aplicaciones móviles.
+>[AZURE.IMPORTANT]Este tema no está admitido actualmente por Aplicaciones móviles porque se quitó temporalmente el inicio rápido para las aplicaciones HTML/JavaScript en el Portal de Azure. Tenemos previsto ponerlo próximamente. Gracias por su paciencia.
 
 ##Información general
 
@@ -43,7 +43,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * [Visual Studio Community 2013] o versión posterior.
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Probar Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), donde podrá crear inmediatamente una aplicación móvil de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://tryappservice.azure.com/?appServiceName=mobile), donde podrá crear inmediatamente una aplicación móvil de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ##Creación de un nuevo back-end de aplicación móvil
 
@@ -127,4 +127,4 @@ Después, implementará el proyecto habilitado para CORS en Azure.
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015--->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/17/2015"
+	ms.date="11/30/2015"
 	ms.author="genemi"/>
 
 
@@ -134,17 +134,53 @@ Para facilitar esta práctica, el programa puede reconocer un parámetro de tiem
 ## Conexión: cadena de conexión
 
 
-La cadena de conexión necesaria para conectarse a Base de datos SQL de Azure es ligeramente diferente de la cadena de conexión a Microsoft SQL Server. Puede copiar la cadena de conexión para la base de datos en el [Portal de vista previa de Azure](http://portal.azure.com/).
+La cadena de conexión necesaria para conectarse a Base de datos SQL de Azure es ligeramente diferente de la cadena de conexión a Microsoft SQL Server. Puede copiar la cadena de conexión para la base de datos en el [Portal de Azure](http://portal.azure.com/).
 
 
 [AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
 
 
-#### 30 segundos de tiempo de espera de conexión
+### Parámetros .NET SqlConnection para reintento de conexión
 
 
-La conexión por Internet es menos estable que a través de una red privada. Por lo tanto se recomienda que en la cadena de conexión establezca el parámetro de **tiempo de espera de la conexión** en **30** segundos (en lugar de 15 segundos).
+Si el programa cliente se conecta a Base de datos SQL de Azure mediante la clase .NET Framework **System.Data.SqlClient.SqlConnection**, debe usar .NET 4.5.1 o una versión posterior para poder aprovechar su característica de reintento de conexión. Los detalles de la característica están [aquí](http://go.microsoft.com/fwlink/?linkid=393996).
+
+
+<!--
+2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
+-->
+
+
+Cuando cree la [cadena de conexión](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) para su objeto **SqlConnection**, debe coordinar los valores entre los parámetros siguientes:
+
+- ConnectRetryCount &nbsp;&nbsp;*(el valor predeterminado es 0. El intervalo es de 0 a 255).*
+- ConnectRetryInterval &nbsp;&nbsp;*(el valor predeterminado es 1 segundo). El intervalo es de 1 a 60.)*
+- Connection Timeout &nbsp;&nbsp;*(el valor predeterminado es 15 segundos). El intervalo es de 0 a 2147483647)*
+
+
+Específicamente, los valores elegidos deben cumplir la siguiente igualdad:
+
+- Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
+
+Por ejemplo, si el recuento es igual a 3 y el intervalo es igual a 10 segundos, un tiempo de espera de solo 29 segundos no proporcionará al sistema tiempo suficiente para su tercer y último reintento de conexión: 29 < 3 * 10.
+
+
+#### Comparación de conexión y comando
+
+
+Los parámetros **ConnectRetryCount** y **ConnectRetryInterval** permiten al objeto **SqlConnection** volver a intentar la operación de conexión sin indicarlo al programa o sin alterarlo, como la devolución de control al programa. Los reintentos pueden producirse en las situaciones siguientes:
+
+- Llamada del método mySqlConnection.Open
+- Llamada del método mySqlConnection.Execute
+
+Hay algo muy sutil que tener en cuenta. Si se produce un error transitorio mientras su *consulta* se está ejecutando, el objeto **SqlConnection** no vuelve a intentar la operación de conexión y realmente no vuelve a intentar la consulta. Sin embargo, **SqlConnection** comprueba muy rápidamente la conexión antes de enviar la consulta para su ejecución. Si la comprobación rápida detecta un problema de conexión, **SqlConnection** vuelve a intentar la operación de conexión. Si el reintento se realiza correctamente, se envía la consulta para su ejecución.
+
+
+#### ¿Se debe combinar Connectretrycount con lógica de reintento de la aplicación?
+
+Supongamos que su aplicación tiene una lógica de reintento personalizada. Puede reintentar la operación de conexión 4 veces. Si agrega **ConnectRetryInterval** y **ConnectRetryCount** = 3 a la cadena de conexión, aumentará el número de reintentos a 4 * 3 = 12 reintentos. Es posible que no desee un gran número de reintentos.
+
 
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
@@ -152,7 +188,7 @@ La conexión por Internet es menos estable que a través de una red privada. Por
 ## Conexión: Dirección IP
 
 
-Debe configurar el servidor de Base de datos SQL para que acepte la comunicación de la dirección IP del equipo que hospeda el programa cliente. Para ello, edite la configuración del firewall a través del [Portal de vista previa de Azure](http://portal.azure.com/).
+Debe configurar el servidor de Base de datos SQL para que acepte la comunicación de la dirección IP del equipo que hospeda el programa cliente. Para ello, edite la configuración del firewall a través del [Portal de Azure](http://portal.azure.com/).
 
 
 Si olvida configurar la dirección IP, el programa fallará con un mensaje de error que indica la dirección IP necesaria.
@@ -478,4 +514,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* es una biblioteca de reintentos de uso general con licencia de Apache 2.0, escrita en **Python**, para simplificar la tarea de agregar comportamiento de reintento a prácticamente todo.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

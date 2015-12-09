@@ -87,13 +87,13 @@ Antes de comenzar a desarrollar su aplicación de Azure, descargue las herramien
 
 El siguiente paso es crear un espacio de nombres de servicio y obtener una clave de Firma de acceso compartido (SAS). Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través del Bus de servicio. El sistema genera una clave SAS cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres y la clave SAS proporciona las credenciales de Bus de servicio para autenticar el acceso a una aplicación.
 
-### Configuración del espacio de nombres mediante el portal de Azure
+### Configuración de un espacio de nombres mediante el Portal de Azure clásico
 
-1.  Inicie sesión en el [Portal de Azure][].
+1.  Inicie sesión en el [Portal de Azure clásico][].
 
-2.  En el panel de navegación izquierdo del Portal de Azure, haga clic en **Bus de servicio**.
+2.  En el panel de navegación izquierdo del Portal, haga clic en **Bus de servicio**.
 
-3.  En el panel inferior del Portal de Azure, haga clic en **Crear**.
+3.  En el panel inferior del Portal, haga clic en **Crear**.
 
     ![][6]
 
@@ -269,7 +269,7 @@ Ahora, agregue el código para enviar elementos a una cola. En primer lugar, va 
 
 2.  Asigne a la clase el nombre QueueConnector.cs. Haga clic en **Add** para crear la clase.
 
-3.  Ahora va a agregar código que encapsula la información de conexión e inicializará la conexión a una cola de Bus de servicio. En QueueConnector.cs, agregue el código siguiente y escriba valores para **Espacio de nombres** (el espacio de nombres del servicio) y **yourKey**, que es la clave SAS que obtuvo en el [Portal de Azure][Azure portal] anteriormente.
+3.  Ahora va a agregar código que encapsula la información de conexión e inicializará la conexión a una cola de Bus de servicio. En QueueConnector.cs, agregue el código siguiente y escriba valores para **Espacio de nombres** (el espacio de nombres del servicio) y **yourKey**, que es la clave SAS que obtuvo en el [Portal de Azure clásico][] anteriormente.
 
         using System;
         using System.Collections.Generic;
@@ -286,7 +286,7 @@ Ahora, agregue el código para enviar elementos a una cola. En primer lugar, va 
                 // on every request.
                 public static QueueClient OrdersQueueClient;
 
-                // Obtain these values from the Azure portal.
+                // Obtain these values from the portal.
                 public const string Namespace = "your service bus namespace";
 
                 // The name of your queue.
@@ -511,8 +511,7 @@ Para obtener información sobre cómo implementar el front-end en un Sitio web d
 
   [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
-  [Azure portal]: http://manage.windowsazure.com
-  [Portal de Azure]: http://manage.windowsazure.com
+  [Portal de Azure clásico]: http://manage.windowsazure.com
   [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
   [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [8]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
@@ -546,4 +545,4 @@ Para obtener información sobre cómo implementar el front-end en un Sitio web d
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

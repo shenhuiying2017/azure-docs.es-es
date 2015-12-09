@@ -36,7 +36,7 @@ Los roles de AAD controlan las soluciones preconfiguradas de aprovisionamiento d
 
 Puede encontrar más información acerca de los roles de administrador en AAD en [Asignación de roles de administrador en Azure AD][lnk-aad-admin], pero este artículo se centra principalmente en los roles **Administrador global** y **Miembro o usuario de dominio**, tal como los usan las soluciones preconfiguradas.
 
-**Administrador global:** puede haber muchos administradores globales por inquilino de AAD. Al crear un inquilino de AAD, quien lo crea es de forma predeterminada el administrador global del mismo. El administrador global puede aprovisionar una solución preconfigurada y se le asigna el rol **ADMINISTRATOR** de la aplicación en su inquilino de AAD. Sin embargo, si otro usuario del mismo inquilino de AAD crea una aplicación, el rol predeterminado que se concede al administrador global es **IMPLICIT READ ONLY**. Los administradores globales pueden asignar roles para aplicaciones desde el [Portal de administración de Azure][lnk-classic-portal].
+**Administrador global:** puede haber muchos administradores globales por inquilino de AAD. Al crear un inquilino de AAD, quien lo crea es de forma predeterminada el administrador global del mismo. El administrador global puede aprovisionar una solución preconfigurada y se le asigna el rol **ADMINISTRATOR** de la aplicación en su inquilino de AAD. Sin embargo, si otro usuario del mismo inquilino de AAD crea una aplicación, el rol predeterminado que se concede al administrador global es **IMPLICIT READ ONLY**. Los administradores globales pueden asignar roles para aplicaciones desde el [Portal de Azure clásico][lnk-classic-portal].
 
 **Miembro o usuario de dominio:** puede haber miembros o usuarios de dominio por inquilino de AAD. Un usuario de dominio puede aprovisionar una solución preconfigurada mediante el sitio [azureiotsuite.com][lnk-azureiotsuite]. El rol predeterminado que les concede en la aplicación que se aprovisionan es **ADMINISTRATOR**. Pueden crear una aplicación con el script build.cmd del repositorio [azure-iot-solution][lnk-github-repo], pero el rol predeterminado que se les concede es **IMPLICIT READONLY**, ya que no tiene permiso para asignar roles. Si otro usuario en el inquilino de AAD crea una aplicación, se le asignará el rol **IMPLICIT READONLY** en dicha aplicación. No tiene la capacidad de asignar roles en aplicaciones; por consiguiente, no puede agregar usuarios o roles a usuarios en una aplicación, aunque la haya aprovisionado.
 
@@ -69,7 +69,7 @@ En la aplicación que se crea cuando se aprovisiona una solución preconfigurada
 
 Para cambiar los roles de los usuarios, es preciso ser administrador global de AAD:
 
-1. Vaya al [Portal de administración de Azure][lnk-classic-portal].
+1. Vaya al [Portal de Azure clásico][lnk-classic-portal].
 
 2. Seleccione **Active Directory**.
 
@@ -91,7 +91,7 @@ Para cambiar los roles de los usuarios, es preciso ser administrador global de A
 
 ### Soy administrador de servicios y deseo cambiar la asignación de directorio entre mi suscripción y un inquilino de AAD específico. ¿Cómo se hace?
 
-1. Vaya a la [Portal de administración de Azure][lnk-classic-portal] y haga clic en **Configuración** en la lista de servicios del lado izquierdo.
+1. Vaya al [Portal de Azure clásico][lnk-classic-portal] y haga clic en **Configuración** en la lista de servicios situada a la izquierda.
 
 2. Seleccione la suscripción a la que desea cambiar la asignación de directorio.
 
@@ -145,4 +145,4 @@ Si está seguro de que tiene una suscripción de Azure, valide la asignación de
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-wiki-clouddeployment]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Cloud-deployment
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

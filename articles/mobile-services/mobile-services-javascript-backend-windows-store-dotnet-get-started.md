@@ -39,14 +39,14 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## Creación de una nueva aplicación universal de Windows
 
-Una vez que haya creado el servicio móvil, podrá seguir una introducción rápida en el Portal de administración para crear una nueva aplicación universal de Windows o modificar un proyecto de aplicación existente en la Tienda Windows o Windows Phone para conectarla a su servicio móvil.
+Después de crear el servicio móvil, puede seguir una sencilla introducción rápida en el Portal de Azure clásico para crear una aplicación universal de Windows o modificar un proyecto de aplicación existente para Tienda Windows o Windows Phone a fin de conectarla al servicio móvil.
 
 En esta sección, creará una nueva aplicación universal de Windows que se conecta al servicio móvil.
 
-1.  En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
+1.  En el [Portal de Azure clásico], haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
 
 
-2. En la pestaña de inicio rápido, haga clic en **Windows** en **Choose platform** y, a continuación, expanda **Crear una nueva aplicación de la Tienda Windows**.
+2. En la pestaña de inicio rápido, haga clic en **Windows** en **Seleccionar plataforma** y, a continuación, expanda **Crear una nueva aplicación de la Tienda Windows**.
 
    	Con esto se muestran los tres sencillos pasos requeridos para crear una aplicación de la Tienda Windows conectada al servicio móvil.
 
@@ -69,13 +69,13 @@ En esta sección, creará una nueva aplicación universal de Windows que se cone
 ## Pasos siguientes
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
-* [Introducción a la sincronización de datos sin conexión] Obtenga información sobre cómo usar la sincronización de datos sin conexión para mejorar la capacidad de respuesta y reforzar la solidez de su aplicación.
+* [Introducción a la sincronización de datos sin conexión] Aprenda a usar la sincronización de datos sin conexión para mejorar la capacidad de respuesta y reforzar la solidez de su aplicación.
 
-* [Incorporación de autenticación a la aplicación de Servicios móviles][Get started with authentication] Obtenga información sobre cómo autenticar a los usuarios de su aplicación con un proveedor de identidades.
+* [Incorporación de autenticación a la aplicación de Servicios móviles][Get started with authentication] Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
-* [Incorporación de notificaciones push a la aplicación][Get started with push notifications] Obtenga información sobre cómo enviar una notificación push muy básica a la aplicación.
+* [Incorporación de notificaciones push a la aplicación][Get started with push notifications] Aprenda a enviar una notificación push muy básica a la aplicación.
 
-* [Uso de la biblioteca de cliente .NET](mobile-services-windows-dotnet-how-to-use-client-library.md) Obtenga información sobre cómo consultar el servicio móvil, trabajar con datos y acceder a las API personalizadas.
+* [Uso de la biblioteca de cliente .NET](mobile-services-windows-dotnet-how-to-use-client-library.md) Aprenda a consultar el servicio móvil, trabajar con datos y acceder a las API personalizadas.
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -96,7 +96,7 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Visual Studio 2013 Express para Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Visual Studio 2013 Express para Windows ]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Management Portal]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

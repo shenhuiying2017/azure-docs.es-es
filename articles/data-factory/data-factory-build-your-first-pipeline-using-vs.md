@@ -87,7 +87,7 @@ Ahora, va a crear un servicio vinculado para un clúster de HDInsight a petició
 		  "properties": {
 		    "type": "HDInsightOnDemand",
 		    "typeProperties": {
-		      "version": "3.1",
+		      "version": "3.2",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
 		      "linkedServiceName": "AzureStorageLinkedService1"
@@ -99,7 +99,7 @@ Ahora, va a crear un servicio vinculado para un clúster de HDInsight a petició
 	
 	Propiedad | Descripción
 	-------- | -----------
-	Versión | Con esto se especifica que la versión de HDInsight se crea para que sea 3.1. 
+	Versión | Con esto se especifica que la versión de HDInsight se crea para que sea 3.2. 
 	ClusterSize | Así se crea un clúster de HDInsight de un nodo. 
 	TimeToLive | Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine.
 	linkedServiceName | Especifica la cuenta de almacenamiento que se usará para almacenar los registros que genere HDInsight.
@@ -236,11 +236,11 @@ Para actualizar las herramientas de Factoría de datos de Azure para Visual Stud
 2. Seleccione **Actualizaciones** en el panel izquierdo y, a continuación, seleccione **Galería de Visual Studio**.
 3. Seleccione **Herramientas de Factoría de datos de Azure para Visual Studio** y haga clic en **Actualizar**. Si no ve esta entrada, ya tiene la versión más reciente de las herramientas. 
 
-Consulte [Supervisión y administración de canalizaciones de la Factoría de datos de Azure](data-factory-monitor-manage-pipelines.md) para obtener instrucciones sobre cómo usar el Portal de vista previa de Azure para supervisar la canalización y los conjuntos de datos creados en este tutorial.
+Consulte [Supervisión de los conjuntos de datos y la canalización](data-factory-monitor-manage-pipelines.md) para obtener instrucciones sobre cómo usar el Portal de Azure para supervisar la canalización y los conjuntos de datos creados en este tutorial.
  
 
 ## Pasos siguientes
 En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure en SQL Azure](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Creación de una red virtual con una conexión VPN de sitio a sitio mediante el portal de administración de Azure | Microsoft Azure"
+   pageTitle="Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico | Microsoft Azure"
    description="Cree una red virtual con una conexión VPN de sitio a sitio para configuraciones entre entornos e híbridas con el modelo de implementación clásico."
    services="vpn-gateway"
    documentationCenter=""
@@ -17,10 +17,10 @@
    ms.date="10/21/2015"
    ms.author="cherylmc"/>
 
-# Crear una red virtual con una conexión VPN de sitio a sitio mediante el portal de Azure
+# Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico
 
 > [AZURE.SELECTOR]
-- [Azure portal](vpn-gateway-site-to-site-create.md)
+- [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 Este artículo le guiará a través de la creación de una red virtual y una conexión VPN de sitio a sitio con la red local. Este artículo se aplica al modelo de implementación clásico.
@@ -43,7 +43,7 @@ Antes de comenzar con la configuración, comprueba que dispones de los elementos
 
 ## Creación de la red virtual
 
-1. Inicie sesión en el **Portal de Azure**.
+1. Inicie sesión en el **Portal de Azure clásico**.
 
 2. En la esquina inferior izquierda de la pantalla, haga clic en **Nuevo**. En el panel de navegación, haga clic en **Servicios de red** y, a continuación, haga clic en **Red virtual**. Haga clic en **Creación personalizada** para iniciar el Asistente para configuración.
 
@@ -84,13 +84,13 @@ Escriba la información siguiente y, a continuación, haga clic en la marca de v
 - **Agregar subred**: incluidas la dirección IP de inicio y el recuento de direcciones. No se necesitan subredes adicionales, pero puede que desee crear una subred independiente para las máquinas virtuales que tendrán DIP estáticas. O bien, puede que desee que las máquinas virtuales se encuentren en una subred independiente de las demás instancias de rol.
 - **Agregar subred de puerta de enlace**: haga clic para agregar la subred de puerta de enlace. La subred de puerta de enlace solo se usa para la puerta de enlace de red virtual y es obligatoria para esta configuración.
 
-Haga clic en la marca de verificación de la parte inferior derecha de la página y se empezará a crear la red virtual. Cuando finalice, verá **Creado** listado bajo **Estado** en la página **Redes** del Portal de Azure. Una vez creada la red virtual, puede configurar la puerta de enlace de red virtual.
+Haga clic en la marca de verificación de la parte inferior derecha de la página y se empezará a crear la red virtual. Cuando termine, verá **Creado** listado en el **Estado** de la página **Redes** del Portal de Azure clásico. Una vez creada la red virtual, puede configurar la puerta de enlace de red virtual.
 
 [AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## Configuración de la puerta de enlace de la red virtual
 
-A continuación, configurará la puerta de enlace de la red virtual con el fin de crear una conexión segura de sitio a sitio. Consulte [Configurar una puerta de enlace de red virtual en el portal de Azure](vpn-gateway-configure-vpn-gateway-mp.md).
+A continuación, configurará la puerta de enlace de la red virtual con el fin de crear una conexión segura de sitio a sitio. Consulte [Configuración de una puerta de enlace de red virtual en el Portal de Azure clásico](vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## Pasos siguientes
 
@@ -102,4 +102,4 @@ Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una m
 
 Si desea configurar una conexión entre una red virtual clásica y una red virtual creada con el modo de Administrador de recursos de Azure, consulte [Conectar redes virtuales clásicas con redes virtuales del Administrador de recursos de Azure](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

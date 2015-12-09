@@ -40,11 +40,11 @@ El vídeo siguiente muestra cómo ejecutar la muestra de análisis de tendencias
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
-El panel se pueda acceder a través de http://<YourHDInsightClusterName>.azurehdinsight.net/ o desde el portal de vista previa de Azure.
+Al panel se pueda acceder a través de http://<YourHDInsightClusterName>.azurehdinsight.net/ o desde el Portal de Azure.
 
 **Para ejecutar un ejemplo de la Galería de introducción, siga estos pasos:**
 
-1. Inicie sesión en el [Portal de vista previa de Azure][azure.portal].
+1. Inicie sesión en el [Portal de Azure][azure.portal].
 2. Haga clic en **Examinar todo** en el menú de la izquierda, haga clic en **Clústeres de HDInsight** y en el nombre del clúster.
 3. Haga clic en **Panel** en el menú superior.
 4. Escriba el nombre de usuario y la contraseña para el usuario HTTP (también denominado usuario del clúster).
@@ -68,4 +68,4 @@ Otras formas de aprender HDInsight son:
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

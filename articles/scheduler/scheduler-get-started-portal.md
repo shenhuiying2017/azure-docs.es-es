@@ -19,7 +19,7 @@
 
 ## Configuración del Programador mediante el Portal de Azure para crear trabajos de manera rápida y fácil
 
-Para completar este tutorial, necesita una cuenta de Azure que tenga habilitada la característica Programador de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/es-ES/pricing/free-trial/).
+Para completar este tutorial, necesita una cuenta de Azure que tenga habilitada la característica Programador de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Primeros pasos
 
@@ -261,4 +261,4 @@ Por último, para todos los tipos de acción, puede cambiar la misma programaci�
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

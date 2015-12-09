@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="11/10/2015" 
+	ms.date="11/30/2015" 
 	ms.author="sdanie"/>
 
 # Uso de Caché en Redis de Azure
@@ -30,9 +30,9 @@ Caché en Redis de Microsoft Azure está disponible en los siguientes niveles:
 
 -	**Básico** – Nodo único. Varios tamaños de hasta 53 GB.
 -	**Estándar** – Principal/Réplica de dos nodos. Varios tamaños de hasta 53 GB. Contrato de nivel de servicio del 99,9 %.
--	**Premium**: actualmente en versión de vista previa. Principal/Réplica de dos nodos con hasta 10 particiones. Varios tamaños, desde 6 GB a 530 GB (póngase en contacto con nosotros para obtener más información). Todas las características del nivel Standard y otras más, incluida la compatibilidad con los [clústeres de Redis](cache-how-to-premium-clustering.md), la [persistencia de Redis](cache-how-to-premium-persistence.md) y la [red virtual de Azure](cache-how-to-premium-vnet.md). No hay ningún contrato de nivel de servicio durante el período de vista previa.
+-	**Premium**: principal/réplica de dos nodos con hasta 10 particiones. Varios tamaños, desde 6 GB a 530 GB (póngase en contacto con nosotros para obtener más información). Todas las características del nivel Estándar y otras más, incluida la compatibilidad con los [clústeres de Redis](cache-how-to-premium-clustering.md), la [persistencia de Redis](cache-how-to-premium-persistence.md) y la [red virtual de Azure](cache-how-to-premium-vnet.md). Contrato de nivel de servicio del 99,9 %.
 
-Estos niveles difieren en las características y el precio. Para obtener información sobre los precios, consulte [Detalles de precios de caché][].
+Estos niveles difieren en las características y el precio. Para obtener información sobre los precios, consulte los [Detalles de precios de caché][].
 
 Esta guía muestra cómo usar el cliente [StackExchange.Redis][] con el código C#. Entre los escenarios tratados se incluyen la **creación y configuración de una caché**, la **configuración de clientes de caché** y la **incorporación y eliminación de objetos de la memoria caché**. Para obtener más información acerca del uso de Caché en Redis de Azure, consulte la sección [Pasos siguientes][].
 
@@ -62,9 +62,9 @@ En la hoja **Nueva caché en Redis**, especifique la configuración que desee pa
 -	En **Grupo de recursos**, seleccione o cree un grupo de recursos para su caché. Para obtener más información, consulte [Uso de grupos de recursos para administrar los recursos de Azure][]. 
 -	Use **Ubicación** para especificar la ubicación geográfica en la que se hospeda su caché. Para optimizar el rendimiento, Microsoft recomienda encarecidamente que cree la memoria caché en la misma región que la aplicación cliente de caché.
 -	Use **Nivel de precios** para seleccionar el tamaño y las características de caché que desee.
--	**Redis clúster** le permite crear cachés más grandes de 53 GB y los datos de partición entre varios nodos de Redis. Para obtener más información, vea [Cómo configurar la agrupación en clústeres de Redis para una Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md).
--	**Persistencia de Redis** ofrece la posibilidad de conservar la memoria caché para una cuenta de Almacenamiento de Azure. Para obtener instrucciones acerca de cómo configurar la persistencia, consulte [Configuración de la persistencia para una Caché en Redis de Azure de nivel Premium](cache-how-to-premium-persistence.md).
--	**Red virtual** ofrece seguridad y aislamiento mejorados al restringir el acceso a la memoria caché solo a los clientes dentro de la red virtual de Azure especificada. Además, puede usar todas las características de la red virtual, como las subredes y las directivas de control de acceso, entre otras, para restringir aún más el acceso a Redis. Para obtener más información, vea [Cómo configurar la compatibilidad de red virtual para una Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md).
+-	**Redis clúster** le permite crear cachés más grandes de 53 GB y los datos de partición entre varios nodos de Redis. Para obtener más información, consulte [Cómo configurar la agrupación en clústeres para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md).
+-	**Persistencia de Redis** ofrece la posibilidad de conservar la memoria caché para una cuenta de Almacenamiento de Azure. Para obtener instrucciones sobre cómo configurar la persistencia, consulte [Configuración de la persistencia para una Caché en Redis de Azure de nivel Premium](cache-how-to-premium-persistence.md).
+-	**Red virtual** ofrece seguridad y aislamiento mejorados al restringir el acceso a la memoria caché solo a los clientes dentro de la red virtual de Azure especificada. Además, puede usar todas las características de la red virtual, como las subredes y las directivas de control de acceso, entre otras, para restringir aún más el acceso a Redis. Para obtener más información, consulte [Cómo configurar la compatibilidad de red virtual para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md).
 -	Use **Diagnósticos** para especificar una cuenta de almacenamiento para las métricas de la memoria caché. Para obtener más información sobre cómo configurar y ver las métricas de la memoria caché, consulte [Supervisión de Caché en Redis de Azure](cache-how-to-monitor.md).
 
 Una vez que las nuevas opciones de caché estén configuradas, haga clic en **Crear**. La creación de la caché puede tardar unos minutos. Para comprobar el estado, puede supervisar el progreso en el panel de inicio. Una vez que se cree la memoria caché, esta presentará el estado **En ejecución** y estará lista para usarse con la configuración predeterminada.
@@ -329,4 +329,4 @@ Ahora que está familiarizado con los aspectos básicos, siga estos vínculos pa
 
 [Evaluación gratuita de Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

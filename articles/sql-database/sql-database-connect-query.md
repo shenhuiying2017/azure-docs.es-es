@@ -46,7 +46,7 @@ Para ejecutar el ejemplo de código de consulta en C#, debe tener:
 - Visual Studio 2013, actualización 4 o posterior. Microsoft ahora ofrece Visual Studio Community *de forma gratuita*.
  - [Visual Studio Community, descarga](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Más opciones para Visual Studio gratis](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - O bien, deje que el [paso](#InstallVSForFree) posterior de este tema describa la forma en que el [Portal de vista previa de Azure](http://portal.azure.com/) le guía en la instalación de Visual Studio.
+ - O bien, deje que el [paso](#InstallVSForFree) posterior de este tema describa la forma en que el [Portal de Azure](http://portal.azure.com/) le guía en la instalación de Visual Studio.
 
 
 <a name="InstallVSForFree" id="InstallVSForFree"></a>
@@ -59,13 +59,13 @@ Para ejecutar el ejemplo de código de consulta en C#, debe tener:
 Si necesita instalar Visual Studio, puede:
 
 - Para instalar Visual Studio Community gratis, en el explorador, vaya a las páginas web del producto Visual Studio en las que puede descargarlo gratis y otras opciones; o bien
-- Deje que el [Portal de vista previa de Azure](http://portal.azure.com/) le guíe a la página web de descarga, que se describe a continuación.
+- Deje que el [Portal de Azure](http://portal.azure.com/) le guíe a la página web de descarga, que se describe a continuación.
 
 
-### Visual Studio a través del Portal de vista previa de Azure
+### Visual Studio a través del Portal de Azure
 
 
-1. Inicie sesión mediante el [Portal de vista previa de Azure](http://portal.azure.com/), http://portal.azure.com/.
+1. Inicie sesión mediante el [Portal de Azure](http://portal.azure.com/), http://portal.azure.com/.
 
 2. Haga clic en **EXAMINAR* TODO** > **Bases de datos SQL**. Se abre una hoja que busca bases de datos.
 
@@ -127,7 +127,7 @@ Nuestro ejemplo de C# usa el ensamblado de .NET Framework **System.Configuration
 ## Paso 4: Obtención de la cadena de conexión
 
 
-Use el [Portal de vista previa de Azure](http://portal.azure.com/) para copiar la cadena de conexión necesaria para conectarse a la Base de datos SQL.
+Use el [Portal de Azure](http://portal.azure.com/) para copiar la cadena de conexión necesaria para conectarse a la Base de datos SQL.
 
 Su primer uso será conectar Visual Studio a la base de datos **AdventureWorksLT** de Base de datos SQL de Azure.
 
@@ -316,7 +316,7 @@ Tratamos de mantener el código de C# de ejemplo corto. Sin embargo, hemos agreg
 Su programa cliente en C# no se puede conectar a Base de datos SQL hasta que la dirección IP del equipo cliente se agregue al firewall de Base de datos SQL. El programa fallará con un mensaje de error útil que indica la dirección IP necesaria.
 
 
-Para agregar la dirección IP se puede usar el [Portal de vista previa de Azure](http://portal.azure.com/).
+Para agregar la dirección IP se puede usar el [Portal de Azure](http://portal.azure.com/).
 
 
 
@@ -358,4 +358,4 @@ Para obtener más información, consulte<br/> [Configuración del firewall en Ba
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->
