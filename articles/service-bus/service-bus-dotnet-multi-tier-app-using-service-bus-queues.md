@@ -37,7 +37,7 @@ La siguiente captura de pantalla muestra la aplicación completada.
 
 ![][0]
 
-> [AZURE.NOTE]Azure también proporciona funcionalidad de colas de almacenamiento. Para obtener más información sobre las colas de almacenamiento de Azure y las colas del bus de servicio, consulte [Colas de Windows Azure y Colas de Service Bus de Windows Azure: comparación y diferencias][sbqueuecomparison].
+> [AZURE.NOTE]Azure también proporciona funcionalidad de colas de almacenamiento. Para obtener más información sobre las colas de almacenamiento de Azure y las colas del bus de servicio, consulte [Colas de Microsoft Azure y Colas de Service Bus de Microsoft Azure: comparación y diferencias][sbqueuecomparison].
 
 ## Información general del escenario: comunicación entre roles
 
