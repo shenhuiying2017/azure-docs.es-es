@@ -33,7 +33,7 @@ Tendrá acceso a los servicios de Azure en todas las regiones dentro de una regi
 |**Sudamérica**|Sur de Brasil|São Paulo|
 |**Europa**|Norte de Europa y Oeste de Europa|Ámsterdam, Dublín +, Londres|
 |**Asia**|Este de Asia y Sudeste de Asia|Hong Kong y Singapur|
-|**Japón**|Oeste de Japón y Este de Japón|Osaka, Tokyo|
+|**Japón**|Oeste de Japón y Este de Japón|Osaka, Tokio|
 |**Australia**|Este de Australia y Sudeste de Australia|Melbourne, Sidney|
 |**India**|India occidental, India central, India del Sur|Chennai, Mumbai|
 

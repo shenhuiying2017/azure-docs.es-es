@@ -18,7 +18,8 @@
 
 # Compatibilidad del Administrador de recursos para servicios, regiones y versiones de API
 
-El Administrador de recursos de Azure le proporciona una nueva manera de implementar y administrar los servicios que conforman sus aplicaciones. La mayoría de los servicios, aunque no todos, admiten el Administrador de recursos y algunos lo admiten solo parcialmente. Microsoft habilitará el Administrador de recursos para cada servicio que sea importante para las soluciones futuras, pero hasta que la compatibilidad sea coherente, debe conocer el estado actual de cada servicio. Este tema proporciona una lista de proveedores de recursos admitidos para el Administrador de recursos de Azure.
+El Administrador de recursos de Azure le proporciona una nueva manera de implementar y administrar los servicios que conforman sus aplicaciones.
+La mayoría de los servicios, aunque no todos, admiten el Administrador de recursos y algunos lo admiten solo parcialmente. Microsoft habilitará el Administrador de recursos para cada servicio que sea importante para las soluciones futuras, pero hasta que la compatibilidad sea coherente, debe conocer el estado actual de cada servicio. Este tema proporciona una lista de proveedores de recursos admitidos para el Administrador de recursos de Azure.
 
 Al implementar sus recursos, también debe saber qué regiones admiten esos recursos y qué versiones de API están disponibles para los recursos. En la sección [Regiones admitidas](#supported-regions) se muestra cómo averiguar qué regiones funcionarán para su suscripción y recursos. En la sección [Versiones de API admitidas](#supported-api-versions) se muestra cómo determinar las versiones de API que puede usar.
 
@@ -32,7 +33,9 @@ En las tablas siguientes se muestra qué servicios admiten la implementación y 
 | Máquinas virtuales | Sí | Sí, muchas opciones | No | [Crear una máquina virtual](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Lote | Sí | [í (solo clásico)](https://portal.azure.com/#create/Microsoft.BatchAccount) | Sí | [REST de Lote](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics Lifecycle Services | Sí | No | | | |
-| Máquinas virtuales (clásicas) | Limitado | Sí, muchas opciones | Parcial (ver a continuación) | - | - | | RemoteApp | No | No | - | - | - | | Service Fabric | No | No | - | - | - |
+| Máquinas virtuales (clásicas) | Limitado | Sí, muchas opciones | Parcial (ver a continuación) | - | - |
+| RemoteApp | No | No | - | - | - |
+| Service Fabric | No | No | - | - | - |
 
 Máquinas virtuales (clásicas) hace referencia a recursos que se implementaron mediante el modelo de implementación clásica, en lugar de a través del modelo de implementación del Administrador de recursos. En general, estos recursos no admiten las operaciones del Administrador de recursos, pero hay algunas operaciones que se han habilitado. Para obtener más información sobre estos modelos de implementación, consulte [Descripción de la implementación del Administrador de recursos y la implementación clásica](resource-manager-deployment-model.md).
 
@@ -59,7 +62,8 @@ Los recursos de Máquinas virtuales (clásicas) se pueden mover a un nuevo grupo
 | Base de datos SQL | Sí | [Sí](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | Sí | [Crear base de datos](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Search | Sí | [Sí](https://portal.azure.com/#create/Microsoft.Search) | Sí | [REST de Búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | Almacenamiento de datos SQL | Sí | [Sí](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | No | No | - | - | - | | Memoria caché administrada | No | No | - | - | - |
+| StorSimple | No | No | - | - | - |
+| Memoria caché administrada | No | No | - | - | - |
 
 ## Web y móvil
 
@@ -85,7 +89,8 @@ Al trabajar con aplicaciones web, no se puede mover solo un plan del Servicio de
 | Análisis de transmisiones | Sí | [Sí](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | Sí | [Sí](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | Sí | | |
 | Factoría de datos | Sí | [Sí](https://portal.azure.com/#create/Microsoft.DataFactory) | Sí | [Crear factoría de datos](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| Aprendizaje automático | No | No | - | - | - | | Catálogo de datos | No | No | - | - | - |
+| Aprendizaje automático | No | No | - | - | - |
+| Catálogo de datos | No | No | - | - | - |
 
 ## Multimedia y CDN
 
@@ -101,7 +106,8 @@ Al trabajar con aplicaciones web, no se puede mover solo un plan del Servicio de
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | Servicios de BizTalk | Sí | No | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | Bus de servicio | Sí | No | | [REST de Bus de servicio](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
-| Copia de seguridad | No | No | - | - | - | | Recuperación del sitio | No | No | - | - | - |
+| Copia de seguridad | No | No | - | - | - |
+| Recuperación del sitio | No | No | - | - | - |
 
 ## Administración de identidad y acceso 
 
