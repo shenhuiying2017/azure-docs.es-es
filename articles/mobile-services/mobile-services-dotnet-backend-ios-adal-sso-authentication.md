@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="mahender"/>
 
 # Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../../includes/mobile-services-selector-adal-sso.md)]
 
@@ -90,7 +95,7 @@ Este tutorial requiere lo siguiente:
         }
 
 
-6. En el código del método anterior `loginAndGetData`, sustituya **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que aprovisionó su aplicación; el formato debe ser https://login.windows.net/tenant-name.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en el [Portal de administración de Azure].
+6. En el código del método anterior `loginAndGetData`, sustituya **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que aprovisionó su aplicación; el formato debe ser https://login.windows.net/tenant-name.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en el [Portal de Azure clásico].
 
 7. En el código del método anterior `loginAndGetData`, sustituya **INSERT-RESOURCE-URI-HERE** por el **URI de id. de aplicación** de su servicio móvil. Si ha seguido el tema [Registro en Azure Active Directory], el URI de id. de aplicación debe ser parecido a https://todolist.azure-mobile.net/login/aad.
 
@@ -106,7 +111,7 @@ Este tutorial requiere lo siguiente:
 ##Prueba del cliente con autenticación
 
 1. En el menú Producto, haga clic en Ejecutar para iniciar la aplicación.
-2. Recibirá un mensaje para que inicie sesión en Azure Active Directory.  
+2. Recibirá un mensaje para que inicie sesión en Azure Active Directory.
 3. La aplicación se autentica y devuelve los elementos todo.
 
    ![](./media/mobile-services-dotnet-backend-ios-adal-sso-authentication/mobile-services-app-run.png)
@@ -117,7 +122,7 @@ Este tutorial requiere lo siguiente:
 [Introducción a Servicios móviles]: mobile-services-dotnet-backend-ios-get-started.md
 [Introducción a los Servicios móviles]: mobile-services-dotnet-backend-ios-get-started.md
 [Registro en Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [biblioteca de autenticación de Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

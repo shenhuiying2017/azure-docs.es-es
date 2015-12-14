@@ -57,7 +57,7 @@ Aproveche los servicios de infraestructura y proceso de Microsoft HPC Pack para 
 
 
 
-### Implementación manual con el portal de Azure
+### Implementación manual con el Portal de Azure clásico
 
 
 
@@ -97,4 +97,4 @@ Aproveche los servicios de infraestructura y proceso de Microsoft HPC Pack para 
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

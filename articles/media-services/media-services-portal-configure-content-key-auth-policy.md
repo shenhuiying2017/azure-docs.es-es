@@ -26,7 +26,7 @@
 
 Los Servicios multimedia de Microsoft Azure le permiten entregar el contenido cifrado (de forma dinámica) con Estándar de cifrado avanzado (AES) (mediante claves de cifrado de 128 bits) y PlayReady DRM. Servicios multimedia también proporciona un **servicio de entrega de claves/licencias** desde el que los clientes pueden obtener una clave o una licencia para reproducir el contenido cifrado.
 
-Este tema muestra cómo usar el **Portal de administración de Azure** para configurar la directiva de autorización de claves de contenido. La clave se puede usar posteriormente para cifrar el contenido de forma dinámica. Tenga en cuenta que actualmente puede cifrar los formatos de streaming siguientes: HLS, MPEG DASH y Smooth Streaming. No puede cifrar el formato de streaming HDS ni descargas progresivas.
+Este tema muestra cómo usar el **Portal de Azure clásico** para configurar la directiva de autorización de claves de contenido. La clave se puede usar posteriormente para cifrar el contenido de forma dinámica. Tenga en cuenta que actualmente puede cifrar los formatos de streaming siguientes: HLS, MPEG DASH y Smooth Streaming. No puede cifrar el formato de streaming HDS ni descargas progresivas.
  
 Cuando un reproductor solicita una secuencia que se establece para cifrarse de forma dinámica, los Servicios multimedia usan la clave configurada para cifrar dinámicamente el contenido mediante cifrado AES o PlayReady. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves. Para decidir si el usuario está o no autorizado para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
 
@@ -95,7 +95,7 @@ Puede hacer clic en el botón **Importar directiva xml** y proporcionar un archi
 
 
 ##Pasos siguientes
-Ahora que ha configurado la directiva de autorización de la clave de contenido, vea el tema [Uso del Portal de administración de Azure para habilitar el cifrado](../media-services-manage-content#encrypt/).
+Ahora que ha configurado la directiva de autorización de claves de contenido, consulte el tema [Uso del Portal de Azure clásico para habilitar el cifrado](../media-services-manage-content#encrypt/).
 
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
@@ -103,4 +103,4 @@ Ahora que ha configurado la directiva de autorización de la clave de contenido,
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

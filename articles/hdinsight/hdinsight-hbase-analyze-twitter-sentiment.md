@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/09/2015" 
+	ms.date="12/02/2015" 
 	ms.author="jgao"/>
 
 # Realizar análisis de opinión en Twitter en tiempo real con HBase en HDInsight
@@ -75,11 +75,11 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 
 	<table border="1">
-	<tr><th>Propiedad del clúster</th><th>Descripción</th></tr>
-	<tr><td>Nombre de clúster de HBase</td><td>El nombre del clúster de HBase de HDInsight. Por ejemplo: https://myhbase.azurehdinsight.net/</td></tr>
-	<tr><td>Nombre de usuario de clúster</td><td>El nombre de la cuenta de usuario de Hadoop. El nombre de usuario de Hadoop predeterminado es <strong>admin</strong>.</td></tr>
-	<tr><td>Contraseña de usuario de clúster</td><td>La contraseña de usuario del clúster de Hadoop.</td></tr>
-	</table>
+<tr><th>Propiedad del clúster</th><th>Descripción</th></tr>
+<tr><td>Nombre de clúster de HBase</td><td>El nombre del clúster de HBase de HDInsight. Por ejemplo: https://myhbase.azurehdinsight.net/</td></tr>
+<tr><td>Nombre de usuario de clúster</td><td>El nombre de la cuenta de usuario de Hadoop. El nombre de usuario de Hadoop predeterminado es <strong>admin</strong>.</td></tr>
+<tr><td>Contraseña de usuario de clúster</td><td>La contraseña de usuario del clúster de Hadoop.</td></tr>
+</table>
 
 - **Una estación de trabajo** con Visual Studio 2013 instalado. Para obtener instrucciones, consulte [Instalación de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
@@ -98,13 +98,11 @@ Las API de streaming de Twitter autorizan las solicitudes con [OAuth](http://oau
 3. Escriba un **nombre**, una **descripción** y un **sitio web**. El campo Sitio web no se usa en realidad. No es necesario escribir una URL válida. La siguiente tabla muestra algunos valores de ejemplo para utilizar:
 
 	<table border="1">
-	<tr><th>Campo</th><th>Valor</th></tr>
-	<tr><td>Nombre</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>Descripción</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>Sitio web</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-	</table>
-
-	> [AZURE.NOTE]El nombre de la aplicación de Twitter debe ser un nombre único.
+<tr><th>Campo</th><th>Valor</th></tr>
+<tr><td>Nombre</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>Descripción</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>Sitio web</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+</table>> [AZURE.NOTE]El nombre de la aplicación de Twitter debe ser un nombre único.
 
 4. Haga clic en **Sí, acepto** y luego haga clic en **Crear su aplicación de Twitter**.
 5. Haga clic en la pestaña **Permissions** (Permisos). El permiso predeterminado es **Read only** (Solo lectura). Esto es suficiente para este tutorial. 
@@ -163,7 +161,7 @@ Debe crear una aplicación de consola para obtener tweets, calcular la puntuaci�
 
 	- Plantilla: **Visual C# / Windows Desktop / Console Application**
 	- Nombre: **TweetSentimentStreaming** 
-	- Ubicación: **C:\Tutorials**
+	- Ubicación: **C:\\Tutorials**
 	- Nombre de la solución: **TweetSentimentStreaming**
 
 4. Haga clic en **Aceptar** para continuar.
@@ -220,9 +218,9 @@ Debe crear una aplicación de consola para obtener tweets, calcular la puntuaci�
         const string HBASETABLENAME = "tweets_by_words";
 
         // Sentiment dictionary file and the punctuation characters
-        const string DICTIONARYFILENAME = @"....\data\dictionary\dictionary.tsv";
+        const string DICTIONARYFILENAME = @"..\..\data\dictionary\dictionary.tsv";
         private static char[] _punctuationChars = new[] { 
-            ' ', '!', '"', '#', '$', '%', '&', ''', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
+            ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
             ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };   //ascii 58--64 + misc.
 
         // For writting to HBase
@@ -541,7 +539,7 @@ En esta sección, creará una aplicación web ASP.NET MVC para leer los datos de
 	- Categoría de plantilla: **Visual C#/Web**
 	- Plantilla: **Aplicación web de ASP.NET**
 	- Nombre: **TweetSentimentWeb**
-	- Ubicación: **C:\Tutorials** 
+	- Ubicación: **C:\\Tutorials** 
 4. Haga clic en **Aceptar**.
 5. En **Seleccione una plantilla**, haga clic en **MVC**. 
 6. En **Microsoft Azure**, haga clic en **Administrar suscripciones**.
@@ -678,9 +676,9 @@ En esta sección, creará una aplicación web ASP.NET MVC para leer los datos de
 	- **CLUSTERNAME**: el nombre del clúster de HBase, por ejemplo, *https://<HBaseClusterName>.azurehdinsight.net/*. 
     - **HADOOPUSERNAME**: el nombre de usuario de Hadoop del clúster de HBase. El nombre predeterminado es *admin*.
     - **HADOOPUSERPASSWORD**: la contraseña de usuario de Hadoop del clúster de HBase.
-    - **HBASETABLENAME** = "tweets_by_words";
+    - **HBASETABLENAME** = "tweets\_by\_words";
 
-	El nombre de tabla de HBase es **"tweets_by_words"**. Para que la aplicación web pueda leer los datos de la misma tabla de HBase, los valores deben coincidir con los que se enviaron en el servicio de streaming.
+	El nombre de tabla de HBase es **"tweets\_by\_words"**. Para que la aplicación web pueda leer los datos de la misma tabla de HBase, los valores deben coincidir con los que se enviaron en el servicio de streaming.
 
 
 
@@ -1357,4 +1355,4 @@ En este tutorial, ha aprendido a obtener tweets, analizar la opinión de estos, 
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

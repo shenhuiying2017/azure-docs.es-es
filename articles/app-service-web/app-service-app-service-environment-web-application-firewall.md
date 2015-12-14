@@ -35,7 +35,7 @@ Para configurar un entorno del Servicio de aplicaciones, vea [nuestra documentac
 Barracuda tiene un [artículo detallado](https://techlib.barracuda.com/WAF/AzureDeploy) sobre la implementación de su WAF en una máquina virtual en Azure. No obstante, habida cuenta de que queremos redundancia y no introducir un único punto de error, hay que implementar al menos dos máquinas virtuales de la instancia de WAF en el mismo servicio en la nube al seguir estas instrucciones.
 
 ### Incorporación de extremos al servicio en la nube ###
-Cuando ya tenga dos o más instancias de máquina virtual de WAF en el servicio en la nube, puede usar el [Portal de administración de Azure](https://portal.azure.com) para agregar extremos HTTP y HTTPS que utilice la aplicación como se muestra en la imagen siguiente.
+Cuando ya tenga dos o más instancias de máquina virtual de WAF en el servicio en la nube, puede usar el [Portal de Azure](https://portal.azure.com) para agregar puntos de conexión HTTP y HTTPS que la aplicación use, como se muestra en la imagen siguiente.
 
 ![Configuración de extremos][ConfigureEndpoint]
 
@@ -66,11 +66,11 @@ Al hacer clic en la pestaña Servicios, le permitirá configurar el WAF para los
 > Nota: Dependiendo de cómo se configuran las aplicaciones y qué características se utilizan en el entorno del Servicio de aplicaciones, deberá reenviar el tráfico para los puertos TCP distintos del 80 y el 443, por ejemplo, si ha configurado SSL de IP para una aplicación web. Para obtener una lista de los puertos de red usados en entornos del Servicio de aplicaciones, vea la sección dedicada a los puertos de red en la [documentación del control del tráfico de entrada](app-service-app-service-environment-control-inbound-traffic.md).
 
 ## Configuración del Administrador de tráfico de Microsoft Azure (OPCIONAL) ##
-Si la aplicación se encuentra disponible en varias regiones, debe equilibrar la carga entre ellas detrás del [Administrador de tráfico de Azure](traffic-manager.md). Para ello, puede agregar un extremo en el [Portal de administración de Azure](https://manage.azure.com) con el nombre del servicio en la nube de su WAF en el perfil del Administrador de tráfico, como se muestra en la imagen siguiente.
+Si la aplicación se encuentra disponible en varias regiones, debe equilibrar la carga entre ellas detrás del [Administrador de tráfico de Azure](traffic-manager.md). Para ello, puede agregar un punto de conexión en el [Portal de Azure clásico](https://manage.azure.com) con el nombre del servicio en la nube de su WAF en el perfil del Administrador de tráfico, como se muestra en la imagen siguiente.
 
 ![Extremo del Administrador de tráfico][TrafficManagerEndpoint]
 
-Si la aplicación requiere autenticación, asegúrese de que tiene algún recurso que no requiere ninguna autenticación para que el Administrador de tráfico haga ping para la disponibilidad de la aplicación. Puede configurar la dirección URL en la sección Configuración del [Portal de administración de Azure](https://manage.azure.com), como se muestra a continuación.
+Si la aplicación requiere autenticación, asegúrese de que tiene algún recurso que no requiere ninguna autenticación para que el Administrador de tráfico haga ping para la disponibilidad de la aplicación. Puede configurar la dirección URL en la sección Configuración del [Portal de Azure clásico](https://manage.azure.com), como se muestra a continuación.
 
 ![Configuración del Administrador de tráfico][ConfigureTrafficManager]
 
@@ -99,4 +99,4 @@ Reemplace SourceAddressPrefix con la dirección IP virtual (VIP) del servicio en
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

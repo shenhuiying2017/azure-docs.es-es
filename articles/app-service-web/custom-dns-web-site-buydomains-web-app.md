@@ -41,12 +41,12 @@ Para un sitio web de producción, probablemente quiera que los usuarios vean un 
 
 > [AZURE.NOTE]No intente adquirir un dominio mediante una suscripción que no tenga una tarjeta de crédito activa asociada. Esto podría provocar que se deshabilite la suscripción.
 
-Si no tiene un nombre de dominio para su aplicación web, puede comprar uno fácilmente en el [Portal de administración de Azure](https://portal.azure.com). Durante el proceso de compra puede elegir tener asignados registros DNS del dominio raíz y WWW a su aplicación web de manera automática. También puede administrar su derecho de dominio dentro del Portal de Azure.
+Si no tiene un nombre de dominio para su aplicación web, puede comprar uno fácilmente en el [Portal de Azure](https://portal.azure.com). Durante el proceso de compra puede elegir tener asignados registros DNS del dominio raíz y WWW a su aplicación web de manera automática. También puede administrar su derecho de dominio dentro del Portal de Azure.
 
 
 Siga los pasos siguientes para adquirir nombres de dominio y asignarlos a su aplicación web.
 
-1. En el explorador, abra el [Portal de administración de Azure](https://portal.azure.com).
+1. En el explorador, abra el [Portal de Azure](https://portal.azure.com).
 
 2. En la pestaña **Aplicaciones web**, haga clic en el nombre de la aplicación web, seleccione **Configuración** y luego seleccione **Dominios personalizados y SSL**.
 
@@ -98,4 +98,4 @@ Una vez completada la configuración, el nombre de dominio personalizado aparece
 En este punto, debería poder escribir el nombre de dominio personalizado en el explorador y ver que le lleva sin problemas a la aplicación web.
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

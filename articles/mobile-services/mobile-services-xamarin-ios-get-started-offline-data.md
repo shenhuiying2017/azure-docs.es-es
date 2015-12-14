@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Uso de datos sin conexión en Servicios móviles (Xamarin iOS) | Microsoft Azure" 
-	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin iOS" 
-	documentationCenter="xamarin" 
-	authors="lindydonna" 
-	editor="wesmc" 
-	manager="dwrede" 
+<properties
+	pageTitle="Uso de datos sin conexión en Servicios móviles (Xamarin iOS) | Microsoft Azure"
+	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin iOS"
+	documentationCenter="xamarin"
+	authors="lindydonna"
+	editor="wesmc"
+	manager="dwrede"
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
 	ms.date="11/02/2015"
 	ms.author="donnam"/>
 
 # Uso de la sincronización de datos sin conexión en servicios móviles
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
@@ -42,7 +47,7 @@ Este tutorial le guiará a través de estos pasos básicos:
 Este tutorial requiere lo siguiente:
 
 * Visual Studio con la [extensión Xamarin] **o** [Xamarin Studio] en OS X.
-* XCode 4.5 y iOS 6.0 (o versiones posteriores). 
+* XCode 4.5 y iOS 6.0 (o versiones posteriores).
 * Finalización del tutorial [Introducción a los Servicios móviles].
 
 ## <a name="review-offline"></a>Revisión del código de sincronización de Servicios móviles
@@ -145,7 +150,7 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 
 2. Recompile y ejecute la aplicación. Observe que los datos tienen el mismo aspecto que en el escenario sin conexión aunque la aplicación ahora está conectada con el servicio móvil. Esto se debe a que la aplicación siempre funciona con el elemento `IMobileServiceSyncTable` que apunta al almacén local.
 
-3. Inicie sesión en el Portal de administración de Azure y consulte la base de datos del servicio móvil. Si el servicio usa el back-end de JavaScript, puede examinar los datos en la pestaña **Datos** del servicio móvil.
+3. Inicie sesión en el [Portal de Azure clásico] y consulte la base de datos del servicio móvil. Si el servicio usa el back-end de JavaScript, puede examinar los datos en la pestaña **Datos** del servicio móvil.
 
     Si usa el back-end de .NET para el servicio móvil, en Visual Studio, vaya a **Explorador de servidores** -> **Azure** -> **Bases de datos SQL**. Haga clic con el botón derecho en la base de datos y seleccione **Abrir en el Explorador de objetos de SQL Server**.
 
@@ -180,6 +185,6 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 
 [Xamarin Studio]: http://xamarin.com/download
 [extensión Xamarin]: http://xamarin.com/visual-studio
- 
+[Portal de Azure clásico]: https://manage.windowsazure.com
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

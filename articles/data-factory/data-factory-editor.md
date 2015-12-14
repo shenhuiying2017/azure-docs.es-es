@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Editor de la Factoría de datos de Azure
-El Editor de la Factoría de datos de Azure es un editor web ligero que forma parte del Portal de vista previa de Azure y que permite crear, editar e implementar archivos JSON de todas las entidades de la Factoría de datos de Azure. Esto le permite crear servicios vinculados, conjuntos de datos y canalizaciones mediante las plantillas de JSON que se distribuyen con el servicio Factoría de datos. Si es nuevo en PowerShell, esto elimina la necesidad de instalar y refuerza Azure PowerShell para crear generadores de datos de Azure.
+El Editor de la Factoría de datos de Azure es un editor web ligero que forma parte del Portal de Azure y que permite crear, editar e implementar archivos JSON de todas las entidades de la Factoría de datos de Azure. Esto le permite crear servicios vinculados, conjuntos de datos y canalizaciones mediante las plantillas de JSON que se distribuyen con el servicio Factoría de datos. Si es nuevo en PowerShell, esto elimina la necesidad de instalar y refuerza Azure PowerShell para crear generadores de datos de Azure.
 
 ## Inicio del Editor de la Factoría de Datos
 Para iniciar el Editor de la Factoría de datos, haga clic en el mosaico **Crear e implementar** de la hoja **Factoría de datos** para su factoría de datos de Azure.
@@ -220,4 +220,4 @@ Consulte el tema [Introducción a la Factoría de datos de Azure][data-factory-g
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -58,13 +58,13 @@ El módulo azure leerá las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y *
 
 Para obtener estos valores:
 
-1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com/).
+1. Inicie sesión en el [Portal de Azure](portal.azure.com).
 
-2. Vaya a la cuenta de almacenamiento que desea utilizar.
+2. Vaya a la cuenta de almacenamiento.
 
-3. Haga clic en **ADMINISTRAR CLAVES** en la parte inferior del panel de navegación.
+3. En la hoja **Configuración**, seleccione **Claves**.
 
-4. En el cuadro de diálogo emergente, verá el nombre de cuenta de almacenamiento, la clave de acceso principal y la clave de acceso secundaria. Para la clave de acceso, puede elegir la principal o la secundaria.
+4. Copie el valor de la clave de acceso deseado.
 
 ## Creación de una tabla
 
@@ -79,7 +79,7 @@ El objeto **Azure::TableService** permite trabajar con tablas y entidades. Para 
 
 ## Adición de una entidad a una tabla
 
-Para agregar una entidad, primero cree un objeto hash que defina las propiedades de la entidad. Tenga en cuenta que para cada entidad debe especificar valores en **PartitionKey** y **RowKey**. Estos son los identificadores exclusivos de sus entidades y son valores que se pueden consultar más rápidamente que las demás propiedades. Almacenamiento de Azure usa **PartitionKey** para distribuir automáticamente las entidades de la tabla entre varios nodos de almacenamiento. Las entidades con la misma **PartitionKey** se almacenan en el mismo nodo. **RowKey** es el identificador exclusivo de la entidad de la partición a la que pertenece.
+Para agregar una entidad, primero cree un objeto hash que defina las propiedades de la entidad. Tenga en cuenta que para cada entidad debe especificar valores en **PartitionKey** y **RowKey**. Estos son los identificadores exclusivos de sus entidades y son valores que se pueden consultar más rápidamente que las demás propiedades. Almacenamiento de Azure usa **PartitionKey** para distribuir automáticamente las entidades de la tabla entre varios nodos de almacenamiento. Las entidades con la misma **PartitionKey** se almacenan en el mismo nodo. La **RowKey** es el identificador exclusivo de la entidad de la partición a la que pertenece.
 
 	entity = { "content" => "test entity",
 	  :PartitionKey => "test-partition-key", :RowKey => "1" }
@@ -104,7 +104,7 @@ Con **update\_entity()** y **merge\_entity()**, si no existe la entidad va a act
 
 ## Trabajo con grupos de entidades
 
-A veces resulta útil enviar varias operaciones juntas en un lote a fin de garantizar el procesamiento atómico por parte del servidor. Para ello, cree primero un objeto **Batch** y, a continuación, utilice el método **execute\_batch()** en **TableService**. El siguiente ejemplo muestra el envío de dos entidades con RowKey 2 y 3 en un lote. Tenga en cuenta que solo funciona para entidades con el mismo valor de PartitionKey.
+A veces resulta útil enviar varias operaciones juntas en un lote a fin de garantizar el procesamiento atómico por parte del servidor. Para ello, primero debe crear un objeto **Batch** y, a continuación, usar el método **execute\_batch()** en **TableService**. El siguiente ejemplo muestra el envío de dos entidades con RowKey 2 y 3 en un lote. Tenga en cuenta que solo funciona para entidades con el mismo valor de PartitionKey.
 
 	azure_table_service = Azure::TableService.new
 	batch = Azure::Storage::Table::Batch.new("testtable",
@@ -116,7 +116,7 @@ A veces resulta útil enviar varias operaciones juntas en un lote a fin de garan
 
 ## Consulta de una entidad
 
-Para consultar la entidad de una tabla, use el método **get\_entity()**, pasando el nombre de tabla, **PartitionKey** y **RowKey**.
+Para consultar la entidad de una tabla, use el método **get\_entity()**, pasando el nombre de tabla, la **PartitionKey** y la **RowKey**.
 
 	result = azure_table_service.get_entity("testtable", "test-partition-key",
 	  "1")
@@ -154,8 +154,7 @@ Para eliminar una tabla, use el método **delete\_table()** para pasar el nombre
 
 Para obtener información acerca de tareas de almacenamiento más complejas, siga estos vínculos:
 
-- Referencia MSDN: [Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Repositorio de [SDK de Azure para Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -16,7 +16,7 @@
    ms.date="11/13/2015"
    ms.author="nitinme"/>
 
-# Introducción al Almacén de Azure Data Lake mediante el Portal de vista previa de Azure
+# Introducción al Almacén de Azure Data Lake mediante el Portal de Azure
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-get-started-portal.md)
@@ -24,19 +24,19 @@
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Using Azure CLI](data-lake-store-get-started-cli.md)
 
-Aprenda a usar el Portal de vista previa de Azure para crear una cuenta de Almacén de Azure Data Lake y realizar operaciones básicas como crear carpetas, cargar y descargar archivos de datos, eliminar la cuenta, etc. Para obtener más información acerca del Almacén de Data Lake, consulte la página con [información general del Almacén de Azure Data Lake](data-lake-store-overview.md).
+Aprenda a usar el Portal de Azure para crear una cuenta de Almacén de Azure Data Lake y realizar operaciones básicas como crear carpetas, cargar y descargar archivos de datos, eliminar la cuenta, etc. Para obtener más información acerca del Almacén de Data Lake, consulte la página con [información general del Almacén de Azure Data Lake](data-lake-store-overview.md).
 
 ## Requisitos previos
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/es-ES/pricing/free-trial/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="signup"></a>Habilitación de la suscripción de Azure para la vista previa pública del Almacén de Data Lake
 
 En primer lugar, debe solicitar que se habilite la suscripción de Azure para la vista previa pública del Almacén de Data Lake. Siga los pasos que se indican a continuación.
 
-1. Inicie sesión en el nuevo [Portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el nuevo [Portal de Azure](https://portal.azure.com).
 2. Haga clic en **NUEVO**, en **Datos y almacenamiento** y después en **Almacén de Azure Data Lake**.
 3. En la nueva hoja **Nuevo almacén de Data Lake**, haga clic en **Suscribirse a la vista previa**. Lea la información y haga clic en **Aceptar**. Recibirá un correo electrónico una vez que su suscripción se habilite para la vista previa pública.
 
@@ -44,7 +44,7 @@ En primer lugar, debe solicitar que se habilite la suscripción de Azure para la
 
 ## Creación de una cuenta de Almacén de Azure Data Lake
 
-1. Inicie sesión en el nuevo [Portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el nuevo [Portal de Azure](https://portal.azure.com).
 
 2. Haga clic en **NUEVO**, en **Datos y almacenamiento** y después en **Almacén de Azure Data Lake**. Lea la información de la hoja **Almacén de Azure Data Lake** y después haga clic en **Crear** en la esquina inferior izquierda de la hoja.
 
@@ -133,4 +133,4 @@ Para eliminar una cuenta de Almacén de Azure Data Lake, en la hoja de su Almac�
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

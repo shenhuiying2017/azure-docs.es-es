@@ -39,11 +39,11 @@ Base de datos SQL proporciona servicios de administración, acceso y almacenamie
 
 ## Creación y configuración de Base de datos SQL
 
-Luego, cree y configure una base de datos y un servidor. En el Portal de administración de Azure, los flujos de trabajo revisados le permiten crear primero las bases de datos y, a continuación, realizar un seguimiento del aprovisionamiento del servidor.
+Luego, cree y configure una base de datos y un servidor. En el Portal de Azure clásico, los flujos de trabajo revisados le permiten crear primero las bases de datos y, a continuación, realizar un seguimiento del aprovisionamiento del servidor.
 
 **Creación de una instancia de base de datos y servidor lógico:**
 
-1. Inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com).
+1. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com).
 
 2. Haga clic en **NUEVO** en la parte inferior de la página.
 
@@ -77,7 +77,7 @@ Luego, cree y configure una base de datos y un servidor. En el Portal de adminis
 
 12. Seleccione una región. La región determina la ubicación geográfica del servidor. Las regiones no pueden cambiarse fácilmente, por lo que debe seleccionar la apropiada para el servidor. Seleccione la ubicación que le sea más próxima. Si mantiene la base de datos y la aplicación de Azure en la misma región, evita que se produzcan costes relacionados con el ancho de banda y la latencia de datos.
 
-13. Asegúrese de mantener la opción **Permitir que los servicios de Azure accedan al servidor** seleccionada de manera que pueda conectarse a esta base de datos con el Portal de administración para Base de datos SQL, servicios de almacenamiento y otros servicios en Azure.
+13. Asegúrese de mantener la opción **Permitir que los servicios de Azure accedan al servidor** seleccionada de manera que pueda conectarse a esta base de datos con el Portal clásico para Base de datos SQL, servicios de almacenamiento y otros servicios en Azure.
 
 14. Haga clic en la marca de verificación en la parte inferior de la página cuando haya finalizado.
 
@@ -211,4 +211,4 @@ Para obtener más información, consulte [Proveedor de EntityClient para Entity 
 Ahora que ha aprendido los conceptos básicos de la conexión a Base de datos SQL, consulte los [temas de procedimientos sobre desarrollo (Base de datos SQL)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

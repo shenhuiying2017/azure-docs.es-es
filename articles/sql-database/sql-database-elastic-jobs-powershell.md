@@ -17,7 +17,7 @@
 # Creación y administración de un grupo de bases de datos SQL elásticas mediante PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
+- [Azure Classic Portal](sql-database-elastic-jobs-create-and-manage.md)
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
@@ -209,7 +209,7 @@ Apertura de una conexión a Trabajos de base de datos elástica:
 
 Las credenciales de la base de datos se pueden insertar en la *base de datos de control* de trabajos con su contraseña cifrada. Es preciso almacenar las credenciales para que los trabajos se puedan ejecutar después (mediante programaciones de trabajos).
  
-El cifrado funciona a través de un certificado creado como parte del script de instalación. El script de instalación crea y carga el certificado en el servicio en la nube de Azure para descifrar las contraseñas almacenadas que están cifradas. Más adelante, el servicio en la nube de Azure almacena la clave pública en la *base de datos de control* de trabajos, lo que permite que la API de PowerShell o la interfaz del Portal de Azure cifren una contraseña proporcionada sin que el certificado tenga que estar instalado localmente.
+El cifrado funciona a través de un certificado creado como parte del script de instalación. El script de instalación crea y carga el certificado en el servicio en la nube de Azure para descifrar las contraseñas almacenadas que están cifradas. Más adelante, el servicio en la nube de Azure almacena la clave pública en la *base de datos de control* de trabajos, lo que permite que la API de PowerShell o la interfaz del Portal de Azure clásico cifren una contraseña proporcionada sin que el certificado tenga que estar instalado localmente.
  
 Las contraseñas de credenciales se cifran y se protegen de los usuarios mediante el acceso de solo lectura a los objetos de Trabajos de base de datos elástica. Pero es posible que usuarios malintencionados con acceso de lectura y escritura a los objetos de Trabajos de base de datos elástica extraigan una contraseña. Las credenciales están diseñadas para su reutilización entre ejecuciones de trabajos. Las credenciales se pasan a las bases de datos de destino al establecer conexiones. Como actualmente no hay ninguna restricción en las bases de datos de destino que se usan por cada credencial, un usuario malintencionado podría agregar como destino una base de datos que esté bajo el control del usuario malintencionado. Posteriormente, el usuario podría iniciar un trabajo destinado a esta base de datos para obtener la contraseña de la credencial.
 
@@ -248,7 +248,7 @@ En este ejemplo se crea un administrador de mapas de particiones junto con varia
 
 2.  En la ventana de comandos, escriba "1" y pulse **Entrar**. De esta forma, se creará el administrador de mapas de particiones y se agregarán dos particiones al servidor. A continuación, escriba "3" y pulse **Entrar**; repita la acción cuatro veces. De esta forma, se insertan las filas de datos de ejemplo en sus particiones.
   
-3.  El [Portal de vista previa de Azure](https://portal.azure.com) debe mostrar tres nuevas bases de datos en el servidor v12:
+3.  El [Portal de Azure](https://portal.azure.com) debe mostrar tres nuevas bases de datos en el servidor v12:
 
 	![Confirmación de Visual Studio][2]
 
@@ -694,4 +694,4 @@ Una vez creada una DACPAC en Trabajos de base de datos elástica, puede crearse 
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

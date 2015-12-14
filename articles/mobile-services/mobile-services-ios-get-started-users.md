@@ -18,11 +18,16 @@
 
 # Incorporación de Servicios móviles a una aplicación existente
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 En este tutorial podrá agregar la autenticación al [tutorial de inicio rápido de Servicios móviles] mediante un proveedor de identidades admitido.
 
-Se recomienda completar el [tutorial de inicio rápido de Servicios móviles] primero. Como alternativa, descargue simplemente el proyecto de iOS de inicio rápido: haga clic en el Portal de Azurel > **Servicios móviles** > su servicio móvil > signo de la nube en la parte superior izquierda > **iOS** > **Crear una nueva aplicación iOS** > **Descargar y ejecutar la aplicación** > **Objective-C** > **Descargar**. Recuerde hacer clic en **Crear tabla TodoItem** antes de hacer clic en **Descargar** si aún no ha creado la tabla.
+Se recomienda completar el [Tutorial de inicio rápido de Servicios móviles] primero. Como alternativa, descargue simplemente el proyecto de iOS de inicio rápido del [Portal de Azure clásico], haga clic en **Servicios móviles** > su servicio móvil > signo de la nube en la parte superior izquierda > **iOS** > **Crear una nueva aplicación iOS** > **Descargar y ejecutar la aplicación** > **Objective-C** > **Descargar**. Recuerde hacer clic en **Crear tabla TodoItem** antes de hacer clic en **Descargar** si aún no ha creado la tabla.
 
 ##<a name="register"></a>Registro de la aplicación para la autenticación
 
@@ -82,6 +87,6 @@ A continuación, sepa [cómo utilizar el valor de identificador de usuario para 
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

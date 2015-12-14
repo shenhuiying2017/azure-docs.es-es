@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creación de granjas de servidores de SharePoint | Microsoft Azure"
-	description="Cree rápidamente una nueva granja de SharePoint Server 2013 básica o de alta disponibilidad, mediante el marketplace del Portal de vista previa de Azure."
+	description="Cree rápidamente una nueva granja de SharePoint Server 2013 básica o de alta disponibilidad, mediante Marketplace del Portal de Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -21,9 +21,9 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo clásico.
 
-Con el marketplace del Portal de vista previa de Microsoft Azure, puede crear rápidamente granjas de SharePoint Server 2013 preconfiguradas. Esto puede suponer un importante ahorro de tiempo si necesita una granja de SharePoint básica o de alta disponibilidad para un entorno de desarrollo y pruebas, o si va a evaluar SharePoint Server 2013 como solución de colaboración para su organización.
+Con Marketplace del Portal de Microsoft Azure, puede crear rápidamente granjas de SharePoint Server 2013 preconfiguradas. Esto puede suponer un importante ahorro de tiempo si necesita una granja de SharePoint básica o de alta disponibilidad para un entorno de desarrollo y pruebas, o si va a evaluar SharePoint Server 2013 como solución de colaboración para su organización.
 
-> [AZURE.NOTE]Se quitó el elemento **Granja de servidores SharePoint** en Azure Marketplace del Portal de vista previa de Azure.
+> [AZURE.NOTE]Se quitó el elemento **Granja de servidores SharePoint** en Azure Marketplace del Portal de Azure.
 
 La granja de SharePoint básica consta de tres máquinas virtuales con esta configuración.
 
@@ -59,7 +59,7 @@ Puede administrar los servidores de estas granjas a través de conexiones de Esc
 
 En el sitio de Administración central de SharePoint, puede configurar Mis sitios, aplicaciones de SharePoint y más funcionalidad. Para obtener más información, consulte [Configuración de SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
 
-> [AZURE.NOTE]El Portal de vista previa de Azure crea los dos tipos de granja en una red virtual que se encuentra solo en la nube y que tiene presencia web orientada a Internet. No hay una conexión VPN de sitio a sitio o conexión ExpressRoute con la red de su organización.
+> [AZURE.NOTE]El Portal de Azure crea los dos tipos de granja en una red virtual que se encuentra solo en la nube y que tiene presencia web orientada a Internet. No hay una conexión VPN de sitio a sitio o conexión ExpressRoute con la red de su organización.
 
 ## Recursos adicionales
 
@@ -69,4 +69,4 @@ En el sitio de Administración central de SharePoint, puede configurar Mis sitio
 
 [Arquitecturas de Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

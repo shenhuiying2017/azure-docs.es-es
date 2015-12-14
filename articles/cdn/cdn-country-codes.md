@@ -3,7 +3,7 @@
 	description="La función Filtrado por país usa códigos de país para definir los países desde los que se permitirá o bloqueará una solicitud para un directorio protegido." 
 	services="cdn" 
 	documentationCenter=".NET" 
-	authors="juliako" 
+	authors="camsoper" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="juliako"/>
+	ms.date="12/02/2015" 
+	ms.author="casoper"/>
 
 #Códigos de país
 
@@ -268,4 +268,4 @@ La función **Filtrado por país** usa códigos de país para definir los paíse
 | ZM | Zambia | |
 | ZW | Zimbabue | |
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

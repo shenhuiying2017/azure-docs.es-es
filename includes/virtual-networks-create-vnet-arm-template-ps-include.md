@@ -92,4 +92,4 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 		                      }
 		                    ]
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

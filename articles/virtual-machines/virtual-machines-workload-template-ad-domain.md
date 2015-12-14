@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Plantilla ARM de servicios de dominio de Active Directory de alta disponibilidad | Microsoft Azure"
-	description="Implemente fácilmente dos servidores que actúan como controladores de dominio de Dominio de Active Directory con una plantilla de administrador de recursos y el Portal de vista previa de Azure, Azure PowerShell o la CLI de Azure."
+	description="Implemente fácilmente dos servidores que actúan como controladores de dominio de Servicios de dominio de Active Directory con una plantilla de administrador de recursos y el Portal de Azure, Azure PowerShell o la CLI de Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -26,11 +26,11 @@ Siga las instrucciones de este artículo para implementar un dominio de Active D
 
 ![](./media/virtual-machines-workload-template-ad-domain/two-server-ad.png)
 
-Puede ejecutar la plantilla con el Portal de vista previa de Azure, Azure PowerShell o la CLI de Azure.
+Puede ejecutar la plantilla con el Portal de Azure, Azure PowerShell o la CLI de Azure.
 
-## Portal de vista previa de Azure
+## Portal de Azure
 
-Para implementar esta carga de trabajo mediante una plantilla del Administrador de recursos y el Portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json).
+Para implementar esta carga de trabajo mediante una plantilla del Administrador de recursos y el Portal de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-ad-domain/azure-portal-template.png)
 
@@ -108,4 +108,4 @@ Una vez completada la ejecución de la plantilla, tendrá una nueva configuraci�
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

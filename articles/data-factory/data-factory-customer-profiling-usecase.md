@@ -36,7 +36,7 @@ Existen muchos desafíos a los que se enfrentan las empresas de juegos al intent
 
 Este caso de uso sencillo puede usarse como un ejemplo de cómo puede usar Factoría de datos de Azure para recopilar, preparar, transformar, analizar y publicar datos.
 
-![Flujo de trabajo de un extremo a otro](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png) La ilustración anterior describe cómo las canalizaciones de datos aparecen en la interfaz de usuario del Portal de Azure una vez implementadas.
+![Flujo de trabajo de un extremo a otro](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png) La ilustración anterior describe cómo las canalizaciones de datos aparecen en la interfaz de usuario del Portal de Azure clásico una vez implementadas.
 
 1.	**PartitionGameLogsPipeline** lee los eventos de juegos sin procesar de un almacenamiento de blobs y crea particiones basadas en el año, el mes y el día.
 2.	**EnrichGameLogsPipeline** combina eventos de juegos con particiones con datos de referencia de código geográfico y enriquece los datos mediante la asignación de direcciones IP a las ubicaciones geográficas correspondientes.
@@ -48,4 +48,4 @@ En este caso de uso de ejemplo, se usa Factoría de datos de Azure para coordina
 
 Al optimizar el análisis de su perfil de usuario y alinearlo con los objetivos empresariales, la empresa de juegos puede recopilar rápidamente los patrones de uso y analizar la eficacia de sus campañas de marketing para todos sus productos de juegos diferentes.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

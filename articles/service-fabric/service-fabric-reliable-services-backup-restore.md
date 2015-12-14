@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/18/2015"
+   ms.date="12/01/2015"
    ms.author="mcoskun"/>
 
 # Copia de seguridad y restauración de Reliable Services
@@ -41,30 +41,37 @@ Para iniciar una copia de seguridad, el servicio debe invocar **IReliableStateMa
 
 Tal como se muestra a continuación, la sobrecarga más simple de **BackupAsync** acepta Func << BackupInfo  bool >> llamado **backupCallback**.
 
-        await this.StateManager.BackupAsync(this.BackupCallbackAsync);
+```C#
+await this.StateManager.BackupAsync(this.BackupCallbackAsync);
+```
 
 **BackupInfo** proporciona información sobre la copia de seguridad, incluida la ubicación de la carpeta donde el tiempo de ejecución la guardó (BackupInfo.Directory). La función de devolución de llamada espera mover BackupInfo.Directory a un almacén externo u otra ubicación. Además, esta función devuelve un valor booleano que indica si se pudo mover correctamente la carpeta de copia de seguridad a su ubicación de destino.
 
 El código siguiente muestra cómo se puede usar backupCallback para cargar la copia de seguridad a Almacenamiento de Azure:
 
 ```C#
-        private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo)
-        {
-            var backupId = Guid.NewGuid();
+private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo)
+{
+    var backupId = Guid.NewGuid();
 
-            await externalBackupStore.UploadBackupFolderAsync(backupInfo.Directory, backupId, CancellationToken.None);
+    await externalBackupStore.UploadBackupFolderAsync(backupInfo.Directory, backupId, CancellationToken.None);
 
-            return true;
-        }
+    return true;
+}
 ```
 
 En el ejemplo anterior, **ExternalBackupStore** es la clase de ejemplo que se usa para interactuar con el almacenamiento de blobs de Azure y **UploadBackupFolderAsync** es el método que comprime la carpeta y la coloca en el almacén de blobs de Azure.
 
->[AZURE.NOTE]Solo puede haber una **BackupAsync** por réplica en proceso en cualquier momento dado. Más de una llamada a **BackupAsync** a la vez producirá una excepción **FabricBackupInProgressException** para limitar las copias de seguridad en proceso a una.[AZURE.NOTE]Si una réplica conmuta por error mientras se realiza una copia de seguridad, es posible que esta no se complete. Por lo tanto, una vez finalizada la conmutación por error, es responsabilidad del servicio reiniciar la copia de seguridad mediante la invocación de **BackupAsync** de ser necesario.
+Tenga en cuenta lo siguiente:
+
+- Solo puede haber una **BackupAsync** por réplica en proceso en cualquier momento dado. Más de una llamada a **BackupAsync** a la vez producirá una excepción **FabricBackupInProgressException** para limitar las copias de seguridad en proceso a una.
+
+- Si una réplica conmuta por error mientras se realiza una copia de seguridad, es posible que esta no se complete. Por lo tanto, una vez finalizada la conmutación por error, es responsabilidad del servicio reiniciar la copia de seguridad mediante la invocación de **BackupAsync** de ser necesario.
 
 ## Restauración de los datos
 
-Se pueden clasificar los escenarios de restauración en que el servicio en ejecución tiene que restaurar datos desde el almacén de copia de seguridad en los siguientes:
+En general, los casos en los que necesite realizar una operación de restauración se dividen en estas categorías:
+
 
 1. La partición del servicio perdió datos. Por ejemplo, el disco de dos de las tres réplicas de una partición (incluida la réplica principal) sufre daños o se borra. Es posible que la nueva réplica principal necesite restaurar datos desde una copia de seguridad.
 
@@ -83,27 +90,27 @@ El autor del servicio debe realizar lo siguiente para recuperar: –Invalide **I
 El siguiente es un ejemplo de implementación del método **OnDataLossAsync** junto con la invalidación de **IReliableStateManager**.
 
 ```C#
-        protected override IReliableStateManager CreateReliableStateManager()
-        {
-            return new ReliableStateManager(new ReliableStateManagerConfiguration(
-                    onDataLossEvent: this.OnDataLossAsync));
-        }
+protected override IReliableStateManager CreateReliableStateManager()
+{
+    return new ReliableStateManager(new ReliableStateManagerConfiguration(
+            onDataLossEvent: this.OnDataLossAsync));
+}
 
-        protected override async Task<bool> OnDataLossAsync(CancellationToken cancellationToken)
-        {
-            var backupFolder = await this.externalBackupStore.DownloadLastBackupAsync(cancellationToken);
+protected override async Task<bool> OnDataLossAsync(CancellationToken cancellationToken)
+{
+    var backupFolder = await this.externalBackupStore.DownloadLastBackupAsync(cancellationToken);
 
-            await this.StateManager.RestoreAsync(backupFolder);
+    await this.StateManager.RestoreAsync(backupFolder);
 
-            return true;
-        }
+    return true;
+}
 ```
 
 >[AZURE.NOTE]RestorePolicy se establece en Seguro de forma predeterminada. Esto significa que la API RestoreAsync generará una ArgumentException si detecta que la carpeta de copia de seguridad contiene un estado igual o más antiguo que el estado contenido en esta réplica. Se puede usar RestorePolicy.Force para pasar por alto esta comprobación de seguridad.
 
 ## Eliminación o pérdida del servicio
 
-Si se quita un servicio, en primer lugar se debe volver a crear para poder restaurar los datos. Es importante crear el servicio con la misma configuración, por ejemplo, el esquema de partición, para que los datos se restauren sin problemas. Una vez que el servicio está activo, se debe invocar la API para restaurar datos (**OnDataLossAsync** más arriba) en todas las particiones de este servicio. Una manera de conseguir esto es usando **FabricClient.ServiceManager.InvokeDataLossAsync** en cada partición.
+Si se quita un servicio, en primer lugar debe volver a crear para poder restaurar los datos. Es importante crear el servicio con la misma configuración, por ejemplo, el esquema de partición, para que los datos se restauren sin problemas. Una vez que el servicio está activo, se debe invocar la API para restaurar datos (**OnDataLossAsync** más arriba) en todas las particiones de este servicio. Una manera de conseguir esto es usando **FabricClient.ServiceManager.InvokeDataLossAsync** en cada partición.
 
 Desde este punto, la implementación es igual que en el escenario anterior. Cada partición debe restaurar la última copia de seguridad pertinente desde el almacén externo. Una advertencia es que es posible que el identificador de partición sea diferente, ya que el tiempo de ejecución crea los identificadores de partición de forma dinámica. Por lo tanto, el servicio necesita almacenar el nombre de servicio y la información de partición adecuada para identificar la copia de seguridad correcta más reciente desde la que restaurar para cada partición.
 
@@ -114,14 +121,15 @@ Si hay un error en la actualización de aplicación recién implementada, puede 
 
 Lo primero que debe hacer después de detectar un error tan notorio que cause daños en los datos es inmovilizar el servicio en el nivel de aplicación y, si es posible, actualizar a la versión del código de aplicación que no contenga el error. Sin embargo, incluso una vez corregido el código del servicio, es posible que los datos sigan dañados y que por tanto se deban restaurar. En tales casos, puede que no baste con restaurar la última copia de seguridad, ya que las copias de seguridad más recientes también pueden estar dañadas. Por lo tanto, se tiene que buscar la última copia de seguridad realizada antes de que los datos resultaran dañados.
 
-Si no sabe qué copias de seguridad están dañadas o no, podría implementar un nuevo clúster de Service Fabric y restaurar las copias de seguridad de las particiones afectadas de la misma forma que en el escenario de "Eliminación o pérdida del servicio" anterior. Para cada partición, inicie la restauración de las copias de seguridad desde la más a la menos reciente. Una vez que encuentre una copia de seguridad sin los daños, mueva o elimine todas las copias de seguridad de esta partición que sean más recientes (que esa copia de seguridad). Repita este proceso para cada partición. Ahora, cuando se llama a **OnDataLossAsync** en la partición del clúster de producción, la última copia de seguridad que se encuentra en el almacén externo será la elegida por el proceso anterior.
+Si no está seguro de qué copias de seguridad están dañadas o no, podría implementar un nuevo clúster de Service Fabric y restaurar las copias de seguridad de las particiones afectadas de la misma forma que en el escenario de "Eliminación o pérdida del servicio" anterior. Para cada partición, inicie la restauración de las copias de seguridad desde la más a la menos reciente. Una vez que encuentre una copia de seguridad sin los daños, mueva o elimine todas las copias de seguridad de esta partición que sean más recientes (que esa copia de seguridad). Repita este proceso para cada partición. Ahora, cuando se llama a **OnDataLossAsync** en la partición del clúster de producción, la última copia de seguridad que se encuentra en el almacén externo será la elegida por el proceso anterior.
 
 Ahora se pueden usar los pasos en "Eliminación o pérdida del servicio" para restaurar el estado de la copia de seguridad de servicio al anterior a los daños producidos por el código con errores.
 
+Observe lo siguiente:
 
->[AZURE.NOTE]Con cada restauración, es posible que la copia de seguridad que se restaura sea anterior al estado de la partición antes de la pérdida de datos. Por este motivo, la restauración se debe usar solo como último recurso para recuperar tantos datos como sea posible.
+- Con cada restauración, es posible que la copia de seguridad que se restaura sea anterior al estado de la partición antes de la pérdida de datos. Por este motivo, la restauración se debe usar solo como último recurso para recuperar tantos datos como sea posible.
 
->[AZURE.NOTE]La cadena que representa la ruta de acceso de la carpeta de copia de seguridad, así como las rutas de acceso de los archivos dentro de la carpeta de copia de seguridad, puede tener más de 255 caracteres, según la ruta de acceso de FabricDataRoot y la longitud del nombre del tipo de aplicación. Esto puede hacer que algunos métodos .NET, como **Directory.Move**, produzcan una excepción **PathTooLongException**. Como solución alternativa, se puede llamar directamente a las API de kernel32 como **CopyFile**.
+- La cadena que representa la ruta de acceso de la carpeta de copia de seguridad, así como las rutas de acceso de los archivos dentro de la carpeta de copia de seguridad, puede tener más de 255 caracteres, según la ruta de acceso de FabricDataRoot y la longitud del nombre del tipo de aplicación. Esto puede hacer que algunos métodos .NET, como **Directory.Move**, produzcan una excepción **PathTooLongException**. Una solución alternativa es llamar directamente a las API de kernel32 como **CopyFile**.
 
 
 ## Bajo el capó: Más detalles sobre la copia de seguridad y la restauración
@@ -138,4 +146,4 @@ El Administrador de estado fiable proporciona la capacidad de restaurar desde un
 
 En primer lugar, RestoreAsync quita todo estado existente en la réplica principal en la que se lo llamó. Después, el Administrador de estado fiable crea todos los objetos fiables que existen en la carpeta de copia de seguridad. A continuación, se indica a los objetos fiables que restauren a partir de sus puntos de control en la carpeta de copia de seguridad. Por último, el Administrador de estado fiable recupera su propio estado de las entradas del registro en la carpeta de copia de seguridad y realiza la recuperación. Como parte del proceso de recuperación, se reproducen en los objetos fiables las operaciones a partir del "punto de partida" que tengan entradas de registro de confirmación en la carpeta de copia de seguridad. Este paso garantiza que el estado recuperado sea coherente.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

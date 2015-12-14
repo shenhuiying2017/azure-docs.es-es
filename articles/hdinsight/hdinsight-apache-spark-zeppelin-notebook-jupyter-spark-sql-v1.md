@@ -39,10 +39,10 @@ Cuando se aprovisiona un clúster de HDInsight en HDInsight, se especifica una c
 
 **Para crear una cuenta de almacenamiento de Azure**
 
-1. Inicie sesión en el [Portal de Azure][azure-management-portal].
+1. Inicie sesión en el [Portal de Azure clásico][azure-management-portal].
 2. Haga clic en **NUEVO** en la esquina inferior izquierda y luego escriba los valores como se muestra en la imagen.
 
-	![El Portal de Azure, donde puede usar Creación rápida para configurar una nueva cuenta de almacenamiento](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/HDI.StorageAccount.QuickCreate.png "El Portal de Azure, donde puede usar Creación rápida para configurar una nueva cuenta de almacenamiento")
+	![Portal de Azure clásico donde puede usar la función de creación rápida para configurar una nueva cuenta de almacenamiento](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/HDI.StorageAccount.QuickCreate.png "Portal de Azure clásico donde puede usar la función de creación rápida para configurar una nueva cuenta de almacenamiento")
 
 >[AZURE.NOTE]Asegúrese de crear la cuenta de almacenamiento en una ubicación admitida para el clúster.
 
@@ -57,7 +57,7 @@ En esta sección, se aprovisiona un clúster de HDInsight versión 3.2, que se b
 
 **Para aprovisionar un clúster Spark**
 
-1. Inicie sesión en el [Portal de Azure][azure-management-portal]. 
+1. Inicie sesión en el [Portal de Azure clásico][azure-management-portal]. 
 
 2. Haga clic en **NUEVO** en la esquina inferior izquierda y luego escriba los valores como se muestra en la imagen.
 
@@ -70,7 +70,7 @@ Después de haber aprovisionado un clúster, puede usar un cuaderno de Zeppelin 
 
 >[AZURE.NOTE]El cuaderno que crea cuando sigue las instrucciones más abajo también está disponible de manera predeterminada en el clúster. Después de iniciar Zeppelin, encontrará el cuaderno con el nombre **Zeppelin HVAC tutorial**.
 
-1. En el [Portal de vista previa de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
+1. Desde el [Portal de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
 
 2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y después, en la hoja **Panel de clúster**, haga clic en **Equipo portátil ligero Zeppelin**. Cuando se le pida, escriba las credenciales del clúster.
 
@@ -156,7 +156,7 @@ En esta sección, utilice un cuaderno de Jupyter para ejecutar consultas Spark S
 
 >[AZURE.NOTE]El cuaderno que crea cuando sigue las instrucciones más abajo también está disponible de manera predeterminada en el clúster. Después de iniciar Jupyter, encontrará este cuaderno por el nombre **HVACTutorial.ipynb**.
 
-1. En el [Portal de vista previa de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
+1. Desde el [Portal de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
 
 2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, luego, en la hoja **Panel del clúster**, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
 
@@ -260,4 +260,4 @@ En esta sección, utilice un cuaderno de Jupyter para ejecutar consultas Spark S
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

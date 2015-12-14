@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="12/01/2015"
 	ms.author="jgao"/>
 
 # Administración de clústeres de Hadoop en HDInsight con PowerShell de Azure
@@ -30,9 +30,39 @@ Azure PowerShell es un potente entorno de scripting que puede usar para controla
 Antes de empezar este artículo, debe tener lo siguiente:
 
 - **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Una estación de trabajo con Azure PowerShell**. Consulte [Install and use Azure PowerShell (Instalación y uso de Azure PowerShell)](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-	> [AZURE.NOTE]Los scripts de PowerShell que se proporcionan en este artículo usan el modo de administrador de recursos de Azure. Para asegurarse de que los ejemplos le funcionen, descargue la última versión de Azure PowerShell con el Instalador de plataforma web de Microsoft.
+##Instalar Azure PowerShell 1.0 y versiones posteriores
+
+Primero debe desinstalar las versiones 0.9x.
+
+Para comprobar la versión del PowerShell instalado:
+
+	Get-Module *azure*
+	
+Para desinstalar la versión anterior, ejecute Programas y características en el panel de control.
+
+Hay dos opciones principales para instalar Azure PowerShell.
+
+- [Galería de PowerShell](https://www.powershellgallery.com/). Ejecute los siguientes comandos en el ISE de PowerShell con privilegios elevados o en la consola de Windows PowerShell con privilegios elevados:
+
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
+		
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	Para más información, vea [Galería de PowerShell](https://www.powershellgallery.com/).
+
+- [Instalador de plataforma web de Microsoft (WebPI)](http://aka.ms/webpi-azps). Si tiene Azure PowerShell 0.9.x instalado, se le pedirá que desinstale 0.9.x. Si ha instalado módulos de Azure PowerShell desde la Galería de PowerShell, el programa de instalación requiere que los módulos se quiten antes de la instalación para garantizar un entorno coherente de PowerShell de Azure. Para las instrucciones, vea [Instalación de Azure PowerShell 1.0 mediante WebPI](https://azure.microsoft.com/blog/azps-1-0/).
+
+WebPI recibirá actualizaciones mensuales. La Galería de PowerShell recibirá actualizaciones de forma continua. Si se encuentra cómodo con la instalación de la Galería de PowerShell, ese será el primer canal para lo mejor y lo más reciente de Azure PowerShell.
 
 ##Creación de clústeres
 
@@ -64,7 +94,7 @@ El clúster de HDInsight requiere un grupo de recursos de Azure y un contenedor 
 [AZURE.INCLUDE [data center list](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
 
-Para obtener información sobre la creación de una cuenta de almacenamiento de Azure mediante el Portal de vista previa de Azure, consulte [Sobre las cuentas de almacenamiento de Azure](storage-create-storage-account.md).
+Para información sobre la creación de una cuenta de almacenamiento de Azure mediante el Portal de Azure, vea [Acerca de las cuentas de almacenamiento de Azure](storage-create-storage-account.md).
 
 Si ya tiene una cuenta de Almacenamiento pero no sabe su nombre ni su clave, puede usar los comandos siguientes para recuperar dicha información:
 
@@ -73,7 +103,7 @@ Si ya tiene una cuenta de Almacenamiento pero no sabe su nombre ni su clave, pue
 	# List the keys for a Storage account
 	Get-AzureRmStorageAccountKey -ResourceGroupName <Azure Resource Group Name> -name $storageAccountName <Azure Storage Account Name>
 
-Para saber cómo obtener la información mediante el Portal de vista previa, consulte la sección "Vista, copia y regeneración de las claves de acceso de almacenamiento" de [Sobre las cuentas de almacenamiento de Azure](storage-create-storage-account.md).
+Para saber cómo obtener la información mediante el Portal, vea la sección "Vista, copia y regeneración de las claves de acceso de almacenamiento" de [Sobre las cuentas de almacenamiento de Azure](storage-create-storage-account.md).
 
 **Para crear un contenedor de almacenamiento de Azure**
 
@@ -134,7 +164,7 @@ Use el comando siguiente para eliminar un clúster:
 ##Escalado de clústeres
 La característica de escalado de clústeres permite cambiar la cantidad de nodos de trabajo que usa un clúster que se ejecuta en HDInsight de Azure sin necesidad de volver a crear el clúster.
 
->[AZURE.NOTE]Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades. Consulte [Familiarizarse con la interfaz del portal del clúster](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
+>[AZURE.NOTE]Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades. Vea [Familiarizarse con la interfaz del portal del clúster](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
 
 A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de datos de cada tipo de clúster compatible con HDInsight:
 
@@ -213,7 +243,7 @@ Para conceder:
 
 >[AZURE.NOTE]Al conceder/revocar el acceso, restablecerá el nombre de usuario y la contraseña del clúster.
 
-Esto también se puede hacer a través del portal de vista previa. Consulte [Administración de HDInsight mediante el portal de vista previa de Azure][hdinsight-admin-portal].
+Esto también se puede hacer a través del Portal. Vea [Administración de HDInsight mediante el Portal de Azure][hdinsight-admin-portal].
 
 ##Actualización de las credenciales de usuario HTTP
 
@@ -247,15 +277,15 @@ En el modo ARM, cada clúster de HDInsight pertenece a un grupo de recursos de A
 
 **Para enviar trabajos de MapReduce**
 
-Consulte [Ejecución de ejemplos de Hadoop MapReduce en HDInsight basado en Windows](hdinsight-run-samples.md).
+Vea [Ejecución de ejemplos de Hadoop MapReduce en HDInsight basado en Windows](hdinsight-run-samples.md).
 
 **Para enviar trabajos de Hive**
 
-Consulte [Ejecución de consultas de Hive con PowerShell](hdinsight-hadoop-use-hive-powershell.md).
+Vea [Ejecución de consultas de Hive con PowerShell](hdinsight-hadoop-use-hive-powershell.md).
 
 **Para enviar trabajos de Pigs**
 
-Consulte [Ejecución de trabajos de Pig mediante PowerShell](hdinsight-hadoop-use-pig-powershell.md)
+Vea [Ejecución de trabajos de Pig mediante PowerShell](hdinsight-hadoop-use-pig-powershell.md).
 
 **Para enviar trabajos de Sqoop**
 
@@ -263,7 +293,7 @@ Consulte [Uso de Sqoop con HDInsight](hdinsight-use-sqoop.md).
 
 **Para enviar trabajos de Oozie**
 
-Consulte [Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en HDInsight](hdinsight-use-oozie.md).
+Vea [Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en HDInsight](hdinsight-use-oozie.md).
 
 ##Carga de archivos de datos al almacenamiento de blobs de Azure
 Consulte [Carga de datos en HDInsight][hdinsight-upload-data].
@@ -271,7 +301,7 @@ Consulte [Carga de datos en HDInsight][hdinsight-upload-data].
 
 ## Otras referencias
 * [Documentación de referencia de los cmdlets de HDInsight][hdinsight-powershell-reference]
-* [Administración de HDInsight mediante el portal de vista previa de Azure][hdinsight-admin-portal]
+* [Administración de HDInsight mediante el Portal de Azure][hdinsight-admin-portal]
 * [Administración de HDInsight con la interfaz de línea de comandos][hdinsight-admin-cli]
 * [Creación de clústeres de HDInsight][hdinsight-provision]
 * [Carga de datos en HDInsight][hdinsight-upload-data]
@@ -302,4 +332,4 @@ Consulte [Carga de datos en HDInsight][hdinsight-upload-data].
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Sincronización de Azure AD Connect: implementación de la sincronización de contraseñas | Microsoft Azure"
+	pageTitle="Implementación de la sincronización de contraseñas de sincronización de Azure AD Connect | Microsoft Azure"
 	description="Le proporciona la información que necesita para comprender cómo funciona la sincronización de contraseñas y cómo habilitarla en su entorno."
 	services="active-directory"
 	documentationCenter=""
@@ -160,4 +160,4 @@ No es necesario forzar una sincronización completa de todas las contraseñas, p
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

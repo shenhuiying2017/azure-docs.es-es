@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creación o edición de usuarios en Azure AD"
-	description="Un tema que explica cómo crear o editar cuentas de usuario en Azure AD."
+	pageTitle="Creación o edición de usuarios en Azure Active Directory | Microsoft Azure"
+	description="Explica cómo crear o editar cuentas de usuario en Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
-# Creación o edición de usuarios en Azure AD
+# Creación o edición de usuarios en Azure Active Directory
 
-Hay que crear una cuenta para cada usuario que vaya a tener acceso a un servicio de nube de Microsoft. También puede cambiar las cuentas de usuario o eliminarlas cuando ya no sean necesarias. De forma predeterminada, los usuarios no tienen permisos de administrador, pero puede asignárselos si lo desea.
+Hay que crear una cuenta en Azure Active Directory (Azure AD) para cada usuario que vaya a tener acceso a un servicio en la nube de Microsoft. También puede cambiar las cuentas de usuario o eliminarlas cuando ya no sean necesarias. De forma predeterminada, los usuarios no tienen permisos de administrador, pero puede asignárselos si lo desea.
 
 ## Creación de un usuario
 
-1. Haga clic en **Active Directory** y, a continuación, haga clic en el nombre del directorio de su organización.
+1. Haga clic en **Active Directory** y después haga clic en el nombre del directorio de su organización.
 2. En la página **Usuarios**, haga clic en **Agregar usuario**.
 3. En la página **Proporcione información sobre este usuario**, elija una de estas opciones en **Tipo de usuario**:
 	1. **Nuevo usuario de la organización**: indica que desea que se cree una nueva cuenta de usuario y se administre en el directorio.
@@ -41,7 +41,7 @@ Si su organización usa más de un dominio, debe tener en cuenta los siguientes 
 
 Si el usuario que está intentando editar está sincronizado con el servicio de Active Directory local, aparece un mensaje de error y no será posible editar el usuario mediante este procedimiento. Para editar el usuario, utilice las herramientas de administración locales de Active Directory.
 
-Para editar un usuario en el Portal de administración de Azure:
+Para editar un usuario en el Portal de Azure clásico:
 
 1. Haga clic en **Active Directory** y, a continuación, haga clic en el nombre del directorio de su organización.
 2. En la página **Usuarios**, haga clic en el nombre para mostrar del usuario que desee editar.
@@ -49,7 +49,7 @@ Para editar un usuario en el Portal de administración de Azure:
 
 ## Restablecimiento de la contraseña del usuario
 
-1. Haga clic en **Active Directory** y, a continuación, haga clic en el nombre del directorio de su organización.
+1. Haga clic en **Active Directory** y después haga clic en el nombre del directorio de su organización.
 2. En la página **Usuarios**, haga clic en el nombre para mostrar del usuario que desee editar.
 3. En la parte inferior del portal, haga clic en **Restablecer contraseña**.
 4. En el cuadro de diálogo Restablecer contraseña, haga clic en **Restablecer**.
@@ -61,7 +61,7 @@ En Azure AD, también puede agregar usuarios a un directorio de Azure AD desde o
 
 Los usuarios que se agregan desde otro directorio se consideran "usuarios externos". Los usuarios externos pueden colaborar con los usuarios que ya existen en un directorio (por ejemplo, en un entorno de prueba) sin necesidad de iniciar sesión con las credenciales y cuentas nuevas. Los usuarios externos se autentican mediante su directorio particular cuando inician sesión. Esta autenticación funciona para todos los directorios de los que sean miembros.
 
-Para crear un usuario externo, cree un usuario en el portal y, en **Tipo de usuario**, seleccione **Usuario en otro directorio de Azure AD**.
+Para crear un usuario externo, cree un usuario en el Portal de Azure clásico y, en **Tipo de usuario**, seleccione **Usuario en otro directorio de Azure AD**.
 
 ## Limitaciones y administración de usuarios externos
 
@@ -73,7 +73,7 @@ La única vinculación entre los dos objetos es que el usuario siempre se autent
 
 Si se elimina un usuario en su directorio particular o se cancela su cuenta de Microsoft, el usuario externo sigue existiendo en el directorio. Sin embargo, el usuario no puede tener acceso a los recursos del directorio porque ya no puede autenticarse en su directorio particular ni en la cuenta de Microsoft.
 
-Un usuario que sea administrador de varios directorios puede administrar cada uno de esos directorios en el portal de administración de Azure. Sin embargo, otras aplicaciones, como Office 365, no proporcionan actualmente experiencias para asignar servicios como un usuario externo en otro directorio ni permiten acceder a ellos. A partir de ahora, daremos instrucciones a los desarrolladores sobre cómo pueden funcionar sus aplicaciones con usuarios que sean miembros de varios directorios.
+Un usuario que sea administrador de varios directorios puede administrar cada uno de esos directorios en el Portal de Azure clásico. Sin embargo, otras aplicaciones, como Office 365, no proporcionan actualmente experiencias para asignar servicios como un usuario externo en otro directorio ni permiten acceder a ellos. A partir de ahora, daremos instrucciones a los desarrolladores sobre cómo pueden funcionar sus aplicaciones con usuarios que sean miembros de varios directorios.
 
 Actualmente, existen ciertas limitaciones porque un administrador solo puede conceder consentimiento a una aplicación multiempresa en su directorio particular, y el aprovisionamiento solo se puede realizar para aplicaciones SaaS y SSO a través del Panel de acceso del directorio particular. Los usuarios de cuentas de Microsoft tienen las mismas limitaciones, ya que actualmente no pueden conceder consentimiento para una aplicación multiempresa ni usar el Panel de acceso.
 
@@ -85,7 +85,7 @@ Los invitados tienen un conjunto limitado de derechos en el directorio. Estos de
 
 ## Configuración de las directivas de acceso del usuario
 
-La pestaña **Configurar** de un directorio incluye opciones para controlar el acceso de los usuarios externos. Estas opciones solo se pueden cambiar en la interfaz de usuario (no hay ningún método de Windows PowerShell o API) en el portal de Azure completo y solo puede hacerlo un administrador global de directorio. Para abrir la pestaña **Configurar** del portal de Azure, haga clic en **Active Directory** y luego haga clic en el nombre del directorio.
+La pestaña **Configurar** de un directorio incluye opciones para controlar el acceso de los usuarios externos. Estas opciones solo se pueden cambiar en la interfaz de usuario (no hay ningún método de Windows PowerShell o API) en el Portal de Azure clásico completo y solo puede hacerlo un administrador global de directorio. Para abrir la pestaña **Configurar** del Portal de Azure clásico, haga clic en **Active Directory** y luego haga clic en el nombre del directorio.
 
 ![][1]
 
@@ -111,4 +111,4 @@ La capacidad de los invitados para ver información limitada de un usuario o gru
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

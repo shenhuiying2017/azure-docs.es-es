@@ -18,6 +18,8 @@
 
 # Protección de una aplicación de API: agregar la autenticación de Azure Active Directory o de un proveedor social
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Información general
 
 En este tutorial se muestra cómo proteger una aplicación de API para que solo los usuarios autenticados puedan tener acceso a ella. El tutorial también muestra el código que puede utilizar en una aplicación de API de ASP.NET para recuperar información sobre el usuario que ha iniciado la sesión.
@@ -31,7 +33,7 @@ Realizará los pasos siguientes:
 - Volver a llamar a la aplicación de API para comprobar que el acceso autenticado funciona.
 - Escribir y probar el código que recupera notificaciones para el usuario que ha iniciado la sesión.
 
-Para obtener más información sobre la autenticación en el Servicio de aplicaciones de Azure, vea [Autenticación para aplicaciones de API y aplicaciones móviles](../app-service/app-service-authentication-overview.md).
+Para obtener más información sobre la autenticación en el Servicio de aplicaciones de Azure, vea [Autenticación para aplicaciones de API y aplicaciones de móvil](../app-service/app-service-authentication-overview.md).
 
 ## Requisitos previos
 
@@ -143,7 +145,7 @@ La aplicación de API ya está protegida contra el acceso no autenticado. A cont
 
 	![Respuesta Get de Chrome](./media/app-service-api-dotnet-add-authentication/chromeget.png)
 
-	Si habilitó Swagger UI, ahora también puede ir a la página Swagger UI. Sin embargo, verá un icono rojo **ERROR** en la esquina inferior derecha de la página y, si hace clic en el icono, verá un mensaje que indica que no se puede obtener acceso al archivo JSON de Swagger. Esto se debe a que Swagger realiza una llamada AJAX sin incluir el token Zumo que trata de recuperar el archivo JSON. Esto no impide que la página Swagger UI funcione.
+	Si habilitó Swagger UI, ahora también puede ir a la página Swagger UI. Sin embargo, verá un icono rojo de **ERROR** en la esquina inferior derecha de la página y, si hace clic en el icono, verá un mensaje que indica que no se puede obtener acceso al archivo JSON de Swagger. Esto se debe a que Swagger realiza una llamada AJAX sin incluir el token Zumo que trata de recuperar el archivo JSON. Esto no impide que la página Swagger UI funcione.
 
 ## Uso de Postman para enviar una solicitud Post
 
@@ -267,10 +269,10 @@ En esta sección, se cambiar el código de la aplicación de API de ContactsList
 
 ## Pasos siguientes
 
-Ha visto cómo proteger una aplicación de API de Azure al requerir Azure Active Directory o la autenticación de proveedor social. Para obtener más información, vea [Autenticación para aplicaciones de API y aplicaciones móviles](../app-service/app-service-authentication-overview.md).
+Ha visto cómo proteger una aplicación de API de Azure al requerir Azure Active Directory o la autenticación de proveedor social. Para obtener más información, vea [Autenticación para aplicaciones de API y aplicaciones de móvil](../app-service/app-service-authentication-overview.md).
 
 [portal de Azure]: https://manage.windowsazure.com/
 [Portal de vista previa de Azure]: https://portal.azure.com/
 [Portal del vista previa de Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

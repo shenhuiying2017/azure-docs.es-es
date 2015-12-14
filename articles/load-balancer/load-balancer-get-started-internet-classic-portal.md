@@ -66,4 +66,4 @@ Para equilibrar la carga del tráfico de red de Internet entre las máquinas vir
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

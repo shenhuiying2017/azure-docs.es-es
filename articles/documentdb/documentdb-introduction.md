@@ -24,7 +24,7 @@ DocumentDB es una base de datos de documentos NoSQL para soluciones de macrodato
 Una forma rápida de obtener información sobre esta base de datos de JSON y de verla en acción es seguir estos tres pasos:
 
 1. Ver el vídeo de dos minutos [What is DocumentDB?](http://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) (¿Qué es DocumentDB?), que presenta las ventajas de usar DocumentDB.
-2. Ver el vídeo de tres minutos[Create DocumentDB on Azure](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) (Creación de DocumentDB en Azure), que destaca cómo empezar a trabajar con DocumentDB mediante el portal de vista previa de Azure.
+2. Ver el vídeo de tres minutos[Create DocumentDB on Azure](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) (Creación de DocumentDB en Azure), que destaca cómo empezar a trabajar con DocumentDB mediante el Portal de Azure.
 3. Visite [Query Playground](http://www.documentdb.com/sql/demo) (Área de juegos de consultas), donde puede recorrer distintas actividades para obtener información sobre la sofisticada funcionalidad de consulta disponible en DocumentDB. A continuación, diríjase a la pestaña Sandbox (Espacio aislado) y ejecute consultas SQL personalizadas y experimente con DocumentDB.
 
 A continuación, vuelva a este artículo, donde profudizará y conocerá las respuestas a las preguntas siguientes:
@@ -99,7 +99,7 @@ Azure DocumentDB permite crear lógica de aplicaciones como programas con nombre
 La ejecución de JavaScript en DocumentDB se modela de acuerdo con los conceptos admitidos por los sistemas de base de datos relacionales, con JavaScript como un reemplazo moderno de Transact-SQL. Toda la lógica de JavaScript se ejecuta en un entorno de transacciones ACID con aislamiento de la instantánea. Durante el transcurso de esta ejecución, si JavaScript lanza una excepción, entonces se cancela toda la transacción.
 
 ## Pasos siguientes
-Si ya tiene una cuenta de Azure, puede empezar a trabajar con DocumentDB en el [portal de vista previa de Azure](https://portal.azure.com/#gallery/Microsoft.DocumentDB) mediante la [creación una cuenta de base de datos de DocumentDB](documentdb-create-account.md).
+Si ya tiene una cuenta de Azure, puede empezar a trabajar con DocumentDB en el [Portal de Azure](https://portal.azure.com/#gallery/Microsoft.DocumentDB) mediante la [creación una cuenta de base de datos de DocumentDB](documentdb-create-account.md).
 
 Si no tiene una cuenta de Azure, puede:
 
@@ -112,4 +112,4 @@ A continuación, cuando esté listo para obtener más información, visite nuest
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

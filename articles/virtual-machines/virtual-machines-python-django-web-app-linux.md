@@ -59,7 +59,7 @@ La máquina virtual de Linux (Ubuntu) ya tiene preinstalado Python 2.7, pero no 
 
 1.  Abra una nueva ventana **Terminal**.
     
-1.  Escriba el siguiente comando para conectarse a la máquina virtual de Azure. Si no creó un FQDN, puede conectarse usando la dirección IP pública que se muestra en la máquina virtual de resumen en el Portal de Azure.
+1.  Escriba el siguiente comando para conectarse a la máquina virtual de Azure. Si no creó un FQDN, puede conectarse usando la dirección IP pública que se muestra en la máquina virtual de resumen en el Portal de Azure clásico.
 
 		$ ssh yourusername@yourVmUrl
 
@@ -126,4 +126,4 @@ La máquina virtual de Linux (Ubuntu) ya tiene preinstalado Python 2.7, pero no 
 
 Cuando finalice este tutorial, apague o quite la máquina virtual de Azure recién creada para liberar recursos para otros tutoriales y así evitar incurrir en cargos por uso de Azure.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

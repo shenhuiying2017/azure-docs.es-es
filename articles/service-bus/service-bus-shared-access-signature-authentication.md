@@ -94,7 +94,7 @@ Para un ejemplo funcional completo de una aplicación del Bus de servicio que il
 
 ## Acceso a las reglas de autorización de acceso compartido en un espacio de nombres
 
-Las operaciones en la raíz del espacio de nombres del Bus de servicio requieren la autenticación con certificados. Debe cargar un certificado de administración para la suscripción de Azure. Para cargar un certificado de administración, haga clic en **Configuración** en el panel izquierdo del Portal de Azure. Para obtener más información acerca de los certificados de administración de Azure, consulte [Creación de un certificado de administración para Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
+Las operaciones en la raíz del espacio de nombres del Bus de servicio requieren la autenticación con certificados. Debe cargar un certificado de administración para la suscripción de Azure. Para cargar un certificado de administración, haga clic en **Configuración** en el panel izquierdo del [Portal de Azure clásico][]. Para obtener más información sobre los certificados de administración de Azure, consulte [Creación de un certificado de administración para Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
 
 El extremo para acceder a las reglas de autorización de acceso compartido en un espacio de nombres del Bus de servicio es el siguiente:
 
@@ -102,7 +102,7 @@ El extremo para acceder a las reglas de autorización de acceso compartido en un
 https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/
 ```
 
-Para crear un objeto [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) en un espacio de nombres del Bus de servicio, ejecute una operación POST en este extremo con la información de la regla serializada como JSON o XML. Por ejemplo:
+Para crear un objeto [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) en un espacio de nombres del Bus de servicio, ejecute una operación POST en este punto de conexión con la información de la regla serializada como JSON o XML. Por ejemplo:
 
 ```
 // Base address for accessing authorization rules on a namespace
@@ -143,7 +143,7 @@ https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespa
 
 ## Acceso a las reglas de autorización de acceso compartido en una entidad
 
-Puede acceder a un objeto [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) configurado en una cola del Bus de servicio o un tema mediante la colección [AuthorizationRules](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.authorizationrules.aspx) en los objetos [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx), [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) o [NotificationHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.notifications.notificationhubdescription.aspx) correspondiente.
+Puede acceder a un objeto [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) configurado en una cola del Bus de servicio o un tema mediante la colección [AuthorizationRules](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.authorizationrules.aspx) en los objetos [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx), [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) o [NotificationHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.notifications.notificationhubdescription.aspx) correspondientes.
 
 El código siguiente muestra cómo agregar reglas de autorización para una cola.
 
@@ -252,8 +252,10 @@ La siguiente tabla muestra los derechos de acceso necesarios para realizar diver
 
 ## Pasos siguientes
 
-Para obtener una descripción general de SAS en el Bus de servicio, consulte [Firmas de acceso compartido](service-bus-sas-overview.md).
+Para obtener información general de alto nivel de SAS en el Bus de servicio, consulte [Firmas de acceso compartido](service-bus-sas-overview.md).
 
 Para obtener más información sobre la autenticación del Bus de servicio, consulte [Autenticación y autorización del Bus de servicio](service-bus-authentication-and-authorization.md).
 
-<!---HONumber=Oct15_HO3-->
+[Portal de Azure clásico]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

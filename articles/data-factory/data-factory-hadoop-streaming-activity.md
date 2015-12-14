@@ -40,7 +40,8 @@ El clúster de HDInsight se rellena automáticamente con los programas de ejempl
 	                        "<nameofthecluster>/example/apps/wc.exe",
 	                        "<nameofthecluster>/example/apps/cat.exe"
 	                    ],
-	                    "fileLinkedService": "StorageLinkedService"
+	                    "fileLinkedService": "StorageLinkedService",
+	                    "getDebugInfo": "Failure"
 	                },
 	                "outputs": [
 	                    {
@@ -78,8 +79,9 @@ Tenga en cuenta lo siguiente:
 7. En la sección **filePaths**, especifique las rutas de acceso para los archivos ejecutables del asignador y del reductor. En el ejemplo: "adfsample/example/apps/wc.exe", adfsample es el contenedor de blobs, example/apps es la carpeta y wc.exe es el ejecutable.
 8. Para la propiedad **fileLinkedService**, especifique el servicio vinculado de Almacenamiento de vinculados que representa el almacenamiento de Azure que contiene los archivos especificados en la sección filePaths.
 9. Para la propiedad **arguments**, especifique los argumentos para el trabajo de streaming.
+10. La propiedad **getDebugInfo** es un elemento opcional. Cuando se establece en Failure, los registros solo se descargan en caso de error. Cuando se establece en All, los registros se descargan siempre, sea cual sea el estado de ejecución.
 
-> [AZURE.NOTE]Como se muestra en el ejemplo, deberá especificar un conjunto de datos de salida para la actividad de streaming de Hadoop para la propiedad **outputs**. Esto es simplemente un conjunto de datos ficticio que es necesario para la programación de la canalización. No es necesario especificar ningún conjunto de datos de entrada para la actividad de la propiedad **inputs**.
+> [AZURE.NOTE]Como se muestra en el ejemplo, deberá especificar un conjunto de datos de salida para la actividad de streaming de Hadoop en la propiedad **outputs**. Esto es simplemente un conjunto de datos ficticio que es necesario para la programación de la canalización. No es necesario especificar ningún conjunto de datos de entrada para la actividad de la propiedad **inputs**.
 
 	
 ## Ejemplo
@@ -190,4 +192,4 @@ El clúster de HDInsight se rellena automáticamente con los programas de ejempl
 	    }
 	}
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

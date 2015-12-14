@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Uso de la importación y exportación para transferir datos al almacenamiento en blobs | Microsoft Azure" 
-	description="Aprenda a crear trabajos de importación y exportación en el Portal de administración de Azure para transferir datos al almacenamiento en blobs." 
+	description="Aprenda a crear trabajos de importación y exportación en el Portal de Azure para transferir datos al almacenamiento de blobs." 
 	authors="tamram" 
 	manager="adinah" 
 	editor="" 
@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/27/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tamram"/>
 
 
 # Uso del servicio de importación y exportación de Microsoft Azure para transferir datos al almacenamiento en blobs
+
+[AZURE.INCLUDE [storage-selector-portal-import-export-service](../../includes/storage-selector-portal-import-export-service.md)]
 
 ## Información general
 
@@ -27,10 +29,10 @@ Para transferir un gran conjunto de datos de archivo al almacenamiento de blobs,
 
 Puede crear y administrar los trabajos de importación y exportación de las dos siguientes maneras:
 
-- Mediante el Portal de administración de Azure.
+- Mediante el [Portal de Azure](portal.azure.com).
 - Mediante la interfaz REST del servicio.
 
-Este artículo proporciona un resumen del servicio de importación y exportación y describe la forma en que se debe utilizar el Portal de administración para hacer uso del servicio de importación/exportación. Para obtener más información acerca de la API de REST, consulte [Referencia de la API de REST del servicio de importación y exportación](http://go.microsoft.com/fwlink/?LinkID=329099).
+Este artículo proporciona información general acerca del servicio de Importación/Exportación y describe la forma en que se debe utilizar el [Portal de Azure](portal.azure.com) para hacer uso del servicio de Importación/Exportación. Para obtener más información acerca de la API de REST, consulte [Referencia de la API de REST del servicio de importación y exportación](http://go.microsoft.com/fwlink/?LinkID=329099).
 
 ## Introducción al servicio de importación y exportación ##
 
@@ -50,15 +52,15 @@ Cuando cree un trabajo de importación o de exportación, deberá tener también
 ### Requisitos y alcance
 
 1.	**Suscripción y cuentas de almacenamiento:** tiene que disponer de una suscripción de Azure existente y una o varias cuentas de almacenamiento para utilizar el servicio de importación y exportación. Puede utilizar cada trabajo para transferir datos desde o hacia una sola cuenta de almacenamiento. Dicho de otra forma, un trabajo no puede expandirse por varias cuentas de almacenamiento. Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-create-storage-account.md).
-2.	**Discos duros:** el servicio de importación y exportación solo admite unidades de disco duro internas SATA II/III de 3,5 pulgadas. Las unidades de disco duro hasta 6TB son compatibles. Para los trabajos de importación, solo se procesará el primer volumen de datos de la unidad. El volumen de datos debe tener formato NTFS. Es posible conectar un disco SATA II/III externo a la mayoría de los equipos con un adaptador USB SATA II/III externo.
+2.	**Discos duros:** el servicio de Importación/Exportación solo admite unidades de disco duro internas SATA II/III de 3,5 pulgadas. Las unidades de disco duro hasta 6TB son compatibles. Para los trabajos de importación, solo se procesará el primer volumen de datos de la unidad. El volumen de datos debe tener formato NTFS. Es posible conectar un disco SATA II/III externo a la mayoría de los equipos con un adaptador USB SATA II/III externo.
 3.	**Cifrado BitLocker:** todos los datos almacenados en unidades de disco duro deben estar cifrados mediante BitLocker con claves de cifrado protegidas mediante contraseñas numéricas.
 4.	**Destinos de almacenamiento de blobs:** los datos pueden cargarse o descargarse de blobs en bloques y blobs de página. 
 5.	**Número de trabajos:** un cliente puede tener hasta 20 trabajos activos por cuenta de almacenamiento.
 6.	**Tamaño máximo de un trabajo:** el tamaño de un trabajo lo determina la capacidad de los discos duros utilizados y la cantidad máxima de datos que se pueden almacenar en una cuenta de almacenamiento. Cada trabajo puede incluir hasta 10 discos duros.
 
-  >[AZURE.IMPORTANT]No se admiten unidades de disco duro externas que incorporen un adaptador USB integrado en este servicio. No prepare una unidad de disco duro externa. El disco que se encuentra dentro de la carcasa externa tampoco no se puede usar para importar datos. Utilice una unidad de disco duro **interna** SATA II/III de 3,5". Si no puede conectar el disco SATA directamente a la máquina, use un adaptador SATA a USB externo. Consulte la lista de adaptadores recomendados en la sección de preguntas más frecuentes.
+  >[AZURE.IMPORTANT]No se admiten unidades de disco duro externas que incorporen un adaptador USB integrado en este servicio. No prepare una unidad de disco duro externa. El disco que se encuentra dentro de la carcasa externa tampoco no se puede usar para importar datos. Use una unidad de disco duro **interna** SATA II/III de 3,5". Si no puede conectar el disco SATA directamente a la máquina, use un adaptador SATA a USB externo. Consulte la lista de adaptadores recomendados en la sección de preguntas más frecuentes.
 
-## Creación de un trabajo de importación en el Portal de administración##
+## Crear un trabajo de importación en el Portal de Azure##
 
 Cree un trabajo de importación para notificar al servicio de importación y exportación que va a enviar al centro de datos una o varias unidades que contienen datos que desea importar a su cuenta de almacenamiento.
 
@@ -76,15 +78,13 @@ La herramienta de importación y exportación de Microsoft Azure genera un archi
 
 ### Creación del trabajo de importación
 
-1.	Una vez preparada la unidad, diríjase a su cuenta de almacenamiento en el Portal de administración y visualice el Panel. En **vista rápida**, haga clic en **Crear un trabajo de importación**. 
+1.	Una vez preparada la unidad, diríjase a su cuenta de almacenamiento en el [Portal de Azure](portal.azure.com) y visualice el Panel. En **vista rápida**, haga clic en **Crear un trabajo de importación**. 
  
 2.	En el paso 1 del asistente, indique que ha preparado su unidad y que tiene el archivo de diario de la unidad disponible.
  
 3.	En el paso 2, proporcione la información de contacto de la persona responsable de este trabajo de importación. Si desea guardar datos de registro detallados del trabajo de importación, active la opción **Guardar el registro detallado en mi contenedor de blobs 'waimportexport'**.
 
 4.	En el paso 3, cargue los archivos de diario de unidad que haya obtenido durante el paso de preparación de la unidad. Tendrá que cargar un archivo por cada unidad que haya preparado.
-
-	![Creación del trabajo de importación - Paso 3][import-job-03]
 
 5.	En el paso 4, escriba un nombre descriptivo para el trabajo de importación. Tenga en cuenta que el nombre que escriba solo puede contener letras minúsculas, números, guiones y caracteres de subrayado, debe empezar por una letra y no puede contener espacios. El nombre elegido le servirá para realizar un seguimiento de sus trabajos mientras que estén en progreso y una vez se hayan completado.
 
@@ -96,23 +96,21 @@ La herramienta de importación y exportación de Microsoft Azure genera un archi
 
 	Si todavía no tiene un número de seguimiento, elija **Facilitaré mi información de envío para este trabajo de importación cuando haya enviado mi paquete** y, a continuación, finalice el proceso de importación.
 
-7. Para escribir el número de seguimiento después de haber enviado el paquete, vuelva a la página **Importación/Exportación** de su cuenta de almacenamiento en el Portal de administración, seleccione el trabajo en la lista y elija **Información de envío**. Navegue por el asistente y escriba el número de seguimiento en el paso 2.
+7. Para escribir el número de seguimiento después de haber enviado el paquete, vuelva a la página **Importación/Exportación** de su cuenta de almacenamiento en el **Portal de Azure**, seleccione el trabajo de la lista y elija [Información de envío](portal.azure.com). Navegue por el asistente y escriba el número de seguimiento en el paso 2.
 	
 	Si el número de seguimiento no se actualiza dentro del plazo de 2 semanas desde la creación del trabajo, este expirará.
 
 	Si el estado se encuentra en estado de creación, envío o transferencia, también puede actualizar el número de cuenta del transportista en el paso 2 del asistente. Una vez que el trabajo se encuentre en estado de empaquetado, no podrá actualizar el número de cuenta del transportista de ese trabajo.
 
-## Creación de un trabajo de exportación en el Portal de administración##
+## Crear un trabajo de exportación en el Portal de Azure##
 
 Cree un trabajo de exportación para notificar al servicio de importación y exportación que va a enviar al centro de datos una o varias unidades vacías, para que se exporten los datos de su cuenta de almacenamiento a las unidades y recibirlas posteriormente.
 
-1. 	Para crear un trabajo de exportación, diríjase a su cuenta de almacenamiento en el Portal de administración y visualice el Panel. En **vista rápida**, haga clic en **Crear un trabajo de exportación** y siga los pasos del asistente.
+1. 	Para crear un trabajo de exportación, diríjase a su cuenta de almacenamiento en el [Portal de Azure](portal.azure.com) y acceda al Panel. En **vista rápida**, haga clic en **Crear un trabajo de exportación** y siga los pasos del asistente.
 
 2. 	En el paso 2, proporcione la información de contacto de la persona responsable de este trabajo de exportación. Si desea guardar datos de registro detallados del trabajo de exportación, active la opción **Guardar el registro detallado en mi contenedor de blobs 'waimportexport'**.
 
 3.	En el paso 3, especifique los datos de blobs que desea exportar desde su cuenta de almacenamiento a una o varias unidades vacías. Puede elegir exportar todos los datos de blobs de la cuenta de almacenamiento o especificar los blobs o conjuntos de blobs que se van a exportar.
-
-	![Creación del trabajo de exportación - Paso 3][export-job-03]
 
 	- Para especificar un blob que desea exportar, utilice el selector **Igual a** y especifique la ruta relativa al blob, empezando por el nombre del contenedor. Utilice *$root* para especificar el contenedor raíz.
 	- Para especificar todos los blobs que empiecen por un prefijo, utilice el selector **Empieza por** y especifique el prefijo, empezando por una barra diagonal "/". El prefijo puede ser el prefijo del nombre del contenedor, el nombre del contenedor completo o el nombre del contendor completo seguido del prefijo del nombre del blob.
@@ -140,7 +138,7 @@ Cree un trabajo de exportación para notificar al servicio de importación y exp
 
 	Si todavía no tiene un número de seguimiento, elija **Proporcionaré la información de envío de este trabajo de exportación cuando haya enviado el paquete** y, a continuación, finalice el proceso de exportación.
 
-6. Para escribir el número de seguimiento después de haber enviado el paquete, vuelva a la página **Importación/Exportación** de su cuenta de almacenamiento en el Portal de administración, seleccione el trabajo en la lista y elija **Información de envío**. Navegue por el asistente y escriba el número de seguimiento en el paso 2.
+6. Para escribir el número de seguimiento después de haber enviado el paquete, vuelva a la página **Importación/Exportación** de su cuenta de almacenamiento en el **Portal de Azure**, seleccione el trabajo de la lista y elija [Información de envío](portal.azure.com). Navegue por el asistente y escriba el número de seguimiento en el paso 2.
 	
 	Si el número de seguimiento no se actualiza dentro del plazo de 2 semanas desde la creación del trabajo, este expirará.
 
@@ -148,9 +146,9 @@ Cree un trabajo de exportación para notificar al servicio de importación y exp
 
 > [AZURE.NOTE]Si el blob que se va a exportar está en uso en el momento de la copia en la unidad de disco duro, el servicio de importación y exportación de Azure tomará una instantánea del blob y copiará la instantánea.
 
-## Seguimiento del estado de los trabajos en el Portal de administración##
+## Seguimiento del estado de los trabajos en el Portal de Azure##
 
-Puede realizar el seguimiento del estado de sus trabajos de importación y exportación desde el Portal de administración. Diríjase a su cuenta de almacenamiento en el Portal de administración y haga clic en la pestaña **Importación/Exportación**. En la página aparecerá una lista con sus trabajos. Puede filtrar la lista en función del estado del trabajo, el nombre del trabajo, el tipo de trabajo o el número de seguimiento.
+Puede realizar el seguimiento del estado de sus trabajos de importación y exportación desde el [Portal de Azure](portal.azure.com). Diríjase a su cuenta de almacenamiento en el Portal de administración y haga clic en la pestaña **Importación/Exportación**. En la página aparecerá una lista con sus trabajos. Puede filtrar la lista en función del estado del trabajo, el nombre del trabajo, el tipo de trabajo o el número de seguimiento.
 
 La tabla describe lo que significa cada designación de estado del trabajo.
 
@@ -165,11 +163,9 @@ Complete|El disco duro ya se le ha enviado.
 
 ## Visualización de claves de BitLocker de un trabajo de exportación ##
 
-Para los trabajos de exportación, puede visualizar y copiar las claves de BitLocker que ha generado este servicio para su unidad, de modo que pueda descifrar los datos exportados cuando haya recibido las unidades del centro de datos de Azure. Diríjase a su cuenta de almacenamiento en el Portal de administración y haga clic en la pestaña **Importación/Exportación**. Seleccione su trabajo de exportación de la lista y haga clic en el botón **Ver claves**. Las claves de BitLocker se ven como se muestra a continuación:
+Para los trabajos de exportación, puede visualizar y copiar las claves de BitLocker que ha generado este servicio para su unidad, de modo que pueda descifrar los datos exportados cuando haya recibido las unidades del centro de datos de Azure. Diríjase a su cuenta de almacenamiento en el **Portal de Azure** y haga clic en la pestaña [Importación/Exportación](portal.azure.com). Seleccione su trabajo de exportación de la lista y haga clic en el botón **Ver claves**. Las claves de BitLocker se ven como se muestra a continuación:
 
-![Visualización de claves de BitLocker de un trabajo de exportación][export-job-bitlocker-keys]
-
-## Preguntas frecuentes ##
+## Preguntas más frecuentes ##
 
 ### General
 
@@ -210,7 +206,7 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 
 - Puede cancelar un trabajo si el estado es Creating o Shipping.
 
-**¿Durante cuánto tiempo puedo visualizar el estado de los trabajos completados en el Portal de administración?**
+**¿Durante cuánto tiempo puedo visualizar el estado de los trabajos completados en el Portal de Azure?**
 
 - Puede ver el estado de los trabajos completados durante 90 días. Todos los trabajos completados se eliminarán una vez transcurrido ese plazo.
 
@@ -273,4 +269,4 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

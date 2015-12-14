@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/17/2015" 
+	ms.date="09/17/2015"
 	ms.author="tarcher"/>
 
 # Introducción a Servicios móviles (proyectos .NET)
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
@@ -30,7 +35,7 @@ El primer paso que debe realizar para seguir el código de estos ejemplos depend
 
 #####Obtención de referencia a una tabla
 
-El código siguiente crea una referencia a una tabla (`todoTable`) que contiene datos para TodoItem, que puede utilizar en operaciones posteriores para leer y actualizar la tabla de datos. Necesitará la clase TodoItem con atributos configurados para interpretar el JSON que el servicio móvil envía en respuesta a sus consultas.
+El código siguiente crea una referencia a una tabla (`todoTable`) que contiene datos para TodoItem, que puede usar en operaciones posteriores para leer y actualizar la tabla de datos. Necesitará la clase TodoItem con atributos configurados para interpretar el JSON que el servicio móvil envía en respuesta a sus consultas.
 
 	public class TodoItem
     {
@@ -85,4 +90,4 @@ Elimine una fila en la base de datos. El elemento de parámetro es el objeto Tod
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

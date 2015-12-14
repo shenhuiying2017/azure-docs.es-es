@@ -27,9 +27,9 @@ En esta guía se identifican muchas áreas en las que la planificación es la cl
 
 Este artículo está adaptado del contenido de la entrada de blog [Azure Implementation Guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) (Directrices de implementación de Azure). Gracias a Santiago Cánepa (Director de desarrollo de aplicaciones de Microsoft) y Hugo Salcedo (Director de desarrollo de aplicaciones de Microsoft) por su material original.
 
-> [AZURE.NOTE] Los grupos de afinidad han quedado en desuso. Aquí no se describe su uso. Para obtener más información, consulte [Acerca de las redes virtuales regionales y los grupos de afinidad](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+> [AZURE.NOTE]Los grupos de afinidad han quedado en desuso. Aquí no se describe su uso. Para obtener más información, consulte [Acerca de las redes virtuales regionales y los grupos de afinidad](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
-## 1. Convenciones de nomenclatura
+## 1\. Convenciones de nomenclatura
 
 Debe existir una buena convención de nomenclatura antes de crear cualquier elemento en Azure. Una convención de nomenclatura garantiza que todos los recursos tienen un nombre predecible, lo que ayuda a reducir la carga administrativa asociada a la administración de esos recursos.
 
@@ -39,7 +39,7 @@ Debe acordar por adelantado el conjunto de convenciones de nomenclatura. Existen
 
 ### Afijos
 
-Al crear ciertos recursos, Azure usará algunos valores predeterminados para simplificar la administración de los recursos asociados a dichos recursos. Por ejemplo, al crear la primera máquina virtual para un nuevo servicio en la nube, el Portal de Azure intentará usar el nombre de la máquina virtual como nombre de un nuevo servicio en la nube para la máquina virtual.
+Al crear ciertos recursos, Azure usará algunos valores predeterminados para simplificar la administración de los recursos asociados a dichos recursos. Por ejemplo, al crear la primera máquina virtual para un nuevo servicio en la nube, el Portal de Azure clásico intentará usar el nombre de la máquina virtual como nombre de un nuevo servicio en la nube para la máquina virtual.
 
 Por lo tanto, conviene identificar los tipos de recursos que necesitan un afijo para identificar dicho tipo. Además, especifique claramente si el afijo se pondrá:
 
@@ -119,7 +119,7 @@ Tarea:
 
 - Defina las convenciones de nomenclatura en términos de afijos, jerarquía, valores de cadena y otras directivas de los recursos de Azure.
 
-## 2. Suscripciones y cuentas
+## 2\. Suscripciones y cuentas
 
 Para trabajar con Azure, necesita una o más suscripciones a Azure. Los recursos, como servicios en la nube o máquinas virtuales, existen en el contexto de las suscripciones.
 
@@ -155,7 +155,7 @@ Tarea:
 
 - Cree el conjunto de suscripciones y cuentas usando su convención de nomenclatura.
 
-## 3. Almacenamiento
+## 3\. Almacenamiento
 
 Almacenamiento de Azure es una parte integral de muchas soluciones de Azure. Almacenamiento de Azure proporciona servicios para almacenar datos de archivos, datos sin estructura y mensajes, y también forma parte de la infraestructura que da soporte a las máquinas virtuales.
 
@@ -204,15 +204,15 @@ Decisiones:
 
 Tarea:
 
-- Cree el conjunto de cuentas de almacenamiento usando su convención de nomenclatura. Puede usar el Portal de vista previa de Azure, el Portal de Azure o el cmdlet **New-AzureStorageAccount** de PowerShell.
+- Cree el conjunto de cuentas de almacenamiento usando su convención de nomenclatura. Puede usar el Portal de Azure, el Portal de Azure clásico o el cmdlet **New-AzureStorageAccount** de PowerShell.
 
-## 4. Servicios en la nube
+## 4\. Servicios en la nube
 
 Los servicios en la nube son un pilar fundamental en la administración de servicios de Azure, tanto para los servicios de PaaS como de IaaS. Para PaaS, los servicios en la nube representan una asociación de roles cuyas instancias pueden comunicarse entre sí. Los servicios en la nube están asociados a una dirección IP virtual pública (VIP) y un equilibrador de carga, que toma el tráfico entrante de Internet y equilibra la carga en los roles configurados para recibir ese tráfico.
 
 En el caso de IaaS, los servicios en la nube ofrecen una funcionalidad similar, aunque en la mayoría de los casos la funcionalidad de equilibrador de carga se usa para reenviar el tráfico de los puertos TCP o UDP específicos desde Internet a las diversas máquinas virtuales dentro de ese servicio en la nube.
 
-> [AZURE.NOTE] Los servicios en la nube no existen en el Administrador de recursos de Azure. Para obtener una introducción a las ventajas del Administrador de recursos, vea [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+> [AZURE.NOTE]Los servicios en la nube no existen en el Administrador de recursos de Azure. Para obtener una introducción a las ventajas del Administrador de recursos, vea [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
 Los nombres del servicio en la nube son especialmente importantes en IaaS, ya que Azure los usa como parte de la convención predeterminada de nomenclatura de los discos. El nombre del servicio en la nube solo puede contener letras, números y guiones. El primer y el último carácter del campo deben ser una letra o un número.
 
@@ -232,9 +232,9 @@ Decisión:
 
 Tarea:
 
-- Cree el conjunto de servicios en la nube usando su convención de nomenclatura. Puede usar el Portal de Azure o el cmdlet **New-AzureService** de PowerShell.
+- Cree el conjunto de servicios en la nube usando su convención de nomenclatura. Puede usar el Portal de Azure clásico o el cmdlet **New-AzureService** de PowerShell.
 
-## 5. Redes virtuales
+## 5\. Redes virtuales
 
 El siguiente paso lógico es crear las redes virtuales necesarias para admitir las comunicaciones entre las máquinas virtuales de la solución. Aunque es posible hospedar varias máquinas virtuales de una carga de trabajo de TI en un solo servicio en la nube, se recomiendan las redes virtuales.
 
@@ -274,7 +274,7 @@ Número de máquinas virtuales necesarias | Número de bits de host necesarios |
 28-59 | 6 | /26
 60-123 | 7 | /25
 
-> [AZURE.NOTE] Para las subredes locales normales, el número máximo de direcciones de host para una subred con n bits de host es 2<sup>n</sup> – 2. Para una subred de Azure, el número máximo de direcciones de host para una subred con n bits de host es 2<sup>n</sup> – 5 (2 más 3 para las direcciones que Azure usa en cada subred).
+> [AZURE.NOTE]Para las subredes locales normales, el número máximo de direcciones de host para una subred con n bits de host es 2<sup>n</sup> – 2. Para una subred de Azure, el número máximo de direcciones de host para una subred con n bits de host es 2<sup>n</sup> – 5 (2 más 3 para las direcciones que Azure usa en cada subred).
 
 Si elige un tamaño de subred demasiado pequeño, tendrá que volver a numerar y a implementar las máquinas virtuales en la subred.
 
@@ -290,9 +290,9 @@ Tareas:
 - Defina el espacio de direcciones para la red virtual.
 - Defina el conjunto de subredes y el espacio de direcciones para cada uno.
 - Para las redes virtuales entre locales, defina el conjunto de espacios de direcciones de redes locales para las ubicaciones locales que las máquinas virtuales de la red virtual deben alcanzar.
-- Cree la red virtual usando su convención de nomenclatura. Puede usar el Portal de vista previa de Azure o el Portal de Azure.
+- Cree la red virtual usando su convención de nomenclatura. Puede usar el Portal de Azure o el Portal de Azure clásico.
 
-## 6. Conjuntos de disponibilidad
+## 6\. Conjuntos de disponibilidad
 
 En PaaS de Azure, los servicios en la nube contienen uno o varios roles que ejecutan código de aplicación. Los roles pueden tener una o más instancias de máquina virtual que el tejido aprovisiona automáticamente. En cualquier momento, Azure puede actualizar las instancias de estos roles, pero como forman parte del mismo rol, Azure sabe que no debe actualizarlo todo al mismo tiempo para evitar una interrupción del servicio para el rol.
 
@@ -310,11 +310,11 @@ Tarea:
 
 - Defina el conjunto de conjuntos de disponibilidad usando su convención de nomenclatura. Puede asociar una máquina virtual a un conjunto de disponibilidad al crear las máquinas virtuales, o bien puede asociar una máquina virtual a un conjunto de disponibilidad después de crear la máquina virtual.
 
-## 7. Máquinas virtuales
+## 7\. Máquinas virtuales
 
 En PaaS de Azure, Azure administra las máquinas virtuales y sus discos asociados. Debe crear y asignar un nombre a los servicios en la nube y los roles. Después, Azure creará instancias asociadas a dichos roles. En el caso de IaaS de Azure, depende de usted proporcionar un nombre a los servicios en la nube, las máquinas virtuales y los discos asociados.
 
-Para reducir la carga administrativa, el Portal de Azure usará el nombre del equipo como sugerencia para el nombre predeterminado del servicio en la nube asociado (en caso de que el cliente decida crear un nuevo servicio en la nube como parte del Asistente para la creación de una máquina virtual).
+Para reducir la carga administrativa, el Portal de Azure clásico usará el nombre del equipo como sugerencia para el nombre predeterminado del servicio en la nube asociado (en caso de que el cliente decida crear un nuevo servicio en la nube como parte del Asistente para la creación de una máquina virtual).
 
 Además, Azure asigna un nombre a los discos y a sus blobs de VHD auxiliares combinando el nombre del servicio en la nube, el nombre del equipo y la fecha de creación.
 
@@ -329,7 +329,7 @@ Decisión:
 Tareas:
 
 - Defina el nombre de cada máquina virtual usando su convención de nomenclatura.
-- Cree las máquinas virtuales con el Portal de vista previa de Azure, el Portal de Azure, el cmdlet **New-AzureVM** de PowerShell, la CLI de Azure o las plantillas del Administrador de recursos.
+- Cree las máquinas virtuales con el Portal de Azure, el Portal de Azure clásico, el cmdlet **New-AzureVM** de PowerShell, la CLI de Azure o las plantillas del Administrador de recursos.
 
 ## Ejemplo de carga de trabajo de TI: el motor de análisis financiero de Contoso
 
@@ -377,7 +377,7 @@ Contoso determinó que necesitaba dos cuentas de almacenamiento:
 
 Dado que la red virtual no necesita una conectividad continua con la red local de Contoso, Contoso optó por una red virtual solo en la nube.
 
-Creó una red virtual solo en la nube con la siguiente configuración a través del Portal de vista previa de Azure:
+Creó una red virtual solo en la nube con la siguiente configuración a través del Portal de Azure:
 
 - Nombre: AZFAE-USE-VN01
 - Ubicación: Este de EE. UU. 2
@@ -442,4 +442,4 @@ Esta configuración incluye:
 
 [Proveedores de proceso, red y almacenamiento de Azure en el Administrador de recursos de Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

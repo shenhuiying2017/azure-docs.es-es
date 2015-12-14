@@ -25,7 +25,7 @@ En este tema se describen las instrucciones y limitaciones de la Base de datos S
 
 El servicio de Base de datos SQL de Azure solo está disponible a través del puerto TCP 1433. Para tener acceso a una Base de datos SQL desde el equipo, asegúrese de que el firewall permite la comunicación TCP saliente en el puerto TCP 1433. Como parte del proceso de conexión, las conexiones de máquinas virtuales de Azure se redirigen a una dirección IP y un puerto diferente, único para cada rol de trabajo. El número de puerto estará comprendido en el rango del 11000 al 11999.
 
-Para poder conectarse al servidor de Base de datos SQL de Azure por primera vez, debe usar el [Portal de Azure](https://portal.azure.com) o el [Portal de administración de la plataforma de Azure](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard) para configurar el firewall de la Base de datos SQL de Azure. Necesitará crear una configuración de firewall de nivel de servidor que permita los intentos de conexión desde su equipo o Azure al servidor de Base de datos SQL de Azure. Además, si desea controlar el acceso a determinadas bases de datos en el servidor de Base de datos SQL de Azure, cree reglas de firewall de nivel de base de datos para las bases de datos respectivas. Para obtener más información, vea [Firewall de Base de datos SQL de Azure](sql-database-firewall-configure.md).
+Para poder conectarse al servidor de Base de datos SQL de Azure por primera vez, debe usar el [Portal de Azure clásico](https://portal.azure.com) o el [Portal clásico de la plataforma de Azure](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard) para configurar el firewall de la Base de datos SQL de Azure. Necesitará crear una configuración de firewall de nivel de servidor que permita los intentos de conexión desde su equipo o Azure al servidor de Base de datos SQL de Azure. Además, si desea controlar el acceso a determinadas bases de datos en el servidor de Base de datos SQL de Azure, cree reglas de firewall de nivel de base de datos para las bases de datos respectivas. Para obtener más información, vea [Firewall de Base de datos SQL de Azure](sql-database-firewall-configure.md).
 
 ## Cifrado de la conexión y validación de certificados
 
@@ -111,4 +111,4 @@ Tenga en cuenta los siguientes puntos para que las aplicaciones de Base de datos
 
 [Centro de seguridad para el Motor de base de datos de SQL Server y Base de datos SQL Azure](https://msdn.microsoft.com/library/bb510589)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

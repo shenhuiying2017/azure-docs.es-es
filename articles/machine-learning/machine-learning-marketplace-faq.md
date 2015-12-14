@@ -40,9 +40,9 @@ Debe usar la cuenta de Marketplace como nombre de usuario y la clave de la cuent
 
 Uno o varios parámetros de entrada del servicio web pueden haber excedido el límite de longitud al consumir el servicio web en la página **Explorar este conjunto de datos** de Marketplace. Los servicios pueden llamarse con una longitud de entrada mediante los métodos HTTP POST. Para obtener ejemplos, consulte [Soluciones de ejemplo con R en Aprendizaje automático y publicados en Marketplace](machine-learning-r-csharp-web-service-examples.md).
 
-**4. ¿Por qué no veo nada en la pestaña "EXPLORADOR DE API" en el almacén en el Portal de administración de Azure?**
+**4. ¿Por qué no veo nada en la pestaña "EXPLORADOR DE API" en el almacén en el Portal de Azure clásico?**
 
-Se trata de un problema conocido con el Portal de administración de Azure Marketplace. El equipo está trabajando para resolver este problema.
+Se trata de un problema conocido con el Portal de Azure clásico Marketplace. El equipo está trabajando para resolver este problema.
 
 
 ##Preguntas acerca de la publicación desde Aprendizaje automático de Azure en Marketplace
@@ -77,4 +77,4 @@ Póngase en contacto con el equipo de Azure Marketplace en <datamarketbd@microso
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

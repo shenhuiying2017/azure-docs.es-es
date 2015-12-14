@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Actualización a la Base de datos SQL V12 de Azure mediante el Portal de vista previa de Azure | Microsoft Azure" 
-	description="Explicación acerca de cómo actualizar a la Base de datos SQL V12 de Azure, incluyendo cómo actualizar las bases de datos de tipo Web y Business y cómo actualizar un servidor V11 migrando sus bases de datos directamente a un grupo de bases de datos elásticas mediante el Portal de vista previa de Azure." 
+	pageTitle="Actualización a la Base de datos SQL V12 de Azure mediante el Portal de Azure | Microsoft Azure" 
+	description="Explicación acerca de cómo actualizar a la Base de datos SQL V12 de Azure, incluido cómo actualizar las bases de datos de tipo Web y Business y cómo actualizar un servidor V11 migrando sus bases de datos directamente a un grupo de bases de datos elásticas mediante el Portal de Azure." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -13,15 +13,15 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="11/11/2015" 
+	ms.date="12/01/2015" 
 	ms.author="sstein"/>
 
 
-# Actualización a la Base de datos SQL V12 de Azure mediante el Portal de vista previa de Azure
+# Actualización a la base de datos SQL V12 de Azure con el Portal de Azure
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-upgrade-server-portal.md)
+- [Azure portal](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -54,7 +54,7 @@ Después de realizar la actualización a V12, las [recomendaciones de nivel de s
 
 ## Iniciar la actualización
 
-1. En el [Portal de vista previa de Azure](http://portal.azure.com/) vaya al servidor que desea actualizar seleccionando **EXAMINAR TODO** > **Servidores SQL** y seleccione el servidor deseado.
+1. En el [Portal de Azure](http://portal.azure.com/), vaya al servidor que desea actualizar seleccionando **EXAMINAR TODO** > **Servidores SQL** y seleccione el servidor deseado.
 2. Seleccione **Última actualización de la Base de datos SQL** y, a continuación, seleccione **Actualizar este servidor**.
 
       ![actualizar el servidor][1]
@@ -99,7 +99,7 @@ Cuando todas las bases de datos del servidor sean aptas, estará listo para inic
 
 ## Movimiento de las bases de datos a un grupo de bases de datos elásticas
 
-En el [Portal de vista previa de Azure](https://ms.portal.azure.com/), acceda al servidor V12 y haga clic en **Agregar grupo**.
+En el [Portal de Azure](https://portal.azure.com/), acceda al servidor V12 y haga clic en **Agregar grupo**.
 
 O bien
 
@@ -137,7 +137,7 @@ Información de supervisión adicional:
 
 
 
-**Alertas**: configure "Alertas" en el Portal de Azure para recibir una notificación cuando el consumo de DTU de una base de datos actualizada alcance un determinado nivel. Las alertas de la base de datos pueden configurarse en el Portal de Azure con diferentes métricas de rendimiento como DTU, CPU, E/S y registro. Vaya a la base de datos y seleccione **Reglas de alerta** en la hoja **Configuración**.
+**Alertas:** configure “Alertas” en el Portal de Azure para recibir una notificación cuando el consumo de DTU de una base de datos actualizada alcance un determinado nivel. Las alertas de la base de datos pueden configurarse en el Portal de Azure con diferentes métricas de rendimiento como DTU, CPU, E/S y registro. Vaya a la base de datos y seleccione **Reglas de alerta** en la hoja **Configuración**.
 
 Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje de DTU" si el valor de porcentaje medio de DTU supera el 75 % en los últimos 5 minutos. Consulte [Recibir notificaciones de alerta](insights-receive-alert-notifications.md) para obtener más información acerca de cómo configurar las notificaciones de alerta.
 
@@ -168,4 +168,4 @@ Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje d
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

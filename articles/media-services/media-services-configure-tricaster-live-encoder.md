@@ -22,36 +22,36 @@
 - [Tricaster](media-services-configure-tricaster-live-encoder.md)
 - [Elemental Live](media-services-configure-elemental-live-encoder.md)
 - [Wirecast](media-services-configure-wirecast-live-encoder.md)
-- [FMLE](media-services-configure-fmle-live-encoder.md) 
+- [FMLE](media-services-configure-fmle-live-encoder.md)
 
 En este tema se muestra cómo configurar el codificador en directo [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) para enviar una transmisión con velocidad de bits única a canales AMS habilitados para la codificación en directo. Para obtener más información, consulte [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-En este tutorial se muestra cómo administrar Servicios multimedia de Azure (AMS) con la herramienta Explorador de Servicios multimedia de Azure (AMSE). Esta herramienta solo se ejecuta en Windows PC. Si se encuentra en Mac o Linux, use el Portal de administración de Azure para crear [canales](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) y [programas](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
+En este tutorial se muestra cómo administrar Servicios multimedia de Azure (AMS) con la herramienta Explorador de Servicios multimedia de Azure (AMSE). Esta herramienta solo se ejecuta en Windows PC. Si se encuentra en Mac o Linux, use el Portal de Azure clásico para crear [canales](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) y [programas](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
 
 ##Requisitos previos
 
 - [Creación de una cuenta de Servicios multimedia de Azure](media-services-create-account.md)
-- Asegúrese de que haya un extremo de streaming en ejecución que tenga asignada al menos una unidad de streaming. Para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-manage-origins.md). 
-- Debe instalar la última versión de la herramienta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer). 
+- Asegúrese de que haya un extremo de streaming en ejecución que tenga asignada al menos una unidad de streaming. Para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-manage-origins.md).
+- Debe instalar la última versión de la herramienta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer).
 - Inicie la herramienta y conéctese a la cuenta de AMS.
 
 ##Sugerencias
 
-- Siempre que sea posible, use una conexión a Internet por cable. 
-- Una buena regla general al determinar los requisitos de ancho de banda consiste en duplicar las velocidades de bits de streaming. Aunque no se trata de un requisito obligatorio, contribuirá a mitigar el impacto de la congestión de la red.  
+- Siempre que sea posible, use una conexión a Internet por cable.
+- Una buena regla general al determinar los requisitos de ancho de banda consiste en duplicar las velocidades de bits de streaming. Aunque no se trata de un requisito obligatorio, contribuirá a mitigar el impacto de la congestión de la red.
 - Cuando se usen codificadores por software, cierre todos los programas innecesarios.
- 
+
 ## Crear un canal
 
-1.  En la herramienta AMSE, navegue a la pestaña **Directo** y haga clic con el botón derecho dentro del área de canales. Seleccione **Crear canal...** en el menú.  
+1.  En la herramienta AMSE, navegue a la pestaña **Directo** y haga clic con el botón derecho dentro del área de canales. Seleccione **Crear canal...** en el menú.
 
-	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
+![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
 
 2. Especifique un nombre de canal (el campo de descripción es opcional). En Configuración de canal, seleccione **Estándar** para la opción de codificación en directo, con el protocolo de entrada establecido en **RTMP**. Puede dejar todas las demás opciones como están.
 
 
-	 Asegúrese de que la opción **Iniciar el nuevo canal ahora** esté seleccionada.
- 
+Asegúrese de que la opción **Iniciar el nuevo canal ahora** esté seleccionada.
+
 3. Haga clic en **Crear canal**. ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster2.png)
 
 >[AZURE.NOTE]El canal puede tardar hasta 20 minutos en iniciarse.
@@ -101,7 +101,7 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 
 	Una vez cargado el perfil, continúe con el paso siguiente.
 
-6. Obtenga la dirección URL de entrada del canal para asignarla al **extremo de RTMP** de Tricaster.
+6. Obtenga la dirección URL de entrada del canal para asignarla al **punto de conexión de RTMP** de Tricaster.
 	
 	Navegue de nuevo a la herramienta AMSE y compruebe el estado de finalización del canal. Una vez que se ha cambiado el estado de **Iniciando** a **En ejecución**, puede obtener la dirección URL de entrada.
 	  
@@ -143,7 +143,7 @@ Si se recibe un error, se deberá restablecer el canal y ajustar la configuraci�
   
 	Nota: la creación de programas tarda menos que la creación de canales.
  
-5. Cuando el programa esté en ejecución, confirme la reproducción. Para ello, haga clic con el botón derecho en el programa y navegue a **Reproducir los programas** y, luego, seleccione **con el Reproductor multimedia de Azure**.
+5. Cuando el programa esté en ejecución, confirme la reproducción. Para ello, haga clic con el botón derecho en el programa y vaya a **Reproducir los programas** y seleccione **con el Reproductor multimedia de Azure**.
 6. Una vez confirmada, haga clic con el botón derecho de nuevo en el programa y seleccione **Copiar la URL de salida en el Portapapeles** (o recupere esta información de la opción **Información y configuración del programa** en el menú). 
 
 La transmisión está ahora preparada para insertarse en un reproductor o distribuirse a una audiencia para su visualización en directo.
@@ -162,4 +162,4 @@ Consulte el tema [Solución de problemas](media-services-troubleshooting-live-st
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

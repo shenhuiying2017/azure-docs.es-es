@@ -32,7 +32,7 @@ En este artículo se proporcionan instrucciones sobre cómo usar el Portal de Az
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/es-ES/pricing/free-trial/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Una cuenta de Almacén de Azure Data Lake**. Para obtener instrucciones sobre cómo crear una, consulte la [introducción al Almacén de Azure Data Lake](data-lake-store-get-started-portal.md).
 
 ## Creación de grupos de seguridad en Azure Active Directory
@@ -125,7 +125,7 @@ Al asignar usuarios o grupos de seguridad al sistema de archivos de Azure Data L
 
 ## Quitar grupos de seguridad de una cuenta de Almacén de Azure Data Lake
 
-Cuando quita usuarios o grupos de seguridad de cuentas de Almacén de Azure Data Lake, solamente está cambiando el acceso a las operaciones de administración en la cuenta mediante el Portal de vista previa de Azure y las API del Administrador de recursos de Azure.
+Cuando quita usuarios o grupos de seguridad de cuentas de Almacén de Azure Data Lake, solamente está cambiando el acceso a las operaciones de administración en la cuenta mediante el Portal de Azure y las API del Administrador de recursos de Azure.
 
 1. En la hoja de su cuenta de Almacén de Data Lake, haga clic en el icono de usuarios.
 
@@ -164,4 +164,4 @@ Cuando quita las ACL de grupos de seguridad del sistema de archivos del Almacén
 - [Introducción al Almacén de Azure Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
 - [Introducción al Almacén de Azure Data Lake mediante .NET SDK](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

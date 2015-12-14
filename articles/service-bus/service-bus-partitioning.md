@@ -33,7 +33,7 @@ No hay costos adicionales cuando se envía un mensaje a una cola o tema con part
 
 Para usar colas o temas con particiones con Bus de servicio de Microsoft Azure, use Azure SDK versión 2.2 o posterior, o especifique `api-version=2013-10` en sus solicitudes HTTP.
 
-Puede crear colas y temas de Bus de servicio en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas, el Bus de servicio crea 16 particiones por cada GB que especifique. Por lo tanto, si crea una cola con un tamaño de 5 GB, con 16 particiones, el tamaño de cola máximo se convierte en (5 * 16) = 80 GB. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en el [Portal de Azure][].
+Puede crear colas y temas de Bus de servicio en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas, el Bus de servicio crea 16 particiones por cada GB que especifique. Por lo tanto, si crea una cola con un tamaño de 5 GB, con 16 particiones, el tamaño de cola máximo se convierte en (5 * 16) = 80 GB. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en el [Portal de Azure clásico][].
 
 Hay varias maneras de crear una cola o tema con particiones. Al crear la cola o el tema desde la aplicación, puede habilitar las particiones para la cola o el tema estableciendo respectivamente las propiedades [QueueDescription.EnablePartitioning][] o [TopicDescription.EnablePartitioning][] en **true**. Estas propiedades deben establecerse en el momento de crear la cola o el tema. No es posible cambiar estas propiedades en una cola o tema existente. Por ejemplo:
 
@@ -45,7 +45,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-También puede crear una cola o tema con particiones en Visual Studio o en el [Portal de Azure][]. Al crear una nueva cola o tema en el portal, marque la opción **Habilitar particiones** en la pestaña **Configurar** de la ventana de la cola o del tema. En Visual Studio, haga clic en la casilla **Habilitar particiones** en el cuadro de diálogo **Nueva cola** o **Nuevo tema**.
+También puede crear una cola o tema con particiones en Visual Studio o en el [Portal de Azure clásico][]. Al crear una nueva cola o tema en el portal, marque la opción **Habilitar particiones** en la pestaña **Configurar** de la ventana de la cola o del tema. En Visual Studio, haga clic en la casilla **Habilitar particiones** en el cuadro de diálogo **Nueva cola** o **Nuevo tema**.
 
 ## Uso de claves de partición
 
@@ -128,7 +128,7 @@ En su implementación actual, Bus de servicio impone las siguientes limitaciones
 Consulte la explicación de la compatibilidad con AMQP 1.0 para las colas y temas con particiones de Bus de servicio (próximamente) para obtener más información acerca de las entidades de mensajería con particiones.
 
   [Arquitectura del Bus de servicio]: service-bus-architecture.md
-  [Portal de Azure]: http://manage.windowsazure.com
+  [Portal de Azure clásico]: http://manage.windowsazure.com
   [QueueDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
   [TopicDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx
   [BrokeredMessage.SessionId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx
@@ -144,4 +144,4 @@ Consulte la explicación de la compatibilidad con AMQP 1.0 para las colas y tema
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-entities-amqp-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

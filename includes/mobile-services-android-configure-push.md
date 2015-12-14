@@ -1,5 +1,5 @@
 
-1. Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com/), haga clic en **Servicios móviles** y, a continuación, haga clic en la aplicación.
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en **Servicios móviles** y haga clic en la aplicación.
 
 2. Haga clic en la pestaña **Insertar**, escriba el valor de la **clave API** obtenido de GCM en el procedimiento anterior y, a continuación, haga clic en **Guardar**.
 
@@ -9,4 +9,4 @@
 
 El servicio móvil y la aplicación están ahora configurados para funcionar con GCM y los Centros de notificaciones.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

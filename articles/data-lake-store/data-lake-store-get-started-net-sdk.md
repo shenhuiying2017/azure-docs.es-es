@@ -29,7 +29,7 @@ Aprenda a utilizar el SDK de .NET del Almacén de Azure Data Lake para crear una
 ## Requisitos previos
 
 * Visual Studio 2013 o 2015 Las instrucciones siguientes usan Visual Studio 2015.
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/es-ES/pricing/free-trial/).
+* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Habilite su suscripción de Azure** para la versión de vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
 
 ## Creación de una aplicación .NET
@@ -223,4 +223,4 @@ Aprenda a utilizar el SDK de .NET del Almacén de Azure Data Lake para crear una
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -22,8 +22,8 @@
 # Configuración de SSL para una aplicación en Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-configure-ssl-certificate.md)
-- [Azure Preview Portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
+- [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
 
 El cifrado de Capa de sockets seguros (SSL) es el método más usado para proteger los datos que se envían por Internet. Esta tarea común analiza cómo especificar un extremo HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación.
 
@@ -114,9 +114,9 @@ Ahora que se actualizaron los archivos de definición del servicio y configuraci
 
 ## Paso 3: Cargar un certificado
 
-Su paquete de implementación se actualizó para usar el certificado y se agregó un extremo HTTPS. Ahora podrá cargar el paquete y el certificado en Azure con el Portal de administración.
+Su paquete de implementación se actualizó para usar el certificado y se agregó un extremo HTTPS. Ahora podrá cargar el paquete y el certificado en Azure con el Portal de Azure clásico.
 
-1. Inicie sesión en el [Portal de administración de Azure][]. 
+1. Inicie sesión en el [Portal de Azure clásico][]. 
 2. Haga clic en **Servicios en la nube** en el panel de navegación izquierdo.
 3. Haga clic en el servicio en la nube deseado.
 4. Haga clic en la ficha **Certificados**.
@@ -133,7 +133,7 @@ Su paquete de implementación se actualizó para usar el certificado y se agreg�
 
 Ahora que su implementación está funcionando en Azure, puede conectarse a ella con HTTPS.
 
-1.  En el Portal de administración, seleccione su implementación y, a continuación, haga clic en vínculo en **Dirección URL del sitio**.
+1.  En el Portal de Azure clásico, seleccione su implementación y, a continuación, haga clic en el vínculo de **Dirección URL del sitio**.
 
     ![Determinar URL del sitio][2]
 
@@ -143,7 +143,7 @@ Ahora que su implementación está funcionando en Azure, puede conectarse a ella
 
     ![Ejemplo de sitio web con SSL][3]
 
-Si desea usar SSL para una implementación de ensayo en vez de una implementación de producción, tendrá que determinar primero la dirección URL que se usó para la implementación de ensayo. Implemente su servicio en la nube para el entorno de ensayo sin incluir un certificado ni ninguna información del certificado. Una vez implementado, puede determinar la dirección URL basada en el GUID, que se incluye en el campo **Dirección URL del sitio** del Portal de administración. Cree un certificado con un nombre común (CN) igual a la dirección URL basada en el GUID (por ejemplo, 32818777-6e77-4ced-**a8fc-57609d404462.cloudapp.net**), use el Portal de administración para agregar el certificado al servicio en la nube de ensayo, agregue la información del certificado a los archivos CSDEF y CSCFG, vuelva a empaquetar la aplicación y actualice la implementación de ensayo para usar el paquete y el archivo CSCFG nuevos.
+Si desea usar SSL para una implementación de ensayo en vez de una implementación de producción, tendrá que determinar primero la dirección URL que se usó para la implementación de ensayo. Implemente su servicio en la nube para el entorno de ensayo sin incluir un certificado ni ninguna información del certificado. Una vez implementado, puede determinar la dirección URL basada en el GUID, que se incluye en el campo **Dirección URL del sitio** del Portal de Azure clásico. Cree un certificado con un nombre común (CN) igual a la dirección URL basada en el GUID (por ejemplo, **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**), use el Portal de Azure clásico para agregar el certificado al servicio en la nube de ensayo, agregue la información del certificado a los archivos CSDEF y CSCFG, vuelva a empaquetar la aplicación y actualice la implementación de ensayo para usar el paquete y el archivo CSCFG nuevos.
 
 ## Pasos siguientes
 
@@ -153,11 +153,11 @@ Si desea usar SSL para una implementación de ensayo en vez de una implementaci�
 * [Administración de su servicio en la nube](cloud-services-how-to-manage.md).
 
 
-  [Portal de administración de Azure]: http://manage.windowsazure.com
+  [Portal de Azure clásico]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
   [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
   [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

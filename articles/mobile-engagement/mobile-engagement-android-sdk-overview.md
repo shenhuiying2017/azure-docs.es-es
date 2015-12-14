@@ -35,15 +35,19 @@ Haga clic para ver el [contenido del SDK](mobile-engagement-android-sdk-content.
 
 ##Notas de la versión
 
+##4\.1.2 (25/11/2015)
+
+- Mejoras de estabilidad.
+
 ##4\.1.1 (11/04/2015)
 
-Mejoras de estabilidad.
+- Mejoras de estabilidad.
 
 ##4\.1.0 (08/25/2015)
 
 - Controle el nuevo modelo de permiso para Android M.
 - Ahora puede configurar las características de ubicación en tiempo de ejecución en lugar de usar `AndroidManifest.xml`.
-- Corrección de un error de permiso: si usa `ACCESS_FINE_LOCATION`, ya no es necesario `ACCESS_COARSE_LOCATION`.
+- Corrija un error de permiso: si usa `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` ya no es necesario.
 - Mejoras de estabilidad.
 
 Para la versión anterior, consulte las [notas de la versión completas](mobile-engagement-android-release-notes.md).
@@ -52,4 +56,4 @@ Para la versión anterior, consulte las [notas de la versión completas](mobile-
 
 Si ya ha integrado una versión anterior de nuestro SDK en su aplicación, consulte [Procedimientos de actualización](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

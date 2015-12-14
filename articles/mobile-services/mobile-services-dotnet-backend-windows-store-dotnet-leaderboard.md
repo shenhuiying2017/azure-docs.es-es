@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Creación de una aplicación de marcador de Tienda Windows con el backend .NET | Servicios móviles de Azure" 
-	description="Obtenga información acerca de cómo crear una aplicación de marcador de Tienda Windows mediante los Servicios móviles de Azure con un backend. NET." 
-	documentationCenter="windows" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="jimbe" 
+<properties
+	pageTitle="Creación de una aplicación de marcador de Tienda Windows con el backend .NET | Servicios móviles de Azure"
+	description="Obtenga información acerca de cómo crear una aplicación de marcador de Tienda Windows mediante los Servicios móviles de Azure con un backend. NET."
+	documentationCenter="windows"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor="jimbe"
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/19/2015"
 	ms.author="glenga"/>
 
 # Creación de una aplicación de marcador con el backend .NET de Servicios móviles de Azure
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 En este tutorial se muestra cómo compilar una aplicación de la Tienda Windows con el backend .NET de Servicios móviles de Azure. Servicios móviles de Azure proporciona un backend seguro y escalable con autenticación, supervisión, notificaciones de inserción y otras características integradas, además de una biblioteca de cliente multiplataforma para compilar aplicaciones móviles. El back-end de .NET de Servicios móviles se basa en [ASP.NET Web API](http://asp.net/web-api), y ofrece a los desarrolladores de .NET una forma excepcional de crear API REST.
 
@@ -24,9 +29,9 @@ En este tutorial se muestra cómo compilar una aplicación de la Tienda Windows 
 
 Web API es un marco de código abierto que ofrece a los desarrolladores de .NET un forma excepcional de crear API REST. Puede hospedar una solución Web API en Sitios web de Azure, en Servicios móviles de Azure usando el backend .NET o, incluso, semihospedado en un proceso personalizado. Servicios móviles es un entorno de hospedaje diseñado especialmente para aplicaciones móviles. Si hospeda su servicio Web API en Servicios móviles, obtiene las siguientes ventajas además del almacenamiento de datos:
 
-- Autenticación integrada con proveedores sociales y Azure Active Directory (AAD). 
+- Autenticación integrada con proveedores sociales y Azure Active Directory (AAD).
 - Notificaciones de inserción a aplicaciones mediante servicios de notificación específicos del dispositivo.
-- Conjunto completo de bibliotecas de cliente que facilita el acceso al servicio desde cualquier aplicación. 
+- Conjunto completo de bibliotecas de cliente que facilita el acceso al servicio desde cualquier aplicación.
 - Funciones de registro y diagnóstico integradas.
 
 En este tutorial, aprenderá lo siguiente:
@@ -71,11 +76,11 @@ Inicie Visual Studio y cree un proyecto nuevo de aplicación web ASP.NET. Dele a
 En Visual Studio 2013, el proyecto de aplicación web ASP.NET incluye ahora una plantilla para Servicios móviles de Azure. Seleccione esta plantilla y haga clic en **Aceptar**.
 
 ![][4]
- 
+
 La plantilla del proyecto incluye un controlador y un objeto de datos de ejemplo.
 
 ![][5]
- 
+
 No son necesarios para el tutorial, así que puede eliminarlos del proyecto. Quite también las referencias a TodoItem en WebApiConfig.cs y LeaderboardContext.cs.
 
 ## Incorporación de modelos de datos
@@ -83,7 +88,7 @@ No son necesarios para el tutorial, así que puede eliminarlos del proyecto. Qui
 Va a usar [EF Code First](http://msdn.microsoft.com/data/ee712907#codefirst) para definir las tablas de la base de datos. En la carpeta DataObjects, agregue una clase llamada `Player`.
 
 	using Microsoft.WindowsAzure.Mobile.Service;
-	
+
 	namespace Leaderboard.DataObjects
 	{
 	    public class Player : EntityData
@@ -96,14 +101,14 @@ Agregue otra clase llamada `PlayerRank`.
 
 	using Microsoft.WindowsAzure.Mobile.Service;
 	using System.ComponentModel.DataAnnotations.Schema;
-	
+
 	namespace Leaderboard.DataObjects
 	{
 	    public class PlayerRank : EntityData
 	    {
 	        public int Score { get; set; }
 	        public int Rank { get; set; }
-	
+
 	        [ForeignKey("Id")]
 	        public virtual Player Player { get; set; }
 	    }
@@ -124,10 +129,10 @@ Haga clic con el botón derecho en la carpeta Controladores > **Agregar** > **Nu
 En el cuadro de diálogo **Agregar scaffold**, expanda **Común** a la izquierda y seleccione **Servicios móviles de Azure**. Luego seleccione **Controlador de tabla de Servicios móviles de Azure**. Haga clic en **Agregar**.
 
 ![][7]
- 
+
 En el cuadro de diálogo **Agregar controlador**:
 
-1.	En **Clase de modelo**, seleccione Player. 
+1.	En **Clase de modelo**, seleccione Player.
 2.	En **Clase de contexto de datos**, seleccione MobileServiceContext.
 3.	Dele el nombre “PlayerController” al controlador.
 4.	Haga clic en **Agregar**.
@@ -138,9 +143,9 @@ Este paso agrega un archivo denominado PlayerController.cs al proyecto.
 ![][8]
 
 El controlador se deriva de **TableController<T>**. Esta clase hereda **ApiController**, pero es específica para los Servicios móviles de Azure.
- 
+
 - Enrutamiento: la ruta predeterminada para una clase **TableController** es `/tables/{table_name}/{id}`, donde *table\_name* coincide con el nombre de entidad. Por tanto, la ruta para el controlador Player es */tables/player/{id}*. Esta convención de enrutamiento hace que **TableController** sea coherente con la [API REST](http://msdn.microsoft.com/library/azure/jj710104.aspx) de Servicios móviles.
-- Acceso a datos: para las operaciones de base de datos, la clase **TableController** usa la interfaz **IDomainManager**, que define una abstracción para el acceso a los datos. La técnica de scaffolding utiliza **EntityDomainManager**, que es una implementación concreta de **IDomainManager** que contiene un contexto de EF. 
+- Acceso a datos: para las operaciones de base de datos, la clase **TableController** usa la interfaz **IDomainManager**, que define una abstracción para el acceso a los datos. La técnica de scaffolding utiliza **EntityDomainManager**, que es una implementación concreta de **IDomainManager** que contiene un contexto de EF.
 
 Ahora agregue un segundo controlador para entidades PlayerRank. Siga los mismos pasos, pero elija PlayerRank para la clase de modelo. Utilice la misma clase de contexto de datos; no cree una nueva. Dele el nombre “PlayerRankController” al controlador.
 
@@ -167,7 +172,7 @@ La biblioteca de cliente de Servicios móviles no admite propiedades de navegaci
 	Expires: 0
 	Server: Microsoft-IIS/8.0
 	Date: Mon, 21 Apr 2014 17:58:43 GMT
-	
+
 	[{"id":"1","rank":1,"score":150},{"id":"2","rank":3,"score":100},{"id":"3","rank":1,"score":150}]
 
 Observe que `Player` no está incluido en el gráfico de objeto. Para incluir player, podemos definir un *objeto de transferencia de datos* (DTO) para dejar el gráfico de objeto sin formato.
@@ -198,7 +203,7 @@ En la clase `PlayerRankController`, vamos a usar el método **Select** de LINQ p
 	        Rank = x.Rank
 	    });
 	}
-	
+
 	// GET tables/PlayerRank/48D68C86-6EA6-4C25-AA33-223FC9A27959
 	public SingleResult<PlayerRankDto> GetPlayerRank(string id)
 	{
@@ -209,7 +214,7 @@ En la clase `PlayerRankController`, vamos a usar el método **Select** de LINQ p
 	        Score = x.Score,
 	        Rank = x.Rank
 	    });
-	
+
 	    return SingleResult<PlayerRankDto>.Create(result);
 	}
 
@@ -223,7 +228,7 @@ Con estos cambios, los dos métodos GET devuelven objetos `PlayerRankDto` al cli
 	Expires: 0
 	Server: Microsoft-IIS/8.0
 	Date: Mon, 21 Apr 2014 19:57:08 GMT
-	
+
 	[{"id":"1","playerName":"Alice","score":150,"rank":1},{"id":"2","playerName":"Bob","score":100,"rank":3},{"id":"3","playerName":"Charles","score":150,"rank":1}]
 
 Observe que la carga de JSON incluye ahora los nombres de jugador.
@@ -264,8 +269,8 @@ En la clase `PlayerRankController`, mueva la variable `MobileServiceContext` del
 
 Elimine los siguientes métodos de `PlayerRankController`:
 
-- `PatchPlayerRank` 
-- `PostPlayerRank` 
+- `PatchPlayerRank`
+- `PostPlayerRank`
 - `DeletePlayerRank`
 
 Después agregue el siguiente código a `PlayerRankController`:
@@ -314,11 +319,11 @@ El método `PostPlayerScore` toma una instancia de `PlayerScore` como entrada. (
 2.	Actualiza la puntuación del jugador.
 3.	Ejecuta una consulta SQL que actualiza por lotes todas las clasificaciones de los jugadores.
 
-El atributo **Route** define una ruta personalizada para este método:
+El atributo **[Route]** define una ruta personalizada para este método:
 
 	[Route("api/score")]
 
-También puede poner el método en un controlador aparte. No hay ninguna ventaja particular de cualquier de las maneras, solo depende de cómo desea organizar el código. Para obtener más información sobre el atributo **[Route]**, consulte [Enrutamiento de atributos en Web AP](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2)I.
+También puede poner el método en un controlador aparte. No hay ninguna ventaja particular de cualquier de las maneras, solo depende de cómo desea organizar el código. Para obtener más información sobre el atributo **[Route]**, consulte [Enrutamiento de atributos en la API de la Web](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2).
 
 ## Creación de una aplicación de la Tienda Windows
 
@@ -327,7 +332,7 @@ En esta sección, se describe la aplicación de la Tienda Windows que usa el ser
 Agregue un nuevo proyecto de aplicación de la Tienda Windows a la solución. Aquí hemos usado la plantilla Aplicación vacía (Windows).
 
 ![][10]
- 
+
 Utilice el Administrador de paquetes de NuGet para agregar la biblioteca de cliente de Servicios móviles. En Visual Studio, en el menú **Herramientas**, seleccione **Administrador de paquetes de NuGet**. Seleccione **Consola del Administrador de paquetes**. En la ventana Consola del Administrador de paquetes, escriba el siguiente comando.
 
 	Install-Package WindowsAzure.MobileServices -Project LeaderboardApp
@@ -346,7 +351,7 @@ Cree una carpeta denominada Models y agregue las siguientes clases:
 	        public string Id { get; set; }
 	        public string Name { get; set; }
 	    }
-	
+
 	    public class PlayerRank
 	    {
 	        public string Id { get; set; }
@@ -354,7 +359,7 @@ Cree una carpeta denominada Models y agregue las siguientes clases:
 	        public int Score { get; set; }
 	        public int Rank { get; set; }
 	    }
-	
+
 	    public class PlayerScore
 	    {
 	        public string PlayerId { get; set; }
@@ -363,13 +368,13 @@ Cree una carpeta denominada Models y agregue las siguientes clases:
 	}
 
 Estas clases corresponden directamente a entidades de datos en el servicio móvil.
- 
+
 ## Creación de un modelo de vista
 
 Model-View-ViewModel (MVVM) es una variante de Model-View-Controller (MVC). El modelo MVVM permite separar la lógica de la aplicación de la presentación.
 
 - Representa los datos del dominio (jugador, clasificación y puntuación).
-- El modelo de vista es una representación abstracta de la vista. 
+- El modelo de vista es una representación abstracta de la vista.
 - La vista muestra el modelo de vista y envía la entrada de usuario al modelo de vista. Para una aplicación de la Tienda Windows, la vista se define en XAML.
 
 ![][11]
@@ -381,13 +386,13 @@ Agregue una clase denominada `LeaderboardViewModel`.
 	using System.ComponentModel;
 	using System.Net.Http;
 	using System.Threading.Tasks;
-	
+
 	namespace LeaderboardApp.ViewModel
 	{
 	    class LeaderboardViewModel : INotifyPropertyChanged
 	    {
 	        MobileServiceClient _client;
-	
+
 	        public LeaderboardViewModel(MobileServiceClient client)
 	        {
 	            _client = client;
@@ -417,7 +422,7 @@ Implemente **INotifyPropertyChanged** en el modelo de vista para que este pueda 
                 PropertyChanged(this,
                     new PropertyChangedEventArgs(propertyName));
             }
-        }    
+        }
     }
 
 Después, agregue propiedades observables. El código XAML enlazará estas propiedades a datos.
@@ -541,8 +546,8 @@ Finalmente, agregue métodos que llamen a la capa de servicio.
             {
                 PlayerId = player.Id,
                 Score = score
-            }; 
-            
+            };
+
             try
             {
                 await _client.InvokeApiAsync<PlayerScore, object>("score", playerScore);
@@ -584,7 +589,7 @@ Finalmente, agregue métodos que llamen a la capa de servicio.
             {
                 IsPending = false;
             }
-         }    
+         }
     }
 
 ## Incorporación de una instancia de MobileServiceClient
@@ -593,7 +598,7 @@ Abra el archivo *App.xaml.cs* y agregue una instancia de **MobileServiceClient**
 
 	// New code:
 	using Microsoft.WindowsAzure.MobileServices;
-	
+
 	namespace LeaderboardApp
 	{
 	    sealed partial class App : Application
@@ -602,8 +607,8 @@ Abra el archivo *App.xaml.cs* y agregue una instancia de **MobileServiceClient**
 	        // TODO: Replace 'port' with the actual port number.
 	        const string serviceUrl = "http://localhost:port/";
 	        public static MobileServiceClient MobileService = new MobileServiceClient(serviceUrl);
-	
-	
+
+
 	        // ...
 	    }
 	}
@@ -633,7 +638,7 @@ Como hemos mencionado antes, no vamos a mostrar todo el código XAML de la aplic
 
 La lista de jugadores se muestra en un control **ListBox**:
 
-	<ListBox Width="200" Height="400" x:Name="PlayerListBox" 
+	<ListBox Width="200" Height="400" x:Name="PlayerListBox"
 	    ItemsSource="{Binding Players}" DisplayMemberPath="Name"/>
 
 Las clasificaciones se muestran en un control **ListView**:
@@ -663,13 +668,13 @@ Todo el enlace de datos tiene lugar a través del modelo de vista.
 En este paso, va a publicar su servicio móvil en Microsoft Azure y va a modificar la aplicación para que use el servicio en directo.
 
 En el Explorador de soluciones, haga clic con el botón derecho en el proyecto de marcador (Leaderboard) y seleccione **Publicar**.
- 
+
 ![][12]
 
 En el cuadro de diálogo **Publicar**, haga clic en **Servicios móviles de Azure**.
 
 ![][13]
- 
+
 Si no ha iniciado sesión con su cuenta de Azure, haga clic en **Iniciar sesión**.
 
 ![][14]
@@ -678,7 +683,7 @@ Si no ha iniciado sesión con su cuenta de Azure, haga clic en **Iniciar sesión
 Seleccione un servicio móvil o haga clic en **Nuevo** para crear uno nuevo. Después, haga clic en **Aceptar** para publicar el servicio.
 
 ![][15]
- 
+
 El proceso de publicación crea automáticamente la base de datos. No es necesario que configure una cadena de conexión.
 
 Ahora ya puede conectar la aplicación de marcador al servicio en directo. Necesita dos cosas:
@@ -686,15 +691,15 @@ Ahora ya puede conectar la aplicación de marcador al servicio en directo. Neces
 - La dirección URL del servicio
 - La clave de la aplicación
 
-Puede obtener ambas en el Portal de administración de Azure. En el Portal de administración, haga clic en **Servicios móviles** y elija el servicio móvil. En la ficha Panel, aparece la dirección URL del servicio. Para obtener la clave de la aplicación, haga clic en **Administrar claves**.
+Puede obtener ambas en el Portal de Azure clásico. En el Portal, haga clic en **Servicios móviles** y elija el servicio móvil. En la ficha Panel, aparece la dirección URL del servicio. Para obtener la clave de la aplicación, haga clic en **Administrar claves**.
 
 ![][16]
- 
+
 En el cuadro de diálogo **Administrar claves de acceso**, copie el valor de la clave de la aplicación.
 
 ![][17]
 
- 
+
 Pase la dirección URL del servicio y la clave de la aplicación al constructor **MobileServiceClient**.
 
     sealed partial class App : Application
@@ -761,6 +766,4 @@ Ahora, cuando ejecuta la aplicación, se comunica con el servicio real.
 [Incorporación de notificaciones de inserción]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
- 
-
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Administración del servicio Administrador de StorSimple | Microsoft Azure"
-   description="Obtenga información acerca de cómo administrar su dispositivo StorSimple mediante el servicio Administrador de StorSimple en el Portal de administración de Azure."
+   description="Obtenga información sobre cómo administrar su dispositivo StorSimple mediante el servicio Administrador de StorSimple en el Portal de Azure clásico."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/11/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple
@@ -30,13 +30,13 @@ Después de leer este artículo, aprenderá a:
 
 ## Conectarse al servicio de Administrador de StorSimple
 
-El servicio StorSimple Manager se ejecuta en Microsoft Azure y se conecta a varios dispositivos StorSimple. Utilice un Portal de administración de Microsoft Azure central que se ejecute en un navegador para administrar estos dispositivos. Para conectarse al servicio de Administrador de StorSimple, haga lo siguiente.
+El servicio StorSimple Manager se ejecuta en Microsoft Azure y se conecta a varios dispositivos StorSimple. Use un Portal de Microsoft Azure clásico central que se ejecute en un navegador para administrar estos dispositivos. Para conectarse al servicio de Administrador de StorSimple, haga lo siguiente.
 
 #### Para conectarse al servicio
 
 1. Vaya a [http://azure.microsoft.com/](http://azure.microsoft.com/)
 
-1. Con las credenciales de su cuenta Microsoft, inicie sesión en el Portal de administración de Microsoft Azure (situado en la parte superior derecha del panel).
+1. Con las credenciales de su cuenta Microsoft, inicie sesión en el Portal de Microsoft Azure clásico (situado en la parte superior derecha del panel).
 
 1. Desplácese hacia abajo en el panel de navegación izquierdo para obtener acceso al servicio de Administrador de StorSimple.
 
@@ -57,11 +57,7 @@ En la tabla siguiente se muestra la jerarquía de navegación de la IU del servi
 |Página de aterrizaje|Páginas de nivel de servicio|Páginas de nivel de dispositivo|Páginas de nivel de dispositivo|
 |---|---|---|---|
 |Servicio StorSimple Manager|Panel del servicio|Panel del dispositivo||
-|| Dispositivos →| Supervisión|| 
-|| Catálogo de copias de seguirdad| Contenedores→| de volúmenes| 
-|| Configurar (servicio) | Directivas de copia de seguridad|| 
-|| Trabajos| Configurar (dispositivo) || 
-|| Alerts| Mantenimiento||
+|| Dispositivos →| Supervisión| || Catálogo de copias de seguirdad| Contenedores→| de volúmenes| || Configurar (servicio) | Directivas de copia de seguridad|| || Trabajos| Configurar (dispositivo) | || Alerts| Mantenimiento|
 
 ![Vídeo disponible](./media/storsimple-manager-service-administration/Video_icon.png) **Vídeo disponible**
 
@@ -116,4 +112,4 @@ Si no puede resolver los problemas y necesita crear una solicitud de servicio, c
 
 -  [Contactar al servicio técnico de Microsoft](storsimple-contact-microsoft-support.md)
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

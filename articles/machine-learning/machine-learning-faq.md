@@ -93,8 +93,9 @@ En el caso de conjuntos de datos que tengan más de dos gigas, hay que cargar lo
 
 **¿Se pueden leer datos de Amazon S3?**
 
-Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo de [lectura][reader]. Para transferir grandes cantidades de datos al almacenamiento de Azure, en primer lugar, hay que realizar la transferencia y, a continuación, utilizar el módulo de [lectura][reader] para incluirlos en el experimento. 
-<!--<SEE CLOUD DS PROCESS>-->
+Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo de [lectura][reader]. Para transferir grandes cantidades de datos al almacenamiento de Azure, en primer lugar, hay que realizar la transferencia y, a continuación, utilizar el módulo de [lectura][reader] para incluirlos en el experimento. <!--
+<SEE CLOUD DS PROCESS>
+-->
 
 **¿Hay una capacidad integrada para usar una entrada de imagen?**
 
@@ -211,7 +212,7 @@ También puede usar las API de reciclaje. El código de ejemplo está disponible
 
 **¿Cómo se supervisa el servicio web implementado en producción?**
 
-Cuando el modelo predictivo se ha puesto en producción, lo puede supervisar desde el Portal de Azure. Cada servicio implementado cuenta con su propio panel, donde se puede ver la información de supervisión de ese servicio.
+Cuando el modelo predictivo se ha puesto en producción, lo puede supervisar desde el Portal de Azure clásico. Cada servicio implementado cuenta con su propio panel, donde se puede ver la información de supervisión de ese servicio.
 
 **¿Hay algún lugar donde pueda ver la salida de mi RRS/BES?**
 
@@ -265,7 +266,7 @@ Nº
 
 **De forma predeterminada, ¿quién tiene acceso al punto final http del servicio web implementado en producción? ¿Cómo se restringe el acceso al punto final?**
 
-Cuando se implementa un servicio web, creamos un extremo predeterminado para ese servicio. Ese extremo predeterminado se implementa en producción y se puede llamar mediante su clave de API. Los extremos adicionales se pueden agregar con sus propias claves desde el Portal de Azure o mediante programación con la API de administración de servicios web. Las claves de acceso son necesarias para realizar llamadas al servicio web en producción y ensayo. Para obtener más información, consulte [Conexión a un servicio web de Aprendizaje automático](machine-learning-connect-to-azure-machine-learning-web-service.md).
+Cuando se implementa un servicio web, creamos un extremo predeterminado para ese servicio. Ese extremo predeterminado se implementa en producción y se puede llamar mediante su clave de API. Los puntos de conexión adicionales se pueden agregar con sus propias claves desde el Portal de Azure clásico o mediante programación con las API de administración de servicios web. Las claves de acceso son necesarias para realizar llamadas al servicio web en producción y ensayo. Para obtener más información, consulte [Conexión a un servicio web de Aprendizaje automático](machine-learning-connect-to-azure-machine-learning-web-service.md).
 
 
 **¿Qué ocurre si no encuentro mi cuenta de almacenamiento?**
@@ -277,7 +278,7 @@ Si elimina accidentalmente la cuenta de almacenamiento, la única manera de recu
 
 **¿Qué sucede si la clave de acceso de mi cuenta de almacenamiento no está sincronizada?** Estudio de aprendizaje automático depende de la cuenta de almacenamiento de Azure que proporciona el usuario para guardar datos intermediarios al ejecutar el flujo de trabajo. Esta cuenta de almacenamiento se transmite a Estudio de aprendizaje automático en el momento de crear un área de trabajo. Las claves de acceso se asocian a dicha área de trabajo. Una vez que se crea el área de trabajo, si se cambian las claves de acceso, el área de trabajo no podrá acceder a la cuenta de almacenamiento, por lo que dejará de funcionar y todos experimentación que haya en ella fallarán.
 
-Si han cambiado las claves de acceso de la cuenta de almacenamiento, asegúrese de resincronizar las claves de acceso en la configuración del área de trabajo en el portal de Azure.
+Si han cambiado las claves de acceso de la cuenta de almacenamiento, asegúrese de resincronizar las claves de acceso en la configuración del área de trabajo en el Portal de Azure clásico
 
 
 ## Azure Marketplace
@@ -309,4 +310,4 @@ El Aprendizaje automático de Azure cuenta también con un foro de la comunidad 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Latencias de informes de Azure Active Directory | Microsoft Azure"
-   description="Cantidad de tiempo necesario para que los eventos de informes aparezcan en su Azure Active Directory"
+   description="Cantidad de tiempo necesaria para que los eventos de informes aparezcan en su directorio de Azure Active Directory"
    services="active-directory"
    documentationCenter=""
    authors="kenhoff"
@@ -13,10 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/09/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
 # Latencias de informes de Azure Active Directory
+
+## Artículos de documentación de informes
+
+ - [API de Informes](active-directory-reporting-api-getting-started.md)
+ - [Eventos de auditoría](active-directory-reporting-audit-events.md)
+ - [Retención](active-directory-reporting-retention.md)
+ - [Vistas previas](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [Reposición](active-directory-reporting-backfill.md)
+ - [Latencias](active-directory-reporting-latencies.md)
+ - [Evento "Actor desconocido"](active-directory-reporting-unknown-actor.md)
 
 Informe | Mínima | Media | Máxima
 ------------------------------------------------------- | -------- | ---------- | ----------
@@ -50,4 +61,4 @@ Uso de aplicaciones habilitadas para RMS | 2 horas | 4 horas | 8 horas
 **Informes de vista previa privada** | | |
 Actividad de inicio de sesión de todos los usuarios | 2 horas | 4 horas | 8 horas
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

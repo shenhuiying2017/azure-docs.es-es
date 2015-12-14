@@ -186,7 +186,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
      a. En el cuadro de texto **Nombre de atributo**, escriba ****https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
-     b. En el cuadro de texto **Nombre de atributo**, escriba ****mail**.
+     b. En el cuadro de texto **Nombre de atributo**, escriba **userprincipalname**.
 
      c. Haga clic en **Completar** para cerrar el cuadro de diálogo **Agregar atributo de usuario**.
 
@@ -249,7 +249,7 @@ El objetivo de esta sección es crear un usuario llamado Britta Simon en Amazon 
 
 5. En el cuadro de diálogo Crear usuario, realice los pasos siguientes: <br><br>![Configurar inicio de sesión único][30]<br>
 
-     a. En los cuadros de texto **Escribir nombres de usuario**, escriba el nombre de usuario Brita Simon en Azure AD.
+     a. En los cuadros de texto **Escribir nombres de usuario**, escriba el nombre de usuario de Brita Simon (userprincipalname) en Azure AD.
 
      b. Haga clic en **Crear**.
 
@@ -320,4 +320,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

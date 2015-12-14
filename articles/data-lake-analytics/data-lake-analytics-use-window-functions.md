@@ -733,14 +733,14 @@ PERCENTILE\_DISC no interpola valores, por lo que la mediana de Web es 200, que 
 ## Consulte también
 
 - [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-- [Introducción a Análisis de Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-get-started-portal.md)
+- [Introducción a Análisis de Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md)
 - [Introducción a Análisis de Data Lake mediante Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Uso de tutoriales interactivos de Análisis de Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
 - [Análisis de registros de sitios web mediante Análisis de Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
-- [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
-- [Administración de Análisis de Azure Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-use-portal.md)
+- [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake.](data-lake-analytics-u-sql-get-started.md)
+- [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-use-portal.md)
 - [Administración de Análisis de Azure Data Lake mediante Azure Powershell](data-lake-analytics-use-powershell.md)
-- [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

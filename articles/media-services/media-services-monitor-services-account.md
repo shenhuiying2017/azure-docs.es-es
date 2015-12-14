@@ -24,11 +24,11 @@ El panel Servicios multimedia de Azure presenta las métricas de uso y la inform
 
 Puede supervisar el número de trabajos de codificación en cola, tareas de codificación con error, trabajos de codificación activos representados por los datos de entrada y salida del codificador, así como el uso de almacenamiento de blobs asociados a la cuenta de Servicios multimedia. Además, si está realizando streaming de contenido a los clientes, puede recuperar también varias métricas de streaming. Puede elegir supervisar los datos durante las últimas 6 horas, 24 horas o 7 días.
  
->[AZURE.NOTE]Existen costes adicionales asociados a la supervisión de los datos de almacenamiento en el Portal de administración de Azure. Para obtener más información, consulte[ Facturación y análisis de almacenamiento](http://go.microsoft.com/fwlink/?LinkId=256667).
+>[AZURE.NOTE]Los costes adicionales están asociados a la supervisión de los datos de almacenamiento en el Portal de Azure clásico. Para obtener más información, consulte[ Facturación y análisis de almacenamiento](http://go.microsoft.com/fwlink/?LinkId=256667).
 
 ##<a id="configuremonitoring"></a>Supervisión de una cuenta de Servicios multimedia
 
-1. En el [Portal de administración](http://go.microsoft.com/fwlink/?LinkID=256666), haga clic en **Servicios multimedia** y, a continuación, haga clic en el nombre de la cuenta de Servicios multimedia para abrir el panel. 
+1. En el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=256666), haga clic en **Servicios multimedia** y haga clic en el nombre de la cuenta de Servicios multimedia para abrir el panel. 
 
 	![Panel\_ServiciosMultimedia][dashboard]
 
@@ -64,7 +64,7 @@ Puede supervisar el número de trabajos de codificación en cola, tareas de codi
 
 ##Envío de comentarios
 
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]flujo de trabajo de streaming a petición](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 <!-- Images -->
@@ -73,4 +73,4 @@ Puede supervisar el número de trabajos de codificación en cola, tareas de codi
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

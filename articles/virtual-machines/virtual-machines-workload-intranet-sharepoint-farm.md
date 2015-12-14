@@ -109,7 +109,7 @@ Para calcular los costos estimados para esta configuración, consulte [Calculado
 	- **Estándar** para el plan de tarifa
 	- El tamaño predeterminado de la tabla anterior o el tamaño deseado para **Tamaño de instancia**
 
-> [AZURE.NOTE]La calculadora de precios de Azure no incluye los costos adicionales de la licencia de SQL Server para las dos máquinas virtuales que ejecutan SQL Server 2014 Enterprise. Para obtener más información, consulte [Precios de máquinas virtuales-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+> [AZURE.NOTE]La calculadora de precios de Azure no incluye los costos adicionales de la licencia de SQL Server para las dos máquinas virtuales que ejecutan SQL Server 2014 Enterprise. Para obtener más información, consulte [Precios de máquinas virtuales: SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
 ### Fases de implementación
 
@@ -117,7 +117,7 @@ Para implementar esta configuración, siga este proceso :
 
 - Fase 1: Configuración de Azure.
 
-	Use el Portal de Azure y Azure PowerShell para crear una cuenta de almacenamiento, servicios en la nube y una red virtual entre locales. Para los pasos de configuración detallados, consulte [Fase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
+	Use el Portal de Azure clásico y Azure PowerShell para crear una cuenta de almacenamiento, servicios en la nube y una red virtual entre locales. Para los pasos de configuración detallados, consulte [Fase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
 - Fase 2: Configuración de controladores de dominio.
 
@@ -153,4 +153,4 @@ Una vez configurada, puede expandir esta granja de SharePoint con ayuda de [Arqu
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

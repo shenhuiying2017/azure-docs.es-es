@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de vista previa de Azure | Azure" 
-   description="Aprenda a usar el Portal de vista previa de Azure para solucionar problemas de trabajos de Análisis de Data Lake." 
+   pageTitle="Solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure | Azure" 
+   description="Aprenda a usar el Portal de Azure para solucionar problemas de trabajos de Análisis de Data Lake." 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="mumian" 
@@ -16,18 +16,18 @@
    ms.date="10/27/2015"
    ms.author="jgao"/>
 
-# Solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de vista previa de Azure
+# Solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure
 
-Aprenda a usar el Portal de vista previa de Azure para solucionar problemas de trabajos de Análisis de Data Lake.
+Aprenda a usar el Portal de Azure para solucionar problemas de trabajos de Análisis de Data Lake.
 
-En este tutorial, configurará un problema con un archivo de origen que falta y usará el Portal de vista previa de Azure para solucionar el problema.
+En este tutorial, configurará un problema con un archivo de origen que falta y usará el Portal de Azure para solucionar el problema.
 
 **Requisitos previos**
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Conocimientos básicos del proceso de trabajo de Análisis de Data Lake**. Consulte [Introducción a Análisis de Azure Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-get-started-use-portal.md).
-- **Una cuenta de Análisis de Data Lake**. Consulte [Introducción a Análisis de Azure Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-get-started-use-portal.md#create-adl-analytics-account).
+- **Conocimientos básicos del proceso de trabajo de Análisis de Data Lake**. Consulte [Introducción a Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-use-portal.md).
+- **Una cuenta de Análisis de Data Lake**. Consulte [Introducción a Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-use-portal.md#create-adl-analytics-account).
 - **Copiar los datos de ejemplo en la cuenta predeterminada de Almacén de Data Lake**. Consulte [Preparación de los datos de origen](data-lake-analytics-get-started-use-portal.md.md#prepare-source-data).
 
 ##Envío de un trabajo de Análisis de Data Lake
@@ -36,7 +36,7 @@ Ahora creará un trabajo U-SQL con un nombre de archivo de origen incorrecto.
 
 **Para enviar el trabajo**
 
-1. En el Portal de vista previa de Azure, haga clic en **Microsoft Azure** en la esquina superior izquierda.
+1. En el Portal de Azure, haga clic en **Microsoft Azure** en la esquina superior izquierda.
 2. Haga clic en el icono con el nombre de la cuenta de Análisis de Data Lake. Se ancló aquí cuando se creó la cuenta. Si la cuenta no está anclada ahí, consulte [Apertura de una cuenta de Análisis desde el portal](data-lake-analytics-manage-use-portal.md#access-adla-account).
 3. Haga clic en **Nuevo trabajo** en el menú superior.
 4. Escriba el nombre del trabajo y el siguiente script U-SQL:
@@ -108,6 +108,6 @@ En la última sección, ha enviado un trabajo y este dio error.
 - [Información general de Análisis de Azure Data Lake](data-lake-analytics-overview.md)
 - [Introducción a Análisis de Azure Data Lake mediante Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Introducción a Análisis de Azure Data Lake y a U-SQL mediante Visual Studio](data-lake-analytics-get-started-u-sql-studio.md)
-- [Administración de Análisis de Azure Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-manage-use-portal.md)
+- [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

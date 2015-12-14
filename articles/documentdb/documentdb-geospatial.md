@@ -276,7 +276,7 @@ En pocas palabras, la geometría se proyecta a partir de coordenadas geodésicas
 
 Si especifica una directiva de indexación que incluye el índice espacial para / * (todas las rutas de acceso), entonces todos los puntos dentro de la colección se indexan para que las consultas espaciales resulten eficaces (ST\_WITHIN y ST\_DISTANCE). Los índices espaciales no tienen un valor de precisión y usan siempre un valor de precisión predeterminado.
 
-El siguiente fragmento JSON, muestra una directiva de indexación con la indexación espacial habilitada, es decir, indexar cualquier punto GeoJSON que se encuentre dentro de los documentos para la consulta espacial. Si va a modificar la directiva de indexación mediante el Portal de vista previa de Azure, puede especificar el siguiente JSON para que la directiva de indexación habilite la indexación espacial en la colección.
+El siguiente fragmento JSON, muestra una directiva de indexación con la indexación espacial habilitada, es decir, indexar cualquier punto GeoJSON que se encuentre dentro de los documentos para la consulta espacial. Si va a modificar la directiva de indexación mediante el Portal de Azure, puede especificar el siguiente JSON para que la directiva de indexación habilite la indexación espacial en la colección.
 
 **JSON de directiva de indexación de una colección con la característica espacial habilitada**
 
@@ -355,4 +355,4 @@ Ahora que ya sabe cómo empezar a trabajar con la compatibilidad geoespacial en 
 - Obtener más información en [Base de datos de documentos de consulta](documentdb-sql-query.md).
 - Obtener más información sobre [Directivas de indexación de DocumentDB](documentdb-indexing-policies.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

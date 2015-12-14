@@ -3,7 +3,7 @@
  description="" 
  services="cdn" 
  documentationCenter=".NET" 
- authors="zhangmanling" 
+ authors="camsoper" 
  manager="dwrede" 
  editor=""/>
 <tags 
@@ -12,8 +12,8 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="09/01/2015" 
- ms.author="mazha"/>
+ ms.date="12/02/2015" 
+ ms.author="casoper"/>
 
 #Administración de la expiración del contenido del servicio en la nube en la Red de entrega de contenido de Azure (CDN)
 
@@ -50,4 +50,4 @@ Por ejemplo, para almacenar en caché el contenido durante una hora, agregue lo 
 
 [Administración de la expiración del contenido del blob en la Red de entrega de contenido de Azure (CDN)](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

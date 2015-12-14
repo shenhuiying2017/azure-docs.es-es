@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="10/02/2015"
+   ms.date="12/01/2015"
    ms.author="sstein"/>
 
 # Recomendaciones sobre el nivel de precios de Base de datos SQL
 
  Se ofrecen recomendaciones del plan de tarifa en el sentido del nivel de servicio y el nivel de rendimiento más apropiados para ejecutar la carga de trabajo de una Base de datos SQL de Azure existente.
 
-> [AZURE.NOTE]Las recomendaciones sobre el plan de tarifa solo están disponibles para las bases de datos Web y Business y los grupos de bases de datos elásticas, y solo en el [Portal de vista previa de Azure](https://portal.azure.com/).
+> [AZURE.NOTE]Las recomendaciones sobre el plan de tarifa solo están disponibles para las bases de datos Web y Business y los grupos de bases de datos elásticas, y solo en el [Portal de Azure](https://portal.azure.com/).
 
 
 Obtenga recomendaciones del plan de tarifa durante las siguientes tareas:
@@ -58,7 +58,7 @@ Según el uso de la base de datos, se pueden encontrar dos categorías de recome
 
 Para obtener recomendaciones sobre los niveles de precios, seleccione una base de datos Web o Business existente y haga clic en el icono **Nivel de precios**. (Las recomendaciones del plan de tarifa también están disponibles durante la [Actualización de SQL Server de Azure a V12](sql-database-v12-upgrade.md)).
 
-1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Haga clic en **EXAMINAR** > **Bases de datos SQL**.
 4. En la hoja **Bases de datos SQL**, haga clic en la base de datos para la que quiere ver una recomendación:
 
@@ -87,7 +87,7 @@ Las recomendaciones de niveles de precios proporcionan una experiencia automatiz
 
 ## Pasos siguientes
 
-Dependiendo de los detalles de la base de datos específica, la realización de una actualización a un nivel de servicio superior o inferior no se suele producir de manera instantánea. El Portal de administración proporcionará notificaciones cuando la base de datos realice la transición a su nuevo nivel, o puede supervisar el estado de actualización mediante la consulta de la vista [sys.dm\_operation\_status (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/dn270022.aspx) en la base de datos maestra de la base de datos de SQL Server.
+Dependiendo de los detalles de la base de datos específica, la realización de una actualización a un nivel de servicio superior o inferior no se suele producir de manera instantánea. El portal proporcionará notificaciones cuando la base de datos realice la transición a su nuevo nivel, o puede supervisar el estado de actualización mediante la consulta de la vista [sys.dm\_operation\_status (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/dn270022.aspx) en la base de datos maestra del servidor de Base de datos SQL.
 
 
 <!--Image references-->
@@ -100,4 +100,4 @@ Dependiendo de los detalles de la base de datos específica, la realización de 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

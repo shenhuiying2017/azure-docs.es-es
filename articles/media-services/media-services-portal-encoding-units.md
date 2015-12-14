@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Escalación del procesamiento multimedia mediante el Portal de Azure"
+	pageTitle="Escalación del procesamiento multimedia mediante el Portal de Azure clásico"
 	description="Aprenda a escalar Servicios multimedia mediante la especificación del número de unidades reservadas de streaming a petición y unidades reservadas de codificación con las que desea aprovisionar la cuenta."
 	services="media-services"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-# Escalación del procesamiento multimedia mediante el Portal de Azure
+# Escalación del procesamiento multimedia mediante el Portal de Azure clásico
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
@@ -35,7 +35,7 @@ Además de especificar el tipo de unidad reservada, puede especificar el aprovis
 
 Para cambiar el tipo de unidad reservada y el número de unidades reservadas de codificación, haga lo siguiente:
 
-1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios multimedia**. A continuación, haga clic en el nombre del servicio multimedia.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en **Servicios multimedia**. A continuación, haga clic en el nombre del servicio multimedia.
 
 2. Seleccione la página **CODIFICACIÓN**.
 
@@ -69,4 +69,4 @@ Para obtener información sobre las cuotas y limitaciones y sobre cómo abrir un
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

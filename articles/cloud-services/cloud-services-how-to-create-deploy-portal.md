@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creación e implementación de un servicio en la nube (portal de vista previa) | Microsoft Azure"
-	description="Aprenda a crear e implementar un servicio en la nube con el método Creación rápida en Azure. Estos ejemplos usan el portal de vista previa de Azure."
+	pageTitle="Creación e implementación de un servicio en la nube | Microsoft Azure"
+	description="Aprenda a crear e implementar un servicio en la nube con el método Creación rápida en Azure. Estos ejemplos usan el Portal de Azure."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -22,8 +22,8 @@
 # Creación e implementación de un servicio en la nube
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-create-deploy.md)
-- [Azure preview portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
+- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
 
 El Portal de Azure le ofrece dos formas de crear e implementar un servicio en la nube: *Creación rápida* y *Creación personalizada*.
 
@@ -61,12 +61,12 @@ Para crear un servicio en la nube con implementaciones de roles web o roles de t
 
 - Si hay instancias de rol que necesitan certificados, créelos. Los servicios en la nube requieren un archivo .pfx con una clave privada. Puede cargar los certificados en Azure mientras crea e implementa el servicio en la nube. Para obtener más información acerca de los certificados, consulte [Administrar certificados](http://msdn.microsoft.com/library/gg981929.aspx).
 
-- Si tiene pensado implementar el servicio en la nube en un grupo de afinidad, cree dicho grupo. Puede usar un grupo de afinidad para implementar su servicio en la nube y otros servicios de Azure en la misma ubicación de una región. Puede crear el grupo de afinidad en el área **Redes** del Portal de Azure, en la página **Grupos de afinidad**. Para obtener más información, consulte [Crear un grupo de afinidad en el Portal de administración](http://msdn.microsoft.com/library/jj156209.aspx).
+- Si tiene pensado implementar el servicio en la nube en un grupo de afinidad, cree dicho grupo. Puede usar un grupo de afinidad para implementar su servicio en la nube y otros servicios de Azure en la misma ubicación de una región. Puede crear el grupo de afinidad en el área **Redes** del Portal de Azure, en la página **Grupos de afinidad**. Para obtener más información, consulte [Crear un grupo de afinidad en el Portal de Azure](http://msdn.microsoft.com/library/jj156209.aspx).
 
 
 ## Paso 3: Crear un servicio en la nube y cargar el paquete de implementación
 
-1. Inicie sesión en el [portal de vista previa de Azure][].
+1. Inicie sesión en el [Portal de Azure][].
 2. Haga clic en **Nuevo > Proceso** y, a continuación desplácese hacia abajo y haga clic en **Servicio en la nube**.
 
     ![Publicación del servicio en la nube](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
@@ -114,4 +114,4 @@ Si el paquete de implementación se [configuró para usar certificados](cloud-se
 * [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

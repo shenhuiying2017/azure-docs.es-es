@@ -58,9 +58,9 @@ Ejecute los siguientes pasos desde el equipo que contenga los archivos de origen
 
 Después de publicar la definición del servicio de actualización, puede conectarse a la instancia de rol.
 
-1.  En el [Portal de administración de Azure], seleccione **Servicios en la nube** y, a continuación, seleccione su servicio.
+1.  En el [Portal de Azure clásico], seleccione **Servicios en la nube** y, a continuación, seleccione el servicio.
 
-	![Portal de administración de Azure][cloud-services]
+	![Portal de Azure clásico][cloud-services]
 
 2.  Haga clic en **Instancias**, y, a continuación, haga clic en **Producción** o **Ensayo** para ver las instancias del servicio. Seleccione una instancia y, a continuación, haga clic en **Conectar** en la parte inferior de la página.
 
@@ -74,7 +74,7 @@ Después de publicar la definición del servicio de actualización, puede conect
 
     ![Indicador de seguridad de Windows][5]
 
-4.  Haga clic en **Conectar** y, a continuación, aparecerá un indicador de seguridad para que escriba las credenciales de acceso a la instancia. Escriba la contraseña creada en el [paso 1](paso 1: configuración del servicio para el acceso de Escritorio remoto mediante Azure PowerShell) y haga clic en **Aceptar**.
+4.  Haga clic en **Conectar** y, a continuación, aparecerá un indicador de seguridad para que escriba las credenciales de acceso a la instancia. Escriba la contraseña creada en el [paso 1][paso 1: configuración del servicio para el acceso de Escritorio remoto mediante Azure PowerShell] y haga clic en **Aceptar**.
 
     ![indicador de nombre de usuario/contraseña][6]
 
@@ -102,7 +102,7 @@ Cuando ya no necesite conexiones de Escritorio remoto a las instancias de rol en
 
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
 
-[Portal de administración de Azure]: http://manage.windowsazure.com
+[Portal de Azure clásico]: http://manage.windowsazure.com
 [publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
 [enable-rdp]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
 [cloud-services]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png
@@ -116,4 +116,4 @@ Cuando ya no necesite conexiones de Escritorio remoto a las instancias de rol en
   [Uso de Escritorio de remoto con los roles de Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

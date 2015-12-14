@@ -47,7 +47,7 @@ En la tabla siguiente se describen las cuotas de DocumentDB que se pueden ajusta
 ##<a id="RequestQuotaIncrease"></a> Solicitud de un ajuste de cuota
 En los pasos siguientes se muestra cómo solicitar un ajuste de cuota.
 
-1. En el [Portal de vista previa de Azure](https://portal.azure.com), haga clic en **Examinar** y, a continuación, en **Ayuda+Soporte técnico**.
+1. En el [Portal de Azure](https://portal.azure.com), haga clic en **Examinar** y, a continuación, en **Ayuda+Soporte técnico**.
 
 	![Captura de pantalla del inicio de ayuda y soporte técnico](media/documentdb-increase-limits/helpsupport.png)
 
@@ -75,4 +75,4 @@ Una vez creada la incidencia de soporte técnico, debería recibir el número de
 ##<a name="NextSteps"></a> Pasos siguientes
 - Para obtener más información sobre DocumentDB, haga clic [aquí](http://azure.com/docdb).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

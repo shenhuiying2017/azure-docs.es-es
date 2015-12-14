@@ -18,11 +18,13 @@
 
 # Conexión a un servidor SQL local desde una aplicación de API en el Servicio de aplicaciones de Azure mediante Conexiones híbridas
 
-Conexiones híbridas puede conectar Aplicaciones de API del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) con recursos locales que usan puerto TCP estático. Los recursos admitidos incluyen Microsoft SQL Server, MySQL, API web HTTP, Servicios móviles y la mayoría de servicios web personalizados.
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
+Las conexiones híbridas puede conectar Aplicaciones de API del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) con recursos locales que usan un puerto TCP estático. Los recursos admitidos incluyen Microsoft SQL Server, MySQL, API web HTTP, Servicios móviles y la mayoría de servicios web personalizados.
 
 En este tutorial, aprenderá a crear una aplicación de API del Servicio de aplicaciones en la [vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) que se conecta a una base de datos SQL Server local mediante la nueva característica de conexión híbrida. En el tutorial se asume que no tiene ninguna experiencia anterior con Azure o SQL Server.
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Requisitos previos
 
@@ -30,7 +32,7 @@ Para completar este tutorial, necesitará los siguientes productos. Todos están
 
 - **Suscripción de Azure**: para obtener una suscripción gratuita, consulte [Prueba gratuita de Azure](/pricing/free-trial/). 
 
-- **Visual Studio**: para descargar una versión de evaluación gratuita de Visual Studio 2013 o Visual Studio 2015, consulte [Descargas de Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Instale una de ellas antes de continuar. (Las capturas de pantalla de este tutorial se han obtenido con Visual Studio 2013)
+- **Visual Studio**: para descargar una versión de evaluación gratuita de Visual Studio 2013 o Visual Studio 2015, vea [Descargas de Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Instale una de ellas antes de continuar. (Las capturas de pantalla de este tutorial se han obtenido con Visual Studio 2013)
 
 - **SQL Server 2014 Express with Tools**: descargue Microsoft SQL Server Express de forma gratuita en la [página de bases de datos de Plataforma web de Microsoft](https://www.microsoft.com/es-ES/download/details.aspx?id=42299). Más adelante en este tutorial, verá cómo [instalar SQL Server](#InstallSQLDB) para asegurarse de que está correctamente configurado.
 
@@ -116,19 +118,19 @@ Para habilitar TCP/IP, usará el Administrador de configuración de SQL Server, 
 
 	![Conectar al servidor](./media/app-service-api-hybrid-on-premises-sql-server/connect-to-server.png)
 	
-	(Si el cuadro de diálogo **Conectar al servidor** no se abre automáticamente, vaya al **Explorador de objetos** en el panel izquierdo, haga clic en **Conectar** y, a continuación, haga clic en **Motor de la base de datos**.)
+	Si el cuadro de diálogo **Conectar al servidor** no se abre automáticamente, vaya al **Explorador de objetos** en el panel izquierdo, haga clic en **Conectar** y después haga clic en **Motor de la base de datos**.
 	
 2. Para crear una nueva base de datos usando SQL Server Management Studio, haga clic con el botón derecho en **Base de datos** en el Explorador de objetos y, a continuación, haga clic en **Nueva base de datos**.
 	
 	![Menú Crear una base de datos nueva](./media/app-service-api-hybrid-on-premises-sql-server/new-database-menu.png)
 	
-3. En el cuadro de diálogo **Nueva base de datos**, escriba `LocalDatabase` para el nombre de base de datos y después haga clic en **Aceptar**.
+3. En el cuadro de diálogo **Nueva base de datos**, escriba `LocalDatabase` como el nombre de base de datos y después haga clic en **Aceptar**.
 	
 	![Creación de una base de datos nueva](./media/app-service-api-hybrid-on-premises-sql-server/new-database.png)
 	
 ### Crear y rellenar una tabla de SQL Server
 
-1. En el **Explorador de objetos de** **SQL Server Management Studio**, expanda la entrada `LocalDatabase`.
+1. En el **Explorador de objetos** de **SQL Server Management Studio**, expanda la entrada `LocalDatabase`.
 
 	![Base de datos expandida](./media/app-service-api-hybrid-on-premises-sql-server/local-database-expanded.png)
 
@@ -166,7 +168,7 @@ En esta sección se ofrece información detallada sobre cómo crear la aplicaci�
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-project-api-app.png)
 
-4. En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta **Modelos** y, después, seleccione la opción del menú contextual **Agregar > Clase...**
+4. En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta **Modelos** y después seleccione la opción del menú contextual **Agregar > Clase...**
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-model-menu.png)
 
@@ -174,7 +176,7 @@ En esta sección se ofrece información detallada sobre cómo crear la aplicaci�
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-model-class.png)
 
-6. Sustituya todo el contenido del archivo `Speaker.cs` por el código siguiente.
+6. Reemplace todo el contenido del archivo `Speaker.cs` por el código siguiente.
 
 		namespace SpeakersList.Models
 		{
@@ -186,7 +188,7 @@ En esta sección se ofrece información detallada sobre cómo crear la aplicaci�
 			}
 		}
 
-7. En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta **Controladores** y, después, seleccione la opción del menú contextual **Agregar > Controlador...**
+7. En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta **Controladores** y después seleccione la opción del menú contextual **Agregar > Controlador...**
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-controller.png)
 
@@ -198,7 +200,7 @@ En esta sección se ofrece información detallada sobre cómo crear la aplicaci�
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/add-controller-name.png)
 
-10. Reemplace el código de este archivo `SpeakersController.cs` con el código siguiente. Asegúrese de especificar sus propios valores para los marcadores de posición &lt;serverName> y &lt;password> en `connectionString`. El valor &lt;serverName> es el nombre de máquina en que se encuentra SQL Server, y el valor &lt;password> es el que se establece al instalar y configurar SQL Server.
+10. Reemplace el código de este archivo `SpeakersController.cs` por el código siguiente. Asegúrese de especificar sus propios valores para los marcadores de posición &lt;serverName> y &lt;password> en `connectionString`. El valor &lt;serverName> es el nombre de máquina en que se encuentra SQL Server, y el valor &lt;password> es el que se establece al instalar y configurar SQL Server.
 
 	> [AZURE.NOTE]El siguiente fragmento de código incluye información de contraseña. Esto se hace para simplificar la demostración. En un entorno de producción real, no debería almacenar las credenciales en el código. En su lugar, consulte las [Prácticas recomendadas para implementar las contraseñas y otros datos confidenciales en ASP.NET y Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
@@ -292,11 +294,11 @@ Al habilitar la interfaz de usuario de Swagger, podrá probar fácilmente sus ap
 
 ### Prueba de la aplicación de API
 
-1. Para ver la página de prueba de API, ejecute la aplicación localmente mediante **&lt;Ctrl>F5**. Aparecerá un error similar al que se muestra en la imagen siguiente.
+1. Para ver la página de prueba de API, ejecute la aplicación de forma local mediante **&lt;Ctrl>F5**. Aparecerá un error similar al que se muestra en la imagen siguiente.
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/error-forbidden.png)
 
-2. En la barra de direcciones del explorador, agregue `/swagger` al final de la dirección URL y pulse **&lt;Intro>**. Se mostrará la interfaz de usuario de Swagger habilitada en la sección anterior.
+2. En la barra de direcciones del explorador, agregue `/swagger` al final de la dirección URL y pulse **&lt;ENTRAR>**. Se mostrará la interfaz de usuario de Swagger habilitada en la sección anterior.
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/swagger-ui.png)
 
@@ -337,7 +339,7 @@ Ahora que ha probado la aplicación localmente, es hora de implementarla en Azur
 
 	![Configuración del cuadro de diálogo de Aplicación web de Microsoft Azure](./media/app-service-api-hybrid-on-premises-sql-server/publish-new-api-app.png)
 
-5. El proceso puede tardar unos minutos, por lo que Visual Studio muestra un cuadro de diálogo que le notifica que se ha iniciado el proceso. Haga clic en **Aceptar** en el cuadro de diálogo de confirmación.
+5. El proceso puede tardar unos minutos, por lo que Visual Studio muestra un cuadro de diálogo que le notifica que se ha iniciado el proceso. Haga clic en **Aceptar**, en el cuadro de diálogo de confirmación.
 
 	![Mensaje de confirmación de inicio de creación de Servicio de API](./media/app-service-api-hybrid-on-premises-sql-server/create-api-app-confirmation.png)
 
@@ -355,7 +357,7 @@ En la ventana **Actividad del Servicio de aplicaciones de Azure** se muestra el 
 
 1. En el explorador, vaya al [Portal de vista previa de Azure](https://portal.azure.com). 
 
-2. Haga clic en la opción **Examinar todo** a la izquierda.
+2. Haga clic en la opción **Examinar todo** de la izquierda.
 
 3. En la hoja **Examinar**, seleccione **Aplicaciones de API**.
 
@@ -365,7 +367,7 @@ En la ventana **Actividad del Servicio de aplicaciones de Azure** se muestra el 
  
 	![Hoja Aplicación de API](./media/app-service-api-hybrid-on-premises-sql-server/api-app-blade-api-app-host.png)
 
-6. Cuando se abra la hoja **Host de aplicaciones API**, desplácese hacia abajo hasta la sección **Redes** y haga clic en **Conexiones híbridas**.
+6. Cuando aparezca la hoja **Host de aplicaciones API**, desplácese hacia abajo hasta la sección **Redes** y haga clic en **Conexiones híbridas**.
 	
 	![Hybrid connections](./media/app-service-api-hybrid-on-premises-sql-server/api-app-host-blade-hybrid-connections.png)
 	
@@ -381,7 +383,7 @@ En la ventana **Actividad del Servicio de aplicaciones de Azure** se muestra el 
 		
 9. Haga clic en **Aceptar** dos veces.
 
-	Al finalizar el proceso, el área **Notificaciones** mostrará una notificación de **ÉXITO** parpadeante de color verde y la hoja **Conexión híbrida** mostrará la conexión híbrida nueva con el estado **No conectado**.
+	Al finalizar el proceso, el área **Notificaciones** mostrará una notificación de **CORRECTO** intermitente de color verde y la hoja **Conexión híbrida** mostrará la conexión híbrida nueva con el estado **No conectado**.
 	
 	![Conexión híbrida creada](./media/app-service-api-hybrid-on-premises-sql-server/hybrid-not-connected-yet.png)
 	
@@ -399,7 +401,7 @@ Ahora que la infraestructura de la conexión híbrida se ha completado, es el mo
 
 1. En el portal de vista previa de Azure, vuelva a la hoja Host de aplicaciones de API y haga clic en el valor de **URL**.
 	
-2. Cuando se abre la página del host de aplicaciones de API en el explorador, anexe `/swagger` a la URL en la barra de direcciones del explorador y presione **&lt;Intro>**.
+2. Cuando se abre la página del host de aplicaciones de API en el explorador, anexe `/swagger` a la URL en la barra de direcciones del explorador y presione **&lt;ENTRAR>**.
 	
 3. Haga clic en la sección **Speakers** para expandirla.
 
@@ -430,4 +432,4 @@ Ahora que la infraestructura de la conexión híbrida se ha completado, es el mo
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -22,8 +22,7 @@ Puede configurar los proyectos de equipo de Visual Studio Team Services para que
 
 En este tutorial se supone que tiene instalados Visual Studio 2013 y el SDK de Azure. Si aún no tiene Visual Studio 2013, descárguelo; para ello, haga clic en el vínculo **Empezar de forma gratuita** en [www.visualstudio.com](http://www.visualstudio.com). Instale el SDK de Azure desde [aquí](http://go.microsoft.com/fwlink/?LinkId=239540).
 
-> [AZURE.NOTE]Necesita una cuenta en línea de Visual Studio para completar este tutorial:
-> Puede [abrir una cuenta de Visual Studio Online de forma gratuita](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE]Necesita una cuenta de Visual Studio Team Services para completar este tutorial: puede [abrir una cuenta de Visual Studio Team Services de forma gratuita](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Para configurar un servicio en la nube que se compile e implemente automáticamente en Azure con Visual Studio Team Services, siga los pasos que aparecen a continuación:
 
@@ -33,11 +32,7 @@ Siga las instrucciones que se describen [aquí](http://go.microsoft.com/fwlink/?
 
 ## Paso 2: Protección de un proyecto para el control de código fuente
 
-1. En Visual Studio, abra la solución que desee implementar o cree una nueva.
-Puede implementar una aplicación web o un servicio en la nube (aplicación de Azure) siguiendo los pasos que se ofrecen en este tutorial.
-Si desea crear una nueva solución, cree un proyecto de Servicio de nube de Azure o un proyecto de MVC de ASP.NET. Asegúrese de que el proyecto se dirige a .NET Framework 4 o 4.5.
-Si está creando un proyecto de Servicio de nube, agregue un rol web de MVC de ASP.NET y un rol de trabajo y seleccione una aplicación de Internet para el rol web. Cuando se le solicite, elija **Aplicación de Internet**.
-Si desea crear una aplicación web, seleccione la plantilla de proyecto de aplicación web ASP.NET y, a continuación, MVC. Consulte [Crear una aplicación web de ASP.NET en el servicio de aplicaciones de Azure](../web-sites-dotnet-get-started.md)
+1. En Visual Studio, abra la solución que desee implementar o cree una nueva. Puede implementar una aplicación web o un servicio en la nube (aplicación de Azure) siguiendo los pasos que se ofrecen en este tutorial. Si desea crear una nueva solución, cree un proyecto de Servicio de nube de Azure o un proyecto de MVC de ASP.NET. Asegúrese de que el proyecto se dirige a .NET Framework 4 o 4.5. Si está creando un proyecto de Servicio de nube, agregue un rol web de MVC de ASP.NET y un rol de trabajo y seleccione una aplicación de Internet para el rol web. Cuando se le solicite, elija **Aplicación de Internet**. Si desea crear una aplicación web, seleccione la plantilla de proyecto de aplicación web ASP.NET y, a continuación, MVC. Consulte [Crear una aplicación web de ASP.NET en el servicio de aplicaciones de Azure](../web-sites-dotnet-get-started.md)
 
 	> [AZURE.NOTE]Actualmente, Visual Studio Team Services solo admite las implementaciones de integración continua de las aplicaciones web de Visual Studio. Los proyectos de sitio web están fuera del alcance.
 
@@ -63,7 +58,7 @@ Si desea crear una aplicación web, seleccione la plantilla de proyecto de aplic
 
 ## Paso 3: Conexión del proyecto a Azure
 
-1. Ahora que tiene un proyecto de equipo de VSTS con código fuente en él, está en disposición de conectar el proyecto de equipo a Azure. En el [Portal de administración de Azure](http://manage.windowsazure.com), seleccione el servicio en la nube o la aplicación web, o bien cree unos nuevos haciendo clic en el icono **+** situado en la parte inferior izquierda y seleccionando **Servicio en la nube** o **Aplicación web** y, luego, **Creación rápida**. Haga clic en el vínculo **Configurar publicación con Visual Studio Team Services**.
+1. Ahora que tiene un proyecto de equipo de VSTS con código fuente en él, está en disposición de conectar el proyecto de equipo a Azure. En el [Portal de Azure clásico](http://manage.windowsazure.com), seleccione el servicio en la nube o la aplicación web, o bien cree unos nuevos haciendo clic en el icono **+** situado en la parte inferior izquierda y seleccionando **Servicio en la nube** o **Aplicación web** y, a continuación, **Creación rápida**. Haga clic en el vínculo **Configurar publicación con Visual Studio Team Services**.
 
 	![][10]
 
@@ -162,7 +157,7 @@ Si desea crear una aplicación web, seleccione la plantilla de proyecto de aplic
 
 	![][29]
 
-1. En el [Portal de administración de Azure](http://manage.windowsazure.com), puede ver la implementación asociada en la pestaña **Implementaciones** cuando se selecciona el entorno de ensayo.
+1. En el [Portal de Azure clásico](http://manage.windowsazure.com) puede ver la implementación asociada en la pestaña **Implementaciones**, al seleccionar el entorno de ensayo.
 
 	![][30]
 
@@ -180,13 +175,13 @@ Si desea crear una aplicación web, seleccione la plantilla de proyecto de aplic
 
 ## Paso 5: Nueva implementación de una compilación anterior
 
-Este paso se aplica a los servicios en la nube y es opcional. En el Portal de administración de Azure, seleccione una implementación anterior y haga clic en el botón **Volver a implementar** para devolver el sitio a una protección anterior. Tenga en cuenta que esto desencadenará una nueva compilación en TFS y creará una nueva entrada en el historial de implementación.
+Este paso se aplica a los servicios en la nube y es opcional. En el Portal de Azure clásico, seleccione una implementación anterior y haga clic en el botón **Volver a implementar** para devolver el sitio a una protección anterior. Tenga en cuenta que esto desencadenará una nueva compilación en TFS y creará una nueva entrada en el historial de implementaciones.
 
 ![][34]
 
 ## Paso 6: cambiar la implementación de producción
 
-Este paso solo se aplica a los servicios en la nube, no a las aplicaciones web. Cuando esté preparado, puede promover el entorno de ensayo al de producción haciendo clic en el botón **Intercambiar** del Portal de administración. El entorno de ensayo recién implementado se promueve a Producción y el anterior entorno de Producción, si lo hubiera, pasa a entorno de ensayo. La implementación activa puede ser diferente para los entornos de producción y ensayo, pero el historial de implementación de las compilaciones recientes es el mismo independientemente del entorno.
+Este paso solo se aplica a los servicios en la nube, no a las aplicaciones web. Cuando esté preparado, puede promover el entorno de ensayo al de producción haciendo clic en el botón **Intercambiar** del Portal de Azure clásico. El entorno de ensayo recién implementado se promueve a Producción y el anterior entorno de Producción, si lo hubiera, pasa a entorno de ensayo. La implementación activa puede ser diferente para los entornos de producción y ensayo, pero el historial de implementación de las compilaciones recientes es el mismo independientemente del entorno.
 
 ![][35]
 
@@ -322,4 +317,4 @@ Para obtener más información sobre las pruebas unitarias en Visual Studio Team
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

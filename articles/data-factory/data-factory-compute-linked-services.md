@@ -33,7 +33,7 @@ El servicio Factoría de datos de Azure crea el clúster de HDInsight a petició
 Tenga en cuenta los siguientes puntos **importantes** acerca del servicio vinculado de HDInsight a petición:
 
 - No verá el clúster de HDInsight a petición creado en su suscripción de Azure; el servicio Factoría de datos de Azure administra el clúster de HDInsight a petición en su nombre.
-- Los registros de trabajos que se ejecutan en un clúster de HDInsight a petición se copian en la cuenta de almacenamiento asociada al clúster de HDInsight. Puede tener acceso a estos registros desde el Portal de Azure en la hoja **Detalles de ejecución de la actividad**. Consulte el artículo [Supervisión y administración de canalizaciones](data-factory-monitor-manage-pipelines.md) para obtener más información.
+- Los registros de trabajos que se ejecutan en un clúster de HDInsight a petición se copian en la cuenta de almacenamiento asociada al clúster de HDInsight. Puede tener acceso a estos registros desde el Portal de Azure clásico en la hoja **Detalles de ejecución de la actividad**. Consulte el artículo [Supervisión y administración de canalizaciones](data-factory-monitor-manage-pipelines.md) para obtener más información.
 - Se le cobrará solo por el tiempo en el que el clúster de HDInsight esté en ejecución y realizando trabajos.
 
 > [AZURE.IMPORTANT]Normalmente se tarda más de **15 minutos** en aprovisionar un clúster de HDInsight a petición de Azure.
@@ -47,7 +47,7 @@ Tenga en cuenta los siguientes puntos **importantes** acerca del servicio vincul
 	    "typeProperties": {
 	      "clusterSize": 4,
 	      "timeToLive": "00:05:00",
-	      "version": "3.1",
+	      "version": "3.2",
 		  "osType": "linux",
 	      "linkedServiceName": "MyBlobStore"
 	      "additionalLinkedServiceNames": [
@@ -65,17 +65,17 @@ Propiedad | Descripción | Obligatorio
 type | La propiedad type se debe establecer en **HDInsightOnDemand**. | Sí
 clusterSize | El tamaño del clúster a petición. Especifique el número de nodos que desea que haya en este clúster a petición. | Sí
 timetolive | <p>El tiempo de inactividad permitido para el clúster de HDInsight a petición. Especifica cuánto tiempo permanecerá activo el clúster de HDInsight a petición después de la finalización de una ejecución de actividad si no hay ningún otro trabajo activo en el clúster.</p><p>Por ejemplo, si una ejecución de actividad tarda 6 minutos y timetolive está establecido en 5 minutos, el clúster permanece activo durante 5 minutos después de los 6 minutos de procesamiento de la ejecución de actividad. Si se realiza otra ejecución de actividad con un margen de 6 minutos, la procesa el mismo clúster.</p><p>La creación de un clúster de HDInsight a petición es una operación costosa (puede tardar bastante), por lo que se recomienda usar esta opción cuando sea necesario para mejorar el rendimiento de una factoría de datos con la reutilización de un clúster de HDInsight a petición.</p><p>Si establece el valor de timetolive en 0, el clúster se elimina en cuanto se procesa la ejecución de actividad. Por otra parte, si establece un valor alto, el clúster puede permanecer inactivo innecesariamente, lo que conlleva unos costos elevados. Por lo tanto, es importante que establezca el valor adecuado en función de sus necesidades.</p><p>Varias canalizaciones pueden compartir la misma instancia del clúster de HDInsight a petición si el valor de la propiedad timetolive está correctamente configurado</p>. | Sí
-versión | Versión del clúster de HDInsight. | No
+versión | Versión del clúster de HDInsight. El valor predeterminado es 3.1 para el clúster de Windows y 3.2 para el clúster de Linux. | No
 linkedServiceName | El almacén de blobs que usará el clúster a petición para almacenar y procesar datos. | Sí
 additionalLinkedServiceNames | Especifica cuentas de almacenamiento adicionales para el servicio vinculado de HDInsight, de forma que el servicio Factoría de datos pueda registrarlas en su nombre. | No
-osType | Tipo de sistema operativo. Los valores permitidos son: windows (valor predeterminado) y linux | No
+osType | Tipo de sistema operativo. Los valores permitidos son: Windows (predeterminado) y Linux | No
 
 ### Propiedades avanzadas
 
 También puede especificar las siguientes propiedades para la configuración granular del clúster de HDInsight a petición.
 
 Propiedad | Descripción | Obligatorio
--------- | ----------- | --------
+:-------- | :----------- | :--------
 coreConfiguration | Especifica los parámetros de configuración Core (como en core-site.xml) para crear el clúster de HDInsight. | No
 hBaseConfiguration | Especifica los parámetros de configuración HBase (como en hbase-site.xml) para el clúster de HDInsight. | No
 hdfsConfiguration | Especifica los parámetros de configuración HDFS (hdfs-site.xml) para el clúster de HDInsight. | No
@@ -94,7 +94,7 @@ yarnConfiguration | Especifica los parámetros de configuración Yarn (yarn-site
 	    "typeProperties": {
 	      "clusterSize": 16,
 	      "timeToLive": "01:30:00",
-	      "version": "3.1",
+	      "version": "3.2",
 	      "linkedServiceName": "adfods1",
 	      "coreConfiguration": {
 	        "templeton.mapper.memory.mb": "5000"
@@ -119,6 +119,27 @@ yarnConfiguration | Especifica los parámetros de configuración Yarn (yarn-site
 	    }
 	  }
 	}
+
+### Tamaño de nodo
+Puede especificar los tamaños de los nodos principal, de datos y de zookeeper con las siguientes propiedades.
+
+Propiedad | Descripción | Obligatorio
+:-------- | :----------- | :--------
+headNodeSize | Especifica el tamaño del nodo principal. El valor predeterminado es: Grande. Vea la sección **Especificación de tamaños de nodo** para detalles. | No
+dataNodeSize | Especifica el tamaño del nodo de datos. El valor predeterminado es: Grande. | No
+zookeeperNodeSize | Especifica el tamaño del nodo de Zoo Keeper. El valor predeterminado es: Pequeño. | No
+ 
+#### Especificación de tamaños de nodo
+Vea el artículo [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-size-specs.md#size-tables) para valores de cadena que tiene que especificar para las propiedades anteriores. Los valores deben ser conformes a los **CMDLET y API** a los que se hace referencia en el artículo. Como puede ver en el artículo, el nodo de datos de tamaño grande (valor predeterminado) tiene 7 GB de memoria, que es posible que no sea lo suficientemente bueno para su escenario.
+
+Si quiere crear nodos de trabajo y principales de tamaño D4, tiene que especificar **Standard\_D4** como el valor de las propiedades headNodeSize y dataNodeSize.
+
+	"headNodeSize": "Standard_D4",	
+	"dataNodeSize": "Standard_D4",
+
+Si especifica un valor incorrecto para estas propiedades, puede recibir el siguiente **error:** Error al crear el clúster. Excepción: No se puede completar la operación de creación del clúster. Error en la operación con el código '400'. El clúster generó el estado: 'Error'. Mensaje: 'PreClusterCreationValidationFailure'. Cuando se recibe este error, asegúrese de que está usando el nombre **CMDLET y API** de la tabla del artículo anterior.
+
+
 
 ## Traer su propio entorno de procesos
 
@@ -169,7 +190,7 @@ Consulte los temas siguientes si no está familiarizado con el servicio Lote de 
 
 
 - [Aspectos básicos de Lote de Azure](../batch/batch-technical-overview.md) para obtener información general del servicio Lote de Azure.
-- Cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) para crear una cuenta de Lote de Azure (o) [Portal de administración de Azure](../batch/batch-account-create-portal.md) para crear la cuenta de Lote de Azure con el Portal de administración de Azure. Consulte el tema [Uso de Azure PowerShell para administrar la cuenta de Lote de Azure](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) para obtener instrucciones detalladas sobre cómo usar este cmdlet.
+- Cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) para crear una cuenta de Lote de Azure (o) [Portal de Azure clásico](../batch/batch-account-create-portal.md) para crear la cuenta de Lote de Azure con el Portal de Azure clásico. Consulte el tema [Uso de Azure PowerShell para administrar la cuenta de Lote de Azure](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) para obtener instrucciones detalladas sobre cómo usar este cmdlet.
 - Cmdlet [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) para crear un grupo de Lote de Azure.
 
 ### Ejemplo
@@ -271,4 +292,4 @@ sessionId | Identificador de sesión de la sesión de autorización de OAuth. Ca
 
 Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Factoría de datos. Consulte el artículo [Conector SQL de Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para obtener más información acerca de este servicio vinculado.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

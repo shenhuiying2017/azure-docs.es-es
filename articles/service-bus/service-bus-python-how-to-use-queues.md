@@ -44,7 +44,7 @@ bus_service = ServiceBusService(
 	shared_access_key_value='sharedaccesskey')
 ```
 
-Los valores para el nombre de clave y el valor de la SAS pueden encontrarse en la información de conexión del [Portal de Azure][] o en el panel **Propiedades** de Visual Studio al seleccionar el espacio de nombres del Bus de servicio en el Explorador de servidores (como se muestra en la sección anterior).
+Los valores para el nombre de clave y el valor de la SAS pueden encontrarse en la información de conexión del [Portal de Azure clásico][] o en el panel **Propiedades** de Visual Studio al seleccionar el espacio de nombres del Bus de servicio en el Explorador de servidores (como se muestra en la sección anterior).
 
 ```
 bus_service.create_queue('taskqueue')
@@ -109,10 +109,10 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
 
 -   Consulte [Colas, temas y suscripciones][].
 
-[Portal de Azure]: http://manage.windowsazure.com
+[Portal de Azure clásico]: http://manage.windowsazure.com
 [paquete de Azure para Python]: https://pypi.python.org/pypi/azure
 [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
 [Colas de Bus de servicio y colas de Azure]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

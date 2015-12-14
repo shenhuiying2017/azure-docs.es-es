@@ -84,7 +84,7 @@ En ILB, debe crear primero el equilibrador de carga interno. Esto se hace en el 
 
 1. Una vez configuradas las variables, copie el script del editor de texto en la sesión de Azure PowerShell para ejecutarlo. Si el mensaje todavía muestra >>, escriba ENTER de nuevo para asegurarse de que el script comienza a ejecutarse. Nota
 
->[AZURE.NOTE]El portal de Azure no es compatible en este momento con el equilibrador de carga interno, por lo que no verá el ILB o los puntos de conexión en el portal de Azure. Sin embargo, el parámetro **Get-AzureEndpoint** devuelve una dirección IP interna si el equilibrador de carga se está ejecutando en ella. De lo contrario, devuelve null.
+>[AZURE.NOTE]El Portal de Azure clásico no es compatible en este momento con el equilibrador de carga interno, por lo que no verá el ILB o los puntos de conexión en el Portal de Azure clásico. Sin embargo, el parámetro **Get-AzureEndpoint** devuelve una dirección IP interna si el equilibrador de carga se está ejecutando en ella. De lo contrario, devuelve null.
 
 ## Comprobación de que KB2854082 está instalado si es necesario.
 
@@ -138,4 +138,4 @@ En ILB, debe crear primero el equilibrador de carga interno. Esto se hace en el 
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

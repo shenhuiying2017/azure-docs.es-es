@@ -39,15 +39,15 @@ En un nivel alto el diagrama siguiente muestra el clúster de HPC Pack que crear
 
 ## Paso 1. Configuración e un clúster de HPC Pack en Azure
 
-Le mostraremos dos formas de configurar el clúster: en primer lugar, mediante una plantilla de inicio rápido de Azure y el Portal de vista previa de Azure; en segundo lugar, mediante un script de implementación de Azure PowerShell.
+Le mostraremos dos formas de configurar el clúster: en primer lugar, mediante una plantilla de inicio rápido de Azure y el Portal de Azure; en segundo lugar, mediante un script de implementación de Azure PowerShell.
 
 
 ### Uso de una plantilla de inicio rápido
-Use una plantilla de inicio rápido de Azure para implementar rápida y fácilmente un clúster de HPC Pack en el Portal de vista previa de Azure. Al abrir la plantilla en el portal de vista previa, obtendrá una interfaz de usuario simple donde debe especificar la configuración del clúster. A continuación se muestran los pasos que se deben seguir.
+Use una plantilla de inicio rápido de Azure para implementar rápida y fácilmente un clúster de HPC Pack en el Portal de Azure. Al abrir la plantilla en el portal de vista previa, obtendrá una interfaz de usuario simple donde debe especificar la configuración del clúster. A continuación se muestran los pasos que se deben seguir.
 
 1. Visite la página [Creación de plantilla de clúster HPC en GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). Si lo desea, revise la información sobre la plantilla y el código de origen.
 
-2. Haga clic en **Implementar en Azure** para iniciar una implementación con la plantilla en el Portal de vista previa de Azure.
+2. Haga clic en **Implementar en Azure** para iniciar una implementación con la plantilla en el Portal de Azure.
 
     ![Implementación de plantillas en Azure][github]
 
@@ -81,7 +81,7 @@ Use una plantilla de inicio rápido de Azure para implementar rápida y fácilme
 
 3.	Cuando se completa la implementación (normalmente tarda unos 30 minutos), exporte el archivo de certificado del clúster desde el nodo principal del clúster. En un paso posterior, este certificado público se importará en el equipo cliente para proporcionar la autenticación del lado servidor para el enlace HTTP seguro.
 
-    a. Conéctese al nodo principal mediante el Escritorio remoto desde el Portal de vista previa de Azure.
+    a. Conéctese al nodo principal mediante el Escritorio remoto desde el Portal de Azure.
 
      ![Conexión al nodo principal][connect]
 
@@ -347,7 +347,7 @@ Para realizar esto, establezca explícitamente la marca UseAzureQueue en false e
 
 ### Uso del enlace NetTcp
 
-Para usar el enlace NetTcp, la configuración es igual que al conectarse a un clúster local. Deberá abrir algunos extremos en la VM del nodo principal. En el portal de Azure, realice estas acciones.
+Para usar el enlace NetTcp, la configuración es igual que al conectarse a un clúster local. Deberá abrir algunos extremos en la VM del nodo principal. En el Portal de Azure clásico, realice estas acciones.
 
 
 1. Pare la VM.
@@ -381,4 +381,4 @@ La aplicación cliente de SOA no requiere cambios excepto modificar el nombre pr
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

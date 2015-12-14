@@ -22,17 +22,17 @@ La lógica de procesamiento de secuencia en el Análisis de transmisiones de Azu
 
 ## Para crear una consulta de Análisis de transmisiones: ##
 
-1. En su trabajo de Análisis de transmisiones en el Portal de administración de Azure, haga clic en **Consulta**.
+1. En su trabajo de Análisis de transmisiones en el Portal de Azure clásico, haga clic en **Consulta**.
 
     ![Seleccionar consulta](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)
 
-    En el Portal de vista previa de Azure, haga clic en **Consulta**.
+    En el Portal de Azure, haga clic en **Consulta**.
 
     ![Vista previa de selección de consulta](./media/stream-analytics-write-queries/query-preview-portal.png)
 
 2.	Los trabajos nuevos tienen una plantilla de consulta para ayudarle a empezar. La plantilla de consulta realiza una consulta de "paso a través" que proyecta todos los campos de los eventos de entrada a la salida.
 
-    - Si ha definido al menos una entrada y una salida para el trabajo, puede reemplazar los campos de marcador de posición "[SuAliasSalida]" y "[SuAliasEntrada]" por los alias de la entrada y la salida que quiere usar en primer lugar. Además, todavía puede crear y probar la consulta en el portal de Azure sin definir las entradas y salidas en el trabajo.
+    - Si ha definido al menos una entrada y una salida para el trabajo, puede reemplazar los campos de marcador de posición "[SuAliasSalida]" y "[SuAliasEntrada]" por los alias de la entrada y la salida que quiere usar en primer lugar. Además, todavía puede crear y probar la consulta en el Portal de Azure clásico sin definir las entradas y salidas en el trabajo.
     - Si quiere realizar un procesamiento más que un simple paso a través, puede editar la definición de la consulta. Para empezar con la creación de consultas, observe algunos patrones de consultas comunes que se capturan [aquí](stream-analytics-query-patterns).  
   
     ![Ventana de consulta](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)
@@ -41,7 +41,7 @@ La lógica de procesamiento de secuencia en el Análisis de transmisiones de Azu
 
 Puede probar que la consulta se comporta según lo esperado si la ejecuta en el explorador a través de uno o más archivos JSON locales que contienen los datos de prueba. Esto no iniciará el trabajo ni tendrá implicaciones de facturación.
 
-> [AZURE.NOTE]Actualmente no se admiten pruebas de consultas en el explorador en el Portal de vista previa de Azure.
+> [AZURE.NOTE]Actualmente no se admiten pruebas de consultas en el explorador en el Portal de Azure.
 
 1.	Asegúrese de que no hay errores en la consulta (en caso contrario, se deshabilitará el botón Probar) y luego haga clic en el botón Probar.  
 
@@ -70,4 +70,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

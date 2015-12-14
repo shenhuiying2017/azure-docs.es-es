@@ -3,7 +3,7 @@
    description="El artículo brinda una presentación para generar, recopilar y analizar registros de seguridad provenientes de los servicios hospedados en Azure. Está pensado para profesionales de TI y analistas de seguridad que se enfrentan diariamente con la administración de activos de información, incluidos quienes son responsables de los esfuerzos de seguridad y cumplimiento de su organización."
    services="virtual-machines, cloud-services, storage"
    documentationCenter="na"
-   authors="TerryLanfear"
+   authors="nayak-mahesh"
    manager="msStevenPo"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/13/2015"
+   ms.date="11/30/2015"
    ms.author="mnayak;tomsh;terrylan"/>
 
 # Administración de registros de auditoría y seguridad de Microsoft Azure
@@ -614,4 +614,4 @@ Los recursos siguientes proporcionan información general sobre Microsoft Azure 
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="12/01/2015"
 	ms.author="krisragh"/>
 
 # Activación de la sincronización sin conexión para la aplicación móvil iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Información general
 
@@ -88,7 +86,7 @@ La característica de sincronización de datos sin conexión de Aplicaciones mó
 
     El método `pullWithQuery` le permite especificar una consulta para filtrar los registros que desea recuperar. En este ejemplo, la consulta recupera simplemente todos los registros en la tabla `TodoItem` remota.
 
-    El segundo parámetro para `pullWithQuery` es un identificador de consulta que se utiliza para la *sincronización incremental*. La sincronización incremental recupera solo aquellos registros modificados desde la última sincronización, mediante la marca de tiempo del registro `UpdatedAt` (llamada `ms_updatedAt` en el almacén local). El identificador de la consulta debe ser una cadena descriptiva que sea única para cada consulta lógica en la aplicación. Para la desactivación de la sincronización incremental, pase `nil` como identificador de la consulta. Tenga en cuenta que esto puede resultar potencialmente ineficaz, ya que se recuperarán todos los registros de cada operación de extracción.
+    El segundo parámetro para `pullWithQuery` es un identificador de consulta que se utiliza para la *sincronización incremental*. La sincronización incremental recupera solo aquellos registros modificados desde la última sincronización, mediante la marca de tiempo del registro `UpdatedAt` (llamada `updatedAt` en el almacén local). El identificador de la consulta debe ser una cadena descriptiva que sea única para cada consulta lógica en la aplicación. Para la desactivación de la sincronización incremental, pase `nil` como identificador de la consulta. Tenga en cuenta que esto puede resultar potencialmente ineficaz, ya que se recuperarán todos los registros de cada operación de extracción.
 
 	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
@@ -105,9 +103,9 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
       * MS\_TableOperations: para realizar el seguimiento de los elementos que deben sincronizarse con el servidor
       * MS\_TableOperationErrors: para realizar el seguimiento de los errores que se producen durante la sincronización sin conexión
       * MS\_TableConfig: para realizar el seguimiento de la hora de la última actualización de la última operación de sincronización para todas las operaciones de extracción
-      * TodoItem: para almacenar elementos de lista de tareas. Las columnas de sistema**ms\_createdAt**, **ms\_updatedAt** y **ms\_version** son propiedades del sistema opcionales.
+      * TodoItem: para almacenar elementos de lista de tareas. Las columnas de sistema **createdAt**, **updatedAt** y **version** son propiedades del sistema opcionales.
 
->[AZURE.NOTE]El SDK de Aplicaciones móviles de Azure reserva los nombres de columna que comienzan con "**`ms_`**". No debe utilizar este prefijo en otra cosa que no sean las columnas del sistema; en caso contrario, se modificarán los nombres de columna cuando se use el back-end remoto.
+>[AZURE.NOTE]El SDK de Aplicaciones móviles de Azure reserva los nombres de columna que comienzan con "**``**". No debe utilizar este prefijo en otra cosa que no sean las columnas del sistema; en caso contrario, se modificarán los nombres de columna cuando se use el back-end remoto.
 
 - Al utilizar la característica de sincronización sin conexión, debe definir las tablas del sistema, tal como se muestra a continuación.
 
@@ -150,17 +148,16 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
 
     ### Tabla de datos
 
-    ![][defining-core-data-todoitem-entity]
-
     **TodoItem**
-
 
     | Atributo | Tipo | Nota: |
     |-----------   |  ------ | -------------------------------------------------------|
     | id | Cadena, marcado obligatorio | primary key in remote store |
     | complete | Booleano | todo item field |
     | text | Cadena | todo item field |
-    | ms\_createdAt | Date | (opcional) maps to \_\_createdAt system property | | ms\_updatedAt | Date | (opcional) maps to \_\_updatedAt system property | | ms\_version | String | (opcional) used to detect conflicts, maps to \_\_version |
+    | createdAt | Date | (opcional) se asigna a la propiedad del sistema createdAt |
+    | updatedAt | Date | (opcional) se asigna a la propiedad del sistema updatedAt |
+    | versión | String | (opcional) se usa para detectar conflictos, se asigna a la versión |
 
 
 ## <a name="setup-sync"></a>Cambio del comportamiento de sincronización de la aplicación
@@ -183,20 +180,22 @@ En esta sección, modificará la aplicación para que no se sincronice en el ini
 
 ## <a name="test-app"></a>Prueba de la aplicación
 
+En esta sección se conectará a una dirección URL no válida para simular un escenario sin conexión. Al agregar elementos de datos, estos se guardarán en el almacén local Core Data, pero no se sincronizarán con el back-end móvil.
 
-En esta sección, desactivará el Wi-Fi en el simulador para crear un escenario sin conexión. Al agregar elementos de datos, estos se guardarán en el almacén local Core Data, pero no se sincronizarán con el back-end móvil.
+1. Cambie la URL de la aplicación móvil en **QSTodoService.m** por una dirección URL válida y vuelva a ejecutar la aplicación:
 
-1. Desactive el Wi-Fi en el simulador de iOS.
+        self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
 
 2. Agregue algunos elementos de la lista de pendientes o complete algunos elementos. Salga del simulador (o fuerce el cierre de la aplicación) y reinicie. Compruebe que se han guardado los cambios.
 
 3. Vea el contenido de la tabla TodoItem remota:
-   - Para el back-end de JavaScript, vaya al Portal de administración y haga clic en la pestaña Datos para ver el contenido de la tabla `TodoItem`.
-   - Para el back-end de .NET, vea el contenido de tabla con una herramienta SQL, como SQL Server Management Studio, o con un cliente REST como Fiddler o Postman.
+
+    + En un back-end de Node.js, vaya al [Portal de Azure](https://portal.azure.com/) y, en el back-end de la aplicación móvil, haga clic en **Tablas fáciles** > **TodoItem** para ver el contenido de la `TodoItem` tabla.
+   	+ En el back-end de .NET, vea el contenido de tabla con una herramienta SQL, como SQL Server Management Studio, o con un cliente REST como Fiddler o Postman.
 
     Compruebe que los nuevos elementos *no* se han sincronizado con el servidor:
 
-4. Active el Wi-Fi en el simulador de iOS y, a continuación, realice el gesto de actualización desplegando la lista de elementos. Verá una rueda con el progreso y el texto "Sincronizando...".
+4. Vuelva a cambiar la dirección URL por la correcta en **QSTodoService.m** y vuelva a ejecutar la aplicación. Realice el gesto de actualización desplegando la lista de elementos. Verá una rueda con el progreso y el texto "Sincronizando...".
 
 5. Vea los datos de TodoItem de nuevo. Ahora deberían aparecer los elementos de TodoItems nuevos y modificados.
 
@@ -248,4 +247,4 @@ Cuando quisimos sincronizar el almacén local con el servidor, usamos los métod
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

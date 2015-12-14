@@ -12,12 +12,17 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="11/09/2015"
 	ms.author="glenga"/>
 
 
 # Creación de un servicio usando una base de datos SQL existente con el backend .NET de Servicios móviles
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 Con el backend .NET de Servicios móviles, es muy fácil aprovechar las ventajas que ofrecen recursos existentes para compilar un servicio móvil. Un escenario especialmente interesante es el uso de una base de datos SQL existente (local o en la nube), que ya pueden estar usando otras aplicaciones, para hacer que los datos existentes estén disponibles para clientes móviles. En este caso, es imprescindible que no se modifique el modelo de base de datos (o *esquema*) para que las soluciones actuales continúen funcionando.
 
@@ -26,7 +31,7 @@ Con el backend .NET de Servicios móviles, es muy fácil aprovechar las ventajas
 
 Para este tutorial, usaremos la base de datos que se creó con su servicio móvil, pero no usaremos el modelo predeterminado que se crea, sino que crearemos manualmente un modelo arbitrario que representará una aplicación existente que pueda tener. Para obtener todos los detalles de cómo conectarse a una base de datos local, consulte [Conexión a un servidor SQL Server local desde un servicio móvil de Azure mediante conexiones híbridas](mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
-1. Comience por crear un proyecto de servidor de Servicios móviles en **Visual Studio 2013 Update 2** o bien use el proyecto de inicio rápido que puede descargar en la pestaña Servicios móviles para el servicio en el [Portal de administración de Azure](http://manage.windowsazure.com). Para este tutorial, supondremos que el proyecto de servidor se denomina **ShoppingService**.
+1. Comience por crear un proyecto de servidor de Servicios móviles en **Visual Studio 2013 Update 2** o bien use el proyecto de inicio rápido que puede descargar en la pestaña Servicios móviles para el servicio en el [Portal de Azure clásico](http://manage.windowsazure.com). Para este tutorial, supondremos que el proyecto de servidor se denomina **ShoppingService**.
 
 2. Cree un archivo denominado **Customer.cs** en la carpeta **Models** y use la siguiente implementación. Deberá agregar al proyecto una referencia de ensamblado a **System.ComponentModel.DataAnnotations**.
 
@@ -468,7 +473,7 @@ El siguiente paso es implementar un elemento [**MappedEntityDomainManager**](htt
             }
         }
 
-    En este caso, los métodos **InsertAsync** y **UpdateAsync** son interesantes. Aquí es donde imponemos la relación de que cada **Order** debe tener asociado un **Customer** válido. En **InsertAsync**, verá que rellenamos la propiedad **MobileOrder.CustomerId**, que se asigna a la propiedad **Order.CustomerId**. Obtenemos ese valor buscando el **Customer** con el **MobileOrder.MobileCustomerId** coincidente. Esto se debe a que, de forma predeterminada, el cliente solo conoce el identificador de Servicios móviles (**MobileOrder.MobileCustomerId**) del **Customer**, que es diferente de su clave principal real necesaria para establecer la clave externa (**MobileOrder.CustomerId**) de **Order** en **Customer**. Esto se usa solo internamente en el servicio para facilitar la operación de inserción.
+    En este caso, los métodos **InsertAsync** y **UpdateAsync** son interesantes. Aquí es donde imponemos la relación de que cada **Order** debe tener asociado un **Customer** válido. En **InsertAsync**, verá que rellenamos la propiedad **MobileOrder.CustomerId**, que se asigna a la propiedad **Order.CustomerId**. Obtenemos ese valor buscando el valor **Customer** con el valor **MobileOrder.MobileCustomerId** coincidente. Esto se debe a que, de forma predeterminada, el cliente solo conoce el identificador de Servicios móviles (**MobileOrder.MobileCustomerId**) del **Customer**, que es diferente de su clave principal real necesaria para establecer la clave externa (**MobileOrder.CustomerId**) de **Order** en **Customer**. Esto se usa solo internamente en el servicio para facilitar la operación de inserción.
 
 Ya estamos preparados para crear controladores para exponer nuestros objetos DTO a nuestros clientes.
 
@@ -614,4 +619,4 @@ Observe que ambas implementaciones de controlador hacen un uso exclusivo de los 
 
 Para continuar, ya puede compilar la aplicación de cliente para acceder al servicio.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

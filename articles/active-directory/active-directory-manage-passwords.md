@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Administración de contraseñas en Azure AD | Microsoft Azure"
-	description="Cómo administrar contraseñas en Azure AD."
+	pageTitle="Administración de contraseñas en Azure Active Directory | Microsoft Azure"
+	description="Cómo administrar contraseñas en Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
-# Administración de contraseñas en Azure AD
+# Administración de contraseñas en Azure Active Directory
 
-Si es administrador, puede restablecer la contraseña de un usuario en Azure en el portal clásico de Azure. Haga clic en el nombre del directorio y en la página Usuarios, haga clic en el nombre del usuario y en la parte inferior del portal, haga clic en **Restablecer contraseña**.
+Si es administrador, puede restablecer la contraseña de un usuario en Azure Active Directory (Azure AD) en el Portal de Azure clásico. Haga clic en el nombre del directorio y en la página Usuarios, haga clic en el nombre del usuario y en la parte inferior del portal, haga clic en **Restablecer contraseña**.
 
-El resto de este tema abarca el conjunto completo de capacidades de administración de contraseñas que admite Azure Active Directory, que incluye:
+El resto de este tema abarca el conjunto completo de funcionalidades de administración de contraseñas que Azure AD admite, y que incluye:
 
 - El cambio de la **contraseña de autoservicio** permite a los usuarios finales o administradores cambiar sus contraseñas expiradas o no expiradas sin llamar a un administrador o departamento de soporte técnico para obtener soporte técnico.
 - El restablecimiento de la **contraseña de autoservicio** permite a los usuarios finales o administradores restablecer sus contraseñas automáticas sin llamar a un administrador o departamento de soporte técnico para obtener soporte técnico. El restablecimiento de la contraseña de autoservicio requiere Azure AD Premium o Básico. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
-- El **restablecimiento de la contraseña iniciada por el administrador** permite a un administrador restablecer la contraseña de un usuario final o de otro administrador desde dentro del Portal de administración de Azure.
+- El **restablecimiento de contraseña iniciado por el administrador** permite a un administrador restablecer la contraseña de un usuario final o de otro administrador desde el Portal de Azure clásico.
 - Los **informes de actividad de administración de contraseñas** proporcionan a los administradores perspectivas sobre una actividad de registro y restablecimiento de contraseña en su organización.
 - La **escritura diferida de la contraseña** permite la administración de contraseñas locales desde la nube, por lo que todos los escenarios anteriores pueden realizarlos los usuarios sincronizados con contraseña y federados, o en nombre de ellos. La escritura diferida de la contraseña requiere Azure AD Premium. Para obtener más información, consulte [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md).
 
@@ -48,4 +48,4 @@ Utilice los siguientes vínculos para ir a la documentación en la que esté má
 - [Creación o edición de usuarios en Azure AD](active-directory-create-users.md)
 - [Administración de grupos en Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

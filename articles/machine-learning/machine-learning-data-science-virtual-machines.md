@@ -37,7 +37,7 @@ Se ofrecen instrucciones que describen cómo configurar una máquina virtual de 
 Una vez aprovisionadas y configuradas, estas máquinas virtuales están preparadas para usarse como servidores de Bloc de notas de IPython para la exploración y el procesamiento de datos, y para otras tareas necesarias junto con el Aprendizaje automático de Azure y el Proceso de análisis de Cortana (CAP). Los pasos siguientes del proceso de ciencia de datos se asignan en la [Ruta de acceso de aprendizaje de CAP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) y pueden incluir pasos que muevan datos a SQL Server o HDInsight, los procese y muestree allí como preparación para el aprendizaje a partir de los datos con Aprendizaje automático de Azure.
 
 
-> [AZURE.NOTE]Las máquinas virtuales de Azure tienen unas tarifas del tipo **pague solo por lo que use**. Para asegurarse de que no se le facture cuando no use la máquina virtual, debe estar en el estado **Detenida (desasignada)** en el [Portal de administración de Azure](http://manage.windowsazure.com/). Para obtener instrucciones paso a paso sobre cómo desasignar la máquina virtual, consulte [Apagado y desasignación de la máquina virtual cuando no esté en uso](machine-learning-data-science-setup-virtual-machine.md#shutdown).
+> [AZURE.NOTE]Las máquinas virtuales de Azure tienen unas tarifas del tipo **pague solo por lo que use**. Para asegurarse de que no se le facture cuando no use la máquina virtual, debe estar en el estado **Detenida (desasignada)** en el [Portal de Azure clásico](http://manage.windowsazure.com/). Para obtener instrucciones paso a paso sobre cómo desasignar la máquina virtual, consulte [Apagado y desasignación de la máquina virtual cuando no esté en uso](machine-learning-data-science-setup-virtual-machine.md#shutdown).
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

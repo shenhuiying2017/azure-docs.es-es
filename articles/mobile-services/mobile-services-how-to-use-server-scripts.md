@@ -89,7 +89,7 @@ Cada script del servidor cuenta con una función principal y dispone de funcione
 
 Puede definir los scripts del servidor que están registrados en una operación de tabla de alguna de las siguientes formas:
 
-+ En el [Portal de administración de Azure][Management Portal]. Se puede obtener acceso a los scripts de las operaciones de tabla en la pestaña **Scripts** de una tabla determinada. A continuación se muestra el código predeterminado registrado para el script insert en la tabla `TodoItem`. Puede reemplazar este código por su propia lógica de negocios personalizada.
++ En el [Portal de Azure clásico]. Se puede obtener acceso a los scripts de las operaciones de tabla en la pestaña **Scripts** de una tabla determinada. A continuación se muestra el código predeterminado registrado para el script insert en la tabla `TodoItem`. Puede reemplazar este código por su propia lógica de negocios personalizada.
 
 	![1][1]
 	
@@ -336,7 +336,7 @@ El estado global se mantiene entre ejecuciones.
 
 Puede definir los scripts del servidor que están registrados en métodos HTTP en un extremo de la API personalizada de alguna de las siguientes formas:
 
-+ En el [Portal de administración de Azure][Management Portal]. Los scripts de API personalizada se crean y modifican en la pestaña **API**. El código del script del servidor se encuentra en la pestaña **Scripts** de una API personalizada determinada. A continuación se muestra el script que invoca una solicitud POST en el extremo de la API personalizada `CompleteAll`. 
++ En el [Portal de Azure clásico]. Los scripts de API personalizada se crean y modifican en la pestaña **API**. El código del script del servidor se encuentra en la pestaña **Scripts** de una API personalizada determinada. A continuación se muestra el script que invoca una solicitud POST en el extremo de la API personalizada `CompleteAll`. 
 
 	![2][2]
 	
@@ -443,17 +443,17 @@ Las solicitudes HTTP GET pueden invocar las dos rutas del ejemplo anterior de la
 
 ##<a name="scheduler-scripts"></a>Programador de trabajos
 
-Servicios móviles le permite definir scripts del servidor que se ejecuten como trabajos en una programación fija o a petición en el Portal de administración. Los trabajos programados son útiles para la realización de tareas periódicas como la limpieza de datos de una tabla y el procesamiento por lotes. Para obtener más información, vea [Programación de trabajos].
+Servicios móviles le permite definir scripts del servidor que se ejecuten como trabajos en una programación fija o a petición en el Portal de Azure clásico. Los trabajos programados son útiles para la realización de tareas periódicas como la limpieza de datos de una tabla y el procesamiento por lotes. Para obtener más información, vea [Programación de trabajos].
 
 Los scripts que se han registrado en trabajos programados tienen una función principal con el mismo nombre que el trabajo programado. Puesto que una solicitud HTTP no invoca un script programado, no existe ningún contexto que el tiempo de ejecución del servidor pueda pasar y la función no usa ningún parámetro. Como con otros tipos de scripts, puede disponer de funciones de subrutinas y solicitar módulos compartidos. Para obtener más información, vea [Control de código fuente, código compartido y funciones auxiliares].
 
 ###<a name="scheduler-scripts"></a>Definición de scripts de trabajos programados
 
-Puede asignarse un script del servidor a una trabajo definido en el Programador de Servicios móviles. Estos scripts pertenecen al trabajo y se ejecutan de acuerdo con la programación de trabajos. (También puede usar el [Portal de administración] para ejecutar trabajos a petición). Un script que define un trabajo programado no cuenta con parámetros porque Servicios móviles no pasa ningún dato; se ejecuta como una función JavaScript normal y no interactúa con Servicios móviles directamente.
+Puede asignarse un script del servidor a una trabajo definido en el Programador de Servicios móviles. Estos scripts pertenecen al trabajo y se ejecutan de acuerdo con la programación de trabajos. (También puede usar el [Portal de Azure clásico] para ejecutar trabajos a petición). Un script que define un trabajo programado no cuenta con parámetros porque Servicios móviles no pasa ningún dato; se ejecuta como una función JavaScript normal y no interactúa con Servicios móviles directamente.
 
 Puede definir trabajos programados de una de las siguientes formas:
 
-+ En el [Portal de administración de Azure][Management Portal] en la pestaña **Script** del programador:
++ En el [Portal de Azure clásico] en la pestaña **Script** del programador:
 
 	![3][3]
 
@@ -924,7 +924,7 @@ La forma más sencilla de depurar y solucionar los problemas de los scripts del 
 
 Para escribir en los registros, use el objeto de [consola global]. Use la función **log** o **info** para registrar advertencias de nivel de información. Las funciones **warning** y **error** registran sus niveles respectivos, a los que se llama en los registros.
 
-> [AZURE.NOTE]Para ver los registros para el servicio móvil, inicie sesión en el [Portal de administración](https://manage.windowsazure.com/), seleccione el servicio móvil y, a continuación, seleccione la pestaña **Logs**.
+> [AZURE.NOTE]Para ver los registros para el servicio móvil, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/), seleccione el servicio móvil y seleccione la pestaña **Registros**.
 
 También puede usar las funciones de registro del [objeto de consola] para dar formato a sus mensajes mediante parámetros. En el siguiente ejemplo se proporciona un objeto JSON como parámetro para la cadena de mensaje:
 
@@ -1024,8 +1024,7 @@ Para evitar la sobrecarga del registro, debe quitar o deshabilitar las llamadas 
 [Validación de los datos]: http://msdn.microsoft.com/library/windowsazure/jj631638.aspx
 [Modificación de la solicitud]: http://msdn.microsoft.com/library/windowsazure/jj631635.aspx
 [Modificación de la respuesta]: http://msdn.microsoft.com/library/windowsazure/jj631631.aspx
-[Management Portal]: https://manage.windowsazure.com/
-[Portal de administración]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [Programación de trabajos]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
 [Validación y modificación de datos en los Servicios móviles mediante los scripts de servidor]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
 [Comandos para administrar Servicios móviles de Azure]: ../virtual-machines-command-line-tools.md#Mobile_Scripts
@@ -1056,4 +1055,4 @@ Para evitar la sobrecarga del registro, debe quitar o deshabilitar las llamadas 
 [Support for package.json in Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

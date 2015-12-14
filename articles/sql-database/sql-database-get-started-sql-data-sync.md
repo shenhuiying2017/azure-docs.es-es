@@ -18,7 +18,7 @@
 
 
 #Introducción a SQL Data Sync de Azure (vista previa)
-En este tutorial aprenderá los fundamentos del uso de SQL Data Sync de Azure mediante el Portal de administración de Azure.
+En este tutorial aprenderá los fundamentos del uso de SQL Data Sync de Azure mediante el Portal de Azure clásico.
 
 En este tutorial se presupone una experiencia previa mínima en SQL Server y Base de datos SQL de Azure. En este tutorial, creará un grupo de sincronización híbrido (sesiones de SQL Server y Base de datos SQL) completamente configurado y sincronizado en función de cómo lo programe.
 
@@ -26,7 +26,7 @@ En este tutorial se presupone una experiencia previa mínima en SQL Server y Bas
 
 ## Paso 1: Conexión a la Base de datos SQL de Azure
 
-1. Inicie sesión en el [Portal de administración](http://manage.windowsazure.com).
+1. Inicie sesión en el [Portal clásico](http://manage.windowsazure.com).
 
 2. Haga clic en **BASES DE DATOS SQL** en el panel izquierdo.
 
@@ -90,7 +90,7 @@ Cuando del agente cliente se haya instalado, registre todas las bases de datos d
 <a id="StartNewSGWizard"></a>
 ### Paso 4a: Inicio del asistente Nuevo grupo de sincronización
 
-1.	Vuelva al [Portal de administración](http://manage.windowsazure.com).
+1.	Vuelva al [Portal clásico](http://manage.windowsazure.com).
 2.	Haga clic en **BASES DE DATOS SQL**.
 3.	Haga clic en **AGREGAR SINCRONIZACIÓN** al final de la página y, a continuación, seleccione Nuevo grupo de sincronización en el cajón.
 
@@ -155,7 +155,7 @@ Repita este paso en todas las bases de datos adicionales que quiera agregar al g
 
 SQL Data Sync de Azure le permite seleccionar tablas y columnas para sincronizarlas. Si además desea filtrar una columna para que solo sincronice filas con valores concretos (como, Age>=65), use el portal SQL Data Sync en Azure y la documentación de Seleccionar las tablas, las columnas y las filas que hay que sincronizar para definir los datos que se sincronizarán.
 
-1.	Vuelva al [Portal de administración](http://manage.windowsazure.com).
+1.	Vuelva al [Portal clásico](http://manage.windowsazure.com).
 2.	Haga clic en **BASES DE DATOS SQL**.
 3.	Haga clic en la pestaña **SINCRONIZACIÓN**.
 4.	Haga clic en el nombre de este grupo de sincronización.
@@ -176,7 +176,7 @@ SQL Data Sync de Azure le permite seleccionar tablas y columnas para sincronizar
 
 Siempre podrá sincronizar un grupo de sincronización haciendo clic en SYNC en la parte inferior de la página de aterrizaje de Data Sync. Si desea programar la sincronización de un grupo de sincronización, configúrelo en el grupo de sincronización.
 
-1.	Vuelva al [Portal de administración](http://manage.windowsazure.com).
+1.	Vuelva al [Portal clásico](http://manage.windowsazure.com).
 2.	Haga clic en **BASES DE DATOS SQL**.
 3.	Haga clic en la pestaña **SINCRONIZACIÓN**.
 4.	Haga clic en el nombre de este grupo de sincronización.
@@ -202,4 +202,4 @@ Para obtener más información acerca de Base de datos SQL y SQL Data Sync, cons
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

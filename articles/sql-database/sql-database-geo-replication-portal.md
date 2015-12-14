@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Configuración de replicación geográfica para Base de datos SQL de Azure con el Portal de vista previa de Azure | Microsoft Azure" 
-    description="Configuración de replicación geográfica para Base de datos SQL de Azure con el Portal de vista previa de Azure" 
+    pageTitle="Configuración de replicación geográfica para Base de datos SQL de Azure con el Portal de Azure | Microsoft Azure" 
+    description="Configuración de replicación geográfica para Base de datos SQL de Azure con el Portal de Azure" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -13,23 +13,23 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="11/10/2015"
+    ms.date="12/01/2015"
     ms.author="sstein"/>
 
-# Configuración de replicación geográfica para Base de datos SQL de Azure con el Portal de vista previa de Azure
+# Configuración de replicación geográfica para Base de datos SQL de Azure con el Portal de Azure
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-geo-replication-portal.md)
+- [Azure portal](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 
-En este artículo se muestra cómo configurar la replicación geográfica para Base de datos SQL de Azure con el [Portal de vista previa de Azure](https://portal.azure.com).
+En este artículo se muestra cómo configurar la replicación geográfica para Base de datos SQL con el [Portal de Azure](https://portal.azure.com).
 
-La replicación geográfica permite crear hasta cuatro bases de datos (secundarias) de réplica en distintas ubicaciones de centros de datos (regiones). Las bases de datos secundarias están disponibles en caso de una interrupción del centro de datos o la imposibilidad de conectarse a la base de datos principal.
+La replicación geográfica permite crear hasta cuatro bases de datos de réplica (secundarias) en distintas ubicaciones de centros de datos (regiones). Las bases de datos secundarias están disponibles en caso de una interrupción del centro de datos o de imposibilidad para conectarse a la base de datos principal.
 
-La replicación geográfica solo está disponible para bases de datos Estándar y Premium.
+La replicación geográfica solo está disponible para las bases de datos Estándar y Premium.
 
 Las bases de datos Estándar pueden tener una base de datos secundaria no legible y deben usar la región recomendada. Las bases de datos Premium pueden tener hasta cuatro bases de datos secundarias legibles en cualquiera de las regiones disponibles.
 
@@ -37,17 +37,17 @@ Las bases de datos Estándar pueden tener una base de datos secundaria no legibl
 Para configurar la replicación geográfica, necesita lo siguiente:
 
 - Una suscripción de Azure. Si necesita una suscripción a Azure, haga clic en la opción **PRUEBA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva para finalizar este artículo.
-- Una base de datos de Base de datos de Azure: la base de datos principal que quiere replicar en una región geográfica diferente.
+- Una base de datos de Base de datos SQL de Azure: la base de datos principal que quiere replicar en una región geográfica diferente.
 
 
 
-## Adición de una base de datos secundaria
+## Agregar una base de datos secundaria
 
 Los pasos siguientes crean otra base de datos secundaria en una asociación de replicación geográfica.
 
 Para agregar una base de datos secundaria debe ser el propietario o copropietario de la suscripción.
 
-La base de datos secundaria tendrá el mismo nombre que la base de datos principal y, de forma predeterminada, tienen el mismo nivel de servicio. La base de datos secundaria puede ser legible (solo nivel Premium) o no legible, y puede ser una base de datos única o elástica. Para más información, vea [Niveles de servicio](sql-database-service-tiers.md). Después de crear e inicializar la base de datos secundaria, los datos comenzarán a replicarse desde la base de datos principal hasta la nueva base de datos secundaria.
+La base de datos secundaria tendrá el mismo nombre que la base de datos principal y, de forma predeterminada, tienen el mismo nivel de servicio. La base de datos secundaria puede ser legible (solo nivel Premium) o no legible, y puede ser una base de datos única o elástica. Para más información, vea [Niveles de servicio](sql-database-service-tiers.md). Después de crear e inicializar la base de datos secundaria, los datos comenzarán a replicarse desde la base de datos principal a la nueva base de datos secundaria.
 
 > [AZURE.NOTE]Si la base de datos del asociado ya existe (por ejemplo, como resultado de la terminación de una relación de replicación geográfica anterior) se producirá un error en el comando.
 
@@ -56,7 +56,7 @@ La base de datos secundaria tendrá el mismo nombre que la base de datos princip
 
 ### Adición de una secundaria
 
-1. En el [Portal de vista previa de Azure](https://portal.azure.com), vaya a la base de datos que desea configurar para replicación geográfica.
+1. En el [Portal de Azure](https://portal.azure.com), vaya a la base de datos que desea configurar para replicación geográfica.
 2. En la hoja Base de datos SQL, seleccione **Toda la configuración** > **Replicación geográfica**.
 3. Seleccione la región para crear la base de datos secundaria. Las bases de datos Premium pueden usar cualquier región para una base de datos secundaria, las bases de datos Estándar deben usar la región recomendada:
 
@@ -81,15 +81,15 @@ La base de datos secundaria tendrá el mismo nombre que la base de datos princip
 
 7. Cuando se completa el proceso de inicialización la base de datos secundaria muestra su estado (no legible).
 
-    ![lista para secundaria][9]
+    ![secundaria lista][9]
 
 
 
-## Eliminación de una base de datos secundaria
+## Elimine una base de datos secundaria
 
 La operación termina de forma permanente la replicación en la base de datos secundaria y el rol de la base de datos secundaria cambia al de una base de datos de lectura y escritura normal. Si se interrumpe la conectividad a la base de datos secundaria, el comando se ejecuta correctamente pero la base de datos secundaria no pasará a ser de lectura y escritura hasta después de restaurarse la conectividad.
 
-1. En el [Portal de vista previa de Azure](https://portal.azure.com), vaya a la base de datos principal de la asociación de replicación geográfica.
+1. En el [Portal de Azure](https://portal.azure.com), vaya a la base de datos principal de la asociación de replicación geográfica.
 2. En la hoja Base de datos SQL, seleccione **Toda la configuración** > **Replicación geográfica**.
 3. En la lista **SECUNDARIAS**, seleccione la base de datos que quiere quitar de la asociación de replicación geográfica.
 4. Haga clic en **Detener replicación**.
@@ -108,7 +108,7 @@ La operación termina de forma permanente la replicación en la base de datos se
 
 La base de datos secundaria se puede cambiar para convertirse en la principal.
 
-1. En el [Portal de vista previa de Azure](https://portal.azure.com), vaya a la base de datos principal de la asociación de replicación geográfica.
+1. En el [Portal de Azure](https://portal.azure.com), vaya a la base de datos principal de la asociación de replicación geográfica.
 2. En la hoja Base de datos SQL, seleccione **Toda la configuración** > **Replicación geográfica**.
 3. En la lista **SECUNDARIAS**, seleccione la base de datos que quiere convertir en la nueva base de datos principal.
 4. Haga clic en **Conmutación por error**.
@@ -121,7 +121,7 @@ El comando ejecuta el siguiente flujo de trabajo:
 
 2. Cambiar los roles primario y secundario de las dos bases de datos de la asociación de replicación geográfica.
 
-En el caso de una conmutación por error planeada, esta secuencia garantiza que no se produce ninguna pérdida de datos. Hay un breve período durante el que ambas bases de datos no están disponibles (del orden de 0 a 25 segundos) mientras se cambian los roles. En circunstancias normales, toda la operación debería tardar menos de un minuto en completarse.
+En el caso de una conmutación por error planeada, esta secuencia garantiza que no se produzca ninguna pérdida de datos. Hay un breve período durante el que ambas bases de datos no están disponibles (del orden de 0 a 25 segundos) mientras se cambian los roles. En circunstancias normales, toda la operación debería tardar menos de un minuto en completarse.
 
    
 
@@ -133,7 +133,7 @@ En el caso de una conmutación por error planeada, esta secuencia garantiza que 
 
 ## Recursos adicionales
 
-- [Lo más destacado de las capacidades de replicación geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
+- [Lo más destacado de las nuevas funcionalidades de replicación geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
 - [Diseño de aplicaciones de nube para la continuidad del negocio mediante replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Documentación de la base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
@@ -151,4 +151,4 @@ En el caso de una conmutación por error planeada, esta secuencia garantiza que 
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

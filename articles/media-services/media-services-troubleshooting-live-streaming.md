@@ -65,7 +65,7 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 
 	**Pasos para solucionar problemas**: vaya a la pestaña "Extremo de streaming" en la herramienta AMSE y compruebe que hay un extremo de streaming con una unidad de streaming.
 	
->[AZURE.NOTE]Si después de seguir los pasos de solución de problemas, todavía no puede realizar correctamente el streaming, envíe una incidencia de soporte técnico mediante el Portal de administración de Azure.
+>[AZURE.NOTE]Si después de seguir los pasos de solución de problemas, todavía no puede realizar correctamente la transmisión, envíe una incidencia de soporte técnico mediante el Portal de Azure clásico.
 
 ##Rutas de aprendizaje de Servicios multimedia
 
@@ -75,4 +75,4 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

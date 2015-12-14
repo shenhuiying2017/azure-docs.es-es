@@ -39,7 +39,7 @@ Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación
   
 Después de terminar el entrenamiento, tiene que actualizar el servicio web de puntuación (experimento predictivo expuesto como un servicio web) con el modelo recién entrenado. Para ello, siga estos pasos:
 
-1. Agregar un punto de conexión no predeterminado al servicio web de puntuación. No se puede actualizar el punto de conexión predeterminado del servicio web, por lo que tendrá que crear un nuevo punto de conexión no predeterminado mediante el Portal de administración de Azure. Consulte el artículo [Creación de puntos de conexión](../machine-learning/machine-learning-create-endpoint.md) para obtener información sobre los conceptos y procedimientos relacionados con el tema.
+1. Agregar un punto de conexión no predeterminado al servicio web de puntuación. No se puede actualizar el punto de conexión predeterminado del servicio web, por lo que tendrá que crear un nuevo punto de conexión no predeterminado mediante el Portal de Azure clásico. Consulte el artículo [Creación de puntos de conexión](../machine-learning/machine-learning-create-endpoint.md) para obtener información sobre los conceptos y procedimientos relacionados con el tema.
 2. Actualizar los servicios vinculados ya existentes de Aprendizaje automático de Azure para puntuar para que usen el punto de conexión no predeterminado. Debe empezar a emplear el nuevo punto de conexión para usar el servicio web que está actualizado.
 3. Use la **Actividad de recursos de actualización de Aprendizaje automático de Azure** para actualizar el servicio web con el modelo recién entrenado.  
 
@@ -360,12 +360,12 @@ Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación
 1. Crear un experimento en [Estudio de aprendizaje automático](https://studio.azureml.net). 
 2. Cuando esté satisfecho con el modelo, use Estudio de aprendizaje automático de Azure para publicar servicios web para el **experimento de entrenamiento** y puntuación / ** experimento predictivo**.
 
-En la tabla siguiente se describen los servicios web empleados en este ejemplo. Consulte [Volver a entrenar modelos de aprendizaje automático mediante programación](../machine-learning/machine-learning-retrain-models-programmatically.md) para obtener información detallada.
+En la tabla siguiente se describen los servicios web empleados en este ejemplo. Vea [Volver a entrenar modelos de aprendizaje automático mediante programación](../machine-learning/machine-learning-retrain-models-programmatically.md) para información detallada.
 
 | Tipo de servicio web | description 
 | :------------------ | :---------- 
 | **Servicio web de entrenamiento** | Recibe datos de entrenamiento y genera modelos entrenados. El resultado del entrenamiento es un archivo .ilearner en un almacenamiento de blobs de Azure. El **punto de conexión predeterminado** se crea automáticamente para cuando publique el experimento de entrenamiento como un servicio web. Puede crear más puntos de conexión, pero el ejemplo usa solo el punto de conexión predeterminado |
-| **Servicio web de puntuación** | Recibe ejemplos de datos sin etiqueta y realiza predicciones. El resultado de la predicción puede presentarse en diversas formas, como un archivo .csv o como las filas de una Base de datos de SQL de Azure, dependiendo de la configuración del experimento. El punto de conexión predeterminado se crea automáticamente cuando se publica el experimento predictivo como un servicio web. Tendrá que crear el segundo **punto de conexión no predeterminado y actualizable** a través del [Portal de Azure](https://manage.windowsazure.com). Puede crear más puntos de conexión, pero el ejemplo usa solo el punto de conexión no predeterminado actualizable. Consulte el artículo [Creación de puntos de conexión](../machine-learning/machine-learning-create-endpoint.md) para conocer los pasos necesarios para ello.       
+| **Servicio web de puntuación** | Recibe ejemplos de datos sin etiqueta y realiza predicciones. El resultado de la predicción puede presentarse en diversas formas, como un archivo .csv o como las filas de una Base de datos de SQL de Azure, dependiendo de la configuración del experimento. El punto de conexión predeterminado se crea automáticamente cuando se publica el experimento predictivo como un servicio web. Tendrá que crear el segundo **punto de conexión no predeterminado y actualizable** a través del [Portal de Azure clásico](https://manage.windowsazure.com). Puede crear más puntos de conexión, pero el ejemplo usa solo el punto de conexión no predeterminado actualizable. Consulte el artículo [Creación de puntos de conexión](../machine-learning/machine-learning-create-endpoint.md) para conocer los pasos necesarios para ello.       
  
 La siguiente imagen muestra la relación entre los puntos de conexión de entrenamiento y de puntuación de Aprendizaje automático de Azure.
 
@@ -601,12 +601,12 @@ La actividad AzureMLBatchExecution se introdujo en la versión de agosto de 2015
 
 La actividad AzureMLBatchExecution no requiere una entrada (si no se necesitan dependencias de entrada). También permite ser explícito sobre si usar o no entradas y salidas de servicio web. Si decide usar entradas o salidas de servicio web, podrá especificar los conjuntos de datos de Blob de Azure pertinentes para usar. Además, podrá especificar claramente los valores para los parámetros de servicio web que proporciona el servicio web.
 
-Si desea seguir usando la actividad AzureMLBatchScoring, consulte el artículo [Actividad de puntuación por lotes de Aprendizaje automático de Azure](data-factory-create-predictive-pipelines.md) para obtener más información.
+Si quiere seguir usando la actividad AzureMLBatchScoring, consulte el artículo [Actividad de puntuación por lotes de Aprendizaje automático de Azure](data-factory-create-predictive-pipelines.md) para más información.
 
 
 **P:** Tengo varios archivos generados por medio de mis canalizaciones de macrodatos. ¿Puedo usar la actividad AzureMLBatchExecution para trabajar en todos los archivos?
 
-**R:** Sí. Consulte **Uso de un módulo lector para leer datos de varios archivos de blob de Azure** para obtener más información.
+**R:** Sí. Vea **Uso de un módulo lector para leer datos de varios archivos de blob de Azure** para más información.
 
 
 ## Otras referencias
@@ -624,4 +624,4 @@ Si desea seguir usando la actividad AzureMLBatchScoring, consulte el artículo [
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

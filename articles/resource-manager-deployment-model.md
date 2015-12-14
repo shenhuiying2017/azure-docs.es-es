@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/26/2015"
+   ms.date="12/02/2015"
    ms.author="tomfitz"/>
 
 # Descripción de la implementación del Administrador de recursos y la implementación clásica
@@ -42,19 +42,19 @@ Los recursos creados a través del Administrador de recursos comparten las sigui
 
 - Creadas a través de uno de los métodos siguientes:
 
-  - El [Portal de vista previa](https://portal.azure.com/).
+  - El [Portal de Azure](https://portal.azure.com/).
 
-        ![preview portal](./media/resource-manager-deployment-model/preview-portal.png)
+        ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        For Compute, Storage, and Networking resources, you have the option of using either Resourece Manager or Classic deployment. Select **Resource Manager**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-  - Para las versiones de Azure PowerShell anteriores a la versión de vista previa 1.0, los comandos se ejecutan en el modo **AzureResourceManager**.
+  - Para las versiones de Azure PowerShell anteriores a la versión 1.0, los comandos se ejecutan en el modo **AzureResourceManager**.
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-  - Para la vista previa de Azure PowerShell 1.0, utilice la versión del Administrador de recursos de comandos. Estos comandos tienen el formato *verb-AzureRm*, tal como se muestra a continuación.
+  - Para Azure PowerShell 1.0, use la versión del Administrador de recursos de comandos. Estos comandos tienen el formato *verb-AzureRm*, tal como se muestra a continuación.
 
             PS C:\> Get-AzureRmResourceGroupDeployment
 
@@ -73,19 +73,19 @@ Los recursos creados en el modelo de implementación clásica comparten las sigu
 
 - Creadas a través de uno de los métodos siguientes:
 
-  - [Portal de Azure](https://manage.windowsazure.com)
+  - [Portal clásico](https://manage.windowsazure.com)
 
-        ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
+        ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        O bien, el portal de vista previa y el usuario deben especificar la implementación **clásica** (para cálculo, almacenamiento y redes).
+        Or, the portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-  - Para las versiones de Azure PowerShell anteriores a la versión de vista previa 1.0, los comandos PowerShell se ejecutan en el modo **AzureServiceManagement** (que es el modo predeterminado, por lo que si no cambia de forma específica a AzureResourceManager, ejecuta el modo AzureServiceManagement).
+  - Para las versiones de Azure PowerShell anteriores a la versión 1.0, los comandos se ejecutan en el modo **AzureServiceManagement** (que es el modo predeterminado, por lo que si no cambia de forma específica a AzureResourceManager, ejecuta el modo AzureServiceManagement).
 
             PS C:\> Switch-AzureMode -Name AzureServiceManagement
 
-  - Para la vista previa de Azure PowerShell 1.0, utilice la versión de Administración de servicios de comandos. Estos nombres de comandos **no** tienen el formato *verb-AzureRm*, tal como se muestra a continuación.
+  - Para Azure PowerShell 1.0, use la versión de Administración de servicios de comandos. Estos nombres de comandos **no** tienen el formato *verb-AzureRm*, tal como se muestra a continuación.
 
             PS C:\> Get-AzureDeployment
 
@@ -95,7 +95,7 @@ Los recursos creados en el modelo de implementación clásica comparten las sigu
 
     ![tipo clásico](./media/resource-manager-deployment-model/classic-type.png)
 
-Todavía puede usar el Portal de vista previa para administrar los recursos creados a través de la implementación clásica.
+Todavía puede usar el portal para administrar los recursos creados a través de la implementación clásica.
 
 ## Ventajas de usar el Administrador de recursos y grupos de recursos
 
@@ -168,4 +168,4 @@ Para obtener información sobre cómo conectar redes virtuales de diferentes mod
 - Para obtener información sobre cómo crear plantillas de implementación declarativas, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para ver los comandos para implementar una plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

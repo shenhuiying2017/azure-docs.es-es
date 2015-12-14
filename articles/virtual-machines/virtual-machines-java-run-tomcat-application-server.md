@@ -40,7 +40,7 @@ En este tutorial, se va a instalar un servidor de aplicaciones Apache Tomcat en 
 
 ## Para crear una máquina virtual
 
-1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com).
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
 2. Haga clic en **Nuevo**, **Proceso**, **Máquina virtual** y, a continuación, en **Desde la galería**.
 3. En el cuadro de diálogo **Selección de imagen de máquina virtual**, seleccione **JDK 7 Windows Server 2012**. Tenga en cuenta que **JDK 6 Windows Server 2012** está disponible si tiene aplicaciones heredadas que aún no están preparadas para ejecutarse en JDK 7.
 4. Haga clic en **Siguiente**.
@@ -63,7 +63,7 @@ En este tutorial, se va a instalar un servidor de aplicaciones Apache Tomcat en 
 
 ## Para iniciar sesión de manera remota en la máquina virtual
 
-1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com).
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
 2. Haga clic en **Máquinas virtuales**.
 3. Haga clic en el nombre de la máquina virtual en la que desea iniciar sesión.
 4. Una vez que la máquina virtual se haya iniciado, un menú emergente en la parte inferior de la página permite las conexiones.
@@ -89,7 +89,7 @@ Ahora, si ejecuta el explorador de la máquina virtual y abre <http://localhost:
 Para ver que Tomcat se ejecuta desde máquinas externas, deberá crear un extremo y abrir un puerto.
 
 ## Para crear un extremo para la máquina virtual
-1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com).
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
 2. Haga clic en **Máquinas virtuales**.
 3. Haga clic en el nombre de la máquina virtual que ejecuta el servidor de aplicaciones Java.
 4. Haga clic en **Extremos**.
@@ -146,4 +146,4 @@ Para obtener más información sobre otros servicios (como Almacenamiento de Azu
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

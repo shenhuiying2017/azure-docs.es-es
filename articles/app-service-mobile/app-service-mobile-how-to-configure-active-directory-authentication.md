@@ -29,7 +29,7 @@ En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para
 
 ## <a name="express"> </a>Configuración de Azure Active Directory mediante la configuración rápida
 
-13. En el [Portal de administración de Azure], vaya a la aplicación. Haga clic en **Configuración** y luego en **Autenticación/autorización**.
+13. En el [Portal de Azure], vaya a la aplicación. Haga clic en **Configuración** y, a continuación, en **Autenticación/autorización**.
 
 14. Si esta característica no está habilitada, mueva el interruptor a la posición de **activada**.
 
@@ -39,7 +39,7 @@ En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para
 
     ![][0]
 	
-	De forma predeterminada, el Servicio de aplicaciones proporciona autenticación pero no restringe el acceso autorizado al contenido del sitio y a las API. Debe autorizar a los usuarios en el código de la aplicación.
+	De forma predeterminada, el Servicio de aplicaciones ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio y a las API. Debe autorizar a los usuarios en el código de la aplicación.
 
 17. (Opcional) Para restringir el acceso al sitio solo a los usuarios autenticados mediante Azure Active Directory, establezca **Acción por realizar cuando no se autentique la solicitud** en **Azure Active Directory**. Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a Azure Active Directory para la autenticación.
 
@@ -52,9 +52,9 @@ También puede elegir proporcionar los valores de configuración manualmente. Es
 
 ### <a name="register"> </a>Registro de la aplicación con Azure Active Directory
 
-1. Inicie sesión en el [Portal de administración de Azure] en vista previa y vaya a la aplicación. Copie el valor de **Dirección URL**. Se usará para configurar la aplicación de Azure Active Directory.
+1. Inicie sesión en el [Portal de Azure] y vaya a la aplicación. Copie el valor de **Dirección URL**. Se usará para configurar la aplicación de Azure Active Directory.
 
-3. Inicie sesión en el [Portal de administración de Azure] y vaya a **Active Directory**.
+3. Inicie sesión en el [Portal de Azure clásico] y vaya a **Active Directory**.
 
     ![][2]
 
@@ -85,7 +85,7 @@ También puede elegir proporcionar los valores de configuración manualmente. Es
 > [AZURE.NOTE]Si usa la puerta de enlace del Servicio de aplicaciones, omita esta sección y en su lugar, vaya a la puerta de enlace en el portal. Seleccione **Configuración**, **Identidad**, y luego **Azure Active Directory**. Pegue el elemento ClientID y agregue el identificador del inquilino a la lista **Inquilinos permitidos**. Haga clic en **Guardar**.
 
 
-13. En el [Portal de administración de Azure] en vista previa, vaya a la aplicación. Haga clic en **Configuración** y luego en **Autenticación/autorización**.
+13. Vuelva al [Portal de Azure] y vaya a la aplicación. Haga clic en **Configuración** y, a continuación, en **Autenticación/autorización**.
 
 14. Si esta característica no está habilitada, mueva el interruptor a la posición de **activada**.
 
@@ -93,13 +93,37 @@ También puede elegir proporcionar los valores de configuración manualmente. Es
 
     ![][1]
 	
-	De forma predeterminada, el Servicio de aplicaciones proporciona autenticación pero no restringe el acceso autorizado al contenido del sitio y a las API. Debe autorizar a los usuarios en el código de la aplicación.
+	De forma predeterminada, el Servicio de aplicaciones ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio y a las API. Debe autorizar a los usuarios en el código de la aplicación.
 
 17. (Opcional) Para restringir el acceso al sitio solo a los usuarios autenticados mediante Azure Active Directory, establezca **Acción por realizar cuando no se autentique la solicitud** en **Azure Active Directory**. Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a Azure Active Directory para la autenticación.
 
 17. Haga clic en **Guardar**.
 
 Ahora está preparado para usar Azure Active Directory para realizar la autenticación en la aplicación.
+
+## (Opcional) Configurar una aplicación de cliente nativo
+
+Azure Active Directory también permite registrar a los clientes nativos, lo que proporciona un mayor control sobre la asignación de permisos. Esto es necesario si desea realizar inicios de sesión con una biblioteca como la **Biblioteca de autenticación de Active Directory**.
+
+1. Vaya a **Active Directory** en el [Portal de Azure clásico].
+
+2. Seleccione el directorio y, a continuación, seleccione la pestaña **Aplicaciones** en la parte superior. Haga clic en **AGREGAR** en la parte inferior para crear un nuevo registro de aplicación.
+
+3. Haga clic en **Agregar una aplicación que mi organización está desarrollando**.
+
+4. En el Asistente para agregar aplicaciones, escriba el **nombre** de la aplicación y haga clic en el tipo **Aplicación de cliente nativo**. A continuación, haga clic para continuar.
+
+5. En el **URI de redireccionamiento** especifique el punto de conexión del sitio _/.auth/login/done_, con el esquema HTTPS. Este valor debería ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_.
+
+6. Una vez que haya agregado la aplicación nativa, haga clic en la pestaña **Configurar**. Busque el **Identificador de cliente** y tome nota de este valor.
+
+7. Desplácese hacia abajo por la página hasta la sección **Permisos para otras aplicaciones** y haga clic en **Agregar aplicación**.
+
+8. Busque la aplicación web que registró y haga clic en el icono del signo de suma. A continuación, haga clic en la marca de verificación para cerrar el cuadro de diálogo.
+
+9. En la entrada nueva que acaba de agregar, abra la lista desplegable **Permisos delegados** y seleccione **Acceso (nombreaplic)**. A continuación, haga clic en **Guardar**.
+
+Ahora ha configurado una aplicación de cliente nativo que puede acceder a la aplicación del Servicio de aplicaciones.
 
 ## <a name="related-content"> </a>Contenido relacionado
 
@@ -114,9 +138,9 @@ Ahora está preparado para usar Azure Active Directory para realizar la autentic
 
 <!-- URLs. -->
 
-[Portal de administración de Azure]: https://portal.azure.com/
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Portal de Azure]: https://portal.azure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
 [método alternativo]: #advanced
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

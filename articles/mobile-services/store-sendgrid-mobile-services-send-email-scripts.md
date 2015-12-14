@@ -1,23 +1,28 @@
-<properties 
-	pageTitle="Envío de correo electrónico con SendGrid | Microsoft Azure" 
-	description="Obtenga información acerca de cómo usar el servicio de SendGrid para enviar correo electrónico desde su aplicación de Servicios móviles de Azure." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="Erikre" 
-	manager="sendgrid" 
+<properties
+	pageTitle="Envío de correo electrónico con SendGrid | Microsoft Azure"
+	description="Obtenga información acerca de cómo usar el servicio de SendGrid para enviar correo electrónico desde su aplicación de Servicios móviles de Azure."
+	services="mobile-services"
+	documentationCenter=""
+	authors="Erikre"
+	manager="sendgrid"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/31/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="Erikre"/>
 
 
 # Envío de correo electrónico desde servicios móviles con SendGrid
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 En este tema se describe cómo agregar la funcionalidad de correo electrónico al servicio móvil. En este tutorial se demuestra cómo agregar scripts del lado servidor para enviar correo electrónico mediante SendGrid. Cuando haya finalizado, el servicio móvil le enviará un correo electrónico cada vez que se inserte un registro.
 
@@ -37,14 +42,14 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 
 ## <a name="add-script"></a>Registro de un nuevo script que envía mensajes de correo
 
-1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y luego en su servicio móvil.
+1. Inicie sesión en el [Portal de Azure clásico], haga clic en **Servicios móviles** y luego en su servicio móvil.
 
-2. En el Portal de administración, haga clic en la pestaña **Datos** y luego en la tabla **TodoItem**.
+2. En el Portal de Azure clásico, haga clic en la pestaña **Datos** y luego en la tabla **TodoItem**.
 
 	![][1]
 
 3. En **todoitem**, haga clic en la pestaña **Script** y seleccione **Insertar**.
-   
+
 	![][2]
 
 	Se muestra la función que se invoca cuando se produce una inserción en la tabla **TodoItem**.
@@ -52,8 +57,8 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 4. Reemplace la función de inserción por el código siguiente:
 
         var SendGrid = require('sendgrid').SendGrid;
-        
-        function insert(item, user, request) {    
+
+        function insert(item, user, request) {
             request.execute({
                 success: function() {
                     // After the record has been inserted, send the response immediately to the client
@@ -64,8 +69,8 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
             });
 
             function sendEmail(item) {
-                var sendgrid = new SendGrid('**username**', '**password**');       
-                
+                var sendgrid = new SendGrid('**username**', '**password**');
+
                 sendgrid.send({
                     to: '**email-address**',
                     from: '**from-address**',
@@ -94,7 +99,7 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 
 ## <a name="insert-data"></a>Inserción de datos de prueba para recibir correo electrónico
 
-1. En el proyecto de la aplicación cliente, ejecute la aplicación de inicio rápido. 
+1. En el proyecto de la aplicación cliente, ejecute la aplicación de inicio rápido.
 
 	En este tema se muestra la versión de inicio rápido de la Tienda Windows.
 
@@ -130,10 +135,8 @@ Ahora que ya sabe lo fácil que resulta usar el servicio de correo electrónico 
 [Introducción a los Servicios móviles]: /develop/mobile/tutorials/get-started
 [sign up page]: https://sendgrid.com/windowsazure.html
 [Multiple User Credentials page]: https://sendgrid.com/credentials
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [servicio de correo electrónico basado en la nube]: https://sendgrid.com/email-solutions
 [entrega de correos electrónicos transaccional]: https://sendgrid.com/transactional-email
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

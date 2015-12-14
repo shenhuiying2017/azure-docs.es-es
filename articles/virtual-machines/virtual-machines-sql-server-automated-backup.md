@@ -24,7 +24,7 @@ Copia de seguridad automatizada configura automáticamente [Copia de seguridad a
 
 ## Configuración de Copia de seguridad automatizada
 
-En la siguiente tabla se describen las opciones que pueden configurarse para Copia de seguridad automatizada. Los pasos de configuración reales varían si usa el Portal de vista previa de Azure o comandos de Powershell de Microsoft Azure.
+En la siguiente tabla se describen las opciones que pueden configurarse para Copia de seguridad automatizada. Los pasos de configuración reales varían si usa el Portal de Azure o comandos de Windows PowerShell de Azure.
 
 |Configuración|Intervalo (valor predeterminado)|Descripción|
 |---|---|---|
@@ -34,21 +34,21 @@ En la siguiente tabla se describen las opciones que pueden configurarse para Cop
 |**Cifrado**|Habilitar/deshabilitar (deshabilitado)|Habilita o deshabilita el cifrado. Cuando se habilita el cifrado, los certificados usados para restaurar la copia de seguridad se ubican en la cuenta de almacenamiento especificada en el mismo contenedor de copia de seguridad automatizada con la misma convención de nomenclatura. Si la contraseña cambia, se genera un nuevo certificado con esa contraseña, pero el certificado antiguo permanece para restaurar copias de seguridad anteriores.|
 |**Password**|Texto de contraseña (ninguno)|Una contraseña para claves de cifrado. Esto solo es necesario si se habilita el cifrado. Para restaurar una copia de seguridad cifrada, debe disponer de la contraseña correcta y del certificado relacionado que se usó en el momento en el que se realizó la copia de seguridad.|
 
-## Configuración de Copia de seguridad automatizada en el Portal de vista previa de Azure
+## Configuración de Copia de seguridad automatizada en el Portal de Azure
 
-Puede usar el Portal de vista previa de Azure para configurar la opción Copia de seguridad automatizada cuando cree una nueva máquina virtual de SQL Server 2014.
+Puede usar el Portal de Azure para configurar la opción Copia de seguridad automatizada cuando cree una nueva máquina virtual de SQL Server 2014.
 
 >[AZURE.NOTE]Copia de seguridad automatizada se basa en el agente de IaaS de SQL Server. Para instalar y configurar el agente, debe disponer del agente de máquina virtual de Azure en la máquina virtual de destino. Las imágenes de la galería de la máquina virtual más recientes tienen esta opción habilitada de forma predeterminada, pero el agente de máquina virtual de Azure puede faltar en las máquinas virtuales existentes. Si usa su propia imagen de máquina virtual, también tendrá que instalar el agente de IaaS de SQL Server. Para obtener más información, consulte [Agente de máquina virtual y extensiones](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
-La siguiente captura del portal de vista previa de Azure muestra estas opciones en **CONFIGURACIÓN OPCIONAL** | **COPIA DE SEGURIDAD AUTOMATIZADA DE SQL**.
+La siguiente captura del Portal de Azure muestra estas opciones en **CONFIGURACIÓN OPCIONAL** | **COPIA DE SEGURIDAD AUTOMATIZADA DE SQL**.
 
-![Configuración de Copia de seguridad automática de SQL en el Portal de vista previa de Azure](./media/virtual-machines-sql-server-automated-backup/IC778483.jpg)
+![Configuración de Copia de seguridad automática de SQL en el Portal de Azure](./media/virtual-machines-sql-server-automated-backup/IC778483.jpg)
 
 Para las máquinas virtuales de SQL Server 2014, seleccione la configuración **Copia de seguridad automática** en la sección **Configuración** de las propiedades de la máquina virtual. En la ventana **Copia de seguridad automatizada** puede habilitar la característica, configurar el período de retención, seleccionar la cuenta de almacenamiento y configurar el cifrado. Esto se muestra en la siguiente captura de pantalla.
 
-![Configuración de Copia de seguridad automatizada en el Portal de vista previa de Azure](./media/virtual-machines-sql-server-automated-backup/IC792133.jpg)
+![Configuración de Copia de seguridad automatizada en el Portal de Azure](./media/virtual-machines-sql-server-automated-backup/IC792133.jpg)
 
->[AZURE.NOTE]Cuando habilita Copia de seguridad automatizada por primera vez, Azure configura el agente de Iaas de SQL Server en segundo plano. Durante este tiempo, el Portal de vista previa de Azure no mostrará que se ha configurado Copia de seguridad automatizada. Espere unos minutos hasta que el agente se instale y configure. Después, el Portal de vista previa de Azure mostrará la nueva configuración.
+>[AZURE.NOTE]Cuando habilita Copia de seguridad automatizada por primera vez, Azure configura el agente de Iaas de SQL Server en segundo plano. Durante este tiempo, el Portal de Azure no mostrará que se ha configurado Copia de seguridad automatizada. Espere unos minutos hasta que el agente se instale y configure. Después, el Portal de Azure mostrará la nueva configuración.
 
 ## Configuración de Copia de seguridad automatizada con PowerShell
 
@@ -114,4 +114,4 @@ Una característica relacionada de las máquinas virtuales de SQL Server es la [
 
 Revise otros [recursos para ejecutar SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

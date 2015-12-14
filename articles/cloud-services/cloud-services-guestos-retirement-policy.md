@@ -57,7 +57,7 @@ Si los clientes establecen el SO invitado de forma que se actualice automáticam
 
 Se publican versiones del SO invitado cada mes. Debido a la frecuencia de publicaciones regulares, cada versión tiene una duración determinada.
 
-A los 60 días de duración, una versión queda "*deshabilitada*". "Deshabilitada" significa que la versión se quita del Portal de administración de Azure. Tampoco puede instalarse desde el archivo de configuración CSCFG. Se permite que las implementaciones existentes sigan ejecutándose, pero no se admitirán nuevas implementaciones ni actualizaciones de código y de configuración para dichas implementaciones.
+A los 60 días de duración, una versión queda "*deshabilitada*". "Deshabilitada" significa que la versión se quita del Portal de Azure clásico. Tampoco puede instalarse desde el archivo de configuración CSCFG. Se permite que las implementaciones existentes sigan ejecutándose, pero no se admitirán nuevas implementaciones ni actualizaciones de código y de configuración para dichas implementaciones.
 
 Más adelante, la versión de SO invitado "*expira*" y se fuerza a cualquier instalación que siga ejecutando esa versión a actualizarse y a establecer una actualización automática del SO invitado en el futuro. La expiración se produce por lotes, por lo que el período de tiempo desde la deshabilitación hasta la expiración puede variar.
 
@@ -67,7 +67,7 @@ Estos períodos se pueden prolongar a discreción de Microsoft para facilitar la
 
 ### Notificaciones durante la retirada 
 
-* **Retirada de la familia** <br>Microsoft usará publicaciones en los blogs y notificaciones del portal de administración. A los clientes que sigan utilizando una familia del SO invitado que se haya retirado se les notificará directamente (correo electrónico, mensajes del portal, llamada telefónica) a través de los administradores de servicios asignados. Todos los cambios se publicarán en esta página y en la fuente RSS que aparece al principio de ella. 
+* **Retirada de la familia** <br>Microsoft usará publicaciones en los blogs y notificaciones del Portal de Azure clásico. A los clientes que sigan utilizando una familia del SO invitado que se haya retirado se les notificará directamente (correo electrónico, mensajes del portal, llamada telefónica) a través de los administradores de servicios asignados. Todos los cambios se publicarán en esta página y en la fuente RSS que aparece al principio de ella. 
 
 
 * **Retirada de la versión** <br>Todos los cambios se publicarán en esta página y en la fuente RSS que aparece al principio de ella, incluidas las fechas de lanzamiento, deshabilitación y caducidad. Los administradores de los servicios recibirán correos electrónicos si tienen implementaciones que se ejecutan en una versión o familia del SO invitado que se ha deshabilitado. El momento en que se envían estos correos electrónicos puede variar. Suelen ser al menos un mes antes de la deshabilitación, aunque este tiempo no es un contrato de nivel de servicio oficial.
@@ -90,4 +90,4 @@ Si la arquitectura de la aplicación web requiere una dependencia más profunda 
 ## Pasos siguientes
 Revise las [versiones del SO invitado](cloud-services-guestos-update-matrix.md) más recientes.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

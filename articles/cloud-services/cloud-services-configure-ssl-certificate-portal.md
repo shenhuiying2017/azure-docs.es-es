@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configuración de SSL para un servicio en la nube (portal de vista previa) | Microsoft Azure" 
-	description="Aprenda a especificar un extremo HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación. Estos ejemplos usan el portal de vista previa de Azure." 
+	pageTitle="Configuración de SSL para un servicio en la nube | Microsoft Azure" 
+	description="Aprenda a especificar un extremo HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación. Estos ejemplos usan el Portal de Azure." 
 	services="cloud-services" 
 	documentationCenter=".net" 
 	authors="Thraka" 
@@ -22,8 +22,8 @@
 # Configuración de SSL para una aplicación en Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-configure-ssl-certificate.md)
-- [Azure Preview Portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
+- [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
 
 El cifrado de Capa de sockets seguros (SSL) es el método más usado para proteger los datos que se envían por Internet. Esta tarea común analiza cómo especificar un extremo HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación.
 
@@ -153,13 +153,11 @@ Ahora que su implementación está funcionando en Azure, puede conectarse a ella
       
     >Cree un certificado con un nombre común (CN) igual a la dirección URL basada en el GUID (por ejemplo, **328187776e774ceda8fc57609d404462.cloudapp.net**), use el Portal para agregar el certificado al servicio en la nube de almacenamiento provisional, agregue la información del certificado a los archivos CSDEF y CSCFG, vuelva a empaquetar la aplicación y actualice la implementación del almacenamiento provisional para usar el paquete y el archivo CSCFG nuevos.
 
-[Azure Portal]: http://portal.azure.com/
-
 ## Pasos siguientes
 
-* [Configuración general de su servicio en la nube](cloud-services-how-to-configure-portal.md).
+* [Configuración general del servicio en la nube](cloud-services-how-to-configure-portal.md).
 * Obtenga información sobre cómo [implementar un servicio en la nube](cloud-services-how-to-create-deploy-portal.md).
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
-* [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
+* [Administración del servicio en la nube](cloud-services-how-to-manage-portal.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

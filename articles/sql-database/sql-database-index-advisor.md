@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="09/22/2015"
+   ms.date="12/01/2015"
    ms.author="sstein"/>
 
 # Asesor de índices de Base de datos SQL
@@ -22,12 +22,12 @@ El Asesor de índices de Base de datos SQL recomienda índices nuevos para las B
 
 El servicio de Base de datos SQL evalúa el rendimiento del índice mediante el análisis del uso histórico de los recursos de una Base de datos SQL y se recomiendan los índices más apropiados para ejecutar la carga de trabajo típica de la base de datos.
 
-Para facilitar la administración de los índices, el Asesor de índices proporciona recomendaciones sobre los índices que se deben crear. En el caso de los servidores V12, el Asesor de índices también puede crear y validar índices solo con unos clics en el [Portal de vista previa de Azure](https://portal.azure.com/). Una vez que se crea el índice, el servicio de Base de datos SQL analiza el rendimiento de la carga de trabajo de la base de datos y proporciona detalles del impacto que tiene el índice nuevo. Si el análisis determina que un índice recomendado tiene un impacto negativo en el rendimiento, el índice se revierte de manera automática.
+Para facilitar la administración de los índices, el Asesor de índices proporciona recomendaciones sobre los índices que se deben crear. En el caso de los servidores V12, Asesor de índices también puede crear y validar índices solo con unos clics en el [Portal de Azure](https://portal.azure.com/). Una vez que se crea el índice, el servicio de Base de datos SQL analiza el rendimiento de la carga de trabajo de la base de datos y proporciona detalles del impacto que tiene el índice nuevo. Si el análisis determina que un índice recomendado tiene un impacto negativo en el rendimiento, el índice se revierte de manera automática.
 
 El Asesor de índices permite dedicar menos tiempo a ajustar el rendimiento de la base de datos.
 
 
-> [AZURE.NOTE]El Asesor de índices actualmente se encuentra en vista previa y solo está disponible en el [Portal de vista previa de Azure](https://portal.azure.com/).
+> [AZURE.NOTE]Asesor de índices es actualmente una versión preliminar y solo está disponible en el [Portal de Azure](https://portal.azure.com/).
 
 
 ## Consideraciones de la vista previa
@@ -57,11 +57,11 @@ El Asesor de índices es fácil de usar. Siga estas instrucciones para simplific
 
 ## Revisión de los índices recomendados
 
-El Asesor de índices proporciona una lista de recomendaciones de índices en la hoja de base de datos del [Portal de vista previa de Azure](https://portal.azure.com/). Las principales recomendaciones seleccionadas aparecen para cada tabla en la base de datos seleccionada en que la creación de un índice nuevo puede significar ganancias en el rendimiento.
+Asesor de índices proporciona una lista de recomendaciones de índices en la hoja de base de datos del [Portal de Azure](https://portal.azure.com/). Las principales recomendaciones seleccionadas aparecen para cada tabla en la base de datos seleccionada en que la creación de un índice nuevo puede significar ganancias en el rendimiento.
 
 ### Para revisar las recomendaciones de índices actualmente disponibles:
 
-1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Haga clic en **EXAMINAR** en el menú de la izquierda.
 3. Haga clic en **Bases de datos SQL** en la hoja **Examinar**.
 4. En la hoja **Bases de datos SQL**, haga clic en la base de datos en la que desea revisar los índices recomendados.
@@ -171,4 +171,4 @@ Supervise las recomendaciones de índices y continúe aplicándolas para refinar
 [3]: ./media/sql-database-index-advisor/recommended-indexes.png
 [4]: ./media/sql-database-index-advisor/index-operations.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

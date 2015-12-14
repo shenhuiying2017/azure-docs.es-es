@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creación de una cuenta de Lote de Azure | Microsoft Azure"
-	description="Aprenda a crear una cuenta de Lote de Azure en el Portal de vista previa de Azure para ejecutar cargas de trabajo paralelas a gran escala en la nube"
+	description="Aprenda a crear una cuenta de Lote de Azure en el Portal de Azure para ejecutar cargas de trabajo paralelas a gran escala en la nube"
 	services="batch"
 	documentationCenter=""
 	authors="dlepow"
@@ -18,19 +18,19 @@
 
 
 
-# Creación y administración de una cuenta de Lote de Azure en el Portal de vista previa de Azure
+# Creación y administración de una cuenta de Lote de Azure en el Portal de Azure
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](batch-account-create-portal.md)
+- [Azure portal](batch-account-create-portal.md)
 - [Batch Management .NET](batch-management-dotnet.md)
 
-En este artículo se muestra cómo usar el [Portal de vista previa de Azure](https://portal.azure.com) para crear y administrar la cuenta de Lote de Azure, así como sus valores de configuración, por ejemplo, las claves de cuenta. Para autenticar todas las solicitudes de la API de Lote necesita una dirección URL de cuenta de Lote y una clave de acceso asociada. Y, todos los recursos de Lote (como grupos, trabajos y tareas) de la carga de trabajo de Lote se asocian con una cuenta de Lote específica.
+En este artículo se muestra cómo usar el [Portal de Azure](https://portal.azure.com) para crear y administrar la cuenta de Lote de Azure, así como sus valores de configuración, por ejemplo, las claves de cuenta. Para autenticar todas las solicitudes de la API de Lote necesita una dirección URL de cuenta de Lote y una clave de acceso asociada. Y, todos los recursos de Lote (como grupos, trabajos y tareas) de la carga de trabajo de Lote se asocian con una cuenta de Lote específica.
 
 >[AZURE.NOTE]En la actualidad el Portal de vista previa admite características de administración de cuentas de Lote y visualización de algunos recursos de cuenta. Las características completas del servicio Lote están disponibles para los desarrolladores a través de las API de Lote.
 
 ## Crear una cuenta de lote
 
-1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
 2. Haga clic en **Nuevo** > **Proceso** > **Servicio de Lote**.
 
@@ -84,4 +84,4 @@ Para ver y administrar las claves de acceso, haga clic en el icono de llave.
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

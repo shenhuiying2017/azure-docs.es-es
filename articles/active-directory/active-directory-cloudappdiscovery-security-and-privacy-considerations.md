@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Consideraciones de seguridad y privacidad de Cloud App Discovery"
+	pageTitle="Consideraciones de seguridad y privacidad de Cloud App Discovery | Microsoft Azure"
 	description="En este tema se describen las consideraciones de seguridad y privacidad relacionadas Cloud App Discovery."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/01/2015"
 	ms.author="markusvi"/>
 
 # Consideraciones de seguridad y privacidad de Cloud App Discovery
@@ -177,4 +177,4 @@ Con el fin de proteger los datos recopilados, de forma predeterminada, solo los 
 
 * [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

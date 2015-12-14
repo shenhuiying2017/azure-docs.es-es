@@ -72,11 +72,11 @@ La autenticación de clave compartida significa que la aplicación usará el nom
 
 > [AZURE.WARNING (Only use Shared Key authentication for testing purposes!) ]El nombre de cuenta y la clave de cuenta, que ofrecen acceso total de lectura y escritura a la cuenta de almacenamiento asociada, se distribuirán a todas las personas que descarguen la aplicación. Esta práctica **no** se recomienda, ya que se corre el riesgo de que los clientes en los que no se confía pongan la clave en peligro.
 
-Si se usa la autenticación de clave compartida, se creará una "cadena de conexión". La cadena de conexión consta de:
+Si se usa la autenticación de clave compartida, se creará una cadena de conexión. La cadena de conexión consta de:
 
-- **Protocolo predeterminado de extremos**: se puede elegir http o https. Sin embargo, se recomienda encarecidamente el uso de https.
-- **Nombre de cuenta**: el nombre de la cuenta de almacenamiento.
-- **Clave de cuenta**: si se usa el [Portal de administración](manage.windowsazure.com), se puede encontrar haciendo clic en *Administrar claves de acceso*. Si se usa el [portal de vista previa](portal.azure.com), esta información aparecerá al hacer clic en el icono Clave.
+- Protocolo **DefaultEndpointsProtocol**: puede elegir si usar HTTP o HTTPS. De todos modos, se recomienda encarecidamente el uso de HTTPS.
+- **Nombre de cuenta**: es el nombre de la cuenta de almacenamiento.
+- **Clave de cuenta**: si está usando el [Portal de Azure](portal.azure.com), diríjase a su cuenta de almacenamiento y haga clic en el icono de **Claves** para acceder a esta información. Si usa el [Portal de Azure clásico](manage.windowsazure.com), diríjase a su cuenta de almacenamiento en el portal y haga clic en **Administrar claves de acceso**. 
 
 Este es el aspecto que tendrá en su aplicación:
 
@@ -86,7 +86,7 @@ Este es el aspecto que tendrá en su aplicación:
 ###Firmas de acceso compartido (SAS)
 En el caso de una aplicación de iOS, el método recomendado para autenticar una solicitud por parte de un cliente con el almacenamiento de blobs es mediante el uso de una firma de acceso compartido (SAS). SAS permite conceder a los clientes acceso a un recurso durante un período especificado, con un conjunto de permisos especificado. Como propietario de cuenta de almacenamiento, será preciso que genere una SAS para que los clientes de iOS la consuman. Para generar la SAS, puede escribir un servicio independiente que genere la SAS que se va a distribuir a los clientes. Para la realización de pruebas también se puede usar la CLI de Azure CLI para generar una SAS. Tenga en cuenta que para generar una SAS se usarán sus credenciales de clave compartida, pero los clientes podrán consumir dicha SAS mediante el uso de la información de autenticación encapsulada en la dirección URL de la SAS. Al crear la SAS, se puede especificar el intervalo de tiempo durante el que la SAS es válida y los permisos la SAS concede al cliente. Por ejemplo, en el caso de un contenedor de blob, la SAS puede conceder permisos de escritura, lectura o eliminación para cada blob del contenedor, y mostrar los permisos para enumerar los blobs del contenedor..
 
-En el siguiente ejemplo se muestra cómo usar la CLI de Azure CLI para generar un token de SAS que concede permisos de lectura y escritura al contenedor,*sascontainer*, hasta las 12:00 AM (UTC) del 5 de septiembre de 2015.
+En el siguiente ejemplo se muestra cómo usar la CLI de Azure para generar un token de SAS que conceda permisos de lectura y escritura al contenedor,*sascontainer*, hasta las 12:00 AM (UTC) del 5 de septiembre de 2015.
 
 1. En primer lugar, siga esta [guía](../xplat-cli/#how-to-install-the-azure-cli) para aprender a instalar la CLI de Azure y conectarse a su suscripción de Azure.
 
@@ -111,13 +111,13 @@ En el siguiente ejemplo se muestra cómo usar la CLI de Azure CLI para generar u
 		// Get a reference to a container in your Storage account
     	AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
-Como puede ver, si se usa un token de SAS, el nombre de cuenta y la clave de cuenta no quedan expuestos en la aplicación de iOS. Para obtener más información acerca de SAS, consulte el consultando el [tutorial de firmas de acceso compartido](../storage-dotnet-shared-access-signature-part-1).
+Como puede ver, si se usa un token de SAS, el nombre de cuenta y la clave de cuenta no quedan expuestos en la aplicación de iOS. Para obtener más información acerca de SAS, consulte el [tutorial Firma de acceso compartido](../storage-dotnet-shared-access-signature-part-1).
 
 ##Operaciones asincrónicas
-> [AZURE.NOTE]Todos los métodos que realizan una solicitud en el servicio son operaciones asincrónicas. En los ejemplos de código, encontrará que estos métodos tienen un controlador de finalización. El código de dentro del controlador de finalización se ejecutará **después** de que se haya completado la solicitud. El código de después del controlador de finalización se ejecutará **mientras** se realiza la solicitud.
+> [AZURE.NOTE]Todos los métodos que realizan una solicitud en el servicio son operaciones asincrónicas. En los ejemplos de código, encontrará que estos métodos tienen un controlador de finalización. El código de dentro del controlador de finalización se ejecutará **después** de que se haya completado la solicitud. El código posterior al controlador de finalización se ejecutará **mientras** se realiza la solicitud.
 
 ## Crear un contenedor
-Todos los blobs del Almacenamiento de Azure deben residir en un contenedor. En el siguiente ejemplo se muestra cómo crear un contenedor, denominado *newcontainer*, en su cuenta de almacenamiento, siempre que no exista ya. Al elegir el nombre del contenedor, tenga en cuenta las reglas de nomenclatura mencionadas anteriormente.
+Todos los blobs del Almacenamiento de Azure deben residir en un contenedor. En el siguiente ejemplo, se muestra cómo crear un contenedor denominado *newcontainer* en su cuenta de almacenamiento (siempre y cuando no exista ya). Al elegir el nombre del contenedor, tenga en cuenta las reglas de nomenclatura mencionadas anteriormente.
 
      -(void)createContainer{
         // Create a storage account object from a connection string.
@@ -137,7 +137,7 @@ Todos los blobs del Almacenamiento de Azure deben residir en un contenedor. En e
         }];
     }
 
-Para confirmar que esto funciona, examine el [portal](portal.azure.com) o cualquier [Explorador de almacenamiento](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) y compruebe que *newcontainer* está en la lista de contenedores de su cuenta de almacenamiento.
+Para confirmar que esto funciona, examine el [Portal de Azure](portal.azure.com) o cualquier [Explorador de almacenamiento](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) y compruebe que *newcontainer* está en la lista de contenedores de su cuenta de almacenamiento.
 
 ## Establecimiento de los permisos del contenedor
 De manera predeterminada, los permisos de un contenedor se configuran para el acceso **Privado**. Sin embargo, los contenedores proporcionan varias opciones diferentes para acceder a ellos:
@@ -148,7 +148,7 @@ De manera predeterminada, los permisos de un contenedor se configuran para el ac
 
 - **Contenedor**: los datos del contenedor y de los blobs se pueden leer mediante una solicitud anónima. Los clientes pueden enumerar los blobs del contenedor a través de una solicitud anónima, pero no pueden enumerar los contenedores que están en la cuenta de almacenamiento.
 
-En el ejemplo siguiente se muestra cómo crear un contenedor con permiso de acceso de **Contenedor** que permita el acceso público, de solo lectura a todos los usuarios de Internet:
+En el ejemplo siguiente se muestra cómo crear un contenedor con permiso de acceso de **Contenedor** que permita el acceso público, de solo lectura, a todos los usuarios de Internet:
 
      -(void)createContainerWithPublicAccess{
         // Create a storage account object from a connection string.
@@ -169,7 +169,7 @@ En el ejemplo siguiente se muestra cómo crear un contenedor con permiso de acce
     }
 
 ## Cargar un blob en un contenedor
-Como se mencionó en la sección [Conceptos del servicio BLOB](#blob-service-concepts), el almacenamiento de blobs ofrece tres tipos de blobs: blobs en bloques, blobs en anexos y blobs en páginas. En este momento, la biblioteca de iOS del Almacenamiento de Azure solo admite blobs en bloques. En la mayoría de los casos, se recomienda usar blobs en bloques.
+Tal como se mencionó en la sección [Conceptos del servicio BLOB](#blob-service-concepts), el almacenamiento de blobs ofrece tres tipos de blob: blob en bloques, blob en anexos y blob en páginas. En este momento, la biblioteca de iOS del Almacenamiento de Azure solo admite blobs en bloques. En la mayoría de los casos, se recomienda usar blobs en bloques.
 
 En el ejemplo siguiente se muestra cómo cargar un blob en bloques de un NSString. Si ya existe un blob con el mismo nombre en el contenedor, se sobrescribirá el contenido de dicho blob.
 
@@ -202,7 +202,7 @@ En el ejemplo siguiente se muestra cómo cargar un blob en bloques de un NSStrin
          }];
      }
 
-Para confirmar que esto funciona, examine el [portal](portal.azure.com) o cualquier [Explorador de almacenamiento](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) y compruebe que el contenedor, *containerpublic*, contiene el blob *sampleblob*. En este ejemplo, se usa un contenedor público, por lo que para comprobar que esto ha funcionado puede ir al URI de los blobs:
+Para confirmar que esto funciona, examine el [Portal de Azure](portal.azure.com) o cualquier [Explorador de almacenamiento](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) y compruebe que el contenedor *containerpublic* contiene el blob *sampleblob*. En este ejemplo, se usa un contenedor público, por lo que para comprobar que esto ha funcionado puede ir al URI de los blobs:
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
@@ -213,9 +213,9 @@ En el ejemplo siguiente se muestra cómo enumerar todos los blobs en un contened
 
 - **continuationToken**: el token de continuación representa el lugar en el que debe iniciarse la operación de lista. Si no se proporciona ningún token, los blobs se enumerarán desde el principio. Se puede enumerar cualquier número de blobs, desde cero hasta el máximo configurado. Aunque este método devuelve cero como resultado, si `results.continuationToken` no es nulo, puede haber más blobs en el servicio que no se hayan enumerado.
 - **prefix**: puede especificar el prefijo que se va a usar para la lista de blobs. Solo se enumerarán los blobs que comiencen por dicho prefijo.
-- **useFlatBlobListing**: como se mencionó en la sección [Asignación de nombres y referencia a contenedores y blobs](#naming-and-referencing-containers-and-blobs), aunque el servicio BLOB es un esquema plano de almacenamiento, puede crear una jerarquía virtual mediante la asignación a los blobs el nombre de la información de la ruta de acceso. Sin embargo, actualmente no se admiten listas que no sean planas, pero se admitirán pronto. Por el momento, este valor debe ser `YES`
+- **useFlatBlobListing**: como se mencionó en la sección [Asignación de nombres y referencia a contenedores y blobs](#naming-and-referencing-containers-and-blobs), aunque el servicio BLOB es un esquema plano de almacenamiento, puede crear una jerarquía virtual asignando a los blobs el nombre de la información de la ruta de acceso. Sin embargo, actualmente no se admiten listas que no sean planas, pero se admitirán pronto. Por el momento, este valor debe ser `YES`
 - **blobListingDetails**: puede especificar qué elementos desea incluir al enumerar los blobs
-	- `AZSBlobListingDetailsNone`: se enumeram solo los blobs confirmados y no se devuelven los metadatos de los blobs.
+	- `AZSBlobListingDetailsNone`: se enumeran solo los blobs confirmados y no se devuelven los metadatos de los blobs.
 	- `AZSBlobListingDetailsSnapshots`: se enumeran los blobs confirmados y las instantáneas de los blobs.
 	- `AZSBlobListingDetailsMetadata`: se recuperan los metadatos de los blobs que se devuelven en la lista.
 	- `AZSBlobListingDetailsUncommittedBlobs`: se enumeran los blobs confirmados y sin confirmar.
@@ -352,10 +352,10 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 - [API de REST de almacenamiento de Azure]
 - [Blog del equipo de almacenamiento de Azure]
 
-Si tiene alguna pregunta sobre esta biblioteca, puede publicarla en el [foro de MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/es-ES/home?forum=windowsazuredata) o en [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Si desea sugerir características nuevas para el Almacenamiento de Azure, publíquelas en la página de [comentarios sobre el Almacenamiento de Azure](http://feedback.azure.com/forums/217298-storage).
+Si tiene alguna pregunta sobre esta biblioteca, puede publicarla en el [foro de MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) o en [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Si desea sugerir características nuevas para el Almacenamiento de Azure, publíquelas en la página de [comentarios sobre el Almacenamiento de Azure](http://feedback.azure.com/forums/217298-storage).
 
 [Biblioteca de iOS del Almacenamiento de Azure]: https://github.com/azure/azure-storage-ios
-[API de REST de almacenamiento de Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[API de REST de almacenamiento de Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

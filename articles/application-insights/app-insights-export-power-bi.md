@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Usar Análisis de transmisiones para alimentar Power BI desde Application Insights
@@ -40,15 +40,18 @@ Noam Ben Zeev muestra lo que describimos en este artículo.
 
 > [AZURE.VIDEO export-to-power-bi-from-application-insights]
 
+
+**Muestreo.** Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Obtenga más información sobre el muestreo.](app-insights-sampling.md)
+
 ## Supervisión de aplicaciones con Application Insights
 
-Si aún no lo ha intentado, ahora es el momento de empezar. Application Insights puede supervisar cualquier aplicación web o de dispositivo en una amplia gama de plataformas, entre ellas, Windows, iOS, Android, J2EE y muchas más. [Introducción](app-insights-overview.md).
+Si aún no lo ha intentado, ahora es el momento de empezar. Application Insights puede supervisar cualquier aplicación web o de dispositivo en una amplia gama de plataformas, entre ellas, Windows, iOS, Android, J2EE y muchas más. [Primeros pasos](app-insights-overview.md).
 
 ## Creación de almacenamiento en Azure
 
 La exportación continua siempre envía los datos a una cuenta de almacenamiento de Azure, por lo que necesitará crear primero el almacenamiento.
 
-1. Cree una cuenta de almacenamiento "clásica" en su suscripción en el [portal de Azure](https://portal.azure.com).
+1. Cree una cuenta de almacenamiento "clásica" en su suscripción en el [Portal de Azure](https://portal.azure.com).
 
     ![En el portal de Azure, elija Nuevo, Datos, Almacenamiento.](./media/app-insights-export-power-bi/030.png)
 
@@ -64,7 +67,7 @@ La exportación continua siempre envía los datos a una cuenta de almacenamiento
 
 ## Inicio de la exportación continua al almacenamiento de Azure
 
-La [exportación continua](app-insights-export-telemetry.md) transfiere los datos de Application Insights al almacenamiento de Azure.
+La [Exportación continua](app-insights-export-telemetry.md) transfiere los datos de Application Insights al almacenamiento de Azure.
 
 1. En el portal de Azure, busque el recurso de Application Insights que ha creado para la aplicación.
 
@@ -266,4 +269,4 @@ Noam Ben Zeev muestra cómo exportar a Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Más ejemplos y tutoriales](app-insights-code-samples.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

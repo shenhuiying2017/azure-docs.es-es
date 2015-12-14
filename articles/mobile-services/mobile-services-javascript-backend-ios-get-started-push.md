@@ -33,9 +33,9 @@ En este tema se muestra cómo agregar notificaciones push al [proyecto de inicio
 
 ## <a id="update-scripts"></a>Actualización del script de back-end para enviar notificaciones push
 
-* En el Portal de administración, haga clic en la pestaña **Datos** y, a continuación, en la tabla **TodoItem**. En **TodoItem**, haga clic en la pestaña **Script** y seleccione **Insertar**. Se muestra la función que se invoca cuando se produce una inserción en la tabla **TodoItem**.
+* En el [Portal de Azure clásico], haga clic en la pestaña **Datos** y luego en **TodoItem**. En **TodoItem**, haga clic en la pestaña **Script** y seleccione **Insertar**. Se muestra la función que se invoca cuando se produce una inserción en la tabla **TodoItem**.
 
-* Reemplace la función de inserción por el siguiente código y, a continuación, haga clic en **Guardar**. De esta forma, se registra un nuevo script de inserción, que usa el [objeto apns] para enviar una notificación de inserción (el texto insertado) al dispositivo especificado en la solicitud de inserción. Este script retrasa el envío de la notificación para proporcionarle tiempo para cerrar la aplicación y recibir una notificación del sistema.
+* Reemplace la función de inserción por el siguiente código y haga clic en **Guardar**. De esta forma, se registra un nuevo script de inserción, que usa el [objeto apns] para enviar una notificación de inserción (el texto insertado) al dispositivo especificado en la solicitud de inserción. Este script retrasa el envío de la notificación para proporcionarle tiempo para cerrar la aplicación y recibir una notificación del sistema.
 
 
 ```
@@ -106,7 +106,7 @@ En este tema se muestra cómo agregar notificaciones push al [proyecto de inicio
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Introducción a Servicios móviles]: mobile-services-ios-get-started.md
 [Get started with authentication]: mobile-services-ios-get-started-users.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [objeto apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
@@ -117,4 +117,4 @@ En este tema se muestra cómo agregar notificaciones push al [proyecto de inicio
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

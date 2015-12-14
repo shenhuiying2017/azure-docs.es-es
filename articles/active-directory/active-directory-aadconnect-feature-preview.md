@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Características de Azure AD Connect en vista previa | Microsoft Azure"
+   pageTitle="Características de Azure AD Connect en la versión preliminar | Microsoft Azure"
    description="En este tema se describen más detenidamente las características que se encuentran en vista previa en Azure AD Connect."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/13/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell;billmath"/>
 
 # Más detalles sobre las características de vista previa
@@ -60,4 +60,4 @@ Continúe su [Instalación personalizada de Azure AD Connect](active-directory-a
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

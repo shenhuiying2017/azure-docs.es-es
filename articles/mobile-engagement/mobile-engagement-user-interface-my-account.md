@@ -13,27 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="11/22/2015"
    ms.author="piyushjo"/>
 
-# Cómo administrar el perfil de su cuenta y probar los dispositivos 
-La sección Mi cuenta de la interfaz de usuario es donde puede ver y cambiar la configuración asociada a su cuenta, incluida la configuración del perfil y probar los ID de dispositivo. Estos valores contienen elementos a los que también se puede acceder mediante la API del dispositivo.
+# Cómo administrar el perfil de su cuenta y probar los dispositivos
+ 
+Este artículo describe la página **Inicio** del portal **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. Tenga en cuenta que, para comenzar a usar el portal, debe crear en primer lugar una cuenta de **Azure Mobile Engagement**. Para obtener más información, consulte [Crear una cuenta de Azure Mobile Engagement](mobile-engagement-create-account.md).
+ 
+Para obtener acceso a la página Mi cuenta, haga clic en su cuenta en la parte superior de la página.
 
-### Consulte también
--  [Guía de solución de problemas - Servicio][Link 24]
+La sección Mi cuenta de la interfaz de usuario es donde puede ver y cambiar la configuración asociada a su cuenta, incluida la configuración del perfil y probar los ID de dispositivo. Estos valores contienen elementos a los que también se puede acceder mediante la API del dispositivo.
 
 ![MyAccount1][7]
 
 ## Perfil:
-Puede ver o cambiar cualquiera de las configuraciones de su cuenta: Contraseña, Nombre, Apellidos, Organización, Número de teléfono, Zona horaria o Participar o No participar en actualizaciones por correo electrónico. También puede dar a otro usuario permiso para utilizar la aplicación basándose en su dirección de correo electrónico de "inicio".
-
-### Consulte también
--  [Documentación de interfaz de usuario: página principal][Link 13]
+Puede ver o cambiar cualquier configuración de la cuenta que se muestra a continuación. También puede dar permiso a otro usuario para usar la aplicación basándose en su dirección de correo electrónico desde [Inicio](mobile-engagement-interface-home.md).
 
 ![MyAccount2][8]
 
 ## Dispositivos:
-Puede ver, agregar o quitar Id. de dispositivo de los dispositivos de prueba que puede usar para probar sus campañas de inserción. Se muestran instrucciones contextuales para encontrar el identificador de dispositivo de los dispositivos de cada plataforma (iOS, Android, Windows Phone, etc.) al hacer clic en "Nuevo dispositivo".
+Puede ver, agregar o quitar un Id. de dispositivo de prueba de los dispositivos de prueba que puede usar para probar sus campañas de **cobertura** o de **inserción**. Se muestran instrucciones contextuales para encontrar el identificador de dispositivo de los dispositivos de cada plataforma (iOS, Android, Windows Phone, etc.) al hacer clic en "Nuevo dispositivo".
  
 ![MyAccount3][9]
  
@@ -45,6 +44,13 @@ Para usar la API de inserción o la API de dispositivo necesitará conocer el id
 4. Desde un anuncio de web de cobertura, si el código HTML del anuncio contiene el patrón {deviceid}, se reemplazará automáticamente por el identificador del dispositivo que muestre el anuncio web. Este es el identificador de mi dispositivo: {deviceid} será sustituido por: este es el identificador de mi dispositivo: XXXXXXXXXXXXXXXX
 5.  Abra la aplicación en el dispositivo y realice un evento en la aplicación que se ha etiquetado. Desde " IU - su aplicación - Supervisión - Detalles", busque el evento que haya realizado en la lista. Haga clic en este evento en Supervisión. Debe buscar el identificador de dispositivo en la lista de los dispositivos que han realizado este evento. A continuación, puede copiar este Id. de dispositivo y registrarlo en "IU - Mi cuenta - Nuevo dispositivo - Seleccione su plataforma de dispositivo".
 >(Tenga en cuenta que cuando IDFA está deshabilitado para iOS, es posible que el identificador de dispositivo cambie con el tiempo si desinstala y vuelve a instalar la aplicación).
+
+##Guía de solución de problemas
+-  [Guía de solución de problemas - Servicio][Link 24]
+
+## Consulte también
+-  [Documentación de interfaz de usuario: página principal][Link 13]
+
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -145,4 +151,4 @@ Para usar la API de inserción o la API de dispositivo necesitará conocer el id
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

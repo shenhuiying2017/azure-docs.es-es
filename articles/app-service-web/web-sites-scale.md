@@ -24,14 +24,13 @@ Para aumentar el rendimiento y la capacidad de las aplicaciones web de Microsoft
 
 El escalado de las aplicaciones web de Azure implica dos acciones relacionadas: cambiar el modo del plan del Servicio de aplicaciones a un nivel de servicio más alto y configurar ciertas opciones de configuración después de pasar al nivel de servicio superior. En este artículo se incluyen ambos temas. Los niveles de servicio superiores, como los modos **Estándar** y **Premium**, ofrecen una mayor robustez y flexibilidad a la hora de determinar cómo se utilizan los recursos en Azure.
 
-El cambio de modos y la configuración de estos se realiza fácilmente en la pestaña Scale del portal de administración. Puede escalar o reducir verticalmente según sea necesario. Estos cambios tardan solo unos segundos en aplicarse y afectan a todas las aplicaciones web del plan del Servicio de aplicaciones. No requieren que el código se cambie o que las aplicaciones tengan que volver a implementarse.
+La configuración de escalado tarda solo unos segundos en aplicarse y afecta a todas las aplicaciones web del plan del Servicio de aplicaciones. No requieren que el código se cambie o que las aplicaciones tengan que volver a implementarse.
 
 Para obtener información acerca de los planes de servicio de la aplicación, consulte [¿Qué es un plan de Servicios de aplicaciones?](../web-sites-web-hosting-plan-overview.md) e [Información general detallada de planes de Servicios de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Para obtener información de los precios y características de planes Servicios de aplicaciones individuales, consulte [Detalles de precios del Servicio de aplicaciones](/pricing/details/web-sites/).
 
 > [AZURE.NOTE]Antes de cambiar una aplicación web del modo **Gratis** al modo **Básico**, **Estándar** o **Premium**, primero debe quitar los límites de gasto vigentes para la suscripción al Servicio de aplicaciones de Azure. Para ver o cambiar opciones para la suscripción a Servicios de aplicaciones de Microsoft Azure, consulte [Suscripciones a Microsoft Azure][azuresubscriptions].
 
-<a name="scalingsharedorbasic"></a>
-<!-- ===================================== -->
+<a name="scalingsharedorbasic"></a> <!-- ===================================== -->
 ## Escalado al modo Compartido o Básico
 <!-- ===================================== -->
 
@@ -51,8 +50,7 @@ Para obtener información acerca de los planes de servicio de la aplicación, co
 	
 	La ficha **Notificaciones** parpadeará en color verde indicando que se ha completado con **éxito** una vez finalizada la operación.
 	
-<a name="scalingstandard"></a>
-<!-- ================================= -->
+<a name="scalingstandard"></a> <!-- ================================= -->
 ## Escalado al modo Estándar o Premium
 <!-- ================================= -->
 
@@ -176,7 +174,6 @@ Según el modo de aplicación web, se encuentran disponibles las siguientes cara
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- LINKS -->
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkId=309169
@@ -201,4 +198,4 @@ Según el modo de aplicación web, se encuentran disponibles las siguientes cara
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

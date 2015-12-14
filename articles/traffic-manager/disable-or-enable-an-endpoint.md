@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # Deshabilitación o habilitación de un extremo de Administrador de tráfico
@@ -23,7 +23,7 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 
 ## Para deshabilitar un extremo
 
-1. En el panel Administrador de tráfico del Portal de administración, localice el perfil del Administrador de tráfico que contiene la configuración del extremo que desea modificar y, a continuación, haga clic en la flecha situada a la derecha del nombre del perfil. Se abrirá la página de configuración del perfil.
+1. En el panel Administrador de tráfico del Portal de Azure, localice el perfil del Administrador de tráfico que contiene la configuración del extremo que desea modificar y, a continuación, haga clic en la flecha situada a la derecha del nombre del perfil. Se abrirá la página de configuración del perfil.
 1. En la parte superior de la página, haga clic en **Extremos** para ver los extremos que se incluyen en la configuración. 
 1. Haga clic en el extremo que desea deshabilitar y, a continuación, haga clic en **Deshabilitar** en la parte inferior de la página.
 1. El tráfico dejará de fluir hacia el extremo basado en el período de vida (TTL) de DNS configurado para el nombre de dominio del Administrador de tráfico. Puede cambiar el valor de TTL desde la página de configuración del perfil del Administrador de tráfico.
@@ -31,7 +31,7 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 ## Para habilitar un extremo
 
 
-1. En el panel Administrador de tráfico del Portal de administración, localice el perfil del Administrador de tráfico que contiene la configuración del extremo que desea modificar y, a continuación, haga clic en la flecha situada a la derecha del nombre del perfil. Se abrirá la página de configuración del perfil.
+1. En el panel Administrador de tráfico del Portal de Azure, localice el perfil del Administrador de tráfico que contiene la configuración del extremo que desea modificar y, a continuación, haga clic en la flecha situada a la derecha del nombre del perfil. Se abrirá la página de configuración del perfil.
 1. En la parte superior de la página, haga clic en **Extremos** para ver los extremos que se incluyen en la configuración.
 1. Haga clic en el extremo que desea habilitar y, a continuación, haga clic en **Habilitar** en la parte inferior de la página.
 1. El tráfico comenzará a fluir al servicio de nuevo como indica el perfil.
@@ -44,4 +44,4 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 
 [Consideraciones de rendimiento sobre el Administrador de tráfico](traffic-manager-performance-considerations.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

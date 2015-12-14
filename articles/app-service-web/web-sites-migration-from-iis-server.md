@@ -123,7 +123,7 @@ En esta sección se analiza un ejemplo para migrar algunos sitios web que utiliz
  
 20.	Haga clic en los vínculos a las aplicaciones web de Azure y compruebe que la migración se ha realizado correctamente.
 
-21. Ahora puede administrar las aplicaciones web migradas en el Servicio de aplicaciones de Azure. Para ello, inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+21. Ahora puede administrar las aplicaciones web migradas en el Servicio de aplicaciones de Azure. Para ello, inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
 22. En el Portal de Azure, abra la hoja Aplicaciones web para ver sus sitios web migrados (se muestran como aplicaciones web) y, a continuación, haga clic en uno de ellos para empezar a administrar la aplicación web, como configurar publicaciones continuas, crear copias de seguridad, realizar un escalado automático y supervisar el uso o el rendimiento.
 
@@ -132,8 +132,7 @@ En esta sección se analiza un ejemplo para migrar algunos sitios web que utiliz
 >[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

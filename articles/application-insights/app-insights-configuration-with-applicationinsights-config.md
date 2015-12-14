@@ -51,13 +51,9 @@ También puede escribir su propio código de seguimiento de dependencias con la 
 * `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
 * Paquete NuGet [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector).
 
-```
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
-  <TelemetryModules>
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule, Microsoft.ApplicationInsights" />
-  </TelemetryModules>
-</ApplicationInsights>
-```
+
+### Telemetría de diagnósticos de Application Insights
+
 `DiagnosticsTelemetryModule` informa de errores en el propio código de instrumentación de Application Insights. Por ejemplo, si el código no puede tener acceso a los contadores de rendimiento o si un `ITelemetryInitializer` inicia una excepción. La telemetría de seguimiento que sigue este módulo aparece en la [Búsqueda de diagnóstico][diagnostic].
  
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
@@ -72,7 +68,7 @@ También puede escribir su propio código de seguimiento de dependencias con la 
 
 ### Seguimiento de solicitud web
 
-Informa del [tiempo de respuesta y del código del resultado](app-insights-start-monitoring-app-health-usage.md) de solicitudes HTTP.
+Informa del [tiempo de respuesta y del código del resultado](app-insights-asp-net.md) de solicitudes HTTP.
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
 * Paquete de NuGet [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web)
@@ -115,7 +111,6 @@ Los inicializadores estándar están todos establecidos por los paquetes NuGet w
 
 * `AccountIdTelemetryInitializer` establece la propiedad AccountId.
 * `AuthenticatedUserIdTelemetryInitializer` establece la propiedad AuthenticatedUserId establecida por el SDK de JavaScript.
-* `OperationNameTelemetryInitializer` actualiza la propiedad del contexto `Operation.Id` de todos los elementos de telemetría cuyo seguimiento se realizó al tratar una solicitud con el `RequestTelemetry.Id` automáticamente generado.
 * `AzureRoleEnvironmentTelemetryInitializer` actualiza las propiedades `RoleName` y `RoleInstance` del contexto `Device` para todos los elementos de telemetría con información extraída del entorno de tiempo de ejecución de Azure.
 * `BuildInfoConfigComponentVersionTelemetryInitializer` actualiza la propiedad `Version` del contexto `Component` para todos los elementos de telemetría con el valor extraído del archivo `BuildInfo.config` que produce MS Build.
 * `ClientIpHeaderTelemetryInitializer` actualiza la propiedad `Ip` del contexto `Location` de todos los elementos de telemetría según el encabezado HTTP `X-Forwarded-For` de la solicitud.
@@ -140,6 +135,29 @@ Los inicializadores estándar están todos establecidos por los paquetes NuGet w
 Los procesadores de telemetría pueden filtrar y modificar cada elemento de telemetría justo antes de que se envíe desde el SDK al portal.
 
 También puede [escribir sus propios procesadores de telemetría](app-insights-api-filtering-sampling.md#filtering).
+
+
+#### Procesador de telemetría de muestreo adaptivo (desde 2.0.0-beta3)
+
+Esta opción está habilitada de manera predeterminada. Si la aplicación envía una gran cantidad de datos de telemetría, este procesador quita algunos de ellos.
+
+```xml
+
+    <TelemetryProcessors>
+      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+      </Add>
+    </TelemetryProcessors>
+
+```
+
+El parámetro proporciona el destino que el algoritmo intenta alcanzar. Cada instancia del SDK funciona de forma independiente, por lo que si el servidor es un clúster de varios equipos, se multiplicará el volumen real de telemetría en consonancia.
+
+[Obtenga más información sobre el muestreo](app-insights-sampling.md).
+
+
+
+#### Procesador de telemetría de muestreo de tasa fija (desde 2.0.0-beta1)
 
 También hay un [procesador de telemetría de muestreo](app-insights-api-filtering-sampling.md#sampling) estándar (desde 2.0.1):
 
@@ -261,10 +279,10 @@ Para obtener una nueva clave, [cree un nuevo recurso en el portal de Application
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-web-failures-exceptions.md
+[exceptions]: app-insights-asp-net-exceptions.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

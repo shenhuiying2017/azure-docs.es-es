@@ -46,7 +46,7 @@ Si el archivo **IISNode.yml** no existía ya en su aplicación, debe reiniciar l
 
 > [AZURE.NOTE]Si aplicación web se creó usando las herramientas de línea de comandos de Azure o los cmdlets de Azure PowerShell, automáticamente se crea un archivo predeterminado **IISNode.yml**.
 
-Para reiniciar la aplicación web, selecciónela en el [portal de vista previa de Azure](https://portal.azure.com), y, a continuación, haga clic en el botón **Reiniciar**:
+Para reiniciar la aplicación web, selecciónela en el [Portal de Azure](https://portal.azure.com) y después haga clic en el botón **REINICIAR**:
 
 ![Botón de reinicio][restart-button]
 
@@ -67,7 +67,7 @@ Una vez instaladas, se puede tener acceso a ellas mediante el comando 'azure'. L
 
 ###FTP
 
-Para tener acceso a la información de diagnóstico a través de FTP, visite el [portal de vista previa de Azure](https://portal.azure.com), seleccione la aplicación sitio web y, a continuación, seleccione el **PANEL**. En la sección **vínculos rápidos**, los vínculos **FTP DIAGNOSTIC LOGS** y **FTPS DIAGNOSTIC LOGS** proporcionan acceso a los registros usando el protocolo FTP.
+Para tener acceso a la información de diagnóstico a través de FTP, visite el [Portal de Azure](https://portal.azure.com), seleccione su aplicación web y luego seleccione el **PANEL**. En la sección **vínculos rápidos**, los vínculos **FTP DIAGNOSTIC LOGS** y **FTPS DIAGNOSTIC LOGS** proporcionan acceso a los registros usando el protocolo FTP.
 
 > [AZURE.NOTE]Si no ha configurado antes el nombre de usuario y la contraseña de FTP o la implementación, puede hacerlo desde la página de administración **Inicio rápido** al seleccionar **Configurar las credenciales de implementación**.
 
@@ -114,7 +114,6 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 >[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
@@ -127,4 +126,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

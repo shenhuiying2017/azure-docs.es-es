@@ -27,7 +27,7 @@ Reemplace este comentario por la siguiente línea dentro de la declaración `@in
 ```
 
 
-* En el Portal de administración, haga clic en **Servicios móviles** y elija el servicio móvil. Haga clic en la pestaña **Panel** y anote el valor de la dirección **URL del sitio**. A continuación, haga clic en **Administrar claves** y tome nota de la **Clave de la aplicación**. Necesitará estos valores para obtener acceso al servicio móvil desde su código de aplicación.
+* En el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en **Servicios móviles** y elija el servicio móvil. Haga clic en la pestaña **Panel** y anote el valor de la dirección **URL del sitio**. A continuación, haga clic en **Administrar claves** y tome nota de la **Clave de la aplicación**. Necesitará estos valores para obtener acceso al servicio móvil desde su código de aplicación.
 
 
 * En **TodoService.m**, busque la línea siguiente:
@@ -146,4 +146,4 @@ Reemplace el cuerpo del método, desde ese punto hasta el final del método, con
 }
 ```
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

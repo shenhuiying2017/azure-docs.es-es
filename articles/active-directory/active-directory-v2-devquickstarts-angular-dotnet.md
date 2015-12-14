@@ -217,7 +217,7 @@ return $http.get('/api/tasks');
 ...
 ```
 
-¡Enhorabuena! La aplicación de una sola página integrada de Azure AD está terminada ahora. !Ya puede salir a recibir el aplauso del público! Con ella puede autenticar usuarios, llamar de forma segura a su API de REST de back-end mediante OpenID Connect y obtener información básica sobre el usuario. De forma predeterminada, es compatible con cualquier usuario con una cuenta de Microsoft personal, profesional o educativa desde Azure AD. Ejecute la aplicación, y en un explorador, vaya a `https://localhost:44326/`. Inicie sesión con una cuenta de Microsoft personal, profesional o educativa. Agregue tareas a la lista de tareas pendientes del usuario y cierre la sesión. Intente iniciar sesión con el otro tipo de cuenta. Si necesita un inquilino de Azure AD para crear usuarios de cuentas profesionales o educativas, [obtenga información sobre cómo conseguir uno aquí](active-directory-howto-tenant.md) (es gratuito).
+¡Enhorabuena! La aplicación de una sola página integrada de Azure AD está terminada ahora. !Ya puede salir a recibir el aplauso del público! Con ella puede autenticar usuarios, llamar de forma segura a su API de REST de back-end mediante OpenID Connect y obtener información básica sobre el usuario. De forma predeterminada, es compatible con cualquier usuario con una cuenta de Microsoft personal, profesional o educativa desde Azure AD. Ejecute la aplicación, y en un explorador, vaya a `https://localhost:44326/`. Inicie sesión con una cuenta de Microsoft personal, profesional o educativa. Agregue tareas a la lista de tareas del usuario y cierre la sesión. Intente iniciar sesión con el otro tipo de cuenta. Si necesita un inquilino de Azure AD para crear usuarios de cuentas profesionales o educativas, [obtenga información sobre cómo conseguir uno aquí](active-directory-howto-tenant.md) (es gratuito).
 
 Para seguir aprendiendo sobre la versión preliminar del modelo de aplicaciones v2.0, regrese a nuestra [guía para desarrolladores de v2.0](active-directory-appmodel-v2-overview.md). Para obtener recursos adicionales, consulte:
 
@@ -225,4 +225,4 @@ Para seguir aprendiendo sobre la versión preliminar del modelo de aplicaciones 
 - [Azure AD en Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -19,6 +19,11 @@
 
 # Control de conflictos con la sincronización de datos sin conexión en Servicios móviles
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
 En este tema se explica cómo sincronizar los datos y controlar conflictos cuando se usan las capacidades sin conexión de Servicios móviles de Azure. Este tutorial se basa en el tutorial [Introducción a los datos sin conexión].
@@ -139,4 +144,4 @@ Realice el gesto de actualizar en las instancias de la aplicación arrastrando d
 [Introducción a los datos sin conexión]: mobile-services-ios-get-started-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

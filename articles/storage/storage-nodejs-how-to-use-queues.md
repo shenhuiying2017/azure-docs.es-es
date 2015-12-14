@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="12/01/2015" 
 	ms.author="robmcm"/>
 
 
@@ -66,7 +66,7 @@ Con el Bloc de notas u otro editor de texto, agregue lo siguiente en la parte su
 
 El módulo azure leerá las variables de entorno AZURE\_STORAGE\_ACCOUNT, AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING para obtener la información necesaria para conectarse a su cuenta de almacenamiento de Azure. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **createQueueService**.
 
-Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento].
+Para ver un ejemplo de configuración de las variables de entorno en el [Portal de Azure](portal.azure.com) para un sitio web de Azure, consulte [Aplicación web Node.js con almacenamiento].
 
 ## Creación de una cola
 
@@ -123,7 +123,7 @@ Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin qui
 
 El `result` contiene el mensaje.
 
-> [AZURE.NOTE]Si se utiliza **peekMessages** cuando no existen mensajes en la cola, no se devolverá un error, pero tampoco se devolverán mensajes.
+> [AZURE.NOTE]Si se usa **peekMessages** cuando no existen mensajes en la cola, no se devolverá un error, pero tampoco se devolverán mensajes.
 
 ## Extracción del siguiente mensaje de la cola
 
@@ -309,16 +309,15 @@ Después de establecer una ACL, puede crear luego una SAS basada en el Id. de un
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
--   Vea la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][]
 -   Visite el [Blog del equipo de almacenamiento de Azure][].
 -   Visite el repositorio del [SDK de almacenamiento de Azure para Node.js][] en GitHub.
 
   [SDK de almacenamiento de Azure para Node.js]: https://github.com/Azure/azure-storage-node
   [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Portal]: portal.azure.com
   [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: ../web-sites-nodejs-develop-deploy-mac.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-  [Aplicación web de Node.js con almacenamiento]: ../storage-nodejs-use-table-storage-web-site.md
+  [Aplicación web Node.js con almacenamiento]: ../storage-nodejs-use-table-storage-web-site.md
 
   
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -328,9 +327,8 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   
   
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
- [Sitio web con WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+  [Sitio web con WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

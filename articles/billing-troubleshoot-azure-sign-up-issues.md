@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/25/2015"
-	ms.author="rgarodia, azuresbcic"/>
+	ms.author="rgarodia"/>
 
 # Resolución de problemas de suscripción a Azure
 Este artículo le ayudará a solucionar las causas comunes de los problemas que pueden producirse al realizar la suscripción a Azure.
@@ -60,4 +60,4 @@ Sugerencias: Si ya activó una suscripción de Azure en el pasado y se produce u
 ## ¿Sigue sin poder suscribirse?
 [Póngase en contacto con el soporte técnico de Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para que le asistan si sigue experimentando problemas para realizar la suscripción o si el problema que tiene no se trata en este artículo.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

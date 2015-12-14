@@ -42,7 +42,7 @@ En esta sección se describe cómo enumerar, cargar y descargar blobs. Para obte
 
 En este documento se supone que tiene una suscripción de Azure y una cuenta de almacenamiento y la clave de almacenamiento correspondiente para dicha cuenta. Antes de cargar o descargar datos, debe conocer su nombre de cuenta de almacenamiento de Azure y la clave de cuenta.
 
-- Para configurar una suscripción de Azure, consulte [Prueba gratuita de un mes](https://azure.microsoft.com/es-ES/pricing/free-trial/).
+- Para configurar una suscripción a Azure, consulte [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
 - Para obtener instrucciones sobre la creación de una cuenta de almacenamiento y para obtener información de cuentas y claves, vea [Acerca de las cuentas de almacenamiento de Azure](../storage-create-storage-account.md).
 
 ## Cargar datos en blob
@@ -123,4 +123,4 @@ El siguiente código de ejemplo descarga todos los blobs de un contenedor. Usa l
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

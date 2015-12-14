@@ -31,7 +31,7 @@ Las versiones de PHP 5.5 y PHP 5.6 también están disponibles, pero no están h
 
 ### Portal de Azure
 
-1. Vaya a la aplicación web en el [Portal de Azure ](http://go.microsoft.com/fwlink/?LinkId=529715)y haga clic en el botón **Configuración**.
+1. Vaya a la aplicación web en el [Portal de Azure ](https://portal.azure.com)y haga clic en el botón **Configuración**.
 
 	![Configuración de aplicaciones web][settings-button]
 
@@ -161,7 +161,6 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [evaluación gratuita]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
@@ -183,4 +182,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

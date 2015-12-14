@@ -351,4 +351,4 @@ Para que un administrador de la compañía quite el acceso de una aplicación a 
 
 - Visite la [Guía del desarrollador de Azure Active Directory](active-directory-developers-guide.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

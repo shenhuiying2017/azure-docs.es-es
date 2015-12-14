@@ -51,11 +51,11 @@ También se recomienda instalar [Python Tools 2.2 para Visual Studio]. Esto es o
 Debe tener Python y Git instalados, pero asegúrese de que tiene Python 2.7 o 3.4.
 
 
-## Creación de una aplicación web en el Portal de vista previa de Azure
+## Creación de una aplicación web en el Portal de Azure
 
-El primer paso para crear la aplicación consiste en crear la aplicación web a través del [Portal de vista previa de Azure](https://portal.azure.com).
+El primer paso para crear la aplicación consiste en crear la aplicación web a través del [Portal de Azure](https://portal.azure.com).
 
-1. Inicie sesión en el Portal de vista previa de Azure y haga clic en el botón **Nuevo** situado en la esquina inferior izquierda. 
+1. Inicie sesión en el Portal de Azure, haga clic en el botón **Nuevo** situado en la esquina inferior izquierda. 
 2. Haga clic en **Web y móvil**.
 3. En el cuadro de búsqueda, escriba "python".
 4. En los resultados de búsqueda, seleccione **Bottle** y, a continuación, haga clic en **Crear**.
@@ -132,7 +132,7 @@ En las tres secciones siguientes se describe cómo continuar con el desarrollo d
 
 ### Clonación del repositorio
 
-En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de vista previa de Azure. Para obtener más información, consulte [Implementación continua mediante GIT en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md).
+En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de Azure. Para obtener más información, consulte [Implementación continua mediante GIT en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md).
 
 Abra el archivo de la solución (.sln) que se incluye en la raíz del repositorio.
 
@@ -144,7 +144,7 @@ Ahora vamos a crear un entorno virtual para el desarrollo local. Haga clic con e
 
 - Asegúrese de que el nombre del entorno sea `env`.
 
-- Seleccione el intérprete base. Asegúrese de utilizar la misma versión de Python que la seleccionada para la aplicación web (en runtime.txt o en la hoja **Configuración de la aplicación** de la aplicación web en el Portal de vista previa de Azure).
+- Seleccione el intérprete base. Asegúrese de utilizar la misma versión de Python que la seleccionada para la aplicación web (en runtime.txt o en la hoja **Configuración de la aplicación** de la aplicación web en el Portal de Azure).
 
 - Asegúrese de que esté activada la opción para descargar e instalar paquetes.
 
@@ -199,7 +199,7 @@ Vaya a la dirección URL de Azure para ver los cambios.
 
 ### Clonación del repositorio
 
-En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de vista previa de Azure y agregue el repositorio de Azure como remoto. Para obtener más información, consulte [Implementación continua mediante GIT en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md).
+En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de Azure y agregue el repositorio de Azure como remoto. Para obtener más información, consulte [Implementación continua mediante GIT en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -209,7 +209,7 @@ En primer lugar, clone el repositorio mediante la dirección URL proporcionada e
 
 Vamos a crear un nuevo entorno virtual para fines de desarrollo (no lo agregue al repositorio). Los entornos virtuales de Python no son reubicables, por lo que cada desarrollador que trabaja en la aplicación creará su propio entorno localmente.
 
-Asegúrese de utilizar la misma versión de Python que la seleccionada para la aplicación web (en runtime.txt o en la hoja Configuración de la aplicación para la aplicación web en el Portal de vista previa de Azure).
+Asegúrese de usar la misma versión de Python que la seleccionada para la aplicación web (en runtime.txt o en la hoja Configuración de la aplicación de la aplicación web en el Portal de Azure).
 
 Para Python 2.7:
 
@@ -278,7 +278,7 @@ Vaya a la dirección URL de Azure para ver los cambios.
 
 ### Clonación del repositorio
 
-En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de vista previa de Azure y agregue el repositorio de Azure como remoto. Para obtener más información, consulte [Implementación continua mediante GIT en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md).
+En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de Azure y agregue el repositorio de Azure como remoto. Para obtener más información, consulte [Implementación continua mediante GIT en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -288,7 +288,7 @@ En primer lugar, clone el repositorio mediante la dirección URL proporcionada e
 
 Vamos a crear un nuevo entorno virtual para fines de desarrollo (no lo agregue al repositorio). Los entornos virtuales de Python no son reubicables, por lo que cada desarrollador que trabaja en la aplicación creará su propio entorno localmente.
 
-Asegúrese de utilizar la misma versión de Python que la seleccionada para la aplicación web (en runtime.txt o en la hoja Configuración de la aplicación de la aplicación web en el Portal de vista previa de Azure).
+Asegúrese de utilizar la misma versión de Python que la seleccionada para la aplicación web (en runtime.txt o en la hoja Configuración de la aplicación de la aplicación web en el Portal de Azure).
 
 Para Python 2.7:
 
@@ -378,7 +378,6 @@ Para obtener información sobre el uso de Almacenamiento de tablas de Azure y Mo
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
@@ -398,4 +397,4 @@ Para obtener información sobre el uso de Almacenamiento de tablas de Azure y Mo
 [Documentación de Bottle]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

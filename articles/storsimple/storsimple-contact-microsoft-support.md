@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/06/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Contactar al soporte técnico de Microsoft
@@ -30,7 +30,7 @@ Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
 
 #### Para crear una solicitud de soporte
 
-1. Las solicitudes de soporte técnico pueden crearse a través del [Portal de administración](http://manage.windowsazure.com/). En el [Portal de administración](http://manage.windowsazure.com/), haga clic en su **Nombre de cuenta** y después haga clic en **Póngase en contacto con el Soporte técnico de Microsoft**.
+1. Las solicitudes de soporte técnico pueden crearse a través del [Portal de Azure clásico](http://manage.windowsazure.com/). En el [portal](http://manage.windowsazure.com/), haga clic en su **Nombre de cuenta** y después haga clic en **Póngase en contacto con el Soporte técnico de Microsoft**.
 
 	![Contactar al soporte técnico de MS a través del Portal de administración](./media/storsimple-contact-microsoft-support/IC777286.png)
 
@@ -76,4 +76,4 @@ Lleve a cabo los siguientes pasos para iniciar una sesión de soporte.
 
 > [AZURE.IMPORTANT]Puede deshabilitar el acceso al soporte técnico ejecutando `Disable-HcsSupportAccess`. El dispositivo StorSimple también intenta deshabilitar el acceso al soporte técnico 8 horas después de iniciada la sesión. Es un procedimiento recomendado cambiar las credenciales de su dispositivo StorSimple después de una sesión de soporte técnico.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

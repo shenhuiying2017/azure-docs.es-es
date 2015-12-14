@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/28/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # Configuración de DNS entre dos redes virtuales de Azure
@@ -98,7 +98,7 @@ Después de crear la máquina virtual, descubra la IP interna y externa.
 
 ##Configuración de direcciones IP estáticas para las dos máquinas virtuales
 
-Los servidores DNS requieren direcciones IP estáticas. Este paso no puede realizarse desde el Portal de Azure. Utilizará PowerShell de Azure.
+Los servidores DNS requieren direcciones IP estáticas. Este paso no puede realizarse desde el Portal de Azure clásico. Utilizará PowerShell de Azure.
 
 **Para configurar la dirección IP estática para las dos máquinas virtuales**
 
@@ -120,7 +120,7 @@ Los servidores DNS requieren direcciones IP estáticas. Este paso no puede reali
 
 **Para agregar el rol de servidor DNS para Contoso-DNS-EU**
 
-1.	En el Portal de Azure, haga clic en **Máquinas virtuales** a la izquierda. 
+1.	En el Portal de Azure clásico, haga clic en **Máquinas virtuales** en la parte izquierda. 
 2.	Haga clic en **Contoso-DNS-EU**.
 3.	Haga clic en **PANEL** en la parte superior.
 4.	Haga clic en **CONECTAR** en la parte inferior y siga las instrucciones para conectarse a la máquina virtual a través de RDP.
@@ -142,7 +142,7 @@ Los servidores DNS requieren direcciones IP estáticas. Este paso no puede reali
 
 **Para registrar los dos servidores DNS**
 
-1.	En el Portal de Azure, haga clic en **Nuevo**, **Servicios de red**, **Red virtual** y **Registrar servidor DNS**.
+1.	En el Portal de Azure clásico, haga clic en **NUEVO**, **SERVICIOS DE RED**, **RED VIRTUAL** y **REGISTRAR SERVIDOR DNS**.
 2.	Especifique:
 	- **Nombre**: Contoso-DNS-EU
 	- **DIRECCIÓN IP DEL SERVIDOR DNS**: 10.1.0.4: la dirección IP debe coincidir con la dirección IP de la máquina virtual del servidor DNS.
@@ -153,7 +153,7 @@ Los servidores DNS requieren direcciones IP estáticas. Este paso no puede reali
 
 **Para asignar a los dos servidores DNS a las dos redes virtuales**
 
-1.	Haga clic en **Redes** en el panel izquierdo del Portal de administración.
+1.	Haga clic en **Redes** en el panel izquierdo del Portal clásico.
 2.	Haga clic en **Contoso-VNet-EU**.
 3.	Haga clic en **CONFIGURAR**.
 4.	Seleccione **Contoso-DNS-EU** en la sección **Servidores DNS**.
@@ -164,7 +164,7 @@ Todas las máquinas virtuales que se han implementado en las redes virtuales deb
 
 **Para reiniciar las máquinas virtuales**
 
-1. En el Portal de Azure, haga clic en **Máquinas virtuales** a la izquierda.
+1. En el Portal de Azure clásico, haga clic en **Máquinas virtuales** en la parte izquierda.
 2. Haga clic en **Contoso-DNS-EU**.
 3. Haga clic en **Panel** en la parte superior.
 4. Haga clic en **REINICIAR** en la parte inferior.
@@ -220,4 +220,4 @@ En este tutorial ha aprendido cómo configurar una resolución de nombre en las 
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

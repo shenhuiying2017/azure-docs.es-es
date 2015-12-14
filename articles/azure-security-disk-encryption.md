@@ -13,20 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="11/25/2015"
    ms.author="devtiw"/>
 
-#Cifrado de disco de Azure para máquinas virtuales IaaS Linux y Windows
+
+#Vista previa de cifrado de disco de Azure para máquinas virtuales IaaS Linux y Windows
+
+> [AZURE.NOTE]La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure.
+
 
 Microsoft Azure está muy comprometido a garantizar la privacidad y soberanía de los datos, y permite controlar los datos hospedados en Azure datos mediante varias tecnologías avanzadas que cifran, controlan y administran las claves de cifrado, y controlan y auditan el acceso de los datos. Esto proporciona a los clientes de Azure la flexibilidad necesaria para elegir la solución que mejor cubra sus necesidades empresariales. En este artículo, le presentaremos a una nueva solución de tecnología, "Cifrado de disco de Azure para máquinas virtuales IaaS Linux y Windows", que le ayudara a proteger sus datos para que cumplan los compromisos de seguridad y compatibilidad de su organización. Ofrece información detalladas sobre cómo usar las características de cifrado de disco de Azure, incluidos los escenarios admitidos y las experiencias de los usuarios.
 
-**NOTE**: Algunas de las recomendaciones de este artículo pueden provocar un aumento del uso de datos, de la red o de recursos de proceso, lo que aumentará los costos de licencias y suscripciones.
+**NOTA**: Algunas de las recomendaciones de este artículo pueden provocar un aumento del uso de datos, de la red o de recursos de proceso, lo que incrementará los costos de las licencias o suscripciones.
 
-##Información general
+## Información general
 
-Cifrado de disco de Azure es una nueva funcionalidad que permite cifrar los discos de las máquinas virtuales IaaS de Windows y Linux. Cifrado de disco Azure saca provecho de la característica [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) estándar del sector de Windows y la característica [DM Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux para proporcionar cifrado de volumen para el sistema operativo y los discos de datos. La solución se integra con el Almacén de [claves de Azure](https://azure.microsoft.com/documentation/services/key-vault/) para ayudarle a controlar y administrar las claves y secretos de cifrado de disco en su suscripción del almacén de claves, al mismo tiempo que garantiza que todos los datos de los discos de las máquinas virtuales se cifran en reposo en el almacenamiento de Azure.
+Cifrado de disco de Azure es una nueva funcionalidad que permite cifrar los discos de las máquinas virtuales IaaS de Windows y Linux. Cifrado de disco Azure aprovecha la característica [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) estándar del sector de Windows y la característica [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux para ofrecer cifrado de volumen para el sistema operativo y los discos de datos. La solución se integra con el Almacén de [claves de Azure](https://azure.microsoft.com/documentation/services/key-vault/) para ayudarle a controlar y administrar las claves y los secretos de cifrado de disco en su suscripción del almacén de claves, al mismo tiempo que garantiza que todos los datos de los discos de las máquinas virtuales se cifran en reposo en el almacenamiento de Azure.
 
-###Escenarios de cifrado
+### Escenarios de cifrado
 
 La solución Cifrado de disco de Azure admite los tres siguientes escenarios de cifrado de cliente:
 
@@ -40,7 +44,7 @@ La solución admite lo siguiente para las máquinas virtuales IaaS para la versi
 
 - Integración con el Almacén de claves de Azure
 
-- [Máquinas virtuales IaaS de las series A, D y G](https://azure.microsoft.com/pricing/details/virtual-machines/) estándar
+- [Máquinas virtuales IaaS de las series A, D y G](https://azure.microsoft.com/pricing/details/virtual-machines/) estándares
 
 - Habilitar el cifrado en máquinas virtuales de IaaS creadas con el modelo del [Administrador de recursos de Azure](resource-group-overview.md)
 
@@ -62,7 +66,7 @@ La solución no es compatible con los siguientes escenarios, características y 
 - Red Hat Enterprise Linux
 
 
-###Características de cifrado
+### Características de cifrado
 
 Al habilitar e implementar Cifrado de disco de Azure para las máquinas virtuales IaaS de Azure, se habilitan las capacidades siguientes, en función de la configuración proporcionada:
 
@@ -80,7 +84,7 @@ El cifrado de disco de Azure para la solución Máquinas virtuales IaaS para Win
 
 No hay cargo alguno por el cifrado de discos de máquinas virtuales con Cifrado de disco de Azure durante la vista previa pública. También se espera que esto siga siendo así después de que Cifrado de disco esté disponible de forma general. Sin embargo, los precios están sujetos a cambios en función del mercado y del panorama de la competencia.
 
-###Propuesta de valor
+### Propuesta de valor
 
 La solución Administración de cifrado de discos de Azure habilita las siguientes necesidades empresariales en la nube:
 
@@ -89,7 +93,7 @@ La solución Administración de cifrado de discos de Azure habilita las siguient
 -   Las máquinas virtuales de IaaS arrancan bajos las directivas y claves controladas por el cliente y pueden auditar su uso en el Almacén de claves.
 
 
-###Flujo de trabajo de cifrado 
+### Flujo de trabajo de cifrado 
 Los pasos de alto nivel requeridos para habilitar el cifrado de disco en las máquinas virtuales de Windows y Linux son:
 
 1. El cliente elige el escenario de cifrado entre los tres escenarios de cifrado anteriores
@@ -106,9 +110,9 @@ Los pasos de alto nivel requeridos para habilitar el cifrado de disco en las má
 
 5.  Administración de servicios de Azure actualiza el modelo de servicio de la máquina virtual con la configuración del cifrado y del almacén de claves y aprovisiona la máquina virtual cifrada para el cliente
 
-![Microsoft Antimalware en Azure](./media/azure-security-disk-encryption\disk-encryption-fig1.JPG)
+![Microsoft Antimalware en Azure](./media/azure-security-disk-encryption/disk-encryption-fig1.JPG)
 
-##Requisitos previos
+## Requisitos previos
 
 Estos son los requisitos previos para habilitar Cifrado de disco de Azure en máquinas virtuales IaaS de Azure para los escenarios admitidos de la sección de información general
 
@@ -116,15 +120,23 @@ Estos son los requisitos previos para habilitar Cifrado de disco de Azure en má
 
 - Cifrado de disco de Azure es compatible en con las siguientes SKU de Windows Server: Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2. La solución no es compatible con el sistema operativo Windows Server 2008. Windows Server Technical Preview no es compatible con la versión de vista previa pública.
 
-**Nota**: En el caso de Windows Server 2008 R2, ES PRECISO instalar .Net Framework 4.5 antes de habilitar el cifrado en Azure. Se puede instalar desde Windows Update mediante la instalación de la actualización opcional "Microsoft .NET Framework 4.5.2 para Windows Server 2008 R2 para sistemas basados en x64 ([KB2901983](https://support.microsoft.com/kb/2901983))"
+**Nota**: En el caso de Windows Server 2008 R2, ES PRECISO instalar .Net Framework 4.5 antes de habilitar el cifrado en Azure. Se puede instalar desde Windows Update mediante la instalación de la actualización opcional "Microsoft .NET Framework 4.5.2 para sistemas basados en x64 con Windows Server 2008 R2 ([KB2901983](https://support.microsoft.com/kb/2901983))".
 
 - Cifrado de disco de Azure es compatible con las siguientes SKU de Linux Server: Ubuntu, CentOS, SUSE y SUSE Linux Enterprise Server (SLES). Red Hat Enterprise Linux no es compatible con la versión de vista previa pública.
 
-- Todos los recursos (por ejemplo: almacén de claves, cuenta de almacenamiento, máquina virtual, red virtual, etc.) deben pertenecer a la misma región y suscripción de Azure.
+- Todos los recursos (por ejemplo: almacén de claves, cuenta de almacenamiento, máquina virtual, etc.) deben pertenecer a la misma región y suscripción de Azure.
 
-**Nota**: NO se admite la creación de recursos como el almacén de claves y las máquinas virtuales en diferentes regiones de Azure, además causará errores al habilitar la característica Cifrado de disco de Azure
+**Nota**: Cifrado de disco de Azure requiere que el almacén de claves y las máquinas virtuales residan en la misma región de Azure. Si se configuran en regiones independientes, se producirá un error al habilitar la característica de cifrado de disco de Azure.
 
-- La plataforma Azure necesita acceso a las claves de cifrado o secretos del Almacén de claves de Azure del cliente, con el fin de que estén disponibles para que la máquina virtual arranque y descifre el volumen del sistema operativo de la máquina virtual. Para conceder permisos a la plataforma Azure para tener acceso al almacén de claves, debe establecerse la propiedad **enabledForDiskEncryption** en el almacén de claves de este requisito
+- Para instalar y configurar el almacén de claves de Azure para el uso de Cifrado de disco de Azure, consulte la sección **Establecimiento y configuración del Almacén de claves de Azure para el uso de Cifrado de disco de Azure** en el apéndice de este artículo.
+
+- Para instalar y configurar la aplicación de Azure AD en Azure Active Directory para el uso de Cifrado de disco de Azure, consulte la sección **Instalación de la aplicación de Azure AD en Azure Active Directory** en el apéndice de este artículo.
+
+- Para instalar y configurar la directiva de acceso del almacén de clave de la aplicación de AD Azure, consulte la sección **Establecimiento de la directiva de acceso del almacén de clave para la aplicación de Azure AD** en el apéndice de este artículo.
+
+- Para preparar un VHD con Windows precifrado, consulte la sección **Preparación de un VHD con Windows precifrado** en el apéndice de este artículo.
+
+- La plataforma Azure necesita acceso a las claves de cifrado o secretos del Almacén de claves de Azure del cliente, con el fin de que estén disponibles para que la máquina virtual arranque y descifre el volumen del sistema operativo de la máquina virtual. Para conceder permisos a la Plataforma Azure para que tenga acceso al almacén de claves, debe establecerse la propiedad **enabledForDiskEncryption** en el almacén de claves de este requisito. Consulte la sección **Establecimiento y configuración del Almacén de claves de Azure para el uso de Cifrado de disco de Azure** en el apéndice de este artículo para obtener más detalles.
 
 - El secreto del almacén de claves y las direcciones URL de la clave de cifrado de claves (KEK) deben tener versiones. Administración de servicios Azure exige esta restricción del control de versiones. En los ejemplos siguientes encontrará direcciones URL de KEK y de secretos válidas:
 
@@ -154,44 +166,46 @@ Estos son los requisitos previos para habilitar Cifrado de disco de Azure en má
 
 	- La máquina virtual IaaS debe poder conectarse al punto de conexión de almacenamiento de Azure que hospeda el repositorio de extensiones de Azure y la cuenta de almacenamiento de Azure que hospeda los archivos VHD
 
+**Nota:** Si su directiva de seguridad limita el acceso desde máquinas virtuales de Azure a Internet, puede resolver el URI anterior al que necesita tener conectividad y configurar una regla concreta para permitir la conectividad de salida para las direcciones IP.
+
 - Para ejecutar cualquiera de los cmdlets de PowerShell de Cifrado de disco de Azure, primero es preciso instalar la versión 1.0.1 de Azure PowerShell:
 
 	- Para instalar Azure PowerShell y asociarlo con una suscripción de Azure, consulte [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md).
 
-	- Si la opción anterior no se actualiza para incluir la versión 1.0.1 de Azure PowerShell, también puede instalar Azure PowerShell 1.0.1 directamente desde [aquí](https://github.com/Azure/azure-powershell/releases/tag/v1.0.1-November2015)
+	- Si la opción anterior aún no se ha actualizado para incluir la versión 1.0.1 de Azure PowerShell, también puede instalar Azure PowerShell 1.0.1 directamente desde [aquí](https://github.com/Azure/azure-powershell/releases/tag/v1.0.1-November2015).
 
-**Nota:** En este documento se asume que conoce los conceptos básicos, como módulos, cmdlets y sesiones. Para obtener más información, consulte Introducción a [Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
+**Nota:** En este documento se asume que conoce los conceptos básicos, como los módulos, los cmdlets y las sesiones. Para más información, consulte Introducción a [Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
 
 - Para ejecutar cualquiera de los comandos de la CLI de Azure y asociarlo a una suscripción de Azure, primero debe instalar la versión de la CLI de Azure:
 
 	- Para instalar la CLI de Azure y asociarla con una suscripción de Azure, consulte [Instalación de la CLI de Azure](xplat-cli-install.md).
 
-	- Si usa la CLI de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure, consulte [aquí](azure-cli-arm-commands.md)
+	- Si usa la CLI de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure, consulte [esto](azure-cli-arm-commands.md).
 
 - La solución Cifrado de disco de Azure usa el protector de claves externas de BitLocker para máquinas virtuales IaaS de Windows. Si las máquinas virtuales están unidas en un dominio, no inserte directivas de grupo que exijan protectores de TPM. Consulte [este artículo](https://technet.microsoft.com/library/ee706521), donde encontrará información sobre la directiva de grupo para "Permitir BitLocker sin un TPM compatible".
 
-###Terminología
+### Terminología
 
 Utilice la tabla de terminología como referencia para comprender algunos de los términos comunes que usa esta tecnología:
 
 
 | Terminología | Definición |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure AD | Azure AD es [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/) Cuenta de Azure AD es un requisito previo para autenticar, almacenar y recuperar secretos del almacén de claves. |
-| Almacén de claves de Azure [AKV] | Almacén de claves de Azure es un servicio de administración de claves criptográficas basado en módulos de seguridad de hardware validados por FIPS para proteger claves criptográficas y secretos confidenciales de forma segura. Para obtener más información, consulte la documentación del [almacén de claves](https://azure.microsoft.com/services/key-vault/). |
+| Azure AD | Azure AD es [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/). Cuenta de Azure AD es un requisito previo para autenticar, almacenar y recuperar secretos del almacén de claves. |
+| Almacén de claves de Azure [AKV] | Almacén de claves de Azure es un servicio de administración de claves criptográficas basado en módulos de seguridad de hardware validados por FIPS para proteger las claves criptográficas y los secretos confidenciales de forma segura. Para obtener información más detallada, consulte la documentación del [almacén de claves](https://azure.microsoft.com/services/key-vault/). |
 | ARM | Administrador de recursos de Azure |
 | BitLocker | [BitLocker](https://technet.microsoft.com/library/hh831713.aspx) es una tecnología de cifrado de volúmenes de Windows reconocida por el sector que se usa para habilitar el cifrado de disco en máquinas virtuales IaaS de Windows |
 | BEK | Las claves de cifrado de BitLocker se usan para cifrar el volumen de arranque del sistema operativo y los volúmenes de datos. Las claves de BitLocker se protegen en el Almacén de claves de Azure del cliente como secretos. |
 | CLI | [Interfaz de la línea de comandos de Azure](xplat-cli-install.md) |
-| DM-Crypt | [DM Crypt](https://en.wikipedia.org/wiki/Dm-crypt) es el subsistema de cifrado transparente de disco basado en Linux que se usa para habilitar el cifrado de disco en las máquinas virtuales IaaS de Linux |
-| KEK | Clave de cifrado de claves es la clave asimétrica (RSA 2048) que se usa para encapsular el secreto, en caso de que se desee. Se puede proporcionar una clave protegida mediante HSM o una clave protegida mediante software. Para obtener más información, consulte la documentación del [Almacén de claves de Azure](https://azure.microsoft.com/services/key-vault/) |
-| cmdlets de PS | [cmdlets de Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) |
+| DM-Crypt | [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) es el subsistema de cifrado transparente de disco basado en Linux que se usa para habilitar el cifrado de disco en las máquinas virtuales IaaS de Linux |
+| KEK | Clave de cifrado de claves es la clave asimétrica (RSA 2048) que se usa para encapsular el secreto, en caso de que se desee. Se puede proporcionar una clave protegida mediante HSM o una clave protegida mediante software. Para obtener información detallada, consulte la documentación del [Almacén de claves de Azure](https://azure.microsoft.com/services/key-vault/) |
+| cmdlets de PS | [cmdlets de Azure PowerShell](powershell-install-configure.md) |
 
-##Escenarios de implementación del cifrado de disco y experiencias de usuario
+## Escenarios de implementación del cifrado de disco y experiencias de usuario
 
 Hay muchos escenarios en que se puede habilitar el cifrado de disco y los pasos pueden variar en función del escenario. En las siguientes secciones se explicarán estos escenarios con mayor detalle.
 
-###Habilitación del cifrado en las nuevas máquinas virtuales de IaaS creadas a partir de la Galería de Azure
+### Habilitación del cifrado en las nuevas máquinas virtuales de IaaS creadas a partir de la Galería de Azure
 
 El cifrado de disco se puede habilitar en las nuevas máquinas virtuales IaaS de Windows desde la Galería de Azure en Azure mediante la plantilla de ARM publicada [aquí](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image). Haga clic en el botón "Implementar en Azure" de la plantilla de inicio rápido de Azure, en la configuración de cifrado de entrada de la hoja de parámetros y en Aceptar. Seleccione la suscripción, el grupo de recursos, la ubicación del grupo de recursos, los términos legales y el contrato, y haga clic en el botón Crear para habilitar el cifrado en una máquina virtual IaaS nueva.
 
@@ -217,11 +231,11 @@ En la tabla siguiente se puede ver información de los parámetros de las planti
 
 **Nota:** KeyEncryptionKeyURL es un parámetro opcional. Puede aportar su propia KEK para proteger aún más la clave de cifrado de datos (frase de contraseña secreta) en el almacén de claves.
 
-###Habilitación del cifrado en las nuevas máquinas virtuales de IaaS creadas a partir del VHD cifrado del cliente y las claves de cifrado
+### Habilitación del cifrado en las nuevas máquinas virtuales de IaaS creadas a partir del VHD cifrado del cliente y las claves de cifrado
 
-En este escenario se puede habilitar el cifrado mediante la plantilla de ARM, [cmdlets de PowerShell](https://msdn.microsoft.com/library/azure/mt603746.aspx) o comandos de la CLI. En las siguientes secciones se explicarán más detalladamente los comandos de la CLI y la plantilla de ARM.
+En este escenario se puede habilitar el cifrado mediante la plantilla de ARM, cmdlets de PowerShell o comandos de la CLI. En las siguientes secciones se explicarán más detalladamente los comandos de la CLI y la plantilla de ARM.
 
-####Uso de una plantilla de ARM
+#### Uso de una plantilla de ARM
 
 El cifrado de disco se puede habilitar en un VHD cifrado del cliente mediante la plantilla de ARM publicada [aquí](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm). Haga clic en el botón "Implementar en Azure" de la plantilla de inicio rápido de Azure, en la configuración de cifrado de entrada de la hoja de parámetros y en Aceptar. Seleccione la suscripción, el grupo de recursos, la ubicación del grupo de recursos, los términos legales y el contrato, y haga clic en el botón Crear para habilitar el cifrado en una máquina virtual IaaS nueva.
 
@@ -241,13 +255,18 @@ En la tabla siguiente se describen los detalles de los parámetros de la plantil
 | ​vmName | ​Nombre de la máquina virtual IaaS   
 
 
+
+####Uso de cmdlets de PowerShell
+
+El cifrado de disco se puede habilitar en un VHD cifrado del cliente mediante la plantilla de cmdlets de PS publicada [aquí](https://msdn.microsoft.com/library/azure/mt603746.aspx).
+
 ####Uso de comandos de la CLI
 
 Siga estos pasos para habilitar el cifrado de disco en este escenario con comandos de la CLI:
 
 1. Establezca directivas de acceso en el almacén de claves:
-	- Establezca ‘EnabledForDiskEncryption’ flag: “azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
-	- Establezca permisos para que la aplicación de Azure AD escriba secretos en KeyVault: “azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]”
+	- Establezca la marca ‘EnabledForDiskEncryption’: “azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
+	- Establezca los permisos para que la aplicación de Azure AD escriba secretos en KeyVault: “azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]”
 2. Para habilitar el cifrado en una máquina virtual existente o en ejecución, escriba: *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
 3. Obtenga el estado del cifrado: *“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”* 
 4. Para habilitar el cifrado en una nueva máquina virtual desde el VHD cifrado del cliente, use los siguientes parámetros con el comando "azure vm create":
@@ -257,11 +276,11 @@ Siga estos pasos para habilitar el cifrado de disco en este escenario con comand
 	- key-encryption-key-url <key-encryption-key-url>
 
 
-###Habilitación del cifrado en una máquina virtual IaaS con Windows existente o en ejecución en Azure
+### Habilitación del cifrado en una máquina virtual IaaS con Windows existente o en ejecución en Azure
 
-En este escenario se puede habilitar el cifrado mediante la plantilla de ARM, [cmdlets de PowerShell](https://msdn.microsoft.com/library/azure/mt622707.aspx) o comandos de la CLI. En las siguientes secciones se explicará más detalladamente su habilitación con comandos de la CLI y una plantilla de ARM.
+En este escenario, se puede habilitar el cifrado mediante la plantilla de ARM, cmdlets de PowerShell o comandos de la CLI. En las siguientes secciones se explicará más detalladamente su habilitación con comandos de la CLI y una plantilla de ARM.
 
-####Uso de una plantilla de ARM
+#### Uso de una plantilla de ARM
 
 El cifrado de disco se puede habilitar en una máquina virtual IaaS con Windows existente o en ejecución en Azure mediante la plantilla de ARM publicada [aquí](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm). Haga clic en el botón "Implementar en Azure" de la plantilla de inicio rápido de Azure, en la configuración de cifrado de entrada de la hoja de parámetros y en Aceptar. Seleccione la suscripción, el grupo de recursos, la ubicación del grupo de recursos, los términos legales y el contrato, y haga clic en el botón Crear para habilitar el cifrado en una máquina virtual IaaS existente o en ejecución.
 
@@ -281,13 +300,17 @@ En la tabla siguiente se puede ver información de los parámetros de las planti
 
 **Nota:** KeyEncryptionKeyURL es un parámetro opcional. Puede aportar su propia KEK para proteger aún más la clave de cifrado de datos (decreto de cifrado de BitLocker) en el almacén de claves.
 
-####Uso de comandos de la CLI
+#### Uso de cmdlets de PowerShell
+
+Consulte la [parte 1](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/explore-azure-disk-encryption-with-azure-powershell.aspx) y la [parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx) de la entrada de blog **Exploración de Cifrado de disco de Azure con Azure PowerShell** para obtener información detallada sobre cómo habilitar el cifrado mediante Cifrado de disco de Azure con cmdlets de PS.
+
+#### Uso de comandos de la CLI
 
 Siga estos pasos siguientes para habilitar el cifrado en una máquina virtual IaaS con Windows existente o en ejecución en Azure mediante comandos de la CLI:
 
 1. Establezca directivas de acceso en el almacén de claves:
-	- Establezca ‘EnabledForDiskEncryption’ flag: “azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
-	- Establezca permisos para que la aplicación de Azure AD escriba secretos en KeyVault: “azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]”
+	- Establezca la marca ‘EnabledForDiskEncryption’: “azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
+	- Establezca los permisos para que la aplicación de Azure AD escriba secretos en KeyVault: “azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]”
 2. Para habilitar el cifrado en una máquina virtual existente o en ejecución, escriba: *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
 3. Obtenga el estado del cifrado: *“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”* 
 4. Para habilitar el cifrado en una nueva máquina virtual desde el VHD cifrado del cliente, use los siguientes parámetros con el comando "azure vm create":
@@ -297,7 +320,7 @@ Siga estos pasos siguientes para habilitar el cifrado en una máquina virtual Ia
 	- key-encryption-key-url <key-encryption-key-url>
 
 
-###Habilitación del cifrado en una máquina virtual IaaS con Linux existente o en ejecución en Azure
+### Habilitación del cifrado en una máquina virtual IaaS con Linux existente o en ejecución en Azure
 
 El cifrado de disco se puede habilitar en una máquina virtual IaaS con Linux existente o en ejecución en Azure mediante la plantilla de ARM publicada [aquí](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm). Haga clic en el botón "Implementar en Azure" de la plantilla de inicio rápido de Azure, en la configuración de cifrado de entrada de la hoja de parámetros y en Aceptar. Seleccione la suscripción, el grupo de recursos, la ubicación del grupo de recursos, los términos legales y el contrato, y haga clic en el botón Crear para habilitar el cifrado en una máquina virtual IaaS existente o en ejecución.
 
@@ -318,13 +341,13 @@ En la tabla siguiente se describen los detalles de los parámetros de las planti
                                                                                                                                                             
 **Nota:** KeyEncryptionKeyURL es un parámetro opcional. Puede aportar su propia KEK para proteger aún más la clave de cifrado de datos (frase de contraseña secreta) en el almacén de claves.
 
-####Comandos de la CLI
+#### Comandos de la CLI
 
-El cifrado de disco se puede habilitar en un VHD cifrado del cliente mediante el comando de la CLI que se instala desde [aquí](https://azure.microsoft.com/documentation/articles/xplat-cli-install/). Siga estos pasos siguientes para habilitar el cifrado en una máquina virtual IaaS con Linux existente o en ejecución en Azure mediante comandos de la CLI:
+El cifrado de disco se puede habilitar en un VHD cifrado del cliente mediante el comando de la CLI que se instala desde [aquí](xplat-cli-install.md). Siga estos pasos siguientes para habilitar el cifrado en una máquina virtual IaaS con Linux existente o en ejecución en Azure mediante comandos de la CLI:
 
 1. Establezca directivas de acceso en el almacén de claves:
-	- Establezca ‘EnabledForDiskEncryption’ flag: “azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
-	- Establezca permisos para que la aplicación de Azure AD escriba secretos en KeyVault: “azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]”
+	- Establezca la marca ‘EnabledForDiskEncryption’: “azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
+	- Establezca los permisos para que la aplicación de Azure AD escriba secretos en KeyVault: “azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"]”
 2. Para habilitar el cifrado en una máquina virtual existente o en ejecución, escriba: *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
 3. Obtenga el estado del cifrado: “azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json” 
 4. Para habilitar el cifrado en una nueva máquina virtual desde el VHD cifrado del cliente, use los siguientes parámetros con el comando "azure vm create".
@@ -333,17 +356,17 @@ El cifrado de disco se puede habilitar en un VHD cifrado del cliente mediante el
 	- *key-encryption-key-vault-id <key-encryption-key-vault-id>*
 	- *key-encryption-key-url <key-encryption-key-url>*
 
-###Obtención del estado de cifrado de una máquina virtual IaaS cifrada
+### Obtención del estado de cifrado de una máquina virtual IaaS cifrada
 
 El estado del cifrado se puede obtener mediante el Portal de administración de Azure (vista previa), [cmdlets de PowerShell](https://msdn.microsoft.com/library/azure/mt622700.aspx) o comandos de la CLI. En las siguientes secciones se explica cómo usar los comandos de la CLI y el Portal de administración de Azure (vista previa) para obtener el estado del cifrado.
 
-####Obtención del estado del cifrado de una máquina virtual IaaS cifrada mediante el Portal de vista previa de administración de Azure
+#### Obtención del estado del cifrado de una máquina virtual IaaS cifrada mediante el Portal de vista previa de administración de Azure
 
-El estado del cifrado de la máquina virtual IaaS desde el Portal de vista previa de administración de Azure. Inicie sesión en el Portal de vista previa de Azure en https://portal.azure.com/, haga clic en el vínculo de máquinas virtuales en el menú izquierdo para acceder a la vista de resumen de las máquinas virtuales en su suscripción. Para filtrar la vista de máquinas virtuales, seleccione el nombre de la suscripción en la lista desplegable de suscripciones. Haga clic en las columnas de la parte superior del menú de la página de máquinas virtuales. Seleccione la columna Cifrado de disco en la hoja de elección de columna y haga clic en Actualizar. Debería ver la columna de cifrado de disco, que muestra el estado del cifrado, "Habilitado" o "No habilitado", de cada máquina virtual, como se muestra en la ilustración siguiente.
+El estado del cifrado de la máquina virtual IaaS desde el Portal de vista previa de administración de Azure. Inicie sesión en el Portal de vista previa de Azure en https://portal.azure.com/, haga clic en el vínculo de máquinas virtuales en el menú izquierdo para acceder a la vista de resumen de las máquinas virtuales de su suscripción. Para filtrar la vista de máquinas virtuales, seleccione el nombre de la suscripción en la lista desplegable de suscripciones. Haga clic en las columnas de la parte superior del menú de la página de máquinas virtuales. Seleccione la columna Cifrado de disco en la hoja de elección de columna y haga clic en Actualizar. Debería ver la columna de cifrado de disco, que muestra el estado del cifrado, "Habilitado" o "No habilitado", de cada máquina virtual, como se muestra en la ilustración siguiente.
 
-![Microsoft Antimalware en Azure](./media/azure-security-disk-encryption\disk-encryption-fig2.JPG)
+![Microsoft Antimalware en Azure](./media/azure-security-disk-encryption/disk-encryption-fig2.JPG)
 
-####Obtención del estado del cifrado de una máquina virtual IaaS cifrada mediante el cmdlet de PS de cifrado de disco
+#### Obtención del estado del cifrado de una máquina virtual IaaS cifrada mediante el cmdlet de PS de cifrado de disco
 El estado del cifrado de la máquina virtual IaaS se puede obtener desde el cmdlet de PS de cifrado de disco "Get-AzureRmVMDiskEncryptionStatus". Para obtener la configuración del cifrado de una máquina virtual, escriba en la sesión de Azure PowerShell:
 
     PS C:\Windows\System32\WindowsPowerShell\v1.0> Get-AzureRmVMDiskEncryptionStatus -ResourceGroupName <yourResourceGroupName> -VMName <yourVMName>
@@ -360,18 +383,18 @@ El estado del cifrado de la máquina virtual IaaS se puede obtener desde el cmdl
                              }
     DataVolumesEncrypted: True
 
-Los valores de configuración de OSVolumeEncrypted y DataVolumesEncrypted se establecen en "True", lo que muestra que ambos volúmenes se cifran con Cifrado de disco de Azure.
+Los valores de configuración de OSVolumeEncrypted y DataVolumesEncrypted se establecen en "True", lo que muestra que ambos volúmenes se cifran con Cifrado de disco de Azure. Consulte la [parte 1](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/explore-azure-disk-encryption-with-azure-powershell.aspx) y la [parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx) de la entrada de blog **Exploración de Cifrado de disco de Azure con Azure PowerShell** para obtener información detallada sobre cómo habilitar el cifrado mediante Cifrado de disco de Azure con cmdlets de PS.
 
-####Obtención del estado del cifrado de la máquina virtual IaaS desde el comando de la CLI de cifrado de disco
+#### Obtención del estado del cifrado de la máquina virtual IaaS desde el comando de la CLI de cifrado de disco
 
 El estado del cifrado de la máquina virtual IaaS se puede obtener desde el comando de la CLI de cifrado de disco *azure vm show-disk-encryption-status*. Para obtener la configuración del cifrado de una máquina virtual, escriba en la sesión de la CLI de Azure:
  
     azure vm show-disk-encryption-status --resource-group <yourResourceGroupName> --name <yourVMName> --json  
 
 
-##Anexo 
+## Anexo 
 
-###su suscripción
+### su suscripción
 
 Asegúrese de revisar la sección sobre requisitos previos de este documento antes de continuar. Después de asegurarse de que se cumplen todos los requisitos previos, siga estos pasos para conectarse a su suscripción:
 
@@ -404,13 +427,13 @@ Asegúrese de revisar la sección sobre requisitos previos de este documento ant
     Cmdlet       Set-AzureRmVMDiskEncryptionExtension    1.1.0      AzureRM.Compute                                                     
 
 
-###Establecimiento y configuración del Almacén de claves de Azure para el uso de Cifrado de disco de Azure
+### Establecimiento y configuración del Almacén de claves de Azure para el uso de Cifrado de disco de Azure
 
 Cifrado de disco de Azure protege las claves de cifrado de disco y los secretos en su Almacén de claves de Azure. Siga los pasos de las secciones siguientes para configurar el almacén de claves para el uso de Cifrado de disco de Azure.
  
 **Nota:** El almacén de claves DEBE estar en la misma región que las máquinas virtuales.
 
-###Creación de un almacén de claves nuevo
+### Creación de un almacén de claves nuevo
 Para crear un almacén de claves nuevo, utilice una de las dos opciones siguientes:
 
 - Use la plantilla de ARM "101-Create-KeyVault" que se encuentra [aquí](https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-key-vault/azuredeploy.json) 
@@ -418,70 +441,71 @@ Para crear un almacén de claves nuevo, utilice una de las dos opciones siguient
 
 **Nota:** Si ya tiene una configuración del almacén de claves para la suscripción, pase a la siguiente sección.
 
-###Aprovisionamiento de una clave de cifrado de claves (opcional)
+### Aprovisionamiento de una clave de cifrado de claves (opcional)
 
-Si desea usar una clave de cifrado de claves (KEK) para obtener una capa adicional de seguridad que encapsule las claves de cifrado de BitLocker, debe agregar una KEK a su almacén de claves para usarla en el proceso de aprovisionamiento. Use el cmdlet [AzureKeyVaultKey agregar](https://msdn.microsoft.com/library/dn868048.aspx) para crear una nueva clave de cifrado de claves en el almacén de claves. Para obtener más información, consulte la [documentación del almacén de claves](https://azure.microsoft.com/documentation/services/key-vault/).
+Si desea usar una clave de cifrado de claves (KEK) para obtener una capa adicional de seguridad que encapsule las claves de cifrado de BitLocker, debe agregar una KEK a su almacén de claves para usarla en el proceso de aprovisionamiento. Use el cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868048.aspx) para crear una nueva clave de cifrado de claves en el almacén de claves. Para obtener información detallada, consulte la [documentación del almacén de claves](https://azure.microsoft.com/documentation/services/key-vault/).
 
     Add-AzureKeyVaultKey [-VaultName] <string> [-Name] <string> -Destination <string> {HSM | Software}
 
-###Establecimiento de permisos en el Almacén de claves para permitir que la plataforma Azure acceda a las claves y secretos
+### Establecimiento de permisos en el Almacén de claves para permitir que la plataforma Azure acceda a las claves y secretos
 
-La plataforma Azure necesita acceso a las claves o secretos de cifrado del Almacén de claves de Azure del cliente, con el fin de que estén disponibles para que la máquina virtual arranque y descifre los volúmenes. Para conceder permisos a la plataforma Azure para que pueda acceder al almacén de claves, debe establecerse la propiedad *enabledForDiskEncryption* en el almacén de claves. Puede establecer la propiedad enabledForDiskEncryption en el almacén de claves con el cmdlet de PS del almacén de claves:
+La plataforma Azure necesita acceso a las claves o secretos de cifrado del Almacén de claves de Azure del cliente, con el fin de que estén disponibles para que la máquina virtual arranque y descifre los volúmenes. Para conceder permisos a la plataforma Azure de forma que pueda acceder al almacén de claves, debe establecerse la propiedad *enabledForDiskEncryption* en el almacén de claves. Puede establecer la propiedad enabledForDiskEncryption en el almacén de claves con el cmdlet de PS del almacén de claves:
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName <yourVaultName> -ResourceGroupName <yourResourceGroup> -EnabledForDiskEncryption
 
-Puede establecer la propiedad *enabledForDiskEncryption* en el almacén de claves como se ha indicado anteriormente: Puede establecer la propiedad visitando https://resources.azure.com. Asegúrese de que las propiedades detalladas anteriormente se establecen correctamente, ya que en caso contrario, la implementación no se realizará correctamente.
+Puede establecer la propiedad *enabledForDiskEncryption* en el almacén de claves como se indicó anteriormente: Puede establecer la propiedad visitando https://resources.azure.com. Asegúrese de que las propiedades detalladas anteriormente se establecen correctamente, ya que en caso contrario, la implementación no se realizará correctamente.
 
-###Instalación de la aplicación de Azure AD en Azure Active Directory
+### Instalación de la aplicación de Azure AD en Azure Active Directory
 
 Si es preciso habilitar el cifrado en una máquina virtual en ejecución en Azure, Cifrado de disco de Azure genera y escribe las claves de cifrado en su almacén de claves. La administración de claves de cifrado en el almacén de claves necesita la autenticación de Azure AD.
  
-Para ello, se debe crear una aplicación de Azure AD. Los pasos detallados para registrar una aplicación se pueden encontrar aquí, en la sección sobre la obtener una identidad para la aplicación de esta [entrada del blog](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). Esta entrada también contiene varios ejemplos útiles sobre el aprovisionamiento y la configuración del almacén de claves. Para realizar la autenticación, se pueden usar la autenticación basada en secreto de cliente o la autenticación Azure AD basada en certificados del cliente.
+Para ello, se debe crear una aplicación de Azure AD. Los pasos detallados para registrar una aplicación se pueden encontrar aquí, en la sección sobre la obtención de una identidad para la aplicación de esta [entrada del blog](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). Esta entrada también contiene varios ejemplos útiles sobre el aprovisionamiento y la configuración del almacén de claves. Para realizar la autenticación, se pueden usar la autenticación basada en secreto de cliente o la autenticación Azure AD basada en certificados del cliente.
 
-####Autenticación basada en secreto de cliente para Azure AD
+#### Autenticación basada en secreto de cliente para Azure AD
 
 Las secciones siguientes contienen los pasos necesarios para configurar una autenticación basada en secreto de cliente para Azure AD.
 
-#####Creación de una nueva aplicación de Azure AD con Azure PowerShell
+##### Creación de una nueva aplicación de Azure AD con Azure PowerShell
 
 Use el siguiente cmdlet de PowerShell para crear una nueva aplicación de Azure AD:
 
     $aadClientSecret = “yourSecret”
-    $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password $aadClientSecret
-    $servicePrincipal = New-AzureADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
+    $azureAdApplication = New-AzureRmADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password $aadClientSecret
+    $servicePrincipal = New-AzureRmADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
 
-**Nota:** $azureAdApplication.ApplicationId es el ClientID de Azure AD y $aadClientSecret es el secreto de cliente que se debe usar posteriormente para habilitar ADE.
+**Nota:** $azureAdApplication.ApplicationId es el valor ClientID de Azure AD y $aadClientSecret es el secreto de cliente que se deberá usar más adelante para habilitar ADE. Debe proteger el secreto de cliente de Azure AD adecuadamente.
 
-#####Aprovisionamiento del identificador de cliente y secreto de Azure AD desde el Portal de administración de servicios de Azure
 
-El identificador de cliente y el secreto de Azure AD también se pueden aprovisionar mediante el Portal de administración de servicios de Azure en https://manage.windowsazure.com, siga estos pasos para realizar dicha tarea:
+##### Aprovisionamiento del identificador de cliente y secreto de Azure AD desde el Portal de administración de servicios de Azure
+
+El secreto y el identificador de cliente de Azure AD también se pueden aprovisionar mediante el Portal de administración de servicios de Azure en https://manage.windowsazure.com; siga estos pasos para realizar dicha tarea:
 
 1\.Haga clic en la pestaña Active Directory como se muestra en la ilustración siguiente:
 
-![Microsoft Antimalware en Azure](./media/azure-security-disk-encryption\disk-encryption-fig3.JPG)
+![Cifrado de disco de Azure](./media/azure-security-disk-encryption\disk-encryption-fig3.JPG)
 
 2\.Haga clic en Agregar aplicación y escriba el nombre de la aplicación como se muestra a continuación:
 
-![Microsoft Antimalware en Azure](./media/azure-security-disk-encryption\disk-encryption-fig4.JPG)
+![Cifrado de disco de Azure](./media/azure-security-disk-encryption\disk-encryption-fig4.JPG)
 
 3\.Haga clic en el botón de flecha y configure las propiedades de la aplicación como se muestra a continuación:
 
-![Microsoft Antimalware en Azure](./media/azure-security-disk-encryption\disk-encryption-fig5.JPG)
+![Cifrado de disco de Azure](./media/azure-security-disk-encryption\disk-encryption-fig5.JPG)
 
 4\. Haga clic en la marca de verificación de la esquina inferior izquierda para finalizar. Aparece la página de configuración de la aplicación. Observe que el identificador de cliente de Azure AD se encuentra en la parte inferior de la página como se muestra en la ilustración siguiente.
  
-![Microsoft Antimalware en Azure](./media/azure-security-disk-encryption\disk-encryption-fig6.JPG)
+![Cifrado de disco de Azure](./media/azure-security-disk-encryption\disk-encryption-fig6.JPG)
 
-5\.Guarde el secreto del cliente de Azure AD, para lo que debe hacer clic en el botón Guardar. Haga clic en el botón Guardar y anote el secreto del cuadro de texto de claves, este es el secreto del cliente de Azure AD. El secreto del cliente de Azure AD debe protegerse correctamente.
+5\.Guarde el secreto del cliente de Azure AD, para lo que debe hacer clic en el botón Guardar. Haga clic en el botón Guardar y anote el secreto del cuadro de texto de claves, que se trata del secreto del cliente de Azure AD. El secreto del cliente de Azure AD debe protegerse correctamente.
 
-![Microsoft Antimalware en Azure](./media/azure-security-disk-encryption\disk-encryption-fig7.JPG)
+![Cifrado de disco de Azure](./media/azure-security-disk-encryption\disk-encryption-fig7.JPG)
 
 
 **Nota:** El flujo anterior no se admite en el Portal de vista previa.
 
-#####Uso de una aplicación existente
+##### Uso de una aplicación existente
 
-Para ejecutar los siguientes comandos se necesita el módulo Azure AD PowerShell, que puede obtenerse [aquí](https://technet.microsoft.com/library/jj151815.aspx).
+Para ejecutar los siguientes comandos, se necesita el módulo Azure AD PowerShell, que puede obtenerse [aquí](https://technet.microsoft.com/library/jj151815.aspx).
 
 **Nota:** Los siguientes comandos deben ejecutarse desde una ventana nueva de PowerShell. NO use Azure PowerShell o la ventana del Administrador de recursos de Azure para ejecutar estos comandos. La razón de esta recomendación es que estos cmdlets están en el módulo MSOnline o en Azure AD PowerShell.
 
@@ -490,13 +514,15 @@ Para ejecutar los siguientes comandos se necesita el módulo Azure AD PowerShell
     connect-msolservice
     New-MsolServicePrincipalCredential -AppPrincipalId $aadClientID -Type password -Value $clientSecret
 
-####Autenticación basada en certificado para Azure AD
+#### Autenticación basada en certificado para Azure AD
 
 Las secciones siguientes contienen los pasos necesarios para configurar una autenticación basada en certificado para Azure AD.
 
-#####Creación de una nueva aplicación de Azure AD
+##### Creación de una nueva aplicación de Azure AD
 
 Ejecute el siguiente cmdlet de PowerShell para crear una nueva aplicación de Azure AD:
+
+**Nota:** Reemplace "yourpassword" en la cadena siguiente por la contraseña segura y proteja la contraseña.
 
     $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate("C:\certificates\examplecert.pfx", "yourpassword")
     $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
@@ -505,7 +531,7 @@ Ejecute el siguiente cmdlet de PowerShell para crear una nueva aplicación de Az
 
 Una vez finalizado este paso, cargue un archivo .pfx en el almacén de claves y habilite la directiva de acceso necesaria para implementar dicho certificado en una máquina virtual.
 
-#####Uso de una aplicación de Azure AD existente
+##### Uso de una aplicación de Azure AD existente
 Si va a configurar una autenticación basada en certificado para una aplicación existente, use los siguientes cmdlets de PowerShell. Asegúrese de que los ejecuta desde una ventana nueva de PowerShell.
 
     $certLocalPath = 'C:\certs\myaadapp.cer' 
@@ -519,11 +545,13 @@ Si va a configurar una autenticación basada en certificado para una aplicación
 
 Una vez finalizado este paso, cargue un archivo .pfx en el almacén de claves y habilite la directiva de acceso necesaria para implementar dicho certificado en una máquina virtual.
 
-#####Carga de un archivo PFX en el almacén de claves
+##### Carga de un archivo PFX en el almacén de claves
 Para obtener una explicación detallada sobre el funcionamiento de este proceso, puede leer esta [entrada de blog](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx). Sin embargo, los siguientes cmdlets de PowerShell son todo lo que necesita para realizar esta tarea. Asegúrese de que los ejecuta desde la consola de Azure PowerShell:
 
+**Nota:** Reemplace "yourpassword" en la cadena siguiente por la contraseña segura y proteja la contraseña.
+
     $certLocalPath = 'C:\certs\myaadapp.pfx' 
-    $certPassword = "yourPassword"
+    $certPassword = "yourpassword"
     $resourceGroupName = ‘yourResourceGroup’
     $keyVaultName = ‘yourKeyVaultName’
     $keyVaultSecretName = ‘yourAadCertSecretName’
@@ -545,9 +573,9 @@ Para obtener una explicación detallada sobre el funcionamiento de este proceso,
     Switch-AzureMode -Name AzureResourceManager
     $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
     Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name $keyVaultSecretName -SecretValue $secret 
-    Set-AzureKeyVaultAccessPolicy -VaultName $keyVaultName -ResourceGroupName $resourceGroupName –EnabledForDeployment
+    Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -ResourceGroupName $resourceGroupName –EnabledForDeployment
 
-#####Implementación de un certificado del almacén de claves en una máquina virtual existente
+##### Implementación de un certificado del almacén de claves en una máquina virtual existente
 Después de terminar de cargar el PFX, use los pasos siguientes para implementar un certificado del almacén de claves en una máquina virtual existente:
 
     $resourceGroupName = ‘yourResourceGroup’
@@ -561,23 +589,23 @@ Después de terminar de cargar el PFX, use los pasos siguientes para implementar
     Update-AzureRmVM -VM $vm  -ResourceGroupName $resourceGroupName
 
 
-###Establecimiento de la directiva de acceso del almacén de clave para la aplicación de Azure AD
+### Establecimiento de la directiva de acceso del almacén de clave para la aplicación de Azure AD
 
-La aplicación de Azure AD necesita derechos de acceso a las claves o secretos del almacén. Use el cmdlet [Set-AzureKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/dn903607.aspx) para conceder permisos a la aplicación, con el identificador de cliente (que se generó cuando se registró la aplicación) como valor del parámetro – ServicePrincipalName. Para ver algunos ejemplos al respecto, puede leer [esta entrada de blog](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). A continuación también encontrará un ejemplo de cómo realizar esta tarea mediante PowerShell:
+La aplicación de Azure AD necesita derechos de acceso a las claves o secretos del almacén. Use el cmdlet [Set-AzureKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/dn903607.aspx) para conceder permisos a la aplicación, con el identificador de cliente (que se generó cuando se registró la aplicación) como valor del parámetro –ServicePrincipalName. Para ver algunos ejemplos al respecto, puede leer [esta entrada de blog](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). A continuación también encontrará un ejemplo de cómo realizar esta tarea mediante PowerShell:
 
     $keyVaultName = ‘yourKeyVaultName’
     $aadClientID = '<youAadAppClientID>'
-    Set-AzureKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys all -PermissionsToSecrets all
+    Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys all -PermissionsToSecrets all
 
-###Preparación de un VHD con Windows precifrado
+### Preparación de un VHD con Windows precifrado
 Las secciones siguientes son necesarias para preparar un VHD con Windows precifrado para implementarlo como VHD cifrado en IaaS de Azure. Los pasos se usan para preparar y arrancar una máquina virtual nueva con Windows (vhd) en Hyper-V o Azure.
 
-####Actualización de una directiva de grupo para permitir un módulo no TPM para la protección del sistema operativo
+#### Actualización de una directiva de grupo para permitir un módulo no TPM para la protección del sistema operativo
 Es preciso configurar la opción de la directiva de grupos de BitLocker denominada Cifrado de unidad BitLocker, que se encuentra en Directiva de equipo local\\Configuración del equipo\\Plantillas administrativas\\Componentes de Windows. Cambie esta opción a: *Unidades del sistema operativo - Requerir autenticación adicional al iniciar - Permitir BitLocker sin un TPM compatible*, como se muestra en la ilustración siguiente:
  
-![Microsoft Antimalware en Azure](./media/azure-security-disk-encryption\disk-encryption-fig8.JPG)
+![Microsoft Antimalware en Azure](./media/azure-security-disk-encryption/disk-encryption-fig8.JPG)
 
-####Instalación de componentes de características de BitLocker
+#### Instalación de componentes de características de BitLocker
 Para Windows Server 2012, y las versiones posteriores, use el comando siguiente:
  
     dism /online /Enable-Feature /all /FeatureName:Bitlocker /quiet /norestart
@@ -586,23 +614,23 @@ Para Windows Server 2008 R2, use el comando siguiente:
 
     ServerManagerCmd -install BitLockers
 
-####Preparar el volumen del sistema operativo para BitLocker con bdehdcfg
+#### Preparar el volumen del sistema operativo para BitLocker con bdehdcfg
 
 Ejecute el comando siguiente para comprimir la partición del sistema operativo y preparar la máquina para BitLocker.
 
     bdehdcfg -target c: shrink -quiet
 
-####Uso de BitLocker para proteger el volumen del sistema operativo
+#### Uso de BitLocker para proteger el volumen del sistema operativo
 Use el comando [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) para habilitar el cifrado en el volumen de arranque mediante un protector de claves externo y coloque la clave externa (archivo .bek) en la unidad o volumen externos. El cifrado se habilitará en el volumen de sistema o de arranque la próxima vez que se reinicie el equipo.
 
     manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
     reboot
 
-**Nota:** la máquina virtual se debe preparar con un VHD de datos/recursos separado para obtener la clave externa mediante BitLocker.
+**Nota:** La máquina virtual se debe preparar con un VHD de datos o recursos separado para obtener la clave externa mediante BitLocker.
 
-####Preparación de un VHD con Linux precifrado
+#### Preparación de un VHD con Linux precifrado
 
-#####Ubuntu 14.
+##### Ubuntu 14.
 
 1\.Cree un archivo en /usr/local/sbin/azure\_crypt\_key.sh con el contenido del script siguiente. Preste atención a KeyFileName, porque es el nombre que Azure ha puesto al archivo de frase de contraseña.
 
@@ -642,9 +670,9 @@ Use el comando [manage-bde](https://technet.microsoft.com/library/ff829849.aspx)
 
     Sda5_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
 
-3\.Si edita *azure\_crypt\_key.sh* en Windows y lo ha copiado en Linux, no olvide ejecutar *dos2unix /usr/local/sbin/azure\_crypt\_key.sh*. 4.Ejecute *update-initramfs -u -k all* para actualizar initramfs, para que el script de claves surta efecto.
+3\.Si edita *azure\_crypt\_key.sh* en Windows y lo ha copiado en Linux, no olvide ejecutar *dos2unix /usr/local/sbin/azure\_crypt\_key.sh*. 4.Ejecute *update-initramfs -u -k all* para actualizar initramfs y que el script de claves surta efecto.
 
-#####openSUSE 13.2.
+##### openSUSE 13.2.
 
 1\.Edite /etc/dracut.conf add\_drivers += "vfat nls\_cp437 nls\_iso8859-1"
 
@@ -682,7 +710,7 @@ Use el comando [manage-bde](https://technet.microsoft.com/library/ff829849.aspx)
 
 5\.Ejecute "dracut – f - v" para actualizar initrd
 
-#####CentOS 7
+##### CentOS 7
 1\.Edite /etc/dracut.conf add\_drivers += " vfat nls\_cp437 nls\_iso8859-1"
 
 2\.Añada comentarios a estas líneas al final del archivo "/ usr/lib/dracut/modules.d/90crypt/module-setup.sh":
@@ -722,14 +750,14 @@ Use el comando [manage-bde](https://technet.microsoft.com/library/ff829849.aspx)
 5\.Ejecute “/usr/sbin/dracut -f -v” para actualizar initrd
 
 ###Carga de un VHD cifrado a una cuenta de almacenamiento de Azure
-Una vez que el cifrado de BitLocker está habilitado, es preciso cargar el VHD cifrado local en la cuenta de almacenamiento.
+Cuando el cifrado de BitLocker o el cifrado DM-Crypt estén habilitados, es preciso cargar el VHD cifrado local en la cuenta de almacenamiento.
 
     Add-AzureRmVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>] 
 
-###Carga del secreto del cifrado de disco de la máquina virtual precifrada en el almacén de claves
+### Carga del secreto del cifrado de disco de la máquina virtual precifrada en el almacén de claves
 El secreto del cifrado de disco que se obtuvo con anterioridad es necesario que se cargue como secreto en el almacén de claves.
 
-####Secreto del cifrado de disco no cifrado con una KEK
+#### Secreto del cifrado de disco no cifrado con una KEK
 Utilice [Set-AzureKeyVaultSecret](https://msdn.microsoft.com/library/dn868050.aspx) para aprovisionar el secreto en el almacén de claves. En el caso de una máquina virtual con Windows, el archivo bek se codifica como cadena base64 y, a continuación, se carga en el almacén de claves mediante el cmdlet Set-AzureKeyVaultSecret. En Linux, la frase de contraseña se codifica como cadena base64 y, a continuación, se cargan en el almacén de claves. Además, asegúrese de que se establecen las siguientes etiquetas al crear el secreto en el almacén de claves.
 
     "tags":
@@ -764,8 +792,18 @@ Utilice [Set-AzureKeyVaultSecret](https://msdn.microsoft.com/library/dn868050.as
     Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secureSecret -tags $tags
 
 
-####Secreto del cifrado de disco cifrado con una KEK
+#### Secreto del cifrado de disco cifrado con una KEK
 
-Opcionalmente, el secreto se puede cifrar con una clave de cifrado de claves antes de cargarlo en el almacén de claves. Utilice la [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) de encapsulamiento para cifrar por primera vez el secreto mediante la clave de cifrado de claves. El resultado de esta operación de encapsulamiento es una cadena codificada en URL como base64 que, a continuación, se carga como secreto con el cmdlet [Set-AzureKeyVaultSecret](https://msdn.microsoft.com/library/dn868050.aspx).
+Opcionalmente, el secreto se puede cifrar con una clave de cifrado de claves antes de cargarlo en el almacén de claves. Utilice la [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) de encapsulamiento para cifrar por primera vez el secreto mediante la clave de cifrado de claves. El resultado de esta operación de encapsulamiento es una cadena codificada en URL como base64 que luego se carga como secreto con el cmdlet [Set-AzureKeyVaultSecret](https://msdn.microsoft.com/library/dn868050.aspx).
 
-<!---HONumber=Nov15_HO4-->
+
+##Descargar esta guía
+Puede descargar esta guía de la [Galería de TechNet](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
+
+
+## Para obtener más información
+[Exploración de Cifrado de disco de Azure con Azure PowerShell](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0)
+
+[Exploración de Cifrado de disco de Azure con Azure PowerShell, parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
+
+<!---HONumber=AcomDC_1203_2015-->

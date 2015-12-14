@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="12/02/2015" 
 	ms.author="sdanie"/>
 
 # Referencia de la directiva de Administración de API de Azure
@@ -34,6 +34,11 @@ Las expresiones de directiva pueden utilizarse como valores de atributos o valor
 	-	[Flujo de control][]\: aplica condicionalmente instrucciones de directiva basadas en los resultados de la evaluación de [expresiones][] booleanas.
 	-	[Reenviar solicitud][]\: reenvía la solicitud al servicio back-end.
 	-	[Registro para el centro de eventos][]\: envía mensajes en el formato especificado a un destino de mensaje definido por una entidad del [registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger).
+	-	[Devolver respuesta](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse): anula la ejecución de la canalización y devuelve la respuesta especificada directamente al llamador.
+	-	[Enviar solicitud unidireccional](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest): envía una solicitud a la dirección URL especificada sin esperar una respuesta.
+	-	[Enviar solicitud](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest): envía una solicitud a la dirección URL especificada.
+	-	[Establecer método de solicitud](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod): le permite cambiar el método HTTP de una solicitud.
+	-	[Establecer código de estado](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus): cambia el código de estado HTTP al valor especificado.
 	-	[Establecer variable][]\: conserva un valor en una variable de [contexto][] con nombre para el acceso posterior.
 -	[Directivas de autenticación][]
 	-	[Autenticar con opción básica][]\: autenticar con un servicio de back-end mediante la autenticación básica.
@@ -109,4 +114,4 @@ Para obtener más información acerca de las expresiones de directivas, vea el s
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

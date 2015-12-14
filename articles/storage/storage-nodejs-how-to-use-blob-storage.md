@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="12/01/2015"
 	ms.author="robmcm"/>
 
 
@@ -67,7 +67,7 @@ Con el Bloc de notas u otro editor de texto, agregue lo siguiente en la parte su
 
 El módulo de Azure leerá las variables de entorno `AZURE_STORAGE_ACCOUNT` y `AZURE_STORAGE_ACCESS_KEY` o `AZURE_STORAGE_CONNECTION_STRING` para obtener la información necesaria para conectarse a la cuenta de almacenamiento de Azure. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta llamando a **createBlobService**.
 
-Para ver un ejemplo de cómo configurar las variables de entorno del Portal de Azure para una aplicación web de Azure, consulte [Aplicación web de Node.js con almacenamiento].
+Para ver un ejemplo de cómo configurar las variables de entorno del [Portal de Azure](portal.azure.com) para una aplicación web de Azure, consulte [Aplicación web de Node.js con Almacenamiento].
 
 ## Crear un contenedor
 
@@ -75,7 +75,7 @@ El objeto **BlobService** permite trabajar con contenedores y blobs. El código 
 
     var blobSvc = azure.createBlobService();
 
-> [AZURE.NOTE]Puede obtener acceso a un blob de forma anónima mediante el uso de **createBlobServiceAnonymous** y proporcionando la dirección del host. Por ejemplo, use `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`.
+> [AZURE.NOTE]Puede obtener acceso a un blob de forma anónima mediante **createBlobServiceAnonymous** y proporcionando la dirección del host. Por ejemplo, use `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`.
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
@@ -93,13 +93,13 @@ Si se acaba de crear el contenedor, `result` es true. Si el contenedor ya existe
 
 ### Seguridad del contenedor
 
-De forma predeterminada, los nuevos contenedores son privados, así que no se puede acceder a ellos de forma anónima. Para que el contenedor sea público de modo que pueda tener acceso de forma anónima, puede establecer el nivel de acceso del contenedor en **blob** o **contenedor**.
+De forma predeterminada, los nuevos contenedores son privados, así que no se puede acceder a ellos de forma anónima. Para que el contenedor sea público, de modo que pueda tener acceso de forma anónima, puede establecer el nivel de acceso del contenedor en **blob** o en **contenedor**.
 
 * **blob**: permite el acceso de lectura anónimo al contenido del blob y a los metadatos del contenedor, pero no al listado de todos los blobs de un contenedor determinado.
 
 * **contenedor**: permite el acceso de lectura anónimo al contenido del blob y los metadatos, incluidos los del contenedor.
 
-En el ejemplo de código siguiente se demuestra cómo configurar el nivel de acceso en **blob**:
+En el ejemplo de código siguiente se muestra cómo configurar el nivel de acceso en **blob**:
 
     blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
       if(!error){
@@ -119,7 +119,7 @@ El resultado contiene información sobre la operación, junto con la informació
 
 ### Filtros
 
-Puede aplicar las operaciones de filtrado opcionales a las operaciones realizadas usando **BlobService**. Las operaciones de filtrado pueden incluir registros, reintentos automáticos, etc. Los filtros son objetos que implementan un método con la firma:
+Puede aplicar operaciones de filtrado opcionales a las operaciones realizadas mediante **BlobService**. Las operaciones de filtrado pueden incluir registros, reintentos automáticos, etc. Los filtros son objetos que implementan un método con la firma:
 
 		function handle (requestOptions, next)
 
@@ -146,7 +146,7 @@ Para cargar datos en un blob en bloque, use lo siguiente:
 
 * **createBlockBlobFromStream**: crea un nuevo blob en bloques y carga el contenido de una secuencia.
 
-* **createBlockBlobFromText**: crea un nuevo blob en bloques y carga el contenido de una cadena.
+* **createBlockBlobFromStream**: crea un nuevo blob en bloques y carga el contenido de una cadena.
 
 * **createWriteStreamToBlockBlob**: proporciona una secuencia de escritura a un blob en bloques.
 
@@ -195,7 +195,7 @@ Para enumerar los blobs de un contenedor, use el método **listBlobsSegmented**.
 	  }
 	});
 
-El `result` contiene una colección de `entries`, que es una matriz de objetos que describen cada blob. Si no se pueden devolver todos los blobs, el `result` proporciona también un `continuationToken`, que puede usar como el segundo parámetro para recuperar entradas adicionales.
+El `result` contiene una colección de `entries`, que es una matriz de objetos que describen cada blob. Si no se pueden devolver todos los blobs, el `result` proporciona también un `continuationToken`, que puede usar como un segundo parámetro para recuperar entradas adicionales.
 
 ## Descargar blobs
 
@@ -234,7 +234,7 @@ Finalmente, para eliminar un blob, llame a **deleteBlob**. En el ejemplo de cód
 
 Para permitir el acceso simultáneo a un blob desde varios clientes o varias instancias de proceso, puede usar etiquetas **ETag** o **concesiones**.
 
-* **Etag**: proporciona una manera de detectar que otro proceso ha modificado el blob o el contenedor.
+* **Etag**: proporciona una manera de detectar si otro proceso ha modificado el blob o el contenedor.
 
 * **Concesión**: proporciona una manera de obtener acceso exclusivo y renovable de escritura o eliminación a un blob durante un período de tiempo
 
@@ -242,7 +242,7 @@ Para permitir el acceso simultáneo a un blob desde varios clientes o varias ins
 
 Use las etiquetas ETag si es necesario permitir que varios clientes o instancias escriban en el blob de manera simultánea. La etiqueta ETag le permite determinar si el contenedor o el blob se modificó desde que inicialmente lo leyera o creara. De esta forma, puede evitar que los cambios efectuados por otro cliente o proceso se sobrescriban.
 
-Puede definir las condiciones de ETag mediante el parámetro `options.accessConditions` opcional. En el siguiente ejemplo de código solo se carga el archivo **test.txt** si el blob ya existe y tiene el valor ETag contenido por `etagToMatch`.
+Puede definir las condiciones de ETag mediante el parámetro opcional `options.accessConditions`. En el siguiente ejemplo de código solo se carga el archivo **test.txt** si el blob ya existe y tiene el valor ETag contenido por `etagToMatch`.
 
 	blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', { accessConditions: { 'if-match': etagToMatch} }, function(error, result, response){
       if(!error){
@@ -268,7 +268,7 @@ Puede adquirir una nueva concesión mediante el método **acquireLease**, especi
 	  }
 	});
 
-Las sucesivas operaciones sobre **myblob** deben proporcionar el parámetro `options.leaseId`. El id. de concesión se devuelve como `result.id` desde **acquireLease**.
+Las operaciones sucesivas sobre **myblob** deben proporcionar el parámetro `options.leaseId`. El id. de concesión se devuelve como `result.id` desde **acquireLease**.
 
 > [AZURE.NOTE]De manera predeterminada, la duración de la concesión es infinita. Puede especificar una duración no infinita (entre 15 y 60 segundos) con el parámetro `options.leaseDuration`.
 
@@ -280,7 +280,7 @@ Las firmas de acceso compartido (SAS) constituyen una manera segura de ofrecer a
 
 > [AZURE.NOTE]Aunque también puede permitir el acceso anónimo a los blobs, las firmas de acceso compartido le permiten proporcionar acceso más controlado, puesto que debe generar la SAS.
 
-Una aplicación de confianza, como un servicio basado en la nube, genera firmas de acceso compartido mediante el valor **generateSharedAccessSignature** del elemento **BlobService** y lo proporciona a una aplicación en la que no se confía o en la que se confía parcialmente, como una aplicación móvil. Las firmas de acceso compartido se generan usando una directiva que describe las fechas de inicio y finalización durante las que son válidas, junto con el nivel de acceso otorgado al titular de dichas firmas.
+Una aplicación de confianza, como un servicio basado en la nube, genera firmas de acceso compartido mediante el valor **generateSharedAccessSignature** del elemento **BlobService** y se lo proporciona a una aplicación en la que no se confía o en la que se confía parcialmente como, por ejemplo, una aplicación móvil. Las firmas de acceso compartido se generan usando una directiva que describe las fechas de inicio y finalización durante las que son válidas, junto con el nivel de acceso otorgado al titular de dichas firmas.
 
 En el siguiente ejemplo de código se genera una nueva directiva de acceso compartido que permite al titular de las firmas de acceso compartido realizar operaciones de lectura en el blob **myblob** y que expira 100 minutos después de la hora en que se crea.
 
@@ -338,7 +338,7 @@ Una ACL se implementa mediante el uso de un conjunto de directivas de acceso, co
 	  }
 	];
 
-En el siguiente ejemplo de código se obtiene la ACL actual para **mycontainer** y luego se agregan las nuevas directivas mediante **setBlobAcl**. Este enfoque permite lo siguiente:
+En el siguiente ejemplo de código se obtiene la ACL actual de **mycontainer** y, a continuación, se agregan las nuevas directivas mediante **setBlobAcl**. Este enfoque permite lo siguiente:
 
 	blobSvc.getBlobAcl('mycontainer', function(error, result, response) {
       if(!error){
@@ -361,21 +361,19 @@ Después de establecer una ACL, puede crear luego firmad de acceso compartido ba
 Para obtener más información, consulte los siguientes recursos:
 
 -   [Referencia del SDK de almacenamiento de Azure para la API de nodo][]
--   Referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][]
 -   [Blog del equipo de almacenamiento de Azure][]
--   Repositorio del [SDK de almacenamiento de Azure para Node.js][] en GitHub
+-   Repositorio del [SDK del Almacenamiento de Azure para Node][] en GitHub
 -   [Centro para desarrolladores de Node.js](/develop/nodejs/)
 
-[SDK de almacenamiento de Azure para Node.js]: https://github.com/Azure/azure-storage-node
+[SDK del Almacenamiento de Azure para Node]: https://github.com/Azure/azure-storage-node
 [Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-[Aplicación web de Node.js con almacenamiento]: ../storage-nodejs-use-table-storage-web-site.md
+[Aplicación web de Node.js con Almacenamiento]: ../storage-nodejs-use-table-storage-web-site.md
 [Aplicación web con WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure portal]: http://manage.windowsazure.com
+[Azure Portal]: portal.azure.com
 [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
-[Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Referencia del SDK de almacenamiento de Azure para la API de nodo]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

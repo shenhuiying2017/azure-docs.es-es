@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introducción al enmascaramiento de datos dinámicos de Base de datos SQL (Portal de vista previa de Azure)"
-   description="Cómo empezar a usar el enmascaramiento de datos dinámicos de Base de datos SQL en el Portal de vista previa de Azure"
+   pageTitle="Introducción al enmascaramiento de datos dinámicos de bases de datos SQL (Portal de Azure)"
+   description="Cómo empezar a usar el enmascaramiento de datos dinámicos de Base de datos SQL en el Portal de Azure"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -17,10 +17,10 @@
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 
-# Introducción al enmascaramiento de datos dinámicos de Base de datos SQL (Portal de vista previa de Azure)
+# Introducción al enmascaramiento de datos dinámicos de bases de datos SQL (Portal de Azure)
 
 > [AZURE.SELECTOR]
-- [Dynamic Data Masking - Azure portal](sql-database-dynamic-data-masking-get-started-portal.md)
+- [Dynamic Data Masking - Azure Classic Portal](sql-database-dynamic-data-masking-get-started-portal.md)
 
 ## Información general
 
@@ -32,7 +32,7 @@ Por ejemplo, un representante de servicio de un centro de llamadas podría ident
 
 ## Conceptos básicos del enmascaramiento de datos dinámicos en Base de datos SQL
 
-Para configurar una directiva de enmascaramiento de datos dinámicos en el portal de vista previa de Azure, se selecciona la operación de enmascaramiento de datos dinámicos en la hoja de configuración de Base de datos de SQL.
+Para configurar una directiva de enmascaramiento de datos dinámicos en el Portal de Azure, se selecciona la operación de enmascaramiento de datos dinámicos en la hoja de configuración de Base de datos de SQL.
 
 
 ### Permisos de enmascaramiento de datos dinámicos
@@ -62,9 +62,9 @@ El enmascaramiento de datos dinámicos puede configurarse mediante el administra
 
 El motor de recomendaciones de DDM marca determinados campos de la base de datos como campos potencialmente confidenciales, que pueden ser buenos candidatos para el enmascaramiento. En la hoja Enmascaramiento de datos dinámicos del portal, verá las columnas recomendadas para la base de datos. Todo lo que debe hacer es hacer clic en **Agregar máscara** para una o más columnas y, luego, **Guardar** para aplicar una máscara para estos campos.
 
-## Configuración del enmascaramiento de datos dinámicos para la base de datos mediante el Portal de vista previa de Azure
+## Configurar el enmascaramiento de datos dinámicos para la base de datos mediante el Portal de Azure
 
-1. Inicie el Portal de vista previa de Azure en [https://portal.azure.com](https://portal.azure.com).
+1. Inicie el Portal de Azure en [https://portal.azure.com](https://portal.azure.com).
 
 2. Desplácese hasta la hoja de configuración de la base de datos que incluye los datos confidenciales que desea enmascarar.
 
@@ -96,7 +96,7 @@ El motor de recomendaciones de DDM marca determinados campos de la base de datos
 
     ![Panel de navegación](./media/sql-database-dynamic-data-masking-get-started/8_ddm_excluded_users.png)
 
-	>[AZURE.TIP] Para hacer que el nivel de aplicación pueda mostrar datos confidenciales para los usuarios con privilegios de la aplicación, agregue el usuario SQL o identidad AAD que la aplicación usa para consultar la base de datos. Se recomienda que esta lista incluya un número mínimo de usuarios con privilegio para minimizar la exposición de los datos confidenciales.
+	>[AZURE.TIP]Para hacer que el nivel de aplicación pueda mostrar datos confidenciales para los usuarios con privilegios de la aplicación, agregue el usuario SQL o identidad AAD que la aplicación usa para consultar la base de datos. Se recomienda que esta lista incluya un número mínimo de usuarios con privilegio para minimizar la exposición de los datos confidenciales.
 
 10. Haga clic en **Guardar** en la hoja de configuración de enmascaramiento de datos para guardar la directiva de enmascaramiento nueva o actualizada.
 
@@ -109,4 +109,4 @@ Consulte [Cmdlets de Base de datos SQL de Azure](https://msdn.microsoft.com/libr
 
 Consulte [Operaciones para Bases de datos SQL de Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

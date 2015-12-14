@@ -18,33 +18,33 @@
 
 # Modelar una aplicación en Service Fabric
 
-En este artículo se proporciona información general del modelo de aplicación de Service Fabric y se describe cómo definir una aplicación y servicio a través de archivos de manifiesto y conseguir que se empaquete la aplicación y esté lista para su implementación.
+En este artículo se proporciona información general del modelo de aplicación de Service Fabric y también se describe cómo definir una aplicación y servicio a través de archivos de manifiesto y conseguir que se empaquete la aplicación y esté lista para su implementación.
 
 ## Entender el modelo de aplicación
 
-Una aplicación es una colección de servicios constituyentes que realizan determinadas funciones. Un servicio realiza una función completa e independiente (pueden iniciarse y ejecutarse independientemente de otros servicios) y se compone de código, configuración y datos. Para cada servicio, el código consta de los archivos binarios ejecutables, la configuración consta de una configuración del servicio que se puede cargar en tiempo de ejecución y los datos constan de datos estáticos arbitrarios que el servicio va a consumir. Cada componente de este modelo de aplicación jerárquico puede tener varias versiones y actualizarse independientemente.
+Una aplicación es una colección de servicios constituyentes que realizan una determinada función o funciones. Un servicio realiza una función completa e independiente (puede iniciarse y ejecutarse independientemente de otros servicios) y se compone de código, configuración y datos. Para cada servicio, el código consta de los archivos binarios ejecutables, la configuración consta de una configuración del servicio que se puede cargar en tiempo de ejecución y los datos constan de datos estáticos arbitrarios que el servicio va a consumir. Cada componente de este modelo de aplicación jerárquico puede tener varias versiones y actualizarse independientemente.
 
 ![][1]
 
 
-Un tipo de aplicación es una categorización de una aplicación, que consta de un conjunto de tipos de servicio. Un tipo de servicio es una categorización de un servicio, que puede tener una configuración diferente, pero cuya funcionalidad básica sigue siendo la misma. Las instancias de un servicio son las distintas variaciones de la configuración del servicio del mismo tipo de servicio.
+Un tipo de aplicación es una categorización de una aplicación, que consta de un conjunto de tipos de servicio. Un tipo de servicio es una categorización de un servicio. La categorización puede tener una configuración diferente, pero cuya funcionalidad básica sigue siendo la misma. Las instancias de un servicio son las distintas variaciones de la configuración del servicio del mismo tipo de servicio.
 
 Las clases (o "tipos") de aplicaciones y servicios se describen mediante archivos XML (manifiestos de aplicación y manifiestos de servicio) que son las plantillas en las que se puede crear una instancia de las aplicaciones. El código de las diversas instancias de aplicación se ejecutará como procesos independientes, incluso cuando lo hospede el mismo nodo de Service Fabric. Asimismo, el ciclo de vida de cada instancia de aplicación se puede administrar (es decir, actualizar) de forma independiente. En el siguiente diagrama se muestra cómo los tipos de aplicación constan de tipos de servicio, que a su vez constan de código, configuración y paquetes.
 
-![ApplicationTypes y ServiceTypes de Service Fabric][Imagen1]
+![Tipos de aplicaciones de Service Fabric y tipos de servicio][Image1]
 
-Dos archivos de manifiesto se usan para describir aplicaciones y servicios: el manifiesto de servicio y el manifiesto de aplicación, que aparecen detallados en las secciones subsiguientes.
+Dos archivos de manifiesto se usan para describir aplicaciones y servicios: el manifiesto de servicio y el manifiesto de aplicación. Estos aparecen detallados en las secciones subsiguientes.
 
-Puede haber una o más instancias de un tipo de servicio activas en el clúster. Por ejemplo, las instancias de servicio con estado o réplicas logran una alta confiabilidad mediante la replicación del estado entre réplicas ubicadas en distintos nodos del clúster (esencialmente proporcionando redundancia para que el servicio esté disponible, incluso si se produce un error en un nodo de un clúster). Un [servicio con particiones](service-fabric-concepts-partitioning.md) divide aún más su estado (y patrones de acceso a ese estado) entre los nodos del clúster.
+Puede haber una o más instancias de un tipo de servicio activas en el clúster. Por ejemplo, las instancias de servicio con estado o réplicas logran una alta confiabilidad mediante la replicación del estado entre réplicas ubicadas en distintos nodos del clúster. Esta replicación esencialmente proporciona redundancia para que el servicio esté disponible, incluso si se produce un error en un nodo de un clúster. Un [servicio con particiones](service-fabric-concepts-partitioning.md) divide aún más su estado (y patrones de acceso a ese estado) entre los nodos del clúster.
 
 En el siguiente diagrama se muestra la relación entre aplicaciones e instancias de servicio, particiones y réplicas.
 
-![Particiones y réplicas dentro de un servicio][Imagen2]
+![Particiones y réplicas dentro de un servicio][Image2]
 
 
 ## Describir un servicio
 
-El manifiesto de servicio mediante declaración define el tipo de servicio y versión y especifica metadatos de servicio, como tipo de servicio, propiedades de estado, métricas de equilibrio de carga y los archivos binarios del servicio y archivos de configuración. Dicho de otro modo, describe los paquetes de código, configuración y datos que componen un paquete de servicio para admitir uno o más tipos de servicio. Este es un ejemplo sencillo de manifiesto de servicio:
+El manifiesto de servicio define mediante declaración el tipo de servicio y la versión. Especifica los metadatos de servicio, como el tipo de servicio, las propiedades de estado, las métricas de equilibrio de carga, archivos binarios del servicio y archivos de configuración. Dicho de otro modo, describe los paquetes de código, configuración y datos que componen un paquete de servicio para admitir uno o más tipos de servicio. Este es un ejemplo sencillo de manifiesto de servicio:
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
@@ -72,19 +72,19 @@ El manifiesto de servicio mediante declaración define el tipo de servicio y ver
 
 Los atributos **Versión** son cadenas no estructuradas y no analizadas por el sistema. Se usan para dotar a cada componente de varias versiones para posibilitar las actualizaciones.
 
-**ServiceTypes** declara qué tipos de servicio admite **CodePackages** en este manifiesto. Cuando se crea una instancia de un servicio en uno de estos tipos de servicio, todos los paquetes de código declarados en este manifiesto se activan mediante la ejecución de sus puntos de entrada. Se espera que los procesos resultantes registren los tipos de servicio admitidos en tiempo de ejecución. Tenga en cuenta que los tipos de servicio se declaran en el nivel de manifiesto y no en el nivel de paquete de código. De modo que, cuando hay varios paquetes de código, se activan todos cada vez que el sistema busca cualquiera de los tipos de servicio declarados.
+**ServiceTypes** declara qué tipos de servicio admite **CodePackages** en el manifiesto. Cuando se crea una instancia de un servicio en uno de estos tipos de servicio, todos los paquetes de código declarados en este manifiesto se activan mediante la ejecución de sus puntos de entrada. Se espera que los procesos resultantes registren los tipos de servicio admitidos en tiempo de ejecución. Tenga en cuenta que los tipos de servicio se declaran en el nivel de manifiesto y no en el nivel de paquete de código. De modo que, cuando hay varios paquetes de código, se activan todos cada vez que el sistema busca cualquiera de los tipos de servicio declarados.
 
-**SetupEntryPoint** es un punto de entrada con privilegios que se ejecuta con las mismas credenciales que Service Fabric (normalmente, la cuenta *LocalSystem*) antes que cualquier otro punto de entrada. El archivo ejecutable especificado por **EntryPoint** suele ser el host de servicios de ejecución prolongada, por lo que tener un punto de entrada de configuración independiente evita tener que ejecutar el host de servicios con privilegios elevados durante largos períodos de tiempo. El archivo ejecutable especificado por **EntryPoint** se ejecuta después de salir **SetupEntryPoint** correctamente. El proceso resultante se supervisa y reinicia (comenzando de nuevo con **SetupEntryPoint**) si alguna vez finaliza o se bloquea.
+**SetupEntryPoint** es un punto de entrada con privilegios que se ejecuta con las mismas credenciales que Service Fabric (normalmente, la cuenta *LocalSystem*) antes que cualquier otro punto de entrada. El archivo ejecutable especificado por **EntryPoint** suele ser el host de servicio de ejecución prolongada. La presencia de un punto de entrada de configuración independiente evita tener que ejecutar el host de servicio con privilegios elevados durante largos períodos de tiempo. El archivo ejecutable especificado por **EntryPoint** se ejecuta después de salir **SetupEntryPoint** correctamente. El proceso resultante se supervisa y reinicia (comenzando de nuevo con **SetupEntryPoint**) si alguna vez finaliza o se bloquea.
 
 **DataPackage** declara una carpeta nombrada por el atributo **Nombre** que contiene datos estáticos arbitrarios que va a consumir el proceso en tiempo de ejecución.
 
-**ConfigPackage** declara una carpeta nombrada por el atributo **Nombre** que contiene un archivo *Settings.xml*. Este archivo contiene secciones de configuración del par clave-valor definida por el usuario que el proceso puede volver a leer en tiempo de ejecución. Durante la actualización, si solo ha cambiado la **versión** de **ConfigPackage**, no se reiniciará el proceso en ejecución. En su lugar, una devolución de llamada notifica el proceso que los ajustes de configuración han cambiado, por lo que pueden volver a cargarse de forma dinámica. Este es un ejemplo de archivo *Settings.xml*:
+**ConfigPackage** declara una carpeta nombrada por el atributo **Nombre** que contiene un archivo *Settings.xml*. Este archivo contiene secciones de configuración del par clave-valor definida por el usuario que el proceso puede volver a leer en tiempo de ejecución. Durante una actualización, si solo ha cambiado la **versión** de **ConfigPackage**, no se reiniciará el proceso en ejecución. En su lugar, una devolución de llamada notifica el proceso que los ajustes de configuración han cambiado, por lo que pueden volver a cargarse de forma dinámica. Este es un ejemplo de archivo *Settings.xml*:
 
 ~~~
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Section Name="MyConfigurationSecion">
-    <Parameter Name="MySettingA" Value="Foo" />
-    <Parameter Name="MySettingB" Value="Bar" />
+    <Parameter Name="MySettingA" Value="Example1" />
+    <Parameter Name="MySettingB" Value="Example2" />
   </Section>
 </Settings>
 ~~~
@@ -104,7 +104,7 @@ For more information about other features supported by service manifests, refer 
 ## Describir una aplicación
 
 
-Mediante declaración, el manifiesto de aplicación describe el tipo de aplicación y versión y especifica metadatos de composición de servicios como nombres estables, esquema de particiones, recuento de instancias/factor de replicación, directiva de seguridad y aislamiento, restricciones de ubicación, reemplazos de configuración y tipos de servicio constituyentes. También se describen los dominios de equilibrio de carga en los que se coloca la aplicación. Por lo tanto, un manifiesto de aplicación describe elementos en el nivel de aplicación y hace referencia a uno o más manifiestos de servicio para componer un tipo de aplicación. Este es un ejemplo sencillo de manifiesto de aplicación:
+Mediante declaración, el manifiesto de aplicación describe el tipo de aplicación y la versión. Especifica metadatos de composición de servicios como nombres estables, esquema de particiones, recuento de instancias/factor de replicación, directiva de seguridad y aislamiento, restricciones de ubicación, reemplazos de configuración y tipos de servicio constituyentes. También se describen los dominios de equilibrio de carga en los que se coloca la aplicación. Por lo tanto, un manifiesto de aplicación describe elementos en el nivel de aplicación y hace referencia a uno o más manifiestos de servicio para componer un tipo de aplicación. Este es un ejemplo sencillo de manifiesto de aplicación:
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
@@ -170,27 +170,29 @@ D:\TEMP\MYAPPLICATIONTYPE
             init.dat
 ~~~
 
-Las carpetas reciben un nombre para coincidir con los atributos **Nombre** de cada elemento correspondiente. Por ejemplo, si el manifiesto de servicio contenía dos paquetes de código con los nombres **MiCódigoA** y **MiCódigoB**, tendría que haber dos carpetas con los mismos nombres que incluyeran los archivos binarios necesarios para cada paquete de código.
+Las carpetas reciben un nombre para coincidir con los atributos **Nombre** de cada elemento correspondiente. Por ejemplo, si el manifiesto de servicio contenía dos paquetes de código con los nombres **MiCódigoA** y **MiCódigoB**, dos carpetas con los mismos nombres incluirían los archivos binarios necesarios para cada paquete de código.
 
-### Uso de SetupEntryPoint
-Los escenarios típicos para usar SetupEntryPoint son donde necesita hacer algo antes de que se inicie el servicio o debe realizar una operación con privilegios más elevados. Entre los ejemplos se incluyen: la configuración y la inicialización de las variables de entorno que puede usar el ejecutable del servicio puede usar. Esto incluye no solo los ejecutables creados con los modelos de programación de Service Fabric sino también los exe que se usan simplemente. Por ejemplo, si implementa una aplicación nodejs, el npm.exe necesitaría variaciones de entornos configuradas. -ACL un recurso como un certificado
+### Usar SetupEntrypoint
 
-Los siguientes son los pasos para garantizar que su código (exe), archivo por lotes o PowerShell se empaquetan correctamente en un proyecto de Visual Studio.
+Los escenarios de uso de **SetupEntryPoint** habituales corresponden a cuando se necesita ejecutar un archivo ejecutable antes de iniciar el servicio o cuando necesita realizar una operación con privilegios elevados. Por ejemplo:
 
+- configuración e inicialización de las variables de entorno que el ejecutable del servicio necesita. Esto no se limita tan solo a los archivos ejecutables escritos a través de los modelos de programación de Service Fabric. Por ejemplo, npm.exe necesita algunas variables de entorno configuradas para implementar una aplicación node.js.
 
-### Creación de un paquete mediante Visual Studio
+- Configuración del control de acceso mediante la instalación de certificados de seguridad.
+
+### Crear un paquete mediante Visual Studio
 
 Si usa Visual Studio 2015 para crear su aplicación, puede utilizar el comando Package para crear automáticamente un paquete que coincida con el diseño descrito anteriormente.
 
-Para crear un paquete, solo tiene que hacer clic con el botón derecho en el proyecto de aplicación del Explorador de soluciones y elegir el comando Package, como se muestra a continuación:
+Para crear un paquete, haga clic con el botón derecho en el proyecto de aplicación del Explorador de soluciones y elegir el comando Package, como se muestra a continuación:
 
 ![][2]
 
-Una vez completado el empaquetado, busque la ubicación del paquete en la ventana Salida. Tenga en cuenta que el paso de empaquetado se produce automáticamente al implementar o depurar su aplicación en Visual Studio.
+Una vez completado el empaquetado, busque la ubicación del paquete en la ventana **Salida**. Tenga en cuenta que el paso de empaquetado se produce automáticamente al implementar o depurar su aplicación en Visual Studio.
 
-### Prueba del paquete
+### Probar el paquete
 
-La estructura del paquete se puede verificar localmente a través de PowerShell con el comando **Test-ServiceFabricApplicationPackage**, que comprobará si hay problemas de análisis de manifiesto, además de todas las referencias. Tenga en cuenta que este comando solo verifica la corrección estructural de los directorios y archivos del paquete, no el contenido de los paquetes de código o datos más allá de la comprobación de que todos los archivos necesarios están presentes:
+Puede comprobar la estructura del paquete localmente a través de PowerShell mediante el comando **Test-ServiceFabricApplicationPackage**. Este comando comprobará si existen problemas de análisis de manifiestos y verificará todas las referencias. Tenga en cuenta que este comando solo comprueba la corrección estructural de los directorios y archivos del paquete. No comprobará ninguno de los contenidos del paquete de datos más allá de comprobar que todos los archivos necesarios están presentes.
 
 ~~~
 PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
@@ -230,17 +232,20 @@ Una vez que la aplicación se empaqueta correctamente y supera la verificación,
 ## Pasos siguientes
 
 [Implementar y quitar aplicaciones][10]
+
 [Administración de los parámetros de la aplicación en varios entornos][11]
-[RunAs: ejecución de una aplicación Service Fabric con permisos de seguridad diferentes][12]
+
+[RunAs: ejecución de una aplicación de Service Fabric con diferentes permisos de seguridad][12]
+
 <!--Image references-->
 [1]: ./media/service-fabric-application-model/application-model.jpg
 [2]: ./media/service-fabric-application-model/vs-package-command.png
-[Imagen1]: media/service-fabric-application-model/Service1.jpg
-[Imagen2]: media/service-fabric-application-model/Service2.jpg
+[Image1]: media/service-fabric-application-model/Service1.jpg
+[Image2]: media/service-fabric-application-model/Service2.jpg
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

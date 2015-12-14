@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Application Insights de Visual Studio
 
 Application Insights es un servicio de análisis extensible que supervisa su aplicación activa. Le ayuda a detectar y a diagnosticar problemas de rendimiento y a comprender qué hacen los usuarios realmente con su aplicación. Está diseñado para desarrolladores, para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso de la aplicación.
 
-![Cree un gráfico de estadísticas de la actividad del usuario o explore en profundidad eventos específicos.](./media/app-insights-overview/00-sample.png)
+![Cree un gráfico de estadísticas de la actividad del usuario o explore en profundidad eventos específicos.](./media/app-service-app-insights-get-started/00-sample.png)
 
 Funciona tanto con aplicaciones web como independientes en una amplia variedad de plataformas: .NET o J2EE, hospedadas localmente o en la nube.
 
@@ -43,7 +43,7 @@ Los datos de telemetría recopilados de la aplicación se almacenan y analizan e
 
 ¿Desea un análisis todavía más exhaustivo? [Exporte](app-insights-export-telemetry.md) los datos [en SQL](app-insights-code-sample-export-telemetry-sql-database.md), [en Power BI](app-insights-export-power-bi.md) o en sus propias herramientas.
 
-![Visualización de datos en Power BI](./media/app-insights-overview/210.png)
+![Visualización de datos en Power BI](./media/app-service-app-insights-get-started/210.png)
 
 ## Plataformas y lenguajes
 
@@ -65,7 +65,7 @@ Si su aplicación tiene cliente, servidor u otros componentes, puede instrumenta
 
 Instale un pequeño SDK en su aplicación y configure una cuenta en el portal de Application Insights. El SDK supervisa la aplicación y envía los datos de telemetría al portal. El portal le muestra gráficos estadísticos y ofrece eficaces herramientas de búsqueda para ayudarle a diagnosticar los problemas.
 
-![El SDK de Application Insights de su aplicación envía datos de telemetría al recurso de Application Insights en el Portal de Azure.](./media/app-insights-overview/01-scheme.png)
+![El SDK de Application Insights de su aplicación envía datos de telemetría al recurso de Application Insights en el Portal de Azure.](./media/app-service-app-insights-get-started/01-scheme.png)
 
 El SDK cuenta con varios módulos que recopilan datos de telemetría, con el fin de contar, por ejemplo, usuarios, sesiones y el rendimiento. También puede escribir su propio código personalizado para enviar datos de telemetría al portal. La telemetría personalizada resulta especialmente útil para realizar el seguimiento de los casos de usuario: puede contar eventos como los clics de botón, la consecución de objetivos concretos o los errores de los usuarios.
 
@@ -132,7 +132,7 @@ Si no usa Visual Studio, o si esas opciones no están disponibles para su proyec
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [ios]: https://github.com/Microsoft/ApplicationInsights-iOS
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-overview-usage.md
@@ -144,4 +144,4 @@ Si no usa Visual Studio, o si esas opciones no están disponibles para su proyec
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

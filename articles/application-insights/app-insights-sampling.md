@@ -27,7 +27,7 @@ El muestreo adaptable está habilitado de forma predeterminada en el SDK de Appl
 Hay dos módulos de muestreo alternativos:
 
 * El muestreo adaptable ajusta automáticamente el porcentaje de muestreo para lograr un volumen específico de solicitudes. Actualmente solo está disponible para la telemetría del lado servidor ASP.NET.  
-* El muestreo de frecuencia fija también está disponible. Con él, se especifica un porcentaje de muestreo. Está disponible para el código de aplicación web ASP.NET y páginas web de JavaScript. El cliente y el servidor sincronizarán su muestreo para que, en Búsqueda, pueda desplazarse entre las vistas de página y las solicitudes relacionadas.
+* También está disponible el muestreo de tasa fija, donde Con él, se especifica un porcentaje de muestreo. Está disponible para el código de aplicación web ASP.NET y páginas web de JavaScript. El cliente y el servidor sincronizarán su muestreo para que, en Búsqueda, pueda desplazarse entre las vistas de página y las solicitudes relacionadas.
 
 ## Habilitación del muestreo adaptable
 
@@ -67,6 +67,58 @@ En [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
     Valor asignado cuando se acaba de iniciar la aplicación. No lo reduzca durante la depuración.
 
+### Alternativa: configure el muestreo adaptivo en el código
+
+En lugar de ajustar el muestreo en el archivo .config, puede usar código. Esto le permite especificar una función de devolución de llamada que se invoca cuando se vuelve a evaluar la frecuencia de muestreo. Puede utilizarlo, por ejemplo, para averiguar la velocidad de muestreo que se está usando.
+
+Quite el nodo `AdaptiveSamplingTelemetryProcessor` del archivo .config.
+
+
+
+*C#*
+
+```C#
+
+    using Microsoft.ApplicationInsights;
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.Channel.Implementation;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+    ...
+
+    var adaptiveSamplingSettings = new SamplingPercentageEstimatorSettings();
+
+    // Optional: here you can adjust the settings from their defaults.
+
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    
+    builder.UseAdaptiveSampling(
+         adaptiveSamplingSettings,
+
+        // Callback on rate re-evaluation:
+        (double afterSamplingTelemetryItemRatePerSecond,
+         double currentSamplingPercentage,
+         double newSamplingPercentage,
+         bool isSamplingPercentageChanged,
+         SamplingPercentageEstimatorSettings s
+        ) =>
+        {
+          if (isSamplingPercentageChanged)
+          {
+             // Report the sampling rate.
+             telemetryClient.TrackMetric("samplingPercentage", newSamplingPercentage);
+          }
+      });
+
+    // If you have other telemetry processors:
+    builder.Use((next) => new AnotherProcessor(next));
+
+    builder.Build();
+
+```
+
+([Más información sobre los procesadores de telemetría](app-insights-api-filtering-sampling.md#filtering)).
+
+
 <a name="other-web-pages"></a>
 ## Muestreo para páginas web con JavaScript
 
@@ -97,7 +149,7 @@ Si también habilita el muestreo de frecuencia fija en el servidor, los clientes
 
 ## Habilitación del muestreo de frecuencia fija en el servidor
 
-1. **Actualice los paquetes de NuGet del proyecto** a la *versión preliminar* más reciente de Application Insights. Haga clic con el botón derecho en el Explorador de soluciones, elija Administrar paquetes de NuGet, active la opción **Incluir versión preliminar** y busque Microsoft.ApplicationInsights.Web. 
+1. **Actualice los paquetes NuGet del proyecto** a la *versión preliminar* más reciente de Application Insights. Haga clic con el botón derecho en el Explorador de soluciones, elija Administrar paquetes NuGet, active la opción **Incluir versión preliminar** y busque Microsoft.ApplicationInsights.Web. 
 
 2. **Deshabilite el muestreo adaptable**: en [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), quite o convierta en comentario el nodo `AdaptiveSamplingTelemetryProcessor`.
 
@@ -132,7 +184,7 @@ Si también habilita el muestreo de frecuencia fija en el servidor, los clientes
 
 
 
-### Alternativa: establecer el muestreo en el código de servidor
+### Alternativa: habilite el muestreo de tasa fija en el código de servidor
 
 
 En lugar de establecer el parámetro de muestreo en el archivo .config, puede usar código.
@@ -155,7 +207,7 @@ En lugar de establecer el parámetro de muestreo en el archivo .config, puede us
 
 ```
 
-([Más información acerca de los procesadores de telemetría](app-insights-api-filtering-sampling/#filtering)).
+([Más información sobre los procesadores de telemetría](app-insights-api-filtering-sampling.md#filtering)).
 
 ## ¿Cuándo usar un muestreo?
 
@@ -167,7 +219,7 @@ Para la mayoría de las aplicaciones pequeñas y medianas no es necesario realiz
 Las principales ventajas del muestreo son:
 
 * El servicio de Application Insights descarta ("limita") puntos de datos cuando la aplicación envía un número muy elevado de telemetría en un intervalo de tiempo corto. 
-* Mantenerse dentro de la [cuota](app-insights-pricing.md) de puntos de datos en su plan de tarifa. 
+* Para mantenerse dentro de la [cuota](app-insights-pricing.md) de puntos de datos de su plan de tarifa. 
 * Para reducir el tráfico de red de la recopilación de telemetría. 
 
 ### ¿Muestreo adaptable o fijo?
@@ -221,11 +273,13 @@ El SDK del lado del cliente (JavaScript) participa en el muestreo junto con el S
 
 *¿Se puede averiguar la frecuencia de muestreo que usa el muestreo adaptable?*
 
- * No en la versión actual.
+ * Sí, utilice el método de código de la configuración de muestreo adaptativo y podrá proporcionar una devolución de llamada que obtenga la velocidad de muestreo.
 
 *Si uso el muestreo de frecuencia fija, ¿cómo sé cuál es el porcentaje de muestreo que funcionará mejor para mi aplicación?*
 
-* En este momento tiene que "calcularlo a ojo". Analice su uso actual de telemetría en AI, observe los descartes de datos relacionados con la limitación y calcule el volumen de telemetría recopilado. Estas tres entradas, junto con el plan de tarifa seleccionado, le sugerirán en cuánto debería reducir el volumen de telemetría recopilado. Sin embargo, un cambio en el patrón del volumen de telemetría puede invalidar un porcentaje de muestreo configurado de manera óptima (por ejemplo, un aumento en el número de los usuarios).
+* Una manera de comenzar es con muestreo adaptable, averigüe qué velocidad elige (consulte la pregunta anterior) y luego cambie a muestreo de tasa fija con esa velocidad. 
+
+    Si no, lo tendrá que adivinar. Analice su uso actual de telemetría en AI, observe las limitaciones que se produzcan y estime el volumen de telemetría recopilado. Estas tres entradas, junto con el plan de tarifa seleccionado, le sugerirán cuánto debería reducir el volumen de telemetría recopilado. Sin embargo, un aumento del número de usuarios o algún otro incremento en el volumen de datos de telemetría podrían provocar que la estimación no fuese válida.
 
 *¿Qué sucede si configuro un porcentaje de muestreo demasiado bajo?*
 
@@ -239,8 +293,8 @@ El SDK del lado del cliente (JavaScript) participa en el muestreo junto con el S
 
 * Actualmente, el muestreo adaptable está disponible para los lados del servidor de aplicaciones web ASP.NET (hospedadas en Azure o en su servidor propio). El muestreo de frecuencia fija está disponible para cualquier página web y para las aplicaciones web .NET, tanto del lado del cliente como del lado del servidor.
 
-*Hay ciertos eventos excepcionales que siempre deseo ver. ¿Cómo se consigue que el módulo de muestreo los reconozca?*
+*Hay ciertos eventos excepcionales que siempre quiero ver. ¿Cómo se consigue que el módulo de muestreo los reconozca?*
 
- * Cree una instancia independiente de TelemetryClient con una TelemetryConfiguration distinta. Úsela para enviar sus eventos excepcionales.
+ * Inicialice una instancia independiente de TelemetryClient con un nuevo valor de TelemetryConfiguration (no el activo de forma predeterminada). Úsela para enviar sus eventos excepcionales.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

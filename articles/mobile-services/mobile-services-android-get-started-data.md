@@ -18,12 +18,14 @@
 
 # Incorporación de servicios móviles a una aplicación Android existente (back-end JavaScript)
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 ## Resumen
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>Este tema muestra cómo utilizar Servicios móviles de Azure para aprovechar los datos en una aplicación de Android. En este tutorial descargará una aplicación que almacena datos en memoria, creará un servicio móvil, integrará el la aplicación con el servicio móvil para que almacene y actualice datos en Servicios móviles de Azure en lugar de hacerlo de manera local y, a continuación, usará el Portal de administración de Azure para ver los cambios que se hicieron en los datos durante la ejecución de la aplicación.</p>
+<p>Este tema muestra cómo utilizar Servicios móviles de Azure para aprovechar los datos en una aplicación de Android. En este tutorial descargará una aplicación que almacena datos en memoria, creará un servicio móvil nuevo, integrará la aplicación con el servicio móvil para que almacene y actualice datos en los Servicios móviles de Azure en lugar de hacerlo de manera local y usará el Portal de Azure clásico. para ver los cambios que se hicieron en los datos durante la ejecución de la aplicación.</p>
 
 </div>
 
@@ -59,7 +61,7 @@ Para ver el código fuente completo, vaya <a href="https://github.com/Azure/mobi
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code.md)]
 
-## Creación de un servicio móvil nuevo en el Portal de administración
+## Crear un nuevo servicio móvil en el Portal de Azure clásico
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
@@ -84,7 +86,7 @@ Ahora que la aplicación se ha actualizado para usar los Servicios móviles para
 
    	Esto envía un elemento nuevo como inserción al servicio móvil.
 
-3. En el [Portal de administración], haga clic en **Servicios móviles** y, a continuación, en su servicio móvil.
+3. Inicie sesión en el [Portal de Azure clásico], haga clic en **Servicios móviles **y en su servicio móvil.
 
 4. Haga clic en la pestaña **Datos** y, a continuación, en **Examinar**.
 
@@ -143,10 +145,9 @@ Cuando haya completado la serie de datos, pruebe estos otros tutoriales de Andro
 [Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-android
 [Introducción a las notificaciones de inserción]: /develop/mobile/tutorials/get-started-with-push-android
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-[Portal de administración]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [SDK de Android para Servicios móviles]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

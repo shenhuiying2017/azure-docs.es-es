@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/09/2015"
+   ms.date="12/01/2015"
    ms.author="jgao"/>
 
 # Tutorial: Análisis de registros de sitios web mediante Análisis de Azure Data Lake
@@ -34,12 +34,12 @@ Aprenda a analizar registros de sitios web mediante Análisis de Data Lake, espe
 
 - **Conocimientos básicos de Análisis de Data Lake y Data Lake Tools for Visual Studio**. Para empezar, consulte:
  
-	- [Introducción a Análisis de Azure Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-get-started-portal.md).
+	- [Introducción a Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md).
 	- [Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
 - **Una cuenta de Análisis de Data Lake**. Consulte [Creación de una cuenta de Análisis de Azure Data Lake](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 
-	Data Lake Tools no admite la creación de cuentas de Análisis de Data Lake. Por lo tanto, tendrá que crearla mediante el Portal de vista previa de Azure, Azure PowerShell, .NET SDK o CLI de Azure. 
+	Data Lake Tools no permite crear cuentas de Análisis de Data Lake. Por lo tanto, tendrá que crearla mediante el Portal de Azure, Azure PowerShell, SDK para .NET o CLI de Azure. 
 - **Cargue los datos de ejemplo a la cuenta de Análisis de Data Lake**. Consulte [Carga de SearchLog.tsv en la cuenta predeterminada de Almacén de Data Lake](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
     Para ejecutar un trabajo de Análisis de Data Lake, necesitará algunos datos. Aunque Data Lake Tools permite cargar datos, se usará el portal para cargar los datos de ejemplo para que el tutorial sea más fácil de seguir.
@@ -58,7 +58,7 @@ Para poder crear y probar cualquier script U-SQL, primero debe conectarse a Azur
 **Para examinar las cuentas de Análisis de Data Lake**
 
 1. En Visual Studio, presione **CTRL + ALT + S** para abrir **Explorador de servidores**.
-2. En **Explorador de servidores**, expanda **Azure** y después **Análisis de Data Lake**. Verá una lista de las cuentas de Análisis de Data Lake, si las hay. No se pueden crear cuentas de Análisis de Data Lake desde Visual Studio. Para crear una cuenta, consulte [Introducción a Análisis de Azure Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-get-started-portal.md) o [Introducción a Análisis de Azure Data Lake mediante Azure PowerShell](data-lake-analytics-get-started-powershell.md).
+2. En **Explorador de servidores**, expanda **Azure** y después **Análisis de Data Lake**. Verá una lista de las cuentas de Análisis de Data Lake, si las hay. No se pueden crear cuentas de Análisis de Data Lake desde Visual Studio. Para crear una cuenta, consulte [Introducción a Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md) o [Introducción a Análisis de Azure Data Lake mediante Azure PowerShell](data-lake-analytics-get-started-powershell.md).
 
 ## Desarrollo de aplicaciones U-SQL 
 
@@ -168,9 +168,9 @@ Puede agregar operadores de suma definidos por el usuario a la aplicación. Para
         USING Outputters.Tsv();
 
 6. Vuelva al primer script de U-SQL y junto al botón **Enviar**, especifique la cuenta de Análisis.
-7. En el **Explorador de soluciones**, haga clic con el botón derecho en **Script.usql** y después haga clic en **Compilar script**. Compruebe el resultado en el panel de resultados.
-8. En el **Explorador de soluciones**, haga clic con el botón derecho en **Script.usql** y después haga clic en **Enviar script**.
-9. Compruebe que la **Cuenta de Análisis** es en la que desea ejecutar el trabajo y después haga clic en **Enviar**. Los resultados del envío y el vínculo del trabajo están disponibles en la ventana de resultados de Data Lake Tools for Visual Studio cuando se completa el envío.
+7. En el **Explorador de soluciones**, haga clic con el botón secundario en **Script.usql** y después haga clic en **Compilar script**. Compruebe el resultado en el panel de resultados.
+8. En el **Explorador de soluciones**, haga clic con el botón secundario en **Script.usql** y después haga clic en **Enviar script**.
+9. Compruebe que la **Cuenta de Análisis** es aquella en la que desea ejecutar el trabajo y después haga clic en **Enviar**. Los resultados del envío y el vínculo del trabajo están disponibles en la ventana de resultados de Data Lake Tools for Visual Studio cuando se completa el envío.
 10. Espere a que el trabajo se complete correctamente. Si se produce un error en el trabajo, lo más probable es que falte el archivo de origen. Consulte la sección Requisitos previos de este tutorial. Para obtener más información sobre la solución de problemas, consulte [Supervisión y solución de problemas con trabajos de Análisis de Azure Data Lake](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 
     Una vez completado el trabajo, verá la siguiente pantalla:
@@ -192,7 +192,7 @@ Puede agregar operadores de suma definidos por el usuario a la aplicación. Para
 
 Para empezar a trabajar con Análisis de Data Lake usando diferentes herramientas, consulte:
 
-- [Introducción a Análisis de Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-get-started-portal.md)
+- [Introducción a Análisis de Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md)
 - [Introducción a Análisis de Data Lake mediante Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Introducción a Análisis de Data Lake mediante .NET SDK](data-lake-analytics-get-started-net-sdk.md)
 
@@ -202,4 +202,4 @@ Para ver más temas de desarrollo:
 - [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
 - [Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Análisis de Data Lake](data-lake-analytics-u-sql-user-defined-operators.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

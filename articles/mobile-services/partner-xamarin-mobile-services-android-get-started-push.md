@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Incorporación de notificaciones push a la aplicación Xamarin Android | Microsoft Azure" 
-	description="Obtenga información acerca de cómo configurar las notificaciones push con el Servicio de mensajería en la nube de Google para sus aplicaciones de Xamarin.Android con los Servicios móviles de Azure y los Centros de notificaciones de Azure." 
-	documentationCenter="xamarin" 
-	authors="ggailey777" 
-	manager="dwrede" 
-	services="mobile-services" 
+<properties
+	pageTitle="Incorporación de notificaciones push a la aplicación Xamarin Android | Microsoft Azure"
+	description="Obtenga información acerca de cómo configurar las notificaciones push con el Servicio de mensajería en la nube de Google para sus aplicaciones de Xamarin.Android con los Servicios móviles de Azure y los Centros de notificaciones de Azure."
+	documentationCenter="xamarin"
+	authors="ggailey777"
+	manager="dwrede"
+	services="mobile-services"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/16/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/16/2015"
 	ms.author="glenga"/>
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
@@ -40,7 +45,7 @@ Ya debe tener instalados los componentes [Xamarin.Android] y [Servicios móviles
 
 ##<a id="update-scripts"></a>Actualización del script de inserción registrado para enviar notificaciones
 
->[AZURE.TIP]En los pasos siguientes se muestra cómo actualizar el script registrado para la operación de inserción en la tabla TodoItem del Portal de administración de Azure. También puede acceder a este script de servicios móviles y editarlo directamente en Visual Studio, en el nodo de Azure del Explorador de servidores.
+>[AZURE.TIP]En los pasos siguientes se muestra cómo actualizar el script registrado para la operación de inserción en la tabla TodoItem del Portal de Azure clásico. También puede acceder a este script de servicios móviles y editarlo directamente en Visual Studio, en el nodo de Azure del Explorador de servidores.
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
@@ -81,6 +86,5 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Componente cliente Servicio de mensajería en la nube de Google]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
 [Servicios móviles de Azure]: http://components.xamarin.com/view/azure-mobile-services/
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -36,9 +36,9 @@ Si su aplicación tiene una carga de trabajo que varía, suba o baje los niveles
 ## Escala de los recursos de proceso hacia un nivel superior o inferior
 Independientemente del almacenamiento en la nube, la elasticidad del almacenamiento de datos SQL permite aumentar, reducir o pausar la capacidad de proceso utilizando una escala deslizante de unidades de almacenamiento de datos (DWU). Esto le ofrece la flexibilidad para optimizar la capacidad de proceso con un ajuste óptimo para su empresa.
 
-Para aumentar la capacidad de proceso puede agregar más DWU al servicio mediante el control deslizante de escala en el Portal de Azure. También puede agregar DWU mediante T-SQL, las API de REST o los cmdlets de Powershell. La escala hacia niveles superiores o inferiores cancela todas las actividades que están en ejecución o en cola, pero la operación se completa en segundos, de manera que puede reanudar las actividades con más o menos capacidad de proceso.
+Para aumentar la capacidad de proceso puede agregar más DWU al servicio mediante el control deslizante de escala en el Portal de Azure clásico. También puede agregar DWU mediante T-SQL, las API de REST o los cmdlets de Powershell. La escala hacia niveles superiores o inferiores cancela todas las actividades que están en ejecución o en cola, pero la operación se completa en segundos, de manera que puede reanudar las actividades con más o menos capacidad de proceso.
 
-En el [Portal de Azure][], puede hacer clic en el icono "Escala" en la parte superior de la página de Almacenamiento de datos SQL y, a continuación, use el control deslizante para aumentar o disminuir la cantidad de DWU aplicada a su almacén de datos antes de hacer clic en "Guardar". Si prefiere cambiar la escala mediante programación, el código de T-SQL siguiente muestra cómo ajustar la asignación de DWU para Almacenamiento de datos SQL:
+En el [Portal de Azure clásico][], puede hacer clic en el icono "Escala" en la parte superior de la página de Almacenamiento de datos SQL y después usar el control deslizante para aumentar o disminuir la cantidad de DWU aplicada a su almacén de datos antes de hacer clic en "Guardar". Si prefiere cambiar la escala mediante programación, el código de T-SQL siguiente muestra cómo ajustar la asignación de DWU para Almacenamiento de datos SQL:
 
 ```
 ALTER DATABASE MySQLDW 
@@ -58,7 +58,7 @@ El almacenamiento de datos SQL tiene la capacidad única de pausar y reanudar el
 
 La acción de pausar devuelve los recursos de proceso al grupo de recursos disponibles en el centro de datos, mientras que la de reanudar adquiere los recursos de proceso necesarios para las DWU establecidas y asigna estas a la instancia del almacenamiento de datos.
 
-Las operaciones de pausar y reanudar la capacidad de proceso se pueden realizar mediante el [Portal de Azure][], a través de las API de REST o usando Powershell. Al pausar se cancela la ejecución de todas las actividades que están en ejecución o en cola, y cuando vuelva, puede reanudar el uso de los recursos de proceso en segundos.
+Las operaciones de pausar y reanudar la capacidad de proceso se pueden realizar mediante el [Portal de Azure clásico][], a través de las API de REST o usando Powershell. Al pausar se cancela la ejecución de todas las actividades que están en ejecución o en cola, y cuando vuelva, puede reanudar el uso de los recursos de proceso en segundos.
 
 El código siguiente muestra cómo realizar una pausa mediante PowerShell:
 
@@ -91,6 +91,6 @@ Para obtener información general sobre el rendimiento, vea [Introducción al re
 
 <!--Other Web references-->
 
-[Portal de Azure]: http://portal.azure.com/
+[Portal de Azure clásico]: http://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

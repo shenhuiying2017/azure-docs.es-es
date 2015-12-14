@@ -115,7 +115,7 @@ La replicación geográfica activa y la estándar proporcionan similares caracte
 Para obtener más información, consulte [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md).
 
 ### Almacenamiento máximo de In-Memory OLTP
-**Almacenamiento máximo de In-Memory OLTP** se refiere a la cantidad máxima de almacenamiento disponible en la [vista previa de In-Memory OLTP](sql-database-in-memory.md) para bases de datos Premium. También se conoce a veces como *almacenamiento en memoria de XTP*. Puede usar el Portal de Azure o la vista **sys.dm\_db\_resource\_stats** para supervisar el uso del almacenamiento de In-Memory. Para obtener más información sobre la supervisión, consulte [Supervisión del almacenamiento de In-Memory OLTP](sql-database-in-memory-oltp-monitoring.md).
+**Almacenamiento máximo de In-Memory OLTP** se refiere a la cantidad máxima de almacenamiento disponible en la [vista previa de In-Memory OLTP](sql-database-in-memory.md) para bases de datos Premium. También se conoce a veces como *almacenamiento en memoria de XTP*. Puede usar el Portal de Azure clásico o la vista **sys.dm\_db\_resource\_stats** para supervisar el uso del almacenamiento de In-Memory. Para obtener más información sobre la supervisión, consulte [Supervisión del almacenamiento de In-Memory OLTP](sql-database-in-memory-oltp-monitoring.md).
 
 >[AZURE.NOTE]La vista previa de In-Memory OLTP actualmente admite solamente bases de datos únicas y no bases de datos dentro de grupos de bases de datos elásticas.
 
@@ -168,7 +168,7 @@ Hay dos vistas que permiten supervisar el uso de recursos para una Base de datos
 - [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [Sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
->[AZURE.NOTE]También es posible usar el Portal de administración de Azure para ver el uso de los recursos. Para obtener un ejemplo, consulte [Niveles de servicio. Supervisión del rendimiento](sql-database-service-tiers.md#monitoring-performance).
+>[AZURE.NOTE]También es posible usar el Portal de Azure clásico para ver el uso de los recursos. Para obtener un ejemplo, consulte [Niveles de servicio. Supervisión del rendimiento](sql-database-service-tiers.md#monitoring-performance).
 
 ### Uso de sys.dm\_db\_resource\_stats
 La vista [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) existe en cada Base de datos SQL y proporciona datos sobre el uso de recursos recientes en relación con el nivel de servicio. Porcentajes medios para CPU, E/S de datos, escritura de registros y memoria, se registran cada 15 segundos y se mantienen durante una hora.
@@ -292,7 +292,7 @@ Aunque los niveles de servicio están diseñados para mejorar la estabilidad de 
 En esta sección se explican algunas técnicas que puede usar para optimizar Base de datos SQL de Azure para obtener el mejor rendimiento de la aplicación y que pueda ejecutarla en el menor nivel de rendimiento posible. Varias de las técnicas coinciden con los procedimientos recomendados de optimización tradicionales de SQL Server, pero otras son específicas de Base de datos SQL de Azure. En algunos casos, las técnicas tradicionales de SQL Server se pueden ampliar para que funcionen también en Base de datos SQL de Azure, examinando para ello los recursos consumidos para una base de datos con el fin de encontrar áreas de mayor optimización.
 
 ### Query Performance Insight y Asesor de índice
-Base de datos SQL ofrece dos herramientas en el Portal de Azure para analizar y corregir problemas de rendimiento de la base de datos:
+Base de datos SQL ofrece dos herramientas en el Portal de Azure clásico para analizar y corregir problemas de rendimiento de la base de datos:
 
 - [Query Performance Insight](sql-database-query-performance.md)
 - [Index Advisor](sql-database-index-advisor.md)
@@ -491,4 +491,4 @@ Algunas aplicaciones de base de datos contienen cargas de trabajo con operacione
 
 Los niveles de servicio de Base de datos SQL de Azure le permiten elevar el listón de los tipos de aplicaciones que puede compilar en la nube. Cuando se combina con la optimización de aplicaciones, puede obtener un rendimiento eficaz y confiable para su aplicación. Este documento describe las técnicas recomendadas para optimizar el consumo de recursos de la base de datos que encaja perfectamente en uno de los niveles de rendimiento. La optimización es un ejercicio continuado en el modelo de nube, y los niveles de servicio y sus niveles de rendimiento permiten a los administradores maximizar el rendimiento y minimizar los costos en la plataforma de Microsoft Azure.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

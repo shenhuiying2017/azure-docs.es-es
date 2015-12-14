@@ -55,13 +55,13 @@ Las bases de datos de nivel Standard no admiten la opción de usar la replicaci�
 
 ##Cómo habilitar la replicación geográfica
 
-Puede habilitar la replicación geográfica mediante el Portal de Azure, mediante una llamada a la API de REST o mediante el comando de PowerShell.
+Puede habilitar la replicación geográfica mediante el Portal de Azure clásico, mediante una llamada a la API de REST o mediante el comando de PowerShell.
 
-###Portal de Azure
+###Portal de Azure clásico
 
 [AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
 
-1. Inicie sesión en el [Portal de Azure](https://portal.Azure.com).
+1. Inicie sesión en el [Portal de Azure clásico](https://portal.Azure.com).
 2. En el lado izquierdo de la pantalla, seleccione **EXAMINAR** y, a continuación, seleccione **Bases de datos SQL**.
 3. Desplácese hasta la hoja de su base de datos, seleccione el **Mapa de replicación geográfica** y haga clic en **Configurar replicación geográfica**.
 4. Desplácese hasta la hoja de replicación geográfica. Seleccione la región de destino. 
@@ -98,4 +98,4 @@ Esta API es asincrónica. Cuando vuelva, use la API [Obtener vínculo de replica
 
 Al diseñar la aplicación para la continuidad del negocio, debe tener en cuenta varias opciones de configuración. La elección dependerá de la topología de la implementación de la aplicación y de las partes de las aplicaciones que sean más vulnerables a las interrupciones. Consulte [Diseño de soluciones de nube para la recuperación ante desastres mediante la replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md), para obtener más instrucciones.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -38,7 +38,7 @@ El cuerpo principal de Búsqueda de diagnóstico es una lista de elementos de te
 Los eventos normalmente aparecen en la búsqueda de diagnóstico antes de que aparezcan en el explorador de métrica. Aunque la hoja se actualiza a intervalos, puede hacer clic en Actualizar si espera un evento determinado.
 
 
-> [AZURE.NOTE]Si la aplicación genera mucha telemetría (y usa la versión del SDK de ASP.NET 2.0.0-beta3 o posterior), el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de únicamente una fracción representativa de eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionarán o se deseleccionarán como grupo, por lo que puede navegar entre los eventos relacionados. [Más información sobre el muestreo](app-insights-sampling.md).
+> [AZURE.NOTE]Si la aplicación genera mucha telemetría (y usa la versión del SDK de ASP.NET 2.0.0-beta3 o posterior), el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de únicamente una fracción representativa de eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre ellos. [Más información sobre el muestreo](app-insights-sampling.md).
 
 
 ## Inspección de elementos individuales
@@ -203,4 +203,4 @@ Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o 
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

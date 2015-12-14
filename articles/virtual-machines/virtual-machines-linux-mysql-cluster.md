@@ -45,7 +45,7 @@ Necesitará una cuenta de Microsoft Azure con una suscripción válida capaz de 
 
 ### Grupo de afinidad
 
-Para crear un grupo de afinidad para la solución, inicie sesión en el Portal de Azure, desplácese hacia abajo hasta Configuración y créelo. Los recursos asignados creados más tarde se asignarán a este grupo de afinidad.
+Para crear un grupo de afinidad para la solución, inicie sesión en el Portal de Azure clásico, desplácese hacia abajo hasta Configuración y créelo. Los recursos asignados creados más tarde se asignarán a este grupo de afinidad.
 
 ### Redes
 
@@ -340,4 +340,4 @@ Se aplican las siguientes limitaciones:
 - El ajuste de MySQL es necesario para garantizar que la escritura se realiza a un ritmo apropiado y las memorias caché se vacían en disco con la máxima frecuencia posible para minimizar la pérdida de memoria.
 - El rendimiento de escritura dependerá de la interconexión de las máquinas virtuales en la conmutación virtual ya que este es el mecanismo que usa DRBD para replicar el dispositivo.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

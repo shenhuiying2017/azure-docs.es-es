@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/12/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Uso de Administrador de instantáneas StorSimple para crear y administrar grupos de volúmenes
@@ -52,11 +52,11 @@ Columna Resultados | Descripción
 Nombre | La columna **Nombre** contiene el nombre del grupo de volúmenes.
 Application | La columna **Aplicaciones** muestra el número de los escritores VSS actualmente instalados y en ejecución en el host de Windows.
 Seleccionado | La columna **Seleccionados** muestra el número de volúmenes que se encuentran en el grupo de volúmenes. Un cero (0) indica que ninguna aplicación está asociada con los volúmenes en el grupo de volúmenes.
-Importado | La columna **Importados** muestra el número de volúmenes importados. Cuando se establece en **True**, esta columna indica que un grupo de volúmenes se importó desde el Portal de administración de Microsoft Azure y que no se creó en el Administrador de instantáneas StorSimple.
+Importado | La columna **Importados** muestra el número de volúmenes importados. Cuando se establece en **True**, esta columna indica que un grupo de volúmenes se importó desde el Portal de Azure clásico y que no se creó en StorSimple Snapshot Manager.
  
->[AZURE.NOTE]Asimismo, también se muestran los grupos de volúmenes del Administrador de instantáneas StorSimple en la pestaña **Directivas de copia de seguridad** en el Portal de administración de Azure.
+>[AZURE.NOTE]Asimismo, también se muestran los grupos de volúmenes de StorSimple Snapshot Manager en la pestaña **Directivas de copia de seguridad** en el Portal de Azure clásico.
  
-## Creación de un grupo de volúmenes
+## Crear un grupo de volúmenes
 
 Utilice el procedimiento siguiente para crear un grupo de volúmenes.
 
@@ -147,4 +147,4 @@ Utilice el procedimiento siguiente para eliminar un grupo de volúmenes.
 - Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 - Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para crear y administrar las directivas de copia de seguridad](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

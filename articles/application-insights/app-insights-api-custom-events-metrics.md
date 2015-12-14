@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="11/30/2015" 
 	ms.author="awills"/>
 
 # API de Application Insights para eventos y métricas personalizados 
@@ -104,22 +104,26 @@ Por ejemplo, en una aplicación de juego, envíe un evento cada vez que un usuar
 
     telemetry.trackEvent("WinGame");
 
-En este caso, "WinGame" es el nombre que aparece en el portal de Application Insights. Haga clic en el icono Eventos personalizados en la hoja de información general:
+En este caso, "WinGame" es el nombre que aparece en el portal de Application Insights.
 
-![Busque el recurso de aplicación en portal.azure.com.](./media/app-insights-api-custom-events-metrics/01-custom.png)
+Para ver un recuento de los eventos, abra una hoja [Explorador de métricas](app-insights-metrics-explorer.md), agregue un nuevo gráfico y seleccione Eventos.
+
+![](./media/app-insights-api-custom-events-metrics/01-custom.png)
+
+Para comparar los recuentos de eventos diferentes, establezca el tipo de gráfico en cuadrícula y el grupo por nombre de evento:
+
+![](./media/app-insights-api-custom-events-metrics/07-grid.png)
 
 
-El gráfico se agrupa por nombre de evento para que puedan verse las contribuciones relativas de los eventos más importantes. Para controlar esto, seleccione el gráfico y use el control Agrupación.
-
-![Seleccione el gráfico y establezca la opción de agrupación.](./media/app-insights-api-custom-events-metrics/02-segment.png)
-
-En la lista de debajo del gráfico, seleccione un nombre de evento. Siga haciendo clic hasta ver las repeticiones individuales del evento.
+En la cuadrícula, haga clic en un nombre de evento para ver todas las repeticiones individuales de ese evento.
 
 ![Obtenga detalles de los eventos.](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
 Haga clic en cualquier repetición para ver más información.
 
+Para centrarse en eventos concretos en la búsqueda o el explorador de métricas, establezca el filtro de la hoja en los nombres de eventos que le interesan:
 
+![Abre filtros, expanda el nombre del evento y seleccione uno o varios valores.](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
 ## Seguimiento de métricas
 
@@ -248,9 +252,9 @@ Envíe excepciones a Application Insights para [contabilizarlas][metrics], como 
 
 Los SDK capturan muchas excepciones automáticamente, por lo que no siempre es necesario llamar explícitamente a TrackException.
 
-* ASP.NET: [Escritura de código para detectar excepciones](app-insights-asp-net-exceptions.md)
-* J2EE: [Las excepciones se detectan automáticamente](app-insights-java-get-started.md#exceptions-and-request-failures)
-* Aplicaciones de Windows: [Los bloqueos se detectan automáticamente](app-insights-windows-crashes.md)
+* ASP.NET: [escritura de código para detectar excepciones](app-insights-asp-net-exceptions.md)
+* J2EE: [las excepciones se detectan automáticamente](app-insights-java-get-started.md#exceptions-and-request-failures)
+* Aplicaciones de Windows: [los bloqueos se detectan automáticamente](app-insights-windows-crashes.md)
 * JavaScript: Detectado automáticamente. Si desea deshabilitar la colección automática, agregue una línea al fragmento de código que se inserta en las páginas web:
 
     ```
@@ -296,7 +300,7 @@ Utilice esta llamada para realizar un seguimiento de los tiempos de respuesta y 
             }
 ```
 
-Recuerde que los SDK del servidor incluyen un [módulo de dependencia](app-insights-dependencies.md) que detecta y realiza automáticamente el seguimiento de ciertas llamadas de dependencia; por ejemplo, a bases de datos y API de REST. Debe instalar un agente en el servidor para que el módulo funcione. Utilizará esta llamada si desea hacer un seguimiento de las llamadas no captadas por el seguimiento automatizado, o bien si no desea instalar el agente.
+Recuerde que los SDK del servidor incluyen un [módulo de dependencia](app-insights-dependencies.md) que detecta y realiza automáticamente el seguimiento de determinadas llamadas de dependencia; por ejemplo, a bases de datos y API de REST. Debe instalar un agente en el servidor para que el módulo funcione. Utilizará esta llamada si desea hacer un seguimiento de las llamadas no captadas por el seguimiento automatizado, o bien si no desea instalar el agente.
 
 Para desactivar el módulo de seguimiento de dependencias estándar, edite [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) y elimine la referencia a `DependencyCollector.DependencyTrackingTelemetryModule`.
 
@@ -644,26 +648,34 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 * **Location** Identifica la ubicación geográfica del dispositivo.
 * **Operation** En las aplicaciones web, es la solicitud HTTP actual. En otros tipos de aplicaciones, puede establecer este valor para agrupar los eventos juntos.
  * **Id**: valor generado que correlaciona distintos eventos, de modo que cuando usted inspeccione cualquier evento en Búsqueda de diagnóstico, puede encontrar "Elementos relacionados".
- * **Nombre**: un identificador, generalmente la dirección URL de la solicitud HTTP. 
+ * **Name**: un identificador, generalmente la dirección URL de la solicitud HTTP. 
  * **SyntheticSource**: si no es null o no está vacío, esta cadena indica que el origen de la solicitud se ha identificado como un robot o una prueba web. De forma predeterminada se excluirá de cálculos en el Explorador de métricas.
 * **Properties** Propiedades que se envían con todos los datos de telemetría. Se pueden invalidar en llamadas de seguimiento* individuales.
 * **Session** Identifica la sesión del usuario. El id. se establece en un valor generado, que cambia cuando el usuario lleva un tiempo sin estar activo.
-* **Usuario** Información del usuario. 
+* **User** Información del usuario. 
 
 
 
 ## Límites
 
-Hay algunos límites en cuanto al número de métricas y eventos por aplicación.
+Hay algunos límites en el número de métricas y eventos por aplicación (es decir, por clave de instrumentación).
 
-1. Hasta 500 puntos de datos de telemetría por segundo por clave de instrumentación (es decir, por aplicación). Esto incluye la telemetría estándar enviada por los módulos del SDK, además de eventos personalizados, métricas y otros datos de telemetría enviados por el código.
+1. Una velocidad máxima por segundo que se aplica por separado a cada clave de instrumentación. Por encima del límite, se quitarán algunos datos.
+ * Hasta 500 puntos de datos por segundo de llamadas a TrackTrace y datos de registro capturados. (100 por segundo para el plan de tarifa gratuito).
+ * Hasta 50 puntos de datos por segundo para las excepciones, que capturan nuestros módulos o llamadas a TrackException. 
+ * Hasta 500 puntos de datos por segundo para todos los demás datos, donde se incluyen la telemetría estándar enviada por los módulos del SDK, y los eventos personalizados, las métricos y otros datos de telemetría enviados por su código. (100 por segundo para el plan de tarifa gratuito).
+1. Volumen total mensual de datos, según el [plan de tarifa](app-insights-pricing.md).
 1.	Máximo de 200 nombres de métrica únicos y 200 nombres de propiedad únicos para la aplicación. Las métricas incluyen el envío de datos a través de TrackMetric, así como mediciones u otros tipos de datos como eventos. Los nombres de métricas y propiedades son globales por clave de instrumentación, no limitadas al tipo de datos.
 2.	Las propiedades se pueden usar para filtrar y agrupar por solo cuando tienen menos de 100 valores únicos para cada propiedad. Después de que los valores únicos superen 100, una propiedad todavía se puede usar para búsqueda y filtrado pero no para filtros.
 3.	Las propiedades estándar como el nombre de la solicitud y la URL de página se limitan a 1000 valores únicos por semana. Después de 1000 valores únicos, los valores adicionales se marcan como "Otros valores". El valor original puede seguir usándose para la búsqueda de texto completo y el filtrado.
 
-* *P: ¿Durante cuánto tiempo se conservan los datos?*
+*¿Cómo puedo evitar llegar al límite de velocidad de datos?*
 
-    Consulte [Privacidad y retención de los datos][data].
+* Instale el SDK más reciente para usar el [muestreo](app-insights-sampling.md).
+
+*¿Durante cuánto tiempo se conservan los datos?*
+
+* Consulte [Privacidad y retención de los datos][data].
 
 
 ## Documentos de referencia
@@ -715,7 +727,7 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
@@ -724,4 +736,4 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

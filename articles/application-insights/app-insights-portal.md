@@ -163,7 +163,7 @@ En Búsqueda se muestran eventos individuales, como vistas de páginas, solicitu
 
 Abra la búsqueda de diagnóstico:
 
-![Open diagnostic search](./media/app-insights-diagnostic-search/01-open-Diagnostic.png)
+![Open diagnostic search](./media/app-insights-portal/01-open-Diagnostic.png)
 
 Abra la hoja Filtro y elija los tipos de evento que desea ver. (Si, posteriormente, desea restaurar los filtros con los que abrió la hoja, haga clic en Restablecer).
 
@@ -205,4 +205,4 @@ Para ver de nuevo la búsqueda, **vaya a la hoja de información general** y abr
 
 Si ha guardado con el intervalo de tiempo relativo, la hoja abierta de nuevo tiene los datos más recientes. Si ha guardado con el intervalo de tiempo absoluto, verá los mismos datos cada vez.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

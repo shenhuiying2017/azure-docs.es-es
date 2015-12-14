@@ -28,7 +28,7 @@ En este artículo se describen diferentes maneras de etiquetar una máquina virt
 
 En primer lugar, veamos el etiquetado a través de plantillas. [Esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) coloca etiquetas en los siguientes recursos: proceso (máquina virtual), almacenamiento (cuenta de almacenamiento) y red (dirección IP pública, red virtual e interfaz de red).
 
-Haga clic en el botón **Implementar en Azure** del [vínculo de la plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Esto le remitirá a la [Portal de vista previa de Azure](http://portal.azure.com/), donde puede implementar esta plantilla.
+Haga clic en el botón **Implementar en Azure** del [vínculo de la plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Esto le remitirá al [Portal de Azure](http://portal.azure.com/), donde puede implementar esta plantilla.
 
 ![Implementación sencilla con etiquetas](./media/virtual-machines-tagging-arm/deploy-to-azure-tags.png)
 
@@ -47,7 +47,7 @@ Guarde el archivo de plantilla cuando termine de modificarlo con las etiquetas q
 
 A continuación, en la sección **Editar parámetros**, puede rellenar los valores de las etiquetas.
 
-![Edición de etiquetas en el Portal de vista previa de Azure](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
+![Editar etiquetas en el Portal de Azure](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
 
 Haga clic en **Crear** para implementar esta plantilla con sus valores de etiqueta.
 
@@ -58,15 +58,15 @@ Después de crear los recursos con etiquetas, puede ver, agregar y eliminar etiq
 
 Seleccione el icono de etiquetas para ver las etiquetas:
 
-![Icono de etiquetas en el Portal de vista previa de Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-icon.png)
+![Icono de etiquetas en el Portal de Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-icon.png)
 
 Para agregar una nueva etiqueta desde el portal, defina su propio par de clave-valor y guárdela.
 
-![Adición de nueva etiqueta en el Portal de vista previa de Azure](./media/virtual-machines-tagging-arm/azure-portal-add-new-tag.png)
+![Agregar etiqueta nueva en el Portal de Azure](./media/virtual-machines-tagging-arm/azure-portal-add-new-tag.png)
 
 La nueva etiqueta debería aparecer en la lista de etiquetas del recurso.
 
-![Almacenamiento de nueva etiqueta en el Portal de vista previa de Azure](./media/virtual-machines-tagging-arm/azure-portal-saved-new-tag.png)
+![Etiqueta nueva guardada en el Portal de Azure](./media/virtual-machines-tagging-arm/azure-portal-saved-new-tag.png)
 
 
 ## Etiquetado con PowerShell
@@ -159,15 +159,15 @@ Las etiquetas colocadas en los recursos de proceso, red y almacenamiento a trav�
 
 Haga clic en **Descargar detalles de uso** para ver los detalles de uso de la suscripción.
 
-![Detalles de uso del Portal de vista previa de Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
+![Detalles de uso en el Portal de Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
 
 Seleccione el extracto de facturación y los detalles de uso de la **versión 2**:
 
-![Detalles de uso de la vista previa de la versión 2 en el Portal de vista previa de Azure](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
+![Detalles de uso de la vista previa de la versión 2 en el Portal de Azure](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
 
 En los detalles de uso puede ver todas las etiquetas en la columna de **etiquetas**:
 
-![Columna de etiquetas en el Portal de vista previa de Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
+![Columna de etiquetas en el Portal de Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
 
 Mediante el análisis de estas junto con el uso, las organizaciones podrán obtener nuevos puntos de vista en sus datos de consumo.
 
@@ -190,4 +190,4 @@ Mediante el análisis de estas junto con el uso, las organizaciones podrán obte
 [Comprender la factura de Azure]: ../billing-understand-your-bill.md
 [Obtención de información sobre el consumo de recursos de Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

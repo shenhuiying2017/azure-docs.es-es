@@ -66,7 +66,7 @@ Cuando usa el servicio Lote de Azure, se beneficia de los siguientes recursos:
 
 ### <a name="account"></a>Cuenta
 
-Una cuenta de Lote es una entidad identificada de forma exclusiva en el servicio Lote. Todo el procesamiento se asocia con una cuenta de Lote. Al realizar operaciones con el servicio Lote, necesita el nombre y la clave de la cuenta. Para crear una cuenta de Lote, consulte [Creación y administración de una cuenta de Lote de Azure en el Portal de vista previa de Azure](batch-account-create-portal.md).
+Una cuenta de Lote es una entidad identificada de forma exclusiva en el servicio Lote. Todo el procesamiento se asocia con una cuenta de Lote. Al realizar operaciones con el servicio Lote, necesita el nombre y la clave de la cuenta. Para crear una cuenta de Lote, consulte [Creación y administración de una cuenta de Lote de Azure en el Portal de Azure](batch-account-create-portal.md).
 
 ### <a name="computenode"></a>Nodo de ejecución
 
@@ -354,4 +354,4 @@ Cada nodo de un grupo recibe un id. único y el nodo en el que se ejecuta una ta
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

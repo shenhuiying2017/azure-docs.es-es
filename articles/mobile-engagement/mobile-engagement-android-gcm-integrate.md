@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Integración del SDK de Android para Azure Mobile Engagement" 
+<properties
+	pageTitle="Integración del SDK de Android para Azure Mobile Engagement"
 	description="Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="piyushjo" />
 
 #Integración de GCM con Mobile Engagement
@@ -24,16 +24,11 @@
 
 ##Introducción
 
-La integración de GCM permite realizar inserciones en la aplicación incluso cuando no se está ejecutando.
+La integración de GCM permite realizar inserciones en su aplicación.
 
-En realidad no se enviará ningún dato de campaña a través de GCM, es simplemente una señal de fondo que indica a la aplicación que capture la inserción de Engagement. Si la aplicación no se está ejecutando mientras se recibe una inserción de GCM, desencadena una conexión a los servidores de Engagement para capturar la inserción, la conexión de Engagement permanecerá activa durante aproximadamente un minuto en caso de que el usuario inicie la aplicación en la respuesta a la inserción.
+Las cargas GCM insertadas en el SDK siempre contienen la clave `azme` en el objeto de datos. Por lo tanto, si utiliza GCM para otra finalidad en la aplicación, puede filtrar las inserciones basándose en esa clave.
 
-Para su información, Engagement solo usa mensajes [Send-to-Sync] con la clave de contracción `engagement.tickle`.
-
-> [AZURE.IMPORTANT]Solo los dispositivos que ejecuten Android 2.2 o superior, tengan Google Play instalado y tengan conexión de fondo de Google habilitada pueden ser reactivados por GCM; sin embargo, puede integrar este código de forma segura en versiones anteriores del SDK de Android y en los dispositivos que no son compatibles con GCM (simplemente usa intentos). Si GCM no puede reactivar la aplicación, se recibirá la notificación de Engagement la próxima vez que se inicie la aplicación.
-
-
-> [AZURE.WARNING]Si su propio código de cliente administra identificadores de registro de C2DM mientras que el SDK de Engagement está configurado para usar GCM, se produce un conflicto en los identificadores de registro. Use GCM en Engagement solo si su propio código no usa C2DM.
+> [AZURE.IMPORTANT]Solo los dispositivos que ejecuten Android 2.2 o versiones posteriores, con Google Play instalado y con una conexión de fondo de Google habilitada, se pueden insertar mediante GCM; sin embargo, puede integrar este código de forma segura en los dispositivos no compatibles (simplemente usa representaciones).
 
 ##Suscripción a GCM y habilitación del servicio de GCM
 
@@ -74,7 +69,7 @@ Para comunicar el identificador de registro del dispositivo al servicio de inser
 			    <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
 			  </intent-filter>
 			</receiver>
-			
+
 			<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
 			  <intent-filter>
 			    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
@@ -115,12 +110,9 @@ Ahora es posible seleccionar "En cualquier momento" al crear sondeos y anuncios 
 Ahora, para comprobar su integración, lea Prueba de integración de Engagement en Android.
 
 
-[Send-to-Sync]: http://developer.android.com/google/gcm/adv.html#collapsible
 [<http://developer.android.com/guide/google/gcm/gs.html>]: http://developer.android.com/guide/google/gcm/gs.html
 [Google Developers Console]: https://cloud.google.com/console
 [biblioteca de cliente GCM]: http://developer.android.com/guide/google/gcm/gs.html#libs
 [Consola de desarrolladores de Google]: https://cloud.google.com/console
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

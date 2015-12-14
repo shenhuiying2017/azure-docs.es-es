@@ -54,7 +54,7 @@ Es habitual almacenar cadenas de conexión, credenciales de autenticación y otr
 
 El Servicio de aplicaciones de Azure le permite almacenar la información de configuración como parte del entorno de tiempo de ejecución de aplicaciones web en forma de **configuración de aplicación** y **cadenas de conexión**. Estos valores se exponen a su aplicación en el tiempo de ejecución a través de *variables de entorno* para la mayoría de lenguajes de programación. En el caso de las aplicaciones .NET, estos valores se insertan en la configuración de .NET en el tiempo de ejecución.
 
-**Configuración de aplicación** y **cadenas de conexión** se pueden configurar mediante el [Portal de vista previa de Azure](http://portal.azure.com) o utilidades como PowerShell o la CLI de Azure.
+**Configuración de aplicación** y **cadenas de conexión** se pueden configurar mediante el [Portal de Azure](http://portal.azure.com) o utilidades como PowerShell o la CLI de Azure.
 
 Para obtener más información sobre configuración de aplicación y cadenas de conexión, consulte [Configuración de aplicaciones web](web-sites-configure.md).
 
@@ -62,7 +62,7 @@ Para obtener más información sobre configuración de aplicación y cadenas de 
 
 Azure proporciona acceso FTP seguro al sistema de archivos para la aplicación web a través de **FTPS**. Esto le permite tener acceso seguro al código de la aplicación en la aplicación web, así como a los registros de diagnóstico. El vínculo FTPS para su aplicación web puede encontrarse con los siguientes pasos:
 
-1. Abra el [Portal de vista previa de Azure](http://portal.azure.com).
+1. Abra el [Portal de Azure](http://portal.azure.com).
 2. Seleccione **Examinar todo**.
 3. Desde la hoja **Examinar**, seleccione **Aplicaciones web**.
 4. Desde la hoja **Aplicaciones web**, seleccione la aplicación web deseada.
@@ -85,7 +85,4 @@ Para obtener información sobre información de registro para aplicaciones web, 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

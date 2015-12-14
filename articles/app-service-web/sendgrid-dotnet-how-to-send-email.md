@@ -116,7 +116,7 @@ Después de crear un mensaje de correo electrónico, puede enviarlo con la API w
 
 El envío de correos electrónicos requiere que proporcione las credenciales de su cuenta de SendGrid (nombre de usuario y contraseña) o la clave de API de SendGrid. La clave de API es el método preferido. Si desea obtener detalles sobre cómo configurar claves de API, visite nuestra [documentación](https://sendgrid.com/docs/Classroom/Send/api_keys.html).
 
-Puede almacenar estas credenciales en el portal de Azure haciendo clic en CONFIGURAR y agregando pares clave-valor en "configuración de la aplicación".
+Puede almacenar estas credenciales en el Portal de Azure haciendo clic en CONFIGURAR y agregando pares clave-valor en "configuración de la aplicación".
 
  ![Configuración de la aplicación de Azure][azure_app_settings]
 
@@ -261,4 +261,4 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
   [entrega de correos electrónicos transaccional]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

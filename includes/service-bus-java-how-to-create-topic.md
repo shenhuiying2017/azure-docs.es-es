@@ -16,11 +16,11 @@ Para comenzar a usar suscripciones y temas del Bus de servicio en Azure, primero
 
 Para crear un nombre de espacio de servicio:
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de Azure clásico][].
 
-2.  En el panel de navegación izquierdo del Portal de administración, haga clic en **us de servicio**.
+2.  En el panel de navegación izquierdo del Portal, haga clic en **Bus de servicio**.
 
-3.  En el panel inferior del Portal de administración, haga clic en **Crear**. ![][0]
+3.  En el panel inferior del Portal, haga clic en **Crear**. ![][0]
 
 4.  En el cuadro de diálogo **Agregar un nuevo espacio de nombres**, escriba un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible. ![][2]
 
@@ -35,7 +35,7 @@ Para crear un nombre de espacio de servicio:
 
 ## Obtención de credenciales de administración predeterminadas para el espacio de nombres
 
-Para realizar operaciones de administración (como la creación de un tema o una suscripción) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres. Puede obtener estas credenciales desde el Portal de administración de Azure.
+Para realizar operaciones de administración (como la creación de un tema o una suscripción) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres. Puede obtener estas credenciales en el portal.
 
 ### Para obtener las credenciales de administración desde el portal
 
@@ -48,7 +48,7 @@ Para realizar operaciones de administración (como la creación de un tema o una
 4.  Anote la clave principal o cópiela en el Portapapeles.
 
 
-  [Portal de administración de Azure]: http://manage.windowsazure.com
+  [Azure portal]: http://manage.windowsazure.com
   [0]: ./media/service-bus-java-how-to-create-topic/sb-queues-13.png
   [2]: ./media/service-bus-java-how-to-create-topic/sb-queues-04.png
   [3]: ./media/service-bus-java-how-to-create-topic/sb-queues-09.png
@@ -57,4 +57,4 @@ Para realizar operaciones de administración (como la creación de un tema o una
   [6]: ./media/service-bus-java-how-to-create-topic/getting-started-multi-tier-27.png
   [34]: ./media/service-bus-java-how-to-create-topic/VSProperties.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

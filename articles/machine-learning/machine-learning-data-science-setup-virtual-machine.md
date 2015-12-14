@@ -26,7 +26,7 @@ Si ya tiene una máquina virtual de Azure y solo quiere configurar un servidor d
 
 Antes de comenzar el proceso de creación de una máquina virtual en Azure, deberá determinar el tamaño de la máquina que se necesita para procesar los datos para su proyecto. Las máquinas más pequeñas tienen menos memoria y menos núcleos de CPU que los equipos más grandes, pero también son menos costosas. Para obtener una lista de tipos de equipos y sus precios, consulte la página <a href="http://azure.microsoft.com/pricing/details/virtual-machines/" target="_blank">Precios de máquinas virtuales</a>.
 
-1. Inicie sesión en el <a href="https://manage.windowsazure.com" target="_blank">Portal de Azure</a> y haga clic en **Nuevo** en la esquina inferior izquierda. Aparecerá una ventana. Seleccione **PROCESO** -> **MÁQUINA VIRTUAL** -> **DE LA GALERÍA**.
+1. Inicie sesión en el <a href="https://manage.windowsazure.com" target="_blank">Portal de Azure clásico</a> y haga clic en **Nuevo** en la esquina inferior izquierda. Aparecerá una ventana. Seleccione **PROCESO** -> **MÁQUINA VIRTUAL** -> **DE LA GALERÍA**.
 
 	![Creación del espacio de trabajo][24]
 
@@ -60,7 +60,7 @@ El proceso de aprovisionamiento de la máquina virtual puede tardar de 15 a 25 m
 
 Si ha creado la máquina virtual siguiendo las instrucciones del paso 1, ya se ha agregado el extremo para Bloc de notas de IPython y se puede omitir este paso.
 
-Si la máquina virtual ya existe y necesita agregar un extremo para Bloc de notas de IPython que instalará en el paso 3 que se muestra más adelante, inicie sesión primero en el Portal de administración de Azure, seleccione la máquina virtual y agregue el extremo del servidor de Bloc de notas de IPython. En la siguiente ilustración se muestra una captura de pantalla del portal después de que el extremo para Bloc de notas de IPython se haya agregado a una máquina virtual de Windows.
+Si la máquina virtual ya existe y necesita agregar un punto de conexión para Bloc de notas de IPython que instalará en el paso 3 que se muestra más adelante, inicie sesión primero en el Portal de Azure clásico, seleccione la máquina virtual y agregue el punto de conexión del servidor de Bloc de notas de IPython. En la siguiente ilustración se muestra una captura de pantalla del portal después de que el extremo para Bloc de notas de IPython se haya agregado a una máquina virtual de Windows.
 
 ![Creación del espacio de trabajo][17]
 
@@ -79,7 +79,7 @@ Cuando se le pida, escriba una contraseña para Bloc de notas de IPython y la co
 ## <a name="access"></a>Paso 4: Acceso a IPython Notebook desde un explorador web
 Para acceder al servidor de IPython Notebook, abra un explorador web y escriba *https://&#60;virtual nombre de equipo DNS>:&#60;número de puerto público>* en el cuadro de texto de la dirección URL. En este caso, el *&#60;número de puerto público>* debería ser el número de puerto que especificó cuando agregó el extremo de IPython Notebook.
 
-El *&#60;nombre DNS de la máquina virtual>* puede encontrarse en el Portal de administración de Azure. Después de iniciar sesión en el portal de administración, haga clic en **MÁQUINAS VIRTUALES**, seleccione la que creó y, después, seleccione **PANEL**; se mostrará el nombre DNS como se indica a continuación:
+El *&#60;nombre DNS de la máquina virtual>* puede encontrarse en el Portal de Azure clásico. Después de iniciar sesión en el Portal clásico, haga clic en **MÁQUINAS VIRTUALES**, seleccione la que creó y, después, seleccione **PANEL**; se mostrará el nombre DNS como se indica a continuación:
 
 ![Creación del espacio de trabajo][19]
 
@@ -104,11 +104,11 @@ Los Blocs de notas de IPython ofrecen una manera fácil para que los usuarios ca
 
 Las máquinas virtuales de Azure tienen unas tarifas del tipo **pague solo por lo que use**. Para asegurarse de que no se le facture cuando no use la máquina virtual, debe estar en el estado **Detenida (desasignada)**.
 
-> [AZURE.NOTE]Si apaga la máquina virtual desde dentro de la misma (mediante las opciones de energía de Windows), la máquina virtual se detiene pero permanece asignada. Para asegurarse de que no se sigue facturando, detenga siempre las máquinas virtuales desde el [Portal de administración de Azure](http://manage.windowsazure.com/). También puede detener la máquina virtual a través de Powershell, con una llamada a **ShutdownRoleOperation** con "PostShutdownAction" igual a "StoppedDeallocated".
+> [AZURE.NOTE]Si apaga la máquina virtual desde dentro de la misma (mediante las opciones de energía de Windows), la máquina virtual se detiene pero permanece asignada. Para asegurarse de que no se sigue facturando, detenga siempre las máquinas virtuales desde el [Portal de Azure clásico](http://manage.windowsazure.com/). También puede detener la máquina virtual a través de Powershell, con una llamada a **ShutdownRoleOperation** con "PostShutdownAction" igual a "StoppedDeallocated".
 
 Para apagar y desasignar la máquina virtual:
 
-1. Inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com/) con su cuenta.  
+1. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com/) con su cuenta.  
 
 2. Seleccione **MÁQUINAS VIRTUALES** en la barra de navegación de la izquierda.
 
@@ -118,7 +118,7 @@ Para apagar y desasignar la máquina virtual:
 
 ![Apagado de máquina virtual][15]
 
-Se desasignará la máquina virtual, pero no se eliminará. Puede reiniciar la máquina virtual en cualquier momento desde el Portal de administración de Azure.
+Se desasignará la máquina virtual, pero no se eliminará. Puede reiniciar la máquina virtual en cualquier momento desde el Portal de Azure clásico.
 
 ## La máquina virtual de Azure está lista para su uso: ¿qué es lo siguiente?
 
@@ -143,4 +143,4 @@ Los pasos siguientes de Tecnología y procesos de análisis avanzado se asignan 
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

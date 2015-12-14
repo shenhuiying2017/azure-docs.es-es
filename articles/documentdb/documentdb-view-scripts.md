@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Ver procedimientos almacenados, desencadenadores y funciones definidas por el usuario mediante el Explorador de scripts de DocumentDB | Microsoft Azure"
-	description="Obtenga información sobre el Explorador de scripts de Microsoft Azure DocumentDB, una herramienta del portal de vista previa de Azure para ver los artefactos de programación del lado servidor de DocumentDB, incluidos procedimientos almacenados, desencadenadores y funciones definidas por el usuario."
+	description="Obtenga información sobre el Explorador de scripts de Microsoft Azure DocumentDB, una herramienta del Portal de Azure para ver los artefactos de programación del lado servidor de DocumentDB, incluidos procedimientos almacenados, desencadenadores y funciones definidas por el usuario."
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/02/2015"
+	ms.date="12/01/2015"
 	ms.author="anhoh"/>
 
 # Ver, editar y crear procedimientos almacenados, desencadenadores y funciones definidas por el usuario mediante el Explorador de scripts de DocumentDB
 
-En este artículo se ofrece información general sobre el Explorador de scripts de [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), una herramienta del portal de vista previa de Azure que le permite ver los artefactos de programación del lado servidor de DocumentDB, incluidos procedimientos almacenados, desencadenadores y funciones definidas por el usuario. Obtenga más información sobre la programación del lado servidor de DocumentDB [aquí](documentdb-programming.md).
+En este artículo se ofrece información general sobre el Explorador de scripts de [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), una herramienta del Portal de Azure que le permite ver los artefactos de programación del lado servidor de DocumentDB, incluidos procedimientos almacenados, desencadenadores y funciones definidas por el usuario. Obtenga más información sobre la programación del lado servidor de DocumentDB [aquí](documentdb-programming.md).
 
 Después de completar este tutorial, podrá responder a las preguntas siguientes:
 
@@ -106,4 +106,4 @@ El Explorador de scripts le permite llevar a cabo con facilidad operaciones de C
 Para obtener más información sobre DocumentDB, haga clic [aquí](http://azure.com/docdb).
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

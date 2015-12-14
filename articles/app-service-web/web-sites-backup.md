@@ -42,14 +42,14 @@ Esta información se guarda en una copia de seguridad en la cuenta de almacenami
 
 * La característica Copia de seguridad y restauración requiere que el sitio esté en el nivel estándar. Para obtener más información sobre cómo escalar la aplicación web para utilizar el modo estándar, consulte [Escalado de una aplicación web en el servicio de aplicaciones de Azure](web-sites-scale.md). Tenga en cuenta que el modo Premium permite que se realice un mayor número de copias de seguridad diarias en modo estándar.
 
-* La característica Copia de seguridad y restauración requiere una cuenta de almacenamiento y el contenedor de Azure que debe pertenecer a la misma suscripción que la aplicación web del que quiere tener una copia de seguridad. Si aún no tiene una cuenta de almacenamiento, para crear una, haga clic en **Cuenta de almacenamiento** en la hoja **Copias de seguridad** del [Portal de vista previa de Azure](http://portal.azure.com) y elija la **cuenta de almacenamiento** y el **contenedor** en la hoja **Destino**. Para obtener más información sobre las cuentas de almacenamiento de Azure, consulte los [vínculos](#moreaboutstorage) al final de este artículo.
+* La característica Copia de seguridad y restauración requiere una cuenta de almacenamiento y el contenedor de Azure que debe pertenecer a la misma suscripción que la aplicación web del que quiere tener una copia de seguridad. Si aún no tiene una cuenta de almacenamiento, para crear una, haga clic en **Cuenta de almacenamiento** en la hoja **Copias de seguridad** del [Portal de Azure](http://portal.azure.com) y elija la **cuenta de almacenamiento** y el **contenedor** en la hoja **Destino**. Para obtener más información sobre las cuentas de almacenamiento de Azure, consulte los [vínculos](#moreaboutstorage) al final de este artículo.
 
 * La característica de copia de seguridad y restauración admite hasta 10 GB de contenido de sitio web y base de datos. Si la característica de copia de seguridad no puede continuar porque la carga supera este límite, se indicará un error en los registros de operación.
 
 <a name="manualbackup"></a>
 ## Crear una copia de seguridad manual
 
-1. En el portal de Azure, elija la aplicación web en la hoja Aplicaciones web. Esto mostrará los detalles de la aplicación web en una nueva hoja.
+1. En el Portal de Azure, elija la aplicación web en la hoja Aplicaciones web. Esto mostrará los detalles de la aplicación web en una nueva hoja.
 2. Seleccione la opción **Configuración**. Se mostrará la hoja **Configuración** donde puede modificar la aplicación web.
 	
 	![Página Copias de seguridad][ChooseBackupsPage]
@@ -89,7 +89,7 @@ Puede realizar una copia de seguridad manual en cualquier momento.
 	
 4. Use la opción **Fecha de inicio** para especificar la fecha y la hora a las que quiere que comience la copia de seguridad automatizada.
 	
-	> [AZURE.NOTE]Azure almacena las horas de las copias de seguridad en formato UTC, pero las muestra de acuerdo con la hora del sistema del equipo que esté utilizando para visualizar el portal.
+	> [AZURE.NOTE]Azure almacena las horas de las copias de seguridad en formato UTC, pero las muestra de acuerdo con la hora del sistema del equipo que esté usando para visualizar el portal.
 	
 5. En la sección **Bases de datos incluidas**, seleccione las bases de datos que están conectadas con su aplicación web (SQL Server o MySQL) y de las que quiera guardar una copia de seguridad. Para que una base de datos aparezca en la lista, su cadena de conexión debe existir en la sección **Cadenas de conexión** de la hoja **Configuración de la aplicación web** del portal.
 	
@@ -125,8 +125,7 @@ Para excluir archivos y carpetas de las copias de seguridad, cree u archivo `_ba
 
 Suponga que tiene una aplicación web contiene archivos de registro e imágenes estáticas de los últimos años que nunca van a cambiar. Ya tiene una copia de seguridad completa de la aplicación web que incluye las imágenes anteriores. Ahora me gustaría hacer una copia de seguridad de la aplicación web todos los días, pero no quiere pagar para almacenar los archivos de registro o los archivos de imagen estática que no van a cambiar.
 
-![Carpeta de registros][LogsFolder]
-![Carpeta de imágenes][ImagesFolder]
+![Carpeta de registros][LogsFolder] ![Carpeta de imágenes][ImagesFolder]
 	
 Los pasos siguientes muestran cómo podría excluir estos archivos de la copia de seguridad.
 
@@ -142,7 +141,7 @@ Los pasos siguientes muestran cómo podría excluir estos archivos de la copia d
 
 2. Cree un archivo llamado `_backup.filter` y ponga la lista anterior en el archivo, pero quite `D:\home`. Enumere un directorio o archivo por línea. Por lo tanto, el contenido del archivo debe ser:
 
-    \site\wwwroot\Logs \LogFiles \site\wwwroot\Images\2013 \site\wwwroot\Images\2014 \site\wwwroot\Images\brand.png
+    \\site\\wwwroot\\Logs \\LogFiles \\site\\wwwroot\\Images\\2013 \\site\\wwwroot\\Images\\2014 \\site\\wwwroot\\Images\\brand.png
 
 3. Cargue este archivo en el directorio `D:\home\site\wwwroot` de su sitio con [ftp](web-sites-deploy.md#ftp) o cualquier otro método. Si lo desea, puede crear el archivo directamente en `http://{yourapp}.scm.azurewebsites.net/DebugConsole` e insertar el contenido.
 
@@ -160,7 +159,7 @@ Ahora, los archivos y carpetas que se especifican en `_backup.filter` se excluir
 
 Después de realizar una o varias copias de seguridad de la aplicación web, las copias estarán visibles en la hoja **Contenedores** de la cuenta de almacenamiento, así como la aplicación web. En la cuenta de almacenamiento, cada copia de seguridad consta de un archivo .zip que contiene los datos de copia de seguridad y el archivo .xml que contiene un manifiesto del contenido del archivo zip. Puede descomprimir y examinar estos archivos si desea disponer de acceso a las copias de seguridad sin tener que realizar una restauración de la aplicación web.
 
-La copia de seguridad de la base de datos para la aplicación web se almacena en la raíz del archivo .zip. En bases de datos de SQL, este es un archivo BACPAC (sin extensión de archivo) y se puede importar. Para crear una nueva base de datos SQL basándose en la exportación del BACPAC, consulte[Importación de un archivo de BACPAC para crear una nueva base de datos de usuario](http://technet.microsoft.com/library/hh710052.aspx).
+La copia de seguridad de la base de datos para la aplicación web se almacena en la raíz del archivo .zip. En bases de datos de SQL, este es un archivo BACPAC (sin extensión de archivo) y se puede importar. Para crear una nueva base de datos SQL basándose en la exportación del BACPAC, vea [Importación de un archivo de BACPAC para crear una nueva base de datos de usuario](http://technet.microsoft.com/library/hh710052.aspx).
 
 > [AZURE.WARNING]La modificación de los archivos del contenedor **websitebackups** puede ocasionar que la base de datos deje de ser válida y, por lo tanto, no se pueda restaurar.
 
@@ -204,7 +203,6 @@ Para comenzar con Azure, vea [Evaluación gratuita de Microsoft Azure](/pricing/
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [ChooseBackupsPage]: ./media/web-sites-backup/01ChooseBackupsPage.png
@@ -222,4 +220,4 @@ Para comenzar con Azure, vea [Evaluación gratuita de Microsoft Azure](/pricing/
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

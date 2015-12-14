@@ -29,21 +29,21 @@ Configure la primera o siguiente granja de servidores de desarrollo/prueba de Sh
 
 Este entorno creado automáticamente consta de tres servidores en una red virtual de Azure solo en la nube: un controlador de dominio, un servidor SQL y el servidor SharePoint.
 
-Consulte el elemento [Granja de SharePoint 2013 sin alta disponibilidad](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) en Azure Marketplace del Portal de vista previa de Azure. Esto crea una granja de servidores de desarrollo y prueba básica para un sitio web de SharePoint a través de Internet. Para obtener detalles adicionales, consulte [Creación de granjas de servidores de SharePoint](virtual-machines-sharepoint-farm-azure-preview.md).
+Consulte el elemento [Granja de SharePoint 2013 sin alta disponibilidad](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) en Azure Marketplace del Portal de Azure. Esto crea una granja de servidores de desarrollo y prueba básica para un sitio web de SharePoint a través de Internet. Para obtener detalles adicionales, consulte [Creación de granjas de servidores de SharePoint](virtual-machines-sharepoint-farm-azure-preview.md).
 
 También puede usar una plantilla del Administrador de recursos de Azure. Consulte [Implementación de una granja de tres servidores de SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
 
-> [AZURE.NOTE]Se quitó el elemento **Granja de servidores SharePoint** en Azure Marketplace del Portal de vista previa de Azure.
+> [AZURE.NOTE]Se quitó el elemento **Granja de servidores SharePoint** en Azure Marketplace del Portal de Azure.
 
 ## Granja de desarrollo/prueba de SharePoint de alta disponibilidad
 
 Este entorno creado automáticamente que consta de nueve servidores en una red virtual de Azure solo en la nube: dos para los controladores de dominio, tres para un clúster de SQL Server, dos servidores de SharePoint de capa de aplicación y dos servidores de SharePoint de capa de web.
 
-Consulte el elemento [Granja de SharePoint 2013 con alta disponibilidad](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) en Azure Marketplace del Portal de vista previa de Azure. Con esto se crea una granja de servidores de desarrollo y prueba de alta disponibilidad para un sitio web de SharePoint orientado a Internet. Para obtener detalles adicionales, consulte [Creación de granjas de servidores de SharePoint](virtual-machines-sharepoint-farm-azure-preview.md).
+Consulte el elemento [Granja de SharePoint 2013 con alta disponibilidad](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) en Azure Marketplace del Portal de Azure. Con esto se crea una granja de servidores de desarrollo y prueba de alta disponibilidad para un sitio web de SharePoint orientado a Internet. Para obtener detalles adicionales, consulte [Creación de granjas de servidores de SharePoint](virtual-machines-sharepoint-farm-azure-preview.md).
 
 También puede usar una plantilla del Administrador de recursos de Azure. Consulte [Implementación de una granja de nueve servidores de SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
 
-> [AZURE.NOTE]Se quitó el elemento **Granja de servidores SharePoint** en Azure Marketplace del Portal de vista previa de Azure.
+> [AZURE.NOTE]Se quitó el elemento **Granja de servidores SharePoint** en Azure Marketplace del Portal de Azure.
 
 ## Granja de servidores de desarrollo/prueba de nube híbrida
 
@@ -69,4 +69,4 @@ Esta configuración usa el modelo de implementación clásica.
 
 [Implementación de la sincronización de directorios de Office 365 (DirSync) en Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

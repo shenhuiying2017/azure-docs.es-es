@@ -212,4 +212,4 @@ Como referencia, el flujo completo de adquisición de tokens e inicio de sesión
 
 ![Calles OpenId Connect](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

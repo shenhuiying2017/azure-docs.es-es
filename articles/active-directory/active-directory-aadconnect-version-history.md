@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/03/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect: historial de versiones
@@ -26,6 +26,16 @@ Vínculos relacionados:
 
 - Para obtener información sobre los permisos necesarios para aplicar una actualización, vea [cuentas y permisos](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.0.9131.0
+Fecha de publicación: diciembre de 2015
+
+**Problemas corregidos:**
+
+- La sincronización de contraseñas podría no funcionar al cambiar las contraseñas en AD DS, pero funciona al establecer la contraseña.
+- Cuando se tiene un servidor proxy, la autenticación en Azure AD puede producir un error durante la instalación o la actualización en la página de configuración.
+- La actualización desde una versión anterior de Azure AD Connect con una instalación completa de SQL Server producirá un error si no es una asociación de seguridad en SQL.
+- La actualización desde una versión anterior de Azure AD Connect con una instalación remota de SQL Server mostrará el error "No se puede obtener acceso a la base de datos SQL de ADSync".
 
 ## 1\.0.9125.0
 Publicado: noviembre de 2015
@@ -44,7 +54,7 @@ Publicado: noviembre de 2015
 
 **Nuevo escenarios admitido:**
 
-- Admite varias organizaciones de Exchange locales. Consulte [Implementaciones híbridas con varios bosques de Active Directory](https://technet.microsoft.com/es-ES/library/jj873754.aspx) para obtener más información.
+- Admite varias organizaciones de Exchange locales. Consulte [Implementaciones híbridas con varios bosques de Active Directory](https://technet.microsoft.com/library/jj873754.aspx) para obtener más información.
 
 **Problemas corregidos:**
 
@@ -83,7 +93,7 @@ Fecha de publicación: agosto de 2015
 
 **Características de versión la preliminar eliminadas:**
 
-- La característica [Reescritura de usuarios](active-directory-aadconnect-feature-preview.md#user-writeback) de la versión preliminar se ha eliminado temporalmente a raíz de los comentarios de nuestros clientes de dicha versión. Se volverá a agregar más adelante después de examinar los comentarios proporcionados.
+- La característica en vista previa [Reescritura de usuarios](active-directory-aadconnect-feature-preview.md#user-writeback) se ha eliminado temporalmente a raíz de los comentarios de nuestros clientes de vista previa. Se volverá a agregar más adelante después de examinar los comentarios proporcionados.
 
 ## 1\.0.8641.0
 Fecha de publicación: junio de 2015
@@ -94,7 +104,7 @@ Ha cambiado el nombre de Azure AD Sync a Azure AD Connect.
 
 **Nuevas características:**
 
-- Instalación de [configuración rápida](active-directory-aadconnect-get-started-express.md)
+- Instalación de la [configuración rápida](active-directory-aadconnect-get-started-express.md)
 - Posibilidad de [configurar ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
 - Posibilidad de [actualizar desde DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 - [Evitar eliminaciones accidentales](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
@@ -155,7 +165,7 @@ Fecha de publicación: diciembre de 2014
 
 **Nuevas características:**
 
-- Ahora es posible realizar la sincronización de contraseñas con filtrado basado en atributos. Para obtener más detalles, consulte [Sincronización de contraseñas con filtrado](active-directory-aadconnectsync-configure-filtering.md).
+- Ahora es posible realizar la sincronización de contraseñas con filtrado basado en atributos. Para obtener más información, consulte [Sincronización de contraseñas con filtrado](active-directory-aadconnectsync-configure-filtering.md).
 - El atributo msDS-ExternalDirectoryObjectID se reescribe en AD. De esta forma se agrega compatibilidad con las aplicaciones de Office 365 mediante OAuth2 para tener acceso tanto a los buzones en línea como locales en una implementación híbrida de Exchange.
 
 **Problemas de actualización corregidos:**
@@ -199,4 +209,4 @@ Fecha de publicación: septiembre de 2014
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,6 +18,8 @@
 
 # Uso de una aplicación de API del Servicio de aplicaciones de Azure desde un cliente .NET 
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Información general
 
 Este tutorial muestra cómo usar el SDK del Servicio de aplicaciones para escribir código que llama a una [aplicación de API](app-service-api-apps-why-best-platform.md) configurada para el nivel de acceso **Público (anónimo)** o **Público (autenticado)**. En este artículo se tratan los escenarios siguientes:
@@ -202,7 +204,7 @@ En este artículo se ha mostrado cómo usar una aplicación API desde un cliente
 
 Para obtener más ejemplos de código que llama a una aplicación de API de clientes. NET, descargue la aplicación de ejemplo [Tarjetas de Azure](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample).
 
-Para obtener información sobre cómo utilizar la autenticación en aplicaciones de API, consulte [Autenticación para aplicaciones de API y aplicaciones móviles en el Servicio de aplicaciones de Azure](../app-service/app-service-authentication-overview.md).
+Para obtener información sobre cómo usar la autenticación en aplicaciones de API, consulte [Autenticación para aplicaciones de API y aplicaciones de móvil en el Servicio de aplicaciones de Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

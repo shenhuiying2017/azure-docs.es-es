@@ -32,6 +32,6 @@ Para resolverlo, consulte el artículo [¿Por qué ha recibido una notificación
 
 ### La suscripción de Azure está cancelada
 
-Para reactivar una suscripción, debe crear una incidencia de soporte técnico. Para crear una incidencia de soporte técnico con el fin de rehabilitar una suscripción de Azure, consulte el artículo [Creación de una incidencia de soporte técnico sobre problemas de suscripción y facturación de Azure](../billing-create-billing-support-ticket.md).
+Para reactivar una suscripción, debe crear una incidencia de soporte técnico. Para crear una incidencia de soporte técnico con el fin de rehabilitar una suscripción de Azure, consulte el artículo [Creación de una incidencia de soporte técnico sobre problemas de suscripción y facturación de Azure](../billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,10 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="11/30/2015"
 	ms.author="kenhoff;Justinha;curtand"/>
 
+
 # Visualización de los informes de acceso y uso
+
+## Artículos de documentación de informes
+
+ - [API de Informes](active-directory-reporting-api-getting-started.md)
+ - [Eventos de auditoría](active-directory-reporting-audit-events.md)
+ - [Retención](active-directory-reporting-retention.md)
+ - [Vistas previas](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [Reposición](active-directory-reporting-backfill.md)
+ - [Latencias](active-directory-reporting-latencies.md)
+ - [Evento "Actor desconocido"](active-directory-reporting-unknown-actor.md)
 
 Puede usar los informes de acceso y uso de Active Directory de Azure para proporcionar visibilidad sobre la integridad y la seguridad del directorio de su organización. Con esta información, un administrador de directorios puede determinar mejor dónde puede haber posibles riesgos de seguridad de modo que pueda planear adecuadamente la mitigación de estos riesgos.
 
@@ -275,4 +287,4 @@ Para obtener más información sobre las notificaciones de informes de Azure AD,
 - [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

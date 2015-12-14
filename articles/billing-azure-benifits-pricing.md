@@ -20,6 +20,6 @@
 
 #¿Dónde puedo encontrar información sobre beneficios y precios de Servicios de Azure?
 
-Microsoft Azure le ayuda a implementar infraestructuras y servicios con rapidez para satisfacer todas sus necesidades empresariales. Puede ejecutar aplicaciones basadas en Windows y Linux en 19 regiones de centros de datos de Azure, ofrecidas con contratos de nivel de servicio de nivel empresarial. Para obtener información sobre las ventajas de los servicios de Azure, consulte [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/es-ES/support/legal/offer-details/). Para obtener información de precios, consulte la [página de precios de Azure](https://azure.microsoft.com/es-ES/pricing/).
+Microsoft Azure le ayuda a implementar infraestructuras y servicios con rapidez para satisfacer todas sus necesidades empresariales. Puede ejecutar aplicaciones basadas en Windows y Linux en 19 regiones de centros de datos de Azure, ofrecidas con contratos de nivel de servicio de nivel empresarial. Para obtener información sobre las ventajas de los servicios de Azure, consulte [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Para obtener información de precios, consulte la [página de precios de Azure](https://azure.microsoft.com/pricing/).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

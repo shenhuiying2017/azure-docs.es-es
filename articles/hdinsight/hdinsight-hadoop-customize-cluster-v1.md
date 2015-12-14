@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="11/29/2015" 
 	ms.author="nitinme"/>
 
 # Personalizar los clústeres de HDInsight mediante la acción de script
@@ -29,7 +29,7 @@ HDInsight proporciona una opción de configuración denominada **Acción de scri
 > 
 > Acción de script está disponible como parte de las suscripciones estándar de HDInsight de Azure sin costo adicional.
 
-Los clústeres de HDInsight se pueden personalizar de muchas maneras distintas, por ejemplo, con la inclusión de cuentas de almacenamiento de Azure adicionales, mediante el cambio de archivos de configuración de Hadoop (core-site.xml, hive-site.xml, etc.) o mediante la adición de bibliotecas compartidas (por ejemplo, Oozie o Hive) en ubicaciones comunes en el clúster. Estas personalizaciones pueden realizarse a través de Azure PowerShell, el SDK de .NET de HDInsight de Azure o el portal de Azure. Para obtener más información, consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight con opciones personalizadas][hdinsight-provision-cluster].
+Los clústeres de HDInsight se pueden personalizar de muchas maneras distintas, por ejemplo, con la inclusión de cuentas de almacenamiento de Azure adicionales, mediante el cambio de archivos de configuración de Hadoop (core-site.xml, hive-site.xml, etc.) o mediante la adición de bibliotecas compartidas (por ejemplo, Oozie o Hive) en ubicaciones comunes en el clúster. Estas personalizaciones pueden realizarse a través de Azure PowerShell, el SDK para .NET de HDInsight de Azure o el Portal de Azure clásico. Para obtener más información, consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight con opciones personalizadas][hdinsight-provision-cluster].
 
 ## Acción de script en el proceso de aprovisionamiento de clústeres
 
@@ -48,7 +48,7 @@ Cada clúster puede aceptar varias acciones de script, que se invocan en el orde
 
 ## Llamada a scripts de acción de script
 
-Los scripts de acción de script pueden usarse desde el Portal de Azure, Azure PowerShell o el SDK de .NET de HDInsight.
+Los scripts de acción de script pueden usarse desde el Portal de Azure clásico, Azure PowerShell o el SDK para .NET de HDInsight.
 
 HDInsight proporciona varios scripts para instalar los siguientes componentes en clústeres de HDInsight:
 
@@ -61,7 +61,7 @@ Nombre | Script
 
 
 
-**Desde el Portal de Azure**
+**Desde el Portal de Azure clásico**
 
 1. Inicie el aprovisionamiento de un clúster con la opción **CREACIÓN PERSONALIZADA**, tal como se describe en [Aprovisionamiento de clústeres usando opciones personalizadas](hdinsight-provision-clusters.md#portal). 
 2. En la página **Acciones de script** del asistente, haga clic en **Agregar acción de script** para proporcionar detalles acerca de la acción de script, tal como se muestra a continuación:
@@ -139,7 +139,7 @@ El servicio Microsoft Azure HDInsight es una plataforma flexible que permite com
 
 Hay dos tipos de componentes de código abierto que están disponibles en el servicio de HDInsight:
 
-- **Componentes integrados**: estos componentes están instalados previamente en clústeres de HDInsight y proporcionan la funcionalidad básica del clúster. Por ejemplo, el administrador de recursos de YARN, el lenguaje de consulta Hive (HiveQL) y la biblioteca Mahout pertenecen a esta categoría. Una lista completa de los componentes del clúster está disponible en <a href="http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/" target="_blank">Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight</a>.
+- **Componentes integrados**: estos componentes están instalados previamente en clústeres de HDInsight y proporcionan la funcionalidad básica del clúster. Por ejemplo, el administrador de recursos de YARN, el lenguaje de consulta Hive (HiveQL) y la biblioteca Mahout pertenecen a esta categoría. Una lista completa de los componentes del clúster está disponible en [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight](hdinsight-component-versioning.md).
 - **Componentes personalizados**: el usuario del clúster puede instalar o usar en la carga de trabajo cualquier componente que esté disponible en la comunidad o que haya creado personalmente.
 
 Los componentes integrados son totalmente compatibles, y el soporte técnico de Microsoft le ayudará a aislar y resolver problemas relacionados con estos componentes.
@@ -176,4 +176,4 @@ Consulte [Desarrollo de scripts de acciones de script con HDInsight][hdinsight-w
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "Fases durante el aprovisionamiento del clúster"
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

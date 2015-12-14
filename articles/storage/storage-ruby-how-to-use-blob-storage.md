@@ -59,7 +59,7 @@ El módulo azure leerá las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y *
 
 Para obtener estos valores:
 
-1. Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com/).
+1. Inicie sesión en el [Portal de Azure](portal.azure.com).
 2. Vaya a la cuenta de almacenamiento que desea utilizar.
 3. Haga clic en **ADMINISTRAR CLAVES** en la parte inferior del panel de navegación.
 4. En el cuadro de diálogo emergente, verá el nombre de cuenta de almacenamiento, la clave de acceso principal y la clave de acceso secundaria. Para la clave de acceso, puede usar la principal o la secundaria.
@@ -142,8 +142,7 @@ Finalmente, para eliminar un blob, use el método **delete\_blob()**. En el sigu
 
 Para obtener información acerca de tareas de almacenamiento más complejas, siga estos vínculos:
 
-- Referencia MSDN: [Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

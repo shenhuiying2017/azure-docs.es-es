@@ -71,7 +71,7 @@ Cuando se cree la organización, descargue el starter kit.
 
 ![][4]
 
-> [AZURE.NOTE] Si recibe un mensaje que le advierte que se restablecerán las claves, está bien continuar como si no tuviéramos ninguna infraestructura existente configurada todavía.
+> [AZURE.NOTE]Si recibe un mensaje que le advierte que se restablecerán las claves, está bien continuar como si no tuviéramos ninguna infraestructura existente configurada todavía.
 
 El archivo zip del starter kit contiene sus claves y archivos de configuración de la organización.
 
@@ -204,7 +204,7 @@ Los parámetros son totalmente explicativos. Sustituir sus variables concretas y
 
 > [AZURE.NOTE]Mediante la línea de comandos, estoy automatizando mis reglas de filtro de red de extremos mediante el parámetro –tcp-endpoints. He abierto los puertos 80 y 3389 para proporcionar acceso a mi página web y la sesión de RDP.
 
-Cuando haya ejecutado el comando, pase al Portal de vista previa de Azure y verá que su máquina comienza a aprovisionar.
+Cuando haya ejecutado el comando, pase al Portal de Azure y verá que su máquina comienza a aprovisionar.
 
 ![][13]
 
@@ -218,7 +218,7 @@ Cuando haya finalizado la implementación, deberíamos podremos conectarnos al s
 
 Como puede observar, me ha entrado la creatividad con mi código HTML.
 
-No olvide que también podemos conectarnos a través de una sesión RDP desde el portal de Azure mediante el puerto 3389.
+No olvide que también podemos conectarnos a través de una sesión RDP desde el Portal de Azure clásico mediante el puerto 3389.
 
 Espero que esto les haya resultado útil. Empiece hoy su viaje de su infraestructura como código con Azure.
 
@@ -239,4 +239,4 @@ Espero que esto les haya resultado útil. Empiece hoy su viaje de su infraestruc
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

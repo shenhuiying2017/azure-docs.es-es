@@ -187,7 +187,7 @@ En esta sección se comparan las colas de Azure y las colas del Service Bus desd
 
 - Service Bus aplica límites de tamaño de cola. El tamaño máximo de la cola se especifica al crear la cola y puede tener un valor entre 1 y 80 GB. Si se alcanza el valor de tamaño de la cola establecido al crear la cola, se rechazarán los mensajes entrantes adicionales y el código de llamada recibirá una excepción. Para obtener más información sobre las cuotas en el Service Bus, vea [Cuotas de Service Bus](service-bus-quotas.md).
 
-- Puede crear colas de Service Bus en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas (que es el valor predeterminado), Service Bus crea 16 particiones por cada GB que especifique. Por lo tanto, si crea una cola con un tamaño de 5 GB, con 16 particiones el tamaño de cola máximo se convierte en (5 * 16) = 80 GB. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en el Portal de Azure.
+- Puede crear colas de Service Bus en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas (que es el valor predeterminado), Service Bus crea 16 particiones por cada GB que especifique. Por lo tanto, si crea una cola con un tamaño de 5 GB, con 16 particiones el tamaño de cola máximo se convierte en (5 * 16) = 80 GB. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en el [Portal de Azure clásico][].
 
 - Con las colas de Azure, si el contenido del mensaje no es seguro para XML, debe estar codificado con **Base64**. Si codifica el mensaje con **Base64**, la carga de usuario puede ser de hasta 48 KB, en lugar de 64 KB.
 
@@ -195,7 +195,7 @@ En esta sección se comparan las colas de Azure y las colas del Service Bus desd
 
 - Cuando los clientes se comunican con colas de Service Bus por el protocolo TCP, el número máximo de conexiones simultáneas a una única cola de Service Bus se limita a 100. Este número se comparte entre remitentes y receptores. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de conexiones adicionales y el código de llamada recibirá una excepción. Este límite no se impone en clientes que se conectan a las colas mediante la API basada en REST.
 
-- Si necesita más de 10.000 colas en un único espacio de nombres de Service Bus, puede ponerse en contacto con el equipo de soporte técnico de Azure y solicitar un aumento. Para escalar más allá de las 10.000 colas con el Bus de servicio, también puede crear espacios de nombres adicionales mediante el portal de Azure.
+- Si necesita más de 10.000 colas en un único espacio de nombres de Service Bus, puede ponerse en contacto con el equipo de soporte técnico de Azure y solicitar un aumento. Para escalar más allá de las 10 000 colas con el Bus de servicio, también puede crear espacios de nombres adicionales mediante el [Portal de Azure clásico][].
 
 ## Administración y operaciones
 
@@ -204,7 +204,7 @@ En esta sección se comparan algunas de las características de administración 
 |Criterios de comparación|Colas de Azure|Colas del Bus de servicio|
 |---|---|---|
 |Protocolo de administración|**REST sobre HTTP/HTTPS**|**REST sobre HTTPS**|
-|Protocolo de tiempo de ejecución|**REST sobre HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>** AMQP 1.0 estándar (TCP con TLS)**| | API administrada de .NET|**Sí **<br/><br/>(API de cliente de almacenamiento administrada de .NET)|**Sí**<br/><br/>(API de mensajería asíncrona administrada de .NET)|
+|Protocolo de tiempo de ejecución|**REST sobre HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 estándar (TCP con TLS)**| | API administrada de .NET|**Sí**<br/><br/>(API de cliente de almacenamiento administrada de .NET)|**Sí**<br/><br/>(API de mensajería asíncrona administrada de .NET)|
 |C++ nativo|**Sí**|**No**|
 |API de Java|**Sí**|**Sí**|
 |API de PHP|**Sí**|**Sí**|
@@ -246,7 +246,7 @@ En esta sección se comparan colas de Azure y de Service Bus desde una perspecti
 
 - Tanto las colas de Azure como las colas de Service Bus aplican el comportamiento de limitación rechazando las solicitudes a una cola que se está limitando. Sin embargo, ninguna de ellas considera facturables las solicitudes limitadas.
 
-- Las pruebas comparativas con las colas de Service Bus han demostrado que una sola cola puede lograr un rendimiento de mensajes de hasta 2.000 mensajes por segundo con un tamaño de mensaje de aproximadamente 1 KB. Para lograr un mayor rendimiento, use varias colas. Vea [Prácticas recomendadas para las mejoras de rendimiento mediante la mensajería con confianza establecida del Bus de servicio](service-bus-performance-improvements.md) para obtener más información sobre la optimización del rendimiento del Bus de servicio.
+- Las pruebas comparativas con las colas de Service Bus han demostrado que una sola cola puede lograr un rendimiento de mensajes de hasta 2.000 mensajes por segundo con un tamaño de mensaje de aproximadamente 1 KB. Para lograr un mayor rendimiento, use varias colas. Vea [Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica del Bus de servicio](service-bus-performance-improvements.md) para obtener más información sobre la optimización del rendimiento del Bus de servicio.
 
 - Cuando se alcance el rendimiento máximo de una cola de Service Bus, se devuelve un [ServerBusyException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx) (al usar la API de mensajería asíncrona de .NET) o respuesta HTTP 503 (al usar la API basada en REST) al cliente de la cola, que indica que se está limitando la cola.
 
@@ -309,6 +309,9 @@ En los artículos siguientes se ofrece más orientación e información acerca d
 - [Arquitectura de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 - [Uso del servicio de cola en Azure ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [Descripción de la facturación del almacenamiento de Azure: ancho de banda, transacciones y capacidad](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
+
+
+[Portal de Azure clásico]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

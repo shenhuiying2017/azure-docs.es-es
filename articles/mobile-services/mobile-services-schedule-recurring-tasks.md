@@ -18,11 +18,16 @@
 
 # Programación de trabajos periódicos en Servicios móviles
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [Javascript backend](mobile-services-schedule-recurring-tasks.md)
 
-Este tema le muestra cómo usar la funcionalidad del programador de trabajos en el Portal de administración para definir el código de script de servidor que se ejecuta según el programa que establezca. En este caso, se realiza una comprobación periódica del script con un servicio remoto (Twitter) y se almacenan los resultados en una nueva tabla. Entre las demás tareas periódicas que pueden programarse se incluyen las siguientes:
+Este tema le muestra cómo usar la funcionalidad del programador de trabajos en el Portal de Azure clásico para definir el código de script de servidor que se ejecuta según la programación que establezca. En este caso, se realiza una comprobación periódica del script con un servicio remoto (Twitter) y se almacenan los resultados en una nueva tabla. Entre las demás tareas periódicas que pueden programarse se incluyen las siguientes:
 
 + Archivado de registros de datos antiguos o duplicados.
 + Solicitud y almacenamiento de datos externos, como tweets, entradas RSS e información de ubicación.
@@ -38,11 +43,11 @@ Este tutorial le mostrará cómo usar el programador de trabajos para crear un t
 
 A continuación, tendrá que crear una nueva tabla en la que almacenar tweets.
 
-2. En el Portal de administración, haga clic en la pestaña **Datos** para el servicio móvil y, a continuación, haga clic en **+Crear**.
+2. En el [Portal de Azure clásico], haga clic en la pestaña **Datos** para el servicio móvil y haga clic en **+Crear**.
 
 3. En **Nombre de tabla** escriba _Updates_ y haga clic en el botón de comprobación.
 
-##<a name="add-job"></a>Creación de un nuevo trabajo programado  
+##<a name="add-job"></a>Creación de un nuevo trabajo programado
 
 Ahora puede crear el trabajo programado que obtiene acceso a Twitter y almacena los datos de tweets en la nueva tabla de actualizaciones.
 
@@ -161,9 +166,9 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 <!-- URLs. -->
 [Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

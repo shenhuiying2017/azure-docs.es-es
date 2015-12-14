@@ -35,7 +35,7 @@ HDInsight actualmente solo es compatible con la característica de supervisión 
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una estación de trabajo con Azure PowerShell**. Vea [Instalar y usar Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Una estación de trabajo con Azure PowerShell**. Consulte [Instalar Azure PowerShell 1.0 y versiones posteriores](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
 
 - (Opcional) [cURL][curl]. Para instalarlo, consulte [Descargas y versiones de cURL][curl-download].
@@ -147,7 +147,7 @@ Obtener información de configuración|`/api/v1/clusters/<ClusterName>.azurehdin
 
 Ahora sabe cómo usar las llamadas de API de supervisión de Ambari. Para obtener más información, consulte:
 
-- [Administrar clústeres de HDInsight con el portal de vista previa de Azure][hdinsight-admin-portal]
+- [Administrar clústeres de HDInsight con el portal de Azure][hdinsight-admin-portal]
 - [Administrar clústeres de HDInsight con Azure PowerShell][hdinsight-admin-powershell]
 - [Administrar clústeres de HDInsight con la interfaz de línea de comandos][hdinsight-admin-cli]
 - [Documentación de HDInsight][hdinsight-documentation]
@@ -175,4 +175,4 @@ Ahora sabe cómo usar las llamadas de API de supervisión de Ambari. Para obtene
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

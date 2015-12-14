@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/02/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
 
 # Recursos de Application Insights independientes para desarrollo, pruebas y producción
@@ -28,7 +28,7 @@ Application Insights almacena y procesa los datos recibidos de la aplicación en
 
 En el [portal.azure.com](https://portal.azure.com), agregue un recurso de Application Insights:
 
-![Haga clic en Nuevo, Application Insights.](./media/app-insights-create-new-resource/01-new.png)
+![Haga clic en Nuevo, Application Insights.](./media/app-insights-separate-resources/01-new.png)
 
 
 * El **tipo de aplicación** afecta a lo que ve en la hoja de información general y las propiedades disponibles en el [explorador de métricas][metrics]. Si no ve el tipo de aplicación, elija uno de los tipos de web para páginas web y uno de los tipos de teléfono para otros dispositivos.
@@ -46,7 +46,7 @@ El recurso tarda unos segundos en crearse. Verá una alerta cuando esté listo.
 
 La clave de instrumentación identifica al recurso que ha creado.
 
-![Haga clic en Essentials y elija la clave de instrumentación, CTRL + C](./media/app-insights-create-new-resource/02-props.png)
+![Haga clic en Essentials y elija la clave de instrumentación, CTRL + C](./media/app-insights-separate-resources/02-props.png)
 
 Necesitará las claves de instrumentación de todos los recursos a los que la aplicación enviará datos.
 
@@ -98,4 +98,4 @@ La iKey también se usa en las páginas web de su aplicación, en el [script que
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Reemplazar un disco duro en el dispositivo StorSimple
@@ -70,13 +70,13 @@ El dispositivo StorSimple es compatible con una configuración de espacios de al
 >
 >- Asegúrese de colocar un SSD de reemplazo en una ranura que previamente contenía un SSD. Asegúrese de colocar un HDD de reemplazo en una ranura que previamente contenía un HDD.
 >
->- En el Portal de administración, las ranuras se numeran de 0 a 11. Por lo tanto, si el portal muestra que ha fallado un disco en la ranura 2, en el dispositivo, busque el disco defectuoso en la tercera ranura de la parte superior izquierda.
+>- En el Portal de Azure clásico, las ranuras se numeran de 0 a 11. Por lo tanto, si el portal muestra que ha fallado un disco en la ranura 2, en el dispositivo, busque el disco defectuoso en la tercera ranura de la parte superior izquierda.
 
 Las unidades de disco se pueden quitar y reemplazar mientras el sistema está en funcionamiento.
 
 #### Para quitar una unidad
 
-1. Para identificar el disco defectuoso, en el Portal de administración, vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware**. Dado que se puede producir un error en un disco en el gabinete principal o en el gabinete EBOD (si está utilizando un modelo 8600), examine el estado de los discos en **Componentes compartidos** y en **Componentes compartidos del gabinete EBOD**. Un disco defectuoso en cualquier gabinete se mostrará con un estado rojo.
+1. Para identificar el disco defectuoso, en el Portal de Azure clásico, vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware**. Dado que se puede producir un error en un disco en el gabinete principal o en el gabinete EBOD (si está utilizando un modelo 8600), examine el estado de los discos en **Componentes compartidos** y en **Componentes compartidos del gabinete EBOD**. Un disco defectuoso en cualquier gabinete se mostrará con un estado rojo.
 
 2. Busque las unidades en la parte frontal del gabinete principal o del gabinete EBOD. Para el disco defectuoso, el LED ámbar estará encendido.
 
@@ -116,7 +116,7 @@ Después de que se ha producido un error en la unidad de su dispositivo StorSimp
 
 4. Utilice la llave de bloqueo proporcionada por Microsoft (destornillador Torx inviolable) para fijar el asa transportadora en su lugar girando el destornillador de bloqueo un cuarto de vuelta hacia la derecha.
 
-5. Compruebe que el reemplazo se realizó correctamente y que la unidad funcione, para ello, acceda al Portal de administración y vaya a **Mantenimiento** > **Estado del hardware**. En **Componentes compartidos** o **Componentes compartidos del gabinete EBOD**, el estado de la unidad debe ser verde, que indica que está en buenas condiciones.
+5. Compruebe que el reemplazo se realizó correctamente y que la unidad funcione. Para ello, acceda al Portal de Azure clásico y vaya a **Mantenimiento** > **Estado del hardware**. En **Componentes compartidos** o **Componentes compartidos del gabinete EBOD**, el estado de la unidad debe ser verde, que indica que está en buenas condiciones.
 
     >[AZURE.NOTE]Puede tardar varias horas para que el estado del disco cambie a verde, después de la sustitución.
 
@@ -124,4 +124,4 @@ Después de que se ha producido un error en la unidad de su dispositivo StorSimp
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

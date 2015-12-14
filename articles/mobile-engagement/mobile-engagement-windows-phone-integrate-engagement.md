@@ -69,7 +69,7 @@ Si desea especificarla en tiempo de ejecución, puede llamar al método siguient
 	/* Initialize Engagement agent with above configuration. */
 	EngagementAgent.Instance.Init(engagementConfiguration);
 
-La cadena de conexión de la aplicación se muestra en el portal de administración de Azure.
+La cadena de conexión de la aplicación se muestra en el Portal de Azure clásico.
 
 ### Inicialización de Engagement
 
@@ -247,4 +247,4 @@ El modo de ráfaga aumenta ligeramente la duración de la batería, pero afecta 
 > [AZURE.WARNING]El umbral de ráfaga no se puede configurar en un período inferior a un segundo. Si intenta hacerlo, el SDK mostrará un seguimiento con el error y se restablecerá automáticamente en el valor predeterminado; es decir, cero segundos. Esto hará que el SDK informe los registros en tiempo real.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -22,7 +22,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-configure-firewall-settings.md)
+- [Azure Portal](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 - [REST API](sql-database-configure-firewall-settings-rest.md)
@@ -64,11 +64,11 @@ Base de datos SQL de Microsoft Azure usa reglas de firewall para permitir conexi
  
 ## Pasos siguientes
 
-Para obtener un tutorial sobre la creación de una base de datos, consulte [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md). Para obtener ayuda acerca de la conexión a una base de datos SQL de Azure desde aplicaciones de código abierto o de terceros, consulte [Instrucciones para conectar con la Base de datos SQL de Azure mediante programación](https://msdn.microsoft.com/library/azure/ee336282.aspx). Para conseguir más información acerca de cómo acceder a las bases de datos, consulte [Administrar bases de datos e inicios de sesión en la Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+Para obtener un tutorial sobre la creación de una base de datos, consulte [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md). Para obtener ayuda acerca de la conexión a una Base de datos SQL de Azure desde aplicaciones de código abierto o de terceros, consulte [Instrucciones para conectar con la Base de datos SQL de Azure mediante programación](https://msdn.microsoft.com/library/azure/ee336282.aspx). Para conseguir más información acerca de cómo acceder a las bases de datos, consulte [Administrar bases de datos e inicios de sesión en la Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 <!--Image references-->
 [1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

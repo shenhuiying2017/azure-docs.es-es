@@ -29,7 +29,7 @@ El script de ejemplo que se usa en este tema crea un clúster de Solr con una co
 
 **Artículos relacionados**
 
-- [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md): cómo instalar Solr en un clúster de HDInsight mediante el Portal de vista previa de Azure.
+- [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md): cómo instalar Solr en un clúster de HDInsight mediante el Portal de Azure.
 - [Instalación y uso de Solr en clústeres de Hadoop para HDInsight (Linux)](hdinsight-hadoop-solr-install-linux.md)
 - [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md): información general sobre la creación de clústeres de HDInsight.
 - [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize]\: información general sobre la personalización de clústeres de HDInsight mediante la acción de script.
@@ -37,7 +37,7 @@ El script de ejemplo que se usa en este tema crea un clúster de Solr con una co
 
 ## ¿Qué es Solr?
 
-<a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> es una plataforma de búsqueda empresarial que permite una eficaz búsqueda de texto completo en los datos. Si bien Hadoop permite almacenar y administrar grandes cantidades de datos, Apache Solr proporciona las capacidades de búsqueda para recuperar rápidamente los datos.
+[Apache Solr](http://lucene.apache.org/solr/features.html) es una plataforma de búsqueda empresarial que permite una eficaz búsqueda de texto completo en los datos. Si bien Hadoop permite almacenar y administrar grandes cantidades de datos, Apache Solr proporciona las capacidades de búsqueda para recuperar rápidamente los datos.
 
 ## Instalación de Solr mediante el portal
 
@@ -68,7 +68,7 @@ También puede utilizar el script para instalar Solr en HDInsight con Azure Powe
 
 Debe comenzar con la indización de Solr con algunos archivos de datos. A continuación, puede utilizar Solr para ejecutar consultas de búsqueda en los datos indizados. Realice los pasos siguientes para utilizar Solr en un clúster de HDInsight:
 
-1. **Use el protocolo de Escritorio remoto (RDP) para conectarse de manera remota con el clúster de HDInsight con Solr instalado**. En el portal de Azure, habilite el Escritorio remoto para el clúster que ha creado con Solr instalado y, a continuación, conéctese de manera remota con el clúster. Para obtener instrucciones, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.
+1. **Use el protocolo de Escritorio remoto (RDP) para conectarse de manera remota con el clúster de HDInsight con Solr instalado**. En el portal de Azure, habilite el Escritorio remoto para el clúster que ha creado con Solr instalado y, a continuación, conéctese de manera remota con el clúster. Para obtener instrucciones, vea [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 2. **Indexe Solr mediante la carga de archivos de datos**. Al indizar Solr, colocar en él aquellos documentos que tenga que buscar. Para indexar Solr, use RDP para conectarse de manera remota al clúster, navegue al escritorio, abra la línea de comandos de Hadoop y vaya a **C:\\apps\\dist\\solr-4.7.2\\example\\exampledocs**. Ejecute el siguiente comando:
 	
@@ -180,7 +180,7 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 
 ## Consulte también
 
-- [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md): cómo instalar Solr en un clúster de HDInsight mediante el Portal de vista previa de Azure.
+- [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md): cómo instalar Solr en un clúster de HDInsight mediante el Portal de Azure.
 - [Instalación y uso de Solr en clústeres de Hadoop para HDInsight (Linux)](hdinsight-hadoop-solr-install-linux.md)
 - [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md): información general sobre la creación de clústeres de HDInsight.
 - [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize]\: información general sobre la personalización de clústeres de HDInsight mediante la acción de script.
@@ -196,4 +196,4 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

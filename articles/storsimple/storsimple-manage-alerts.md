@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Usar el servicio de Administrador de StorSimple para ver y administrar alertas de StorSimple
@@ -151,7 +151,7 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 	Según la cantidad de datos en las capas locales del dispositivo, las escrituras seguirán también produciéndose para las primeras horas después de la interrupción de la conectividad de la nube. Las escrituras se ralentizarán y finalmente comenzarán a fallar si se interrumpe la conectividad de la nube durante varias horas.
 
  
-- **Para los datos en la nube**: en la mayoría de los errores de conectividad de nube, se devuelve un error. Una vez restaurada la conectividad, se reanudarán las operaciones de E/S sin que el usuario tiene que incorporar el volumen en línea. En raras ocasiones, podría ser necesaria la intervención del usuario para recuperar el volumen en línea desde el Portal de Azure.
+- **Para los datos en la nube**: en la mayoría de los errores de conectividad de nube, se devuelve un error. Una vez restaurada la conectividad, se reanudarán las operaciones de E/S sin que el usuario tiene que incorporar el volumen en línea. En raras ocasiones, podría ser necesaria la intervención del usuario para recuperar el volumen en línea desde el Portal de Azure clásico.
  
 - **Para las instantáneas en la nube en curso**: la operación se reintenta varias veces en 4 o 5 horas y, si no se restaura la conectividad, se producirá un error en las instantáneas en la nube.
 
@@ -234,4 +234,4 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 - [Obtenga más información sobre los errores de StorSimple](storsimple-troubleshoot-operational-device.md).
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

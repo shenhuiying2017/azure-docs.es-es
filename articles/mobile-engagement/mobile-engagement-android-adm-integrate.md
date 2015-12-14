@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Integración del SDK de Android para Azure Mobile Engagement" 
+<properties
+	pageTitle="Integración del SDK de Android para Azure Mobile Engagement"
 	description="Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="piyushjo" />
 
 
@@ -25,11 +25,11 @@
 
 ##Introducción
 
-La integración de ADM permite realizar inserciones en su aplicación incluso cuando no se está ejecutando.
+La integración de ADM permite la inserción de la aplicación cuando tenga como destino dispositivos Android de Amazon.
 
-En realidad no se envía ningún dato de campaña a través de ADM, es simplemente una señal de fondo que indica a la aplicación que capture la inserción de Engagement. Si la aplicación no se está ejecutando mientras recibe una inserción de ADM, desencadena una conexión a los servidores de Engagement para capturar la inserción que permanece activa durante aproximadamente un minuto en caso de que el usuario inicie la aplicación en la respuesta a la inserción.
+Las cargas ADM insertadas en el SDK siempre contienen la clave `azme` en el objeto de datos. Por lo tanto, si usa ADM para otra finalidad en la aplicación, puede filtrar las inserciones basándose en esa clave.
 
-> [AZURE.IMPORTANT]Solo los dispositivos Kindle de Amazon que ejecutan Android 4.0.3 o versiones posteriores son compatibles con la mensajería de dispositivos de Amazon; Sin embargo, puede integrar este código de forma segura en otros dispositivos. Si ADM no puede reactivar la aplicación, la notificación de Engagement se recibirá la próxima vez que se inicie la aplicación.
+> [AZURE.IMPORTANT]Solo los dispositivos Kindle de Amazon que ejecutan Android 4.0.3 o versiones posteriores son compatibles con la mensajería de dispositivos de Amazon; Sin embargo, puede integrar este código de forma segura en otros dispositivos.
 
 ##Suscribirse a ADM
 
@@ -65,7 +65,7 @@ Edite su archivo `AndroidManifest.xml`:
 		<amazon:enable-feature
 		   android:name="com.amazon.device.messaging"
 		   android:required="false"/>
-		
+
 		<meta-data android:name="engagement:adm:register" android:value="true" />
 
 -   Después de agregar la etiqueta de Amazon, puede tener un error de compilación si su destino de compilación del proyecto es inferior a Android 2.1. Debe usar un destino de compilación **Android 2.1+** (no se preocupe, aún puede disponer de `minSdkVersion` establecido en 4).
@@ -83,7 +83,7 @@ Para comunicar el identificador de registro del dispositivo al servicio de inser
 		    <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT"/>
 		  </intent-filter>
 		</receiver>
-		
+
 		 <receiver android:name="com.microsoft.azure.engagement.adm.EngagementADMReceiver"
 		   android:permission="com.amazon.device.messaging.permission.SEND">
 		  <intent-filter>
@@ -111,6 +111,5 @@ Ahora puede seleccionar "En cualquier momento" al crear sondeos y anuncios de Re
 [biblioteca de cliente ADM]: https://developer.amazon.com/sdk/adm/setup.html
 [integrado ADM]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [este procedimiento]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="coreysa"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/15/2015"
+   ms.date="12/01/2015"
    ms.author="seanmck"/>
 
 # Polimorfismo en el marco de trabajo de Reliable Actors
 
-El marco de trabajo de Reliable Actors simplifica la programación de sistemas distribuidos al permitirle crear su servicio mediante muchas de las mismas técnicas que usaría en el diseño orientado a objetos. Una de esas técnicas es el polimorfismo, lo que permite la herencia de tipos e interfaces de elementos primarios más generalizados. La herencia en el marco de trabajo de actores generalmente sigue el modelo de .NET con algunas restricciones adicionales.
+El marco de trabajo de Reliable Actors simplifica la programación de sistemas distribuidos al permitirle crear su servicio mediante muchas de las mismas técnicas que usaría en el diseño orientado a objetos. Una de esas técnicas es el polimorfismo, que permite la herencia de tipos e interfaces de elementos primarios más generalizados. La herencia en el marco de trabajo de actores generalmente sigue el modelo de .NET con algunas restricciones adicionales.
 
 ## Interfaces
 
@@ -78,4 +78,4 @@ Observe el atributo `ActorService` en el tipo de actor. Esto indica al SDK de Se
 
 [shapes-interface-hierarchy]: ./media/service-fabric-reliable-actors-polymorphism/Shapes-Interface-Hierarchy.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

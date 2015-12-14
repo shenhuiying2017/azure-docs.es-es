@@ -19,6 +19,11 @@
 
 # Modificación del modelo de datos de un servicio móvil back-end de .NET
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 En este tema se muestra cómo usar Migraciones de Code First en Entity Framework para realizar cambios en el modelo de datos de una base de datos SQL de Azure existente para evitar perder datos existentes. Se asume que ya publicó el proyecto de backend .NET en Azure, que hay datos guardados en la base de datos y que los modelos de datos remoto y local están sincronizados. En este tema también se describen los inicializadores Code First predeterminados que implementan los Servicios móviles de Azure que se usan durante el desarrollo. Estos inicializadores le permiten realizar cambios de esquema fácilmente sin usar Migraciones de Code First cuando no sea necesario para conservar los datos existentes.
 
 >[AZURE.NOTE]El nombre del esquema que se usa para prefijar las tablas en la base de datos de SQL está definido por la configuración de la aplicación MS\_MobileServiceName en el archivo web.config. Al descargar el proyecto de inicio desde el portal, este valor ya está establecido en el nombre del servicio móvil. Cuando el nombre del esquema coincide con el servicio móvil, varios servicios móviles pueden compartir la misma instancia de base de datos con seguridad.
@@ -41,7 +46,7 @@ Servicios móviles proporciona dos clases base de inicializador de modelo de dat
 
 Ambos inicializadores eliminan de la base de datos todas las tablas, vistas, funciones y procedimientos del esquema que usa el servicio móvil.
 
-+ Los objetos de esquema **ClearDatabaseSchemaIfModelChanges** <br/> solo se eliminan cuando Code First detecta un cambio en un modelo de datos. El inicializador predeterminado de un proyecto de back-end de .NET descargado del [Portal de administración de Azure] hereda de esta clase base.
++ Los objetos de esquema **ClearDatabaseSchemaIfModelChanges** <br/> solo se eliminan cuando Code First detecta un cambio en un modelo de datos. El inicializador predeterminado de un proyecto de back-end de .NET descargado del [Portal de Azure clásico] hereda de esta clase base.
 
 + **ClearDatabaseSchemaAlways**: <br/> los objetos de esquema se eliminan cada vez que se accede al modelo de datos. Use esta clase base para restablecer la base de datos sin tener que realizar una modificación del modelo de datos.
 
@@ -109,7 +114,7 @@ Los siguientes pasos sirven para activar las Migraciones y aplicar los cambios e
 
 10. Vuelva a publicar el servicio móvil en Azure, y, a continuación, ejecute la aplicación cliente para obtener acceso a los datos y compruebe que estos se cargan sin errores.
 
-13. (Opcional) En el [Portal de administración de Azure], seleccione el servicio móvil, haga clic en **Configurar** > **Base de datos SQL**. De este modo, se abre la página de la base de datos SQL del servicio móvil.
+13. (Opcional) En el [Portal de Azure clásico], seleccione el servicio móvil, haga clic en **Configurar** > **Base de datos SQL**. De este modo, se abre la página de la base de datos SQL del servicio móvil.
 
 14. (Opcional) Haga clic en **Administrar**, inicie sesión en su servidor de Base de datos SQL, haga clic en **Diseñar** y compruebe que se han realizado los cambios en el esquema en Azure.
 
@@ -122,7 +127,7 @@ Antes de usar migraciones de Code First con su proyecto de backend .NET, debe ej
         AutomaticMigrationsEnabled = false;
         SetSqlGenerator("System.Data.SqlClient", new EntityTableSqlGenerator());
     }
-    
+
 ##<a name="seeding"></a>Datos de inicialización en las migraciones
 
 Puede hacer que Migraciones agregue datos de inicialización a la base de datos cuando se ejecuta una migración. La clase **Configuration** incluye un método **Seed** que puede reemplazar para insertar o actualizar datos. El archivo de código Configuration.cs se agrega a la carpeta de migraciones cuando están habilitadas las Migraciones. Estos ejemplos muestran cómo reemplazar el método [Seed] para propagar datos a la tabla **TodoItems**. Se llama al método [Seed] una vez realizada la migración a la versión más reciente.
@@ -170,11 +175,11 @@ Este código llama al método auxiliar de extensión [AddOrUpdate] para agregar 
 <!-- URLs -->
 [DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/library/gg679604(v=vs.113).aspx
 [Seed]: http://msdn.microsoft.com/library/hh829453(v=vs.113).aspx
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [DbContext]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx
 [AddOrUpdate]: http://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
 [controlador de tabla<TEntity>]: https://msdn.microsoft.com/library/azure/dn643359.aspx
 [EntityData]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.entitydata.aspx
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

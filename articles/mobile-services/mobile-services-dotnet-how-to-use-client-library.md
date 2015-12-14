@@ -13,16 +13,21 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015" 
+	ms.date="11/02/2015"
 	ms.author="glenga"/>
 
 # Uso de la biblioteca de cliente administrada para Servicios móviles de Azure.
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
-##Información general 
+##Información general
 
-Esta guía muestra cómo realizar tareas comunes con la biblioteca de cliente administrada para Servicios móviles de Azure en aplicaciones de Windows y Xamarin. Entre las tareas incluidas se encuentran la consulta, inserción, actualización y eliminación de datos, la autenticación de usuarios y la administración de errores. Si no tiene experiencia en el uso de Servicios móviles, considere primero la opción de completar el tutorial [Guía de inicio rápido de Servicios móviles](mobile-services-dotnet-backend-xamarin-ios-get-started.md).
+Esta guía muestra cómo realizar tareas comunes con la biblioteca de cliente administrada para Servicios móviles de Azure en aplicaciones de Windows y Xamarin. Entre las tareas incluidas se encuentran la consulta, inserción, actualización y eliminación de datos, la autenticación de usuarios y la administración de errores. Si no tiene experiencia en el uso de Servicios móviles, considere primero la opción de completar el tutorial [Introducción a Servicios móviles](mobile-services-dotnet-backend-xamarin-ios-get-started.md).
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -58,18 +63,18 @@ El código siguiente crea el objeto `MobileServiceClient` que se usa para obtene
 		"AppKey"
 	);
 
-En el código anterior, reemplace `AppUrl` y `AppKey` por la URL y la clave de aplicación del servicio móvil, en ese orden. Estos datos están disponibles en el Portal de administración de Azure si selecciona el servicio móvil y, a continuación, hace clic en Panel.
+En el código anterior, reemplace `AppUrl` y `AppKey` por la URL y la clave de aplicación del servicio móvil, en ese orden. Estos datos están disponibles en el Portal de Azure clásico si selecciona el servicio móvil y hace clic en "Panel".
 
 >[AZURE.IMPORTANT]La clave de aplicación está diseñada para filtrar solicitudes aleatorias contra el servicio móvil y se distribuye con la aplicación. Dado que esta clave no está cifrada, no puede considerarse segura. Para proteger verdaderamente los datos de su servicio móvil, los usuarios se deben autenticar antes de permitir el acceso. Para obtener más información, consulte [Autenticación de usuarios](#authentication)
 
 ##<a name="instantiating"></a>Creación de una referencia de tabla
 
-Todo el código que obtiene acceso o modifica los datos de la tabla de Servicios móviles llama a las funciones del objeto `MobileServiceTable`. Obtenga una referencia a la tabla llamando al método [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) en una instancia de `MobileServiceClient` del modo indicado a continuación:
+Todo el código que obtiene acceso o modifica los datos de la tabla de Servicios móviles llama a las funciones del objeto `MobileServiceTable`. Se obtiene una referencia a la tabla llamando al método [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) en una instancia de `MobileServiceClient`, como se indica a continuación:
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
 
-Este es el modelo de serialización con tipo; consulte la descripción del [modelo de serialización sin tipo](#untyped) a continuación.
+Este es el modelo de serialización con tipo; consulte la discusión del [modelo de serialización sin tipo](#untyped) a continuación.
 
 ##<a name="querying"></a>Consulta de datos desde un servicio móvil
 
@@ -304,13 +309,13 @@ El cliente de Servicios móviles permite registrar las notificaciones de inserci
 	    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
 	}
 
-Tenga en cuenta que en este ejemplo se incluyen dos etiquetas en el registro. Para obtener más información sobre las aplicaciones de Windows, consulte [Incorporación de notificaciones push a la aplicación](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md).
+Tenga en cuenta que en este ejemplo se incluyen dos etiquetas en el registro. Para obtener más información sobre las aplicaciones de Windows, consulte [Incorporación de notificaciones de inserción a la aplicación](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md).
 
-Las aplicaciones de Xamarin requieren código adicional para poder registrar una aplicación de Xamarin que se ejecute en la aplicación iOS o Android con el Servicio de notificaciones push de Apple (APNS) y el Servicio de mensajería en la nube de Google (GCM), respectivamente. Para obtener más información, consulte **Incorporación de notificaciones push a la aplicación** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
+Las aplicaciones de Xamarin requieren código adicional para poder registrar una aplicación de Xamarin que se ejecute en la aplicación iOS o Android con el Servicio de notificaciones push de Apple (APNS) y el Servicio de mensajería en la nube de Google (GCM), respectivamente. Para obtener más información, consulte **Agregar notificaciones de inserción a la aplicación** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
 >[AZURE.NOTE]Cuando necesite enviar notificaciones a los usuarios registrados específicos, es importante requerir autenticación antes del registro y, a continuación, comprobar que el usuario está autorizado para registrarse con una etiqueta específica. Por ejemplo, se debe comprobar que un usuario no se registra con una etiqueta de Id. de usuario de otra persona. Para obtener más información, consulte [Envío de notificaciones de inserción a usuarios autenticados](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
-##<a name="pull-notifications"></a>Cómo: usar notificaciones periódicas en una aplicación de Windows
+##<a name="pull-notifications"></a>Cómo usar notificaciones periódicas en una aplicación de Windows
 
 Windows admite notificaciones periódicas (notificaciones push) para actualizar los iconos dinámicos. Con las notificaciones periódicas habilitadas, Windows tendrá acceso periódico a un punto de conexión de la API personalizada para actualizar el icono dinámico en el menú Inicio. Para usar notificaciones periódicas, debe [definir una API personalizada](mobile-services-javascript-backend-define-custom-api.md) que devuelva datos XML en un formato específico de icono. Para obtener más información, consulte [Notificaciones periódicas](https://msdn.microsoft.com/library/windows/apps/hh761461.aspx).
 
@@ -319,7 +324,7 @@ El siguiente ejemplo activa las notificaciones periódicas para solicitar datos 
     TileUpdateManager.CreateTileUpdaterForApplication().StartPeriodicUpdate(
         new System.Uri(MobileService.ApplicationUri, "/api/tiles"),
         PeriodicUpdateRecurrence.Hour
-    ); 
+    );
 
 Seleccione un valor [PeriodicUpdateRecurrance](https://msdn.microsoft.com/library/windows/apps/windows.ui.notifications.periodicupdaterecurrence.aspx) que se adapte mejor a la frecuencia de actualización de sus datos.
 
@@ -447,7 +452,7 @@ Para usar la nueva colección en aplicaciones de Windows Phone 8 y "Silverlight"
 
 Cuando use la colección creada mediante la llamada a `ToCollectionAsync` o `ToCollection`, obtendrá una colección que puede enlazarse a los controles de la interfaz de usuario. Esta colección es para la paginación, es decir, un control puede solicitar a la colección cargar más elementos y la colección lo hará para el control. En este momento, no hay ningún código de usuario implicado y el control iniciará el flujo. Sin embargo, puesto que la colección está cargando datos desde la red, cabe esperar que a veces se produzca un error en la carga. Para gestionar esos errores, puede reemplazar el método `OnException` de `MobileServiceIncrementalLoadingCollection` para gestionar excepciones resultantes de las llamadas a `LoadMoreItemsAsync` que han realizado los controles.
 
-Para finalizar, imagine que la tabla contiene muchos campos, pero solo desea que se muestren algunos en el control. Puede usar la guía de la sección ["Selección de columnas específicas"](#selecting) anterior para seleccionar las columnas específicas para mostrar en la interfaz de usuario.
+Para finalizar, imagine que la tabla contiene muchos campos, pero solo desea que se muestren algunos en el control. Puede usar la guía de la sección anterior ["Selección de columnas específicas"](#selecting) para seleccionar las columnas específicas para mostrar en la interfaz de usuario.
 
 ##<a name="authentication"></a>Autenticación de usuarios
 
@@ -685,7 +690,7 @@ Para admitir el escenario de aplicación específico, deberá personalizar la co
 
     public class MyHandler : DelegatingHandler
     {
-        protected override async Task<HttpResponseMessage> 
+        protected override async Task<HttpResponseMessage>
             SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             // Add a custom header to the request.
@@ -766,4 +771,4 @@ Esta propiedad convierte todas las propiedades en minúsculas durante la seriali
 [API personalizada en los SDK del cliente de Servicios móviles de Azure]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

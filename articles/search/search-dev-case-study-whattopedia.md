@@ -110,7 +110,7 @@ Así es como creamos el prototipo.
 
 **Configuración del servicio de Búsqueda de Azure**
 
-1. Inicie sesión en el portal de Azure y agregue el servicio de búsqueda a la suscripción. Se utilizó la versión compartida (gratis con la suscripción).
+1. Inicie sesión en el Portal de Azure clásico y agregue el servicio de búsqueda a la suscripción. Se utilizó la versión compartida (gratis con la suscripción).
 2. Creación de un índice. Para el prototipo, utilizamos la IU del portal para definir los campos de búsqueda y crear los perfiles de puntuación. Nuestro perfil de puntuación está basado en los datos de ubicación: país | ciudad |dirección (consulte: Agregar perfiles de puntuación).
 3. Copie la dirección URL del servicio y la clave de la API de administración en nuestros archivos de configuración. Esta clave se encuentra en la página del servicio de búsqueda del portal y se usa para autenticarse en el servicio.
 	
@@ -421,4 +421,4 @@ El código siguiente genera el indexador mencionado en la sección sobre la crea
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

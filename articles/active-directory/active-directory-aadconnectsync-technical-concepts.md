@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure AD Connect Sync: conceptos técnicos | Microsoft Azure"
-	description="Explica los conceptos técnicos de Azure AD Connect Sync."
+	pageTitle="Sincronización de Azure AD Connect: conceptos técnicos | Microsoft Azure"
+	description="Explica los conceptos técnicos de la sincronización de Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -17,9 +17,9 @@
 	ms.author="markusvi;andkjell"/>
 
 
-# Sincronización de Azure AD Connect: conceptos técnicos
+# Azure AD Connect Sync: conceptos técnicos
 
-Azure AD Connect Sync se basa en una sólida plataforma de sincronización de metadirectorios. Las secciones siguientes presentan los conceptos de sincronización de metadirectorio. Basándose en MIIS, ILM y FIM, Servicios de sincronización de Azure Active Directory proporciona la plataforma siguiente para conectarse a orígenes de datos, sincronizar datos de datos entre orígenes de datos y realizar el aprovisionamiento/desaprovisionamiento de identidades.
+Sincronización de Azure AD Connect se basa en una sólida plataforma de sincronización de metadirectorios. Las secciones siguientes presentan los conceptos de sincronización de metadirectorio. Basándose en MIIS, ILM y FIM, Servicios de sincronización de Azure Active Directory proporciona la plataforma siguiente para conectarse a orígenes de datos, sincronizar datos de datos entre orígenes de datos y realizar el aprovisionamiento/desaprovisionamiento de identidades.
 
 ![Conceptos técnicos](./media/active-directory-aadconnectsync-technical-concepts/scenario.png)
 
@@ -33,9 +33,9 @@ Las secciones siguientes proporcionan más detalles sobre los siguientes aspecto
 
 ## Conector
 
-Los módulos de código que se usan para comunicarse con un directorio conectado se denominan conectores (conocidos anteriormente como agentes de administración (MA)).
+Los módulos de código que se usan para comunicarse con un directorio conectado se denominan conectores (conocidos anteriormente como agentes de administración o MA).
 
-Se instalan en el equipo donde se ejecuta Azure AD Connect Sync. Los conectores proporcionan la capacidad sin agente de inversión mediante protocolos de sistema remoto en lugar de depender de la implementación de agentes especializados. Esto significa menor riesgo y el tiempo de implementación, especialmente al tratar con sistemas y aplicaciones críticas.
+Se instalan en el equipo donde se ejecuta la sincronización de Azure AD Connect. Los conectores proporcionan la capacidad sin agente de inversión mediante protocolos de sistema remoto en lugar de depender de la implementación de agentes especializados. Esto significa menor riesgo y el tiempo de implementación, especialmente al tratar con sistemas y aplicaciones críticas.
 
 En la figura anterior, el conector es sinónimo del espacio del conector, pero abarca toda la comunicación con el sistema externo.
 
@@ -71,7 +71,7 @@ Los objetos se crean cuando un sistema autorizado los proyecta en el metaverso. 
 
 Los objetos del metaverso no se pueden editar directamente. Todos los datos del objeto se deben aportar mediante el flujo de atributos. El metaverso mantiene conectores persistentes con cada espacio de conector. Estos conectores no requieren una nueva evaluación en cada ejecución de la sincronización. Esto significa que Azure AD Connect Sync no tiene que buscar sistemáticamente el objeto remoto coincidente. De esta forma se evita la necesidad de costosos agentes para impedir cambios en los atributos que normalmente serían responsable de la correlación de los objetos.
 
-Durante la detección de nuevos orígenes de datos que pueden tener objetos ya existentes que deban administrarse, Azure AD Connect Sync usa un proceso llamado regla de combinación para evaluar los posibles candidatos con los que se va a establecer un vínculo. Una vez establecido el vínculo, esta evaluación no se repite y el flujo de atributos normal puede producirse entre el origen de datos conectado remoto y el metaverso.
+Durante la detección de nuevos orígenes de datos que pueden tener objetos ya existentes que deban administrarse, la sincronización de Azure AD Connect usa un proceso llamado regla de combinación para evaluar los posibles candidatos con los que se va a establecer un vínculo. Una vez establecido el vínculo, esta evaluación no se repite y el flujo de atributos normal puede producirse entre el origen de datos conectado remoto y el metaverso.
 
 ## Aprovisionamiento
 
@@ -89,4 +89,4 @@ Siempre que una regla se determina que tiene que crearse un nuevo objeto de espa
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

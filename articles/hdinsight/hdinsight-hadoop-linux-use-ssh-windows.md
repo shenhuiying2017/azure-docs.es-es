@@ -81,21 +81,21 @@ Use la siguiente información si planea usar claves SSH con el clúster. Si pien
 
 6. Haga clic en **Save public key** (Guardar clave pública) para guardar la clave como archivo **.txt**. Esto le permitirá volver a usar la clave pública cuando cree clústeres adicionales de HDInsight basado en Linux.
 
-	> [AZURE.NOTE]La clave pública también aparece en la parte superior de PuTTYGen. Puede hacer clic con el botón secundario en este campo, copiar el valor y, a continuación, pegarlo en un formulario al crear un clúster mediante el Portal de vista previa de Azure.
+	> [AZURE.NOTE]La clave pública también aparece en la parte superior de PuTTYGen. Puede hacer clic con el botón secundario en este campo, copiar el valor y, a continuación, pegarlo en un formulario al crear un clúster mediante el Portal de Azure.
 
 ##Creación de un clúster de HDInsight basado en Linux
 
 Cuando cree un clúster de HDInsight basado en Linux, deberá proporcionar la clave pública anteriormente creada. Desde clientes Windows, hay dos maneras de crear un clúster de HDInsight basado en Linux:
 
-* **Portal de vista previa de Azure**: usa un portal web para crear el clúster.
+* **Portal de Azure**: usa un portal basado en web para crear el clúster.
 
 * **CLI de Azure para Mac, Linux y Windows**: usa comandos de la línea de comandos para crear el clúster.
 
 Cada uno de estos métodos requerirá la clave pública. Para información completa sobre la creación de un clúster de HDInsight basado en Linux, vea [Aprovisionamiento de clústeres de HDInsight basado en Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
-###Portal de vista previa de Azure
+###Portal de Azure
 
-Al usar el [portal de vista previa de Azure][preview-portal] para crear un clúster de HDInsight basado en Linux, debe escribir un **Nombre de usuario de SSH** y especificar una **CONTRASEÑA** o una **CLAVE PÚBLICA DE SSH**.
+Al usar el [Portal de Azure][preview-portal] para crear un clúster de HDInsight basado en Linux, debe escribir un **Nombre de usuario de SSH** y seleccionar una **CONTRASEÑA** o una **CLAVE PÚBLICA DE SSH**.
 
 Si selecciona **CLAVE PÚBLICA DE SSH**, puede pegar la clave pública (que se muestra en el campo __Clave pública para pegar en el archivo OpenSSH authorized\_keys__ de PuttyGen) en el campo __SSH PublicKey__ o elija __Seleccionar un archivo__ para examinar y seleccionar el archivo que contiene la clave pública.
 
@@ -229,4 +229,4 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

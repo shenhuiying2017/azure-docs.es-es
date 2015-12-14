@@ -139,13 +139,13 @@ Ahora que ha creado la aplicación web y ha recuperado todos los paquetes de NuG
 
 3. Cierre el explorador. En la ventana Comandos, presione **Ctrl + C** para cerrar la aplicación o cerrar dicha ventana.
 
-## Creación de una aplicación web en el Portal de vista previa de Azure
+## Creación de una aplicación web en el Portal de Azure
 
-Los pasos siguientes le guiarán a través de la creación de una aplicación web en el portal de vista previa de Azure.
+Los pasos siguientes le guiarán a través de la creación de una aplicación web en el Portal de Azure.
 
-1. Inicie sesión en el [portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-2. Haga clic en **NUEVO**, en la parte inferior izquierda del portal.
+2. Haga clic en **NUEVO**, en la parte superior izquierda del Portal.
 
 3. Haga clic en **Aplicaciones web > Aplicación web**.
 
@@ -165,7 +165,7 @@ Los pasos siguientes le guiarán a través de la creación de una aplicación we
 
 Git es un sistema de control de versión distribuida que puede utilizar para implementar su aplicación web del Servicio de aplicaciones de Azure. Tendrá que almacenar el código que escriba para su aplicación web en un repositorio Git local y lo implementará en Azure insertando en un repositorio remoto.
 
-1. Inicie sesión en el [portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
 2. Haga clic en **Examinar**.
 
@@ -258,7 +258,7 @@ Esto puede hacerse de dos maneras:
 
 		http://SampleWebAppDemo.azurewebsites.net
  
-* En el Portal de vista previa de Azure, busque la hoja de aplicación web para la aplicación web y haga clic en **Examinar** para ver la aplicación
+* En el Portal de Azure, busque la hoja de aplicación web para la aplicación web y haga clic en **Examinar** para ver la aplicación
 * en el explorador predeterminado.
 
 ![Aplicación web de Azure](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)
@@ -266,4 +266,4 @@ Esto puede hacerse de dos maneras:
 ## Resumen
 En este tutorial, ha aprendido a crear una aplicación web en VS Code y a implementarla en Azure. Para obtener más información sobre VS Code, consulte el artículo [¿Por qué Visual Studio Code?](https://code.visualstudio.com/Docs/). Para obtener más información sobre Aplicaciones web del Servicio de aplicaciones de Azure, consulte [Información general de aplicaciones web](app-service-web-overview.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

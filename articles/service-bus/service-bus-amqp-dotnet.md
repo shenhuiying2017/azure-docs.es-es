@@ -45,7 +45,7 @@ El valor del parámetro `Microsoft.ServiceBus.ConnectionString` es la cadena de 
 
 	Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
-Donde `[namespace]` y `SharedAccessKey` se obtienen en el Portal de Azure. Para obtener más información, consulte [Utilización de las colas del bus de servicio][].
+Donde `[namespace]` y `SharedAccessKey` se obtienen en el [Portal de Azure clásico][]. Para obtener más información, consulte [Utilización de las colas del Bus de servicio][].
 
 Al usar AMQP, anexe la cadena de conexión a `;TransportType=Amqp`. Esta notación informa a la biblioteca de cliente que realice la conexión con el Bus de servicio mediante AMQP 1.0.
 
@@ -53,7 +53,7 @@ Al usar AMQP, anexe la cadena de conexión a `;TransportType=Amqp`. Esta notaci�
 
 Cuando se usa el protocolo predeterminado, el comportamiento de serialización predeterminado de la biblioteca de cliente de .NET consiste en usar el tipo [DataContractSerializer][] para serializar una instancia de [BrokeredMessage][] para el transporte entre la biblioteca de cliente y el servicio del Bus de servicio. Cuando se usa el modo de transporte de AMQP, la biblioteca de cliente emplea el sistema de tipos de AMQP para la serialización del [mensaje asincrónico][BrokeredMessage] en un mensaje de AMQP. Esta serialización permite que el mensaje se reciba e interprete por una aplicación receptora que se ejecuta potencialmente en una plataforma diferente, por ejemplo, una aplicación Java que usa la API de JMS para tener acceso al Bus de servicio.
 
-Cuando se construye una instancia [BrokeredMessage][], puede proporcionar un objeto .NET como un parámetro al constructor para que actúe como el cuerpo del mensaje. Para los objetos que se pueden asignar a tipos primitivos de AMQP, el cuerpo se serializa en tipos de datos de AMQP. Si el objeto no se puede asignar directamente a un tipo primitivo de AMQP; es decir, un tipo personalizado definido por la aplicación, el objeto se serializa con [DataContractSerializer][] y los bytes serializados se envían en un mensaje de datos de AMQP.
+Cuando se construye una instancia [BrokeredMessage][], puede proporcionar un objeto .NET como un parámetro al constructor para que actúe como el cuerpo del mensaje. Para los objetos que se pueden asignar a tipos primitivos de AMQP, el cuerpo se serializa en tipos de datos de AMQP. Si el objeto no se puede asignar directamente a un tipo primitivo de AMQP, es decir, un tipo personalizado definido por la aplicación, el objeto se serializa con [DataContractSerializer][] y los bytes serializados se envían en un mensaje de datos de AMQP.
 
 Para facilitar la interoperabilidad con clientes que no sean de .NET, use solo los tipos de .NET que se puedan serializar directamente en tipos AMQP para el cuerpo del mensaje. En la siguiente tabla se detallan estos tipos y la asignación correspondiente al sistema de tipos de AMQP.
 
@@ -161,7 +161,7 @@ Las API de .NET exponen varias opciones para controlar el comportamiento del pro
 
 -   **MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval**: si las transferencias se pueden definir por lotes, este valor determina el retraso máximo de las disposiciones de envío. Heredado por remitentes/receptores de forma predeterminada. El remitente/receptor individual puede invalidar el valor predeterminado, que es de 20 milisegundos.
 
--   **MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity**: controla si las conexiones de AMQP se establecen por una conexión SSL. El valor predeterminado es **true**.
+-   **MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity**: controla si las conexiones de AMQP se establecen a través de una conexión SSL. El valor predeterminado es **true**.
 
 ## Pasos siguientes
 
@@ -171,7 +171,7 @@ Las API de .NET exponen varias opciones para controlar el comportamiento del pro
 - [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio]
 - [AMQP de Bus de servicio para Windows Server]
 
-  [Utilización de las colas del bus de servicio]: service-bus-dotnet-how-to-use-queues.md
+  [Utilización de las colas del Bus de servicio]: service-bus-dotnet-how-to-use-queues.md
   [DataContractSerializer]: https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
   [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: https://msdn.microsoft.com/library/azure/jj657638.aspx
@@ -199,8 +199,9 @@ Las API de .NET exponen varias opciones para controlar el comportamiento del pro
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
+[Portal de Azure clásico]: http://manage.windowsazure.com
 [Información general sobre AMQP para el Bus de servicio]: service-bus-amqp-overview.md
 [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP de Bus de servicio para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

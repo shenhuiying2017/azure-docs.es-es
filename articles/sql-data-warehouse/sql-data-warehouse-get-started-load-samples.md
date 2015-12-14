@@ -25,7 +25,7 @@ A continuación se proporciona una vista resumida de cómo se puede cargar Adven
 ## Agregar datos de ejemplo durante la creación
 Para garantizar que los datos de ejemplo se cargan en Almacenamiento de datos SQL durante la implementación, siga estos pasos:
 
-1. Inicie el proceso de creación; para ello, vaya al [Portal de Azure][], haga clic en "+ Nuevo", luego en "Datos y almacenamiento" y busque Almacenamiento de datos SQL. También puede buscar "Almacenamiento de datos SQL" en Marketplace. 
+1. Inicie el proceso de creación; para ello, vaya al [Portal de Azure clásico][], haga clic en "+Nuevo", luego en "Datos y almacenamiento" y busque Almacenamiento de datos SQL. También puede buscar "Almacenamiento de datos SQL" en Marketplace. 
  
 2. Una vez iniciado el proceso, asegúrese de hacer clic en la opción "Seleccionar origen" y configurarla como "Ejemplo". Si no va a crear un nuevo servidor, también se le pedirá que proporcione el inicio de sesión del servidor que se usará para la creación.
 
@@ -35,7 +35,7 @@ Para garantizar que los datos de ejemplo se cargan en Almacenamiento de datos SQ
 
 ## Uso de Power BI para analizar Adventureworks
 
-El uso del conjunto de datos de ejemplo puede ser una buena manera de comenzar con Power BI. Después de cargar los datos de ejemplo, puede abrir una conexión con Almacenamiento de datos SQL; para ello, puede hacer clic en el botón "Abrir en Power BI" en el Portal de Azure o ir a [Power BI][] y [conectarse a Almacenamiento de datos SQL][]. Después de conectarse, se debe crear un nuevo conjunto de datos con el mismo nombre que el del almacenamiento de datos. Para facilitar el análisis, se ha creado una vista denominada "AggregateSales" con algunas de las métricas que son clave para analizar las ventas de la compañía. Puede hacer clic en el nombre de esta vista para expandirla y ver las columnas que contiene, y puede crear algunas visualizaciones rápidas siguiendo estos pasos:
+El uso del conjunto de datos de ejemplo puede ser una buena manera de comenzar con Power BI. Después de cargar los datos de ejemplo, puede abrir una conexión con Almacenamiento de datos SQL. Para ello, puede hacer clic en el botón "Abrir en Power BI" en el Portal de Azure clásico o ir a [Power BI][] y [conectarse a Almacenamiento de datos SQL][]. Después de conectarse, se debe crear un nuevo conjunto de datos con el mismo nombre que el del almacenamiento de datos. Para facilitar el análisis, se ha creado una vista denominada "AggregateSales" con algunas de las métricas que son clave para analizar las ventas de la compañía. Puede hacer clic en el nombre de esta vista para expandirla y ver las columnas que contiene, y puede crear algunas visualizaciones rápidas siguiendo estos pasos:
 
 1. Para empezar, podemos crear fácilmente un mapa de todas nuestras ventas; para ello, hacemos clic en las columnas "PostalCode" y "SalesAmount". Power BI reconoce incluso automáticamente estos datos como geográficos y los coloca en un mapa. 
 
@@ -85,7 +85,7 @@ Ahora que le hemos dado algún tiempo para familiarizarse con los datos de ejemp
 [migrar código]: ./sql-data-warehouse-migrate-code.md
 [cargar datos de ejemplo manualmente]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [cargar manualmente los datos de ejemplo]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[Portal de Azure]: https://portal.azure.com/
+[Portal de Azure clásico]: https://portal.azure.com/
 [Power BI]: http://www.powerbi.com/
 [conectarse a Almacenamiento de datos SQL]: ./sql-data-warehouse-integrate-power-bi.md
 
@@ -95,4 +95,4 @@ Ahora que le hemos dado algún tiempo para familiarizarse con los datos de ejemp
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -52,7 +52,7 @@ Consulte [Notas de la versión de HDInsight](hdinsight-release-notes.md) para co
 
 ### Selección de una versión al crear un clúster de HDInsight
 
-Al crear un clúster a través de los cmdlets de Windows PowerShell para HDInsight o de .NET SDK de HDInsight, puede elegir la versión del clúster de Hadoop para HDInsight mediante el menú desplegable **Versión de HDInsight** de la hoja **Configuración Opcional** del portal de vista previa de Azure.
+Al crear un clúster a través de los cmdlets de Windows PowerShell para HDInsight o de SDK para .NET de HDInsight, puede elegir la versión del clúster de Hadoop para HDInsight mediante el menú desplegable **Versión de HDInsight** de la hoja **Configuración Opcional** del Portal de Azure.
 
 ##Características destacadas
 Algunas de las características más destacadas de la plataforma de HDInsight incluyen:
@@ -66,7 +66,7 @@ Algunas de las características más destacadas de la plataforma de HDInsight in
 
 - **Storm** : Storm en HDInsight de Azure ya está disponible con carácter general y ofrece una manera rápida y fácil de implementar análisis en tiempo real con solo unos cuantos clics y en pocos minutos. Apache Storm en HDInsight de Azure es un proyecto de código abierto en el ecosistema de Apache Hadoop que proporciona acceso a una plataforma de análisis capaz de procesar millones de eventos de forma confiable. Ahora los usuarios de Hadoop pueden obtener información a medida que ocurren los eventos, además de información de eventos anteriores. Microsoft también proporciona integración con Visual Studio, lo que facilita la interacción de los desarrolladores con Storm. Ahora puede desarrollar, implementar y depurar topologías de Storm desde Visual Studio.
 
-- **HDInsight en Linux**: HDInsight de Azure ofrece la opción de crear clústeres Hadoop que se ejecutan en máquinas virtuales (VM) de Linux (Ubuntu). Puede usar esta opción si conoce Linux o Unix, si realiza una migración desde una solución de Hadoop basada en Linux existente o si desea una integración simple con los componentes del ecosistema de Hadoop creados para Linux. Puede crear un clúster de HDInsight en Linux desde un equipo cliente que ejecuta Windows o Linux mediante el portal de vista previa de Azure, la CLI de Azure o el SDK de .NET de HDInsight (solo Windows).
+- **HDInsight en Linux**: HDInsight de Azure ofrece la opción de crear clústeres Hadoop que se ejecutan en máquinas virtuales (VM) de Linux (Ubuntu). Puede usar esta opción si conoce Linux o Unix, si realiza una migración desde una solución de Hadoop basada en Linux existente o si desea una integración simple con los componentes del ecosistema de Hadoop creados para Linux. Puede crear un clúster de HDInsight en Linux desde un equipo cliente que ejecuta Windows o Linux mediante el Portal de Azure, la CLI de Azure o el SDK para .NET de HDInsight (solo Windows).
 
 - **Tamaños de máquinas virtuales adicionales**: los clústeres de HDInsight ahora están disponibles en varios tamaños y tipos de máquinas virtuales. Los clústeres de HDInsight ahora pueden usar los tamaños A2 a A7 creados para fines generales; nodos de la serie D que cuentan con unidades de estado sólido (SSD) y procesadores un 60 por ciento más rápidos; y tamaños A8 y A9 con compatibilidad InfiniBand para una red rápida. Los clientes de Apache HBase en HDInsight de Azure se pueden beneficiar de las configuraciones de memoria más grandes de la serie D para aumentar el rendimiento. Los clientes de Apache Storm en HDInsight de Azure también pueden beneficiarse de la memoria adicional para cargar grandes conjuntos de datos de referencia, así como de CPU más rápidas, para obtener un mayor rendimiento.
 
@@ -101,9 +101,9 @@ Algunas de las características más destacadas de la plataforma de HDInsight in
 En la siguiente tabla se enumeran las versiones de HDInsight que está disponibles actualmente, las versiones correspondientes de la distribución Hortonworks Data Platform que usan y sus fechas de lanzamiento. Si se conocen, también se proporcionan también las fechas de expiración y desuso. Tenga en cuenta lo siguiente:
 
 * Los clústeres de alta disponibilidad con dos nodos principales se implementan de forma predeterminada para los clústeres de HDInsight 2.1 y versiones posteriores. No están disponibles para los clústeres de HDInsight 1.6.
-* Cuando expira el soporte técnico de una versión concreta, es posible que no esté disponible en el portal de vista previa de Azure. En la tabla siguiente se indica qué versiones están disponibles en el Portal de Azure. Las versiones de clúster seguirán estando disponibles usando el parámetro `Version` en el comando [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) y en el SDK de .NET hasta la fecha de desuso.
+* Cuando expira el soporte técnico de una versión concreta, es posible que no esté disponible en el Portal de Azure. En la tabla siguiente se indica qué versiones están disponibles en el Portal de Azure clásico. Las versiones de clúster seguirán estando disponibles usando el parámetro `Version` en el comando [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) y en el SDK de .NET hasta la fecha de desuso.
 
-Versión de HDInsight|Versión de HDP|Alta disponibilidad|Fecha de lanzamiento|Disponible en el Portal de Azure|Fecha de expiración del soporte técnico|Fecha de desuso
+Versión de HDInsight|Versión de HDP|Alta disponibilidad|Fecha de lanzamiento|Disponible en el Portal de Azure clásico|Fecha de expiración del soporte técnico|Fecha de desuso
 ---|---|---|---|---|---|---
 HDI 3.2|HDP 2.2|Sí|18/02/2015|Sí||
 HDI 3,1|HDP 2,1|Sí|24/06/2014|Sí||
@@ -118,7 +118,7 @@ HDI 1.6|HDP 1.1|No|28/10/2013|No|26/04/2014|31/05/2015
 El SLA se define en términos de "plazo de soporte técnico". Un plazo de soporte técnico se refiere al período durante el cual la versión del clúster de HDInsight puede recibir soporte técnico por parte del Soporte técnico y el servicio al cliente de Microsoft. Un clúster de HDInsight está fuera del plazo de soporte técnico si su versión cuenta con una **fecha de expiración de soporte técnico** anterior a la fecha actual. En la tabla anterior se puede consultar una lista de las versiones de clúster de HDInsight con soporte técnico. La fecha de expiración de una versión determinada (X) de HDInsight (una vez que hay disponible una versión más reciente X+1) se calcula como la fecha más tardía de las dos siguientes:
 
 - Fórmula 1: agregue 180 días a la fecha en la que se lanzó la versión X del clúster de HDInsight.
-- Fórmula 2: agregue 90 días a la fecha en la que la versión X+1 (versión subsiguiente después de X) del clúster de HDInsight se puso a su disposición en el portal de vista previa.
+- Fórmula 2: agregue 90 días a la fecha en la que la versión X+1 (versión subsiguiente después de X) del clúster de HDInsight se puso a su disposición en el Portal.
 
 La **fecha de desuso** es la fecha tras la cual no se puede crear la versión del clúster en HDInsight.
 
@@ -162,4 +162,4 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

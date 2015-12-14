@@ -22,10 +22,10 @@ Lea el proceso minuciosamente antes de empezar y comprenda dónde y por qué se 
 ## Desarrollo de los bloques de creación
 Debe decidir los bloques de creación de la solución antes de continuar con la plantilla de solución en el portal de publicación. A continuación se muestran algunos vínculos a los documentos que pueden ayudarle en el proceso:
 
-1. [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](https://azure.microsoft.com/es-ES/documentation/articles/best-practices-resource-manager-design-templates/)
-2. [Creación de plantillas del Administrador de recursos de Azure](https://azure.microsoft.com/es-ES/documentation/articles/resource-group-authoring-templates/)
+1. [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](../best-practices-resource-manager-design-templates.md)
+2. [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md)
 3. Plantillas de inicio rápido de Azure:
-  - [https://azure.microsoft.com/es-ES/documentation/templates/](https://azure.microsoft.com/es-ES/documentation/templates/)
+  - [https://azure.microsoft.com/es-ES/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
   - [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## Pasos siguientes
@@ -34,4 +34,4 @@ Ahora que ha revisado los requisitos previos y completado las tareas necesarias,
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

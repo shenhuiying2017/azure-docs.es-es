@@ -18,6 +18,11 @@
 
 # Introducción a la sincronización de datos sin conexión en Servicios móviles
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 La sincronización sin conexión le permite ver, agregar o modificar datos en una aplicación móvil, incluso cuando no hay ninguna conexión de red. En este tutorial, aprenderá cómo puede la aplicación almacenar automáticamente los cambios de una base de datos sin conexión local y sincronizar esos cambios siempre que vuelva a conectarse.
@@ -32,7 +37,7 @@ La sincronización sin conexión tiene varias ventajas:
 
 > [AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y acceder a [servicios móviles gratuitos que puede seguir usando incluso después de que finalice dicha evaluación](http://azure.microsoft.com/pricing/details/mobile-services/). Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank").
 
-Este tutorial está basado en el [Tutorial de inicio rápido de Servicios móviles], que debe completar primero. En primer lugar, revisemos el código relacionado con la sincronización sin conexión en el inicio rápido.
+Este tutorial está basado en el [Tutorial de introducción a Servicios móviles], que debe completar primero. En primer lugar, revisemos el código relacionado con la sincronización sin conexión en el inicio rápido.
 
 ## <a name="review-sync"></a>Revisión del código de sincronización de Servicios móviles
 
@@ -57,7 +62,7 @@ Esto crea una tienda local mediante la interfaz `MSCoreDataStore`. Puede proporc
 
 El primer parámetro de `initWithDelegate` especifica un controlador de conflictos, pero ya que hemos pasado `nil`, obtenemos el controlador de conflictos predeterminado que produce un error en cualquier conflicto. Para obtener más información sobre cómo implementar un controlador de conflictos personalizado, consulte [Control de conflictos con compatibilidad sin conexión para Servicios móviles].
 
-* En **QSTodoService.m**, `syncData` primero inserta nuevos cambios y, a continuación, llama a `pullData` para obtener datos desde el servicio remoto. En `syncData`, llamamos primero a `pushWithCompletion` en el contexto de sincronización. Este método es miembro de `MSSyncContext` y no de la tabla de sincronización, porque insertará cambios en todas las tablas. Solo se envían al servidor los registros que se han modificado localmente de alguna forma (mediante operaciones de creación, actualización o eliminación). Al final de `syncData`, llamamos a la aplicación auxiliar `pullData`.
+* En **QSTodoService.m**, `syncData` primero inserta nuevos cambios y, a continuación, llama a `pullData` para obtener datos desde el servicio remoto. En `syncData`, llamamos primero a `pushWithCompletion` en el contexto de sincronización. Este método es miembro de `MSSyncContext` y no de la propia tabla de sincronización, porque insertará cambios en todas las tablas. Solo se envían al servidor los registros que se han modificado localmente de alguna forma (mediante operaciones de creación, actualización o eliminación). Al final de `syncData`, llamamos a la aplicación auxiliar `pullData`.
 
 En este ejemplo, la operación de inserción no es estrictamente necesaria. Si hay cambios pendientes en el contexto de sincronización para la tabla que está realizando una operación de inserción, la extracción siempre realiza primero una inserción. Sin embargo, si tiene más de una tabla de sincronización, llame a la inserción explícitamente para tener coherencia entre las tablas.
 
@@ -113,7 +118,7 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
       * MS\_TableOperations: para el seguimiento de elementos que se sincronizarán con el servidor
       * MS\_TableOperationErrors: para realizar el seguimiento de los errores que se producen durante la sincronización sin conexión
       * MS\_TableConfig: para realizar el seguimiento de la hora de la última actualización de la última operación de sincronización para todas las operaciones de extracción
-      * TodoItem: para almacenar elementos de lista de tareas. Las columnas de sistema **ms\_createdAt**, **ms\_updatedAt** y **ms\_version** son propiedades del sistema opcionales.
+      * TodoItem: para almacenar elementos de lista de tareas. Las columnas de sistema**ms\_createdAt**, **ms\_updatedAt** y **ms\_version** son propiedades del sistema opcionales.
 
 >[AZURE.NOTE]El SDK de Servicios móviles reserva los nombres de columna que empiezan por "**`ms_`**". No use este prefijo en elementos distintos de las columnas del sistema. De lo contrario, se modificarán los nombres de columna cuando se use el servicio remoto.
 
@@ -196,7 +201,7 @@ En esta sección, desactivará el Wi-Fi en el simulador para crear un escenario 
 
 3. Vea el contenido de la tabla TodoItem remota. Compruebe que los nuevos elementos _no_ se han sincronizado con el servidor.
 
-   - Para el backend de JavaScript, vaya al Portal de administración y haga clic en la pestaña Datos para ver el contenido de la tabla `TodoItem`.
+   - Para el back-end de JavaScript, vaya al [Portal de Azure clásico](http://manage.windowsazure.com) y haga clic en la pestaña Datos para ver el contenido de la tabla `TodoItem`.
    - Para el back-end de .NET, vea el contenido de tabla con una herramienta SQL, como SQL Server Management Studio, o con un cliente REST como Fiddler o Postman.
 
 4. Active la Wi-Fi en el simulador de iOS. A continuación, realice el gesto de actualización desplegando la lista de elementos. Verá una rueda con el progreso y el texto "Sincronizando...".
@@ -268,6 +273,6 @@ Para sincronizar el almacén local con el servidor, ha usado `MSSyncTable.pullWi
 [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-[Tutorial de inicio rápido de Servicios móviles]: mobile-services-ios-get-started.md
+[Tutorial de introducción a Servicios móviles]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

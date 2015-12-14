@@ -43,7 +43,7 @@ bus_service = ServiceBusService(
 	shared_access_key_value='sharedaccesskey')
 ```
 
-Puede obtener los valores para el valor y el nombre de clave SAS en el [Portal de Azure][] desde la ventana **Información de conexión**.
+Puede obtener los valores para el valor y el nombre de clave de SAS en el [Portal de Azure clásico][] desde la ventana **Información de conexión**.
 
 ```
 bus_service.create_topic('mytopic')
@@ -157,7 +157,7 @@ En caso de que la aplicación sufra un error después de procesar el mensaje y a
 
 ## Eliminación de temas y suscripciones
 
-Los temas y suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del Portal de Azure o mediante programación. En el ejemplo siguiente, se muestra cómo eliminar el tema llamado `mytopic`:
+Los temas y las suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del [Portal de Azure clásico][] o mediante programación. En el ejemplo siguiente, se muestra cómo eliminar el tema llamado `mytopic`:
 
 ```
 bus_service.delete_topic('mytopic')
@@ -176,10 +176,10 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
 -   Consulte [Colas, temas y suscripciones][].
 -   Referencia para [SqlFilter.SqlExpression][].
 
-[Portal de Azure]: http://manage.windowsazure.com
+[Portal de Azure clásico]: http://manage.windowsazure.com
 [paquete de Azure para Python]: https://pypi.python.org/pypi/azure
 [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Colas de Bus de servicio y colas de Azure]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

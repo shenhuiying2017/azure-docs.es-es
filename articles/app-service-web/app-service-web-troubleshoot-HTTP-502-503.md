@@ -50,7 +50,7 @@ El servicio [Aplicaciones web del Servicio de aplicaciones](/services/app-servic
 
 ####	Seguimiento del estado del servicio
 
-Cada vez que hay una interrupción del servicio o una degradación del rendimiento, Microsoft Azure lo anuncia. Puede realizar un seguimiento del estado del servicio en el [Portal de vista previa de Azure](https://portal.azure.com/). Para obtener más información, consulte [Seguimiento del estado del servicio](insights-service-health.md).
+Cada vez que hay una interrupción del servicio o una degradación del rendimiento, Microsoft Azure lo anuncia. Puede realizar un seguimiento del estado del servicio en el [Portal de Azure](https://portal.azure.com/). Para obtener más información, consulte [Seguimiento del estado del servicio](insights-service-health.md).
 
 ####	Supervisión de la aplicación web
 
@@ -125,17 +125,17 @@ Puede establecer el escalado en Manual o Automático.
 
 ####	Uso de AutoHeal
 
-AutoHeal recicla el proceso de trabajo para su aplicación en función de la configuración que elija (como cambios de configuración, solicitudes, límites de memoria o el tiempo necesario para ejecutar una solicitud). Casi siempre, el proceso de reciclaje es la forma más rápida de recuperarse de un problema. Aunque siempre puede reiniciar la aplicación web directamente en el Portal de vista previa de Azure, AutoHeal lo hará automáticamente por usted. Todo lo que debe hacer es agregar algunos desencadenadores en web.config raíz de la aplicación web. Tenga en cuenta que esta configuración funcionaría igual incluso si la aplicación no fuera .Net.
+AutoHeal recicla el proceso de trabajo para su aplicación en función de la configuración que elija (como cambios de configuración, solicitudes, límites de memoria o el tiempo necesario para ejecutar una solicitud). Casi siempre, el proceso de reciclaje es la forma más rápida de recuperarse de un problema. Aunque siempre puede reiniciar la aplicación web directamente en el Portal de Azure, AutoHeal lo hará automáticamente por usted. Todo lo que debe hacer es agregar algunos desencadenadores en web.config raíz de la aplicación web. Tenga en cuenta que esta configuración funcionaría igual incluso si la aplicación no fuera .Net.
 
 Para obtener más información, consulte [Recuperación automática de Sitios web de Azure](/blog/auto-healing-windows-azure-web-sites/).
 
 
 ####	Reinicio de la aplicación web
 
-Suele ser la manera más sencilla de recuperarse de problemas que solo tienen lugar una vez. En el [Portal de vista previa de Azure](https://portal.azure.com), en la hoja de la aplicación web, tendrá las opciones para detener o reiniciar la aplicación.
+Suele ser la manera más sencilla de recuperarse de problemas que solo tienen lugar una vez. En el [Portal de Azure](https://portal.azure.com), en la hoja de la aplicación web, tiene las opciones para detener o reiniciar la aplicación.
 
  ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 También puede administrar la aplicación web con Azure Powershell. Para obtener más información, vea [Uso de Azure PowerShell con el Administrador de recursos de Azure](powershell-azure-resource-manager.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

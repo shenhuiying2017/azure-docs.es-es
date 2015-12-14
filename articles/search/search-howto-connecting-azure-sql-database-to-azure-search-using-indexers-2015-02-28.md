@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Conectar la Base de datos SQL de Azure para la Búsqueda de Azure con indizadores | Microsoft Azure | Servicio de búsqueda hospedado en la nube" 
+	pageTitle="Conectar la Base de datos SQL de Azure para la Búsqueda de Azure con indexadores | Microsoft Azure | Servicio de búsqueda hospedado en la nube" 
 	description="Obtenga información sobre cómo extraer datos de la base de datos SQL de Azure en un índice de Búsqueda de Azure mediante el uso de indizadores." 
 	services="search" 
 	documentationCenter="" 
@@ -28,7 +28,7 @@ Este artículo aborda la forma de usar los indizadores, pero también detalla la
 
 Para instalar y configurar un indizador de SQL Azure, puede llamar a la [API de REST de Búsqueda de Azure](http://go.microsoft.com/fwlink/p/?LinkID=528173) para crear y administrar **indizadores** y **orígenes de datos**.
 
-También puede utilizar la [clase Indexer](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) en el [SDK de .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx), o el Asistente para la importación de datos en el [Portal de Azure](https://portal.azure.com), para crear y programar un indexador.
+También puede usar la [clase Indexer](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) en el [SDK de .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx), o el Asistente para la importación de datos en el [Portal de Azure clásico](https://portal.azure.com), para crear y programar un indexador.
 
 Un **origen de datos** especifica los datos que se deben indizar, las credenciales necesarias para obtener acceso a estos y las directivas que posibilitan que Búsqueda de Azure identifique cambios en los datos de forma eficaz (filas nuevas, modificadas o eliminadas). Se define como un recurso independiente para que puedan usarlo múltiples indizadores.
 
@@ -66,7 +66,7 @@ En primer lugar, cree el origen de datos:
 	}
 
 
-Puede obtener la cadena de conexión del [Portal de Azure](https://portal.azure.com); use la opción `ADO.NET connection string`.
+Puede obtener la cadena de conexión del [Portal de Azure clásico](https://portal.azure.com); use la opción `ADO.NET connection string`.
 
 Si aún no tiene un índice de Búsqueda de Azure de destino, créelo. Puede hacerlo desde la [interfaz de usuario del Portal](https://portal.azure.com) o mediante la [API de creación de índices](https://msdn.microsoft.com/library/azure/dn798941.aspx). Asegúrese de que el esquema del índice de destino es compatible con el esquema de la tabla de origen. Consulte en la siguiente tabla la asignación entre los tipos de datos de SQL y Búsqueda de Azure.
 
@@ -279,4 +279,4 @@ R: Sí. El indizador se ejecuta en uno de los nodos del servicio de búsqueda, y
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

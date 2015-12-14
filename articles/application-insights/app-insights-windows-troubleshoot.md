@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="11/24/2015" 
 	ms.author="awills"/>
  
 # Solución de problemas y preguntas frecuentes para Application Insights en dispositivos Windows
@@ -25,7 +25,7 @@
 
 *He agregado Application Insights correctamente y he ejecutado mi aplicación, pero no aparecen datos en el portal.*
 
-* Espere un minuto y haga clic en Actualizar, ya que la actualización no se realiza de forma automática.
+* Espere un minuto y haga clic en Actualizar,
 * Compruebe que tenga una clave de instrumentación definida en el archivo ApplicationInsights.config y que sea la misma que la clave del portal de Application Insights. Para ver la clave, haga clic en Essentials en la hoja de información general.
 * Asegúrese de que la aplicación [solicita acceso de red saliente](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx).
 * ¿Hay un firewall entre el dispositivo de prueba o el emulador y el portal de Application Insights? Puede que tenga que abrir los puertos TCP 80 y 443 para el tráfico saliente a dc.services.visualstudio.com y f5.services.visualstudio.com.
@@ -40,7 +40,11 @@
 
 ## ¿Cómo puedo agregar Application Insights a una aplicación universal?
 
-Agregue manualmente los paquetes de NuGet a cada proyecto de dispositivo de la solución. Consulte [Introducción: Aplicaciones universales][universal].
+Si va a crear una nueva solución en Visual Studio 2015, simplemente seleccione la opción de agregar Application Insights en el cuadro de diálogo de nuevo proyecto. Así se enviarán datos de telemetría de todos los tipos de aplicación de destino al mismo recurso de Application Insights.
+
+Si ya creó la solución de aplicación universal, haga clic en cada proyecto principal y seleccione **Agregar Application Insights**.
+
+
 
 ## Deshabilitación de la telemetría
 
@@ -120,4 +124,4 @@ Consulte [Privacidad y retención de los datos][data].
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

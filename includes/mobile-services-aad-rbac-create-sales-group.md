@@ -3,7 +3,7 @@ En esta sección agregará dos nuevos usuarios a su directorio junto con el nuev
 ### Creación de usuarios
 
 
-1. En el [Portal de administración de Azure], navegue hasta el directorio que configuró previamente para la autenticación cuando realizó el tutorial para agregar la autenticación a una aplicación.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com), vaya hasta el directorio que configuró previamente para la autenticación cuando completó el tutorial para agregar la autenticación a una aplicación.
 2. Haga clic en **Usuarios** en la parte superior de la página. A continuación, haga clic en el botón **Agregar usuario** de la parte inferior. 
 3. Complete los cuadros de diálogo de nuevo usuario para crear un usuario llamado **Roberto**. Anote la contraseña temporal de ese usuario. 
 4. Cree otro usuario llamado **David**. Anote la contraseña temporal de ese usuario.
@@ -37,4 +37,4 @@ En esta sección agregará dos nuevos usuarios a su directorio junto con el nuev
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id-app-setting.png)
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

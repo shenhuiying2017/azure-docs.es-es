@@ -59,7 +59,7 @@ Antes de configurar la auditoría, compruebe si usa un ["Cliente de nivel inferi
 
 ##<a id="subheading-2"></a>Configuración de la auditoría para su base de datos
 
-1. Inicie el <a href="https://portal.azure.com" target="_blank">Portal de vista previa de Azure</a>.
+1. Inicie el <a href="https://portal.azure.com" target="_blank">Portal de Azure</a>.
 
 2. Navegue a la hoja de configuración de la base de datos de Almacenamiento de datos SQL o el servidor de SQL Server que quiera auditar. Haga clic en el botón **Configuración** situado en la parte superior y, a continuación, en la hoja Configuración, y seleccione **Auditoría**.
 
@@ -102,7 +102,7 @@ Para obtener instrucciones más detalladas sobre el trabajo con la plantilla de 
 
 
 ##<a id="subheading-4">Prácticas para el uso en producción</a>
-La descripción de esta sección se refiere a las capturas de pantalla anteriores. Se puede utilizar tanto el <a href="https://portal.azure.com" target="_blank">Portal de vista previa de Azure</a> como el <a href= "https://manage.windowsazure.com/" target="_bank">Portal de Azure clásico</a>.
+La descripción de esta sección se refiere a las capturas de pantalla anteriores. Se puede usar tanto el <a href="https://portal.azure.com" target="_blank">Portal de Azure</a> como el <a href= "https://manage.windowsazure.com/" target="_bank">Portal de Azure clásico</a>.
  
 
 ##<a id="subheading-5"></a>Regeneración de clave de almacenamiento
@@ -141,4 +141,4 @@ Cuando esté en el modo Administrador de recursos de Azure, ejecute `Get-Command
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

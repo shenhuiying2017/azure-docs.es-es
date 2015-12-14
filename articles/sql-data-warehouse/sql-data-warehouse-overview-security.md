@@ -24,7 +24,7 @@ En este artículo se describen los fundamentos de la protección de una base de 
 
 Seguridad de conexión hace referencia a cómo restringir y proteger las conexiones a la base de datos mediante reglas de firewall y cifrado de las conexiones.
 
-Las reglas de firewall las usan tanto el servidor como la base de datos para rechazar los intentos de conexión desde direcciones IP que no se hayan incluido explícitamente en la lista blanca. Para permitir que la aplicación o la dirección IP pública del equipo cliente intente conectarse a una nueva base de datos, primero debe crear una regla de firewall de nivel de servidor mediante el Portal de administración de Azure, API de REST o PowerShell. Como práctica recomendada, debe restringir los intervalos de direcciones IP que se permite que atraviesen el firewall del servidor tanto como sea posible. Para obtener más información, vea [Firewall de Base de datos SQL de Azure][].
+Las reglas de firewall las usan tanto el servidor como la base de datos para rechazar los intentos de conexión desde direcciones IP que no se hayan incluido explícitamente en la lista blanca. Para permitir que la aplicación o la dirección IP pública del equipo cliente intente conectarse a una nueva base de datos, primero debe crear una regla de firewall de nivel de servidor mediante el Portal de Azure clásico, API de REST o PowerShell. Como práctica recomendada, debe restringir los intervalos de direcciones IP que se permite que atraviesen el firewall del servidor tanto como sea posible. Para obtener más información, vea [Firewall de Base de datos SQL de Azure][].
 
 
 ## Autenticación
@@ -72,7 +72,7 @@ Existen varias formas de limitar aún más lo que los usuarios pueden hacer con 
 - Los [permisos][] granulares permiten control qué operaciones se pueden realizar en columnas individuales, tablas, vistas, procedimientos y otros objetos de la base de datos.
 - Los [procedimientos almacenados][] puede utilizarse para limitar las acciones que se pueden realizar en la base de datos.
 
-La administración bases de datos y servidores lógicos desde el Portal de administración de Azure o mediante la API del Administrador de recursos de Azure la controlan las asignaciones de roles de su cuenta de usuario del portal. Para obtener más información sobre este tema, consulte [Control de acceso basado en roles en el Portal de vista previa de Azure][].
+La administración de bases de datos y servidores lógicos desde el Portal de Azure clásico o mediante la API del Administrador de recursos de Azure la controlan las asignaciones de roles de su cuenta de usuario del portal. Para obtener más información sobre este tema, consulte [Control de acceso basado en rol en el Portal de Azure][].
 
 
 
@@ -87,7 +87,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-También puede habilitar el cifrado de datos transparente de la configuración de la base de datos en el [Portal de Azure][].
+También puede habilitar el cifrado de datos transparente de la configuración de la base de datos en el [Portal de Azure clásico][].
 
 
 
@@ -114,9 +114,9 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [procedimientos almacenados]: https://msdn.microsoft.com/library/ms190782.aspx
 [cifrado de datos transparente]: http://go.microsoft.com/fwlink/?LinkId=526242
 [Introducción a la auditoría de Base de datos SQL]: sql-database-auditing-get-started.md
-[Portal de Azure]: https://portal.azure.com/
+[Portal de Azure clásico]: https://portal.azure.com/
 
 <!--Other Web references-->
-[Control de acceso basado en roles en el Portal de vista previa de Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
+[Control de acceso basado en rol en el Portal de Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

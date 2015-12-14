@@ -69,7 +69,7 @@ El módulo Azure leerá las variables de entorno AZURE\_SERVICEBUS\_NAMESPACE y 
 
 Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio de nube de Azure, consulte [Servicio de nube de Node.js con almacenamiento][].
 
-Para ver un ejemplo de configuración de las variables de entorno en el Portal de Azure para un sitio web de Azure, consulte [Aplicación web Node.js con almacenamiento][].
+Para ver un ejemplo de configuración de las variables de entorno en el [Portal de Azure clásico][] para un sitio web de Azure, consulte [Aplicación web Node.js con almacenamiento][].
 
 ## de un tema
 
@@ -113,7 +113,7 @@ Las operaciones de filtrado opcionales pueden aplicarse a las tareas realizadas 
 function handle (requestOptions, next)
 ```
 
-Después de realizar el preprocesamiento en las opciones de solicitud, el método tiene que llamar a `next`, pasando una devolución de llamada con la firma siguiente:
+Después de realizar el preprocesamiento en las opciones de solicitud, el método llama a `next` y pasa una devolución de llamada con la signatura siguiente:
 
 ```
 function (returnObject, finalCallback, next)
@@ -152,7 +152,7 @@ El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter*
 
 Es posible agregar filtros a una suscripción utilizando el método **createRule** del objeto **ServiceBusService**. Este método le permite agregar nuevos filtros a una suscripción existente.
 
-> [AZURE.NOTE]Debido a que el filtro predeterminado se aplica automáticamente a todas las suscripciones nuevas, debe eliminar primero el filtro predeterminado **MatchAll** si no quiere que este invalide a los demás filtros que especifique. Puede eliminar el filtro predeterminado utilizando el método **deleteRule** del objeto **ServiceBusService**.
+> [AZURE.NOTE]Debido a que el filtro predeterminado se aplica automáticamente a todas las suscripciones nuevas, debe eliminar primero el filtro predeterminado, si no quiere que **MatchAll** invalide los demás filtros que especifique. Puede eliminar el filtro predeterminado utilizando el método **deleteRule** del objeto **ServiceBusService**.
 
 En el ejemplo siguiente, se crea una suscripción denominada `HighMessages` con **SqlFilter** que solo selecciona los mensajes con una propiedad **messagenumber** personalizada cuyo valor sea mayor que 3:
 
@@ -292,7 +292,7 @@ En caso de que la aplicación sufra un error después de procesar el mensaje y a
 
 ## Eliminación de temas y suscripciones
 
-Los temas y suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del Portal de Azure o mediante programación. En el siguiente ejemplo se muestra cómo eliminar el tema llamado `MyTopic`:
+Los temas y las suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del [Portal de Azure clásico][] o mediante programación. En el siguiente ejemplo se muestra cómo eliminar el tema llamado `MyTopic`:
 
     serviceBusService.deleteTopic('MyTopic', function (error) {
         if (error) {
@@ -317,7 +317,7 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
 -   Visite el repositorio del [SDK de Azure para Node][] en GitHub.
 
   [SDK de Azure para Node]: https://github.com/WindowsAzure/azure-sdk-for-node
-  [Azure portal]: http://manage.windowsazure.com
+  [Portal de Azure clásico]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
   [Clase SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
@@ -327,4 +327,4 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
   [Aplicación web Node.js con almacenamiento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

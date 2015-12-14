@@ -21,15 +21,15 @@
 
 Con los mensajes de error incluidos en este tema pretendemos ayudar a los usuarios de Hadoop en HDInsight de Azure a comprender algunas situaciones de error con las que se pueden encontrar al administrar el servicio con Azure PowerShell, así como asesorarlos sobre los pasos que pueden seguir para recuperarse del error.
 
-Algunos de estos mensajes de error también podrían aparecer en el portal de vista previa de Azure cuando se utiliza para administrar clústeres de HDInsight. Sin embargo, no es posible presentar de forma tan pormenorizada otros mensajes de error que pueden aparecer allí debido a las restricciones que afectan a las acciones de subsanación posibles en este contexto. Otros mensajes de error se asocian a los contextos en que la mitigación resulta obvia. Por ejemplo, si se infringen las restricciones de los parámetros, el mensaje emerge en el lado derecho del cuadro donde se escribió el valor. Se trata de un caso de solicitud de demasiados nodos de datos. La solución es reducir el número hasta un valor permitido, es decir, 33 o menos.
+Algunos de estos mensajes de error también podrían aparecer en el Portal de Azure cuando se usa para administrar clústeres de HDInsight. Sin embargo, no es posible presentar de forma tan pormenorizada otros mensajes de error que pueden aparecer allí debido a las restricciones que afectan a las acciones de subsanación posibles en este contexto. Otros mensajes de error se asocian a los contextos en que la mitigación resulta obvia. Por ejemplo, si se infringen las restricciones de los parámetros, el mensaje emerge en el lado derecho del cuadro donde se escribió el valor. Se trata de un caso de solicitud de demasiados nodos de datos. La solución es reducir el número hasta un valor permitido, es decir, 33 o menos.
 
-![Mensaje de error en el portal de vista previa de HDInsight][image-hdi-debugging-error-messages-portal]
+![Mensaje de error en el Portal de HDInsight][image-hdi-debugging-error-messages-portal]
 
-En situaciones donde el error es específico de HDInsight de Azure, sería una buena idea entender de lo que trata el error. Consulte [Códigos de error de HDInsight](#hdi-error-codes) para entender los distintos códigos de error y cómo corregirlos. En algunas situaciones, podría querer acceder a los propios registros de Hadoop. Puede hacerlo directamente desde el Portal de vista previa de Azure.
+En situaciones donde el error es específico de HDInsight de Azure, sería una buena idea entender de lo que trata el error. Consulte [Códigos de error de HDInsight](#hdi-error-codes) para entender los distintos códigos de error y cómo corregirlos. En algunas situaciones, podría querer acceder a los propios registros de Hadoop. Puede hacerlo directamente desde el Portal de Azure.
 
 ## Visualización de los registros de trabajo y del estado del clúster
 
-* **Acceder a la IU de Hadoop**. En el Portal de vista previa de Azure, haga clic en un nombre de clúster de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**.
+* **Acceder a la IU de Hadoop**. En el Portal de Azure, haga clic en un nombre de clúster de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**.
 
 	![Inicie el panel del clúster](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
   
@@ -37,7 +37,7 @@ En situaciones donde el error es específico de HDInsight de Azure, sería una b
 
 	![Inicie la IU de Hadoop](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
 
-* **Acceder a IU de Yarn**. En el Portal de vista previa de Azure, haga clic en un nombre de clúster de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**. Cuando se le pida, escriba las credenciales de administrador para el clúster. En la consola de consulta que se abre, haga clic en **IU de YARN**.
+* **Acceder a IU de Yarn**. En el Portal de Azure, haga clic en un nombre de clúster de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**. Cuando se le pida, escriba las credenciales de administrador para el clúster. En la consola de consulta que se abre, haga clic en **IU de YARN**.
 
 	Puede utilizar la IU de YARN para hacer lo siguiente:
 
@@ -49,11 +49,11 @@ En situaciones donde el error es específico de HDInsight de Azure, sería una b
 
 	* **Supervisar el estado de los trabajos**. En el panel izquierdo, expanda **Clúster** y haga clic en **Aplicaciones** para enumerar todos los trabajos del clúster. Si desea ver los trabajos que se encuentran en un estado específico (como nuevo, enviado, en ejecución, etc.), haga clic en el vínculo apropiado en **Aplicaciones**. Además, puede hacer clic en el nombre del trabajo para obtener más información sobre el trabajo, incluyendo la salida, los registros, etc.
 
-* **Acceder a la IU de HBase**. En el Portal de vista previa de Azure, haga clic en un nombre de clúster de HBase de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**. Cuando se le pida, escriba las credenciales de administrador para el clúster. En la consola de consultas que se abre, haga clic en **IU de HBase**.
+* **Acceder a la IU de HBase**. En el Portal de Azure, haga clic en un nombre de clúster de HBase de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**. Cuando se le pida, escriba las credenciales de administrador para el clúster. En la consola de consultas que se abre, haga clic en **IU de HBase**.
 
 ## <a id="hdi-error-codes"></a>Códigos de error de HDInsight
 
-Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de vista previa se muestran a continuación ordenados alfabéticamente por nombre. A su vez, los errores están vinculados a una entrada en la sección [Descripción y mitigación de los errores](#discription-mitigation-errors) que proporciona la siguiente información del error:
+Los errores que puede encontrar el usuario en Azure PowerShell o en el Portal se muestran a continuación ordenados alfabéticamente por nombre. A su vez, los errores están vinculados a una entrada en la sección [Descripción y mitigación de los errores](#discription-mitigation-errors) que proporciona la siguiente información del error:
 
 - **Descripción**: el mensaje de error que ven los usuarios.
 - **Mitigación**: pasos que se pueden seguir para recuperarse del error.
@@ -129,7 +129,7 @@ Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de
 
 ### <a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
 - **Descripción**: el nombre de clúster *nombredeclúster* no está disponible. Elija otro nombre.  
-- **Mitigación**: el usuario debe especificar un nombre de clúster que sea único y que no esté ya en uso, y, a continuación, volver a intentarlo. Si el usuario está utilizando el portal de vista previa, la IU le informará durante los pasos de creación si el nombre de clúster ya está en uso.
+- **Mitigación**: el usuario debe especificar un nombre de clúster que sea único y que no esté ya en uso, y, a continuación, volver a intentarlo. Si el usuario está usando el Portal, la IU le informará durante los pasos de creación si el nombre de clúster ya está en uso.
 
 
 ### <a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
@@ -258,7 +258,7 @@ Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de
 
 ### <a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
 - **Descripción**: la cuenta de almacenamiento *nombredelacuentadealmacenamiento* se encuentra en la región *nombredelaregiónactual*. Debería coincidir con la región del clúster *nombredelaregióndelclúster*.  
-- **Mitigación**: especifique una cuenta de almacenamiento situada en la misma región que el clúster, o bien, si la cuenta de almacenamiento ya contiene datos, cree un nuevo clúster en la misma región que la cuenta de almacenamiento existente. Si está utilizando el portal de vista previa, la IU le informará de este problema con antelación.
+- **Mitigación**: especifique una cuenta de almacenamiento situada en la misma región que el clúster, o bien, si la cuenta de almacenamiento ya contiene datos, cree un nuevo clúster en la misma región que la cuenta de almacenamiento existente. Si está usando el Portal, la IU le informará de este problema con antelación.
 
 ### <a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
 - **Descripción**: el identificador de suscripción proporcionado *identificadordelasuscripción* no está activo.  
@@ -300,4 +300,4 @@ Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de
 
 [image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

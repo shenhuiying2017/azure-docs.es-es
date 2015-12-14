@@ -34,7 +34,7 @@ Esta parte es aplicable a las siguientes entradas/salidas:
 Para otras entradas/salidas, vaya a la Parte 2.
 
 ###Almacenamiento de blobs/almacenamiento de tablas
-1.  Vaya a la extensión de almacenamiento en el Portal de administración de Azure: ![graphic1][graphic1]
+1.  Vaya a la extensión de almacenamiento en el Portal de Azure clásico: ![graphic1][graphic1]
 2.  Busque el almacenamiento utilizado por su trabajo y vaya a él: ![graphic2][graphic2]
 3.  Haga clic en el comando Administrar claves de acceso: ![graphic3][graphic3]
 4.  Entre la clave de acceso principal y la clave de acceso secundaria, **elija la que no utilice su trabajo**.
@@ -43,7 +43,7 @@ Para otras entradas/salidas, vaya a la Parte 2.
 7.  Vaya a la parte 2.
 
 ###Centros de eventos
-1.  Vaya a la extensión del bus de servicio en el Portal de administración de Azure: ![graphic6][graphic6]
+1.  Vaya a la extensión de Bus de servicio en el Portal de Azure clásico: ![graphic6][graphic6]
 2.  Busque el espacio de nombres del Bus de servicio utilizado por su trabajo y vaya a él: ![graphic7][graphic7]
 3.  Si su trabajo usa una directiva de acceso compartido en el espacio de nombres del Bus de servicio, vaya al paso 6  
 4.  Vaya a la Pestaña Centros de eventos: ![graphic8][graphic8]
@@ -57,9 +57,9 @@ Para otras entradas/salidas, vaya a la Parte 2.
 
 ###Base de datos SQL
 
->[AZURE.NOTE]Nota: deberá conectarse al servicio de base de datos SQL. Vamos a mostrar cómo hacerlo con la experiencia de administración en el Portal de administración de Azure, pero también puede utilizar alguna herramienta de cliente como SQL Server Management Studio.
+>[AZURE.NOTE]Nota: deberá conectarse al servicio de base de datos SQL. Vamos a mostrar cómo hacerlo con la experiencia de administración en el Portal de Azure clásico, pero también puede usar alguna herramienta de cliente como SQL Server Management Studio.
 
-1.  Vaya a la extensión de bases de datos SQL en el Portal de administración de Azure: ![graphic14][graphic14]
+1.  Vaya a la extensión de bases de datos SQL en el Portal de Azure clásico: ![graphic14][graphic14]
 2.  Busque la base de datos SQL utilizada por su trabajo y **haga clic en el vínculo del servidor** en la misma línea: ![graphic15][graphic15]
 3.  Haga clic en el comando Administrar: ![graphic16][graphic16]
 4.  Tipo de base de datos maestra: ![graphic17][graphic17]
@@ -77,7 +77,7 @@ Para otras entradas/salidas, vaya a la Parte 2.
 16. Vaya a la parte 2.
 
 ##Parte 2: Parada del trabajo de Análisis de transmisiones
-1.  Vaya a la extensión Análisis de transmisiones en el Portal de administración de Azure: ![graphic26][graphic26]
+1.  Vaya a la extensión de Análisis de transmisiones en el Portal de Azure clásico: ![graphic26][graphic26]
 2.  Busque su trabajo y vaya a él: ![graphic27][graphic27]
 3.  Vaya a la pestaña Entradas o Salidas en función de si está rotando las credenciales en una entrada o una salida. ![graphic28][graphic28]
 4.  Haga clic en el comando Detener y confirme que el trabajo se ha detenido: ![graphic29][graphic29] Espere a que el trabajo se detenga.
@@ -193,4 +193,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

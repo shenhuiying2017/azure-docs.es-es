@@ -43,7 +43,7 @@ La configuración de HDInsight para trabajar con el Almacén de Data Lake median
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/es-ES/pricing/free-trial/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Habilite su suscripción de Azure** para la versión de vista previa pública del almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
 - **Windows SDK**. Puede instalarlo desde [aquí](https://dev.windows.com/es-ES/downloads). Úselo para crear un certificado de seguridad.
 - **Azure PowerShell 1.0 o superior**. Consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md) para obtener más información.
@@ -96,7 +96,7 @@ Siga estos pasos para crear un Almacén de Data Lake.
 
 ## Configuración de la autenticación para el acceso basado en roles al Almacén de Data Lake
 
-Cada una de las suscripciones de Azure está asociada a un Azure Active Directory. Los usuarios y los servicios que acceden a los recursos de la suscripción mediante el Portal de Azure o la API del Administrador de recursos de Azure deben autenticarse primero en ese Azure Active Directory. Para conceder acceso a servicios y suscripciones de Azure, se les asigna el rol adecuado en un recurso de Azure. Para los servicios, una entidad de servicio identifica al servicio en Azure Active Directory (AAD). En esta sección, se muestra cómo conceder a un servicio de aplicación, como HDInsight, acceso a un recurso de Azure (la cuenta de Almacén de Azure Data Lake creada antes) mediante la creación de una entidad de servicio para la aplicación y la asignación de roles a ella a través de Azure PowerShell.
+Cada una de las suscripciones de Azure está asociada a un Azure Active Directory. Los usuarios y los servicios que acceden a los recursos de la suscripción mediante el Portal de Azure clásico o la API del Administrador de recursos de Azure deben autenticarse primero en ese Azure Active Directory. Para conceder acceso a servicios y suscripciones de Azure, se les asigna el rol adecuado en un recurso de Azure. Para los servicios, una entidad de servicio identifica al servicio en Azure Active Directory (AAD). En esta sección, se muestra cómo conceder a un servicio de aplicación, como HDInsight, acceso a un recurso de Azure (la cuenta de Almacén de Azure Data Lake creada antes) mediante la creación de una entidad de servicio para la aplicación y la asignación de roles a ella a través de Azure PowerShell.
 
 Para configurar la autenticación de Active Directory para Azure Data Lake, debe realizar las siguientes tareas.
 
@@ -265,7 +265,7 @@ El resultado del trabajo es similar a lo siguiente:
 
 Una vez que configure el clúster de HDInsight para que use el Almacén de Data Lake, puede usar los comandos de shell de HDFS para acceder al almacén.
 
-1. Inicie sesión en el nuevo [Portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el nuevo [Portal de Azure](https://portal.azure.com).
 
 2. Haga clic en **Examinar**, en **Clústeres de HDInsight** y después en el clúster de HDInsight que creó.
 
@@ -294,4 +294,4 @@ Una vez que configure el clúster de HDInsight para que use el Almacén de Data 
 [makecert]: https://msdn.microsoft.com/es-ES/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/es-ES/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

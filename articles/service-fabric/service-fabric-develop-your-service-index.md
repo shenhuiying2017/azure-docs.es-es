@@ -72,7 +72,8 @@ Los servicios de confianza le ofrecen un modelo de programación de nivel superi
 - [Introducción a los servicios de confianza](service-fabric-reliable-services-quick-start.md)
 - [Arquitectura](service-fabric-reliable-services-platform-architecture.md)
 - [Colecciones confiables](service-fabric-reliable-services-reliable-collections.md)
-- [Configuración de los servicios confiables con estado](../Service-Fabric/service-fabric-reliable-services-configuration.md)
+- [Configuración de los servicios fiables con estado](../Service-Fabric/service-fabric-reliable-services-configuration.md)
+- [Serialización](../Service-Fabric/service-fabric-reliable-services-serialization.md)
 - [Uso avanzado del modelo de programación de servicios de confianza](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)
 
 A continuación se describen la comunicación con los servicios de confianza y las abstracciones que los clientes pueden usar para detectar y comunicarse con los extremos de servicio:
@@ -87,4 +88,4 @@ Los servicios de confianza emiten eventos y contadores de rendimiento, que se pu
 
 - [Diagnóstico de servicios de confianza con estado](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

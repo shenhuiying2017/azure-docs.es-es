@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Introducción a un proyecto de servicios móviles Cordova (Visual Studio Connected Services)" 
-	description="Describe los primeros pasos que puede llevar a cabo tras la conexión del proyecto Cordova a servicios móviles de Azure mediante Visual Studio Connected Services." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="TomArcher" 
-	manager="douge" 
+<properties
+	pageTitle="Introducción a un proyecto de servicios móviles Cordova (Visual Studio Connected Services)"
+	description="Describe los primeros pasos que puede llevar a cabo tras la conexión del proyecto Cordova a servicios móviles de Azure mediante Visual Studio Connected Services."
+	services="mobile-services"
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/17/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/17/2015"
 	ms.author="tarcher"/>
 
 # Introducción a Servicios móviles (proyectos Cordova)
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-cordova-getting-started.md)
@@ -47,7 +52,7 @@ Inserte un nuevo elemento en una tabla de datos. Se crea automáticamente un ide
         this.text = text;
         this.complete = false;
     }
-    
+
     var items = new Array();
     var insertTodoItem = function (todoItem) {
         todoTable.insert(todoItem).done(function (item) {
@@ -94,4 +99,4 @@ Elimine una fila en la tabla de datos utilizando el método **del**. Llame al m�
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

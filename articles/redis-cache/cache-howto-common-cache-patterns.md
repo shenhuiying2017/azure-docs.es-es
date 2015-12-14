@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd" 
-   ms.date="08/11/2015"
+   ms.date="11/24/2015"
    ms.author="riande"/>
 
 # Patrones de caché comunes con Caché en Redis de Azure
@@ -37,4 +37,4 @@ Para obtener más información acerca del uso de Caché en Redis de Azure:
 - [MVC movie app with Azure Redis Cache in 15 minutes](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/) (Aplicación de película MVC con Caché en Redis de Azure en 15 minutos): la entrada de blog proporciona un inicio rápido para usar Caché en Redis de Azure en una aplicación MVC de ASP.NET.
 - [Uso del estado de la sesión de ASP.NET con Sitios web Azure](../app-service-web/web-sites-dotnet-session-state-caching.md): en este tema se explica cómo utilizar el servicio Caché en Redis de Azure para el estado de sesión.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -231,10 +231,10 @@ Ahora que ya conoce los aspectos básicos de las colas de Bus de servicio, vea [
 
   [SDK de Azure para Java]: http://azure.microsoft.com/develop/java/
   [Kit de herramientas de Azure para Eclipse]: https://msdn.microsoft.com/es-ES/library/azure/hh694271.aspx
-  [Azure portal]: http://manage.windowsazure.com/
+  [Azure classic portal]: http://manage.windowsazure.com/
   [Colas, temas y suscripciones del Bus de servicio]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

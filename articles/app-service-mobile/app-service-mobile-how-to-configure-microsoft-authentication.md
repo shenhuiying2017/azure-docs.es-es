@@ -30,7 +30,7 @@ En este tema se muestra cómo configurar Servicio de aplicaciones de Azure para 
 
 ## <a name="register"> </a>Registro de la aplicación con la cuenta Microsoft
 
-1. Inicie sesión en el [Portal de administración de Azure] y vaya a la aplicación. Copie la **Dirección URL**. La usará para configurar la aplicación de la cuenta Microsoft.
+1. Inicie sesión en el [Portal de Azure] y vaya a la aplicación. Copie la **Dirección URL**. La usará para configurar la aplicación de la cuenta Microsoft.
 
 2. Vaya a la página [Mis aplicaciones] del Centro para desarrolladores de la cuenta Microsoft e inicie sesión con su cuenta Microsoft, si procede.
 
@@ -55,7 +55,7 @@ En este tema se muestra cómo configurar Servicio de aplicaciones de Azure para 
 > [AZURE.NOTE]Si usa la puerta de enlace del Servicio de aplicaciones, omita esta sección y en su lugar, vaya a la puerta de enlace en el portal. Seleccione **Configuración**, **Identidad** y, luego, **Cuenta Microsoft**. Pegue los valores que obtuvo anteriormente y haga clic en **Guardar**.
 
 
-7. De nuevo en el [Portal de administración de Azure], vaya a la aplicación. Haga clic en **Configuración** y luego en **Autenticación o autorización**.
+7. Vuelva al [Portal de Azure] y vaya a la aplicación. Haga clic en **Configuración** y luego en **Autenticación o autorización**.
 
 8. Si esta característica no está habilitada, mueva el interruptor a la posición de **activada**.
 
@@ -88,6 +88,6 @@ De este modo ya estará listo para usar la cuenta Microsoft para realizar la aut
 <!-- URLs. -->
 
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Portal de administración de Azure]: https://portal.azure.com/
+[Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

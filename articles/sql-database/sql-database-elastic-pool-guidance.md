@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/08/2015" 
+	ms.date="12/01/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -140,7 +140,7 @@ Para saber los tamaños disponibles, vea [Límites de almacenamiento y de eDTU p
 
 El STA y las DMV ofrecen distintas opciones de herramientas y capacidades para determinar el tamaño de un grupo de bases de datos elásticas. Independientemente de la opción de herramienta usada, la estimación del tamaño solo debe usarse para la evaluación inicial y la creación de grupos de bases de datos elásticas. Una vez que se crea un grupo, el uso de recursos debe supervisarse con precisión y la configuración de rendimiento del grupo debe aumentarse o reducirse según sea necesario.
 
-**STA**<br>STA es una herramienta integrada en el [Portal de vista previa](https://portal.azure.com) que evalúa automáticamente el historial de uso de los recursos de bases de datos en un servidor de Base de datos SQL existente y recomienda una configuración apropiada para el grupo de bases de datos elásticas. Para obtener más información, vea [Recomendaciones de plan de tarifas de grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
+**STA**<br>STA es una herramienta integrada en el [Portal de Azure](https://portal.azure.com) que evalúa automáticamente el historial de uso de los recursos de bases de datos en un servidor de Base de datos SQL existente y recomienda una configuración apropiada para el grupo de bases de datos elásticas. Para obtener más información, vea [Recomendaciones de plan de tarifas de grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
 
 **Herramienta de determinación de tamaño de DMV**<br>La herramienta de determinación de tamaño de DMV se ofrece como script de PowerShell y permite personalizar las estimaciones del tamaño de un grupo de bases de datos elásticas para las bases de datos existentes de un servidor.
 
@@ -160,7 +160,7 @@ Seleccione la herramienta apropiada para el análisis de la aplicación específ
 
 STA evalúa el historial de uso de las bases de datos y recomienda un grupo de bases de datos elásticas cuando sea más rentable que el uso de niveles de rendimiento para bases de datos individuales. Si se recomienda un grupo, la herramienta proporciona una lista de las bases de datos recomendadas, así como la cantidad recomendada de eDTU del grupo y la configuración de eDTU mín./máx. para cada base de datos elástica. Para que una base de datos se considere una candidata para un grupo, debe tener una existencia mínima de siete días.
 
-STA está disponible en el Portal de vista previa cuando se agrega un grupo de bases de datos elásticas a un servidor existente. Si las recomendaciones para un grupo de bases de datos elásticas están disponibles para ese servidor, se muestran en la hoja de creación Grupo de bases de datos elásticas. Los clientes siempre pueden cambiar las configuraciones recomendadas para crear sus propios grupos de bases de datos elásticas.
+STA está disponible en el portal cuando se agrega un grupo de bases de datos elásticas a un servidor existente. Si las recomendaciones para un grupo de bases de datos elásticas están disponibles para ese servidor, se muestran en la hoja de creación Grupo de bases de datos elásticas. Los clientes siempre pueden cambiar las configuraciones recomendadas para crear sus propios grupos de bases de datos elásticas.
 
 Para obtener más información, vea [Recomendaciones de plan de tarifas de grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
 
@@ -435,4 +435,4 @@ No todas las bases de datos únicas son candidatas óptimas para los grupos de b
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

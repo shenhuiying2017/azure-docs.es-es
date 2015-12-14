@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
 
-Si ha adquirido el dominio a través de las aplicaciones web del Servicio de aplicaciones de Azure, consulte el paso final del artículo <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Comprar dominio para Aplicaciones web</a>.
+Si ha adquirido el dominio a través de las aplicaciones web del Servicio de aplicaciones de Azure, consulte el paso final de [Comprar dominio para Aplicaciones web](custom-dns-web-site-buydomains-web-app.md).
 
 Este artículo ofrece instrucciones acerca del uso de un nombre de dominio personalizado adquirido directamente en [Go Daddy](https://godaddy.com) con [Aplicaciones web del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714).
 
@@ -67,7 +67,7 @@ Para asociar el dominio personalizado a una aplicación web del Servicio de apli
 5. Haga clic en **Agregar otro**.
 6. Seleccione **CNAME** como el tipo de registro, a continuación, especifique un valor de **Host** de **awverify** y un valor de **Orientado a** de **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
 
-	> [AZURE.NOTE]Azure usa este registro CNAME para comprobar que el dominio descrito por el registro A o el primer registro CNAME es efectivamente suyo. Una vez que el dominio se ha asignado a la aplicación web en el portal de Azurepreview, podrá eliminarse la entrada **awverify**.
+	> [AZURE.NOTE]Azure usa este registro CNAME para comprobar que el dominio descrito por el registro A o el primer registro CNAME es efectivamente suyo. Una vez que el dominio se ha asignado a la aplicación web en el Portal de Azure, podrá eliminarse la entrada **awverify**.
 
 5. Cuando haya terminado de agregar o modificar los registros, haga clic en **Finish** (Finalizar) para guardar los cambios.
 
@@ -80,6 +80,5 @@ Para asociar el dominio personalizado a una aplicación web del Servicio de apli
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

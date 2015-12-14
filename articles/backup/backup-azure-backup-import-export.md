@@ -6,7 +6,7 @@
    authors="aashishr"
    manager="shreeshd"
    editor=""/>
-<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/28/2015" ms.author="aashishr"; "jimpark"/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="11/25/2015" ms.author="aashishr"; "jimpark"/>
 
 # Flujo de trabajo de copia de seguridad sin conexión en Copia de seguridad de Azure
 
@@ -27,7 +27,7 @@ Con Copia de seguridad e Importación/Exportación de Azure, es simple y directo
 7. Descargue la herramienta de importación y exportación [aquí](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) en la máquina a la que está conectado el sistema de escritura de la unidad SATA.
 
 ## Flujo de trabajo
-La información proporcionada en esta sección es para completar el flujo de trabajo de **Copia de seguridad sin conexión**, por lo que los datos se pueden entregar a un centro de datos de Azure y cargarse en el almacenamiento de Azure. Si tiene alguna pregunta sobre el servicio de importación o cualquier aspecto del proceso, vea la información general de servicio de importación a la que se ha hecho referencia [anteriormente](../storage-import-export-service.md).
+La información proporcionada en esta sección es para completar el flujo de trabajo de **Copia de seguridad sin conexión**, por lo que los datos se pueden entregar a un centro de datos de Azure y cargarse en el almacenamiento de Azure. Si tiene alguna pregunta sobre el servicio de importación o cualquier aspecto del proceso, vea la documentación sobre la [Información general del servicio de importación](../storage-import-export-service.md) a la que se ha hecho referencia anteriormente.
 
 ### Iniciar la copia de seguridad sin conexión
 
@@ -108,4 +108,4 @@ Una vez que los datos de copia de seguridad iniciales están disponibles en la c
 - Para las preguntas sobre el flujo de trabajo de importación y exportación de Azure, vea este [artículo](../storage-import-export-service.md).
 - Vea las [Preguntas más frecuentes](backup-azure-backup-faq.md) sobre la copia de seguridad sin conexión de Azure si tiene alguna pregunta sobre el flujo de trabajo.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

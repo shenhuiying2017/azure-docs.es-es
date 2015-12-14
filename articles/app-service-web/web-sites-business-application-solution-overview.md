@@ -62,7 +62,7 @@ Sin embargo, puede que su empresa necesite que los datos se mantengan en el ento
 
 Optimice su aplicación de línea de negocio. Puede escalarla automáticamente con el escalado automático, almacenar los datos en caché con la Caché en Redis de Azure, ejecutar tareas en segundo plano con trabajos web y mantener una alta disponibilidad con el Administrador de tráfico de Azure.
 
-La posibilidad de Aplicaciones web del Servicio de aplicaciones de [escalar horizontal y verticalmente] satisface la necesidad de su aplicación de línea de negocio, independientemente del tamaño de la carga de trabajo. Escale horizontalmente su aplicación web de forma manual a través del [Portal de administración de Azure], mediante programación a través de [API de administración de servicios] o [Scripting de PowerShell], o bien de forma automática a través de la característica de escalado automático. En el nivel **Estándar**, Autoescala le permite escalar horizontalmente una aplicación web de manera automática según la utilización de CPU. Si desea conocer los procedimientos recomendados, consulte el artículo de [Troy Hunt]\: [10 things I learned about rapidly scaling web apps with Azure] (Diez cosas que aprendí sobre el escalado rápido de aplicaciones web con Azure).
+La posibilidad de Aplicaciones web del Servicio de aplicaciones de [escalar horizontal y verticalmente] satisface la necesidad de su aplicación de línea de negocio, independientemente del tamaño de la carga de trabajo. Escale horizontalmente la aplicación web de manera manual mediante el [Portal de Azure], programáticamente mediante la [API de administración de servicios] o [scripting de PowerShell] o de manera automática, mediante la característica Autoescala. En el nivel **Estándar**, Autoescala le permite escalar horizontalmente una aplicación web de manera automática según la utilización de CPU. Si desea conocer los procedimientos recomendados, consulte el artículo de [Troy Hunt]\: [10 things I learned about rapidly scaling web apps with Azure] (Diez cosas que aprendí sobre el escalado rápido de aplicaciones web con Azure).
 
 Haga que su aplicación web tenga mayor capacidad de respuesta con [Caché en Redis de Azure]. Utilícelo para almacenar datos en caché desde bases de datos de back-end y otros aspectos, como el [estado de sesiones de ASP.NET] y la [caché de resultados].
 
@@ -72,7 +72,7 @@ Mantenga la alta disponibilidad de la aplicación web con [Administrador de trá
 
 Manténgase al día con el rendimiento de su aplicación web con Azure o con herramientas de terceros. Reciba alertas sobre eventos críticos de aplicaciones web. Obtenga información de usuario fácilmente con Application Insight o con análisis de registros web desde HDInsight.
 
-Obtenga una [vista rápida] de las cuotas de recurso y métricas de rendimiento actuales de la aplicación web en la hoja del [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) correspondiente a la aplicación web. Para obtener una vista de 360° de la aplicación a través de la disponibilidad, el rendimiento y el uso, use [Azure Application Insights] para recibir información rápida y poderosa sobre la solución de problemas, el diagnóstico y el uso. O bien, utilice una herramienta de terceros como [New Relic] para proporcionar datos de supervisión avanzados para sus aplicaciones web.
+Obtenga una [vista rápida] de las cuotas de recurso y métricas de rendimiento actuales de la aplicación web en la hoja del [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) correspondiente a la aplicación web. Para obtener una vista de 360° de la aplicación a través de la disponibilidad, el rendimiento y el uso, use [Azure Application Insights] para recibir información rápida y poderosa sobre la solución de problemas, el diagnóstico y el uso. O bien, utilice una herramienta de terceros como [New Relic] para proporcionar datos de supervisión avanzados para sus aplicaciones web.
 
 En el nivel **Estándar**, supervise la capacidad de respuesta de la aplicación y reciba notificaciones por correo electrónico cada vez que su aplicación deje de responder. Para obtener más información, consulte [Recepción notificaciones de alerta y administración de reglas de alerta en Azure].
 
@@ -108,9 +108,9 @@ En el nivel **Estándar**, supervise la capacidad de respuesta de la aplicación
 [Red virtual de Azure]: web-sites-integrate-with-vnet.md
 
 [escalar horizontal y verticalmente]: web-sites-scale.md
-[Portal de administración de Azure]: http://manage.windowsazure.com/
+[Portal de Azure]: http://portal.azure.com/
 [API de administración de servicios]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
-[Scripting de PowerShell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
+[scripting de PowerShell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]: https://twitter.com/troyhunt
 [10 things I learned about rapidly scaling web apps with Azure]: http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Caché en Redis de Azure]: /blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
@@ -124,4 +124,4 @@ En el nivel **Estándar**, supervise la capacidad de respuesta de la aplicación
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

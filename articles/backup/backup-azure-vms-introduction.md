@@ -33,6 +33,14 @@ La copia de seguridad y restauración de datos críticos para el negocio resulta
 
 >[AZURE.NOTE]En las máquinas virtuales Linux, solo es posible la copia de seguridad coherente únicamente con archivo, dado que Linux no dispone de una plataforma equivalente a VSS.
 
+Copia de seguridad de Azure realiza la copia de seguridad completa de VSS en las máquinas virtuales de Windows. Lea más información sobre la [copia de seguridad completa de VSS](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx). Para habilitar las copias de seguridad de VSS, la siguiente clave del Registro debe establecerse en la máquina virtual.
+
+```
+[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
+"USEVSSCOPYBACKUP"="TRUE"
+```
+
+
 Esta tabla explica los tipos de coherencia y las condiciones bajo las que se producen durante los procedimientos de copia de seguridad y restauración de máquinas virtuales de Azure.
 
 | Coherencia | Con base en VSS | Explicación y detalles |
@@ -77,6 +85,11 @@ Aunque la mayoría del tiempo se dedica a leer y copiar los datos, hay otras ope
 - Hora de la instantánea: tiempo dedicado a desencadenar una instantánea. Las instantáneas se desencadenan cerca de la hora de copia de seguridad programada.
 - Tiempo de espera de cola: puesto que el servicio de copia de seguridad está procesando las copias de seguridad de varios clientes, la operación de copia de datos de copia de seguridad de la instantánea al almacén de copia de seguridad de Azure podría no iniciarse inmediatamente. En los momentos de carga máxima, los tiempos de espera pueden ampliarse hasta 8 horas debido al número de copias de seguridad que se procesan. Sin embargo, el tiempo total de copia de seguridad de la máquina virtual será de menos de 24 horas para las directivas de copia de seguridad diarias.
 
+## Cifrado de datos
+
+Copia de seguridad de Azure no cifra los datos como parte del proceso de copia de seguridad. Sin embargo, puede cifrar los datos dentro de la máquina virtual y los datos protegidos de copia de seguridad sin ningún problema. Lea más información sobre la [copia de seguridad de datos cifrados](backup-azure-vms-encryption.md).
+
+
 ## ¿Cómo se calculan las instancias protegidas?
 Las máquinas virtuales de Azure sometidas a copia de seguridad mediante el servicio Copia de seguridad de Azure estarán sujetas a los [precios de Copia de seguridad de Azure](http://azure.microsoft.com/pricing/details/backup/). El cálculo de instancias protegidas se basa en el tamaño *real* de la máquina virtual, que es la suma de todos los datos de la máquina virtual, excepto el disco de recursos. *No* se le facturará en función del tamaño máximo admitido para cada disco de datos conectado a la máquina virtual, sino de los datos reales almacenados en el disco de datos. De forma similar, los requisitos de almacenamiento de copia de seguridad se basan en la cantidad de datos almacenados con copias de seguridad de Azure, que es la suma de los datos reales de cada punto de recuperación.
 
@@ -103,4 +116,4 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 - [Solución de problemas de copia de seguridad de máquinas virtuales](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

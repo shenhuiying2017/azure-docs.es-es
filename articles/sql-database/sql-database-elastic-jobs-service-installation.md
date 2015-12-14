@@ -17,7 +17,7 @@
 	ms.author="ddove;sidneyh"/>
 
 # Información general sobre la instalación de Trabajos de base de datos elástica
-Los [**trabajos de base de datos elástica**](sql-database-elastic-jobs-overview.md) se pueden instalar a través de PowerShell o del Portal de Azure. Obtendrá acceso para crear y administrar trabajos con la API de PowerShell si se instala el paquete de PowerShell. Además, en este momento, las API de PowerShell proporcionan mucha más funcionalidad que el portal en este momento.
+Los [**trabajos de base de datos elástica**](sql-database-elastic-jobs-overview.md) se pueden instalar a través de PowerShell o del Portal de Azure clásico. Obtendrá acceso para crear y administrar trabajos con la API de PowerShell si se instala el paquete de PowerShell. Además, en este momento, las API de PowerShell proporcionan mucha más funcionalidad que el portal en este momento.
 
 Si ya instaló los **trabajos de base de datos elástica** a través del Portal en un **grupo de bases de datos elásticas** existente, la última vista previa de Powershell incluye scripts para actualizar la instalación existente. Es muy recomendable actualizar la instalación a los componentes más recientes de los **trabajos de base de datos elástica** para aprovechar la nueva funcionalidad expuesta a través de las API de PowerShell.
 
@@ -155,7 +155,7 @@ Una vez creado el [grupo de bases de datos elásticas](sql-database-elastic-pool
 
 **Tiempo estimado para completar el tutorial:** 10 minutos.
 
-1. En la vista del panel del grupo de bases de datos elásticas a través del [Portal de vista previa de Azure](https://ms.portal.azure.com/#), haga clic en **Crear trabajo**.
+1. En la vista del panel del grupo de bases de datos elásticas a través del [Portal de Azure](https://ms.portal.azure.com/#), haga clic en **Crear trabajo**.
 2. Si va a crear un trabajo por primera vez, deberá instalar los **trabajos de base de datos elástica** haciendo clic en **TÉRMINOS DE VISTA PREVIA**. 
 3. Acepte los términos haciendo clic en la casilla de verificación.
 4. En la vista "Instalar servicios", haga clic en **CREDENCIALES DEL TRABAJO**.
@@ -187,4 +187,4 @@ Asegúrese de crear una credencial con los derechos adecuados para la ejecución
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

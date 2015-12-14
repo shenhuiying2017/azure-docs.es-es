@@ -59,6 +59,10 @@ Los datos de telemetría incluyen:
 
 Los recuentos de usuario y sesión no se incluyen en la cuota para calcular los precios.
 
+*¿Qué ocurre si mi aplicación supera la tasa por segundo?*
+
+* El volumen de datos que su aplicación envía se evalúa cada minuto. Si se supera la tasa por segundo promediada por minuto, el servidor rechazará algunas solicitudes. Algunas versiones del SDK intentan volver a enviarlas y generan una sobrecarga durante varios minutos; otras, como el SDK de JavaScript, simplemente quitan los datos rechazados.
+
 *¿Cómo puedo saber cuántos puntos de datos envía mi aplicación?*
 
 * Abra Configuración/cuotas y precios para ver el gráfico de volumen de datos.
@@ -66,7 +70,7 @@ Los recuentos de usuario y sesión no se incluyen en la cuota para calcular los 
 
 *¿Cómo puedo reducir la cantidad de datos que envía mi aplicación?*
 
-* Use [Muestreo](app-insights-sampling.md). Esta tecnología reduce la velocidad de los datos sin sesgar las métricas y sin interrumpir la capacidad de navegar entre los elementos relacionados en la búsqueda.
+* Use el [Muestreo](app-insights-sampling.md). Esta tecnología reduce la velocidad de los datos sin sesgar las métricas y sin interrumpir la capacidad de navegar entre los elementos relacionados en la búsqueda. Desde ASP.NET SDK 2.0.0-beta3, el muestreo adaptable está habilitado de forma predeterminada.
 * [Desactive los colectores de telemetría](app-insights-configuration-with-applicationinsights-config.md) que no necesite.
 
 
@@ -112,7 +116,7 @@ Microsoft usa los datos con el fin exclusivo de proporcionarle el servicio.
 
 #### ¿Están seguros mis datos? 
 
-Los datos se almacenan en servidores de Microsoft Azure. La restricciones para las cuentas del Portal de Azure se describen en el [documento sobre seguridad, privacidad y cumplimiento normativo de Azure](http://go.microsoft.com/fwlink/?linkid=392408). Para las cuentas del portal de Visual Studio Team Services, se aplica el documento [Protección de datos de Visual Studio Team Services](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf).
+Los datos se almacenan en servidores de Microsoft Azure. Las restricciones para las cuentas del Portal de Azure se describen en el [documento sobre seguridad, privacidad y cumplimiento normativo de Azure](http://go.microsoft.com/fwlink/?linkid=392408). Para las cuentas del portal de Visual Studio Team Services, se aplica el documento [Protección de datos de Visual Studio Team Services](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf).
 
 El acceso a los datos por parte del personal de Microsoft está restringido. El acceso a los datos solo se realiza con su permiso y si es necesario para prestarle soporte en el uso de Application Insights.
 
@@ -245,7 +249,7 @@ Este producto incluye datos GeoLite2 creados por MaxMind, disponible en [http://
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
@@ -255,4 +259,4 @@ Este producto incluye datos GeoLite2 creados por MaxMind, disponible en [http://
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

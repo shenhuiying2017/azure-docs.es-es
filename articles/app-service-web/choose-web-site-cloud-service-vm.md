@@ -71,7 +71,7 @@ El Servicio de aplicaciones de Azure es una excelente solución para hospedar si
 
 ### <a id="iis6"></a> Tengo una aplicación IIS6 ejecutándose en Windows Server 2003.
 
-El Servicio de aplicaciones de Azure permite evitar fácilmente los costes de infraestructura asociados a la migración de aplicaciones IIS6 antiguas. Microsoft ha creado [herramientas de migración fáciles de utilizar y una detallada guía sobre migración](https://www.movemetowebsites.net/) que le permiten comprobar la compatibilidad e identificar aquellos cambios que deban realizarse. La integración con Visual Studio, TFS y las herramientas CMS más habituales facilitan la implementación de aplicaciones IIS6 directamente en la nube. Una vez implementadas, el portal de administración de Azure proporciona potentes herramientas de administración que permiten reducir verticalmente para administrar costes y aumentar verticalmente para atender la demanda cuando sea necesario. Con la herramienta de migración puede hacer lo siguiente:
+El Servicio de aplicaciones de Azure permite evitar fácilmente los costes de infraestructura asociados a la migración de aplicaciones IIS6 antiguas. Microsoft ha creado [herramientas de migración fáciles de utilizar y una detallada guía sobre migración](https://www.movemetowebsites.net/) que le permiten comprobar la compatibilidad e identificar aquellos cambios que deban realizarse. La integración con Visual Studio, TFS y las herramientas CMS más habituales facilitan la implementación de aplicaciones IIS6 directamente en la nube. Una vez implementadas, el Portal de Azure proporciona potentes herramientas de administración que permiten reducir verticalmente para administrar costes y aumentar verticalmente para atender la demanda cuando sea necesario. Con la herramienta de migración puede hacer lo siguiente:
 
 * Migrar con rapidez y sencillez su aplicación web de Windows Server 2003 heredada a la nube.
 * Optar por dejar la base de datos SQL adjunta en el entorno local para crear una aplicación híbrida.
@@ -154,7 +154,7 @@ Soporte para WebMatrix|X||X|
 Acceso a servicios como Bus de servicio, Almacenamiento, Base de datos SQL|X|X|X|
 Web de host o nivel de servicios web de una arquitectura multinivel|X|X|X|
 Nivel medio del host de una arquitectura multinivel|X|X|X|Las aplicaciones web del Servicio de aplicaciones pueden hospedar con facilidad un nivel medio de la API de REST y la característica [Trabajos web](http://go.microsoft.com/fwlink/?linkid=390226) puede hospedar trabajos de procesamiento en segundo plano. Puede ejecutar Trabajos web en un sitio web dedicado para alcanzar una escalabilidad independiente para el nivel. La característica de [aplicaciones de API](../app-service-api/app-service-api-apps-why-best-platform.md) de la vista preliminar ofrece incluso más características para hospedar servicios REST.
-Soporte integrado de MySQL como servicio|X|X|X|Servicios en la nube puede integrar MySQL como servicio mediante las ofertas de ClearDB, pero no como parte del flujo de trabajo del Portal de administración.
+Soporte integrado de MySQL como servicio|X|X|X|Servicios en la nube puede integrar MySQL como servicio mediante las ofertas de ClearDB, pero no como parte del flujo de trabajo del Portal de Azure.
 Soporte para ASP.NET, ASP clásico, Node.js, PHP, Python|X|X|X|
 Escalado horizontal a varias instancias sin volver a implementar|X|X|X|Máquinas virtuales puede escalar horizontalmente hasta varias instancias, pero los servicios que se ejecutan en este servicio se deben escribir para controlar este escalado horizontal. Tiene que configurar un equilibrador de carga para que dirija solicitudes entre las máquinas y crear un Grupo de afinidad para evitar que todas las instancias se reinicien simultáneamente debido a errores de mantenimiento o hardware.
 Soporte para SSL|X|X|X|En el caso de las aplicaciones web del Servicio de aplicaciones, solo se admite SSL para nombres de dominio personalizados para el modo Básico y Estándar. Para obtener más información sobre el uso de SSL con aplicaciones web, consulte [Configuración de un certificado SSL para un Sitio web Azure](../app-service-web/web-sites-configure-ssl-certificate.md).
@@ -204,4 +204,4 @@ Para conocer con mayor profundidad las opciones que ha elegido para su aplicaci�
   [Almacenamiento]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/03/2015"
+   ms.date="11/30/2015"
    ms.author="joaoma" />
 
 # Introducción a la creación de un equilibrador de carga orientado a Internet para servicios en la nube
@@ -27,7 +27,9 @@
 
 Los servicios en la nube se configuran automáticamente con un equilibrador de carga y se pueden personalizar mediante el modelo de servicio.
 
-Puede aprovechar el SDK de Azure para .NET 2.5 para actualizar el servicio en la nube. La configuración de puntos de conexión para los servicios en la nube se realiza en el archivo [definición de servicio](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef.
+## Crear un equilibrador de carga mediante el archivo de definición de servicio
+ 
+Puede aprovechar el SDK de Azure para .NET 2.5 para actualizar el servicio en la nube. La configuración de puntos de conexión para los servicios en la nube se realiza en el archivo de [definición de servicio](https://msdn.microsoft.com/library/azure/gg557553.aspx) .csdef.
 
 En el ejemplo siguiente se muestra cómo se configura un archivo servicedefinition.csdef para una implementación en la nube:
 
@@ -56,7 +58,7 @@ Mediante la comprobación del fragmento de código para el archivo .csdef genera
 
 
 
-### Comprobación del estado de mantenimiento del equilibrador de carga para servicios en la nube
+## Comprobación del estado de mantenimiento del equilibrador de carga para servicios en la nube
 
 
 A continuación se muestra un sondeo de estado:
@@ -81,4 +83,4 @@ Compruebe el esquema de definición del [sondeo de estado](https://msdn.microsof
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

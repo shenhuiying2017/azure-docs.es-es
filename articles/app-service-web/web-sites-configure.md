@@ -66,7 +66,7 @@ Esta sección contiene las parejas de nombre y valor que la aplicación web carg
 
 - En las aplicaciones .NET, estas configuraciones se insertarán en la sección de la configuración de .NET `AppSettings` en tiempo de ejecución y reemplazará la configuración existente. 
 
-- Las aplicaciones PHP, Python, Java y Node pueden acceder a estas configuraciones como variables de entorno en tiempo de ejecución. En cada configuración de aplicación se crean dos variables de entorno; una con el nombre especificado en el entrada de configuración de la aplicación y otra con el prefijo APPSETTING_. Ambas contienen el mismo valor.
+- Las aplicaciones PHP, Python, Java y Node pueden acceder a estas configuraciones como variables de entorno en tiempo de ejecución. En cada configuración de aplicación se crean dos variables de entorno; una con el nombre especificado en el entrada de configuración de la aplicación y otra con el prefijo APPSETTING\_. Ambas contienen el mismo valor.
 
 ### Cadenas de conexión
 
@@ -76,10 +76,10 @@ En las aplicaciones .NET, estas cadenas de conexión se insertarán en la secci�
 
 En las aplicaciones PHP, Python, Java y Node, estas configuraciones estarán disponibles como variables de entorno en tiempo de ejecución, con el tipo de conexión como prefijo. Los prefijos de variable de entorno son los siguientes:
 
-- SQL Server: SQLCONNSTR_
-- MySQL: MYSQLCONNSTR_
-- Base de datos SQL: SQLAZURECONNSTR_
-- Personalizado: CUSTOMCONNSTR_
+- SQL Server: SQLCONNSTR\_
+- MySQL: MYSQLCONNSTR\_
+- Base de datos SQL: SQLAZURECONNSTR\_
+- Personalizado: CUSTOMCONNSTR\_
 
 Por ejemplo, si una cadena de conexión de MySQL recibió el nombre de `connectionstring1`, se obtendrá acceso a ella a través de la variable de entorno `MYSQLCONNSTR_connectionString1`.
 
@@ -175,7 +175,6 @@ Para obtener más información, consulte [Supervisión de estado de extremo web]
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

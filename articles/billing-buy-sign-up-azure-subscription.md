@@ -25,7 +25,7 @@ Para registrarse para obtener una suscripción de evaluación gratuita de Azure,
 
 >[AZURE.NOTE]El número de teléfono y la tarjeta de crédito solo se usan para comprobar su identidad. Aunque no se le cargará a su tarjeta de crédito, Microsoft autorizará la retención de una cantidad mínima para comprobar que la tarjeta de crédito es válida. La retención se liberará tras 3 a 5 días laborables, dependiendo de las directivas de su institución financiera.
 
-1. Abra la [página de evaluación gratuita de Azure](https://azure.microsoft.com/es-ES/pricing/free-trial/) y luego seleccione **Probar ahora**.
+1. Abra la [página de evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/) y luego seleccione **Probar ahora**.
 2. Inicie sesión con su cuenta Microsoft o en su cuenta profesional o educativa.
 3. En la sección **Sobre usted**, escriba su información personal. ![La captura de pantalla de información personal](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
@@ -61,4 +61,4 @@ Si compró créditos de Azure bajo licencia Open a un revendedor, siga estos pas
 2. Escriba la clave de producto y, a continuación, active la opción de contrato.</br>![CLAVE DE ACTIVACIÓN DEL SERVICIO EN LÍNEA](./media/billing-buy-sign-up-azure-subscription/OSAkey.png)
 3. Seleccione **Activar**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

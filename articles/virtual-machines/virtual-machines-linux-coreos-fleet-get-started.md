@@ -92,7 +92,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload helloworld.service
 
 Una ventaja de usar CoreOS, Docker, y **Fleet** es que resulta fácil ejecutar servicios de una manera altamente disponible. En este ejemplo, implementará un servicio que consta de tres contenedores idénticos que se ejecutan en el servidor web nginx. Los contenedores se ejecutarán en las tres máquinas virtuales del clúster. Este ejemplo es parecido a uno que se mostró en el apartado [Iniciar contenedores con Fleet], y que usa la [imagen de concentrador de Docker nginx].
 
->[AZURE.IMPORTANT]Para ejecutar el servidor web de alta disponibilidad, deberá configurar un punto de conexión HTTP de carga equilibrada en las máquinas virtuales (puerto público 80, puerto privado 80). Puede hacerlo después de crear el clúster de CoreOS, mediante el Portal de Azure o el comando **azure vm endpoint**. Consulte [Configurar un conjunto de carga equilibrada] para obtener más información.
+>[AZURE.IMPORTANT]Para ejecutar el servidor web de alta disponibilidad, deberá configurar un punto de conexión HTTP de carga equilibrada en las máquinas virtuales (puerto público 80, puerto privado 80). Puede hacerlo después de crear el clúster de CoreOS, mediante el Portal de Azure clásico o el comando **azure vm endpoint**. Consulte [Configurar un conjunto de carga equilibrada] para obtener más información.
 
 En el equipo cliente, use el editor de texto que prefiera para crear un archivo de unidad de plantilla **systemd**, denominado nginx@.service. Deberá usar esta plantilla para iniciar tres instancias independientes, denominadas nginx@1.service, nginx@2.service y nginx@3.service:
 
@@ -192,4 +192,4 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload nginx@{1,2,3}.service
 [imagen de concentrador de Docker nginx]: https://hub.docker.com/_/nginx/
 [Linux y la computación de código abierto en Azure]: virtual-machines-linux-opensource.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

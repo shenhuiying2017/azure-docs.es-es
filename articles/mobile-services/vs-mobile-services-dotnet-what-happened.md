@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="¿Dónde está mi proyecto .NET después de agregar los servicios móviles mediante Visual Studio Connected Services? | Microsoft Azure" 
-	description="Describe dónde está su proyecto de Visual Studio .NET después de agregar los servicios móviles de Azure mediante Connected Services" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="TomArcher" 
-	manager="douge" 
+<properties
+	pageTitle="¿Dónde está mi proyecto .NET después de agregar los servicios móviles mediante Visual Studio Connected Services? | Microsoft Azure"
+	description="Describe dónde está su proyecto de Visual Studio .NET después de agregar los servicios móviles de Azure mediante Connected Services"
+	services="mobile-services"
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/17/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/17/2015"
 	ms.author="tarcher"/>
 
 # ¿Dónde está mi proyecto de Visual Studio .NET después de agregar los servicios móviles de Azure mediante Connected Services?
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
@@ -30,7 +35,7 @@ El paquete de NuGet de Servicios móviles de Azure se agregó a su proyecto. Com
 - **Microsoft.WindowsAzure.Mobile.Ext**
 - **Newtonsoft.Json**
 - **System.Net.Http.Extensions**
-- **System.Net.Http.Primitives** 
+- **System.Net.Http.Primitives**
 
 ## Conexión de valores de cadena para Servicios móviles
 
@@ -43,4 +48,4 @@ Si se crea un servicio móvil .NET en el proveedor de servicios conectado, se cr
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

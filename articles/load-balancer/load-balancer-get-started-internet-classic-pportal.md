@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/03/2015"
+   ms.date="11/20/2015"
    ms.author="joaoma" />
 
-#Introducción a la creación de un equilibrador de carga orientado a Internet (clásico) en el Portal de vista previa
+# Introducción a la creación de un equilibrador de carga orientado a Internet (clásico) en el Portal de vista previa
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
@@ -30,7 +30,7 @@
 
 
 
-## Creación de un punto de conexión del equilibrador de carga mediante el Portal de vista previa	
+## Introducción a la creación de un punto de conexión del equilibrador de carga mediante el portal de vista previa	
 
 Para crear un modelo de implementación de equilibrador de carga orientado a Internet (clásico) desde el Portal de vista previa, siga estos pasos.
 
@@ -66,4 +66,4 @@ Para crear un modelo de implementación de equilibrador de carga orientado a Int
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

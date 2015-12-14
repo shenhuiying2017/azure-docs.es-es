@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="11/19/2015"
    ms.author="chackdan"/>
 
 # Configuración de un clúster de Service Fabric mediante una plantilla de ARM
@@ -37,7 +37,7 @@ Esta página le ayuda con la configuración de un clúster de Service Fabric med
 
 ## Creación de una plantilla de ARM personalizada
 
-2. Tiene dos opciones aquí: 
+2. Aquí tiene dos opciones. 
 	1. Puede adquirir una plantilla de ejemplo de la [Galería de plantillas de inicio rápido de Azure en github](https://github.com/Azure/azure-quickstart-templates) y realizar cambios en ella.
 	2. Iniciar sesión en el portal de Azure y usar las páginas del portal de Service Fabric para generar la plantilla para personalizarla. A continuación se describe el proceso para ello.
 3. Inicie sesión en el Portal de Azure [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal).
@@ -45,7 +45,7 @@ Esta página le ayuda con la configuración de un clúster de Service Fabric med
 
 ## Implementación de la plantilla de ARM en Azure con Azure PS
 
-Consulte [Implementación de plantillas de ARM con PS](https://azure.microsoft.com/es-ES/documentation/articles/resource-group-template-deploy/) para instrucciones detalladas.
+Consulte [Implementación de plantillas de ARM con PS](resource-group-template-deploy.md) para obtener instrucciones detalladas.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
@@ -56,4 +56,4 @@ Consulte [Implementación de plantillas de ARM con PS](https://azure.microsoft.c
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

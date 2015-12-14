@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect: inicio de sesión de usuarios | Microsoft Azure"
+	pageTitle="Inicio de sesión de usuarios de Azure AD Connect | Microsoft Azure"
 	description="Inicio de sesión de usuarios de Azure AD Connect para la configuración personalizada."
 	services="active-directory"
 	documentationCenter=""
@@ -63,4 +63,8 @@ Para la mayoría de las organizaciones que simplemente desean habilitar el inici
 	- Características de integración de Active Directory, como el bloqueo de cuenta no rígido o la directiva de horas de trabajo y contraseña de AD.
 	- Acceso condicional a los recursos locales y en la nube mediante el registro de dispositivos, la unión a Azure AD o las directivas MDM de Intune.
 
-<!---HONumber=Oct15_HO3-->
+
+## Pasos siguientes
+Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
+
+<!---HONumber=AcomDC_1203_2015-->

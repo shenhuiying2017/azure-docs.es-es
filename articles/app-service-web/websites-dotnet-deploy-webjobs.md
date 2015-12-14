@@ -20,7 +20,7 @@
 
 ## Información general
 
-En este tema se explica cómo utilizar Visual Studio para implementar un proyecto de Aplicación de consola en una aplicación web en el [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) como un [WebJob de Azure](http://go.microsoft.com/fwlink/?LinkId=390226). Para obtener información sobre cómo implementar WebJobs con el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), consulte [Ejecución de tareas en segundo plano con WebJobs](web-sites-create-web-jobs.md).
+En este tema se explica cómo utilizar Visual Studio para implementar un proyecto de Aplicación de consola en una aplicación web en el [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) como un [WebJob de Azure](http://go.microsoft.com/fwlink/?LinkId=390226). Para obtener información sobre cómo implementar WebJobs con el [Portal de Azure](https://portal.azure.com), consulte [Ejecución de tareas en segundo plano con WebJobs](web-sites-create-web-jobs.md).
 
 Cuando Visual Studio implementa un proyecto de aplicación de consola con funcionalidad WebJobs, realiza dos tareas:
 
@@ -127,7 +127,7 @@ El cuadro de diálogo **Agregar WebJob de Azure** le permite especificar el nomb
 
 ![Add Azure WebJob dialog](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
-Los campos de este cuadro de dialogo se corresponden con los campos del cuadro de diálogo **Nuevo trabajo** del Portal de administración de Azure. Para obtener más información, consulte [Ejecución de tareas en segundo plano con WebJobs](web-sites-create-web-jobs.md).
+Los campos de este cuadro de diálogo se corresponden con los campos del cuadro de diálogo **Nuevo trabajo** del Portal de Azure. Para obtener más información, consulte [Ejecución de tareas en segundo plano con WebJobs](web-sites-create-web-jobs.md).
 
 Para un trabajo web programado (no un trabajo web continuo), Visual Studio crea una colección de trabajos del [Programador de Azure](/services/scheduler/) si todavía no existe y, a su vez, crea un trabajo en la colección:
 
@@ -197,7 +197,5 @@ Este artículo explica cómo implementar WebJobs con Visual Studio. Para obtener
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Para obtener una guía del cambio del portal de Azure al portal de vista previa de Azure, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715).
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

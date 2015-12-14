@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
+	ms.date="11/30/2015"
 	ms.author="sameerch"/>
 
 # Introducción al conector de Dropbox y su incorporación a su aplicación lógica
@@ -35,8 +35,7 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 1. En el panel de inicio de Azure, seleccione **Marketplace**.
 2. Busque "Conector de Dropbox", selecciónelo y seleccione **Crear**.
-3. Escriba el nombre, el plan de Servicio de aplicaciones y otras propiedades: 
-	![][1]
+3. Escriba el nombre, el plan de Servicio de aplicaciones y otras propiedades: ![][1]
 	- **Ubicación**: elija la ubicación geográfica en la que desea implementar el conector.
 	- **Suscripción**: elija una suscripción en la que desee crear este conector.
 	- **Grupo de recursos**: seleccione o cree un grupo de recursos en el que vaya a estar el conector.
@@ -49,18 +48,11 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 ## Uso del conector de Dropbox en la aplicación lógica
 Una vez creada la aplicación de la API, ahora puede usar el conector de Dropbox como desencadenador/acción para la aplicación lógica. Para ello, siga estos pasos:
 
-1.	En la aplicación lógica, abra **Desencadenadores y acciones** para abrir el diseñador de Aplicaciones lógicas y configure el flujo: 
-	![][3]
-2.	El conector de Dropbox se muestra en la galería: 
-	![][4]
-3.	Seleccione el conector de Dropbox para agregar automáticamente en el diseñador. Seleccione **Autorizar**, escriba sus credenciales y seleccione **Permitir**: 
-	![][5] 
-	![][6] 
-	![][7]
+1.	En la aplicación lógica, abra **Desencadenadores y acciones** para abrir el diseñador de Aplicaciones lógicas y configure el flujo: ![][3]
+2.	El conector de Dropbox se muestra en la galería: ![][4]
+3.	Seleccione el conector de Dropbox para agregar automáticamente en el diseñador. Seleccione **Autorizar**, escriba sus credenciales y seleccione **Permitir**: ![][5] ![][6] ![][7]
 
-Ahora puede usar el conector de Dropbox en el flujo. Puede usar la acción de Dropbox "Cargar archivo" para cargar un archivo en su cuenta de Dropbox: 
-	![][8] 
-	![][9]
+Ahora puede usar el conector de Dropbox en el flujo. Puede usar la acción de Dropbox "Cargar archivo" para cargar un archivo en su cuenta de Dropbox: ![][8] ![][9]
 
 Configure las propiedades de entrada para la acción "Cargar archivo" de la siguiente manera:
 
@@ -89,4 +81,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

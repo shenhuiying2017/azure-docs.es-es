@@ -26,7 +26,7 @@ Aprenda a administrar cuentas, orígenes de datos, usuarios y trabajos de Análi
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/es-ES/pricing/free-trial/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **CLI de Azure** Consulte [Instalación y configuración de la CLI de Azure](xplat-cli.md).
 	- Descargue e instale la **versión preliminar** de las [herramientas de la CLI de Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) para completar esta demostración.
 - **Autenticación**, mediante el comando siguiente:
@@ -210,8 +210,8 @@ La cuenta de Análisis de Data Lake y las cuentas de almacenamiento dependientes
 ##Consulte también 
 
 - [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-- [Introducción a Análisis de Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-get-started-portal.md)
-- [Administración de Análisis de Azure Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-use-portal.md)
-- [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Introducción a Análisis de Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md)
+- [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-use-portal.md)
+- [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

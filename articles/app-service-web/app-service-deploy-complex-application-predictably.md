@@ -58,7 +58,7 @@ Para obtener más información, consulte [Uso de Azure PowerShell con el Adminis
 
 ### Explorador de recursos de Azure ###
 
-Esta [herramienta de vista previa](https://resources.azure.com) le permite explorar las definiciones de JSON de todos los grupos de recursos en la suscripción y los recursos individuales. En la herramienta, puede editar las definiciones de JSON de un recurso, eliminar una jerarquía completa de recursos y crear nuevos recursos. La información disponible en esta herramienta es muy útil para la creación de plantillas, ya que muestra las propiedades que debe establecer para un tipo determinado de recursos, los valores correctos, etc. Incluso puede crear el grupo de recursos en el [portal de vista previa de Azure](https://portal.azure.com); a continuación, examinar sus definiciones de JSON en la herramienta de explorador a fin de facilitarle la utilización de plantillas para el grupo de recursos.
+Esta [herramienta de vista previa](https://resources.azure.com) le permite explorar las definiciones de JSON de todos los grupos de recursos en la suscripción y los recursos individuales. En la herramienta, puede editar las definiciones de JSON de un recurso, eliminar una jerarquía completa de recursos y crear nuevos recursos. La información disponible en esta herramienta es muy útil para la creación de plantillas, ya que muestra las propiedades que debe establecer para un tipo determinado de recursos, los valores correctos, etc. Incluso puede crear el grupo de recursos en el [Portal de Azure](https://portal.azure.com); a continuación, examinar sus definiciones de JSON en la herramienta de explorador a fin de facilitarle el uso de plantillas para el grupo de recursos.
 
 ### Botón Implementación en Azure ###
 
@@ -82,7 +82,7 @@ Ahora vamos a centrarnos en ello.
 
 	La interfaz de usuario podría ser un poco lenta la primera vez que obtiene acceso a ella porque las aplicaciones se acaban de iniciar, pero no le quepa duda de que se trata de una aplicación totalmente funcional.
 
-5.	En la página Implementar, haga clic en el vínculo **Administrar** para ver la nueva aplicación en el portal de vista previa de Azure.
+5.	En la página Implementar, haga clic en el vínculo **Administrar** para ver la nueva aplicación en el Portal de Azure.
 
 6.	En el menú desplegable **Essentials**, haga clic en el vínculo del grupo de recursos. Tenga en cuenta también que la aplicación web ya está conectada al repositorio de GitHub en **Proyecto externo**.
 
@@ -188,11 +188,11 @@ La configuración del control de código fuente también se define como un recur
 
 Tenga en cuenta en el elemento `dependsOn` que, además del recurso de aplicación web, `sourcecontrols/web` depende también de `config/appsettings` y `config/connectionstrings`. Esto es porque una vez que `sourcecontrols/web` está configurado, el proceso de implementación de Azure intentará automáticamente implementar, generar e iniciar el código de aplicación. Por lo tanto, insertar esta dependencia ayuda a asegurarse de que la aplicación tiene acceso a la configuración de la aplicación requerida y las cadenas de conexión antes de ejecutar el código de aplicación. [TAREA: debe comprobar si esto es cierto.]
 
->[AZURE.NOTE]Tenga en cuenta también que `IsManualIntegration` está establecido en `true`. Esta propiedad es necesaria en este tutorial, ya que no posee realmente el repositorio de GitHub y realmente no puede conceder permiso a Azure para configurar la publicación continua de [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (es decir, insertar actualizaciones de repositorio automáticas en Azure). Puede utilizar el valor predeterminado `false` para el repositorio especificado sólo si ha configurado las credenciales de GitHub del propietario en el [portal de vista previa de Azure](https://portal.azure.com) anteriormente. En otras palabras, si ha configurado el control de código fuente para GitHub o BitBucket para cualquier aplicación en el [portal de vista previa de Azure](https://portal.azure.com) anteriormente, mediante las credenciales de usuario, Azure recordará estas credenciales y las utilizará para implementar cualquier aplicación de GitHub o BitBucket en el futuro. Sin embargo, si no ha hecho esto, se producirá un error en la implementación de la plantilla JSON cuando el administrador de recursos de Azure intente configurar el control de código fuente de la aplicación web porque no puede iniciar sesión en GitHub o BitBucket con las credenciales del propietario del repositorio.
+>[AZURE.NOTE]Tenga en cuenta también que `IsManualIntegration` está establecido en `true`. Esta propiedad es necesaria en este tutorial, ya que no posee realmente el repositorio de GitHub y realmente no puede conceder permiso a Azure para configurar la publicación continua de [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (es decir, insertar actualizaciones de repositorio automáticas en Azure). Puede utilizar el valor predeterminado `false` para el repositorio especificado sólo si ha configurado las credenciales de GitHub del propietario en el [portal de vista previa de Azure](https://portal.azure.com) anteriormente. En otras palabras, si ha configurado el control de código fuente para GitHub o BitBucket para cualquier aplicación en el [Portal de Azure](https://portal.azure.com) anteriormente, mediante las credenciales de usuario, Azure recordará estas credenciales y las usará para implementar cualquier aplicación de GitHub o BitBucket en el futuro. Sin embargo, si no ha hecho esto, se producirá un error en la implementación de la plantilla JSON cuando el administrador de recursos de Azure intente configurar el control de código fuente de la aplicación web porque no puede iniciar sesión en GitHub o BitBucket con las credenciales del propietario del repositorio.
 
 ## Comparación de la plantilla JSON con grupos de recursos implementados ##
 
-Aquí puede consultar todas las hojas de la aplicación web en el [portal de vista previa](https://portal.azure.com), pero hay otra herramienta también puede resultar útil, e incluso más. Vaya a la herramienta de vista previa [Explorador de recursos de Azure](https://resources.azure.com), que proporciona una representación JSON de todos los grupos de recursos en las suscripciones, tal y como existen en el backend de Azure. También puede ver cómo la jerarquía JSON del grupo de recursos en Azure se corresponde con la jerarquía del archivo de plantilla utilizado para crearlo.
+Aquí puede consultar todas las hojas de la aplicación web en el [Portal de Azure](https://portal.azure.com), pero hay otra herramienta también puede resultar útil, e incluso más. Vaya a la herramienta de vista previa [Explorador de recursos de Azure](https://resources.azure.com), que proporciona una representación JSON de todos los grupos de recursos en las suscripciones, tal y como existen en el backend de Azure. También puede ver cómo la jerarquía JSON del grupo de recursos en Azure se corresponde con la jerarquía del archivo de plantilla utilizado para crearlo.
 
 Por ejemplo, si voy a la herramienta [Explorador de recursos de Azure](https://resources.azure.com) y expando los nodos en el explorador, puedo ver el grupo de recursos y los recursos de nivel de raíz que se engloban en sus respectivos tipos de recursos.
 
@@ -268,7 +268,7 @@ El botón **Implementación en Azure** es excelente, pero permite implementar la
 	
 16.	Haga clic en **Implementar**. Si ha seleccionado **Guardar contraseñas**, la contraseña se guardará en el archivo de parámetros como **texto sin formato**. De lo contrario, se le pedirá que escriba la contraseña de la base de datos durante el proceso de implementación.
 
-¡Ya está! Ahora sólo tiene que ir al [portal de vista previa](https://portal.azure.com) y a la herramienta [Explorador de recursos de Azure](https://resources.azure.com) para ver la configuración de escalado automático y las nuevas alertas que se han agregado a la aplicación implementada con JSON.
+¡Ya está! Ahora solo tiene que ir al [Portal de Azure](https://portal.azure.com) y a la herramienta [Explorador de recursos de Azure](https://resources.azure.com) para ver la configuración de escalado automático y las nuevas alertas que se han agregado a la aplicación implementada con JSON.
 
 Con los pasos de esta sección se consigue lo siguiente:
 
@@ -305,4 +305,4 @@ Obtenga información sobre cómo [aplicar con facilidad metodologías ágiles y 
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

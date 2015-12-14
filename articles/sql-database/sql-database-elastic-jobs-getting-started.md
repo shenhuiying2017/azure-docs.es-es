@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="12/01/2015"
 	ms.author="sidneyh; ddove" />
 
 # Introducción a Trabajos de base de datos elástica
@@ -27,15 +27,15 @@ Descargue [Introducción al ejemplo de herramientas de base de datos elástica](
 
 ## Creación de un administrador de mapas de particiones con la aplicación de ejemplo
 
-Aquí se creará un administrador de mapas de particiones junto con varias particiones, seguido de la inserción de datos en las particiones. Si resulta que ya dispone de la configuración de particiones con almacenes de datos en ellas, puede omitir los pasos siguientes y pasar a la sección siguiente.
+Aquí se creará un administrador de mapas de particiones junto con varias particiones, seguido de la inserción de datos en las particiones. Si ya dispone de particiones configuradas con datos particionados en ellas, puede omitir los pasos siguientes y pasar a la sección siguiente.
 
 1. Cree y ejecute la aplicación de ejemplo **Introducción a las herramientas de base de datos elástica**. Siga los pasos hasta el paso 7 en la sección [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). Al final del paso 7, verá la siguiente línea de comandos:
 
 	![símbolo del sistema][1]
 
-2.  En la ventana de comandos, escriba "1" y pulse **Entrar**. De esta forma, se creará el administrador de mapas de particiones y se agregarán dos particiones al servidor. A continuación, escriba "3" y pulse **Entrar**; repita la acción cuatro veces. De esta forma, se insertan las filas de datos de ejemplo en sus particiones.
+2.  En la ventana de comandos, escriba "1" y pulse **Entrar**. De esta forma, se creará el administrador de mapas de particiones y se agregarán dos particiones al servidor. A continuación, escriba "3" y pulse **Entrar**; repita esta acción cuatro veces. De esta forma, se insertan las filas de datos de ejemplo en sus particiones.
 
-3.  El [Portal de vista previa de Azure](https://portal.azure.com) debe mostrar tres nuevas bases de datos en el servidor v12:
+3.  El [Portal de Azure](https://portal.azure.com) debe mostrar tres nuevas bases de datos en el servidor v12:
 
 	![Confirmación de Visual Studio][2]
 
@@ -379,7 +379,7 @@ Establecimiento de las siguientes opciones para que reflejen el script, las cred
 
 ## Creación de una programación para la ejecución de trabajos con un desencadenador de trabajo
 
-El siguiente script de PowerShell sirve para crear una programación recurrente. Este script usa un intervalo de minutos, pero New-AzureSqlJobSchedule también admite los parámetros -DayInterval, -HourInterval, -MonthInterval y -WeekInterval. Se pueden crear programaciones que se ejecutan una sola vez pasando -OneTime.
+El siguiente script de PowerShell sirve para crear una programación recurrente. Este script usa un intervalo de un minuto, pero New-AzureSqlJobSchedule también admite los parámetros -DayInterval, -HourInterval, -MonthInterval y -WeekInterval. Se pueden crear programaciones que se ejecutan una sola vez pasando -OneTime.
 
 Creación de una programación:
 
@@ -447,4 +447,4 @@ Para obtener información sobre los precios, consulte [Detalles de precios de Ba
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

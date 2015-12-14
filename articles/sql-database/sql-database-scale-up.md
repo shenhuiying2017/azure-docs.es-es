@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/10/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -22,10 +22,10 @@
 **Base de datos única**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-scale-up.md)
+- [Azure Portal](sql-database-scale-up.md)
 - [PowerShell](sql-database-scale-up-powershell.md)
 
-En este artículo se muestra cómo cambiar el nivel de servicio y el nivel de rendimiento de la base de datos SQL con el [portal de vista previa de Azure](https://portal.azure.com).
+En este artículo se muestra cómo cambiar el nivel de servicio y el nivel de rendimiento de la base de datos SQL con el [Portal de Azure](https://portal.azure.com).
 
 Utilice la información de [Actualización de las bases de datos SQL Web o Business a niveles de servicio nuevos](sql-database-upgrade-new-service-tiers.md) y [Niveles de servicio y niveles de rendimiento de la Base de datos SQL de Azure](sql-database-service-tiers.md) para determinar el nivel de capa y el rendimiento de servicio adecuado para la Base de datos SQL de Azure.
 
@@ -50,7 +50,7 @@ Utilice la información de [Actualización de las bases de datos SQL Web o Busin
 
 Abra la hoja Base de datos SQL correspondiente a la base de datos que desea escalar o reducir verticalmente:
 
-1.	Vaya al [Portal de vista previa de Azure](https://portal.azure.com).
+1.	Vaya al [Portal de Azure](https://portal.azure.com).
 2.	Haga clic en **EXAMINAR TODO**.
 3.	Haga clic en **Bases de datos SQL**.
 2.	Haga clic en la base de datos que desee cambiar.
@@ -98,4 +98,4 @@ Abra la hoja Base de datos SQL correspondiente a la base de datos que desea esca
 [3]: ./media/sql-database-scale-up/scale-notification.png
 [4]: ./media/sql-database-scale-up/new-tier.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

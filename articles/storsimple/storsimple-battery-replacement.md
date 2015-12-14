@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Reemplazar el módulo de baterías de reserva en el dispositivo StorSimple
@@ -35,7 +35,7 @@ El módulo de baterías de reserva para el dispositivo StorSimple de Microsoft A
 
 #### Para quitar el módulo de baterías de reserva
 
-1. En el Portal de administración, vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware**. En **Componentes compartidos**, examine el estado de la batería.
+1. En el Portal de Azure clásico, vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware**. En **Componentes compartidos**, examine el estado de la batería.
 
 2. Identifique el PCM en el que ha fallado la batería. La Figura 1 muestra la parte posterior del dispositivo StorSimple.
 
@@ -89,13 +89,13 @@ Realice los pasos siguientes para instalar el módulo de baterías de sustituci�
 
 3. Sustituya el PCM en el gabinete principal siguiendo las directrices de [Reemplazar un Módulo de alimentación y refrigeración en su dispositivo StorSimple](storsimple-power-cooling-module-replacement.md).
 
-4. Una vez completo el reemplazo, acceda al Portal de administración y vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware**, y compruebe el estado de la batería para asegurarse de que la instalación fue correcta. Si el LED muestra un estado verde, la batería está funcionando.
+4. Una vez completo el reemplazo, acceda al Portal de Azure clásico y vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware**, y compruebe el estado de la batería para asegurarse de que la instalación fue correcta. Si el LED muestra un estado verde, la batería está funcionando.
 
 ## Mantener el módulo de baterías de reserva
 
 En el dispositivo, el módulo de baterías de reserva proporciona energía al controlador durante un evento de pérdida de alimentación. Permite que el dispositivo StorSimple guarde los datos críticos antes de apagar el equipo de una manera controlada. Con dos baterías totalmente cargadas en los PCM, el sistema puede controlar dos eventos de pérdida consecutivos.
 
-En el Portal de administración, el **Estado del hardware** en la página **Mantenimiento** indica si la batería funciona mal o cuando se aproxima el final del ciclo de vida. El estado de la batería se indica mediante **Batería en PCM 0** o **Batería en PCM 1** en **Componentes compartidos**. Esta página muestra un estado **DEGRADADO** cuando se aproxima el final del ciclo de vida, y **ERROR** cuando se alcanza el final del ciclo de vida.
+En el Portal de Azure clásico, el **Estado del hardware** en la página **Mantenimiento** indica si la batería funciona mal o si se aproxima el final del ciclo de vida. El estado de la batería se indica mediante **Batería en PCM 0** o **Batería en PCM 1** en **Componentes compartidos**. Esta página muestra un estado **DEGRADADO** cuando se aproxima el final del ciclo de vida, y **ERROR** cuando se alcanza el final del ciclo de vida.
 
 >[AZURE.NOTE]La batería puede mostrar **ERROR** cuando simplemente necesita cargarse.
  
@@ -115,4 +115,4 @@ Si aparece el estado **DEGRADADO**, se recomienda lo siguiente:
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

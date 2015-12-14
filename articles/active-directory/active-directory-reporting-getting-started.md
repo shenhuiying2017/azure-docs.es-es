@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Informes de Azure AD: Introducción"
+   pageTitle="Introducción a los informes de Azure Active Directory | Microsoft Azure"
    description="Enumera los distintos informes disponibles en los informes de Azure Active Directory."
    services="active-directory"
    documentationCenter=""
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="12/01/2015"
    ms.author="curtand;kenhoff"/>
 
-# Introducción a los informes de Azure AD
+# Introducción a los informes de Azure Active Directory
 
 ## ¿Qué es?
 
-Azure Active Directory incluye informes de seguridad, actividad y auditoría para el directorio. Esta es una lista de los informes incluidos:
+Azure Active Directory (Azure AD) incluye informes de seguridad, actividad y auditoría para el directorio. Esta es una lista de los informes incluidos:
 
 ### Informes de seguridad
 
@@ -61,7 +61,7 @@ La canalización de informes consta de tres pasos principales. Cada vez que un u
 
 - En primer lugar, el usuario se autentica (correctamente o no) y el resultado se almacena en las bases de datos de servicio de Azure Active Directory.
 - En intervalos regulares, se procesan todos los inicios de sesión recientes. En este momento, la seguridad y los algoritmos de actividades anómalas buscan todos los inicios de sesión recientes en busca de actividad sospechosa.
-- Después del procesamiento, los informes se escriben, se almacenan en caché y se ofrecen en el Portal de administración de Azure.
+- Después del procesamiento, los informes se escriben, se almacenan en caché y se ofrecen en el Portal de Azure clásico.
 
 ### Tiempos de generación de informes
 
@@ -78,9 +78,9 @@ Puede encontrar el inicio de sesión procesado más reciente examinando el texto
 ## Introducción
 
 
-### Inicie sesión en el Portal de administración de Azure.
+### Iniciar sesión en el Portal de Azure clásico
 
-En primer lugar, tendrá que iniciar sesión en el [Portal de administración de Azure](https://manage.windowsazure.com) como administrador global o de cumplimiento. También debe ser administrador de servicios de suscripción de Azure o coadministrador, o usar la suscripción de Azure de acceso a Azure AD.
+En primer lugar, tendrá que iniciar sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) como administrador global o de cumplimiento. También debe ser administrador de servicios de suscripción de Azure o coadministrador, o usar la suscripción de Azure de acceso a Azure AD.
 
 ### Ir a los informes
 
@@ -156,4 +156,4 @@ Envíe un correo electrónico a [aadreportinghelp@microsoft.com](mailto:aadrepor
 
 > [AZURE.TIP]Para obtener más documentación sobre informes de Azure AD, vea [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

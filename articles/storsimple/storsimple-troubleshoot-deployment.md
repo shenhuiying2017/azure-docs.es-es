@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/29/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Solución de problemas de implementación de dispositivos de StorSimple
@@ -53,7 +53,7 @@ Los pasos siguientes resumen el proceso del Asistente para instalación. Para ob
  
     > [AZURE.IMPORTANT]Las contraseñas se recopilan antes del registro, pero solo se aplican después de registrar correctamente el dispositivo. Si hay un error al aplicar una contraseña, se le pedirá que proporcione la contraseña de nuevo hasta que se recopilen las contraseñas necesarias (que cumplan los requisitos de complejidad).
 
-4. Registre el dispositivo: el último paso consiste en registrar el dispositivo con el servicio StorSimple Manager en ejecución en Microsoft Azure. Para ello, debe [obtener la clave de registro del servicio](storsimple-manage-service.md#get-the-service-registration-key) desde el Portal de administración de Azure e indicarla en el Asistente para instalación. Una vez registrado correctamente el dispositivo, se le indicará una clave de cifrado de datos del servicio. Asegúrese de mantener esta clave de cifrado en una ubicación segura, ya que será necesaria para registrar todos los dispositivos posteriores con el servicio.
+4. Registre el dispositivo: el último paso consiste en registrar el dispositivo con el servicio StorSimple Manager en ejecución en Microsoft Azure. Para ello, debe [obtener la clave de registro del servicio](storsimple-manage-service.md#get-the-service-registration-key) desde el Portal de Azure clásico e indicarla en el Asistente para instalación. Una vez registrado correctamente el dispositivo, se le indicará una clave de cifrado de datos del servicio. Asegúrese de mantener esta clave de cifrado en una ubicación segura, ya que será necesaria para registrar todos los dispositivos posteriores con el servicio.
 
 ## Errores comunes durante la implementación de dispositivos
 
@@ -119,7 +119,7 @@ Las contraseñas se recopilan antes de que el dispositivo se registre, pero solo
 
 > [AZURE.IMPORTANT]En general, si se produce un error al intentar aplicar una contraseña, el software intenta recopilar repetidamente la contraseña hasta que lo consigue. En raras ocasiones, no se puede aplicar la contraseña. En este caso, puede registrar el dispositivo y continuar; sin embargo, las contraseñas no se modificarán. No recibirá ninguna indicación acerca de cuál de las contraseñas no se modificó: la contraseña del administrador de dispositivos o la contraseña de StorSimple Snapshot Manager. Si se produce esta situación, se recomienda que cambie ambas contraseñas.
 
-Puede restablecer las contraseñas desde el Portal de administración del servicio StorSimple Manager. Para más información, consulte:
+Puede restablecer las contraseñas en el Portal de Azure clásico mediante el servicio StorSimple Manager. Para obtener más información, consulte:
 
 - [Cambio de la contraseña del administrador de dispositivos](storsimple-change-passwords.md#change-the-device-administrator-password)
 - [Cambio de la contraseña de Administrador de instantáneas StorSimple](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)
@@ -380,7 +380,7 @@ Si ejecuta la actualización número 1 en el dispositivo StorSimple, no necesita
 
 **Ejemplo de salida: dispositivo sin conexión que ejecuta la versión de StorSimple (julio de 2014)**
 
-Este ejemplo corresponde a un dispositivo que muestra el estado **Sin conexión** en el Portal de administración.
+Este ejemplo corresponde a un dispositivo que muestra el estado **Sin conexión** en el Portal de Azure clásico.
 
      Checking device state: Success 
      Device is registered successfully 
@@ -577,4 +577,4 @@ El error puede deberse a alguna de las siguientes causas:
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

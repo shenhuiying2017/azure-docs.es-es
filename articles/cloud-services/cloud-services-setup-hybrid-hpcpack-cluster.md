@@ -86,7 +86,7 @@ En primer lugar, debe instalar Microsoft HPC Pack en un equipo local con un Wind
 	![Finalización][install_hpc7]
 
 ## Preparación de la suscripción de Azure
-Use el [Portal de Azure](https://manage.windowsazure.com) para realizar los siguientes pasos con su suscripción de Azure. Estos pasos son necesarios para poder implementar más adelante los nodos de Azure desde el nodo principal local:
+Use el [Portal de Azure clásico](https://manage.windowsazure.com) para realizar los siguientes pasos con su suscripción de Azure. Estos pasos son necesarios para poder implementar más adelante los nodos de Azure desde el nodo principal local:
 
 - Cargue un certificado de administración (necesario para las conexiones seguras entre el nodo principal y los servicios de Azure).
 
@@ -99,7 +99,7 @@ Use el [Portal de Azure](https://manage.windowsazure.com) para realizar los sigu
 ### <a>Carga del certificado de administración predeterminado</a>
 HPC Pack instala un certificado autofirmado en el nodo principal, llamado Default Microsoft HPC Azure Management, que podrá cargar como certificado de administración de Azure. Este certificado se proporciona con fines de prueba e implementaciones de prueba de concepto.
 
-1. En el equipo del nodo principal, inicie sesión en el [Portal de Azure](https://manage.windowsazure.com).
+1. En el equipo del nodo principal, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
 
 2. Haga clic en **Configuración** y, a continuación, en **Certificados de administración**.
 
@@ -348,4 +348,4 @@ Después de probar el clúster, puede usar el administrador de clústeres de HPC
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

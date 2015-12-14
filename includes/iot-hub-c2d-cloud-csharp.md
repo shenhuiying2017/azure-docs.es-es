@@ -18,7 +18,7 @@ En esta sección, escribirá una aplicación de consola de Windows que envía me
 
 		using Microsoft.Azure.Devices;
 
-5. Agregue los siguientes campos a la clase **Program**; para ello, sustituya los valores de marcador de posición por el nombre del Centro de IoT y la cadena de conexión del Centro de IoT empleados en [Introducción al Centro de IoT]\:
+5. Agregue los siguientes campos a la clase **Program**; para ello, sustituya el valor de marcador de posición por la cadena de conexión del Centro de IoT empleado en la [Introducción al Centro de IoT]\:
 
 		static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
@@ -102,4 +102,4 @@ En esta sección, modificará la aplicación **SendCloudToDevice** para solicita
 [21]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
 [22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d2.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

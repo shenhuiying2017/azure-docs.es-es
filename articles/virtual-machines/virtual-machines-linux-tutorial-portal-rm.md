@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creación de una máquina virtual de Azure con Linux en el Portal de Azure | Microsoft Azure"
-	description="Utilice el Portal de Azure para crear una máquina virtual (VM) de Azure en la que se ejecute Linux con los grupos de recursos de Azure."
+	pageTitle="Creación de una máquina virtual de Azure con Linux en el Portal de Azure clásico | Microsoft Azure"
+	description="Use el Portal de Azure clásico para crear una máquina virtual (VM) de Azure en la que se ejecute Linux con los grupos de recursos de Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -17,15 +17,15 @@
 	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
-# Creación de una máquina virtual con Linux en el Portal de vista previa de Azure
+# Creación de una máquina virtual con Linux en el Portal de Azure
 
 > [AZURE.SELECTOR]
 - [Azure CLI](virtual-machines-linux-tutorial.md)
-- [Azure preview portal](virtual-machines-linux-tutorial-portal-rm.md)
+- [Azure portal](virtual-machines-linux-tutorial-portal-rm.md)
 
 <br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
-Es fácil crear una máquina virtual (VM) de Azure que ejecute Linux. En este tutorial se muestra cómo usar el Portal de vista previa de Azure para crear una rápidamente y se usa el archivo de clave pública `~/.ssh/id_rsa.pub` para proteger una conexión **SSH** a la máquina virtual. También puede crear máquinas virtuales con Linux usando [sus propias imágenes como plantillas](virtual-machines-linux-create-upload-vhd.md).
+Es fácil crear una máquina virtual (VM) de Azure que ejecute Linux. En este tutorial se muestra cómo usar el Portal de Azure para crear una rápidamente y se usa el archivo de clave pública `~/.ssh/id_rsa.pub` para proteger una conexión **SSH** a la máquina virtual. También puede crear máquinas virtuales con Linux usando [sus propias imágenes como plantillas](virtual-machines-linux-create-upload-vhd.md).
 
 > [AZURE.NOTE]En este tutorial se crea una máquina virtual de Azure que se administra mediante la API del grupo de recursos de Azure. Para obtener más información, vea [Información general del grupo de recursos de Azure](resource-group-overview.md).
 
@@ -130,4 +130,4 @@ Para obtener más información sobre Linux en Azure, consulte:
 
 - [Extensión de máquina virtual Docker para Linux en Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

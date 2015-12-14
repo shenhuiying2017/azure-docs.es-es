@@ -1,8 +1,8 @@
 <properties
     pageTitle="Integración del inicio de sesión único de Azure Active Directory con aplicaciones SaaS | Microsoft Azure"
-    description="Habilite la autenticación de inicio de sesión único y la administración del acceso centralizado para el aprovisionamiento de usuarios de las aplicaciones SaaS en Azure Active Directory. Información general sobre cómo integrar Azure AD en las aplicaciones SaaS."
+    description="Habilite la autenticación de inicio de sesión único y la administración del acceso centralizado para el aprovisionamiento de usuarios de las aplicaciones SaaS en Azure Active Directory. Información general sobre cómo integrar Azure Active Directory en las aplicaciones SaaS."
     services="active-directory"
-	keywords="integrar Azure AD con aplicaciones SaaS"
+	  keywords="integrar Azure AD con aplicaciones SaaS"
     documentationCenter=""
     authors="curtand"
     manager="stevenpo"
@@ -14,14 +14,14 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="11/20/2015"
+      ms.date="12/01/2015"
       ms.author="curtand"/>
 
-# Integración del inicio de sesión único de Azure Active Directory (Azure AD) con aplicaciones SaaS  
+# Integración del inicio de sesión único de Azure Active Directory con aplicaciones SaaS  
 
 [AZURE.INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
-Para empezar a configurar el inicio de sesión único para una aplicación que lleva a su organización, va a usar un directorio existente en Azure Active Directory. Puede usar un directorio de Azure AD que obtenga a través de Microsoft Azure, Office 365 o Windows Intune. Si dispone de dos o más de estas aplicaciones, vea [Administración del directorio de Azure AD](active-directory-administer.md) para determinar cuál de ellas usar.
+Para empezar a configurar el inicio de sesión único para una aplicación que traiga a su organización, usará un directorio existente en Azure Active Directory (Azure AD). Puede usar un directorio de Azure AD que obtenga a través de Microsoft Azure, Office 365 o Windows Intune. Si dispone de dos o más de estas aplicaciones, vea [Administración del directorio de Azure AD](active-directory-administer.md) para determinar cuál de ellas usar.
 
 ## Autenticación
 
@@ -41,7 +41,7 @@ Azure AD proporciona varias maneras personalizables para implementar aplicacione
 
 ## Consideraciones adicionales para las aplicaciones ya en uso
 
-La configuración del inicio de sesión único para una aplicación que ya se usa en su organización es un proceso diferente al de crear nuevas cuentas para una nueva aplicación. Hay un par de pasos preliminares entre los que se incluyen: la asignación de identidades de usuario de la aplicación para las identidades de Azure Active Directory (AD) y la comprensión de cómo los usuarios experimentarán el inicio de sesión en una aplicación una vez que está integrada.
+La configuración del inicio de sesión único para una aplicación que ya se usa en su organización es un proceso diferente al de crear nuevas cuentas para una nueva aplicación. Hay un par de pasos preliminares: asignar las identidades de usuario de la aplicación a las identidades de Azure AD y comprender cómo los usuarios experimentarán el inicio de sesión en una aplicación una vez que esté integrada.
 
 > [AZURE.NOTE]Para configurar el inicio de sesión único para una aplicación existente, debe tener derechos de administrador global tanto en Azure AD como en la aplicación de SaaS.
 
@@ -62,10 +62,10 @@ Vea también *Supresión del consentimiento del usuario* en el artículo [Guiar 
 ## Pasos siguientes
 
 
-Para las aplicaciones SaaS incluidas en la galería de aplicaciones, Azure Active Directory ofrece una serie de [tutoriales sobre cómo integrarlas](active-directory-saas-tutorial-list.md).
+Para las aplicaciones SaaS incluidas en la galería de aplicaciones, Azure AD ofrece una serie de [tutoriales sobre cómo integrarlas](active-directory-saas-tutorial-list.md).
 
-Si la aplicación no está en la galería de aplicaciones, puede [agregarla a la galería de aplicaciones de Azure Active Directory como una aplicación personalizada](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+Si la aplicación no está en la galería de aplicaciones, puede [agregarla a la galería de aplicaciones de Azure AD como una aplicación personalizada](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
 Encontrará más información sobre todos estos problemas en la biblioteca de Azure.com, por ejemplo, [Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

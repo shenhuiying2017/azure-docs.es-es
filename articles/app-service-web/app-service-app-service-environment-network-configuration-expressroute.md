@@ -38,7 +38,7 @@ Existen requisitos de conectividad de red para entornos del Servicio de aplicaci
 -  La ruta de acceso de la red saliente no puede atravesar los servidores proxy corporativos internos, ni puede forzar la tunelización a local. Si lo hace, se cambiará la dirección NAT en vigor del tráfico de red saliente del entorno del Servicio de aplicaciones. Al cambiar la dirección NAT del tráfico de red de salida de un entorno del Servicio de aplicaciones causará errores de conectividad a muchos de los puntos de conexión enumerados anteriormente. Lo que da como resultado un error al intentar la creación del entorno del Servicio de aplicaciones, y además, los entornos del Servicio de aplicaciones previamente correctos estarán marcados como incorrectos.  
 -  El acceso de red entrante a los puertos necesarios para los entornos del Servicio de aplicaciones debe estar permitido, como se describe en este [artículo][requiredports].
 
-Se cumplen los requisitos de DNS al asegurar que se configura y se mantiene una infraestructura DNS válida para la red virtual. Si por algún motivo se cambia la configuración de DNS después de haber creado un entorno del Servicio de aplicaciones, los desarrolladores pueden forzar a un entorno del Servicio de aplicaciones para recoger la nueva configuración de DNS. Si se desencadena un reinicio gradual del entorno mediante el icono "Reiniciar", ubicado en la parte superior de la hoja de administración del entorno del Servicio de aplicaciones en el [nuevo Portal de administración][NewPortal], el entorno recogerá la nueva configuración de DNS.
+Se cumplen los requisitos de DNS al asegurar que se configura y se mantiene una infraestructura DNS válida para la red virtual. Si por algún motivo se cambia la configuración de DNS después de haber creado un entorno del Servicio de aplicaciones, los desarrolladores pueden forzar a un entorno del Servicio de aplicaciones para recoger la nueva configuración de DNS. Si se desencadena un reinicio gradual del entorno mediante el icono "Reiniciar", ubicado en la parte superior de la hoja de administración del entorno del Servicio de aplicaciones en el [Portal de Azure][NewPortal], el entorno recogerá la nueva configuración de DNS.
 
 Se pueden cumplir los requisitos de acceso de red entrante mediante la configuración de un [grupo de seguridad de red][NetworkSecurityGroups] en la subred del entorno del Servicio de aplicaciones, como se describe en este [artículo][requiredports].
 
@@ -137,4 +137,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 
 <!-- IMAGES -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,23 +1,28 @@
-<properties 
-	pageTitle="Control de conflictos con datos sin conexión en aplicaciones universales de Windows | Microsoft Azure" 
-	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para gestionar los conflictos que se producen al sincronizar datos sin conexión en su aplicación universal de Windows" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Control de conflictos con datos sin conexión en aplicaciones universales de Windows | Microsoft Azure"
+	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para gestionar los conflictos que se producen al sincronizar datos sin conexión en su aplicación universal de Windows"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/12/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/12/2015"
 	ms.author="glenga"/>
 
 
 # Control de conflictos con la sincronización de datos sin conexión en Servicios móviles
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
@@ -45,7 +50,7 @@ Para este tutorial se necesita Visual Studio 2013 en Windows 8.1.
 
 Este tutorial se refiere a cómo el [ejemplo de Todo sin conexión de Servicios móviles] controla conflictos de sincronización entre el almacén sin conexión local y la base de datos del Servicio móvil en Azure.
 
-1. Descargue el archivo ZIP del [repositorio de muestras de GitHub para Servicios móviles] y extráigalo a un directorio de trabajo. 
+1. Descargue el archivo ZIP del [repositorio de muestras de GitHub para Servicios móviles] y extráigalo a un directorio de trabajo.
 
 2. Si todavía no ha instalado SQLite para Windows 8.1 y Windows Phone 8.1 según lo mencionado en el tutorial [Introducción a los datos sin conexión], instale ambos tiempos de ejecución.
 
@@ -64,7 +69,7 @@ Tenga en cuenta que la aplicación aún no está conectada a ningún servicio m�
 
 Ahora es el momento de probar la aplicación en los servicios móviles.
 
-1. En el Portal de administración de Azure, busque la clave de la aplicación del servicio móvil; para ello, haga clic en **Administrar claves** en la barra de comandos de la pestaña **Panel**. Copie la **clave de aplicación**.
+1. En el [Portal de Azure clásico], busque la clave de la aplicación del servicio móvil; para ello, haga clic en **Administrar claves** en la barra de comandos de la pestaña **Panel**. Copie la **clave de aplicación**.
 
 2. En el Explorador de soluciones de Visual Studio, abra el archivo App.xaml.cs en el proyecto de ejemplo cliente. Cambie la inicialización de **MobileServiceClient** para usar la URL del servicio móvil y la clave de aplicación:
 
@@ -88,14 +93,14 @@ En un escenario real, se produciría un conflicto de sincronización cuando una 
 Los pasos siguientes muestran los clientes de Windows Phone 8.1 y Tienda Windows 8.1 que se ejecutan al mismo tiempo para provocar y resolver un conjunto usando el ejemplo.
 
 1. En Visual Studio, haga clic con el botón derecho en el proyecto de Windows Phone 8.1 y, a continuación, haga clic en **Establecer como proyecto de inicio**. Luego presione las teclas **Ctrl+F5** para ejecutar el cliente de Windows Phone 8.1 sin depuración. Una vez que el cliente de Windows Phone 8.1 se ejecuta en el emulador, haga clic en el botón de **extracción** para sincronizar el almacén local con el estado actual de la base de datos.
- 
+
     ![][3]
- 
-   
+
+
 2. En Visual Studio, haga clic con el botón derecho en el proyecto de Windows 8.1 en tiempo de ejecución y, a continuación, haga clic en **Establecer como proyecto de inicio** para volver a establecerlo en el proyecto de inicio. Luego presione **F5** para ejecutarlo. Una vez que el cliente de Tienda Windows 8.1 se ejecuta, haga clic en el botón de **extracción** para sincronizar el almacén local con el estado actual de la base de datos
 
     ![][4]
- 
+
 3. En este punto, ambos clientes están sincronizados con la base de datos. El código para ambos clientes también usa la sincronización incremental, por lo que solo sincronizarán elementos todo incompletos. Se omitirán los elementos todo completados. Elija uno de los elementos y edite el texto del mismo elemento en ambos clientes a un valor distinto. Haga clic en el botón de **inserción** para sincronizar ambos cambios con la base de datos en el servidor.
 
     ![][5]
@@ -126,7 +131,7 @@ La clase `SyncHandler` en **SyncHandler.cs** implementa `IMobileServiceSyncHandl
 
 Para resolver conflictos a favor del elemento local, simplemente debe reintentar la operación. Cuando se ha producido un conflicto, la versión del elemento local se actualizará para coincidir con la versión del servidor, por lo que la ejecución de la operación de nuevo sobrescribirá los cambios del servidor con los cambios locales:
 
-    await operation.ExecuteAsync(); 
+    await operation.ExecuteAsync();
 
 Para resolver los conflictos a favor del elemento del servidor, simplemente vuelva de `ExecuteTableOperationAsync`. La versión local del objeto se descartará y se reemplazará por el valor del servidor.
 
@@ -158,10 +163,9 @@ Cuando se cancela una inserción, `PushAsync` producirá un `MobileServicePushFa
 [Get started with Mobile Services]: ../mobile-services-windows-store-get-started.md
 [Introducción a los datos sin conexión]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [Handling Database Conflicts]: mobile-services-windows-store-dotnet-handle-database-conflicts.md#test-app
 [repositorio de muestras de GitHub para Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=512865
 [ejemplo de Todo sin conexión de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=512866
- 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

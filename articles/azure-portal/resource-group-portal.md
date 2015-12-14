@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso del Portal de vista previa de Azure para administrar los recursos de Azure | Microsoft Azure" 
+	pageTitle="Uso del Portal de Azure para administrar los recursos de Azure | Microsoft Azure" 
 	description="Agrupe varios recursos como grupo lógico que se convierte en el límite del ciclo de vida de los recursos que contiene." 
 	services="azure-resource-manager,azure-portal" 
 	documentationCenter="" 
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="12/02/2015" 
 	ms.author="tomfitz"/>
 
 
-# Uso del Portal de vista previa de Azure para administrar los recursos de Azure
+# Uso del Portal de Azure para administrar los recursos de Azure
 
 ## Introducción
 
-Históricamente, la administración de un recurso (como un servidor de base de datos, base de datos o sitio web) en Microsoft Azure precisaba realizar operaciones en un recurso al mismo tiempo. Si tenía una aplicación compleja compuesta de varios recursos, había que coordinar manualmente los cambios en la infraestructura de aplicaciones. En el Portal de vista previa de Azure puede usar el Administrador de recursos de Azure para crear grupos de recursos y administrar juntos todos los recursos en una aplicación.
+Históricamente, la administración de un recurso (como un servidor de base de datos, base de datos o sitio web) en Microsoft Azure precisaba realizar operaciones en un recurso al mismo tiempo. Si tenía una aplicación compleja compuesta de varios recursos, había que coordinar manualmente los cambios en la infraestructura de aplicaciones. En el Portal de Azure puede usar el Administrador de recursos de Azure para crear grupos de recursos y administrar e implementar todos los recursos juntos en una aplicación.
 
 Normalmente, un grupo de recursos contiene recursos relacionados con una aplicación específica. Por ejemplo, un grupo puede contener una aplicación web que hospeda el sitio web público, una Base de datos SQL que almacena datos relacionales que usa el sitio y una cuenta de almacenamiento que conserva recursos no relacionales. Todos los recursos de un grupo de recursos deben compartir el mismo ciclo de vida. Para obtener más información sobre el Administrador de recursos, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).
 
-Este tema proporciona una introducción general de cómo usar grupos de recursos en el Portal de vista previa de Microsoft Azure. Actualmente, no todos los servicios son compatibles con el portal de vista previa o el Administrador de recursos. Para esos servicios, deberá usar el [portal](https://manage.windowsazure.com). Para obtener información acerca del estado de cada servicio, consulte [Compatibilidad del Administrador de recursos para servicios, regiones y versiones de API](resource-manager-supported-services.md)
+Este tema proporciona información general sobre cómo usar grupos de recursos en el Portal de Azure. Actualmente, no todos los servicios son compatibles con el portal o con el Administrador de recursos. Para esos servicios, deberá usar el [portal clásico](https://manage.windowsazure.com). Para obtener información acerca del estado de cada servicio, consulte [Compatibilidad del Administrador de recursos para servicios, regiones y versiones de API](resource-manager-supported-services.md).
 
 ## Creación de recursos y de un grupo de recursos
 
@@ -125,17 +125,17 @@ Puesto que los grupos de recursos le permiten administrar el ciclo de vida de to
 
 ## Etiquetado de recursos
 
-Puede aplicar etiquetas a los recursos y grupos de recursos para organizar de manera lógica los recursos. Para obtener información sobre cómo trabajar con etiquetas a través del Portal de vista previa, consulte [Uso de etiquetas para organizar los recursos de Azure](../resource-group-using-tags.md).
+Puede aplicar etiquetas a los recursos y grupos de recursos para organizar de manera lógica los recursos. Para obtener información sobre cómo trabajar con etiquetas a través del portal, consulte [Uso de etiquetas para organizar los recursos de Azure](../resource-group-using-tags.md).
 
 ## Implementación de una plantilla personalizada
 
 Si desea ejecutar una implementación sin usar las plantillas de Marketplace, puede crear una plantilla personalizada que defina la infraestructura para la solución. Para obtener más información sobre las plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-Para implementar una plantilla personalizada a través del Portal de vista previa, seleccione **Nuevo**, **Marketplace** y **Todo**.
+Para implementar una plantilla personalizada a través del Portal, seleccione **Nuevo**, **Marketplace** y **Todo**.
 
 ![encontrar implementación de plantilla](./media/resource-group-portal/launch-template.png)
 
-Busque la **Implementación de plantilla** y seleccione una en la lista devuelta.
+Busque **Implementación de plantillas** y selecciónela en la lista devuelta.
 
 ![buscar implementación de plantilla](./media/resource-group-portal/search-template.png)
 
@@ -146,12 +146,12 @@ Después de iniciar la implementación de la plantilla, puede crear la plantilla
 ## Pasos siguientes
 Introducción
 
-- Para ver una introducción a los conceptos del Administrador de recursos, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).  
-- Para obtener información sobre cómo usar Azure PowerShell al implementar recursos, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
-- Para obtener información sobre cómo usar la interfaz de la línea de comandos de Azure al implementar recursos, consulte [Uso de la línea de comandos de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](../xplat-cli-azure-resource-manager.md). 
+- Para obtener información sobre los conceptos del Administrador de recursos, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).  
+- Para obtener información sobre cómo usar Azure PowerShell al implementar recursos, consulte [Uso de Azure PowerShell con Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
+- Para obtener información sobre cómo usar la interfaz de la línea de comandos (CLI) de Azure al implementar recursos, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](../xplat-cli-azure-resource-manager.md). 
   
 
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

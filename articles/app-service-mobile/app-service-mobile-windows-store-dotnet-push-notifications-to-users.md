@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/17/2015"
+	ms.date="12/02/2015"
 	ms.author="yuaxu"/>
 
 # Envío de notificaciones entre plataformas a un usuario específico
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 En este tema se muestra cómo enviar notificaciones a todos los dispositivos registrados de un usuario concreto desde su back-end móvil. Introdujo el concepto de [plantillas], que proporciona a las aplicaciones cliente la libertad de especificar formatos de carga y marcadores de posición de variables en el registro. A continuación, envíe aciertos a todas las plataformas con estos marcadores de posición, y habilite las notificaciones multiplataforma.
 
@@ -79,7 +77,8 @@ Ahora la aplicación está configurada para registrar el dispositivo de usuario 
             string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
             // connect to notification hub
-            NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
+            NotificationHubClient Hub = NotificationHubClient
+            	.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
             // get the current user id and create tag to identify user
             ServiceUser authenticatedUser = this.User as ServiceUser;
@@ -109,4 +108,4 @@ Vuelva a publicar el proyecto de back-end móvil y ejecute cualquiera de las apl
 [plantillas]: https://msdn.microsoft.com/es-ES/library/dn530748.aspx
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

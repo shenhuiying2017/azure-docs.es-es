@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/24/2015" 
 	ms.author="cephalin"/>
 
 #Acceso a recursos locales mediante conexiones híbridas en el Servicio de aplicaciones de Azure
 
 Se puede conectar una aplicación web de Servicio de aplicaciones de Azure a cualquier recurso local que utilice un puerto TCP estático, como SQL Server, MySQL, API Web HTTP, Servicios móviles y la mayoría de los servicios web personalizados. En este artículo se muestra cómo crear una conexión híbrida entre una aplicación web del Servicio de aplicaciones y una base de datos de SQL Server local.
 
-> [AZURE.NOTE]La parte Aplicaciones web de la característica Conexiones híbridas solo está disponible en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Para crear una conexión en Servicios de BizTalk, consulte [Conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+> [AZURE.NOTE]La parte Aplicaciones web de la característica Conexiones híbridas solo está disponible en el [Portal de Azure](https://portal.azure.com). Para crear una conexión en Servicios de BizTalk, consulte [Conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
 ## Requisitos previos
 - Una suscripción de Azure. Para obtener una suscripción gratuita, consulte [Prueba gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/). 
@@ -39,13 +39,11 @@ Se puede conectar una aplicación web de Servicio de aplicaciones de Azure a cua
 
 > [AZURE.NOTE]Si ya ha creado una aplicación web en el Portal de Azure que desea usar en este tutorial, puede omitir este paso e ir directamente a [Creación de una conexión híbrida y un servicio de BizTalk](#CreateHC) y comenzar desde ahí.
 
-1. En la esquina inferior izquierda del [Portal de Azure](https://portal.azure.com), haga clic en **Nuevo** > **Web + móvil** > **Sitio web**.
-	
-	![New button][New]
+1. En la esquina superior izquierda del [Portal de Azure](https://portal.azure.com), haga clic en **Nuevo** > **Web y móvil** > **Aplicación web**.
 	
 	![New web app][NewWebsite]
 	
-2. En la hoja **Aplicación web**, proporcione una dirección URL > **Crear**.
+2. En la hoja **Aplicación web**, proporcione una dirección URL y haga clic en **Crear**.
 	
 	![Website name][WebsiteCreationBlade]
 	
@@ -64,7 +62,7 @@ A continuación, creará una conexión híbrida y un servicio de BizTalk para la
 <a name="CreateHC"></a>
 ## Creación de una conexión híbrida y un servicio de BizTalk ##
 
-1. Desplácese hacia abajo por la hoja de la aplicación web y elija **Conexiones híbridas**.
+1. En la hoja de la aplicación web, haga clic en **Todas las configuraciones** > **Redes** > **Configurar los puntos de conexión híbrida**.
 	
 	![Hybrid connections][CreateHCHCIcon]
 	
@@ -77,11 +75,7 @@ A continuación, creará una conexión híbrida y un servicio de BizTalk para la
 	
 	![Create a hybrid connection][TwinCreateHCBlades]
 	
-	En la **hoja Crear conexión híbrida**:
-	- En **Nombre**, escriba un nombre para la conexión.
-	- En **Nombre de host**, escriba el nombre del equipo local que hospeda el recurso.
-	- En **Puerto**, escriba el número de puerto que usa su recurso local (1433 para una instancia predeterminada de SQL Server).
-	- Haga clic en **Servicio de BizTalk**.
+	En la **hoja Crear conexión híbrida**: - En **Nombre**, escriba un nombre para la conexión. - En **Nombre de host**, escriba el nombre del equipo local que hospeda el recurso. - En **Puerto**, escriba el número de puerto que usa su recurso local (1433 para una instancia predeterminada de SQL Server). - Haga clic en **Servicio de BizTalk**.
 
 
 4. Se abre la hoja **Crear servicio de BizTalk**. Escriba un nombre para el servicio de BizTalk y, a continuación, haga clic en **Aceptar**.
@@ -97,16 +91,16 @@ A continuación, creará una conexión híbrida y un servicio de BizTalk para la
 6. Al finalizar el proceso, el área de notificaciones del portal le informa de que la conexión se ha creado correctamente.
 	<!-- TODO
 
-    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
-	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-	Create hybrid conn step, you get the following error
-	Failed to create hybrid connection RelecIoudHC. The 
-	resource type could not be found in the namespace 
-	'Microsoft.BizTaIkServices for api version 2014-06-01'.
+Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
+(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+Create hybrid conn step, you get the following error
+Failed to create hybrid connection RelecIoudHC. The 
+resource type could not be found in the namespace 
+'Microsoft.BizTaIkServices for api version 2014-06-01'.
 
-	The error indicates it couldn't find the type, not the instance.
-	![Success notification][CreateHCSuccessNotification]
-	-->
+The error indicates it couldn't find the type, not the instance.
+![Success notification][CreateHCSuccessNotification]
+-->
 7. En la hoja de la aplicación web, el icono **Conexiones híbridas** ahora muestra que se creó una conexión híbrida.
 	
 	![One hybrid connection created][CreateHCOneConnectionCreated]
@@ -116,7 +110,7 @@ Llegados a este punto, ha completado una parte importante de la infraestructura 
 <a name="InstallHCM"></a>
 ## Instalación del Administrador de conexiones híbridas local para realizar la conexión ##
 
-1. En la hoja de aplicación web, haga clic en el icono Conexiones híbridas. 
+1. En la hoja de la aplicación web, haga clic en **Todas las configuraciones** > **Redes** > **Configurar los puntos de conexión híbrida**. 
 	
 	![Hybrid connections icon][HCIcon]
 	
@@ -183,7 +177,6 @@ Ahora que la infraestructura de conexión híbrida se ha completado, puede crear
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal antiguo al nuevo, consulte: [Referencia sobre sitios web y aplicaciones web en el Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [New]: ./media/web-sites-hybrid-connection-get-started/B01New.png
@@ -211,4 +204,4 @@ Ahora que la infraestructura de conexión híbrida se ha completado, puede crear
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

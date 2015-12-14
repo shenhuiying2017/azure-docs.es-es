@@ -31,31 +31,27 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
 ## <a name="register"> </a>Registro de la aplicación con Facebook
 
-1. Inicie sesión en el [Portal de administración de Azure] y vaya a la aplicación. Copie la **Dirección URL**. La usará para configurar la aplicación de Facebook.
+1. Inicie sesión en el [Portal de Azure] y vaya a la aplicación. Copie la **Dirección URL**. La usará para configurar la aplicación de Facebook.
  
 2. En otra ventana del explorador, navegue hasta el sitio web de [Desarrolladores de Facebook] e inicie sesión con las credenciales de su cuenta de Facebook.
 
-3. (Opcional) Si aún no está registrado, haga clic en **Aplicaciones**, luego en **Registrarse como desarrollador**, acepte la política y siga los pasos de registro.
+3. (Opcional) Si aún no está registrado, haga clic en **Aplicaciones** > **Registrarse como desarrollador**, acepte la directiva y siga los pasos de registro.
 
-4. Haga clic en **Mis aplicaciones** y luego en **Agregar una nueva aplicación**.
+4. Haga clic en **Mis aplicaciones** > **Agregar una nueva aplicación** > **Sitio web**, escriba un nombre único para la aplicación y luego haga clic en **Crear un nuevo identificador de Facebook**.
 
-5. Seleccione **Sitio web** como plataforma. Elija un nombre exclusivo para la aplicación y, a continuación, haga clic en **Crear nuevo id. de aplicación de Facebook**.
-
-6. Elija una categoría para la aplicación en la lista desplegable. A continuación, haga clic en **Crear id. de aplicación**.
-
-7. En la siguiente página, seleccione **Omitir Inicio rápido** en la próxima visita en la esquina superior derecha. Esto le llevará al panel del desarrollador de la aplicación.
+6. Elija una categoría para la aplicación de la lista desplegable y haga clic en **Crear Id. de aplicación** y, en la siguiente página, haga clic en **Omitir inicio rápido**. Esto le llevará al panel del desarrollador de la aplicación.
 
 8. En el campo **Secreto de la aplicación**, haga clic en **Mostrar**, escriba la contraseña si se le solicita y, a continuación, anote los valores de **Id. de aplicación** y **Secreto de la aplicación**. Más adelante configurará la aplicación para usar estos valores.
 
 	> [AZURE.NOTE]**Nota de seguridad** El secreto de la aplicación es una credencial de seguridad importante, No comparta este secreto con nadie ni lo distribuya en una aplicación cliente.
 
-9. En la barra de navegación de la izquierda, haga clic en **Configuración**. Escriba la **Dirección URL** de la aplicación móvil en **Dominios de aplicación** y escriba un **Correo electrónico de contacto**.
+9. En la barra de navegación de la izquierda, haga clic en **Configuración**, escriba la **Dirección URL** de la aplicación móvil en **Dominios de aplicación** y escriba un **Correo electrónico de contacto**.
 
     ![][0]
 
-10. Si no ve una sección de sitio web a continuación, haga clic en **Agregar plataforma** y seleccione **Sitio Web**. Escriba la **Dirección URL** de la aplicación móvil en el campo **Dirección URL del sitio** y haga clic en **Guardar cambios**.
+10. Si no ve una sección del sitio web a continuación, haga clic en **Agregar plataforma** > **Sitio web**, escriba la **Dirección URL** de la aplicación móvil en el campo **Dirección URL del sitio** y luego haga clic en **Guardar cambios**.
 
-11. Haga clic en la pestaña **Avanzado** y agregue el **URI de redireccionamiento** de la aplicación a **URI de redireccionamiento OAuth válidos**. A continuación, haga clic en **Guardar cambios**. El URI de redireccionamiento es la dirección URL de la aplicación anexada a la ruta de acceso, _/.auth/login/facebook/callback_. Por ejemplo: `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Asegúrese de que está utilizando el esquema HTTPS.
+11. Haga clic en la pestaña **Avanzado**, agregue el **URI de redireccionamiento** de la aplicación a **URI de redireccionamiento de OAuth válidos** y haga clic en **Guardar cambios**. El URI de redireccionamiento es la dirección URL de la aplicación anexada a la ruta de acceso, _/.auth/login/facebook/callback_. Por ejemplo: `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Asegúrese de que está utilizando el esquema HTTPS.
 
 
 	> [AZURE.NOTE]Si usa la puerta de enlace en lugar de la característica Autenticación o autorización del Servicio de aplicaciones, la URL de redireccionamiento usará en su lugar la URL de la puerta de enlace con la ruta de acceso _/signin-facebook_.
@@ -64,22 +60,20 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 12. La cuenta de Facebook que se utilizó para registrar la aplicación es un administrador de la aplicación. En este momento, solo los administradores pueden iniciar sesión en esta aplicación. Para autenticar otras cuentas de Facebook, haga clic en **Estado y revisión** en el panel de navegación de la izquierda. A continuación, haga clic en **Sí** para habilitar el acceso del público en general.
 
 
-## <a name="secrets"> </a>Adición de información de Facebook a la aplicación
+## <a name="secrets"> </a>Agregar información de Facebook a la aplicación
 
-> [AZURE.NOTE]Si usa la puerta de enlace del Servicio de aplicaciones, omita esta sección y en su lugar, vaya a la puerta de enlace en el portal. Seleccione **Configuración**, **Identidad** y, luego, **Facebook**. Pegue los valores que obtuvo anteriormente y haga clic en **Guardar**.
+> [AZURE.NOTE]Si usa la puerta de enlace del Servicio de aplicaciones, omita esta sección y en su lugar, vaya a la puerta de enlace en el portal. Seleccione **Configuración**, **Identidad** y luego **Facebook**. Pegue los valores que obtuvo anteriormente y haga clic en **Guardar**.
 
 
-13. De nuevo en el [Portal de administración de Azure], vaya a la aplicación. Haga clic en **Configuración** y luego en **Autenticación o autorización**.
+13. Vuelva al [Portal de Azure] y vaya a la aplicación. Haga clic en **Configuración** > **Autenticación/Autorización** y asegúrese de que **Autenticación del Servicio de aplicaciones** está **Activada**.
 
-14. Si esta característica no está habilitada, mueva el interruptor a la posición de **activada**.
-
-15. Haga clic en **Facebook**. Pegue los valores de identificador de la aplicación y de secreto de la aplicación que obtuvo previamente y habilite opcionalmente los ámbitos que requiere la aplicación. y, a continuación, haga clic en **Aceptar**.
+15. Haga clic en **Facebook**, pegue los valores de identificador de la aplicación y de secreto de la aplicación que obtuvo anteriormente, habilite opcionalmente los ámbitos que requiera la aplicación y después haga clic en **Aceptar**.
 
     ![][1]
 	
 	De forma predeterminada, el Servicio de aplicaciones ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio y a las API. Debe autorizar a los usuarios en el código de la aplicación.
 
-17. (Opcional) Para restringir el acceso al sitio solo a los usuarios autenticados mediante Facebook, establezca **Acción por realizar cuando no se autentique la solicitud** en **Facebook**. Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a Facebook para la autenticación.
+17. (Opcional) Para restringir el acceso al sitio solo a los usuarios autenticados mediante Facebook, establezca el valor de **Acción que se debe realizar cuando no se autentique la solicitud** en **Facebook**. Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a Facebook para la autenticación.
 
 17. Haga clic en **Guardar**.
 
@@ -97,6 +91,6 @@ De este modo ya estará listo para usar Facebook para realizar la autenticación
 [Desarrolladores de Facebook]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /es-ES/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Portal de administración de Azure]: https://portal.azure.com/
+[Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

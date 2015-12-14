@@ -27,7 +27,7 @@ Para obtener información general sobre la extensión de scripts personalizados,
 
 Desde su lanzamiento, la extensión de scripts personalizados se ha usado ampliamente para configurar cargas de trabajo en máquinas virtuales de Windows y Linux. Con la introducción de las plantillas del Administrador de recursos de Azure, los usuarios ahora pueden crear una única plantilla que no solo aprovisiona la máquina virtual sino que también configura sus cargas de trabajo.
 
-## Información general de las plantillas del Administrador de recursos de Azure
+## Acerca de las plantillas del Administrador de recursos de Azure
 
 Las plantillas del Administrador de recursos de Azure le permiten especificar mediante declaración la infraestructura IaaS de Azure en el lenguaje Json definiendo las dependencias entre recursos. Para obtener información más detallada de las plantillas del Administrador de recursos de Azure, consulte los siguientes artículos:
 
@@ -35,7 +35,7 @@ Las plantillas del Administrador de recursos de Azure le permiten especificar me
 - [Implementación de plantillas con la CLI de Azure](virtual-machines-deploy-rmtemplates-azure-cli)
 - [Implementación de plantillas con Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell)
 
-### Requisitos previos para ejecutar la extensión de la secuencia de comandos personalizada
+### Requisitos previos
 
 1. Instale los últimos cmdlets de Azure PowerShell o la CLI de Azure [aquí](http://azure.microsoft.com/downloads).
 2. Si las secuencias de comandos se van a ejecutar en una máquina virtual existente, asegúrese de que el agente de máquina virtual está habilitado en la máquina virtual; si no lo está, siga las indicaciones de este [artículo](virtual-machines-extensions-install) para instalar uno.
@@ -43,11 +43,11 @@ Las plantillas del Administrador de recursos de Azure le permiten especificar me
 4. También pueden cargarse los scripts en una cuenta de Github.
 5. La secuencia de comandos debe crearse de forma tal que la secuencia de comandos de entrada que inicia la extensión inicie, a su vez, otras secuencias de comandos.
 
-## Información general de uso de la extensión de scripts personalizados con plantillas:
+## Uso de la extensión de script personalizada
 
 Para realizar la implementación con plantillas, usamos la misma versión de la extensión de scripts personalizados que está disponible para las API de administración de servicios de Azure. La extensión es compatible con los mismos parámetros y escenarios que la carga de archivos en la cuenta de Almacenamiento de Azure o la ubicación de Github. La diferencia clave cuando usa plantillas es que debe especificarse la versión exacta de la extensión, al contrario de la especificación de la versión en el formato majorversion.*.
 
- ## Fragmento de plantilla para la extensión del script personalizado en una máquina virtual de Linux
+ ## Ejemplo de plantilla para una máquina virtual de Linux
 
 Definición del siguiente recurso de extensión en la sección Recurso de la plantilla
 
@@ -69,7 +69,7 @@ Definición del siguiente recurso de extensión en la sección Recurso de la pla
     }
     }
 
-## Fragmento de plantilla para la extensión del script personalizado en una máquina virtual de Windows.
+## Ejemplo de plantilla para una máquina virtual de Windows
 
 Definición del siguiente recurso en la sección Recurso de la plantilla
 
@@ -102,4 +102,4 @@ Consulte los ejemplos siguientes para obtener ejemplos completos de configuraci�
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Extensión del script personalizado en una máquina virtual de Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Extensión de script personalizada en una máquina virtual de Windows</a>.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

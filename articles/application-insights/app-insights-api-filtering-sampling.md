@@ -32,7 +32,7 @@ Actualmente, estas características están disponibles para el SDK de ASP.NET.
 
 Antes de comenzar:
 
-* Instale el [SDK de Application Insights](app-insights-start-monitoring-app-health-usage.md) en su aplicación. Instale manualmente los paquetes NuGet y seleccione la *versión preliminar* más reciente.
+* Instale el [SDK de Application Insights](app-insights-asp-net.md) en su aplicación. Instale manualmente los paquetes NuGet y seleccione la *versión preliminar* más reciente.
 * Pruebe la [API de Application Insights](app-insights-api-custom-events-metrics.md). 
 
 
@@ -43,11 +43,11 @@ Antes de comenzar:
 El [muestreo](app-insights-sampling.md) es la forma recomendada de reducir el tráfico conservando estadísticas precisas. El filtro selecciona los elementos relacionados, para que pueda desplazarse entre los elementos de diagnóstico. Los recuentos de evento se ajustan en el explorador de métrica para compensar por los elementos filtrados.
 
 * Se recomienda el muestreo adaptable, ya que ajusta automáticamente el porcentaje de muestreo para lograr un volumen específico de solicitudes. Actualmente solo está disponible para la telemetría de servidor ASP.NET.  
-* También está disponible el muestreo de tasa fija, donde se especifica el porcentaje de muestreo. Está disponible para el código de aplicación web ASP.NET y páginas web de JavaScript. El cliente y el servidor sincronizarán su muestreo por lo que, en Búsqueda, puede desplazarse entre las solicitudes y las vistas de página relacionadas.
+* También está disponible el [muestreo de tasa fija](app-insights-sampling.md). Con él, se especifica un porcentaje de muestreo. Está disponible para el código de aplicación web ASP.NET y páginas web de JavaScript. El cliente y el servidor sincronizarán su muestreo por lo que, en Búsqueda, puede desplazarse entre las solicitudes y las vistas de página relacionadas.
 
 ### Para habilitar el muestreo
 
-**Actualice los paquetes NuGet de su proyecto** a la última versión *preliminar* de Application Insights: haga clic con el botón derecho en el proyecto en el Explorador de soluciones, elija Administrar paquetes de NuGet, active **Incluir versión preliminar** y busque Microsoft.ApplicationInsights.Web.
+**Actualice los paquetes de NuGet del proyecto** a la última versión *preliminar* de Application Insights: haga clic con el botón derecho en el proyecto en el Explorador de soluciones, elija Administrar paquetes de NuGet, active **Incluir versión preliminar** y busque Microsoft.ApplicationInsights.Web.
 
 En [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), puede ajustar la velocidad máxima de telemetría que el algoritmo de adaptación tiene como objetivo:
 
@@ -82,7 +82,7 @@ Para filtrar la telemetría, escriba un procesador de telemetría y regístrelo 
 
 > [AZURE.WARNING]El filtrado de la telemetría enviada desde el SDK usando procesadores puede sesgar las estadísticas que se ven en el portal, y dificultar el seguimiento de elementos relacionados.
 > 
-> En su lugar, puede efectuar un [muestreo](#sampling).
+> En su lugar, considere usar el [muestreo](#sampling).
 
 ### Crear un procesador de telemetría
 
@@ -395,7 +395,7 @@ Puede agregar tantos inicializadores como desee.
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
@@ -404,4 +404,4 @@ Puede agregar tantos inicializadores como desee.
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

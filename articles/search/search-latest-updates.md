@@ -22,7 +22,7 @@ Búsqueda de Azure es un servicio de búsqueda hospedado en la nube en Microsoft
 
 ##Cómo se actualizan e implementan las características
 
-Las características se publican por separado o conjuntamente mediante la [API de REST](https://msdn.microsoft.com/library/azure/dn798935.aspx), el [SDK para .NET](http://go.microsoft.com/fwlink/?LinkId=528216) o en el panel de servicio del [portal de Azure](https://portal.azure.com).
+Las características se publican por separado o conjuntamente mediante la [API de REST](https://msdn.microsoft.com/library/azure/dn798935.aspx), el [SDK para .NET](http://go.microsoft.com/fwlink/?LinkId=528216) o en el panel de servicio del [Portal de Azure clásico](https://portal.azure.com).
 
 La biblioteca .NET y la API de REST tienen varias versiones. Las API más antiguas siguen estando operativas cuando se implementan características nuevas. Puede visitar [Versiones del servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn864560.aspx) para obtener más información acerca de nuestra directiva de control de versiones.
 
@@ -87,7 +87,7 @@ Visite [Búsqueda de Azure ya está disponible con carácter general](http://go.
 
 - Se agregaron [analizadores de lenguaje Lucene](search-api-2014-10-20-preview.md) para proporcionar compatibilidad con múltiples idiomas para los analizadores de lenguaje personalizados distribuidos con Lucene. 
 
-- Se introdujo la compatibilidad con herramientas para la creación de índices, incluidos los perfiles de puntuación, en el [portal de administración de Azure](https://portal.azure.com).
+- Se introdujo la compatibilidad con herramientas para la creación de índices, incluidos los perfiles de puntuación, en el [Portal de Azure clásico](https://portal.azure.com).
 
 ##Versión de API 2014-07-31-Preview
 **Publicado: 21 de agosto de 2014**
@@ -100,7 +100,7 @@ Esta versión era la versión preliminar pública de Búsqueda de Azure y ofrec�
 
 - La compatibilidad con geoespaciales ha estado disponible desde el principio, y se proporcionaba a través del tipo de datos `Edm.GeographyPoint` que ha formado parte de Búsqueda de Azure desde sus inicios.
 
-- Aprovisionamiento en la versión preliminar del [portal de administración de Azure](https://portal.azure.com). Búsqueda de Azure fue uno de los pocos servicios que solo estaba disponible en el nuevo portal.
+- Aprovisionamiento en la versión preliminar del [Portal de Azure clásico](https://portal.azure.com). Búsqueda de Azure fue uno de los pocos servicios que solo estaba disponible en el nuevo portal.
 
 ##Api-version de administración 2015-08-19
 **Publicado: 11 de septiembre de 2015**
@@ -125,4 +125,4 @@ La versión preliminar de [API de REST de administración](search-management-api
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

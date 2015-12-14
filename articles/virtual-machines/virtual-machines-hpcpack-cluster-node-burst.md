@@ -1,6 +1,6 @@
 <properties
  pageTitle="Agregar nodos de ráfaga a un clúster de HPC Pack | Microsoft Azure"
- description="Obtenga información acerca de cómo agregar instancias de rol de trabajo que se ejecutan en un servicio en la nube a petición como recursos de proceso a un nodo principal de HPC Pack de Azure."
+ description="Obtenga información acerca de cómo agregar instancias de rol de trabajo que se ejecutan en un servicio en la nube a petición como recursos de proceso, a un nodo principal de HPC Pack de Azure."
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
@@ -27,21 +27,21 @@ En este artículo se muestra cómo agregar nodos de "ráfaga" Azure (instancias 
 
 >[AZURE.TIP]Si usa el [script de implementación de HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) para crear el clúster en Azure, puede incluir nodos de ráfaga de Azure en la implementación automatizada.
 
-Los pasos descritos en este artículo le ayudarán a agregar nodos de Azure rápidamente a una máquina virtual de nodo principal de HPC Pack basado en la nube para la implementación de una prueba o una prueba de concepto. El procedimiento es básicamente el mismo que el de "ráfaga en Azure" para agregar capacidad de proceso en la nube a un clúster de HPC Pack local. Para un tutorial, vea [Configurar un clúster de proceso híbrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Para obtener instrucciones detalladas y consideraciones para las implementaciones de producción, consulte [Ráfaga en Azure con Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493).
+Los pasos descritos en este artículo le ayudarán a agregar nodos de Azure rápidamente a una máquina virtual de nodo principal de HPC Pack basado en la nube para la implementación de una prueba o una prueba de concepto. El procedimiento es básicamente el mismo que el de "ráfaga en Azure" para agregar capacidad de proceso en la nube a un clúster de HPC Pack local. Si desea conseguir un tutorial, consulte [Configurar un clúster de proceso híbrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Para obtener instrucciones detalladas y consideraciones acerca de las implementaciones de producción, consulte [Ráfaga en Azure con Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493).
 
 Si quiere usar el tamaño de instancia de proceso intensivo A8 o A9, consulte [Sobre las instancias de proceso intensivo A8, A9, A10 y A11](virtual-machines-a8-a9-a10-a11-specs.md).
 
 ## Requisitos previos
 
-* **Nodo principal de HPC Pack implementado en una máquina virtual de Azure**: consulte [Implementar un nodo principal de HPC Pack en una máquina virtual de Azure](virtual-machines-hpcpack-cluster-headnode.md) para conocer los pasos para crear un nodo principal del clúster en el modelo de implementación (administración de servicios) clásico.
+* **Nodo principal de HPC Pack implementado en una máquina virtual de Azure**: consulte [Implementar un nodo principal de HPC Pack en una máquina virtual de Azure](virtual-machines-hpcpack-cluster-headnode.md) para conocer los pasos para crear un nodo principal del clúster en el modelo de implementación (Service Management) clásico.
 
 * **Suscripción de Azure** : para agregar nodos de Azure, puede elegir la misma suscripción usada para implementar la máquina virtual del nodo principal o una suscripción (o suscripciones) diferente.
 
-* **Cuota de núcleos**: tal vez tenga que aumentar la cuota de núcleos, especialmente si decide implementar varios nodos de Azure con tamaños de múltiples núcleos. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
+* **Cuota de núcleos**: tal vez tenga que aumentar la cuota de núcleos, especialmente si decide implementar varios nodos de Azure con tamaños de núcleos múltiples. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
 
 ## Step 1: Crear un servicio en la nube y una cuenta de almacenamiento para agregar nodos de Azure
 
-Use el Portal de Azure o herramientas equivalentes para configurar lo siguiente, que es necesario para implementar los nodos de Azure:
+Use el Portal de Azure clásico o las herramientas equivalentes para configurar lo siguiente; recuerde que esto es necesario para implementar los nodos de Azure:
 
 * Un nuevo servicio en la nube de Azure
 * Una nueva cuenta de almacenamiento de Azure
@@ -63,13 +63,13 @@ Para agregar nodos de Azure como recursos de proceso, debe tener un certificado 
 
 En este escenario, puede elegir el **Certificado de administración de Azure de HPC predeterminado** que HPC Pack instala y configura automáticamente en el nodo principal. Este certificado resulta de utilidad para pruebas e implementaciones de prueba de concepto. Para usar este certificado, solo tiene que cargar el archivo C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer desde la máquina virtual del nodo principal a la suscripción.
 
-Para que ver opciones adicionales para configurar el certificado de administración, consulte [Escenarios para configurar el certificado de administración de Azure para implementaciones de ráfaga de Azure](http://technet.microsoft.com/library/gg481759.aspx).
+Para ver opciones adicionales para configurar el certificado de administración, consulte [Escenarios para configurar el certificado de administración de Azure para implementaciones de ráfaga de Azure](http://technet.microsoft.com/library/gg481759.aspx).
 
 ## Paso 3: Implementar nodos de Azure al clúster
 
 
 
-Los pasos para agregar e iniciar nodos de Azure en este escenario suelen ser los mismos que los empleados con un nodo principal local. Para obtener más información, vea las secciones siguientes en [Pasos para implementar nodos de Azure con Microsoft HPC Pack]((https://technet.microsoft.com/library/gg481758(v=ws.10).aspx):
+Los pasos para agregar e iniciar nodos de Azure en este escenario suelen ser los mismos que los empleados con un nodo principal local. Para obtener más información, consulte las secciones siguientes en [Pasos para implementar nodos de Azure con Microsoft HPC Pack]((https://technet.microsoft.com/library/gg481758(v=ws.10).aspx):
 
 * Crear una plantilla de nodo de Azure
 
@@ -79,13 +79,13 @@ Los pasos para agregar e iniciar nodos de Azure en este escenario suelen ser los
 
 Después de agregar e iniciar los nodos, estarán listos para que los use para ejecutar trabajos de clúster.
 
-Si tiene problemas al implementar nodos de Azure, consulte [Solución de problemas de implementaciones de nodos de Azure con Microsoft HPC Pack] (http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
+Si tiene problemas al implementar los nodos de Azure, consulte [Solución de problemas de implementaciones de nodos de Azure con Microsoft HPC Pack] (http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
 
 ## Pasos siguientes
 
-* Si quiere una manera de aumentar o reducir automáticamente los recursos informáticos de Azure según la carga de trabajo actual de los trabajos y las tareas en el clúster, consulte [Aumentar y reducir los recursos de proceso de Azure en un clúster de HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
+* Si quiere obtener una manera de aumentar o reducir automáticamente los recursos de proceso de Azure según la carga de trabajo actual de los trabajos y las tareas en el clúster, consulte [Aumentar y reducir los recursos de proceso de Azure en un clúster de HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -369,7 +369,7 @@ Puede vincular una cuenta de Almacenamiento de Azure a una Factoría de datos de
 | Propiedad | Descripción | Obligatorio |
 | -------- | ----------- | -------- |
 | type | La propiedad type debe establecerse en: **AzureStorage** | Sí |
-| connectionString | Especifique la información necesaria para conectarse a Almacenamiento de Azure para la propiedad connectionString. Puede obtener connectionString para Almacenamiento de Azure desde el Portal de Azure. | Sí |
+| connectionString | Especifique la información necesaria para conectarse a Almacenamiento de Azure para la propiedad connectionString. Puede obtener connectionString para Almacenamiento de Azure desde el Portal de Azure clásico. | Sí |
 
 ## Propiedades de tipo del conjunto de datos de Blob de Azure
 
@@ -505,4 +505,4 @@ false | mergeFiles | <p>Para una carpeta de origen Folder1 con la siguiente estr
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

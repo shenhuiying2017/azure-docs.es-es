@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Administración de Bases de datos SQL de Azure con el Portal de administración de Azure" 
-	description="Aprenda a usar el Portal de administración de Azure para administrar una base de datos relacional en la nube mediante el Portal de administración de Azure." 
+	pageTitle="Administración de Bases de datos SQL de Azure con el Portal de Azure clásico" 
+	description="Aprenda a usar el Portal de Azure clásico para administrar una base de datos relacional en la nube mediante el Portal de Azure clásico." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -17,24 +17,24 @@
 	ms.author="sstein"/>
 
 
-# Administración de Bases de datos SQL de Azure con el Portal de administración de Azure
+# Administración de Bases de datos SQL de Azure con el Portal de Azure clásico
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-manage-portal.md)
+- [Azure Portal](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-El [Portal de administración de Azure][Management Portal] le permite crear, supervisar y administrar servidores y Bases de datos SQL de Azure. En este artículo se verán las operaciones de base de datos que se puede lograr mediante el Portal de administración.
+El [Portal de Azure clásico][Classic Portal] le permite crear, supervisar y administrar servidores y Bases de datos SQL de Azure. En este artículo se verán las operaciones de base de datos que se pueden realizar mediante el Portal clásico.
 
->[AZURE.NOTE]Si no está familiarizado con el Portal de administración de Azure, este [recorrido en vídeo proporciona una introducción rápida][Azure Portal Tour] de sus conceptos y características generales.
+>[AZURE.NOTE]Si no está familiarizado con el Portal de Azure clásico, este [recorrido en vídeo proporciona una introducción rápida][Azure Classic Portal Tour] de sus conceptos y características generales.
 
 ![Información general de la base de datos](./media/sql-database-manage-portal/sqldatabase_annotated.png)
 
 ## 1\. Acciones de administración de bases de datos
 ![Acciones de administración de bases de datos](./media/sql-database-manage-portal/sqldatabase_actions.png)
 
-El Portal de administración de Azure proporciona un conjunto de acciones comunes de base de datos accesibles en la parte superior de una hoja de la base de datos. Puede restaurar una base de datos a un momento anterior en el tiempo, abra una base de datos en Visual Studio, copiar una base de datos a un nuevo servidor y exportar la base de datos a una cuenta de Almacenamiento de Azure.
+El Portal de Azure clásico proporciona un conjunto de acciones comunes de base de datos accesibles en la parte superior de una hoja de base de datos. Puede restaurar una base de datos a un momento anterior en el tiempo, abra una base de datos en Visual Studio, copiar una base de datos a un nuevo servidor y exportar la base de datos a una cuenta de Almacenamiento de Azure.
 
 - [Restauración de una base de datos SQL](sql-database-point-in-time-restore-tutorial-management-portal.md)
 - [Apertura de una base de datos SQL en Visual Studio](sql-database-connect-query.md)
@@ -45,7 +45,7 @@ El Portal de administración de Azure proporciona un conjunto de acciones comune
 
 De forma predeterminada, Bases de datos SQL de Azure cuentan con gráficos de supervisión para la unidad de rendimiento de base de datos (DTU), el tamaño de la base de datos y el estado de conexión. Estos gráficos de supervisión pueden personalizarse y ampliarse para trazar además en el gráfico el porcentaje de CPU, el porcentaje de E/S de datos, los interbloqueos, el porcentaje de E/S de registro o incluso el porcentaje de solicitudes bloqueadas por firewall. Encontrará más información acerca de cómo personalizar los gráficos de supervisión [aquí][Azure part monitoring].
 
-Además, se pueden configurar reglas de alerta para supervisar una métrica especificada y alertar a un administrador y a un coadministrador designados cuando se alcanzan los umbrales predefinidos. Encontrará más información sobre cómo configurar las reglas de alertas en el Portal de administración de Azure [aquí][Azure part monitoring].
+Además, se pueden configurar reglas de alerta para supervisar una métrica especificada y alertar a un administrador y a un coadministrador designados cuando se alcanzan los umbrales predefinidos. Encontrará más información sobre cómo configurar las reglas de alertas en el Portal de Azure clásico [aquí][Azure part monitoring].
 
 ## 3\. Auditoría y seguridad de la base de datos
 ![Seguridad de la base de datos](./media/sql-database-manage-portal/sqldatabase_security.png)
@@ -62,7 +62,7 @@ Bases de datos SQL de Azure también pueden configurarse para enmascarar los dat
 ## 4\. Replicación geográfica
 ![Replicación geográfica](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
-Se pueden configurar Bases de datos SQL Azure para replicar asincrónicamente las transacciones confirmadas en una base de datos secundaria. La parte de la replicación geográfica en el Portal de administración permite seleccionar la región de Azure en la que le gustaría que resida la base de datos secundaria.
+Se pueden configurar Bases de datos SQL Azure para replicar asincrónicamente las transacciones confirmadas en una base de datos secundaria. La parte de la replicación geográfica en el Portal clásico permite seleccionar la región de Azure en la que le gustaría que residiera la base de datos secundaria.
 
 - [Replicación geográfica](https://msdn.microsoft.com/library/azure/dn783447.aspx)
 
@@ -75,8 +75,8 @@ Se pueden configurar Bases de datos SQL Azure para replicar asincrónicamente la
 * [Supervisión de Base de datos SQL de Azure mediante vistas de administración dinámica][]   
 * [Referencia de Transact-SQL (Base de datos SQL)][]
   
-  [Azure Portal Tour]: https://go.microsoft.com/fwlink/?LinkID=522341
-  [Management Portal]: https://portal.azure.com
+  [Azure Classic Portal Tour]: https://go.microsoft.com/fwlink/?LinkID=522341
+  [Classic Portal]: https://portal.azure.com
   [Azure part monitoring]: ../documentdb-monitor-accounts.md
   [AzureDb management overview]: http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/
   [Introducing SQL Database]: http://azure.microsoft.com/services/sql-database
@@ -90,4 +90,4 @@ Se pueden configurar Bases de datos SQL Azure para replicar asincrónicamente la
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

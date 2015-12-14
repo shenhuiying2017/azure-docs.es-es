@@ -36,11 +36,11 @@ Azure Marketplace contiene plantillas para los marcos de Bottle, Django y Flask.
 - [Creación de Aplicaciones web con Flask](web-sites-python-create-deploy-flask-app.md)
 
 
-## Creación de una aplicación web en el Portal de vista previa de Azure
+## Creación de una aplicación web en el Portal de Azure
 
-En este tutorial se asume que existe una suscripción a Azure y que ya se tiene acceso al Portal de vista previa de Azure.
+En este tutorial se asume que existe una suscripción a Azure y que ya se tiene acceso al Portal de Azure.
 
-Si no tiene una aplicación web, puede crearla en el [Portal de vista previa de Azure](https://portal.azure.com). Haga clic en el botón NUEVO situado en la esquina inferior izquierda y luego en **Web + móvil** > **Aplicación web**.
+Si no tiene una aplicación web, puede crearla en el [Portal de Azure](https://portal.azure.com). Haga clic en el botón NUEVO situado en la esquina inferior izquierda y luego en **Web + móvil** > **Aplicación web**.
 
 ## Publicación Git
 
@@ -378,7 +378,6 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 
@@ -386,4 +385,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

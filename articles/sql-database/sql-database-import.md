@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/13/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -23,10 +23,10 @@
 **Base de datos única**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-import.md)
+- [Azure portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-Este artículo proporciona instrucciones para crear una base de datos SQL de Azure a partir de un archivo BACPAC mediante el [portal de vista previa de Azure](https://portal.azure.com).
+Este artículo proporciona instrucciones para crear una base de datos SQL de Azure a partir de un archivo BACPAC mediante el [Portal de Azure](https://portal.azure.com).
 
 Un BACPAC es un archivo .bacpac que contiene datos y un esquema de base de datos. Para obtener detalles, vea el paquete de copia de seguridad (.bacpac) en [Aplicaciones del nivel de datos](https://msdn.microsoft.com/library/ee210546.aspx).
 
@@ -47,7 +47,7 @@ Para importar una base de datos SQL de un .bacpac, necesita lo siguiente:
 
 Abra la hoja de SQL Server para la base de datos que quiere importar:
 
-1.	Vaya al [Portal de vista previa de Azure](https://portal.azure.com).
+1.	Vaya al [Portal de Azure](https://portal.azure.com).
 2.	Haga clic en **EXAMINAR TODO**.
 3.	Haga clic en **Servidores SQL Server**.
 2.	Haga clic en el servidor en el que restaurará la base de datos.
@@ -110,4 +110,4 @@ Al hacer clic en **Crear** se envía una solicitud de importación de base de da
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

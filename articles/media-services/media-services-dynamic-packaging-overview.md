@@ -60,11 +60,11 @@ Si desea preparar el recurso para el streaming dinámico, tiene dos opciones:
 Para obtener información sobre cómo cargar y codificar recursos, consulte los siguientes artículos:
 
 
-Cargar los archivos mediante el **Portal de administración de Azure**, **.NET** o la **API de REST**.
+Cargue los archivos mediante el **Portal de Azure clásico**, **.NET** o **API de REST**.
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-Codificar con el **Codificador multimedia de Azure** mediante el **Portal de administración de Azure**, **.NET** o la **API de REST**.
+Codifique con el **Codificador multimedia de Azure** mediante el **Portal de Azure clásico**, **.NET** o **API de REST**.
 
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
@@ -85,7 +85,7 @@ Configure la directiva de entrega de recursos con **.NET** o **API de REST**.
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-Publique activos (creando localizadores) mediante el **Portal de administración de Azure** o **.NET**.
+Publique activos (creando localizadores) mediante el **Portal de Azure clásico** o **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
@@ -105,4 +105,4 @@ El empaquetado dinámico no admite los siguientes formatos de archivo de origen:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -46,4 +46,6 @@
 
     Este código indica el centro de notificaciones para enviar una notificación de plantilla a todos los registros de plantilla que contengan "messageParam". La cadena se insertará en lugar de messageParam a través de cada PNS que tenga un registro con "messageParam". Esto le permite enviar la notificación a APNS, GCM, WNS o cualquier otro PNS.
 
-<!---HONumber=AcomDC_1125_2015-->
+	Para obtener más información sobre las plantillas con centros de notificaciones, consulte [Plantillas](notification-hubs-templates.md).
+
+<!---HONumber=AcomDC_1203_2015-->

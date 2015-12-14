@@ -18,7 +18,7 @@
 
 # Búsqueda de datos de StackExchange mediante Búsqueda de Azure
 
-Este artículo es un tutorial que resalta algunas de las capacidades de búsqueda de texto completo básicas que puede realizar con [Búsqueda de Azure](https://azure.microsoft.com/es-ES/services/search/). Aprovecha los datos que Exchange puso a [disposición](https://archive.org/details/stackexchange) para el uso de Creative Commons con la siguiente [atribución](http://blog.stackoverflow.com/2009/06/attribution-required/).
+Este artículo es un tutorial que resalta algunas de las capacidades de búsqueda de texto completo básicas que puede realizar con [Búsqueda de Azure](https://azure.microsoft.com/services/search/). Aprovecha los datos que Exchange puso a [disposición](https://archive.org/details/stackexchange) para el uso de Creative Commons con la siguiente [atribución](http://blog.stackoverflow.com/2009/06/attribution-required/).
 
 ## Introducción
 
@@ -104,9 +104,9 @@ Brent hizo un gran parte del trabajo duro al mostrar cómo realizar una copia in
       on PA.[OwnerUserId] = PUA.Id
       WHERE PQ.PostTypeId = 1
 
-Una vez hecho esto, puede usar el [Portal de Azure](https://portal.azure.com) para “Importar datos” de la vista de SQL Azure anterior que, a continuación, creará un índice de Búsqueda de Azure basado en el esquema de los campos en la vista. Si desea usar la Base de datos SQL de Azure cuya copia intermedia he realizado, esta es la cadena de conexión de solo lectura que puede usar:
+Una vez hecho esto, puede usar el [Portal de Azure clásico](https://portal.azure.com) para “Importar datos” de la vista de SQL Azure anterior que, a continuación, creará un índice de Búsqueda de Azure basado en el esquema de los campos en la vista. Si desea usar la Base de datos SQL de Azure cuya copia intermedia he realizado, esta es la cadena de conexión de solo lectura que puede usar:
 
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

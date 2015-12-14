@@ -34,7 +34,7 @@ El elemento **TodoItemController** existente se actualiza de manera que el méto
 
 0. Si todavía no ha creado su cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento].
 
-1. En el Portal de administración, haga clic en **Almacenamiento**, haga clic en la cuenta de almacenamiento y, a continuación, haga clic en **Administrar claves**.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en **Almacenamiento**, haga clic en la cuenta de almacenamiento y haga clic en **Administrar claves**.
 
 2. Tome nota de los valores en los campos **Nombre de cuenta de almacenamiento** y **Clave de acceso**.
  
@@ -132,4 +132,4 @@ A continuación, actualizará la aplicación de inicio rápido para agregar la f
 [Creación de una cuenta de almacenamiento]: ../articles/storage/storage-create-storage-account.md
 [Configuración de aplicación]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

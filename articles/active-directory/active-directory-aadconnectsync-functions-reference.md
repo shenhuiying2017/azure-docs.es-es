@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD Connect Sync: referencia de funciones | Microsoft Azure"
-	description="Referencia de expresiones declarativas de aprovisionamiento en Sincronización de Azure AD Connect"
+	description="Referencia de expresiones declarativas de aprovisionamiento en la sincronización de Azure AD Connect"
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -17,7 +17,7 @@
 	ms.author="markusvi"/>
 
 
-# Sincronización de Azure AD Connect: referencia de funciones
+# Azure AD Connect Sync: referencia de funciones
 
 
 En Sincronización de Azure Active Directory, las funciones se usan para manipular un valor de atributo durante la sincronización. <br> La sintaxis de las funciones se expresa con el siguiente formato: <br> `<output type> FunctionName(<input type> <position name>, ..)`
@@ -1058,4 +1058,4 @@ Si la cadena contiene menos palabras o si la cadena no contiene palabras identif
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

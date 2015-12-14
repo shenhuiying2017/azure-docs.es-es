@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Administración de contenido multimedia con Servicios multimedia de Azure con el Portal de administración de Azure" 
+	pageTitle="Administración de contenido multimedia con Servicios multimedia de Azure con el Portal de Azure clásico" 
 	description="Aprenda a administrar su contenido multimedia en Servicios multimedia de Azure. Esto incluye: carga, indización, codificación, cifrado y publicación." 
 	services="media-services" 
 	documentationCenter="" 
@@ -17,10 +17,10 @@
 	ms.author="juliako"/>
 
 
-# Administración de contenido con Servicios multimedia de Azure con el Portal de administración de Azure
+# Administración de contenido con Servicios multimedia de Azure con el Portal de Azure clásico
 
 
-En este tema se muestra cómo usar el Portal de administración de Azure para administrar contenido multimedia en su cuenta de Servicios multimedia.
+En este tema se muestra cómo usar el Portal de Azure clásico para administrar contenido multimedia en su cuenta de Servicios multimedia.
 
 En este tema se muestra cómo realizar las siguientes operaciones de contenido directamente desde el portal:
 
@@ -33,13 +33,13 @@ En este tema se muestra cómo realizar las siguientes operaciones de contenido d
 - Reproducir contenido
 
 
-##<a id="upload"></a>Carga de contenido 
+##<a id="upload"></a>Carga de contenido
 
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
 
-1. En el [Portal de administración](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), haga clic en **Servicios multimedia** y, a continuación, haga clic en el nombre de cuenta de Servicios multimedia.
+1. En el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), haga clic en **Servicios multimedia** y haga clic en el nombre de cuenta de Servicios multimedia.
 2. Seleccione la página CONTENT. 
 3. Haga clic en el botón **Cargar** en la página o en la parte inferior del portal. 
 4. En el cuadro de diálogo **Cargar contenido**, diríjase al archivo del recurso deseado. Haga clic en el archivo y, a continuación, haga clic en **Abrir** o presione **Entrar**.
@@ -63,16 +63,16 @@ Si el valor del tamaño del archivo no se actualiza después de que se detenga e
 - [.NET](media-services-index-content.md)
 - [Portal](media-services-manage-content.md#index)
 
-El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. Puede indizar el contenido mediante el Portal de administración, para ello siga los pasos que se muestran a continuación. Sin embargo, si desea más control sobre qué archivos y cómo se va a realizar el trabajo de indización, puede utilizar el SDK de Servicios multimedia para las API .NET o REST. Para obtener más información, consulte [Indización de archivos multimedia con el Indizador multimedia de Azure](media-services-index-content.md).
+El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. Puede indizar el contenido mediante el Portal de Azure clásico mediante los pasos que se muestran a continuación. Sin embargo, si desea más control sobre qué archivos y cómo se va a realizar el trabajo de indización, puede utilizar el SDK de Servicios multimedia para las API .NET o REST. Para obtener más información, consulte [Indización de archivos multimedia con el Indizador multimedia de Azure](media-services-index-content.md).
 
-Los pasos siguientes muestran cómo usar el Portal de administración para indizar el contenido.
+Los pasos siguientes muestran cómo usar el Portal de Azure clásico para indizar el contenido.
 
 1. Seleccione el archivo que desea indizar. Si se admite la indización para este tipo de archivo, se habilitará el botón PROCESAR en la parte inferior de la página de contenido.
 1. Presione el botón PROCESAR.
 2. En el cuadro de diálogo **Proceso**, elija el procesador **Indizador multimedia de Azure**.
 3. A continuación, rellene el cuadro de diálogo Proceso con la información detallada del **título** y **descripción** del archivo multimedia de entrada.
-	
-	![Proceso][process]
+
+![Proceso][process]
 
 ##<a id="encode"></a>Codificación de contenido
 
@@ -96,36 +96,33 @@ Con el empaquetado dinámico solo necesita almacenar y pagar por los archivos en
 
 Tenga en cuenta que además de poder usar las capacidades de empaquetado dinámico, las unidades reservadas de streaming a petición con capacidad de salida dedicada pueden adquirirse en incrementos de 200 Mbps. De manera predeterminada, el streaming a petición está configurado en un modelo de instancias compartidas para el que se comparten recursos de servidor (por ejemplo, proceso, capacidad de salida, entre otros) con los demás usuarios. Para mejorar el resultado del streaming a petición, se recomienda adquirir unidades reservadas de streaming a petición.
 
-En esta sección se describen los pasos que puede seguir para codificar el contenido con Azure Media Encoder mediante el Portal de administración.
+En esta sección se describen los pasos que puede seguir para codificar el contenido con Codificador multimedia de Azure mediante el Portal de Azure clásico.
 
 1.  Seleccione el archivo que desea codificar. Si se admite la codificación para este tipo de archivo, se habilitará el botón PROCESAR en la parte inferior de la página de contenido.
 4. En el cuadro de diálogo **Proceso**, seleccione el procesador **Codificador multimedia de Azure**.
 5. Elija una de las **configuraciones de codificación**.
 
-	![Process2][process2]
-
-		
-	El tema [Cadenas predefinidas de tarea para Azure Media Encoder](https://msdn.microsoft.com/library/azure/dn619392.aspx) explica lo que significan las categorías de cada valor predefinido en **Valores preestablecidos para el streaming adaptable (empaquetado dinámico)**, **Valores preestablecidos para la descarga progresiva**, **Valores preestablecidos heredados para el streaming adaptable**.
+![Process2][process2]
 
 
-	Las **otras** configuraciones se describen a continuación:
+El tema [Cadenas predefinidas de tarea para Azure Media Encoder](https://msdn.microsoft.com/library/azure/dn619392.aspx) explica lo que significan las categorías de cada valor predefinido en **Valores preestablecidos para el streaming adaptable (empaquetado dinámico)**, **Valores preestablecidos para la descarga progresiva**, **Valores preestablecidos heredados para el streaming adaptable**.
 
-	+ **Codificación con protección de contenido PlayReady**. Este valor preestablecido produce un activo codificado con protección de contenido PlayReady.  
-	
-	
-		De forma predeterminada, se usa el servicio de licencias PlayReady de Servicios multimedia. Para especificar algún otro servicio del que los clientes pueden obtener una licencia para reproducir el contenido cifrado de PlayReady, use las API de REST o del SDK de Servicios multimedia para .NET. Para obtener más información, consulte [Uso de cifrado estático para proteger su contenido]() y establezca la propiedad **licenseAcquisitionUrl** en el valor preestablecido de Media Encryptor. Como alternativa, puede usar el cifrado dinámico y establecer la propiedad **PlayReadyLicenseAcquisitionUrl** tal y como se describe en [Uso del cifrado dinámico de PlayReady y del servicio de entrega de licencias](http://go.microsoft.com/fwlink/?LinkId=507720). 
-	+ **Reproducción en PC/Mac (a través de Flash/Silverlight)**. Este valor predefinido produce un recurso de transmisión suave con las siguientes características: 44,1 kHz 16 bits/CBR de audio estéreo de ejemplo con codificación a 96 kbps mediante AAC y CBR de vídeo de 720p con codificación con una velocidad de bits de 6 de 3400 kbps a 400 kbps mediante el perfil principal H.264 y GOP de dos segundos.
-	+ **Reproducción a través de HTML5 (IE/Chrome/Safari)**. Este valor predefinido produce un archivo MP4 único con las siguientes características: 44,1 kHz 16 bits/CBR de audio estéreo de ejemplo con una codificación a 128 kbps mediante AAC y CBR de vídeo de 720p con una codificación a 4500 kbps mediante el perfil principal H.264.
-	+ **Reproducción en dispositivos iOS y PC/Mac**. Este valor predefinido produce un recurso con las mismas características de recurso de transmisión suave (descrito anteriormente), pero en un formato que puede usarse para proporcionar transmisiones de HLS de Apple en dispositivos iOS. 
+
+Las **otras** configuraciones se describen a continuación:
+
++ **Codificación con protección de contenido PlayReady**. Este valor preestablecido produce un activo codificado con protección de contenido PlayReady.
+
+
+De forma predeterminada, se usa el servicio de licencias PlayReady de Servicios multimedia. Para especificar algún otro servicio del que los clientes pueden obtener una licencia para reproducir el contenido cifrado de PlayReady, use las API de REST o del SDK de Servicios multimedia para .NET. Para obtener más información, consulte [Uso de cifrado estático para proteger su contenido]() y establezca la propiedad **licenseAcquisitionUrl** en el valor preestablecido de Media Encryptor. Como alternativa, puede usar el cifrado dinámico y establecer la propiedad **PlayReadyLicenseAcquisitionUrl** tal y como se describe en [Uso del cifrado dinámico de PlayReady y del servicio de entrega de licencias](http://go.microsoft.com/fwlink/?LinkId=507720). + **Reproducción en PC/Mac (a través de Flash/Silverlight)**. Este valor predefinido produce un activo de transmisión suave con las siguientes características: 44,1 kHz 16 bits/CBR de audio estéreo de ejemplo con codificación a 96 kbps mediante AAC y CBR de vídeo de 720p con codificación con una velocidad de bits de 6 de 3400 kbps a 400 kbps mediante el perfil principal H.264 y GOP de dos segundos. + **Reproducción a través de HTML5 (IE/Chrome/Safari)**. Este valor predefinido produce un archivo MP4 único con las siguientes características: 44,1 kHz 16 bits/CBR de audio estéreo de ejemplo con una codificación a 128 kbps mediante AAC y CBR de vídeo de 720p con una codificación a 4500 kbps mediante el perfil principal H.264. + **Reproducción en dispositivos iOS y PC/Mac**. Este valor predefinido produce un recurso con las mismas características de recurso de transmisión suave (descrito anteriormente), pero en un formato que puede usarse para proporcionar transmisiones de HLS de Apple en dispositivos iOS.
 
 5. A continuación, especifique el nombre descriptivo del contenido de salida o acepte el valor predeterminado. A continuación, haga clic en el botón de comprobación para iniciar la operación de codificación y podrá realizar un seguimiento del progreso desde la parte inferior del portal.
 6. Presione Aceptar.
 
-	Después de realizar la codificación, la página de contenido contendrá el archivo codificado.
+Después de realizar la codificación, la página de contenido contendrá el archivo codificado.
 
-	Para ver el progreso de la tarea de codificación, cambie a la página **TRABAJOS**.
+Para ver el progreso de la tarea de codificación, cambie a la página **TRABAJOS**.
 
-	Si el valor del tamaño de archivo no se actualiza después de que la codificación se haya realizado, presione el botón **Sincronizar metadatos**. De esta forma, se sincroniza el tamaño de archivo de salida del recurso con el tamaño de archivo real en el almacenamiento y se actualiza el valor en la página de contenido.
+Si el valor del tamaño de archivo no se actualiza después de que la codificación se haya realizado, presione el botón **Sincronizar metadatos**. De esta forma, se sincroniza el tamaño de archivo de salida del recurso con el tamaño de archivo real en el almacenamiento y se actualiza el valor en la página de contenido.
 
 ##<a id="encrypt"></a>Cifrado de contenido
 
@@ -159,7 +156,7 @@ Consulte también:
 
 Para proporcionar al usuario una dirección URL que pueda utilizarse para transmitir o descargar su contenido, primero necesitará "publicar" su recurso mediante la creación de un localizador. Los localizadores proporcionan acceso a los archivos contenidos en el recurso. Servicios multimedia admite dos tipos de localizadores: OnDemandOrigin locators, utilizados para transmitir contenido (por ejemplo, MPEG DASH, HLS o Smooth Streaming) y localizadores de firma de acceso (SAS), que se usan para descargar archivos multimedia.
 
-Al usar el Portal de administración de Azure para publicar sus recursos, los localizadores se crean automáticamente y se le proporcionará OnDemantOrigin en función de la dirección URL (si el recurso contiene un archivo .ism) o una dirección URL de SAS.
+Al usar el Portal de Azure clásico para publicar sus activos, los localizadores se crean automáticamente y se proporciona una dirección URL basada en OnDemantOrigin (si el recurso contiene un archivo .ism) o una dirección URL de SAS.
 
 Una dirección URL de SAS tiene el formato siguiente:
 
@@ -196,7 +193,7 @@ Para utilizar el Portal para publicar un recurso, haga lo siguiente:
 
 ## Reproducción de contenido desde el portal
 
-El **Portal de administración de Azure** proporciona un reproductor de contenido que puede usar para probar el vídeo.
+El **Portal de Azure clásico** proporciona un reproductor de contenido que puede usar para probar el vídeo.
 
 Haga clic en el vídeo deseado y haga clic en el botón **Reproducir** en la parte inferior del portal.
  
@@ -231,4 +228,4 @@ Se aplican algunas consideraciones:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creación de una máquina virtual de base de datos Oracle con el Portal de Azure | Microsoft Azure"
-	description="Aprenda a crear una máquina virtual con una base de datos Oracle en ella con el modelo de implementación clásico y el Portal de vista previa de Azure."
+	pageTitle="Creación de una máquina virtual de base de datos de Oracle con el Portal de Azure clásico | Microsoft Azure"
+	description="Aprenda a crear una máquina virtual con una base de datos de Oracle en ella con el modelo de implementación clásico y el Portal de Azure."
 	services="virtual-machines"
 	authors="bbenz"
 	documentationCenter=""
@@ -17,14 +17,14 @@
 
 #Creación de una máquina virtual de base de datos Oracle en Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
 
 En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada en una imagen de Base de datos de Oracle proporcionada por Microsoft que se ejecuta en Windows Server 2012 en Azure. Hay dos pasos. En primer lugar, cree la máquina virtual y luego cree la base de datos de Oracle dentro de la máquina virtual. El ejemplo mostrado es la versión de la Base de datos de Oracle 12c, pero los pasos son prácticamente idénticos para la versión 11g.
 
 ##Para crear una máquina virtual de base de datos de Oracle
 
-1.	Inicie sesión en el [portal de vista previa de Azure](https://ms.portal.azure.com/).
+1.	Inicie sesión en el [Portal de Azure](https://ms.portal.azure.com/).
 
 2.	Haga clic en **Marketplace**, en **Proceso** y, luego, escriba **Oracle** en el cuadro de búsqueda.
 
@@ -57,7 +57,7 @@ En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada
 
 ##Para crear su base de datos mediante la máquina virtual de Base de datos de Oracle en Azure
 
-1.	Inicie sesión en el [portal de vista previa de Azure](https://ms.portal.azure.com/).
+1.	Inicie sesión en el [Portal de Azure](https://ms.portal.azure.com/).
 
 2.	Haga clic en **Máquinas virtuales**.
 
@@ -149,7 +149,7 @@ Para permitir el acceso remoto a la base de datos (por ejemplo, desde un equipo 
 
 ### Crear un extremo público para el puerto 1521
 
-1.	Inicie sesión en el [portal de vista previa de Azure](https://ms.portal.azure.com/).
+1.	Inicie sesión en el [Portal de Azure](https://ms.portal.azure.com/).
 
 2.	Haga clic en **Examinar**.
 
@@ -176,9 +176,9 @@ Para permitir el acceso remoto a la base de datos (por ejemplo, desde un equipo 
 10. Haga clic en **Aceptar**.
 
 ##Habilitar el acceso remoto al Administrador corporativo de la Base de datos de Oracle
-Si desea habilitar el acceso remoto al Administrador corporativo de la Base de datos de Oracle, abra el puerto 5500 de del firewall y cree un extremo de máquina virtual para 5500 en el portal de Azure (mediante los pasos indicados anteriormente para abrir el puerto 1521 y crear un extremo para 1521). A continuación, para ejecutar el Administrador corporativo de Oracle desde el equipo remoto, abra un explorador en la dirección URL en forma de `http://<<unique_domain_name>>:5500/em`.
+Si desea habilitar el acceso remoto al Administrador corporativo de la Base de datos de Oracle, abra el puerto 5500 de del firewall y cree un punto de conexión de máquina virtual para 5500 en el Portal de Azure clásico (mediante los pasos indicados anteriormente para abrir el puerto 1521 y crear un punto de conexión para 1521). A continuación, para ejecutar el Administrador corporativo de Oracle desde el equipo remoto, abra un explorador en la dirección URL en forma de `http://<<unique_domain_name>>:5500/em`.
 
-> [AZURE.NOTE] Puede determinar el valor de *\<\<unique\_domain\_name\>\>* dentro del [Portal de Azure](https://ms.portal.azure.com/) haciendo clic en **Máquinas virtuales** y, luego, seleccionando la máquina virtual que está usando para ejecutar la base de datos Oracle).
+> [AZURE.NOTE](Puede determinar el valor de *<<unique\_domain\_name>>* dentro del [Portal de Azure clásico](https://ms.portal.azure.com/) haciendo clic en **Máquinas virtuales** y, luego, seleccionando la máquina virtual que está usando para ejecutar la base de datos de Oracle).
 
 ##Configuración de opciones conocidas y paquetes de opciones avanzadas
 Si eligió la **base de datos Oracle con opciones conocidas** o la **base de datos Oracle con paquetes de opciones avanzadas**, el paso siguiente consiste en configurar las características de complemento en su instalación de Oracle. Consulte la documentación de Oracle para obtener instrucciones acerca de cómo configurarlas en Windows, ya que las configuraciones pueden variar ampliamente en función de sus necesidades para cada componente individual.
@@ -200,4 +200,4 @@ Ahora que ha configurado la máquina virtual y que ha creado su base de datos, c
 
 -	[Oracle Database DBA 12c versión 1 de dos días](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!-----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

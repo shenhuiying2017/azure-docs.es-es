@@ -17,7 +17,7 @@
 
 # Información general de los Centros de eventos de Azure
 
-Muchas soluciones modernas están destinadas a ofrecer experiencias de cliente adaptables mejorar los productos a través de comentarios continuos y telemetría automatizada. Estas soluciones se enfrentan al desafío de cómo procesar de forma segura y confiable grandes cantidades de información de muchos publicadores simultáneos. Centros de eventos de Microsoft Azure es un servicio de plataforma administrada que ofrece una base para el consumo de datos a gran escala en una amplia variedad de escenarios. Algunos ejemplos de estos escenarios son el seguimiento del comportamiento en aplicaciones móviles, la información sobre el tráfico de granjas de servidores web, la captura de eventos en el juego de juegos de consola o los datos de telemetría recopilados de máquinas industriales o vehículos conectados. La función habitual que Centros de eventos desempeña en las arquitecturas de las soluciones es que actúan como la "puerta principal" de una canalización de eventos, conocida a menudo como un *consumidor de eventos*. Un consumidor de eventos es un componente o servicio que se encuentra entre los productores de eventos y los consumidores de eventos para desacoplar la producción de un flujo de eventos del consumo de esos eventos.
+Muchas soluciones modernas están destinadas a ofrecer experiencias de cliente adaptables mejorar los productos a través de comentarios continuos y telemetría automatizada. Estas soluciones se enfrentan al desafío de cómo procesar de forma segura y confiable grandes cantidades de información de muchos publicadores simultáneos. Centros de eventos de Microsoft Azure es un servicio de plataforma administrada que ofrece una base para el consumo de datos a gran escala en una amplia variedad de escenarios. Algunos ejemplos de estos escenarios son el seguimiento del comportamiento en aplicaciones móviles, la información sobre el tráfico de granjas de servidores web, la captura de eventos en el juego de juegos de consola o los datos de telemetría recopilados de máquinas industriales o vehículos conectados. La función habitual que Centros de eventos desempeña en las arquitecturas de las soluciones es que actúan como la "puerta principal" de una canalización de eventos, conocida a menudo como un *consumidor de eventos*. Un consumidor de eventos es un componente o servicio que se encuentra entre los publicadores de eventos y los consumidores de eventos para desacoplar la producción de un flujo de eventos del consumo de esos eventos.
 
 ![Centros de eventos](./media/event-hubs-overview/IC759856.png)
 
@@ -132,7 +132,7 @@ La capacidad de procesamiento de los Centros de eventos se controla mediante uni
 
 - Salida: hasta 2 MB por segundo.
 
-La entrada está limitada a la cantidad de capacidad que ofrece el número de unidades de procesamiento adquiridas. El envío de datos por encima de esta cantidad provoca una excepción de "cuota superada". Esta cantidad es de 1 MB por segundo o 1000 eventos por segundo, lo que ocurra primero. La salida no produce excepciones de limitación, pero está limitada a la cantidad de transferencia de datos que ofrecen las unidades de procesamiento adquiridas: 2 MB por segundo por unidad de procesamiento. Si recibe excepciones de tasa de publicación o espera ver una salida superior, compruebe cuántas unidades de procesamiento adquirió para el espacio de nombres en que se creó el Centro de eventos. Para obtener más unidades de procesamiento, puede ajustar la configuración en la página **Espacios de nombres**, en la pestaña **Escala** del Portal de Azure. También puede cambiar esta configuración mediante las API de Azure.
+La entrada está limitada a la cantidad de capacidad que ofrece el número de unidades de procesamiento adquiridas. El envío de datos por encima de esta cantidad provoca una excepción de "cuota superada". Esta cantidad es de 1 MB por segundo o 1000 eventos por segundo, lo que ocurra primero. La salida no produce excepciones de limitación, pero está limitada a la cantidad de transferencia de datos que ofrecen las unidades de procesamiento adquiridas: 2 MB por segundo por unidad de procesamiento. Si recibe excepciones de tasa de publicación o espera ver una salida superior, compruebe cuántas unidades de procesamiento adquirió para el espacio de nombres en que se creó el Centro de eventos. Para obtener más unidades de procesamiento, puede ajustar la configuración en la página **Espacios de nombres**, en la pestaña **Escala** del [Portal de Azure clásico][]. También puede cambiar esta configuración mediante las API de Azure.
 
 Aunque las particiones son un concepto de organización de datos, las unidades de procesamiento son puramente un concepto de capacidad. Las unidades de procesamiento se facturan por hora y se adquieren previamente. Cuando se adquieren, las unidades de procesamiento se facturan durante un período mínimo de una hora. Se pueden adquirir hasta 20 unidades de procesamiento para un espacio de nombres del Bus de servicio y hay un límite de cuenta de Azure de 20 unidades de procesamiento. Estas unidades de procesamiento se comparten entre todos los Centros de eventos de un espacio de nombres determinado.
 
@@ -144,7 +144,7 @@ Para obtener información detallada sobre los precios, consulte [Precios de los 
 
 ### Directiva del publicador
 
-Los Centros de eventos permiten un control granular sobre los productores de eventos a través de las *directivas de publicador*. Las directivas de publicador son un conjunto de características de tiempo de ejecución diseñadas para facilitar grandes números de productores de eventos independientes. Con las directivas de publicador, cada publicador usa su propio identificador único al publicar los eventos en un Centro de eventos mediante el mecanismo siguiente:
+Los Centros de eventos permiten un control granular sobre los publicadores de eventos a través de las *directivas de publicador*. Las directivas de publicador son un conjunto de características de tiempo de ejecución diseñadas para facilitar grandes números de publicadores de eventos independientes. Con las directivas de publicador, cada publicador usa su propio identificador único al publicar los eventos en un Centro de eventos mediante el mecanismo siguiente:
 
 	//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 
@@ -162,9 +162,10 @@ Ahora que ha aprendido conceptos sobre los Centros de eventos, puede continuar c
 - Una [aplicación de ejemplo completa que usa Centros de eventos].
 - Una [solución de mensajería en cola] mediante las colas de Bus de servicio.
 
+[Portal de Azure clásico]: http://manage.windowsazure.com
 [tutorial de Centros de eventos]: event-hubs-csharp-ephcs-getstarted.md
 [aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 [solución de mensajería en cola]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

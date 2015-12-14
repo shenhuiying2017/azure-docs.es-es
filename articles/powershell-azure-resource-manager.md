@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tomfitz"/>
 
 # Uso de Azure PowerShell con Administrador de recursos de Azure
@@ -34,9 +34,7 @@ Para completar este tutorial, necesita:
   + Puede [abrir una cuenta de Azure de manera gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) - Obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este, podrá mantener la cuenta y usar servicios gratuitos de Azure, como Sitios web. Nunca se la hará ningún cargo en la tarjeta de crédito, a menos que cambie explícitamente la configuración y pida que se le realice algún cargo.
   
   + Puede [activar las ventajas de suscriptor de MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Su suscripción a MSDN le proporciona crédito todos los meses que puede usar con servicios de Azure de pago.
-- Azure PowerShell
-
-[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+- Azure PowerShell 1.0. Para obtener información acerca de esta versión y cómo instalarla, consulte [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Este tutorial está diseñado para los principiantes de PowerShell, pero se asume que se conocen los conceptos básicos, como los módulos, los cmdlets y las sesiones. Para obtener más información acerca de Windows PowerShell, consulte [Introducción a Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
@@ -83,13 +81,13 @@ Para obtener toda la ayuda posible para un cmdlet, escriba un comando con el for
 
 Antes de trabajar en la solución, debe iniciar sesión en su cuenta.
 
-Para iniciar sesión en su cuenta de Azure, use el cmdlet **Login-AzureRmAccount**. En versiones de Azure PowerShell anteriores a la versión preliminar 1.0, use el comando **Add-AzureAccount**.
+Para iniciar sesión en su cuenta de Azure, use el cmdlet **Login-AzureRmAccount**.
 
     PS C:\> Login-AzureRmAccount
 
 El cmdlet pide las credenciales de inicio de sesión para la cuenta de Azure. Después de iniciar la sesión, se descarga la configuración de la cuenta a fin de que esté disponible para Azure PowerShell.
 
-La configuración de la cuenta caduca, por lo que necesita actualizarla ocasionalmente. Para actualizarla, vuelva a ejecutar **Login-AzureRmAccount**.
+La configuración de la cuenta caduca, por lo que necesita actualizarla ocasionalmente. Para actualizar la configuración de cuenta, vuelva a ejecutar el cmdlet **Login-AzureRmAccount**.
 
 >[AZURE.NOTE]Los módulos del Administrador de recursos requieren Login-AzureRmAccount. No basta con un archivo de configuración de publicación.
 
@@ -108,7 +106,7 @@ Para obtener las ubicaciones que admiten cada tipo de recurso, deberá usar el c
     Microsoft.Batch                 Registered        {batchAccounts}
     ...
 
-ProviderNamespace representa una colección de tipos de recursos relacionados. Estos espacios de nombres normalmente coinciden correctamente con los servicios que quiere crear en Azure. Si desea usar un proveedor de recursos que se muestra como **No registrado**, puede registrar ese proveedor de recursos ejecutando el cmdlet **Register-AzureRmResourceProvider** y especificando el espacio de nombres del proveedor para registrar. Lo más probable es que el proveedor de recursos que use en este tutorial ya esté registrado en su suscripción.
+ProviderNamespace representa una colección de tipos de recursos relacionados. Estos espacios de nombres normalmente coinciden correctamente con los servicios que quiere crear en Azure. Si desea usar un proveedor de recursos que se muestra como **No registrado**, puede registrarlo ejecutando el cmdlet **Register-AzureRmResourceProvider** y especificando el espacio de nombres del proveedor. Lo más probable es que el proveedor de recursos que use en este tutorial ya esté registrado en su suscripción.
 
 Puede obtener más detalles sobre un proveedor mediante la especificación de ese espacio de nombres:
 
@@ -160,7 +158,7 @@ Vamos a ejecutar el mismo comando para la base de datos:
     West Europe
     Brazil South
 
-Parece que estos recursos están disponibles en muchas regiones. En este tema, usaremos **Oeste de EE. UU.**, pero puede especificar cualquiera de las regiones admitidas.
+Parece que estos recursos están disponibles en muchas regiones. En este tema, usaremos **Oeste de EE.UU.**, pero puede especificar cualquiera de las regiones admitidas.
 
 ## Crear un grupo de recursos
 
@@ -394,9 +392,9 @@ Después de crear un grupo de recursos, puede usar los cmdlets del módulo Admin
 		
 		...
 
-- Para obtener los recursos del grupo de recursos, use el cmdlet **Get-AzureRmResource** y su parámetro ResourceGroupName. Sin los parámetros, Get-AzureRmResource obtiene todos los recursos de la suscripción de Azure.
+- Para obtener los recursos del grupo de recursos, use el cmdlet **Get-AzureRmResource** y su parámetro **ResourceGroupNameContains**. Sin parámetros, Find-AzureRmResource obtiene todos los recursos de la suscripción de Azure.
 
-		PS C:\> Get-AzureRmResource -ResourceGroupName TestRG1
+		PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
 		
 		Name              : exampleserver
                 ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
@@ -416,7 +414,7 @@ Para agregar un recurso al grupo de recursos, puede usar el cmdlet **New-AzureRm
 
 ## Movimiento de un recurso
 
-Puede mover recursos existentes a un nuevo grupo de recursos. Para obtener ejemplos, consulte [Movimiento de recursos a un grupo de recursos o una suscripción nuevos](resource-group-move-resources.md).
+Puede mover recursos existentes a un nuevo grupo de recursos. Para obtener ejemplos, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](resource-group-move-resources.md).
 
 ## Eliminación de un grupo de recursos
 
@@ -441,6 +439,6 @@ Puede mover recursos existentes a un nuevo grupo de recursos. Para obtener ejemp
 - Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](./resource-group-authoring-templates.md).
 - Para obtener información sobre cómo implementar plantillas, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](./resource-group-template-deploy.md).
 - Si desea obtener un ejemplo detallado de cómo implementar un proyecto, consulte [Implementación predecible de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
-- Para obtener información sobre la solución de problemas de una implementación que ha dado error, consulte [Solución de problemas de implementaciones de grupos de recursos en Azure](./virtual-machines/resource-group-deploy-debug.md).
+- Para obtener información sobre la solución de problemas de una implementación que da error, consulte [Solución de problemas de implementaciones de grupos de recursos en Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

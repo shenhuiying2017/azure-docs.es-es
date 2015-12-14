@@ -18,13 +18,17 @@
 
 # Incorporación de sincronización de datos sin conexión a la aplicación de Servicios móviles de Android
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 ## Resumen
 
 Las aplicaciones móviles pueden perder la conectividad de red cuando se mueven a un área sin servicio, o debido a problemas de red. Por ejemplo, puede que una aplicación de la industria de la construcción que se usa en una construcción remota deba especificar datos de programación que se sincronizarán posteriormente con Azure. Con la sincronización sin conexión de Servicios móviles de Azure, puede seguir trabajando cuando la conectividad de red se pierde, lo que es esencial para muchas aplicaciones móviles. Con la sincronización sin conexión, se trabaja con una copia local de la tabla de Azure SQL Server, y periódicamente se vuelven a sincronizar las dos.
 
-En este tutorial, actualizará la aplicación siguiendo el [tutorial del Inicio rápido de Servicios móviles] para habilitar la sincronización sin conexión y, después, probará la aplicación agregando datos sin conexión, sincronizará esos elementos con la base de datos en línea y comprobará los cambios en el Portal de administración de Azure.
+En este tutorial, actualizará la aplicación siguiendo el [tutorial del Inicio rápido de Servicios móviles] para habilitar la sincronización sin conexión y, después, probará la aplicación agregando datos sin conexión, sincronizará esos elementos con la base de datos en línea y comprobará los cambios en el Portal de Azure clásico.
 
 Tanto si está conectado como no, pueden surgir conflictos en cualquier momento en que se realizan varios cambios a los datos. Un futuro tutorial explorará cómo administrar los conflictos de sincronización, donde podrá elegir qué versión de los cambios acepta. En este tutorial, daremos por hecho que no hay conflictos de sincronización y los cambios que realice a los datos existentes se aplicarán directamente al servidor de SQL Azure.
 
@@ -179,12 +183,12 @@ One thing which is important to point out: if there are pending changes in the l
 
 3. Consulte el contenido de la tabla *TodoItem* de Azure. Compruebe que los nuevos elementos _no_ se han sincronizado con el servidor:
 
-   - Para el backend de JavaScript, vaya al Portal de administración y haga clic en la pestaña Datos para ver el contenido de la tabla `TodoItem`.
-   - Para el back-end de .NET, consulte el contenido de la tabla con una herramienta SQL, como *SQL Server Management Studio*, o con un cliente REST como *Fiddler* o *Postman*.
+   - Para el back-end de JavaScript, vaya al Portal de Azure clásico y haga clic en la pestaña Datos para ver el contenido de la tabla `TodoItem`.
+   - Para el back-end de .NET, vea el contenido de tabla con una herramienta SQL, como *SQL Server Management Studio*, o con un cliente REST como *Fiddler* o *Postman*.
 
 4. Active la red inalámbrica en el dispositivo o el simulador. Después, presione el botón **Actualizar**.
 
-5. Vea los datos de TodoItem de nuevo en el portal de Azure. Ahora deberían aparecer los elementos de TodoItems nuevos y modificados.
+5. Vea los datos de TodoItem de nuevo en el portal de Azure clásico. Ahora deberían aparecer los elementos de TodoItems nuevos y modificados.
 
 
 ## Pasos siguientes
@@ -219,4 +223,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [tutorial del Inicio rápido de Servicios móviles]: mobile-services-android-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

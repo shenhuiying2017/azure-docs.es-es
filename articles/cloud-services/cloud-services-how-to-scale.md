@@ -22,7 +22,7 @@
 
 # Escalado automático de una aplicación
 
-En la página Scale del Portal de administración de Azure, puede escalar su aplicación manualmente o puede establecer parámetros para escalarla automáticamente. Puede escalar aplicaciones que ejecutan roles web, roles de trabajo o máquinas virtuales. Para escalar una aplicación que ejecuta instancias de roles web o roles de trabajo, agregue o quite instancias de roles para acomodar la carga de trabajo.
+En la página Scale del Portal de Azure clásico, puede escalar su aplicación manualmente o puede establecer los parámetros para escalarla automáticamente. Puede escalar aplicaciones que ejecutan roles web, roles de trabajo o máquinas virtuales. Para escalar una aplicación que ejecuta instancias de roles web o roles de trabajo, agregue o quite instancias de roles para acomodar la carga de trabajo.
 
 Al escalar o reducir verticalmente una aplicación que ejecuta máquinas virtuales, no se crean nuevas máquinas ni se eliminan, sino que se activan o desactivan desde un conjunto de disponibilidad de máquinas que se crearon anteriormente. Puede especificar el escalado según el porcentaje promedio de uso de CPU o según la cantidad de mensajes en una cola.
 
@@ -43,7 +43,7 @@ Debe considerar la siguiente información antes de configurar el escalado para s
 
 En la página Scale, puede aumentar o disminuir manualmente la cantidad de instancias en ejecución en un servicio en la nube.
 
-1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
 
 2. Haga clic en **Escalar**. El escalado automático está deshabitado de manera predeterminada para todos los roles, lo que significa que puede cambiar manualmente la cantidad de instancias que usa su aplicación.
 
@@ -74,7 +74,7 @@ En la página Scale, puede configurar su servicio en la nube para aumentar o dis
 
 ## Uso promedio de CPU
 
-1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
 
 2. Haga clic en **Escalar**.
 
@@ -126,7 +126,7 @@ En la página Scale, puede configurar su servicio en la nube para aumentar o dis
 
 ## Mensajes en cola
 
-1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
 2. Haga clic en **Escalar**.
 3. Desplácese hasta la sección correspondiente al rol o el conjunto de disponibilidad y, a continuación, haga clic en **Cola**. Esto permite el escalado automático de su aplicación según una cantidad objetivo de mensajes en cola.
 
@@ -176,7 +176,7 @@ En la página Scale, puede configurar su servicio en la nube para aumentar o dis
 
 A menudo, cuando se escala un rol, es beneficioso también escalar la base de datos que la aplicación está usando. Si vincula la base de datos con el servicio en la nube, puede cambiar la edición de Base de datos SQL y cambiar el tamaño de la base de datos en la página Scale.
 
-1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
 2. Haga clic en **Escalar**.
 3. En la sección Linked Resources, seleccione la edición que desea usar para la base de datos.
 
@@ -195,7 +195,7 @@ Puede programar el escalado automático de su aplicación al configurar programa
 
 **Nota**: las programaciones no están actualmente disponibles para aplicaciones que usan máquinas virtuales.
 
-1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
 2. Haga clic en **Escalar**.
 3. En la página Escalar, haga clic en **Configurar horas de programación**.
 
@@ -227,4 +227,4 @@ Puede programar el escalado automático de su aplicación al configurar programa
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

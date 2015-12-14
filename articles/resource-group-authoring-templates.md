@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="11/30/2015"
    ms.author="tomfitz"/>
 
 # Creación de plantillas del Administrador de recursos de Azure
@@ -228,7 +228,7 @@ Defina recursos con la siguiente estructura:
 
 | Nombre del elemento | Obligatorio | Descripción
 | :----------------------: | :------: | :----------
-| apiVersion | Sí | Versión de la API que admite el recurso. Para ver las versiones y los esquemas disponibles para los recursos, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
+| apiVersion | Sí | Versión de la API de REST que debe usar para crear el recurso. Para determinar los números de versión disponibles para un determinado tipo de recurso, consulte [Versiones de API compatibles](../resource-manager-supported-services/#supported-api-versions).
 | type | Sí | Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso que admite el proveedor de recursos.
 | name | Sí | Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986.
 | location | No | Ubicaciones geográficas compatibles del recurso proporcionado.
@@ -418,4 +418,4 @@ La siguiente plantilla implementa una aplicación web y aprovisiona con código 
 - Para obtener un ejemplo en profundidad de la implementación de una aplicación, vea [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para ver los esquemas disponibles, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

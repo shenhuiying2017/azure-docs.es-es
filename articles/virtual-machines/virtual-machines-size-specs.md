@@ -80,7 +80,7 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 
 ## Nivel Basic
 
-|Tamaño: Portal de Azure\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (300 por disco)|
+|Tamaño: Portal de Azure clásico\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (300 por disco)|
 |---|---|---|---|---|---|---|
 |A0\\Basic\_A0|1|768 MB|1|<p>SO = 1023 GB</p><p>Temporal = 20 GB</p>|1|1x300|
 |A1\\Basic\_A1|1|1,75 GB|1|<p>SO = 1023 GB</p><p>Temporal = 40 GB</p>|2|2x300|
@@ -90,7 +90,7 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 
 ## Nivel estándar: serie A
 
-|Tamaño: Portal de Azure\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)|
+|Tamaño: Portal de Azure clásico\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)|
 |---|---|---|---|---|---|---|
 |A0\\ExtraSmall|1|768 MB|1|<p>SO = 1023 GB</p><p>Temporal = 20 GB</p>|1|1x500|
 |A1\\Small|1|1,75 GB|1|<p>SO = 1023 GB</p><p>Temporal = 70 GB</p>|2|2 x 500|
@@ -107,7 +107,7 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 
 ## Nivel estándar: serie D
 
-|Tamaño: Portal de Azure\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)|
+|Tamaño: Portal de Azure clásico\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)|
 |---|---|---|---|---|---|---|
 |Standard\_D1\\igual|1|3,5 GB|1|<p>SO = 1023 GB</p><p>Temporal (SSD) =50 GB</p>|2|2 x 500|
 |Standard\_D2\\igual|2|7 GB|2|<p>SO = 1023 GB</p><p>Temporal (SSD) =100 GB</p>|4|4x500|
@@ -116,25 +116,25 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 |Standard\_D11\\igual|2|14 GB|2|<p>SO = 1023 GB</p><p>Temporal (SSD) =100 GB</p>|4|4x500|
 |Standard\_D12\\igual|4|28 GB|4|<p>SO = 1023 GB</p><p>Temporal (SSD) =200 GB</p>|8|8x500|
 |Standard\_D13\\igual|8|56 GB|8|<p>SO = 1023 GB</p><p>Temporal (SSD) =400 GB</p>|16|16x500|
-|Standard\_D14\\igual|16|112 GB|16|<p>SO = 1023 GB</p><p>Temporal (SSD) =800 GB</p>|32|32x500|
+|Standard\_D14\\igual|16|112 GB|8|<p>SO = 1023 GB</p><p>Temporal (SSD) =800 GB</p>|32|32x500|
 
 ## Nivel estándar: serie Dv2
 
-|Tamaño: Portal de Azure\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)|
+|Tamaño: Portal de Azure clásico\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)|
 |---|---|---|---|---|---|---|
 |Standard\_D1\_v2\\same|1|3,5 GB|1|<p>SO = 1023 GB</p><p>Temporal (SSD) =50 GB</p>|2|2 x 500|
 |Standard\_D2\_v2\\same|2|7 GB|2|<p>SO = 1023 GB</p><p>Temporal (SSD) =100 GB</p>|4|4x500|
 |Standard\_D3\_v2\\same|4|14 GB|4|<p>SO = 1023 GB</p><p>Temporal (SSD) =200 GB</p>|8|8x500|
 |Standard\_D4\_v2\\same|8|28 GB|8|<p>SO = 1023 GB</p><p>Temporal (SSD) =400 GB</p>|16|16x500|
-|Standard\_D5\_v2\\same|16|56 GB|16|<p>SO = 1023 GB</p><p>Temporal (SSD) =800 GB</p>|32|32x500|
+|Standard\_D5\_v2\\same|16|56 GB|8|<p>SO = 1023 GB</p><p>Temporal (SSD) =800 GB</p>|32|32x500|
 |Standard\_D11\_v2\\same|2|14 GB|2|<p>SO = 1023 GB</p><p>Temporal (SSD) =100 GB</p>|4|4x500|
 |Standard\_D12\_v2\\same|4|28 GB|4|<p>SO = 1023 GB</p><p>Temporal (SSD) =200 GB</p>|8|8x500|
 |Standard\_D13\_v2\\same|8|56 GB|8|<p>SO = 1023 GB</p><p>Temporal (SSD) =400 GB</p>|16|16x500|
-|Standard\_D14\_v2\\same|16|112 GB|16|<p>SO = 1023 GB</p><p>Temporal (SSD) =800 GB</p>|32|32x500|
+|Standard\_D14\_v2\\same|16|112 GB|8|<p>SO = 1023 GB</p><p>Temporal (SSD) =800 GB</p>|32|32x500|
 
 ## Nivel estándar: serie DS*
 
-|Tamaño: Portal de Azure\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Tamaño de caché (GB)|E/S de disco máx. y ancho de banda|
+|Tamaño: Portal de Azure clásico\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Tamaño de caché (GB)|E/S de disco máx. y ancho de banda|
 |---|---|---|---|---|---|---|---|
 |Standard\_DS1\\igual|1|3,5|1|<p>SO = 1023 GB</p><p>Disco SSD local = 7 GB</p>|2|43|<p>3,200</p><p>32 MB por segundo</p>|
 |Standard\_DS2\\igual|2|7|2|<p>SO = 1023 GB</p><p>Disco SSD local = 14 GB</p>|4|86|<p>6,400</p><p>64 MB por segundo</p>|
@@ -143,29 +143,29 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 |Standard\_DS11\\igual|2|14|2|<p>SO = 1023 GB</p><p>Disco SSD local = 28 GB</p>|4|72|<p>6,400</p><p>64 MB por segundo</p>|
 |Standard\_DS12\\igual|4|28|4|<p>SO = 1023 GB</p><p>Disco SSD local = 56 GB</p>|8|144|<p>12,800</p><p>128 MB por segundo</p>|
 |Standard\_DS13\\igual|8|56|8|<p>SO = 1023 GB</p><p>Disco SSD local = 112 GB</p>|16|288|<p>25,600</p><p>256 MB por segundo</p>|
-|Standard\_DS14\\igual|16|112|16|<p>SO = 1023 GB</p><p>Disco SSD local = 224 GB</p>|32|576|<p>50,000</p><p>512 MB por segundo</p>|
+|Standard\_DS14\\igual|16|112|8|<p>SO = 1023 GB</p><p>Disco SSD local = 224 GB</p>|32|576|<p>50,000</p><p>512 MB por segundo</p>|
 
 **Las operaciones de entrada/salida máximas por segundo (E/S) y el rendimiento (ancho de banda) posibles con una máquina virtual de la serie DS se ven afectadas por el tamaño del disco. Para obtener más información, vea [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage-premium-storage-preview-portal.md)
 
 ## Nivel estándar: serie G
 
-|Tamaño: Portal de Azure\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)|
+|Tamaño: Portal de Azure clásico\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)|
 |---|---|---|---|---|---|---|
 |Standard\_G1\\igual|2|28 GB|1|<p>SO = 1023 GB</p><p>Disco SSD local = 384 GB</p>|4|4 x 500|
 |Standard\_G2\\igual|4|56 GB|2|<p>SO = 1023 GB</p><p>Disco SSD local = 768 GB</p>|8|8 x 500|
 |Standard\_G3\\igual|8|112 GB|4|<p>SO = 1023 GB</p><p>Disco SSD local = 1,536 GB</p>|16|16 x 500|
 |Standard\_G4\\igual|16|224 GB|8|<p>SO = 1023 GB</p><p>Disco SSD local = 3,072 GB</p>|32|32 x 500|
-|Standard\_G5\\igual|32|448 GB|16|<p>SO = 1023 GB</p><p>Disco SSD local = 6,144 GB</p>|64|<p>64 x 500</p>|
+|Standard\_G5\\igual|32|448 GB|8|<p>SO = 1023 GB</p><p>Disco SSD local = 6,144 GB</p>|64|<p>64 x 500</p>|
 
 ## Nivel estándar: serie GS
 
-|Tamaño: Portal de Azure\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Tamaño de caché (GB)|E/S de disco máx. y ancho de banda|
+|Tamaño: Portal de Azure clásico\\cmdlets y API|Núcleos de CPU|Memoria|NICs (Máx)|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Tamaño de caché (GB)|E/S de disco máx. y ancho de banda|
 |---|---|---|---|---|---|---|---|
 |Standard\_GS1|2|28|1|<p>SO = 1023 GB</p><p>Disco SSD local = 56 GB</p>|4|264|<p>5000</p><p>125 MB por segundo</p>|
 |Standard\_GS2|4|56|2|<p>SO = 1023 GB</p><p>Disco SSD local = 112 GB</p>|8|528|<p>10.000</p><p>250 MB por segundo</p>|
 |Standard\_GS3|8|112|4|<p>SO = 1023 GB</p><p>Disco SSD local = 224 GB</p>|16|1056|<p>20 000</p><p>500 MB por segundo</p>|
 |Standard\_GS4|16|224|8|<p>SO = 1023 GB</p><p>Disco SSD local = 448 GB</p>|32|2112|<p>40 000</p><p>1000 MB por segundo</p>|
-|Standard\_GS5|32|448|16|<p>SO = 1023 GB</p><p>Disco SSD local = 896 GB</p>|64|4224|<p>80 000</p><p>2000 MB por segundo</p>|
+|Standard\_GS5|32|448|8|<p>SO = 1023 GB</p><p>Disco SSD local = 896 GB</p>|64|4224|<p>80 000</p><p>2000 MB por segundo</p>|
 
 
 ### Consulte también
@@ -174,4 +174,4 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 
 [Sobre las instancias informáticas intensivas A8, A9, A10 y A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

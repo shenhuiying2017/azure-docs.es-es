@@ -43,7 +43,7 @@ Busque el módulo Lector en la paleta de conjuntos de datos y módulos que apare
 Seleccione el módulo Lector y rellene el panel de propiedades.
 
 1. Seleccione Base de datos SQL de Azure como el origen de datos.
-2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar el [Portal de Azure][].
+2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar el [Portal de Azure clásico][].
 
 ![][server_name]
 
@@ -101,7 +101,7 @@ Busque el módulo Redactor en la paleta de conjuntos de datos y módulos que apa
 Seleccione el módulo Redactor y rellene el panel de propiedades.
 
 1. Seleccione Base de datos SQL de Azure como el destino de los datos.
-2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar el [Portal de Azure][]. 
+2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar el [Portal de Azure clásico][]. 
 3. Nombre de la base de datos: escriba el nombre de la base de datos en el servidor que acaba de especificar. 
 4. El nombre de la cuenta de usuario de servidor: escriba el nombre de usuario de una cuenta que tiene permisos de escritura para la base de datos. 
 5. Contraseña de la cuenta de usuario de servidor: proporcione la contraseña de la cuenta de usuario especificada.
@@ -141,7 +141,7 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [Tutorial para crear un experimento]: https://azure.microsoft.com/es-ES/documentation/articles/machine-learning-create-experiment/
 [Introducción a Aprendizaje automático en Azure]: https://azure.microsoft.com/es-ES/documentation/articles/machine-learning-what-is-machine-learning/
 [Estudio de aprendizaje automático de Azure]: https://studio.azureml.net/Home
-[Portal de Azure]: https://portal.azure.com/
+[Portal de Azure clásico]: https://portal.azure.com/
 
 <!--MSDN references-->
 
@@ -149,4 +149,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

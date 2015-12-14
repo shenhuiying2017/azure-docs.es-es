@@ -27,7 +27,7 @@ Esta guía proporciona soluciones para algunos de los desafíos más comunes al 
 
 Cuando se crea un área de trabajo de Aprendizaje automático nueva, el identificador que escribe en el campo PROPIETARIO DEL ÁREA DE TRABAJO debe ser una cuenta de Microsoft válida (anteriormente Windows Live ID), por ejemplo, john-contoso@live.com o john-contoso@hotmail.com. No puede ser una cuenta que no pertenezca a Microsoft, como su cuenta de correo electrónico corporativa. Para crear una cuenta gratuita de Microsoft, vaya a [www.live.com](http://www.live.com).
 
-Observe que la cuenta que usó para iniciar sesión en el Portal de Azure y crear el área de trabajo no tiene automáticamente permiso para *abrir* esa área de trabajo, a menos que especifique esa cuenta como propietaria. Para abrir un área de trabajo en Estudio de aprendizaje automático, debe iniciar sesión en la cuenta de Microsoft que se definió como propietaria del área de trabajo, o bien, puede ser necesario que reciba una invitación del propietario para unirse al área de trabajo. Sin embargo, en el portal de Azure puede *administrar* el área de trabajo, lo que incluye la capacidad de cambiar el propietario y configurar el acceso.
+Observe que la cuenta que usó para iniciar sesión en el Portal de Azure clásico para crear el área de trabajo no tiene permiso de manera automática para *abrir* ese área de trabajo, a menos que especifique esa cuenta como propietaria. Para abrir un área de trabajo en Estudio de aprendizaje automático, debe iniciar sesión en la cuenta de Microsoft que se definió como propietaria del área de trabajo, o bien, puede ser necesario que reciba una invitación del propietario para unirse al área de trabajo. Sin embargo, en el portal de Azure clásico, puede *administrar* el área de trabajo, lo que incluye la capacidad de cambiar el propietario y configurar el acceso.
 
 Para obtener más información sobre cómo administrar un área de trabajo, consulte [Administración de un área de trabajo de Aprendizaje automático de Azure].
 
@@ -37,7 +37,7 @@ Para obtener más información sobre cómo administrar un área de trabajo, cons
 
 Aprendizaje automático se encuentra actualmente disponible en un número limitado de regiones. Si su suscripción no incluye una de estas regiones, es posible que vea el mensaje de error "No dispone de una suscripción en las regiones permitidas".
 
-Para solicitar que una región se agregue a su suscripción, seleccione **Póngase en contacto con el servicio de soporte técnico de Microsoft** desde el Portal de administración de Azure, elija **Facturación** como el tipo de problema y siga las indicaciones para enviar su solicitud.
+Para solicitar que una región se agregue a su suscripción, seleccione **Póngase en contacto con el Soporte técnico de Microsoft** desde el Portal de Azure clásico, elija **Facturación** como el tipo de problema y siga las indicaciones para enviar su solicitud.
 
 ![Consultar al soporte técnico de Microsoft][screen1]
 
@@ -46,7 +46,7 @@ Para solicitar que una región se agregue a su suscripción, seleccione **Pónga
 El servicio de Aprendizaje automático necesita una cuenta de almacenamiento para almacenar los datos. Puede utilizar una cuenta de almacenamiento existente o crear una nueva cuenta de almacenamiento al crear la nueva área de trabajo de Aprendizaje automático (si dispone de cuota para crear una nueva cuenta de almacenamiento).
 
 <!-- These instructions no longer work, but I'm not sure what to replace them with
-To see if you can create a new storage account, in the management portal, go to **Settings** and then click **Usage**.
+To see if you can create a new storage account, in the Classic Portal, go to **Settings** and then click **Usage**.
 -->
 
 ![Creación del espacio de trabajo][screen2]
@@ -80,4 +80,4 @@ Nuestro objeto es hacer que la experiencia de Aprendizaje automático sea lo má
 [screen5]: media/machine-learning-troubleshooting-creating-ml-workspace/screen5.png
 [screen6]: media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="08/25/2015"
+   ms.date="12/01/2015"
    ms.author="sstein"/>
 
 # Creación y administración de bases de datos SQL con C&#x23;
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-elastic-pool-portal.md)
+- [Azure Portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
@@ -55,7 +55,7 @@ Debe habilitar primero su aplicación para que tenga acceso a la API de REST con
 
 Las [API de REST del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx) usan Azure Active Directory para la autenticación en lugar de los certificados usados por las API de REST de administración de servicios de Azure anteriores.
 
-Para autenticar la aplicación de cliente basada en el usuario actual, primero debe registrar su aplicación en el dominio de AAD asociado a la suscripción en la que se han creado los recursos de Azure. Si se creó su suscripción de Azure con una cuenta de Microsoft en lugar de una cuenta profesional o educativa, ya tendrá un dominio de AAD predeterminado. El registro de la aplicación se puede realizar en el [Portal de administración](https://manage.windowsazure.com/).
+Para autenticar la aplicación de cliente basada en el usuario actual, primero debe registrar su aplicación en el dominio de AAD asociado a la suscripción en la que se han creado los recursos de Azure. Si se creó su suscripción de Azure con una cuenta de Microsoft en lugar de una cuenta profesional o educativa, ya tendrá un dominio de AAD predeterminado. El registro de la aplicación se puede realizar en el [Portal clásico](https://manage.windowsazure.com/).
 
 Para crear una nueva aplicación y registrarla en el directorio activo correcto, haga lo siguiente:
 
@@ -105,7 +105,7 @@ Para crear una nueva aplicación y registrarla en el directorio activo correcto,
 
 Se requiere el nombre de dominio para su código. Para identificar de manera sencilla el nombre de dominio adecuado:
 
-1. Vaya al [Portal de vista previa de Azure](https://portal.azure.com).
+1. Vaya al [Portal de Azure](https://portal.azure.com).
 2. Mantenga el puntero sobre su nombre en la esquina superior derecha y anote el dominio que aparece en la ventana emergente.
 
     ![Identificar nombre de dominio][3]
@@ -798,4 +798,4 @@ Para eliminar un grupo de recursos:
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

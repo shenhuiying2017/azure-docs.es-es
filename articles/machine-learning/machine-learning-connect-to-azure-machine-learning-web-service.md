@@ -41,12 +41,12 @@ Aprendizaje automático de Azure tiene dos tipos de servicios:
 Para obtener más información sobre los servicios web de Aprendizaje automático de Azure, vea [Implementación de un servicio web de Aprendizaje automático de Azure](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Obtener una clave de autorización de Aprendizaje automático de Azure ##
-Obtenga una clave de API de servicio web de un servicio web de ML. Puede obtenerla de Microsoft Azure Machine Learning Studio o del portal de administración de Azure.
+Obtenga una clave de API de servicio web de un servicio web de ML. Puede obtenerla de Microsoft Azure Machine Learning Studio o del portal de Azure clásico.
 ### Microsoft Azure Machine Learning Studio ###
 1. En Estudio de aprendizaje automático de Microsoft Azure, haga clic en **SERVICIOS WEB** a la izquierda.
 2. Haga clic en un servicio web. La "clave de API" está en la pestaña **PANEL**.
 
-### Portal de administración de Azure ###
+### Portal de Azure clásico ###
 
 1. Haga clic en **APRENDIZAJE AUTOMÁTICO** a la izquierda.
 2. Haga clic en un área de trabajo.
@@ -103,4 +103,4 @@ Para conectarse a un servicio web de Aprendizaje automático de Azure, use la bi
 2. Asigne una clave de API con la clave de un servicio web. Consulte cómo obtener una clave de autorización de Aprendizaje automático de Azure.
 3. Asigne la URI de servicio a la URI de solicitud. Consulte cómo obtener un URI de solicitud.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

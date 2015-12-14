@@ -51,9 +51,9 @@ En este tutorial, recopilamos registros de ejemplo, los procesamos y enriquecemo
 	- **Base de datos SQL de Azure**: servidor, base de datos, nombre de usuario y contraseña.
 	- **Clúster de HDInsight de Azure**: nombre del clúster de HDInsight, nombre de usuario, contraseña y nombre y clave de la cuenta para el almacenamiento de Azure asociado a este clúster. Si quiere usar un clúster de HDInsight a petición en lugar de su propio clúster de HDInsight, omita este paso.  
 8. Inicie **Azure PowerShell** y ejecute los comandos siguientes: Mantenga abierto Azure PowerShell. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
-	- Ejecute **Add-AzureAccount** y escriba el mismo nombre de usuario y contraseña que usó para iniciar sesión en el Portal de vista previa de Azure.  
+	- Ejecute **Add-AzureAccount** y escriba el mismo nombre de usuario y contraseña que usó para iniciar sesión en el Portal de Azure.  
 	- Ejecute **Get-AzureSubscription** para ver todas las suscripciones para esta cuenta.
-	- Ejecute **Select-AzureSubscription** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que la usada en el Portal de vista previa de Azure.
+	- Ejecute **Select-AzureSubscription** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que usó en el Portal de Azure.
 	
 
 ## Información general
@@ -101,7 +101,7 @@ El flujo de trabajo completo se muestra a continuación: ![Tutorial Flujo comple
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [Paso 6: Supervisión de las canalizaciones y los segmentos de datos](#MainStep6) En este paso, supervisará los procesos, las tablas y los segmentos de datos mediante el Portal de Azure.
+6. [Paso 6: Supervisión de las canalizaciones y los segmentos de datos](#MainStep6) En este paso, supervisará los procesos, las tablas y los segmentos de datos mediante el Portal de Azure clásico.
 
 ## <a name="MainStep1"></a> Paso 1: Carga de scripts y datos de ejemplo
 En este paso, cargará todos los datos de ejemplo (incluidos todos los registros y datos de referencia) y los scripts Hive y Pig, que se invocan mediante los flujos de trabajo. Los scripts que ejecuta también crean una base de datos SQL de Azure llamada **MarketingCampaigns**, tablas, tipos definidos por el usuario y procedimientos almacenados.
@@ -122,7 +122,7 @@ Las tablas, los tipos definidos por el usuario y procedimientos almacenados se u
 	
 	Si lo prefiere, puede utilizar los archivos de la carpeta: C:\\ADFWalkthrough\\Scripts cargar los scripts pig y hive y los archivos de ejemplo en el contenedor adfwalkthrough, en el almacenamiento de blobs, y crear la tabla MarketingCampaignEffectiveness en la base de datos SQL de Azure MarketingCamapaigns.
    
-2. Confirme que el equipo local tiene acceso a la base de datos SQL de Azure. Para permitir el acceso, use el **Portal de administración de Azure** o **sp\_set\_firewall\_rule** en la base de datos maestra para crear una regla de firewall para la dirección IP del equipo. Puede tardar hasta cinco minutos que este cambio surta efecto. Consulte [Definición de reglas de firewall para SQL Azure][azure-sql-firewall].
+2. Confirme que el equipo local tiene acceso a la base de datos SQL de Azure. Para permitir el acceso, use el [Portal de Azure clásico](http://manage.windowsazure.com) o **sp\_set\_firewall\_rule** en la base de datos maestra para crear una regla de firewall para la dirección IP del equipo. Puede tardar hasta cinco minutos que este cambio surta efecto. Consulte [Definición de reglas de firewall para SQL Azure][azure-sql-firewall].
 4. En Azure PowerShell, vaya a la ubicación donde ha extraído los ejemplos (por ejemplo, **C:\\ADFWalkthrough**).
 5. Ejecute **uploadSampleDataAndScripts.ps1** 
 6. Una vez que el script se ejecute correctamente, verá lo siguiente:
@@ -160,7 +160,7 @@ Las tablas, los tipos definidos por el usuario y procedimientos almacenados se u
 ## <a name="MainStep2"></a> Paso 2: Creación de una factoría de datos de Azure
 En este paso, creará una factoría de datos de Azure llamada **LogProcessingFactory**.
 
-1.	Tras iniciar sesión en el [Portal de vista previa de Azure][azure-preview-portal], haga clic en **NUEVO** en la esquina inferior izquierda y seleccione **Factoría de datos** en la hoja **Nuevo**. 
+1.	Tras iniciar sesión en el [Portal de Azure][azure-portal], haga clic en **NUEVO** en la esquina inferior izquierda y seleccione **Factoría de datos** en la hoja **Nuevo**. 
 
 	![New->DataFactory][image-data-factory-new-datafactory-menu]
 	
@@ -178,7 +178,7 @@ En este paso, creará una factoría de datos de Azure llamada **LogProcessingFac
 	
 		![Crear grupo de recursos][image-data-factory-tutorial-create-resourcegroup]
 7. Seleccione **ADF** como **NOMBRE DEL GRUPO DE RECURSOS**.  
-8.	En la hoja **Nueva factoría de datos**, observe que **Agregar al Panel de inicio** está seleccionado de forma predeterminada. Esto agrega un vínculo a la factoría de datos al panel de inicio (lo que verá cuando inicie sesión en el Portal de vista previa de Azure).
+8.	En la hoja **Nueva factoría de datos**, observe que **Agregar al Panel de inicio** está seleccionado de forma predeterminada. De esta forma agregará un vínculo a la factoría de datos del panel de inicio (lo que verá cuando inicie sesión en el Portal de Azure).
 
 	![Hoja Crear factoría de datos][image-data-factory-tutorial-create-datafactory]
 
@@ -197,7 +197,7 @@ En este paso, creará una factoría de datos de Azure llamada **LogProcessingFac
  
 ## <a name="MainStep3"></a> Paso 3: Creación de servicios vinculados
 
-> [AZURE.NOTE]En este artículo se usa Azure PowerShell para crear servicios vinculados, tablas y canalizaciones. Consulte el [tutorial Uso del Editor de Factoría de datos][adftutorial-using-editor] si quiere realizar este tutorial con el Portal de Azure, concretamente el Editor de Factoría de datos.
+> [AZURE.NOTE]En este artículo se usa Azure PowerShell para crear servicios vinculados, tablas y canalizaciones. Consulte el [tutorial Uso del Editor de Factoría de datos][adftutorial-using-editor] si quiere realizar este tutorial con el Portal de Azure clásico, concretamente el Editor de Factoría de datos.
 
 En este paso, creará los servicios vinculados siguientes: StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService y HDInsightLinkedService.
 
@@ -236,16 +236,16 @@ En este paso, creará los servicios vinculados siguientes: StorageLinkedService,
 		
  		![Configuración de SQL Azure][image-data-factory-tutorial-azuresql-settings]
 
-		Para obtener estos valores desde el Portal de administración de Azure: haga clic en Consultar las cadenas de conexión de Base de datos SQL para la base de datos MarketingCampaigns.
+		Para obtener estos valores desde el [Portal de Azure clásico](http://manage.windowsazure.com): haga clic en Consultar las cadenas de conexión de Base de datos SQL para la base de datos MarketingCampaigns.
 
 		![Cadena de conexión de Base de datos SQL de Azure][image-data-factory-tutorial-azuresql-database-connection-string]
 
 12. Confirme que ve los tres almacenes de datos que ha creado: **StorageLinkedService**, **HDInsightStorageLinkedService** y **AzureSqlLinkedService**.
 13. Debe crear otro servicio vinculado, pero este es para un servicio de proceso, concretamente, un **clúster de Azure HDInsight**. El portal no admite la creación de un servicio informático vinculado todavía. Por lo tanto, necesitará usar Azure PowerShell para crear este servicio vinculado. 
 14. Cambie a **Azure PowerShell** si ya lo tiene abierto (o) inicie **Azure PowerShell**. Si había cerrado y vuelto a abrir Azure, debe ejecutar los siguientes comandos: 
-	- Ejecute **Add-AzureAccount** y escriba el mismo nombre de usuario y contraseña que usó para iniciar sesión en el Portal de vista previa de Azure.  
+	- Ejecute **Add-AzureAccount** y escriba el mismo nombre de usuario y contraseña que usó para iniciar sesión en el Portal de Azure.  
 	- Ejecute **Get-AzureSubscription** para ver todas las suscripciones para esta cuenta.
-	- Ejecute **Select-AzureSubscription** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que la usada en el Portal de vista previa de Azure. 
+	- Ejecute **Select-AzureSubscription** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que usó en el Portal de Azure. 
 15. Cambie al modo **AzureResourceManager** a medida que los cmdlets de Factoría de datos de Azure estén disponibles.
 
 		Switch-AzureMode AzureResourceManager
@@ -296,7 +296,7 @@ En este paso, creará las tablas siguientes:
  
 La imagen anterior muestra los procesos en la fila central y las tablas de las filas superior e inferior.
 
-El Portal de Azure no admite crear conjuntos de datos y tablas, por lo que deberá usar Azure PowerShell para crear tablas en esta versión.
+El Portal de Azure clásico no admite crear conjuntos de datos y tablas, por lo que deberá usar Azure PowerShell para crear tablas en esta versión.
 
 ### Para crear las tablas
 
@@ -324,7 +324,7 @@ El Portal de Azure no admite crear conjuntos de datos y tablas, por lo que deber
 
 
 
-4. En el **Portal de vista previa de Azure**, haga clic en **Conjuntos de datos** en la hoja **FACTORÍA DE DATOS** para **LogProcessingFactory** y confirme que ve todos los conjuntos de datos (las tablas son conjuntos de datos rectangulares).
+4. En el **Portal de Azure**, haga clic en **Conjuntos de datos** en la hoja **FACTORÍA DE DATOS** para **LogProcessingFactory** y confirme que ve todos los conjuntos de datos (las tablas son conjuntos de datos rectangulares).
 
 	![Todos los conjuntos de datos][image-data-factory-tutorial-datasets-all]
 
@@ -390,7 +390,7 @@ Para especificar el período activo para el proceso, puede usar el cmdlet Set-Az
 			
 			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name AnalyzeMarketingCampaignPipeline
 
-11. En el **Portal de vista previa de Azure**, haga clic en el icono **Canalizaciones** (no en los nombres de las canalizaciones) en la hoja **FACTORÍA DE DATOS** para **LogProcessingFactory**. Debería ver las canalizaciones que ha creado.
+11. En el **Portal de Azure**, haga clic en el icono **Canalizaciones** (no en los nombres de las canalizaciones) en la hoja **FACTORÍA DE DATOS** para **LogProcessingFactory**. Debería ver las canalizaciones que ha creado.
 
 	![Todas las canalizaciones][image-data-factory-tutorial-pipelines-all]
 
@@ -438,7 +438,7 @@ Para especificar el período activo para el proceso, puede usar el cmdlet Set-Az
 
 	![Hoja SEGMENTO DE DATOS RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	Si se produjo un error, verá el estado **Error** aquí. Puede que también vea los dos segmentos con el estado **Listo** o con el estado **PendingValidation**, según la rapidez con la que se procesen.
+	Si se produjo un error, verá el estado **Error** aquí. Puede que también vea los dos segmentos con el estado **Listo** o con el estado **Validación pendiente**, según la rapidez con la que se procesen.
  
 	Consulte [Referencia para desarrolladores de Factoría de datos de Azure][developer-reference] para obtener una descripción de todos los estados posibles de los segmentos.
 
@@ -474,7 +474,7 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises-us
 [tutorial-onpremises-using-powershell]: data-factory-tutorial-extend-onpremises-using-powershell.md
 [download-azure-powershell]: ../powershell-install-configure.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -562,4 +562,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises-us
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

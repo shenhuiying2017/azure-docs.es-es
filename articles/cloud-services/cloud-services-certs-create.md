@@ -26,7 +26,7 @@ Los certificados utilizados por Azure pueden contener una clave privada o públi
 ## ¿Qué son los certificados de servicio?
 Los certificados de servicio están vinculados a los servicios en la nube y posibilitan la comunicación segura hacia y desde el servicio. Por ejemplo, si implementó un rol web, desearía proporcionar un certificado que pueda autenticar un extremo HTTPS expuesto. Los certificados de servicio, definidos en la definición de servicio, se implementan automáticamente en la máquina virtual que está ejecutando una instancia del rol.
 
-Puede cargar certificados de servicio en el Portal de administración mediante el Portal de administración o mediante la API de administración de servicios. Los certificados de servicio se asocian a un servicio en la nube específico y se asignan a una implementación en el archivo de definición de servicio.
+Puede cargar certificados de servicio en el Portal de Azure clásico mediante el Portal de Azure clásico o mediante la API de administración de servicios. Los certificados de servicio se asocian a un servicio en la nube específico y se asignan a una implementación en el archivo de definición de servicio.
 
 Los certificados de servicio se pueden administrar independientemente de los servicios y pueden ser administrados por distintas personas. Por ejemplo, un desarrollador puede cargar un paquete de servicio que hace referencia a un certificado que un administrador de TI ha cargado previamente en Azure. Un administrador de TI puede administrar y renovar el certificado cambiando la configuración del servicio sin necesidad de cargar un nuevo paquete de servicio. Esto es posible porque el nombre lógico del certificado y su nombre y ubicación del almacén se especifican en el archivo de definición de servicio, mientras que la huella digital del certificado se especifica en el archivo de configuración de servicio. Para actualizar el certificado, solo es necesario cargar un nuevo certificado y cambiar el valor de huella digital en el archivo de configuración de servicio.
 
@@ -74,10 +74,10 @@ En [este](..\virtual-machines\virtual-machines-linux-use-ssh-key.md) artículo s
 
 ## Pasos siguientes
 
-[Cargue el certificado de servicio en el Portal de Azure](cloud-services-configure-ssl-certificate.md) (o en el [Portal de vista previa](cloud-services-configure-ssl-certificate-portal.md)) y [configúrelo](cloud-services-xml-certs.md) para el servicio en la nube.
+[Cargue el certificado de servicio en el Portal de Azure clásico](cloud-services-configure-ssl-certificate.md) (o en el [Portal de Azure](cloud-services-configure-ssl-certificate-portal.md)) y [configúrelo](cloud-services-xml-certs.md) para el servicio en la nube.
 
-Cargue un [certificado de API de administración](../azure-api-management-certs.md) en el Portal de Azure.
+Cargue un [certificado de API de administración](../azure-api-management-certs.md) en el Portal de Azure clásico.
 
->[AZURE.NOTE]El Portal de vista previa de Azure no utiliza certificados de administración para tener acceso a la API, si no que usa cuentas de usuario.
+>[AZURE.NOTE]El Portal de Azure no usa certificados de administración para tener acceso a la API, sino cuentas de usuario.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

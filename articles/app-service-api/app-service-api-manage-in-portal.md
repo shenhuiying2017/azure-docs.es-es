@@ -18,6 +18,8 @@
 
 # Administración de aplicaciones de API en el Servicio de aplicaciones de Azure
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 En este artículo, se muestra cómo usar el [portal de vista previa de Azure](https://portal.azure.com/) para realizar tareas de supervisión y administración de aplicaciones de API. Estas son algunas de las tareas que puede realizar:
 
 - Configurar la autenticación 
@@ -130,8 +132,8 @@ Para obtener una aplicación de API en el Explorador de servidores, haga clic en
 
 ## Pasos siguientes
 
-En este artículo, se muestra cómo usar el portal de Azure para realizar tareas de administración de aplicaciones de API. Para las aplicaciones de API que haya instalado desde la Galería de aplicaciones de API, consulte también [Administración y supervisión de las aplicaciones de API y los conectores integrados](../app-service-logic/app-service-logic-monitor-your-connectors.md).
+En este artículo, se muestra cómo usar el portal de Azure para realizar tareas de administración de aplicaciones de API. Para las aplicaciones de API que haya instalado desde la Galería de aplicaciones de API, consulte también [Administración y supervisión de conectores y aplicaciones de API integrados](../app-service-logic/app-service-logic-monitor-your-connectors.md).
 
 Para obtener información acerca de cómo administrar aplicaciones de API mediante la línea de comandos, consulte los artículos de la sección **Automatizar** del menú que aparece en el lado izquierdo del artículo (en las ventanas del explorador anchas) o en la parte superior del artículo (en las ventanas del explorador estrechas).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

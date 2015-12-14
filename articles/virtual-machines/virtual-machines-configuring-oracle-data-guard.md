@@ -31,7 +31,7 @@ Además, en el tutorial se supone que ya se han implementado los siguientes requ
 
 - Ha creado dos máquinas virtuales (VM) en Azure con la misma plataforma que proporciona la imagen de Oracle Enterprise Edition en Windows Server. Para obtener información, consulte [Creación de una máquina virtual de base de datos de Oracle 12c en Azure](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md) y [Máquinas virtuales de Azure](http://azure.microsoft.com/documentation/services/virtual-machines/). Asegúrese de que las máquinas virtuales estén en el [mismo servicio en la nube](virtual-machines-load-balance.md) y en la misma [red virtual](azure.microsoft.com/documentation/services/virtual-network/) para estar seguro de que pueden tener acceso entre sí a través de la dirección IP privada persistente. Además, se recomienda colocar las máquinas virtuales en el mismo [conjunto de disponibilidad](virtual-machines-manage-availability.md) para permitir a Azure colocarlas en dominios de error y de actualización independientes. Tenga en cuenta que la protección de datos de Oracle solo está disponible con Oracle Database Enterprise Edition. Cada máquina debe tener al menos 2 GB de memoria y 5 GB de espacio en disco. Para obtener la información más actualizada sobre los tamaños de máquina virtual proporcionados por la plataforma, consulte [Tamaños de máquina virtual de Azure](http://msdn.microsoft.com/library/dn197896.aspx). Si necesita un volumen de disco adicional para las máquinas virtuales, puede conectar discos adicionales. Para obtener información, consulte [Acoplamiento de un disco de datos a una máquina virtual](storage-windows-attach-disk.md).
 
-- Ha establecido los nombres de máquina virtual "Máquina1" para la máquina virtual principal y "Máquina2" para la máquina virtual en espera en el Portal de Azure.
+- Ha establecido los nombres de máquina virtual "Machine1" para la máquina virtual principal y "Machine2" para la máquina virtual en espera en el Portal de Azure clásico.
 
 - Ha establecido la variable de entorno **ORACLE\_HOME** para que señale a la misma ruta de instalación de raíz de Oracle en las máquinas virtuales principal y en espera, como `C:\OracleDatabase\product\11.2.0\dbhome_1\database`.
 
@@ -313,7 +313,7 @@ A continuación, use el comando de inicio para iniciar una instancia:
 ##Crear una base de datos física en espera
 Esta sección se centra en los pasos que se deben realizar en Machine2 para preparar la base de datos física en espera.
 
-En primer lugar, necesitará un escritorio remoto en Machine2 a través del Portal de Azure.
+En primer lugar, necesitará un escritorio remoto en Machine2 a través del Portal de Azure clásico.
 
 A continuación, en el servidor de espera (Machine2), cree todas las carpetas necesarias para la base de datos en espera, por ejemplo, C:\\<YourLocalFolder>\\TEST. Mientras sigue este tutorial, asegúrese de que la estructura de carpetas coincida con la estructura de carpetas de Machine1 para mantener todos los archivos necesarios, como archivos de control, archivos de datos, archivos de registros de rehacer, archivos bdump y cdump. Además, puede definir las variables del entorno ORACLE\_HOME y ORACLE\_BASE en Machine2. Si no es así, deberá definirlos como una variable de entorno mediante el cuadro de diálogo Variables de entorno. Para tener acceso a este cuadro de diálogo, inicie la utilidad **System** haciendo doble clic en el icono del sistema del **Panel de control**; a continuación, haga clic en la pestaña **Avanzado** y elija **Variables de entorno**. Haga clic en el botón **Nuevo** en **Variables del sistema** para establecer las variables de entorno. Después de configurar las variables de entorno, cierre el símbolo del sistema de Windows existente y abra uno nuevo para ver los cambios.
 
@@ -625,4 +625,4 @@ Es recomendable habilitar la base de datos flashback en las bases de datos princ
 ##Recursos adicionales
 [Imágenes de máquina virtual de Oracle para Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

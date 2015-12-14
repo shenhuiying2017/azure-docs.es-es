@@ -18,7 +18,7 @@
 
 
 # Preparación de una máquina virtual basada en Red Hat para Azure
-En este artículo, aprenderá a preparar una máquina Virtual de Red Hat Enterprise Linux (RHEL) para usarla en Azure. Las versiones de RHEL tratadas en este artículo son 6.7 y 7.1, y los hipervisores para la preparación citados en este artículo son Hyper-V, KVM y VMWare.
+En este artículo, aprenderá a preparar una máquina Virtual de Red Hat Enterprise Linux (RHEL) para usarla en Azure. Las versiones de RHEL tratadas en este artículo son 6.7 y 7.1, y los hipervisores para la preparación citados en este artículo son Hyper-V, KVM y VMWare. Para obtener más información sobre los requisitos para poder participar en el programa de acceso a la nube de Red Hat, consulte el [sitio web de acceso a la nube de Red Hat](http://www.redhat.com/en/technologies/cloud-computing/cloud-access).
 
 
 
@@ -81,7 +81,7 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-9.	El paquete WALinuxAgent `WALinuxAgent-<version>` se insertó en el repositorio Fedora EPEL 6: Habilite el repositorio epel ejecutando el comando siguiente:
+9.	El paquete WALinuxAgent `WALinuxAgent-<version>` se insertó en el repositorio Fedora EPEL 6. Habilite el repositorio epel ejecutando el comando siguiente:
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -112,7 +112,7 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
         # sudo yum install WALinuxAgent
         # sudo chkconfig waagent on
 
-    **Tenga en cuenta** que al instalar el paquete WALinuxAgent se eliminarán los paquetes NetworkManager y NetworkManager-gnome, si es que aún no se han eliminado como se indica en el paso 2.
+    **Tenga en cuenta** que al instalar el paquete WALinuxAgent se eliminarán los paquetes NetworkManager y NetworkManager-gnome, si es que aún no se han eliminado tal como se indica en el paso 2.
 
 13.	No cree un espacio de intercambio en el disco del sistema operativo. El agente Linux de Azure puede configurar automáticamente un espacio de intercambio usando el disco de recursos local que se expone en la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
@@ -174,7 +174,7 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
         rhgb quiet crashkernel=auto
     Los arranques gráfico y silencioso no resultan útiles en un entorno de nube, donde queremos que todos los registros se envíen al puerto serie. Es posible dejar la opción crashkernel configurada si así se desea, pero tenga en cuenta que este parámetro reducirá la cantidad de memoria disponible en la máquina virtual en 128 MB o más, lo cual puede resultar problemático en tamaños de máquina virtual más reducidos.
 
-8.	Una vez que termine de editar `/etc/default/grub` como se indica antes, ejecute el comando siguiente para volver a compilar la configuración de grub:
+8.	Una vez que termine de editar `/etc/default/grub` tal como se indicó antes, ejecute el comando siguiente para volver a compilar la configuración de GRUB:
 
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
@@ -182,7 +182,7 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
 
         ClientAliveInterval 180
 
-10.	El paquete WALinuxAgent `WALinuxAgent-<version>` se insertó en el repositorio Fedora EPEL 6: Habilite el repositorio epel ejecutando el comando siguiente:
+10.	El paquete WALinuxAgent `WALinuxAgent-<version>` se insertó en el repositorio Fedora EPEL 6. Habilite el repositorio epel ejecutando el comando siguiente:
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
@@ -192,7 +192,7 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
         # sudo yum install WALinuxAgent
         # sudo systemctl enable waagent.service 
 
-12.	No cree espacio de intercambio en el disco del SO. El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el agente Linux de Azure (consulte el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
+12.	No cree espacio de intercambio en el disco del SO. El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -293,7 +293,7 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
 
 		# service sshd restart
 
-12.	El paquete WALinuxAgent `WALinuxAgent-<version>` se insertó en el repositorio Fedora EPEL 6: Habilite el repositorio epel ejecutando el comando siguiente:
+12.	El paquete WALinuxAgent `WALinuxAgent-<version>` se insertó en el repositorio Fedora EPEL 6. Habilite el repositorio epel ejecutando el comando siguiente:
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -393,7 +393,7 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
 
     Los arranques gráfico y silencioso no resultan útiles en un entorno de nube, donde queremos que todos los registros se envíen al puerto serie. Es posible dejar la opción crashkernel configurada si así se desea, pero tenga en cuenta que este parámetro reducirá la cantidad de memoria disponible en la máquina virtual en 128 MB o más, lo cual puede resultar problemático en tamaños de máquina virtual más reducidos.
 
-9.	Una vez que termine de editar `/etc/default/grub` como se indica antes, ejecute el comando siguiente para volver a compilar la configuración de grub:
+9.	Una vez que termine de editar `/etc/default/grub` tal como se indicó antes, ejecute el comando siguiente para volver a compilar la configuración de GRUB:
 
         # grub2-mkconfig -o /boot/grub2/grub.cfg
 
@@ -414,7 +414,7 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
 
         systemctl restart sshd	
 
-12.	El paquete WALinuxAgent `WALinuxAgent-<version>` se insertó en el repositorio Fedora EPEL 6: Habilite el repositorio epel ejecutando el comando siguiente:
+12.	El paquete WALinuxAgent `WALinuxAgent-<version>` se insertó en el repositorio Fedora EPEL 6. Habilite el repositorio epel ejecutando el comando siguiente:
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
@@ -427,7 +427,7 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
 
         # systemctl enable waagent.service
 
-14.	No cree espacio de intercambio en el disco del SO. El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el agente Linux de Azure (consulte el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
+14.	No cree espacio de intercambio en el disco del SO. El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -489,7 +489,7 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-3.	Cree un archivo llamado **ifcfg-eth0** en el directorio /etc/sysconfig/network-scripts/ que contenga el texto siguiente:
+3.	Cree un archivo denominado **ifcfg-eth0** en el directorio /etc/sysconfig/network-scripts/ que contenga el texto siguiente:
 
         DEVICE=eth0
         ONBOOT=yes
@@ -513,7 +513,7 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. 
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7.	El paquete WALinuxAgent `WALinuxAgent-<version>` se insertó en el repositorio Fedora EPEL 6: Habilite el repositorio epel ejecutando el comando siguiente:
+7.	El paquete WALinuxAgent `WALinuxAgent-<version>` se insertó en el repositorio Fedora EPEL 6. Habilite el repositorio epel ejecutando el comando siguiente:
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -542,7 +542,7 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. 
 
 11.	No cree un espacio de intercambio en el disco del sistema operativo:
     
-    El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el agente Linux de Azure (consulte el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
+    El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -585,7 +585,7 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-2.	Cree un archivo llamado **ifcfg-eth0** en el directorio /etc/sysconfig/network-scripts/ que contenga el texto siguiente:
+2.	Cree un archivo denominado **ifcfg-eth0** en el directorio /etc/sysconfig/network-scripts/ que contenga el texto siguiente:
 
         DEVICE=eth0
         ONBOOT=yes
@@ -615,7 +615,7 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. 
 
     Los arranques gráfico y silencioso no resultan útiles en un entorno de nube, donde queremos que todos los registros se envíen al puerto serie. Es posible dejar la opción crashkernel configurada si así se desea, pero tenga en cuenta que este parámetro reducirá la cantidad de memoria disponible en la máquina virtual en 128 MB o más, lo cual puede resultar problemático en tamaños de máquina virtual más reducidos.
 
-6.	Una vez que termine de editar `/etc/default/grub` como se indica antes, ejecute el comando siguiente para volver a compilar la configuración de grub:
+6.	Una vez que termine de editar `/etc/default/grub` tal como se indicó antes, ejecute el comando siguiente para volver a compilar la configuración de GRUB:
 
          # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
@@ -633,7 +633,7 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. 
 
         ClientAliveInterval 180
 
-9.	El paquete WALinuxAgent `WALinuxAgent-<version>` se insertó en el repositorio Fedora EPEL 6: Habilite el repositorio epel ejecutando el comando siguiente:
+9.	El paquete WALinuxAgent `WALinuxAgent-<version>` se insertó en el repositorio Fedora EPEL 6. Habilite el repositorio epel ejecutando el comando siguiente:
 
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
@@ -644,7 +644,7 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. 
         # sudo yum install WALinuxAgent
         # sudo systemctl enable waagent.service
 
-11.	No cree espacio de intercambio en el disco del SO. El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el agente Linux de Azure (consulte el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
+11.	No cree espacio de intercambio en el disco del SO. El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -798,11 +798,11 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. 
 
 2.	Coloque el archivo Kickstart en un lugar accesible desde el sistema de la instalación.
  
-3.	En el Administrador de Hyper-V, cree una nueva máquina virtual. En la página **Conectar disco duro virtual**, seleccione **Exponer un disco duro virtual más adelante** y complete el Asistente para crear nueva máquina virtual.
+3.	En el Administrador de Hyper-V, cree una nueva máquina virtual. En la página **Conectar disco duro virtual**, seleccione **Exponer un disco duro virtual más adelante** y complete el Asistente para crear una máquina virtual.
 
 4.	Abra la configuración de máquina virtual:
 
-    a. Exponga un nuevo disco duro virtual en la máquina virtual; asegúrese de seleccionar **Formato del disco duro virtual** y **Tamaño fijo**.
+    a. Adjunte un nuevo disco duro virtual en la máquina virtual y asegúrese de seleccionar **Formato del disco duro virtual** y **Tamaño fijo**.
     
     b. Exponga la imagen ISO de instalación en la unidad de DVD.
 
@@ -830,4 +830,4 @@ El problema es intermitente pero se produce más a menudo durante las operacione
 
     # sudo yum update
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

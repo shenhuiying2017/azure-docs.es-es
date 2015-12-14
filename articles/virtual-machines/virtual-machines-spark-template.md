@@ -47,7 +47,7 @@ Como se muestra en la imagen anterior, la topología de implementación consta d
 -	Cuatro nodos subordinados que se ejecutan en la misma subred virtual y en el conjunto de disponibilidad como nodo maestro.
 -	Una máquina virtual JumpBox que se encuentra en la misma red virtual y la subred que puede utilizarse para acceder al clúster.
 
-Spark versión 3.0.0 es la versión predeterminada y puede cambiarse a cualquier binario precompilado disponible en el repositorio de Spark. También hay una disposición en el script para quitar el comentario de la compilación en el código fuente. Se asignará una dirección IP estática a cada nodo maestro Spark: 10.0.0.10. Se asignará una dirección IP estática a cada nodo de esclavo Spark para solucionar la limitación actual de no poder crear dinámicamente una lista de direcciones IP desde dentro de la plantilla. (De forma predeterminada, al primer nodo se le asignará la dirección IP privada de 10.0.0.30, al segundo nodo se le asignará 10.0.0.31, y así sucesivamente). Para comprobar los errores de implementación, vaya al Portal de vista previa de Azure y busque en **Grupo de recursos** > **Última implementación** > **Comprobar detalles de la operación**.
+Spark versión 3.0.0 es la versión predeterminada y puede cambiarse a cualquier binario precompilado disponible en el repositorio de Spark. También hay una disposición en el script para quitar el comentario de la compilación en el código fuente. Se asignará una dirección IP estática a cada nodo maestro Spark: 10.0.0.10. Se asignará una dirección IP estática a cada nodo de esclavo Spark para solucionar la limitación actual de no poder crear dinámicamente una lista de direcciones IP desde dentro de la plantilla. (De forma predeterminada, al primer nodo se le asignará la dirección IP privada de 10.0.0.30, al segundo nodo se le asignará 10.0.0.31, y así sucesivamente). Para comprobar los errores de implementación, vaya al Portal de Azure y busque en **Grupo de recursos** > **Última implementación** > **Comprobar detalles de la operación**.
 
 Antes de entrar en más detalles relacionados con el Administrador de recursos de Azure y la plantilla que usaremos para esta implementación, asegúrese de que tiene Azure PowerShell o CLI de Azure configurados correctamente.
 
@@ -381,7 +381,7 @@ Parameters        :
 
 Durante la implementación y después de ella, puede comprobar todas las solicitudes realizadas durante el aprovisionamiento, incluidos todos los errores producidos.
 
-Para ello, vaya al [Portal de vista previa de Azure](https://portal.azure.com) y haga lo siguiente:
+Para ello, vaya al [Portal de Azure](https://portal.azure.com) y haga lo siguiente:
 
 - Haga clic en **Examinar** en la barra de navegación de la izquierda y, luego, desplácese hacia abajo y haga clic en **Grupos de recursos**.
 - Haga clic en el grupo de recursos que acaba de crear para abrir la hoja “Grupo de recursos”.
@@ -847,4 +847,4 @@ Descubra más [marcos de aplicaciones](virtual-machines-app-frameworks.md).
 
 [Solución de problemas de las implementaciones de plantillas](resource-group-deploy-debug.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

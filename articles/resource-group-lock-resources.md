@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="12/02/2015" 
 	ms.author="tomfitz"/>
 
 # Bloqueo de recursos con el Administrador de recursos de Azure
@@ -22,7 +22,7 @@ Como administrador, existen escenarios en los que deseará bloquear una suscripc
 
 El Administrador de recursos de Azure proporciona la capacidad para restringir las operaciones en los recursos a través de bloqueos de administración de recursos. Los bloqueos son directivas que aplican un nivel de bloqueo en un ámbito determinado. El ámbito puede ser una suscripción, un grupo de recursos o un recurso. El nivel de bloqueo identifica el tipo de cumplimiento para la directiva, que actualmente tiene dos valores: **CanNotDelete** y **ReadOnly**. **CanNotDelete** significa que los usuarios autorizados todavía pueden leer y modificar recursos, pero no pueden eliminar ninguno de los recursos restringidos. **ReadOnly** significa que los usuarios autorizados todavía pueden leer el recurso, pero no pueden modificar ni eliminar ninguno de los recursos restringidos.
 
-Los bloqueos son diferentes del uso del control de acceso basado en rol para asignar permisos de usuario para realizar determinadas acciones. Para obtener información sobre cómo establecer permisos para usuarios y roles, consulte [Control de acceso basado en roles en el portal de Microsoft Azure](role-based-access-control-configure.md) y [Administración y auditoría del acceso a los recursos](resource-group-rbac.md). Al contrario que con el control de acceso basado en rol, se usan los bloqueos de administración para aplicar una restricción a todos los usuarios y roles, y normalmente se aplican los bloqueos solo durante un tiempo limitado.
+Los bloqueos son diferentes del uso del control de acceso basado en rol para asignar permisos de usuario para realizar determinadas acciones. Para obtener información sobre cómo establecer permisos para usuarios y roles, consulte [Control de acceso basado en roles en el portal](role-based-access-control-configure.md) y [Administración y auditoría del acceso a los recursos](resource-group-rbac.md). Al contrario que con el control de acceso basado en rol, se usan los bloqueos de administración para aplicar una restricción a todos los usuarios y roles, y normalmente se aplican los bloqueos solo durante un tiempo limitado.
 
 ## Escenarios comunes
 
@@ -108,4 +108,4 @@ Azure PowerShell proporciona otros comandos para bloqueos de trabajo, como **Set
 - Para cambiar el grupo de recursos en que reside un recurso, consulte [Traslado de los recursos a un nuevo grupo de recursos](resource-group-move-resources.md).
 - Puede aplicar restricciones y convenciones a través de su suscripción con directivas personalizadas. Para obtener más información, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

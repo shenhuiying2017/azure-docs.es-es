@@ -70,7 +70,7 @@ Presione **ENTRAR** para cerrar la aplicación. En este punto, ha creado correct
 
 > [AZURE.NOTE]Si recibe errores como "valor no válido para la clave 'attachdbfilename'" o algún otro error relacionado con la base de datos, puede que se encuentre con conflictos de UAC. Para los fines de esta demostración, solucione estos errores haciendo lo siguiente: copie la solución en una carpeta nueva o existente (por ejemplo, Temp) que proporciona acceso a los usuarios autenticados. Utilice **Ejecutar como administrador** para iniciar Visual Studio. Abra la solución, compílela y, luego, presione **F5** para crear el índice.
 
-Para comprobar la creación de índices y la carga de documentos, vaya al panel del servicio Búsqueda en el [portal de administración de Azure](https://portal.azure.com). En Utilización, el recuento de índices debe haber subido en uno, y debe tener 294 documentos, uno por cada producto de la base de datos.
+Para comprobar la creación del índice y la carga de documentos, vaya al panel del servicio de búsqueda en el [Portal de Azure clásico](https://portal.azure.com). En Utilización, el recuento de índices debe haber subido en uno, y debe tener 294 documentos, uno por cada producto de la base de datos.
 
 Haga clic en el icono **Índices** para mostrar la lista de índices. La lista de índices se desliza para mostrar el nuevo recuento de índices y de documentos. Observe que puede tener hasta tres índices en el nivel de precios Gratis. Si ya tiene tres índices, tendrá que eliminar uno para liberar espacio para otros nuevos.
 
@@ -206,4 +206,4 @@ También puede revisar la [API de REST de Búsqueda de Azure](http://msdn.micros
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -56,7 +56,7 @@ La coherencia ocasional proporciona la coherencia de lectura más débil, pero o
 
 ### Cambio del nivel de coherencia de la base de datos
 
-1.  En la barra de accesos directos del [Portal de vista previa de Azure](https://portal.azure.com/), haga clic en **Cuentas de DocumentDB**.
+1.  En la barra de accesos directos del [Portal de Azure](https://portal.azure.com/), haga clic en **Cuentas de DocumentDB**.
 
 2. En la hoja **Cuentas de DocumentDB**, seleccione la cuenta de base de datos que se va a modificar.
 
@@ -88,4 +88,4 @@ Si desea leer más sobre los niveles de coherencia y los compromisos, recomendam
 -	Werner Vogels. Coherencia ocasional - Revisión. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

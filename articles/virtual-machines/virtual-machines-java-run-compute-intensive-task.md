@@ -48,7 +48,7 @@ A continuación se muestra un ejemplo de la aplicación Java que supervisa la ta
 
 ## Para crear una máquina virtual
 
-1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com).
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
 2. Haga clic en **Nuevo**, **Proceso**, **Máquina virtual** y, a continuación, en **Desde la galería**.
 3. En el cuadro de diálogo **Selección de imagen de máquina virtual**, seleccione **JDK 7 Windows Server 2012**. Tenga en cuenta que **JDK 6 Windows Server 2012** está disponible si tiene aplicaciones heredadas que aún no están preparadas para ejecutarse en JDK 7.
 4. Haga clic en **Siguiente**.
@@ -71,7 +71,7 @@ A continuación se muestra un ejemplo de la aplicación Java que supervisa la ta
 
 ## Para iniciar sesión de manera remota en la máquina virtual
 
-1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com).
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
 2. Haga clic en **Máquinas virtuales**.
 3. Haga clic en el nombre de la máquina virtual en la que desea iniciar sesión.
 4. Haga clic en **Conectar**.
@@ -85,13 +85,13 @@ Para comenzar a usar colas del Bus de servicio en Azure, primero debe crear un e
 
 Para crear un nombre de espacio de servicio:
 
-1.  Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com).
-2.  En el panel de navegación inferior izquierdo del Portal de Azure, haga clic en **Bus de servicio, Control de acceso y Caché**.
-3.  En el panel superior izquierdo del Portal de Azure, haga clic en el nodo **Bus de servicio** y luego en el botón **Nuevo**. ![Captura de pantalla del nodo Service Bus][svc_bus_node]
+1.  Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
+2.  En el panel de navegación inferior izquierdo del Portal de Azure clásico, haga clic en **Bus de servicio, Control de acceso y Caché**.
+3.  En el panel superior izquierdo del Portal de Azure clásico, haga clic en el nodo **Bus de servicio** y luego en el botón **Nuevo**. ![Captura de pantalla del nodo Service Bus][svc_bus_node]
 4.  En el cuadro de diálogo **Crear un espacio de nombres de servicio nuevo**, escriba un **Espacio de nombres** y luego, para asegurarse de que es único, haga clic en el botón **Comprobar disponibilidad**.![Captura de pantalla de la creación de un nuevo espacio de nombres][create_namespace]
 5.  Después de asegurarse de que el nombre del espacio de nombres está disponible, elija el país o región en el que debería alojarse el espacio de nombres y, a continuación, haga clic en el botón **Crear espacio de nombres**.  
 
-    El espacio de nombres que creó aparecerá a continuación en el Portal de Azure y tardará un poco en activarse. Espere hasta que el estado sea **Activo** antes de continuar con el siguiente paso.
+    El espacio de nombres que creó aparecerá a continuación en el Portal de Azure clásico y tardará un poco en activarse. Espere hasta que el estado sea **Activo** antes de continuar con el siguiente paso.
 
 ## Obtención de credenciales de administración predeterminadas para el espacio de nombres
 
@@ -520,4 +520,4 @@ En ambas aplicaciones, el solucionador y el cliente, presione **Ctrl+C** para sa
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

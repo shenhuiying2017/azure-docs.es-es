@@ -71,4 +71,12 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.json' -e 'c:\lb\azuredeploy.parameters.json'
 
-<!---HONumber=AcomDC_1125_2015-->
+## Pasos siguientes
+
+[Introducción a la configuración de un equilibrador de carga interno](load-balancer-internal-getstarted.md)
+
+[Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)
+
+[Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
+
+<!---HONumber=AcomDC_1203_2015-->

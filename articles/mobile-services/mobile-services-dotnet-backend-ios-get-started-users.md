@@ -18,9 +18,14 @@
 
 # Incorporación de autenticación a una aplicación de Servicios móviles de Azure existente
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades admitido. Este tutorial está basado en el [Tutorial de inicio rápido de Servicios móviles], que debe completar primero.
+En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades admitido. Este tutorial está basado en el [Tutorial de introducción a Servicios móviles], que debe completar primero.
 
 ##<a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios móviles
 
@@ -55,13 +60,11 @@ En el siguiente tutorial, [Autorización en el servicio de usuarios de Servicios
 
 <!-- URLs. -->
 [Autorización en el servicio de usuarios de Servicios móviles]: mobile-services-dotnet-backend-service-side-authorization.md
-[Tutorial de inicio rápido de Servicios móviles]: mobile-services-dotnet-backend-ios-get-started.md
+[Tutorial de introducción a Servicios móviles]: mobile-services-dotnet-backend-ios-get-started.md
 [Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
-[Authorize users with scripts]: ../mobile-services-dotnet-backend-ios-authorize-users-in-scripts.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

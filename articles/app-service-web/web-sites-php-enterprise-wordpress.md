@@ -134,7 +134,7 @@ Use una de las siguientes secciones para migrar el sitio.
 
 6. Haga clic en **Enviar**. Se mostrará un mensaje indicando que la importación se realizó correctamente.
 
-8. Una vez que haya realizado todos estos pasos, reinicie el sitio desde la hoja de la aplicación web en el [Portal de vista previa de Azure][mgmtportal].
+8. Una vez que haya realizado todos estos pasos, reinicie el sitio desde la hoja del [Portal de Azure][mgmtportal] correspondiente a la aplicación web.
 
 Después de importar el sitio, puede que necesite realizar los pasos siguientes para habilitar la configuración no contenida en el archivo de importación.
 
@@ -161,7 +161,7 @@ Si usaba esto... | Haga esto...
 
 4. Cree una aplicación web nueva en el Portal de Azure y publique la copia de seguridad de WordPress.
 
-	1. Cree una aplicación web nueva en el [Portal de vista previa de Azure][mgmtportal] con una base de datos usando **Nuevo** -> **Web + móvil** -> **Azure Marketplace** -> **Aplicaciones web** -> **Aplicación web + SQL** (o **Aplicación web + MySQL**) -> **Crear**. Configure todos los ajustes necesarios para crear una aplicación web vacía.
+	1. Cree una aplicación web nueva en el [Portal de Azure][mgmtportal] con una base de datos usando **Nuevo** -> **Web y móvil** -> **Azure Marketplace** -> **Aplicaciones web** -> **Aplicación web y SQL** (o **Aplicación web y MySQL**) -> **Crear**. Configure todos los ajustes necesarios para crear una aplicación web vacía.
 
 	2. En la copia de seguridad de WordPress, busque el archivo **wp-config.php** y ábralo en un editor. Reemplace las entradas siguientes con la información de la nueva base de datos MySQL.
 
@@ -236,7 +236,6 @@ Para hacer esto... | Use esto...
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Para obtener una guía del cambio del portal al de vista previa, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 [performance-diagram]: ./media/web-sites-php-enterprise-wordpress/performance-diagram.png
 [basic-diagram]: ./media/web-sites-php-enterprise-wordpress/basic-diagram.png
@@ -283,4 +282,4 @@ Para hacer esto... | Use esto...
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

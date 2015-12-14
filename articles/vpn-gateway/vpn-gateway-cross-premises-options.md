@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/05/2015"
+   ms.date="12/01/2015"
    ms.author="cherylmc" />
 
 # Acerca de la conectividad segura entre locales de redes virtuales
 
-Si desea conectar los sitios locales de forma segura a una red virtual, existen tres opciones: [de sitio a sitio](#site-to-site-connections), [de punto a sitio](#point-to-site-connections) y [ExpressRoute](#expressroute-connections).
+Si quiere conectar los sitios locales de forma segura a una red virtual, existen tres opciones: [de sitio a sitio](#site-to-site-connections), [de punto a sitio](#point-to-site-connections) y [ExpressRoute](#expressroute-connections).
 
 La opción que elija dependerá de varios factores, como, por ejemplo:
 
@@ -31,20 +31,8 @@ La opción que elija dependerá de varios factores, como, por ejemplo:
 
 La tabla siguiente puede ayudarle a decidir la mejor opción de conectividad para su solución.
 
-| -                            | **De punto a sitio**                                                                   | **De sitio a sitio**                                                                                              | **ExpressRoute - EXP**                                                                                                                      | **ExpressRoute - NSP**                                                                                                                      |
-|------------------------------|---------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| **Servicios compatibles con Azure** | Máquinas virtuales de servicios en la nube                                                  | Máquinas virtuales de servicios en la nube                                                                           | [Lista de servicios](../expressroute/expressroute-faqs.md#supported-azure-services)                                                                                                                | [Lista de servicios](../expressroute/expressroute-faqs.md#supported-azure-services)                                                                                                                |
-| **Anchos de banda típicos**       | Normalmente < 100 Mbps agregados                                                  | Normalmente < 100 Mbps agregados                                                                            | 200 Mbps, 500 Mbps, 1 Gbps y 10 Gbps                                                                                                  | 110 Mbps, 50 Mbps, 100 Mbps, 500 Mbps, 1 Gbps                                                                                            |
-| **Protocolos admitidos**      | Protocolo de túnel de Sockets seguros (SSTP)                                        | [IPsec](http://go.microsoft.com/fwlink/p/?LinkId=618592)                                                                       | Conexión directa a través de redes VLAN                                                                                                            | Tecnologías de proveedores de servicios de red VPN (MPLS, VPLS...)                                                                                                  |
-| **Enrutamiento**                  | Estático                                                                          | Estático: se admite el enrutamiento basado en directivas y VPN de enrutamiento dinámico basado en ruta                    | BGP                                                                                                                                     | BGP                                                                                                                                     |
-| **Resistencia de la conexión**    | activo-pasivo                                                                  | activo-pasivo                                                                                            | activo-activo                                                                                                                           | activo-activo                                                                                                                           |
-| **Caso de uso típico**         | Creación de prototipos, escenarios de laboratorio, desarrollo y prueba para servicios en la nube y máquinas virtuales  | scenarios de laboratorio, desarrollo y prueba y cargas de trabajo de producción a pequeña escala para máquinas virtuales y servicios en la nube | Acceso a todos los servicios de Azure (lista validada), cargas de trabajo críticas y de clase empresarial, copia de seguridad, datos de gran tamaño, Azure como sitio de recuperación ante desastres | Acceso a todos los servicios de Azure (lista validada), cargas de trabajo críticas y de clase empresarial, copia de seguridad, datos de gran tamaño, Azure como sitio de recuperación ante desastres |
-| **SLA**                      | [SLA](https://azure.microsoft.com/support/legal/sla/)                           | [SLA](https://azure.microsoft.com/support/legal/sla/)                                                     | [SLA](https://azure.microsoft.com/support/legal/sla/)                                                                                   | [SLA](https://azure.Microsoft.com/support/legal/sla/)                                                                                   |
-| **Precios**                  | [Precios](http://azure.microsoft.com/pricing/details/vpn-gateway/)              | [Precios](http://azure.microsoft.com/pricing/details/vpn-gateway/)                                             | [Precios](http://azure.microsoft.com/pricing/details/expressroute/)                                                                           | [Precios](http://azure.microsoft.com/pricing/details/expressroute/)                                                                           |
-| **Documentación técnica**  | [Documentación de puerta de enlace de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/)                                               | [Documentación de puerta de enlace de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/)                                                                         | [Documentación de ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)                                                                                                      | [Documentación de ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)                                                                                                      |
-| **Preguntas más frecuentes**                      | [Preguntas más frecuentes de la puerta de enlace de VPN](vpn-gateway-vpn-faq.md)                                                         | [Preguntas más frecuentes de la puerta de enlace de VPN](vpn-gateway-vpn-faq.md)                                                                                   | [Preguntas más frecuentes de ExpressRoute](../expressroute/expressroute-faqs.md)                                                                                                                | [Preguntas más frecuentes de ExpressRoute](../expressroute/expressroute-faqs.md)                                                                                                                |
-                                                                                 
 
+| - | **De punto a sitio** | **De sitio a sitio** | **ExpressRoute** | |------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------| | **Servicios compatibles con Azure** | Servicios en la nube y máquinas virtuales | Servicios en la nube y máquinas virtuales | [Lista de servicios](../expressroute/expressroute-faqs.md#supported-services) | | **Anchos de banda habituales** | Normalmente < 100 Mbps agregados | Normalmente < 100 Mbps agregados | 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps | | **Protocolos admitidos** | Protocolo de túnel de sockets seguros (SSTP) | IPsec | Conexión directa a través de VLAN, tecnologías VPN de NSP (MPLS, VPLS, etc.) | | **Enrutamiento** | Basado en rutas (dinámico) | Se admite basado en directivas (enrutamiento estático) y basado en rutas (VPN de enrutamiento dinámico) | BGP | | **Resistencia de la conexión** | activa-pasiva | activa-pasiva | activa-activa | | **Caso de uso habitual** | Creación de prototipos, escenarios de desarrollo, pruebas o laboratorio para servicios en la nube y máquinas virtuales | Escenarios de desarrollo, pruebas o laboratorio y cargas de trabajo de producción de pequeña escala para servicios en la nube y máquinas virtuales | Acceso a todos los servicios de Azure (lista validada), cargas de trabajo críticas y de clase empresarial, copia de seguridad, macrodatos, Azure como un sitio DR | | **Contrato de nivel de servicio** | [Contrato de nivel de servicio](https://azure.microsoft.com/support/legal/sla/) | [Contrato de nivel de servicio](https://azure.microsoft.com/support/legal/sla/) | [Contrato de nivel de servicio](https://azure.microsoft.com/support/legal/sla/) | | **Precios** | [Precios](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [Precios](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [Precios](http://azure.microsoft.com/pricing/details/expressroute/) | | **Documentación técnica** | [Documentación de la puerta de enlace de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentación de la puerta de enlace de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentación de ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) | | **Preguntas más frecuentes ** | [Preguntas más frecuentes de puerta de la enlace de VPN](vpn-gateway-vpn-faq.md) | [Preguntas más frecuentes de puerta de la enlace de VPN](vpn-gateway-vpn-faq.md) | [Preguntas más frecuentes de ExpressRoute](../expressroute/expressroute-faqs.md) |
 
 
 ## Conexiones de sitio a sitio
@@ -60,14 +48,14 @@ Una VPN de sitio a sitio permite crear una conexión segura entre el sitio local
 **Requisitos**
 
 - El dispositivo VPN local debe tener una dirección IP del tipo IPv4 accesible desde Internet. Ésta no puede estar detrás de un NAT.
-- Debe tener un dispositivo VPN que sea compatible. Consulte [Información acerca de los dispositivos VPN](http://go.microsoft.com/fwlink/p/?LinkID=615099). 
-- El dispositivo VPN que use debe ser compatible con el tipo de puerta de enlace que se requiere para la solución. Consulte [Información acerca de las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md).
-- La SKU de la puerta de enlace también afectará al rendimiento agregado. Para obtener más información, consulte [SKU de puertas de enlace](vpn-gateway-about-vpngateways.md#gateway-skus). 
+- Debe tener un dispositivo VPN que sea compatible. Consulte [Acerca de los dispositivos VPN](http://go.microsoft.com/fwlink/p/?LinkID=615099). 
+- El dispositivo VPN que use debe ser compatible con el tipo de puerta de enlace que se requiere para la solución. Consulte [Acerca de las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md).
+- La SKU de la puerta de enlace también afectará al rendimiento agregado. Consulte [SKU de puertas de enlace](vpn-gateway-about-vpngateways.md#gateway-skus) para más información. 
 
-Para obtener más información acerca de cómo configurar una conexión de puerta de enlace de VPN de sitio a sitio, vea [Configurar una red virtual con una conexión VPN de sitio a sitio](vpn-gateway-site-to-site-create.md).
+Para obtener información sobre cómo configurar una conexión de puerta de enlace de VPN de sitio a sitio con el Portal de Azure clásico y el modelo de implementación clásico, vea [Configurar una red virtual con una conexión VPN de sitio a sitio](vpn-gateway-site-to-site-create.md). Para obtener información sobre cómo configurar una VPN de sitio a sitio con el modelo de implementación de Administrador de recursos, vea [Crear una red virtual con una conexión VPN de sitio a sitio](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 
-## Conexiones punto a sitio
+## Conexiones de punto a sitio
 
 Una VPN de punto a sitio también permite crear una conexión segura con la red virtual. En una configuración de punto a sitio, la conexión se configura individualmente en cada equipo cliente que desee conectar a la red virtual. Las conexiones de punto a sitio no requieren ningún dispositivo VPN. Este tipo de conexión usa un cliente VPN que debe instalar en cada equipo cliente. La VPN se establece iniciando manualmente la conexión desde el equipo cliente local.
 
@@ -85,7 +73,7 @@ Si bien las configuraciones de punto a sitio y de sitio a sitio pueden existir s
 
 - En caso de que no tenga acceso a una dirección IP del tipo IPv4 accesible desde Internet para el dispositivo VPN.
 
-Para obtener más información acerca de cómo configurar una conexión de punto a sitio, consulte [Configurar una conexión VPN de punto a sitio con una red virtual](vpn-gateway-point-to-site-create.md).
+Para más información sobre cómo configurar una conexión de punto a sitio, consulte [Configurar una conexión VPN de punto a sitio con una red virtual](vpn-gateway-point-to-site-create.md).
 
 ## Conexiones de ExpressRoute
 
@@ -93,11 +81,11 @@ Azure ExpressRoute permite crear conexiones privadas entre los centros de datos 
 
 En algunos casos, el uso de conexiones de ExpressRoute para transferir datos entre dispositivos locales y Azure también puede aportar beneficios económicos importantes. Con ExpressRoute, se pueden establecer conexiones con Azure en una ubicación de ExpressRoute (utilidad de proveedor de intercambio) o se puede conectar directamente a Azure desde la red WAN existente (como una VPN MPLS) suministrada por un proveedor de servicios de red.
 
-Para obtener más información sobre ExpressRoute, consulte la [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md).
+Para más información sobre ExpressRoute, consulte la [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md).
 
 
 ## Pasos siguientes
 
-Consulte las [Preguntas más frecuentes sobre ExpressRoute](../expressroute/expressroute-faqs.md) y las [Preguntas más frecuentes de la puerta de enlace de VPN](vpn-gateway-vpn-faq.md) para obtener más información.
+Consulte las [Preguntas más frecuentes sobre ExpressRoute](../expressroute/expressroute-faqs.md) y las [Preguntas más frecuentes de la puerta de enlace de VPN](vpn-gateway-vpn-faq.md) para más información.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

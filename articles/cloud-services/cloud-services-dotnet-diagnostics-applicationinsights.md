@@ -32,7 +32,7 @@ Siga estos pasos para configurar el proyecto del servicio en la nube para enviar
 
 ![Diseñador de roles Enviar datos de diagnóstico a application insights][2]
 
-(3) En el cuadro de diálogo que aparece, seleccione el recurso de Application Insights al que le gustaría enviar los datos de Diagnósticos de Azure. El cuadro de diálogo le permite seleccionar un recurso existente de Application Insights de su suscripción o especificar manualmente una clave de instrumentación para un recurso de Application Insights. Si no tiene un recurso existente de Application Insights, puede crear uno haciendo clic en el vínculo **Crear un nuevo recurso**. Esta acción abrirá una ventana del explorador en el portal de Azure donde puede crear un recurso de Application Insights. Para obtener más información sobre la creación de un recurso de Application Insights, consulte [Creación de un nuevo recurso de Application Insights](app-insights-create-new-resource.md).
+(3) En el cuadro de diálogo que aparece, seleccione el recurso de Application Insights al que le gustaría enviar los datos de Diagnósticos de Azure. El cuadro de diálogo le permite seleccionar un recurso existente de Application Insights de su suscripción o especificar manualmente una clave de instrumentación para un recurso de Application Insights. Si no tiene un recurso existente de Application Insights, puede crear uno haciendo clic en el vínculo **Crear un nuevo recurso**. Esta acción abrirá una ventana del explorador en el Portal de Azure clásico, donde puede crear un recurso de Application Insights. Para obtener más información sobre la creación de un recurso de Application Insights, consulte [Creación de un nuevo recurso de Application Insights](app-insights-create-new-resource.md).
 
 ![seleccionar recurso de application insights][3]
 
@@ -57,17 +57,17 @@ A continuación se muestra cómo los distintos tipos de registro de Diagnóstico
 
 Para ver de datos de Diagnósticos de Azure en Application Insights:
 
-- Utilice el [Explorador de métricas](https://azure.microsoft.com/documentation/articles/app-insights-metrics-explorer/) para visualizar los contadores de rendimiento personalizados o los recuentos de diferentes tipos de eventos de registro de eventos de Windows.
+- Use el [Explorador de métricas](../application-insights/app-insights-metrics-explorer.md) para visualizar los contadores de rendimiento personalizados o los recuentos de diferentes tipos de eventos de registro de eventos de Windows.
 
 ![Métricas personalizadas en el Explorador de métricas][5]
 
-- Utilice [Buscar](https://azure.microsoft.com/documentation/articles/app-insights-diagnostic-search/) para buscar en los distintos registros de seguimiento enviados por Diagnósticos de Azure. Por ejemplo, si tenía una excepción no controlada en un rol que provocó el bloqueo de dicho rol y recicla esa información, aparecería en el canal *Aplicación* del *registro de eventos de Windows*. Puede utilizar la funcionalidad Buscar para ver el error del registro de eventos de Windows y obtener el seguimiento de la pila completo para la excepción, lo que le permite encontrar la causa raíz del problema. 
+- Use la [Búsqueda](../application-insights/app-insights-diagnostic-search.md) para buscar en los distintos registros de seguimiento enviados por Diagnósticos de Azure. Por ejemplo, si tenía una excepción no controlada en un rol que provocó el bloqueo de dicho rol y recicla esa información, aparecería en el canal *Aplicación* del *registro de eventos de Windows*. Puede utilizar la funcionalidad Buscar para ver el error del registro de eventos de Windows y obtener el seguimiento de la pila completo para la excepción, lo que le permite encontrar la causa raíz del problema. 
 
 ![Buscar seguimientos][6]
 
 ## Pasos siguientes
 
-- [Agregar el SDK de Application Insights a su servicio en la nube](https://azure.microsoft.com/documentation/articles/app-insights-cloudservices/) para enviar datos acerca de solicitudes, excepciones, dependencias y cualquier telemetría personalizada desde la aplicación. Junto con los datos de Diagnósticos de Azure puede obtener una vista completa de la aplicación y el sistema en el mismo recurso de Application Insights.  
+- [Agregar el SDK de Application Insights a su servicio en la nube](../application-insights/app-insights-cloudservices.md) para enviar datos acerca de solicitudes, excepciones, dependencias y cualquier telemetría personalizada desde la aplicación. Junto con los datos de Diagnósticos de Azure puede obtener una vista completa de la aplicación y el sistema en el mismo recurso de Application Insights.  
 
 
 <!--Image references-->
@@ -78,4 +78,4 @@ Para ver de datos de Diagnósticos de Azure en Application Insights:
 [5]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/metrics-explorer-custom-metrics.png
 [6]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/search-windowseventlog-error.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

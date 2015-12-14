@@ -36,7 +36,7 @@ El procedimiento siguiente hace referencia a la información contenida en dichas
 
 ## Crear una nueva red virtual de Azure entre locales mediante el uso de los valores de las tablas de configuración
 
-1. Inicie sesión en el [Portal de Azure].
+1. Inicie sesión en el [Portal de Azure clásico].
 2. En la barra de tareas, haga clic en **Nuevo > Servicios de red > Red virtual > Creación personalizada**.
 3. En la página **Detalles de redes virtuales**:
 	- En **Nombre**, escriba el nombre del Elemento 1 de la tabla V.
@@ -69,4 +69,4 @@ El procedimiento siguiente hace referencia a la información contenida en dichas
 
 [Configurar una conexión sitio a sitio entre entornos a una red virtual de Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,11 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/09/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
 
 # Introducción a la API de informes de Azure AD
+
+## Artículos de documentación de informes
+
+ - [API de Informes](active-directory-reporting-api-getting-started.md)
+ - [Eventos de auditoría](active-directory-reporting-audit-events.md)
+ - [Retención](active-directory-reporting-retention.md)
+ - [Vistas previas](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [Reposición](active-directory-reporting-backfill.md)
+ - [Latencias](active-directory-reporting-latencies.md)
+ - [Evento "Actor desconocido"](active-directory-reporting-unknown-actor.md)
 
 Azure Active Directory proporciona una variedad de informes de actividad, seguridad y auditoría. Estos datos se pueden consumir a través del Portal de Azure, pero también pueden ser muy útiles en muchas otras aplicaciones, como los sistemas SIEM y herramientas de auditoría y de inteligencia empresarial.
 
@@ -168,4 +179,4 @@ El script devuelve listas de todos los informes disponibles y devuelve los resul
 - Consulte [Eventos del informe de auditoría de Azure AD](active-directory-reporting-audit-events.md) para obtener más detalles sobre el informe de auditoría.
 - Consulte [Informes y eventos de Azure AD (vista previa)](https://msdn.microsoft.com/library/azure/mt126081.aspx) para obtener más detalles sobre el servicio REST de API Graph.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -46,7 +46,7 @@ Mediante este tutorial, se compilará una aplicación web de registro sencilla e
 Siga estos pasos para crear una aplicación web y una base de datos MySQL:
 
 1. Inicie sesión en el [Portal de Azure][management-portal].
-2. Haga clic en el icono **Nuevo** situado en la parte inferior izquierda del portal.
+2. Haga clic en el icono **+Nuevo**, situado en la parte inferior izquierda del portal.
 
 	![Crear un sitio web de Azure][new-website]
 
@@ -300,4 +300,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

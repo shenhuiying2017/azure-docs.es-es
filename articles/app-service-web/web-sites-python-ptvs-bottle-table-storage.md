@@ -69,11 +69,9 @@ Necesita una cuenta de almacenamiento de Azure para usar operaciones de almacena
 
 1.  Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
-2. Haga clic en el icono **Nuevo** situado en la parte superior izquierda del portal y haga clic en **Datos + Almacenamiento** > **Cuenta de almacenamiento**. Haga clic en el botón **Crear** y, a continuación, asigne un nombre único a la cuenta de almacenamiento y cree un [grupo de recursos](../resource-group-overview.md) nuevo para ella.
+2. Haga clic en el icono **Nuevo** situado en la parte superior izquierda del portal y haga clic en **Datos y almacenamiento** > **Cuenta de almacenamiento**. Haga clic en el botón **Crear** y, a continuación, asigne un nombre único a la cuenta de almacenamiento y cree un [grupo de recursos](../resource-group-overview.md) nuevo para ella.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
-
-	Una vez creada la cuenta de almacenamiento, el botón **Notificaciones** emitirá el mensaje **CORRECTO** en color verde y la hoja de la cuenta de almacenamiento se abrirá para mostrar que pertenece al nuevo grupo de recursos que ha creado.
+  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->Una vez creada la cuenta de almacenamiento, el botón **Notificaciones** emitirá el mensaje **CORRECTO** en color verde y la hoja de la cuenta de almacenamiento se abrirá para mostrar que pertenece al nuevo grupo de recursos que ha creado.
 
   	<!-- ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png) -->
 
@@ -189,7 +187,6 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
@@ -217,4 +214,4 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 [SDK de Azure para Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

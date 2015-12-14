@@ -66,4 +66,4 @@ Puede usar Remove-AzureEndpoint para quitar un punto de conexión de la máquina
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

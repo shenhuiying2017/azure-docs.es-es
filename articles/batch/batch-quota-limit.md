@@ -41,7 +41,7 @@ Tareas por nodo de proceso|4 × número de núcleos de nodo
 
 ## Visualización de las cuotas de Lote
 
-Vea las cuotas de la cuenta de Lote en el [Portal de vista previa de Azure](https://portal.azure.com).
+Vea las cuotas de la cuenta de Lote en el [Portal de Azure](https://portal.azure.com).
 
 1. En el Portal de vista previa, haga clic en **Cuentas de Lote** y luego en el nombre de la cuenta de Lote.
 
@@ -53,7 +53,7 @@ Vea las cuotas de la cuenta de Lote en el [Portal de vista previa de Azure](http
 
 ## Aumento de la cuota
 
-Use los pasos siguientes para solicitar un aumento de la cuota en el Portal de vista previa de Azure (también puede solicitar un aumento en el [Portal de Azure](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)).
+Use los pasos siguientes para solicitar un aumento de la cuota en el Portal de Azure (también puede solicitar un aumento en el [Portal de Azure clásico](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)).
 
 1. En el panel del Portal de vista previa, haga clic en **Ayuda y soporte técnico**.
 
@@ -95,4 +95,4 @@ El servicio de soporte técnico de Azure se pondrá en contacto con usted. Compl
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

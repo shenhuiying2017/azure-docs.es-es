@@ -86,7 +86,7 @@ Justo debajo de la sección **ServiceManifestImport**, configure una directiva p
 
 Ahora agreguemos el archivo MySetup.bat al proyecto de Visual Studio para probar los privilegios de administrador. En Visual Studio, haga clic con el botón derecho en el proyecto de servicio y agregue un nuevo archivo llamado MySetup.bat. A continuación, es necesario asegurarse de que este archivo se incluye en el paquete de servicio, ya que esto no está especificado de forma predeterminada. Para asegurarse de que el archivo MySetup.bat se incluye en el paquete, seleccione el archivo, haga clic con el botón derecho para que aparezca el menú contextual, elija Propiedades y en el cuadro de diálogo correspondiente asegúrese de que la opción **Copiar en el directorio de salida** está establecida como **Copiar si es posterior**. Esto se muestra en la captura de pantalla siguiente.
 
-![CopyToOutput de Visual Studio para el archivo por lotes de SetupEntryPoint][Image1]
+![CopyToOutput de Visual Studio para el archivo por lotes de SetupEntryPoint][image1]
 
 Ahora abra el archivo MySetup.bat y agregue los siguientes comandos.
 
@@ -97,16 +97,14 @@ echo System TestVariable set to > test.txt
 echo %TestVariable% >> test.txt
 
 REM To delete this system variable us
-REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
+REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ~~~
 
-A continuación, compile e implemente la solución en un clúster de desarrollo local. Una vez iniciado el servicio, tal como se muestra en el explorador de Service Fabric, puede ver que la ejecución de MySetup.bat fue correcta de dos maneras. Abra un símbolo del sistema de PowerShell y escriba
+A continuación, compile e implemente la solución en un clúster de desarrollo local. Una vez iniciado el servicio, tal como se muestra en el explorador de Service Fabric, puede ver que la ejecución de MySetup.bat fue correcta de dos maneras. Apertura de un símbolo del sistema de PowerShell y escritura
+
 ~~~
- [Environment]::GetEnvironmentVariable("TestVariable","Machine")
-~~~
-De esta forma
-~~~
-PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue
+PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
+MyValue
 ~~~
 
 En segundo lugar, anote el nombre del nodo en el que el servicio se implementó e inició en el explorador de Service Fabric, por ejemplo, Nodo 1 y, a continuación, navegue hasta la carpeta de trabajo de la instancia de aplicación para buscar el archivo out.txt que muestra el valor de **TestVariable**. Por ejemplo, si se implementó en el nodo 2, puede ir a esta ruta de acceso para ver el valor de MyApplicationType
@@ -292,4 +290,4 @@ El siguiente manifiesto de aplicación muestra muchas de las diferentes configur
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

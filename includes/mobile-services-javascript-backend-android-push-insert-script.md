@@ -1,5 +1,5 @@
 
-1. En el Portal de administración, haga clic en la pestaña **Datos** y luego en la tabla **TodoItem**. 
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en la pestaña **Datos** y luego en la tabla **TodoItem**. 
  
 2. En **todoitem**, haga clic en la pestaña **Script** y seleccione **Insertar**.
    
@@ -37,4 +37,4 @@
 
    	Esto registra un nuevo script de inserción, que usa el [objeto gcm](http://go.microsoft.com/fwlink/p/?LinkId=282645) para enviar una notificación push a todos los dispositivos registrados después de que se realiza la inserción.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

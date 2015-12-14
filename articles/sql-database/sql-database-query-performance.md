@@ -25,7 +25,7 @@ La administración y ajuste del rendimiento de las bases de datos relacionales s
 - Las consultas que más DTU consumen, que potencialmente pueden ajustarse para mejorar el rendimiento. 
 - La capacidad de profundizar en los detalles de una consulta.
 
-> [AZURE.NOTE]Query Performance Insight se encuentra actualmente en vista previa y solo está disponible en el [Portal de vista previa de Azure](https://portal.azure.com/).
+> [AZURE.NOTE]Información de rendimiento de consultas es actualmente una versión preliminar y solo está disponible en el [Portal de Azure](https://portal.azure.com/).
 
 
 
@@ -62,7 +62,7 @@ Query Performance Insight es fácil de usar:
 
 ## Revisión de las consultas que más DTU consumen
 
-En el [portal de vista previa](https://portal.azure.com) realice estas acciones:
+En el [portal](https://portal.azure.com), realice estas acciones:
 
 1. Navegue a una base de datos SQL y haga clic en **Query Performance Insight**. 
 
@@ -109,4 +109,4 @@ Consulte el [Asesor de índices](sql-database-index-advisor.md) para obtener má
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

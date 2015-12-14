@@ -18,6 +18,11 @@
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 ##Información general
@@ -155,7 +160,7 @@ Una vez que haya registrado su aplicación con APNS y haya configurado su proyec
 
     Anote el nombre de archivo y la ubicación del certificado exportado.
 
-2. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, haga clic en la aplicación.
+2. Inicie sesión en el [Portal de Azure clásico], haga clic en **Servicios móviles** y luego haga clic en la aplicación.
 
     ![][18]
 
@@ -275,9 +280,9 @@ El servicio móvil está configurado ahora para que funcione con APNS.
 
 Ahora su aplicación está actualizada para que sea compatible con las notificaciones push.
 
-## <a name="update-scripts"></a>Actualización del script de inserción registrado en el Portal de administración
+## <a name="update-scripts"></a>Actualización del script de inserción registrado en el Portal de Azure clásico
 
-1. En el Portal de administración, haga clic en la pestaña **Datos** y luego en la tabla **TodoItem**.
+1. En el [Portal de Azure clásico], haga clic en la pestaña **Datos** y luego en la tabla **TodoItem**.
 
     ![][21]
 
@@ -392,10 +397,10 @@ Ha completado correctamente este tutorial.
 [Aprovisionamiento de dispositivos Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
 
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [objeto apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Componente de Servicios móviles de Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

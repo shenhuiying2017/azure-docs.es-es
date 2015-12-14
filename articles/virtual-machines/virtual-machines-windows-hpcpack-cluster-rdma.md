@@ -71,7 +71,7 @@ Los siguientes son los pasos para enviar ráfagas a instancias de A8 o A9 de Azu
 
 6. **Crear un nuevo servicio en la nube y una cuenta de almacenamiento**
 
-    Use el Portal de Azure para crear un servicio en la nube y una cuenta de almacenamiento para implementar en una región donde haya disponibles instancias de proceso intensivo. (No asocie el servicio en la nube y la cuenta de almacenamiento con un grupo de afinidad existente que se use para otras implementaciones).
+    Use el Portal de Azure clásico para crear un servicio en la nube y una cuenta de almacenamiento para implementar en una región donde haya disponibles instancias de proceso intensivo. (No asocie el servicio en la nube y la cuenta de almacenamiento con un grupo de afinidad existente que se use para otras implementaciones).
 
 7. **Crear una plantilla de nodo de Azure**
 
@@ -246,4 +246,4 @@ Las siguientes son consideraciones que hay que tener en cuenta para ejecutar apl
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

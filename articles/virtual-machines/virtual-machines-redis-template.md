@@ -348,7 +348,7 @@ Durante la implementación, verá algo parecido a esto:
 
 Durante la implementación y después de ella, puede comprobar todas las solicitudes realizadas durante el aprovisionamiento, incluidos todos los errores producidos.
 
-Para ello, vaya al [Portal de vista previa de Azure](https://portal.azure.com) y haga lo siguiente:
+Para ello, vaya al [Portal de Azure](https://portal.azure.com) y haga lo siguiente:
 
 - Haga clic en **Examinar** en la barra de navegación de la izquierda y, a continuación, desplácese hacia abajo y haga clic en **Grupos de recursos**.
 - Seleccione el grupo de recursos que acaba de crear para abrir la hoja “Grupo de recursos”.
@@ -670,4 +670,4 @@ Básicamente, se sugiere este enfoque para:
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

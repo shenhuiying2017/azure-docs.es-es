@@ -38,13 +38,13 @@ Los contenedores ofrecen las siguientes opciones para administrar el acceso al c
 
 Puede establecer los permisos del contenedor de las maneras siguientes:
 
-- Desde el [Portal de administración de Azure](https://manage.windowsazure.com/).
+- Desde el [Portal de Azure](portal.azure.com).
 - Mediante programación, usando la biblioteca de cliente de almacenamiento o la API de REST.
 - Mediante PowerShell. Para obtener información acerca de cómo establecer los permisos del contenedor desde Azure PowerShell, consulte [Usar Azure PowerShell con Almacenamiento de Azure](storage-powershell-guide-full#how-to-manage-azure-blobs).
 
-### Configuración de los permisos del contenedor desde el portal de Azure
+### Configuración de los permisos del contenedor desde el Portal de Azure
 
-Para configurar los permisos del contenedor desde el portal de Azure, siga estos pasos:
+Para configurar los permisos del contenedor desde el [Portal de Azure](portal.azure.com), siga estos pasos:
 
 1. Desplácese hasta el panel de la cuenta de almacenamiento.
 2. Seleccione el nombre del contenedor en la lista. Tenga en cuenta que debe hacer clic a la derecha de la columna Nombre para seleccionar el nombre del contenedor. Al hacer clic en el nombre se profundiza en el contenedor para mostrar sus blobs.
@@ -155,4 +155,4 @@ En la siguiente tabla, se indican las operaciones a las que pueden llamar los us
 - [Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md)
 - [Delegación de acceso con una firma de acceso compartido](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

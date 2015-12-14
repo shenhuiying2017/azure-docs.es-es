@@ -20,11 +20,11 @@
 
 En el [primer el artículo](iot-hub-device-sdk-c-intro.md) de esta serie se presentaba el **SDK de dispositivos IoT de Microsoft Azure para C**. En este artículo se explicaba que hay dos capas de arquitectura en el SDK. En la base está la biblioteca de **IoTHubClient** que administra directamente la comunicación con Centro de IoT. Y está también la biblioteca del **serializador**, que se basa en él para proporcionar servicios de serialización. En este artículo le proporcionamos detalles adicionales sobre la biblioteca **IoTHubClient**.
 
-El artículo anterior describe cómo usar la biblioteca **IoTHubClient** para enviar eventos a Centro de IoT y recibir mensajes. En este artículo ampliamos esa discusión y explicamos cómo administrar con mayor exactitud *cuándo* enviar y recibir datos, con una introducción a la **las API de nivel inferior**. También explicaremos cómo adjuntar propiedades a eventos (y recuperarlas de mensajes) mediante las características de control de propiedades en la biblioteca **IoTHubClient**. Por último, proporcionaremos una explicación adicional sobre las diferentes formas de controlar los mensajes recibidos desde el Centro de IoT.
+El artículo anterior describe cómo usar la biblioteca **IoTHubClient** para enviar eventos a Centro de IoT y recibir mensajes. En este artículo ampliamos esa discusión y explicamos cómo administrar con mayor exactitud *cuándo* enviar y recibir datos, con una introducción a la **API de nivel inferior**. También explicaremos cómo adjuntar propiedades a eventos (y recuperarlas de mensajes) mediante las características de control de propiedades en la biblioteca **IoTHubClient**. Por último, proporcionaremos una explicación adicional sobre las diferentes formas de controlar los mensajes recibidos desde el Centro de IoT.
 
 El artículo concluye con un par de temas variados, e incluye más información acerca de las credenciales de dispositivo y cómo cambiar el comportamiento de **IoTHubClient** mediante las opciones de configuración.
 
-Usaremos ejemplos del SDK de **IoTHubClient** para explicar estos temas. Si desea seguir el artículo, vea las aplicaciones **iothub\_client\_sample\_http** y **iothub\_client\_sample\_amqp** que se incluyen en el SDK de dispositivo IoT de Azure para C. Todo lo descrito a continuación se muestra en estos ejemplos.
+Usaremos ejemplos del SDK de **IoTHubClient** para explicar estos temas. Si quiere seguir el artículo, vea las aplicaciones **iothub\_client\_sample\_http** y **iothub\_client\_sample\_amqp** que se incluyen en el SDK de dispositivo IoT de Azure para C. Todo lo descrito a continuación se muestra en estos ejemplos.
 
 ## API de nivel inferior
 
@@ -220,7 +220,7 @@ Observe que el tipo devuelto es **IOTHUBMESSAGE\_DISPOSITION\_RESULT** y, en est
 
 Para los dos primeros códigos de retorno, la biblioteca **IoTHubClient** envía un mensaje al Centro de IoT que indica que el mensaje debe eliminarse de la cola del dispositivo y no volver a entregarse. El efecto neto es el mismo (el mensaje se elimina de la cola del dispositivo), pero se registra si el mensaje se aceptó o se rechazó. El registro de esta distinción es útil para los remitentes del mensaje que pueden escuchar los comentarios y saber así si un dispositivo aceptó o rechazó un mensaje determinado.
 
-En este último caso, también se envía un mensaje al Centro de IoT que indica que el mensaje debe volver a entregarse. Normalmente un mensaje se abandona si hay algún error, pero se desea volver a procesar el mensaje. Por el contrario, rechazar un mensaje es adecuado si se produce un error irrecuperable (o si simplemente decide que no desea procesar el mensaje).
+En este último caso, también se envía un mensaje al Centro de IoT que indica que el mensaje debe volver a entregarse. Normalmente un mensaje se abandona si hay algún error, pero se desea volver a procesar el mensaje. Por el contrario, rechazar un mensaje es adecuado si se produce un error irrecuperable (o si simplemente decide que no quiere procesar el mensaje).
 
 En cualquier caso simplemente debe tener en cuenta los diferentes códigos de retorno para poder obtener el comportamiento deseado de la biblioteca **IoTHubClient**.
 
@@ -239,7 +239,7 @@ Los argumentos de **IoTHubClient\_CreateFromConnectionString** son la cadena de 
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
 ```
 
-Hay cuatro grupos de información en esta cadena: nombre del Centro de IoT, sufijo del Centro de IoT, identificador de dispositivo y clave de acceso compartido. Obtendrá el nombre de dominio completo (FQDN) de un Centro de IoT cuando cree la instancia del Centro de IoT en el Portal de vista previa de Azure. Así obtiene el nombre del Centro de IoT (la primera parte del FQDN) y el sufijo del Centro de IoT (el resto del FQDN). Obtendrá el identificador de dispositivo y la clave de acceso compartido al registrar el dispositivo con el Centro de IoT (como se describe en el [artículo anterior](iot-hub-device-sdk-c-intro.md)).
+Hay cuatro grupos de información en esta cadena: nombre del Centro de IoT, sufijo del Centro de IoT, identificador de dispositivo y clave de acceso compartido. Obtendrá el nombre de dominio completo (FQDN) de un centro de IoT cuando cree la instancia del centro de IoT en el portal de Azure. Así obtiene el nombre del centro de IoT (la primera parte del FQDN) y el sufijo del centro de IoT (el resto del FQDN). Obtendrá el identificador de dispositivo y la clave de acceso compartido al registrar el dispositivo con Centro de IoT (como se describe en el [artículo anterior](iot-hub-device-sdk-c-intro.md)).
 
 **IoTHubClient\_CreateFromConnectionString** le ofrece una manera de inicializar la biblioteca. Pero si lo prefiere, puede crear un nuevo **IOTHUB\_CLIENT\_HANDLE** usando estos parámetros individuales en lugar de la cadena de conexión. Esto se consigue con el código siguiente:
 
@@ -278,4 +278,4 @@ La opción de procesamiento por lotes es importante. De forma predeterminada, la
 
 En este artículo se describe con detalle el comportamiento de la biblioteca **IoTHubClient** que se encuentra en el **SDK de dispositivo IoT de Azure para C**. Con esta información conocerá bien las capacidades de la biblioteca **IoTHubClient**. En el [siguiente artículo](iot-hub-device-sdk-c-serializer.md) se proporcionan detalles similares sobre la biblioteca del **serializador**.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

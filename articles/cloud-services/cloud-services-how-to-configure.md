@@ -22,18 +22,18 @@
 # Configuración de servicios en la nube
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-configure.md)
-- [Azure Preview Portal](cloud-services-how-to-configure-portal.md)
+- [Azure classic portal](cloud-services-how-to-configure.md)
+- [Azure portal](cloud-services-how-to-configure-portal.md)
 
-Puede configurar la mayoría de los ajustes más usados para un servicio en la nube en el Portal de administración de Azure. O bien, si desea actualizar los archivos de configuración directamente, descargue un archivo de configuración de servicio para actualizar y, a continuación, cargue el archivo actualizado y actualice el servicio en la nube con los cambios en la configuración. De cualquier manera, las actualizaciones de la configuración se realizan en todas las instancias de rol.
+Puede configurar la mayoría de los ajustes más usados para un servicio en la nube en el Portal de Azure clásico. O bien, si desea actualizar los archivos de configuración directamente, descargue un archivo de configuración de servicio para actualizar y, a continuación, cargue el archivo actualizado y actualice el servicio en la nube con los cambios en la configuración. De cualquier manera, las actualizaciones de la configuración se realizan en todas las instancias de rol.
 
-El Portal de administración de Azure también le permite [Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure](cloud-services-role-enable-remote-desktop.md).
+El Portal de Azure clásico también le permite [habilitar la conexión a escritorio remoto para un rol de servicios en la nube de Azure](cloud-services-role-enable-remote-desktop.md).
 
 Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las actualizaciones de la configuración si tiene al menos dos instancias de rol para cada rol. Esto permite que una máquina virtual procese las solicitudes del cliente mientras la otra se actualiza. Para obtener más información, consulte [Contratos de nivel de servicio](http://azure.microsoft.com/support/legal/sla/).
 
 ## Cambiar un servicio en la nube
 
-1. En el [Portal de Azure](http://manage.windowsazure.com/), haga clic en **Servicios en la nube**, en el nombre del servicio en la nube y, a continuación, en **Configurar**.
+1. En el [Portal de Azure clásico](http://manage.windowsazure.com/), haga clic en **Servicios en la nube**, en el nombre del servicio en la nube y, a continuación, en **Configurar**.
 
     ![Página de configuración](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage1.png)
     
@@ -86,4 +86,4 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las
 * [Habilitar la conexión a Escritorio remoto para un rol de servicios en la nube de Azure](cloud-services-role-enable-remote-desktop.md)
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

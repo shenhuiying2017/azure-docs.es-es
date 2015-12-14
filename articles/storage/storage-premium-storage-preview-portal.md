@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="12/01/2015"
 	ms.author="tamram;selcint"/>
 
 
@@ -35,7 +35,7 @@ La siguiente es una lista de las cosas importantes que deben tenerse en cuenta a
 
 - Para usar Almacenamiento premium, debes tener una cuenta de Almacenamiento premium. Para obtener información sobre cómo crear una cuenta de Almacenamiento premium, consulte [Creación y uso de una cuenta de Almacenamiento Premium para discos](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
-- Almacenamiento premium está disponible actualmente en el [Portal de vista previa de Microsoft Azure](https://portal.azure.com/), y accesible a través de las siguientes bibliotecas de SDK: [API de REST de almacenamiento](http://msdn.microsoft.com//library/azure/dd179355.aspx) versión 2014-02-14 o posterior; [API de REST de administración del servicio](http://msdn.microsoft.com/library/azure/ee460799.aspx) versión 2014-10-01 o posterior; y [Azure PowerShell](../install-configure-powershell.md) versión 0.8.10 o posterior.
+- Almacenamiento premium está disponible en el [Portal de Azure](portal.azure.com) y es accesible a través de las siguientes bibliotecas de SDK: [API de REST de almacenamiento](http://msdn.microsoft.com//library/azure/dd179355.aspx) versión 2014-02-14 o posterior; [API de REST de administración del servicio](http://msdn.microsoft.com/library/azure/ee460799.aspx) versión 2014-10-01 o posterior; y [Azure PowerShell](../install-configure-powershell.md) versión 0.8.10 o posterior.
 
 - Para obtener una lista de regiones que admiten actualmente almacenamiento Premium, consulte [Servicios de Azure por región](http://azure.microsoft.com/regions/#services).
 
@@ -61,7 +61,7 @@ Azure usa la cuenta de almacenamiento como un contenedor para el sistema operati
 
 Para obtener información sobre cómo migrar las máquinas virtuales existentes al Almacenamiento premium, consulte [Migrar al Almacenamiento premium de Azure](storage-migration-to-premium-storage.md).
 
-Para aprovechar las ventajas de Almacenamiento premium, cree primero una cuenta de Almacenamiento premium mediante un tipo de cuenta *Premium\_LRS*. Para ello, puede usar el [Portal de vista previa de Microsoft Azure](https://portal.azure.com/), [Azure PowerShell](../install-configure-powershell.md) o la [API de REST de administración del servicio](http://msdn.microsoft.com/library/azure/ee460799.aspx). Para obtener instrucciones detalladas, consulte [Creación y uso de una cuenta de Almacenamiento Premium para discos](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+Para aprovechar las ventajas de Almacenamiento premium, cree primero una cuenta de Almacenamiento premium mediante un tipo de cuenta *Premium\_LRS*. Para ello, puede usar el [Portal de Azure](portal.azure.com), [Azure PowerShell](../install-configure-powershell.md) o la [API de REST de administración del servicio](http://msdn.microsoft.com/library/azure/ee460799.aspx). Para obtener instrucciones detalladas, consulte [Creación y uso de una cuenta de Almacenamiento Premium para discos](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
 ### Notas importantes:
 
@@ -201,7 +201,7 @@ Consulte a continuación instrucciones importantes para configurar las máquinas
 	- Si utiliza **XFS**, deshabilite las barreras mediante la opción de montaje “nobarrier” (para habilitar las barreras, use la opción “barrier”)
 
 - Para discos de Almacenamiento premium con caché de configuración "ReadWrite", deben habilitarse las barreras para la durabilidad de las escrituras.
-- Para que las etiquetas de volumen persistan después de reiniciar la VM, debe actualizar/etc/fstab con las referencias UUID a los discos. Consulte también [Acoplamiento de un disco de datos a una máquina virtual de Linux](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-how-to-attach-disk).
+- Para que las etiquetas de volumen persistan después de reiniciar la VM, debe actualizar/etc/fstab con las referencias UUID a los discos. Consulte también [Acoplamiento de un disco de datos a una máquina virtual de Linux](../virtual-machines/virtual-machines-linux-how-to-attach-disk).
 
 Las siguientes son las distribuciones de Linux que se validan con Almacenamiento premium. Se recomienda actualizar las máquinas virtuales al menos a una de estas versiones (o posteriores) para mejorar el rendimiento y la estabilidad con Almacenamiento premium. Además, algunas de las versiones requieren el LIS más reciente (Linux Integration Services v4.0 para Microsoft Azure). Siga el vínculo proporcionado para su descarga e instalación. Seguiremos agregando más imágenes a la lista según vayamos completando validaciones adicionales. Tenga en cuenta que nuestras validaciones demostraron que el rendimiento varía para estas imágenes y también depende de las características de carga de trabajo y la configuración de las imágenes. Se optimizan diferentes imágenes para distintos tipos de cargas de trabajo. <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>Distribución</strong></td> <td><strong>Versión</strong></td> <td><strong>Kernel admitido</strong></td> <td><strong>Imagen admitida</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-es-ES-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-es-ES-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-es-ES-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-es-ES-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 6.7, 7.0</td> <td></td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 requerido </a> </br> *Vea la nota a continuación </td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 recomendado </a> <br/> *Vea la nota a continuación </td> </tr>
 
@@ -216,8 +216,7 @@ Las siguientes son las distribuciones de Linux que se validan con Almacenamiento
 	<td></td>
 	<td>Póngase en contacto con soporte técnico para obtener más información</td>
 </tr>
-</tbody> 
-</table>
+</tbody> </table>
 
 
 ### Controladores de LIS para CentOS Openlogic
@@ -251,11 +250,7 @@ En esta sección se muestra cómo crear una cuenta de Almacenamiento premium med
 
 En esta sección se muestra cómo crear una cuenta de Almacenamiento premium mediante el Portal de vista previa de Azure.
 
-1.	Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com/). Consulte la oferta [Evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) si todavía no tiene una suscripción.
-
-
-    > [AZURE.NOTE]Si inicia sesión en el Portal de administración de Azure, haga clic en el nombre de cuenta de usuario en la esquina superior derecha del portal. A continuación, haga clic en **Cambiar al nuevo portal**.
-
+1.	Inicie sesión en el [Portal de Azure](portal.azure.com). Consulte la oferta [Evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) si todavía no tiene una suscripción.
 
 2.	En el menú Concentrador, haga clic en **Nuevo**.
 
@@ -336,9 +331,8 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 - [Creación de una máquina virtual que ejecuta Windows](../virtual-machines-windows-tutorial-azure-preview.md)
 - [Tamaños de máquinas virtuales y servicios en la nube de Azure](../virtual-machines/virtual-machines-size-specs.md)
 - [Documentación de almacenamiento](http://azure.microsoft.com/documentation/services/storage/)
-- [Referencia de MSDN](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

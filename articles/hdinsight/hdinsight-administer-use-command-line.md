@@ -73,7 +73,7 @@ Para poder crear un clúster de HDInsight debe tener una Administración de recu
 
 	> [AZURE.NOTE]La cuenta de Almacenamiento debe colocarse con HDInsight en el mismo centro de datos. El tipo de cuenta de almacenamiento no puede ser ZRS, porque ZRS no admite tablas.
 
-	Para obtener información sobre la creación de una cuenta de almacenamiento de Azure mediante el Portal de vista previa de Azure, consulte [Creación, administración o eliminación de una cuenta de almacenamiento][azure-create-storageaccount].
+	Para obtener información sobre la creación de una cuenta de almacenamiento de Azure a través del Portal de Azure, consulte [Creación, administración o eliminación de una cuenta de almacenamiento][azure-create-storageaccount].
 	
 	Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, puede usar los comandos siguientes para recuperar dicha información:
 	
@@ -84,7 +84,7 @@ Para poder crear un clúster de HDInsight debe tener una Administración de recu
 		-- Lists the keys for a Storage account
 		azure storage account keys list "<Storage Account Name>" -g "<Resource Group Name>"
 
-	Para saber cómo obtener información con el Portal de vista previa de Azure, consulte la sección "Visualización, copia y regeneración de claves de acceso de almacenamiento" de [Creación, administración o eliminación de una cuenta de Almacenamiento][azure-create-storageaccount].
+	Para obtener información sobre cómo obtener la información mediante el Portal de Azure, vea la sección "Visualización, copia y regeneración de claves de acceso de almacenamiento" de [Creación, administración o eliminación de una cuenta de Almacenamiento][azure-create-storageaccount].
 
 - **(Opcional) Contenedor de blobs predeterminado**: el comando **azure hdinsight cluster create** crea el contenedor si aún no existe. Si opta por crear el contenedor antes, puede usar el comando siguiente:
 
@@ -160,7 +160,7 @@ Para cambiar el tamaño del clúster de Hadoop con Azure PowerShell, ejecute el 
 ##Pasos siguientes
 En este artículo, ha aprendido a realizar diferentes tareas administrativas en clústeres de HDInsight. Para obtener más información, consulte los artículos siguientes:
 
-* [Administración de HDInsight mediante el portal de vista previa de Azure][hdinsight-admin-portal]
+* [Administración de HDInsight mediante el Portal de Azure][hdinsight-admin-portal]
 * [Administración de HDInsight con Azure PowerShell][hdinsight-admin-powershell]
 * [Introducción a HDInsight de Azure][hdinsight-get-started]
 * [Cómo usar la CLI de Azure][azure-command-line-tools]
@@ -182,4 +182,4 @@ En este artículo, ha aprendido a realizar diferentes tareas administrativas en 
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Enumeración y visualización de clústeres"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

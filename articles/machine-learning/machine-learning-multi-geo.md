@@ -23,7 +23,7 @@ En este artículo se describe cómo crear un área de trabajo y publicar un serv
 
 ## Crear un área de trabajo
 
-1. Inicie sesión en el Portal de administración de Azure.
+1. Inicie sesión en el Portal de Azure clásico.
 
 2.  Haga clic en **+ NUEVO** > **SERVICIOS DE DATOS** > **APRENDIZAJE AUTOMÁTICO** > **CREACIÓN RÁPIDA**. En **UBICACIÓN**, seleccione otra región, como **Sudeste de Asia**. ![Imagen de ayuda multigeográfica 1][1]
 3. Seleccione el área de trabajo y, a continuación, haga clic en **Inicio de sesión en Estudio de aprendizaje automático**. ![Imagen de ayuda multigeográfica 2][2]
@@ -57,4 +57,4 @@ Formule una pregunta en el [Foro de Aprendizaje automático de Azure](https://so
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

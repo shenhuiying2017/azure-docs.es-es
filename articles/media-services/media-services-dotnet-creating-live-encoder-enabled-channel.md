@@ -39,27 +39,27 @@ Los pasos siguientes describen las tareas para crear aplicaciones comunes de str
 
 1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-	Este paso también puede realizarse después de crear el canal.
+Este paso también puede realizarse después de crear el canal.
 
 1. Cree e inicie un canal.
 
 1. Recupere la URL de ingesta de canales.
 
-	El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
+El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
 
 1. Recupere la URL de vista previa de canal.
 
-	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en directo.
+Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en directo.
 
 2. Cree un recurso.
 3. Si desea que el recurso se cifre dinámicamente durante la reproducción, haga lo siguiente:
-	1. Cree una clave de contenido.
-	1. Configure la directiva de autorización de claves de contenido.
-	1. Configure la directiva de entrega de recursos (usada por el empaquetado y el cifrado dinámicos).
+1. Cree una clave de contenido.
+1. Configure la directiva de autorización de claves de contenido.
+1. Configure la directiva de entrega de recursos (usada por el empaquetado y el cifrado dinámicos).
 3. Cree un programa y especifique que se use el recurso que ha creado.
 1. Publique el recurso asociado al programa mediante la creación de un localizador a petición.
 
-	Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
+Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
 
 1. Inicie el programa cuando esté listo para iniciar el streaming y el archivo.
 2. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
@@ -108,18 +108,12 @@ Los siguientes requisitos son necesarios para completar el tutorial.
 ##Conexión con Servicios multimedia
 Se recomienda usar un archivo app.config para almacenar la clave de cuenta y nombre de Servicios multimedia.
 
->[AZURE.NOTE]Para buscar los valores de nombre y clave, vaya al Portal de Azure, seleccione la cuenta de Servicios multimedia y haga clic en el icono “ADMINISTRAR CLAVES” en la parte inferior de la ventana del portal. Al hacer clic en el icono junto a cada cuadro de texto, se copia el valor al Portapapeles del sistema.
+>[AZURE.NOTE]Para buscar los valores de nombre y clave, vaya al Portal de Azure clásico, seleccione la cuenta de Servicios multimedia y haga clic en el icono "ADMINISTRAR CLAVES" en la parte inferior de la ventana del portal. Al hacer clic en el icono junto a cada cuadro de texto, se copia el valor al Portapapeles del sistema.
 
 Agregue la sección appSettings al archivo app.config y establezca los valores de nombre y clave de la cuenta de Servicios multimedia.
 
 
-	<?xml version="1.0"?>
-	<configuration>
-	  <appSettings>
-	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
-	      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
-	  </appSettings>
-	</configuration>
+<?xml version="1.0"?> <configuration> <appSettings> <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" /> <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" /> </appSettings> </configuration>
 	 
 	
 ##Ejemplo de código
@@ -522,4 +516,4 @@ Agregue la sección appSettings al archivo app.config y establezca los valores d
 
 Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna forma sus necesidades, háganos llegar sus comentarios mediante el subproceso de Disqus siguiente.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

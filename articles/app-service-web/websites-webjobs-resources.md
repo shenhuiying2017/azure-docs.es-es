@@ -54,7 +54,7 @@ Consulte también las siguientes secciones en [Implementación de WebJobs](#depl
 ##<a name="deploy"></a>Implementación de WebJobs
 
 * [Cómo implementar trabajos web de Azure con Visual Studio](websites-dotnet-deploy-webjobs.md)
-* [Implementación de WebJobs mediante el Portal de administración de Azure](web-sites-create-web-jobs.md)
+* [Implementación de WebJobs mediante el Portal de Azure](web-sites-create-web-jobs.md)
 * [Habilitación de la línea de comandos o entrega continua de WebJobs de Azure](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Implementación de Git de una aplicación de consola .NET en Azure usando WebJobs](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Deploying an F# WebJob to Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx) (Implementación de un WebJob de F# en Azure)
@@ -66,7 +66,7 @@ Consulte también las siguientes secciones en [Implementación de WebJobs](#depl
 ##<a name="schedule"></a>Programación de WebJobs
 
 * [Cuadro de diálogo Agregar WebJob de Azure](websites-dotnet-deploy-webjobs.md#configure)
-* [Creación de un WebJob programado en el Portal de administración de Azure](web-sites-create-web-jobs.md#CreateScheduled)
+* [Creación de un WebJob programado en el Portal de Azure](web-sites-create-web-jobs.md#CreateScheduled)
 * [Enlace de un trabajo del programador con un WebJob](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Programación de WebJobs de Azure con expresiones cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 
@@ -142,4 +142,4 @@ Consulte también las siguientes secciones en [Implementación de WebJobs](#depl
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configuración de un servicio en la nube (portal de vista previa) | Microsoft Azure" 
-	description="Aprenda a configurar servicios en la nube en Azure. Aprenda a actualizar la configuración del servicio en la nube y configurar el acceso remoto en instancias de rol. Estos ejemplos usan el portal de vista previa de Azure." 
+	pageTitle="Configuración de un servicio en la nube | Microsoft Azure" 
+	description="Aprenda a configurar servicios en la nube en Azure. Aprenda a actualizar la configuración del servicio en la nube y configurar el acceso remoto en instancias de rol. Estos ejemplos usan el Portal de Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -22,10 +22,10 @@
 # Configuración de servicios en la nube
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-configure.md)
-- [Azure Preview Portal](cloud-services-how-to-configure-portal.md)
+- [Azure classic portal](cloud-services-how-to-configure.md)
+- [Azure portal](cloud-services-how-to-configure-portal.md)
 
-Puede configurar la mayoría de los ajustes más usados para un servicio en la nube en el Portal de administración de Azure. O bien, si desea actualizar los archivos de configuración directamente, descargue un archivo de configuración de servicio para actualizar y, a continuación, cargue el archivo actualizado y actualice el servicio en la nube con los cambios en la configuración. De cualquier manera, las actualizaciones de la configuración se realizan en todas las instancias de rol.
+Puede configurar la mayoría de los ajustes más usados para un servicio en la nube en el Portal de Azure. O bien, si desea actualizar los archivos de configuración directamente, descargue un archivo de configuración de servicio para actualizar y, a continuación, cargue el archivo actualizado y actualice el servicio en la nube con los cambios en la configuración. De cualquier manera, las actualizaciones de la configuración se realizan en todas las instancias de rol.
 
 También puede habilitar una conexión de Escritorio remoto con uno o todos los roles que se ejecutan en su servicio en la nube. Escritorio remoto le permite tener acceso al escritorio de su aplicación mientras se ejecuta, además de solucionar y diagnosticar problemas. Puede habilitar una conexión de Escritorio remoto con su rol incluso si no configuró el archivo de definición de servicio (.csdef) para el Escritorio remoto durante el desarrollo de la aplicación. No es necesario volver a implementar su aplicación para habilitar una conexión de Escritorio remoto.
 
@@ -33,7 +33,7 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las
 
 ## Cambiar un servicio en la nube
 
-1. En el [Portal de vista previa de Azure](http://portal.azure.com/), desplácese al servicio en la nube.
+1. En el [Portal de Azure](http://portal.azure.com/), vaya al servicio en la nube.
 
 2. Haga clic en el icono **Configuración** o el vínculo **Conceptos básicos/Toda la configuración** para abrir la hoja **Configuración**.
 
@@ -53,13 +53,13 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las
     
     ![Botones de instancia del servicio en la nube](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
->[AZURE.NOTE]No se puede cambiar el sistema operativo usado para el servicio en la nube mediante el **Portal de vista previa de Azure**, solo puede cambiar esta configuración mediante el [portal que no es de vista previa](http://manage.windowsazure.com/). Esto se detalla [aquí](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file).
+>[AZURE.NOTE]No se puede cambiar el sistema operativo usado para el servicio en la nube mediante el **Portal de Azure**, solo puede cambiar esta configuración mediante el [Portal de Azure clásico](http://manage.windowsazure.com/). Esto se detalla [aquí](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file).
 
 ## Actualizar un archivo de configuración del servicio en la nube
 
 1. En primer lugar, descargue el archivo de configuración del servicio en la nube existente (.cscfg).
 
-    1. En el [Portal de vista previa de Azure](http://portal.azure.com/), desplácese al servicio en la nube.
+    1. En el [Portal de Azure](http://portal.azure.com/), vaya al servicio en la nube.
 
     2. Haga clic en el icono **Configuración** o el vínculo **Conceptos básicos/Toda la configuración** para abrir la hoja **Configuración**.
 
@@ -85,7 +85,7 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las
 
 ## acceso remoto a las instancias de rol
 
-El acceso remoto no se puede configurar mediante el **Portal de vista previa de Azure**, solo puede cambiar esta configuración mediante el [portal que no es de vista previa](http://manage.windowsazure.com/). Este procedimiento se describe [aquí](cloud-services-role-enable-remote-desktop.md).
+El acceso remoto no se puede configurar mediante el **Portal de Azure**, solo puede cambiar esta configuración mediante el [Portal de Azure clásico](http://manage.windowsazure.com/). Este procedimiento se describe [aquí](cloud-services-role-enable-remote-desktop.md).
 			
 ## Pasos siguientes
 
@@ -94,4 +94,4 @@ El acceso remoto no se puede configurar mediante el **Portal de vista previa de 
 * [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

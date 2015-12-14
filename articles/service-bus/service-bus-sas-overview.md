@@ -36,9 +36,9 @@ Los permisos disponibles para una directiva son en gran parte explicativos:
   + Escuchar
   + Manage
 
-Después de crear la directiva, se le asigna una *clave principal*y una *clave secundaria*. Son claves de alta seguridad criptográfica. No las pierda; siempre estarán disponibles en el portal. Puede usar cualquiera de las claves generadas y regenerarlas en cualquier momento. Sin embargo, si regenera o cambia la clave principal en la directiva, se invalidará cualquier firma de acceso compartido creada a partir de ella.
+Después de crear la directiva, se le asigna una *clave principal*y una *clave secundaria*. Son claves de alta seguridad criptográfica. No las pierda; siempre estarán disponibles en el [Portal de Azure clásico][]. Puede usar cualquiera de las claves generadas y regenerarlas en cualquier momento. Sin embargo, si regenera o cambia la clave principal en la directiva, se invalidará cualquier firma de acceso compartido creada a partir de ella.
 
-Cuando se crea un espacio de nombres del Bus de servicio, se crea automáticamente una directiva para todo el espacio de nombres denominado **RootManageSharedAccessKey** y esta directiva tiene todos los permisos. No inicia sesión como **raíz**; por tanto, no use esta directiva a menos que exista realmente una buena razón. Puede crear directivas adicionales en la pestaña **Configurar** para el espacio de nombres en el [Portal de Azure](http://manage.windowsazure.com). Es importante tener en cuenta que un nivel de árbol único en el Bus de servicio (espacio de nombres, cola, concentrador de eventos, etc.) solo puede tener hasta 12 directivas asociadas a él.
+Cuando se crea un espacio de nombres del Bus de servicio, se crea automáticamente una directiva para todo el espacio de nombres denominado **RootManageSharedAccessKey** y esta directiva tiene todos los permisos. No inicia sesión como **raíz**; por tanto, no use esta directiva a menos que exista realmente una buena razón. Puede crear directivas adicionales en la pestaña **Configurar** para el espacio de nombres en el portal. Es importante tener en cuenta que un nivel de árbol único en el Bus de servicio (espacio de nombres, cola, concentrador de eventos, etc.) solo puede tener hasta 12 directivas asociadas a él.
 
 ## Firma de acceso compartido (token)
 
@@ -255,4 +255,6 @@ Para obtener más información sobre la autenticación de Bus de servicio, vea [
 
 Puede encontrar más ejemplos de SAS en C# y Java Script en [esta entrada de blog](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx).
 
-<!---HONumber=Nov15_HO3-->
+[Portal de Azure clásico]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

@@ -23,7 +23,7 @@ Los siguientes pasos lo guiarán por la creación del almacén usado para guarda
 
 ### Copia de seguridad de Microsoft Azure: Opciones de redundancia de almacenamiento
 
-El mejor momento para identificar la opción de redundancia de almacenamiento es justo después de la creación del almacén, y antes de que las máquinas se registren en este. Una vez que un elemento se ha registrado en el almacén, la opción de redundancia de almacenamiento está bloqueada y no se puede modificar.
+> AZURE.IMPORTANTE El mejor momento para identificar la opción de redundancia de almacenamiento es justo después de la creación del almacén, y antes de que las máquinas se registren en este. Una vez que un elemento se ha registrado en el almacén, la opción de redundancia de almacenamiento está bloqueada y no se puede modificar.
 
 Sus necesidades empresariales determinarían la redundancia de almacenamiento del almacenamiento backend de Copia de seguridad de Azure. Si está usando Azure como un extremo de almacenamiento de copia de seguridad principal (por ejemplo, copia de seguridad en Azure desde un servidor de Windows), debe considerar seleccionar la opción de almacenamiento con redundancia geográfica (valor predeterminado). Esto se ve en la opción **Configurar** de su almacén de copia de seguridad.
 
@@ -39,4 +39,4 @@ Si está usando Azure como un extremo de almacenamiento de copia de seguridad te
 
 ![LRS](./media/backup-create-vault/lrs.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

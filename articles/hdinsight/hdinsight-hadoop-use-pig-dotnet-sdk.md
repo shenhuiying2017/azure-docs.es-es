@@ -43,13 +43,13 @@ Para autenticar la aplicación a HDInsight de Azure, debe crear un certificado a
 
 Para obtener instrucciones sobre cómo hacerlo, vea [Creación de un certificado autofirmado](http://go.microsoft.com/fwlink/?LinkId=511138).
 
-> [AZURE.NOTE] Al crear el certificado, asegúrese de tener en cuenta el nombre descriptivo que utilice, ya que lo utilizará más adelante.
+> [AZURE.NOTE]Al crear el certificado, asegúrese de tener en cuenta el nombre descriptivo que utilice, ya que lo utilizará más adelante.
 
 ##<a id="subscriptionid"></a>Búsqueda del identificador de suscripción
 
 Cada suscripción de Azure se identifica por un valor GUID, conocido como el identificador de suscripción. Utilice los pasos siguientes para encontrar este valor.
 
-1. Visite el [portal de vista previa de Azure][portal de vista previa].
+1. Visite el [portal de Azure] [portal de vista previa].
 
 2. En la barra de la izquierda del portal, seleccione __EXAMINAR TODO__ y después seleccione __Suscripciones__ en la hoja __Examinar__.
 
@@ -155,7 +155,6 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 * [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
 
-* [Uso de MapReduce con Hadoop en HDInsight ](hdinsight-use-mapreduce.md) 
-[portal de vista previa]: https://portal.azure.com/
+* [Uso de MapReduce con Hadoop en HDInsight ](hdinsight-use-mapreduce.md) [preview-portal]: https://portal.azure.com/
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

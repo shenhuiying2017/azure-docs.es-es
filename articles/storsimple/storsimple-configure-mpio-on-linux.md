@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/28/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Configuración de MPIO en un host de StorSimple que ejecuta CentOS
@@ -163,9 +163,9 @@ En esta sección se detallan los requisitos previos de configuración para el se
 
 El dispositivo de StorSimple debe disponer de:
 
-- Un mínimo de dos interfaces habilitadas para iSCSI. Para comprobar que las interfaces están habilitadas para iSCSI en el dispositivo StorSimple, realice los pasos siguientes en el Portal de administración del dispositivo StorSimple:
+- Un mínimo de dos interfaces habilitadas para iSCSI. Para comprobar que hay dos interfaces habilitadas para iSCSI en el dispositivo StorSimple, realice los pasos siguientes en el Portal de Azure clásico para el dispositivo StorSimple:
 
-	1. Inicie sesión en el Portal de administración del dispositivo StorSimple.
+	1. Inicie sesión en el Portal clásico para el dispositivo StorSimple.
 
 	1. Seleccione el servicio StorSimple Manager, haga clic en **Dispositivos** y elija el dispositivo StorSimple. Haga clic en **Configurar** y compruebe la configuración de la interfaz de red. A continuación se muestra una captura de pantalla con dos interfaces de red habilitadas para iSCSI. En este caso DATA 2 y DATA 3, las dos interfaces de 10 GbE están habilitadas para iSCSI.
 	
@@ -339,10 +339,10 @@ Este algoritmo de equilibrio de carga usa todas las múltiples rutas disponibles
 	    		Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
 
 
-		Si ve solo una interfaz de host y dos rutas de acceso, tendrá que habilitar ambas interfaces de host para iSCSI. Puede seguir las [instrucciones detalladas en la documentación de Linux](https://access.redhat.com/documentation/es-ES/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
+		Si ve solo una interfaz de host y dos rutas de acceso, tendrá que habilitar ambas interfaces de host para iSCSI. Puede seguir las [instrucciones detalladas en la documentación de Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
 	
-	1. Se muestra un volumen al servidor CentOS desde el dispositivo StorSimple. Para obtener más información, consulte el [Paso 6: Creación de un volumen](https://sandboxmsdnstage.redmond.corp.microsoft.com/es-ES/library/azure/dn772357.aspx) mediante el Portal de administración en el dispositivo StorSimple.
+	1. Se muestra un volumen al servidor CentOS desde el dispositivo StorSimple. Para obtener más información, consulte el [Paso 6: Creación de un volumen](storsimple-deployment-walkthrough.md#step-6-create-a-volume) mediante el Portal de Azure clásico en el dispositivo StorSimple.
 
 	1. Compruebe las rutas de acceso disponibles. Escriba:
 
@@ -459,7 +459,7 @@ R: Para comprobar si el dispositivo se encuentra en la lista blanca, use el sigu
     dm-3 devnode blacklisted, unmonitored
 
 
-Para obtener más información, consulte cómo [usar el comando interactivo de solución de problemas para múltiples rutas](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
+Para obtener más información, consulte [Usar el comando interactivo de solución de problemas para múltiples rutas](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
 
 ## Lista de comandos útiles
 
@@ -475,4 +475,4 @@ Cuando está configurando MPIO en el host Linux, es posible que tenga que hacer 
 - [Configuración de MPIO en CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Guía de aprendizaje de Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

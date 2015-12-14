@@ -32,7 +32,7 @@ De manera predeterminada, los clústeres de Hadoop no están optimizados para el
 
 El aumento del número de nodos de trabajo de un clúster puede aprovechar más asignadores y reductores para ejecutarse en paralelo. Hay dos maneras de aumentar la escala horizontal en HDInsight:
 
-- En el momento de aprovisionamiento, puede especificar el número de nodos de trabajo mediante el portal de vista previa de Azure, Azure PowerShell y la interfaz de la línea de comandos entre plataformas. Para obtener más información, consulte [Aprovisionamiento de clústeres de HDInsight](hdinsight-provision-clusters.md). En la siguiente pantalla se muestra la configuración del nodo de trabajo en el portal de vista previa de Azure:
+- En el momento de aprovisionamiento, puede especificar el número de nodos de trabajo mediante el Portal de Azure, PowerShell de Azure y la interfaz de la línea de comandos entre plataformas. Para obtener más información, consulte [Aprovisionamiento de clústeres de HDInsight](hdinsight-provision-clusters.md). En la siguiente pantalla se muestra la configuración del nodo de trabajo en el portal de Azure:
 
 	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
 
@@ -226,4 +226,4 @@ En este artículo, ha aprendido varios métodos comunes de optimización de cons
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

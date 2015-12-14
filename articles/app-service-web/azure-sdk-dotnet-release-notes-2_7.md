@@ -87,7 +87,7 @@ Cloud Explorer admite lo siguiente:
 - Panel de propiedades integrado que muestra propiedades orientadas a desarrolladores normalmente necesarias durante el desarrollo y las pruebas 
 - Cambio rápido de la cuenta que se utilizará al enumerar los recursos (utilice el comando Configuración de la barra de herramientas) 
 - Filtrado de suscripciones que se utilizará al enumerar los recursos (utilice el comando Configuración de la barra de herramientas) 
-- Vínculos profundos en el Portal de vista previa de Azure para administración de recursos y grupos de recursos 
+- Vínculos profundos en el Portal de Azure para administración de recursos y grupos de recursos 
  
  
 ###Herramientas del Administrador de recursos de Azure 
@@ -131,7 +131,7 @@ Para obtener una explicación más detallada acerca de las actualizaciones de he
 
 	La visualización es muy importante cuando desee comprobar si su topología funciona según lo esperado. En esta versión agregamos la visualización de gráficos Storm. Puede visualizar las métricas importantes para su topología (por ejemplo, un color indica si un Bolt está "ocupado" o no). También puede hacer doble clic en el Bolt/Spout para ver más detalles.
 
-- Compatibilidad con clústeres de HDInsight que se crearon en el nuevo Portal de Azure (corrección de un error)
+- Compatibilidad con clústeres de HDInsight que se crearon en el Portal de Azure (corrección de un error)
 
 	Ahora puede usar Visual Studio para ver y enviar trabajos a todos los clústeres de HDInsight independientemente de dónde se creó el clúster.
 
@@ -159,4 +159,4 @@ Los proyectos de LightSwitch no son compatibles con esta versión. Este problema
 
 [Información de compatibilidad y retirada del SDK de Azure para .NET y API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

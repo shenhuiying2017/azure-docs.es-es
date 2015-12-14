@@ -44,9 +44,9 @@ Las siguientes secciones proporcionan una perspectiva más profunda de cada una 
 
 El aprovisionamiento de un dispositivo con Centro de IoT de Azure se realiza a través de la API del registro. Una vez que registre el dispositivo y proporcione o reciba una clave, puede habilitarlo para que se conecte al Centro de IoT con esa clave. El Centro de IoT de Azure solo se comunicará con los dispositivos registrados que presenten una credencial autorizada. Los administradores pueden deshabilitar el acceso del dispositivo al Centro de IoT de Azure a través del portal de administración de dispositivos.
 
-Se puede usar un proceso de arranque dependiendo de cómo están fabricados, aprovisionados e implementados los dispositivos IoT. Puede crear un servicio de arranque como parte de la solución para proporcionar conectividad simple y retrasar el proceso de asignación de un dispositivo a un Centro de IoT específico. La ubicación en la que operará el dispositivo puede ser desconocida en el momento en el que se fabrica el dispositivo. Este es solo un ejemplo de un gran número de flujos de trabajo potencialmente complejos, que ayudan a que un dispositivo sea conocido por el Centro de IoT de Azure y también a que se integre con los procesos empresariales ya existentes.
+Se puede usar un proceso de arranque dependiendo de cómo están fabricados, aprovisionados e implementados los dispositivos IoT. Puede crear un servicio de arranque como parte de la solución para proporcionar conectividad simple y retrasar el proceso de asignación de un dispositivo a un centro de IoT específico. La ubicación en la que operará el dispositivo puede ser desconocida en el momento en el que se fabrica el dispositivo. Este es solo un ejemplo de un gran número de flujos de trabajo potencialmente complejos, que ayudan a que un dispositivo sea conocido por el Centro de IoT de Azure y también a que se integre con los procesos empresariales ya existentes.
 
-Cuando se usa un servicio de arranque se inicia un dispositivo IoT que envía una solicitud que en última instancia, puede proporcionar acceso a un Centro de IoT de Azure asignado. La solicitud debe incluir las credenciales de arranque de dispositivos y otros datos necesarios. Para los dispositivos autorizados, el servicio de arranque debe registrar el dispositivo con un Centro de IoT de Azure asignado y proporcionar detalles de conectividad para el dispositivo que solicita un arranque. Centro de IoT proporciona los detalles de conectividad para el dispositivo que solicita un arranque. Para los dispositivos autorizados, el servicio de arranque debe registrar el dispositivo con un Centro de IoT de Azure asignado y proporcionar detalles de conectividad para el dispositivo que solicita un arranque.
+Cuando se usa un servicio de arranque se inicia un dispositivo IoT que envía una solicitud que en última instancia, puede proporcionar acceso a un Centro de IoT de Azure asignado. La solicitud debe incluir las credenciales de arranque de dispositivos y otros datos necesarios. Para los dispositivos autorizados, el servicio de arranque debe registrar el dispositivo con un Centro de IoT de Azure asignado y proporcionar detalles de conectividad para el dispositivo que solicita un arranque. Centro de IoT proporciona los detalles de conectividad para el dispositivo que solicita un arranque.
 
 ## Registro de dispositivo y modelos de dispositivo
 
@@ -82,7 +82,7 @@ Una vez que se recibe un mensaje relacionado con el modelo de dispositivo, los m
 
 ### Modelos de dispositivos de puerta de enlace de campo
 
-Las puertas de enlace de campo se suelen usar para habilitar la conectividad y la traducción de protocolos para los dispositivos que no pueden o no deben conectarse directamente a Internet. Si el dispositivo que se va a crear es una puerta de enlace de campo, puede representar los dispositivos que están conectados a través de la puerta de enlace de campo en todas las interacciones con el Centro de IoT de Azure. Como fabricante de la puerta de enlace de campo, es su responsabilidad implementar la traducción entre los protocolos de dispositivo y los protocolos admitidos por el servicio IoT. Si desea habilitar la puerta de enlace de campo para conectar dispositivos BLE (Bluetooth baja energía), tendrá que implementar la interfaz BLE para dispositivos y la interfaz para el Centro de IoT de Azure.
+Las puertas de enlace de campo se suelen usar para habilitar la conectividad y la traducción de protocolos para los dispositivos que no pueden o no deben conectarse directamente a Internet. Si el dispositivo que se va a crear es una puerta de enlace de campo, puede representar los dispositivos que están conectados a través de la puerta de enlace de campo en todas las interacciones con el Centro de IoT de Azure. Como fabricante de la puerta de enlace de campo, es su responsabilidad implementar la traducción entre los protocolos de dispositivo y los protocolos admitidos por el servicio IoT. Si quiere habilitar la puerta de enlace de campo para conectar dispositivos BLE (Bluetooth baja energía), tendrá que implementar la interfaz BLE para dispositivos y la interfaz para el Centro de IoT de Azure.
 
 ## Administración de acceso de dispositivo
 
@@ -120,7 +120,7 @@ En la solución preconfigurada de supervisión remota, el dispositivo describe e
 * ChangeConfig
 * ChangeSystemProperties
 
-Estos comandos de dispositivo no aparecen como disponibles en la solución prefigurada del portal de administración ya que son comandos de dispositivo y se ejecutan remotamente por partes específicas del portal. Una vez que el dispositivo recibe un comando de dispositivo se envía una respuesta de confirmación desde el dispositivo al servicio. Después de procesar el comando de dispositivo, este envía una respuesta de resultado que informa al servicio de que la ejecución del comando de dispositivo se realizó correctamente (o si hubo un error, incluyendo el código de error.) En este punto, se confirma el estado deseado para el dispositivo en el dispositivo y se actualiza el registro del dispositivo.
+Estos comandos de dispositivo no aparecen como disponibles en la solución prefigurada del portal de administración ya que son comandos de dispositivo y se ejecutan remotamente por partes específicas del portal. Una vez que el dispositivo recibe un comando de dispositivo se envía una respuesta de confirmación desde el dispositivo al servicio. Después de procesar el comando de dispositivo, este envía una respuesta de resultado que informa al servicio de que la ejecución del comando de dispositivo se realizó correctamente (o si hubo un error, incluyendo el código de error). En este punto, se confirma el estado deseado para el dispositivo en el dispositivo y se actualiza el registro del dispositivo.
 
 ## Actualización remota de firmware y software
 
@@ -148,4 +148,4 @@ Para obtener más información sobre el Centro de IoT de Azure, consulte estos v
 [¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
 [Conectar el dispositivo]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,6 +18,8 @@
 
 # Depuración de una aplicación de API en el Servicio de aplicaciones de Azure
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Información general
 
 En este tutorial, depurará código de API de web de ASP.NET que se ha configurado para ejecutarse en una [aplicación de API](app-service-api-apps-why-best-platform.md) en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md). Depure el código mientras se está ejecutando localmente y mientras se ejecuta de forma remota en Azure.
@@ -121,7 +123,7 @@ Puede haber ocasiones en que desee depurar la aplicación de API de manera local
 
 		Visual Studio detiene la ejecución del programa en el punto de interrupción y así puede depurar la lógica del controlador.
 
-14.	Si se establece el nivel de acceso de la aplicación de API en **Público (autenticado)**, necesitará autenticar y utilizar una herramienta de explorador siguiendo los procedimientos que se muestran en [Protección de una aplicación de API](app-service-api-dotnet-add-authentication.md#use-postman-to-send-a-post-request) para una solicitud Post, es decir:
+14.	Si se establece el nivel de acceso de la aplicación de API en **Público (autenticado)**, necesitará autenticar y usar una herramienta de explorador siguiendo los procedimientos que se muestran en [Protección de una aplicación de API](app-service-api-dotnet-add-authentication.md#use-postman-to-send-a-post-request) para una solicitud Post, es decir:
 
 	* Vaya a la dirección URL de inicio de sesión de la puerta de enlace y escriba las credenciales para iniciar sesión.
 	* Obtenga el valor de token de Zumo de la cookie x-zumo-auth.
@@ -136,4 +138,4 @@ En este tutorial, vio cómo depurar las aplicaciones de API.
 
 Para obtener más información sobre cómo solucionar problemas, consulte [Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). Debido a que las aplicaciones de API son aplicaciones web que tienen características adicionales para el hospedaje de servicios web, puede utilizar las mismas herramientas de depuración y de solución de problemas para aplicaciones de API que se usan para las aplicaciones web.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

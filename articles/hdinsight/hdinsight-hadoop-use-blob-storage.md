@@ -94,9 +94,9 @@ Cualquiera que sea su ubicación, todos los blobs que cree pertenecerán a un co
 El contenedor de blobs predeterminado almacena información específica del clúster, como registros y el historial de trabajos. No comparta un contenedor de blobs predeterminado con varios clústeres de HDInsight. Esto puede dañar el historial de trabajos y el clúster se comportará incorrectamente. Es recomendable usar un contenedor diferente para cada clúster y colocar los datos compartidos en una cuenta de almacenamiento vinculada especificada en la implementación de todos los clústeres pertinentes en lugar de la cuenta de almacenamiento predeterminada. Para obtener más información acerca de cómo configurar cuentas de almacenamiento vinculadas, consulte [Creación de clústeres de HDInsight][hdinsight-creation]. Sin embargo, puede volver a usar un contenedor de almacenamiento predeterminado después de que se haya eliminado el clúster de HDInsight original. Para clústeres de HBase, puede conservar realmente el esquema de la tabla HBase y los datos creando un nuevo clúster de HBase mediante el contenedor de almacenamiento de blobs predeterminado que se usa por un clúster de HBase que se ha eliminado.
 
 
-### Usando el portal de vista previa de Azure
+### Uso del portal de Azure
 
-Al crear un clúster de HDInsight desde el portal de vista previa, tiene la opción de usar una cuenta de almacenamiento existente o crear una nueva cuenta de almacenamiento:
+Al crear un clúster de HDInsight desde el portal, tiene la opción de usar una cuenta de almacenamiento existente o crear una nueva cuenta de almacenamiento:
 
 ![origen de datos de creación de hadoop de hdinsight](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
@@ -297,4 +297,4 @@ Para más información, consulte:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

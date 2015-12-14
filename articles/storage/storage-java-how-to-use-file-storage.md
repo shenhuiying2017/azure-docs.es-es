@@ -218,8 +218,8 @@ Si desea obtener más información acerca de otras API de almacenamiento de Azur
 [SDK de almacenamiento para Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Referencia del SDK de cliente de almacenamiento de Azure]: http://dl.windowsazure.com/storage/javadoc/
-[API de REST de almacenamiento de Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[API de REST de almacenamiento de Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

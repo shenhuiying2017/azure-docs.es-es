@@ -42,7 +42,7 @@ Para completar a esta guía, necesita:
 
 ##Creación de una instancia de Administración de API
 
-A continuación se muestran los pasos para usar Administración de API para administrar el servicio web de AzureML. En primer lugar, cree una instancia del servicio. Inicie sesión en el [Portal de administración](https://manage.windowsazure.com/) y haga clic en **Nuevo** > **Servicios de aplicaciones** > **Administración de API** > **Crear**.
+A continuación se muestran los pasos para usar Administración de API para administrar el servicio web de AzureML. En primer lugar, cree una instancia del servicio. Inicie sesión en el [Portal clásico](https://manage.windowsazure.com/) y haga clic en **Nuevo** > **Servicios de aplicaciones** > **Administración de API** > **Crear**.
 
 ![create-instance](./media/machine-learning-manage-web-service-endpoints-using-api-management/create-instance.png)
 
@@ -60,11 +60,11 @@ Haga clic en la casilla para crear su instancia de servicio. *Tarda hasta treint
 
 Una vez creada la instancia de servicio, el paso siguiente es crear la API. Una API consta de un conjunto de operaciones que se pueden invocar desde una aplicación cliente. Las operaciones API se realizan con proxy en servicios web existentes. Esta guía crea las API que representan los servicios web de AzureML RRS y BES existentes.
 
-Las API se crean y se configuran desde el portal para editores de la API, al que se obtiene acceso a través del Portal de administración de Azure. Para ponerse en contacto con el portal para editores, seleccione la instancia de servicio.
+Las API se crean y se configuran desde el portal para editores de API, al que se obtiene acceso a través del Portal de Azure clásico. Para ponerse en contacto con el portal para editores, seleccione la instancia de servicio.
 
 ![select-service-instance](./media/machine-learning-manage-web-service-endpoints-using-api-management/select-service-instance.png)
 
-Haga clic en **Administrar** en el Portal de Azure para el servicio Administración de API.
+Haga clic en **Administrar** en el Portal de Azure clásico en el servicio de Administración de la API.
 
 ![manage-service](./media/machine-learning-manage-web-service-endpoints-using-api-management/manage-service.png)
 
@@ -116,7 +116,7 @@ Haga clic en **Agregar operación** para agregar la operación BES de AzureML a 
 
 ##Llamada a una operación desde el portal para desarrolladores
 
-Se puede llamar a las operaciones directamente desde el portal para desarrolladores, lo que proporciona una forma cómoda de ver y probar las operaciones de una API. En este paso de la guía llamará al método **Ejecución de RRS** que se agregó a la **API de demo de AzureML**. Haga clic en **Portal para desarrolladores** en el menú que se encuentra en la parte superior derecha del Portal de administración.
+Se puede llamar a las operaciones directamente desde el portal para desarrolladores, lo que proporciona una forma cómoda de ver y probar las operaciones de una API. En este paso de la guía llamará al método **Ejecución de RRS** que se agregó a la **API de demo de AzureML**. Haga clic en **Portal para desarrolladores**, en el menú que se encuentra en la parte superior derecha del Portal clásico.
 
 ![developer-portal](./media/machine-learning-manage-web-service-endpoints-using-api-management/developer-portal.png)
 
@@ -384,4 +384,4 @@ Esta guía muestra un ejemplo de Python en funcionamiento. Debe modificarlo con 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

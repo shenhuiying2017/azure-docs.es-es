@@ -1,34 +1,39 @@
-<properties 
-	pageTitle="Creación de un servicio móvil back-end de .NET que usa almacenamiento de tablas | Azure Mobile Services" 
-	description="Obtenga información sobre cómo usar el almacenamiento de tabla de Azure con su servicio móvil de back-end de .NET." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Creación de un servicio móvil back-end de .NET que usa almacenamiento de tablas | Azure Mobile Services"
+	description="Obtenga información sobre cómo usar el almacenamiento de tabla de Azure con su servicio móvil de back-end de .NET."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/14/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/14/2015"
 	ms.author="glenga"/>
 
 # Creación de un servicio móvil back-end de .NET que usa almacenamiento de tablas
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 Este tema muestra cómo usar un almacén de datos no relacional para su servicio móvil de back-end de .NET. En este tutorial, modificará el proyecto de inicio rápido de Servicios móviles de Azure para usar el almacenamiento de tabla de Azure en lugar de la base de datos de Azure SQL Server predeterminada.
 
-El tutorial requiere haber realizado el tutorial [Introducción a Servicios móviles]. También necesitará una cuenta de almacenamiento de Azure.
+El tutorial requiere haber completado el tutorial [Introducción a Servicios móviles]. También necesitará una cuenta de almacenamiento de Azure.
 
 ##Configuración del almacenamiento de tabla de Azure en el servicio móvil de back-end de .NET
 
 En primer lugar, deberá configurar el servicio móvil y el proyecto de código de back-end de .NET para conectarse al almacenamiento de Azure.
 
-1. En el **Explorador de soluciones** de Visual Studio, haga clic con el botón derecho en el proyecto de back-end de .NET y, después, seleccione **Administrar paquetes de NuGet**.
+1. En el **Explorador de soluciones** de Visual Studio, haga clic con el botón derecho en el proyecto de back-end de .NET y seleccione **Administrar paquetes NuGet**.
 
-2. En el panel izquierdo, seleccione la categoría **En línea**, seleccione **Solo estable**, busque **MobileServices**, haga clic en **Instalar** en el paquete **Extensión de almacenamiento de Azure de back-end .NET para Servicios móviles de Microsoft Azure** y acepte el contrato de licencia.
+2. En el panel izquierdo, seleccione la categoría **En línea**, seleccione **Solo estable**, busque **MobileServices**, haga clic en **Instalar** en el paquete **Extensión de almacenamiento de Azure del back-end de .NET para Servicios móviles de Microsoft Azure** y acepte el contrato de licencia.
 
   	![](./media/mobile-services-dotnet-backend-store-data-table-storage/mobile-add-storage-nuget-package-dotnet.png)
 
@@ -36,10 +41,10 @@ En primer lugar, deberá configurar el servicio móvil y el proyecto de código 
 
 3. Si todavía no ha creado su cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](../storage-create-storage-account.md).
 
-4. En el Portal de administración, haga clic en **Almacenamiento**, haga clic en la cuenta de almacenamiento y, a continuación, haga clic en **Administrar claves**.
+4. En el [Portal de Azure clásico], haga clic en **Almacenamiento**, haga clic en la cuenta de almacenamiento y haga clic en **Administrar claves**.
 
 5. Tome nota de los valores en los campos **Nombre de cuenta de almacenamiento** y **Clave de acceso**.
- 
+
 6. En el servicio móvil, haga clic en la pestaña **Configurar**, vaya a **Cadenas de conexión** y escriba una nueva cadena de conexión con el **Nombre** `StorageConnectionString` y un **Valor** que sea su cadena de conexión de cuenta de almacenamiento con el formato siguiente.
 
 		DefaultEndpointsProtocol=https;AccountName=<ACCOUNT_NAME>;AccountKey=<ACCESS_KEY>;
@@ -70,9 +75,9 @@ Como el proyecto de inicio rápido TodoList está diseñado para trabajar con un
 	        public bool Complete { get; set; }
 	    }
 
-	>[AZURE.NOTE]El tipo **StorageData** tiene una propiedad Id que requiere una clave compuesta que es una cadena con el formato *partitionId*,*rowValue*.
+	>[AZURE.NOTE]El tipo **StorageData** tiene una propiedad Id. que requiere una clave compuesta que es una cadena con el formato *partitionId*,*rowValue*.
 
-2. En **TodoItemController**, agregue la siguiente instrucción using.
+2. En **TodoItemController**, agregue la siguiente instrucción de uso.
 
 		using System.Web.Http.OData.Query;
 		using System.Collections.Generic;
@@ -83,12 +88,12 @@ Como el proyecto de inicio rápido TodoList está diseñado para trabajar con un
         {
             base.Initialize(controllerContext);
 
-            // Create a new Azure Storage domain manager using the stored 
+            // Create a new Azure Storage domain manager using the stored
             // connection string and the name of the table exposed by the controller.
             string connectionStringName = "StorageConnectionString";
             var tableName = controllerContext.ControllerDescriptor.ControllerName.ToLowerInvariant();
-            DomainManager = new StorageDomainManager<TodoItem>(connectionStringName, 
-                tableName, Request, Services);          
+            DomainManager = new StorageDomainManager<TodoItem>(connectionStringName,
+                tableName, Request, Services);
         }
 
 	Esto crea un nuevo administrador de dominio de almacenamiento para el controlador solicitado usando la cadena de conexión de la cuenta de almacenamiento.
@@ -99,9 +104,9 @@ Como el proyecto de inicio rápido TodoList está diseñado para trabajar con un
         {
             // Call QueryAsync, passing the supplied query options.
             return DomainManager.QueryAsync(options);
-        } 
+        }
 
-	A diferencia de una base de datos SQL, esta versión no devuelve IQueryable<TEntity>, por lo que se puede enlazar al resultado pero no componerse una consulta.
+	A diferencia de una base de datos SQL, esta versión no devuelve IQueryable<TEntity>, por lo que se puede enlazar al resultado pero no componerse en una consulta.
 
 ## Actualización de la aplicación de cliente
 
@@ -119,8 +124,8 @@ Ahora ya está preparado para probar la aplicación.
 
 ## <a name="test-application"></a>Prueba de la aplicación
 
-1. (Opcional) Vuelva a publicar el proyecto de back-end de .NET de Servicios móviles. 
-	
+1. (Opcional) Vuelva a publicar el proyecto de back-end de .NET de Servicios móviles.
+
 	También puede probar su servicio móvil localmente antes de publicar el proyecto de back-end de .NET en Azure. Tanto si prueba localmente como en Azure, el servicio móvil seguirá usando el almacenamiento de tabla de Azure.
 
 4. Ejecute la aplicación de cliente de inicio rápido conectada al servicio móvil.
@@ -128,7 +133,7 @@ Ahora ya está preparado para probar la aplicación.
 	Tenga en cuenta que no verá los elementos que agregó anteriormente con el tutorial rápido. Esto se debe a que el almacén de la tabla está vacío actualmente.
 
 5. Agregue nuevos elementos para generar cambios en la base de datos.
- 
+
 	La aplicación y el servicio móvil deberán comportarse como antes, excepto que ahora los datos se almacenan en el almacén no relacional en lugar de en la base de datos de SQL.
 
 ##Pasos siguientes
@@ -150,9 +155,8 @@ Ahora que ya hemos visto lo fácil que es usar el almacenamiento de tabla con el
 
 <!-- URLs. -->
 [Introducción a Servicios móviles]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

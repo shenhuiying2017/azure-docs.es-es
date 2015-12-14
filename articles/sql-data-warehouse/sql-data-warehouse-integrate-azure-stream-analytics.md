@@ -53,7 +53,7 @@ Escriba estos valores en la página siguiente:
 	- Si la base de datos del Almacenamiento de datos SQL está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione Usar la base de datos SQL de la suscripción actual".
 	- Si la base de datos está en una suscripción diferente, seleccione Usar la base de datos SQL de otra suscripción.
 - *Base de datos*: especifique el nombre de una base de datos de destino.
-- *Nombre del servidor*: especifique el nombre del servidor para la base de datos especificada. Para encontrar estos valores, puede usar el Portal de Azure.
+- *Nombre del servidor*: especifique el nombre del servidor para la base de datos especificada. Para encontrarlo, puede usar el Portal de Azure clásico.
 
 ![][server-name]
 
@@ -96,4 +96,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

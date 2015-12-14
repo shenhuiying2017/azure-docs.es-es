@@ -34,7 +34,7 @@ Cada modo del plan del Servicio de aplicaciones admite un número distinto de es
 
 - El escalado no está disponible para los espacios que no son de producción.
 
-- No se admite la administración de recursos vinculados en los espacios que no sean de producción. Solo en el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) puede evitar este impacto potencial en una ranura de producción si mueve temporalmente la ranura de no producción a un modo del plan del Servicio de aplicaciones diferente. Tenga en cuenta que el espacio de no producción debe compartir una vez más el mismo modo con el espacio de producción antes de que pueda intercambiar los dos espacios.
+- No se admite la administración de recursos vinculados en los espacios que no sean de producción. Solo en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) puede evitar este impacto potencial en un espacio de producción si mueve temporalmente el espacio de no producción a un modo del plan del Servicio de aplicaciones diferente. Tenga en cuenta que el espacio de no producción debe compartir una vez más el mismo modo con el espacio de producción antes de que pueda intercambiar los dos espacios.
 
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -44,7 +44,7 @@ Cada modo del plan del Servicio de aplicaciones admite un número distinto de es
 
 La aplicación web debe estar ejecutándose en el modo **Estándar** o **Premium** para que pueda habilitar varias ranuras de implementación.
 
-1. En el [Portal de vista previa de Azure](https://portal.azure.com/), abra la hoja de la aplicación web.
+1. En el [Portal de Azure](https://portal.azure.com/), abra la hoja de la aplicación web.
 2. Haga clic en **Ranuras de implementación**. A continuación, en la hoja **Ranuras de implementación**, haga clic en **Agregar ranura**.
 
 	![Agregar una nueva ranura de implementación][QGAddNewDeploymentSlot]
@@ -242,7 +242,6 @@ Para eliminar una ranura de implementación que ya no sea necesaria, utilice el 
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]: ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png
@@ -260,4 +259,4 @@ Para eliminar una ranura de implementación que ya no sea necesaria, utilice el 
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

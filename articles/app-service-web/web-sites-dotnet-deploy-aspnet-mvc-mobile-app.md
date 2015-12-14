@@ -19,8 +19,7 @@
 
 # Implementar una aplicación web móvil de ASP.NET MVC 5 en el servicio de aplicaciones de Azure
 
-Este tutorial le enseñará los conceptos básicos para crear una aplicación web ASP.NET MVC 5 adecuada para móviles y e implementarla en Microsoft Azure. Para este tutorial, debe disponer de [Visual Studio Express 2013 para Web][Visual Studio Express 2013] o la edición profesional de Visual Studio si ya dispone de él.
-Puede usar [Visual Studio 2015], pero las capturas de pantalla serán distintas y deberá utilizar las plantillas de ASP.NET 4.x.
+Este tutorial le enseñará los conceptos básicos para crear una aplicación web ASP.NET MVC 5 adecuada para móviles y e implementarla en Microsoft Azure. Para este tutorial, debe disponer de [Visual Studio Express 2013 para Web][Visual Studio Express 2013] o la edición profesional de Visual Studio si ya dispone de él. Puede usar [Visual Studio 2015], pero las capturas de pantalla serán distintas y deberá utilizar las plantillas de ASP.NET 4.x.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -145,7 +144,7 @@ Puede reemplazar cualquier vista (incluidos los diseños y las vistas parciales)
 
 En esta sección, creará un archivo de diseño específico para móviles.
 
-Para empezar, copie *Views\Shared_Layout.cshtml* en *Views\Shared_Layout.Mobile.cshtml*. Abra *_Layout.Mobile.cshtml* y cambie el título de **Aplicación MVC5** a **Aplicación MVC5 (móvil)**.
+Para empezar, copie *Views\\Shared\\_Layout.cshtml* en *Views\\Shared\\_Layout.Mobile.cshtml*. Abra *\_Layout.Mobile.cshtml* y cambie el título de **Aplicación MVC5** a **Aplicación MVC5 (móvil)**.
 
 En cada `Html.ActionLink` llamada de de la barra de navegación, que "Explorar por" de cada vínculo *ActionLink*. El código siguiente muestra la etiqueta terminada `<ul class="nav navbar-nav">` del archivo de diseño móvil.
 
@@ -156,7 +155,7 @@ En cada `Html.ActionLink` llamada de de la barra de navegación, que "Explorar p
         <li>@Html.ActionLink("Tag", "AllTags", "Home")</li>
     </ul>
 
-Copie el archivo *Views\Home\AllTags.cshtml* en *Views\Home\AllTags.Mobile.cshtml*. Abra el archivo nuevo y cambie el elemento `<h2>` de "Tags" a "Tags (M)":
+Copie el archivo *Views\\Home\\AllTags.cshtml* en *Views\\Home\\AllTags.Mobile.cshtml*. Abra el archivo nuevo y cambie el elemento `<h2>` de "Tags" a "Tags (M)":
 
     <h2>Tags (M)</h2>
 
@@ -546,7 +545,6 @@ En este tutorial se ha mostrado cómo usar ASP.NET MVC 5 para desarrollar aplica
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- Internal Links -->
 [Deploy the starter project to an Azure web app]: #bkmk_DeployStarterProject
@@ -618,4 +616,4 @@ En este tutorial se ha mostrado cómo usar ASP.NET MVC 5 para desarrollar aplica
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

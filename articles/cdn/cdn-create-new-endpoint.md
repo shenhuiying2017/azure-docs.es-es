@@ -3,7 +3,7 @@
 	 description="En este tema se muestra cómo habilitar la Red de entrega de contenido (CDN) para Azure." 
 	 services="cdn" 
 	 documentationCenter="" 
-	 authors="zhangmanling" 
+	 authors="camsoper" 
 	 manager="dwrede" 
 	 editor=""/>
 <tags 
@@ -12,46 +12,87 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="09/01/2015" 
-	 ms.author="mazha"/>
+	 ms.date="12/02/2015" 
+	 ms.author="casoper"/>
 
 
 
 #Habilitar la Red de entrega de contenido (CDN) para Azure  
 
-CDN puede habilitarse para el origen mediante el Portal de administración de Azure. El tipo de origen disponible actual incluye: aplicaciones web, almacenamiento, servicios en la nube. También puede habilitar la red CDN para el extremo de streaming de Servicios multimedia de Azure. Una vez que haya habilitado un extremo de red CDN para su origen, todos los objetos disponibles de forma pública se pueden almacenar en la memoria caché perimetral de la red CDN.
+CDN puede habilitarse para el origen mediante el Portal de administración de Azure. Se admiten varios tipos de orígenes de Azure integrados, incluidas aplicaciones web, el almacenamiento de blobs y Servicios en la nube. También puede habilitar la red CDN para el extremo de streaming de Servicios multimedia de Azure. Si el origen no es uno de estos servicios de Azure, o se hospeda en otra parte fuera de Azure, también puede crear un origen personalizado. Una vez que haya habilitado un extremo de red CDN para su origen, todos los objetos disponibles de forma pública se pueden almacenar en la memoria caché perimetral de la red CDN.
 
-Tenga en cuenta que ahora también puede crear un origen personalizado y no tiene que ser Azure.
+## Crear un nuevo perfil de CDN
 
-##Para crear un nuevo extremo de red CDN  
+Un perfil de red de entrega de contenido es una colección de puntos de conexión de red de entrega de contenido. Cada perfil contiene uno o más de estos puntos de conexión de CDN. Puede que quiera usar varios perfiles para organizar sus puntos de conexión de la red CDN por dominio de Internet, aplicación web o cualquier otro criterio.
 
-1.	Inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com/).
-2.	En el panel de navegación, haga clic en **CDN**.
-3.	En la cinta, haga clic en **Nuevo**. En el cuadro de diálogo **Nuevo**, seleccione **SERVICIOS DE APLICACIONES**, a continuación **CDN** y, finalmente, **CREACIÓN RÁPIDA**.
-4.	En la lista desplegable **TIPO DE ORIGEN**, seleccione un tipo de origen de la lista de tipos de origen disponibles.
+**Para crear un nuevo perfil de CDN**
+
+1. En el [Portal de administración de Azure](https://portal.azure.com), en la parte superior, haga clic en **Nuevo**. En la hoja **Nuevo**, seleccione **Medios + CDN** y, luego, **CDN**.
+
+    Aparece la nueva hoja del perfil de CDN.
+    
+    ![Nuevo perfil de CDN][new-cdn-profile]
+
+2. Escriba un nombre para su perfil de CDN.
+
+3. Seleccione un **Plan de tarifa** o use el valor predeterminado.
+
+4. Seleccione o cree un **Grupo de recursos**. Para más información sobre los grupos de recursos, vea [Información general del Administrador de recursos de Azure](resource-group-overview/#resource-groups).
+
+5. Seleccione la **Suscripción** para este perfil de CDN.
+
+6. Seleccione una **Ubicación**. Esta es la ubicación de Azure en la que se almacenará la información de su perfil de red CDN. No tiene ningún impacto en las ubicaciones de puntos de conexión de CDN. No tiene que ser la misma ubicación que la cuenta de almacenamiento.
+
+7. Haga clic en el botón **Crear** para crear el nuevo perfil.
+
+## Crear un nuevo punto de conexión de CDN
+
+**Para crear un nuevo extremo de una red CDN para una cuenta de almacenamiento**
+
+1. En el [Portal de administración de Azure](https://portal.azure.com), vaya a su perfil de CDN. Puede haberlo anclado al panel en el paso anterior. Si no lo hace, para encontrarlo, haga clic en **Examinar**, en **Perfiles de CDN** y luego haga clic en el perfil al que planea agregar el punto de conexión.
+
+    Aparece la hoja del perfil de CDN.
+    
+    ![Perfil de CDN][cdn-profile-settings]
+    
+2. Haga clic en el botón **Agregar extremo**.
+
+    ![Botón Agregar extremo][cdn-new-endpoint-button]
+
+    Aparecerá la hoja **Agregar un extremo**.
+    
+    ![Hoja Agregar extremo][cdn-add-endpoint]
+
+3. Escriba un **Nombre** para este punto de conexión de CDN. Este nombre se usará para obtener acceso a sus recursos almacenados en caché en el dominio `<EndpointName>.azureedge.net`.
+
+4. En la lista desplegable **Tipo de origen**, seleccione su tipo de origen.
 	
-	Se mostrará la lista de direcciones URL de origen disponibles en lista desplegable **URL DE ORIGEN**.
-	
+	![Tipo de origen de la red CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
 
-	![createnew][createnew]
+5. En la lista desplegable **Nombre de host de origen**, seleccione o escriba su dominio de origen. En la lista desplegable se muestran todos los orígenes disponibles del tipo especificado en el paso 4. Si seleccionó *Origen personalizado* como su **Tipo de origen**, tendrá que escribir el dominio de su origen personalizado.
 
-	Si selecciona **Origen personalizado**, puede especificar una dirección URL de origen personalizado. Qué no tiene que ser un origen de Azure.
+6. En el cuadro de texto **Ruta de acceso de origen**, escriba la ruta de acceso a los recursos que quiera almacenar en caché o déjela en blanco para permitir almacenar en caché cualquier recurso en el dominio especificado en el paso 5.
 
-	![customorigin][customorigin]
+7. En el **Encabezado del host de origen**, escriba el encabezado de host que quiera que la red CDN envíe con cada solicitud o deje el valor predeterminado.
 
-	>[AZURE.NOTE]Actualmente solo se admite HTTP para el origen y debe usar la extensión de Servicios multimedia para habilitar la red CDN de Azure para un extremo de streaming de Servicios multimedia de Azure.
-	
-5.	Haga clic en el botón **Crear** para crear el nuevo extremo.
+8. Para **Protocolo** y **puerto de origen**, especifique los protocolos y los puertos que se usan para tener acceso a sus recursos en el origen. Sus clientes seguirán usando estos mismos protocolos y puertos cuando tienen acceso a recursos de la red CDN. Se debe seleccionar al menos un protocolo (HTTP o HTTPS).
 
+9. Haga clic en el botón **Agregar** para crear el nuevo punto de conexión.
 
->[AZURE.NOTE]La configuración que ha establecido para el extremo no estará disponible de forma inmediata; el registro puede tardar hasta 60 minutos en propagarse a través de la red CDN. Es posible que los usuarios que intenten usar el nombre de dominio de la red CDN de forma inmediata reciban el código de estado 400 (solicitud incorrecta) hasta que el contenido esté disponible a través de la red CDN.
+10. Una vez creado el punto de conexión, aparecerá en la lista de puntos de conexión del perfil. La visualización de la lista muestra la URL que se debe utilizar para tener acceso al contenido en caché, así como al dominio de origen.
+
+    ![Extremo de CDN][cdn-endpoint-success]
+
+    > [AZURE.NOTE]El punto de conexión no estará disponible inmediatamente para su uso. Se pueden tardar hasta 90 minutos en que el registro se propague a través de la red CDN. Es posible que los usuarios que intenten usar el nombre de dominio de la red CDN de forma inmediata reciban el código de estado 404 hasta que el contenido esté disponible a través de la red CDN.
 
 ##Otras referencias
 [Asignación del contenido de la Red de entrega de contenido (CDN) a un dominio personalizado](cdn-map-content-to-custom-domain.md)
 
-[createnew]: ./media/cdn-create-new-endpoint/cdn-create-new-account.png
-
-[customorigin]: ./media/cdn-create-new-endpoint/cdn-custom-origin.png
+[new-cdn-profile]: ./media/cdn-create-new-endpoint/cdn-new-profile.png
+[cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
+[cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
+[cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
+[cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

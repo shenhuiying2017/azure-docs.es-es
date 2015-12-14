@@ -82,16 +82,16 @@ Para crear la red virtual con la configuración de las tablas V, S, D y L, use l
 
 > [AZURE.NOTE]Este procedimiento le guiará en el proceso de creación de una red virtual que usa una conexión VPN de sitio a sitio. Para obtener información sobre cómo usar ExpressRoute para la conexión de sitio a sitio, vea [Introducción técnica a ExpressRoute](../expressroute/expressroute-introduction.md).
 
-Después de crear la red virtual de Azure, el portal de Azure determinará lo siguiente:
+Después de crear la red virtual de Azure, el Portal de Azure clásico determinará lo siguiente:
 
 - La dirección IPv4 pública de la puerta de enlace VPN de Azure para la red virtual.
 - La clave precompartida del protocolo de seguridad de Internet (IPsec) para la conexión VPN de sitio a sitio.
 
-Para ver estos datos en el portal de Azure después de crear la red virtual, haga clic en **Redes**, en el nombre de la red virtual y, a continuación, en la opción de menú **Panel**.
+Para ver estos datos en el Portal de Azure clásico después de crear la red virtual, haga clic en **Redes**, en el nombre de la red virtual y después en la opción de menú **Panel**.
 
-A continuación, configurará la puerta de enlace de red virtual para crear una conexión VPN de sitio a sitio segura. Consulte [Configurar una puerta de enlace de red virtual en el portal de Azure](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) para consultar las instrucciones.
+A continuación, configurará la puerta de enlace de red virtual para crear una conexión VPN de sitio a sitio segura. Consulte [Configurar una puerta de enlace de red virtual en el Portal de Azure clásico](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) para consultar las instrucciones.
 
-A continuación, cree la conexión VPN de sitio a sitio entre la nueva red virtual y un dispositivo VPN local. Para obtener más detalles, consulte [Configurar una puerta de enlace de red virtual en el portal de Azure](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
+A continuación, cree la conexión VPN de sitio a sitio entre la nueva red virtual y un dispositivo VPN local. Para obtener más detalles, consulte [Configurar una puerta de enlace de red virtual en el Portal de Azure clásico](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
 
 A continuación, asegúrese de que el espacio de direcciones de la red virtual sea accesible desde la red local. Esto se hace normalmente agregando una ruta correspondiente al espacio de direcciones de la red virtual a su dispositivo VPN y, a continuación, anunciando esa ruta al resto de la infraestructura de enrutamiento de la red de su organización. Trabaje con su departamento de TI para determinar cómo hacerlo.
 
@@ -173,4 +173,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 2: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

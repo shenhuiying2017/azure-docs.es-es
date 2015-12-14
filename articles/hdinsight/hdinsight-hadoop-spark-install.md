@@ -41,7 +41,7 @@ Spark también se puede usar para llevar a cabo el procesamiento de datos conven
 
 Este tema proporciona instrucciones sobre cómo personalizar un clúster de HDInsight para instalar Spark.
 
-## Instalación de Spark mediante el Portal de vista previa de Azure
+## Instalación de Spark mediante el Portal de Azure
 
 Hay un script de ejemplo para instalar Spark en un clúster de HDInsight disponible desde un blob de almacenamiento de Azure de solo lectura en [https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1). Este script puede instalar Spark 1.2.0 o Spark 1.0.2, según la versión del clúster de HDInsight que cree.
 
@@ -86,7 +86,7 @@ Spark proporciona las API en Scala, Python y Java. También puede usar el shell 
 ###<a name="sparkshell"></a>Uso del shell de Spark para ejecutar consultas interactivas
 Realice los pasos siguientes para ejecutar consultas de Spark desde un shell de Spark interactivo. En esta sección, se ejecutará una consulta de Spark en un archivo de datos de ejemplo (/example/data/gutenberg/davinci.txt) que está disponible, de manera predeterminada, en los clústeres de HDInsight.
 
-1. En el portal de Azure, habilite el Escritorio remoto para el clúster que ha creado con Spark instalado y, a continuación, remoto en el clúster. Para obtener instrucciones, vea <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.
+1. En el portal de Azure, habilite el Escritorio remoto para el clúster que ha creado con Spark instalado y, a continuación, remoto en el clúster. Para obtener instrucciones, vea [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 2. En la sesión del Protocolo de escritorio remoto (RDP), desde el escritorio, abra la línea de comandos de Hadoop (desde un acceso directo del escritorio) y navegue hasta la ubicación donde está instalado Spark; por ejemplo, **C:\\apps\\dist\\spark-1.2.0**.
 
@@ -120,7 +120,7 @@ Spark SQL le permite usar Spark para ejecutar consultas relacionales expresadas 
 
 >[AZURE.NOTE]El ejemplo siguiente se creó con **Spark 1.2.0**, que se instala si ejecuta la acción de script durante la creación del clúster de HDInsight 3.2.
 
-1. En el portal de Azure, habilite el Escritorio remoto para el clúster que ha creado con Spark instalado y, a continuación, remoto en el clúster. Para obtener instrucciones, vea <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.
+1. En el portal de Azure, habilite el Escritorio remoto para el clúster que ha creado con Spark instalado y, a continuación, remoto en el clúster. Para obtener instrucciones, vea [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 2. En la sesión de RDP, desde el escritorio, abra la línea de comandos de Hadoop (desde un acceso directo del escritorio) y navegue hasta la ubicación donde está instalado Spark; por ejemplo, **C:\\apps\\dist\\spark-1.2.0**.
 
@@ -317,4 +317,4 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: ../install-configure-powershell.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

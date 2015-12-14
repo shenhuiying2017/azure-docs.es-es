@@ -33,7 +33,7 @@ Obtenga el procesador multimedia con **.NET** o **API de REST**.
 
 [AZURE.INCLUDE [media-services-selector-get-media-processor](../../includes/media-services-selector-get-media-processor.md)]
 
-##Creación de trabajos 
+##Creación de trabajos
 
 Un trabajo es una entidad que contiene metadatos sobre un conjunto de tareas (por ejemplo, codificación o indización). Cada tarea realiza una operación atómica en los recursos de entrada. Para ver un ejemplo de cómo crear trabajos de codificación, consulte:
 
@@ -43,22 +43,22 @@ Un trabajo es una entidad que contiene metadatos sobre un conjunto de tareas (po
 
 [AZURE.INCLUDE [media-services-selector-index-content](../../includes/media-services-selector-index-content.md)]
 
-##Codificación 
+##Codificación
 
-Codifique con **Azure Media Encoder** mediante el **Portal de administración de Azure**, **.NET** o **API de REST**.
- 
+Codifique con el **Codificador multimedia de Azure** mediante el **Portal de Azure clásico**, **.NET** o **API de REST**.
+
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
 ##Supervisión del progreso del trabajo
 
-Supervise el progreso del trabajo mediante el **Portal de administración de Azure**, **.NET** o **API de REST**.
+Supervise el progreso del trabajo mediante el **Portal de Azure clásico**, **.NET** o **API de REST**.
 
 [AZURE.INCLUDE [media-services-selector-job-progress](../../includes/media-services-selector-job-progress.md)]
 
 ##Vínculos relacionados
 
 [Cuotas y limitaciones](media-services-quotas-and-limitations.md): explica las cuotas usadas y las limitaciones del codificador de Servicios multimedia
- 
+
 
 ##Rutas de aprendizaje de Servicios multimedia
 
@@ -68,4 +68,4 @@ Supervise el progreso del trabajo mediante el **Portal de administración de Azu
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

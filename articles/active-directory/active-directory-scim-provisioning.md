@@ -95,9 +95,9 @@ Para facilitar este proceso, se proporciona un conjunto de [ejemplos de código]
 **Requisitos previos**
 
 * Visual Studio 2013 o posterior.
-* [SDK de Azure para .NET](https://azure.microsoft.com/es-ES/downloads/)
+* [SDK de Azure para .NET](https://azure.microsoft.com/downloads/)
 * Equipo de Windows que admite el ASP.NET framework 4.5 que se usará como punto de conexión SCIM. Este equipo debe ser accesible desde la nube
-* [Una suscripción de Azure con una versión de prueba o con licencia de Azure AD Premium](https://azure.microsoft.com/es-ES/services/active-directory/)
+* [Una suscripción de Azure con una versión de prueba o con licencia de Azure AD Premium](https://azure.microsoft.com/services/active-directory/)
 * El ejemplo de Amazon AWS requiere bibliotecas de [AWS Toolkit for Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). Consulte el archivo Léame incluido con el ejemplo para obtener más información
 
 ###Introducción
@@ -692,4 +692,4 @@ La siguiente ilustración muestra los mensajes que Azure Active Directory enviar
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

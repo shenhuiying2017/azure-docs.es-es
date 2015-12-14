@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Uso de Administrador de instantáneas StorSimple para conectar y administrar dispositivos StorSimple
@@ -30,7 +30,7 @@ Dependiendo de su selección de **Vista**, el panel **Resultados** muestra la si
 
 | Columna Resultados |Descripción |
 |:----------------|:--------------------| 
-| Nombre | El nombre del dispositivo como está configurado en el Portal de administración de Microsoft Azure|
+| Nombre | El nombre del dispositivo tal como está configurado en el Portal de Azure clásico|
 | Modelo | El número de modelo del dispositivo|
 | Versión | La versión del software instalado en el dispositivo |
 | Estado | Si el dispositivo está disponible |
@@ -82,7 +82,7 @@ Utilice el procedimiento siguiente para agregar o reemplazar un dispositivo Stor
 
 3. En la lista desplegable **Dispositivo**, seleccione la dirección IP del dispositivo o el dispositivo virtual.
 
-4. En el cuadro de texto **Contraseña**, escriba la contraseña de Administrador de instantáneas StorSimple que ha creado para el dispositivo en el Portal de administración de Azure. Haga clic en **Aceptar**. Administrador de instantáneas StorSimple busca el dispositivo que ha identificado.
+4. En la casilla **Contraseña**, escriba la contraseña de StorSimple Snapshot Manager que creó para el dispositivo en el Portal de Azure clásico. Haga clic en **Aceptar**. Administrador de instantáneas StorSimple busca el dispositivo que ha identificado.
 
     - Si el dispositivo está disponible, Administrador de instantáneas StorSimple agrega una conexión. 
 
@@ -190,11 +190,11 @@ Utilice el procedimiento siguiente para eliminar una configuración individual d
 
 ## Cambio de una contraseña de dispositivo caducada
 
-Para autenticar a un dispositivo de StorSimple con Administrador de instantáneas StorSimple tiene que escribir una contraseña. Esta contraseña se configura cuando se usar la interfaz de Windows PowerShell para configurar el dispositivo. Sin embargo, la contraseña puede expirar. Si esto ocurre, puede usar el Portal de administración de Microsoft Azure para cambiar la contraseña. A continuación, ya que el dispositivo se configuró en Administrador de instantáneas StorSimple antes de que la contraseña caducara, tiene que volver a autenticar el dispositivo en Administrador de instantáneas StorSimple.
+Para autenticar a un dispositivo de StorSimple con Administrador de instantáneas StorSimple tiene que escribir una contraseña. Esta contraseña se configura cuando se usar la interfaz de Windows PowerShell para configurar el dispositivo. Sin embargo, la contraseña puede expirar. Si esto ocurre, puede usar el Portal de Azure clásico para cambiar la contraseña. A continuación, ya que el dispositivo se configuró en Administrador de instantáneas StorSimple antes de que la contraseña caducara, tiene que volver a autenticar el dispositivo en Administrador de instantáneas StorSimple.
 
 #### Para cambiar la contraseña caducada
 
-1. En el Portal de administración de Azure, inicie el servicio StorSimple Manager.
+1. En el Portal de Azure clásico, inicie el servicio StorSimple Manager.
 
 2. Haga clic en **Dispositivos** > **Configurar** para el dispositivo.
 
@@ -263,4 +263,4 @@ Si un dispositivo StorSimple falla y se sustituye por un dispositivo en espera (
 - Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 - Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para ver y administrar volúmenes de copia de seguridad](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

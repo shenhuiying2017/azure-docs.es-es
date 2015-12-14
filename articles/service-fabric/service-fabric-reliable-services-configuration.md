@@ -17,26 +17,35 @@
    ms.author="sumukhs"/>
 
 # Configuración de los servicios fiables con estado
-La configuración predeterminada del servicio fiable con estado puede modificarse cambiando el archivo "settings.xml" generado en la raíz del paquete de Visual Studio en la carpeta "Config" para cada servicio de la aplicación.
+La configuración predeterminada del Servicio fiable con estado puede modificarse mediante el paquete de configuración (Config) o en la implementación del servicio (Código).
 
-El tiempo de ejecución de Service Fabric busca los nombres de sección predefinidos en el archivo de "settings.xml" y utiliza los valores de configuración mientras crea los componentes en tiempo de ejecución subyacentes.
++ **Config**: la configuración mediante el paquete de configuración se realiza cambiando el archivo de "Settings.xml" generado en la raíz del paquete de Visual Studio en la carpeta "Config" para cada servicio de la aplicación.
++ **Código**: la configuración a través del código se consigue reemplazando StatefulService.CreateReliableStateManager y creando un ReliableStateManager con un objeto ReliableStateManagerConfiguration con el conjunto de opciones adecuado.
 
-> [AZURE.NOTE]**NO** elimine o modifique los nombres de sección de las siguientes configuraciones en el archivo de "settings.xml" que se genera en la solución de Visual Studio.
+De manera predeterminada, el tiempo de ejecución de Service Fabric busca los nombres de sección predefinidos en el archivo de "Settings.xml" y utiliza los valores de configuración mientras crea los componentes en tiempo de ejecución subyacentes.
+
+> [AZURE.NOTE]**NO** elimine los nombres de sección de las siguientes configuraciones en el archivo de "Settings.xml" generado en la solución de Visual Studio, a menos que planee configurar el servicio a través de código. Cambiar los nombres del paquete de configuración o la sección requiere un cambio de código al configurar ReliableStateManager.
+
 
 ## Configuración de seguridad del replicador
 Las configuraciones de seguridad del replicador se utilizan para proteger el canal de comunicación que se usa durante la replicación. Esto significa que los servicios no podrán ver el tráfico de replicación del otro, con lo que se garantiza que los datos que se ofrecen también están seguros. De forma predeterminada, una sección de configuración de seguridad vacía no permite la seguridad de replicación.
 
-### Nombre de sección
+### Nombre de sección predeterminado
 ReplicatorSecurityConfig
+
+> [AZURE.NOTE]Para cambiar este nombre de sección, reemplace el parámetro replicatorSecuritySectionName por el constructor ReliableStateManagerConfiguration al crear el ReliableStateManager para este servicio.
+
 
 ## Configuración de replicador
 Las configuraciones de replicador se usan para configurar el replicador que es responsable de hacer que el estado del servicio fiable con estado resulte altamente fiable replicando y conservando el estado localmente. La configuración predeterminada es generada por la plantilla de Visual Studio y debe ser suficiente. En esta sección se habla sobre las configuraciones adicionales que están disponibles para optimizar el replicador.
 
-### Nombre de sección
+### Nombre de sección predeterminado
 ReplicatorConfig
 
-### Nombres de configuración
+> [AZURE.NOTE]Para cambiar este nombre de sección, reemplace el parámetro replicatorSettingsSectionName por el constructor ReliableStateManagerConfiguration al crear el ReliableStateManager para este servicio.
 
+
+### Nombres de configuración
 |Nombre|Unidad|Valor predeterminado|Comentarios|
 |----|----|-------------|-------|
 |BatchAcknowledgementInterval|Segundos|0,05|Período de tiempo durante el que el replicador del secundario espera después de recibir una operación antes de enviar una confirmación al principal. El resto de confirmaciones que se enviarán para las operaciones que se procesan dentro de este intervalo se envían como una respuesta.|
@@ -50,8 +59,22 @@ ReplicatorConfig
 |SharedLogId|guid|""|Especifica un guid único que debe usarse para identificar el archivo de registro compartido que se usa con esta réplica. Normalmente, los servicios no deberían usar esta opción; sin embargo, si se especifica SharedLogId, también debe especificarse SharedLogPath.|
 |SharedLogPath|Nombre de ruta completo|""|Especifica la ruta de acceso completa donde se creará el archivo de registro compartido para esta réplica. Normalmente, los servicios no deberían usar esta opción; sin embargo, si se especifica SharedLogPath, también debe especificarse SharedLogId.|
 
-## Archivo de configuración de muestra
 
+## Configuración de muestra mediante código
+```csharp
+protected override IReliableStateManager CreateReliableStateManager()
+{
+    return new ReliableStateManager(
+        new ReliableStateManagerConfiguration(
+            new ReliableStateManagerReplicatorSettings
+            {
+                RetryInterval = TimeSpan.FromSeconds(3)
+            }));
+}
+```
+
+
+## Archivo de configuración de muestra
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -72,6 +95,7 @@ ReplicatorConfig
 </Settings>
 ```
 
+
 ## Comentarios
 BatchAcknowledgementInterval controla la latencia de replicación. Un valor de "0" ofrecerá la menor latencia posible, a costa del rendimiento (como deben enviarse y procesarse más mensajes de confirmación, cada uno con menos confirmaciones). Cuanto mayor sea el valor de BatchAcknowledgementInterval, mayor será el rendimiento general de la replicación a costa de una mayor latencia de la operación. Esto se traduce directamente en la latencia de transacciones confirmadas.
 
@@ -83,4 +107,4 @@ El MaxRecordSizeInKB define el tamaño máximo de un registro que puede escribir
 
 La configuración de SharedLogId y SharedLogPath siempre se usa conjuntamente y permite que un servicio utilice un registro compartido independiente del registro compartido predeterminado del nodo. Para obtener una mayor eficacia, todos los servicios posibles deben especificar el mismo registro compartido. Los archivos de registro compartido deben colocarse en discos que se usen únicamente para el archivo de registro compartido, para reducir la contención del movimiento de los cabezales. Se espera que deba cambiarse solamente en raras ocasiones.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

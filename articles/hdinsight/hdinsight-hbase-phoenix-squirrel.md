@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/29/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # Usar Apache Phoenix y SQuirreL con clústeres de HBase en HDinsight  
@@ -29,7 +29,7 @@ Aprenda a usar [Apache Phoenix](http://phoenix.apache.org/) en HDInsight y cómo
 Antes de usar SQLLine, debe tener lo siguiente:
 
 - **Un clúster de HBase en HDInsight**. Para obtener información sobre el aprovisionamiento del clúster de HBase, consulte [Introducción a HBase Apache en HDInsight][hdinsight-hbase-get-started].
-- **Conexión al clúster de HBase a través del protocolo de escritorio remoto**. Para conocer las instrucciones, consulte [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure][hdinsight-manage-portal].
+- **Conexión al clúster de HBase a través del protocolo de escritorio remoto**. Para conocer las instrucciones, consulte [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure clásico][hdinsight-manage-portal].
 
 **Para averiguar el nombre de host**
 
@@ -116,7 +116,7 @@ Asegúrese de que ha realizado el aprovisionamiento de un clúster de HBase en u
 
 **Para configurar la conectividad punto a sitio**
 
-1. Inicie sesión en el [Portal de Azure][azure-portal].
+1. Inicie sesión en el [Portal de Azure clásico][azure-portal].
 2. A la izquierda, haga clic en **REDES**.
 3. Haga clic en la red virtual que ha creado (consulte [Aprovisionamiento de clústeres de HBase en Red virtual de Azure][hdinsight-hbase-provision-vnet]).
 4. Haga clic en **CONFIGURAR** en la parte superior.
@@ -129,7 +129,7 @@ Asegúrese de que ha realizado el aprovisionamiento de un clúster de HBase en u
 
 **Para crear una puerta de enlace de enrutamiento dinámico**
 
-1. En el Portal de Azure, haga clic en **PANEL** desde la parte superior de la página.
+1. En el Portal de Azure clásico, haga clic en **PANEL** en la parte superior de la página.
 2. Haga clic en **CREAR PUERTA DE ENLACE** desde la parte inferior de la página.
 3. Haga clic en **SÍ** para continuar. Espere hasta que se cree la puerta de enlace.
 4. Haga clic en **PANEL** en la parte superior. Verá un diagrama visual de la red virtual:
@@ -147,7 +147,7 @@ Una forma de crear un certificado X.509 es mediante la herramienta de creación 
 
 1. Abra la ventana del símbolo del sistema desde la estación de trabajo.
 2. Navegue hasta la carpeta de herramientas de Visual Studio. 
-3. El siguiente comando en el siguiente ejemplo creará e instalará un certificado raíz en el almacén de certificados Personal en su estación de trabajo y también creará un archivo .cer correspondiente que podrá cargar más adelante en el Portal de Azure. 
+3. El siguiente comando del siguiente ejemplo creará e instalará un certificado raíz en el almacén de certificados Personal de su estación de trabajo, y también creará un archivo .cer correspondiente que podrá cargar más adelante en el Portal de Azure clásico. 
 
 		makecert -sky exchange -r -n "CN=HBaseVnetVPNRootCertificate" -pe -a sha1 -len 2048 -ss My "C:\Users\JohnDole\Desktop\HBaseVNetVPNRootCertificate.cer"
 
@@ -171,9 +171,9 @@ Una forma de crear un certificado X.509 es mediante la herramienta de creación 
 
 	Se debe instalar un certificado de cliente en cada equipo que desee conectar a la red virtual. Se recomienda crear certificados de cliente único para cada equipo que desee conectar a la red virtual. Para exportar los certificados de cliente, use certmgr.msc.
 
-**Para cargar el certificado raíz en el Portal de Azure**
+**Para cargar el certificado raíz en el Portal de Azure clásico**
 
-1. En el Portal de Azure, haga clic en **REDES** a la izquierda.
+1. En el Portal de Azure clásico, haga clic en **REDES** en la parte izquierda.
 2. Haga clic en la red virtual en la que se implementa el clúster de HBase.
 3. Haga clic en **CERTIFICADOS** en la parte superior.
 4. Haga clic en **CARGAR** desde la parte inferior y especifique el archivo de certificado raíz que ha creado en el procedimiento antes del último. Espere hasta que el certificado se importe.
@@ -306,4 +306,4 @@ En este artículo, ha aprendido cómo utilizar Phoenix Apache en HDInsight. Para
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

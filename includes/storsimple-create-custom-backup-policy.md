@@ -1,6 +1,4 @@
-
 <!--author=SharS last changed: 9/15/15-->
-
 
 #### Para crear una directiva de copia de seguridad personalizada
 
@@ -42,4 +40,4 @@
 
     ![Directiva de copia de seguridad personalizada](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

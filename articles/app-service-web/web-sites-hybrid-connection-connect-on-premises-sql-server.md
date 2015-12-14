@@ -24,7 +24,7 @@ En este tutorial aprenderemos a crear un aplicación web del Servicio de aplicac
 
 >[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 >
->La parte de Aplicaciones web de la característica Conexiones híbridas solo está disponible en el [Portal de vista previa de Azure](https://portal.azure.com). Para crear una conexión en Servicios de BizTalk, consulte [Conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+>La parte Aplicaciones web de la característica Conexiones híbridas solo está disponible en el [Portal de Azure](https://portal.azure.com). Para crear una conexión en Servicios de BizTalk, consulte [Conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
 ## Requisitos previos ##
 
@@ -116,11 +116,11 @@ La aplicación web de Visual Studio requiere una base de datos de pertenencia a 
 	![MembershipDB created][SSMSMembershipDBCreated]
 
 <a name="CreateSite"></a>
-## B. Creación de una aplicación web en el Portal de vista previa de Azure ##
+## B. Creación de una aplicación web en el Portal de Azure ##
 
-> [AZURE.NOTE]Si ya ha creado una aplicación web en el Portal de vista previa de Azure que desea usar en este tutorial, puede omitir este paso e ir directamente a [Creación de una conexión híbrida y un servicio de BizTalk](#CreateHC) y continuar desde ahí.
+> [AZURE.NOTE]Si ya ha creado una aplicación web en el Portal de Azure que desea usar en este tutorial, puede omitir este paso e ir directamente a [Creación de una conexión híbrida y un servicio de BizTalk](#CreateHC) y continuar desde ahí.
 
-1. En el [Portal de vista previa de Azure](https://portal.azure.com), haga clic en **Nuevo** > **Web + móvil** > **Aplicación web**.
+1. En el [Portal de Azure](https://portal.azure.com), haga clic en **Nuevo** > **Web y móvil** > **Aplicación web**.
 
 	![New button][New]
 
@@ -239,7 +239,7 @@ Ahora publicará la aplicación en su aplicación web del Servicio de aplicacion
 
 ### Publicación de la aplicación ###
 
-1. Puede descargar el perfil de publicación para la aplicación web del Servicio de aplicaciones en el Portal de vista previa de Azure. En la hoja correspondiente a su aplicación web, haga clic en **Obtener perfil de publicación** y guarde el archivo en su equipo.
+1. Puede descargar el perfil de publicación para la aplicación web del Servicio de aplicaciones en el Portal de Azure. En la hoja correspondiente a su aplicación web, haga clic en **Obtener perfil de publicación** y guarde el archivo en su equipo.
 
 	![Descargar archivo de publicación][PortalDownloadPublishProfile]
 
@@ -363,4 +363,4 @@ Ya ha creado e implementado una aplicación web ASP.NET que usa una conexión h�
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

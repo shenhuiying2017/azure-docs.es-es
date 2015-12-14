@@ -81,7 +81,7 @@ El equilibrio de carga externo usa la dirección IP virtual pública del servici
 
 [AZURE.INCLUDE [firewall](../../includes/virtual-machines-ag-listener-create-listener.md)]
 
-1. Para el equilibrio de carga externo, debe obtener la dirección IP virtual pública del servicio en la nube que contiene las réplicas. Inicie sesión en el Portal de Azure. Navegue hasta el servicio en la nube que contiene la máquina virtual del grupo de disponibilidad. Abra la vista **Panel**. 
+1. Para el equilibrio de carga externo, debe obtener la dirección IP virtual pública del servicio en la nube que contiene las réplicas. Inicie sesión en el Portal de Azure clásico. Navegue hasta el servicio en la nube que contiene la máquina virtual del grupo de disponibilidad. Abra la vista **Panel**. 
 
 3. Tome nota de la dirección que aparece en **Dirección IP virtual (VIP) pública**. Si la solución abarca redes virtuales, repita este paso para cada servicio en la nube que contenga una máquina virtual que hospeda una réplica.
 
@@ -130,4 +130,4 @@ Si las réplicas AlwaysOn están en subredes diferentes, los clientes tendrán q
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

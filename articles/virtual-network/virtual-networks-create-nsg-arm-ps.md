@@ -182,4 +182,4 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

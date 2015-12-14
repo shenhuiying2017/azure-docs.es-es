@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/26/2015"
+   ms.date="11/16/2015"
    ms.author="cherylmc" />
 
 # Preguntas más frecuentes sobre la puerta de enlace de VPN
@@ -20,12 +20,11 @@
 ## Conexión a redes virtuales
 
 ### ¿Puedo conectar redes virtuales en diferentes regiones de Azure?
-
 Sí. De hecho, no hay ninguna restricción de región. Puede conectar una red virtual a otra red virtual en la misma región o en una región distinta de Azure.
 
 ### ¿Puedo conectar redes virtuales en diferentes suscripciones?
-
 Sí.
+
 ### ¿Puedo conectar a varios sitios desde una única red virtual?
 
 Puede conectarse a varios sitios mediante el uso de Windows PowerShell y las API de REST de Azure. Consulte la sección de P+F [Conectividad de red virtual a red virtual y de multisitio](#multi-site-and-vnet-to-vnet-connectivity).
@@ -43,15 +42,17 @@ Se admiten las siguientes conexiones entre locales:
 
 - [ExpressRoute](../expressroute/expressroute-introduction.md): ExpressRoute es una conexión directa a Azure desde la WAN, no a través de la red Internet pública. Si desea más información consulte la [ Información técnica de ExpressRoute ](../expressroute/expressroute-introduction.md) y [P+F de ExpressRoute](../expressroute/expressroute-faqs.md).
 
+Para más información sobre las conexiones entre locales, consulte [Acerca de la conectividad segura entre locales](vpn-gateway-cross-premises-options.md).
+
 ### ¿Cuál es la diferencia entre una conexión de sitio a sitio y una de punto a sitio?
 
 Las conexiones de **sitio a sitio** le permiten conectar cualquiera de los equipos ubicados en sus instalaciones locales con cualquier máquina virtual o instancia de rol dentro de la red virtual, dependiendo de cómo elija configurar el enrutamiento. Es ideal para una conexión entre locales que esté siempre disponible y una opción que se adapta bien a las configuraciones híbridas. Este tipo de conexión se basa en un dispositivo (de hardware o de software) VPN sobre IPsec, que se tiene que implementar en el perímetro de la red. Para crear este tipo de conexión, tendrá que tener el hardware de VPN necesario y una dirección IPv4 con orientación externa.
 
-Las conexiones de **punto a sitio** le permiten conectarse desde un único equipo desde cualquier lugar a cualquier dispositivo ubicado en la red virtual. Usa el cliente VPN incluido en Windows. Como parte de la configuración de punto a sitio, instale un certificado y un paquete de configuración de cliente VPN, que contiene la configuración que permite al equipo conectarse a cualquier máquina virtual o instancia de rol dentro de la red virtual. Es ideal si desea conectarse a una red virtual pero no se encuentra en una ubicación local. También es una buena opción cuando no tenga acceso a un hardware VPN o una dirección IPv4 con orientación externa, ya que ambos son necesarios para una conexión de sitio a sitio.
+Las conexiones de **punto a sitio** le permiten conectarse desde un único equipo y desde cualquier lugar con cualquier dispositivo ubicado en la red virtual. Usa el cliente VPN incluido en Windows. Como parte de la configuración de punto a sitio, instale un certificado y un paquete de configuración de cliente VPN, que contiene la configuración que permite al equipo conectarse a cualquier máquina virtual o instancia de rol dentro de la red virtual. Es ideal si desea conectarse a una red virtual pero no se encuentra en una ubicación local. También es una buena opción cuando no tenga acceso a un hardware VPN o una dirección IPv4 con orientación externa, ya que ambos son necesarios para una conexión de sitio a sitio.
 
 Nota: puede configurar la red virtual para utilizar las conexiones de sitio a sitio y de punto a sitio simultáneamente, siempre que cree la conexión de sitio a sitio mediante una puerta de enlace de enrutamiento dinámico.
 
-Para más información, consulte [Información sobre conectividad segura entre locales para redes virtuales](vpn-gateway-cross-premises-options.md).
+Para más información, consulte [Acerca de la conectividad segura entre locales de redes virtuales](vpn-gateway-cross-premises-options.md).
 
 ### ¿Qué es ExpressRoute?
 
@@ -81,7 +82,7 @@ Para la configuración de sitio a sitio entre locales se admiten los servidores 
 
 Otras soluciones VPN de software deben funcionar con nuestra puerta de enlace siempre que se ajusten a las implementaciones IPsec estándar de la industria. Póngase en contacto con el proveedor del software para obtener instrucciones de configuración y soporte técnico.
 
-## Conexiones punto a sitio
+## Conexiones de punto a sitio
 
 Actualmente, las conexiones de punto a sitio solo están disponibles para el modelo de implementación clásica (también conocido como administración de servicios). Estamos trabajando en una solución de punto a sitio para el modelo de implementación del Administrador de recursos de Azure. Cuando esté disponible, esta página se actualizará.
 
@@ -97,9 +98,11 @@ Se admiten los siguientes sistemas operativos:
 
 - Windows Server 2012
 
+- Windows 10
+
 ### ¿Puedo usar cualquier cliente de software VPN de punto a sitio que admita SSTP?
 
-No. La compatibilidad se limita solo a las versiones de sistema operativo de Windows enumeradas anteriormente. El cliente de Windows 10 se está comprobando actualmente.
+No. La compatibilidad se limita solo a las versiones de sistema operativo de Windows enumeradas anteriormente.
 
 ### ¿Cuántos extremos de cliente VPN puedo tener en mi configuración punto a sitio?
 
@@ -135,11 +138,11 @@ Es difícil de mantener el rendimiento exacto de los túneles VPN. IPsec y SSTP 
 
 ## Puertas de enlace
 
-### ¿Qué es una puerta de enlace de enrutamiento estático?
+### ¿Qué es una puerta de enlace basada en directivas (de enrutamiento estático)?
 
 Las puertas de enlace de enrutamiento estático implementan VPN basadas en directivas. Las VPN basadas en directivas cifran y dirigen los paquetes a través de túneles de IPsec basados en las combinaciones de prefijos de dirección entre su red local y la red virtual de Azure. Normalmente, la directiva (o selector de tráfico) se define como una lista de acceso en la configuración de la VPN.
 
-### ¿Qué es una puerta de enlace de enrutamiento dinámico?
+### ¿Qué es una puerta de enlace basada en enrutamiento (de enrutamiento dinámico)?
 
 Las puertas de enlace de enrutamiento dinámico implementan VPN basadas en enrutamiento. Las VPN basadas en enrutamiento utilizan "rutas" en la dirección IP de reenvío o en la tabla de enrutamiento para dirigir los paquetes a sus correspondientes interfaces de túnel. A continuación, las interfaces de túnel cifran o descifran los paquetes dentro y fuera de los túneles. La directiva o selector de tráfico para las VPN basadas en enrutamiento se configura como conectividad de tipo any-to-any (o caracteres comodín).
 
@@ -167,7 +170,7 @@ Tenga en cuenta que no debe implementar máquinas virtuales o instancias de rol 
 
 ### ¿Cómo especifico qué tráfico pasa a través de la puerta de enlace VPN?
 
-Si está usando el Portal de Azure, agregue cada intervalo que desee enviar a través de la puerta de enlace de la red virtual en la página Redes en Redes locales.
+Si está usando el Portal de Azure clásico, agregue cada uno de los intervalos que quiera enviar a través de la puerta de enlace de la red virtual a la página Redes en Redes locales.
 
 ### ¿Puedo configurar una tunelización forzada?
 
@@ -177,11 +180,18 @@ Sí. Consulte [Configurar una tunelización forzada](vpn-gateway-about-forced-tu
 
 Sí, puede implementar sus propias puertas de enlace o servidores VPN en Azure bien desde Azure Marketplace o creando sus propios enrutadores VPN. Tendrá que configurar las rutas definidas por el usuario en la red virtual para asegurarse de que el tráfico se enruta correctamente entre las redes locales y las subredes de la red virtual.
 
+### ¿Por qué hay algunos puertos abiertos en mi puerta de enlace de VPN?
+
+Son necesarios para la comunicación de la infraestructura de Azure. Están protegidos (bloqueados) mediante certificados de Azure. Sin los certificados apropiados, las entidades externas, incluidos los clientes de esas puertas de enlace, no podrán tener ningún efecto en esos puntos de conexión.
+
+Una puerta de enlace de VPN es básicamente un dispositivo de hosts múltiples con una NIC que accede a la red privada del cliente y una NIC accesible desde la red pública. Las entidades de la infraestructura de Azure no pueden acceder a redes privadas de clientes por motivos de conformidad, por lo que necesitan usar puntos de conexión públicos para la comunicación de infraestructura. Los puntos de conexión públicos se analizan periódicamente mediante auditoría de seguridad de Azure.
+
+
 ### Más información acerca de los tipos de puerta de enlace, los requisitos y el rendimiento
 
-Para obtener más información, consulte [Información sobre las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md).
+Para más información, consulte [Acerca de las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md).
 
-## Conectividad de red virtual a red virtual y de multisitio
+## Conectividad multisitio y de red virtual a red virtual
 
 ### ¿Qué tipo de puertas de enlace admiten la conectividad de red virtual a red virtual y de multisitio?
 
@@ -234,13 +244,13 @@ Para el tráfico entre distintas redes virtuales de Azure, se cobra solo por el 
 
 ### ¿Puedo conectar una red virtual con VPN sobre IPsec a mi circuito de ExpressRoute?
 
-Sí, este procedimiento se admite. Para obtener más información, consulte [Configurar conexiones VPN ExpressRoute y sitio a sitio que coexistan](../expressroute/expressroute-coexist.md).
+Sí, este procedimiento se admite. Para más información, consulte [Configurar conexiones VPN ExpressRoute y sitio a sitio que coexistan](../expressroute/expressroute-coexist.md).
 
 ## Conectividad entre entornos y máquinas virtuales
 
 ### Si mi máquina virtual está en una red virtual y tengo una conexión entre locales, ¿cómo debo conectar a la máquina virtual?
 
-Dispone de varias opciones. Si tiene RDP habilitado y ha creado un extremo, puede conectarse a la máquina virtual mediante la VIP. En ese caso, especificaría la VIP y el puerto al que desea conectarse. Tendrá que configurar el puerto en la máquina virtual para el tráfico. Normalmente, tendrá que ir al Portal de administración y guardar la configuración de la conexión RDP en el equipo. La configuración contendrá la información de conexión necesaria.
+Dispone de varias opciones. Si tiene RDP habilitado y ha creado un extremo, puede conectarse a la máquina virtual mediante la VIP. En ese caso, especificaría la VIP y el puerto al que desea conectarse. Tendrá que configurar el puerto en la máquina virtual para el tráfico. Normalmente, tendrá que ir al Portal de Azure clásico y guardar la configuración de la conexión RDP en el equipo. La configuración contendrá la información de conexión necesaria.
 
 Si tiene configurada una red virtual con conectividad entre locales, puede conectarse a la máquina virtual mediante la DIP interna o una dirección IP privada. También puede conectarse a la máquina virtual mediante la DIP interna desde otra máquina virtual que se encuentre en la misma red virtual. Si se conecta desde una ubicación fuera de la red virtual no podrá usar RDP en la máquina virtual mediante la DIP. Por ejemplo, si tiene configurada una red virtual de punto a sitio y no establece una conexión desde su equipo, no podrá conectar a la máquina virtual mediante la DIP.
 
@@ -255,8 +265,8 @@ Consulte información adicional de redes virtuales adicionales en las [Preguntas
 
 ## Pasos siguientes
 
-Puede ver más información acerca de las pasarelas de VPN en el [página de documentación de Pasarela de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/).
+Puede ver más información sobre las puertas de enlace de VPN en la [Página de documentación de la puerta de enlace de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/).
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

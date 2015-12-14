@@ -39,7 +39,7 @@ Tenga en cuenta que, si el código de la aplicación controla tanto las *operaci
 
 La aplicación de ejemplo que se documenta en [Introducción a la API de REST de administración de Búsqueda de Azure](http://go.microsoft.com/fwlink/p/?linkID=516968) muestra las técnicas de autenticación para cada tipo de operación. La introducción incluye instrucciones para configurar una aplicación cliente de forma que use utilizar Active Directory.
 
-El control de acceso para el Administrador de recursos de Azure usa los roles integrados de lector, colaborador y propietario. De forma predeterminada, todos los administradores de servicios son miembros del rol de propietario. Para obtener más información, vea [Control de acceso basado en roles en el Portal de Azure](../role-based-access-control-configure.md).
+El control de acceso para el Administrador de recursos de Azure usa los roles integrados de lector, colaborador y propietario. De forma predeterminada, todos los administradores de servicios son miembros del rol de propietario. Para obtener más información, vea [Control de acceso basado en roles en el Portal de Azure clásico](../role-based-access-control-configure.md).
 
 
 ### Resumen de API ##
@@ -812,4 +812,4 @@ El código de estado de respuesta es HTTP 200 (OK) si se realiza correctamente.
 
 Ninguno.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -42,7 +42,7 @@ Cada clúster puede aceptar varias acciones de script, que se invocan en el orde
 
 ## Ejemplo de scripts de acción de script
 
-Los scripts de acción de script pueden usarse desde el Portal de vista previa de Azure, Azure PowerShell o el SDK de .NET de HDInsight. En este artículo se muestra cómo usar la acción de script desde el portal. Para obtener información sobre cómo usar PowerShell y el SDK de .NET para usar la acción de script, examine los ejemplos enumerados en la tabla siguiente.
+Los scripts de acción de script pueden usarse desde el Portal de Azure, Azure PowerShell o el SDK para .NET de HDInsight. En este artículo se muestra cómo usar la acción de script desde el portal. Para obtener información sobre cómo usar PowerShell y el SDK de .NET para usar la acción de script, examine los ejemplos enumerados en la tabla siguiente.
 
 HDInsight proporciona varios scripts para instalar los siguientes componentes en clústeres de HDInsight:
 
@@ -54,7 +54,7 @@ Nombre | Script
 **Instalar Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. Consulte [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md).
 **Instalación de Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. Consulte [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md).
 
-## Use una acción de script desde el Portal de vista previa de Azure
+## Use una acción de script desde el Portal de Azure
 
 1. Comience a crear un clúster, tal como se describe en [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md#portal).
 
@@ -512,12 +512,9 @@ Si se produce un error en la creación del clúster debido a un error en la acci
 
 	![Captura de pantalla de operaciones](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-	En este caso, los registros se organizan por separado para el nodo principal, el nodo de trabajo y el nodo de Zookeeper. Algunos ejemplos son:
-	* **nodo principal** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
-	* **nodo de trabajo** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
-	* **nodo de Zookeeper** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+	En este caso, los registros se organizan por separado para el nodo principal, el nodo de trabajo y el nodo de Zookeeper. Algunos ejemplos son: * **nodo principal** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net` * **nodo de trabajo** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net` * **nodo de Zookeeper** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* Todos los stdout y stderr del host correspondiente se cargan en la cuenta de almacenamiento. Hay un archivo **output-*.txt** y **errors-\*.txt** para cada acción de script. El archivo de output-*.txt contiene información sobre el URI del script que se ejecuta en el host. Por ejemplo:
+* Todos los stdout y stderr del host correspondiente se cargan en la cuenta de almacenamiento. Hay un archivo **output-*.txt** y **errors-*.txt** para cada acción de script. El archivo de output-*.txt contiene información sobre el URI del script que se ejecuta en el host. Por ejemplo:
 
 		'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
@@ -568,4 +565,4 @@ Consulte la siguiente información y ejemplos sobre la creación y uso de script
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fases durante la creación del clúster"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

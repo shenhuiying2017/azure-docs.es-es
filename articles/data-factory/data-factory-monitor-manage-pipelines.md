@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Supervisión y administración de canalizaciones de la Factoría de datos de Azure" 
-	description="Obtenga información sobre el uso del Portal de administración de Azure y Azure PowerShell para supervisar y administrar las factorías de datos y las canalizaciones de Azure que cree." 
+	description="Obtenga información sobre el uso del Portal de Azure clásico y Azure PowerShell para supervisar y administrar las factorías de datos y las canalizaciones de Azure que cree." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -22,10 +22,10 @@ El servicio Factoría de datos proporciona una vista completa y confiable de lo
 En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones. También se ofrece información sobre cómo crear alertas y recibir notificaciones cuando se produzcan errores.
 
 ## Descripción de las canalizaciones y los estados de actividad
-Con el Portal de vista previa de Azure, puede ver la factoría de datos como un diagrama, las actividades de una canalización, los conjuntos de datos de entrada y salida, etc. En esta sección se indica también cómo pasa un segmento de un estado a otro.
+Con el Portal de Azure, puede ver la factoría de datos como un diagrama, las actividades de una canalización, los conjuntos de datos de entrada y salida, etc. En esta sección se indica también cómo pasa un segmento de un estado a otro.
 
 ### Navegación hasta la factoría de datos
-1.	Inicie sesión en el [Portal de vista previa de Azure](http://portal.azure.com).
+1.	Inicie sesión en el [Portal de Azure](http://portal.azure.com).
 2.	Haga clic en **Examinar todo** y seleccione **Factorías de datos**.
 	
 	![Examinar todo -> Factorías de datos](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -90,12 +90,13 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 <td>Retry</td><td>Se volverá a intentar la ejecución de la actividad.</td>
 </tr>
 <tr>
-<td>Validation</td><td>Aún no ha iniciado la validación.</td>
+<td>Validación</td><td>Aún no ha iniciado la validación.</td>
 </tr>
 <tr>
 <td>ValidationRetry</td><td>En espera de que se vuelva a intentar la validación.</td>
 </tr>
 <tr>
+&lt;tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>Validación en curso.</td>
 </tr>
 <td></td>
@@ -116,7 +117,7 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 <td>Ready</td><td></td><td>El segmento está listo para su uso.</td>
 </tr>
 <tr>
-<td>Skipped</td><td></td><td>El segmento no se procesó.</td>
+<td>Skipped</td><td></td><td>El segmento no se procesa.</td>
 </tr>
 <tr>
 <td>None</td><td></td><td>Un segmento que existía con un estado distinto, pero se ha restablecido.</td>
@@ -137,7 +138,7 @@ Para ver detalles sobre una ejecución de actividad, haga clic en la entrada de 
 
 ![Detalles de ejecución de actividad](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-Si el segmento no está en el estado **Ready**, puede ver los segmentos ascendentes que no están en estado Ready y bloquean la ejecución del segmento actual en la lista **Segmentos ascendentes que no están listos**. Esto resulta muy útil cuando el segmento tiene el estado **Waiting** y se quiere saber cuáles son las dependencias ascendentes en las que el segmento está en espera.
+Si el segmento no está en el estado **Listo**, puede ver los segmentos ascendentes que no están en estado Listo y bloquean la ejecución del segmento actual en la lista **Segmentos ascendentes que no están listos**. Esto resulta muy útil cuando el segmento tiene el estado **En espera** y se quiere saber cuáles son las dependencias ascendentes en las que el segmento está en espera.
 
 ![Segmentos ascendentes no listos](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -148,9 +149,9 @@ Cuando se implementa una factoría de datos y las canalizaciones tienen un perí
 
 El flujo de transición de estado del conjunto de datos de la factoría de datos implica los siguientes estados: En espera -> En curso /En curso (Validando) -> Listo/En error.
 
-Los segmentos se inician con el estado **Waiting** de las condiciones previas que deben cumplirse antes de la ejecución. Seguidamente, la actividad comienza a ejecutarse y el segmento pasa al estado **In-Progress**. La ejecución de actividades puede ser correcta o producirse un error y, en función de esto, el segmento pasará al estado **Ready** o **Failed**.
+Los segmentos se inician con el estado **En espera** de las condiciones previas que deben cumplirse antes de la ejecución. Seguidamente, la actividad comienza a ejecutarse y el segmento pasa al estado **En curso**. La ejecución de actividades puede ser correcta o producirse un error y, en función de esto, el segmento pasará al estado **Listo** o **En error**.
 
-El usuario puede restablecer el segmento para que vuelva del estado **Ready** o **Failed** al estado **Waiting**. El usuario también puede marcar el estado del segmento como **Skip**, lo que impide que la actividad se ejecute y no se procese el segmento.
+El usuario puede restablecer el segmento para que vuelva del estado **Listo** o **En error** al estado **En espera**. El usuario también puede marcar el estado del segmento como **Omitir**, lo que impide que la actividad se ejecute y no se procese el segmento.
 
 
 ## Administración de canalizaciones
@@ -181,12 +182,12 @@ Por ejemplo:
 
 
 ## Depuración de canalizaciones
-Factoría de datos de Azure ofrece amplias capacidades a través del Portal de Azure y Azure PowerShell para depurar y solucionar problemas de las canalizaciones.
+Factoría de datos de Azure ofrece amplias capacidades a través del Portal de Azure clásico y Azure PowerShell para depurar y solucionar problemas de las canalizaciones.
 
 ### Búsqueda de errores en una canalización
 Si falla la ejecución de actividad en una canalización, el conjunto de datos generado por la canalización tiene un estado de error debido al error. Puede depurar y solucionar los errores en la Factoría de datos de Azure con los mecanismos siguientes.
 
-#### Uso del Portal de Azure para depurar un error:
+#### Uso del Portal de Azure clásico para depurar un error:
 
 1.	Haga clic en **Con errores** en el icono **Conjuntos de datos** en la página principal de la factoría de datos.
 	
@@ -194,7 +195,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
 2.	En la hoja **Conjuntos de datos con errores**, haga clic en la tabla en la que está interesado.
 
 	![Hoja Conjuntos de datos con errores](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
-3.	En la hoja **TABLA**, haga clic en el segmento problemático con el **ESTADO** establecido en **Failed**.
+3.	En la hoja **TABLA**, haga clic en el segmento con problemas con **ESTADO** establecido en **Error**.
 
 	![Hoja Tabla con segmentos con problemas](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 4.	En la hoja **SEGMENTO DE DATOS**, haga clic en la ejecución de actividad que produjo el error.
@@ -209,7 +210,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
 2.	Cambie al modo **AzureResourceManager**, ya que los cmdlets de Factoría de datos solo están disponibles en este modo.
 
 		switch-azuremode AzureResourceManager
-3.	Ejecute el comando **Get-AzureDataFactorySlice** para ver los segmentos y sus estados. Debería ver un segmento con el estado **Failed**.
+3.	Ejecute el comando **Get-AzureDataFactorySlice** para ver los segmentos y sus estados. Debería ver un segmento con el estado: **En error**.
 
 		Get-AzureDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
@@ -262,7 +263,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
 
 ## Repetición de la ejecución de errores en una canalización
 
-### Uso del Portal de Azure
+### Uso del portal de Azure clásico
 
 Tras solucionar los problemas y depurar los errores de una canalización, para volver a ejecutar los errores vaya al segmento de error y haga clic en el botón **Ejecutar** de la barra de comandos.
 
@@ -391,26 +392,44 @@ Para recuperar la lista de implementaciones del grupo de recursos de Azure imple
 
 
 #### Solución de problemas con eventos del usuario
-Aparecerán todos los eventos generados después de hacer clic en el icono **Operaciones** y se pueden configurar alertas en cualquiera de estas operaciones visibles en la hoja **Eventos**:
-
-![Operaciones](./media/data-factory-monitor-manage-pipelines/operations.png)
-
-Para ver la configuración de alertas mediante PowerShell, puede ejecutar el siguiente comando y ver todas las alertas creadas. Se mostrarán las alertas configuradas para las métricas y los eventos con el tipo de recurso **microsoft.insights/alertrules**.
-
-	Get-AzureResourceGroup -Name $resourceGroupName
-
-	ResourceGroupName : mdwevent
-	Location          : westus
-	ProvisioningState : Succeeded
-	Resources         :
-                    Name                  Type                                 Location
-                    ====================  ===================================  ========
-                    abhieventtest1        Microsoft.DataFactory/dataFactories  westus
-                    abhieventtest2        Microsoft.DataFactory/dataFactories  westus
-                    FailedValidationRuns  microsoft.insights/alertrules        eastus
 
 
-Si ve los eventos de generación de alertas en la hoja del portal, pero no recibe notificaciones de correo electrónico, compruebe si la dirección de correo electrónico especificada se estableció para recibir correos electrónicos de remitentes externos. Puede que la configuración de correo electrónico bloquease los mensajes de alertas.
+- Aparecerán todos los eventos generados después de hacer clic en el icono **Operaciones** y se pueden configurar alertas en cualquiera de estas operaciones visibles en la hoja **Eventos**:
+
+	![Operaciones](./media/data-factory-monitor-manage-pipelines/operations.png)
+
+
+- Vea el artículo [Cmdlets de Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) para cmdlets de PowerShell que puede usar para agregar, obtener o eliminar alertas. Estos son algunos ejemplos del uso del cmdlet **Get-AlertRule**:
+
+		PS C:\> Get-AlertRule -res $resourceGroup
+	
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+				Location   : West US
+				Name       : FailedExecutionRunsWest0
+		
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
+				Location   : West US
+				Name       : FailedExecutionRunsWest3
+	
+		PS C:\> Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
+		
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+				Location   : West US
+				Name       : FailedExecutionRunsWest0
+
+	Ejecute los siguientes comandos get-help para ver detalles y ejemplos para el cmdlet Get-AlertRule.
+
+		get-help Get-AlertRule -detailed 
+		get-help Get-AlertRule -examples
+
+
+- Si ve los eventos de generación de alertas en la hoja del portal, pero no recibe notificaciones de correo electrónico, compruebe si la dirección de correo electrónico especificada se estableció para recibir correos electrónicos de remitentes externos. Puede que la configuración de correo electrónico bloquease los mensajes de alertas.
 
 ### Alertas en métricas
 Factoría de datos permite capturar diversas métricas y crear alertas en las métricas. Puede supervisar y crear alertas en las siguientes métricas para los segmentos de la factoría de datos.
@@ -436,7 +455,7 @@ Una vez guardadas, las métricas pueden tardar hasta una hora en estar visibles 
 
 Para configurar alertas en métricas, haga clic en la secuencia siguiente de la hoja Factoría de datos: **Supervisión** -> **Métrica** -> **Agregar alerta** -> **Agregar una regla de alerta**.
 
-Rellene los detalles de la regla de alerta, especifique los correos electrónicos y haga clic en**Aceptar**.
+Rellene los detalles de la regla de alerta, especifique los correos electrónicos y haga clic en **Aceptar**.
 
 
 ![Configuración de alerta en métricas](./media/data-factory-monitor-manage-pipelines/setting-up-alerts-on-metrics.png)
@@ -497,9 +516,7 @@ Puede implementar alertas para las métricas de la misma manera que lo hace para
  
 Reemplace subscriptionId, resourceGroupName y dataFactoryName en el ejemplo anterior con los valores adecuados.
 
-*metricName* a partir de ahora admite dos valores:
-- FailedRuns
-- SuccessfulRuns.
+*metricName* a partir de ahora admite dos valores: - FailedRuns - SuccessfulRuns.
 
 **Implementación de alertas:**
 
@@ -523,4 +540,4 @@ Debería ver el siguiente mensaje después de la implementación correcta:
 	Parameters        :
 	Outputs           
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -60,7 +60,7 @@ Administrador de recursos de Azure permite trabajar con los recursos de la aplic
 
 **Para crear un grupo de recursos**
 
-1. Inicie sesión en el [portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Haga clic en **NUEVO**, en **Administración** y luego en **Grupo de recursos**.
 3. Escriba o seleccione los valores siguientes:
 
@@ -74,7 +74,7 @@ Antes de aprovisionar un clúster de HBase, debe tener una red virtual de Azure.
 
 **Para crear una red virtual usando el portal de Azure, siga estos pasos:**
 
-1. Inicie sesión en el [portal de vista previa](https://portal.azure.com).
+1. Inicie sesión en el [Portal](https://portal.azure.com).
 2. Haga clic en **NUEVO**, en **Red** y luego en **Red virtual**.
 3. En **Seleccionar un modelo de implementación**, seleccione **Clásico** si va a usar un clúster de HDInsight basado en Windows, seleccione **Administrador de recursos** si va a usar un clúster de HDInsight basado en Linux. Por último, haga clic en **Crear**.
 
@@ -115,10 +115,10 @@ Un servidor DNS es opcional, pero es necesario en algunos casos. El procedimient
 
 **Para crear un clúster de HDInsight**
 
-1. Inicie sesión en el [portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Haga clic en **NUEVO**, en **Análisis de datos** y, luego, en **HDInsight**.
 
-    ![Crear un nuevo clúster en el Portal de vista previa de Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Crear un nuevo clúster en el Portal de vista previa de Azure")
+    ![Creación de un clúster nuevo en el Portal de Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creación de un clúster nuevo en el Portal de Azure")
 
 3. Escriba o seleccione los valores siguientes:
 
@@ -389,4 +389,4 @@ En este tutorial, ha aprendido a aprovisionar un clúster de HBase. Para obtener
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

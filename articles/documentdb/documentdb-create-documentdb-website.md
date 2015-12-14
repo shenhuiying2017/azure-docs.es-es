@@ -128,11 +128,11 @@ Ahora vamos a implementar nuestra primera plantilla.
 
 	![Aplicación de tareas pendientes de ejemplo](./media/documentdb-create-documentdb-website/image2.png)
 
-7. Siga adelante y cree un par de tareas y luego vamos a abrir el [Portal de vista previa de Azure](https://portal.azure.com).
+7. Siga adelante y cree un par de tareas, y posteriormente se abrirá el [Portal de Microsoft Azure](https://portal.azure.com).
 
 8. Elija examinar los grupos de recursos y seleccione el grupo de recursos que hemos creado durante la implementación (en el ejemplo anterior, myDemoResourceGroup).
 
-	![Captura de pantalla del portal de Azure con myDemoResourceGroup resaltado](./media/documentdb-create-documentdb-website/image3.png)
+	![Captura de pantalla del Portal de Azure clásico con myDemoResourceGroup resaltado](./media/documentdb-create-documentdb-website/image3.png)
 9.  Observe que el mapa de recursos del modo Resumen muestra todos nuestros recursos relacionados (cuenta de DocumentDB, aplicación web del Servicio de aplicaciones, Supervisión).
 
 	![Captura de pantalla del modo de resumen](./media/documentdb-create-documentdb-website/image4.png)
@@ -172,7 +172,7 @@ Ahora implementaremos nuestra segunda plantilla.
 	> [AZURE.TIP]Tenga en cuenta que se le pedirá que escriba su nombre de usuario y contraseña de Azure como parte de la ejecución del script. La implementación completa tardará entre 10 y 15 minutos en completarse.
 
 4. El resultado de la implementación será muy parecido al primer ejemplo de plantilla.
-5. Antes de abrir el portal de vista previa de Azure, debemos comprender qué hace la implementación de esta plantilla:
+5. Antes de abrir el Portal de Azure, se debe comprender qué se logró con la implementación de esta plantilla:
 
 	- Se ha creado una aplicación web del Servicio de aplicaciones.
 
@@ -182,14 +182,14 @@ Ahora implementaremos nuestra segunda plantilla.
 
 	- 	Se ha creado una serie de reglas de supervisión predeterminadas.
 
-6. Vamos a abrir el [Portal de vista previa de Azure](https://portal.azure.com), elija examinar los grupos de recursos y seleccione el grupo de recursos que hemos creado durante la implementación (en el ejemplo anterior, myOtherDemoResourceGroup).
+6. Abra el [Portal de Azure](https://portal.azure.com), elija examinar los grupos de recursos y seleccione el grupo de recursos creado durante la implementación (en el ejemplo anterior, myOtherDemoResourceGroup).
 7. En el modo Resumen, haga clic en la aplicación web que acaba de implementar.
 
 	![Captura de pantalla del modo de resumen con la aplicación web myotherdocumentdbwebapp resaltada](./media/documentdb-create-documentdb-website/image6.png)
 8. En la hoja de la aplicación web, haga clic en **Toda la configuración**, luego en **Configuración de la aplicación** y observe que existen valores de configuración de aplicación para el extremo de DocumentDB y para cada una de las claves maestras de DocumentDB.
 
 	![Captura de pantalla de la aplicación web, la configuración y las hojas de configuración de aplicación](./media/documentdb-create-documentdb-website/image7.png)
-9. No dude en seguir explorando el portal de vista previa Azure o siga uno de nuestros [ejemplos](http://go.microsoft.com/fwlink/?LinkID=402386) de DocumentDB para crear su propia aplicación de DocumentDB.
+9. Explore libremente el Portal de Azure o siga uno de nuestros [ejemplos](http://go.microsoft.com/fwlink/?LinkID=402386) de DocumentDB para crear su propia aplicación de DocumentDB.
 
 	
 	
@@ -205,9 +205,9 @@ Ahora implementaremos nuestra segunda plantilla.
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 >[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

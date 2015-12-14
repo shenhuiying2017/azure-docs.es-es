@@ -22,12 +22,12 @@ Este tema explora y compara las herramientas y opciones para administrar Bases d
 
 
 
-## Portal de Azure
+## Portal de Azure clásico
 
 
-El [Portal de Azure](http://portal.azure.com) es un portal de administración basado en web, donde puede crear, actualizar y eliminar servidores lógicos y bases de datos, así como supervisar la actividad de las bases de datos. Esta herramienta es fantástica si está empezando con Azure, administra un pequeño número de bases de datos o debe realizar algo rápidamente.
+El [Portal de Azure clásico](http://portal.azure.com) es un portal clásico basado en web donde puede crear, actualizar y eliminar servidores lógicos y bases de datos, así como supervisar la actividad de las bases de datos. Esta herramienta es fantástica si está empezando con Azure, administra un pequeño número de bases de datos o debe realizar algo rápidamente.
 
-Para obtener información más detallada acerca de cómo utilizar el portal, consulte [Administración de Bases de datos SQL mediante el portal de Azure](sql-database-manage-portal.md).
+Para obtener información más detallada acerca de cómo usar el portal, consulte [Administración de Bases de datos SQL mediante el Portal de Azure clásico](sql-database-manage-portal.md).
 
 ## SQL Server Management Studio y SQL Server Data Tools en Visual Studio
 
@@ -44,4 +44,4 @@ Puede usar herramientas de línea de comandos como PowerShell para administrar b
 Para obtener más información acerca de cómo administrar Bases de datos SQL de Azure con las herramientas de línea de comandos, consulte [Administrar Base de datos SQL con PowerShell](sql-database-command-line-tools.md).
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -73,4 +73,4 @@ Haga sus preguntas a continuación o en nuestro [foro](http://go.microsoft.com/f
 [05]: ./media/machine-learning-excel-add-in-for-web-services/image5.png
 [06]: ./media/machine-learning-excel-add-in-for-web-services/image6.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

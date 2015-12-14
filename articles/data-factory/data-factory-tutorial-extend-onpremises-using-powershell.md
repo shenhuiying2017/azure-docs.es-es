@@ -26,7 +26,7 @@ Para copiar los datos de eficacia de la campaña de marketing de blobs de Azure 
 
 > [AZURE.IMPORTANT]Este artículo no abarca todos los cmdlets de Factoría de datos. Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener la documentación completa sobre los cmdlets de la factoría de datos.
 >    
-> Si está usando la versión preliminar de Azure PowerShell 1.0, debe emplear los cmdlets que se documentan [aquí](https://msdn.microsoft.com/library/dn820234.aspx). Por ejemplo, use New-AzureRMDataFactory en lugar de New-AzureDataFactory.
+> Si usa Azure PowerShell 1.0, deberá usar los cmdlets que se documentan [aquí](https://msdn.microsoft.com/library/dn820234.aspx). Por ejemplo, use New-AzureRMDataFactory en lugar de usar New-AzureDataFactory.
 
 ## Requisitos previos
 
@@ -44,7 +44,7 @@ En este tutorial, realizará los siguientes pasos:
 2. [Paso 2: crear un servicio vinculado para el SQL Server local](#OnPremStep2). En este paso, cree primero una base de datos y una tabla en el equipo de SQL Server local y, a continuación, cree el servicio vinculado: **OnPremSqlLinkedService**.
 3. [Paso 3: crear la tabla y la canalización](#OnPremStep3). En este paso, creará una tabla **MarketingCampaignEffectivenessOnPremSQLTable** y la canalización **EgressDataToOnPremPipeline**. 
 
-4. [Paso 4: supervisar la canalización y ver el resultado](#OnPremStep4). En este paso, supervisará los procesos, las tablas y los segmentos de datos mediante el Portal de Azure.
+4. [Paso 4: supervisar la canalización y ver el resultado](#OnPremStep4). En este paso, supervisará los procesos, las tablas y los segmentos de datos mediante el Portal de Azure clásico.
 
 
 ## <a name="OnPremStep1"></a>Paso 1: crear una puerta de enlace de administración de datos
@@ -55,7 +55,7 @@ Debe tener al menos una puerta de enlace instalada en su entorno corporativo, as
 
 Si tiene una puerta de enlace de datos existente que puede utilizar, omita este paso.
 
-1.	Cree una puerta de enlace de datos lógica. En el **Portal de vista previa de Azure**, haga clic en **Servicios vinculados** en la hoja **FACTORÍA DE DATOS**.
+1.	Cree una puerta de enlace de datos lógica. En el **Portal de Azure**, haga clic en **Servicios vinculados** en la hoja **FACTORÍA DE DATOS**.
 2.	Haga clic en **Agregar (+) puerta de enlace de datos** en la barra de comandos.  
 3.	En la hoja **Nueva puerta de enlace de datos**, haga clic en **CREAR**.
 4.	En la hoja **Crear**, escriba **MyGateway** como **nombre** de la puerta de enlace de datos.
@@ -101,7 +101,7 @@ Para empezar, deberá crear la base de datos de SQL Server, tabla, tipos definid
 
 ### Creación del servicio vinculado
 
-1.	En el **Portal de vista previa de Azure**, haga clic en el icono **Servicios vinculados** en la hoja **FACTORÍA DE DATOS** para **LogProcessingFactory**.
+1.	En el **Portal de Azure**, haga clic en el icono **Servicios vinculados** en la hoja **FACTORÍA DE DATOS** para **LogProcessingFactory**.
 2.	En la hoja **Servicios vinculados**, haga clic en **Agregar (+) almacén de datos**.
 3.	En la hoja **Nuevo almacén de datos**, escriba **OnPremSqlLinkedService** para el **nombre**. 
 4.	Haga clic en **Tipo (configuración obligatoria)** y seleccione **SQL Server**. Debería ver las opciones de configuración **PUERTA DE ENLACE DE DATOS**, **Servidor**, **Base de datos** y **CREDENCIALES** en la hoja **Nuevo almacén de datos**. 
@@ -158,7 +158,7 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -174,4 +174,4 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

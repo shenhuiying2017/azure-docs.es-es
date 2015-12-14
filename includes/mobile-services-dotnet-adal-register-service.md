@@ -5,7 +5,7 @@ En esta sección registrará su servicio móvil en Azure Active Directory y conf
 
 1. Registre su aplicación en Azure Active Directory siguiendo el tema [Registro en Azure Active Directory].
 
-2. En el [Portal de administración de Azure], vuelva a la extensión de Azure Active Directory y haga clic en su Active Directory.
+2. En el [Portal de Azure clásico](https://manage.windowsazure.com/), vuelva a la extensión de Azure Active Directory y haga clic en su Active Directory.
 
 3. Haga clic en la pestaña **Aplicaciones** y, a continuación, haga clic en su aplicación.
 
@@ -33,10 +33,9 @@ En esta sección registrará su servicio móvil en Azure Active Directory y conf
             }
         ],
 
-6. En el Portal de administración de Azure, haga clic en **Administrar manifiesto** de nuevo para la aplicación y haga clic en **Cargar manifiesto**. Vaya a la ubicación del manifiesto de la aplicación que acaba de actualizar y cárguelo.
+6. En el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en **Administrar manifiesto** de nuevo para la aplicación y haga clic en **Cargar manifiesto**. Vaya a la ubicación del manifiesto de la aplicación que acaba de actualizar y cárguelo.
 
 <!-- URLs. -->
 [Registro en Azure Active Directory]: ../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md
-[Portal de administración de Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

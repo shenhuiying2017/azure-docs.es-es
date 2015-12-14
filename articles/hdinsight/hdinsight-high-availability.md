@@ -50,7 +50,7 @@ Se han agregado nodos de [ZooKeeper](http://zookeeper.apache.org/) (ZK) que se u
 
 
 ## Comprobación del estado de los servicios en el nodo principal activo
-Para determinar qué nodo principal está activo y comprobar el estado de los servicios que se ejecutan en ese nodo principal, debe conectarse al clúster de Hadoop mediante el Protocolo de escritorio remoto (RDP). Para obtener las instrucciones de RDP, consulte [Administración de clústeres de Hadoop en HDInsight mediante el portal de vista previa Azure](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp). Una vez que se haya conectado remotamente al clúster, haga doble clic en el icono **Estado de disponibilidad de los servicios de Hadoop**, situado en el escritorio, para obtener el estado sobre qué servicios de nodo principal se están ejecutando (Namenode, Jobtracker, Templeton, Oozieservice, Metastore y Hiveserver2 o Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore y Hiveserver2 para HDI 3.0).
+Para determinar qué nodo principal está activo y comprobar el estado de los servicios que se ejecutan en ese nodo principal, debe conectarse al clúster de Hadoop mediante el Protocolo de escritorio remoto (RDP). Para obtener las instrucciones de RDP, consulte [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp). Una vez que se haya conectado remotamente al clúster, haga doble clic en el icono **Estado de disponibilidad de los servicios de Hadoop**, situado en el escritorio, para obtener el estado sobre qué servicios de nodo principal se están ejecutando (Namenode, Jobtracker, Templeton, Oozieservice, Metastore y Hiveserver2 o Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore y Hiveserver2 para HDI 3.0).
 
 ![](./media/hdinsight-high-availability/Hadoop.Service.Availability.Status.png)
 
@@ -106,4 +106,4 @@ Para el SDK, la historia es similar. La creación y aprovisionamiento de un clú
 - [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Uso del SDK .NET de HDInsight](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

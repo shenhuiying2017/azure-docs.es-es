@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Administración de clústeres de Hadoop en HDInsight usando el portal de Azure | Microsoft Azure"
+	pageTitle="Administración de clústeres de Hadoop en HDInsight mediante el portal de Azure clásico | Microsoft Azure"
 	description="Vea cómo administrar el servicio HDInsight. Cree un clúster de HDInsight, abra la consola interactiva de JavaScript y la consola de comandos de Hadoop."
 	services="hdinsight"
 	documentationCenter=""
@@ -16,16 +16,16 @@
 	ms.date="11/04/2015"
 	ms.author="jgao"/>
 
-# Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
+# Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure clásico
 
-Con el [portal de Azure](https://manage.windowsazure.com), puede aprovisionar clústeres de Hadoop en HDInsight de Azure, cambiar la contraseña de usuario de Hadoop y habilitar el Protocolo de escritorio remoto (RDP) para que pueda tener acceso a la consola de comandos de Hadoop en el clúster.
+Con el [Portal de Azure clásico](https://manage.windowsazure.com), puede aprovisionar clústeres de Hadoop en HDInsight de Azure, cambiar la contraseña de usuario de Hadoop y habilitar el Protocolo de escritorio remoto (RDP) para que pueda tener acceso a la consola de comandos de Hadoop en el clúster.
 
 [AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
 
-* [Administración de clústeres de Hadoop en HDInsight mediante el portal de vista previa de Azure](hdinsight-administer-use-management-portal.md)
+* [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure](hdinsight-administer-use-management-portal.md)
 
 ## Otras herramientas de administración de HDInsight
-También hay otras herramientas disponibles para administrar HDInsight además del Portal de Azure.
+También hay otras herramientas disponibles para administrar HDInsight además del Portal de Azure clásico.
 
 - Para obtener más información sobre la administración de HDInsight con PowerShell de Azure, consulte [Administración de HDInsight con PowerShell de Azure](hdinsight-administer-use-powershell.md).
 
@@ -41,7 +41,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
 
 ##Aprovisionamiento de clústeres de HDInsight
 
-Puede aprovisionar clústeres de HDInsight desde el Portal de Azure mediante la opción Creación rápida o Creación personalizada. Vea los vínculos siguientes para obtener instrucciones:
+Puede aprovisionar clústeres de HDInsight desde el Portal de Azure clásico mediante la opción Creación rápida o Creación personalizada. Vea los vínculos siguientes para obtener instrucciones:
 
 - [Aprovisionamiento de un clúster mediante Creación rápida](../hdinsight-get-started.md#provision)
 - [Aprovisionamiento de un clúster mediante Creación personalizada](hdinsight-provision-clusters.md#portal)
@@ -70,7 +70,7 @@ Un clúster de HDInsight puede tener dos cuentas de usuario. La cuenta de usuari
 
 **Para cambiar el nombre de usuario y contraseña del clúster de HDInsight**
 
-1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com/).
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/).
 2. Haga clic en **HDINSIGHT** en el panel izquierdo. Aparecerá una lista de los clústeres de HDInsight implementados.
 3. Haga clic en el clúster de HDInsight para el que desea restablecer el nombre de usuario y la contraseña.
 4. Desde la parte superior de la página, haga clic en **CONFIGURACIÓN**.
@@ -87,7 +87,7 @@ Las credenciales para el clúster que proporcionó en su creación dan acceso a 
 
 **Para habilitar el Escritorio remoto**
 
-1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com/).
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/).
 2. Haga clic en **HDINSIGHT** en el panel izquierdo. Aparecerá una lista de los clústeres de HDInsight implementados.
 3. Haga clic en el clúster de HDInsight al que desea conectarse.
 4. Desde la parte superior de la página, haga clic en **CONFIGURACIÓN**.
@@ -105,7 +105,7 @@ Las credenciales para el clúster que proporcionó en su creación dan acceso a 
 
 **Para conectarse a un clúster con RDP**
 
-1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com/).
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/).
 2. Haga clic en **HDINSIGHT** en el panel izquierdo. Aparecerá una lista de los clústeres de HDInsight implementados.
 3. Haga clic en el clúster de HDInsight al que desea conectarse.
 4. Desde la parte superior de la página, haga clic en **CONFIGURACIÓN**.
@@ -121,7 +121,7 @@ Si desea realizar operaciones en el clúster usando .NET SDK, debe crear un cert
 
 2. Vaya a la ubicación del certificado, haga clic con el botón secundario en él, después haga clic en **Instalar certificado** y, por último, instale el certificado en el almacén personal del equipo. Edite las propiedades del certificado para asignarle un nombre descriptivo.
 
-3. Importe el certificado en el Portal de Azure. Desde el portal, haga clic en **CONFIGURACIÓN** en la parte inferior izquierda de la página y después haga clic en **CERTIFICADOS DE ADMINISTRACIÓN**. En la parte inferior de la página, haga clic en **CARGAR** y siga las instrucciones para cargar el archivo .cer que creó en el paso anterior.
+3. Importe el certificado en el Portal de Azure clásico. Desde el portal, haga clic en **CONFIGURACIÓN** en la parte inferior izquierda de la página y después haga clic en **CERTIFICADOS DE ADMINISTRACIÓN**. En la parte inferior de la página, haga clic en **CARGAR** y siga las instrucciones para cargar el archivo .cer que creó en el paso anterior.
 
 	![HDI.ClusterCreate.UploadCert][image-hdiclustercreate-uploadcert]
 
@@ -136,13 +136,13 @@ Los clústeres de HDInsight tienen los siguientes servicios web HTTP (todos esto
 - Oozie
 - Templeton
 
-De manera predeterminada, estos servicios se conceden para el acceso. Puede revocar/conceder el acceso desde el Portal de Azure.
+De manera predeterminada, estos servicios se conceden para el acceso. Puede revocar o conceder el acceso desde el Portal de Azure clásico.
 
 >[AZURE.NOTE]Al conceder/revocar el acceso, restablecerá el nombre de usuario y la contraseña del clúster.
 
 **Para conceder/revocar el acceso a los servicios web de HTTP**
 
-1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com/).
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/).
 2. Haga clic en **HDINSIGHT** en el panel izquierdo. Aparecerá una lista de los clústeres de HDInsight implementados.
 3. Haga clic en el clúster de HDInsight que desea configurar.
 4. Desde la parte superior de la página, haga clic en **CONFIGURACIÓN**.
@@ -158,7 +158,7 @@ Para conectarse al clúster mediante el Escritorio remoto y usar la línea de co
 
 **Para abrir una línea de comandos de Hadoop**
 
-1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com/).
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/).
 2. Haga clic en **HDINSIGHT** en el panel izquierdo. Aparecerá una lista de los clústeres de Hadoop implementados.
 3. Haga clic en el clúster de HDInsight al que desea conectarse.
 3. Haga clic en **CONFIGURACIÓN** en la parte superior de la página.
@@ -185,7 +185,7 @@ En la captura de pantalla anterior, el nombre de la carpeta tiene el número de 
 Consulte [Escalado de clústeres de Hadoop en HDInsight](hdinsight-hadoop-cluster-scaling.md).
 
 ##Pasos siguientes
-En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Portal de Azure y a abrir la herramienta de línea de comandos de Hadoop. Para obtener más información, consulte los artículos siguientes:
+En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Portal de Azure clásico y a abrir la herramienta de línea de comandos de Hadoop. Para obtener más información, consulte los artículos siguientes:
 
 * [Administración de HDInsight con PowerShell de Azure](hdinsight-administer-use-powershell.md)
 * [Administración de HDInsight con la CLI de Azure](hdinsight-administer-use-command-line.md)
@@ -198,4 +198,4 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Línea de comandos de Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

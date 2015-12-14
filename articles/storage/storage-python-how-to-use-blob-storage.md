@@ -106,14 +106,12 @@ Finalmente, para eliminar un blob, llame a **delete\_blob**.
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de blobs, use estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
--   Vea la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][]
 -   Visite el [blog del equipo de almacenamiento de Azure][] (en inglés).
 
 Para obtener más información, consulte también el [Centro para desarrolladores de Python](/develop/python/).
 
-[Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [paquete de Azure para Python]: https://pypi.python.org/pypi/azure
 [paquete de almacenamiento de Azure para Python]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

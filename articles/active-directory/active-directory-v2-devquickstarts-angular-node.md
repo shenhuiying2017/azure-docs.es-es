@@ -223,7 +223,7 @@ return $http.get('/api/tasks');
 ...
 ```
 
-¡Enhorabuena! La aplicación de una sola página integrada de Azure AD está terminada ahora. !Ya puede salir a recibir el aplauso del público! Con ella puede autenticar a los usuarios, llamar de forma segura a su API de REST de back-end mediante OAuth 2.0 y obtener información básica sobre el usuario. De forma predeterminada, es compatible con cualquier usuario con una cuenta de Microsoft personal, profesional o educativa desde Azure AD. Pruebe la aplicación ejecutando:
+¡Enhorabuena! La aplicación de una sola página integrada de Azure AD está terminada ahora. !Ya puede salir a recibir el aplauso del público! Con ella puede autenticar usuarios, llamar de forma segura a su API de REST de back-end mediante OpenID Connect y obtener información básica sobre el usuario. De forma predeterminada, es compatible con cualquier usuario con una cuenta de Microsoft personal, profesional o educativa desde Azure AD. Pruebe la aplicación ejecutando:
 
 ```
 node server.js
@@ -237,4 +237,4 @@ Para seguir aprendiendo sobre la versión preliminar del modelo de aplicaciones 
 - [Azure AD en Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,36 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 # Cómo analizar datos históricos acerca de la aplicación
-La sección de análisis de la interfaz de usuario proporciona información total sobre la aplicación basada en datos históricos que se actualizan cada 24 horas. La información se muestra en diferentes paneles compuestos por gráficos de líneas/barras/circulares, cuadrículas y mapas. También se pueden descargar los datos como archivos .csv. La mayor parte de esta misma información está disponible en tiempo real en la sección de Supervisión de la interfaz de usuario, y también puede obtenerse a través de la API de análisis. "Glosario" en "Conceptos" tiene las definiciones de términos y abreviaturas en análisis y supervisión, como las siguientes: usuario activo, nuevo usuario, usuario conservado, sesión, gráfico de ruta de acceso de usuario, asignación de usuarios, direcciones URL de seguimiento, tendencias, actividad, evento, trabajo, error, información adicional, bloqueo e información de la aplicación.
 
-### Consulte también
--  [Conceptos - Glosario][Link 6], [Guía de resolución de problemas - Análisis][Link 21]
+Este artículo describe la pestaña **ANÁLISIS** del portal **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. Tenga en cuenta que, para comenzar a usar el portal, debe crear en primer lugar una cuenta de **Azure Mobile Engagement**. Para obtener más información, consulte [Crear una cuenta de Azure Mobile Engagement](mobile-engagement-create-account.md).
+
+
+La sección de análisis de la interfaz de usuario proporciona información total sobre la aplicación basada en datos históricos que se actualizan cada 24 horas. La información se muestra en diferentes paneles compuestos por gráficos de líneas/barras/circulares, cuadrículas y mapas. También se pueden descargar los datos como archivos .csv. La mayor parte de esta misma información está disponible en tiempo real en la sección de Supervisión de la interfaz de usuario, y también puede obtenerse a través de la API de análisis.
+
+>[AZURE.NOTE]Muchas de las secciones de la interfaz de usuario del portal **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
 
 ## Análisis estándar y personalizado
-Azure Mobile Engagement proporciona un conjunto de información analítica básico y estándar acerca de las aplicaciones que se puede representar gráficamente al integrar su aplicación con el SDK. Azure Mobile Engagement también proporciona la capacidad de recopilar la información de análisis personalizada adicional que desea acerca del comportamiento de sus usuarios finales. Puede hacerlo creando un plan de "etiquetas de información de aplicación" personalizado, creado a partir de "Configuración" para que Azure Mobile Engagement pueda recopilar estos datos adicionales por usted.
 
-### Consulte también
--  [Documentación de la interfaz de usuario - Configuración][Link 20]
- 
-## Encabezado de análisis
-- Nombre del elemento: etiqueta el elemento que se está contando
-- Mostrar la ayuda: muestra información contextual acerca de esta sección
-- Versiones: permite mostrar información de análisis diferente acerca de cada versión de la aplicación o mostrar información para todas las versiones. (Nota: Filtrar los datos de análisis de la interfaz de usuario mostrará todos los ejemplos de este tipo, independientemente de la versión de la aplicación. Por ejemplo, "Se bloquea" filtrado por nombre mostrará desde las versiones 1 y 2 de la aplicación).
-- Período de tiempo: los últimos 7 días, los últimos 30 días, todo el tiempo, personalizado
-- Tarifa: por hora, día, semana, mes
-- Vista: gráfica de línea, cuadrícula, envío al panel, descargar archivo CSV
- 
-![Analytics1][10]
+Azure Mobile Engagement proporciona un conjunto de información analítica básico y estándar acerca de las aplicaciones que se puede representar gráficamente al integrar su aplicación con el SDK. Azure Mobile Engagement también proporciona la capacidad de recopilar la información de análisis personalizada adicional que desea acerca del comportamiento de sus usuarios finales. Puede hacerlo creando un plan de "etiquetas de información de aplicación" personalizado, creado desde **Configuración**, para que Azure Mobile Engagement pueda recopilar estos datos adicionales por usted.
 
+ 
+ 
 ## Análisis
 - Panel: muestra información general acerca de los usuarios nuevos y activos y de sus tendencias.
 - Usuarios: los usuarios se identifican mediante su identificador de dispositivo: este identificador es único para cada dispositivo (un nuevo usuario es realmente un dispositivo nuevo). Un usuario se considera como nuevo en un intervalo de tiempo determinado si ha realizado su primera sesión durante este intervalo de tiempo. Un usuario se considera conservado si ha realizado al menos una sesión durante los últimos 7 días. Los usuarios activos son usuarios que realizaron al menos una sesión durante un período determinado. Puede ordenar por mes, semana, día u hora. Todos los gráficos tienen un aspecto similar, pero le permiten filtrar por diferentes características, como la versión de la aplicación y, a continuación, ordenar por un período de tiempo. La información estándar recopilada mediante la integración del SDK incluye lo siguiente: usuarios activos, nuevo usuario, número de sesiones, duración de cada sesión, información técnica sobre el país, variables locales, ubicación, operador de lenguaje, dispositivos, firmware, red (Wi-Fi), versiones de la aplicación y el SDK, utilizados por los clientes. Esta información puede verse en tiempo real desde la sección de supervisión. 
-- Seguimiento por origen muestra el número de nuevos usuarios que descargaron la aplicación como resultado de una campaña de promoción determinada. Los usuarios se identifican mediante su identificador de dispositivo: este identificador es único para cada dispositivo (un nuevo usuario es realmente un dispositivo nuevo). Un usuario se considera como nuevo en un intervalo de tiempo determinado si ha realizado su primera sesión durante este intervalo de tiempo.
-- Seguimiento por tienda muestra el número de nuevos usuarios que ha descargado la aplicación desde una tienda determinada. Los usuarios se identifican mediante su identificador de dispositivo: este identificador es único para cada dispositivo (un nuevo usuario es realmente un dispositivo nuevo). Un usuario se considera como nuevo en un intervalo de tiempo determinado si ha realizado su primera sesión durante este intervalo de tiempo.
 
 > Nota: El período de tiempo se basa en la fecha de la configuración de dispositivo de los usuarios, por lo que un usuario cuyo teléfono tiene la fecha establecida incorrectamente podría aparecer en el período de tiempo incorrecto.
 
@@ -77,6 +68,12 @@ La información general de retención se desglosa a la mitad en varias tarjetas,
 3.    Este indicador visual proporciona la misma información que anteriormente representada gráficamente. (La tercera parte del círculo corresponde al número de 33 %). El color proporciona información adicional: el color verde indica que este número está creciendo en comparación con el cálculo anterior. El color amarillo significa estable, y el rojo significa decreciente.
 4.    Esto indica los valores utilizados para el cálculo.
 5.    Se trata de un minigráfico del historial de los valores de retención. Permite ver los valores del pasado para tener una visión amplia de cómo ha evolucionado.
+
+
+## Consulte también
+
+- [Conceptos][Link 6]
+- [Guía de solución de problemas de servicios][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -174,4 +171,4 @@ La información general de retención se desglosa a la mitad en varias tarjetas,
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

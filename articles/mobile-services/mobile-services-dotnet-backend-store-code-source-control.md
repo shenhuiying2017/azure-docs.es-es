@@ -10,13 +10,18 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.date="09/15/2015"
 	ms.author="glenga"/>
 
 # Almacenamiento del código del proyecto de Servicios móviles en el control de código fuente
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
@@ -36,8 +41,7 @@ Para completar este tutorial, ya debe haber creado un servicio móvil tras compl
 
 	Los pasos requeridos para instalar Git varían según los sistemas operativos. Consulte [Installing Git] para obtener una guía sobre la instalación y las distribuciones específicas del sistema operativo.
 
-	> [AZURE.NOTE]
-	> Algunos sistemas operativos disponen de versiones de Git en línea de comandos y de GUI. Las instrucciones proporcionadas en este artículo utilizan la versión en línea de comandos.
+	> [AZURE.NOTE]Algunos sistemas operativos disponen de versiones de Git en línea de comandos y de GUI. Las instrucciones proporcionadas en este artículo utilizan la versión en línea de comandos.
 
 2. Abra una línea de comandos, como **GitBash** (Windows) o **Bash** (shell de Unix). En los sistemas OS X puede tener acceso a la línea de comandos mediante la aplicación **Terminal**.
 
@@ -60,7 +64,7 @@ Ahora que ha creado el repositorio local, puede publicar el proyecto de servicio
 
 ##<a name="deploy-scripts"></a>Publicación del proyecto mediante Git
 
-1. Cree un nuevo proyecto de servicio móvil de back-end de .NET en Visual Studio 2013 o mueva un proyecto existente al nuevo repositorio local.  
+1. Cree un nuevo proyecto de servicio móvil de back-end de .NET en Visual Studio 2013 o mueva un proyecto existente al nuevo repositorio local.
 
 	Para realizar una prueba rápida, descargue y guarde el proyecto de inicio rápido de Servicios móviles en esta carpeta.
 
@@ -97,7 +101,6 @@ Ahora, el proyecto de servicio móvil se mantiene en el control de código fuent
 [Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Introducción a Servicios móviles]: mobile-services-dotnet-backend-ios-get-started.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Modificación del modelo de datos de un servicio móvil back-end de .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

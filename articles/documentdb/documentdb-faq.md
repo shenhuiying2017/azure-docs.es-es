@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Preguntas de base de datos DocumentDB - Preguntas más frecuentes| Microsoft Azure" 
-	description="Respuestas a las preguntas frecuentes acerca del servicio de base de datos de documentos NoSql de Azure DocumentDB. Responda a preguntas de base de datos acerca de la capacidad, los niveles de rendimiento y escalado." 
+	description="Obtenga respuestas a las preguntas frecuentes sobre Azure DocumentDB, un servicio de base de datos de documentos NoSQL para JSON. Responda a preguntas de base de datos acerca de la capacidad, los niveles de rendimiento y escalado." 
 	keywords="Database questions, frequently asked questions, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="11/30/2015" 
 	ms.author="mimig"/>
 
 
@@ -49,7 +49,7 @@ Las cuentas de DocumentDB se pueden escalar en términos de almacenamiento y ren
 Consulte la página [Detalles de precios de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402317) para obtener detalles. Los cargos por uso de DocumentDB están determinados por la cantidad de colecciones en uso, el número de horas en que las colecciones estuvieron en línea y el [nivel de rendimiento](documentdb-performance-levels.md) de cada colección.
 
 ### ¿Existe una prueba gratuita disponible?
-Si es la primera vez que usa Azure, regístrese para obtener una [prueba gratuita](https://azure.microsoft.com/pricing/free-trial/), que le ofrece 30 días y 200 USD para que pruebe todos los servicios de Azure. Si tiene una suscripción a MSDN, puede recibir [150 USD en créditos gratis de Azure al mes](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usarlos en cualquier servicio de Azure.
+Si es la primera vez que usa Azure, regístrese para obtener una [prueba gratuita](https://azure.microsoft.com/pricing/free-trial/), que le ofrece 30 días y 200 USD para que pruebe todos los servicios de Azure. Si tiene una suscripción a Visual Studio, puede recibir [150 USD en créditos gratis de Azure al mes](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usarlos en cualquier servicio de Azure.
 
 ### ¿Cómo puedo obtener ayuda adicional con DocumentDB?
 En caso de que necesite ayuda, póngase rápidamente en contacto con nosotros en [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), los [foros para desarrolladores de MSDN de Azure DocumentDB](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) o programe un [chat 1:1 con el equipo de ingeniería de DocumentDB](http://www.askdocdb.com/). Para mantenerse al día en las novedades y características más recientes de DocumentDB, síganos en [Twitter](https://twitter.com/DocumentDB).
@@ -57,13 +57,13 @@ En caso de que necesite ayuda, póngase rápidamente en contacto con nosotros en
 ## Configuración de DocumentDB de Microsoft Azure
 
 ### ¿Cómo me registro en DocumentDB de Microsoft Azure?
-Microsoft Azure DocumentDB está disponible en el nuevo [Portal de vista previa de Azure][azure-portal]. Primero debe registrarse para una suscripción a Microsoft Azure. Una vez hecho esto, puede agregar una cuenta de DocumentDB a su suscripción a Azure. Para obtener instrucciones sobre cómo agregar una cuenta de DocumentDB, consulte [Creación de una cuenta de base de datos de DocumentDB](documentdb-create-account.md).
+Microsoft Azure DocumentDB está disponible en el nuevo [Portal de Azure][azure-portal]. Primero debe registrarse para una suscripción a Microsoft Azure. Una vez hecho esto, puede agregar una cuenta de DocumentDB a su suscripción a Azure. Para obtener instrucciones sobre cómo agregar una cuenta de DocumentDB, consulte [Creación de una cuenta de base de datos de DocumentDB](documentdb-create-account.md).
 
 ### ¿Qué es una clave maestra?
-Una clave maestra es un token de seguridad para acceder a todos los recursos de una cuenta. Los individuos con esta clave tienen acceso de lectura y escritura a todos los recursos de la cuenta de base de datos. Tenga cuidado cuando distribuya claves maestras. La clave maestra principal y la secundaria están disponibles en la hoja **Claves **del [Portal de vista previa de Azure][azure-portal]. Para obtener más información sobre las claves, consulte [Visualización, copia y regeneración de las claves de acceso](documentdb-manage-account.md#keys).
+Una clave maestra es un token de seguridad para acceder a todos los recursos de una cuenta. Los individuos con esta clave tienen acceso de lectura y escritura a todos los recursos de la cuenta de base de datos. Tenga cuidado cuando distribuya claves maestras. La clave maestra principal y la secundaria están disponibles en la hoja **Claves **del [Portal de Azure][azure-portal]. Para obtener más información sobre las claves, consulte [Visualización, copia y regeneración de las claves de acceso](documentdb-manage-account.md#keys).
 
 ### ¿Cómo se crea una base de datos?
-Puede crear bases de datos mediante el [Portal de vista previa de Azure]() como se describe en [Creación de una base de datos de DocumentDB](documentdb-create-database.md), uno de los [SDK de DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx) o a través de las [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+Puede crear bases de datos mediante el [Portal de Azure]() como se describe en [Creación de una base de datos de DocumentDB](documentdb-create-database.md), uno de los [SDK de DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx) o a través de las [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ### ¿Qué es una colección?
 Una colección es un contenedor de documentos JSON asociado a la lógica de aplicación de JavaScript. Las consultas y transacciones se limitan a colecciones. Puede almacenar un conjunto de documentos JSON heterogéneos en una sola colección, todos los cuales se indexan automáticamente.
@@ -99,7 +99,7 @@ Base de datos de documentos admite transacciones integradas en el lenguaje a tra
 Existen tres maneras de insertar documentos de forma masiva en DocumentDB:
 
 - La herramienta de migración de datos, como se describe en [Importación de datos en DocumentDB](documentdb-import-data.md).
-- El Explorador de documentos en el Portal de vista previa de Azure, como se describe en [Incorporación en bloque de documentos con el Explorador de documentos](documentdb-view-json-document-explorer.md#BulkAdd).
+- El Explorador de documentos en el Portal de Azure, como se describe en [Incorporación en bloque de documentos con el Explorador de documentos](documentdb-view-json-document-explorer.md#BulkAdd).
 - Procedimientos almacenados, como se describe en [Programación de servidor DocumentDB](documentdb-programming.md).
 
 ### ¿Admite Base de datos de documentos el almacenamiento en caché de vínculos de recursos?
@@ -112,4 +112,4 @@ Sí. Como Base de datos de documentos es un servicio RESTful, los vínculos de r
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

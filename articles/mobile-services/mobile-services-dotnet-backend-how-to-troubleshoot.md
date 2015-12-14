@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="wesmc;ricksal"/>
 
 # Solución de problemas en el backend .NET de Servicios móviles
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 El desarrollo con Servicios móviles suele ser sencillo y sin complicaciones, pero, aun así, pueden salir cosas mal a veces. En este tutorial se tratan algunas técnicas que le permitirán solucionar problemas comunes que pueden surgir con el extremo .NET de Servicios móviles.
 
@@ -36,7 +41,7 @@ Puede usar cualquier depurador HTTP para enviar e inspeccionar el tráfico HTTP.
 1. Comience con un proyecto de servidor de Servicios móviles en **Visual Studio 2013 Update 2** o posterior. Si no tiene uno a mano, puede crearlo; para ello, seleccione **Archivo**, **Nuevo**, **Proyecto** y luego seleccione el nodo **Nube** y seguidamente la plantilla **Servicios móviles de Microsoft Azure**.
 2. Pulse **F5** para compilar y ejecutar el proyecto. En la página de inicio, seleccione **Probar**.
 
-    >[AZURE.NOTE]Si el servicio está hospedado en modo local, al hacer clic en el vínculo, se le dirigirá a la página siguiente. Sin embargo, si está hospedado en la nube, se le pedirá que proporcione un conjunto de credenciales. Esto es para asegurarse de que usuarios no autorizados no tienen acceso a información sobre su API y sus cargas. Para ver la página, debe iniciar sesión con un **nombre de usuario en blanco** y la **clave de la aplicación** como contraseña. La clave de la aplicación está disponible en el **Portal de administración de Azure**; vaya a la pestaña **Panel** del servicio móvil y seleccione **Administrar claves**.
+    >[AZURE.NOTE]Si el servicio está hospedado en modo local, al hacer clic en el vínculo, se le dirigirá a la página siguiente. Sin embargo, si está hospedado en la nube, se le pedirá que proporcione un conjunto de credenciales. Esto es para asegurarse de que usuarios no autorizados no tienen acceso a información sobre su API y sus cargas. Para ver la página, debe iniciar sesión con un **nombre de usuario en blanco** y la **clave de la aplicación** como contraseña. La clave de la aplicación está disponible en el Portal de Azure clásico; vaya a la pestaña **Panel** del servicio móvil y seleccione **Administrar claves**.
     >
     > ![Mensaje de autenticación para obtener acceso a la página de ayuda][HelpPageAuth]
 
@@ -97,7 +102,7 @@ Ya tiene acceso a todo el potencial del depurador de Visual Studio, tanto si des
 <a name="Logs"></a>
 ## Análisis de registros de diagnóstico
 
-Conforme el servicio móvil controla las solicitudes de sus clientes, genera una gran variedad de información de diagnóstico muy útil, además de capturar las excepciones que encuentre. Por otro lado, puede instrumentar también el código del controlador con más registros para aprovechar las ventajas de la propiedad [**Log**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.apiservices.log.aspx) disponible en la propiedad [**Services**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.tables.tablecontroller.services.aspx) de cada [**TableController**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.tables.tablecontroller.aspx).
+Conforme el servicio móvil controla las solicitudes de sus clientes, genera una gran variedad de información de diagnóstico muy útil, además de capturar las excepciones que encuentre. Por otro lado, puede instrumentar también el código del controlador con más registros para aprovechar las ventajas de la propiedad [**Log**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.apiservices.log.aspx) disponible en la propiedad [**Services**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.tables.tablecontroller.services.aspx) de cada elemento [**TableController**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.tables.tablecontroller.aspx).
 
 Cuando se hace depuración en modo local, los registros aparecen en la ventana **Resultados** de Visual Studio.
 
@@ -107,9 +112,9 @@ Tras publicar el servicio en Azure, los registros de la instancia de servicio qu
 
 ![Registros en el Explorador de servidores de Visual Studio][LogsServerExplorer]
 
-Los mismos registros están disponibles también en el **Portal de administración de Azure** en la pestaña **Registros** del servicio móvil.
+Los mismos registros están disponibles también en el Portal de Azure clásico en la pestaña **Registros** del servicio móvil.
 
-![Registros en el Portal de administración de Azure][LogsPortal]
+![Registros en el Portal de Azure clásico][LogsPortal]
 
 <a name="AssemblyResolution"></a>
 ## Depuración de la resolución de ensamblados en la nube
@@ -154,4 +159,4 @@ Las migraciones pueden ser complejas y pueden requerir que se mantenga el estado
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

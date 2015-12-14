@@ -21,8 +21,8 @@
 #¿Cómo compro soporte técnico de Azure?
 Azure proporciona opciones de soporte técnico flexibles para todos los clientes, desde desarrolladores que inician su actividad en la nube o empresas que implementan aplicaciones críticas para el negocio. Se ofrece soporte técnico gratuito para problemas de administración de suscripciones y facturación, y tendrá que adquirir una suscripción de soporte técnico de Azure para participar en este soporte.
 
-Para obtener más información sobre las suscripciones de Azure disponibles para su compra, haga clic [aquí](https://azure.microsoft.com/es-ES/support/legal/offer-details/). Para adquirir soporte técnico, visite la [página de planes de soporte técnico de Azure](https://azure.microsoft.com/es-ES/support/plans/).
+Para obtener más información sobre las suscripciones de Azure disponibles para su compra, haga clic [aquí](https://azure.microsoft.com/support/legal/offer-details/). Para adquirir soporte técnico, visite la [página de planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
 
-También hay recursos de autoayuda disponibles. Puede ver las [preguntas más frecuentes](https://azure.microsoft.com/es-ES/support/faq/) del soporte técnico de Azure aquí y obtener acceso a artículos de soporte técnico en la pestaña Documentación de cualquier página de Azure.com.
+También hay recursos de autoayuda disponibles. Puede ver las [preguntas más frecuentes](https://azure.microsoft.com/support/faq/) del soporte técnico de Azure aquí y obtener acceso a artículos de soporte técnico en la pestaña Documentación de cualquier página de Azure.com.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

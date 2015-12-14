@@ -224,7 +224,7 @@ La sección typeProperties es diferente en cada tipo de conjunto de datos y prop
 
 Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
-tableName | Nombre de la tabla en la instancia de Base de datos de Oracle a la que hace referencia el servicio vinculado. | Sí
+tableName | Nombre de la tabla en la instancia de Base de datos de Oracle a la que hace referencia el servicio vinculado. | No (si se especifica **oracleReaderQuery** de **SqlSource**)
 
 ## Propiedades de tipo de actividad de copia de Oracle
 
@@ -234,12 +234,12 @@ Para obtener una lista completa de las secciones y propiedades disponibles para 
 
 Por otro lado, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad y, en caso de la actividad de copia, varían en función de los tipos de orígenes y receptores.
 
-En caso de la actividad de copia si el origen es de tipo SqlSource, están disponibles las propiedades siguientes en la sección typeProperties:
+En caso de la actividad de copia si el origen es de tipo **OracleSource**, están disponibles las propiedades siguientes en la sección **typeProperties**:
 
 Propiedad | Descripción |Valores permitidos | Obligatorio
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | Utilice la consulta personalizada para leer los datos. | Cadena de consulta SQL. 
-Por ejemplo: select * from MyTable <p>Si no se especifica, la instrucción SQL que se ejecuta: select * from MyTable</p> | No
+Por ejemplo: select * from MyTable <p>Si no se especifica, la instrucción SQL que se ejecuta: select * from MyTable</p> | No (si se especifica **tableName** de **dataset**)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -280,7 +280,7 @@ XML | String
 
 ## Sugerencias de solución de problemas
 
-****Problema: ** se visualiza el siguiente **mensaje de error**: La actividad de copia detectó parámetros no válidos: “UnknownParameterName”. Mensaje detallado: No se encuentra el proveedor de datos .NET Framework solicitado. Puede que no esté instalado".
+****Problema: ** se visualiza el siguiente **mensaje de error**: La actividad de copia detectó parámetros no válidos: "UnknownParameterName". Mensaje detallado: No se encuentra el proveedor de datos .NET Framework solicitado. Puede que no esté instalado".
 
 **Causas posibles**
 
@@ -292,12 +292,12 @@ XML | String
 1. Si no ha instalado el proveedor de .NET para Oracle, [instálelo](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html) e intente de nuevo este escenario. 
 2. Si recibe el mensaje de error incluso después de instalar el proveedor, haga lo siguiente: 
 	1. Abra la configuración de máquina de .NET 2.0 desde la carpeta: <system disk>:\\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config.
-	2. Busque **Proveedor de datos de Oracle para .NET** y deberá ser capaz de encontrar una entrada similar a continuación en **system.data** -> **DbProviderFactories**: "<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />"
+	2. Busque **Proveedor de datos de Oracle para .NET**, y debería poder encontrar una entrada similar a la siguiente en **system.data** -> **DbProviderFactories**: "<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />"
 2.	Copie esta entrada en el archivo machine.config en la siguiente carpeta v4.0: <system disk>:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config, y cambie la versión a 4.xxx.x.x.
-3.	Instale “<ODP.NET Installed Path>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll” en la caché global de ensamblados (GAC) mediante la ejecución de “gacutil /i [provider path]”.
+3.	Instale "<ODP.NET Installed Path>\\11.2.0\\client\_1\\odp.net\\bin\\4\\Oracle.DataAccess.dll" en la caché global de ensamblados (GAC) mediante la ejecución de "gacutil /i [provider path]".
 
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

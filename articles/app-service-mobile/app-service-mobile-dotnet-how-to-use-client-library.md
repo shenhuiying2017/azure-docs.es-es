@@ -18,14 +18,17 @@
 
 # Uso del cliente administrado para Aplicaciones móviles de Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
-&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Información general 
 
 En esta guía se muestra cómo realizar escenarios comunes con la biblioteca de cliente administrada para Aplicaciones móviles del Servicio de aplicaciones de Azure para Windows y Xamarin. Si no tiene experiencia en el uso de Aplicaciones móviles, considere primero la opción de completar el tutorial [Guía de inicio rápido de Aplicaciones móviles](app-service-mobile-windows-store-dotnet-get-started.md). En esta guía, nos centramos en el SDK administrado de cliente. Para obtener más información sobre el SDK de servidor para el back-end de .NET, consulte [Back-end de .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+
+## Documentación de referencia
+
+La documentación de referencia para el SDK de cliente se encuentra aquí: [Referencia de cliente de .NET para aplicaciones móviles de Azure](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.aspx).
 
 ##<a name="setup"></a>Configuración y requisitos previos
 
@@ -51,14 +54,13 @@ Tenga en cuenta que [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/
 
 El código siguiente crea el objeto `MobileServiceClient` que se usa para acceder al back-end de la aplicación móvil.
 
-
 	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
-En el código anterior, reemplace `MOBILE_APP_URL` por la dirección URL del back-end de la aplicación móvil, que se encuentra en la hoja Aplicación móvil en el portal de vista previa de Azure.
+En el código anterior, reemplace `MOBILE_APP_URL` por la dirección URL del back-end de la aplicación móvil, que se encuentra en la hoja de la aplicación móvil en el [Portal de Azure](https://portal.azure.com).
 
 ##<a name="instantiating"></a>Creación de una referencia de tabla
 
-Todo el código que accede a datos o los modifica en una tabla de back-end llama a las funciones del objeto `MobileServiceTable`. Se obtiene una referencia a la tabla llamando al método [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) en una instancia de `MobileServiceClient`, como se indica a continuación:
+Todo el código que accede a datos o los modifica en una tabla de back-end llama a las funciones del objeto `MobileServiceTable`. Obtenga una referencia a la tabla llamando al método [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) en una instancia de `MobileServiceClient` del modo indicado a continuación:
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
@@ -70,7 +72,7 @@ Este es el modelo de serialización con tipo. También se admite un modelo de se
 
 En las consultas sin tipo, debe especificar la cadena de consulta de OData subyacente.
 
-##<a name="querying"></a>Consulta de datos desde su aplicación móvil
+##<a name="querying"></a>Consulta de datos desde la aplicación móvil
 
 En esta sección se describe cómo generar consultas al back-end de la aplicación móvil, lo cual incluye la siguiente funcionalidad:
 
@@ -84,7 +86,7 @@ En esta sección se describe cómo generar consultas al back-end de la aplicaci�
 
 ### <a name="filtering"></a>Filtro de datos devueltos
 
-El siguiente código muestra cómo filtrar los datos incluyendo una cláusula `Where` en una consulta. Devuelve todos los elementos de `todoTable` cuya propiedad `Complete` es igual a `false`. La función `Where` aplica un predicado de filtrado de filas a la consulta en la tabla.
+El siguiente código muestra cómo filtrar los datos incluyendo una cláusula `Where` en una consulta. Devuelve todos los elementos de `todoTable` cuya propiedad `Complete` es igual a `false`. La función `Where` aplica un predicado de filtrado de fila a la consulta en la tabla.
 
 	// This query filters out completed TodoItems and
 	// items without a timestamp.
@@ -128,7 +130,7 @@ También podría haberse escrito en varias líneas:
 
 Los dos métodos son equivalentes y pueden usarse indistintamente. La opción anterior (de concatenación de varios predicados en una consulta) es más compacta y es la que se recomienda.
 
-La cláusula `where` es compatible con las operaciones que pueden traducirse en el subconjunto OData. Incluye operadores relacionales (==, !=, <, <=, >, >=), operadores aritméticos (+, -, /, *, %), precisión numérica (Math.Floor, Math.Ceiling), funciones de cadena (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), propiedades de fecha (Year, Month, Day, Hour, Minute, Second), propiedades de acceso de un objeto y expresiones que combinan todas las opciones anteriores.
+La cláusula `where` admite las operaciones que pueden traducirse en el subconjunto OData. Incluye operadores relacionales (==, !=, <, <=, >, >=), operadores aritméticos (+, -, /, *, %), precisión numérica (Math.Floor, Math.Ceiling), funciones de cadena (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), propiedades de fecha (Year, Month, Day, Hour, Minute, Second), propiedades de acceso de un objeto y expresiones que combinan todas las opciones anteriores.
 
 ### <a name="sorting"></a>Clasificación de datos devueltos
 
@@ -167,7 +169,7 @@ También puede usar el método [IncludeTotalCount] para asegurarse de que la con
 
 Este es un escenario simplificado para pasar valores de paginación codificados de forma rígida a los métodos `Take` y `Skip`. En una aplicación en tiempo real, puede usar consultas similares a las anteriores con un control de paginación o interfaz de usuario comparable para permitir a los usuarios desplazarse a las páginas anteriores y posteriores.
 
->[AZURE.NOTE]Para invalidar el límite de 50 filas en un back-end de la aplicación móvil, también debe aplicar [EnableQueryAttribute](https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx) al método público GET y especificar el comportamiento de paginación. Cuando se aplica al método, lo siguiente establece el máximo de filas devueltas a 1000:
+>[AZURE.NOTE]Para reemplazar el límite de 50 filas de un back-end de la aplicación móvil, también debe aplicar [EnableQueryAttribute](https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx) al método público GET y especificar el comportamiento de paginación. Cuando se aplica al método, lo siguiente establece el máximo de filas devueltas a 1000:
 
     [EnableQuery(MaxTop=1000)]
 
@@ -213,9 +215,9 @@ Al ejecutar una consulta mediante un objeto de tabla sin tipo, debe especificar 
 
 Vuelva a obtener valores JSON que puede usar como un contenedor de propiedades. Para obtener más información sobre JToken y [Json.NET](http://json.codeplex.com/), consulte Json.NET.
 
-##<a name="inserting"></a>Inserción de datos en un back-end de la aplicación móvil
+##<a name="inserting"></a>Inserción de datos en el back-end de una aplicación móvil
 
-Todos los tipos de cliente deben incluir un miembro llamado **Id**, que es una cadena de forma predeterminada. Este **Id** es necesario para realizar operaciones CRUD y para trabajar sin conexión. El siguiente código muestra cómo insertar filas nuevas en una tabla. El parámetro contiene los datos que se van a insertar como un objeto .NET.
+Todos los tipos de cliente deben incluir un miembro llamado **Id**, que es una cadena de forma predeterminada. Este elemento **Id** es necesario para realizar operaciones CRUD y para trabajar sin conexión. El siguiente código muestra cómo insertar filas nuevas en una tabla. El parámetro contiene los datos que se van a insertar como un objeto .NET.
 
 	await todoTable.InsertAsync(todoItem);
 
@@ -249,23 +251,18 @@ Los identificadores de cadena proporcionan las siguientes ventajas:
 
 Cuando no se establece un valor de identificador de cadena en un registro insertado, el back-end de la aplicación móvil genera un valor único para el identificador. Puede usar el método `Guid.NewGuid()` para generar sus propios valores de ID, ya sea en el cliente o en el back-end.
 
-##<a name="modifying"></a>Modificación de datos en un back-end de la aplicación móvil
+##<a name="modifying"></a>Modificación de datos en el back-end de una aplicación móvil
 
 El siguiente código muestra cómo actualizar una instancia existente con el mismo identificador con nueva información. El parámetro contiene los datos que se van a actualizar como un objeto .NET.
 
 	await todoTable.UpdateAsync(todoItem);
 
-Para insertar datos sin tipo, puede aprovechar Json.NET como sigue:
-	JObject jo = new JObject();
-	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
-	jo.Add("Text", "Hello World");
-	jo.Add("Complete", false);
-	var inserted = await table.UpdateAsync(jo);
+Para insertar datos sin tipo, puede aprovechar Json.NET como sigue: JObject jo = new JObject(); jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); jo.Add("Text", "Hello World"); jo.Add("Complete", false); var inserted = await table.UpdateAsync(jo);
 
-Tenga en cuenta que al realizar una actualización, debe especificarse un identificador. Así es cómo el back-end identifica qué instancia actualizar. El identificador puede obtenerse a partir del resultado de la llamada `InsertAsync`. Cuando intenta actualizar un elemento sin proporcionar el valor "Id", se genera `ArgumentException`.
+Tenga en cuenta que al realizar una actualización, debe especificarse un identificador. Así es cómo el back-end identifica qué instancia actualizar. El identificador puede obtenerse a partir del resultado de la llamada `InsertAsync`. Cuando intenta actualizar un elemento sin proporcionar el valor "Id", se genera una excepción `ArgumentException`.
 
 
-##<a name="deleting"></a>Eliminación de datos de un back-end de la aplicación móvil
+##<a name="deleting"></a>Eliminación de datos del back-end de una aplicación móvil
 
 El siguiente código muestra cómo eliminar una instancia existente. La instancia se identifica mediante el campo "Id" establecido en `todoItem`.
 
@@ -307,13 +304,9 @@ El cliente de Aplicaciones móviles permite registrar las notificaciones push co
 		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
 		}
 
-Tenga en cuenta que en este ejemplo se incluyen dos etiquetas en el registro. Para obtener más información sobre las aplicaciones de Windows, consulte [Incorporación de notificaciones push a la aplicación](app-service-mobile-windows-store-dotnet-get-started-push.md).
+Tenga en cuenta que en este ejemplo se incluyen dos etiquetas en el registro. Para más información sobre las aplicaciones de Windows, incluyendo cómo registrarse para los registros de plantillas, consulte [Incorporación de notificaciones push a la aplicación](app-service-mobile-windows-store-dotnet-get-started-push.md).
 
-<!--- Remove until Xamarin.Android push is supported.
-Xamarin apps require some additional code to be able to register a Xamarin app running on iOS or Android app with the Apple Push Notification Service (APNS) and Google Cloud Messaging (GCM) services, respectively. For more information see **Add push notifications to your app** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
-
->[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
->-->
+Las aplicaciones de Xamarin requieren código adicional para poder registrar una aplicación que se ejecute en la aplicación iOS o Android con el Servicio de notificaciones push de Apple (APNS) y el Servicio de mensajería en la nube de Google (GCM), respectivamente. Para más información, consulte **Incorporación de notificaciones push a la aplicación** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
 ## Registro de plantillas de inserción para enviar notificaciones entre plataformas
 
@@ -348,7 +341,7 @@ El método **RegisterAsync()** también acepta iconos secundarios:
 
         MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObject secondaryTiles);
 
-Tenga en cuenta que se eliminará todas las etiquetas por seguridad. Para agregar etiquetas a las instalaciones o plantillas dentro de las instalaciones, vea [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure].
+Tenga en cuenta que se eliminará todas las etiquetas por seguridad. Para agregar etiquetas a las instalaciones o las plantillas dentro de las instalaciones, vea [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure].
 
 Para enviar notificaciones mediante estas plantillas registradas, trabaje con [API de Centros de notificaciones](https://msdn.microsoft.com/library/azure/dn495101.aspx).
 
@@ -356,7 +349,7 @@ Para enviar notificaciones mediante estas plantillas registradas, trabaje con [A
 
 En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiempo. Si no se produjera la detección de conflictos, la última escritura sobrescribiría cualquier actualización anterior incluso si no fuese el resultado deseado. El *control de simultaneidad optimista* asume que cada transacción puede confirmarse y, por lo tanto, no usa ningún bloqueo de recursos. Antes de confirmar una transacción, el control de simultaneidad optimista comprueba que ninguna otra transacción haya modificado los datos. Si los datos se han modificado, la transacción de confirmación se desecha.
 
-El servicio Aplicaciones móviles es compatible con el control de simultaneidad optimista gracias al seguimiento de cambios en cada elemento mediante la columna de propiedades del sistema `__version` que se definió en cada tabla en el back-end de la aplicación móvil. Cada vez que se actualiza un registro, el servicio Aplicaciones móviles establece la propiedad `__version` para ese registro en un nuevo valor. Durante cada solicitud de actualización, la propiedad `__version` del registro incluido con la solicitud se compara con la misma propiedad del registro en el servidor. Si la versión que pasa con la solicitud no coincide con el back-end, la biblioteca de cliente genera `MobileServicePreconditionFailedException<T>`. El tipo incluido con la excepción es el registro del back-end que contiene la versión del registro del servidor. A continuación, la aplicación puede usar esta información para decidir si ejecutar la solicitud de actualización de nuevo con el valor `__version` correcto del back-end para confirmar los cambios.
+El servicio Aplicaciones móviles es compatible con el control de simultaneidad optimista gracias al seguimiento de cambios en cada elemento mediante la columna de propiedades del sistema `__version` que se definió en cada tabla en el back-end de la aplicación móvil. Cada vez que se actualiza un registro, el servicio Aplicaciones móviles establece la propiedad `__version` de ese registro en un nuevo valor. Durante cada solicitud de actualización, la propiedad `__version` del registro incluido con la solicitud se compara con la misma propiedad del registro en el servidor. Si la versión que se pasa con la solicitud no coincide con el back-end, la biblioteca de cliente genera una excepción `MobileServicePreconditionFailedException<T>`. El tipo incluido con la excepción es el registro del back-end que contiene la versión del registro del servidor. A continuación, la aplicación puede usar esta información para decidir si ejecutar la solicitud de actualización de nuevo con el valor `__version` correcto del back-end para confirmar los cambios.
 
 Para habilitar la simultaneidad optimista, la aplicación define una columna en la clase de tabla para la propiedad del sistema `__version`. La siguiente definición proporciona un ejemplo.
 
@@ -458,7 +451,7 @@ En esta sección se describe cómo mostrar objetos de datos devueltos mediante e
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-Algunos controles en tiempo de ejecución administrado son compatibles con una interfaz denominada [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Esta interfaz permite a los controles solicitar datos adicionales cuando el usuario se desplaza. Existe compatibilidad integrada de esta interfaz para las aplicaciones universales de Windows 8.1 a través de `MobileServiceIncrementalLoadingCollection`, que administra automáticamente las llamadas desde los controles. Para usar `MobileServiceIncrementalLoadingCollection` en las aplicaciones de Windows, realice las siguientes acciones:
+Algunos controles en tiempo de ejecución administrado admiten una interfaz denominada [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Esta interfaz permite a los controles solicitar datos adicionales cuando el usuario se desplaza. Existe compatibilidad integrada con esta interfaz para las aplicaciones universales de Windows 8.1 a través de `MobileServiceIncrementalLoadingCollection`, que administra automáticamente las llamadas desde los controles. Para usar `MobileServiceIncrementalLoadingCollection` en las aplicaciones de Windows, realice las siguientes acciones:
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -475,7 +468,19 @@ Para usar la nueva colección en aplicaciones de Windows Phone 8 y "Silverlight"
 
 Cuando use la colección creada mediante la llamada a `ToCollectionAsync` o `ToCollection`, obtendrá una colección que puede enlazarse a los controles de la interfaz de usuario. Esta colección es para la paginación, es decir, un control puede solicitar a la colección cargar más elementos y la colección lo hará para el control. En este momento, no hay ningún código de usuario implicado y el control iniciará el flujo. Sin embargo, puesto que la colección está cargando datos desde la red, cabe esperar que a veces se produzca un error en la carga. Para gestionar esos errores, puede reemplazar el método `OnException` de `MobileServiceIncrementalLoadingCollection` para gestionar excepciones resultantes de las llamadas a `LoadMoreItemsAsync` que han realizado los controles.
 
-Para finalizar, imagine que la tabla contiene muchos campos, pero solo desea que se muestren algunos en el control. Puede usar la guía de la sección ["Selección de columnas específicas"](#selecting) anterior para seleccionar las columnas específicas para mostrar en la interfaz de usuario.
+Para finalizar, imagine que la tabla contiene muchos campos, pero solo desea que se muestren algunos en el control. Puede usar la guía de la sección "[Seleccionar columnas específicas](#selecting)" anterior para seleccionar las columnas concretas que se mostrarán en la interfaz de usuario.
+
+## <a name="package-sid"></a>Obtención del SID de un paquete de la Tienda Windows.
+
+En aplicaciones de Windows, se necesita un SID de paquete para habilitar las notificaciones push y determinados modos de autenticación. Para obtener este valor:
+
+1. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en el proyecto de la aplicación de la Tienda Windows y luego haga clic en **Tienda** > **Asociar aplicación con la Tienda...**.
+2. En el asistente, haga clic en **Siguiente**, inicie sesión con su cuenta Microsoft, escriba un nombre para la aplicación en **Reserve un nuevo nombre de aplicación** y luego haga clic en **Reservar**.
+3. Después de crear correctamente el registro de la aplicación, seleccione el nuevo nombre de la aplicación, haga clic en **Siguiente** y después en **Asociar**. Se agrega la información de registro necesaria de la Tienda Windows al manifiesto de aplicación.
+4. Inicie sesión en el [Centro de desarrollo de Windows](https://dev.windows.com/es-ES/overview) con su cuenta Microsoft. En **Mis aplicaciones**, haga clic en el registro de la aplicación que acaba de crear.
+5. Haga clic en **Administración de aplicaciones** > **Identidad de aplicación**, y después desplácese hacia abajo hasta encontrar el **SID del paquete**.
+
+Muchos usos del SID del paquete lo tratan como un URI, en cuyo caso debe usar _ms-app://_ como el esquema. Tome nota de la versión del SID del paquete que se forma concatenando este valor como prefijo.
 
 <!--- We want to just point to the authentication topic when it's done
 ##<a name="authentication"></a>How to: Authenticate users
@@ -675,7 +680,7 @@ Esta sección muestra formas en que puede personalizar los encabezados de solici
 
 ### <a name="headers"></a>Personalización de encabezados de solicitud
 
-Para admitir su escenario de aplicación específico, deberá personalizar la comunicación con el back-end de la aplicación móvil. Por ejemplo, es posible que desee agregar un encabezado personalizado a cada solicitud saliente o cambiar los códigos de estado de las respuestas. Puede hacer esto ofreciendo un [DelegatingHandler] personalizado, como en el ejemplo siguiente:
+Para admitir su escenario de aplicación específico, deberá personalizar la comunicación con el back-end de la aplicación móvil. Por ejemplo, es posible que desee agregar un encabezado personalizado a cada solicitud saliente o cambiar los códigos de estado de las respuestas. Puede hacerlo si ofrece un elemento [DelegatingHandler] personalizado, como en el ejemplo siguiente:
 
     public async Task CallClientWithHandler()
     {
@@ -750,4 +755,4 @@ Esta propiedad convierte todas las propiedades en minúsculas durante la seriali
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

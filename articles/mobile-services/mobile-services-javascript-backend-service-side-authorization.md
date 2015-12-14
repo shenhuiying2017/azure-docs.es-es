@@ -28,7 +28,7 @@ Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutoria
 
 ## <a name="register-scripts"></a>Registro de scripts
 
-1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y luego haga clic en el servicio móvil. Haga clic en la pestaña **Datos** y luego en la tabla **TodoItem**.
+1. Inicie sesión en el [Portal de Azure clásico], haga clic en **Servicios móviles** y luego en su servicio móvil. Haga clic en la pestaña **Datos** y luego en la tabla **TodoItem**.
 
 2. Haga clic en **Script**, seleccione la operación **Insertar**, sustituya el script existente por la siguiente función y haga clic en **Guardar**.
 
@@ -67,7 +67,7 @@ Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutoria
 [My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Agregar autenticación a la aplicación de Servicios móviles existente]: /develop/mobile/tutorials/get-started-with-users-ios
 
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

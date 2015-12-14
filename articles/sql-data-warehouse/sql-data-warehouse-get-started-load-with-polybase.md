@@ -72,7 +72,7 @@ Para preparar un archivo de texto de ejemplo:
 
 Para buscar el punto de conexión del servicio BLOB:
 
-1. En el Portal de Azure, seleccione **Examinar** > **Cuentas de almacenamiento**.
+1. En el Portal de Azure clásico, seleccione **Examinar** > **Cuentas de almacenamiento**.
 2. Haga clic en la cuenta de almacenamiento que desea usar.
 3. En la hoja de la cuenta de almacenamiento, haga clic en Blobs.
 
@@ -282,4 +282,4 @@ Para más información que debe conocer cuando desarrolle una solución que use 
 [Create Database Scoped Credential (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -21,8 +21,7 @@
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]
-> Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Evaluación gratuita de Azure</a>.
+>[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Evaluación gratuita de Azure</a>.
 
 Esta guía de inicio rápido le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido de vídeo bajo demanda (VoD) mediante API de REST de Servicios multimedia de Azure (AMS).
 
@@ -47,7 +46,7 @@ En este tutorial rápido se muestran las siguientes tareas.
 
 ## <a id="create_ams"></a>Creación de una cuenta de Servicios multimedia (con el Portal)
 
-1. En el [Portal de administración][], haga clic en **Nuevo**, después en **Servicios multimedia** y, finalmente, en **Creación rápida**.
+1. En el [Portal de Azure clásico][], haga clic en **Nuevo**, en **Servicios multimedia** y luego en **Creación rápida**.
    
 	![Creación rápida de Servicios multimedia](./media/media-services-rest-get-started/wams-QuickCreate.png)
 
@@ -82,8 +81,7 @@ En los pasos siguientes se describe el flujo de trabajo más común al usar la A
 1. Obtención de un token de acceso 
 2. Conexión al URI de Servicios multimedia 
 	
-	>[AZURE.NOTE]
-	Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 especificando otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI.
+	>[AZURE.NOTE]Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 especificando otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI.
 	> 
 	> Es posible que también reciba una respuesta HTTP/1.1 200 que contenga la descripción de metadatos de la API de ODATA.
 3. Registre las llamadas de API posteriores en la nueva dirección URL. 
@@ -114,9 +112,9 @@ En el ejemplo siguiente se muestra el encabezado y el cuerpo de solicitud HTTP q
 	
 **Cuerpo**:
 
-Debe probar los valores client_id y client_secret en el cuerpo de esta solicitud; client_id y client_secret se corresponden con los valores AccountName y AccountKey, respectivamente. Servicios multimedia le proporciona estos valores al configurar su cuenta.
+Debe probar los valores client\_id y client\_secret en el cuerpo de esta solicitud; client\_id y client\_secret se corresponden con los valores AccountName y AccountKey, respectivamente. Servicios multimedia le proporciona estos valores al configurar su cuenta.
 
-Tenga en cuenta que el valor AccountKey de su cuenta de Servicios multimedia debe tener codificación URL cuando se usa como el valor client_secret en la solicitud de token de acceso.
+Tenga en cuenta que el valor AccountKey de su cuenta de Servicios multimedia debe tener codificación URL cuando se usa como el valor client\_secret en la solicitud de token de acceso.
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -147,10 +145,9 @@ En el ejemplo siguiente se muestra la respuesta HTTP que contiene el token de ac
 	}
 	
 
->[AZURE.NOTE]
->Se recomienda almacenar en memoria caché los valores "access_token" y "expires_in" en un almacenamiento externo. Los datos del token se pueden recuperar más tarde desde el almacenamiento y se pueden reutilizar en las llamadas de API de REST de Servicios multimedia. Esto es especialmente útil para escenarios en que el token se puede compartir de forma segura entre varios procesos o equipos.
+>[AZURE.NOTE]Se recomienda almacenar en memoria caché los valores "access\_token" y "expires\_in" en un almacenamiento externo. Los datos del token se pueden recuperar más tarde desde el almacenamiento y se pueden reutilizar en las llamadas de API de REST de Servicios multimedia. Esto es especialmente útil para escenarios en que el token se puede compartir de forma segura entre varios procesos o equipos.
 
-Asegúrese de supervisar el valor "expires_in" del token de acceso y actualice las llamadas de API de REST con nuevos tokens según sea necesario.
+Asegúrese de supervisar el valor "expires\_in" del token de acceso y actualice las llamadas de API de REST con nuevos tokens según sea necesario.
 
 ###Conexión al URI de Servicios multimedia
 
@@ -499,8 +496,7 @@ Ahora que ha cargado el archivo, actualice la información de tamaño de FileAss
 
 **Respuesta HTTP**
 
-Si se realiza correctamente, se devuelve lo siguiente: 
-	HTTP/1.1 204 No Content
+Si se realiza correctamente, se devuelve lo siguiente: HTTP/1.1 204 No Content
 
 ## Eliminación de Locator y AccessPolicy 
 
@@ -1012,8 +1008,7 @@ En el ejemplo siguiente se muestra cómo especificar AccessPolicy para los permi
 
 Si se realiza correctamente, se devuelve un código de correcto 201 que describe la entidad AccessPolicy que ha creado. A continuación, usará AccessPolicy Id junto con Asset Id del recurso que contiene el archivo que desea entregar (por ejemplo, un recurso de salida) para crear la entidad Locator.
 
->[AZURE.NOTE]
->Este flujo de trabajo básico es el mismo que la carga de un archivo al ingerir un recurso (como se explicó anteriormente en este tema). Además, como en la carga de archivos, si usted (o sus clientes) necesitan tener acceso a los archivos inmediatamente, establezca el valor StartTime en cinco minutos antes de la hora actual. Esta acción es necesaria porque puede haber un desplazamiento de reloj entre el cliente y Servicios multimedia. El valor de StartTime debe tener el siguiente formato: YYYY-MM-DDTHH:mm:ssZ (por ejemplo, "2014-05-23T17:53:50Z").
+>[AZURE.NOTE]Este flujo de trabajo básico es el mismo que la carga de un archivo al ingerir un recurso (como se explicó anteriormente en este tema). Además, como en la carga de archivos, si usted (o sus clientes) necesitan tener acceso a los archivos inmediatamente, establezca el valor StartTime en cinco minutos antes de la hora actual. Esta acción es necesaria porque puede haber un desplazamiento de reloj entre el cliente y Servicios multimedia. El valor de StartTime debe tener el siguiente formato: YYYY-MM-DDTHH:mm:ssZ (por ejemplo, "2014-05-23T17:53:50Z").
 
 
 ###Creación de una URL de SAS para descargar contenido 
@@ -1079,8 +1074,7 @@ Si se realiza correctamente, se devuelve la respuesta siguiente:
 
 La propiedad **Path** devuelta contiene la dirección URL de SAS.
 
->[AZURE.NOTE]
->Si descarga contenido cifrado del almacenamiento, debe descifrarlo manualmente antes de presentarlo o usar el procesador multimedia de descifrado de almacenamiento en una tarea de procesamiento para extraer archivos procesados sin cifrar en un recurso de salida y, a continuación, descargar desde ese recurso. Para obtener más información sobre el procesamiento, consulte Creación de un trabajo de codificación con la API de REST de Servicios multimedia. Además, los localizadores de dirección URL de SAS no se pueden actualizar una vez creados. Por ejemplo, no se puede reutilizar el mismo localizador con un valor StartTime actualizado. Esto se debe a la manera en que se crean las direcciones URL de SAS. Si desea obtener acceso a un recurso para descargarlo después de que expire un localizador, debe crear uno nuevo con un valor StartTime.
+>[AZURE.NOTE]Si descarga contenido cifrado del almacenamiento, debe descifrarlo manualmente antes de presentarlo o usar el procesador multimedia de descifrado de almacenamiento en una tarea de procesamiento para extraer archivos procesados sin cifrar en un recurso de salida y, a continuación, descargar desde ese recurso. Para obtener más información sobre el procesamiento, consulte Creación de un trabajo de codificación con la API de REST de Servicios multimedia. Además, los localizadores de dirección URL de SAS no se pueden actualizar una vez creados. Por ejemplo, no se puede reutilizar el mismo localizador con un valor StartTime actualizado. Esto se debe a la manera en que se crean las direcciones URL de SAS. Si desea obtener acceso a un recurso para descargarlo después de que expire un localizador, debe crear uno nuevo con un valor StartTime.
 
 ###Descarga de archivos
 
@@ -1208,9 +1202,6 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
 
 
 <!-- URLs. -->
-  [Portal de administración]: http://manage.windowsazure.com/
+  [Portal de Azure clásico]: http://manage.windowsazure.com/
 
-
- 
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

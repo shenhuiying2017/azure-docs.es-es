@@ -37,7 +37,7 @@ A continuación, se muestran los pasos para publicar un servicio web de Aprendiz
  Si no lo ha hecho todavía, consulte este [tutorial](machine-learning-walkthrough-5-publish-web-service.md).
 
 ###Paso 2: implementar el servicio en producción y obtener la información de extremo de OData y la clave de API###
-1. En el [Portal de administración de Azure](http://manage.windowsazure.com), elija la opción **Aprendizaje automático** en la barra de navegación de la izquierda y, a continuación, elija el área de trabajo. 
+1. En el [Portal de Azure clásico](http://manage.windowsazure.com), elija la opción **Aprendizaje automático** en la barra de navegación de la izquierda y, a continuación, elija el área de trabajo. 
 
 2. Haga clic en la pestaña **Servicios web** y, a continuación, seleccione el servicio web que desee publicar en Marketplace.
 
@@ -84,7 +84,7 @@ Implementación del servicio en la producción.
 
 	![Azure Marketplace][image2]
 
-9.	Obtenga la clave de API y la dirección URL del servicio web en el Portal de administración de Azure, tal y como se explica en el paso 2 anterior.
+9.	Obtenga la clave de API y la dirección URL del servicio web en el Portal de Azure clásico, tal y como se explica en el paso 2 anterior.
 
 10.	En el cuadro de diálogo de configuración del servicio de datos de Marketplace, pegue la dirección de extremo de OData en el cuadro de texto **Dirección URL del servicio**.
 
@@ -109,4 +109,4 @@ Implementación del servicio en la producción.
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

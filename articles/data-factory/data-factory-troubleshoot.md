@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Solución de problemas de la factoría de datos
-Puede solucionar los problemas de la Factoría de datos de Azure mediante el Portal de Azure (o) cmdlets de Azure PowerShell. Este tema contiene tutoriales que muestran cómo usar el Portal de Azure para solucionar rápidamente los errores que se producen con la factoría de datos.
+Puede solucionar los problemas de la Factoría de datos de Azure mediante el Portal de Azure clásico (o) cmdlets de Azure PowerShell. Este tema contiene tutoriales que muestran cómo usar el Portal de Azure clásico para solucionar rápidamente los errores que se producen con la factoría de datos.
 
 ## Problema: no se pueden ejecutar los cmdlets de Factoría de datos
 Para resolver este problema, cambie el modo de Azure a **AzureResourceManager**:
@@ -31,23 +31,23 @@ Probablemente no está usando la cuenta o suscripción de Azure correctas con Az
 
 1. Add-AzureAccount: use el id. de usuario y la contraseña correctos.
 2. Get-AzureSubscription: vea todas las suscripciones de la cuenta. 
-3. Select-AzureSubscription <subscription name>: seleccione la suscripción correcta. Use la misma que usó para crear una factoría de datos en el Portal de vista previa de Azure.
+3. Select-AzureSubscription <subscription name>: seleccione la suscripción correcta. Use la misma que usó para crear una factoría de datos en el Portal de Azure.
 
-## Problema: no se pudo iniciar la configuración rápida de Data Gateway desde el Portal de Azure.
+## Problema: no se pudo iniciar la configuración rápida de Data Gateway desde el Portal de Azure clásico.
 La configuración rápida de Data Gateway requiere Internet Explorer o un explorador web compatible con Microsoft ClickOnce. Si se produce un error al iniciar la configuración rápida, puede
 
 1. Cambiar a Internet Explorer si se produce un error con los demás exploradores. O
 2. Usar los vínculos "Instalación manual" que aparecen en la misma hoja en el portal para realizar la instalación y, a continuación, copiar la clave que se proporciona en la pantalla y pegarla cuando la configuración de Data Management Gateway esté lista. Si no se inicia, compruebe el menú de inicio para "Microsoft Data Management Gateway" y pegue la clave cuando se inicie. 
 
 
-## Problema: no se pudo iniciar el Administrador de credenciales desde el Portal de Azure.
-Al configurar o actualizar un servicio vinculado de SQL Server vinculado mediante el Portal de Azure, el Administrador de credenciales se iniciará para garantizar la seguridad. Es necesario Internet Explorer o un explorador web compatible con Microsoft ClickOnce. Cambie a Internet Explorer si se produce un error con los demás exploradores.
+## Problema: no se pudo iniciar el Administrador de credenciales desde el Portal de Azure clásico.
+Al configurar o actualizar un servicio vinculado de SQL Server vinculado mediante el Portal de Azure clásico, el Administrador de credenciales se iniciará para garantizar la seguridad. Es necesario Internet Explorer o un explorador web compatible con Microsoft ClickOnce. Cambie a Internet Explorer si se produce un error con los demás exploradores.
 
 ## Problema: no se pudo conectar al servidor SQL Server local. 
 Compruebe que el servidor SQL Server es accesible desde la máquina donde está instalada la puerta de enlace. En el equipo donde está instalada la puerta de enlace, puede
 
 1. Hacer ping al equipo donde está instalado el servidor SQL Server. O
-2. Intentar conectarse a la instancia de SQL Server mediante las credenciales especificadas en el Portal de Azure con SQL Server Management Studio (SSMS).
+2. Intentar conectarse a la instancia de SQL Server mediante las credenciales especificadas en el Portal de Azure clásico con SQL Server Management Studio (SSMS).
 
 
 ## Problema: los segmentos de entrada están en el estado PendingExecution o PendingValidation de forma permanente.
@@ -92,7 +92,7 @@ Consulte el tema Tablas en [Referencia de scripting JSON][json-scripting-referen
 ## Problema: la operación de copia híbrida produce un error.
 Para obtener más información:
 
-1. Inicie el Administrador de configuración de Data Management Gateway en el equipo donde se instaló la puerta de enlace. Compruebe que **Nombre de la puerta de enlace** se establece en el nombre lógico de la puerta de enlace en el **Portal de Azure**, **Estado de la clave de la puerta de enlace** es **registrado** y **Estado del servicio** es **Iniciado**. 
+1. Inicie el Administrador de configuración de Data Management Gateway en el equipo donde se instaló la puerta de enlace. Compruebe que **Nombre de la puerta de enlace** se establece en el nombre lógico de la puerta de enlace en el **Portal de Azure clásico**, **Estado de la clave de la puerta de enlace** es **registrado** y **Estado del servicio** es **Iniciado**. 
 2. Inicie el **Visor de eventos**. Expanda **Registros de aplicaciones y servicios** y haga clic en **Data Management Gateway**. Vea si hay errores relacionados con Data Management Gateway. 
 
 ## Problema: el aprovisionamiento de HDInsight a petición provoca un error.
@@ -110,11 +110,11 @@ Además, hay una segunda propiedad de JSON additionalLinkedServiceNames, donde p
 ## Problema: la actividad personalizada produce un error.
 Al usar una actividad personalizada en Factoría de datos de Azure (tipo de actividad de canalización CustomActivity), la aplicación personalizada se ejecuta en el servicio vinculado a HDInsight como un trabajo de MapReduce de streaming de solo asignación.
 
-Cuando se ejecuta la actividad personalizada, Factoría de datos de Azure podrá capturar los resultados desde el clúster de HDInsight y los guardará en el contenedor de almacenamiento *adfjobs* de la cuenta de Almacenamiento de blobs de Azure. Si se produce un error, puede leer el texto del archivo de salida **stderr**. Se puede tener acceso a los archivos y leerlos desde el propio portal de Azure en el explorador web o con las herramientas del explorador de almacenamiento para tener acceso a los archivos que se conservan en el contenedor de almacenamiento en Almacenamiento de blobs de Azure directamente.
+Cuando se ejecuta la actividad personalizada, Factoría de datos de Azure podrá capturar los resultados desde el clúster de HDInsight y los guardará en el contenedor de almacenamiento *adfjobs* de la cuenta de Almacenamiento de blobs de Azure. Si se produce un error, puede leer el texto del archivo de salida **stderr**. Se puede tener acceso a los archivos y leerlos desde el propio Portal de Azure clásico en el explorador web o con las herramientas del explorador de almacenamiento para tener acceso a los archivos que se conservan en el contenedor de almacenamiento en Almacenamiento de blobs de Azure directamente.
 
 Para enumerar y leer los registros de una actividad personalizada concreta, siga uno de los tutoriales que se explican más adelante en esta página. En resumen:
 
-1.  En el portal de Azure, elija **Examinar** para buscar su factoría de datos.
+1.  En el Portal de Azure clásico, elija **Examinar** para buscar su factoría de datos.
 2.  Use el botón **Diagrama** para ver el diagrama de la factoría de datos y haga clic en la tabla **Conjunto de datos** que sigue la **Canalización** específica que tiene la actividad personalizada. 
 3.  En la hoja **Tabla**, haga clic en el segmento que le interesa en **Segmentos con problemas** para el período de tiempo que se debe investigar.
 4.  Aparecerá la hoja **Segmento de datos** detallada, que puede enumerar varias **ejecuciones de actividad** para el segmento. Haga clic en una **actividad** de la lista. 
@@ -168,7 +168,7 @@ Si usa las versiones interrumpidas del SDK de Azure PowerShell, puede que reciba
 
 
 ## <a name="copywalkthrough"></a> Tutorial: Solución de un error al copiar datos
-En este tutorial, presentará un error en el tutorial del artículo Introducción a la factoría de datos y aprenderá a usar el Portal de Azure para solucionar el error.
+En este tutorial, presentará un error en el tutorial del artículo Introducción a la factoría de datos y aprenderá a usar el Portal de Azure clásico para solucionar el error.
 
 ### Requisitos previos
 1. Complete el tutorial en el artículo [Introducción a Factoría de datos de Azure][adfgetstarted].
@@ -182,9 +182,9 @@ En este tutorial, presentará un error en el tutorial del artículo Introducció
 	Reemplace el valor de **StartDateTime** por el día actual y el de **EndDateTime** por el día siguiente.
 
 
-### Uso del Portal de vista previa de Azure para solucionar el error
+### Uso del Portal de Azure para solucionar el error
 
-1.	Inicie sesión en el [Portal de vista previa de Azure][azure-preview-portal]. 
+1.	Inicie sesión en el [Portal de Azure][azure-portal]. 
 2.	Haga clic en **ADFTutorialDataFactory** en el **Panel de inicio**. Si no ve el vínculo de la factoría de datos en el **Panel de inicio**, haga clic en el centro **EXAMINAR** y, a continuación, haga clic en **Todo**. Haga clic en **Factorías de datos…** en la hoja **Examinar** y elija **ADFTutorialDataFactory**.
 3.	Observe que aparece **Con errores** en el icono **Conjuntos de datos**. Haga clic en **Con errores**. Debería ver la hoja **Conjuntos de datos con errores**.
 
@@ -267,10 +267,10 @@ Para resolver este problema, cree la tabla **emp** con el script SQL del artícu
  
 
 ## <a name="pighivewalkthrough"></a> Tutorial: Solución de un error de procesamiento de Hive/Pig
-Este tutorial proporciona pasos para solucionar un error con el procesamiento de Hive/Pig mediante el Portal de vista previa de Azure y Azure PowerShell.
+Este tutorial proporciona pasos para solucionar un error con el procesamiento de Hive/Pig mediante el Portal de Azure y Azure PowerShell.
 
 
-### Tutorial: Uso del Portal de Azure para solucionar un error de procesamiento de Pig/Hive
+### Tutorial: Uso del Portal de Azure clásico para solucionar un error de procesamiento de Pig/Hive
 En este escenario, el conjunto de datos está en estado de error debido a un error en el procesamiento de Hive en un clúster de HDInsight.
 
 1. Haga clic en **Con errores** en el icono **Conjuntos de datos** en la página principal **FACTORÍA DE DATOS**.
@@ -359,7 +359,7 @@ En este escenario, el conjunto de datos está en estado de error debido a un err
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 [json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 
 [image-data-factory-troubleshoot-with-error-link]: ./media/data-factory-troubleshoot/DataFactoryWithErrorLink.png
 
@@ -382,4 +382,4 @@ En este escenario, el conjunto de datos está en estado de error debido a un err
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

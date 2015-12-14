@@ -24,7 +24,8 @@ Habilite el acceso condicional basado en dispositivos para aplicaciones protegid
 
 Esto ofrece seguridad adicional y la garantía de que el acceso a las aplicaciones solo se concede para dispositivos de confianza. Para obtener más información sobre el acceso condicional, consulte [Administración de riesgos con el acceso condicional](active-directory-conditional-access.md) y [Configuración del acceso condicional local mediante el Registro de dispositivos de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn788908.aspx).
 
->[AZURE.NOTE]Se requiere una suscripción a Office 365 o Azure AD Premium al usar dispositivos registrados en directivas de acceso condicional del servicio Registro de dispositivos de Azure Active Directory. Esto incluye las directivas que exigen los Servicios de federación de Active Directory (AD FS) con recursos locales.
+>[AZURE.NOTE]Se necesita una suscripción a Azure AD Premium para la reescritura de dispositivos.
+
 
 ## Parte 1: Instalación de Azure AD Connect
 1. Instale Azure AD Connect mediante la configuración rápida o personalizada. Para empezar, se recomienda tener sincronizados correctamente todos los usuarios y grupos antes de habilitar la reescritura de dispositivos.
@@ -49,7 +50,7 @@ Lleve a cabo los siguientes pasos para prepararse para usar la reescritura de di
 
 Description:
 
-- En caso de no existir, crea y configura nuevos contenedores y objetos en CN=Configuración de registro del dispositivo, CN=Servicios, CN=Configuración,[forest-dn].
+- En caso de no existir, crea y configura nuevos contenedores y objetos en CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
 - En caso de no existir, crea y configura nuevos contenedores y objetos en CN=RegisteredDevices,[domain-dn]. Los objetos de dispositivo se crearán en este contenedor.
 - Establece los permisos necesarios en la cuenta de Azure AD Connector, para administrar dispositivos en su Active Directory.
 - Solo necesita ejecutarse en un bosque, incluso si se está instalando Azure AD Connect en varios bosques.
@@ -89,7 +90,7 @@ En primer lugar:
 
 - Asegúrese de que al menos un bosque tenga Windows Server 2012 R2. Debe existir el tipo de objeto de dispositivo.
 - Si el Asistente para la instalación ya se está ejecutando, algunos cambios no se detectarán. En este caso, complete el Asistente para la instalación y ejecútelo de nuevo.
-- Asegúrese de que la cuenta que proporciona en el script de inicialización sea realmente la del usuario correcto usado por Active Directory Connector. Para ello, siga estos pasos.
+- Asegúrese de que la cuenta que proporciona en el script de inicialización sea realmente la del usuario correcto usado por Active Directory Connector. Para ello, siga estos pasos:
 	- En el menú Inicio, abra **Servicio de sincronización**.
 	- Abra la pestaña **Conectores**.
 	- Busque el conector con el tipo Dominio de Active Directory y selecciónelo.
@@ -125,4 +126,4 @@ Compruebe la configuración de Active Directory:-Compruebe que el servicio de re
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

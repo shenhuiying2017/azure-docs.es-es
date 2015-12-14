@@ -61,7 +61,7 @@ Diagrama 1: Descripción del proceso de reentrenamiento
 	![][4]
 
 	Ahora hacemos clic en el botón Publicar servicio web y, a continuación, en Sí. Esto publicará el experimento de entrenamiento como un servicio web que genera un modelo entrenado y resultados de evaluación del modelo. Aparecerá el panel del servicio web con la clave de API y la página de Ayuda de API para la ejecución por lotes. Tenga en cuenta que solo se puede usar el método de ejecución por lotes para crear modelos entrenados.  
-4. *Agregar un nuevo extremo* El servicio web de puntuación publicado en el paso 2 anterior se creó con un extremo predeterminado. Los extremos predeterminados se mantienen sincronizados con el experimento de formación y puntuación original y, por tanto, el modelo entrenado de un extremo predeterminado no se puede reemplazar. Para crear un extremo actualizable, visite el Portal de Azure y haga clic en Agregar extremo (más detalles [aquí](machine-learning-create-endpoint.md)).
+4. *Agregar un nuevo extremo* El servicio web de puntuación publicado en el paso 2 anterior se creó con un extremo predeterminado. Los extremos predeterminados se mantienen sincronizados con el experimento de formación y puntuación original y, por tanto, el modelo entrenado de un extremo predeterminado no se puede reemplazar. Para crear un punto de conexión actualizable, visite el Portal de Azure clásico y haga clic en Agregar punto de conexión (más detalles [aquí](machine-learning-create-endpoint.md)).
 
 5. *Volver a entrenar el modelo con nuevos datos y BES* Para llamar a las API de reentrenamiento, crearemos una nueva aplicación de consola C# en Visual Studio (Nuevo -> Proyecto -> Windows Desktop -> Aplicación de consola).
 
@@ -84,7 +84,7 @@ Diagrama 1: Descripción del proceso de reentrenamiento
 	```
 	1. Proporcionar información de almacenamiento de Azure El código de ejemplo para BES cargará un archivo desde una unidad local (por ejemplo, “C:\\temp\\CensusIpnput.csv”) para que el Almacenamiento de Azure lo procese y escriba los resultados de nuevo en Almacenamiento de Azure.  
 
-		Para ello, deberá recuperar el nombre, la clave y la información de contenedor de su cuenta de Almacenamiento desde el Portal de administración de Azure para, después, actualizar el código aquí. También deberá asegurarse de que el archivo de entrada está disponible en la ubicación que especifique en el código.
+		Para ello, deberá recuperar el nombre, la clave y la información de contenedor de su cuenta de Almacenamiento desde el Portal de Azure clásico para, después, actualizar el código aquí. También deberá asegurarse de que el archivo de entrada está disponible en la ubicación que especifique en el código.
 
 		Hemos configurado este experimento de entrenamiento con dos salidas, por lo que los resultados incluirán información de ubicación de almacenamiento para ambos, tal como se muestra a continuación. "output1" es la salida del modelo entrenado, y "output2" es la salida del modelo evaluado. Tenga en cuenta también que la extensión de archivo de la salida para el modelo entrenado (Output1) es ".ileaner", no ".csv".
 
@@ -156,4 +156,4 @@ Al usar las API de reentrenamiento, podemos actualizar el modelo entrenado de un
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

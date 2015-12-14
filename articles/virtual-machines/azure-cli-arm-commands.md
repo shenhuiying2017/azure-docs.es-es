@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
 
-En este tema se describe cómo usar la interfaz de línea de comandos (CLI de Azure) de Azure en modo del Administrador de recursos de Azure para crear, administrar y eliminar servicios en la línea de comandos de equipos Mac, Linux y Windows. Puede realizar muchas de las mismas tareas usando las diversas bibliotecas de los SDK de Azure, con Azure PowerShell y mediante el Portal de vista previa de Azure.
+En este tema se describe cómo usar la interfaz de línea de comandos (CLI de Azure) de Azure en modo del Administrador de recursos de Azure para crear, administrar y eliminar servicios en la línea de comandos de equipos Mac, Linux y Windows. Puede realizar muchas de las mismas tareas mediante las diversas bibliotecas de los SDK de Azure, Azure PowerShell y el Portal de Azure.
 
 El Administrador de recursos de Azure le permite crear un grupo de recursos (máquinas virtuales, sitios web, bases de datos, etc.) como una sola unidad de implementación. A continuación, puede implementar, actualizar o eliminar todos los recursos de la aplicación en una operación única y coordinada. Describa sus recursos de grupo en una plantilla JSON para la implementación, y luego use esa plantilla para diferentes entornos, como pruebas, almacenamiento provisional y producción.
 
@@ -1760,4 +1760,4 @@ Opciones de parámetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

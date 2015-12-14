@@ -80,7 +80,7 @@ storedProcedureParameters | Especifique valores para los parámetros de procedim
 	> [AZURE.IMPORTANT]El **nombre** y el **uso de mayúsculas y minúsculas** en el parámetro (DateTime en este ejemplo) deben coincidir con los del parámetro especificado en el código JSON de la canalización o actividad. En la definición del procedimiento almacenado, asegúrese de que se usa **@** como prefijo del parámetro.
 	
 ### Crear una factoría de datos  
-4. Tras iniciar sesión en el [Portal de vista previa de Azure](http://portal.azure.com/), haga lo siguiente:
+4. Tras iniciar sesión en el [Portal de Azure](http://portal.azure.com/), haga lo siguiente:
 	1.	Haga clic en **NUEVO** en el menú de la izquierda. 
 	2.	Haga clic en **Análisis de datos** en la hoja **Creación**.
 	3.	Haga clic en **Factoría de datos** en la hoja **Análisis de datos**.
@@ -92,7 +92,7 @@ storedProcedureParameters | Especifique valores para los parámetros de procedim
 	4.	Haga clic en **Aceptar**.
 4.	Una vez seleccionado el grupo de recursos, compruebe que usa la suscripción correcta en la que quiere crear la factoría de datos.
 5.	Haga clic en **Crear** en la hoja **Nueva factoría de datos**.
-6.	Verá que la factoría de datos se crea en el **Panel de inicio** del Portal de vista previa de Azure: Tras crear correctamente la factoría de datos, verá la página Factoría de datos, que muestra el contenido de la misma.
+6.	Verá que la factoría de datos se crea en el **Panel de inicio** del Portal de Azure. Tras crear correctamente la factoría de datos, verá la página Factoría de datos, que muestra el contenido de la misma.
 
 ### Crear un servicio vinculado SQL de Azure.  
 Después de crear la factoría de datos, cree un servicio vinculado SQL de Azure que vincule la Base de datos SQL de Azure a la factoría de datos. Esta es la base de datos que contiene la tabla sampletable y el procedimiento almacenado sp\_sample.
@@ -198,4 +198,4 @@ Para ello, pase el parámetro Escenario y el valor de la actividad de procedimie
 		}
 	}
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

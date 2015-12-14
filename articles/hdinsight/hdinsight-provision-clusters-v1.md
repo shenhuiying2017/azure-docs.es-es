@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Aprovisionamiento personalizado de clústeres de Hadoop en HDInsight | Microsoft Azure" 
-   description="Obtenga información sobre cómo aprovisionar clústeres de manera personalizada para HDInsight de Azure mediante el Portal de Azure, Azure PowerShell, una línea de comandos o el SDK de .NET." 
+   description="Obtenga información sobre cómo aprovisionar clústeres de manera personalizada para HDInsight de Azure mediante el Portal de Azure clásico, Azure PowerShell, una línea de comandos o el SDK para .NET." 
    services="hdinsight" 
    documentationCenter="" 
    authors="mumian" 
@@ -113,7 +113,7 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
 	Los clústeres de HDInsight le permiten configurar dos cuentas de usuario durante el aprovisionamiento:
 
-	- Usuario de HTTP. El nombre de usuario predeterminado es admin durante la configuración básica en el Portal de Azure.
+	- Usuario de HTTP. El nombre de usuario predeterminado es admin durante la configuración básica en el Portal de Azure clásico.
 	- Usuario de RDP (clústeres de Windows): se usa para conectarse al clúster mediante RDP. Cuando crea la cuenta, debe establecer una fecha de caducidad que se encuentre dentro de 90 días a contar del día de hoy. 
 	- Usuario SSH (clústeres de Linux): se usa para conectarse al clúster mediante SSH. Puede crear cuentas de usuario SSH adicional una vez que se cree el clúster según los pasos siguientes en [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
   
@@ -199,7 +199,7 @@ Para obtener más información, consulte el blog de Azim Uddin titulado [Persona
 
 ### Personalización de clústeres mediante la acción de script
 
-Puede instalar componentes adicionales o personalizar la configuración del clúster mediante secuencias de comandos durante el aprovisionamiento. Tales scripts se invocan mediante la opción de **Acción de script**, una opción de configuración que se puede usar a partir de los cmdlets de Windows PowerShell de HDInsight, en el Portal de Azure o el SDK de .NET para HDInsight. Para obtener más información, consulte [Personalización de un clúster de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster.md).
+Puede instalar componentes adicionales o personalizar la configuración del clúster mediante secuencias de comandos durante el aprovisionamiento. Tales scripts se invocan mediante la opción de **Acción de script**, una opción de configuración que se puede usar a partir de los cmdlets de Windows PowerShell de HDInsight, en el Portal de Azure clásico o el SDK de .NET para HDInsight. Para obtener más información, consulte [Personalización de un clúster de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster.md).
 
 
 ### Uso de redes virtuales de Azure
@@ -233,18 +233,18 @@ Para obtener más información sobre las características, las ventajas y la fun
 
 ## Herramientas de aprovisionamiento
 
-- El Portal de Azure
+- El Portal de Azure clásico
 - Azure PowerShell
 - .NET SDK
 - CLI
 
-### Uso del Portal de Azure
+### Usar el Portal de Azure clásico
 
 Puede revisar la sección [opciones de configuración básica] y la sección [opciones de configuración avanzada] para ver las explicaciones de los campos.
 
 **Para crear un clúster de HDInsight con la opción de creación personalizada**
 
-1. Inicie sesión en el [Portal de Azure][azure-management-portal].
+1. Inicie sesión en el [Portal de Azure clásico][azure-management-portal].
 2. Haga clic en **+ NUEVO** en la parte inferior de la página y después en **SERVICIOS DE DATOS**, **HDINSIGHT** y **CREACIÓN PERSONALIZADA**.
 3. En la página **Detalles del clúster**, escriba o elija los valores siguientes:
 
@@ -374,7 +374,7 @@ Cuando tenga preparados la cuenta de almacenamiento y el contenedor de blobs, po
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -Name $clusterName -Credential $credential -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop
 
-	>[AZURE.NOTE]Los comandos $hadoopUserName y $hadoopUserPassword se usan para crear la cuenta de usuario de Hadoop para el clúster. Esta cuenta se usará para conectarse al clúster y ejecutar trabajos. Si usa la opción Creación rápida en el portal de Azure para aprovisionar un clúster, el nombre de usuario de Hadoop predeterminado es "admin". No confunda esta cuenta con la cuenta de usuario del Protocolo de escritorio remoto (RDP). La cuenta de usuario RDP tiene que ser diferente de la cuenta de usuario de Hadoop. Para obtener más información, consulte [Administración de clústeres de Hadoop en HDInsight mediante el Portal de administración de Azure][hdinsight-admin-portal].
+	>[AZURE.NOTE]Los comandos $hadoopUserName y $hadoopUserPassword se usan para crear la cuenta de usuario de Hadoop para el clúster. Esta cuenta se usará para conectarse al clúster y ejecutar trabajos. Si usa la opción Creación rápida en el portal de Azure clásico para aprovisionar un clúster, el nombre de usuario de Hadoop predeterminado es "admin". No confunda esta cuenta con la cuenta de usuario del Protocolo de escritorio remoto (RDP). La cuenta de usuario RDP tiene que ser diferente de la cuenta de usuario de Hadoop. Para obtener más información, consulte [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure clásico][hdinsight-admin-portal].
 
 	El aprovisionamiento del clúster puede durar varios minutos en completarse.
 
@@ -574,7 +574,7 @@ HDInsight utiliza contenedores de almacenamiento de blobs de Azure como sistemas
 
 	Cuando se le pida una ubicación, seleccione aquella en la que se puede aprovisionar el clúster de HDInsight. El almacenamiento debe encontrarse en la misma ubicación que el clúster de HDInsight. Actualmente, solo las regiones **Asia oriental**, **Sudeste de Asia**, **Norte de Europa**, **Oeste de Europa**, **Este de EE. UU.**, **Oeste de EE. UU.**, **Centro y norte de EE. UU.** y **Centro y sur de EE. UU.** pueden hospedar clústeres de HDInsight.
 
-Para obtener información sobre la creación de una cuenta de almacenamiento de Azure a través del portal de Azure, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](../storage-create-storage-account.md).
+Para obtener información sobre la creación de una cuenta de almacenamiento de Azure mediante el Portal de Azure clásico, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](../storage-create-storage-account.md).
 
 Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, puede usar los comandos siguientes para recuperar dicha información:
 
@@ -587,7 +587,7 @@ Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, pue
 	-- Lists the keys for a Storage account
 	azure storage account keys list <StorageAccountName>
 
-Para obtener información sobre cómo obtener la información mediante el portal de Azure, vea la sección *Cómo: ver, copiar y regenerar claves de acceso de almacenamiento* de [Crear, administrar o eliminar una cuenta de almacenamiento](../storage-create-storage-account.md).
+Para saber cómo obtener la información mediante el portal de Azure clásico, vea la sección *Procedimiento: ver, copiar y regenerar claves de acceso de almacenamiento* de [Crear, administrar o eliminar una cuenta de almacenamiento](../storage-create-storage-account.md).
 
 Un clúster de HDInsight también requiere un contenedor dentro de una cuenta de almacenamiento. Si la cuenta de almacenamiento que proporciona todavía no tiene un contenedor, el comando *azure hdinsight cluster create* le pide un nombre de contenedor y también lo crea. Sin embargo, si opta por crear el contenedor antes, puede usar el comando siguiente:
 
@@ -810,4 +810,4 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

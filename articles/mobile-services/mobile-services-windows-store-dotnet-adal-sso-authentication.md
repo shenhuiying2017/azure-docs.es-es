@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="wesmc"/>
 
 # Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../../includes/mobile-services-selector-adal-sso.md)]
 
@@ -85,7 +90,7 @@ Ahora, debe recuperar el SID del paquete que se configurará con la configuraci�
 
 ###Creación del registro de la aplicación nativa
 
-1. Diríjase a **Active Directory** en el [Portal de administración de Azure] y haga clic en el directorio.
+1. Vaya a **Active Directory** en el [Portal de Azure clásico] y haga clic en el directorio.
 
     ![][7]
 
@@ -162,7 +167,7 @@ El servicio móvil está ahora configurado en AAD para recibir inicios de sesió
             }
         }
 
-6. En el código del método anterior `AuthenticateAsync`, sustituya **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que aprovisionó su aplicación; el formato debe ser https://login.windows.net/tenant-name.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en el [Portal de administración de Azure].
+6. En el código del método anterior `AuthenticateAsync`, sustituya **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que aprovisionó su aplicación; el formato debe ser https://login.windows.net/tenant-name.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en el [Portal de Azure clásico].
 
 7. En el código del método anterior `AuthenticateAsync`, sustituya **INSERT-RESOURCE-URI-HERE** por el **URI de id. de aplicación** de su servicio móvil. Si ha seguido el tema [Registro en Azure Active Directory], el URI de id. de aplicación debe ser parecido a https://todolist.azure-mobile.net/login/aad.
 
@@ -184,7 +189,7 @@ El servicio móvil está ahora configurado en AAD para recibir inicios de sesió
 ##Prueba del cliente con autenticación
 
 1. En Visual Studio, ejecute la aplicación cliente.
-2. Recibirá un mensaje para que inicie sesión en Azure Active Directory.  
+2. Recibirá un mensaje para que inicie sesión en Azure Active Directory.
 3. La aplicación se autentica y devuelve los elementos todo.
 
     ![][15]
@@ -211,9 +216,9 @@ El servicio móvil está ahora configurado en AAD para recibir inicios de sesió
 
 <!-- URLs. -->
 [Registro en Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [Introducción a Servicios móviles]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Introducción a los Servicios móviles]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [panel del Centro de desarrollo de Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

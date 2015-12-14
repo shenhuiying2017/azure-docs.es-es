@@ -154,7 +154,7 @@ Reemplace el contenido de WorkerRole.cs por el código siguiente. La clase Sampl
 4.	En el cuadro de diálogo **Crear servicio en la nube y cuenta de almacenamiento**, escriba un **Nombre** (por ejemplo, "WadExample") y seleccione una región o un grupo de afinidad.
 5.	Establezca el **Entorno** en **Ensayo**.
 6.	Modifique cualquier otro parámetro de **Configuración** según sea necesario y haga clic en **Publicar**.
-7.	Una vez finalizada la implementación, compruebe en el Portal de Azure que el servicio en la nube está en el estado **En ejecución**.
+7.	Una vez finalizada la implementación, compruebe en el Portal de Azure clásico que el servicio en la nube está en el estado **En ejecución**.
 
 ### Paso 4: crear el archivo de configuración de Diagnósticos e instalar la extensión
 1.	Descargue la definición del esquema del archivo de configuración público ejecutando el comando de PowerShell siguiente:
@@ -512,4 +512,4 @@ ETW basado en manifiesto|No|Tabla|Eventos de ETW generados por cualquier proceso
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

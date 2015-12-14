@@ -31,7 +31,7 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 
 Cada colección de DocumentDB creada con una cuenta estándar se aprovisiona con un nivel de rendimiento asociado. Los niveles de rendimiento se designan como S1, S2 o S3, de menor a mayor rendimiento. El nivel de rendimiento de la colección determina la cantidad de recursos de procesamiento de solicitudes reservados para la aplicación. Cada colección incluida en una base de datos puede tener un nivel de rendimiento diferente que permite asignar una mayor capacidad de proceso a las colecciones de acceso frecuente y menos capacidad de proceso a las colecciones que a las que se accede con menos frecuencia. El nivel de rendimiento mínimo para cualquier colección es S1.
 
-Cada nivel de rendimiento tiene asociado un límite de velocidad de la unidad de solicitud (RU). Esta es la capacidad de proceso que se reservará para una colección en función de su nivel de rendimiento, el cual estará disponible para uso exclusivo de esa colección. Se pueden crear colecciones a través del [portal de Azure](http://portal.azure.com) o de cualquiera de los [SDK de DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Las API de DocumentDB permiten especificar el nivel de rendimiento de una colección.
+Cada nivel de rendimiento tiene asociado un límite de velocidad de la unidad de solicitud (RU). Esta es la capacidad de proceso que se reservará para una colección en función de su nivel de rendimiento, el cual estará disponible para uso exclusivo de esa colección. Se pueden crear colecciones a través del [Portal de Azure clásico](http://portal.azure.com) o de cualquiera de los [SDK de DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Las API de DocumentDB permiten especificar el nivel de rendimiento de una colección.
 
 Nivel de rendimiento de colección|Capacidad de proceso reservada
 ---|---
@@ -41,12 +41,12 @@ S3|2500 RU/s
 
 DocumentDB permite efectuar una amplia gama de operaciones de base de datos, por ejemplo, consultas, consultas con funciones definidas por el usuario (UDF), procedimientos almacenados y desencadenadores. El coste de procesamiento asociado a cada una de estas operaciones variará en función de la CPU, las E/S y la memoria que se necesite para completar la operación. En lugar de pensar en los recursos de hardware y administrarlos, puede considerar que una unidad de solicitud (RU) es como una medida única para los recursos necesarios para realizar varias operaciones de base de datos y dar servicio a una solicitud de la aplicación.
 
-> [AZURE.NOTE]Los niveles de rendimiento se miden en unidades de solicitud. Cada nivel de rendimiento tiene asociada una tasa máxima de unidades de solicitud por segundo. El nivel de rendimiento de una colección se puede ajustar a través de las API o del [Portal de Azure](https://portal.azure.com/).
+> [AZURE.NOTE]Los niveles de rendimiento se miden en unidades de solicitud. Cada nivel de rendimiento tiene asociada una tasa máxima de unidades de solicitud por segundo. El nivel de rendimiento de una colección se puede ajustar a través de las API o del [Portal de Azure clásico](https://portal.azure.com/).
 
 ##Definición de los niveles de rendimiento para las colecciones
 Una vez que se crea una colección, la asignación completa de RU según el nivel de rendimiento designado se reserva para la colección. Por ejemplo, si una colección se establece como S3, la colección será capaz de procesar 2.500 RU por segundo. Cada colección reserva su capacidad de proceso designada y 10 GB de almacenamiento de base de datos. El precio de la colección varía según el nivel elegido rendimiento (S1, S2 o S3). Tenga en cuenta que DocumentDB funciona según la reserva de capacidad: al crear una colección, se reserva una aplicación y se factura según el almacenamiento de base de datos y el rendimiento reservados, con independencia de la cantidad de almacenamiento y del rendimiento que se use activamente.
 
-Una vez creadas las colecciones, puede modificar el nivel de rendimiento a través de los SDK de DocumentDB o desde el portal de administración de Azure.
+Una vez creadas las colecciones, puede modificar el nivel de rendimiento a través de los SDK de DocumentDB o desde el Portal de Azure clásico.
 
 > [AZURE.IMPORTANT]Las colecciones estándares de DocumentDB se facturan por horas y cada colección que se cree se facturará por un mínimo de una hora de uso.
 
@@ -67,11 +67,11 @@ Las colecciones de DocumentDB permiten particionar los datos según los patrones
 
 Es recomendable que la aplicación haga uso de un pequeño número de colecciones a menos que tenga requisitos de almacenamiento o rendimiento elevados. Asegúrese de que ha comprendido bien patrones de aplicación para la creación de nuevas colecciones. Puede optar por reservar la creación de la colección como una acción de administración gestionada fuera de la aplicación. De forma similar, ajustar el nivel de rendimiento para una colección cambiará el precio por hora a la que se factura a la colección. Los niveles de rendimiento de la colección se deben supervisar en caso de que la aplicación los ajuste dinámicamente.
 
-##Cambio de los niveles de rendimiento mediante el Portal de vista previa de Azure
+##Cambio de los niveles de rendimiento mediante el Portal de Azure clásico
 
-El Portal de vista previa de Azure es una opción disponible al administrar los niveles de rendimiento de las colecciones. Siga estos pasos para cambiar el nivel de rendimiento de una colección desde el Portal de Azure.
+El Portal de Azure clásico es una opción disponible al administrar los niveles de rendimiento de las colecciones. Siga estos pasos para cambiar el nivel de rendimiento de una colección desde el Portal de Azure clásico.
 
-1. Navegue hasta el [**Portal de vista previa de Azure**](https://portal.azure.com) desde el explorador.
+1. Vaya al [**Portal de Azure**](https://portal.azure.com) desde el explorador.
 2. Haga clic en **Examinar** en la barra de accesos directos del lado izquierdo.
 3. En el concentrador **Examinar**, haga clic en **Cuentas de DocumentDB** en la etiqueta **Filtrar por**.
 4. En la hoja **Cuentas de DocumentDB**, haga clic en la cuenta de DocumentDB que contiene la colección deseada.
@@ -122,4 +122,4 @@ Para obtener más información acerca de DocumentDB, consulte la [documentación
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

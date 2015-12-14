@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/20/2015"
+   ms.date="12/01/2015"
    ms.author="tomfitz"/>
 
 # Creación de varias instancias de recursos en el Administrador de recursos de Azure
@@ -151,9 +151,52 @@ Puede especificar que un recurso se implemente después de otro recurso mediante
 	    "outputs": {}
     }
 
+## Recurso anidado de bucle
+
+No puede usar un bucle de copia de un recurso anidado. Si necesita crear varias instancias de un recurso que se define normalmente como anidado dentro de otro recurso, debe en su lugar, crear el recurso como un recurso de nivel superior y definir la relación con el recurso primario a través del **tipo** y las propiedades del **nombre**.
+
+Por ejemplo, supongamos que suele definir un conjunto de datos como un recurso anidado dentro de una factoría de datos.
+
+    "resources": [
+    {
+        "type": "Microsoft.DataFactory/datafactories",
+        "name": "[variables('dataFactoryName')]",
+        ...
+        "resources": [
+        {
+            "type": "datasets",
+            "name": "[variables('dataSetName')]",
+            "dependsOn": [
+                "[variables('dataFactoryName')]"
+            ],
+            ...
+        }
+    }]
+    
+Para crear varias instancias de conjuntos de datos, necesitará cambiar la plantilla, tal como se muestra a continuación. Observe que el tipo cualificado completo y el nombre incluyen el nombre de la factoría de datos.
+
+    "resources": [
+    {
+        "type": "Microsoft.DataFactory/datafactories",
+        "name": "[variables('dataFactoryName')]",
+        ...
+    },
+    {
+        "type": "Microsoft.DataFactory/datafactories/datasets",
+        "name": "[concat(variables('dataFactoryName'), '/', variables('dataSetName'), copyIndex())]",
+        "dependsOn": [
+            "[variables('dataFactoryName')]"
+        ],
+        "copy": { 
+            "name": "datasetcopy", 
+            "count": "[parameters('count')]" 
+        } 
+        ...
+    }]
+
 ## Pasos siguientes
 - Para obtener información sobre las secciones de una plantilla, consulte [Creación de plantillas del Administrador de recursos de Azure](./resource-group-authoring-templates.md).
 - Para obtener todas las funciones que puede usar en una plantilla, consulte [Funciones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md).
 - Para obtener información sobre cómo implementar la plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

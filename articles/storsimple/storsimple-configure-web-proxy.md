@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Configurar el proxy web para el dispositivo StorSimple
@@ -33,7 +33,7 @@ Después de leer este tutorial, podrá:
 
 - Configurar el proxy web con el asistente de instalación y los cmdlets
 - Habilitar el proxy web mediante cmdlets
-- Ver la configuración de proxy web en el Portal de administración
+- Ver la configuración de proxy web en el Portal de Azure clásico
 - Solucionar errores durante la configuración del proxy web
 
 
@@ -75,7 +75,7 @@ Puede utilizar al asistente de configuración que le guiará a través de los pa
 
 Si va a registrar su dispositivo por primera vez, continúe con el registro. Si su dispositivo ya está registrado, el asistente se cerrará. Se guardarán los valores configurados.
 
-Asimismo, se habilitará el proxy web. Puede omitir el paso [Habilitar proxy web](#enable-web-proxy) e ir directamente a [Ver la configuración de proxy web en el Portal de administración](#view-web-proxy-settings-in-the-management-portal).
+Asimismo, se habilitará el proxy web. Puede omitir el paso [Habilitar proxy web](#enable-web-proxy) e ir directamente a [Ver la configuración de proxy web en el Portal de Azure clásico](#view-web-proxy-settings-in-the-azure-classic-portal).
 
 
 ## Configurar el proxy web mediante Windows PowerShell para StorSimple
@@ -116,9 +116,9 @@ Lleve a cabo los siguientes pasos en Windows PowerShell para StorSimple para hab
 
 	![Configurar el proxy web en el dispositivo StorSimple 4](./media/storsimple-configure-web-proxy/IC751832.png)
 
-## Ver la configuración de proxy web en el Portal de administración
+## Ver la configuración de proxy web en el Portal de Azure clásico
 
-La valores de proxy web se configuran mediante la interfaz de Windows PowerShell y no pueden modificarse desde el Portal de administración. Sin embargo, puede ver los valores configurados en el Portal de administración. Lleve a cabo los siguientes pasos para ver el proxy web:
+Los valores de proxy web se configuran mediante la interfaz de Windows PowerShell y no pueden modificarse desde el Portal clásico. Sin embargo, puede ver los valores configurados en el Portal clásico. Lleve a cabo los siguientes pasos para ver el proxy web:
 
 #### Para ver la configuración de proxy web:
 1. Vaya a **Servicio StorSimple Manager > Dispositivos**. Seleccione un dispositivo y haga clic en él y, luego, vaya a **Configurar**.
@@ -143,7 +143,7 @@ Si el proxy web se configuró de manera incorrecta, se mostrarán mensajes de er
 > [AZURE.NOTE]
 > 
 > -  La lista anterior de mensajes de error no es exhaustiva. 
-> - Los errores relacionados con la configuración de proxy web no se muestran en el Portal de administración del servicio de Administrador de StorSimple. Si hay un problema con el proxy web una vez completada la configuración, el estado del dispositivo cambiará a **Sin conexión** en el Portal de administración.
+> - Los errores relacionados con la configuración de proxy web no se muestran en el Portal de Azure clásico del servicio del Administrador de StorSimple. Si hay un problema con el proxy web una vez completada la configuración, el estado del dispositivo cambiará a **Sin conexión** en el Portal clásico.
 
 ## Pasos siguientes
 
@@ -151,4 +151,4 @@ Si el proxy web se configuró de manera incorrecta, se mostrarán mensajes de er
 
 - Para obtener información sobre cómo usar el servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

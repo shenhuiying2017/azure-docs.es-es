@@ -16,7 +16,7 @@
 	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
-#Uso del codificador FMLE para enviar una transmisión por secuencias en directo de velocidad de bits única 
+#Uso del codificador FMLE para enviar una transmisión por secuencias en directo de velocidad de bits única
 
 > [AZURE.SELECTOR]
 - [FMLE](media-services-configure-fmle-live-encoder.md)
@@ -26,34 +26,34 @@
 
 En este tema se muestra cómo configurar el codificador [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) para enviar una transmisión con velocidad de bits única a canales AMS habilitados para la codificación en directo. Para obtener más información, consulte [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-En este tutorial se muestra cómo administrar Servicios multimedia de Azure (AMS) con la herramienta Explorador de Servicios multimedia de Azure (AMSE). Esta herramienta solo se ejecuta en Windows PC. Si se encuentra en Mac o Linux, use el Portal de administración de Azure para crear [canales](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) y [programas](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
+En este tutorial se muestra cómo administrar Servicios multimedia de Azure (AMS) con la herramienta Explorador de Servicios multimedia de Azure (AMSE). Esta herramienta solo se ejecuta en Windows PC. Si se encuentra en Mac o Linux, use el Portal de Azure clásico para crear [canales](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) y [programas](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
 
 Tenga en cuenta que en este tutorial se describe el uso de AAC. Sin embargo, FMLE no es compatible con AAC de forma predeterminada. Deberá adquirir un complemento para la codificación de AAC como el de MainConcept: [Complemento de AAC](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ##Requisitos previos
 
 - [Creación de una cuenta de Servicios multimedia de Azure](media-services-create-account.md)
-- Asegúrese de que haya un extremo de streaming en ejecución que tenga asignada al menos una unidad de streaming. Para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-manage-origins.md). 
-- Debe instalar la última versión de la herramienta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer). 
+- Asegúrese de que haya un extremo de streaming en ejecución que tenga asignada al menos una unidad de streaming. Para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-manage-origins.md).
+- Debe instalar la última versión de la herramienta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer).
 - Inicie la herramienta y conéctese a la cuenta de AMS.
 
 ##Sugerencias
 
-- Siempre que sea posible, use una conexión a Internet por cable. 
-- Una buena regla general al determinar los requisitos de ancho de banda consiste en duplicar las velocidades de bits de streaming. Aunque no se trata de un requisito obligatorio, contribuirá a mitigar el impacto de la congestión de la red.  
+- Siempre que sea posible, use una conexión a Internet por cable.
+- Una buena regla general al determinar los requisitos de ancho de banda consiste en duplicar las velocidades de bits de streaming. Aunque no se trata de un requisito obligatorio, contribuirá a mitigar el impacto de la congestión de la red.
 - Cuando se usen codificadores por software, cierre todos los programas innecesarios.
- 
+
 ## Crear un canal
 
-1.  En la herramienta AMSE, navegue a la pestaña **Directo** y haga clic con el botón derecho dentro del área de canales. Seleccione **Crear canal...** en el menú.  
+1.  En la herramienta AMSE, navegue a la pestaña **Directo** y haga clic con el botón derecho dentro del área de canales. Seleccione **Crear canal...** en el menú.
 
-	![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
+![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 
 2. Especifique un nombre de canal (el campo de descripción es opcional). En Configuración de canal, seleccione **Estándar** para la opción de codificación en directo, con el protocolo de entrada establecido en **RTMP**. Puede dejar todas las demás opciones como están.
 
 
-	 Asegúrese de que la opción **Iniciar el nuevo canal ahora** esté seleccionada.
- 
+Asegúrese de que la opción **Iniciar el nuevo canal ahora** esté seleccionada.
+
 3. Haga clic en **Crear canal**. ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
 
 >[AZURE.NOTE]El canal puede tardar hasta 20 minutos en iniciarse.
@@ -112,22 +112,22 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 	
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
 
-6. Obtenga la dirección URL de entrada del canal para asignarla al **extremo de RTMP** de FMLE.
+6. Obtenga la dirección URL de entrada del canal para asignarla al **punto de conexión de RTMP** de FMLE.
 	
 	Navegue de nuevo a la herramienta AMSE y compruebe el estado de finalización del canal. Una vez que se ha cambiado el estado de **Iniciando** a **En ejecución**, puede obtener la dirección URL de entrada.
 	  
-	Mientras se ejecuta el canal, haga clic con el botón derecho en el nombre del canal, desplácese hacia abajo y mantenga el mouse sobre **Copiar dirección URL de entrada en el Portapapeles** y, luego, seleccione **Dirección URL de entrada principal**.
+	Mientras se ejecuta el canal, haga clic con el botón derecho en el nombre del canal, desplácese hacia abajo y mantenga el puntero sobre **Copiar dirección URL de entrada en el portapapeles** y seleccione **Dirección URL de entrada principal**.
 	
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
 
-7. Pegue esta información en el campo **URL de FMS** de la sección de salida y asigne un nombre de transmisión.
+7. Pegue esta información en el campo **Dirección URL de FMS** de la sección de salida y asigne un nombre de transmisión.
 
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle7.png)
 
 	Para obtener redundancia adicional, repita estos pasos con la dirección URL de entrada secundaria.
 8. Seleccione **Conectar**.
 
->[AZURE.IMPORTANT]Antes de hacer clic **Conectar**, **debe** asegurarse de que el canal está listo. Además, asegúrese de no dejar el canal en un estado Listo sin una fuente de contribución de entrada durante más de 15 minutos.
+>[AZURE.IMPORTANT]Antes de hacer clic en **Conectar**, **debe** asegurarse de que el canal está listo. Además, asegúrese de no dejar el canal en un estado Listo sin una fuente de contribución de entrada durante más de 15 minutos.
 
 ##Reproducción de pruebas
   
@@ -141,7 +141,7 @@ Si se recibe un error, se deberá restablecer el canal y ajustar la configuraci�
 
 ##Creación de un programa
 
-1. Una vez confirmada la reproducción de canales, cree un programa. En la pestaña **Directo** de la herramienta AMSE, haga clic con el botón derecho dentro del área de programas y seleccione **Crear programa**.  
+1. Una vez confirmada la reproducción de canales, cree un programa. En la pestaña **Directo** de la herramienta AMSE, haga clic con el botón derecho dentro del área de programas y seleccione **Crear programa nuevo**.  
 
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
 
@@ -151,8 +151,8 @@ Si se recibe un error, se deberá restablecer el canal y ajustar la configuraci�
   
 	Nota: la creación de programas tarda menos que la creación de canales.
  
-5. Cuando el programa esté en ejecución, confirme la reproducción. Para ello, haga clic con el botón derecho en el programa y navegue a **Reproducir los programas** y, luego, seleccione **con el Reproductor multimedia de Azure**.
-6. Una vez confirmada, haga clic con el botón derecho de nuevo en el programa y seleccione **Copiar la URL de salida en el Portapapeles** (o recupere esta información de la opción **Información y configuración del programa** en el menú). 
+5. Cuando el programa esté en ejecución, confirme la reproducción. Para ello, haga clic con el botón derecho en el programa y vaya a **Reproducir los programas** y seleccione **con el Reproductor multimedia de Azure**.
+6. Una vez confirmada, haga clic con el botón derecho de nuevo en el programa y seleccione **Copiar la dirección URL de salida en el portapapeles** (o recupere esta información desde la opción **Información y configuración del programa** en el menú). 
 
 La transmisión está ahora preparada para insertarse en un reproductor o distribuirse a una audiencia para su visualización en directo.
 
@@ -170,4 +170,4 @@ Consulte el tema [Solución de problemas](media-services-troubleshooting-live-st
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

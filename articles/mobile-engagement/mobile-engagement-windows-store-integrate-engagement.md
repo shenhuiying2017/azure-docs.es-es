@@ -90,7 +90,7 @@ Si desea especificarla en tiempo de ejecución, puede llamar al método siguient
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-La cadena de conexión de la aplicación se muestra en el portal de Azure.
+La cadena de conexión de la aplicación se muestra en el Portal de Azure clásico.
 
 ### Inicialización de Engagement
 
@@ -285,4 +285,4 @@ El modo de ráfaga aumenta ligeramente la duración de la batería, pero afecta 
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

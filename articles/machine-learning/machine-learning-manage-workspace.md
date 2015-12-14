@@ -18,7 +18,7 @@
 
 
 # Administración de un área de trabajo de Aprendizaje automático de Azure
-Mediante el Portal de administración de Azure, puede administrar sus áreas de trabajo de Aprendizaje automático para realizar las siguientes tareas:
+Mediante el Portal de Azure clásico, puede administrar las áreas de trabajo de Aprendizaje automático para realizar las siguientes tareas:
 
 - Supervisar el uso del área de trabajo
 - Configurar el área de trabajo para permitir o denegar el acceso
@@ -34,7 +34,7 @@ Además, la pestaña Panel muestra una descripción general del uso del área de
 Para administrar un área de trabajo:
 
 1.	Inicie sesión en su cuenta de Microsoft Azure (use la cuenta que está asociada a la suscripción de Azure).
-2.	En el panel de servicios de Microsoft Azure del [Portal de administración de Azure](https://manage.windowsazure.com/), haga clic en **Aprendizaje automático**.
+2.	En el panel de servicios de Microsoft Azure del [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en **Aprendizaje automático**.
 3.	Haga clic en el área de trabajo que desea administrar.
 
 La página del área de trabajo tiene tres pestañas:
@@ -54,7 +54,7 @@ En el panel, puede ver el uso general del área de trabajo y obtener una vista r
 - **Información general del uso**: muestra el almacenamiento de Azure que usa el área de trabajo.
 - **Vista rápida**: proporciona un resumen de la información del área de trabajo y vínculos útiles.
 
-> [AZURE.NOTE]El vínculo **Iniciar sesión en estudio de aprendizaje automático** permite abrir Estudio de aprendizaje automático mediante la cuenta Microsoft con la que haya iniciado la sesión actual. La cuenta de Microsoft que usó para iniciar sesión en el Portal de Azure para crear un área de trabajo no tiene permiso automáticamente para abrir dicha área de trabajo. Para abrir un área de trabajo, debe iniciar sesión en la cuenta de Microsoft que se definió como propietaria del área de trabajo. También puede hacerlo si recibe una invitación del propietario para unirse al área de trabajo.
+> [AZURE.NOTE]El vínculo **Iniciar sesión en estudio de aprendizaje automático** permite abrir Estudio de aprendizaje automático mediante la cuenta Microsoft con la que haya iniciado la sesión actual. La cuenta de Microsoft que usó para iniciar sesión en el Portal de Azure clásico para crear un área de trabajo no tiene automáticamente permiso para abrir el área de trabajo. Para abrir un área de trabajo, debe iniciar sesión en la cuenta de Microsoft que se definió como propietaria del área de trabajo. También puede hacerlo si recibe una invitación del propietario para unirse al área de trabajo.
 
 
 ## Concesión o suspensión del acceso de los usuarios ##
@@ -94,4 +94,4 @@ Haga clic en la pestaña **CONFIGURAR** para modificar la descripción, controla
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

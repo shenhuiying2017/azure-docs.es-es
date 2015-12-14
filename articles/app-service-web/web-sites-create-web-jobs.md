@@ -22,7 +22,7 @@
 
 Puede ejecutar programas o scripts en trabajos web en su aplicación web del [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) de tres maneras: a petición, de forma continua o según una programación. No hay ningún coste adicional en el uso de trabajos web.
 
-En este artículo se muestra cómo implementar Webjobs con el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Para obtener información sobre cómo implementar con Visual Studio o con un proceso de entrega continua, consulte [Implementación de Webjobs de Azure en aplicaciones web](websites-dotnet-deploy-webjobs.md).
+En este artículo se muestra cómo implementar Webjobs con el [Portal de Azure](https://portal.azure.com). Para obtener información sobre cómo implementar con Visual Studio o con un proceso de entrega continua, consulte [Implementación de Webjobs de Azure en aplicaciones web](websites-dotnet-deploy-webjobs.md).
 
 El SDK de trabajos web de Azure simplifica muchas de las tareas de programación de trabajos web. Para obtener más información, consulte [¿Qué es el SDK de Webjobs?](websites-dotnet-webjobs-sdk.md)
 
@@ -104,9 +104,9 @@ Otros ejemplos de programación CRON:
 
 La técnica alternativa siguiente hace uso del programador de Azure. En este caso, el trabajo web no tiene ningún conocimiento directo de la programación. En su lugar, se debe configurar el programador de Azure para desencadenar el trabajo web según una programación.
 
-El portal de administración de Azure aún no tiene la capacidad para crear un trabajo web programado, pero hasta que se agregue esa característica, puede hacerlo con el [portal antiguo](http://manage.windowsazure.com).
+El Portal de Azure aún no tiene la capacidad para crear un trabajo web programado, pero hasta que se agregue esa característica, puede hacerlo con el [Portal clásico](http://manage.windowsazure.com).
 
-1. En el [portal antiguo](http://manage.windowsazure.com), vaya a la página del trabajo web y haga clic en **Agregar**.
+1. En el [Portal clásico](http://manage.windowsazure.com), vaya a la página del trabajo web y haga clic en **Agregar**.
 
 1. En el cuadro **Cómo ejecutar**, seleccione **Ejecutar según una programación**.
 	
@@ -152,7 +152,7 @@ El portal de administración de Azure aún no tiene la capacidad para crear un t
 	
 ### <a name="Scheduler"></a>Trabajos programados y Programador de Azure
 
-Los trabajos programados se puede configurar adicionalmente en las páginas del Programador de Azure del [portal antiguo](http://manage.windowsazure.com).
+Los trabajos programados se pueden configurar adicionalmente en las páginas del Programador de Azure del [Portal clásico](http://manage.windowsazure.com).
 
 1.	En la página WebJobs, haga clic en el vínculo **Programar** para desplazarse a la página del portal del Programador de Azure. 
 	
@@ -239,4 +239,4 @@ Para obtener más información, consulte [Recursos recomendados de WebJobs de Az
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

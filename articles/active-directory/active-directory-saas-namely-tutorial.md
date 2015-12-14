@@ -3,8 +3,8 @@
 	description="Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Namely."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
 # Tutorial: integración de Azure Active Directory con Namely
@@ -64,7 +64,7 @@ Para configurar la integración de Namely en Azure AD, es preciso agregar Namely
 4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
 6. En el cuadro de búsqueda, escriba **Namely**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-namely-tutorial/tutorial_namely_01.png)<br>
-7. En el panel de resultados, seleccione **Namely** y, a continuación, haga clic en **Completar** para agregar la aplicación.<br><br>
+7. En el panel de resultados, seleccione **Namely** y luego haga clic en **Completar** para agregar la aplicación. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-namely-tutorial/tutorial_namely_02.png)<br>
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Namely con un usuario de prueba llamado "Britta Simon".
@@ -75,7 +75,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Namely, es 
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Creación de un usuario de prueba de Namely](##creating-a-namely-test-user)**: para tener un homólogo de Britta Simon en Namely que esté vinculado a la representación de ella en Azure AD.
+4. **[Creación de un usuario de prueba de Namely](#creating-a-namely-test-user)**: para tener un homólogo de Britta Simon en Namely que esté vinculado a la representación de ella en Azure AD.
 5. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
@@ -90,7 +90,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 1. En el Portal de Azure AD, en la página de integración de aplicaciones de **Namely**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6] <br>
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Namely?**, seleccione **Inicio de sesión único de Azure AD** y, a continuación, haga clic en **Siguiente**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-namely-tutorial/tutorial_namely_03.png) <br>
+2. En la página **¿Cómo desea que los usuarios inicien sesión en Namely?**, seleccione **Inicio de sesión único de Azure AD** y luego haga clic en **Siguiente**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-namely-tutorial/tutorial_namely_03.png) <br>
 
 3. En la página de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-namely-tutorial/tutorial_namely_04.png) <br>
 
@@ -110,7 +110,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 1. En la barra de herramientas de la parte superior, haga clic en **Company** (Compañía). <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-namely-tutorial/tutorial_namely_06.png) <br>
 
-1. Haga clic en la pestaña **Settings** (Configuración). <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-namely-tutorial/tutorial_namely_07.png) <br>
+1. Haga clic en la pestaña **Configuración**. <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-namely-tutorial/tutorial_namely_07.png) <br>
 
 
 1. Haga clic en **SAML**. <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-namely-tutorial/tutorial_namely_08.png) <br>
@@ -118,16 +118,16 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 1. En la página **SAML Settings** (Configuración de SAML), realice los pasos siguientes: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-namely-tutorial/tutorial_namely_09.png) <br>
 
-    a. Haga clic en **Enable SAML** (Habilitar SAML).
+    a. Haga clic en **Habilitar SAML**.
 
-    b. En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Namely**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Identity provider DDO url** (URL de DDO de proveedor de identidades).
+    b. En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Namely**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **URL de DDO de proveedor de identidades**.
 
-    c. Abra el certificado descargado en el Bloc de notas, copie el contenido y péguelo en el cuadro de texto **Identity provider certificate** (Certificado de proveedor de identidades).
+    c. Abra el certificado descargado en el Bloc de notas, copie el contenido y péguelo en el cuadro de texto **Certificado de proveedor de identidades**.
 
     d. Haga clic en **Guardar**.
 
 
-6. En el Portal de Azure AD, seleccione la confirmación de la configuración del inicio de sesión único y haga clic en **Siguiente**. <br><br>![Inicio de sesión único de Azure AD][10]<br>
+6. En el Portal de Azure AD, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. <br><br>![Inicio de sesión único de Azure AD][10]<br>
 
 7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**. <br><br>![Inicio de sesión único de Azure AD][11]
 
@@ -139,7 +139,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en **Active Directory**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_09.png)<br> 
+1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en **Active Directory**. <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_09.png) <br> 
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
@@ -163,11 +163,11 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
 
-    d. En la lista **Rol**, seleccione **Usuario**. Haga clic en **Siguiente**.
+    d. En la lista **Rol**, seleccione **Usuario**. e. Haga clic en **Siguiente**.
 
 7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **crear**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_07.png) <br>
  
-8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:<br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_08.png) <br>
+8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-namely-tutorial/create_aaduser_08.png) <br>
   
     a. Anote el valor del campo **Nueva contraseña**.
 
@@ -185,13 +185,13 @@ El objetivo de esta sección es crear un usuario llamado Britta Simon en Namely.
 
 1. En la barra de herramientas de la parte superior, haga clic en **People**. <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-namely-tutorial/tutorial_namely_10.png) <br>
 
-1. Haga clic en la pestaña **Directory** (Directorio). <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-namely-tutorial/tutorial_namely_11.png) <br>
+1. Haga clic en la pestaña **Directorio**. <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-namely-tutorial/tutorial_namely_11.png) <br>
 
-1. Haga clic en **Add New Person** (Agregar nueva persona).
+1. Haga clic en **Agregar nueva persona**.
 
 
 
-1. En el cuadro de diálogo **Add New Person** (Agregar nueva persona), realice los pasos siguientes:
+1. En el cuadro de diálogo **Agregar nueva persona**, realice los pasos siguientes:
 
     a. En el cuadro de texto **Nombre**, escriba **Britta**.
 
@@ -252,4 +252,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-namely-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-namely-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

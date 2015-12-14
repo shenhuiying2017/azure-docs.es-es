@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a Azure AD Connect mediante la configuración rápida | Microsoft Azure"
+	pageTitle="Introducción a la configuración rápida de Azure AD Connect | Microsoft Azure"
 	description="Obtenga información acerca de cómo descargar, instalar y ejecutar el asistente para instalación de Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -49,7 +49,7 @@ Configuración rápida es la opción predeterminada que se selecciona y es uno d
 	- En la página Listo para configurar puede desactivar la casilla “**Inicie el proceso de sincronización en cuanto se complete la configuración inicial**”. Si lo hace, el asistente configurará la sincronización, pero dejará la tarea deshabilitada por lo que no se ejecutará hasta que la habilite manualmente en el Programador de tareas. Una vez habilitada la tarea, la sincronización se ejecutará cada tres horas.
 	- Opcionalmente, también puede configurar los servicios de sincronización para **Implementación híbrida de Exchange**; para ello, active la casilla correspondiente. Si no planea tener buzones de Exchange locales y en la nube, no es necesario hacerlo. ![Bienvenida a Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)<br>
 8. Una vez completada la instalación, haga clic en **Salir**.
-
+9. Una vez completada la instalación, cierre la sesión e inicie de sesión de nuevo antes de usar el Administrador del servicio de sincronización o el Editor de reglas de sincronización.
 
 <br> <br>
 
@@ -59,8 +59,8 @@ Para ver un vídeo sobre el uso de la instalación exprés, consulte lo siguient
 
 
 ## Pasos siguientes
-Ahora que ha instalado Azure Connect de AD puede [comprobar la instalación y asignar licencias](active-directory-aadconnect-whats-next.md).
+Ahora que ha instalado Azure AD Connect, puede [comprobar la instalación y asignar licencias](active-directory-aadconnect-whats-next.md).
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

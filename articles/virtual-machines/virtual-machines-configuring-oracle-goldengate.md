@@ -36,7 +36,7 @@ Además, en el tutorial se supone que ya se han implementado los siguientes requ
 
 - Que haya creado dos máquinas virtuales en Azure con la plataforma que proporciona la imagen de Oracle Enterprise Edition en Windows Server. Para obtener información, consulte [Creación de una máquina virtual de base de datos de Oracle 12c en Azure](#z3dc8d3c097cf414e9048f7a89c026f80) y [Máquinas virtuales de Azure](http://azure.microsoft.com/documentation/services/virtual-machines/). Asegúrese de que las máquinas virtuales estén en el [mismo servicio en la nube](virtual-machines-load-balance.md) y en la misma [red virtual](http://azure.microsoft.com/documentation/services/virtual-network/) para asegurarse de que pueden tener acceso entre sí a través de la dirección IP privada persistente.
 
-- Que haya establecido los nombres de las máquinas virtuales como "MachineGG1" en el sitio A y "MachineGG2" en el sitio B en el Portal de Azure.
+- Que haya establecido los nombres de las máquinas virtuales como "MachineGG1" en el sitio A y "MachineGG2" en el sitio B en el Portal de Azure clásico.
 
 - Que haya creado las bases de datos de prueba "TestGG1" en el sitio A y "TestGG2" en el sitio B.
 
@@ -95,7 +95,7 @@ En versiones posteriores de la Base de datos de Oracle y de Oracle GoldenGate, e
 ##1\. Configurar la base de datos en los sitios A y B
 En esta sección se explica cómo realizar los requisitos previos de la base de datos en los sitios A y B. Debe realizar todos los pasos de esta sección en ambos sitios: sitios A y B.
 
-En primer lugar, establezca un escritorio remoto para los sitios A y B a través del Portal de Azure. Abra un símbolo del sistema de Windows y cree un directorio de inicio para los archivos de instalación de Oracle GoldenGate:
+En primer lugar, establezca un escritorio remoto para los sitios A y B a través del Portal de Azure clásico. Abra un símbolo del sistema de Windows y cree un directorio de inicio para los archivos de instalación de Oracle GoldenGate:
 
 	mkdir C:\OracleGG
 
@@ -183,7 +183,7 @@ A continuación, cree y habilite un desencadenador de base de datos, INVENTORY\_
 ##2\. Preparar los sitios A y B para la replicación de base de datos
 En esta sección se explica cómo preparar los sitios A y B para la replicación de base de datos Debe realizar todos los pasos de esta sección en ambos sitios: A y B.
 
-En primer lugar, establezca un escritorio remoto para los sitios A y B a través del Portal de Azure. Cambie la base de datos al modo archivelog mediante la ventana de comandos SQL*Plus:
+En primer lugar, establezca un escritorio remoto para los sitios A y B a través del Portal de Azure clásico. Cambie la base de datos al modo archivelog mediante la ventana de comandos SQL*Plus:
 
 	sql>shutdown immediate
 	sql>startup mount
@@ -285,7 +285,7 @@ Inicie el proceso de administrador:
 
 ###Crear procesos de extracción y bombeo de datos en el sitio A
 
-Deberá crear los procesos Extract y de bombeo de datos en los sitios A y B. Establezca un escritorio remoto en los sitios A y B a través del Portal de Azure. Abra una ventana de intérprete de comandos GGSCI. Ejecute los comandos siguientes en el sitio A:
+Deberá crear los procesos de extracción y bombeo de datos en los sitios A y B. Establezca un escritorio remoto en los sitios A y B a través del Portal de Azure clásico. Abra una ventana de intérprete de comandos GGSCI. Ejecute los comandos siguientes en el sitio A:
 
 	GGSCI (MachineGG1) 14> add extract ext1 tranlog begin now
 	EXTRACT added.
@@ -602,4 +602,4 @@ Establezca un escritorio remoto en el sitio A y compruebe si la replicación ha 
 ##Recursos adicionales
 [Imágenes de máquina virtual de Oracle para Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

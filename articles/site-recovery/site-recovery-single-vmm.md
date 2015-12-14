@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Configuración de la protección con un único servidor VMM"
+	pageTitle="Azure Site Recovery: replique máquinas virtuales de Hyper-V (servidor VMM único)"
 	description="Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales ubicadas en nubes de VMM en Azure o en una nube de VMM secundaria."
 	services="site-recovery"
 	documentationCenter=""
@@ -14,90 +14,68 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="11/18/2015"
+	ms.date="12/01/2015"
 	ms.author="raynew"/>
 
-#  Configuración de la protección con un único servidor VMM
+#  Azure Site Recovery: replique máquinas virtuales de Hyper-V (servidor VMM único)
+
+El servicio Azure Site Recovery contribuye a una solución sólida de continuidad empresarial y recuperación ante desastres (BCDR) mediante la orquestación y replicación automática de servidores físicos locales y máquinas virtuales en Azure o en un centro de datos local secundario. En este artículo se describe cómo implementar Site Recovery para proteger las máquinas virtuales de Hyper-V que se encuentran en una nube VMM si solo tiene un único servidor VMM en su implementación. Si tiene alguna pregunta después de leer el artículo, publíquela en el [Foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Información general
 
-Azure Site Recovery contribuye a su estrategia de continuidad de negocio y recuperación ante desastres (BCDR) mediante la organización de la replicación, la conmutación por error y la recuperación de máquinas virtuales en varios escenarios de implementación. Para obtener una lista completa de los escenarios de implementación, consulte [Información general sobre Azure Site Recovery](site-recovery-overview.md)
+Puede replicar las máquinas virtuales de Hyper-V de un par de maneras:
 
-Si solo tiene un único servidor VMM en la infraestructura, puede implementar Site Recovery para replicar máquinas virtuales en nubes de VMM en Azure, o bien puede replicar entre nubes en un único servidor VMM. Se recomienda que solo haga esto si no puede implementar dos servidores VMM (uno en cada sitio) desde la conmutación por error y la recuperación no es perfecta en esta implementación. Para la recuperación deberá conmutar manualmente el servidor VMM desde fuera de la consola de Azure Site Recovery (mediante la réplica de Hyper-V en la consola del Administrador de Hyper-V).
+- Replicar las máquinas virtuales de Hyper-V que se encuentran en los hosts de Hyper-V que no se encuentran en una nube VMM en Azure
+- Replicar las máquinas virtuales de Hyper-V que se encuentran en los hosts de Hyper-V en una nube VMM en Azure
+- Replicar las máquinas virtuales de Hyper-V que se encuentran en los hosts de Hyper-V en una nube VMM en Azure
 
-Puede configurar la replicación con un único servidor VMM de dos formas:
+¿Pero qué sucede si desea usar VMM pero solo tiene un único servidor VMM en su infraestructura?
 
-### Implementación independiente
+En este caso tiene dos opciones:
 
-Implemente un servidor VMM independiente como una máquina virtual en un sitio principal y replicar esta máquina virtual en un sitio secundario con réplica de Hyper-V y Site Recovery. Para reducir el tiempo de inactividad, SQL Server puede instalarse en la máquina virtual de VMM. Si VMM utiliza un SQL Server remoto necesitará recuperarlo antes de recuperar el servidor VMM.
+- Replicar las máquinas virtuales de Hyper-V de las nubes VMM en Azure. [Obtenga más información](site-recovery-vmm-to-azure.md) acerca de este escenario.
+- Replicar entre nubes en el único servidor VMM
 
-![Servidor VMM virtual independiente](./media/site-recovery-single-vmm/SingleVMMStandalone.png)
-
-### Implementación del clúster
-
-Para hacer que VMM tenga una alta disponibilidad, se puede implementar como una máquina virtual en un clúster de conmutación por error de Windows. Esto es útil si las cargas de trabajo críticas son administradas por VMM porque asegura la disponibilidad de la carga de trabajo y protege contra la conmutación por error del hardware del host en el que se ejecuta VMM. Para implementar un único servidor VMM con Site Recovery. se debe implementar la máquina virtual de VMM en un clúster ampliado en sitios separados geográficamente. La Base de datos de SQL Server utilizada por VMM debe estar protegida con grupos de disponibilidad AlwaysOn de SQL Server con una réplica en el sitio secundario. Si se produce un el desastre, el servidor VMM y su Base de datos de SQL Server correspondiente se conmutan por error y se tiene acceso a ellos desde el sitio secundario.
-
-![Servidor VMM virtual en clúster](./media/site-recovery-single-vmm/SingleVMMCluster.png)
+Se recomienda que la primera opción, ya que la conmutación por error y la recuperación no es perfecta en la segunda opción y se necesita llevar a cabo un número determinado de pasos manuales.
 
 
-## Antes de comenzar
+### Replicar en los sitios con un servidor VMM único e independiente
 
-- Los pasos del tutorial explican cómo implementar Site Recovery con un servidor VMM único e independiente.
-- Asegúrese de que cumplir los [requisitos previos](site-recovery-vmm-to-vmm.md#before-you-start) antes de empezar la implementación.
-- El único servidor VMM debe tener al menos dos nubes configuradas. Una nube actuará como la nube protegida y la otra está realizando la protección.
-- Las nubes que desea proteger deben contener lo siguiente:
-	- Uno o más grupos de hosts de VMM
-	- Uno o más servidores host de Hyper-V en cada grupo de hosts
-	- Una o más máquinas virtuales de Hyper-V en cada servidor host
+En este escenario implementará el servidor VMM independiente como una máquina virtual en un sitio principal y replicar esta máquina virtual en un sitio secundario con réplica de Hyper-V y Site Recovery. Para ello, siga estos pasos:
 
-Si tiene problemas al configurar este escenario, publique sus preguntas en el [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+1. Configurar VMM en una máquina virtual de Hyper-V. Tenga en cuenta la colocación de la instancia de SQL Server usada por VMM en la misma máquina virtual. Esto permite ahorrar tiempo, ya que solo se tienen que crear instancias de una máquina virtual. Si desea usar una instancia remota y se produce una interrupción, necesitará recuperar esa instancia para poder recuperar VMM.
+2. Asegúrese de que el servidor VMM tenga al menos dos nubes configuradas. Una nube contendrá las máquinas virtuales que desee replicar y la otra nube actuará como la ubicación secundaria. La nube contiene las máquinas virtuales que desea proteger. Debe disponer de uno o más grupos de host VMM con uno o más servidores host de Hyper-V en cada grupo de hosts y por lo menos una máquina virtual Hyper-V en cada servidor host.
+2. Cree un almacén de recuperación del sitio, genere y descargue una clave de registro de almacén y registre el servidor VMM en el almacén.
+2. Configure una o más nubes en la máquina virtual de VMM y agregue los hosts de Hyper-V que contienen máquinas virtuales que desea proteger en estas nubes.
+3. En Azure Site Recovery configurar opciones de protección para las nubes. En Ubicación de origen y de destino, especificará el nombre del servidor VMM único. Si configura la asignación de red, se asignará la red de la máquina virtual de la nube que contiene máquinas virtuales que desea proteger a la red de máquina virtual de la nube en la que desea efectuar la replicación.
+4. Habilite la replicación de máquinas virtuales que desee proteger mediante **A través de la red** como método de replicación, ya que tanto ambas nubes se encuentran en el mismo servidor.
+4. En la consola de administrador de Hyper-V, habilite la réplica de Hyper-V en el host de Hyper-V que contiene la máquina virtual de VMM y habilite la replicación en la máquina virtual. Asegúrese de no agregar la máquina virtual VMM a las nubes que están protegidas por Site Recovery para garantizar que la configuración de la réplica de Hyper-V no la invalide Site Recovery.
+5. Si desea crear planes de recuperación, especifique el mismo servidor VMM de origen y de destino. 
 
+Cuando se producen interrupciones, las cargas de trabajo de máquinas virtuales de Hyper-V se recuperan del modo siguiente:
 
+1. Efectuando la conmutación por error manualmente de la réplica de la máquina virtual de VMM en el sitio secundario con el administrador de Hyper-V mediante una conmutación por error planeada.
+2. Una vez recuperada la máquina virtual de VMM, puede iniciar sesión en Administrador de recuperación de Hyper-V desde el sitio secundario y realizar una conmutación por error no planeada de las máquinas virtuales desde el sitio primario al sitio secundario.
+3. Una vez completada la conmutación por error no planeada, los usuarios pueden acceder a todos los recursos en el sitio principal.
 
-## Configuración de una implementación con un único servidor
+Tenga en cuenta que la máquina virtual de VMM debe conmutar por error manualmente en el sitio secundario antes de que las cargas de trabajo pueden conmutar por error.
 
-1. Si no está implementado VMM, configure VMM en una máquina virtual con una Base de datos de SQL Server instalada. Lea los [requisitos del sistema](https://technet.microsoft.com/library/dn771747.aspx) 
-2. Configure al menos dos nubes en el servidor VMM. Obtenga más información en:
+![Servidor VMM virtual independiente](./media/site-recovery-single-vmm/single-vmm-standalone.png)
 
-	- [Novedades de la nube privada con System Center 2012 R2 VMM](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/MDC-B357#fbid=) y en [VMM 2012 y las nubes](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html). 
-	- [Configuración del tejido de nube de VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
-	- [Creación de una nube privada en VMM](https://technet.microsoft.com/library/jj860425.aspx) y [Tutorial: Creación de nubes privadas con System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
-3. Agregue el servidor host de Hyper-V de origen en la que se encuentra la máquina virtual que desea proteger a la nube que va a proteger (la nube de origen). Agregue el servidor host de Hyper-V de destino a la nube en el servidor VMM que va a proporcionar la protección.
-4. [Cree](site-recovery-vmm-to-vmm.md#step-1-create-a-site-recovery-vault) un almacén de Azure Site Recovery y genere una clave de registro del almacén.
-4. [Instale](site-recovery-vmm-to-vmm.md#step-3-install-the-azure-site-recovery-provider) el Proveedor de Azure Site Recovery en el servidor VMM y registre el servidor en el almacén. 
-5. Asegúrese de que las nubes aparecen en el portal de Site Recovery y [configure la protección de la nube](site-recovery-vmm-to-vmm.md#step-4-configure-cloud-protection-settings).
-	- En **Ubicación de origen** y **Ubicación de destino**, especifique el nombre del servidor VMM único.
-	- En **método de replicación**, seleccione **A través de la red** para la replicación inicial porque las nubes que se encuentran en el mismo servidor.
+### Replicar en los sitios con un servidor VMM único en un clúster extendido
 
-6. Opcionalmente, [configure la asignación de redes](site-recovery-vmm-to-vmm.md#step-5-configure-network-mapping):
+En lugar de implementar un servidor VMM independiente como una máquina virtual que se replica en un sitio secundario, puede hacer que VMM esté altamente disponible mediante su implementación como una máquina virtual en un clúster de conmutación por error de Windows, proporcionando protección frente a errores de hardware y resistencia de las cargas de trabajo. Para efectuar una implementación con Site Recovery, VMM debe implementarse en un clúster extendido en sitios separados geográficamente. Para ello, siga estos pasos:
 
-	- En **Origen** y **Destino**, especifique el nombre del servidor VMM único.
-	- En **Red en origen** seleccione la red de máquinas virtuales que está configurada para la nube que protege.
-	- En **Red en destino** seleccione la red de la máquina virtual que está configurada para la nube que desea usar para la protección.
-	- La asignación de redes se puede configurar entre dos redes de máquinas virtuales (VM) en el mismo servidor VMM. Si la misma red VMM existe en dos sitios distintos, puede asignar entre las mismas redes.
-7. [Habilite la protección](site-recovery-vmm-to-vmm.md#step-7-enable-virtual-machine-protection) de las máquinas virtuales en la nube de VMM que desea proteger. 
-7. En la consola del Administrador de Hyper-V, configure la replicación de la máquina virtual VMM con la réplica de Hyper-V. La máquina virtual de VMM no debe agregarse a las nubes de VMM.
+1. Instale VMM en una máquina virtual en un clúster de conmutación por error de Windows y seleccione la opción de ejecución del servidor de alta disponibilidad durante la instalación.
+2. La instancia de SQL Server usada por VMM se debe replicar con grupos de disponibilidad de SQL Server AlwaysOn para que haya una réplica de la base de datos en el sitio secundario. 
+
+Si se producen interrupciones, el servidor VMM y su Base de datos de SQL Server correspondiente se conmutan por error y se tiene acceso a ellos desde el sitio secundario.
+
+![Servidor VMM virtual en clúster](./media/site-recovery-single-vmm/single-vmm-cluster.png)
 
 
-## Conmutación por error y recuperación
-
-### Creación de planes de recuperación
-
-Los planes de recuperación agrupan máquinas virtuales que se deben conmutar por error y recuperar.
-
-1. Cuando se crea un plan de recuperación en **Origen** y **Destino**, especifique el nombre del servidor VMM único. En **Seleccionar máquinas virtuales**, se mostrarán las máquinas virtuales que están asociadas a la nube principal.
-2. A continuación, [cree y personalice planes de recuperación](site-recovery-create-recovery-plans.md).
-
-
-### Recuperación
-
-En caso de desastre, las cargas de trabajo pueden recuperarse mediante los siguientes pasos:
-
-1. Realice una conmutación por error manual de la máquina virtual de VMM de réplica en el sitio de recuperación desde la consola del Administrador de Hyper-V.
-2. Una vez recuperada la máquina virtual de VMM, puede iniciar sesión en la consola del Administrador de recuperación de Hyper-V desde el portal y realizar una conmutación por error no planeada de las máquinas virtuales del sitio principal al de recuperación.
-3.  Una vez finalizada la conmutación por error no planeada, los usuarios pueden acceder a todos los recursos en el sitio principal.
 
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

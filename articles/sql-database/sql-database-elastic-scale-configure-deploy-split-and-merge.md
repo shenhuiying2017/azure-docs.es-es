@@ -1,11 +1,11 @@
 <properties
-	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="Tutorial de la herramienta de división y combinación de Base de datos elástica | Microsoft Azure"
 	description="División y combinación con las herramientas de Base de datos elástica"
-	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
-	services="sql-database" documentationCenter=""  
+	services="sql-database"  
+	documentationCenter=""
+	authors="sidneyh"
 	manager="jeffreyg"
-	authors="sidneyh"/>
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="12/01/2015"
 	ms.author="sidneyh" />
 
 # Tutorial de la herramienta de división y combinación de Base de datos elástica
@@ -33,9 +33,9 @@ Los pasos anteriores descargan los archivos de División y combinación al direc
 
     ![Servicios permitidos][1]
 
-3. Cree una cuenta de almacenamiento de Azure que se usará para la salida de diagnóstico. Vaya al Portal de vista previa de Azure. En la barra de la izquierda, haga clic en **Nuevo**, en**Datos + almacenamiento** y en **Almacenamiento**.
+3. Cree una cuenta de almacenamiento de Azure que se usará para la salida de diagnóstico. Vaya al Portal de Azure. En la barra de la izquierda, haga clic en **Nuevo**, en**Datos + almacenamiento** y en **Almacenamiento**.
 
-4. Cree un servicio en la nube de Azure que contendrá el servicio de División y combinación. Vaya al Portal de vista previa de Azure. En la barra de la izquierda, haga clic en **Nuevo**, en **Proceso**, en **Servicio en la nube** y en **Crear**.
+4. Cree un servicio en la nube de Azure que contendrá el servicio de División y combinación. Vaya al Portal de Azure. En la barra de la izquierda, haga clic en **Nuevo**, en **Proceso**, en **Servicio en la nube** y en **Crear**.
 
 
 ## Configuración del servicio División y combinación
@@ -60,7 +60,7 @@ Los pasos anteriores descargan los archivos de División y combinación al direc
 ### Configuración de seguridad
 Para obtener instrucciones detalladas para configurar la seguridad del servicio, consulte [Configuración de seguridad de división y combinación](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-Para fines de una simple implementación de prueba adecuada para completar este tutorial, se realizará un conjunto mínimo de pasos de configuración para configurar y ejecutar el servicio. Estos pasos solo habilitan la máquina/cuenta que los ejecuta para comunicarse con el servicio.
+Para fines de una simple implementación de prueba para este tutorial, se realizará un conjunto mínimo de pasos de configuración para configurar y ejecutar el servicio. Estos pasos solo habilitan la máquina/cuenta que los ejecuta para comunicarse con el servicio.
 
 ### Creación de un certificado autofirmado
 
@@ -91,7 +91,7 @@ Ejecute el siguiente comando desde la misma ventana donde se ejecutó makecert; 
 
 ### Carga del archivo PFX al servicio en la nube
 
-Vaya al [Portal de vista previa de Azure](https://portal.azure.com).
+Vaya al [Portal de Azure](https://portal.azure.com).
 
 1. Seleccione **Servicios en la nube**.
 2. Seleccione el servicio en la nube que creó anteriormente para el servicio División y combinación.
@@ -154,7 +154,7 @@ Si el rol de trabajo no puede ponerse en línea, pero el rol web sí, probableme
 
 ### Conexión con un explorador web
 
-Determine el extremo web de su servicio División y combinación. Para averiguar esto, vaya al Portal de administración de Azure, seleccione el **Panel** de su servicio en la nube y busque en **Dirección URL** del sitio en el lado derecho. Sustituya ****http://** por ****https://** dado que la configuración de seguridad predeterminada deshabilita el extremo HTTP. Cargue la página de esta dirección URL en el explorador.
+Determine el extremo web de su servicio División y combinación. Para averiguar esto, vaya al Portal de Azure clásico, seleccione el **Panel** de su servicio en la nube y busque en **Dirección URL del sitio** en el lado derecho. Sustituya ****http://** por ****https://** dado que la configuración de seguridad predeterminada deshabilita el extremo HTTP. Cargue la página de esta dirección URL en el explorador.
 
 ### Pruebas con scripts de PowerShell
 
@@ -334,4 +334,4 @@ En este caso, compruebe el archivo de configuración, en particular la configura
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

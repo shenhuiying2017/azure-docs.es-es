@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Administración de un servicio en la nube (portal de vista previa) | Microsoft Azure" 
-	description="Vea cómo administrar servicios en la nube en el Portal de vista previa de Azure. Estos ejemplos usan el portal de vista previa de Azure." 
+	pageTitle="Administración de un servicio en la nube | Microsoft Azure" 
+	description="Vea cómo administrar servicios en la nube en el Portal de Azure. Estos ejemplos usan el Portal de Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -20,17 +20,17 @@
 # Administración de servicios en la nube
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-manage.md)
-- [Azure Preview Portal](cloud-services-how-to-manage-portal.md)
+- [Azure classic portal](cloud-services-how-to-manage.md)
+- [Azure portal](cloud-services-how-to-manage-portal.md)
 
-En el área **Servicios en la nube** del Portal de vista previa de Azure, puede actualizar un rol de servicio o una implementación, pasar su servicio en la nube de ensayo a producción, vincular recursos con su servicio en la nube de modo que pueda ver las dependencias de los recursos y escalar los recursos juntos, además de eliminar un servicio en la nube o una implementación.
+En el área **Servicios en la nube** del Portal de Azure, puede actualizar un rol de servicio o una implementación, pasar su servicio en la nube de ensayo a producción, vincular recursos con su servicio en la nube de modo que pueda ver las dependencias de los recursos y escalar los recursos juntos, además de eliminar un servicio en la nube o una implementación.
 
 
 ## Actualización del rol de servicio en la nube o implementación
 
 Si necesita actualizar el código de la aplicación para su servicio en la nube, use **Actualizar** en la hoja del servicio en la nube. Puede actualizar un solo rol o todos los roles. Necesitará cargar un paquete de servicio nuevo y el archivo de configuración de servicio.
 
-1. En el [Portal de vista previa de Azure][], seleccione el servicio en la nube que desee actualizar. Esto abrirá la hoja de la instancia del servicio en la nube.
+1. En el [Portal de Azure][], seleccione el servicio en la nube que desee actualizar. Esto abrirá la hoja de la instancia del servicio en la nube.
 
 2. En la hoja, haga clic en el botón **Actualizar**.
 
@@ -60,7 +60,7 @@ Use **Intercambiar** para pasar una implementación de ensayo de un servicio en 
 
 Puede intercambiar implementaciones desde la página **Servicios en la nube** o el panel.
 
-1. En el [Portal de vista previa de Azure][], seleccione el servicio en la nube que desee actualizar. Esto abrirá la hoja de la instancia del servicio en la nube.
+1. En el [Portal de Azure][], seleccione el servicio en la nube que desee actualizar. Esto abrirá la hoja de la instancia del servicio en la nube.
 
 2. En la hoja, haga clic en el botón **Intercambiar**.
 
@@ -78,7 +78,7 @@ Puede intercambiar implementaciones desde la página **Servicios en la nube** o 
 
 ## Vinculación de un recurso a un servicio en la nube
 
-El Portal de vista previa de Azure no vincula recursos entre sí como el Portal de Azure actual. En su lugar, debe implementar recursos adicionales en el mismo grupo de recursos que está usando el servicio en la nube.
+El Portal de Azure no vincula recursos entre sí como el Portal de Azure clásico actual. En su lugar, debe implementar recursos adicionales en el mismo grupo de recursos que está usando el servicio en la nube.
 
 ## Eliminación de implementaciones y un servicio en la nube
 
@@ -88,7 +88,7 @@ Para ahorrar en los costes de proceso, puede eliminar la implementación de ensa
 
 Use el siguiente procedimiento para eliminar una implementación o su servicio en la nube.
 
-1. En el [Portal de vista previa de Azure][], seleccione el servicio en la nube que desee eliminar. Esto abrirá la hoja de la instancia del servicio en la nube.
+1. En el [Portal de Azure][], seleccione el servicio en la nube que desee eliminar. Esto abrirá la hoja de la instancia del servicio en la nube.
 
 2. En la hoja, haga clic en el botón **Eliminar**.
 
@@ -104,7 +104,7 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 
 > [AZURE.NOTE]Si se configura una supervisión detallada para su servicio en la nube, Azure no elimina los datos de supervisión de la cuenta de almacenamiento al eliminar el servicio en la nube. Tendrá que eliminar los datos manualmente. Para obtener información sobre dónde buscar las tablas métricas, consulte [este](cloud-services-how-to-monitor.md) artículo.
 
-[Portal de vista previa de Azure]: https://portal.azure.com
+[Portal de Azure]: https://portal.azure.com
 
 ## Pasos siguientes
 
@@ -113,4 +113,4 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Reemplazar un Módulo de alimentación y de refrigeración en el dispositivo StorSimple
@@ -48,7 +48,7 @@ Siga estas instrucciones cuando esté preparado para quitar un Módulo de alimen
 
 #### Para quitar un PCM
 
-1. En el Portal de administración, haga clic en **Dispositivos** > **Mantenimiento** > **Estado del hardware**. Compruebe el estado de los componentes de PCM en **Componentes compartidos** para identificar que se ha producido un error del PCM:
+1. En el Portal de Azure clásico, haga clic en **Dispositivos** > **Mantenimiento** > **Estado del hardware**. Compruebe el estado de los componentes de PCM en **Componentes compartidos** para identificar que se ha producido un error del PCM:
 
      - Si una fuente de alimentación en PCM 0 está defectuosa, el estado de **Fuente de alimentación en PCM 0** será rojo.
 
@@ -144,7 +144,7 @@ Siga estas instrucciones para instalar un PCM en el dispositivo StorSimple.
 
 7. Encienda el PCM.
 
-8. Compruebe que el reemplazo se realizó correctamente: en el Portal de administración del servicio StorSimple Manager, vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware**. En **Componentes compartidos**, el estado del PCM debe ser verde.
+8. Compruebe que el reemplazo se realizó correctamente: en el Portal de Azure clásico del servicio StorSimple Manager, vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware**. En **Componentes compartidos**, el estado del PCM debe ser verde.
 										
     >[AZURE.NOTE]El PCM puede tardar unos minutos para la sustitución para inicializarse completamente.
 
@@ -152,4 +152,4 @@ Siga estas instrucciones para instalar un PCM en el dispositivo StorSimple.
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

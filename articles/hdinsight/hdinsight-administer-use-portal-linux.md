@@ -17,14 +17,14 @@
 	ms.date="11/19/2015"
 	ms.author="larryfr"/>
 
-# Administración de clústeres de Hadoop en HDInsight mediante el portal de vista previa de Azure
+# Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 
-Con el [portal de vista previa de Azure][preview-portal] puede aprovisionar y administrar clústeres de Hadoop basados en Linux en HDInsight de Azure.
+Con el [Portal de Azure][preview-portal] puede aprovisionar y administrar clústeres de Hadoop basados en Linux en HDInsight de Azure.
 
-> [AZURE.NOTE]Los pasos descritos en este documento son específicos para trabajar con clústeres de Hadoop basados en Linux. Para obtener información sobre cómo trabajar con clústeres basados en Windows, consulte [Administración de clústeres de Hadoop en HDInsight mediante el portal de vista previa de Azure](hdinsight-administer-use-management-portal.md).
+> [AZURE.NOTE]Los pasos descritos en este documento son específicos para trabajar con clústeres de Hadoop basados en Linux. Para obtener información sobre cómo trabajar con clústeres basados en Windows, consulte [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure](hdinsight-administer-use-management-portal.md).
 
 
 [AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal-nolink.md)]
@@ -47,11 +47,11 @@ Antes de empezar este artículo, debe tener lo siguiente:
 
 Puede aprovisionar clústeres de HDInsight desde el portal de Azure si sigue estos pasos:
 
-1. Inicie sesión en el [Portal de vista previa de Azure][preview-portal].
+1. Inicie sesión en el [Portal de Azure][preview-portal].
 
 2. Seleccione **NUEVO**, __Análisis de datos__ y __HDInsight__
 
-	![Crear un nuevo clúster en el Portal de vista previa de Azure](./media/hdinsight-administer-use-portal-linux/new-cluster.png)
+	![Creación de un clúster nuevo en el Portal de Azure](./media/hdinsight-administer-use-portal-linux/new-cluster.png)
 
 3. Escriba un __Nombre de clúster__ y seleccione el __Tipo de clúster__ que desea crear. Si está disponible, aparecerá una marca de verificación verde junto al __Nombre de clúster__.
 
@@ -115,7 +115,7 @@ Puede aprovisionar clústeres de HDInsight desde el portal de Azure si sigue est
 		>
 		> En la actualidad (25 de agosto de 2015), hay una limitación que hace que en una red virtual de Azure solo pueda haber un único clúster de HDInsight basado en Linux.
         >
-        > No se puede usar una Red virtual de Azure v1 (clásica) con HDInsight basado en Linux. La Red virtual debe ser v2 (Administrador de recursos de Azure) para se muestre como opción durante el proceso de creación de un clúster de HDInsight en el Portal de vista previa de Azure o para que se pueda usar para crear un clúster en la CLI de Azure o Azure PowerShell.
+        > No se puede usar v1 (clásica), red virtual de Azure con HDInsight basado en Linux. La Red virtual debe ser v2 (Administrador de recursos de Azure) para que se muestre como opción durante el proceso de creación de un clúster de HDInsight en el Portal de Azure o para que se pueda usar para crear un clúster en la CLI de Azure o Azure PowerShell.
         >
         > Si tiene recursos en una red v1 y quiere que dichos recursos puedan tener acceso directamente a HDInsight a través de una red virtual, vea [Conexión de redes virtuales clásicas con nuevas redes virtuales](../virtual-network/virtual-networks-arm-asm-s2s.md) para información sobre cómo conectar una Red virtual v2 a una Red virtual v1. Una vez establecida la conexión, puede crear el clúster de HDInsight en la Red Virtual v2.
 
@@ -137,7 +137,7 @@ Puede aprovisionar clústeres de HDInsight desde el portal de Azure si sigue est
 
 ## Administración de un clúster
 
-Si selecciona un clúster desde el portal de vista previa de Azure, aparecerá información esencial sobre el clúster, como el nombre, el grupo de recursos, el sistema operativo y la dirección URL del panel de clúster (que se usa para tener acceso a la web de Ambari para clústeres de Linux).
+Si selecciona un clúster desde el Portal de Azure, aparecerá información esencial sobre el clúster, como el nombre, el grupo de recursos, el sistema operativo y la dirección URL del panel de clúster (que se usa para tener acceso a la web de Ambari para clústeres de Linux).
 
 ![Detalles del clúster](./media/hdinsight-administer-use-portal-linux/clusterdetails.png)
 
@@ -157,7 +157,7 @@ Use la siguiente información para comprender los iconos de la parte superior de
 
 * __Usuarios (![icono de usuarios](./media/hdinsight-administer-use-portal-linux/users.png))__: permite establecer permisos para la _administración del portal_ de este clúster para otros usuarios de su suscripción de Azure.
 
-	> [AZURE.IMPORTANT]Esto _solo_ afecta al acceso y los permisos para este clúster en el Portal de vista previa de Azure, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
+	> [AZURE.IMPORTANT]Esto _solo_ afecta al acceso y los permisos para este clúster en el Portal de Azure, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
 
 * __Etiquetas (![icono de etiqueta](./media/hdinsight-administer-use-portal-linux/tags.png))__: las etiquetas permiten establecer pares de clave-valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y luego usar un valor común para todos los servicios asociados a un proyecto específico.
 
@@ -193,4 +193,4 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -37,11 +37,11 @@ Estas son las fases que sigue una solución típica cuando la desarrolla e imple
 
 *Ilustración 1 - Fases de un modelo de análisis predictivo típico*
 
-### Experimento de entrenamiento
+### El experimento de entrenamiento
 
-El ***experimento de entrenamiento*** es el lienzo inicial del experimento en Estudio de Aprendizaje automático. El propósito del experimento de entrenamiento es brindarle un lugar para desarrollar, probar, iterar y finalmente entrenar un modelo de aprendizaje automático. Incluso puede entrenar varios modelos simultáneamente mientras busca la mejor solución, pero una vez que haya terminado de experimentar, puede seleccionar un único modelo entrenado y eliminar el resto del experimento. Para ver un ejemplo del desarrollo de un experimento de análisis predictivo, consulte [Desarrollo de una solución de análisis predictivo para la evaluación del riesgo de crédito en Aprendizaje automático de Azure](https://azure.microsoft.com/es-ES/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).
+El ***experimento de entrenamiento*** es el lienzo inicial del experimento en Estudio de Aprendizaje automático. El propósito del experimento de entrenamiento es brindarle un lugar para desarrollar, probar, iterar y finalmente entrenar un modelo de aprendizaje automático. Incluso puede entrenar varios modelos simultáneamente mientras busca la mejor solución, pero una vez que haya terminado de experimentar, puede seleccionar un único modelo entrenado y eliminar el resto del experimento. Para ver un ejemplo de desarrollo de un experimento de análisis predictivo, consulte [Desarrollo de una solución de análisis predictivo para la evaluación del riesgo de crédito en Aprendizaje automático de Azure](machine-learning-walkthrough-develop-predictive-solution.md).
 
-### Experimento predictivo
+### El experimento predictivo
 
 Cuando ya tenga un modelo entrenado en el experimento de entrenamiento, haga clic en **Configurar servicio web** en Estudio de aprendizaje automático y Estudio pasará por el proceso de convertir el experimento de entrenamiento en un ***experimento predictivo***. El propósito del experimento predictivo es usar el modelo entrenado para puntuar nuevos datos, con el fin de ponerlo en marcha con el tiempo como un servicio web de Azure.
 
@@ -57,11 +57,11 @@ Puede haber más cambios que desee realizar para que el experimento predictivo e
 
 En este proceso de conversión no se descarta el experimento de entrenamiento. Cuando se complete el proceso, tendrá dos pestañas en Estudio: uno para el experimento de entrenamiento y otro para el experimento predictivo. De este modo, antes de implementar el servicio web, puede realizar cambios en el experimento de entrenamiento y volver a generar el experimento predictivo. O bien, puede guardar una copia del experimento de entrenamiento para iniciar otra línea de experimentación.
 
->[AZURE.NOTE]Al hacer clic en **Configurar servicio web**, se inicia un proceso automático para convertir el experimento de entrenamiento en un experimento predictivo y esto funciona bien en la mayoría de los casos. Pero si el experimento de entrenamiento es complejo (por ejemplo, tiene varias rutas de acceso para el entrenamiento que se unen), es posible que prefiera realizar esta conversión manualmente. Para obtener más detalles sobre cómo funciona este proceso de conversión, consulte [Convertir un experimento de entrenamiento en Aprendizaje automático en un experimento predictivo](https://azure.microsoft.com/es-ES/documentation/articles/machine-learning-convert-training-experiment-to-scoring-experiment/).
+>[AZURE.NOTE]Al hacer clic en **Configurar servicio web**, se inicia un proceso automático para convertir el experimento de entrenamiento en un experimento predictivo y esto funciona bien en la mayoría de los casos. Pero si el experimento de entrenamiento es complejo (por ejemplo, tiene varias rutas de acceso para el entrenamiento que se unen), es posible que prefiera realizar esta conversión manualmente. Para obtener más detalles sobre el funcionamiento de este proceso de conversión, consulte [Convertir un experimento de entrenamiento en Aprendizaje automático en un experimento predictivo](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
 ### El servicio web
 
-Cuando el experimento predictivo esté listo, haga clic en **Implementar servicio web** para aplicar el modelo mediante la implementación como un ***servicio web de Azure***. Los usuarios ahora pueden enviar datos al modelo mediante la API de REST del servicio web y recibir los resultados de vuelta. Para obtener más información sobre cómo hacerlo, consulte [Cómo consumir un servicio web de Aprendizaje automático de Azure implementado en un experimento de Aprendizaje automático](https://azure.microsoft.com/es-ES/documentation/articles/machine-learning-consume-web-services/).
+Cuando el experimento predictivo esté listo, haga clic en **Implementar servicio web** para aplicar el modelo mediante la implementación como un ***servicio web de Azure***. Los usuarios ahora pueden enviar datos al modelo mediante la API de REST del servicio web y recibir los resultados de vuelta. Para obtener más información sobre cómo hacerlo, consulte [Cómo consumir un servicio web de Aprendizaje automático de Azure implementado en un experimento de Aprendizaje automático](machine-learning-consume-web-services.md).
 
 Una vez implementado el servicio web, el experimento predictivo y el servicio web permanecen conectados y puede alternar entre ellos:
 
@@ -69,8 +69,8 @@ Una vez implementado el servicio web, el experimento predictivo y el servicio we
 | ------------------- | --------------- | ---------------------- |
 |lienzo del experimento en Studio|**Ir al servicio web**|configuración del servicio web en Studio|
 |configuración del servicio web en Studio|**Ver más recientes**|lienzo del experimento en Studio|
-|configuración del servicio web en Studio|**Administrar puntos de conexión...**|administración de puntos de conexión en el Portal de Azure|
-|administración de puntos de conexión en el Portal de Azure|**Editar en estudio**|lienzo del experimento en Studio|
+|configuración del servicio web en Studio|**Administrar puntos de conexión...**|administración de puntos de conexión en el Portal de Azure clásico|
+|administración de puntos de conexión en el Portal de Azure clásico|**Editar en estudio**|lienzo del experimento en Studio|
 
 ![](media\machine-learning-model-progression-experiment-to-web-service\connections-between-experiment-and-web-service.png)
 
@@ -134,7 +134,7 @@ Por ejemplo: imagine que el experimento predictivo devuelve toda la fila de dato
 
 Si quiere mantener su modelo de aprendizaje automático, pero le gustaría reciclarlo con nuevos datos, tiene dos opciones:
 
-1.  **Reciclar el modelo mientras se está ejecutando el servicio web** -Si desea reciclar el modelo mientras se está ejecutando el servicio web predictivo, puede hacerlo realizando algunas modificaciones en el experimento de entrenamiento para convertirlo en un ***experimento de reciclaje*** y después puede implementarlo como un servicio ***web de reciclaje***. Para obtener más información sobre cómo hacerlo, consulte [Reciclar modelos de Aprendizaje automático mediante programación](https://azure.microsoft.com/es-ES/documentation/articles/machine-learning-retrain-models-programmatically/).
+1.  **Reciclar el modelo mientras se está ejecutando el servicio web** -Si desea reciclar el modelo mientras se está ejecutando el servicio web predictivo, puede hacerlo realizando algunas modificaciones en el experimento de entrenamiento para convertirlo en un ***experimento de reciclaje*** y después puede implementarlo como un servicio ***web de reciclaje***. Para obtener más información sobre cómo hacerlo, consulte [Reciclar modelos de Aprendizaje automático mediante programación](machine-learning-retrain-models-programmatically.md).
 
 2.  **Vuelva al experimento de entrenamiento original y use distintos datos de entrenamiento para desarrollar el modelo** - El experimento predictivo está vinculado al servicio web, pero el experimento de entrenamiento no está vinculado directamente de esta manera. Si se modifica el experimento de entrenamiento original y se hace clic en **Configurar servicio Web**, se creará un *nuevo* experimento predictivo que, cuando se implementa, creará un *nuevo* servicio web. No solo actualiza el servicio web original.
 
@@ -148,16 +148,16 @@ Si desea realizar cambios en el experimento predictivo original, como selecciona
 
 Para obtener información más detallada sobre este proceso, consulte los siguientes artículos:
 
--   conversión del experimento - [Convertir un experimento de entrenamiento de Aprendizaje automático en un experimento predictivo](https://azure.microsoft.com/es-ES/documentation/articles/machine-learning-convert-training-experiment-to-scoring-experiment/)
+-   conversión del experimento - [Convertir un experimento de entrenamiento de Aprendizaje automático en un experimento predictivo](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 
--   implementación del servicio web - [Implementar un servicio web de Aprendizaje automático de Azure](https://azure.microsoft.com/es-ES/documentation/articles/machine-learning-publish-a-machine-learning-web-service/)
+-   implementación del servicio web - [Implementar un servicio web de Aprendizaje automático de Azure](machine-learning-publish-a-machine-learning-web-service.md)
 
--   reciclaje del modelo - [Reciclar modelos de Aprendizaje automático mediante programación](https://azure.microsoft.com/es-ES/documentation/articles/machine-learning-retrain-models-programmatically/)
+-   reciclaje del modelo - [Reciclar modelos de Aprendizaje automático mediante programación](machine-learning-retrain-models-programmatically.md)
 
 Para ver ejemplos de todo el proceso, consulte:
 
--   [Tutorial de Aprendizaje automático: Creación del primer experimento en Estudio de aprendizaje automático de Azure](https://azure.microsoft.com/es-ES/documentation/articles/machine-learning-create-experiment/)
+-   [Tutorial de Aprendizaje automático: Creación del primer experimento en Estudio de aprendizaje automático de Azure](machine-learning-create-experiment.md)
 
--   [Tutorial: Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Aprendizaje automático de Azure](https://azure.microsoft.com/es-ES/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/)
+-   [Tutorial: Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Aprendizaje automático de Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

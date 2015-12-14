@@ -205,7 +205,7 @@ No. Una dirección MAC no se puede configurar de forma estática.
 
 ### ¿Seguirá siendo la dirección MAC la misma en mi máquina virtual una vez que se ha creado?
 
-No, la dirección MAC de una máquina virtual puede cambiar por diferentes motivos. La dirección MAC no se conserva si la máquina virtual se pone en el estado Detenido (Desasignado), si cambia el tamaño de la máquina virtual o si hay una recuperación del servicio o un mantenimiento planeado del servidor host.
+No, pero solo cambiará si la máquina virtual se pone en el estado Detenido (desasignado). Si cambia el tamaño de la máquina virtual, reinicia, o si hay una recuperación del servicio o un mantenimiento planeado del servidor host, la dirección MAC se conserva.
 
 ### ¿Puedo conectarme a Internet desde una máquina virtual de una red virtual?
 
@@ -222,7 +222,7 @@ Solo se admiten servicios de proceso en las redes virtuales. Los servicios de pr
 Sí. Puede implementar Aplicaciones web dentro de una red virtual con ASE (Entorno del Servicio de aplicaciones). Además, Aplicaciones web puede conectarse con seguridad y tener acceso a recursos de la red virtual de Azure si ha realizado la configuración de la conexión de punto a sitio para la red virtual. Para obtener más información, consulte los temas siguientes:
 
 
-- [Creación de Aplicaciones web en un entorno del Servicio de aplicaciones](https://azure.microsoft.com/es-ES/documentation/articles/app-service-web-how-to-create-a-web-app-in-an-ase/)
+- [Creación de Aplicaciones web en un entorno del Servicio de aplicaciones](app-service-web-how-to-create-a-web-app-in-an-ase.md)
 
 - [Integración de la red virtual con Aplicaciones web](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
@@ -266,4 +266,4 @@ Sí. Existen API de REST para administrar redes virtuales y la conectividad entr
 
 Sí. Puede usar herramientas de la línea de comandos y PowerShell para diferentes plataformas. Puede encontrar más información [aquí](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

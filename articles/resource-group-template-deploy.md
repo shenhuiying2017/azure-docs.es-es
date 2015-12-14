@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="12/02/2015"
    ms.author="tomfitz"/>
 
 # Implementación de una aplicación con la plantilla del Administrador de recursos de Azure
 
-En este tema se explica cómo utilizar las plantillas de Administrador de recursos de Azure para implementar su aplicación en Azure. Se muestra cómo implementar la aplicación mediante el uso de PowerShell de Azure, CLI de Azure, API de REST o el Portal de vista previa de Microsoft Azure.
+En este tema se explica cómo utilizar las plantillas de Administrador de recursos de Azure para implementar su aplicación en Azure. Se muestra cómo implementar la aplicación mediante el uso de PowerShell de Azure, CLI de Azure, API de REST o el Portal de Azure.
 
 Para ver una introducción al Administrador de recursos, vea [Información general del Administrador de recursos de Azure](../resource-group-overview.md). Para obtener más información sobre la creación de plantillas, vea [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 
@@ -32,17 +32,7 @@ Al implementar una aplicación con una plantilla, puede proporcionar valores de 
 
 1. Inicie sesión en su cuenta de Azure. Después de proporcionar sus credenciales, el comando devuelve información acerca de su cuenta.
 
-    Antes de la vista previa de Azure PowerShell 1.0:
-
-        PS C:\> Switch-AzureMode AzureResourceManager
-        ...
-        PS C:\> Add-AzureAccount
-
-        Id                             Type       ...
-        --                             ----    
-        someone@example.com            User       ...   
-
-    Vista previa de Azure PowerShell 1.0:
+    Azure PowerShell 1.0:
 
          PS C:\> Login-AzureRmAccount
 
@@ -69,7 +59,7 @@ Al implementar una aplicación con una plantilla, puede proporcionar valores de 
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. Para crear una implementación nueva para el grupo de recursos, ejecute el comando **New-AzureRmResourceGroupDeployment** y proporcione los parámetros necesarios. Los parámetros incluirán un nombre para la implementación, el nombre del grupo de recursos, la ruta de acceso o dirección URL a la plantilla que creó y cualquier otro parámetro necesario para el escenario.
+5. Para crear otra implementación del grupo de recursos, ejecute el comando **New-AzureRmResourceGroupDeployment** y especifique los parámetros necesarios. Los parámetros incluirán un nombre para la implementación, el nombre del grupo de recursos, la ruta de acceso o dirección URL a la plantilla que creó y cualquier otro parámetro necesario para el escenario.
    
      Tiene las opciones siguientes para proporcionar valores de parámetro:
    
@@ -219,13 +209,13 @@ Con Visual Studio, puede crear un proyecto del grupo de recursos e implementarlo
 
 Para una introducción para el uso de Visual Studio con grupos de recursos, vea [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-## Implementación con el Portal de vista previa
+## Implementación con el portal
 
-¿Sabe qué? Las aplicaciones que cree mediante el [portal de vista previa](https://portal.azure.com/) están respaldadas por una plantilla del Administrador de recursos de Azure. Con solo crear una Máquina virtual, Red virtual, cuenta de almacenamiento, Servicio de aplicaciones o base de datos a través del portal, ya está obteniendo los beneficios del Administrador de recursos de Azure sin esfuerzo adicional. Simplemente, seleccione el icono **Nuevo** y estará en vías de implementar una aplicación mediante el Administrador de recursos de Azure.
+¿Sabe qué? Las aplicaciones que cree mediante el [portal](https://portal.azure.com/) están respaldadas por una plantilla del Administrador de recursos de Azure. Con solo crear una Máquina virtual, Red virtual, cuenta de almacenamiento, Servicio de aplicaciones o base de datos a través del portal, ya está obteniendo los beneficios del Administrador de recursos de Azure sin esfuerzo adicional. Simplemente, seleccione el icono **Nuevo** y estará en vías de implementar una aplicación mediante el Administrador de recursos de Azure.
 
 ![Nuevo](./media/resource-group-template-deploy/new.png)
 
-Para obtener más información sobre el uso del portal con el Administrador de recursos de Azure, vea [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md).
+Para obtener más información sobre el uso del portal con el Administrador de recursos de Azure, vea [Uso del Portal de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md).
 
 
 ## Archivo de parámetros
@@ -251,7 +241,7 @@ Si utiliza un archivo de parámetros para pasar los valores de parámetro a la p
 El tamaño del archivo de parámetros no puede ser superior a 64 KB.
 
 ## Pasos siguientes
-- Para obtener un ejemplo de cómo implementar los recursos a través de la biblioteca cliente .NET, vea [Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla](arm-template-deployment.md).
+- Para obtener un ejemplo de cómo implementar los recursos a través de la biblioteca cliente .NET, vea [Implementación de recursos mediante bibliotecas de .NET y una plantilla](arm-template-deployment.md).
 - Para obtener un ejemplo en profundidad de la implementación de una aplicación, vea [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments-preview-portal.md).
 - Para obtener información sobre las secciones de la plantilla del Administrador de recursos de Azure, vea [Creación de plantillas](resource-group-authoring-templates.md).
@@ -259,4 +249,4 @@ El tamaño del archivo de parámetros no puede ser superior a 64 KB.
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

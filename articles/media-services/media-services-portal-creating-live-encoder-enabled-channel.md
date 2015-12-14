@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Creación de canales que realizan codificación en directo de transmisiones de una sola velocidad de bits a transmisiones de varias velocidades de bits mediante el portal de Azure" 
-	description="Este tutorial le guía por los pasos para crear un canal que reciba una transmisión en directo de una sola velocidad de bits y la codifique como transmisión de varias velocidades de bits mediante el portal de Azure." 
+	pageTitle="Creación de canales que realizan codificación en directo de transmisiones de una sola velocidad de bits a transmisiones de varias velocidades de bits mediante el Portal de Azure clásico" 
+	description="Este tutorial le guía por los pasos para crear un canal que reciba una transmisión en directo de una sola velocidad de bits y la codifique como una transmisión de varias velocidades de bits mediante el Portal de Azure clásico." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Creación de canales que realizan codificación en directo de transmisiones de una sola velocidad de bits a transmisiones de varias velocidades de bits mediante el portal de Azure
+#Creación de canales que realizan codificación en directo de transmisiones de una sola velocidad de bits a transmisiones de varias velocidades de bits mediante el Portal de Azure clásico
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -58,7 +58,7 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 
 ##Apartados de este tutorial
 
-En este tutorial, se utiliza el Portal de administración de Azure para realizar las tareas siguientes:
+En este tutorial, se utiliza el Portal de Azure clásico para realizar las tareas siguientes:
 
 2.  Configure de extremos de streaming.
 3.  Cree un canal que está habilitado para realizar la codificación en directo.
@@ -85,7 +85,7 @@ Para aprovechar al máximo el empaquetado dinámico, debe obtener al menos una u
 
 Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 
-1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios multimedia**. A continuación, haga clic en el nombre del servicio multimedia.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en **Servicios multimedia**. A continuación, haga clic en el nombre del servicio multimedia.
 
 2. Seleccione la página EXTREMOS DE STREAMING. Luego, haga clic en el extremo de streaming que desea modificar.
 
@@ -105,7 +105,7 @@ Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
  
 ##Creación de un canal
 
-1.	En el [Portal de administración](http://manage.windowsazure.com/), haga clic en Servicios multimedia y, a continuación, haga clic en el nombre de cuenta de Servicios multimedia.
+1.	En el [Portal de Azure clásico](http://manage.windowsazure.com/), haga clic en Servicios multimedia y haga clic en el nombre de cuenta de Servicios multimedia.
 2.	Seleccione la página CANALES.
 3.	Seleccione +Agregar para agregar un nuevo canal.
 
@@ -276,4 +276,4 @@ Si se realizan eventos de streaming y desea limpiar los recursos aprovisionados 
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

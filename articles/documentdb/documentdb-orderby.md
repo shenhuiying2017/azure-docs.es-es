@@ -131,7 +131,7 @@ Eche un vistazo a los [proyectos de ejemplo de Github](https://github.com/Azure/
 
 Las actualizaciones del servicio futuras ampliarán la compatibilidad de Order By que se presenta aquí. Estamos trabajando en las siguientes adiciones y se dará prioridad a la publicación de estas mejoras según sus comentarios:
 
-- Directivas de indexación dinámicas: compatibilidad para modificar la directiva de indexación después de la creación de la colección y en el Portal de Azure
+- Directivas de indexación dinámicas: compatibilidad para modificar la directiva de indexación después de la creación de la colección y en el Portal de Azure clásico
 - Compatibilidad con los índices compuestos para una operación Order By más eficaz y Order By en varias propiedades.
 
 ## P+F
@@ -177,4 +177,4 @@ Bifurque el [proyecto de ejemplos de Github](https://github.com/Azure/azure-docu
 * [Ejemplos de Order By de DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

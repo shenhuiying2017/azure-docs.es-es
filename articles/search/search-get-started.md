@@ -35,7 +35,7 @@ Como administrador, puede agregar un servicio de búsqueda a una suscripción ex
 
 Los suscriptores obtienen acceso gratuito automáticamente a un servicio de búsqueda compartido multiempresa que puede usar para fines de aprendizaje, pruebas de prueba de concepto o pequeños proyectos de búsqueda de desarrollo. Regístrese para usar la versión gratuita con los siguientes pasos.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com) con su suscripción actual. Tenga en cuenta que esta URL lo lleva al portal de vista previa. Es indispensable el uso del portal de vista previa. 
+1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com) con su suscripción actual. Tenga en cuenta que esta URL lo lleva al portal. Es indispensable el uso del portal. 
 
 2. Haga clic en **Nuevo** en la parte superior de la página.
  
@@ -78,7 +78,7 @@ La configuración de recursos dedicados puede tardar unos minutos (15 minutos o 
 
 **Paso 1: Creación de un servicio nuevo con un nivel de precios estándar**
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com) con su suscripción actual. 
+1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com) con su suscripción actual. 
 
 2. Haga clic en **Nuevo** en la parte inferior de la página.
 
@@ -310,7 +310,7 @@ También puede consultar al sistema para obtener recuentos de documentos y consu
 
 Si necesita un actualizador sobre dónde buscar las páginas de configuración, siga los siguientes pasos para ubicar el panel de servicio.
 
-1.	Inicie sesión en el [Portal de Azure](https://portal.azure.com) con su suscripción actual. 
+1.	Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com) con su suscripción actual. 
 2.	Haga clic en **Inicio** y, a continuación, haga clic en el icono del servicio Búsqueda.
 
  	![][22]
@@ -378,4 +378,4 @@ Si necesita un actualizador sobre dónde buscar las páginas de configuración, 
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/08/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # Configuración de una conexión VPN entre dos redes virtuales de Azure  
@@ -71,7 +71,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 **Para crear una red virtual llamada Contoso-VNet-EU en el Norte de Europa**
 
-1.	Inicie sesión en el [Portal de Azure][azure-portal].
+1.	Inicie sesión en el [Portal de Azure clásico][azure-portal].
 2.	Haga clic en **NUEVO**, **SERVICIOS DE RED**, **RED VIRTUAL**, **CREACIÓN PERSONALIZADA**.
 3.	Especifique:
 
@@ -144,7 +144,7 @@ Cuando crea una configuración de red virtual a red virtual, debe configurar cad
 
 **Para crear una red local llamada Contoso-LNet-EU que coincida con el espacio de direcciones de la red Contoso-VNet-EU**
 
-1. En el Portal de Azure, haga clic en **NUEVO**, **SERVICIOS DE RED**, **RED VIRTUAL** y **AGREGAR A RED LOCAL**.
+1. En el Portal de Azure clásico, haga clic en **NUEVO**, **SERVICIOS DE RED**, **RED VIRTUAL** y **AGREGAR A RED LOCAL**.
 3. Especifique:
 
 	- **NOMBRE**: Contoso-LNet-EU
@@ -175,7 +175,7 @@ Hay dos partes en esta configuración. Primero debe configurar una conexión de 
 
 **Para configurar la conexión de sitio a sitio de Contoso-VNet-EU a Contoso-LNet-US**
 
-1.	En el portal de Azure, haga clic en **REDES** en el panel izquierdo.
+1.	En el Portal de Azure clásico, haga clic en **REDES** en el panel izquierdo,
 2.	Haga clic en **Contoso-VNet-EU**.
 3.	Haga clic en la pestaña **CONFIGURAR**.
 4.	Active **Conectarse a la red local**.
@@ -187,7 +187,7 @@ Hay dos partes en esta configuración. Primero debe configurar una conexión de 
 
 **Para crear una puerta de enlace VPN para Contoso-VNet-EU**
 
-1.	En el portal de Azure, haga clic en la pestaña **PANEL**.
+1.	En el Portal de Azure clásico, haga clic en la pestaña **PANEL**.
 4.	Haga clic en **CREAR PUERTA DE ENLACE** en la parte inferior de la página y, a continuación, haga clic en **Enrutamiento dinámico**.
 5.	Haga clic en **Sí** para continuar. Observe que el gráfico de la puerta de enlace de la página cambia a amarillo y muestra el mensaje Creando puerta de enlace. La creación de la puerta de enlace suele tardar unos 15 minutos.
 
@@ -205,7 +205,7 @@ En la última sección, creará una puerta de enlace VPN para cada una de las re
 
 **Para configurar la dirección IP del dispositivo VPN para Contoso-LNet-EU**
 
-1.	En el Portal de Azure, haga clic en **REDES** en el panel izquierdo.
+1.	En el Portal de Azure clásico, haga clic en **REDES** en el panel izquierdo.
 2.	Haga clic en **REDES LOCALES** en la parte superior.
 3.	Haga clic en **Contoso-LNet-EU** y, a continuación, haga clic en **EDITAR** en la parte inferior.
 4.	Actualice la **DIRECCIÓN IP DEL DISPOSITIVO VPN**. Se trata de la dirección que se obtiene de la pestaña PANEL de Contoso-VNET-EU.
@@ -218,7 +218,7 @@ En la última sección, creará una puerta de enlace VPN para cada una de las re
 
 ###Establecimiento de claves de puerta de enlace de red virtual
 
-Las puertas de enlace de red virtual, usan una clave compartida para autenticar conexiones entre las redes virtuales. La clave no se puede configurar desde el Portal de Azure. Debe usar PowerShell o .NET SDK.
+Las puertas de enlace de red virtual, usan una clave compartida para autenticar conexiones entre las redes virtuales. La clave no se puede configurar desde el Portal de Azure clásico. Debe usar PowerShell o .NET SDK.
 
 **Para establecer las claves**
 
@@ -233,7 +233,7 @@ Las puertas de enlace de red virtual, usan una clave compartida para autenticar 
 
 ##Comprobación de la conexión VPN 
 
-Sin ninguna máquina virtual implementada en las redes virtuales, puede usar el diagrama visual de red virtual de la página del panel de red virtual en el Portal de Azure para comprobar el estado de la conexión:
+Sin ninguna máquina virtual implementada en las redes virtuales, puede usar el diagrama visual de red virtual que se encuentra en la página del panel de red virtual en el Portal de Azure clásico, para comprobar el estado de la conexión:
 
 ![Estado de la conexión de VPN de red virtual de replicación de HBase para HDInsight][img-vpn-status]
   
@@ -270,4 +270,4 @@ En este tutorial ha aprendido cómo configurar una conexión VPN entre dos redes
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

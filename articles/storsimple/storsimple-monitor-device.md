@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/05/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Uso del servicio StorSimple Manager para supervisar el dispositivo StorSimple. 
@@ -21,7 +21,7 @@
 
 Puede usar el servicio StorSimple Manager para supervisar dispositivos específicos dentro de la solución StorSimple. Puede crear gráficos personalizados basados en el rendimiento de E/S, la utilización de la capacidad, la capacidad de proceso de la red y las métricas de rendimiento del dispositivo.
 
-Para ver la información de supervisión para un dispositivo específico, en el Portal de Azure, seleccione el servicio StorSimple Manager, haga clic en la pestaña **Supervisión** y, luego, seleccione en la lista de dispositivos. La página **Monitor** contiene la siguiente información.
+Para ver la información de supervisión de un dispositivo específico, en el Portal de Azure clásico, seleccione el servicio del Administrador de StorSimple, haga clic en la pestaña **Supervisión** y, luego, seleccione en la lista de dispositivos. La página **Monitor** contiene la siguiente información.
 
 ## Rendimiento de E/S 
 
@@ -117,8 +117,8 @@ Los gráficos siguientes muestran el rendimiento de la red para Data 0 y Data 4,
 
 ## Pasos siguientes
 
-- Obtenga información sobre cómo [usar el panel de dispositivos del servicio StorSimple Manager](storsimple-device-dashboard.md).
+- Obtenga información sobre cómo [usar el panel de dispositivos del servicio del Administrador de StorSimple](storsimple-device-dashboard.md).
 
-- Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Obtenga información sobre cómo [usar el servicio Administrador de StorSimple para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

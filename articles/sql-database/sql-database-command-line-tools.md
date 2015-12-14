@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
-	ms.author="sstein; vinsonyu"/>
+	ms.date="12/01/2015" 
+	ms.author="sstein"/>
 
 # Administración de Base de datos SQL de Azure con PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-manage-portal.md)
+- [Azure Portal](sql-database-manage-portal.md)
 - [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
@@ -36,7 +36,7 @@ Para ejecutar los cmdlets de PowerShell, necesitará tener Azure PowerShell inst
 
 ## Configuración de las credenciales
 
-Para ejecutar los cmdlets de PowerShell en su suscripción de Azure debe establecer el acceso a su cuenta de Azure. Ejecute lo siguiente y aparecerá una pantalla de inicio de sesión para especificar sus credenciales. Use el mismo correo electrónico y la misma contraseña que usa para iniciar sesión en el portal de Azure.
+Para ejecutar los cmdlets de PowerShell en su suscripción de Azure debe establecer el acceso a su cuenta de Azure. Ejecute lo siguiente y aparecerá una pantalla de inicio de sesión para especificar sus credenciales. Use el mismo correo electrónico y la misma contraseña que usa para iniciar sesión en el Portal de Azure clásico.
 
 	Add-AzureAccount
 
@@ -115,7 +115,7 @@ Asimismo, también puede eliminar un servidor con el comando [Remove-AzureRMSqlS
 Si va a volver a crear estos recursos de SQL de Azure o unos recursos similares, puede realizar lo siguiente:
 
 - Guarde este recurso como archivo de secuencia de comandos de PowerShell (*.ps1).
-- Guardar este recurso como Runbook de automatización de Azure en la sección Automatización del Portal de administración de Azure. 
+- Guardar este recurso como Runbook de automatización de Azure en la sección Automatización del Portal de Azure clásico. 
 
 ## Pasos siguientes
 
@@ -131,4 +131,4 @@ Combine comandos y automatización. Por ejemplo, reemplace todo lo que hay entre
 
 - [Cmdlets de la Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

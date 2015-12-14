@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Microsoft Azure AD Connect - Actualización desde la Herramienta de sincronización de Windows Azure AD (DirSync) | Microsoft Azure"
+   pageTitle="Actualización desde la Herramienta de sincronización de Microsoft Azure AD (DirSync) de Azure AD Connect | Microsoft Azure"
    description="Aprenda a actualizar desde DirSync a Azure AD Connect. En este artículo se describen los pasos para actualizar la Herramienta de sincronización de Microsoft Azure AD actual (DirSync) a Azure AD Connect."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/26/2015"
+   ms.date="12/02/2015"
    ms.author="shoatman;billmath"/>
 
-# Actualización de la sincronización de Microsoft Azure Active Directory (DirSync) a Azure Active Directory Connect (Azure AD Connect)
+# Actualización de la sincronización de Microsoft Azure Active Directory (DirSync) con Azure AD Connect
 
 La siguiente documentación le ayudará a actualizar la instalación existente de DirSync con Azure AD Connect
 
@@ -198,4 +198,4 @@ Ahora que tiene instalado Azure AD Connect, puede [comprobar la instalación y a
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

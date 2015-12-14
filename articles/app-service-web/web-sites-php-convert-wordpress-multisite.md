@@ -54,7 +54,7 @@ Inicie sesión en el área *wp-admin* de su aplicación web; debería ver un ele
 
 ![Pantalla de configuración de la red][wordpress-network-setup]
 
-Este tutorial usa el esquema de sitios de *Subdirectorios* porque siempre funciona, y más adelante vamos a configurar dominios personalizados para cada subsitio. Sin embargo, debería ser posible configurar una instalación de subdominio si asigna un dominio a través del [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) y configura correctamente un DNS con caracteres comodín.
+Este tutorial usa el esquema de sitios de *Subdirectorios* porque siempre funciona, y más adelante vamos a configurar dominios personalizados para cada subsitio. Sin embargo, debería ser posible configurar una instalación de subdominio si asigna un dominio a través del [Portal de Azure](https://portal.azure.com) y configura correctamente un DNS con caracteres comodín.
 
 Para obtener más información sobre la configuración de subdominios frente a subdirectorios, consulte el artículo sobre [tipos de red multisitio][wordpress-codex-types-of-networks] en WordPress Codex.
 
@@ -138,7 +138,6 @@ Aplicaciones web de Azure permite agregar un número ilimitado de dominios a un 
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [ben-lobaugh]: http://ben.lobaugh.net
 [ms-open-tech]: http://msopentech.com
@@ -154,4 +153,4 @@ Aplicaciones web de Azure permite agregar un número ilimitado de dominios a un 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

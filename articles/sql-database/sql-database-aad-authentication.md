@@ -95,7 +95,7 @@ La última versión de Base de datos SQL V12 admite la autenticación de Azure A
 
 Si tiene una base de datos existente, compruebe que esté alojada en Base de datos SQL V12 conectándose a la base de datos (por ejemplo, con SQL Server Management Studio) y ejecutando `SELECT @@VERSION;`. El resultado esperado de una base de datos en Base de datos SQL V12 es como mínimo **Microsoft SQL Azure (RTM) - 12.0**.
 
-Si la base de datos no se hospeda en Base de datos SQL V12, consulte [Planeación y preparación para actualizar a SQL Database V12](sql-database-v12-plan-prepare-upgrade.md), y visite el Portal de Azure para migrar la base de datos a Base de datos SQL V12.
+Si la base de datos no está hospedada en Base de datos SQL V12, consulte [Planeación y preparación para actualizar a SQL Database V12](sql-database-v12-plan-prepare-upgrade.md) y después visite el Portal de Azure clásico para migrar la base de datos a Base de datos SQL V12.
 
 También puede crear una base de datos en Base de datos SQL V12 siguiendo los pasos que se muestran en [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md). **Sugerencia**: Lea el paso siguiente antes de seleccionar una suscripción para la nueva base de datos.
 
@@ -107,7 +107,7 @@ Para asociar la base de datos con el directorio de Azure AD para su organizació
 
 En los procedimientos siguientes se ofrecen instrucciones paso a paso sobre cómo cambiar el directorio asociado para una suscripción determinada.
 
-1. Conéctese a su [Portal de Azure](https://manage.windowsazure.com/) mediante un administrador de suscripciones de Azure.
+1. Conéctese a su [Portal de Azure clásico](https://manage.windowsazure.com/) mediante un administrador de suscripciones de Azure.
 2. En el área de la izquierda, seleccione **CONFIGURACIÓN**. 
 3. Las suscripciones aparecen en la pantalla de configuración. Si la suscripción deseada no aparece, haga clic en el apartado **Suscripciones** de la parte superior, despliegue la lista del cuadro **FILTRAR POR DIRECTORIO**, seleccione el directorio que contiene las suscripciones y después haga clic en **APLICAR**.
 
@@ -131,9 +131,9 @@ Cada servidor Azure SQL Server se inicia con una única cuenta de administrador 
 
 > [AZURE.NOTE]Los usuarios que no se basen en una cuenta de Azure AD (incluida la cuenta de administrador del servidor Azure SQL Server) no pueden crear usuarios basados en Azure AD porque no tienen permisos para validar los usuarios de la base de datos propuesta con Azure AD.
 
-### Aprovisionar un administrador de Azure Active Directory para el servidor Azure SQL Server mediante el Portal de Azure 
+### Aprovisionar un administrador de Azure Active Directory para el servidor Azure SQL Server mediante el Portal de Azure clásico 
 
-1. En el [Portal de Azure](https://portal.azure.com/), en la esquina superior derecha, haga clic en la conexión para desplegar una lista de posibles directorios de Active Directory. Elija el Active Directory correcto como el valor predeterminado de Azure AD. En este paso se vincula la asociación de la suscripción de Active Directory con la Base de datos SQL de Azure, asegurándose de que la misma suscripción se use tanto para Azure AD como para SQL Server.
+1. En el [Portal de Azure clásico](https://portal.azure.com/), en la esquina superior derecha, haga clic en la conexión para desplegar una lista de posibles directorios de Active Directory. Elija el Active Directory correcto como el valor predeterminado de Azure AD. En este paso se vincula la asociación de la suscripción de Active Directory con la Base de datos SQL de Azure, asegurándose de que la misma suscripción se use tanto para Azure AD como para SQL Server.
 
 	![elegir ad][8]
 2. En el área de la izquierda, seleccione **Servidores SQL Server** y su **Servidor SQL server** y, después, en la parte superior de la hoja **SQL Server**, haga clic en **Configuración**.
@@ -192,7 +192,7 @@ Set-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
 –ServerName "demo_server" -DisplayName "DBA_Group" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353f"
 ```
 
-> [AZURE.NOTE]El elemento **ObjectID** de Azure AD es necesario cuando el valor **DisplayName** no es único. Para recuperar los valores **ObjectID** y **DisplayName**, use la sección Active Directory del Portal de Azure y visualice las propiedades de un usuario o grupo.
+> [AZURE.NOTE]El elemento **ObjectID** de Azure AD es necesario cuando el valor **DisplayName** no es único. Para recuperar los valores **ObjectID** y **DisplayName**, use la sección Active Directory del Portal de Azure clásico y visualice las propiedades de un usuario o grupo.
 
 En el ejemplo siguiente se devuelve información sobre el administrador actual de Azure AD para el servidor de Azure SQL Server:
 
@@ -327,4 +327,4 @@ Para obtener ejemplos de código específicos y que estén relacionados con la a
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

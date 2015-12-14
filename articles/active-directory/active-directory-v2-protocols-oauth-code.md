@@ -230,4 +230,4 @@ En un nivel alto, el flujo de autenticación completo para una aplicación nativ
 
 ![Flujo de código de autenticación de OAuth](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

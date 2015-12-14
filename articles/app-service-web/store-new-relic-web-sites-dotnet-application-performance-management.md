@@ -38,8 +38,7 @@ Para obtener información sobre precios, consulte la [página de New Relic en Az
 
 Los clientes de Azure reciben una suscripción de prueba a New Relic Pro de dos semanas de duración cuando implementan el agente de New Relic.
 
-Suscripción a New Relic a través de Azure Marketplace 
---
+Suscripción a New Relic a través de Azure Marketplace --
 
 New Relic se integra perfectamente con los roles web y de trabajo y el Servicio de aplicaciones de Azure.
 
@@ -47,7 +46,7 @@ Para suscribirse a New Relic directamente desde Azure Marketplace, siga estos cu
 
 ## Paso 1. Creación de una cuenta de New Relic
 
-1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com) y, en la esquina, haga clic en **Nuevo**.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com) y, en la esquina, haga clic en **Nuevo**.
 3. Haga clic en **Servicios para desarrolladores** > **New Relic APM**.
 4. Configure la cuenta de New Relic especificando los siguientes valores y haga clic en **Crear**.
 	- **Name**
@@ -63,7 +62,7 @@ Para suscribirse a New Relic directamente desde Azure Marketplace, siga estos cu
 
 ## Paso 2: Configuración de la integración de New Relic para la aplicación web
 
-1. En el [Portal de vista previa de Azure](https://portal.azure.com), abra la hoja de la aplicación web.
+1. En el [Portal de Azure](https://portal.azure.com), abra la hoja de la aplicación web.
 2. Haga clic en el menú "..." que aparece en la parte superior de la hoja y seleccione **Agregar iconos**.
 3. En la ficha **Supervisión**, seleccione **Resumen de la aplicación** y arrástrelo al lugar donde desea que aparezca el icono en la hoja de su aplicación web.
 4. Haga clic en Listo para terminar de agregar iconos.
@@ -84,7 +83,7 @@ Use Visual Studio para publicar la aplicación web. Si anteriormente publicó la
 
 Para ver el panel de New Relic:
 
-2. En el [Portal de vista previa de Azure](https://portal.azure.com), abra la hoja de la aplicación web.
+2. En el [Portal de Azure](https://portal.azure.com), abra la hoja de la aplicación web.
 3. Haga clic en **Supervisión de aplicaciones** > **nombre de la aplicación** > **Vista en New Relic**.
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/view-new-relic-data.png)
@@ -165,7 +164,6 @@ Consulte estos recursos adicionales para obtener más información:
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 [vswebsite]: web-sites-dotnet-get-started.md
@@ -179,4 +177,4 @@ Consulte estos recursos adicionales para obtener más información:
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -47,7 +47,7 @@ Agregue las siguientes instrucciones include en la parte superior del archivo C+
 	#include "was/blob.h"
 
 ## Configuración de una cadena de conexión de almacenamiento de Azure
-Un cliente de almacenamiento de Azure usa una cadena de conexión de almacenamiento para almacenar extremos y credenciales con el fin de obtener acceso a los servicios de administración de datos. Al ejecutarse en una aplicación cliente, debe proporcionar la cadena de conexión de almacenamiento en el siguiente formato, usando el nombre de su cuenta de almacenamiento y la clave de acceso de almacenamiento de la cuenta de almacenamiento que se muestra en el Portal de administración para los valores *AccountName* y *AccountKey*. Para obtener información sobre las cuentas de almacenamiento y las claves de acceso, consulte [Acerca de las cuentas de almacenamiento de Azure](storage-create-storage-account.md). En este ejemplo se muestra cómo puede declarar un campo estático para mantener la cadena de conexión:
+Un cliente de almacenamiento de Azure utiliza una cadena de conexión de almacenamiento para almacenar extremos y credenciales con el fin de obtener acceso a los servicios de administración de datos. Al ejecutarse en una aplicación cliente, debe proporcionar la cadena de conexión de almacenamiento en el siguiente formato, usando el nombre de su cuenta de almacenamiento y la clave de acceso de almacenamiento de la cuenta de almacenamiento que se muestra en el [Portal de Azure](portal.azure.com) para los valores *AccountName* y *AccountKey*. Para obtener información sobre las cuentas de almacenamiento y las claves de acceso, consulte [Acerca de las cuentas de almacenamiento de Azure](storage-create-storage-account.md). En este ejemplo se muestra cómo puede declarar un campo estático para mantener la cadena de conexión:
 
 	// Define the connection-string with your values.
 	const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
@@ -140,7 +140,7 @@ Para cargar un archivo en un blob en bloques, obtenga una referencia de contened
 Como alternativa, puede usar el método **upload\_from\_file** para cargar un archivo en un blob en bloques.
 
 ## Cómo enumerar los blobs en un contenedor
-Para enumerar los blobs de un contenedor, primero obtenga una referencia de contenedor. A continuación, puede utilizar el método **list\_blobs** del contenedor para recuperar los blobs y los directorios que contiene. Para obtener acceso al conjunto completo de propiedades y métodos de un elemento **list\_blob\_item** devuelto, debe realizar una llamada al método **list\_blob\_item.as\_blob** para obtener un objeto **cloud\_blob** o al método **list\_blob.as\_directory** para obtener un objeto cloud\_blob\_directory. El código siguiente muestra cómo recuperar y consultar el URI de cada elemento del contenedor**my-sample-container**:
+Para enumerar los blobs de un contenedor, primero obtenga una referencia de contenedor. A continuación, puede usar el método **list\_blobs** del contenedor para recuperar los blobs y los directorios que contiene. Para obtener acceso al conjunto completo de propiedades y métodos de un elemento **list\_blob\_item** devuelto, debe realizar una llamada al método **list\_blob\_item.as\_blob** para obtener un objeto **cloud\_blob** o al método **list\_blob.as\_directory** para obtener un objeto cloud\_blob\_directory. El código siguiente muestra cómo recuperar y consultar el URI de cada elemento del contenedor**my-sample-container**:
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -165,7 +165,7 @@ Para enumerar los blobs de un contenedor, primero obtenga una referencia de cont
 		}
 	}
 
-Para obtener más información acerca de cómo enumerar las operaciones, consulte [Enumeración de recursos de almacenamiento de Azure en C++](storage-c-plus-plus-enumeration.md).
+Para obtener más información sobre cómo enumerar las operaciones, consulte [Enumeración de recursos de almacenamiento de Azure en C++](storage-c-plus-plus-enumeration.md).
 
 ## Cómo descargar blobs
 Para descargar blobs, primero recupere una referencia de blob y, a continuación, llame al método **download\_to\_stream**. En el siguiente ejemplo, se usa el método **download\_to\_stream** para transferir el contenido del blob a un objeto de flujo que, a continuación, puede guardar en un archivo local.
@@ -242,4 +242,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

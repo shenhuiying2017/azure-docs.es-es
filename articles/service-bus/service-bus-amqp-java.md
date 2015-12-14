@@ -82,9 +82,9 @@ Donde `[namespace]`, `[username]` y `[password]` tienen los significados siguien
 
 | Nombre | Significado | | | | |
 |---------------|--------------------------------------------------------------------------------|---|---|---|---|
-| `[namespace]` | El espacio de nombres del Bus de servicio obtenido del Portal de Azure. | | | | |
-| `[username]` | El nombre del emisor del Bus de servicio obtenido del Portal de Azure. | | | | |
-| `[password]` | Formulario codificado como URL de la clave del emisor del Bus de servicio obtenido del Portal de Azure. | | | | |
+| `[namespace]` | El espacio de nombres del Bus de servicio obtenido del [Portal de Azure clásico][]. | | | | |
+| `[username]` | El nombre del emisor del Bus de servicio obtenido del [Portal de Azure clásico][]. | | | | |
+| `[password]` | Formulario codificado como URL de la clave del emisor del Bus de servicio obtenido del [Portal de Azure clásico][]. | | | | |
 
 > [AZURE.NOTE]debe codificar la contraseña manualmente como dirección URL. Podrá encontrar una práctica utilidad de codificación de la URL en [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
@@ -407,5 +407,6 @@ Existen las restricciones siguientes al usar JMS sobre AMQP 1.0 con el Bus de se
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
 [Información general sobre AMQP para el Bus de servicio]: service-bus-amqp-overview.md
+[Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

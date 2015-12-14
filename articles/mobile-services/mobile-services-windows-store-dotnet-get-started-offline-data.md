@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Uso de datos sin conexión en la aplicación universal de Windows | Microsoft Azure" 
-	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para almacenar en caché y sincronizar datos sin conexión en su aplicación universal de Windows" 
-	documentationCenter="mobile-services" 
-	authors="lindydonna" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Uso de datos sin conexión en la aplicación universal de Windows | Microsoft Azure"
+	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para almacenar en caché y sincronizar datos sin conexión en su aplicación universal de Windows"
+	documentationCenter="mobile-services"
+	authors="lindydonna"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/06/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/06/2015"
 	ms.author="donnam"/>
 
 # Uso de la sincronización de datos sin conexión en servicios móviles
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
@@ -26,11 +31,11 @@ Si prefiere ver un vídeo, el clip que aparece a la derecha muestra los mismos p
 
 > [AZURE.VIDEO build-offline-apps-with-mobile-services]
 
-En este tutorial, se actualiza el proyecto de aplicación universal del tutorial [Introducción a los servicios móviles] para ofrecer compatibilidad con las características sin conexión de los servicios móviles de Azure. A continuación, agregará datos en un escenario sin conexión desconectado, sincronizará dichos elementos con la base de datos en línea e iniciará sesión en el Portal de administración de Azure para ver los cambios efectuados en los datos al ejecutar la aplicación.
+En este tutorial, se actualiza el proyecto de aplicación universal del tutorial [Introducción a Servicios móviles] para ofrecer compatibilidad con las características sin conexión de los Servicios móviles de Azure. A continuación, agregará datos en un escenario sin conexión desconectado, sincronizará dichos elementos con la base de datos en línea e iniciará sesión en el [Portal de Azure clásico] para ver los cambios efectuados en los datos al ejecutar la aplicación.
 
 >[AZURE.NOTE]Este tutorial está destinado a profundizar en el uso de Azure con los servicios móviles para almacenar y recuperar datos en una aplicación de la Tienda Windows. Si es su primera experiencia con servicios móviles, primero deberá completar el tutorial [Introducción a los servicios móviles].
 
-##Requisitos previos 
+##Requisitos previos
 
 Este tutorial requiere lo siguiente:
 
@@ -39,7 +44,7 @@ Este tutorial requiere lo siguiente:
 * [SDK de servicios móviles de Azure versión 1.3.0 (o posterior)][Mobile Services SDK Nuget]
 * [Almacén de SQLite de servicios móviles de Azure versión 1.0.0 (o posterior)][SQLite store nuget]
 * [SQLite para Windows 8.1](http://www.sqlite.org/download.html)
-* Una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28). 
+* Una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 ## <a name="enable-offline-app"></a>Actualización de la aplicación para que admita características sin conexión
 
@@ -47,7 +52,7 @@ Las características sin conexión de Servicios móviles de Azure permiten inter
 
 >[AZURE.NOTE]Puede omitir esta sección y solo obtener el proyecto de ejemplo que ya tiene compatibilidad sin conexión desde el repositorio de muestras de GitHub para Servicios móviles. El proyecto de ejemplo con compatibilidad sin conexión habilitado se encuentra aquí: [Ejemplo sin conexión de lista de tareas].
 
-1. Instale el tiempo de ejecución de SQLite para Windows 8.1 y Windows Phone 8.1. 
+1. Instale el tiempo de ejecución de SQLite para Windows 8.1 y Windows Phone 8.1.
 
     * **Tiempo de ejecución de Windows 8.1:** Instalar [SQLite para Windows 8.1].
     * **Windows Phone 8.1:** Instalar [SQLite para Windows Phone 8.1].
@@ -211,7 +216,7 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 
 2. Presione la tecla **F5** para volver a compilar y ejecutar el proyecto. Observe que los datos tienen el mismo aspecto que en el escenario sin conexión aunque la aplicación ahora está conectada con el servicio móvil. Esto se debe a que la aplicación siempre funciona con el elemento `IMobileServiceSyncTable` que apunta al almacén local.
 
-3. Inicie sesión en el Portal de administración de Azure y consulte la base de datos del servicio móvil. Si el servicio usa el back-end de JavaScript para servicios móviles, puede examinar los datos en la pestaña **Data** del servicio móvil.
+3. Inicie sesión en el [Portal de Azure clásico] y consulte la base de datos del servicio móvil. Si el servicio usa el back-end de JavaScript para servicios móviles, puede examinar los datos en la pestaña **Data** del servicio móvil.
 
     Si usa el back-end de .NET para el servicio móvil, en Visual Studio, vaya a **Explorador de servidores** -> **Azure** -> **Bases de datos SQL**. Haga clic con el botón derecho en la base de datos y seleccione **Abrir en el Explorador de objetos de SQL Server**.
 
@@ -232,7 +237,7 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 6. Inserte de nuevo el botón **Actualizar**, lo que hace que se llame a `SyncAsync`. `SyncAsync` llama tanto a inserción como a extracción; sin embargo, en este caso, podríamos haber eliminado la llamada a `PushAsync`. Esto se debe a que toda **extracción siempre realiza primero una inserción**. De este modo, se asegurará de que todas las tablas del almacén local sean coherentes con las relaciones.
 
     ![][10]
-  
+
 
 ##Resumen
 
@@ -267,6 +272,7 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 [Ejemplo sin conexión de lista de tareas]: http://go.microsoft.com/fwlink/?LinkId=394777
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
 [Getting Started]: ../mobile-services-dotnet-backend-windows-phone-get-started.md
+[Introducción a Servicios móviles]: ../mobile-services-windows-store-get-started.md
 [Introducción a los servicios móviles]: ../mobile-services-windows-store-get-started.md
 [SQLite para Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [SQLite para Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
@@ -276,6 +282,6 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
- 
+[Portal de Azure clásico]: https://manage.windowsazure.com
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Copia de datos de salida en una base de datos de SQL Server local (Portal de Azure)" 
-	description="En este tutorial se amplía el del uso del editor de la factoría de datos en el Portal de Azure en el sentido de que la canalización copia datos de salida en una base de datos de SQL Server."
+	pageTitle="Copia de datos de salida en una base de datos de SQL Server local (Portal de Azure clásico)" 
+	description="En este tutorial se amplía el uso del editor de la Factoría de datos en el Portal de Azure clásico, en el sentido de que la canalización copia datos de salida en una base de datos de SQL Server."
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -51,7 +51,7 @@ Debe tener al menos una puerta de enlace instalada en su entorno corporativo, as
 
 Si tiene una puerta de enlace de datos existente que puede utilizar, omita este paso.
 
-1.	Cree una puerta de enlace de datos lógica. En el **Portal de vista previa de Azure**, haga clic en **Servicios vinculados** en la hoja **FACTORÍA DE DATOS** de su factoría de datos.
+1.	Cree una puerta de enlace de datos lógica. En el **Portal de Azure**, haga clic en **Servicios vinculados** en la hoja **FACTORÍA DE DATOS** de su factoría de datos.
 2.	Haga clic en **Agregar (+) puerta de enlace de datos** en la barra de comandos.  
 3.	En la hoja **Nueva puerta de enlace de datos**, haga clic en **CREAR**.
 4.	En la hoja **Crear**, escriba **MyGateway** como **nombre** de la puerta de enlace de datos.
@@ -97,7 +97,7 @@ Para empezar, deberá crear la base de datos de SQL Server, tabla, tipos definid
 
 ### Creación del servicio vinculado
 
-1.	En el **Portal de vista previa de Azure**, haga clic en el mosaico **Crear e implementar** en la hoja **FACTORÍA DE DATOS** para **LogProcessingFactory**.
+1.	En el **Portal de Azure**, haga clic en el mosaico **Crear e implementar** en la hoja **FACTORÍA DE DATOS** para **LogProcessingFactory**.
 2.	En el **Editor de la Factoría de datos**, haga clic en **Nuevo almacén de datos** en la barra de herramientas y seleccione **Base de datos local de SQL Server**.
 3.	En el script JSON, haga lo siguiente: 
 	1.	Reemplace **<servername>** por el nombre del servidor que hospeda la base de datos de SQL Server.
@@ -153,7 +153,7 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -169,4 +169,4 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

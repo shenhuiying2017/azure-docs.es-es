@@ -24,7 +24,7 @@ En este tutorial se muestra cómo crear una aplicación web PHP en el [Servicio 
 
 Aprenderá a:
 
-* Creación de una aplicación web de Azure y una base de datos SQL mediante el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Dado que PHP está habilitado en Aplicaciones web del Servicio de aplicaciones de forma predeterminada, no existen requisitos especiales para ejecutar el código PHP.
+* Creación de una aplicación web de Azure y una base de datos SQL mediante el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Dado que PHP está habilitado en Aplicaciones web del Servicio de aplicaciones de forma predeterminada, no existen requisitos especiales para ejecutar el código PHP.
 * Publicar y volver a publicar la aplicación en Azure con Git.
  
 Mediante este tutorial, se compilará una aplicación web de registro sencilla en PHP que se hospedará en un sitio web de Azure. A continuación se muestra una captura de pantalla de la aplicación completada:
@@ -39,7 +39,7 @@ Mediante este tutorial, se compilará una aplicación web de registro sencilla e
 
 Siga estos pasos para crear una aplicación web de Azure y una base de datos SQL:
 
-1. Inicie sesión en el [portal de vista previa de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
 2. Abra Azure Marketplace haciendo clic en el icono**Nuevo** situado en la parte superior izquierda del panel, haga clic en **Seleccionar todo** junto a Marketplace y seleccione **Web + móvil**.
 	
@@ -284,7 +284,6 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Para obtener una guía del cambio del portal al de vista previa, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 
 
@@ -296,4 +295,4 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

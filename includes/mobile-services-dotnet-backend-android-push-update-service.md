@@ -28,8 +28,8 @@
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-    Este código enviará una notificación de inserción (con el texto del elemento insertado) tras insertar un elemento todo. En caso de error, el código agregará una entrada al registro de errores que aparecerá en la pestaña **Registros** del servicio móvil en el Portal de administración.
+    Este código enviará una notificación de inserción (con el texto del elemento insertado) tras insertar un elemento todo. En caso de error, el código agregará una entrada al registro de errores que aparecerá en la pestaña **Registros** del servicio móvil en el [Portal de Azure clásico](https://manage.windowsazure.com/).
 
 3. Vuelva a publicar el proyecto de servicio móvil en Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

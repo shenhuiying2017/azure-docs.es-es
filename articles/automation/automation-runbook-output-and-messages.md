@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
+   ms.date="11/24/2015"
    ms.author="bwren" />
 
 # Salidas de runbook y mensajes en la Automatización de Azure
@@ -168,4 +168,4 @@ En el ejemplo siguiente se inicia un runbook y, a continuación, se espera a que
 - [Realizar el seguimiento de un trabajo de runbook](automation-runbook-execution.md)
 - [Runbooks secundarios](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

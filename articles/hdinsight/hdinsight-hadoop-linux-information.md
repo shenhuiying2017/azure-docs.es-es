@@ -120,9 +120,9 @@ Durante la creación del clúster, seleccionó usar un contenedor y una cuenta d
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
-También puedes encontrar la información de almacenamiento mediante el portal de vista previa de Azure:
+También puede encontrar la información de almacenamiento mediante el portal de Azure:
 
-1. En el [Portal de vista previa de Azure](https://portal.azure.com/), seleccione el clúster de HDInsight.
+1. En el [Portal de Azure](https://portal.azure.com/), seleccione el clúster de HDInsight.
 
 2. En la sección __Essentials__, seleccione __Todas las configuraciones__.
 
@@ -207,7 +207,7 @@ Los diferentes tipos de clúster se ven afectados por la escala de esta manera:
 
 Para obtener información específica sobre cómo ampliar tu clúster de HDInsight, consulta:
 
-* [Administración de clústeres de Hadoop en HDInsight mediante el portal de vista previa de Azure](hdinsight-administer-use-portal-linux.md#scaling)
+* [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure](hdinsight-administer-use-portal-linux.md#scaling)
 
 * [Administración de clústeres de Hadoop en HDInsight con PowerShell de Azure](hdinsight-administer-use-command-line.md#scaling)
 
@@ -252,4 +252,4 @@ Si el clúster le proporciona una versión de un componente como un archivo jar 
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

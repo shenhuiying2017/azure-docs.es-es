@@ -68,7 +68,7 @@ El módulo Azure leerá las variables de entorno AZURE\_SERVICEBUS\_NAMESPACE y 
 
 Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio de nube de Azure, consulte [Servicio de nube de Node.js con almacenamiento][].
 
-Para ver un ejemplo de configuración de las variables de entorno en el Portal de Azure para un sitio web de Azure, consulte [Aplicación web Node.js con almacenamiento][].
+Para ver un ejemplo de configuración de las variables de entorno en el [Portal de Azure clásico][] para un sitio web de Azure, consulte [Aplicación web Node.js con almacenamiento][].
 
 ## Creación de una cola
 
@@ -78,7 +78,7 @@ El objeto **ServiceBusService** le permite trabajar con colas de Bus de servicio
 var serviceBusService = azure.createServiceBusService();
 ```
 
-Al llamar a **createQueueIfNotExists** en el objeto **ServiceBusService**, se obtiene la cola especificada (si existe) o se crea una nueva con el nombre especificado. El código siguiente utiliza **createQueueIfNotExists** para crear una cola llamada `myqueue` o conectarse a ella:
+Al llamar a **createQueueIfNotExists** en el objeto **ServiceBusService**, se obtiene la cola especificada (si existe) o se crea una nueva con el nombre especificado. El código siguiente usa **createQueueIfNotExists** para crear una cola llamada `myqueue` o conectarse a ella:
 
 ```
 serviceBusService.createQueueIfNotExists('myqueue', function(error){
@@ -88,7 +88,7 @@ serviceBusService.createQueueIfNotExists('myqueue', function(error){
 });
 ```
 
-**createServiceBusService** también admite opciones adicionales, que permiten invalidar la configuración de cola predeterminada, como el tiempo que dura la transmisión de un mensaje o el tamaño máximo de la cola. En el siguiente ejemplo se establece el tamaño máximo de las colas en 5 GB y el valor del período de vida (TTL) en 1 minuto:
+**createServiceBusService** también admite opciones adicionales, que permiten invalidar la configuración de cola predeterminada, como el período de vida de los mensajes o el tamaño máximo de la cola. En el siguiente ejemplo se establece el tamaño máximo de las colas en 5 GB y el valor del período de vida (TTL) en 1 minuto:
 
 ```
 var queueOptions = {
@@ -111,7 +111,7 @@ Las operaciones de filtrado opcionales pueden aplicarse a las tareas realizadas 
 function handle (requestOptions, next)
 ```
 
-Después de realizar su preprocesamiento en las opciones de solicitud, el método tiene que llamar a `next`, pasando una devolución de llamada con la firma siguiente:
+Después de realizar su preprocesamiento en las opciones de solicitud, el método tiene que llamar a `next` y pasar una devolución de llamada con la signatura siguiente:
 
 ```
 function (returnObject, finalCallback, next)
@@ -192,7 +192,7 @@ Para obtener más información, consulte los recursos siguientes.
 -   [Centro para desarrolladores de Node.js](/develop/nodejs/)
 
   [SDK de Azure para Node]: https://github.com/Azure/azure-sdk-for-node
-  [Azure portal]: http://manage.windowsazure.com
+  [Portal de Azure clásico]: http://manage.windowsazure.com
   
   [Servicio en la nube Node.js]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
@@ -202,4 +202,4 @@ Para obtener más información, consulte los recursos siguientes.
   [Colas de Bus de servicio y colas de Azure]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

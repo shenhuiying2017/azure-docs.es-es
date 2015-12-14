@@ -16,7 +16,7 @@
    ms.date="11/10/2015"
    ms.author="andkjell"/>
 
-# Introducción a la configuración predeterminada
+# Sincronización de Azure AD Connect: descripción de la configuración predeterminada
 
 Este artículo le guía en la configuración predeterminada de la sincronización de Azure AD Connect. El objetivo es que el lector comprenda cómo funciona el modelo de configuración, denominado aprovisionamiento declarativo, en un ejemplo del mundo real. En este artículo se supone que ya instaló y configuró la sincronización de Azure AD mediante el asistente para instalación.
 
@@ -150,4 +150,4 @@ Ahora conocemos lo suficiente de las reglas de sincronización para poder compre
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

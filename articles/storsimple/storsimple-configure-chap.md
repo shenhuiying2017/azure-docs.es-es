@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Configurar CHAP para el dispositivo StorSimple
@@ -31,7 +31,7 @@ Los parámetros de CHAP del dispositivo StorSimple pueden configurarse de las si
 
 - Autenticación bidireccional o mutua o inversa
 
-En cada uno de estos casos, deben configurarse el portal de administración de dispositivos y el software del iniciador iSCSI del servidor. En el siguiente tutorial se describen los pasos detallados para esta configuración.
+En cada uno de estos casos, deben configurarse el portal del dispositivo y el software del iniciador iSCSI del servidor. En el siguiente tutorial se describen los pasos detallados para esta configuración.
 
 ## Autenticación unidireccional
 
@@ -39,7 +39,7 @@ En la autenticación unidireccional, el destino autentica el iniciador. Esta aut
 
 #### Para configurar su dispositivo para la autenticación unidireccional
 
-1. En el portal de administración de la página **Dispositivos**, haga clic en la pestaña **Configurar**.
+1. En el Portal de Azure clásico, en la página **Dispositivos**, haga clic en la pestaña **Configurar**.
 
     ![Iniciador CHAP](./media/storsimple-configure-chap/IC740943.png)
 
@@ -75,9 +75,9 @@ En la autenticación unidireccional, el destino autentica el iniciador. Esta aut
 													
 	1. Active la casilla **Habilitar inicio de sesión CHAP**.
 
-	2. En el campo **Nombre**, proporcione el nombre de usuario que especificó para el iniciador de CHAP en el portal de administración.
+	2. En el campo **Nombre**, proporcione el nombre de usuario que especificó para el iniciador de CHAP en el Portal clásico.
 
-	3. En el campo **Secreto de destino**, proporcione la contraseña que especificó para el iniciador de CHAP en el portal de administración.
+	3. En el campo **Secreto de destino**, proporcione la contraseña que especificó para el iniciador de CHAP en el Portal clásico.
 
 	4. Haga clic en **Aceptar**.
 
@@ -96,7 +96,7 @@ En la autenticación bidireccional, el destino autentica el iniciador y luego el
 
 #### Para configurar su dispositivo para la autenticación mutua
 
-1. En el portal de administración de la página **Dispositivos**, haga clic en la pestaña **Configurar**.
+1. En el Portal de Azure clásico, en la página **Dispositivos**, haga clic en la pestaña **Configurar**.
 
     ![Destino CHAP](./media/storsimple-configure-chap/IC740948.png)
 
@@ -128,7 +128,7 @@ En la autenticación bidireccional, el destino autentica el iniciador y luego el
 
 4. En el cuadro de diálogo **Secreto CHAP mutuo del iniciador iSCSI**:
 													
-	1. Escriba la **Contraseña de CHAP inverso** que configuró en el portal de administración.
+	1. Escriba la **Contraseña de CHAP inverso** que configuró en el Portal de Azure clásico.
 
 	2. Haga clic en **Aceptar**.
 
@@ -144,9 +144,9 @@ En la autenticación bidireccional, el destino autentica el iniciador y luego el
 													
 	1. Active la casilla **Habilitar inicio de sesión CHAP**.
 
-	2. En el campo **Nombre**, proporcione el nombre de usuario que especificó para el iniciador de CHAP en el portal de administración.
+	2. En el campo **Nombre**, proporcione el nombre de usuario que especificó para el iniciador de CHAP en el Portal clásico.
 
-	3. En el campo **Secreto de destino**, proporcione la contraseña que especificó para el iniciador de CHAP en el portal de administración.
+	3. En el campo **Secreto de destino**, proporcione la contraseña que especificó para el iniciador de CHAP en el Portal clásico.
 
 	4. Active la casilla **Realizar autenticación mutua**.
 
@@ -191,4 +191,4 @@ Puede verificar que CHAP esté en uso mediante los siguientes pasos.
 - Obtenga más información sobre la [seguridad de StorSimple](storsimple-security.md).
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

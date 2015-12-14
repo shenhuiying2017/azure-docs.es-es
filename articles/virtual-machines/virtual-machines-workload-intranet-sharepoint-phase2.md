@@ -108,10 +108,10 @@ Inicie sesión en el primer equipo de controlador de dominio mediante las creden
 
 ### <a id="logon"></a>Para iniciar sesión en una máquina virtual mediante una conexión de escritorio remoto
 
-1.	En el Portal de Azure, en el panel izquierdo, haga clic en **Máquinas virtuales**.
+1.	En el Portal de Azure clásico, en el panel izquierdo, haga clic en **Máquinas virtuales**.
 2.	Para conectarse a una máquina virtual, haga clic en **En ejecución** en la columna **Estado** junto a su nombre.
 3.	En la parte inferior de la página, en la barra de comandos, haga clic en **Conectar**.
-4.	El portal de Azure le informa de que se está recuperando el archivo .rdp. Haga clic en **Aceptar**.
+4.	El Portal de Azure clásico le informa de que se está recuperando el archivo .rdp. Haga clic en **Aceptar**.
 5.	Aparecerá el cuadro de diálogo de explorador que mostrará el mensaje: "¿Desea abrir o guardar ComputerName.rdp desde manage.windowsazure.com?" Haga clic en **Abrir**.
 6.	Seleccione el cuadro de diálogo **Conexión de escritorio remoto** y haga clic en **Conectar**.
 7.	En el cuadro de diálogo **Seguridad de Windows**, haga clic en **Usar otra cuenta**.
@@ -205,14 +205,14 @@ A continuación, realice los pasos siguientes para agregar más propiedades de c
 
 A continuación, actualice los servidores DNS de la red virtual de manera que Azure asigne a las máquinas virtuales las direcciones IP de los dos nuevos controladores de dominio que se usarán como sus servidores DNS. Tenga en cuenta que este procedimiento utiliza los valores de Tabla V (para la configuración de red virtual).
 
-1.	En el panel izquierdo del Portal de Azure, haga clic en **Redes** y después en el nombre de la red virtual (Tabla V – Elemento 1 – Columna Valor).
+1.	En el panel izquierdo del Portal de Azure clásico, haga clic en **Redes** y después en el nombre de la red virtual (Tabla V – Elemento 1 – Columna Valor).
 2.	Haga clic en **Configurar**.
 3.	En **Servidores DNS**, quite las entradas correspondientes a los servidores DNS que se encuentran en la red local.
 4.	En **Servidores DNS**, agregue dos entradas con nombres descriptivos y las direcciones IP de estos elementos de dos tablas:
  - Tabla V – Elemento 6 – Columna Valor
  - Tabla V – Elemento 7 – Columna Valor
 5.	En la barra de comandos de la parte inferior, haga clic en **Guardar**.
-6.	En el panel izquierdo del Portal de Azure, haga clic en **Máquinas virtuales** y después en la columna **Estado** junto al nombre del primer controlador de dominio.
+6.	En el panel izquierdo del Portal de Azure clásico, haga clic en **Máquinas virtuales** y después en la columna **Estado** junto al nombre del primer controlador de dominio.
 7.	En la barra de comandos, haga clic en **Reiniciar**.
 8.	Cuando se inicia el primer controlador de dominio, haga clic en la columna **Estado** junto al nombre de su segundo controlador de dominio.
 9.	En la barra de comandos, haga clic en **Reiniciar**. Espere hasta que se inicie el segundo controlador de dominio.
@@ -248,4 +248,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 3: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

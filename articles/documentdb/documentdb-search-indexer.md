@@ -121,7 +121,7 @@ Si el origen de datos se crea correctamente, recibirá una respuesta HTTP 201 qu
 
 ##<a id="CreateIndex"></a>Paso 2: Creación de un índice
 
-Si aún no tiene un índice de Búsqueda de Azure de destino, créelo. Puede crearlo desde la [interfaz de usuario del Portal de Azure](../search-get-started.md#test-service-operations) o mediante la [API de creación de índices](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Si aún no tiene un índice de Búsqueda de Azure de destino, créelo. Puede crearlo desde la [interfaz de usuario del Portal de Azure clásico](../search-get-started.md#test-service-operations) o mediante la [API de creación de índices](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -270,4 +270,4 @@ El historial de ejecución contiene como máximo las 50 ejecuciones completadas 
  - Para obtener más información sobre Búsqueda de Azure, haga clic [aquí](/services/search/).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

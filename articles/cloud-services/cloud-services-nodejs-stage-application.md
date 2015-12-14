@@ -34,7 +34,7 @@ En esta tarea se aborda cómo realizar el ensayo de una aplicación con **Micros
     Publish-AzureServiceProject -Slot staging
     ```
 
-2.  Inicie sesión en el [Portal de administración de Azure] y seleccione **Servicios en la nube**. Una vez que se crea el servicio en la nube y que el estado de la columna **Ensayo** se actualiza a **En ejecución**, haga clic en el nombre del servicio.
+2.  Inicie sesión en el [Portal de Azure clásico] y seleccione **Servicios en la nube**. Una vez que se crea el servicio en la nube y que el estado de la columna **Ensayo** se actualiza a **En ejecución**, haga clic en el nombre del servicio.
 
 	![portal que muestra un servicio en ejecución][cloud-service]
 
@@ -54,7 +54,7 @@ Una vez que haya comprobado la versión de actualización de una aplicación en 
 
 > [AZURE.NOTE]En este paso se supone que ya ha implementado una aplicación en producción y que ha almacenado provisionalmente la versión actualizada de la aplicación.
 
-1.  Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios en la nube** y seleccione el nombre del servicio.
+1.  Inicie sesión en el [Portal de Azure clásico], haga clic en **Servicios en la nube**, y, a continuación, seleccione el nombre del servicio.
 
 2.  En el **Panel**, seleccione **Ensayo** y haga clic en **Intercambiar** en la parte inferior de la página. De este modo se abre el cuadro de diálogo Intercambio de VIP.
 
@@ -68,11 +68,11 @@ Ha realizado correctamente el ensayo de la implementación y la actualización d
 
 - [Implementación de una actualización de servicio en producción intercambiando las VIP en Azure]
 
-[Portal de administración de Azure]: http://manage.windowsazure.com
+[Portal de Azure clásico]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [Implementación de una actualización de servicio en producción intercambiando las VIP en Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

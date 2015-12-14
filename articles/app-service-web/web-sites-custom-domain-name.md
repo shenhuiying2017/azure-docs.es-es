@@ -35,13 +35,13 @@ Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en
 
 ## Información general
 
-Si no se ha registrado aún para obtener un nombre de dominio externo (es decir, que no sea *.azurewebsites.net), la manera más fácil de configurar un dominio personalizado es adquirir uno directamente en el [Portal de vista previa de Azure](https://portal.azure.com). El proceso le permite administrar el nombre de dominio de la aplicación web directamente en el portal en lugar de ir a un sitio de terceros (como GoDaddy) para administrarlo. Del mismo modo, configurar el nombre de dominio en su aplicación web se ha simplificado enormemente, independientemente de si su aplicación web usa el [Administrador de tráfico de Azure](web-sites-traffic-manager-custom-domain-name.md) o no. Para obtener más información, consulte [Comprar y configurar un nombre de dominio personalizado en el Servicio de aplicaciones de Azure](custom-dns-web-site-buydomains-web-app.md).
+Si no se ha registrado aún para obtener un nombre de dominio externo (es decir, que no sea *.azurewebsites.net), la manera más fácil de configurar un dominio personalizado es adquirir uno directamente en el [Portal de Azure](https://portal.azure.com). El proceso le permite administrar el nombre de dominio de la aplicación web directamente en el portal en lugar de ir a un sitio de terceros (como GoDaddy) para administrarlo. Del mismo modo, configurar el nombre de dominio en su aplicación web se ha simplificado enormemente, independientemente de si su aplicación web usa el [Administrador de tráfico de Azure](web-sites-traffic-manager-custom-domain-name.md) o no. Para obtener más información, consulte [Comprar y configurar un nombre de dominio personalizado en el Servicio de aplicaciones de Azure](custom-dns-web-site-buydomains-web-app.md).
 
 Si ya tiene un nombre de dominio o desea reservar un dominio de otros registradores de dominio, estos son los pasos generales que debe seguir para importar un nombre de dominio personalizado para la aplicación web (vea [instrucciones específicas para GoDaddy.com](web-sites-godaddy-custom-domain-name.md)):
 
 1. Reserve el nombre de dominio. En este artículo no se cubre ese proceso. Hay varios registradores de dominios entre los que elegir. Al registrar, el sitio le guiará por el proceso:
 1. Cree registros DNS que asignen el dominio a su aplicación web de Azure.
-1. Agregue el nombre de dominio en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+1. Agregue el nombre de dominio en el [Portal de Azure](https://portal.azure.com).
 
 En esta descripción básica, hay algunos casos específicos que se deben tener en cuenta:
 
@@ -144,7 +144,6 @@ Para obtener más información, consulte: [Introducción a DNS de Azure](../dns/
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- Anchors. -->
 [Overview]: #overview
@@ -156,4 +155,4 @@ Para obtener más información, consulte: [Introducción a DNS de Azure](../dns/
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

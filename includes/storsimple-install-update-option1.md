@@ -23,7 +23,7 @@
 
     6. Haga clic en **Descargar**. Especifique o **busque** una ubicación local en la que quiera que aparezca la descarga. Se descargará la actualización en una carpeta **StorSimple Update 1.2 Appliance Update bundle** (KB3063418) en la ubicación elegida. La carpeta también se puede copiar en un recurso compartido de red que sea accesible desde el dispositivo.
     
-	En este procedimiento se describe cómo instalar la actualización del dispositivo de software como una revisión, las actualizaciones de firmware de disco desde el servidor de Microsoft Update y el controlador de LSI y las actualizaciones de Windows desde el Portal de Azure. Sin embargo, podría elegir instalar las actualizaciones de software, controladores y firmware de disco como revisiones. Luego necesitará descargar la actualización del controlador de StorSimple 1.2 SAS (KB3043005) y la actualización de firmware de disco de StorSimple 1.2 (KB3063416) y copiar en la misma carpeta compartida. Para instalar las actualizaciones de firmware de disco como revisión, siga las instrucciones de [instalar revisiones del modo de mantenimiento a través de Windows PowerShell para StorSimple](storsimple-update-device.md#install-hotfixes-via-windows-powershell-for-storsimple).
+	En este procedimiento se describe cómo instalar la actualización del dispositivo de software como una revisión, las actualizaciones de firmware de disco desde el servidor de Microsoft Update y el controlador de LSI y las actualizaciones de Windows desde el Portal de Azure clásico. Sin embargo, podría elegir instalar las actualizaciones de software, controladores y firmware de disco como revisiones. Luego necesitará descargar la actualización del controlador de StorSimple 1.2 SAS (KB3043005) y la actualización de firmware de disco de StorSimple 1.2 (KB3063416) y copiar en la misma carpeta compartida. Para instalar las actualizaciones de firmware de disco como revisión, siga las instrucciones de [instalar revisiones del modo de mantenimiento a través de Windows PowerShell para StorSimple](storsimple-update-device.md#install-hotfixes-via-windows-powershell-for-storsimple).
     
 	> [AZURE.NOTE]La revisión debe ser accesible desde ambos controladores para detectar los posibles mensajes de error desde el controlador del mismo nivel.
             
@@ -101,7 +101,7 @@
     
 9. Ahora instalará las actualizaciones de firmware de disco que son perjudiciales y tardan de 30 a 45 minutos en completarse. Puede elegir instalarlas en una ventana de mantenimiento planificado mediante la conexión a la consola serie del dispositivo. Para instalar las actualizaciones de firmware de disco, siga las instrucciones que encontrará en [Instalar las actualizaciones del modo de mantenimiento a través de Windows PowerShell para StorSimple](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
-10. Cuando las actualizaciones de firmware de disco se apliquen correctamente y el dispositivo haya salido del modo de mantenimiento, regrese al Portal de Azure. Las actualizaciones del modo de mantenimiento no se actualizan en el portal hasta que no han transcurrido 24 horas. Es posible que deba esperar para aplicar las actualizaciones restantes sin interrupciones desde el Portal de Azure.
+10. Cuando las actualizaciones de firmware de disco se apliquen correctamente y el dispositivo haya salido del modo de mantenimiento, regrese al Portal de Azure clásico. Las actualizaciones del modo de mantenimiento no se actualizan en el portal hasta que no han transcurrido 24 horas. Es posible que deba esperar para aplicar las actualizaciones restantes sin interrupciones desde el Portal de Azure clásico.
 
 11. Cuando esté listo para aplicar actualizaciones, vaya a la página **Mantenimiento** y en la parte inferior de la página, haga clic en **Examinar actualizaciones**. Se le notificará que las actualizaciones están disponibles; estas incluyen el controlador y las actualizaciones de Windows. Haga clic en **Instalar actualizaciones** para comenzar el proceso de instalación. Habrá terminado correctamente cuando se instalen correctamente todas las actualizaciones.
 
@@ -112,4 +112,4 @@
  
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

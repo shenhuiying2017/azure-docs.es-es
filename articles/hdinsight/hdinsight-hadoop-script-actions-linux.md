@@ -26,7 +26,7 @@ Las acciones de script son una manera de personalizar los clústeres de HDInsigh
 
 Las acciones de script son scrpits de Bash que se ejecutan en los nodos de clúster durante el aprovisionamiento. Una acción de script se ejecuta como raíz y proporciona derechos de acceso completo a los nodos del clúster.
 
-La acción de script puede usarse al aprovisionar un clúster mediante el __Portal de vista previa de Azure__, __Azure PowerShell__ o __SDK .NET de HDInsight__.
+La acción de script puede usarse al aprovisionar un clúster mediante el __Portal de Azure__, __Azure PowerShell__ o __SDK .NET de HDInsight__.
 
 Para obtener un tutorial sobre personalización de un clúster mediante acciones de script, consulte [Personalización de los clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -220,4 +220,4 @@ Para el comando anterior, reemplace __INFILE__ por el archivo que contiene la ma
 
 [Personalizar los clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

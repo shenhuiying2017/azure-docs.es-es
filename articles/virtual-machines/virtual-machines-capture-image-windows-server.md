@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
 
-En este artículo se muestra cómo puede capturar una máquina virtual de Azure con Windows para usarla como imagen en la creación de otras máquinas virtuales. Esta imagen incluye el disco del sistema operativo y los discos de datos que están conectados a la máquina virtual. No incluye configuraciones de red, por lo que deberá configurarlas usted mismo cuando cree las otras máquinas virtuales que utilicen la imagen.
+En este artículo se muestra cómo puede capturar una máquina virtual de Azure con Windows para usarla como imagen en la creación de otras máquinas virtuales. Esta imagen incluye el disco del sistema operativo y los discos de datos que están conectados a la máquina virtual. No incluye configuraciones de red, por lo que deberá configurarlas usted mismo cuando cree las otras máquinas virtuales que usen la imagen.
 
 Azure almacena la imagen en **Mis imágenes**. Este es el mismo lugar donde se almacenan las imágenes que se han cargado. Para obtener más información acerca de las imágenes, vea [Acerca de las imágenes para las máquinas virtuales](virtual-machines-images.md).
 
@@ -40,7 +40,7 @@ Esto no constituye una manera de realizar copias de seguridad de una máquina vi
 
 ##Captura de la máquina virtual
 
-1. En el [Portal de Azure](http://manage.windowsazure.com), **Conecte** con la máquina virtual. Para obtener instrucciones, consulte [Inicio de sesión en una máquina virtual con Windows Server][].
+1. En el [Portal de Azure clásico](http://manage.windowsazure.com), **Conecte** con la máquina virtual. Para obtener instrucciones, consulte [Inicio de sesión en una máquina virtual con Windows Server][].
 
 2.	Abra una ventana de símbolo del sistema como administrador.
 
@@ -56,9 +56,9 @@ Esto no constituye una manera de realizar copias de seguridad de una máquina vi
 
 	![Ejecute Sysprep](./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png)
 
-7.	Sysprep apaga la máquina virtual, lo que cambia su estado en el Portal de Azure a **Detenido**.
+7.	Sysprep apaga la máquina virtual, lo que cambia su estado en el Portal de Azure clásico a **Detenido**.
 
-8.	En el portal de Azure, haga clic en **Máquinas virtuales** y seleccione la máquina virtual que desee capturar.
+8.	En el Portal de Azure clásico, haga clic en **Máquinas virtuales** y seleccione la máquina virtual que desee capturar.
 
 9.	En la barra de comandos, haga clic en **Capturar**.
 
@@ -90,4 +90,4 @@ La imagen está lista para usarse para crear máquinas virtuales. Para ello, cre
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

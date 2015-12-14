@@ -29,7 +29,7 @@ Tenga en cuenta que los ejemplos de mensajería asíncrona requieren una cadena 
 
 ### Para obtener una cadena de conexión para el Bus de servicio de Azure
 
-1. Inicie sesión en el [Portal de Azure](http://manage.windowsazure.com).
+1. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com).
 
 1. En la columna izquierda, haga clic en **Bus de servicio**.
 
@@ -132,4 +132,4 @@ Consulte los temas siguientes para más información general del Bus de servicio
 - [Arquitectura del Bus de servicio](service-bus-architecture.md)
 - [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

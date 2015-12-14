@@ -23,7 +23,7 @@
 
 En este artículo se proporcionan pasos de solución de problemas detallada de errores complejos de Escritorio remoto.
 
-> [AZURE.IMPORTANT] Para eliminar los errores más comunes de Escritorio remoto, asegúrese de leer [la solución de problemas básicos de Escritorio remoto](virtual-machines-troubleshoot-remote-desktop-connections.md) antes de continuar.
+> [AZURE.IMPORTANT]Para eliminar los errores más comunes de Escritorio remoto, asegúrese de leer [la solución de problemas básicos de Escritorio remoto](virtual-machines-troubleshoot-remote-desktop-connections.md) antes de continuar.
 
 ## Póngase en contacto con el servicio de atención al cliente de Azure
 
@@ -45,7 +45,7 @@ Presentamos a continuación los componentes implicados.
 Antes de iniciar un proceso paso a paso de solución de problemas, es útil repasar mentalmente qué cambió desde que creó las conexiones a Escritorio remoto y tomar ese cambio como base para intentar corregir el problema. Por ejemplo:
 
 - Si pudo crear conexiones a Escritorio remoto y cambió la dirección IP pública de la máquina virtual o del servicio en la nube que contiene la máquina virtual (también denominada dirección IP virtual [VIP]), la memoria caché del cliente DNS podría tener una entrada para el nombre DNS y la *dirección IP antigua*. Vacíe la caché del cliente DNS y vuelva a intentarlo. También puede intentar establecer la conexión usando la VIP nueva.
-- Si pasó de usar el Portal de Azure o el Portal de vista previa de Azure a usar una aplicación para administrar las conexiones a Escritorio remoto, asegúrese de que la configuración de la aplicación incluye el puerto TCP determinado al azar para el tráfico de Escritorio remoto.
+- Si pasó de usar el Portal de Azure clásico o el Portal de Azure a usar una aplicación para administrar las conexiones a Escritorio remoto, asegúrese de que la configuración de la aplicación incluye el puerto TCP determinado al azar para el tráfico de Escritorio remoto.
 
 Las secciones siguientes indican los pasos para aislar y determinar las distintas causas de este problema y proporcionan soluciones y alternativas.
 
@@ -54,7 +54,7 @@ Las secciones siguientes indican los pasos para aislar y determinar las distinta
 
 Realice estos pasos antes de continuar con la solución de problemas detallada.
 
-- Comprobar el estado de la máquina virtual en el Portal de Azure o el Portal de vista previa de Azure
+- Comprobar el estado de la máquina virtual en el Portal de Azure clásico o el Portal de Azure
 - Reiniciar la máquina virtual
 - [Cambiar el tamaño de la máquina virtual](virtual-machines-size-specs.md)
 
@@ -108,7 +108,7 @@ Para eliminar el extremo de servicio en la nube y la ACL como causas de los prob
 
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_3.png)
 
-> [AZURE.NOTE] En el caso de máquinas virtuales creadas en el Administrador de recursos, vaya a [Causa 4: Grupos de seguridad de red](#nsgs).
+> [AZURE.NOTE]En el caso de máquinas virtuales creadas en el Administrador de recursos, vaya a [Causa 4: Grupos de seguridad de red](#nsgs).
 
 Si no tiene otra máquina virtual en el mismo servicio en la nube o red virtual, puede crear una fácilmente. Para obtener más información, vea [Crear una máquina virtual que ejecuta Windows en Azure](virtual-machines-windows-tutorial.md). Cuando acabe de realizar las pruebas, elimine la máquina virtual que creó.
 
@@ -207,4 +207,4 @@ Compruebe que el extremo de Escritorio remoto para la máquina virtual de Azure 
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -23,7 +23,7 @@ También puede recopilar y usar los contadores de rendimiento disponibles para W
 
 Puede examinar los datos del contador de rendimiento; 1) Directamente en el host de la aplicación con la herramienta Monitor de rendimiento, a la que se accede mediante Escritorio remoto; 2) Con System Center Operations Manager mediante el módulo de administración de Azure; 3) Con otras herramientas de supervisión que acceden a los datos de diagnóstico transferidos al almacenamiento de Azure. Consulte [Guardar y ver datos de diagnóstico en el almacenamiento de Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx) para obtener más información.
 
-Para obtener información sobre la supervisión del rendimiento de su aplicación en el [Portal de administración de Azure](http://manage.azure.com/), consulte [Supervisión de servicios en la nube](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
+Para obtener información sobre la supervisión del rendimiento de la aplicación en el [Portal de Azure clásico](http://manage.azure.com/), consulte [Supervisión de servicios en la nube](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 
 Para obtener instrucciones más detalladas acerca de la creación de una estrategia de registro y seguimiento, así como del uso del diagnóstico y otras técnicas para solucionar problemas y optimizar las aplicaciones de Azure, consulte [Procedimientos recomendados de solución de problemas para desarrollar aplicaciones de Azure](https://msdn.microsoft.com/library/azure/hh771389.aspx).
 
@@ -83,7 +83,7 @@ En esta sección se da por supuesto que importó el monitor de diagnóstico en l
 
 ## Paso 1: Recopilación y almacenamiento de datos de contadores de rendimiento
 
-Una vez que agregue el archivo de diagnóstico a su solución de Visual Studio, puede configurar la recopilación y el almacenamiento de los datos de contadores de rendimiento en una aplicación de Azure. Para ello, agregue contadores de rendimiento al archivo de diagnóstico. Los datos de diagnóstico, incluidos los contadores de rendimiento, se recopilan primero en la instancia. Luego, los datos se mantienen en la tabla WADPerformanceCountersTable del servicio de tablas de Azure, por lo que también deberá especificar la cuenta de almacenamiento de su aplicación. Si está probando su aplicación de manera local en el emulador de proceso, también puede almacenar datos de diagnóstico localmente en el emulador de almacenamiento. Antes de almacenar datos de diagnóstico, primero debe ir al [Portal de administración de Azure](http://manage.windowsazure.com/) y crear una cuenta de almacenamiento. Un procedimiento recomendado es ubicar la cuenta de almacenamiento en la misma ubicación geográfica que su aplicación de Azure, para así evitar pagar costes por ancho de banda externo y reducir la latencia.
+Una vez que agregue el archivo de diagnóstico a su solución de Visual Studio, puede configurar la recopilación y el almacenamiento de los datos de contadores de rendimiento en una aplicación de Azure. Para ello, agregue contadores de rendimiento al archivo de diagnóstico. Los datos de diagnóstico, incluidos los contadores de rendimiento, se recopilan primero en la instancia. Luego, los datos se mantienen en la tabla WADPerformanceCountersTable del servicio de tablas de Azure, por lo que también deberá especificar la cuenta de almacenamiento de su aplicación. Si está probando su aplicación de manera local en el emulador de proceso, también puede almacenar datos de diagnóstico localmente en el emulador de almacenamiento. Antes de almacenar datos de diagnóstico, primero debe ir al [Portal de Azure clásico](http://manage.windowsazure.com/) y crear una cuenta de almacenamiento. Un procedimiento recomendado es ubicar la cuenta de almacenamiento en la misma ubicación geográfica que su aplicación de Azure, para así evitar pagar costes por ancho de banda externo y reducir la latencia.
 
 ### Incorporación de contadores de rendimiento al archivo de diagnóstico
 
@@ -136,7 +136,7 @@ Para el SDK de Azure 2.5, se puede especificar la cuenta de almacenamiento en el
 
 Para definir las cadenas de conexión:
 
-1. Abra el archivo ServiceConfiguration.Cloud.cscfg con el editor de texto de su preferencia y defina la cadena de conexión para su almacenamiento. Los valores *AccountName* y *AccountKey* se encuentran en el Portal de administración en el panel de la cuenta de almacenamiento, en Administrar claves.
+1. Abra el archivo ServiceConfiguration.Cloud.cscfg con el editor de texto de su preferencia y defina la cadena de conexión para su almacenamiento. Los valores *AccountName* y *AccountKey* se encuentran en el Portal de Azure clásico, en el panel de la cuenta de almacenamiento, en Administrar claves.
 
     ```
     <ConfigurationSettings>
@@ -313,4 +313,4 @@ Ahora que ha aprendido los aspectos básicos de la recopilación de contadores d
 
 [Supervisión de servicios en la nube](./how-to-monitor-a-cloud-service.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

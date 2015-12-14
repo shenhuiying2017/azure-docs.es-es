@@ -13,54 +13,75 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 # Cómo administrar su aplicación y proyectos existentes
-La sección de inicio de la interfaz de usuario contiene la lista de todas las aplicaciones de Mis aplicaciones, así como la capacidad para conceder a otros usuarios permisos para las aplicaciones. Cualquier persona puede tener acceso a la página principal de la interfaz de usuario mediante la creación de una cuenta, pero deberá conceder a otros usuarios permisos para que tengan acceso a las aplicaciones personalizadas en Mis proyectos.
 
-### Consulte también
--  [Guía de solución de problemas - Servicio][Link 24]
+
+Este artículo describe la página **Inicio** del portal **Mobile Engagement**. Use el portal **Mobile Engagement** para supervisar y administrar las aplicaciones móviles. Tenga en cuenta que para comenzar a usar el portal en primer lugar debe crear una cuenta **Azure Mobile Engagement**. Para obtener más información, consulte [Crear una cuenta de Azure Mobile Engagement](mobile-engagement-create-account.md).
+ 
+Para ir a la página principal, haga clic en **Inicio** en la parte superior izquierda de la página. Contiene la lista de todas las aplicaciones que forman parte de la colección seleccionada. En esta página solo verá una descripción general rápida de las aplicaciones.
+   
+La página principal también contiene todos los proyectos que pueden incluir cualquier aplicación que se encuentran en su cuenta. Tenga en cuenta que cualquier persona puede tener acceso a la página principal de la interfaz de usuario mediante la creación de una cuenta, pero deberá conceder a otros usuarios permisos para que tengan acceso a las aplicaciones personalizadas en **Mis proyectos**.
+
+También puede ver el gráfico de comparación de las aplicaciones seleccionadas. O bien, puede optar por ver el gráfico de comparación de las aplicaciones seleccionadas en un proyecto.
+
+![Home1][0]
+
 
 ## Mis aplicaciones
-![Home1][2]
 
-Esta información general rápida de las aplicaciones le permite seleccionar qué aplicación desea abrir para ver las opciones detalladas de la cinta de opciones. Puede hacer clic en el nombre de la aplicación para enviar la ubicación de la cinta de opciones visitada más recientemente en la aplicación, o hacer clic en el icono de engranaje para ir directamente a la página "Configuración" de la aplicación. Puede buscar, filtrar u ordenar la información mostrada en las tablas de las aplicaciones. También puede arrastrar y colocar los encabezados de columna para cambiar el orden.
+La información general rápida de las aplicaciones le permite seleccionar qué aplicación desea abrir para ver las opciones detalladas de la cinta de opciones. Puede hacer clic en el nombre de la aplicación para enviar la ubicación de la cinta de opciones visitada más recientemente en la aplicación, o hacer clic en el icono de engranaje para ir directamente a la página "Configuración" de la aplicación. Puede buscar, filtrar u ordenar la información mostrada en las tablas de las aplicaciones. También puede arrastrar y colocar los encabezados de columna para cambiar el orden.
  
-La información general de las aplicaciones incluye:
+Entre otras cosas, la información general de las aplicaciones incluye:
 
-- Total de usuarios (número total de usuarios)
-- Nueva tendencia de usuarios (evolución de nuevos usuarios durante las últimas dos semanas)
-- Usuarios activos (número de usuarios activos durante los últimos 30 días)
-- Tendencia de los usuarios activos (evolución de usuarios activos en las últimas dos semanas)
- 
-También puede ver un gráfico de comparación de las aplicaciones.
+- **Nueva tendencia de usuarios**: (evolución de nuevos usuarios durante las últimas dos semanas).
+- **Usuarios activos**: número de usuarios activos durante los últimos 30 días.
+- **Tendencia de los usuarios activos**: evolución de usuarios activos en las últimas dos semanas.
+- **Sesiones**: una sesión consiste en el uso individual de la aplicación por parte de un usuario, desde el momento en que comienza a usarla hasta que se detiene. 
+- **Tendencias de sesiones**: evolución de las sesiones en las últimas dos semanas.
 
-- Mostrar gráfico de comparación (puede utilizarse para mostrar los datos de la aplicación en forma de gráfico)
-- Casillas de verificación (agregue o quite esta aplicación a o del gráfico de comparación)
+Una vez que se hace clic en una aplicación, puede comenzar a supervisar y administrar las aplicaciones a través de la interfaz de usuario. Por ejemplo:
+
+- [Supervisión de datos en tiempo real sobre la aplicación](mobile-engagement-user-interface-monitor.md)
+- [Análisis de datos históricos sobre la aplicación](mobile-engagement-user-interface-analytics.md)
+- [Creación y administración de segmentos de usuarios para identificar patrones de uso](mobile-engagement-user-interface-segments.md)
+- [Establecimiento de contacto con los usuarios de la aplicación mediante notificaciones push](mobile-engagement-user-interface-reach.md)
  
+## Mis proyectos
+
+Puede usar proyectos para agrupar sus aplicaciones y conceder permisos a otros usuarios para acceder a sus aplicaciones. Se conceden permisos a otros usuarios proporcionando la dirección de correo electrónico. El botón **Proyecto nuevo** permite crear un nuevo proyecto especificando solo un "nombre" y "descripción" del nuevo proyecto. Una vez creado un proyecto, puede hacer clic en el nombre del proyecto para editar el nombre y la descripción del producto y seleccionar todas las aplicaciones que desea ver en este proyecto.
+
+
+![Home6][60]
+
+Entre los roles se incluyen:
+
+- **Visor**: un visor es un usuario que solo puede ver las aplicaciones asociadas a un proyecto. Un visor puede tener acceso a análisis, supervisar datos y examinar los resultados de cobertura. Un visor no puede cambiar la información ni administrar aplicaciones o usuarios. Un visor no puede crear o cambiar el estado de la campaña de cobertura.
+- **Desarrollador**: un desarrollador es un usuario que puede hacer todo lo que un visor, así como administrar las aplicaciones. Un desarrollador puede habilitar y deshabilitar aplicaciones, cambiar la información de las aplicaciones (como el paquete y la firma) y crear campañas de cobertura. Un desarrollador no puede administrar los usuarios. 
+- **Administrador**: un administrador es un usuario que puede hacer todo lo que un programador, así como administrar usuarios. Un administrador puede invitar a los usuarios a participar en un proyecto, puede cambiar los roles de usuario y puede cambiar la información del proyecto. Los permisos de nivel de aplicación también pueden establecerse en "configuración".
+
+
+Haga clic en un proyecto para ver todas las aplicaciones que forman parte de este proyecto. En la imagen siguiente se muestra el gráfico de comparación de las aplicaciones seleccionadas.
+
 ![Home2][3]
 
-## Mis proyectos
-![Home5][6]
 
-Puede utilizar proyectos para agrupar las aplicaciones y conceder permisos a las aplicaciones. El botón Proyectos nuevos permite crear un nuevo proyecto especificando solo un "nombre" y "descripción" del nuevo proyecto. Una vez creado un proyecto, puede hacer clic en el nombre del proyecto para editar el nombre y la descripción del producto y seleccionar todas las aplicaciones que desea ver en este proyecto. También puede eliminar este proyecto, lo cual destruirá las aplicaciones a las que hace referencia. No obstante, perderá acceso a todas las aplicaciones que no le pertenecen y a las que no puede acceder desde otro proyecto. Por lo tanto, tenga cuidado. También puede invitar a un usuario a su proyecto en función de su dirección de correo electrónico.
+## Consulte también
 
-### Entre los roles se incluyen:
-- Visor: un visor es un usuario que solo puede ver las aplicaciones asociadas a un proyecto. Un visor puede tener acceso a análisis, supervisar datos y examinar los resultados de cobertura. Un visor no puede cambiar la información ni administrar aplicaciones o usuarios. Un visor no puede crear o cambiar el estado de la campaña de cobertura.
-- Desarrollador: un desarrollador es un usuario que puede hacer todo lo que un visor, así como administrar las aplicaciones. Un desarrollador puede habilitar y deshabilitar aplicaciones, cambiar la información de las aplicaciones (como el paquete y la firma) y crear campañas de cobertura. Un desarrollador no puede administrar los usuarios. 
-- Administrador: un administrador es un usuario que puede hacer todo lo que un programador, así como administrar usuarios. Un administrador puede invitar a los usuarios a participar en un proyecto, puede cambiar los roles de usuario y puede cambiar la información del proyecto. Los permisos de nivel de aplicación también pueden establecerse en "configuración".
- 
-### Consulte también
--  [Documentación de la interfaz de usuario - Configuración][Link 20]
+- [Conceptos][Link 6]
+- [Guía de solución de problemas - Servicio][Link 24]
 
 <!--Image references-->
+[0]: ./media/mobile-engagement-user-interface-home/home0.png
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
 [2]: ./media/mobile-engagement-user-interface-home/home1.png
 [3]: ./media/mobile-engagement-user-interface-home/home2.png
 [4]: ./media/mobile-engagement-user-interface-home/home3.png
 [5]: ./media/mobile-engagement-user-interface-home/home4.png
 [6]: ./media/mobile-engagement-user-interface-home/home5.png
+[60]: ./media/mobile-engagement-user-interface-home/home6.png
 [7]: ./media/mobile-engagement-user-interface-my-account/myaccount1.png
 [8]: ./media/mobile-engagement-user-interface-my-account/myaccount2.png
 [9]: ./media/mobile-engagement-user-interface-my-account/myaccount3.png
@@ -153,4 +174,4 @@ Puede utilizar proyectos para agrupar las aplicaciones y conceder permisos a las
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

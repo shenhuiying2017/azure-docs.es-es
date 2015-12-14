@@ -23,13 +23,13 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
 
-[MySQL](http://www.mysql.com)L es una conocida base de datos SQL de código abierto. Con el [Portal de Azure](http://manage.windowsazure.com), puede crear una máquina virtual que ejecute Windows Server 2012 R2 desde la galería de imágenes. A continuación, puede instalar y configurarla como un MySQL Server.
+[MySQL](http://www.mysql.com)L es una conocida base de datos SQL de código abierto. Con el [Portal de Azure clásico](http://manage.windowsazure.com), puede crear una máquina virtual que ejecute Windows Server 2012 R2 desde la galería de imágenes. A continuación, puede instalar y configurarla como un MySQL Server.
 
 Para obtener instrucciones acerca de cómo instalar MySQL en Linux, consulte: [Instalación de MySQL en Azure](virtual-machines-linux-install-mysql.md).
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
-- Usar el Portal de Azure para crear una máquina virtual que ejecute Windows Server 2012 R2.
+- Usar el Portal de Azure clásico para crear una máquina virtual que ejecute Windows Server 2012 R2.
 
 - Instale y ejecute la versión 5.6.23 de MySQL de la comunidad como un MySQL Server en la máquina virtual.
 
@@ -59,7 +59,7 @@ Siga estos pasos para instalar, configurar y ejecutar la versión de la comunida
 1.	Una vez conectado a la máquina virtual mediante el Escritorio remoto, haga clic en **Internet Explorer** desde la pantalla de inicio.
 2.	Seleccione el botón **Herramientas** de la esquina superior derecha (el icono de la rueda dentada) y después haga clic en **Opciones de Internet**. Haga clic en la pestaña **Seguridad**, haga clic en el icono **Sitios de confianza** y, a continuación, haga clic en el botón **Sitios**. Agregue http://*.mysql.com a la lista de sitios de confianza. Haga clic en **Cerrar** y después en **Aceptar**.
 3.	En la barra de direcciones de Internet Explorer, escriba http://dev.mysql.com/downloads/mysql/.
-4.	Utilice el sitio de MySQL para buscar y descargar la versión más reciente del instalador de MySQL para Windows. Al elegir el instalador de MySQL, descargue la versión que tenga el conjunto completo de archivos (por ejemplo, mysql-installer-community-5.6.23.0.msi con un tamaño de archivo de 282,4 MB) y guarde el archivo del instalador.
+4.	Utilice el sitio de MySQL para buscar y descargar la versión más reciente del instalador de MySQL para Windows. Al elegir el instalador de MySQL, descargue la versión que tenga el conjunto completo de archivos (por ejemplo, mysql-installer-community-5.6.23.0.msi con un tamaño de archivo de 282,4 MB) y guarde el instalador.
 5.	Cuando el instalador haya terminado de descargarse, haga clic en **Ejecutar** para iniciar el programa de instalación.
 6.	En la página **Contrato de licencia**, acepte el contrato de licencia y haga clic en **Siguiente**.
 7.	En la página **Elección de un tipo de instalación**, haga clic en el tipo de instalación que desee y, a continuación, haga clic en **Siguiente**. Los pasos siguientes presuponen que se ha seleccionado el tipo de instalación **Solo servidor**.
@@ -101,7 +101,7 @@ Si desea que el servicio de MySQL Server esté disponible para los equipos de cl
 
 Para configurar un extremo del servicio de MySQL Server:
 
-1.	En el Portal de Azure, haga clic en **Máquinas virtuales**, haga clic en el nombre de la máquina virtual de MySQL y después, en **Extremos**.
+1.	En el Portal de Azure clásico, haga clic en **Máquinas virtuales**, en el nombre de la máquina virtual de MySQL y, después, en **Puntos de conexión**.
 2.	En la barra de comandos, haga clic en **Agregar**.
 3.	En la página **Agregar un extremo a una máquina virtual**, haga clic en la flecha derecha.
 4.	Si usa el puerto TCP 3306 predeterminado de MySQL, haga clic en **MySQL** en **Nombre** y, a continuación, haga clic en la marca de verificación.
@@ -109,7 +109,7 @@ Para configurar un extremo del servicio de MySQL Server:
 
 ## Agregar una regla de Firewall de Windows para permitir el tráfico de MySQL
 
-Para agregar una regla de Firewall de Windows que permita tráfico de MySQL desde Internet, ejecute el siguiente comando en un símbolo del sistema de Windows PowerShell elevado en la máquina virtual del servidor de MySQL.
+Para agregar una regla de Firewall de Windows que permita tráfico de MySQL desde Internet, ejecute el siguiente comando en un símbolo del sistema de Windows PowerShell con privilegios elevados en la máquina virtual del servidor de MySQL.
 
 	New-NetFirewallRule -DisplayName "MySQL56" -Direction Inbound –Protocol TCP –LocalPort 3306 -Action Allow -Profile Public
 
@@ -120,7 +120,7 @@ Para agregar una regla de Firewall de Windows que permita tráfico de MySQL desd
 
 Para probar la conexión remota con el servicio de MySQL Server que se ejecuta en la máquina virtual de Azure, primero debe determinar el nombre DNS que corresponde al servicio en la nube que contenga la máquina virtual que ejecuta MySQL Server.
 
-1.	En el Portal de Azure, haga clic en **Máquinas virtuales**, haga clic en el nombre de la máquina virtual del servidor de MySQL y después haga clic en **Panel**.
+1.	En el Portal de Azure clásico, haga clic en **Máquinas virtuales**, en el nombre de la máquina virtual del servidor de MySQL y, después, en **Panel**.
 2.	En el panel de la máquina virtual, tenga en cuenta el valor de **Nombre DNS** en la sección **Vista rápida**. Aquí tiene un ejemplo:
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_DNSName.png)
@@ -138,4 +138,4 @@ Para probar la conexión remota con el servicio de MySQL Server que se ejecuta e
 
 Para obtener más información sobre MySQL, consulte la [Documentación de MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

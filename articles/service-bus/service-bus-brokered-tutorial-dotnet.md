@@ -33,11 +33,11 @@ Los siguientes son algunos pasos administrativos y requisitos previos que deben 
 
 1. Para crear un espacio de nombres de servicio, siga los pasos descritos en [Creación o modificación de un espacio de nombres de servicio del Bus de servicio](https://msdn.microsoft.com/library/azure/hh690931.aspx).
 
-1. En la ventana principal del Portal de Azure, haga clic en el nombre del espacio de nombres que creó en el paso anterior.
+1. En la ventana principal del [Portal de Azure clásico][], haga clic en el nombre del espacio de nombres que creó en el paso anterior.
 
 1. Haga clic en **Configurar**.
 
-1. En la sección **Generador de firmas de acceso compartido**, anote la clave principal asociada a la directiva **RootManagerSharedAccessKey** o copíelo en el Portapapeles. Este valor se usará más adelante en este tutorial.
+1. En la sección **Generador de firmas de acceso compartido**, anote la clave principal asociada a la directiva **RootManagerSharedAccessKey** o cópielo en el Portapapeles. Este valor se usará más adelante en este tutorial.
 
 El siguiente paso es crear un proyecto de Visual Studio y escribir dos funciones auxiliares que cargan una lista delimitada por comas de mensajes en un objeto [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .NET [List](https://msdn.microsoft.com/library/6sh2ey19.aspx) fuertemente tipado.
 
@@ -106,8 +106,8 @@ El siguiente paso es crear un proyecto de Visual Studio y escribir dos funciones
 	    publicclass Program
 	    {
 	
-	        privatestatic DataTable issues;
-	        privatestatic List<BrokeredMessage> MessageList;
+	        private static DataTable issues;
+	        private static List<BrokeredMessage> MessageList;
 	```
 
 1. Fuera de `Main()`, defina un método `ParseCSV()` que analice la lista de mensajes de Data.csv y cargue los mensajes en una tabla [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx), como se muestra aquí. El método devuelve un objeto **DataTable**.
@@ -169,7 +169,8 @@ El siguiente paso es crear un proyecto de Visual Studio y escribir dos funciones
 	    // Instantiate the brokered list object
 	    List<BrokeredMessage> result = new List<BrokeredMessage>();
 	
-	    // Iterate through the table and create a brokered message for each rowforeach (DataRow item in issues.Rows)
+	    // Iterate through the table and create a brokered message for each row
+	    foreach (DataRow item in issues.Rows)
 	    {
 	        BrokeredMessage message = new BrokeredMessage();
 	        foreach (DataColumn property in issues.Columns)
@@ -405,7 +406,7 @@ En este paso, cree una cola y envíe los mensajes contenidos en la lista de mens
 	myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
 	```
 
-1. En el método `Queue()`, cree un objeto de fábrica de mensajería con un URI de Bus de servicio recién creado como argumento. Agregue el siguiente código directamente después de las operaciones de administración que agregó en el último paso:
+1. En el método `Queue()`, cree un objeto de fábrica de mensajería con un identificador URI de Bus de servicio recién creado como argumento. Agregue el siguiente código directamente después de las operaciones de administración que agregó en el último paso:
 
 	```
 	MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials);
@@ -631,7 +632,7 @@ En Visual Studio, desde el menú **Compilación**, haga clic en **Generar soluci
 
 1. Antes de ejecutar la aplicación, debe asegurarse de que ha creado un espacio de nombres de servicio y obtenido una clave SAS, tal como se describe en [Introducción y requisitos previos](#introduction-and-prerequisites).
 
-1. Abra un explorador y vaya al [Portal de Azure](http://manage.windowsazure.com).
+1. Abra un explorador y vaya al [Portal de Azure clásico][].
 
 1. Haga clic en **Bus de servicio** en el árbol de la izquierda.
 
@@ -649,4 +650,6 @@ Para obtener más información sobre el [Bus de servicio](https://azure.microsof
 - [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
 - [Arquitectura del Bus de servicio](service-bus-architecture.md)
 
-<!---HONumber=Nov15_HO4-->
+[Portal de Azure clásico]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

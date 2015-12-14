@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Implementación de la aplicación de Service Fabric"
+   pageTitle="Implementación de la aplicación de Service Fabric | Microsoft Azure"
    description="Cómo implementar y quitar aplicaciones de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
@@ -18,19 +18,19 @@
 
 # Implementar una aplicación
 
-Una vez que un [tipo de aplicación se ha empaquetado][10], está listo para la implementación en un clúster de Service Fabric. La implementación implica los tres pasos siguientes:
+Una vez que un [tipo de aplicación se ha empaquetado][10], está listo para la implementación en un clúster de Azure Service Fabric. La implementación implica los tres pasos siguientes:
 
 1. Carga del paquete de aplicación
 2. Registro del tipo de aplicación
 3. Creación de la instancia de aplicación
 
->[AZURE.NOTE]Si usa Visual Studio para implementar y depurar aplicaciones en el clúster de desarrollo local, todos los pasos que se describen a continuación se controlan automáticamente mediante la invocación de los scripts de PowerShell que se encuentra en la carpeta Scripts del proyecto de la aplicación. En este artículo se ofrecen antecedentes acerca de qué hacen esos scripts para que pueda realizar las mismas operaciones fuera de Visual Studio.
+>[AZURE.NOTE]Si usa Visual Studio para implementar y depurar aplicaciones en el clúster de desarrollo local, todos los pasos que se describen a continuación se controlan automáticamente mediante los scripts de PowerShell que se encuentra en la carpeta Scripts del proyecto de la aplicación. En este artículo se ofrecen antecedentes acerca de qué hacen esos scripts para que pueda realizar las mismas operaciones fuera de Visual Studio.
 
 ## Cargar el paquete de la aplicación
 
-La carga del paquete de la aplicación lo coloca en una ubicación accesible por componentes de Service Fabric internos y se puede llevar a cabo a través de PowerShell. Antes de ejecutar los comandos de PowerShell en este artículo, empiece siempre conectándose al clúster de Service Fabric mediante **Conectar ServiceFabricCluster**.
+Cargar el paquete de aplicación lo pone en una ubicación a la que pueden tener acceso los componentes internos de Service Fabric. Puede usar PowerShell para realizar la carga. Antes de ejecutar los comandos de PowerShell en este artículo, empiece siempre usando **Connect-ServiceFabricCluster** para conectarse al clúster de Service Fabric.
 
-Supongamos que tiene una carpeta denominada *MyApplicationType* que contiene el manifiesto de aplicación necesario, los manifiestos de servicio, y los paquetes de código/config/datos; en ese caso, el comando **Copy-ServiceFabricApplicationPackage** cargará el paquete. Por ejemplo:
+Supongamos que tiene una carpeta denominada *MyApplicationType* que contiene el manifiesto de aplicación necesario, los manifiestos de servicio y paquetes de código/configuración/datos. El comando **Copy-ServiceFabricApplicationPackage** cargará el paquete. Por ejemplo:
 
 ~~~
 PS D:\temp> dir
@@ -67,7 +67,7 @@ PS D:\temp>
 
 ## Registrar el paquete de la aplicación
 
-El registro del paquete de la aplicación hace que la versión y el tipo de la aplicación declarados en el manifiesto de aplicación esté disponible para su uso. El sistema leerá el paquete cargado en el paso anterior, comprobará el paquete (equivalente a ejecutar **Test-ServiceFabricApplicationPackage** localmente), procesará el contenido del paquete y copiará el paquete procesado en una ubicación del sistema interno.
+El registro del paquete de aplicación hace que la versión y el tipo de la aplicación declarados en el manifiesto de aplicación esté disponible para su uso. El sistema leerá el paquete cargado en el paso anterior, comprobará el paquete (equivalente a ejecutar **Test-ServiceFabricApplicationPackage** localmente), procesará el contenido del paquete y copiará el paquete procesado en una ubicación del sistema interno.
 
 ~~~
 PS D:\temp> Register-ServiceFabricApplicationType MyApplicationType
@@ -82,13 +82,13 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-El comando **ServiceFabricApplicationType registro** devuelve solo después de que el paquete de la aplicación se haya copiado correctamente por el sistema. El tiempo que tarde dependerá del contenido del paquete de la aplicación. El parámetro **- TimeoutSec** se puede usar para proporcionar un tiempo de espera más largo si es necesario (el tiempo de espera predeterminado es de 60 segundos).
+El comando **Register-ServiceFabricApplicationType** devuelve solo después de que el sistema haya copiado correctamente el paquete de aplicación. El tiempo que tarde dependerá del contenido del paquete de la aplicación. El parámetro **- TimeoutSec** se puede usar para proporcionar un tiempo de espera más largo si es necesario. (El tiempo de espera predeterminado es de 60 segundos).
 
-El comando **ServiceFabricApplicationType Get** enumerará todas las versiones del tipo de aplicación registradas correctamente.
+El comando **Get-ServiceFabricApplicationType** enumera todas las versiones del tipo de aplicación registradas correctamente.
 
 ## Creación de la aplicación
 
-Se puede crear instancias de una aplicación mediante cualquier versión del tipo de aplicación que se ha registrado correctamente mediante el comando **New-ServiceFabricApplication**. El nombre de cada aplicación debe empezar con el esquema *fabric:* y ser únicos para cada instancia de la aplicación. Si había servicios predeterminados definidos en el manifiesto de aplicación del tipo de aplicación de destino, también se crearán en este momento.
+Se puede crear instancias de una aplicación mediante cualquier versión del tipo de aplicación que se ha registrado correctamente mediante el comando **New-ServiceFabricApplication**. El nombre de cada aplicación debe empezar con el esquema *fabric:* y ser únicos para cada instancia de la aplicación. Si se definieron servicios predeterminados en el manifiesto de aplicación del tipo de aplicación de destino, también se crearán en este momento.
 
 ~~~
 PS D:\temp> New-ServiceFabricApplication fabric:/MyApp MyApplicationType AppManifestVersion1
@@ -120,7 +120,7 @@ HealthState            : Ok
 PS D:\temp>
 ~~~
 
-El comando **ServiceFabricApplication Get** enumera todas las instancias de las aplicaciones que se crearon correctamente junto con su estado general.
+El comando **Get-ServiceFabricApplication** enumera todas las instancias de aplicación que se crearon correctamente junto con su estado general.
 
 El comando **ServiceFabricService Get** enumera todas las instancias de servicio que se crearon correctamente dentro de una instancia de aplicación determinada. Aquí se enumerarán los servicios predeterminados (de haberlos).
 
@@ -128,7 +128,7 @@ Pueden crearse varias instancias de aplicación para cualquier versión concreta
 
 ## Eliminación de una aplicación
 
-Cuando ya no se necesite una instancia de aplicación, se puede quitar de manera permanente con el comando **Remove-ServiceFabricApplication**. De esta manera se quitarán automáticamente todos los servicios que pertenecen a la aplicación, quitando de forma permanente todos los estados de servicio. No se puede deshacer esta operación y no se puede recuperar el estado de la aplicación.
+Cuando ya no se necesita una instancia de aplicación, use el comando **Remove-ServiceFabricApplication** para quitarla de manera permanente. Este comando quitará automáticamente todos los servicios que pertenecen a la aplicación, quitando de forma permanente todos los estados de servicio. No se puede deshacer esta operación y no se puede recuperar el estado de la aplicación.
 
 ~~~
 PS D:\temp> Remove-ServiceFabricApplication fabric:/MyApp
@@ -142,7 +142,7 @@ PS D:\temp> Get-ServiceFabricApplication
 PS D:\temp>
 ~~~
 
-Cuando ya no se necesita una versión concreta de un tipo de aplicación, debe anularse su registro mediante el comando **Unregister-ServiceFabricApplicationType**. La eliminación de los tipos sin usar liberará espacio de almacenamiento usado por el contenido del paquete de la aplicación de ese tipo en el almacén de imágenes. No se puede anular el registro de un tipo de aplicación ya que no hay ninguna aplicación con instancias con él o hay actualizaciones de aplicaciones pendientes que hacen referencia a él.
+Cuando ya no se necesita una versión concreta de un tipo de aplicación, debe anularse su registro mediante el comando **Unregister-ServiceFabricApplicationType**. La eliminación de los tipos sin usar liberará espacio de almacenamiento usado por el contenido del paquete de aplicación de ese tipo en el almacén de imágenes. No se puede anular el registro de un tipo de aplicación mientras no haya ninguna aplicación con instancias con él o no haya actualizaciones de aplicaciones pendientes que hagan referencia a él.
 
 ~~~
 PS D:\temp> Get-ServiceFabricApplicationType
@@ -185,7 +185,7 @@ TODO [Upgrade applications][11]
 
 ### Copy-ServiceFabricApplicationPackage pide una ImageStoreConnectionString
 
-El entorno del SDK de Service Fabric ya debe tener configurados los valores predeterminados correctos. Pero si es necesario, la ImageStoreConnectionString para todos los comandos debe coincidir con el valor que está usando el clúster de Service Fabric, que se puede encontrar en el manifiesto de clúster recuperado con el comando **ServiceFabricClusterManifest Get**:
+El entorno del SDK de Service Fabric ya debe tener configurados los valores predeterminados correctos. Pero si es necesario, ImageStoreConnectionString para todos los comandos debe coincidir con el valor que usa el clúster de Service Fabric. Puede encontrarlo en el manifiesto de clúster recuperado a través del comando **Get-ServiceFabricClusterManifest**:
 
 ~~~
 PS D:\temp> Copy-ServiceFabricApplicationPackage .\MyApplicationType
@@ -224,6 +224,5 @@ PS D:\temp>
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

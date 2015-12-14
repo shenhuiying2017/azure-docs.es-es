@@ -129,7 +129,7 @@ Estas capacidades a menudo se migran posteriormente a herramientas como [Puppet]
 
 Más recientemente, Azure presentó la API de REST de [Administración de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md) y herramientas actualizadas de PowerShell y CLI de Azure para un uso más sencillo. Puede implementar, modificar o volver a implementar topologías de toda la aplicación mediante [plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md) con la API de administración de recursos de Azure usando:
 
-- el [portal de vista previa de Azure mediante plantillas](https://github.com/Azure/azure-quickstart-templates)&mdash;sugerencia, use el botón "Implementar en Azure"
+- el [Portal de Azure mediante plantillas](https://github.com/Azure/azure-quickstart-templates)&mdash;sugerencia, use el botón "Implementar en Azure"
 - la [CLI de Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
 - los [módulos de Azure PowerShell](virtual-machines-deploy-rmtemplates-azure-cli.md).
 
@@ -187,7 +187,7 @@ Docker en Microsoft Azure:
 - [Extensión de la máquina virtual de Docker para Linux en Azure](virtual-machines-docker-vm-extension.md)
 - [Guía de usuario de la extensión de máquina virtual de Azure Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 - [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)](virtual-machines-docker-with-xplat-cli-install.md)
-- [Uso de la extensión de la máquina virtual de Docker desde el Portal de vista previa de Azure](virtual-machines-docker-with-portal.md)
+- [Uso de la extensión de la máquina virtual de Docker con el Portal de Azure](virtual-machines-docker-with-portal.md)
 - [Introducción rápida a Docker en Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
 - [Cómo usar una máquina Docker en Azure](virtual-machines-docker-machine.md)
 - [Cómo usar Docker con Swarm en Azure](virtual-machines-docker-swarm.md)
@@ -240,4 +240,4 @@ Desmarque [Docker](https://www.docker.com) y [Contenedores de Windows Server](ht
 [microservicio]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

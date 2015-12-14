@@ -92,7 +92,7 @@ Internamente, esta extensión usa las clases PublicConfiguration y PrivateConfig
 
 Puede seguir uno de los dos pasos siguientes para agregar AzureLogCollector a una o varias instancias de un servicio en la nube o una máquina virtual de los roles seleccionados, que desencadena las recopilaciones en cada máquina virtual que ejecute y envíe los archivos recopilados a la cuenta de Azure especificada.
 
-## Adición de AzureLogCollector como una extensión de servicio
+## Agregar como extensión de servicio
 
 1. Siga las instrucciones para conectar Azure PowerShell a la suscripción.
 
@@ -186,7 +186,7 @@ A continuación se indica la definición de los parámetros pasados al script. (
       { String Name, String Location, String SearchPattern, Bool Recursive }
              
             
-## Adición de AzureLogCollector como una extensión de máquina virtual
+## Agregar como extensión de servicio de máquina virtual
 
 Siga las instrucciones para conectar Azure PowerShell a la suscripción.
 
@@ -521,4 +521,4 @@ SetAzureVMLogCollector.ps1
 
 Ahora puede examinar o copiar los registros desde una ubicación muy sencilla.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

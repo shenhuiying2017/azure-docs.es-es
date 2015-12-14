@@ -22,7 +22,7 @@
 
 El análisis de almacenamiento de Azure realiza el registro y proporciona datos de métricas para una cuenta de almacenamiento. Puede usar estos datos para hacer un seguimiento de solicitudes, analizar tendencias de uso y diagnosticar problemas con la cuenta de almacenamiento.
 
-Para utilizar el análisis de almacenamiento, debe habilitarlo para cada servicio que desee supervisar. Puede habilitarlo desde el [Portal de Azure](https://manage.windowsazure.com/). Para obtener más información, consulte [Supervisión de una cuenta de almacenamiento](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/). También puede habilitar el análisis de almacenamiento mediante programación a través de la API de REST o la biblioteca de cliente. Use las operaciones [Get Blob Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), [Get Queue Service Properties](https://msdn.microsoft.com/library/hh452243.aspx) y [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) para habilitar el Análisis de almacenamiento para cada servicio.
+Para utilizar el análisis de almacenamiento, debe habilitarlo para cada servicio que desee supervisar. Puede habilitarlo desde el [Portal de Azure](portal.azure.com). Para obtener más información, consulte [Supervisión de una cuenta de almacenamiento](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/). También puede habilitar el análisis de almacenamiento mediante programación a través de la API de REST o la biblioteca de cliente. Use las operaciones [Get Blob Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), [Get Queue Service Properties](https://msdn.microsoft.com/library/hh452243.aspx) y [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) para habilitar el Análisis de almacenamiento para cada servicio.
 
 Los datos agregados se almacenan en un blob conocido (para el registro) y en tablas conocidas (para las métricas), a los que se puede tener acceso mediante las API del servicio Blob y del servicio Tabla.
 
@@ -126,7 +126,7 @@ Se puede tener acceso a todos los datos del contenedor `$logs` utilizando las AP
 
 El análisis de almacenamiento puede almacenar métricas que incluyen estadísticas acumuladas de las transacciones y datos de capacidad sobre las solicitudes realizadas a un servicio de almacenamiento. Las transacciones se notifican tanto en el nivel de operación de API como en el nivel de servicio de almacenamiento, y la capacidad se notifica en el nivel de servicio de almacenamiento. Los datos de las métricas se pueden utilizar para analizar el uso del servicio de almacenamiento, diagnosticar problemas con las solicitudes realizadas en el mismo y mejorar el rendimiento de las aplicaciones que utilizan un servicio.
 
-Para utilizar el análisis de almacenamiento, debe habilitarlo para cada servicio que desee supervisar. Puede habilitarlo desde el [Portal de Azure](https://manage.windowsazure.com/). Para obtener más información, consulte [Supervisión de una cuenta de almacenamiento](../how-to-monitor-a-storage-account.md). También puede habilitar el análisis de almacenamiento mediante programación a través de la API de REST o la biblioteca de cliente. [Use las operaciones Get Blob Service Properties, Get Queue Service Properties](https://msdn.microsoft.com/library/hh452239.aspx) y [Get Table Service Properties para habilitar el Análisis de almacenamiento](https://msdn.microsoft.com/library/hh452238.aspx) para cada servicio.
+Para utilizar el análisis de almacenamiento, debe habilitarlo para cada servicio que desee supervisar. Puede habilitarlo desde el [Portal de Azure](portal.azure.com). Para obtener más información, consulte [Supervisión de una cuenta de almacenamiento](../how-to-monitor-a-storage-account.md). También puede habilitar el análisis de almacenamiento mediante programación a través de la API de REST o la biblioteca de cliente. [Use las operaciones Get Blob Service Properties, Get Queue Service Properties](https://msdn.microsoft.com/library/hh452239.aspx) y [Get Table Service Properties para habilitar el Análisis de almacenamiento](https://msdn.microsoft.com/library/hh452238.aspx) para cada servicio.
 
 ### Métricas de transacciones
 
@@ -206,4 +206,4 @@ Al examinar los datos de análisis de almacenamiento, puede usar las tablas del 
 - [Esquema de las tablas de métricas del análisis de almacenamiento](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Operaciones y mensajes de estado registrados por el análisis de almacenamiento](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

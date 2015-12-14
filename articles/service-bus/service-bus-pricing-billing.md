@@ -33,7 +33,7 @@ El nivel **Premium** proporciona aislamiento de recursos en el nivel de CPU y me
 
 Tenga en cuenta que el cargo base estándar de la base se cobra solo una vez al mes por suscripción de Azure. Esto significa que cuando cree un espacio de nombres de Bus de servicio de nivel Estándar o Premium, podrá crear tantos espacios de nombre de nivel Estándar o Premium como quiera dentro de esa misma suscripción de Azure, sin incurrir en cargos base adicionales.
 
-Todos los espacios de nombres de Bus de servicio existentes creados antes del 1 de noviembre de 2014 pasarán automáticamente a formar parte del nivel Estándar. Esto garantiza que continuará teniendo acceso a todas las características disponibles actualmente con Bus de servicio. Posteriormente, puede usar el Portal de Azure para cambiar al nivel Básico, si lo desea.
+Todos los espacios de nombres de Bus de servicio existentes creados antes del 1 de noviembre de 2014 pasarán automáticamente a formar parte del nivel Estándar. Esto garantiza que continuará teniendo acceso a todas las características disponibles actualmente con Bus de servicio. Posteriormente, puede usar el [Portal de Azure clásico][] para cambiar al nivel Básico, si lo desea.
 
 En la tabla siguiente se resumen las diferencias funcionales entre los niveles Básico, Estándar y Premium.
 
@@ -106,7 +106,7 @@ El nivel Básico incluye 100 conexiones asíncronas (y está estrictamente limit
 |---|
 |No se cobran las conexiones asíncronas en el nivel Premium.|
 
-Para obtener más información acerca de las conexiones asíncronas, consulte la sección de [preguntas más frecuentes](#FAQ) más adelante en este tema.
+Para obtener más información sobre las conexiones asincrónicas, consulte la sección [Preguntas más frecuentes](#FAQ) más adelante en este tema.
 
 ## Retransmisión
 
@@ -147,4 +147,6 @@ Sí. No hay ningún cargo de conexión por el envío de eventos mediante HTTP, i
 
 [P+F de precios de Bus de servicio](service-bus-pricing-faq.md)
 
-<!---HONumber=Oct15_HO3-->
+[Portal de Azure clásico]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

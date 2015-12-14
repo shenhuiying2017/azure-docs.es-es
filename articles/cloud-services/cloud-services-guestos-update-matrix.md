@@ -135,7 +135,7 @@ El lanzamiento del SO invitado de diciembre está previsto para iniciarse a part
 
 ## Información de los lanzamientos del SO invitado
 
-Esta sección enumera las versiones del SO invitado compatibles actualmente. Las versiones y familias del SO invitado tienen una fecha de lanzamiento, una fecha de deshabilitación y una fecha de expiración. A partir de la fecha de lanzamiento, una versión de SO invitado se puede seleccionar manualmente en el portal de administración. Un SO invitado se quita del portal de administración en o después de la fecha "deshabilitada". A continuación, está "en transición", pero se admite con capacidad limitada para actualizar una implementación. La fecha de expiración tiene lugar cuando una versión o familia está programada para quitarse del sistema de Azure completamente. Los servicios en la nube que se estén ejecutando en una versión cuando esta expire se detendrán, eliminarán o se forzará su actualización a una versión más reciente, como se detalla en la [directiva de compatibilidad y retirada del SO invitado de Azure][retirepolicy].
+Esta sección enumera las versiones del SO invitado compatibles actualmente. Las versiones y familias del SO invitado tienen una fecha de lanzamiento, una fecha de deshabilitación y una fecha de expiración. A partir de la fecha de lanzamiento, una versión de SO invitado se puede seleccionar manualmente en el Portal de Azure clásico. Un SO invitado se quita del Portal de Azure clásico en la fecha en que se "deshabilita" o después. A continuación, está "en transición", pero se admite con capacidad limitada para actualizar una implementación. La fecha de expiración tiene lugar cuando una versión o familia está programada para quitarse del sistema de Azure completamente. Los servicios en la nube que se estén ejecutando en una versión cuando esta expire se detendrán, eliminarán o se forzará su actualización a una versión más reciente, como se detalla en la [directiva de compatibilidad y retirada del SO invitado de Azure][retirepolicy].
 
 Microsoft es compatible con al menos dos versiones recientes de cada familia del SO invitado admitida. Puede mover la fecha de deshabilitación de una versión de SO invitado existente a una fecha posterior para asegurarse de que al menos dos versiones lanzadas estén habilitadas para la implementación.
 
@@ -149,7 +149,7 @@ La **familia del SO invitado** corresponde a una versión de sistema operativo d
 
 Una **"versión de SO invitado"** es la imagen de familia de SO más las revisiones relevantes del [Centro de respuestas de seguridad de Microsoft (MSRC)][msrc] disponibles en la fecha en que se genera la nueva versión del SO invitado. Es posible que no se incluyan todas las revisiones. Los números empiezan por 0 y se incrementan en 1 cada vez que se agrega un nuevo conjunto de actualizaciones. Solo se muestran los ceros finales si es importante. Es decir, la versión 2.10 es una versión mucho más posterior y diferente que la versión 2.1.
 
-Una **"versión del SO invitado"** hace referencia a un lanzamiento de una versión del SO invitado. Un relanzamiento se produce si Microsoft encuentra problemas durante las pruebas que requieren cambios. El lanzamiento más reciente siempre reemplaza a los lanzamientos anteriores, ya sean públicos o no. El portal de administración solo permitirá a los usuarios elegir el lanzamiento más reciente de una versión concreta. Las implementaciones que se ejecutan en un lanzamiento anterior no suelen ser una actualización forzada, según la gravedad del error.
+Una **"versión del SO invitado"** hace referencia a un lanzamiento de una versión del SO invitado. Un relanzamiento se produce si Microsoft encuentra problemas durante las pruebas que requieren cambios. El lanzamiento más reciente siempre reemplaza a los lanzamientos anteriores, ya sean públicos o no. El portal de Azure clásico solo permitirá a los usuarios elegir el lanzamiento más reciente de una versión concreta. Las implementaciones que se ejecutan en un lanzamiento anterior no suelen ser una actualización forzada, según la gravedad del error.
 
 En el ejemplo siguiente, 2 es la familia, 12 es la versión y "rel2" es el lanzamiento.
 
@@ -282,7 +282,7 @@ Esta página incluye información sobre los próximos lanzamientos del SO invita
 
 Microsoft Azure publica actualizaciones constantemente. El SO invitado es solo una de estas actualizaciones en la canalización. Un lanzamiento puede verse afectado por una cantidad de factores tal que no se puede enumerar aquí. Además, Azure se ejecuta literalmente en cientos de miles de máquinas. Esto significa que es imposible especificar una fecha y hora exacta de reinicio de los roles. Actualizaremos la [fuente RSS del SO invitado][rss] con la información más reciente que tengamos, pero se debe considera la fecha como un período aproximado. Somos conscientes de que esto es problemático para los clientes y estamos trabajando en un plan limitar o regular los reinicios.
 
-Cuando se publica un nuevo lanzamiento del SO invitado, puede tardar tiempo en propagarse completamente en Azure. A medida que los servicios se actualizan al nuevo SO invitado, estos se reinician respetando los dominios de actualización. Los servicios configurados para usar actualizaciones "Automáticas" serán los primeros en obtener el lanzamiento. Después de la actualización, verá la nueva versión del SO invitado para el servicio en el Portal de administración de Azure. Durante ese período se pueden producir relanzamientos. Algunas versiones se pueden implementar durante largos períodos de tiempo y puede que no se produzcan actualizaciones reinicios de actualizaciones automáticas durante muchas semanas después de la fecha de lanzamiento oficial. Una vez que un SO invitado está disponible, puede elegir esa versión explícitamente desde el portal o en el archivo de configuración.
+Cuando se publica un nuevo lanzamiento del SO invitado, puede tardar tiempo en propagarse completamente en Azure. A medida que los servicios se actualizan al nuevo SO invitado, estos se reinician respetando los dominios de actualización. Los servicios configurados para usar actualizaciones "Automáticas" serán los primeros en obtener el lanzamiento. Después de la actualización, verá la nueva versión del SO invitado para el servicio en el Portal de Azure clásico. Durante ese período se pueden producir relanzamientos. Algunas versiones se pueden implementar durante largos períodos de tiempo y puede que no se produzcan actualizaciones reinicios de actualizaciones automáticas durante muchas semanas después de la fecha de lanzamiento oficial. Una vez que un SO invitado está disponible, puede elegir esa versión explícitamente desde el portal o en el archivo de configuración.
 
 Para una gran cantidad de información valiosa sobre los reinicios y punteros para obtener más información técnica detallada de las actualizaciones de SO invitado y de SO host, consulte la entrada de blog de MSDN titulada [Reinicios de instancias de rol debido a actualizaciones del SO][restarts].
 
@@ -324,7 +324,7 @@ Debido a la implementación parcial de los dos últimos lanzamientos, los usuari
 
 1. Los cambios de cifrado indicados en Diferencias entre el SO invitado de Azure y Windows Server predeterminado no se han implementado en todo Azure. Los clientes que no disponen de los lanzamientos de agosto o septiembre recibirán estos cambios en el lanzamiento de octubre. 
 
-2. Los SO invitados de agosto y septiembre se han deshabilitado en el Portal de administración. No se pueden elegir manualmente. Esto es para protegerle frente a problemas que pudieran surgir si selecciona esta versión del SO invitado.
+2. Los SO invitados de agosto y septiembre se han deshabilitado en el Portal de Azure clásico. No se pueden elegir manualmente. Esto es para protegerle frente a problemas que pudieran surgir si selecciona esta versión del SO invitado.
 
 3. Las fechas deshabilitadas de algunos lanzamientos anteriores se han adelantado. Esto sirve para garantizar la disponibilidad continua en el portal y admitir al menos dos versiones de SO invitado en cada familia.
 
@@ -394,4 +394,4 @@ Debido a la implementación parcial de los dos últimos lanzamientos, los usuari
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

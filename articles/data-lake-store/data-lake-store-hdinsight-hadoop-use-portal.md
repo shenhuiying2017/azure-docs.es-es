@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Aprovisionamiento de clústeres de Hadoop en HDInsight con el Almacén de Azure Data Lake mediante el Portal | Azure" 
-   description="Use el Portal de vista previa de Azure para configurar y usar clústeres de Hadoop en HDInsight con el Almacén de Azure Data Lake" 
+   description="Use el Portal de Azure para configurar y usar clústeres de Hadoop en HDInsight con el Almacén de Azure Data Lake" 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -16,21 +16,21 @@
    ms.date="11/13/2015"
    ms.author="nitinme"/>
 
-# Aprovisionamiento de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de vista previa de Azure
+# Aprovisionamiento de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Aprenda a usar el Portal de vista previa de Azure para configurar un clúster de HDInsight (Hadoop, HBase o Storm) para trabajar con un Almacén de Azure Data Lake. Algunas consideraciones importantes sobre esta versión:
+Aprenda a usar el Portal de Azure para configurar un clúster de HDInsight (Hadoop, HBase o Storm) para trabajar con un Almacén de Azure Data Lake. Algunas consideraciones importantes sobre esta versión:
 
 * **En clústeres de Hadoop y Storm (Windows y Linux)**, el almacén de Data Lake solo puede usarse como cuenta de almacenamiento adicional. La cuenta de almacenamiento predeterminada para los clústeres de este tipo seguirán Blobs de almacenamiento de Azure (WASB).
 
 * **En clústeres HBase (Windows y Linux)**, el almacén de Data Lake puede usarse como almacenamiento predeterminado o almacenamiento adicional.
 
 
-En este artículo, aprovisionamos un clúster de Hadoop con el Almacén de Data Lake como almacenamiento adicional. La configuración de HDInsight para trabajar con el Almacén de Data Lake mediante el Portal de vista previa de Azure consta de los pasos siguientes:
+En este artículo, aprovisionamos un clúster de Hadoop con el Almacén de Data Lake como almacenamiento adicional. La configuración de HDInsight para trabajar con el Almacén de Data Lake mediante el Portal de Azure consta de los pasos siguientes:
 
 * Creación de un clúster de HDInsight con autenticación ante una entidad de servicio de Azure Active Directory
 * Configuración del acceso al Almacén de Data Lake con la misma entidad de servicio
@@ -40,7 +40,7 @@ En este artículo, aprovisionamos un clúster de Hadoop con el Almacén de Data 
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/es-ES/pricing/free-trial/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Habilite su suscripción de Azure** para la versión de vista previa pública del almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
 
 
@@ -48,7 +48,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 En esta sección, se crea un clúster de Hadoop en HDInsight que usa el Almacén de Data Lake como almacenamiento adicional. En esta versión, para un clúster de Hadoop, el Almacén de Data Lake solo sirve como almacenamiento adicional para el clúster. El almacenamiento predeterminado seguirá siendo los blobs de almacenamiento de Azure (WASB). En primer lugar, crearemos la cuenta de almacenamiento y los contenedores de almacenamiento necesarios para el clúster.
 
-1. Inicie sesión en el nuevo [Portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el nuevo [Portal de Azure](https://portal.azure.com).
 
 2. Siga los pasos descritos en [Creación de clústeres de Hadoop en HDInsight](../hdinsight/hdinsight-provision-clusters.md#create-using-the-preview-portal) para iniciar el aprovisionamiento de un clúster de HDInsight.
  
@@ -83,9 +83,9 @@ En esta sección, se crea un clúster de Hadoop en HDInsight que usa el Almacén
 
 ## <a name="acl"></a>Configuración de la entidad de servicio para acceder al sistema de archivos del Almacén de Data Lake
 
-1. Inicie sesión en el nuevo [Portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el nuevo [Portal de Azure](https://portal.azure.com).
 
-2. Si no tiene una cuenta de Almacén de Data Lake, créela. Siga las instrucciones que se describen en [Introducción al Almacén de Azure Data Lake mediante el Portal de vista previa de Azure](data-lake-store-get-started-portal.md).
+2. Si no tiene una cuenta de Almacén de Data Lake, créela. Siga las instrucciones que se describen en [Introducción al Almacén de Azure Data Lake mediante el Portal de Azure](data-lake-store-get-started-portal.md).
 
 	Si ya tiene una cuenta de Almacén de Data Lake, en el panel izquierdo, haga clic en **Examinar**, en **Almacén de Data Lake** y después en el nombre de cuenta a la que desea conceder acceso.
 
@@ -167,7 +167,7 @@ Después de configurar un clúster de HDInsight, puede ejecutar trabajos de prue
 
 Una vez que configure el clúster de HDInsight para que use el Almacén de Data Lake, puede usar los comandos de shell de HDFS para acceder al almacén.
 
-1. Inicie sesión en el nuevo [Portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el nuevo [Portal de Azure](https://portal.azure.com).
 
 2. Haga clic en **Examinar**, en **Clústeres de HDInsight** y después en el clúster de HDInsight que creó.
 
@@ -207,4 +207,4 @@ Para obtener instrucciones sobre cómo agregar una entidad de servicio a un sist
 [makecert]: https://msdn.microsoft.com/es-ES/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/es-ES/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

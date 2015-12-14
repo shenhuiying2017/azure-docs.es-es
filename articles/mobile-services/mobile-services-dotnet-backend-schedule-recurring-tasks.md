@@ -1,28 +1,33 @@
-<properties 
+<properties
 	pageTitle="Programación de tareas back-end en un servicio móvil back-end de .NET | Microsoft Azure"
 	description="Use el programador de Servicios móviles de Azure para definir trabajos back-end de .NET que se ejecutan según una programación."
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/14/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/14/2015"
 	ms.author="glenga"/>
 
-# Programación de trabajos periódicos en Servicios móviles 
+# Programación de trabajos periódicos en Servicios móviles
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [Javascript backend](mobile-services-schedule-recurring-tasks.md)
- 
-Este tema le muestra cómo usar la funcionalidad del programador de trabajos en el Portal de administración para definir el código de script de servidor que se ejecuta según el programa que establezca. En este caso, se realiza una comprobación periódica del script con un servicio remoto (Twitter) y se almacenan los resultados en una nueva tabla. Entre las demás tareas periódicas que pueden programarse se incluyen las siguientes:
+
+Este tema le muestra cómo usar la funcionalidad del programador de trabajos en el Portal de Azure clásico para definir el código de script de servidor que se ejecuta según la programación que establezca. En este caso, se realiza una comprobación periódica del script con un servicio remoto (Twitter) y se almacenan los resultados en una nueva tabla. Entre las demás tareas periódicas que pueden programarse se incluyen las siguientes:
 
 + Archivado de registros de datos antiguos o duplicados.
 + Solicitud y almacenamiento de datos externos, como tweets, entradas RSS e información de ubicación.
@@ -36,7 +41,7 @@ Este tutorial le guiará en el uso del programador de trabajos para crear un tra
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../../includes/mobile-services-register-twitter-access.md)]
 
-&nbsp;&nbsp;7. En el Explorador de soluciones de Visual Studio, abra el archivo web.config del proyecto de servicio móvil, busque los valores `MS_TwitterConsumerKey` y `MS_TwitterConsumerSecret` de la aplicación y reemplace los valores de estas claves por los valores de clave de usuario y secreto de usuario de Twitter que ha establecido en el portal.
+&nbsp;&nbsp;7. En el Explorador de soluciones de Visual Studio, abra el archivo web.config del proyecto de servicio móvil, busque los valores de las claves `MS_TwitterConsumerKey` y `MS_TwitterConsumerSecret` de la aplicación y reemplácelos por los valores de clave de usuario y secreto de usuario de Twitter que ha establecido en el portal.
 
 &nbsp;&nbsp;8. En la misma sección, agregue los siguientes nuevos valores de configuración, reemplazando los marcadores de posición por los valores de secreto de token de acceso y token de acceso de Twitter que ha establecido como valores de la aplicación en el portal:
 
@@ -63,20 +68,20 @@ A continuación, tendrá que crear una nueva tabla en la que almacenar tweets.
 
 	De esta forma se crea un nuevo archivo de proyecto para la clase Updates.
 
-2. Haga clic con el botón secundario en **Referencias** > **Agregar referencia...** > **Framework** en **Ensamblados**, active **System.ComponentModel.DataAnnotations** y haga clic en **Aceptar**.
+2. Haga clic con el botón derecho en **Referencias** > **Agregar referencia...** > **Framework** en **Ensamblados**, active **System.ComponentModel.DataAnnotations** y haga clic en **Aceptar**.
 
 	![][7]
 
 	De esta forma, se agrega una nueva referencia de ensamblado.
 
 2. En esta nueva clase, agregue la siguiente instrucción **using**:
- 
+
 		using Microsoft.WindowsAzure.Mobile.Service;
 		using System.ComponentModel.DataAnnotations;
 
 3. Sustituya la definición de clase **Updates** por el siguiente código:
 
-		public class Updates 
+		public class Updates
 	    {
 	        [Key]
 	        public int UpdateId { get; set; }
@@ -86,7 +91,7 @@ A continuación, tendrá que crear una nueva tabla en la que almacenar tweets.
 	        public DateTime Date { get; set; }
     	}
 
-4. Expanda la carpeta Models, abra el archivo de contexto del modelo de datos (denominado *nombre\_servicio*Context.cs) y agregue la siguiente propiedad, que devuelve un objeto **DbSet** con tipo:
+4. Expanda la carpeta Modelos, abra el archivo de contexto del modelo de datos (denominado *nombre\_servicio*Context.cs) y agregue la siguiente propiedad, que devuelve un objeto **DbSet** con tipo:
 
 		public DbSet<Updates> Updates { get; set; }
 
@@ -96,14 +101,14 @@ A continuación, tendrá que crear una nueva tabla en la que almacenar tweets.
 
 A continuación, cree el trabajo programado que obtiene acceso a Twitter y almacena los datos de tweets en la nueva tabla de actualizaciones.
 
-##<a name="add-job"></a>Creación de un nuevo trabajo programado  
+##<a name="add-job"></a>Creación de un nuevo trabajo programado
 
 1. Expanda la carpeta ScheduledJobs y abra el archivo de proyecto SampleJob.cs.
 
-	Esta clase, que se hereda de **ScheduledJob**, representa un trabajo que se puede programar en el Portal de administración de Azure para ejecutarse con una programación fija o a petición.
+	Esta clase, que se hereda de **ScheduledJob**, representa un trabajo que se puede programar en el Portal de Azure clásico para ejecutarse con una programación fija o a petición.
 
 2. Reemplace el contenido de SampleJob.cs por el código siguiente.
- 
+
 		using System;
 		using System.Linq;
 		using System.Threading;
@@ -114,7 +119,7 @@ A continuación, cree el trabajo programado que obtiene acceso a Twitter y almac
 		using LinqToTwitter;
 		using todolistService.Models;
 		using todolistService.DataObjects;
-		
+
 		namespace todolistService
 		{
 		    // A simple scheduled job which can be invoked manually by submitting an HTTP
@@ -124,29 +129,29 @@ A continuación, cree el trabajo programado que obtiene acceso a Twitter y almac
 		        private todolistContext context;
 		        private string accessToken;
 		        private string accessTokenSecret;
-		
-		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, 
+
+		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor,
 					CancellationToken cancellationToken)
 		        {
 		            base.Initialize(scheduledJobDescriptor, cancellationToken);
-		
+
 		            // Create a new context with the supplied schema name.
 		            context = new todolistContext();
 		        }
-		
+
 		        public async override Task ExecuteAsync()
-		        {            
-		            // Try to get the stored Twitter access token from app settings.  
+		        {
+		            // Try to get the stored Twitter access token from app settings.
 		            if (!(Services.Settings.TryGetValue("TWITTER_ACCESS_TOKEN", out accessToken) |
 		            Services.Settings.TryGetValue("TWITTER_ACCESS_TOKEN_SECRET", out accessTokenSecret)))
 		            {
 		                Services.Log.Error("Could not retrieve Twitter access credentials.");
 		            }
-		
+
 		            // Create a new authorizer to access Twitter v1.1 APIs
 		            // using single-user OAUth 2.0 credentials.
 		            MvcAuthorizer auth = new MvcAuthorizer();
-		            SingleUserInMemoryCredentialStore store = 
+		            SingleUserInMemoryCredentialStore store =
 		                new SingleUserInMemoryCredentialStore()
 		            {
 		                ConsumerKey = Services.Settings.TwitterConsumerKey,
@@ -154,13 +159,13 @@ A continuación, cree el trabajo programado que obtiene acceso a Twitter y almac
 		                OAuthToken = accessToken,
 		                OAuthTokenSecret = accessTokenSecret
 		            };
-		
+
 		            // Set the credentials for the authorizer.
 		            auth.CredentialStore = store;
-		
+
 		            // Create a new LINQ to Twitter context.
 		            TwitterContext twitter = new TwitterContext(auth);
-		
+
 		            // Get the ID of the most recent stored tweet.
 		            long lastTweetId = 0;
 		            if (context.Updates.Count() > 0)
@@ -170,7 +175,7 @@ A continuación, cree el trabajo programado que obtiene acceso a Twitter y almac
 		                               select u).Take(1).SingleOrDefault()
 		                                            .TweetId;
 		            }
-		
+
 		            // Execute a search that returns a filtered result.
 		            var response = await (from s in twitter.Search
 		                                  where s.Type == SearchType.Search
@@ -178,13 +183,13 @@ A continuación, cree el trabajo programado que obtiene acceso a Twitter y almac
 		                                  && s.SinceID == Convert.ToUInt64(lastTweetId + 1)
 		                                  && s.ResultType == ResultType.Recent
 		                                  select s).SingleOrDefaultAsync();
-		
+
 		            // Remove retweets and replies and log the number of tweets.
 		            var filteredTweets = response.Statuses
 		                .Where(t => !t.Text.StartsWith("RT") && t.InReplyToUserID == 0);
 		            Services.Log.Info("Fetched " + filteredTweets.Count()
 		                + " new tweets from Twitter.");
-		
+
 		            // Store new tweets in the Updates table.
 		            foreach (Status tweet in filteredTweets)
 		            {
@@ -196,10 +201,10 @@ A continuación, cree el trabajo programado que obtiene acceso a Twitter y almac
 		                        Author = tweet.User.Name,
 		                        Date = tweet.CreatedAt
 		                    };
-		
+
 		                context.Updates.Add(newTweet);
 		            }
-		
+
 		            await context.SaveChangesAsync();
 		        }
 		        protected override void Dispose(bool disposing)
@@ -213,8 +218,8 @@ A continuación, cree el trabajo programado que obtiene acceso a Twitter y almac
 		    }
 		}
 
-	En el código anterior, debe reemplazar las cadenas _todolistService_ y _todolistContext_ por el espacio de nombres y DbContext del proyecto descargado, que son el servicio *mobile&#95;service&#95;name*Service y *mobile&#95;service&#95;name*Context, respectivamente.
-   	
+	En el código anterior, debe reemplazar las cadenas _todolistService_ y _todolistContext_ por el espacio de nombres y DbContext del proyecto descargado, que son *mobile&#95;service&#95;name*Service y *mobile&#95;service&#95;name*Context, respectivamente.
+
 	En el código anterior, el método de invalidación **ExecuteAsync** llama a la API de consulta de Twitter mediante las credenciales almacenadas para solicitar los tweets recientes que contienen el hashtag `#mobileservices`. Las respuestas y tweets duplicados se quitan de los resultados antes de almacenarse en la tabla.
 
 ##<a name="run-job-locally"></a>Prueba local del trabajo programado
@@ -228,7 +233,7 @@ Los trabajos programados se pueden probar de forma local antes de publicarlos en
 2. Haga clic en **probarlo** y luego en **POST jobs/{jobName}**.
 
 	![][8]
- 
+
 4. Haga clic en **probar esto**, escriba `Sample` como valor del parámetro **{jobName}** y haga clic en **Enviar**.
 
 	![][9]
@@ -239,20 +244,20 @@ Los trabajos programados se pueden probar de forma local antes de publicarlos en
 
 	Los nuevos tweets se introducen como filas en la tabla de datos.
 
-##<a name="register-job"></a>Publicación del servicio y registro del nuevo trabajo 
+##<a name="register-job"></a>Publicación del servicio y registro del nuevo trabajo
 
 El trabajo debe registrarse en la pestaña **Programador** para que los Servicios móviles puedan ejecutarlo en la programación que defina.
 
-3. Vuelva a publicar el proyecto de servicio móvil en Azure. 
+3. Vuelva a publicar el proyecto de servicio móvil en Azure.
 
-4. En el [Portal de administración de Azure], haga clic en Servicios móviles y, a continuación, en la aplicación.
+4. En el [Portal de Azure clásico], haga clic en Servicios móviles y en su aplicación.
 
 2. Haga clic en la pestaña **Programador** y, a continuación, en **+Crear**.
 
     >[AZURE.NOTE]Cuando ejecute el servicio móvil en el nivel <em>Gratis</em>, solo podrá ejecutar un trabajo programado a la vez. En los niveles de pago, puede ejecutar hasta diez trabajos programados a la vez.
 
 3. En el cuadro de diálogo del programador, especifique _Sample_ para **Nombre de trabajo**, establezca el intervalo de programación y las unidades, y haga clic en el botón de comprobación.
-   
+
    	![][4]
 
    	Se crea un nuevo trabajo llamado **Sample**.
@@ -263,11 +268,11 @@ El trabajo debe registrarse en la pestaña **Programador** para que los Servicio
 
 	>[AZURE.NOTE]Puede seguir utilizándose una solicitud POST para iniciar el trabajo programado. Sin embargo, la autorización recae de forma predeterminada en el usuario, lo que significa que la solicitud debe incluir la clave de la aplicación en el encabezado.
 
-4. (Opcional) En el [Portal de administración de Azure], haga clic en Administrar para la base de datos asociada al servicio móvil.
+4. (Opcional) En el [Portal de Azure clásico], haga clic en Administrar en la base de datos asociada con el servicio móvil.
 
     ![][6]
 
-5. Asimismo, en dicho portal, ejecute una consulta para ver los cambios realizados por la aplicación. La consulta puede ser similar a la siguiente, pero use el nombre del servicio móvil como nombre de esquema en lugar de `todolist`.
+5. Asimismo, en el Portal de Azure clásico, ejecute una consulta para ver los cambios realizados por la aplicación. La consulta puede ser similar a la siguiente, pero use el nombre del servicio móvil como nombre de esquema en lugar de `todolist`.
 
         SELECT * FROM [todolist].[Updates]
 
@@ -294,10 +299,10 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 [9]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-service-try-this-out.png
 
 <!-- URLs. -->
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: mobile-services-how-to-register-twitter-authentication.md
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [proyecto de CodePlex de LINQ to Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

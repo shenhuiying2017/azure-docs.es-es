@@ -270,4 +270,4 @@ Use el comando Remove-AzureLoadBalancer para eliminar un equilibrador de carga c
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -27,11 +27,11 @@ El primer paso es crear un espacio de nombres de servicio y obtener una clave de
 
 1. Para obtener información sobre cómo crear un espacio de nombres de servicio, consulte el tema [Procedimiento: Crear o modificar un espacio de nombres de servicio de Service Bus](https://msdn.microsoft.com/library/azure/hh690931.aspx) en la sección [Administración de espacios de nombres del Bus de servicio](https://msdn.microsoft.com/library/azure/hh690928.aspx).
 
-1. En la ventana principal del Portal de Azure, haga clic en el nombre del espacio de nombres de servicio que creó en el paso anterior.
+1. En la ventana principal del [Portal de Azure clásico][], haga clic en el nombre del espacio de nombres que creó en el paso anterior.
 
 1. Haga clic en la pestaña **Configurar**.
 
-1. En la sección **Generador de claves de acceso compartido**, anote el valor de ** Clave principal ** asociado con la directiva **RootManageSharedAccessKey**, o cópielo al Portapapeles. Este valor se usará más adelante en el tutorial.
+1. En la sección **Generador de claves de acceso compartido**, anote el valor de **Clave principal ** asociado con la directiva **RootManageSharedAccessKey**, o cópielo en el Portapapeles. Este valor se usará más adelante en el tutorial.
 
 ## Creación de un cliente de consola
 
@@ -55,11 +55,11 @@ Después de obtener el espacio de nombres del servicio y las credenciales en el 
 
 ### Creación de una aplicación de consola
 
-1. Abra Visual Studio como administrador, para lo que debe hacer clic con el botón derecho en el programa en el menú **Inicio** y, a continuación, haga clic en **Ejecutar como administrador**.
+1. Abra Visual Studio como administrador; para ello, haga clic con el botón derecho en el programa en el menú **Inicio** y, después, haga clic en **Ejecutar como administrador**.
 
-1. Cree un nuevo proyecto de aplicación de consola. En el menú **Archivo**, haga clic en **Nuevo** y, a continuación, en **Proyecto**. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C#** (si **Visual C#** no aparece, busque en **Otros lenguajes**), seleccione la plantilla **Aplicación de consola** y asígnele el nombre **Microsoft.ServiceBus.Samples**. Use el valor predeterminado de Ubicación. Haga clic en **Aceptar** para crear el proyecto.
+1. Cree un nuevo proyecto de aplicación de consola. En el menú **Archivo**, haga clic en **Nuevo** y luego en **Proyecto**. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C#** (si **Visual C#** no aparece, busque en **Otros lenguajes**), seleccione la plantilla **Aplicación de consola** y asígnele el nombre **Microsoft.ServiceBus.Samples**. Use el valor predeterminado de Ubicación. Haga clic en **Aceptar** para crear el proyecto.
 
-1. En Program.cs, asegúrese de que las instrucciones `using` aparecerán de la siguiente manera:
+1. En Program.cs, asegúrese de que las instrucciones `using` aparecen de la siguiente manera:
 
 	```
 	using System;
@@ -180,7 +180,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 
 El siguiente paso es escribir un método que use el comando PUT de HTTP de estilo REST para crear una cola.
 
-Pegue el código siguiente directamente después del código `GetSASToken()` que agregó en el paso anterior:
+Pegue el código siguiente directamente después del código de `GetSASToken()` que agregó en el paso anterior:
 
 ```
 // Uses HTTP PUT to create the queueprivatestaticstring CreateQueue(string queueName, string token)
@@ -221,7 +221,7 @@ En este paso, agregue un método que use el comando POST de HTTP basado en REST 
 	}
 	```
 
-1. Las propiedades de mensaje de intermediación estándar se colocan en un encabezado HTTP `BrokerProperties`. Las propiedades del agente se deben serializar en formato JSON. Para especificar un valor de **TimeToLive** de 30 segundos y para agregar una etiqueta de mensaje "M1" al mensaje, agregue el código siguiente inmediatamente antes de la llamada a `webClient.UploadData()` que se muestra en el ejemplo anterior:
+1. Las propiedades del mensaje asincrónico estándar se colocan en un encabezado HTTP `BrokerProperties`. Las propiedades del agente se deben serializar en formato JSON. Para especificar un valor de **TimeToLive** de 30 segundos y para agregar una etiqueta de mensaje "M1" al mensaje, agregue el código siguiente inmediatamente antes de la llamada a `webClient.UploadData()` que se muestra en el ejemplo anterior:
 
 	```
 	// Add brokered message properties "TimeToLive" and "Label"
@@ -629,4 +629,6 @@ Para obtener más información, consulte los artículos siguientes:
 - [Elementos fundamentales del Bus de servicio](fundamentals-service-bus-hybrid-solutions.md)
 - [Tutorial de REST de Bus de servicio](service-bus-relay-rest-tutorial.md)
 
-<!---HONumber=Oct15_HO3-->
+[Portal de Azure clásico]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

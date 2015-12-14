@@ -18,6 +18,11 @@
 
 # Uso de la sincronización de datos sin conexión en servicios móviles
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 Este tema le guía a través de las funcionalidades de sincronización sin conexión de Servicios móviles de Azure en la aplicación de inicio rápido de la lista de tareas. La sincronización sin conexión le permite crear fácilmente aplicaciones que se pueden utilizar incluso si el usuario final no tiene acceso a la red.
@@ -130,7 +135,7 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 
 2. Recompile y ejecute la aplicación. Observe que los datos tienen el mismo aspecto que en el escenario sin conexión aunque la aplicación ahora está conectada con el servicio móvil. Esto se debe a que la aplicación siempre funciona con el elemento `IMobileServiceSyncTable` que apunta al almacén local.
 
-3. Inicie sesión en el Portal de administración de Azure y consulte la base de datos del servicio móvil. Si el servicio usa el back-end de JavaScript, puede examinar los datos en la pestaña **Datos** del servicio móvil.
+3. Inicie sesión en el [Portal de Azure clásico] y consulte la base de datos del servicio móvil. Si el servicio usa el back-end de JavaScript, puede examinar los datos en la pestaña **Datos** del servicio móvil.
 
     Si usa el back-end de .NET para el servicio móvil, en Visual Studio, vaya a **Explorador de servidores** -> **Azure** -> **Bases de datos SQL**. Haga clic con el botón derecho en la base de datos y seleccione **Abrir en el Explorador de objetos de SQL Server**.
 
@@ -169,6 +174,6 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 [Xamarin Studio]: http://xamarin.com/download
 [extensión Xamarin]: http://xamarin.com/visual-studio
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
- 
+[Portal de Azure clásico]: https://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

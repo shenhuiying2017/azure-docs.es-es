@@ -93,7 +93,7 @@ Antes de usar este ejemplo, debe crear un Centro de eventos de Azure, que la top
 
 Centro de eventos es el origen de datos para este ejemplo. Utilice los pasos siguientes para crear un centro de eventos.
 
-1. En el [Portal de Azure](https://manage.windowsazure.com), seleccione **NUEVO | Bus de servicio | Centro de eventos | Creación personalizada**.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **NUEVO | Bus de servicio | Centro de eventos | Creación personalizada**.
 
 2. En el cuadro de diálogo** Agregar un nuevo Centro de eventos**, escriba un **Nombre del centro de eventos**, seleccione la **Región** donde se va a crear el centro y cree un nuevo espacio de nombres o seleccione uno existente. Por último, haga clic en la flecha para continuar.
 
@@ -113,7 +113,7 @@ Centro de eventos es el origen de datos para este ejemplo. Utilice los pasos sig
 
 ### Creación de un clúster de Storm en HDInsight
 
-1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com/).
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/).
 
 2. Haga clic en **HDInsight** en el panel de la izquierda y, después, haga clic en **+NUEVO** en la esquina inferior izquierda de la página.
 
@@ -258,7 +258,7 @@ En su entorno de desarrollo, siga estos pasos para ejecutar la topología Temper
 
 1. Para implementar el panel en un sitio web de Azure, siga los pasos de [Compilación e implementación de un sitio web de Node.js en Azure](../web-sites-nodejs-develop-deploy-mac.md). Observe la dirección URL del sitio web, que será similar a **mywebsite.azurewebsites.net**.
 
-2. Cuando se cree el sitio web, vaya al sitio en el Portal de Azure y seleccione la pestaña **Configurar**. Habilite **Sockets web** y haga clic en **Guardar**, en la parte inferior de la página.
+2. Cuando se cree el sitio web, vaya al sitio en el Portal de Azure clásico y seleccione la pestaña **Configurar**. Habilite **Sockets web** y haga clic en **Guardar**, en la parte inferior de la página.
 
 2. Abra **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts\\DashboardBolt.java** y cambie la línea siguiente para que señale a la dirección URL del panel publicado:
 
@@ -288,7 +288,7 @@ Para usar Storm y HBase juntos, debe crear una Red virtual de Azure y, después,
 
 Si tiene previsto usar HBase con este ejemplo, debe crear una Red virtual de Azure que contendrá un clúster de Storm en HDInsight y un clúster de HBase en HDInsight.
 
-1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com).
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
 
 2. En la parte inferior de la página, haga clic en **+NUEVO** > **Servicios de red** > **Red virtual** > **Creación rápida**.
 
@@ -324,7 +324,7 @@ Si tiene previsto usar HBase con este ejemplo, debe crear una Red virtual de Azu
 
 ### Creación de un clúster de Storm y HBase en la red virtual
 
-1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com/).
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/).
 
 2. Haga clic en **HDInsight** en el panel de la izquierda y, después, haga clic en **+NUEVO** en la esquina inferior izquierda de la página.
 
@@ -422,4 +422,4 @@ Ahora ha aprendido a utilizar Storm para leer datos desde el Centro de eventos y
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

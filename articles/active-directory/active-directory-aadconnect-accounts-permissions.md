@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="11/02/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell;billmath"/>
 
 
@@ -122,4 +122,4 @@ La cuenta de servicio se crea con una contraseña larga compleja que no expira. 
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

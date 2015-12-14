@@ -392,4 +392,4 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 >[AZURE.TIP]Si no ve todos los recursos, ejecute el comando **azure group deployment show** para comprobar que el estado de aprovisionamiento de la implementación es *Correcto*.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

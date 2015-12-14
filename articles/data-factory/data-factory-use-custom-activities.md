@@ -233,7 +233,7 @@ Si ya ha ampliado el tutorial [Introducción a Factoría de datos de Azure][adfg
 
 #### Para utilizar un clúster de HDInsight a petición
 
-1. En el **Portal de Azure**, haga clic en **Crear e implementar** en la página principal de Factoría de datos.
+1. En el **Portal de Azure clásico**, haga clic en **Crear e implementar** en la página principal de Factoría de datos.
 2. En el Editor de Factoría de datos, haga clic en **Nuevo proceso** en la barra de comandos y seleccione **Clúster de HDInsight a petición** en el menú.
 2. En el script JSON, haga lo siguiente:
 	1. En la propiedad **clusterSize**, especifique el tamaño del clúster de HDInsight.
@@ -248,7 +248,7 @@ Si ya ha ampliado el tutorial [Introducción a Factoría de datos de Azure][adfg
 			    "typeProperties": {
 			      "clusterSize": "1",
 			      "timeToLive": "00:05:00",
-			      "version": "3.1",
+			      "version": "3.2",
 			      "linkedServiceName": "StorageLinkedService"
 			    }
 			  }
@@ -374,7 +374,7 @@ Si ya ha ampliado el tutorial [Introducción a Factoría de datos de Azure][adfg
 
 	(ubicación del blob), (nombre el blob), (número de líneas en el blob), (nodo en el que se ejecutó la actividad), (marca de fecha y hora)
 
-10.	Use el [Portal de Azure][azure-preview-portal] o los cmdlets de Azure PowerShell para supervisar su factoría de datos, canalizaciones y conjuntos de datos. Puede ver mensajes desde **ActivityLogger** en el código de la actividad personalizada en los registros (de forma específica user-0.log) que puede descargar desde el portal o con cmdlets.
+10.	Use el [Portal de Azure clásico][azure-preview-portal] o los cmdlets de Azure PowerShell para supervisar la factoría de datos, las canalizaciones y los conjuntos de datos. Puede ver mensajes desde **ActivityLogger** en el código de la actividad personalizada en los registros (de forma específica user-0.log) que puede descargar desde el portal o con cmdlets.
 
 	![registros de descarga de la actividad personalizada][image-data-factory-download-logs-from-custom-activity]
 
@@ -398,7 +398,7 @@ Puede ejecutar sus actividades de .NET personalizadas mediante el Lote de Azure 
 
 Estos son los pasos de alto nivel para usar el servicio vinculado de Lote de Azure en el tutorial que se describe en la sección anterior:
 
-1. Cree una cuenta de Lote de Azure mediante el Portal de administración de Azure. Vea el artículo [Crear y administrar una cuenta de Lote de Azure][batch-create-account] para obtener instrucciones. Anote el nombre y la clave de la cuenta de Lote de Azure.
+1. Cree una cuenta de Lote de Azure mediante el [Portal de Azure clásico](http://manage.windowsazure.com). Consulte el artículo [Crear y administrar una cuenta de Lote de Azure][batch-create-account] para obtener instrucciones. Anote el nombre y la clave de la cuenta de Lote de Azure.
 
 	También puede usar el cmdlet [New-AzureBatchAccount][new-azure-batch-account] para crear una cuenta de Lote de Azure. Consulte [Uso de Azure PowerShell para administrar la cuenta de Lote de Azure][azure-batch-blog] para obtener instrucciones detalladas sobre cómo utilizar este cmdlet.
 2. Cree un grupo de Lote de Azure Puede descargar el código fuente de la [herramienta Explorador de Lote de Azure][batch-explorer], compilarla y usarla (o) usar la [Biblioteca de Lote de Azure para .NET][batch-net-library] para crear un grupo de Lote de Azure. Consulte el [tutorial de ejemplo del Explorador de Lote de Azure][batch-explorer-walkthrough] para obtener instrucciones paso a paso para usar el Explorador de Lote de Azure.
@@ -421,9 +421,9 @@ Estos son los pasos de alto nivel para usar el servicio vinculado de Lote de Azu
 		  }
 		}
 
-	> [AZURE.IMPORTANT]La **URL** desde la **hoja de cuenta de Lote de Azure** tiene el formato siguiente: accountname.region.batch.azure.com. Para la propiedad **batchUri** en JSON, necesitará **quitar "accountname."** de la dirección URL y usar **accountname** para la propiedad JSON **accountName**.
+	> [AZURE.IMPORTANT]La **URL** desde la **hoja de cuenta de Lote de Azure** tiene el formato siguiente: accountname.region.batch.azure.com. En la propiedad **batchUri** en JSON, necesitará **quitar "accountname."** de la dirección URL y usar **accountname** en la propiedad JSON **accountName**.
 
-	Para la propiedad **poolName**, también puede especificar el id. del grupo, en lugar del nombre del grupo.
+	En la propiedad **poolName**, también puede especificar el identificador del grupo, en lugar del nombre del grupo.
 
 	Consulte el [tema de MSDN del servicio vinculado de Lote de Azure](https://msdn.microsoft.com/library/mt163609.aspx) para obtener una descripción de estas propiedades.
 
@@ -474,4 +474,4 @@ Estos son los pasos de alto nivel para usar el servicio vinculado de Lote de Azu
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

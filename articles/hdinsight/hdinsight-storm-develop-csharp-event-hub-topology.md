@@ -70,7 +70,7 @@ La versión más reciente del archivo **eventhubs-storm-spout-0.9-jar-with-depen
 
 Centros de eventos es el origen de datos para este ejemplo. Utilice los pasos siguientes para crear un centro de eventos.
 
-1. En el [Portal de Azure](https://manage.windowsazure.com), seleccione **NUEVO** > **Bus de servicio** > **Centro de eventos** > **Creación personalizada**.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **NUEVO** > **Bus de servicio** > **Centro de eventos** > **Creación personalizada**.
 
 2. En la pantalla **Agregar un nuevo centro de eventos**, escriba un **Nombre del centro de eventos**, seleccione la **Región** donde se va a crear el centro y cree un nuevo espacio de nombres o seleccione uno existente. Haga clic en la **Flecha** para continuar.
 
@@ -100,7 +100,7 @@ Centros de eventos es el origen de datos para este ejemplo. Utilice los pasos si
 
 El almacenamiento de tabla se usará para contener los valores que se leen desde los Centros de eventos, porque puede ver fácilmente el almacenamiento de tabla desde Visual Studio mediante el **Explorador de servidores**. Lleve a cabo los siguientes pasos para crear un almacenamiento de tabla nuevo:
 
-1. En el [Portal de Azure](https://manage.windowsazure.com), seleccione **NUEVO** > **Servicios de datos** > **Almacenamiento** > **Creación rápida**.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **NUEVO** > **Servicios de datos** > **Almacenamiento** > **Creación rápida**.
 
 	![almacenamiento de creación rápida](./media/hdinsight-storm-develop-csharp-event-hub-topology/storagecreate.png)
 
@@ -557,4 +557,4 @@ En este documento, ha aprendido a usar el spout y bolt de los Centros de eventos
 * [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

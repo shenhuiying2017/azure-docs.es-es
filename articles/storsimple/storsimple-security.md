@@ -36,9 +36,9 @@ Las secciones siguientes describen las características de seguridad de StorSimp
 
 ## Protección del servicio StorSimple Manager
 
-El servicio StorSimple Manager es un servicio de administración hospedado en Microsoft Azure y se utiliza para administrar todos los dispositivos de StorSimple que ha adquirido su organización. Puede tener acceso al servicio StorSimple Manager mediante el uso de sus credenciales de organización para iniciar sesión en el Portal de Azure a través de un explorador web.
+El servicio StorSimple Manager es un servicio de administración hospedado en Microsoft Azure y se utiliza para administrar todos los dispositivos de StorSimple que ha adquirido su organización. Puede tener acceso al servicio del Administrador de StorSimple mediante el uso de sus credenciales de organización para iniciar sesión en el Portal de Azure clásico a través de un explorador web.
 
-El acceso al servicio StorSimple Manager requiere que la organización tenga una suscripción de Azure que incluya StorSimple. Su suscripción rige las características a las que puede tener acceso en el portal de Azure. Si su organización no tiene una suscripción de Azure y desea obtener más información sobre ellas, vea [Inicio de sesión en Azure como una organización](../sign-up-organization.md).
+El acceso al servicio StorSimple Manager requiere que la organización tenga una suscripción de Azure que incluya StorSimple. Su suscripción rige las características a las que puede tener acceso en el Portal de Azure clásico. Si su organización no tiene una suscripción de Azure y desea obtener más información sobre ellas, vea [Inicio de sesión en Azure como una organización](../sign-up-organization.md).
 
 Debido a que el servicio StorSimple Manager está hospedado en Azure, se encuentra protegido por las características de seguridad de Azure. Para obtener más información acerca de las características de seguridad que proporciona Microsoft Azure, visite el [Centro de confianza de Microsoft Azure](http://azure.microsoft.com/support/trust-center/security/).
 
@@ -46,7 +46,7 @@ Debido a que el servicio StorSimple Manager está hospedado en Azure, se encuent
 
 El dispositivo de StorSimple es un dispositivo de almacenamiento híbrido local que contiene unidades de estado sólido (SSD) y discos duros (HDD), en conjunto con controladores redundantes y funcionalidades de conmutación automática por error. Los controladores administran la organización en niveles del almacenamiento y ponen los datos actualmente utilizados (o activos) en el almacenamiento local (en el dispositivo de StorSimple o en servidores locales), mientras que mueven los datos usados con menos frecuencia a la nube.
 
-Solo los dispositivos de StorSimple autorizados tienen permitido unirse al servicio StorSimple que creó en su suscripción de Azure. Para autorizar un dispositivo, debe registrarlo con el servicio StorSimple Manager mediante la clave de registro del servicio. La clave de registro del servicio es una clave aleatoria de 128 bits generada en el Portal de Azure.
+Solo los dispositivos de StorSimple autorizados tienen permitido unirse al servicio StorSimple que creó en su suscripción de Azure. Para autorizar un dispositivo, debe registrarlo con el servicio StorSimple Manager mediante la clave de registro del servicio. La clave de registro del servicio es una clave aleatoria de 128 bits generada en el Portal de Azure clásico.
 
 ![Clave de registro del servicio](./media/storsimple-security/ServiceRegistrationKey.png)
 
@@ -131,7 +131,7 @@ Según lo descrito en otras secciones, las contraseñas se usan para autorizar y
 
 ## Protección del flujo de datos a través del servicio
 
-El propósito principal del servicio StorSimple Manager es administrar y configurar el dispositivo de StorSimple. El servicio StorSimple Manager se ejecuta en Microsoft Azure. El Portal de Azure se usa para introducir los datos de configuración del dispositivo; una vez hecho esto, Microsoft Azure utiliza el servicio StorSimple Manager para enviar los datos al dispositivo. StorSimple usa un sistema de pares de claves asimétricas para ayudar a garantizar que un compromiso del servicio de Azure no generará un compromiso de la seguridad de la información almacenada.
+El propósito principal del servicio StorSimple Manager es administrar y configurar el dispositivo de StorSimple. El servicio StorSimple Manager se ejecuta en Microsoft Azure. El Portal de Azure clásico se usa para introducir los datos de configuración del dispositivo. Una vez hecho esto, Microsoft Azure usa el servicio del Administrador de StorSimple para enviar los datos al dispositivo. StorSimple usa un sistema de pares de claves asimétricas para ayudar a garantizar que un compromiso del servicio de Azure no generará un compromiso de la seguridad de la información almacenada.
 
 ![Cifrado de datos a bordo](./media/storsimple-security/DataEncryption.png)
 
@@ -183,7 +183,7 @@ Cuando crea una cuenta de almacenamiento, Microsoft Azure genera dos claves de a
 Se recomienda seguir estos procedimientos recomendados para la rotación de claves:
 
 - Debe rotar las claves de cuenta de almacenamiento de manera regular para garantizar que usuarios no autorizados no tengan acceso a la cuenta de almacenamiento.
-- De forma regular, el administrador de Azure debe cambiar o volver a generar la clave principal o secundaria mediante la sección del Almacenamiento del Portal de Azure, para así poder tener acceso directamente a la cuenta de almacenamiento.
+- De forma regular, el administrador de Azure debe cambiar o volver a generar la clave principal o secundaria mediante la sección Almacenamiento del Portal de Azure clásico, para así poder tener acceso directamente a la cuenta de almacenamiento.
 
 
 ## Protección de datos mediante cifrado
@@ -192,8 +192,8 @@ StorSimple usa los siguientes algoritmos de cifrado para proteger datos almacena
 
 | Algoritmo | Longitud de la clave | Protocolos/aplicaciones/comentarios |
 | --------- | ---------- | ------------------------------- |
-| RSA | 2048 | El Portal de Azure usa el servicio RSA PKCS 1 v1.5 para cifrar datos de configuración que se envían al dispositivo. Por ejemplo, credenciales de cuenta de almacenamiento, la configuración del dispositivo StorSimple y las claves de cifrado de almacenamiento en la nube. |
-| AES | 256 | AES con CBC se usa para cifrar la parte pública de la clave de cifrado de datos de servicio antes de enviarla al Portal de Azure desde el dispositivo StorSimple. El dispositivo de StorSimple también lo usa para cifrar datos antes de que se envíen a la cuenta de almacenamiento en la nube. |
+| RSA | 2048 | El Portal de Azure clásico usa el servicio RSA PKCS 1 v1.5 para cifrar datos de configuración que se envían al dispositivo, como las credenciales de la cuenta de almacenamiento, la configuración del dispositivo StorSimple y las claves de cifrado de almacenamiento en la nube. |
+| AES | 256 | AES con CBC se usa para cifrar la parte pública de la clave de cifrado de datos de servicio antes de enviarla al Portal de Azure clásico desde el dispositivo StorSimple. El dispositivo de StorSimple también lo usa para cifrar datos antes de que se envíen a la cuenta de almacenamiento en la nube. |
 
 
 ## Seguridad de dispositivos virtuales de StorSimple
@@ -269,4 +269,4 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 [Implementación del dispositivo StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

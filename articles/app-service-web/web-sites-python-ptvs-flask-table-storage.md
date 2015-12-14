@@ -72,7 +72,7 @@ Necesita una cuenta de almacenamiento de Azure para usar operaciones de almacena
 
 1.  Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
-2. Haga clic en el icono **Nuevo** situado en la parte superior izquierda del portal y haga clic en **Datos + Almacenamiento** > **Cuenta de almacenamiento**. Haga clic en **Crear** y, a continuación, asigne un nombre único a la cuenta de almacenamiento y cree un [grupo de recursos](../resource-group-overview.md) nuevo para ella.
+2. Haga clic en el icono **Nuevo** situado en la parte superior izquierda del portal y haga clic en **Datos y almacenamiento** > **Cuenta de almacenamiento**. Haga clic en **Crear** y, a continuación, asigne un nombre único a la cuenta de almacenamiento y cree un [grupo de recursos](../resource-group-overview.md) nuevo para ella.
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->Una vez creada la cuenta de almacenamiento, el botón **Notificaciones** emitirá el mensaje **CORRECTO** en color verde y la hoja de la cuenta de almacenamiento se abrirá para mostrar que pertenece al nuevo grupo de recursos que ha creado.
 
@@ -82,7 +82,7 @@ Necesita una cuenta de almacenamiento de Azure para usar operaciones de almacena
 
 ## Configuración del proyecto
 
-En esta sección, vamos a configurar nuestra aplicación para usar la cuenta de almacenamiento que acabamos de crear. Observaremos cómo obtener la configuración de la conexión en el portal de Azure. A continuación, ejecutaremos la aplicación localmente.
+En esta sección, vamos a configurar nuestra aplicación para usar la cuenta de almacenamiento que acabamos de crear. Observaremos cómo obtener la configuración de la conexión en el Portal de Azure. A continuación, ejecutaremos la aplicación localmente.
 
 1.  En Visual Studio, haga clic con el botón derecho en el Explorador de soluciones y seleccione **Propiedades**. Haga clic en la pestaña **Depurar**.
 
@@ -184,7 +184,6 @@ Siga estos vínculos para obtener más información acerca de Python Tools para 
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
@@ -194,7 +193,7 @@ Siga estos vínculos para obtener más información acerca de Python Tools para 
 [Uso del servicio de almacenamiento de tablas desde Python]: ../storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
-[Azure Management Portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [SDK de Azure para .NET]: http://azure.microsoft.com/downloads/
 [Herramientas de Python para Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
@@ -212,4 +211,4 @@ Siga estos vínculos para obtener más información acerca de Python Tools para 
 [SDK de Azure para Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

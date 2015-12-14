@@ -35,7 +35,7 @@ Servicio de aplicaciones de Azure se ofrece en cinco niveles: gratis, compartido
 
 ### Configuración
 
-Use el [Portal de vista previa de Azure](https://portal.azure.com/) para establecer varias opciones de configuración. Para obtener detalles, consulte [Configuración de aplicaciones en el Servicio de aplicaciones de Azure](web-sites-configure.md). Esta es una lista de comprobación breve:
+Use el [Portal de Azure](https://portal.azure.com/) para establecer varias opciones de configuración. Para obtener detalles, consulte [Configuración de aplicaciones en el Servicio de aplicaciones de Azure](web-sites-configure.md). Esta es una lista de comprobación breve:
 
 - Seleccione **versiones de tiempo de ejecución** para .NET, PHP, Java o Python, si es necesario.
 - Habilite **WebSockets** si su aplicación web usa el protocolo WebSocket. (Se incluyen las aplicaciones que usan [ASP.NET SignalR](http://www.asp.net/signalr) o [socket.io](web-sites-nodejs-chat-app-socketio.md)).
@@ -59,14 +59,14 @@ Cuando la aplicación web está en ejecución, querrá asegurarse de que está d
 
 ### Supervisión
 
-- Desde el portal de administración, puede [agregar métricas de rendimiento](web-sites-monitor.md), como el uso de la CPU y el número de solicitudes de clientes.
+- Desde el Portal de Azure, puede [agregar métricas de rendimiento](web-sites-monitor.md), como el uso de la CPU y el número de solicitudes de clientes.
 - Si quiere más detalles, use New Relic para supervisar y administrar el rendimiento. Consulte [Aplicación web de .NET en el Servicio de aplicaciones de Azure con administración del rendimiento de la aplicación New Relic](store-new-relic-web-sites-dotnet-application-performance-management.md).
 - [Escale su aplicación web](web-sites-scale.md) en respuesta al tráfico. En función de su nivel, puede escalar el número de máquinas virtuales y/o el tamaño de las instancias de las máquinas virtuales. En los niveles estándar y premium, también puede configurar la autoescala para que la aplicación web escale automáticamente, bien según una programación fija, o bien en respuesta a la carga.  
  
 ### Copias de seguridad
 
 - Establezca las [copias de seguridad automáticas](web-sites-backup.md) de la aplicación web. Obtenga más información sobre las copias de seguridad en [este vídeo](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
-- Conozca las opciones para la [recuperación de bases de datos](https://azure.microsoft.com/es-ES/documentation/articles/sql-database-business-continuity/) en Base de datos SQL de Azure.
+- Conozca las opciones para la [recuperación de bases de datos](../sql-database-business-continuity.md) en Base de datos SQL de Azure.
 
 ### Solución de problemas
 
@@ -103,4 +103,4 @@ Si usa Visual Studio Team Services, puede configurar una implementación continu
 
   
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

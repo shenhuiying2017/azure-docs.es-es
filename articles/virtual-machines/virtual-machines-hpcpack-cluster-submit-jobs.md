@@ -26,7 +26,7 @@ En este artículo se muestra cómo configurar un equipo cliente local con Window
 
 ## Requisitos previos
 
-* Un **nodo principal de HPC Pack implementado en una máquina virtual de Azure**: se pueden usar herramientas automáticas, como una [plantilla de inicio rápido de Azure](https://azure.microsoft.com/es-ES/documentation/templates/) o un [script de Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script.md), para implementar el nodo principal y el clúster, o bien se puede implementar el clúster manualmente en Azure como se haría con un clúster local. Para completar los pasos de este artículo se necesitan el nombre DNS del nodo principal y las credenciales de un administrador de clústeres.
+* Un **nodo principal de HPC Pack implementado en una máquina virtual de Azure**: se pueden usar herramientas automáticas, como una [plantilla de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) o un [script de Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script.md), para implementar el nodo principal y el clúster, o bien se puede implementar el clúster manualmente en Azure como se haría con un clúster local. Para completar los pasos de este artículo se necesitan el nombre DNS del nodo principal y las credenciales de un administrador de clústeres.
 
     Si el nodo principal se implementó manualmente, asegúrese de que un extremo HTTPS está configurado en la máquina virtual. Si no es así, configúrelo. Consulte [Configuración de extremos en una máquina virtual](virtual-machines-set-up-endpoints.md).
 
@@ -183,4 +183,4 @@ Para comprobar la configuración, intente ejecutar trabajos en el clúster de Az
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -20,13 +20,13 @@
 
 ## Introducción
 
-El centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y una aplicación back-end. Existen tutoriales anteriores ([Comenzar a usar el centro de IoT] y [Envío de mensajes de nube a dispositivo con el centro de IoT]) que muestran la funcionalidad básica de comunicación de dispositivo a nube y viceversa mediante el centro de IoT, así como el modo de tener acceso a ellos desde componentes de dispositivos y la nube.
+El centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y una aplicación back-end. Existen tutoriales anteriores ([Get started with IoT Hub] [Comenzar a usar el centro de IoT] y [Send Cloud-to-Device messages with IoT Hub] [Envío de mensajes de nube a dispositivo con el centro de IoT]) que muestran la funcionalidad básica de comunicación de dispositivo a nube y viceversa mediante el centro de IoT, así como el modo de tener acceso a ellos desde componentes de dispositivos y la nube.
 
 Este tutorial se basa en el código que se muestra en [Introducción al centro de IoT] para presentar dos modelos para el procesamiento de mensajes de dispositivo a nube.
 
 El primer patrón es el almacenamiento fiable de mensajes de dispositivo a nube en [Blobs de Azure]. Este escenario es muy común al implementar análisis de *rutas de acceso inactivas*, donde los datos almacenados en blobs se usan como entrada para el análisis que se realiza con herramientas como, por ejemplo, [Factoría de datos de Azure] o la pila [Hadoop].
 
-El segundo patrón es el procesamiento fiable de mensajes de dispositivo a nube *interactivos*. Los mensajes de dispositivo a nube se denominan *interactivos* cuando desencadenan de manera inmediata un conjunto de acciones en la aplicación back-end, en contraposición a los mensajes de *punto de datos*, que se envían a un motor de análisis. Por ejemplo, una alarma procedente de un dispositivo que tiene que desencadenar la inserción de un vale en un sistema CRM es un mensaje de dispositivo a nube *interactivo*, en contraposición con, por ejemplo, un mensaje de telemetría que contiene muestras de temperatura, que es un mensaje de *punto de datos*.
+El segundo patrón es el procesamiento fiable de mensajes de dispositivo a nube *interactivos*. Los mensajes de dispositivo a nube se denominan *interactivos* cuando desencadenan de manera inmediata un conjunto de acciones en el back-end de la aplicación, en contraposición con el mensaje de *punto de datos*, que se envía a un motor de análisis. Por ejemplo, una alarma procedente de un dispositivo que tiene que desencadenar la inserción de un vale en un sistema CRM es un mensaje de dispositivo a nube *interactivo*, en contraposición con, por ejemplo, un mensaje de telemetría que contiene muestras de temperatura, que es un mensaje de *punto de datos*.
 
 Puesto que el centro de IoT expone un extremo compatible con centros de eventos para recibir mensajes de dispositivo a nube, este tutorial usa [EventProcessorHost] para hospedar una clase de procesador de eventos, que:
 
@@ -81,7 +81,7 @@ Información adicional sobre el Centro de IoT:
 
 * [Información general sobre el centro de IoT]
 * [Guía del desarrollador del centro de IoT]
-* [Directrices sobre el Centro de IoT]
+* [Directrices sobre el centro de IoT]
 * [Lenguajes y plataformas de dispositivos compatibles][Supported devices]
 * [Centro para desarrolladores de IoT de Azure]
 
@@ -99,29 +99,25 @@ Información adicional sobre el Centro de IoT:
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 [Transient Fault Handling]: https://msdn.microsoft.com/es-ES/library/hh680901(v=pandp.50).aspx
-[control de errores transitorios]: https://msdn.microsoft.com/es-ES/library/hh680901(v=pandp.50).aspx
 
 [IoT Hub Guidance - Event Hubs compatibility]: iot-hub-guidance.md#eventhubcompatible
 
 [Almacenamiento de Azure]: https://azure.microsoft.com/es-ES/documentation/services/storage/
 [Bus de servicio de Azure]: https://azure.microsoft.com/es-ES/documentation/services/service-bus/
 
-[Azure preview portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
-[Envío de mensajes de nube a dispositivo con el centro de IoT]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
-[Procesamiento de mensajes de dispositivo a nube]: iot-hub-csharp-csharp-process-d2c.md
 [Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
 
 [Información general sobre el centro de IoT]: iot-hub-what-is-iot-hub.md
-[Directrices sobre el Centro de IoT]: iot-hub-guidance.md
+[Directrices sobre el centro de IoT]: iot-hub-guidance.md
 [Guía del desarrollador del centro de IoT]: iot-hub-devguide.md
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
-[Comenzar a usar el centro de IoT]: iot-hub-csharp-csharp-getstarted.md
 [Introducción al centro de IoT]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

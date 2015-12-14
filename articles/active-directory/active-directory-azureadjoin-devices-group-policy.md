@@ -55,7 +55,7 @@ Para habilitar el acceso condicional, puede crear una directiva que permita el a
 
 AD Connect permitirá el aprovisionamiento de los equipos del entorno local como objetos de dispositivo en la nube. Para implementar Azure AD Connect, consulte Habilitación del directorio para la administración híbrida con Azure AD Connect.
 
- - Si siguió la [instalación personalizada para Azure Connect AD](https://azure.microsoft.com/es-ES/documentation/articles/active-directory-aadconnect-get-started-custom/) (no la instalación rápida), debe seguir el procedimiento **Creación de un punto de conexión de servicio (SCP) en Active Directory local**, que se describe a continuación.
+ - Si siguió la [instalación personalizada para Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (no la instalación rápida), debe seguir el procedimiento **Creación de un punto de conexión de servicio (SCP) en Active Directory local**, que se describe a continuación.
  - Si tiene una configuración federada con Azure AD antes de instalar Azure AD Connect (por ejemplo, si ha implementado antes los Servicios de federación de Active Directory (AD FS)) deberá seguir el procedimiento **Configuración de reglas de notificación de AD FS** que se indica a continuación.
 
 ### Creación de un punto de conexión de servicio (SCP) en Active Directory local
@@ -137,4 +137,4 @@ Puede usar una directiva de grupo de Active Directory para configurar sus dispos
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

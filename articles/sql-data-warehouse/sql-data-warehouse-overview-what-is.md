@@ -49,7 +49,7 @@ Este enfoque MPP permite al Almacenamiento de datos SQL usar un enfoque "divide 
 
 ## Escalable
 
-La arquitectura del Almacenamiento de datos SQL presenta el proceso y el almacenamiento por separado, lo que permite a cada uno escalar de manera independiente. La estructura de implementación rápida y sencilla de la Base de datos SQL permite disponer de procesos adicionales en un instante. Como complemento, está el uso de Blobs de almacenamiento de Azure. Los blobs no solo nos ofrecen un almacenamiento estable y replicado, sino que proporcionan igualmente la infraestructura para una expansión más fluida y menos costosa. Mediante esta combinación de almacenamiento de escala en la nube y de proceso de Azure, el Almacenamiento de datos SQL le permite pagar por un almacenamiento de rendimiento de consultas conforme lo necesita cuando lo necesita. Cambiar la cantidad del proceso es tan fácil como mover un control deslizante en el Portal de Azure hacia la izquierda o la derecha, aunque también se puede programar o agregar a una carga de trabajo con T-SQL y PowerShell.
+La arquitectura del Almacenamiento de datos SQL presenta el proceso y el almacenamiento por separado, lo que permite a cada uno escalar de manera independiente. La estructura de implementación rápida y sencilla de la Base de datos SQL permite disponer de procesos adicionales en un instante. Como complemento, está el uso de Blobs de almacenamiento de Azure. Los blobs no solo nos ofrecen un almacenamiento estable y replicado, sino que proporcionan igualmente la infraestructura para una expansión más fluida y menos costosa. Mediante esta combinación de almacenamiento de escala en la nube y de proceso de Azure, el Almacenamiento de datos SQL le permite pagar por un almacenamiento de rendimiento de consultas conforme lo necesita cuando lo necesita. Cambiar la cantidad del proceso es tan fácil como mover un control deslizante en el Portal de Azure clásico hacia la izquierda o la derecha, aunque también se puede programar o agregar a una carga de trabajo con T-SQL y PowerShell.
 
 Junto con la capacidad de controlar totalmente la cantidad del proceso con independencia del almacenamiento, el Almacenamiento de datos SQL le permite realizar una pausa completa en el almacenamiento de datos. A la vez que mantiene el almacenamiento en su sitio, se lanzan todos los procesos al grupo principal de Azure, lo que supone un ahorro de dinero inmediato. Cuando sea necesario, solo tendrá que reanudar el proceso y tener los datos y el proceso disponibles para su carga de trabajo.
 
@@ -138,4 +138,4 @@ Ahora que ya conoce un poco el Almacenamiento de datos SQL, obtenga información
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -20,7 +20,7 @@
 
 ## Información general
 
-En este tutorial se muestra cómo utilizar herramientas de Visual Studio para ayudar a depurar una aplicación web mientras se ejecuta en el [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714), ya sea en [modo de depuración](http://www.visualstudio.com/es-ES/get-started/debug-your-app-vs.aspx) de manera remota o consultando los registros del servidor web o de aplicación.
+En este tutorial se muestra cómo utilizar herramientas de Visual Studio para ayudar a depurar una aplicación web mientras se ejecuta en el [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714), ya sea en [modo de depuración](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) de manera remota o consultando los registros del servidor web o de aplicación.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -71,7 +71,7 @@ Visual Studio proporciona acceso a un subconjunto de las funciones de administra
    
 	Para obtener información acerca de los cuadros Configuración de aplicaciones y Cadenas de conexión de esta ventana, consulte [Aplicaciones web de Azure: Funcionamiento de las cadenas de aplicación y de las cadenas de conexión](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
-	Si desea realizar una tarea de administración de aplicaciones web que no se puede hacer en esta ventana, haga clic en **Abrir en Portal de administración** para abrir una ventana del explorador con el Portal de vista previa de Azure. Para obtener más información, consulte [Configuración de aplicaciones web](/es-ES/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+	Si quiere realizar una tarea de administración de aplicaciones web que no se puede hacer en esta ventana, haga clic en **Abrir en Portal de administración** para abrir una ventana del explorador en el Portal de Azure clásico. Para obtener más información, consulte [Configuración de aplicaciones web](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
 ## <a name="remoteview"></a>Acceso a archivos de aplicaciones web en el Explorador de servidores
 
@@ -125,7 +125,7 @@ Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Int
 
 1. Abra el proyecto web que creó en [Introducción a Azure y ASP.NET][GetStarted].
 
-1. Abra *Controllers\HomeController.cs*.
+1. Abra *Controllers\\HomeController.cs*.
 
 2. Elimine el método `About()` e inserte el siguiente código en su lugar.
 
@@ -156,7 +156,7 @@ Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Int
 
 6. Para Visual Studio 2012 con Update 4 o superior: <a id="vs2012"></a>
 
-	* En el Portal de administración de Azure, vaya a **Configurar > Configuración de la aplicación** para su aplicación web y desplácese hacia abajo hasta la sección **Depuración**.
+	* En el Portal de Azure clásico, vaya a **Configurar > Configuración de la aplicación** para su aplicación web y desplácese hacia abajo hasta la sección **Depuración**.
 
 	* Establezca **Depuración remota** en **Activado** y establezca **Versión remota de Visual Studio** en **2012**.
 
@@ -166,7 +166,7 @@ Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Int
 
 	* Seleccione **Mostrar los procesos de todos los usuarios**.
 
-	* Cuando se le soliciten credenciales, escriba el nombre de usuario y la contraseña con permisos para implementar el contenido en la aplicación web. Para obtener estas credenciales, vaya a la pestaña Panel de la aplicación web en el portal de administración y haga clic en **Descargar el perfil de publicación**. Abra el archivo en un editor de texto y verá el nombre de usuario y la contraseña después de las primeras apariciones de **userName=** y **userPWD=**.
+	* Cuando se le soliciten credenciales, escriba el nombre de usuario y la contraseña con permisos para implementar el contenido en la aplicación web. Para obtener estas credenciales, vaya a la pestaña Panel de la aplicación web en el portal clásico y haga clic en **Descargar el perfil de publicación**. Abra el archivo en un editor de texto y verá el nombre de usuario y la contraseña después de las primeras apariciones de **userName=** y **userPWD=**.
 
 	* Cuando los procesos aparezcan en la tabla **Procesos disponibles**, seleccione **w3wp.exe** y haga clic en **Adjuntar**.
 
@@ -300,7 +300,7 @@ Para obtener información acerca de cómo crear registros de aplicaciones en Web
 
 ### Adición de instrucciones de seguimiento a la aplicación
 
-1. Abra *Controllers\HomeController.cs* y reemplace el contenido del archivo por el siguiente código para agregar instrucciones `Trace` y una instrucción `using` para `System.Diagnostics`:
+1. Abra *Controllers\\HomeController.cs* y reemplace el contenido del archivo por el siguiente código para agregar instrucciones `Trace` y una instrucción `using` para `System.Diagnostics`:
 
 		using System;
 		using System.Collections.Generic;
@@ -477,9 +477,9 @@ Los registros de servidor web registran toda la actividad HTTP para la aplicaci�
 	![Registros de servidor web en la ventana Output](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
 
-De manera predeterminada, cuando habilita por primera vez los registros de servidor web mediante el uso de Visual Studio, Azure escribe los registros en el sistema de archivos. De manera alternativa, puede utilizar el portal de administración para especificar que los registros de servidor web se deben escribir en un contenedor de blob en una cuenta de almacenamiento. Para obtener más información, consulte la sección sobre **diagnóstico del sitio** en [Configuración de Sitios web](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+De manera predeterminada, cuando habilita por primera vez los registros de servidor web mediante el uso de Visual Studio, Azure escribe los registros en el sistema de archivos. De manera alternativa, puede utilizar el portal clásico para especificar que los registros de servidor web se deben escribir en un contenedor de blob en una cuenta de almacenamiento. Para obtener más información, consulte la sección sobre **diagnóstico del sitio** en [Configuración de Sitios web](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
-Si utiliza el portal de administración para habilitar el registro de servidor web para una cuenta de almacenamiento de Azure y luego deshabilitar el registro en Visual Studio, cuando vuelve a habilitar el registro en Visual Studio, se restaurará la configuración de su cuenta de almacenamiento.
+Si utiliza el portal clásico para habilitar el registro de servidor web para una cuenta de almacenamiento de Azure y luego deshabilitar el registro en Visual Studio, cuando vuelva a habilitar el registro en Visual Studio, se restaurará la configuración de su cuenta de almacenamiento.
 
 ## <a name="detailederrorlogs"></a>Visualización de registros de mensajes de error detallados
 
@@ -529,7 +529,7 @@ Todos los registros que se pueden supervisar en la ventana **Resultados** tambi�
 
 ## <a name="storagelogs"></a>Visualización de registros de almacenamiento
 
-Los registros de seguimiento de la aplicación también se pueden enviar a una cuenta de almacenamiento de Azure y puede verlos en Visual Studio. Para ello, creará una cuenta de almacenamiento, habilitará los registros de almacenamiento en el portal de administración y los verá en la pestaña **Registros** de la ventana **Aplicación web de Azure**.
+Los registros de seguimiento de la aplicación también se pueden enviar a una cuenta de almacenamiento de Azure y puede verlos en Visual Studio. Para ello, creará una cuenta de almacenamiento, habilitará los registros de almacenamiento en el portal clásico y los verá en la pestaña **Registros** de la ventana **Aplicación web de Azure**.
 
 Puede enviar registros a todos o a cualquiera de estos tres destinos:
 
@@ -569,12 +569,11 @@ Las cuentas de almacenamiento ofrecen más almacenamiento y retención más prol
 
 1. En la ventana **Aplicación web de Azure** de Visual Studio, haga clic en la pestaña **Registros** y a continuación, haga clic en **Configurar registro en el Portal de administración**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
-	![registro](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![registro](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
-	Esto abre la pestaña **Configurar** en el Portal de Azure de su aplicación web.
+	Esto abre la pestaña **Configurar** en el portal clásico de su aplicación web.
 
-2. En la pestaña **Configurar** del portal, desplácese hacia abajo hasta la sección de diagnóstico de aplicaciones y cambie **Registro de la aplicación (Almacenamiento de tabla)** a **Activado**.
+2. En la pestaña **Configurar** del portal clásico, desplácese hacia abajo hasta la sección de diagnóstico de aplicaciones y cambie **Registro de la aplicación (Almacenamiento de tablas)** a **Activado**.
 
 3. Cambie **Nivel de registro** a **Información**.
 
@@ -588,7 +587,7 @@ Las cuentas de almacenamiento ofrecen más almacenamiento y retención más prol
 
 6. En el cuadro **Administrar almacenamiento de tablas para diagnósticos de la aplicación**, haga clic en la marca de verificación junto al cuadro.
 
-6. En la pestaña **Configurar** del portal, haga clic en **Guardar**.
+6. En la pestaña **Configurar** del portal clásico, haga clic en **Guardar**.
 
 7. En la ventana del explorador que muestra la aplicación web, haga clic en **Inicio**, en **Acerca de** y, a continuación, en **Contacto**.
 
@@ -640,13 +639,13 @@ Puede ver los registros de seguimiento de solicitudes en un explorador directame
 
 2. En Visual Studio, en la pestaña **Configuración** de la ventana **Aplicación web de Azure**, haga clic en **Abrir en el Portal de administración**.
 
-3. En la hoja del Portal de vista previa de Azure para la aplicación web, haga clic en **Configuración > Credenciales de implementación** y, a continuación, especifique un nuevo nombre de usuario y contraseña.
+3. En la hoja del Portal de Azure (https://portal.azure.com) para la aplicación web, haga clic en **Configuración > Credenciales de implementación** y luego especifique un nuevo nombre de usuario y contraseña.
 
 	![Nuevo nombre de usuario y contraseña de FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
-	Cuando **inicie sesión**, debe utilizar el nombre de usuario completo, con el nombre de la aplicación como prefijo. Por ejemplo, si escribe "myid" como nombre de usuario y el sitio es "myexample", inicie sesión como "myexample\\myid".
+	****Cuando inicie sesión, debe utilizar el nombre de usuario completo, con el nombre de la aplicación como prefijo. Por ejemplo, si escribe "myid" como nombre de usuario y el sitio es "myexample", inicie sesión como "myexample\\myid".
 
-5. En una ventana nueva del explorador, vaya a la dirección URL que aparece en **Nombre de host de FTP** o **Nombre de host de FTPS** en la hoja del portal **Aplicación web** para la aplicación web.
+5. En una ventana nueva del explorador, vaya a la dirección URL que aparece en **Nombre de host de FTP** o **Nombre de host de FTPS** en la hoja **Aplicación web** de la aplicación web.
 
 6. Inicie sesión con las credenciales de FTP que creó anteriormente (el nombre de usuario debe incluir como prefijo el nombre de la aplicación).
 
@@ -739,7 +738,7 @@ También antiguo, pero incluye cierta información adicional que el artículo de
 
 Para el registro de errores, una alternativa a escribir su propio código de seguimiento es utilizar un marco de registro de código abierto, como [ELMAH](http://nuget.org/packages/elmah/). Para obtener más información, consulte [Publicaciones de blog de Scott Hanselman sobre ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
-Además, tenga en cuenta que no tiene que utilizar el seguimiento de System.Diagnostics o ASP.NET si desea obtener registros de streaming de Azure. El servicio de registros de streaming de la aplicación web de Azure transmitirá todo archivo *.txt*, *.html* o *.log* que encuentre en la carpeta *LogFiles*. Por lo tanto, podría crear su propio sistema de registro que escriba en el sistema de archivos de la aplicación web y su archivo se transmitirá y descargará automáticamente. Todo lo que tiene que hacer es escribir código de aplicación que cree archivos en la carpeta *d:\home\logfiles*.
+Además, tenga en cuenta que no tiene que utilizar el seguimiento de System.Diagnostics o ASP.NET si desea obtener registros de streaming de Azure. El servicio de registros de streaming de la aplicación web de Azure transmitirá todo archivo *.txt*, *.html* o *.log* que encuentre en la carpeta *LogFiles*. Por lo tanto, podría crear su propio sistema de registro que escriba en el sistema de archivos de la aplicación web y su archivo se transmitirá y descargará automáticamente. Todo lo que tiene que hacer es escribir código de aplicación que cree archivos en la carpeta *d:\\home\\logfiles*.
 
 ### Análisis de registros de servidor web
 
@@ -767,4 +766,4 @@ Si desea depurar un servicio en la nube de Azure en lugar de una aplicación web
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

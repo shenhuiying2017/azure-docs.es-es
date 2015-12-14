@@ -28,9 +28,9 @@ Para crear una máquina virtual de SQL Server en Azure, primero debe obtener una
 
 ### Implementar una instancia de SQL Server en una única máquina virtual
 
-Cuando se haya registrado para una suscripción, la manera más sencilla de implementar una máquina virtual de SQL Server en Azure es [aprovisionar una imagen de la galería de máquinas de SQL Server en el Portal de Azure](virtual-machines-provision-sql-server.md). Esas imágenes incluyen licencias de SQL Server en el precio de la máquina virtual.
+Cuando se haya registrado para una suscripción, la manera más sencilla de implementar una máquina virtual de SQL Server en Azure es [aprovisionar una imagen de la galería de máquinas de SQL Server en el Portal de Azure clásico](virtual-machines-provision-sql-server.md). Esas imágenes incluyen licencias de SQL Server en el precio de la máquina virtual.
 
->[AZURE.NOTE]Use el Portal de vista previa de Azure para aprovisionar y administrar máquinas virtuales de SQL Server. De forma predeterminada, usa Almacenamiento premium y ofrece revisiones automatizadas, copias de seguridad automatizadas y configuraciones AlwaysOn.
+>[AZURE.NOTE]Use el Portal de Azure para aprovisionar y administrar máquinas virtuales de SQL Server. De forma predeterminada, usa Almacenamiento premium y ofrece revisiones automatizadas, copias de seguridad automatizadas y configuraciones AlwaysOn.
 
 En la tabla siguiente se ofrece una matriz de imágenes de SQL Server disponibles en la galería de máquinas virtuales.
 
@@ -61,7 +61,7 @@ Una vez puesta en marcha la máquina virtual de SQL Server, podrá migrar bases 
 
 ## Alta disponibilidad
 
-Si necesita alta disponibilidad, considere la posibilidad de configurar los grupos de disponibilidad AlwaysOn de SQL Server. Esto implica varias máquinas virtuales de Azure en una red virtual. El Portal de vista previa de Azure dispone de una plantilla que define esta configuración. Para obtener más información, consulte [Oferta de AlwaysOn de SQL Server en la Galería del Portal de Microsoft Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
+Si necesita alta disponibilidad, considere la posibilidad de configurar los grupos de disponibilidad AlwaysOn de SQL Server. Esto implica varias máquinas virtuales de Azure en una red virtual. El Portal de Azure dispone de una plantilla que define esta configuración. Para obtener más información, consulte [Oferta de AlwaysOn de SQL Server en la Galería del Portal de Microsoft Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
 
 Si desea configurar manualmente un grupo de disponibilidad y el agente de escucha asociado, consulte los artículos siguientes:
 
@@ -148,4 +148,4 @@ Si crea una máquina virtual mediante una imagen de SQL Server ofrecida por la p
 - [Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Máquinas virtuales de Azure](virtual-machines-about.md) 
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

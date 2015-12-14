@@ -60,7 +60,7 @@ Si desea usar el almacenamiento de blobs de Azure para hospedar el contenido de 
 #### Crear una cuenta de almacenamiento
 
 1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com/).
-2. Haga clic en **+ Nuevo** -> **Datos + almacenamiento** -> **Cuenta de almacenamiento**. Necesitará una suscripción de Azure para crear una cuenta de Almacenamiento de blobs de Azure. Puede registrarse para una evaluación gratuita [aquí](https://azure.microsoft.com/es-ES/pricing/free-trial/).
+2. Haga clic en **+ Nuevo** -> **Datos + almacenamiento** -> **Cuenta de almacenamiento**. Necesitará una suscripción de Azure para crear una cuenta de Almacenamiento de blobs de Azure. Puede registrarse para una evaluación gratuita [aquí](https://azure.microsoft.com/pricing/free-trial/).
 3. Proporcione un **Nombre** para la cuenta de almacenamiento (por ejemplo, "contoso") y elija las selecciones adecuadas para **Plan de tarifa**, **Grupo de recursos** y **Suscripción**. Asegúrese de tener la opción **Anclar a Panel de inicio** activada. Haga clic en **Crear**.
 4. Regrese al panel de inicio y haga clic en la cuenta de almacenamiento que acaba de crear.
 5. En la sección **Resumen**, haga clic en **Contenedores** y luego en **+Agregar**.
@@ -90,4 +90,4 @@ Ahora que ha cargado el contenido de ejemplo en su propia cuenta de almacenamien
         
 Ahora puede usar el botón **Ejecutar ahora** o su propia aplicación para ejecutar de nuevo la directiva. El resultado debería ser casi exactamente el mismo, ya que usó el mismo HTML y CSS de ejemplo en ambos casos. Sin embargo, las directivas ahora hacen referencia a su propia instancia de almacenamiento de blobs de Azure, y es libre de editar y volver a cargar los archivos a su gusto. Para obtener más información sobre la personalización del contenido HTML y CSS, consulte el [artículo principal sobre personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

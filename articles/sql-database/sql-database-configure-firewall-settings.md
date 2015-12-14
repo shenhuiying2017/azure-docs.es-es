@@ -18,11 +18,11 @@
 	ms.author="rickbyh"/>
 
 
-# Configuración del firewall en la Base de datos SQL mediante el Portal de Azure
+# Configuración del firewall en la Base de datos SQL mediante el Portal de Azure clásico
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-configure-firewall-settings.md)
+- [Azure Portal](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 - [REST API](sql-database-configure-firewall-settings-rest.md)
@@ -30,18 +30,18 @@
 
 Base de datos SQL de Microsoft Azure usa reglas de firewall para permitir conexiones con servidores y bases de datos. Puede definir la configuración de firewall de nivel de servidor y de base de datos para el maestro o una base de datos de usuario en el servidor de Base de datos SQL de Azure para permitir el acceso a la base de datos de forma selectiva.
 
-> [AZURE.IMPORTANT]Para permitir que las aplicaciones de Azure se conecten al servidor de base de datos, deben habilitarse las conexiones de Azure. Para obtener más información sobre las reglas de firewall y sobre cómo habilitar las conexiones de Azure, consulte el artículo [Firewall de la Base de datos SQL de Azure](sql-database-firewall-configure.md). Es posible que tenga que abrir algunos puertos TCP adicionales si está realizando conexiones dentro del límite de la nube de Azure. Para obtener más información, consulte la sección **Versión V12 de la Base de datos SQL: fuera frente a dentro** del artículo [Puertos más allá de 1433 para ADO.NET 4.5 y la Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+> [AZURE.IMPORTANT]Para permitir que las aplicaciones de Azure se conecten al servidor de base de datos, deben habilitarse las conexiones de Azure. Para obtener más información sobre las reglas de firewall y sobre cómo habilitar las conexiones de Azure, consulte el artículo [Firewall de la Base de datos SQL de Azure](sql-database-firewall-configure.md). Es posible que tenga que abrir algunos puertos TCP adicionales si está realizando conexiones dentro del límite de la nube de Azure. Para obtener más información, consulte la sección **Versión V12 de la Base de datos SQL: fuera frente a dentro** del artículo [Puertos más allá de 1433 para ADO.NET 4.5 y la Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
-### Administración de reglas de firewall de nivel de servidor a través del nuevo Portal de Azure
+### Administración de reglas de firewall de nivel de servidor a través del nuevo Portal de Azure clásico
 
 
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-## Administración de reglas de firewall de nivel de servidor a través del Portal de administración 
+## Administración de reglas de firewall de nivel de servidor a través del Portal clásico 
 
-1. En el Portal de administración, haga clic en **Bases de datos SQL**. Aquí se enumeran todas las bases de datos y los servidores correspondientes.
+1. En el Portal clásico, haga clic en **Bases de datos SQL**. Aquí se enumeran todas las bases de datos y los servidores correspondientes.
 2. Haga clic en **Servers** en la parte superior de la página.
 3. Haga clic en la flecha al lado del servidor para el que desea administrar las reglas de firewall.
 4. Haga clic en **Configurar** en la parte superior de la página.
@@ -55,11 +55,11 @@ Base de datos SQL de Microsoft Azure usa reglas de firewall para permitir conexi
 
 ## Pasos siguientes
 
-Para obtener un tutorial sobre la creación de una base de datos, consulte [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md). Para obtener ayuda acerca de la conexión a una Base de datos SQL de Azure desde aplicaciones de código abierto o de terceros, consulte [Instrucciones para conectar con la Base de datos SQL de Azure mediante programación](https://msdn.microsoft.com/library/azure/ee336282.aspx). Para conseguir más información acerca de cómo acceder a las bases de datos, consulte [Administrar bases de datos e inicios de sesión en la Base de datos SQL de Microsoft Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+Para obtener un tutorial sobre la creación de una base de datos, consulte [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md). Para obtener ayuda acerca de la conexión a una Base de datos SQL de Azure desde aplicaciones de código abierto o de terceros, consulte [Instrucciones para conectar con la Base de datos SQL de Azure mediante programación](https://msdn.microsoft.com/library/azure/ee336282.aspx). Para conseguir más información acerca de cómo acceder a las bases de datos, consulte [Administrar bases de datos e inicios de sesión en la Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 <!--Image references-->
 [1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

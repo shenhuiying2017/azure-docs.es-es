@@ -1,6 +1,6 @@
 <properties
  pageTitle="Creación de un nodo principal de HPC Pack en una máquina virtual de Azure | Microsoft Azure"
- description="Aprenda a usar el Portal de Azure y el modelo de implementación clásico para crear un nodo principal de Microsoft HPC Pack en una máquina virtual de Azure."
+ description="Aprenda a usar el Portal de Azure clásico y el modelo de implementación clásico para crear un nodo principal de Microsoft HPC Pack en una máquina virtual de Azure."
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
@@ -42,7 +42,7 @@ Para una implementación de producción de un clúster de HPC Pack en Azure, se 
 Estos son los pasos de nivel superior para crear una máquina virtual de Azure para el nodo principal de HPC Pack. Puede usar una variedad de herramientas de Azure para realizar estos pasos en el modelo de implementación clásico (administración de servicios) de Azure.
 
 
-1. Si planea crear una máquina virtual para la máquina virtual del nodo principal consulte [Creación de una red virtual usando el portal de vista previa de Azure](../virtual-networks/virtual-networks-create-vnet-classic-pportal.md).
+1. Si planea crear una red virtual para la máquina virtual del nodo principal, consulte [Creación de una red virtual (clásica) usando el Portal de Azure](../virtual-networks/virtual-networks-create-vnet-classic-pportal.md).
 
     **Consideraciones**
 
@@ -58,7 +58,7 @@ Estos son los pasos de nivel superior para crear una máquina virtual de Azure p
 
     * Para realizar una simple prueba de implementación del concepto, puede omitir este paso y después promocionar el nodo principal de máquina virtual como un controlador de dominio.
 
-3. En el Portal de Azure o el Portal de vista previa de Azure, cree una máquina virtual clásica mediante la selección de la imagen de HPC Pack 2012 R2 en Azure Marketplace. (Consulte los pasos para el Portal de Azure [aquí](virtual-machines-windows-tutorial-classic-portal.md)).
+3. En el Portal de Azure clásico o el Portal de Azure, cree una máquina virtual clásica mediante la selección de la imagen de HPC Pack 2012 R2 en Azure Marketplace. (Consulte los pasos para el Portal de Azure clásico [aquí](virtual-machines-windows-tutorial-classic-portal.md)).
 
     **Consideraciones**
 
@@ -102,4 +102,4 @@ Estos son los pasos de nivel superior para crear una máquina virtual de Azure p
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

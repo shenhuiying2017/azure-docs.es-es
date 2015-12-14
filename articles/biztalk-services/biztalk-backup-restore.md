@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
 # Servicios de BizTalk: copias de seguridad y restauración
 
-Servicios de BizTalk de Azure incluye las capacidades de copia de seguridad y restauración. En este tema se describe cómo realizar la copia de seguridad y la restauración de los servicios de BizTalk con el Portal de administración de Azure.
+Servicios de BizTalk de Azure incluye las capacidades de copia de seguridad y restauración. En este tema se describe cómo realizar la copia de seguridad y la restauración de los servicios de BizTalk con el Portal de Azure clásico.
 
 También puede realizar la copia de seguridad de los Servicios de BizTalk mediante la [API REST de Servicios de BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584).
 
@@ -29,7 +29,7 @@ También puede realizar la copia de seguridad de los Servicios de BizTalk median
 
 	**Nota** NO se realiza ninguna copia de seguridad de las conexiones híbridas, independientemente de la edición.
 
-- En el Portal de administración de Azure puede crear una copia de seguridad bajo demanda o crear una copia de seguridad programada.
+- En el Portal de Azure clásico puede crear una copia de seguridad bajo demanda o crear una copia de seguridad programada.
 
 - El contenido de las copias de seguridad se puede restaurar en el mismo servicio de BizTalk o en uno nuevo. Para restaurar el servicio de BizTalk con el mismo nombre, es preciso eliminar el servicio de BizTalk existente y el nombre debe estar disponible. Después de eliminar un servicio de BizTalk, puede tardar más tiempo del deseado para que el mismo nombre esté disponible. Si no puede esperar a que el mismo nombre esté disponible, restaure a un nuevo servicio de BizTalk.
 
@@ -48,14 +48,14 @@ También puede realizar la copia de seguridad de los Servicios de BizTalk median
 
 ## Creación de una copia de seguridad
 
-Puede realizar una copia de seguridad en cualquier momento y controlarla por completo. Esta sección muestra los pasos para crear copias de seguridad mediante el Portal de administración de Azure, entre los que se incluyen:
+Puede realizar una copia de seguridad en cualquier momento y controlarla por completo. Esta sección muestra los pasos para crear copias de seguridad mediante el Portal de Azure clásico, entre los que se incluyen:
 
 [Copia de seguridad bajo demanda](#backupnow)
 
 [Programación de una copia de seguridad](#backupschedule)
 
 #### <a name="backupnow"></a>Copia de seguridad bajo demanda
-1. En el Portal de administración de Azure, seleccione **Servicios de BizTalk** y, a continuación, el servicio de BizTalk del que desee realizar la copia de seguridad.
+1. En el Portal de Azure clásico, seleccione **Servicios de BizTalk** y, luego, el servicio de BizTalk del que quiera realizar la copia de seguridad.
 2. En la pestaña **Panel**, seleccione **Hacer una copia de seguridad** en la parte inferior de la página.
 3. Escriba un nombre para la copia de seguridad. Por ejemplo, escriba *myBizTalkService*BU*Fecha*.
 4. Elija una cuenta de almacenamiento de blobs y seleccione la marca de verificación para iniciar la copia de seguridad.
@@ -64,7 +64,7 @@ Una vez que finalice la copia de seguridad, en la cuenta de almacenamiento se cr
 
 #### <a name="backupschedule"></a>Programación de una copia de seguridad
 
-1. En el Portal de administración de Azure, seleccione **Servicios de BizTalk**, seleccione el nombre del servicio de BizTalk del que quiere programar la copia de seguridad y, a continuación, seleccione la pestaña **Configurar**.
+1. En el Portal de Azure clásico, seleccione **Servicios de BizTalk**, seleccione el nombre del servicio de BizTalk del que quiere programar la copia de seguridad y luego seleccione la pestaña **Configurar**.
 2. Establezca el **Estado de copia de seguridad** en **Automático**. 
 3. Seleccione la **Cuenta de almacenamiento** para almacenar la copia de seguridad, especifique la **Frecuencia** con la que desea crear las copias de seguridad y cuánto tiempo quiere conservar las copias de seguridad (**Días de retención**):
 
@@ -86,7 +86,7 @@ El vínculo abre los Registros de operaciones de Servicios de administración pa
 
 ## Restauración
 
-Puede restaurar las copias de seguridad desde el Portal de administración de Azure o desde la [API REST para la restauración del Servicio de BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325582). En esta sección se muestran los pasos para realizar la restauración mediante el Portal de administración.
+Puede restaurar las copias de seguridad desde el Portal de Azure clásico o desde la [API REST para la restauración del Servicio de BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325582). En esta sección se muestran los pasos para realizar la restauración mediante el portal clásico.
 
 #### Antes de restaurar una copia de seguridad
 
@@ -96,7 +96,7 @@ Puede restaurar las copias de seguridad desde el Portal de administración de Az
 
 #### Restauración de una copia de seguridad
 
-1. En el Portal de administración de Azure, seleccione **Nuevo** > **Servicios de aplicaciones** > **Servicio de BizTalk** > **Restaurar**:
+1. En el Portal de Azure clásico, seleccione **Nuevo** > **Servicios de aplicaciones** > **Servicio de BizTalk** > **Restaurar**:
 
 	![Restauración de una copia de seguridad][Restore]
 
@@ -119,7 +119,7 @@ Puede restaurar las copias de seguridad desde el Portal de administración de Az
 
 7. Seleccione la marca de verificación para iniciar la restauración.
 
-Cuando se haya realizado correctamente la restauración, se incluye un nuevo servicio de BizTalk cuyo estado está suspendido en la página de servicios de BizTalk del Portal de administración de Azure.
+Cuando se haya realizado correctamente la restauración, se incluye un nuevo servicio de BizTalk cuyo estado está suspendido en la página de servicios de BizTalk del Portal de Azure clásico.
 
 
 
@@ -135,7 +135,7 @@ El servicio de BizTalk siempre está restaurado en un estado **Suspendido**. En 
 
 - Es recomendable configurar copias de seguridad automatizadas en el entorno del Servicio de BizTalk recién restaurado.
 
-Para iniciar el Servicio de BizTalk en el Portal de administración de Azure, seleccione el Servicio de BizTalk restaurado y seleccione **Reanudar** en la barra de tareas.
+Para iniciar el Servicio de BizTalk en el Portal de Azure clásico, seleccione el Servicio de BizTalk restaurado y seleccione **Reanudar** en la barra de tareas.
 
 
 
@@ -214,13 +214,13 @@ Si la base de datos de seguimiento se elimina y hay que recuperarla, debe existi
 
 ## Pasos siguientes
 
-Para crear los Servicios de BizTalk de Azure en el Portal de administración de Azure, vaya a [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280). Para comenzar a crear aplicaciones, vaya a [Servicios de BizTalk de Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Para crear los Servicios de BizTalk de Azure en el portal de Azure clásico, vaya a [Servicios de BizTalk: Aprovisionamiento con el portal de Azure clásico](http://go.microsoft.com/fwlink/p/?LinkID=302280). Para comenzar a crear aplicaciones, vaya a [Servicios de BizTalk de Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## Otras referencias
 - [Copia de seguridad del servicio de BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584)
 - [Restauración del servicio de BizTalk a partir de una copia de seguridad](http://go.microsoft.com/fwlink/p/?LinkID=325582)
 - [Servicios de BizTalk: gráfico de las ediciones Developer, Basic, Standard y Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-- [Servicios de BizTalk: aprovisionamiento con el Portal de administración de Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)
+- [Servicios de BizTalk: aprovisionamiento con el Portal de Azure clásico](http://go.microsoft.com/fwlink/p/?LinkID=302280)
 - [Servicios de BizTalk: gráfico del estado de aprovisionamiento](http://go.microsoft.com/fwlink/p/?LinkID=329870)
 - [Servicios de BizTalk: pestañas Panel, Monitor y Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281)
 - [Servicios de BizTalk: limitaciones](http://go.microsoft.com/fwlink/p/?LinkID=302282)
@@ -233,4 +233,4 @@ Para crear los Servicios de BizTalk de Azure en el Portal de administración de 
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -292,7 +292,7 @@ Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevo
 ## Notas para la versión de 27/02/2015 de la Factoría de datos
 
 ### Nuevas mejoras
-- **Editor de la Factoría de datos de Azure**. El Editor de la Factoría de datos, que forma parte del Portal de vista previa Azure, permite crear, editar e implementar archivos JSON que definen servicios vinculados, conjuntos de datos y canalizaciones. El objetivo principal del editor es proporcionar una interfaz de usuario (IU) rápida y ligera para crear artefactos de la Factoría de datos de Azure sin tener que instalar Azure PowerShell y para mejorar el uso de los cmdlets de PowerShell. Consulte la entrada de blog [Editor de la Factoría de datos de Azure: un editor web ligero][adf-editor-blog] para obtener información general rápida y un vídeo sobre el Editor de la Factoría de datos. Consulte el artículo [Editor de la Factoría de datos][adf-editor] para obtener información general del editor.          
+- **Editor de la Factoría de datos de Azure**. El Editor de la Factoría de datos, que forma parte del Portal de Azure, permite crear, editar e implementar archivos JSON que definen servicios vinculados, conjuntos de datos y canalizaciones. El objetivo principal del editor es proporcionar una interfaz de usuario (IU) rápida y ligera para crear artefactos de la Factoría de datos de Azure sin tener que instalar Azure PowerShell y para mejorar el uso de los cmdlets de PowerShell. Consulte la entrada de blog [Editor de la Factoría de datos de Azure: un editor web ligero][adf-editor-blog] para obtener información general rápida y un vídeo sobre el Editor de la Factoría de datos. Consulte el artículo [Editor de la Factoría de datos][adf-editor] para obtener información general del editor.          
 
 ### Cambios
 
@@ -313,7 +313,7 @@ Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevo
 - Integración de aprendizaje automático de Azure
 	- Esta versión del servicio Factoría de datos de Azure le permite integrar la Factoría de datos de Azure con el Aprendizaje automático de Azure (ML) mediante **AzureMLLinkedService** y **AzureMLBatchScoringActivity**. Vea [Crear canalizaciones predictivas con la Factoría de datos y el Aprendizaje automático de Azure][adf-azure-ml] para obtener más información. 
 - Se proporciona el estado de la versión de puerta de enlace
-	- El estado de "NewVersionAvailable" se mostrará en el Portal de vista previa de Azure y en la salida del cmdlet Get-AzureDataFactoryGateway, si hay una versión más reciente de la puerta de enlace disponible que la instalada actualmente. A continuación, puede seguir el viaje del portal para descargar el nuevo archivo de instalación (.msi) y ejecutarlo para instalar la puerta de enlace más reciente. No se necesita ninguna configuración adicional.
+	- El estado de "NewVersionAvailable" se mostrará en el Portal de Azure y en la salida del cmdlet Get-AzureDataFactoryGateway, si hay una versión más reciente de la puerta de enlace disponible que la instalada actualmente. A continuación, puede seguir el viaje del portal para descargar el nuevo archivo de instalación (.msi) y ejecutarlo para instalar la puerta de enlace más reciente. No se necesita ninguna configuración adicional.
 
 ### Cambios
 
@@ -354,4 +354,4 @@ Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevo
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

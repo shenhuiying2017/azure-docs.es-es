@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/25/2015"
-	ms.author="rgarodia, azuresbcic"/>
+	ms.author="rgarodia"/>
 
 # Mi tarjeta de crédito no se acepta cuando intento suscribirme a Azure
 Este artículo describe algunas causas comunes de problemas que surgen al realizar la suscripción con una tarjeta de crédito o débito.
@@ -64,4 +64,4 @@ Si se produce un error en la activación de una evaluación gratuita porque en e
 ## Póngase en contacto con el soporte técnico de Azure
 Si después de seguir estos pasos para solucionar problemas sigue teniendo un problema para realizar la inscripción, póngase en contacto con el [soporte técnico de Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

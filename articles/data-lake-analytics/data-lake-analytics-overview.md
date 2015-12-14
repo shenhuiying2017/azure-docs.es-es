@@ -52,7 +52,7 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
 ## Consulte también
 
 - Primeros pasos
-    - [Introducción a Análisis de Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-get-started-portal.md)
+    - [Introducción a Análisis de Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md)
     - [Introducción a Análisis de Data Lake mediante Azure PowerShell](data-lake-analytics-get-started-powershell.md)
     - [Introducción a Análisis de Data Lake mediante el SDK de .NET de Azure](data-lake-analytics-get-started-net-sdk.md)
     - [Desarrollo de scripts de U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
@@ -64,9 +64,9 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
     - [Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Análisis de Data Lake](data-lake-analtyics-u-sql-develop-user-defined-operators.md)
     
 - Administración
-    - [Administración de Análisis de Azure Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-manage-use-portal.md)
+    - [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md)
     - [Administración de Análisis de Azure Data Lake mediante Azure Powershell](data-lake-analytics-manage-use-powershell.md)
-    - [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 - Tutorial integral
     - [Uso de tutoriales interactivos de Análisis de Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
@@ -77,4 +77,4 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
     - [Envíe una solicitud de característica](http://aka.ms/adlafeedback)
     - [Obtenga ayuda en los foros](http://aka.ms/adlaforums)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,22 +1,26 @@
-<properties 
-	pageTitle="Incorporación de autenticación a la aplicación de Windows 8.1 universal | Microsoft Azure" 
-	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de la aplicación Universal Windows 8.1 a través de una variedad de proveedores de identidades, incluidos Google, Facebook, Twitter y Microsoft." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Incorporación de autenticación a la aplicación de Windows 8.1 universal | Microsoft Azure"
+	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de la aplicación Universal Windows 8.1 a través de una variedad de proveedores de identidades, incluidos Google, Facebook, Twitter y Microsoft."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/23/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/23/2015"
 	ms.author="glenga"/>
 
-# Incorporación de autenticación a la aplicación de Servicios móviles 
+# Incorporación de autenticación a la aplicación de Servicios móviles
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
@@ -42,10 +46,10 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Primero d
 
 &nbsp;&nbsp;7. En el proyecto compartido, abra el archivo de proyecto App.xaml.cs, busque la definición de [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) y asegúrese de que se ha configurado para conectar con el servicio móvil que se ejecuta en Azure.
 
->[AZURE.NOTE]Cuando se conecta una aplicación a un servicio móvil con las herramientas de Visual Studio, la herramienta genera dos conjuntos de definiciones **MobileServiceClient**, una para cada plataforma cliente. Ahora es el momento de simplificar el código generado. Para ello, unifique las definiciones del contenedor `#if...#endif` **MobileServiceClient** en una única definición sin contenedor, que deben usar las dos versiones de la aplicación. No necesitará hacer esto cuando descargue la aplicación de inicio rápido desde el Portal de administración de Azure.
+>[AZURE.NOTE]Cuando se conecta una aplicación a un servicio móvil con las herramientas de Visual Studio, la herramienta genera dos conjuntos de definiciones **MobileServiceClient**, una para cada plataforma cliente. Ahora es el momento de simplificar el código generado. Para ello, unifique las definiciones del contenedor `#if...#endif` **MobileServiceClient** en una única definición sin contenedor, que deben usar las dos versiones de la aplicación. No necesitará hacer esto cuando descargue la aplicación de inicio rápido desde el [Portal de Azure clásico].
 
 &nbsp;&nbsp;8. Presione la tecla F5 para ejecutar la aplicación de la Tienda Windows y compruebe que, cuando esta se inicia, se genera una excepción no controlada con el código de estado 401 (No autorizado).
-   
+
 &nbsp;&nbsp;Esto se produce porque la aplicación intenta acceder a Servicios móviles como usuario sin autenticar, pero la tabla *TodoItem* requiere ahora autenticación.
 
 A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del servicio móvil.
@@ -71,7 +75,7 @@ En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios
 
 ##Consulte también
 
-+ [Característica de usuarios mejorada](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> Puede obtener datos de usuario adicionales mantenidos por el proveedor de identidades del servicio móvil llamando al método **ServiceUser.GetIdentitiesAsync()** en un back-end de .NET. 
++ [Característica de usuarios mejorada](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> Puede obtener datos de usuario adicionales mantenidos por el proveedor de identidades del servicio móvil llamando al método **ServiceUser.GetIdentitiesAsync()** en un back-end de .NET.
 
 + [Referencia conceptual de Servicios móviles con .NET] <br/>Obtenga más información sobre cómo utilizar Servicios móviles con un cliente .NET.
 
@@ -95,9 +99,8 @@ En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [Referencia conceptual de Servicios móviles con .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
- 
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

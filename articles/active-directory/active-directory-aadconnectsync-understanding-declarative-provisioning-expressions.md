@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect Sync: descripción de expresiones de aprovisionamiento declarativo | Microsoft Azure"
+	pageTitle="Sincronización de Azure AD Connect: conocimiento de expresiones de aprovisionamiento declarativo | Microsoft Azure"
 	description="Explica las expresiones declarativas de aprovisionamiento."
 	services="active-directory"
 	documentationCenter=""
@@ -23,7 +23,7 @@ Azure AD Connect Sync se basa en el aprovisionamiento declarativo presentado por
 
 Una parte esencial del aprovisionamiento declarativo es el lenguaje de expresiones que se usa en flujos de atributos. El lenguaje usado es un subconjunto de Microsoft® Visual Basic® para Aplicaciones. Este lenguaje se usa en Microsoft Office, y los usuarios con experiencia en VBScript también lo reconocerán. El lenguaje de expresiones de aprovisionamiento declarativo solo utiliza funciones y no es un lenguaje estructurado; no hay métodos ni instrucciones. Las funciones se anidarán en su lugar en el flujo de programa rápido.
 
-Para obtener más información, consulte [Referencia del lenguaje VBA para Office](https://msdn.microsoft.com/library/gg264383.aspx).
+Para más información, vea [Referencia del lenguaje VBA para Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
 
 Los atributos están fuertemente tipados. Una función que espera un atributo de cadena de valor único no aceptará varios valores o atributos para un tipo diferente. También distingue mayúsculas de minúsculas. Los nombres de función y los nombres de atributo deben tener la grafía correcta o se producirá un error
 
@@ -63,7 +63,7 @@ El sistema proporciona el parámetro siguiente, que se usa para obtener el ident
 
 `Connector.ID`
 
-Un ejemplo que llenará el dominio del atributo de metaverso con el nombre netbios del dominio en el que se encuentra el usuario.
+Un ejemplo que llenará el dominio del atributo de metaverso con el nombre netbios del dominio en el que se encuentra el usuario:
 
 `domain <- %Domain.Netbios%`
 
@@ -72,9 +72,9 @@ Un ejemplo que llenará el dominio del atributo de metaverso con el nombre netbi
 Pueden utilizarse los siguientes operadores:
 
 - **Comparación**: <, <=, <>, =, >, >=
-- **Matemáticos**: +, -, *, -
+- **Matemático**: +, -, *, -
 - **Cadena**: & (concatenar)
-- **Lógicos**: && (and), || (or)
+- **Lógico**: && (and), || (or)
 - **Orden de evaluación**: ( )
 
 Los operadores se evalúan de izquierda a derecha y tienen la misma prioridad de evaluación. Es decir, la multiplicación (*) no se evalúa antes que la resta (-). 2*(5+3) no es lo mismo que 2*5+3. Los corchetes () se usan para cambiar el orden de evaluación cuando la evaluación de izquierda a derecha no es adecuada.
@@ -89,7 +89,7 @@ Los atributos de cadena se establecen de forma predeterminada para que puedan in
 
 ### Cambio de userPrincipalSuffix
 
-Los usuarios no siempre conocen el atributo userPrincipalName en Active Directory y puede no ser igual de adecuado que el identificador de inicio de sesión. El Asistente para la instalación de Azure AD Connect Sync permite la selección de un atributo diferente, por ejemplo, correo. Sin embargo, en algunos casos, debe calcularse el atributo. Por ejemplo, la empresa Contoso tiene dos directorios de Azure AD, uno para producción y otro para prueba. Quieren que los usuarios de su inquilino de prueba solo cambien el sufijo del identificador de inicio de sesión.
+Los usuarios no siempre conocen el atributo userPrincipalName en Active Directory y puede no ser igual de adecuado que el identificador de inicio de sesión. El Asistente para la instalación de Azure AD Connect Sync permite la selección de un atributo diferente, por ejemplo, correo. Sin embargo, en algunos casos, debe calcularse el atributo. Por ejemplo, la empresa Contoso tiene dos directorios de Azure AD, uno para producción y otro para pruebas. Quieren que los usuarios de su inquilino de prueba solo cambien el sufijo del identificador de inicio de sesión.
 
 `userPrincipalName <- Word([userPrincipalName],1,"@") & "@contosotest.com"`
 
@@ -121,7 +121,7 @@ Encontrará un ejemplo de esto en la regla de sincronización lista para su apli
 
 `proxyAddresses <- RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
 
-Para obtener una lista completa de funciones, consulte [Azure AD Connect Sync: referencia de funciones](active-directory-aadconnectsync-functions-reference.md)
+Para una lista completa de funciones, vea [Azure AD Connect Sync: referencia de funciones](active-directory-aadconnectsync-functions-reference.md).
 
 
 ## Recursos adicionales
@@ -131,4 +131,4 @@ Para obtener una lista completa de funciones, consulte [Azure AD Connect Sync: r
 
 <!--Image references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

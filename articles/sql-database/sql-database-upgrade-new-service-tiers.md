@@ -31,9 +31,9 @@ El plan de tarifa recomendado para cada base de datos se proporciona durante el 
 
 En función del entorno concreto, el servicio puede recomendar actualizar algunas de las bases de datos, o todas ellas, en un [grupo de bases de datos elásticas](sql-database-elastic-pool.md).
 
-Para ver los niveles de servicio recomendados para las bases de datos retiradas, puede usar el [Portal de vista previa de Azure](https://portal.azure.com) o PowerShell. Para obtener indicaciones detalladas, consulte:
+Para ver los niveles de servicio recomendados para las bases de datos retiradas, puede usar el [Portal de Azure](https://portal.azure.com) o PowerShell. Para obtener indicaciones detalladas, consulte:
 
-- [Actualización a Base de datos SQL V12 (Portal de vista previa de Azure)](sql-database-v12-upgrade.md)
+- [Actualización a Base de datos SQL V12 (Portal de Azure)](sql-database-v12-upgrade.md)
 - [Actualización a Base de datos SQL V12 (PowerShell)](sql-database-upgrade-server.md)
 
 
@@ -89,7 +89,7 @@ Los niveles de rendimiento y características del nuevo nivel de servicio se res
 
 | Artículo | Descripción |
 |:--|:--|
-|[Niveles de servicio y niveles de rendimiento de la Base de datos SQL de Azure](sql-database-service-tiers.md)| Información general, métricas y capacidades para cada nivel de servicio (y cómo supervisar el uso de la base de datos en el portal de administración y mediante las vistas de administración dinámica). |
+|[Niveles de servicio y niveles de rendimiento de la Base de datos SQL de Azure](sql-database-service-tiers.md)| Información general, métricas y capacidades para cada nivel de servicio (y cómo supervisar el uso de la base de datos en el portal clásico y mediante las vistas de administración dinámica). |
 |[Continuidad de negocio de Base de datos SQL de Azure](sql-database-business-continuity.md)|Detalles de las características de recuperación ante desastres y continuidad de negocio (restauración a un momento dado, restauración geográfica, replicación geográfica) disponibles para los diferentes niveles de servicio.|
 |[Precios de base de datos SQL](http://azure.microsoft.com/pricing/details/sql-database/)|Información detallada sobre precios de los diferentes niveles de servicio y niveles de rendimiento.|
 
@@ -101,21 +101,21 @@ Después de seleccionar un nivel de servicio adecuado según los requisitos de s
 
 ## 2\. Determinar el nivel de rendimiento aceptable basándose en el uso histórico de recursos
 
-El servicio de base de datos SQL de Azure expone la información en el portal de administración y en las vistas del sistema para mostrar el nuevo nivel de rendimiento y servicio comparable que se sugiere para la base de datos Web o Business existente.
+El servicio de Base de datos SQL de Azure expone la información en el portal clásico y en las vistas del sistema para mostrar el nuevo nivel de rendimiento y servicio comparable que se sugiere para la base de datos Web o Business existente.
 
 Puesto que las bases de datos Web o Business no tienen ningún límite de DTU ni recursos garantizados asociados, nosotros normalizamos los valores de porcentaje en función de la cantidad de recursos disponibles para una base de datos de nivel de rendimiento S2. El consumo medio de porcentaje de DTU de una base de datos en cualquier intervalo específico se puede calcular como el valor de porcentaje más alto entre el uso de CPU, E/S y registro en ese intervalo.
 
 
-Use el Portal de vista previa de Azure para obtener información general de alto nivel sobre el uso del porcentaje de DTU y, a continuación, profundice en los detalles a través de las vistas del sistema.
+Use el Portal de Azure para obtener información general de alto nivel sobre el uso del porcentaje de DTU y, a continuación, profundice en los detalles a través de las vistas del sistema.
 
-También puede usar el Portal de vista previa de Azure para ver el nivel de servicio recomendado para una base de datos Web o Business al actualizar un servidor a Base de datos SQL de Azure V12.
+También puede usar el Portal de Azure para ver el nivel de servicio recomendado para una base de datos Web o Business al actualizar un servidor a Base de datos SQL de Azure V12.
 
-### Visualización del nivel de servicio recomendado en el Portal de vista previa de Azure
+### Visualización del nivel de servicio recomendado en el Portal de Azure
 El Portal de Azure recomienda el nivel de servicio adecuado para la base de datos Web o Business durante el proceso de actualización de un servidor a Base de datos SQL V12. La recomendación se basa en un análisis histórico del consumo de recursos de la base de datos.
 
 **Nuevo portal de administración**
 
-1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com) y navegue a un servidor que contenga una base de datos Web o Business.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com) y navegue a un servidor que contenga una base de datos Web o Business.
 2. Haga clic en la parte **Última actualización** en la hoja de servidor.
 3. Haga clic en **Actualizar este servidor**.
 
@@ -127,9 +127,9 @@ La hoja **Actualizar este servidor** muestra ahora una lista de las bases de dat
 El Portal de administración proporciona información sobre el consumo de DTU de una base de datos Web o Business existente. La información de DTU está disponible en el portal de Azure actual.
 
 
-**Portal de administración**
+**Portal clásico**
 
-1. Inicie sesión en el [Portal de administración](https://manage.windowsazure.com) y navegue a una base de datos Web o Business existente.
+1. Inicie sesión en el [Portal clásico](https://manage.windowsazure.com) y navegue a una base de datos Web o Business existente.
 2. Haga clic en la pestaña **MONITOR**.
 3. Haga clic en **AGREGAR MÉTRICAS**.
 4. Seleccione **Porcentaje de DTU** y haga clic en la marca de verificación situada en la parte inferior para confirmar.
@@ -253,7 +253,7 @@ Después de determinar el nivel adecuado de servicio y de rendimiento para la ba
 
 | Herramienta de administración | Para cambiar el nivel de rendimiento y el nivel de servicio de una base de datos|
 | :---| :---|
-| [Portal de administración de Azure](https://manage.windowsazure.com) | haga clic en la pestaña **ESCALA** de la página del panel de la base de datos. |
+| [Portal de Azure clásico](https://manage.windowsazure.com) | haga clic en la pestaña **ESCALA** de la página del panel de la base de datos. |
 | [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | use el cmdlet [Set-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx). |
 | [API DE REST](https://msdn.microsoft.com/library/azure/mt163571.aspx) | use el comando [Crear o actualizar base de datos](https://msdn.microsoft.com/library/azure/mt163685.aspx).|
 | [Transact-SQL](http://msdn.microsoft.com/library/azure/bb510741.aspx) | utilice la instrucción [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/azure/ms174269.aspx). |
@@ -272,7 +272,7 @@ Base de datos SQL de Azure proporciona información sobre el progreso de las ope
     and o.major_resource_id = '<database_name>'
     ORDER BY o.last_modify_time DESC;
 
-Si usa el portal de administración para la actualización, también hay una notificación disponible en el portal para la operación.
+Si usa el portal clásico para la actualización, también hay una notificación disponible en el portal para la operación.
 
 ## 7\. Supervisar la base de datos después de la actualización
 Después de la actualización de la base de datos Web o Business en el nuevo nivel, se recomienda supervisar activamente la base de datos para asegurar que las aplicaciones se ejecutan con el rendimiento deseado y optimizar el uso según sea necesario. Se recomiendan los siguientes pasos adicionales para supervisar la base de datos.
@@ -293,7 +293,7 @@ Después de la actualización de la base de datos Web o Business en el nuevo niv
 La [documentación](http://msdn.microsoft.com/library/dn800981.aspx) adicional contiene detalles sobre cómo usar esta vista de administración dinámica. La [Guía de rendimiento de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn369873.aspx) explica cómo supervisar y ajustar la aplicación.
 
 
-- **Alertas**: configure "Alertas" en el Portal de administración de Azure para recibir una notificación cuando el consumo de DTU para una base de datos actualizada alcance un determinado nivel alto. Las alertas de la base de datos pueden configurarse en el Portal de administración de Azure para diferentes métricas de rendimiento como DTU, CPU, E/S y registro. 
+- **Alertas**: configure "Alertas" en el Portal de Azure clásico para recibir una notificación cuando el consumo de DTU de una base de datos actualizada alcance un determinado nivel. Las alertas de la base de datos pueden configurarse en el Portal de Azure clásico con diferentes métricas de rendimiento como DTU, CPU, E/S y registro. 
 
 	Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje de DTU" si el valor de porcentaje medio de DTU supera el 75 % en los últimos 5 minutos. Consulte [Recibir notificaciones de alerta](insights-receive-alert-notifications.md) para obtener más información acerca de cómo configurar las notificaciones de alerta.
 
@@ -317,4 +317,4 @@ El servicio Base de datos SQL de Azure proporciona herramientas y datos de telem
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

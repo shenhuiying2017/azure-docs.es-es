@@ -13,50 +13,53 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 
 # Cómo llegar a los usuarios de su aplicación mediante notificaciones de inserción
+
+Este artículo describe la pestaña **ALCANCE** del portal **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. Tenga en cuenta que, para comenzar a usar el portal, debe crear en primer lugar una cuenta de **Azure Mobile Engagement**. Para obtener más información, consulte [Crear una cuenta de Azure Mobile Engagement](mobile-engagement-create-account.md).
+
 La sección de cobertura de la interfaz de usuario es la herramienta de administración de campaña de inserción en la que puede crear/editar/activar/finalizar/supervisar y obtener estadísticas de las campañas de notificaciones de inserción y funciones a las que también se puede acceder a través de la API de cobertura (y algunos elementos de la API de inserción de bajo nivel). Recuerde que tanto si está utilizando las API o la interfaz de usuario, deberá integrar Azure Mobile Engagement y la cobertura en la aplicación para cada plataforma con el SDK para poder utilizar campañas de cobertura.
 
-### Consulte también
--  [Documentación de API - API de Cobertura][Link 4], [Documentación de API - API de inserción][Link 4], [Guía de resolución de problemas - Inserción/Cobertura][Link 23]
--  [Cobertura - Campaña][Link 27], [Cobertura - Criterio][Link 28], [Cobertura - Contenido][Link 29], [Cobertura - Guía práctica][Link 3]
+>[AZURE.NOTE]Muchas de las secciones de la interfaz de usuario del portal **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
+
  
 ## Cuatro tipos de notificaciones de inserción
 1.    Anuncios: le permiten enviar mensajes de publicidad a los usuarios que los redireccionan a otra ubicación dentro de la aplicación o enviarlos a una página web o tienda fuera de la aplicación. 
 2.    Sondeos: le permiten reunir información de los usuarios finales formulándoles preguntas.
 3.    Inserciones de datos: le permiten enviar un archivo de datos binario o base64. La información contenida en una inserción de datos se envía a la aplicación para modificar la actual experiencia del usuario en la aplicación. La aplicación debe ser capaz de procesar los datos de una inserción de datos.
-4.    Mosaicos (solo en Windows Phone): le permiten utilizar el servicio de notificaciones de inserción de Microsoft (MPNS) para enviar la inserción de Windows nativa que contiene datos XML. (Compatible desde la versión 0.9.0. del SDK La carga final de los mosaicos final no puede superar los 32 kilobytes).
 
-### Consulte también
--  [Conceptos - Glosario][Link 6]
 
 ## Tres categorías de estadísticas en tiempo real mostradas para cada campaña
+
 1.    Insertado: ¿cuántas inserciones se han enviado según los criterios especificados en la campaña? 
 2.    Respondido: ¿cuántos usuarios han reaccionado a la notificación abriéndola desde fuera de la aplicación o cerrándola en la aplicación. 
 3.    Ejecutados: cuántos usuarios han hecho clic en el vínculo de la notificación para ser redirigidos a una nueva ubicación de la aplicación, a una tienda o a un explorador web. 
 
-> Nota: Hay estadísticas de campaña más detalladas disponibles desde las estadísticas de la API de cobertura
+> [AZURE.NOTE]Hay estadísticas de campaña más detalladas disponibles desde las estadísticas de la API de cobertura
 
-### Consulte también
--  [Conceptos - Glosario][Link 6], [Documentación de la API - API de cobertura - Estadísticas][Link 4]
 
 
 ## Detalles de la campaña
+
 Puede editar, clonar, eliminar o activar las campañas que no se han activado todavía pasando el mouse sobre sus nombres o puede hacer clic para abrirlas. Se pueden clonar las campañas que ya se han activado pasando el mouse sobre sus nombres o puede hacer clic para abrirlas. Sin embargo, no puede cambiar una campaña una vez activada.
  
 ![Reach1][18]
 
 ## Comentarios sobre la cobertura
-Puede cambiar de la vista de detalles a la vista de estadísticas de una campaña abierta que ya se ha activado y cambiar de la vista simple a la vista avanzada de las estadísticas para ver más información detallada (según los permisos). También puede utilizar la información de comentarios de la cobertura de una campaña anterior como criterios de orientación de una nueva campaña. Las estadísticas de comentarios de cobertura también se pueden recopilar mediante "Estadísticas" de la API de cobertura. También puede personalizar el público de las campañas de inserción en función de las campañas anteriores.
 
+Para ver los detalles o las estadísticas de una campaña, haga clic en ella. Puede cambiar de la vista de detalles a la vista de estadísticas de una campaña abierta que ya se ha activado y cambiar de la vista simple a la vista avanzada de las estadísticas para ver información más detallada (según los permisos). También puede utilizar la información de comentarios de la cobertura de una campaña anterior como criterios de orientación de una nueva campaña. Las estadísticas de comentarios de cobertura también se pueden recopilar mediante **Estadísticas** de la API de cobertura. También puede personalizar el público de las campañas de inserción en función de las campañas anteriores.
 
-### Consulte también 
--  [Documentación de UI - Cobertura - Nueva campaña de inserción][27], [Documentación de la API - API de cobertura - Estadísticas][Link 4]
 
 ![Reach2][19]
+
+
+## Consulte también
+
+- [Conceptos][Link 6]
+- [Guía de solución de problemas de servicios][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -150,4 +153,4 @@ Puede cambiar de la vista de detalles a la vista de estadísticas de una campañ
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="08/06/2015"
+	ms.date="11/24/2015"
 	ms.author="awills"/>
 
 # Análisis de uso con Application Insights
@@ -37,7 +37,7 @@ En el [Portal de Azure](https://portal.azure.com), cree un nuevo recurso de Appl
 
 ![Abra Inicio rápido y haga clic en Obtener código para supervisar mis páginas web. Copie el script en el encabezado de la página web maestra.](./media/app-insights-overview-usage/02-monitor-web-page.png)
 
-También puede agregar Application Insights a su código de servidor [ASP.NET](app-insights-start-monitoring-app-health-usage.md) o [J2EE](app-insights-java-get-started.md) con el fin de combinar la telemetría de cliente y servidor.
+También puede agregar Application Insights al código de servidor [ASP.NET](app-insights-asp-net.md) o [J2EE](app-insights-java-get-started.md) con el fin de combinar la telemetría de cliente y servidor.
 
 
 ### Ejecución del proyecto y visualización de los primeros resultados
@@ -286,10 +286,6 @@ Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo 
 
 > [AZURE.VIDEO usage-monitoring-application-insights]
 
-
-<!--Link references-->
-
-[start]: app-insights-overview.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

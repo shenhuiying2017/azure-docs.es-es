@@ -31,7 +31,7 @@ En este tema se describe y se le guiará por la implementación y la configuraci
 
 - **Suscripción de Azure**: compruebe el número de núcleos disponibles en su suscripción de Azure. Si crea el tamaño recomendado de máquina virtual de **A3**, necesita **4** núcleos disponibles. Si usa un tamaño de máquina virtual de **A2**, necesita **2** núcleos disponibles.
 	
-	- Para comprobar el límite de núcleos de su suscripción, en el Portal de Azure, haga clic en CONFIGURACIÓN en el panel izquierdo y luego en USO en el menú superior.
+	- Para comprobar el límite de núcleos de su suscripción, en el Portal de Azure clásico, haga clic en CONFIGURACIÓN en el panel izquierdo y luego en USO en el menú superior.
 	
 	- Para aumentar la cuota de núcleos, póngase en contacto con el [soporte técnico de Azure](http://azure.microsoft.com/support/options/). Para obtener más información sobre el tamaño de la máquina virtual, consulte [Tamaños de máquinas virtuales para Azure](virtual-machines-size-specs.md).
 
@@ -43,7 +43,7 @@ En este tema se describe y se le guiará por la implementación y la configuraci
 
 ## Paso 1: Aprovisionar una máquina virtual de Azure
 
-1. Acceda al portal de Azure.
+1. Vaya al Portal de Azure clásico.
 
 1. Haga clic en **Máquinas virtuales** en el panel izquierdo.
 
@@ -143,7 +143,7 @@ Se creó un certificado autofirmado en la máquina virtual cuando se aprovision�
 
 1. Para confiar en la entidad de certificación raíz del certificado en la máquina virtual local, agregue el certificado a las **entidades de certificación raíz de confianza**. A continuación se encuentra un resumen de los pasos necesarios. Para obtener pasos detallados sobre cómo confiar en la entidad de certificación, consulte [Install a Server Certificate](https://technet.microsoft.com/library/cc740068).
 
-	1. En el Portal de Azure, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
+	1. En el Portal de Azure clásico, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
 	
 		![conectarse a máquina virtual de azure](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) Use el nombre de la máquina virtual del usuario, el nombre de usuario y la contraseña que configuró al crear la máquina virtual.
 	
@@ -193,7 +193,7 @@ Para ver pasos más detallados, consulte la sección [Conectarse a la máquina v
 
 Para usar el script de Windows PowerShell para configurar el servidor de informes, complete los siguientes pasos. La configuración incluye HTTP, no HTTPS:
 
-1. En el Portal de Azure, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
+1. En el Portal de Azure clásico, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
 
 	![conectarse a máquina virtual de azure](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) Use el nombre de la máquina virtual del usuario, el nombre de usuario y la contraseña que configuró al crear la máquina virtual.
 
@@ -334,7 +334,7 @@ Para usar el script de Windows PowerShell para configurar el servidor de informe
 
 Para usar Windows PowerShell para configurar el servidor de informes, complete los siguientes pasos. La configuración incluye HTTPS, no HTTP.
 
-1. En el Portal de Azure, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
+1. En el Portal de Azure clásico, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
 
 	![conectarse a máquina virtual de azure](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) Use el nombre de la máquina virtual del usuario, el nombre de usuario y la contraseña que configuró al crear la máquina virtual.
 
@@ -557,11 +557,11 @@ El resultado incluirá lo siguiente:
 
 Si no quiere ejecutar el script de PowerShell para configurar el servidor de informes, siga los pasos de esta sección para usar el administrador de configuración del modo nativo de Reporting Services para configurar el servidor de informes.
 
-1. En el Portal de Azure, seleccione la máquina virtual y haga clic en Conectar. Use el nombre de usuario y la contraseña que configuró al crear la máquina virtual.
+1. En el Portal de Azure clásico, seleccione la máquina virtual y haga clic en Conectar. Use el nombre de usuario y la contraseña que configuró al crear la máquina virtual.
 
 	![conectarse a máquina virtual de azure](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif)
 
-1. Ejecute Windows Update e instale las actualizaciones en la máquina virtual. Si se requiere un reinicio de la máquina virtual, reinicie la máquina virtual y vuelva a conectarla a la máquina virtual desde el Portal de Azure.
+1. Ejecute Windows Update e instale las actualizaciones en la máquina virtual. Si se requiere un reinicio de la máquina virtual, reinicie la máquina virtual y vuelva a conectarse a la máquina virtual desde el Portal de Azure clásico.
 
 1. En el menú Inicio de la máquina virtual, escriba **Reporting Services** y abra el **Administrador de configuración de Reporting Services**.
 
@@ -683,7 +683,7 @@ En la tabla siguiente se resumen algunas de las opciones disponibles para public
 
 ## Minimizar el costo si no está usando la máquina virtual
 
->[AZURE.NOTE]Para minimizar los cargos para las máquinas virtuales de Azure cuando no esté en uso, apague la máquina virtual desde el Portal de Azure. Si usa las opciones de energía de Windows dentro de una máquina virtual para apagar la máquina virtual, se le seguirá cobrando el mismo importe para la máquina virtual. Para reducir los costos, deberá apagar la máquina virtual en el Portal de Azure. Si ya no necesita la máquina virtual, recuerde eliminar la máquina virtual y los archivos .vhd asociados para evitar costos de almacenamiento. Para más información, consulte la sección de preguntas más frecuentes en [Detalles de precios de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines).
+>[AZURE.NOTE]Para minimizar los costos de las máquinas virtuales de Azure cuando no estén en uso, apague la máquina virtual desde el Portal de Azure clásico. Si usa las opciones de energía de Windows dentro de una máquina virtual para apagar la máquina virtual, se le seguirá cobrando el mismo importe para la máquina virtual. Para reducir los costos, deberá apagar la máquina virtual en el Portal de Azure clásico. Si ya no necesita la máquina virtual, recuerde eliminar la máquina virtual y los archivos .vhd asociados para evitar costos de almacenamiento. Para más información, consulte la sección de preguntas más frecuentes en [Detalles de precios de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines).
 
 ## Más información
 
@@ -705,4 +705,4 @@ En la tabla siguiente se resumen algunas de las opciones disponibles para public
 
 [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

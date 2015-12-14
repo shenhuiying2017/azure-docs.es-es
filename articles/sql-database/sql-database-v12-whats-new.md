@@ -96,7 +96,7 @@ La seguridad es una cuestión prioritaria para cualquiera que dirija su negocio 
 - [Cifrado de datos transparente](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
 - [Conexión a Base de datos SQL mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md)
  - Base de datos SQL ahora admite la autenticación de Azure Active Directory, un mecanismo de conexión a Base de datos SQL utilizando identidades de Azure Active Directory (Azure AD). Con la autenticación de Azure Active Directory puede administrar centralmente las identidades de los usuarios de la base de datos y otros servicios de Microsoft en una ubicación central.
-- [Siempre cifrado](https://msdn.microsoft.com/library/mt163865.aspx) (en vista previa) hace que el cifrado sea transparente para las aplicaciones y permite que los clientes cifren información confidencial dentro de aplicaciones cliente sin compartir las claves de cifrado con Base de datos SQL.
+- [Siempre cifrado](https://msdn.microsoft.com/library/mt163865.aspx) (versión preliminar) hace que el cifrado sea transparente para las aplicaciones y permite que los clientes cifren información confidencial dentro de aplicaciones cliente sin compartir las claves de cifrado con Base de datos SQL.
 
 
 ## Mayor continuidad del negocio cuando se necesita recuperación
@@ -132,7 +132,7 @@ Hay muchas buenas razones por las que los clientes deberían actualizar ahora Ba
 Una forma fácil de ver si tiene una base de datos o un servidor lógico que se ejecuta en una versión anterior del servicio de Base de datos SQL es hacer lo siguiente:
 
 
-1. Vaya al [Portal de vista previa de Azure](http://portal.azure.com/).
+1. Vaya al [Portal de Azure](http://portal.azure.com/).
 2. Haga clic en **Examinar**.
 3. Haga clic en **Servidores SQL Server**.
 4. El icono al lado del servidor o la base de datos refleja el historial:
@@ -161,4 +161,4 @@ Si aún no está ejecutando en V12, puede actualizar el servidor lógico siguien
 
 [Términos de uso complementarios para versiones de vista previa de Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

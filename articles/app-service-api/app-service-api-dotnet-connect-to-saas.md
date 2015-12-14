@@ -18,11 +18,13 @@
 
 # Conexión a una plataforma de SaaS desde una aplicación de API de ASP.NET en el Servicio de aplicaciones de Azure
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Información general
 
-Este tutorial muestra cómo codificar y configurar una [aplicación de API](app-service-api-apps-why-best-platform.md) que se conecte a una [plataforma de Software como-servicio (SaaS)](../app-service/app-service-authentication-overview.md#obotosaas) con el [SDK de Aplicaciones de API de Servicio de aplicaciones para .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/). El tutorial también muestra cómo llamar a la aplicación de API desde un cliente de .NET con el uso del [SDK de Servicio de aplicaciones para .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService). Al final del tutorial tendrá un cliente de aplicación de consola .NET que llama a una aplicación de API de .NET en ejecución en el Servicio de aplicaciones de Azure. La aplicación de API llama a la API de Dropbox y devuelve una lista de archivos y carpetas de la cuenta de Dropbox del usuario.
+En este tutorial se muestra cómo codificar y configurar una [aplicación de API](app-service-api-apps-why-best-platform.md) que se conecta a una [plataforma de Software como servicio (SaaS)](../app-service/app-service-authentication-overview.md#obotosaas) con el [SDK de Aplicaciones de API de Servicio de aplicaciones para .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/). En el tutorial también se muestra cómo llamar a la aplicación de API desde un cliente de .NET mediante el [SDK de Servicio de aplicaciones para .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService). Al final del tutorial tendrá un cliente de aplicación de consola .NET que llama a una aplicación de API de .NET en ejecución en el Servicio de aplicaciones de Azure. La aplicación de API llama a la API de Dropbox y devuelve una lista de archivos y carpetas de la cuenta de Dropbox del usuario.
 
-Como alternativa a escribir código que llama a una API de SaaS directamente desde una aplicación de API personalizada, puede llamar a una [aplicación de API de conector](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md) preempaquetado. Para obtener información sobre cómo hacerlo, vea [Implementación y configuración de una aplicación de API de conector SaaS](app-service-api-connnect-your-app-to-saas-connector.md).
+Como alternativa a escribir código que llame a una API de SaaS directamente desde una aplicación de API personalizada, puede llamar a una [aplicación de API de conector](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md) previamente empaquetado. Para obtener información sobre cómo hacerlo, vea [Implementación y configuración de una aplicación de API de conector SaaS](app-service-api-connnect-your-app-to-saas-connector.md).
 
 Este tutorial le guiará por los siguientes pasos:
 
@@ -40,11 +42,11 @@ Este tutorial le guiará por los siguientes pasos:
 
 En el tutorial se parte de estos supuestos:
 
-* Completó los tutoriales [Creación de una aplicación de API](app-service-dotnet-create-api-app.md) e [Implementación de una aplicación de API](app-service-dotnet-deploy-api-app.md).
+* Ha completado los tutoriales [Creación de una aplicación de API](app-service-dotnet-create-api-app.md) e [Implementación de una aplicación de API](app-service-dotnet-deploy-api-app.md).
   
-* Tiene conocimientos básicos de la arquitectura de la puerta de enlace del Servicio de aplicaciones de Azure para autenticación, tal como se presenta en [Autenticación para aplicaciones de API y aplicaciones móviles](app-service-authentication-overview.md).
+* Tiene conocimientos básicos de la arquitectura de la puerta de enlace del Servicio de aplicaciones de Azure para autenticación, tal y como se presenta en [Autenticación para aplicaciones de API y aplicaciones móviles](app-service-authentication-overview.md).
 
-* Sabe cómo trabajar con Aplicaciones de API en el Portal de vista previa de Azure, tal como se explica en [Navegación a las hojas de puerta de enlace y aplicación de API](app-service-api-manage-in-portal.md#navigate).
+* Sabe cómo trabajar con Aplicaciones de API en el Portal de vista previa de Azure, tal y como se explica en [Navegación a las hojas de puerta de enlace y aplicación de API](app-service-api-manage-in-portal.md#navigate).
 
 ## Creación del proyecto de aplicación de API
  
@@ -54,9 +56,9 @@ Cuando las instrucciones le indiquen que escriba un nombre para el proyecto, esc
 
 ## Configuración del archivo *apiapp.json*
 
-Para que una aplicación de API realice llamadas salientes a una plataforma de SaaS, debe especificarse la plataforma de SaaS en el archivo *apiapp.json*.
+Para que una aplicación de API realice llamadas salientes a una plataforma de SaaS, se debe especificar la plataforma de SaaS en el archivo *apiapp.json*.
 
-1. Abra el archivo *apiapp.json* y agregue una propiedad `authentication` tal como se muestra a continuación (también tendrá que agregar una coma después de la propiedad anterior):
+1. Abra el archivo *apiapp.json* y agregue una propiedad `authentication` tal y como se muestra a continuación (también tendrá que agregar una coma después de la propiedad anterior):
 
 		"authentication": [
 		  {
@@ -169,13 +171,13 @@ Los ámbitos disponibles los define cada proveedor de SaaS y pueden encontrarse 
 
 ## Creación de una aplicación de API en Azure
 
-En esta sección, use el asistente para **Publicación web** de Visual Studio para crear una nueva aplicación de API de Azure. Cuando las instrucciones le indiquen que escriba un nombre para la aplicación de API, escriba *SimpleDropbox*.
+En esta sección, use el asistente para **Publicación web** de Visual Studio a fin de crear una nueva aplicación de API en Azure. Cuando las instrucciones le indiquen que escriba un nombre para la aplicación de API, escriba *SimpleDropbox*.
 
 [AZURE.INCLUDE [app-service-api-pub-web-create](../../includes/app-service-api-pub-web-create.md)]
 
 ## Implementación del código
 
-Use el mismo asistente para **Publicación web** para implementar el código en la nueva aplicación de API.
+Use el mismo asistente para **Publicación web** a fin de implementar el código en la nueva aplicación de API.
 
 [AZURE.INCLUDE [app-service-api-pub-web-deploy](../../includes/app-service-api-pub-web-deploy.md)]
 
@@ -205,7 +207,7 @@ A fin de habilitar la aplicación de API para que llame a la API de Dropbox, tie
 
 Los pasos siguientes hacen referencia a una aplicación de API de conector de Dropbox, pero los procedimientos y la interfaz de usuario son los mismos para la aplicación de API SimpleDropbox que se crea en este tutorial.
 
-> **Nota:** si no ve los campos para el secreto de cliente y el identificador de cliente en la hoja **Autenticación** de la aplicación de API SimpleDropbox, tal como se muestra en la captura de pantalla, asegúrese de que reinició la puerta de enlace tal como se indica después de implementar el proyecto de aplicación de API en la aplicación de API. El valor "dropbox" de la propiedad `authentication` del archivo *apiapp.json* que implementó anteriormente es lo que activa el portal para mostrar estos campos.
+> **Nota:** Si no ve los campos para el secreto de cliente y el identificador de cliente en la hoja **Autenticación** de la aplicación de API SimpleDropbox, tal y como se muestra en la captura de pantalla, asegúrese de que reinició la puerta de enlace como se indica después de implementar el proyecto de aplicación de API en la aplicación de API. El valor "dropbox" de la propiedad `authentication` del archivo *apiapp.json* que implementó anteriormente es lo que activa el portal para mostrar estos campos.
 
 [AZURE.INCLUDE [app-service-api-exchange-dropbox-settings](../../includes/app-service-api-exchange-dropbox-settings.md)]
 
@@ -346,7 +348,7 @@ Las capturas de pantalla de esta sección muestran un proyecto y una aplicación
 
 		private const string GATEWAY_URL = @"https://sd1aeb4ae60b7cb4f3d966dfa43b660.azurewebsites.net";
 
-	> **Importante**: asegúrese de que la dirección URL de la puerta de enlace comienza por `https://`, no por `http://`. **Si copia http:// en el portal, tendrá que cambiarlo a https:// al pegarlo en el código.**
+	> **Importante**: Asegúrese de que la dirección URL de la puerta de enlace comienza por `https://` y no por `http://`. **Si copia http:// en el portal, tendrá que cambiarlo a https:// al pegarlo en el código.**
 
 ### Explicación del código
 
@@ -384,7 +386,7 @@ Notas adicionales:
 
 	Para este parámetro, normalmente se especificaría la siguiente página web a la que el usuario debe ir en la aplicación cliente. Puesto que este código de demostración está en una aplicación de consola, no hay ninguna página de aplicación a la que ir y el código especifica la dirección URL de la puerta de enlace como una página de aterrizaje conveniente.
 
-	La aplicación cliente debe comprobar que se redirige a esta dirección URL y que no hay ningún mensaje de error. Si el proceso de inicio de sesión/consentimiento no se realiza, es posible que la dirección URL de redireccionamiento contenga un mensaje de error en la cadena de consulta. Para obtener más información, vea la sección [Solución de problemas](#troubleshooting).
+	La aplicación cliente debe comprobar que se redirige a esta dirección URL y que no hay ningún mensaje de error. Si el proceso de inicio de sesión/consentimiento no se realiza, es posible que la dirección URL de redireccionamiento contenga un mensaje de error en la cadena de consulta. Para más información, vea la sección [Solución de problemas](#troubleshooting).
 
 ## Prueba
 
@@ -414,23 +416,23 @@ En esta sección se incluyen los temas siguientes:
 * [Error HTTP 400 en lugar de la página de inicio de sesión de Dropbox](#400)
 * [Error HTTP 403 al llamar a la aplicación de API](#403)
 
-### <a id="405"></a>Error HTTP 405 después del inicio de sesión en la puerta de enlace
+### <a id="405"></a> Error HTTP 405 después del inicio de sesión en la puerta de enlace
 
 Si recibe el error HTTP 405 cuando el código llama a GetConsentLinkAsync, compruebe que usó https://, no http://, en la dirección URL de la puerta de enlace.
 
 ![](./media/app-service-api-dotnet-connect-to-saas/http405.png)
 
-El error de método no permitido 405 se recibe porque el cliente intenta realizar una solicitud HTTP POST sin SSL, la puerta de enlace se redirige a **https://* y la redirección provoca una solicitud GET. La dirección URL para la recuperación de un vínculo de consentimiento solo acepta solicitudes POST.
+El error 405 de método no permitido se recibe porque el cliente intenta realizar una solicitud HTTP POST sin SSL, la puerta de enlace se redirige a **https://* y la redirección provoca una solicitud GET. La dirección URL para la recuperación de un vínculo de consentimiento solo acepta solicitudes POST.
 
 ### <a id="400"></a> Error HTTP 400 en lugar de la página de inicio de sesión de Dropbox
 
-Asegúrese de que tiene el **identificador de cliente** correcto en la hoja **Autenticación** de la aplicación de API y de que no hay espacios iniciales ni finales.
+Asegúrese de que tiene el **identificador de cliente** correcto en la hoja **Autenticación** de la aplicación de API y de que no haya espacios iniciales ni finales.
 
 ### <a id="403"></a> Error HTTP 403 al llamar a la aplicación de API
 
-* Asegúrese de que el **Nivel de acceso** de la aplicación de API se establece en **Público (autenticado)**, no en **Interno**.
+* Asegúrese de que el **Nivel de acceso** de la aplicación de API está establecido en **Público (autenticado)** y no en **Interno**.
 
-* Asegúrese de que tiene el **secreto de cliente** correcto en hoja **Autenticación** de la aplicación de API y de que no hay espacios iniciales ni finales.
+* Asegúrese de que tiene el **secreto de cliente** correcto en hoja **Autenticación** de la aplicación de API y de que no haya espacios iniciales ni finales.
 
 Es posible que la URL de redirección tras el inicio de sesión tenga un aspecto similar a este ejemplo:
 
@@ -447,4 +449,4 @@ Vio como se codifica y configura una aplicación de API que se conecta a una pla
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

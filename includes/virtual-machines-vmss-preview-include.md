@@ -2,4 +2,4 @@ La versión de LA API de conjuntos de escala de máquina virtual es 2015-06-15 y
 
   Register-AzureRmProviderFeature -FeatureName vmssApiPreviewV2Access -ProviderNamespace Microsoft.Compute
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

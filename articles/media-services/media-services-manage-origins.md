@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Administración de extremos de streaming en una cuenta de Servicios multimedia" 
-	description="En este tema se muestra cómo administrar los extremos de streaming mediante el Portal de administración de Azure." 
+	description="En este tema se muestra cómo administrar los puntos de conexión de streaming mediante el Portal de Azure clásico." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -30,22 +30,22 @@ Además, puede controlar la capacidad del servicio de extremo de streaming para 
 
 Tenga en cuenta que solo se le cobrará cuando StreamingEndpoint esté en estado en ejecución.
 
-Este tema proporciona información general de las principales funcionalidades proporcionadas por los extremos de streaming. El tema también muestra cómo usar el Portal de administración de Azure para administrar extremos de streaming.
+Este tema proporciona información general de las principales funcionalidades proporcionadas por los extremos de streaming. El tema también muestra cómo usar el Portal de Azure clásico para administrar puntos de conexión de streaming.
 
 
-##Adición y eliminación de extremos de streaming 
+##Adición y eliminación de extremos de streaming
 
-Puede agregar o quitar extremos de streaming con .NET SDK, la API de REST o el Portal de administración de Azure.
+Puede agregar o quitar puntos de conexión de streaming con el SDK de .NET, la API de REST o el Portal de Azure clásico.
 
-Para agregar/quitar el extremo de streaming mediante el Portal, haga lo siguiente:
+Para agregar o quitar el punto de conexión de streaming mediante el Portal de Azure clásico, haga lo siguiente:
 
-1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios multimedia**. A continuación, haga clic en el nombre del servicio multimedia.
-2. Seleccione la página **EXTREMOS DE STREAMING**. 
-3. Haga clic en el botón ADD o DELETE en la parte inferior de la página. Tenga en cuenta que no es posible eliminar el extremo de streaming predeterminado. 
-4. Haga clic en el botón INICIAR para iniciar el extremo de streaming. 
-5. Haga clic en el nombre del extremo de streaming para configurarlo.   
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en **Servicios multimedia**. A continuación, haga clic en el nombre del servicio multimedia.
+2. Seleccione la página **EXTREMOS DE STREAMING**.
+3. Haga clic en el botón ADD o DELETE en la parte inferior de la página. Tenga en cuenta que no es posible eliminar el extremo de streaming predeterminado.
+4. Haga clic en el botón INICIAR para iniciar el extremo de streaming.
+5. Haga clic en el nombre del extremo de streaming para configurarlo.
 
-	![Página Extremo de streaming][streaming-endpoint]
+![Página Extremo de streaming][streaming-endpoint]
 
 
 De forma predeterminada puede tener hasta dos extremos de streaming. Si necesita solicitar más, consulte [Cuotas y limitaciones](media-services-quotas-and-limitations.md).
@@ -54,7 +54,7 @@ De forma predeterminada puede tener hasta dos extremos de streaming. Si necesita
 
 Las unidades de streaming proporcionan capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps y una funcionalidad adicional que actualmente incluye [funcionalidades de empaquetado dinámico](media-services-dynamic-packaging-overview.md). De forma predeterminada, el streaming se configura en un modelo de instancia compartida para el que los recursos del servidor (por ejemplo, cálculo, capacidad de salida, etc.) se comparten con los demás usuarios. Para mejorar el rendimiento de streaming, se recomienda adquirir unidades de streaming.
 
-Puede escalar con el SDK de .NET , la API de REST o el Portal de administración de Azure.
+Puede escalar con el SDK de .NET , la API de REST o el Portal de Azure clásico.
 
 Para cambiar el número de unidades de streaming mediante el Portal, haga lo siguiente:
 
@@ -82,7 +82,7 @@ Extremo de streaming le permite configurar las siguientes propiedades cuando ten
 
 Para obtener información detallada acerca de estas propiedades, consulte [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx).
 
-Puede configurar estas propiedades utilizando el SDK de .NET, la API de REST o el Portal de administración de Azure.
+Puede configurar estas propiedades utilizando el SDK de .NET, la API de REST o el Portal de Azure clásico.
 
 Para cambiar el número de unidades de streaming mediante el Portal, haga lo siguiente:
 
@@ -100,7 +100,7 @@ Aparecerá una breve descripción de los campos.
 
 3. Especifique la configuración para la autenticación del encabezado de firma de Akamai.
 
-4. Puede especificar una directiva de acceso entre dominios para los clientes de Adobe Flash (para obtener más información, consulte [Especificación de archivos de directiva entre dominios](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html). Así como la directiva de acceso de cliente para los clientes de Microsoft Silverlight (para obtener más información, consulte [Disponibilidad de un servicio entre límites del dominio](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx).
+4. Puede especificar una directiva de acceso entre dominios para los clientes de Adobe Flash (para obtener más información, consulte [Especificación de archivos de directiva entre dominios](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)). Así como la directiva de acceso de cliente para los clientes de Microsoft Silverlight (para obtener más información, consulte [Disponibilidad de un servicio entre límites del dominio](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx).
 
 5. También puede configurar nombres de host personalizados haciendo clic en el botón **Configurar**. Para obtener más información, consulte la propiedad **CustomHostNames** en el tema [StreamingEndpoint](https://msdn.microsoft.com/library/dn783468.aspx).
 
@@ -149,4 +149,4 @@ Para obtener más información, consulte [Anuncio de la integración de Servicio
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

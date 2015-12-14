@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
@@ -21,13 +21,13 @@
 # Servicios de BizTalk: gráfico del estado del servicio de BizTalk
 En función del estado real del servicio de BizTalk, habrá operaciones que pueda realizar o no en el servicio de BizTalk.
 
-Por ejemplo, supongamos que aprovisiona un servicio de BizTalk nuevo en el Portal de administración de Azure. Cuando finalice correctamente, el servicio de BizTalk se encuentra en estado Active. Puede detener el servicio de BizTalk si está en estado Active. Si se detiene correctamente, el servicio de BizTalk pasa al estado Stopped. Si no se detiene correctamente, el servicio de BizTalk pasa al estado StopFailed. Puede reiniciar el servicio de BizTalk si se encuentra en el estado StopFailed. Si intenta realizar una operación no permitida, como reanudar el servicio de BizTalk, se produce el error siguiente:
+Por ejemplo, supongamos que aprovisiona un servicio de BizTalk nuevo en el Portal de Azure clásico. Cuando finalice correctamente, el servicio de BizTalk se encuentra en estado Active. Puede detener el servicio de BizTalk si está en estado Active. Si se detiene correctamente, el servicio de BizTalk pasa al estado Stopped. Si no se detiene correctamente, el servicio de BizTalk pasa al estado StopFailed. Puede reiniciar el servicio de BizTalk si se encuentra en el estado StopFailed. Si intenta realizar una operación no permitida, como reanudar el servicio de BizTalk, se produce el error siguiente:
 
 **Operación no permitida**
 
-Par aprovisionar un servicio de BizTalk, vaya a [Servicios de BizTalk: aprovisionamiento con el Portal de administración de Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280).
+Para aprovisionar un servicio de BizTalk, vaya a [Servicios de BizTalk: aprovisionamiento con el Portal de Azure clásico](http://go.microsoft.com/fwlink/p/?LinkID=302280).
 
-Las tablas siguientes incluyen las operaciones que se pueden realizar cuando el servicio de BizTalk se encuentra en un estado concreto. Una marca de verificación indica que la operación está permitida mientras se encuentra en ese estado. y la entrada vacía indica que la operación no se puede realizar en ese estado.
+Las tablas siguientes incluyen las operaciones que se pueden realizar cuando el servicio de BizTalk se encuentra en un estado concreto. Una ✔ significa que la operación está permitida en ese estado. y la entrada vacía indica que la operación no se puede realizar en ese estado.
 
 ## Operaciones de inicio, detención, reinicio, suspensión, reanudación y eliminación
 <table border="1">
@@ -50,11 +50,11 @@ Las tablas siguientes incluyen las operaciones que se pueden realizar cuando el 
 <tr>
 <td bgcolor="FAF9F9"><b>Active</b></td>
 <td> </td>
-<td><center>x</center></td>
-<td><center>x</center></td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
+<td><center>✔</center></td>
+<td><center>✔</center></td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Disabled</b></td>
@@ -63,7 +63,7 @@ Las tablas siguientes incluyen las operaciones que se pueden realizar cuando el 
 <td> </td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Suspended</b></td>
@@ -71,17 +71,17 @@ Las tablas siguientes incluyen las operaciones que se pueden realizar cuando el 
 <td> </td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Stopped</b></td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Service Update Failed</b></td>
@@ -90,7 +90,7 @@ Las tablas siguientes incluyen las operaciones que se pueden realizar cuando el 
 <td> </td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>DisableFailed</b></td>
@@ -99,7 +99,7 @@ Las tablas siguientes incluyen las operaciones que se pueden realizar cuando el 
 <td> </td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>EnableFailed</b></td>
@@ -108,18 +108,18 @@ Las tablas siguientes incluyen las operaciones que se pueden realizar cuando el 
 <td> </td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>StartFailed<br/>
 StopFailed<br/>
 RestartFailed</b></td>
-<td><center>x</center></td>
-<td><center>x</center></td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
+<td><center>✔</center></td>
+<td><center>✔</center></td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>SuspendedFailed<br/>
@@ -127,9 +127,9 @@ ResumeFailed</b></td>
 <td> </td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
-<td><center>x</center></td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
+<td><center>✔</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>CreatedFailed<br/>
@@ -139,16 +139,16 @@ RestoreFailed<br/></b></td>
 <td> </td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>ConfigUpdateFailed</b></td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>ScaleFailed</b></td>
@@ -157,7 +157,7 @@ RestoreFailed<br/></b></td>
 <td> </td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 </table>
 <br/>
@@ -179,9 +179,9 @@ RestoreFailed<br/></b></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Active</b></td>
-<td><center>x</center></td>
-<td><center>x</center></td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
+<td><center>✔</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Disabled</b></td>
@@ -193,13 +193,13 @@ RestoreFailed<br/></b></td>
 <td bgcolor="FAF9F9"><b>Suspended</b></td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Stopped</b></td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Service Update Failed</b></td>
@@ -224,7 +224,7 @@ RestoreFailed<br/></b></td>
 StopFailed<br/>
 RestartFailed</b></td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 <td> </td>
 </tr>
 <tr>
@@ -244,19 +244,19 @@ RestoreFailed<br/></b></td>
 <tr>
 <td bgcolor="FAF9F9"><b>ConfigUpdateFailed</b></td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 <td> </td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>ScaleFailed</b></td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 <td> </td>
 <td> </td>
 </tr>
 </table>
 
 ## Otras referencias
-- [Servicios de BizTalk: aprovisionamiento con el Portal de administración de Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [Servicios de BizTalk: aprovisionamiento con el Portal de Azure clásico](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 - [Servicios de BizTalk: pestañas Panel, Monitor y Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 - [Servicios de BizTalk: gráfico de las ediciones Developer, Basic, Standard y Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 - [Servicios de BizTalk: copias de seguridad y restauración](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
@@ -267,4 +267,4 @@ RestoreFailed<br/></b></td>
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

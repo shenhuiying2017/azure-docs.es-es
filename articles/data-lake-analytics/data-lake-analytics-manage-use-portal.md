@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Administración de Análisis de Azure Data Lake mediante el Portal de vista previa de Azure | Azure" 
+   pageTitle="Administración de Análisis de Azure Data Lake mediante el Portal de Azure | Azure" 
    description="Aprenda a administrar cuentas, orígenes de datos, usuarios y trabajos de Análisis de Data Lake." 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -16,17 +16,17 @@
    ms.date="10/27/2015"
    ms.author="jgao"/>
 
-# Administración de Análisis de Azure Data Lake mediante el Portal de vista previa de Azure
+# Administración de Análisis de Azure Data Lake mediante el Portal de Azure
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Aprenda a administrar cuentas, orígenes de datos, usuarios y trabajos de Análisis de Azure Data Lake mediante el Portal de vista previa de Azure. Para ver los temas de administración con otras herramientas, haga clic en el selector de pestañas de arriba.
+Aprenda a administrar cuentas, orígenes de datos, usuarios y trabajos de Análisis con Azure Data Lake mediante el Portal de Azure. Para ver los temas de administración con otras herramientas, haga clic en el selector de pestañas de arriba.
 
 **Requisitos previos**
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/es-ES/pricing/free-trial/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 
 
@@ -145,7 +145,7 @@ Cuando se crea una cuenta de Análisis de Data Lake, debe designar una cuenta de
 
 <a name="upload-data-to-adls"></a> **Para cargar archivos a la cuenta de Almacén de Data Lake**
 
-1. En el portal de vista previa, haga clic en **Examinar ** en el menú de la izquierda y después haga clic en **Almacén de Data Lake**.
+1. En el Portal, haga clic en **Examinar ** en el menú de la izquierda y después haga clic en **Almacén de Data Lake**.
 2. Haga clic en la cuenta de Almacén de Data Lake a la que desea cargar datos. Para buscar la cuenta predeterminada de Almacén de Data Lake, consulte [aquí](#default-adl-account).
 3. Haga clic en **Explorador de datos** en el menú superior.
 4. Haga clic en **Nuevo directorio** para crear una carpeta o haga clic en el nombre de una carpeta para cambiar de carpeta.
@@ -256,7 +256,7 @@ Consulte [Supervisión de trabajos de Análisis de Data Lake](#monitor-jobs).
 
 ##Ver el catálogo de U-SQL
 
-El [catálogo de U-SQL](data-lake-analytics-use-u-sql-catalog.md) se usa para estructurar datos y código, de forma que puedan compartirse mediante scripts U-SQL. El catálogo permite el mayor rendimiento posible con los datos en Azure Data Lake. En el Portal de vista previa de Azure, se puede ver el catálogo de U-SQL.
+El [catálogo de U-SQL](data-lake-analytics-use-u-sql-catalog.md) se usa para estructurar datos y código, de forma que puedan compartirse mediante scripts U-SQL. El catálogo permite el mayor rendimiento posible con los datos en Azure Data Lake. En el Portal de Azure, se puede ver el catálogo de U-SQL.
 
 **Para examinar el catálogo de U-SQL**
 
@@ -291,8 +291,8 @@ La cuenta de Análisis de Data Lake y las cuentas de almacenamiento dependientes
 ##Consulte también 
 
 - [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-- [Introducción a Análisis de Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-get-started-portal.md)
+- [Introducción a Análisis de Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md)
 - [Administración de Análisis de Azure Data Lake mediante Azure Powershell](data-lake-analytics-use-powershell.md)
-- [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

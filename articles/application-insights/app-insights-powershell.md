@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Creación de recursos de Application Insights mediante PowerShell
@@ -76,7 +76,7 @@ Instale el módulo de Azure Powershell en la máquina donde quiere ejecutar los 
 
 2. Abra el [Administrador de recursos de Azure](https://resources.azure.com/). Desplácese por las suscripciones, los grupos de recursos y los componentes hasta su recurso de aplicación.
 
-    ![](./media/app-insights-create-powershell/01.png)
+    ![](./media/app-insights-powershell/01.png)
 
     *Componentes* son los recursos básicos de Application Insights para mostrar aplicaciones. Existen recursos distintos para las reglas de alerta asociadas y las pruebas web de disponibilidad.
 
@@ -288,4 +288,4 @@ A continuación se muestra el componente completo, la prueba web y la plantilla 
 
 ```
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="11/30/2015" 
 	ms.author="sdanie"/>
 
 # Escalado de Caché en Redis de Azure
@@ -111,7 +111,7 @@ Cuando se escala una memoria caché **Basic** a una memoria caché **Standard**,
 
 Cuando se escala una memoria caché **Standard** a un tamaño mayor, normalmente se conservan todos los datos. Al reducir una memoria caché **Standard** a un tamaño menor, los datos se pueden perder según la cantidad de datos que se encuentra en la caché en relación con el nuevo tamaño cuando se escala. Si se pierden datos al reducir, las claves se expulsan mediante el directiva de expulsión [allkeys-lru](http://redis.io/topics/lru-cache).
 
-Tenga en cuenta que mientras las memorias caché Standard tienen un contrato de nivel de servicio del 99,9% de disponibilidad, no hay ningún contrato de nivel de servicio para la pérdida de datos.
+Tenga en cuenta que mientras las memorias caché Standard y Premium tienen un contrato de nivel de servicio del 99,9% de disponibilidad, no hay ningún contrato de nivel de servicio para la pérdida de datos.
 
 ## La caché estará disponible durante el escalado
 
@@ -155,4 +155,4 @@ Estamos lanzando esta característica para obtener comentarios. Nos basaremos en
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

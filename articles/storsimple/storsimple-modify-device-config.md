@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/15/2015"
-   ms.author="v-sharos@microsoft.com"/>
+   ms.date="12/02/2015"
+   ms.author="v-sharos"/>
 
 # Uso del servicio StorSimple Manager para modificar la configuración del dispositivo StorSimple
 
 ## Información general 
 
-La página **Configurar** del Portal de administración contiene todos los parámetros de dispositivo que puede volver a configurar en un dispositivo de StorSimple administrado mediante un servicio StorSimple Manager. En este tutorial se explica cómo usar la página **Configurar** para realizar las siguientes tareas de nivel de dispositivo:
+La página **Configurar** del Portal de Azure clásico contiene todos los parámetros de dispositivo que puede volver a configurar en un dispositivo de StorSimple administrado mediante un servicio de Administrador de StorSimple. En este tutorial se explica cómo usar la página **Configurar** para realizar las siguientes tareas de nivel de dispositivo:
 
 - Modificar la configuración del dispositivo 
 - Modificar la configuración del tiempo 
@@ -39,15 +39,15 @@ A un dispositivo StorSimple que está conectado al servicio StorSimple Manager s
 - **0991003**: indica un producto específico.
 - **G44HT**: los últimos 5 dígitos se incrementan para crear números de serie únicos. Es posible que esto no sea un conjunto secuencial.
 
-Puede usar el Portal de administración para cambiar el nombre del dispositivo y asignarle un nombre descriptivo único de su elección. El nombre descriptivo puede contener cualquier carácter y tener un máximo de 64 caracteres.
+Puede usar el Portal de Azure clásico para cambiar el nombre del dispositivo y asignarle un nombre descriptivo único de su elección. El nombre descriptivo puede contener cualquier carácter y tener un máximo de 64 caracteres.
 
 También puede especificar una descripción del dispositivo. La descripción del dispositivo suele ayudar a identificar el propietario y la ubicación física del dispositivo. El campo de descripción debe contener menos de 256 caracteres.
  
 ## Modificar la configuración del tiempo
 
-El dispositivo debe sincronizar la hora para autenticarse con su proveedor de servicios de almacenamiento en la nube. Seleccione la zona horaria en la lista desplegable y especifique un máximo de dos servidores de Protocolo de tiempo de redes (NTP). El servidor NTP principal es necesario y se especifica cuando usa Windows PowerShell para StorSimple para configurar el dispositivo. Puede especificar el Windows Server predeterminado **time.windows.com** como el servidor NTP. Puede ver la configuración del servidor NTP principal a través del Portal de administración, pero debe usar la interfaz de Windows PowerShell para cambiarla.
+El dispositivo debe sincronizar la hora para autenticarse con su proveedor de servicios de almacenamiento en la nube. Seleccione la zona horaria en la lista desplegable y especifique un máximo de dos servidores de Protocolo de tiempo de redes (NTP). El servidor NTP principal es necesario y se especifica cuando usa Windows PowerShell para StorSimple para configurar el dispositivo. Puede especificar el Windows Server predeterminado **time.windows.com** como el servidor NTP. Puede ver la configuración del servidor NTP principal a través del Portal de Azure clásico, pero debe usar la interfaz de Windows PowerShell para cambiarla.
 
-La configuración del servidor NTP secundario es opcional. Puede usar el Portal de administración para configurar un servidor NTP secundario.
+La configuración del servidor NTP secundario es opcional. Puede usar el Portal clásico para configurar un servidor NTP secundario.
 
 Al configurar el servidor NTP, asegúrese de que su red permite el paso del tráfico NTP del centro de datos a Internet. Al especificar un servidor NTP público, debe asegurarse de que los firewalls de red y otros dispositivos de seguridad estén configurados para permitir que el tráfico NTP viaje hacia y desde la red externa. Si no se permite el tráfico NTP bidireccional, debe usar un servidor NTP interno (esta función la proporciona un controlador de dominio de Windows). Si el dispositivo no puede sincronizar la hora, es posible que no sea capaz de comunicarse con el proveedor de almacenamiento en la nube.
 
@@ -61,7 +61,7 @@ Si el dispositivo se implementa en una zona horaria distinta, cambiará la zona 
 
 Cuando el dispositivo intenta comunicarse con el proveedor de servicios de almacenamiento en la nube, se usa un servidor DNS. Para lograr alta disponibilidad, se debe configurar el servidor DNS principal y el secundario durante la implementación inicial del dispositivo. Para volver a configurar el servidor DNS principal, deberá usar la interfaz de Windows PowerShell en el dispositivo StorSimple.
 
-Para modificar el servidor DNS secundario, puede usar el Portal de administración.
+Para modificar el servidor DNS secundario, puede usar el Portal de Azure clásico.
 
 <!-- If a secondary DNS server is not configured, you will not be able to create volume containers or provision volumes on the device.-->
 
@@ -102,7 +102,7 @@ Para cada interfaz de red, se muestran los parámetros siguientes:
 
 - **Dirección IP fija**: este campo solo está disponible mientras se configura la interfaz DATA 0. Para efectuar operaciones como las actualizaciones o la solución de problemas del dispositivo, es posible que necesite conectarse directamente con el controlador del dispositivo. La dirección IP fija puede usarse para tener acceso al controlador activo y el pasivo en el dispositivo.
 
-Puede volver a configurar el Controlador 0 y el Controlador 1 a través del Portal de administración.
+Puede volver a configurar el Controlador 0 y el Controlador 1 a través del Portal de Azure clásico.
 
 >[AZURE.NOTE]
 >
@@ -129,4 +129,4 @@ Realice los pasos siguientes para intercambiar o volver a asignar las VIP para c
 - Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
      
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

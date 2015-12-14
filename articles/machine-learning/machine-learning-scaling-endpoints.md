@@ -21,7 +21,7 @@
 
 Los extremos del servicio web de Aprendizaje automático de Azure tienen niveles de limitación seleccionables para hacer coincidir con la velocidad a la que se utilizará el extremo.
 
-Para controlar la cantidad de la limitación en el punto de conexión, use el control deslizante en el Portal de administración de Azure para establecer el máximo de llamadas simultáneas entre 20 y 200.
+Para controlar la cantidad de limitación en el punto de conexión, use el control deslizante en el Portal de Azure clásico para establecer el máximo de llamadas simultáneas entre 20 y 200
 
 
 Las API sincrónicas se usan normalmente en situaciones en las que se desea una latencia baja. Latencia aquí implica el tiempo que tarda la API en completar una solicitud, sin contar los retrasos de red. Supongamos que tiene una API con una latencia de 50 ms. Para utilizar totalmente la capacidad disponible con nivel de limitación alto y un número máximo de llamadas simultáneas de 20, debe llamar a esta API 20 * 1000/50 = 400 veces por segundo. Al ampliar esto aún más, un número máximo de llamadas simultáneas de 200 le permitirá llamar a la API 4000 veces por segundo, suponiendo una latencia de 50 ms.
@@ -47,4 +47,4 @@ La interfaz de usuario de administración permite ofrecer un número de simultan
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

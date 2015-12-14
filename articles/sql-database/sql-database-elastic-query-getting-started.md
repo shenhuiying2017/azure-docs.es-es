@@ -33,7 +33,7 @@ Aquí se creará un administrador de mapas de particiones junto con varias parti
 	![símbolo del sistema][1]
 
 2.  En la ventana de comandos, escriba "1" y pulse **Entrar**. De esta forma, se creará el administrador de mapas de particiones y se agregarán dos particiones al servidor. A continuación, escriba "3" y pulse **Entrar**; repita la acción cuatro veces. De esta forma, se insertan las filas de datos de ejemplo en sus particiones.
-3.  El [Portal de vista previa de Azure](https://portal.azure.com) debe mostrar tres nuevas bases de datos en el servidor v12:
+3.  El [Portal de Azure](https://portal.azure.com) debe mostrar tres nuevas bases de datos en el servidor v12:
 
 	![Confirmación de Visual Studio][2]
 
@@ -43,7 +43,7 @@ Aquí se creará un administrador de mapas de particiones junto con varias parti
 
 ## Creación una base de datos de consulta elástica
 
-1. Abra el [Portal de vista previa de Azure](https://portal.azure.com) e inicie sesión.
+1. Abra el [Portal de Azure](https://portal.azure.com) e inicie sesión.
 2. Cree una nueva Base de datos SQL de Azure en el mismo servidor que la configuración de la partición. Utilice el nombre "ElasticDBQuery" para la base de datos. Para un nivel de precios, debe seleccionar una de las ofertas premium. La consulta de base de datos elástica solo está disponible actualmente en el nivel premium.
 
 	![Portal de Azure y nivel de precios][3]
@@ -142,4 +142,4 @@ Para obtener información sobre los precios, consulte [Detalles de precios de Ba
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

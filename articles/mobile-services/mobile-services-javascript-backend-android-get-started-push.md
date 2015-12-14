@@ -59,7 +59,7 @@ Si va a realizar pruebas con un dispositivo antiguo, consulte [Configuración de
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push.md)]
 
 
-## Actualización del script de inserción registrado en el Portal de administración
+## Actualización del script de inserción registrado en el Portal de Azure clásico
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
@@ -146,7 +146,7 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-js
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Configuración del SDK de Google Play Services]: http://go.microsoft.com/fwlink/?LinkId=389801
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Cómo usar la biblioteca de cliente Android para servicios móviles]: mobile-services-android-how-to-use-client-library.md
 
 [gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
@@ -156,4 +156,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

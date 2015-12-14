@@ -1,6 +1,6 @@
 <properties
-	pageTitle="¿Cómo funciona Azure AD?"
-	description="Azure AD crea un panorama de identidad en la nube para usted. Se puede conectar a su sistema de identidad local o usar de forma independiente."
+	pageTitle="¿Cómo funciona Azure Active Directory? | Microsoft Azure"
+	description="Azure Active Directory crea un panorama de identidad en la nube para usted. Se puede conectar a su sistema de identidad local o usar de forma independiente."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
 
 
 # ¿Cómo funciona Azure Active Directory?
 
-
 ###Otros artículos sobre este tema
 [¿Qué es Azure AD?](active-directory-whatis.md)<br> [¿Cómo funciona?](active-directory-works.md)<br> [Introducción](active-directory-get-started.md)<br> [Pasos siguientes](active-directory-next-steps.md)<br> [Más información](active-directory-learn-map.md)
 
 
-Azure AD crea un panorama de identidad en la nube para usted. Se puede conectar a su sistema de identidad local o usar de forma independiente.
+Azure Active Directory (Azure AD) crea un panorama de identidad en la nube para usted. Se puede conectar a su sistema de identidad local o usar de forma independiente.
 
 Imagínese una cuenta de Azure AD como si fuera un permiso de conducir para la nube: es el id. único para tener acceso a los servicios en línea. En ese sentido, Azure AD funciona como su propio registrador privado en la nube para los permisos de conducir. Habilita identidades que se usarán en cualquier parte de la nube y mejora la movilidad de los usuarios que tienen acceso a recursos locales.
 
@@ -49,4 +48,4 @@ Azure Active admite varios de los protocolos de autenticación y autorización m
 * [Registro en Azure como una organización](sign-up-organization.md)
 * [Identidad de Azure](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

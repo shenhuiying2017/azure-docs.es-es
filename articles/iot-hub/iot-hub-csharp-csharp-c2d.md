@@ -53,8 +53,8 @@ En este tutorial, aprendió a enviar y recibir mensajes de nube a dispositivo. P
 
 Información adicional sobre el Centro de IoT:
 
-* [Información general sobre el centro de IoT]
-* [Guía del desarrollador del centro de IoT]
+* [Información general sobre el Centro de IoT]
+* [Guía para desarrolladores del Centro de IoT]
 * [Directrices sobre el Centro de IoT]
 * [Lenguajes y plataformas de dispositivos compatibles][Supported devices]
 * [Centro para desarrolladores de IoT de Azure]
@@ -67,18 +67,18 @@ Información adicional sobre el Centro de IoT:
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 
-[Azure preview portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Procesamiento de mensajes de dispositivo a nube]: iot-hub-csharp-csharp-process-d2c.md
 [Carga de archivos desde dispositivos]: iot-hub-csharp-csharp-file-upload.md
 
-[Información general sobre el centro de IoT]: iot-hub-what-is-iot-hub.md
+[Información general sobre el Centro de IoT]: iot-hub-what-is-iot-hub.md
 [Directrices sobre el Centro de IoT]: iot-hub-guidance.md
-[Guía del desarrollador del centro de IoT]: iot-hub-devguide.md
+[Guía para desarrolladores del Centro de IoT]: iot-hub-devguide.md
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Introducción al Centro de IoT]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

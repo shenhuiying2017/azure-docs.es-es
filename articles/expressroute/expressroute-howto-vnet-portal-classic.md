@@ -23,7 +23,7 @@ Estos pasos le guiarán a través de la configuración de una red virtual y una 
 
 >[AZURE.IMPORTANT]Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, consulta [Modelos de implementación de Azure](../azure-classic-rm.md).
 
-1. Inicie sesión en el **Portal de Azure**.
+1. Inicie sesión en el **Portal de Azure clásico**.
 
 2. En la esquina inferior izquierda de la pantalla, haga clic en **Nuevo**. En el panel de navegación, haga clic en **Servicios de red** y, a continuación, haga clic en **Red virtual**. Haga clic en **Creación personalizada** para iniciar el Asistente para configuración.
 
@@ -53,7 +53,7 @@ Estos pasos le guiarán a través de la configuración de una red virtual y una 
 	- **Agregar subred**: incluidas Dirección IP de inicio y Recuento de direcciones. No se necesitan subredes adicionales, pero es posible que quiera crear una subred independiente para las máquinas virtuales que tengan direcciones IP dinámicas (DIPS). O bien, puede querer que las máquinas virtuales se encuentren en una subred independiente de las demás instancias PaaS.
 	- **Agregar subred de puerta de enlace**: haga clic para agregar la subred de puerta de enlace. La subred de puerta de enlace solo se usa para la puerta de enlace de red virtual y es obligatoria para esta configuración. ***Importante:*** el prefijo de subred de puerta de enlace de ExpressRoute debe ser /28 o menor. (/27, /26 etc.)
 
-7. Haga clic en la marca de verificación de la parte inferior derecha de la página y se empezará a crear la red virtual. Cuando finalice, verá **Creada** en el **Estado** de la página **Redes**, en el Portal de administración.
+7. Haga clic en la marca de verificación de la parte inferior derecha de la página y se empezará a crear la red virtual. Cuando termine, verá **Creado** listado en el **Estado** de la página **Redes** del Portal de Azure clásico.
 
 8. En la página **Redes**, haga clic en la red virtual recién creada y luego en **Panel**.
 9. En la parte inferior de la página del Panel, haga clic en **CREAR PUERTA DE ENLACE** y, después, haga clic en **Sí**.
@@ -70,4 +70,4 @@ Estos pasos le guiarán a través de la configuración de una red virtual y una 
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

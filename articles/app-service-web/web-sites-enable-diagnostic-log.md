@@ -22,7 +22,7 @@
 
 Azure integra diagnósticos para ayudar a depurar [Aplicaciones web del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714). En este artículo se ofrece información acerca de cómo habilitar el registro de diagnósticos, agregar instrumentación a la aplicación y obtener acceso a la información registrada por Azure.
 
-En este artículo se usa el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell y la interfaz de la línea de comandos de Azure (CLI de Azure) para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+En este artículo se usa el [Portal de Azure](https://portal.azure.com), Azure PowerShell y la interfaz de la línea de comandos de Azure (CLI de Azure) para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -50,7 +50,7 @@ Las aplicaciones web del Servicio de aplicaciones también registran informació
 
 ## <a name="enablediag"></a>Habilitación de diagnósticos
 
-Para habilitar diagnósticos en el [Portal de vista previa de Azure](https://portal.azure.com), vaya a la hoja de la aplicación web y haga clic en **Configuración > Registros de diagnóstico**.
+Para habilitar diagnósticos en el [Portal de Azure](https://portal.azure.com), vaya a la hoja de la aplicación web y haga clic en **Configuración > Registros de diagnóstico**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Parte de los registros](./media/web-sites-enable-diagnostic-log/logspart.png)
@@ -59,9 +59,9 @@ Cuando habilite **Diagnóstico de aplicaciones**, elija también **Nivel**. Esta
 
 > [AZURE.NOTE]Al contrario de lo que ocurre al cambiar el archivo web.config, habilitar Diagnóstico de aplicaciones o cambiar los niveles del registro de diagnóstico no recicla el dominio de la aplicación en el que esta se ejecuta.
 
-En la pestaña [Portal de Azure](https://manage.windowsazure.com) Aplicación web **Configurar**, puede seleccionar **almacenamiento** o **sistema de archivos** para el **registro de servidor web**. Si selecciona **almacenamiento**, tiene la opción de seleccionar una cuenta de almacenamiento y, a continuación, un contenedor de blobs en el que se escribirán los registros. Todos los demás registros de **diagnósticos del sitio** se escriben solo en el sistema de archivos.
+En el [Portal clásico](https://manage.windowsazure.com), en la pestaña **Configurar** de la aplicación web, puede seleccionar **almacenamiento** o **sistema de archivos** para el **registro de servidor web**. Si selecciona **almacenamiento**, tiene la opción de seleccionar una cuenta de almacenamiento y, a continuación, un contenedor de blobs en el que se escribirán los registros. Todos los demás registros de **diagnósticos del sitio** se escriben solo en el sistema de archivos.
 
-La pestaña [Portal de Azure](https://manage.windowsazure.com) Aplicación web **Configurar** también tiene una configuración adicional para el diagnóstico de aplicaciones:
+En el [Portal clásico](https://manage.windowsazure.com), la pestaña **Configurar** de la aplicación web también tiene una configuración adicional para el diagnóstico de aplicaciones:
 
 * **Sistema de archivos**: almacena la información de diagnóstico de aplicaciones en el sistema de archivos de la aplicación web. Es posible obtener acceso a estos archivos por FTP, o bien se pueden descargar como un archivo ZIP con la utilización de Azure PowerShell o de la interfaz de la línea de comandos de Azure (CLI de Azure).
 * **Almacenamiento de tablas**: almacena la información de diagnóstico de aplicaciones en el nombre de la tabla y en la cuenta de almacenamiento de Azure.
@@ -99,7 +99,7 @@ La estructura de directorios en que se almacenan los registros es la siguiente:
 
 ### FTP
 
-Para obtener acceso a la información de diagnóstico mediante FTP, visite el **panel** de la aplicación web en el [Portal de Azure](https://manage.windowsazure.com). En la sección **Vista rápida**, haga clic en el vínculo **Registros de diagnóstico de FTP** para obtener acceso a los archivos de registro mediante FTP. La entrada **Usuario de implementación /FTP** enumera el nombre de usuario que debe usarse para obtener acceso al sitio FTP.
+Para obtener acceso a la información de diagnóstico mediante FTP, visite el **panel** de la aplicación web en el [Portal clásico](https://manage.windowsazure.com). En la sección **Vista rápida**, haga clic en el vínculo **Registros de diagnóstico de FTP** para obtener acceso a los archivos de registro mediante FTP. La entrada **Usuario de implementación /FTP** enumera el nombre de usuario que debe usarse para obtener acceso al sitio FTP.
 
 > [AZURE.NOTE]Si no se establece la entrada **Usuario de implementación/FTP** o si ha olvidado la contraseña de este usuario, puede crear un nuevo usuario y una nueva contraseña mediante el vínculo **Restablecer credenciales de implementación** en la sección **Vista rápida** del **Panel**.
 
@@ -132,7 +132,7 @@ Visual Studio Application Insights proporciona herramientas para filtrar y busca
 2. Agregue el paquete del agente de escucha.
  * Haga clic con el botón secundario en el proyecto y elija Administrar paquetes de NuGet. Seleccione `Microsoft.ApplicationInsights.TraceListener` [Más información](../application-insights/app-insights-asp-net-trace-logs.md).
 3. Cargue el proyecto y ejecútelo para generar datos de registro.
-4. En el [Portal de vista previa de Azure](http://portal.azure.com/), busque el nuevo recurso de Application Insights y abra **Buscar**. Verá los datos de registro, junto con la solicitud, el uso y otra telemetría. Es posible que algunos datos de telemetría demoren unos minutos en aparecer: haga clic en Actualizar. [Más información](../application-insights/app-insights-diagnostic-search.md)
+4. En el [Portal de Azure](http://portal.azure.com/), busque el nuevo recurso de Application Insights y abra **Buscar**. Verá los datos de registro, junto con la solicitud, el uso y otra telemetría. Es posible que algunos datos de telemetría demoren unos minutos en aparecer: haga clic en Actualizar. [Más información](../application-insights/app-insights-diagnostic-search.md)
 
 [Obtenga más información acerca del seguimiento del rendimiento con Application Insights](../insights-perf-analytics.md)
 
@@ -259,7 +259,7 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 
 ##<a name="nextsteps"></a> Pasos siguientes
 
-- [Supervisión de aplicaciones web](/es-ES/manage/services/web-sites/how-to-monitor-websites/)
+- [Supervisión de aplicaciones web](/manage/services/web-sites/how-to-monitor-websites/)
 - [Solución de problemas de aplicaciones web de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [Análisis de registros de aplicación web en HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
@@ -270,4 +270,4 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

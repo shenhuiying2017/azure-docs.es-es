@@ -16,12 +16,12 @@
  
 # Notas de la versión del SDK de Application Insights para .NET
 
-El [SDK de Application Insights para .NET](app-insights-start-monitoring-app-health-usage.md) envía telemetría acerca de la aplicación activa a [Application Insights](http://azure.microsoft.com/services/application-insights/), donde puede analizar su uso y el rendimiento.
+El [SDK de Application Insights para .NET](app-insights-asp-net.md) envía telemetría acerca de la aplicación activa a [Application Insights](http://azure.microsoft.com/services/application-insights/), donde puede analizar su uso y el rendimiento.
 
 
 #### Para instalar el SDK en su aplicación
 
-Consulte [Introducción a Application Insights para .NET](app-insights-start-monitoring-app-health-usage.md).
+Consulte [Introducción a Application Insights para .NET](app-insights-asp-net.md).
 
 #### Para actualizar al SDK más reciente 
 
@@ -32,14 +32,19 @@ Consulte [Introducción a Application Insights para .NET](app-insights-start-mon
 * Compare ApplicationInsights.config con la copia anterior. La mayoría de los cambios que verá se deben a que hemos quitado algunos módulos y hemos hecho que otros se puedan parametrizar. Restablezca las personalizaciones realizadas en el archivo anterior.
 * Vuelva a generar la solución.
 
+
+## Versión 2.0.0-beta3
+
+- [Muestreo adaptable](app-insights-sampling.md)
+
 ## Versión 2.0.0-beta2
-- Se ha agregado compatibilidad para ITelemetryProcessor y la posibilidad de configuración a través de código o de la propia configuración. [Habilita el filtrado personalizado en el SDK](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-processors)
+- Se ha agregado compatibilidad para ITelemetryProcessor y la posibilidad de configuración a través de código o de la propia configuración. [Habilita el filtrado personalizado en el SDK](app-insights-api-telemetry-processors/#telemetry-processors)
 - Se han quitado los inicializadores de contexto. En su lugar, se usan [inicializadores de telemetría ](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers).
 - Application Insights para .Net Framework 4.6 actualizado. 
 - Los nombres de evento personalizados ahora pueden tener hasta 512 caracteres.
-- Nombre de la propiedad ```OperationContext.Name``` cambio a ```RootName```.
-- Propiedad ```RequestTelemetry.Id``` quitada.
-- Propiedad ```Id``` y ```Context.Operation.Id``` de RequestTelemetry no se inicializaría al crear un nuevo RequestTelemetry.
+- El nombre de la propiedad ```OperationContext.Name``` cambia a ```RootName```.
+- Se quitó la propiedad ```RequestTelemetry.Id```.
+- Las propiedades ```Id``` y ```Context.Operation.Id``` de RequestTelemetry podrían no inicializarse al crear un nuevo RequestTelemetry.
 - ```RequestTelemetry.Name``` ya no se inicializa. Se usará ```RequestTelemetry.Context.Operation.Name``` en su lugar.
 - En la supervisión de la solicitud, el código de respuesta 401 forma parte del protocolo de enlace de autenticación normal y dará lugar a una solicitud correcta.
 - Corrección del bloqueo de subproceso de IU al inicializar InMemoryChannel (canal predeterminado) desde el subproceso de IU. Esto corrige los problemas de bloqueo de la IU con aplicaciones WPF.
@@ -47,13 +52,13 @@ Consulte [Introducción a Application Insights para .NET](app-insights-start-mon
 ## Version 2.0.0-beta1
 - TrackDependency producirá JSON válido cuando no se especificaron todos los campos obligatorios.
 - La propiedad redundante ```RequestTelemetry.ID``` ahora solo es un proxy para ```RequestTelemetry.Operation.Id```.
-- Nueva interfaz ```ISupportSampling``` e implementación explícita de ella por la mayoría de los tipos de elementos de datos.
-- Propiedad ```Count``` en DependencyTelemetry marcada como obsoleta. Se usa ```SamplingPercentage``` en su lugar.
-- Nuevo ```CloudContext``` introducido y propiedades ```RoleName``` y ```RoleInstance``` movidas a él desde ```DeviceContext```.
+- La nueva interfaz ```ISupportSampling``` y su implementación explícita por parte de la mayoría de los tipos de elementos de datos.
+- La propiedad ```Count``` en DependencyTelemetry marcada como obsoleta. Se usa ```SamplingPercentage``` en su lugar.
+- Se introdujo un nuevo ```CloudContext``` y las propiedades ```RoleName``` y ```RoleInstance``` se movieron a este desde ```DeviceContext```.
 - Nueva propiedad ```AuthenticatedUserId``` en ```UserContext``` para especificar la identidad del usuario autenticada.
-- Se ha agregado `Microsoft.ApplicationInsights.Web.AccountIdTelemetryInitializer` y `Microsoft.ApplicationInsights.Web.AuthenticatedUserIdTelemetryInitializer` que inicializan el contexto del usuario autenticado según establece el SDK de Javascript.
-- Se ha agregado `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor` y la compatibilidad con muestreo de tipo fijo como implementación del mismo.
-- Se ha agregado `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.TelemetryChannelBuilder`, que permite la creación de un `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` con un conjunto de `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor`.
+- Se agregaron `Microsoft.ApplicationInsights.Web.AccountIdTelemetryInitializer` y `Microsoft.ApplicationInsights.Web.AuthenticatedUserIdTelemetryInitializer` que inicializan el contexto del usuario autenticado según establece el SDK de Javascript.
+- Se agregaron `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor` y la compatibilidad con muestreo de tipo fijo como implementación del mismo.
+- Se agregó `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.TelemetryChannelBuilder`, que permite la creación de un `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` con un conjunto de `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor`.
 
 ## Versión 1.2
 
@@ -109,4 +114,4 @@ No existen notas de la versión para versiones anteriores.
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -35,11 +35,11 @@ Para crear un espacio de nombres, siga los pasos que se indican en [Procedimient
 
 >[AZURE.NOTE]No es necesario utilizar el mismo espacio de nombres para las aplicaciones cliente y servicio.
 
-1. En la ventana principal del portal de Azure, haga clic en el nombre del espacio de nombres de servicio que creó en el paso anterior.
+1. En la ventana principal del [Portal de Azure clásico][], haga clic en el nombre del espacio de nombres de servicio que creó en el paso anterior.
 
 2. Haga clic en **Configurar** para ver las directivas de acceso compartido predeterminadas del espacio de nombres del servicio.
 
-3. Anote la clave principal de la directiva **RootManageSharedAccessKey** o cópiela en el Portapapeles. Usará este valor más adelante en el tutorial.
+3. Tome nota de la clave principal para la directiva **RootManageSharedAccessKey**, o cópiela en el Portapapeles. Usará este valor más adelante en el tutorial.
 
 ## Definir un contrato de servicio de WCF basado en REST para usarlo con el Bus de servicio
 
@@ -49,7 +49,7 @@ El contrato de servicio especifica las operaciones (la terminología del servici
 
 1. Abra Visual Studio como administrador, para lo que debe hacer clic con el botón secundario en el programa del menú **Inicio** y, después, haga clic en **Ejecutar como administrador**.
 
-1. Cree un nuevo proyecto de aplicación de consola. Haga clic en el menú **Archivo**, seleccione **Nuevo** y haga clic en **Proyecto**. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C#** (si **Visual C#** no aparece, mire en **Otros lenguajes**). Haga clic en la plantilla **Aplicación de consola** y asígnele el nombre **EchoService**. Use el valor predeterminado de **Ubicación**. Haga clic en **Aceptar** para crear el proyecto.
+1. Cree un nuevo proyecto de aplicación de consola. Haga clic en el menú **Archivo** y seleccione **Nuevo**; a continuación, haga clic en **Proyecto**. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C#** (si **Visual C#** no aparece, mire en **Otros lenguajes**). Haga clic en la plantilla **Aplicación de consola** y asígnele el nombre **EchoService**. Use la **Ubicación** predeterminada. Haga clic en **Aceptar** para crear el proyecto.
 
 1. Agregue una referencia a `System.ServiceModel.dll` en el proyecto: en el Explorador de soluciones, haga clic en la carpeta **Referencias** dentro de la carpeta del proyecto y luego haga clic en **Agregar referencia**. Seleccione la pestaña **.NET** del cuadro de diálogo **Agregar referencia** y desplácese hacia abajo hasta que vea **System.ServiceModel**. Selecciónelo y luego haga clic en **Guardar**.
 
@@ -76,7 +76,7 @@ El contrato de servicio especifica las operaciones (la terminología del servici
 	}
 	```
 
-	>[AZURE.NOTE]Normalmente, el espacio de nombres del contrato de servicio contiene un esquema de nomenclatura que incluye información de versión. Al incluirse la información de versión en el espacio de nombres del contrato de servicio, los servicios pueden aislar los cambios más importantes mediante la definición de un nuevo contrato de servicio con un nuevo espacio de nombres y su exposición en un nuevo extremo. De esta manera, los clientes pueden seguir usando el contrato de servicio anterior sin tener que actualizarse. La información de versión puede constar de una fecha o un número de compilación. Para más información, consulte [Control de versiones del servicio](http://go.microsoft.com/fwlink/?LinkID=180498). Para los fines de este tutorial, el esquema de nomenclatura del espacio de nombres del contrato de servicio no contiene información de versión.
+	>[AZURE.NOTE]Normalmente, el espacio de nombres del contrato de servicio contiene un esquema de nomenclatura que incluye información de versión. Al incluirse la información de versión en el espacio de nombres del contrato de servicio, los servicios pueden aislar los cambios más importantes mediante la definición de un nuevo contrato de servicio con un nuevo espacio de nombres y su exposición en un nuevo extremo. De esta manera, los clientes pueden seguir usando el contrato de servicio anterior sin tener que actualizarse. La información de versión puede constar de una fecha o un número de compilación. Para obtener más información, consulte [Control de versiones del servicio](http://go.microsoft.com/fwlink/?LinkID=180498). Para los fines de este tutorial, el esquema de nomenclatura del espacio de nombres del contrato de servicio no contiene información de versión.
 
 1. Dentro de la interfaz IEchoContract, declare un método para la única operación que el contrato `IEchoContract` expone en la interfaz y aplique el atributo `OperationContractAttribute` al método que quiere exponer como parte del contrato público de Bus de servicio.
 
@@ -168,7 +168,7 @@ La creación de un servicio de Bus de servicio requiere que primero cree el cont
 
 ### Para definir la configuración del host de servicio
 
-1. El archivo de configuración es muy similar a un archivo de configuración de WCF. Incluye el nombre del servicio, el extremo (es decir, la ubicación que el Bus de servicio expone para que clientes y hosts se comuniquen entre sí) y el enlace (el tipo de protocolo que se usa para la comunicación). La principal diferencia es que el extremo de servicio configurado hace referencia a un elemento [netTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx), que no forma parte de .NET Framework. [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) es uno de los enlaces que define el Bus de servicio.
+1. El archivo de configuración es muy similar a un archivo de configuración de WCF. Incluye el nombre del servicio, el extremo (es decir, la ubicación que el Bus de servicio expone para que clientes y hosts se comuniquen entre sí) y el enlace (el tipo de protocolo que se usa para la comunicación). La principal diferencia es que el punto de conexión de servicio configurado hace referencia a un elemento [netTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx), que no forma parte de .NET Framework. [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) es uno de los enlaces que define el Bus de servicio.
 
 1. En el **Explorador de soluciones**, haga clic en el archivo App.config, que actualmente contiene los elementos XML siguientes.
 
@@ -209,7 +209,7 @@ La creación de un servicio de Bus de servicio requiere que primero cree el cont
 	</service>
 	```
 
-1. Dentro del elemento `<service>`, defina la ubicación del contrato del extremo y también el tipo de enlace del extremo.
+1. Dentro del elemento `<service>`, defina la ubicación del contrato del punto de conexión y también el tipo de enlace del extremo.
 
 	```
 	<endpointcontract="Microsoft.ServiceBus.Samples.IEchoContract"binding="netTcpRelayBinding"/>
@@ -321,7 +321,7 @@ En este paso se detalla cómo ejecutar un servicio de Bus de servicio básico.
 	ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.AutoDetect;
 	```
 
-	El modo de conectividad describe el protocolo que usa el servicio para comunicarse con el Bus de servicio; HTTP o TCP. Con la configuración predeterminada `AutoDetect`, el servicio intenta conectarse al Bus de servicio a través de TCP si está disponible, y HTTP si no lo está. Tenga en cuenta que esto difiere del protocolo que especifica el servicio para la comunicación del cliente. Dicho protocolo viene determinado por el enlace utilizado. Por ejemplo, un servicio puede usar el enlace [BasicHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.basichttprelaybinding.aspx), que especifica que su extremo (expuesto en el Bus de servicio) se comunica con los clientes a través de HTTP. Ese mismo servicio podría especificar **ConnectivityMode.AutoDetect** para que el servicio se comunique con el Bus de servicio mediante TCP.
+	El modo de conectividad describe el protocolo que usa el servicio para comunicarse con el Bus de servicio; HTTP o TCP. Con la configuración predeterminada `AutoDetect`, el servicio intenta conectarse al Bus de servicio a través de TCP si está disponible, y HTTP si no lo está. Tenga en cuenta que esto difiere del protocolo que especifica el servicio para la comunicación del cliente. Dicho protocolo viene determinado por el enlace utilizado. Por ejemplo, un servicio puede usar el enlace [BasicHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.basichttprelaybinding.aspx), que especifica que su punto de conexión (expuesto en el Bus de servicio) se comunica con los clientes a través de HTTP. Ese mismo servicio podría especificar **ConnectivityMode.AutoDetect** para que el servicio se comunique con el Bus de servicio mediante TCP.
 
 1. Cree el host del servicio, con el identificador URI creado anteriormente en esta sección.
 
@@ -338,7 +338,7 @@ En este paso se detalla cómo ejecutar un servicio de Bus de servicio básico.
 	using Microsoft.ServiceBus.Description;
 	```
 
-1. De nuevo en `Main()`, configure el extremo para permitir el acceso público.
+1. De nuevo en `Main()`, configure el punto de conexión para permitir el acceso público.
 
 	```
 	IEndpointBehavior serviceRegistrySettings = new ServiceRegistrySettings(DiscoveryType.Public);
@@ -473,7 +473,7 @@ El siguiente paso consiste en crear una aplicación cliente básica de Bus de se
 
 1. En el Explorador de soluciones, haga doble clic en el archivo Program.cs del proyecto **EchoClient** para abrirlo en el editor.
 
-1. Cambie el nombre del espacio de nombres de su nombre predeterminado `EchoClient` a `Microsoft.ServiceBus.Samples`.
+1. Cambie el nombre del espacio de nombres de su nombre predeterminado de `EchoClient` a `Microsoft.ServiceBus.Samples`.
 
 1. Agregue una referencia a System.ServiceModel.dll para el proyecto:
 	1. Haga clic con el botón secundario en **Referencias**, en el proyecto **EchoClient** del Explorador de soluciones. Después, haga clic en **Agregar referencia**.
@@ -575,7 +575,7 @@ En este paso, creará un archivo App.config para una aplicación cliente básica
 
 	En este paso se declara que está definiendo una aplicación cliente de estilo WCF.
 
-1. Dentro del elemento `client`, defina el nombre, el contrato y el tipo de enlace para el extremo.
+1. Dentro del elemento `client`, defina el nombre, el contrato y el tipo de enlace para el punto de conexión.
 
 	```
 	<endpointname="RelayEndpoint"
@@ -585,7 +585,7 @@ En este paso, creará un archivo App.config para una aplicación cliente básica
 
 	En este paso se define el nombre del extremo, el contrato definido en el servicio y el hecho de que la aplicación cliente use TCP para comunicarse con el Bus de servicio. El nombre del extremo se usa en el paso siguiente para vincular la configuración de este extremo con el identificador URI del servicio.
 
-1. Inmediatamente después del elemento <client>, agregue la extensión de enlace siguiente.
+1. Inmediatamente después del elemento <client>, agregue la extensión de enlace siguiente:
  
 	```
 	<extensions>
@@ -841,4 +841,6 @@ Para obtener más información sobre el Bus de servicio, consulte los temas sigu
 - [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
 - [Arquitectura del Bus de servicio](service-bus-architecture.md)
 
-<!---HONumber=Oct15_HO3-->
+[Portal de Azure clásico]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

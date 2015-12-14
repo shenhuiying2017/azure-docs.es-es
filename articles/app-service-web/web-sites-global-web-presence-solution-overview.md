@@ -65,7 +65,7 @@ Entregue el contenido estático a los usuarios de manera muy rápida globalmente
 
 Optimice su sitio .COM al escalar de manera automática con Autoescala, almacenar en caché con Caché en Redis de Azure, ejecutar tareas en segundo plano con WebJobs y mantener la alta disponibilidad con Administrador de tráfico de Azure.
 
-La capacidad que las Aplicaciones web del Servicio de aplicaciones tienen para [escalar vertical y horizontalmente] satisface la necesidad de su sitio .COM, independientemente del tamaño de la carga de trabajo. Escale horizontalmente el sitio web de manera manual mediante el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), programáticamente mediante la [API de administración de servicios] o [Scripting de PowerShell] o de manera automática, mediante la característica Autoescala. En el plan de hospedaje **Estándar**, la característica Autoescala le permite escalar horizontalmente un sitio web de manera automática según la utilización de CPU. Si desea conocer los procedimientos recomendados, consulte el artículo de [Troy Hunt]\: [10 things I learned about rapidly scaling web apps with Azure] (Diez cosas que aprendí sobre el escalado rápido de aplicaciones web con Azure).
+La capacidad que las Aplicaciones web del Servicio de aplicaciones tienen para [escalar vertical y horizontalmente] satisface la necesidad de su sitio .COM, independientemente del tamaño de la carga de trabajo. Escale horizontalmente el sitio web de manera manual mediante el [Portal de Azure](https://portal.azure.com), programáticamente mediante la [API de administración de servicios] o [scripting de PowerShell] o de manera automática, mediante la característica Autoescala. En el plan de hospedaje **Estándar**, la característica Autoescala le permite escalar horizontalmente un sitio web de manera automática según la utilización de CPU. Si desea conocer los procedimientos recomendados, consulte el artículo de [Troy Hunt]\: [10 things I learned about rapidly scaling web apps with Azure] (Diez cosas que aprendí sobre el escalado rápido de aplicaciones web con Azure).
 
 Haga que su sitio web tenga mayor capacidad de respuesta con [Caché en Redis de Azure]. Utilícelo para almacenar datos en caché desde bases de datos de back-end y otros aspectos, como el [estado de sesiones de ASP.NET] y la [caché de resultados].
 
@@ -75,7 +75,7 @@ Mantenga la alta disponibilidad del sitio web mediante [Administrador de tráfic
 
 Manténgase al día con el rendimiento de su sitio web con Azure o con herramientas de terceros. Reciba alertas sobre eventos críticos de sitio web. Obtenga información de usuario fácilmente con Application Insight o con análisis de registros web desde HDInsight.
 
-Obtenga una [vista rápida] de las cuotas de recurso y métricas de rendimiento actuales del sitio web en la hoja del [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) correspondiente a la aplicación web. Para obtener una vista de 360° de la aplicación a través de la disponibilidad, el rendimiento y el uso, use [Azure Application Insights] para recibir información rápida y poderosa sobre la solución de problemas, el diagnóstico y el uso. O bien, utilice una herramienta de terceros como [New Relic] para proporcionar datos de supervisión avanzados para sus sitios web.
+Obtenga una [vista rápida] de las cuotas de recurso y métricas de rendimiento actuales del sitio web en la hoja del [Portal de Azure](https://portal.azure.com) correspondiente a la aplicación web. Para obtener una vista de 360° de la aplicación a través de la disponibilidad, el rendimiento y el uso, use [Azure Application Insights] para recibir información rápida y poderosa sobre la solución de problemas, el diagnóstico y el uso. O bien, utilice una herramienta de terceros como [New Relic] para proporcionar datos de supervisión avanzados para sus sitios web.
 
 En el plan de hospedaje **Estándar**, supervise las notificaciones de correo electrónico recibidas sobre la capacidad de respuesta del sitio cada vez que el sitio deje de responder. Para obtener más información, consulte [Recepción notificaciones de alerta y administración de reglas de alerta en Azure].
 
@@ -120,7 +120,7 @@ Haga que su sitio .COM sea atractivo con medios enriquecidos, como:
 [escalar vertical y horizontalmente]: web-sites-scale.md
 [Azure Management Portal]: http://manage.windowsazure.com/
 [API de administración de servicios]: https://msdn.microsoft.com/library/azure/ee460799.aspx
-[Scripting de PowerShell]: https://msdn.microsoft.com/library/azure/jj152841.aspx
+[scripting de PowerShell]: https://msdn.microsoft.com/library/azure/jj152841.aspx
 [Troy Hunt]: https://twitter.com/troyhunt
 [10 things I learned about rapidly scaling web apps with Azure]: http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Caché en Redis de Azure]: /blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
@@ -137,4 +137,4 @@ Haga que su sitio .COM sea atractivo con medios enriquecidos, como:
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

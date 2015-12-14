@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/12/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Conectarse de forma remota al dispositivo StorSimple
@@ -37,9 +37,9 @@ Puede conectarse de forma remota a la interfaz de Windows PowerShell. No obstant
 
 Conectarse a Windows PowerShell para StorSimple a través de una sesión HTTP proporciona una mayor seguridad que la conexión a través de la consola en serie del dispositivo StorSimple. Aunque este no es el método más seguro, es aceptable en redes de confianza.
 
-Puede usar el Portal de Azure o la consola en serie para configurar la administración remota. Seleccione entre los siguientes procedimientos:
+Puede usar el Portal de Azure clásico o la consola en serie para configurar la administración remota. Seleccione entre los siguientes procedimientos:
 
-- [Uso del Portal de Azure para habilitar la administración remota a través de HTTP](#use-the-azure-portal-to-enable-remote-management-over-http)
+- [Uso del Portal de Azure clásico para habilitar la administración remota a través de HTTP](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
 
 - [Utilice la consola en serie para habilitar la administración remota a través de HTTP](#use-the-serial-console-to-enable-remote-management-over-http)
 
@@ -47,11 +47,11 @@ Después de habilitar la administración remota, utilice el procedimiento siguie
 
 - [Preparar al cliente para la conexión remota](#prepare-the-client-for-remote-connection)
 
-### Uso del Portal de Azure para habilitar la administración remota a través de HTTP 
+### Uso del Portal de Azure clásico para habilitar la administración remota a través de HTTP 
 
-Siga estos pasos en el Portal de Azure para habilitar la administración remota a través de HTTP.
+Siga estos pasos en el Portal de Azure clásico para habilitar la administración remota a través de HTTP.
 
-#### Para habilitar la administración remota a través del Portal de Azure
+#### Para habilitar la administración remota a través del Portal de Azure clásico
 
 1. En el dispositivo, acceda a **Dispositivos** > **Configurar**.
 
@@ -122,9 +122,9 @@ Realice los pasos siguientes en el cliente para habilitar la administración rem
 
 Conectarse a Windows PowerShell para StorSimple a través de una sesión HTTPS es el método más seguro y recomendado de conexión remota a su dispositivo StorSimple de Microsoft Azure. Los procedimientos siguientes explican cómo configurar los equipos cliente y consola en serie de modo que pueda usar HTTPS para conectarse a Windows PowerShell para StorSimple.
 
-Puede usar el Portal de Azure o la consola en serie para configurar la administración remota. Seleccione entre los siguientes procedimientos:
+Puede usar el Portal de Azure clásico o la consola en serie para configurar la administración remota. Seleccione entre los siguientes procedimientos:
 
-- [Uso del Portal de Azure para habilitar la administración remota a través de HTTPS](#use-the-azure-portal-to-enable-remote-management-over-https)
+- [Uso del Portal de Azure clásico para habilitar la administración remota a través de HTTPS](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
 
 - [Utilice la consola en serie para habilitar la administración remota a través de HTTPS](#use-the-serial-console-to-enable-remote-management-over-https)
 
@@ -134,11 +134,11 @@ Después de habilitar la administración remota, utilice los procedimientos sigu
 
 - [Conectarse al dispositivo desde el host remoto](#connect-to-the-device-from-the-remote-host)
 
-### Uso del Portal de Azure para habilitar la administración remota a través de HTTPS
+### Uso del Portal de Azure clásico para habilitar la administración remota a través de HTTPS
 
-Siga estos pasos en el Portal de Azure para habilitar la administración remota a través de HTTPS.
+Siga estos pasos en el Portal de Azure clásico para habilitar la administración remota a través de HTTPS.
 
-#### Para habilitar la administración remota a través de HTTP desde el Portal de Azure
+#### Para habilitar la administración remota a través de HTTPS desde el Portal de Azure clásico
 
 1. Acceda a **Dispositivos** > **Configurar** para el dispositivo.
 
@@ -272,4 +272,4 @@ Realice el procedimiento siguiente en el equipo desde el que desea realizar la c
 
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

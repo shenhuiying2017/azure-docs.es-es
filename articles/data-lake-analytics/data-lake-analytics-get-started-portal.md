@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Introducción a Análisis de Azure Data Lake mediante el Portal de vista previa de Azure | Azure" 
-   description="Aprenda a usar el Portal de vista previa de Azure para crear una cuenta de Análisis de Data Lake, crear un trabajo de Análisis de Data Lake mediante U-SQL y enviar el trabajo." 
+   pageTitle="Introducción a Análisis de Azure Data Lake mediante el Portal de Azure | Azure" 
+   description="Aprenda a usar el Portal de Azure para crear una cuenta de Análisis de Data Lake, crear un trabajo de Análisis de Data Lake mediante U-SQL y enviar el trabajo." 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="mumian" 
@@ -16,11 +16,11 @@
    ms.date="10/22/2015"
    ms.author="jgao"/>
 
-# Tutorial: Introducción a Análisis de Azure Data Lake mediante el Portal de vista previa de Azure
+# Tutorial: Introducción a Análisis de Azure Data Lake mediante el Portal de Azure
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Aprenda a usar el Portal de vista previa de Azure para crear cuentas de Análisis de Azure Data Lake, definir trabajos de Análisis de Data Lake en [U-SQL](data-lake-analytics-u-sql-get-started.md) y enviar trabajos a cuentas de Análisis de Data Lake. Para obtener más información acerca de Análisis de Data Lake, consulte la página de [información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
+Aprenda a usar el Portal de Azure para crear cuentas de Análisis de Azure Data Lake, definir trabajos de Análisis de Data Lake en [U-SQL](data-lake-analytics-u-sql-get-started.md) y enviar trabajos a cuentas de Análisis de Data Lake. Para obtener más información acerca de Análisis de Data Lake, consulte [Información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
 
 En este tutorial, desarrollará un trabajo que lee un archivo de valores separados por tabulaciones (TSV) y lo convierte en un otro de valores separados por comas (CSV). Para realizar el mismo tutorial con otras herramientas compatibles, haga clic en las pestañas de la parte superior de esta sección. Una vez que el primer trabajo se lleve a cabo correctamente, puede empezar a escribir transformaciones de datos más complejas con U-SQL.
 
@@ -37,7 +37,7 @@ En este tutorial, desarrollará un trabajo que lee un archivo de valores separad
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/es-ES/pricing/free-trial/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ##Creación de una cuenta de Análisis de Data Lake
 
@@ -70,11 +70,11 @@ Una vez creada la cuenta de Análisis de Data Lake, puede agregar más cuentas d
 
 En este tutorial, va a procesar algunos registros de búsqueda. El registro de búsqueda se puede almacenar en el Almacén de Data Lake o en el almacenamiento de blobs de Azure.
 
-El Portal de vista previa de Azure proporciona una interfaz de usuario para copiar algunos archivos de datos de ejemplo a la cuenta predeterminada de Data Lake, entre los que se incluye un archivo de registro de búsqueda.
+El Portal de Azure proporciona una interfaz de usuario para copiar algunos archivos de datos de ejemplo a la cuenta predeterminada de Data Lake, entre los que se incluye un archivo de registro de búsqueda.
 
 **Para copiar los archivos de datos de ejemplo**
 
-1. En el Portal de vista previa de Azure, haga clic en **Microsoft Azure** en la esquina superior izquierda.
+1. En el Portal de Azure, haga clic en **Microsoft Azure** en la esquina superior izquierda.
 2. Haga clic en el icono con el nombre de la cuenta de Análisis de Data Lake. Se ancló aquí cuando se creó la cuenta. Si la cuenta no está anclada ahí, consulte [Apertura de una cuenta de Análisis de Data Lake desde el portal](data-lake-analytics-manage-use-portal.md#access-adla-account) para abrirla.
 3. Expanda el panel **Essentials** y después haga clic en **Explorar trabajos de ejemplo**. Se abre otra hoja llamada **Trabajos de ejemplo**.
 4. Haga clic en **Copiar datos de ejemplo** y después haga clic en **Aceptar** para confirmar.
@@ -128,7 +128,7 @@ Después de preparar el origen de datos, puede comenzar a desarrollar un script 
 
 	Este script U-SQL lee el archivo de datos de origen mediante **Extractors.Tsv()** y después crea un archivo csv mediante **Outputters.Csv()**.
     
-    No modifique ninguna de las dos rutas a menos que copie el archivo de origen a una ubicación diferente. Análisis de Data Lake creará la carpeta de salida si no existe. En este caso, usamos rutas de acceso relativas sencillas.
+    No modifique ninguna de las dos rutas a menos que copie el archivo de origen en una ubicación diferente. Análisis de Data Lake creará la carpeta de salida si no existe. En este caso, usamos rutas de acceso relativas sencillas.
 	
 	Es más fácil usar rutas de acceso relativas para los archivos almacenados en cuentas predeterminadas de Data Lake. También puede usar rutas de acceso absolutas. Por ejemplo:
     
@@ -137,7 +137,7 @@ Después de preparar el origen de datos, puede comenzar a desarrollar un script 
 
     Para obtener más información acerca de U-SQL, consulte [Tutorial: Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md) y la página de [referencia sobre el lenguaje U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
      
-5. Haga clic en **Enviar trabajo** en la parte superior. Se abre un nuevo panel Detalles del trabajo. En la barra de título, se muestra el estado del trabajo.
+5. Haga clic en **Enviar trabajo** en la parte superior. Se abre un nuevo panel llamado Detalles del trabajo. En la barra de título, se muestra el estado del trabajo.
 6. Espere a que el estado del trabajo cambie a **Correcto**. Cuando se completa el trabajo, se abre una nueva hoja en el portal con los detalles del trabajo:
 
     ![Detalles del trabajo de Análisis de Azure Data Lake](./media/data-lake-analytics-get-started-portal/data-lake-analytics-job-completed.png)
@@ -158,8 +158,8 @@ Después de preparar el origen de datos, puede comenzar a desarrollar un script 
 - Para ver una consulta más compleja, consulte la página sobre el [análisis de registros de sitio web mediante Análisis de Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
 - Para empezar a desarrollar aplicaciones con U-SQL, consulte [Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Para aprender U-SQL, consulte [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
-- Para las tareas de administración, consulte [Administración de Análisis de Azure Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics-manage-use-portal.md).
+- Para las tareas de administración, consulte [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md).
 - Para obtener información general acerca de Análisis de Data Lake, consulte la página de [información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
 - Para ver el mismo tutorial con otras herramientas, haga clic en los selectores de pestañas en la parte superior de la página.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

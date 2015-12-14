@@ -20,9 +20,9 @@
 
 ## Introducción
 
-El centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y una aplicación back-end. Existen tutoriales anteriores ([Comenzar a usar el centro de IoT] y [Envío de mensajes de nube a dispositivo con el centro de IoT]) que muestran la funcionalidad básica de comunicación de dispositivo a nube y viceversa mediante el centro de IoT, así como el modo de tener acceso a ellos desde componentes de dispositivos y la nube. En [Process Device-to-Cloud messages] (Procesamiento de mensajes de dispositivo a nube) se describe una forma de almacenar de manera fiable mensajes enviados del dispositivo a la nube en el almacenamiento de blobs de Azure. Existen casos, sin embargo, donde los datos procedentes de dispositivos no se asignan fácilmente a mensajes de dispositivo a nube relativamente pequeños. Algunos ejemplos son los archivos de gran tamaño que contienen imágenes, vídeos, muestras de datos de vibración a alta frecuencia, o bien archivos que contienen algún tipo de datos preprocesados. Dichos archivos se suelen procesar por lotes mediante herramientas como, por ejemplo, [Factoría de datos de Azure] o la pila [Hadoop]. Cuando se prefiera cargar un archivo desde un dispositivo en lugar de enviar eventos, es posible usar la funcionalidad de fiabilidad y seguridad del centro de IoT.
+El centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y una aplicación back-end. Existen tutoriales anteriores ([Get started with IoT Hub] [Comenzar a usar el centro de IoT] y [Send Cloud-to-Device messages with IoT Hub] [Envío de mensajes de nube a dispositivo con el centro de IoT]) que muestran la funcionalidad básica de comunicación de dispositivo a nube y viceversa mediante el centro de IoT, así como el modo de tener acceso a ellos desde componentes de dispositivos y la nube. En [Process Device-to-Cloud messages] (Procesamiento de mensajes de dispositivo a nube) se describe una forma de almacenar de manera fiable mensajes enviados del dispositivo a la nube en el almacenamiento de blobs de Azure. Existen casos, sin embargo, donde los datos procedentes de dispositivos no se asignan fácilmente a mensajes de dispositivo a nube relativamente pequeños. Algunos ejemplos son los archivos de gran tamaño que contienen imágenes, vídeos, muestras de datos de vibración a alta frecuencia, o bien archivos que contienen algún tipo de datos preprocesados. Dichos archivos se suelen procesar por lotes mediante herramientas como, por ejemplo, [Factoría de datos de Azure] o la pila [Hadoop]. Cuando se prefiera cargar un archivo desde un dispositivo en lugar de enviar eventos, es posible usar la funcionalidad de fiabilidad y seguridad del centro de IoT.
 
-Este tutorial se basa en el código que se muestra en [Send Cloud-to-Device messages with IoT Hub] (Envío de mensajes de nube a dispositivo con el centro de IoT) que explica cómo usar mensajes de nube a dispositivo para proporcionar de manera segura al dispositivo un URI de blob de Azure que se usará para cargar el archivo. Asimismo, explica cómo usar las confirmaciones de entrega del centro de IoT para iniciar el procesamiento del archivo desde el back-end de la aplicación. Las ventajas de este enfoque es la posibilidad de volver a usar la identidad del dispositivo del centro de IoT y la confirmación de entrega de los mensajes enviados de nube a dispositivo para informar al back-end de la aplicación de que el archivo se ha cargado correctamente.
+Este tutorial se basa en el código que se muestra en [Send Cloud-to-Device messages with IoT Hub] (Envío de mensajes de nube a dispositivo con el centro de IoT) que explica cómo usar mensajes de nube a dispositivo para proporcionar de manera segura al dispositivo un URI de blob de Azure que se usará para cargar el archivo. Asimismo, explica cómo usar las confirmaciones de entrega del centro de IoT para iniciar el procesamiento del archivo desde el back-end de la aplicación. Las ventajas de este enfoque son la posibilidad de volver a usar la identidad del dispositivo del centro de IoT y la confirmación de entrega de los mensajes enviados de nube a dispositivo para informar al back-end de la aplicación de que el archivo se ha cargado correctamente.
 
 > [AZURE.NOTE]Puede usarse este mismo enfoque para que los dispositivos descarguen de manera segura los archivos desde la nube.
 
@@ -53,7 +53,7 @@ Ya está preparado para ejecutar las aplicaciones.
 
 1.  Desde Visual Studio, haga clic con el botón secundario del mouse en la solución y seleccione **Establecer proyectos de inicio...** Seleccione **Proyectos de inicio múltiples**, a continuación, seleccione la acción **Iniciar** para las aplicaciones **SimulatedDevice** y **SendCloudToDevice**.
 
-2.  Presione **F5** y verá cómo se inician todas las aplicaciones. Seleccione la ventana **SendCloudToDevice** y presione una tecla. Verá que el dispositivo simulado emite muestra un mensaje cuando se carga el archivo y la aplicación **SendCloudToDevice** muestra que los comentarios se han recibido correctamente. Puede usar el [Portal de vista previa de Azure] o el Explorador de servidores de Visual Studio para comprobar la presencia del archivo en su cuenta de almacenamiento.
+2.  Presione **F5** y verá cómo se inician todas las aplicaciones. Seleccione la ventana **SendCloudToDevice** y presione una tecla. Verá que el dispositivo simulado emite muestra un mensaje cuando se carga el archivo y la aplicación **SendCloudToDevice** muestra que los comentarios se han recibido correctamente. Puede usar el [Portal de Azure] o el Explorador de servidores de Visual Studio para comprobar la presencia del archivo en su cuenta de almacenamiento.
 
   ![][50]
 
@@ -68,7 +68,7 @@ Información adicional sobre el centro de IoT:
 
 * [Información general sobre el centro de IoT]
 * [Guía del desarrollador del centro de IoT]
-* [Directrices sobre el Centro de IoT]
+* [Directrices sobre el centro de IoT]
 * [Lenguajes y plataformas de dispositivos compatibles][Supported devices]
 * [Centro para desarrolladores de IoT de Azure]
 
@@ -79,28 +79,24 @@ Información adicional sobre el centro de IoT:
 <!-- Links -->
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
-[Envío de mensajes de nube a dispositivo con el centro de IoT]: iot-hub-csharp-csharp-c2d.md
 
-[Portal de vista previa de Azure]: https://portal.azure.com/
+[Portal de Azure]: https://portal.azure.com/
 
 [Factoría de datos de Azure]: https://azure.microsoft.com/es-ES/documentation/services/data-factory/
 [Hadoop]: https://azure.microsoft.com/es-ES/documentation/services/hdinsight/
 
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
-[Comenzar a usar el centro de IoT]: iot-hub-csharp-csharp-getstarted.md
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
-[Envío de mensajes de nube a dispositivo con el centro de IoT]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
 [Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
 
 [Información general sobre el centro de IoT]: iot-hub-what-is-iot-hub.md
-[Directrices sobre el Centro de IoT]: iot-hub-guidance.md
+[Directrices sobre el centro de IoT]: iot-hub-guidance.md
 [IoT Hub Developer Guide]: iot-hub-devguide.md
 [Guía del desarrollador del centro de IoT]: iot-hub-devguide.md
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
-[Comenzar a usar el centro de IoT]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

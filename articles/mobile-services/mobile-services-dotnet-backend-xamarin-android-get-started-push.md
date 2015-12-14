@@ -13,22 +13,21 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="glenga"/>
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+##Información general
+
 Este tema muestra cómo puede usar Servicios móviles de Azure para enviar notificaciones de inserción a una aplicación de Xamarin.Android. En este tutorial aprenderá a agregar notificaciones de inserción con el servicio de mensajería en la nube de Google (GCM) al proyecto [Introducción a Servicios móviles]. Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
-
-Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones push:
-
-1. [Habilitación del servicio de mensajería en la nube de Google](#register)
-2. [Configuración de Servicios móviles](#configure)
-3. [Configuración del proyecto para las notificaciones de inserción](#configure-app)
-4. [Incorporación de código de notificaciones de inserción a la aplicación](#add-push)
-5. [Inserción de datos para recibir notificaciones](#test)
 
 Este tutorial requiere lo siguiente:
 
@@ -76,4 +75,4 @@ Puede probar la aplicación conectando directamente un teléfono Android con un 
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

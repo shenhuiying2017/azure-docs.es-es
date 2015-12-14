@@ -59,7 +59,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
 * **ServiceName**: nombre del servicio en la nube al que se agregarán las nuevas máquinas virtuales de nodos de ejecución.
 
-* **ImageName**: nombre de la imagen de la máquina virtual de Azure, que puede obtenerse mediante el cmdlet de Azure PowerShell o el Portal de Azure **Get-AzureVMImage**. La imagen debe cumplir los siguientes requisitos:
+* **ImageName**: nombre de la imagen de la máquina virtual de Azure, que puede obtenerse mediante el Portal de Azure clásico o el cmdlet de Azure PowerShell **Get-AzureVMImage**. La imagen debe cumplir los siguientes requisitos:
 
     1. Debe haber instalado un sistema operativo Windows.
 
@@ -178,4 +178,4 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 * Si quiere una manera de aumentar o reducir automáticamente los recursos informáticos de Azure según la carga de trabajo actual de los trabajos y las tareas en el clúster, consulte [Aumentar y reducir los recursos de proceso de Azure en un clúster de HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

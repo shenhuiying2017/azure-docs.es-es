@@ -58,7 +58,7 @@ Aplicaciones web admite aplicaciones creadas en varios lenguajes de programació
 
 Lleve a cabo los pasos siguientes para habilitar un repositorio de Git para su aplicación web.
 
-1. Inicie sesión en el [portal de vista previa de Azure].
+1. Inicie sesión en el [Portal de Azure].
 
 2. En la hoja de su aplicación web, desplácese hacia abajo hasta la sección **Implementación** y haga clic en **Configurar implementación continua**. Haga clic en **Elegir origen**, **Repositorio de Git local** y, a continuación, en **Aceptar**.
 
@@ -208,7 +208,7 @@ Estos son los errores o problemas que suelen aparecer al utilizar Git para publi
 
 **Causa**: este error puede producirse si la aplicación web no está en funcionamiento.
 
-**Resolución**: inicie la aplicación web en el Portal de Azure. La implementación de Git no funcionará a menos que se esté ejecutando la aplicación web.
+**Resolución**: Inicie la aplicación web en el Portal de Azure. La implementación de Git no funcionará a menos que se esté ejecutando la aplicación web.
 
 
 ****
@@ -269,10 +269,9 @@ Estos son los errores o problemas que suelen aparecer al utilizar Git para publi
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [Azure Developer Center]: http://azure.microsoft.com/develop/overview/
-[portal de vista previa de Azure]: https://portal.azure.com
+[Portal de Azure]: https://portal.azure.com
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Uso de PowerShell para Azure]: ../articles/install-configure-powershell.md
@@ -298,4 +297,4 @@ Estos son los errores o problemas que suelen aparecer al utilizar Git para publi
 [Uso de Dropbox para compartir repositorios de Git]: https://gist.github.com/trey/2722927
 [Entrega continua a Azure con Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -24,7 +24,7 @@
 En este tema se describen la planificación y los preparativos que deben realizarse para actualizar las bases de datos de SQL de Azure de la versión V11 a la versión V12.
 
 
-Hay un nuevo [Portal de vista previa de Azure](http://portal.azure.com/) disponible que admite la actualización a V12.
+Hay un nuevo [Portal de Azure](http://portal.azure.com/) disponible para admitir la actualización a V12.
 
 
 En la tabla siguiente se enumeran otros temas de Ayuda de V12.
@@ -91,7 +91,7 @@ El nivel de precios de servicio Web y Business no se admite en V12.
 Si la base de datos SQL de Azure V11 es una base de datos Web o Business, el proceso de actualización se ofrece para cambiar la base de datos a un nivel compatible. La actualización recomienda un nivel que se ajuste al historial de la carga de trabajo de la base de datos. Sin embargo, puede elegir cualquier nivel compatible que quiera.
 
 
-Los pasos necesarios durante la actualización se pueden reducir mediante el cambio de la base de datos V11 de los niveles Web y Business antes de iniciar la actualización. Puede hacerlo con el nuevo [Portal de vista previa de Azure](http://portal.azure.com/).
+Los pasos necesarios durante la actualización se pueden reducir mediante el cambio de la base de datos V11 de los niveles Web y Business antes de iniciar la actualización. Puede hacerlo mediante el nuevo [Portal de Azure](http://portal.azure.com/).
 
 
 Si no sabe a qué nivel de servicio cambiar, el nivel S2 del nivel Standard puede ser una elección inicial razonable. Cualquier nivel inferior tendrá menos recursos que los niveles Web y Business.
@@ -127,17 +127,17 @@ Haga clic [aquí](sql-database-develop-direct-route-ports-adonet-v12.md) para ob
 Hay tres portales de Azure, y cada uno tiene distintas capacidades con respecto a Base de datos SQL V12.
 
 
-- [http://portal.azure.com/](http://portal.azure.com/)<br/>Este Portal de vista previa de Azure este nuevo y aún está en estado de vista previa. Este portal aún no está en la disponibilidad general (GA) completa. Este portal:
+- [http://portal.azure.com/](http://portal.azure.com/)<br/>Este Portal de Azure es nuevo y aún es una versión preliminar. Este portal aún no está en la disponibilidad general (GA) completa. Este portal:
  - Puede administrar un servidor y una base de datos V12.
  - Puede actualizar una base de datos de V11 a V12.
 
 
-- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)<br/>Este Portal de Azure puede que acabe por desaparecer. Este portal:
+- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)<br/>Puede ser que este Portal de Azure clásico acabe por desaparecer. Este portal:
  - Puede administrar un servidor y una base de datos V12.
  - La base de datos de V11 *no* se puede actualizar a V12.
 
 
-- (http://*yourservername*.database.windows.net)<br/> Portal de administración de Base de datos SQL de Azure
+- (http://*yourservername*.database.windows.net)<br/> Portal clásico de base de datos SQL de Azure:
  - No se pueden administrar los servidores de V12
 
 
@@ -152,7 +152,7 @@ Se recomienda conectarse a las bases de datos SQL de Azure con Visual Studio 201
 En su lugar, puede conectarse con [Visual Studio Community 2013](https://www.visualstudio.com/es-ES/news/vs2013-community-vs.aspx/), que es una versión gratuita y completa de VS2013.
 
 
-En el Portal de Azure anterior, en la página de la base de datos, puede hacer clic en **Abrir en Visual Studio** para iniciar VS2013 en el equipo para conectarse a Base de datos SQL de Azure.
+En el Portal de Azure clásico anterior, en la página de la base de datos, puede hacer clic en **Abrir en Visual Studio** para iniciar VS2013 en el equipo para conectarse a Base de datos SQL de Azure.
 
 
 Como alternativa, puede utilizar SQL Server Management Studio (SSMS) 2014 con [CU6](http://support.microsoft.com/kb/3031047/) para conectarse a Base de datos SQL de Azure. En esta publicación de blog:<br/>[Actualizaciones de herramientas de cliente para Base de datos SQL de Azure](http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/) encontrará más detalles al respecto.
@@ -184,7 +184,7 @@ La base de datos V11 sigue estando disponible para el acceso a los datos durante
 ### Exportación e importación *después de* la actualización a V12
 
 
-Desde el [Portal de vista previa de Azure](http://portal.azure.com/) se puede exportar o importar una base de datos V12. También puede exportar o importar mediante cualquiera de las siguientes herramientas:
+Puede exportar o importar una base de datos V12 usando el [Portal de Azure](http://portal.azure.com/). También puede exportar o importar mediante cualquiera de las siguientes herramientas:
 
 
 - SQL Server Management Studio (SSMS)
@@ -254,4 +254,4 @@ Si la actualización falla por algún extraño motivo, la base de datos V11 perm
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

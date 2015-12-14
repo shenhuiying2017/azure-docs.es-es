@@ -18,11 +18,7 @@
 
 # Creación de una aplicación de API ASP.NET 5 en Visual Studio Code
 
-> [AZURE.SELECTOR]
-- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
-- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
-- [Node.js](app-service-api-nodejs-api-app.md)
-- [Java](app-service-api-java-api-app.md)
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
 ## Información general
 
@@ -33,8 +29,7 @@ En este tutorial se explica cómo crear una aplicación de API ASP.NET 5 con [Vi
 ## Requisitos previos  
 
 * Instalar y configurar [Visual Studio Code](http://code.visualstudio.com/Docs/setup).
-* Instalar [Node.js](http://nodejs.org/download/).<br\>
-	[Node](http://nodejs.org/) es una plataforma para crear aplicaciones de servidor rápidas y escalables mediante JavaScript. Node es el tiempo de ejecución (Node) y [npm](http://www.npmjs.com/) es el Administrador de paquetes para los módulos de Node. Utilizará npm para aplicar la técnica scaffolding a una aplicación de API ASP.NET 5 en este tutorial.
+* Instalar [Node.js](http://nodejs.org/download/).<br> [Node](http://nodejs.org/) es una plataforma para crear aplicaciones de servidor rápidas y escalables mediante JavaScript. Node es el tiempo de ejecución (Node) y [npm](http://www.npmjs.com/) es el Administrador de paquetes para los módulos de Node. Utilizará npm para aplicar la técnica scaffolding a una aplicación de API ASP.NET 5 en este tutorial.
 
 ## Instalación de ASP.NET 5 y DNX
 ASP.NET 5/DNX es una pila de .NET eficiente que sirve para crear aplicaciones web y de nube modernas que se ejecutan en OS X, Linux y Windows. Se ha desarrollado desde el principio para proporcionar un marco de desarrollo optimizado para las aplicaciones que se implementan en la nube o se ejecutan de forma local. Consta de componentes modulares con una sobrecarga mínima, para continuar disfrutando de flexibilidad al crear soluciones.
@@ -46,10 +41,8 @@ Este tutorial está diseñado para ayudarle a comenzar a crear aplicaciones con 
 1. Para instalar el Administrador de versión de .NET (DNVM) en Windows, ejecute el comando siguiente en la ventana Comandos:
 
 	<pre class="prettyprint">
-	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "&amp;{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
-	</pre>
-
-	De esta forma, se descargará el script DNVM y se ubicará en el perfil de usuario.
+@powershell -NoProfile -ExecutionPolicy unrestricted -Command "&amp;{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
+</pre>De esta forma, se descargará el script DNVM y se ubicará en el perfil de usuario.
 
 2. Necesitará cerrar la sesión después de escribir el comando anterior para que el cambio de la variable de entorno PATH surta efecto.
 3. Compruebe la ubicación de DNVM; para ello, ejecute lo siguiente en la ventana Comandos: 
@@ -451,4 +444,4 @@ En el portal de vista previa de Azure, vaya a la hoja **HOST DE APLICACIÓN DE A
 En este tutorial a aprendido crear una aplicación de API en Visual Studio Code. Para obtener más información sobre Visual Studio Code, consulte [Visual Studio Code.](https://code.visualstudio.com/Docs/). Para obtener información sobre las aplicaciones de API, consulte [¿Qué son las Aplicaciones de API?](app-service-api-apps-why-best-platform.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

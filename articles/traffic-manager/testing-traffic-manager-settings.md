@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # Pruebas de configuración del Administrador de tráfico
@@ -52,9 +52,9 @@ Para probar eficazmente un método de equilibrio de carga de rendimiento, deber�
 
 Hay servicios gratuitos de indagación y de búsqueda DNS basada en web disponibles. Algunos de estos proporcionan la capacidad de comprobar la resolución de nombres DNS desde varias ubicaciones. Realice una búsqueda en "Búsqueda DNS" para obtener ejemplos. Otra opción es usar una solución de terceros como, por ejemplo, Gomez o Keynote, para confirmar que los perfiles distribuyen el tráfico según lo esperado.
 
-## Otras referencias
+## Pasos siguientes
 
 [Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](../about-traffic-manager-balancing-methods.md) [Administrador de tráfico](../traffic-manager.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

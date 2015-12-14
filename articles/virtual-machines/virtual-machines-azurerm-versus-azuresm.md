@@ -70,9 +70,9 @@ En esta sección, examinaremos algunas de las diferencias conceptuales más impo
 
 Puede empezar con las plantillas de Azure aprovechando las distintas herramientas que tenemos para desarrollar e implementar la plataforma.
 
-### Portal de vista previa de Azure
+### Portal de Azure
 
-El portal de vista previa de Azure seguirá teniendo la opción de implementar máquinas virtuales con el modelo de implementación clásica y máquinas virtuales con el modelo de implementación del Administrador de recursos simultáneamente. El portal de vista previa de Azure también permitirá las implementaciones de plantillas personalizadas.
+El Portal de Azure seguirá teniendo la opción de implementar máquinas virtuales con el modelo de implementación clásica y máquinas virtuales con el modelo de implementación del Administrador de recursos simultáneamente. El Portal de Azure también permitirá las implementaciones de plantillas personalizadas.
 
 ### Azure PowerShell
 
@@ -116,4 +116,4 @@ Esto no se admite en este momento. No se pueden conectar las redes virtuales cre
 
 Puede encontrar un conjunto completo de plantillas de inicio en [Plantillas de inicio rápido del Administrador de recursos de Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

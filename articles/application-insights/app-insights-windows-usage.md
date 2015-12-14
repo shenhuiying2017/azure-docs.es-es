@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
 
 #  Supervisión del uso en aplicaciones de a Tienda Windows y de Windows Phone con Application Insights
@@ -153,4 +153,4 @@ Si compila en la configuración de lanzamiento, los eventos se almacenan en el d
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

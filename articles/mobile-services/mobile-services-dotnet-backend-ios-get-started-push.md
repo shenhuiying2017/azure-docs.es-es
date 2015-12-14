@@ -19,19 +19,24 @@
 
 # Incorporación de notificaciones push a una aplicación de iOS y un back-end de .NET
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
-En este tema se muestra cómo agregar notificaciones push al [proyecto de inicio rápido](mobile-services-dotnet-backend-ios-get-started.md), de modo que el servicio móvil envíe una notificación push cada vez que se inserte un registro. Debe completar primero el tutorial [Introducción a Servicios móviles].
+En este tema se muestra cómo agregar notificaciones push al [proyecto de inicio rápido](mobile-services-dotnet-backend-ios-get-started.md), de modo que el servicio móvil envíe una notificación push cada vez que se inserte un registro. Debe completar primero [Introducción a Servicios móviles].
 
 [AZURE.INCLUDE [Habilitación de notificaciones de inserción de Apple](../../includes/enable-apple-push-notifications.md)]
 
-## <a id="configure"></a>Configuración de Azure para enviar notificaciones push
+## <a id="configure"></a>Configuración de Azure para enviar notificaciones de inserción
 
 [AZURE.INCLUDE [Configuración de notificaciones push en Servicios móviles de Azure](../../includes/mobile-services-apns-configure-push.md)]
 
 ##<a id="update-server"></a>Actualización del código de back-end para enviar notificaciones push
 
-* Abra el proyecto de Visual Studio > carpeta **Controladores** > **TodoItemController.cs** > método `PostTodoItem`. Reemplace el método por lo siguiente. Cuando se inserta un elemento todo, este código envía una notificación push con el texto del elemento. Si se produce un error, el código agrega una entrada al registro de errores, que se puede ver en la sección de registros del portal.
+* Abra el proyecto de Visual Studio > carpeta **Controladores** > método **TodoItemController.cs** `PostTodoItem`. Reemplace el método por lo siguiente. Cuando se inserta un elemento todo, este código envía una notificación push con el texto del elemento. Si se produce un error, el código agrega una entrada al registro de errores, que se puede ver en la sección de registros del portal.
 
 
 ```
@@ -119,7 +124,6 @@ En este tema se muestra cómo agregar notificaciones push al [proyecto de inicio
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Introducción a Servicios móviles]: mobile-services-dotnet-backend-ios-get-started.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
 [Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
@@ -128,4 +132,4 @@ En este tema se muestra cómo agregar notificaciones push al [proyecto de inicio
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

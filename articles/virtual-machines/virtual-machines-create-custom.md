@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creación de una máquina virtual personalizada | Microsoft Azure"
-	description="Obtenga información acerca de cómo crear una máquina virtual personalizada desde el portal de Azure usando el modelo de implementación clásica."
+	description="Obtenga información acerca de cómo crear una máquina virtual personalizada desde el Portal de Azure clásico usando el modelo de implementación clásica."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -36,4 +36,4 @@ Una máquina virtual *personalizada* no es más que una máquina virtual que se 
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

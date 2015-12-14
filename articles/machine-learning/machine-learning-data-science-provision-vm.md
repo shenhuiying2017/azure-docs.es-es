@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="11/26/2015" 
 	ms.author="bradsev" />
 
 
@@ -51,39 +51,39 @@ Antes de poder crear una Microsoft Data Science Virtual Machine, debe tener lo s
 
 Estos son los pasos para crear una instancia de Microsoft Data Science Virtual Machine:
 
-1.	Navegue a la lista de máquinas virtuales en el [portal de Azure](https://portal.azure.com/#gallery/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+1.	Navegue a la lista de máquinas virtuales en el [Portal de Azure clásico](https://portal.azure.com/#gallery/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 2.	 Haga clic en el botón **Crear** ubicado en la parte inferior para acceder a un asistente.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
 3.	 Las secciones siguientes proporcionan las **entradas** para cada uno de los **5 pasos** (enumerados a la derecha de la ilustración anterior) en el asistente que se usó para crear la Microsoft Data Science Virtual Machine. Estas son las entradas necesarias para configurar cada uno de estos pasos:
 
   **a. Básico**:
 
-    - **Name**: Name of your data science server you are creating.
-    - **User Name**: Admin account login id
-    - **Password**: Admin account password
-    - **Subscription**: If you have more than one subscription, select the one on which the machine will be created and billed
-    - **Resource Group**: You can create a new one or use an existing group
-    - **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access
+   - **Nombre**: nombre del servidor de ciencia de datos que está creando.
+   - **Nombre de usuario**: identificador de inicio de sesión de la cuenta del administrador
+   - **Contraseña**: contraseña de la cuenta del administrador
+   - **Suscripción**: si tiene más de una suscripción, seleccione en la que se creará y facturará la máquina
+   - **Grupo de recursos**: puede crear uno nuevo o usar un grupo ya existente
+   - **Ubicación**: seleccione el centro de datos más adecuado. Normalmente es el centro de datos que tenga la mayoría de los datos o que esté más cercano a su ubicación física para un acceso más rápido a la red
 
   **b. Tamaño**:
 
-    - Select one of the server types that meets your functional requirement and cost constraints. You can get more choices of VM sizes by selecting “View All”
+   - Seleccione uno de los tipos de servidor que cumpla sus requisitos funcionales y las restricciones de costo. Para obtener más opciones de tamaños de la máquina virtual, seleccione "Ver todo"
 
   **c. Configuración**
 
-    - **Disk Type**: Choose Premium if you prefer a solid state drive (SSD), else choose “Standard”.
-    - **Storage Account**: You can create a new Azure storage account in your subscription or use an existing one in the same *Location* that was chosen on the Basics step of the wizard.
-    - **Other parameters**: In most cases you will just use the default values. You can hover over the informational link for help on the specific fields in case you want to consider the use of non-default values.
+   - **Tipo de disco**: elija Premium si prefiere una unidad de estado sólido (SSD), de lo contrario elija "Estándar".
+   - **Cuenta de almacenamiento**: puede crear una nueva cuenta de almacenamiento de Azure en su suscripción o usar uno existente en la misma *ubicación* que ha elegido en el paso Básico del asistente.
+   - **Otros parámetros**: en la mayoría de los casos, usará simplemente los valores predeterminados. Puede mover el puntero sobre el vínculo informativo para obtener ayuda sobre los campos específicos en caso de que desee considerar el uso de valores no predeterminados.
 
   **d. Resumen**:
 
-    - Verify that all information you entered is correct.
+   - Compruebe que toda la información que ha especificado es correcta.
 
   **e. Comprar**:
 
-    - Click on **Buy** to start the provisioning. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
+   - Haga clic en **Comprar** para iniciar el aprovisionamiento. Se proporciona un vínculo a los términos de la transacción. La máquina virtual no tiene ningún cargo adicional más allá del proceso para el tamaño del servidor que eligió en el paso **Tamaño**. 
 
 
-El aprovisionamiento tardará entre 10 y 20 minutos. El estado del aprovisionamiento se muestra en el Portal de Azure.
+El aprovisionamiento tardará entre 10 y 20 minutos. El estado del aprovisionamiento se muestra en el Portal de Azure clásico.
 
 ## Acceso a Microsoft Data Science Virtual Machine
 
@@ -122,4 +122,4 @@ Nota: se necesita una cuenta de Office 365 para tener acceso a Power BI.
 ## Herramientas de desarrollo de Microsoft adicionales
 Puede usar el [**Instalador de plataforma web de Microsoft**](https://www.microsoft.com/web/downloads/platform.aspx) para detectar y descargar otras herramientas de desarrollo de Microsoft. También hay un acceso directo a la herramienta que se proporciona en el escritorio de Microsoft Data Science Virtual Machine.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

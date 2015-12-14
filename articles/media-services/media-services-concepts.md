@@ -146,7 +146,7 @@ Cuando un reproductor solicita una secuencia, los Servicios multimedia usan la c
 
 ###Servicios de entrega de licencias de DRM de PlayReady o claves sin cifrado de AES
 
-Servicios multimedia proporciona un servicio para entregar licencias de PlayReady y claves sin cifrado de AES a clientes autorizados. Puede utilizar el Portal de administración de Azure, API de REST o SDK de Servicios multimedia para .NET para configurar las directivas de autorización y autenticación para sus licencias y claves.
+Servicios multimedia proporciona un servicio para entregar licencias de PlayReady y claves sin cifrado de AES a clientes autorizados. Puede utilizar el Portal de Azure clásico, API de REST o SDK de Servicios multimedia para .NET para configurar las directivas de autorización y autenticación de sus licencias y claves.
 
 Observe que si usa el portal puede configura una directiva AES (que se aplicará a todo el contenido cifrado por AES) y una directiva de PlayReady (que se aplicará a todo el contenido cifrado por PlayReady). Use el SDK de Servicios multimedia para .NET si desea tener más control sobre las configuraciones.
 
@@ -249,4 +249,4 @@ En la siguiente lista se describen distintos formatos de streaming y aparecen ej
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

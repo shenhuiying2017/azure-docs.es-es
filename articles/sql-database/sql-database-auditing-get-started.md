@@ -29,7 +29,7 @@ Las herramientas de auditoría posibilitan y facilitan la observancia de estánd
 
 ##<a id="subheading-1"></a>Conceptos básicos de la auditoría de Base de datos SQL de Azure
 
-Las secciones siguientes describen la configuración de auditoría mediante el Portal de vista previa de Azure. También puede [configurar la auditoría para su base de datos con el Portal de Azure clásico]
+Las secciones siguientes describen la configuración de auditoría mediante el Portal de Azure. También puede [configurar la auditoría para su base de datos con el Portal de Azure clásico].
 
 La auditoría de Base de datos SQL le permite:
 
@@ -62,7 +62,7 @@ Antes de configurar la auditoría, compruebe si usa un [Cliente de nivel inferio
 
 ##<a id="subheading-2"></a>Configuración de la auditoría para su base de datos
 
-1. Inicie el [Portal de vista previa de Azure](https://portal.azure.com) en https://portal.azure.com. También puede iniciar el [Portal de Azure clásico](https://manage.windowsazure.com/) en https://manage.windowsazure.com/. Consulte los detalles que aparecen a continuación.
+1. Inicie el [Portal de Azure](https://portal.azure.com) en https://portal.azure.com. También puede iniciar el [Portal de Azure clásico](https://manage.windowsazure.com/) en https://manage.windowsazure.com/. Consulte los detalles que aparecen a continuación.
 
 2. Vaya a la hoja de configuración de la base de datos SQL o el servidor SQL Server que desea auditar. En la hoja Configuración, seleccione **Auditoría y detección de amenazas**.
 
@@ -123,7 +123,7 @@ Puede importar los registros de auditoría en la plantilla de Excel directamente
 
 
 ##<a id="subheading-5">Prácticas para el uso en producción</a>
-La descripción de esta sección se refiere a las capturas de pantalla anteriores. Se puede usar tanto el [Portal de vista previa de Azure](https://portal.azure.com) como el [Portal de Azure clásico](https://manage.windowsazure.com/)
+La descripción de esta sección se refiere a las capturas de pantalla anteriores. Se puede usar tanto el [Portal de Azure](https://portal.azure.com) como el [Portal de Azure clásico](https://manage.windowsazure.com/).
 
 
 ##<a id="subheading-6"></a>Regeneración de clave de almacenamiento
@@ -178,4 +178,4 @@ Existen varios cmdlets de PowerShell que puede usar para configurar la auditorí
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

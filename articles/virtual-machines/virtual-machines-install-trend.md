@@ -31,9 +31,9 @@ Si tiene una suscripción existente de Trend Micro para una solución local, pue
 
 ## Instalación del Agente de Deep Security en una nueva máquina virtual
 
-El [Portal de Azure](http://manage.windowsazure.com) permite instalar el Agente de máquina virtual y la extensión de seguridad de Trend Micro cuando usa la opción **Desde la galería** para crear la máquina virtual. Este enfoque proporciona una forma sencilla de agregar protección desde Trend Micro si crea una sola máquina virtual.
+El [Portal de Azure clásico](http://manage.windowsazure.com) permite instalar el Agente de máquina virtual y la extensión de seguridad de Trend Micro cuando usa la opción **Desde la galería** para crear la máquina virtual. Este enfoque proporciona una forma sencilla de agregar protección desde Trend Micro si crea una sola máquina virtual.
 
-La opción **Desde la galería** abre un asistente que le ayuda configurar la máquina virtual. Utilice la última página del asistente para instalar el Agente de máquina virtual y la extensión de seguridad de Trend Micro. Para obtener instrucciones generales, consulte [Creación de una máquina virtual que ejecuta Windows Server en el portal de Azure](virtual-machines-windows-tutorial-classic-portal.md). Cuando se encuentre en la última página del asistente, realice las acciones siguientes:
+La opción **Desde la galería** abre un asistente que le ayuda configurar la máquina virtual. Utilice la última página del asistente para instalar el Agente de máquina virtual y la extensión de seguridad de Trend Micro. Para obtener instrucciones generales, consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure clásico](virtual-machines-windows-tutorial-classic-portal.md). Cuando se encuentre en la última página del asistente, realice las acciones siguientes:
 
 1.	En **Agente de máquina virtual**, active la casilla **Instalar Agente de VM**.
 
@@ -87,4 +87,4 @@ El agente tarda unos minutos en empezar la ejecución cuando se instala. Despué
 [Inicio de sesión en una máquina virtual con Windows Server]: virtual-machines-log-on-windows-server.md
 [Características y extensiones de máquina virtual de Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

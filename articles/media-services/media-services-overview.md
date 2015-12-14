@@ -30,7 +30,7 @@ Para compilar soluciones de Servicios multimedia, puede usar:
 
 - [API de REST de Servicios multimedia](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 - Uno de los SDK de cliente disponibles: [SDK de Servicios multimedia de Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services), [SDK de Azure para Java](https://github.com/Azure/azure-sdk-for-java), [Servicios multimedia de Azure para Node.js](https://github.com/fritzy/node-azure-media), [SDK de PHP de Azure](https://github.com/Azure/azure-sdk-for-php)
-- Herramientas existentes: [Portal de administración de Azure](http://manage.windowsazure.com/) o [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
+- Herramientas existentes: [Portal de Azure clásico](http://manage.windowsazure.com/) o [Explorador de servicios multimedia de Azure](https://github.com/Azure/Azure-Media-Services-Explorer).
 
 
 ##Rutas de aprendizaje de Servicios multimedia
@@ -50,7 +50,7 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 Para empezar a usar Servicios multimedia de Azure, debe tener lo siguiente:
  
 3. Una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](azure.microsoft.com).
-2. Una cuenta de Servicios multimedia de Azure. Use el Portal de administración de Azure, .NET o la API de REST para crear la cuenta de Servicios multimedia de Azure. Para obtener más información, consulte [Creación de una cuenta](media-services-create-account.md).
+2. Una cuenta de Servicios multimedia de Azure. Use el Portal de Azure clásico, .NET o API de REST para crear la cuenta de Servicios multimedia de Azure. Para obtener más información, consulte [Creación de una cuenta](media-services-create-account.md).
 3. (Opcional) Configurar el entorno de desarrollo. Elija .NET o API de REST para el entorno de desarrollo. Para obtener más información, consulte [Configuración del entorno](media-services-dotnet-how-to-use.md). 
 
 	Además, aprenda a conectarse mediante programación [Conexión](media-services-dotnet-connect_programmatically.md).
@@ -222,7 +222,7 @@ El [Soporte técnico de Azure](http://azure.microsoft.com/support/options/) prop
 - Para la protección de contenido, garantizamos que procesaremos correctamente las solicitudes clave como mínimo el 99,9% del tiempo.
 - Para el indizador, atenderemos correctamente las solicitudes de tarea de indizador procesadas con una unidad reservada de codificación el 99,9% del tiempo.
 
-	Para obtener más información, consulte [SLA de Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
+	Para obtener más información, consulte el [Contrato de nivel de servicio (SLA) de Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
@@ -231,4 +231,4 @@ El [Soporte técnico de Azure](http://azure.microsoft.com/support/options/) prop
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

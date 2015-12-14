@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/02/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Modificación de las opciones de configuración de la interfaz de red DATA 0 en el dispositivo StorSimple
@@ -41,7 +41,7 @@ Puede volver a establecer la configuración de red de DATA 0 conectándose a la 
 
 3. Aparecerá un asistente para instalación que le ayudará a configurar la interfaz DATA 0 del dispositivo. Proporcione nuevos valores para la dirección IP, la pasarela y la máscara de red.
 
-> [AZURE.NOTE]Las IP fijas de controladores deberán volverse a configurar mediante la página **Configurar** del dispositivo StorSimple en el Portal de administración de Azure. Para obtener más información, vaya a [Modificar las interfaces de red](storsimple-modify-device-config.md#modify-network-interfaces).
+> [AZURE.NOTE]Las IP fijas de controladores deberán volver a configurarse mediante la página **Configurar** del dispositivo StorSimple en el Portal de Azure clásico. Para obtener más información, vaya a [Modificar las interfaces de red](storsimple-modify-device-config.md#modify-network-interfaces).
 
 
 ## Modificación de la configuración de red de DATA 0 mediante el cmdlet Set-HcsNetInterface
@@ -69,6 +69,7 @@ Una alternativa para volver a configurar la interfaz de red DATA 0 es mediante e
 
 ## Pasos siguientes
 
-Para configurar las interfaces de red que no sean DATA 0, puede usar la página [Configurar del Portal de administración](storsimple-modify-device-config.md). Si experimenta problemas al configurar las interfaces de red, consulte [Solucionar problemas de implementación](storsimple-troubleshoot-deployment.md).
+- Para configurar las interfaces de red que no sean DATA 0, puede usar la [página Configurar del Portal de Azure clásico](storsimple-modify-device-config.md). 
+- Si experimenta problemas al configurar las interfaces de red, consulte [Solucionar problemas de implementación](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Usar el servicio de Administrador de StorSimple para administrar registros de control de acceso
@@ -48,13 +48,13 @@ Realice los pasos siguientes para agregar un ACR.
 
    - Inicie el iniciador iSCSI de Microsoft en el host de Windows.
    - En la ventana Propiedades del iniciador iSCSI, en la pestaña Configuración, seleccione y copie la cadena desde el campo Nombre de iniciador.
-   - Pegue esta cadena en el campo **Nombre del iniciador iSCSI** de la tabla de ACR en el Portal de administración.
+   - Pegue esta cadena en el campo **Nombre del iniciador iSCSI** de la tabla de ACR en el Portal de Azure clásico.
 
 4. Haga clic en **Guardar** para guardar el ACR recién creado. La lista tabular se actualizará para reflejar esta adición.
 
 ## Editar un registro de control de acceso
 
-Utilice la página **Configurar** del Portal de administración para editar ACR.
+Use la página **Configurar** del Portal de Azure clásico para editar ACR.
 
 > [AZURE.NOTE]Puede modificar solo esos ACR que no están actualmente en uso. Para editar un ACR asociado a un volumen que está actualmente en uso, primero debe establecer el volumen como sin conexión.
 
@@ -72,7 +72,7 @@ Realice los pasos siguientes para editar un ACR.
 
 ## Eliminar un registro de control de acceso
 
-Utilice la página **Configurar** del Portal de administración para eliminar ACR.
+Use la página **Configurar** del Portal de Azure clásico para eliminar ACR.
 
 > [AZURE.NOTE]Solo puede eliminar esos ACR que no están actualmente en uso. Para eliminar un ACR asociado a un volumen que está actualmente en uso, primero debe establecer el volumen como sin conexión.
 
@@ -94,4 +94,4 @@ Realice los pasos siguientes para eliminar un registro de control de acceso.
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

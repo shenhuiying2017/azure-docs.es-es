@@ -40,7 +40,7 @@ HDInsight de Azure ofrece un servicio Spark completamente administrado. Estas so
 
 | Característica | Descripción |
 |-------------------------------------|-------------------|
-| Facilidad de aprovisionamiento | Puede aprovisionar un nuevo clúster Spark en HDInsight en minutos mediante el Portal de administración de Azure, Azure PowerShell o el SDK de .NET de HDInsight. Consulte [Aprovisionamiento de un clúster Spark de HDInsight](hdinsight-apache-spark-provision-clusters.md). |
+| Facilidad de aprovisionamiento | Puede aprovisionar un nuevo clúster Spark en HDInsight en minutos mediante el Portal de Azure clásico, Azure PowerShell o el SDK para .NET de HDInsight. Consulte [Aprovisionamiento de un clúster Spark de HDInsight](hdinsight-apache-spark-provision-clusters.md). |
 | Facilidad de uso | Spark en clústeres de HDInsight incluye cuadernos de Zeppelin y Jupyter preconfigurados. Puede usarlos para el procesamiento y la visualización de datos interactivos. Las direcciones URL para estos cuadernos son https://CLUSTERNAME.azurehdinsight.net/zeppelin y https://CLUSTERNAME.azurehdinsight.net/jupyter. Reemplace __CLUSTERNAME__ por el nombre del clúster de HDInsight.|
 | API de REST | Spark en HDInsight incluye un servidor de trabajo Spark, que es un servidor de API de REST que permite a los usuarios enviar y supervisar trabajos en ejecución de forma remota. |
 | Consultas simultáneas | Spark en HDInsight admite las consultas simultáneas. Esto permite que varias consultas de un usuario o varias consultas de diversos usuarios y aplicaciones compartan los mismos recursos de clúster. |
@@ -100,4 +100,4 @@ Spark en HDInsight también proporciona un [controlador ODBC](http://go.microsof
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

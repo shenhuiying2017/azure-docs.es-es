@@ -36,7 +36,7 @@ Las suscripciones y temas del Bus de servicio le permiten escalar para realizar 
 
 ## Creación de un espacio de nombres de servicio
 
-Para comenzar a usar colas del Bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres de servicio proporciona un contenedor con un ámbito para el desvío de recursos del Bus de servicio en la aplicación. Debe crear el espacio de nombres a través de la interfaz de línea de comandos porque el Portal no crea el Bus de servicio con una conexión de ACS.
+Para comenzar a usar colas del Bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres de servicio proporciona un contenedor con un ámbito para el desvío de recursos del Bus de servicio en la aplicación. Debe crear el espacio de nombres a través de la interfaz de línea de comandos porque el portal no crea el Bus de servicio con una conexión de ACS.
 
 Para crear un espacio de nombres:
 
@@ -56,7 +56,7 @@ El cmdlet de PowerShell que ejecutó para crear el espacio de nombres del bus de
 
       ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
-> [AZURE.NOTE]También puede encontrar esta clave si inicia sesión en el [Portal de Azure](http://manage.windowsazure.com/) y va a la información de conexión para el espacio de nombres del bus de servicio.
+> [AZURE.NOTE]También puede encontrar esta clave si inicia sesión en el [Portal de Azure clásico](http://manage.windowsazure.com/) y va a la información de conexión para el espacio de nombres del bus de servicio.
 
 ## Creación de una aplicación de Ruby
 
@@ -199,7 +199,7 @@ En caso de que la aplicación sufra un error después de procesar el mensaje y a
 
 ## Eliminación de temas y suscripciones
 
-Los temas y suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del [Portal de Azure](https://manage.windowsazure.com) o mediante programación. En el ejemplo siguiente se muestra cómo eliminar el tema llamado "test-topic".
+Los temas y las suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del [Portal de Azure clásico](https://manage.windowsazure.com) o mediante programación. En el ejemplo siguiente se muestra cómo eliminar el tema llamado "test-topic".
 
 	azure_service_bus_service.delete_topic("test-topic")
 
@@ -216,4 +216,4 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
 -	Visite el repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

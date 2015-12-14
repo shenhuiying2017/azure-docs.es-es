@@ -29,7 +29,7 @@ Esta personalización provoca que muchos módulos populares de Python incluidos 
 
 ## <a name="customize"></a>Personalizar el clúster de Hadoop de HDInsight de Azure
 
-Para crear un clúster de Hadoop de HDInsight personalizado, los usuarios deben iniciar sesión en [**Portal de administración de Azure**](https://manage.windowsazure.com/), hacer clic en **Nuevo** en la esquina inferior izquierda y, a continuación, seleccionar SERVICIOS DE DATOS -> HDINSIGHT -> **CREACIÓN PERSONALIZADA** para que aparezca la ventana **Detalles del clúster**.
+Para crear un clúster de Hadoop de HDInsight personalizado, los usuarios deben iniciar sesión en [**Portal de Azure clásico**](https://manage.windowsazure.com/), hacer clic en **Nuevo** en la esquina inferior izquierda y, a continuación, seleccionar SERVICIOS DE DATOS -> HDINSIGHT -> **CREACIÓN PERSONALIZADA** para que aparezca la ventana **Detalles del clúster**.
 
 ![Creación del espacio de trabajo][1]
 
@@ -68,7 +68,7 @@ Por último, haga clic en la marca de verificación para iniciar la creación de
 
 Los usuarios deben habilitar el acceso remoto al clúster de Hadoop en Azure para poder acceder al nodo principal del clúster de Hadoop a través de RDP.
 
-1. Inicie sesión en el [**Portal de administración de Azure**](https://manage.windowsazure.com/), seleccione **HDInsight** a la izquierda, seleccione el clúster de Hadoop en la lista de clústeres, haga clic en la pestaña **CONFIGURACIÓN** y a continuación, haga clic en el icono **HABILITAR REMOTO** de la parte inferior de la página.
+1. Inicie sesión en el [**Portal de Azure clásico**](https://manage.windowsazure.com/), seleccione **HDInsight** a la izquierda, seleccione el clúster de Hadoop en la lista de clústeres, haga clic en la pestaña **CONFIGURACIÓN** y a continuación, haga clic en el icono **HABILITAR REMOTO** de la parte inferior de la página.
 	
 	![Creación del espacio de trabajo][7]
 
@@ -102,4 +102,4 @@ Consulte [Envío de consultas de Hive a clústeres de Hadoop de HDInsight en el 
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

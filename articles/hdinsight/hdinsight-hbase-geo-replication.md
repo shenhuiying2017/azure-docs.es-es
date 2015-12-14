@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/08/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # Configuración de la replicación geográfica de HBase en HDInsight
@@ -67,7 +67,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 En [Configuración de una conexión VPN entre dos redes virtuales de Azure][hdinsight-hbase-replication-vnet], ha creado una red virtual en un centro de datos de Europa y una red virtual en un centro de datos de Estados Unidos. La red virtual dos está conectada a través de VPN. En esta sesión, se realizará el aprovisionamiento de un clúster de HBase en cada una de las redes virtuales. Más adelante en este tutorial, hará que uno de los clústeres de HBase replique el otro clúster de HBase.
 
-El portal de Azure no es compatible con el aprovisionamiento de clústeres de HDInsight con opciones de configuración personalizadas. Por ejemplo, establezca *hbase.replication* en *true*. Si establece el valor en el archivo de configuración después de realizar el aprovisionamiento en el clúster, perderá la configuración después de restablecer la imagen inicial del clúster. Para obtener más información, consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight][hdinsight-provision]. Una de las opciones para aprovisionar el clúster de HDInsight con opciones personalizadas es utilizar PowerShell de Azure.
+El portal de Azure clásico no es compatible con el aprovisionamiento de clústeres de HDInsight con opciones de configuración personalizadas. Por ejemplo, establezca *hbase.replication* en *true*. Si establece el valor en el archivo de configuración después de realizar el aprovisionamiento en el clúster, perderá la configuración después de restablecer la imagen inicial del clúster. Para obtener más información, consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight][hdinsight-provision]. Una de las opciones para aprovisionar el clúster de HDInsight con opciones personalizadas es utilizar PowerShell de Azure.
 
 
 **Para realizar el aprovisionamiento de un clúster de HBase en Contoso-VNet-EU**
@@ -156,7 +156,7 @@ Para configurar el reenviador condicional, necesitará saber los sufijos de domi
 
 **Para buscar los sufijos de dominio de los dos clústeres de HBase**
 
-1. RDP en **Contoso-HBase-EU**. Para conocer las instrucciones, consulte [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure][hdinsight-manage-portal]. Es en realidad headnode0 del clúster.
+1. RDP en **Contoso-HBase-EU**. Para conocer las instrucciones, consulte [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure clásico][hdinsight-manage-portal]. Es en realidad headnode0 del clúster.
 2. Abra una consola de Windows PowerShell o un símbolo del sistema.
 3. Ejecute **ipconfig** y anote el **sufijo DNS específico de la conexión**.
 4. No cierre la sesión de RDP. La necesitará más adelante para probar la resolución de nombres de dominio.
@@ -311,4 +311,4 @@ En este tutorial, ha aprendido cómo configurar la replicación de HBase entre d
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

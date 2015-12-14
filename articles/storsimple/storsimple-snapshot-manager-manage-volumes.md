@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Uso de Administrador de instantáneas StorSimple para ver y administrar volúmenes
@@ -103,7 +103,7 @@ Utilice el procedimiento siguiente para ver información acerca de volúmenes lo
     :--------------|:-------------
     Nombre | La columna **Nombre** contiene la letra de unidad asignada a cada volumen detectado.
     Dispositivo | La columna **Dispositivo** contiene la dirección IP del dispositivo conectado al equipo host.
-    Nombre del volumen del dispositivo | La columna **Nombre del volumen del dispositivo** contiene el nombre del volumen del dispositivo al que pertenece el volumen seleccionado. Este es el nombre del volumen definido en el Portal de administración de Azure para ese volumen específico.
+    Nombre del volumen del dispositivo | La columna **Nombre del volumen del dispositivo** contiene el nombre del volumen del dispositivo al que pertenece el volumen seleccionado. Este es el nombre del volumen definido en el Portal de Azure clásico para ese volumen específico.
     Rutas de acceso | La columna **Rutas de acceso** muestra la ruta de acceso al volumen. Es la letra de unidad o el punto de montaje en el que el volumen es accesible en el equipo host.
  
 ## Eliminar un volumen
@@ -271,4 +271,4 @@ Utilice el siguiente procedimiento para configurar un volumen reflejado dinámic
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

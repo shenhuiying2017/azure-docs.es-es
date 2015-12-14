@@ -23,7 +23,7 @@
 En Servicios multimedia de Azure, un **canal** representa una canalización para procesar contenido de streaming en vivo. Los **canales** reciben el flujo de entrada en directo de dos maneras posibles:
 
 - Un codificador local en directo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de varias velocidades de bits al canal. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de varias velocidades de bits: Elemental, Envivio y Cisco. Los siguientes codificadores en directo generan RTMP: transcodificadores Tricaster, Telestream Wirecast y Adobe Flash Live. Las secuencias recopiladas pasan a través de **canales** sin más procesamiento. Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
-- Una secuencia de una sola velocidad de bits (con uno de los siguientes formatos: **RTP** (MPEG-TS), **RTMP** o **Smooth Streaming** (MP4 fragmentado)) se envía al **canal** habilitado para realizar la codificación en directo con Servicios multimedia. A continuación, el **canal** codifica en directo la secuencia entrante de una sola velocidad de bits como secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes. 
+- Una secuencia de una sola velocidad de bits (con uno de los siguientes formatos: **RTP** (MPEG-TS), **RTMP** o **Smooth Streaming** (MP4 fragmentado)) se envía al **canal** habilitado para realizar la codificación en directo con Servicios multimedia. A continuación, el **canal** codifica en directo la secuencia entrante de una sola velocidad de bits como secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
 
 A partir de la versión 2.10 de Servicios multimedia, al crear un canal, puede especificar la forma en que desea que este reciba el flujo de entrada y si quiere que el canal realice la codificación en directo de la secuencia. Tiene dos opciones:
 
@@ -36,9 +36,9 @@ A partir de la versión 2.10 de Servicios multimedia, al crear un canal, puede e
 
 ##Implicaciones de facturación
 
-Un canal de codificación en directo comienza la facturación tan pronto como su estado realiza la transición a "En ejecución" a través de la API. También puede ver el estado en el Portal de Azure o en la herramienta del Explorador de Servicios multimedia de Azure (http://aka.ms/amse).
+Un canal de codificación en directo comienza la facturación tan pronto como su estado realiza la transición a "En ejecución" a través de la API. También puede ver el estado en el Portal de Azure clásico o en la herramienta del Explorador de servicios multimedia de Azure (http://aka.ms/amse).
 
-En la tabla siguiente se muestra cómo se asignan los estados del canal a los estados de facturación en la API y el portal. Tenga en cuenta que los estados son ligeramente diferentes entre la API y la experiencia de usuario del portal. Tan pronto como un canal se encuentre en el estado "En ejecución" a través de la API, o en el estado "Listo" o "Streaming" en el Portal de Azure, la facturación estará activa. Para hacer que el canal deje de facturarle, tendrá que detener el canal a través de la API o en el Portal de Azure. Usted es responsable de detener sus canales cuando haya terminado con el canal de codificación en directo. Si no se detiene un canal de codificación, la facturación continuará.
+En la tabla siguiente se muestra cómo se asignan los estados del canal a los estados de facturación en la API y en el Portal de Azure clásico. Tenga en cuenta que los estados son ligeramente diferentes entre la API y la experiencia de usuario del portal. Tan pronto como un canal se encuentre en el estado "En ejecución" a través de la API, o en el estado "Listo" o "Streaming" en el Portal de Azure clásico, la facturación estará activa. Para hacer que el canal deje de facturarle, tendrá que detener el canal a través de la API o en el Portal de Azure clásico. Usted es responsable de detener sus canales cuando haya terminado con el canal de codificación en directo. Si no se detiene un canal de codificación, la facturación continuará.
 
 ###<a id="states"></a>Estados del canal y cómo se asignan al modo de facturación 
 
@@ -93,7 +93,7 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 
 3. Cree un programa.
 
-	Con el Portal de administración de Azure, al crear un programa también se crea un recurso.
+	Con el Portal de Azure clásico, al crear un programa también se crea un recurso.
 
 	Con el SDK de .NET o REST, debe crear un recurso y especificar que este se use al crear un programa. 
 1. Publique el recurso asociado al programa.   
@@ -244,7 +244,7 @@ Puede obtener la dirección URL de vista previa al crear el canal. Para obtenerl
 
 Una vez que el canal empieza a consumir datos, puede obtener una vista previa de la secuencia.
 
-**Nota** Actualmente la secuencia de vista previa solo se puede entregar en formato MP4 fragmentado (Smooth Streaming), independientemente del tipo de entrada especificado. Puede usar el reproductor [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para probar el formato Smooth Stream. También puede usar un reproductor hospedado en el Portal de administración de Azure para ver la secuencia.
+**Nota** Actualmente la secuencia de vista previa solo se puede entregar en formato MP4 fragmentado (Smooth Streaming), independientemente del tipo de entrada especificado. Puede usar el reproductor [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para probar el formato Smooth Stream. También puede usar un reproductor hospedado en el Portal de Azure clásico para ver la transmisión.
 
 ###Direcciones IP permitidas
 
@@ -466,4 +466,4 @@ Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

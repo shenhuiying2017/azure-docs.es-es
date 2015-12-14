@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="12/02/2015"
 	ms.author="tomfitz"/>
 
 
@@ -51,9 +51,9 @@ En el ejemplo siguiente se muestra una cuenta de almacenamiento con una etiqueta
         }
     ]
 
-## Etiquetas del Portal de vista previa
+## Etiquetas en el portal
 
-Etiquetar recursos y grupos de recursos es fácil en el portal de vista previa. Use el centro de exploración para navegar al recurso o grupo de recursos que le gustaría etiquetar y haga clic en la parte Etiquetas en la sección Información general que se encuentra en la parte superior de la hoja.
+El etiquetado de recursos y grupos de recursos en el portal es sencillo. Use el centro de exploración para navegar al recurso o grupo de recursos que le gustaría etiquetar y haga clic en la parte Etiquetas en la sección Información general que se encuentra en la parte superior de la hoja.
 
 ![Parte de etiquetas en hojas de recursos y grupos de recursos](./media/resource-group-using-tags/tag-icon.png)
 
@@ -181,6 +181,6 @@ Al descargar el CSV de uso correspondiente a los servicios que admiten etiquetas
 - Puede aplicar restricciones y convenciones a través de su suscripción con directivas personalizadas. La directiva que defina podría requerir que se establezca una etiqueta específica para todos los recursos. Para obtener más información, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
 - Para obtener información sobre cómo usar Azure PowerShell al implementar recursos, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](./powershell-azure-resource-manager.md).
 - Para obtener información sobre cómo usar la interfaz de la línea de comandos de Azure al implementar recursos, consulte [Uso de la interfaz de la línea de comandos de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](./xplat-cli-azure-resource-manager.md).
-- Para obtener información sobre cómo usar el Portal de vista previa, vea [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](./resource-group-portal.md).  
+- Para obtener información sobre cómo usar el portal, consulte [Uso del Portal de Azure para administrar los recursos de Azure](./resource-group-portal.md)  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

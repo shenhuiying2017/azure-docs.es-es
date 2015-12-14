@@ -3,8 +3,8 @@
 	description="Aprenda a configurar el inicio de sesión único entre Azure Active Directory y TargetProcess."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Integración de Azure Active Directory con TargetProcess
@@ -63,9 +63,8 @@ Para configurar la integración de TargetProcess en Azure AD, deberá agregar Ta
 3. Para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.<br><br> ![Aplicaciones][2]<br>
 4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
-6. En el cuadro de búsqueda, escriba **TargetProcess**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_01.png)<br>
-7. En el panel de resultados, seleccione **TargetProcess** y luego haga clic en **Completar** para agregar la aplicación.
-
+6. En el cuadro de búsqueda, escriba **TargetProcess**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_01.png)<br>
+7. En el panel de resultados, seleccione **TargetProcess** y luego haga clic en **Completar** para agregar la aplicación. <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_10.png)<br>
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con TargetProcess con un usuario de prueba llamado "Britta Simon".
@@ -114,19 +113,19 @@ Para configurar el inicio de sesión único para TargetProcess, se necesita un d
 
 1. En el menú de la parte superior, haga clic en **Setup** (Instalación). <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_05.png) <br>
 
-1. Haga clic en **Settings** (Configuración). <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_06.png) <br>
+1. Haga clic en **Configuración**. <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_06.png) <br>
 
 1. Haga clic en **Single Sign-on** (Inicio de sesión único). <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_07.png) <br>
 
 1. En el cuadro de diálogo Single Sign-on settings (Configuración de inicio de sesión único), siga estos pasos: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_08.png) <br>
 
-    a. Haga lic en **Enable Single Sign-on** (Habilitar el inicio de sesión único).
+    a. Haga lic en **Habilitar inicio de sesión único**.
 
     b. En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en TargetProcess**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **URL de inicio de sesión**.
 
     c. Abra el certificado descargado en el Bloc de notas, copie el contenido y luego péguelo en el cuadro de texto **Certificado**.
 
-    d. Haga clic en **Enable JIT Provisioning** (Habilitar aprovisionamiento de JIT).
+    d. Haga clic en **Habilitar aprovisionamiento de JIT**.
 
 
 6. En el Portal de Azure AD, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. <br><br>![Inicio de sesión único de Azure AD][10]<br>
@@ -165,7 +164,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
 
-    d. En la lista **Rol**, seleccione **Usuario**. Haga clic en **Siguiente**.
+    d. En la lista **Rol**, seleccione **Usuario**. e. Haga clic en **Siguiente**.
 
 7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **crear**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_07.png) <br>
  
@@ -233,4 +232,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

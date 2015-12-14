@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015" 
+	ms.date="09/15/2015"
 	ms.author="ggailey777"/>
 
 # Almacenamiento del código del proyecto de Servicios móviles en el control de código fuente
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
@@ -36,8 +41,7 @@ Para completar este tutorial, ya debe haber creado un servicio móvil al complet
 
 	Los pasos requeridos para instalar Git varían según los sistemas operativos. Consulte [Installing Git] para obtener una guía sobre la instalación y las distribuciones específicas del sistema operativo.
 
-	> [AZURE.NOTE]
-	> Algunos sistemas operativos disponen de versiones de Git en línea de comandos y de GUI. Las instrucciones proporcionadas en este artículo utilizan la versión en línea de comandos.
+	> [AZURE.NOTE]Algunos sistemas operativos disponen de versiones de Git en línea de comandos y de GUI. Las instrucciones proporcionadas en este artículo utilizan la versión en línea de comandos.
 
 2. Abra una línea de comandos, como **GitBash** (Windows) o **Bash** (shell de Unix). En los sistemas OS X puede tener acceso a la línea de comandos mediante la aplicación **Terminal**.
 
@@ -94,8 +98,7 @@ Ahora que ha creado su repositorio local, puede realizar cambios en los scripts 
 
 	Aparecerá una serie de comandos que indica que la confirmación se ha implementado en el servicio móvil.
 
-6. Nuevamente en el Portal de administración, haga clic en la pestaña **Datos**, haga clic en la tabla **TodoItem** y en **Script**; a continuación, seleccione la operación **Insert**.
-7. Observe que el script de operación de inserción que se muestra es el mismo que el del código de JavaScript que acaba de cargar en el repositorio.
+6. Nuevamente en el [Portal de Azure clásico], haga clic en la pestaña **Datos**, en la tabla **TodoItem** y en **Script**; a continuación, seleccione la operación **Insert**. Observe que el script de operación de inserción que se muestra es el mismo que el del código de JavaScript que acaba de cargar en el repositorio.
 
 ##<a name="use-npm"></a>Aprovechamiento del código compartido y de módulos Node.js en los scripts del servidor
 
@@ -103,7 +106,7 @@ Servicios móviles proporciona acceso a todo el conjunto de módulos Node.js bá
 
 La manera recomendada de agregar módulos Node.js al servicio móvil es agregando referencias al archivo package.json del servicio. A continuación, agregará el módulo Node.js [node-uuid] al servicio móvil a través de la actualización del archivo package.json. Cuando la actualización se inserte en Azure, el servicio móvil se reiniciará y se instalará el módulo. Este módulo se usará después para generar un nuevo valor de GUID para la propiedad **uuid** en los elementos insertados.
 
-2. Desplácese a la carpeta `.\service` del repositorio Git local y abra el archivo package.json en un editor de texto; agregue el siguiente campo al objeto **dependencies**:
+2. Vaya a la carpeta `.\service` del repositorio Git local y abra el archivo package.json en un editor de texto; agregue el siguiente campo al objeto **dependencies**:
 
 		"node-uuid": "~1.4.3"
 
@@ -132,8 +135,7 @@ La manera recomendada de agregar módulos Node.js al servicio móvil es agregand
 
 Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el control de código fuente. Considere la posibilidad de obtener más información sobre cómo trabajar con scripts de servidor y con las API personalizadas:
 
-+ [Uso de scripts del servidor en Servicios móviles] 
-	<br/>Muestra cómo trabajar con scripts del servidor, el programador de trabajos y las API personalizadas.
++ [Uso de scripts del servidor en Servicios móviles] <br/>Muestra cómo trabajar con scripts del servidor, el programador de trabajos y las API personalizadas.
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -152,8 +154,8 @@ Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Introducción a Servicios móviles]: mobile-services-ios-get-started.md
 [Uso de scripts del servidor en Servicios móviles]: mobile-services-how-to-use-server-scripts.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [Módulos]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

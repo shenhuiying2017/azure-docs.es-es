@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/17/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Uso del panel del servicio StorSimple Manager
@@ -45,7 +45,7 @@ Puede usar la página del panel del servicio StorSimple Manager para iniciar las
 
 ## Ver o volver a generar la clave de registro de servicio
 
-La clave de registro del servicio se usa para registrar un dispositivo de Microsoft Azure StorSimple con el servicio StorSimple Manager, para que el dispositivo aparezca en el Portal de administración de Microsoft Azure para otras tareas administrativas. La clave se crea en el primer dispositivo y se comparte con el resto de los dispositivos.
+La clave de registro del servicio se usa para registrar un dispositivo de Microsoft Azure StorSimple con el servicio StorSimple Manager, para que el dispositivo aparezca en el Portal de Azure clásico para otras tareas administrativas. La clave se crea en el primer dispositivo y se comparte con el resto de los dispositivos.
 
 Al hacer clic en **Clave de registro** (en la parte inferior de la página), se abre el cuadro de diálogo **Clave de registro del servicio**, donde puede copiar la clave de registro del servicio actual en el Portapapeles o volver a generar la clave de registro del servicio.
 
@@ -59,7 +59,7 @@ Las claves de cifrado de datos del servicio se usan para cifrar datos confidenci
 
 El cambio de la clave de cifrado de datos del servicio se realiza en 3 pasos:
 
-1. En el Portal de administración, autorice que un dispositivo cambie la clave de cifrado de datos del servicio.
+1. En el Portal de Azure clásico, autorice que un dispositivo cambie la clave de cifrado de datos del servicio.
 2. En Windows PowerShell para StorSimple, inicie el cambio de claves de cifrado de datos del servicio.
 3. Si tiene más de un dispositivo de StorSimple, actualice la clave de cifrado de datos del servicio en los demás dispositivos.
 
@@ -78,4 +78,4 @@ Para ver los registros de operaciones, haga clic en el vínculo de registros de 
 
 - Obtenga más información sobre cómo [usar el servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

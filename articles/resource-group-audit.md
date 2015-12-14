@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="12/02/2015" 
 	ms.author="tomfitz"/>
 
 # Operaciones de auditoría con el Administrador de recursos
@@ -27,13 +27,13 @@ Existen dos limitaciones importantes a tener en cuenta al trabajar con registros
 1. Los registros de auditoría solo se conservan durante 90 días.
 2. Solo se pueden consultar para un intervalo de 15 días o menos.
 
-Puede recuperar información de los registros de auditoría a través de Azure PowerShell, CLI de Azure, API de REST o el portal de vista previa de Azure.
+Puede recuperar información de los registros de auditoría a través de Azure PowerShell, CLI de Azure, API de REST o el Portal de Azure.
 
 ## PowerShell
 
 [AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-Para recuperar las entradas del registro, ejecute el comando **Get-AzureRmLog** (o **Get-AzureResourceGroupLog** para versiones anteriores a la vista previa de PowerShell 1.0). Ofrezca parámetros adicionales para filtrar la lista de entradas.
+Para recuperar las entradas del registro, ejecute el comando **Get-AzureRmLog** (o **Get-AzureResourceGroupLog** para versiones de PowerShell anteriores a la 1.0). Ofrezca parámetros adicionales para filtrar la lista de entradas.
 
 En el ejemplo siguiente se muestra cómo usar el registro de auditoría para investigar acciones llevadas a cabo durante el ciclo de vida de la solución. Puede ver cuándo se produjo la acción y quién la solicitó. Las fechas inicial y final se especifican en un formato de fecha.
 
@@ -144,9 +144,9 @@ Si la lista de operaciones desde la última implementación es demasiado larga, 
 
 Las operaciones REST para trabajar con el registro de auditoría forman parte de la [API de REST de Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Para recuperar los eventos de registro de auditoría, vea [Lista de los eventos de administración de una suscripción](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
-## Portal de vista previa
+## Portal
 
-También puede ver las operaciones registradas a través del portal de vista previa. Solo tiene que seleccionar la hoja de registros de auditoría.
+También puede ver las operaciones registradas a través del portal. Solo tiene que seleccionar la hoja de registros de auditoría.
 
 ![seleccionar registros de auditoría](./media/resource-group-audit/select-audit.png)
 
@@ -162,4 +162,4 @@ Puede seleccionar cualquier operación para obtener más detalles sobre ella.
 - Para obtener información sobre la concesión del acceso a una entidad de seguridad de servicio, vea [Autenticación de una entidad de seguridad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
 - Para aprender a realizar acciones en un recurso para todos los usuarios, vea [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

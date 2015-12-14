@@ -41,7 +41,7 @@ En el nivel básico en todas las situaciones TiP, se enruta un porcentaje predef
 
 >[AZURE.NOTE]En estos pasos se supone que ya tiene una [ranura de implementación que no sea de producción](web-sites-staged-publishing.md) y que el contenido de la aplicación web deseada ya está [implementado](web-sites-publish-source-control.md) en dicha ranura.
 
-1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. En la hoja de la aplicación web, haga clic en **Configuración** > **Enrutamiento de tráfico**. ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
 3. Seleccione la ranura a la que desea enrutar el tráfico y el porcentaje del tráfico total que desee, haga clic en **Guardar**.
 
@@ -86,4 +86,4 @@ Para permitir a los usuarios participar en la aplicación de la versión beta, e
 -   [Agile Software Development con el Servicio de aplicaciones de Azure](app-service-agile-software-development.md)
 -	[Uso eficaz de entornos DevOps para las aplicaciones web](app-service-web-staged-publishing-realworld-scenarios.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

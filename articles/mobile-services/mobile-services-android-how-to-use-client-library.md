@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015" 
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 
 # Uso de la biblioteca de cliente Android para Servicios móviles
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
@@ -55,7 +59,7 @@ El código siguiente crea el objeto [MobileServiceClient](http://dl.windowsazure
 				"AppKey", 			// replace with the Application Key
 				this)
 
-En el código anterior, reemplace `MobileServiceUrl` y `AppKey` por la URL y la clave de aplicación del servicio móvil, en ese orden. Estos datos están disponibles en el Portal de administración de Azure si selecciona el servicio móvil y, a continuación, hace clic en *Panel*.
+En el código anterior, reemplace `MobileServiceUrl` y `AppKey` por la URL y la clave de aplicación del servicio móvil, en ese orden. Estos datos están disponibles en el Portal de Azure clásico. si selecciona el servicio móvil y hace clic en *Panel*.
 
 ##<a name="instantiating"></a>Creación de una referencia de tabla
 
@@ -133,7 +137,7 @@ El código siguiente devuelve todos los elementos de la tabla *ToDoItem* cuyo ca
                     final MobileServiceList<ToDoItem> result =
 						mToDoTable.where().field("complete").eq(false).execute().get();
 					for (ToDoItem item : result) {
-                		Log.i(TAG, "Read object with ID " + item.id);  
+                		Log.i(TAG, "Read object with ID " + item.id);
 					}
                 } catch (Exception exception) {
                     createAndShowDialog(exception, "Error");
@@ -371,7 +375,7 @@ El código siguiente muestra cómo eliminar datos de una tabla. Elimina un eleme
 	}
 
 
-El código siguiente ilustra otra forma de hacerlo. Elimina un elemento existente de la tabla ToDoItem especificando el valor del campo id de la fila que hay que eliminar (se supone que es igual a "2FA404AB-E458-44CD-BC1B-3BC847EF0902"). En una aplicación real, recogería el identificador de algún modo y lo pasaría como una variable. En este caso, para simplificar las pruebas, puede acceder al portal de Servicios móviles de Azure de su servicio, hacer clic en **Datos** y copiar un identificador con el que desee efectuar la prueba.
+El código siguiente ilustra otra forma de hacerlo. Elimina un elemento existente de la tabla ToDoItem especificando el valor del campo id de la fila que hay que eliminar (se supone que es igual a "2FA404AB-E458-44CD-BC1B-3BC847EF0902"). En una aplicación real, recogería el identificador de algún modo y lo pasaría como una variable. En este caso, para simplificar las pruebas, puede acceder al Portal de Azure clásico de su servicio, hacer clic en **Datos** y copiar un identificador con el que desee efectuar la prueba.
 
     public void deleteItem(View view) {
 
@@ -396,7 +400,7 @@ El código siguiente ilustra otra forma de hacerlo. Elimina un elemento existent
     }
 
 ##<a name="lookup"></a>Búsqueda de un elemento específico
-Puede que a veces quiera consultar un elemento específico por su *id*, a diferencia de las consultas donde normalmente se obtiene una serie de elementos que satisfacen ciertos criterios. El código siguiente muestra cómo hacer esto, para un *identificador* de valor `0380BAFB-BCFF-443C-B7D5-30199F730335`. En una aplicación real, recogería el identificador de algún modo y lo pasaría como una variable. Aquí, para simplificar las pruebas, puede ir al portal de Servicios móviles de Azure de su servicio, hacer clic en la ficha **Datos** y copiar un identificador con el que desee probar.
+Puede que a veces quiera consultar un elemento específico por su *id*, a diferencia de las consultas donde normalmente se obtiene una serie de elementos que satisfacen ciertos criterios. El código siguiente muestra cómo hacer esto, para un *identificador* de valor `0380BAFB-BCFF-443C-B7D5-30199F730335`. En una aplicación real, recogería el identificador de algún modo y lo pasaría como una variable. En este caso, para simplificar las pruebas, puede acceder al Portal de Azure clásico de su servicio, hacer clic en la pestaña **Datos** y copiar un identificador con el que desee efectuar la prueba.
 
     /**
      * Lookup specific item from table and UI
@@ -651,7 +655,7 @@ También debe llamar al adaptador en cualquier momento para modificar la tabla *
 
 ##<a name="custom-api"></a>Llamada a una API personalizada
 
-Una API personalizada le permite definir extremos personalizados que exponen la funcionalidad del servidor que no se asigna a una operación de inserción, actualización, eliminación o lectura. Al usar una API personalizada, puede tener más control sobre la mensajería, incluida la lectura y el establecimiento de encabezados de mensajes HTTP y la definición del formato del cuerpo de un mensaje diferente de JSON. Para obtener un ejemplo de cómo crear una API personalizada en el servicio móvil, vea [Definición de un extremo de API personalizada](mobile-services-dotnet-backend-define-custom-api.md).
+Una API personalizada le permite definir extremos personalizados que exponen la funcionalidad del servidor que no se asigna a una operación de inserción, actualización, eliminación o lectura. Al usar una API personalizada, puede tener más control sobre la mensajería, incluida la lectura y el establecimiento de encabezados de mensajes HTTP y la definición del formato del cuerpo de un mensaje diferente de JSON. Para obtener un ejemplo de cómo crear una API personalizada en el servicio móvil, vea [Definición de un punto de conexión de API personalizada](mobile-services-dotnet-backend-define-custom-api.md).
 
 [AZURE.INCLUDE [mobile-services-android-call-custom-api](../../includes/mobile-services-android-call-custom-api.md)]
 
@@ -679,7 +683,7 @@ Servicios móviles admite los siguiente proveedores de identidad existentes que 
 
 Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar el identificador de un usuario autenticado para modificar las solicitudes.
 
-Estas dos primeras tareas se realizan usando el [Portal de administración de Azure](https://manage.windowsazure.com/). Para obtener más información, vea [Introducción a la autenticación](http://go.microsoft.com/fwlink/p/?LinkId=296316).
+Estas dos primeras tareas se realizan usando el [Portal de Azure clásico](https://manage.windowsazure.com/). Para obtener más información, vea [Introducción a la autenticación](http://go.microsoft.com/fwlink/p/?LinkId=296316).
 
 ### <a name="caching"></a>Adición del código de autenticación a su aplicación
 
@@ -933,4 +937,4 @@ Este método general se puede usar siempre que tengamos un objeto complejo que n
 [Introducción a Servicios móviles]: mobile-services-android-get-started.md
 [Códigos de control ASCII C0 y C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

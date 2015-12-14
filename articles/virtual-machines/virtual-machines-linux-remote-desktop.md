@@ -106,7 +106,7 @@ Reinicie el servicio xrdp, use:
 
 
 ##Conexión de su VM Linux desde un equipo de Windows
-En un equipo de Windows, inicie el cliente de Escritorio remoto, escriba el nombre DNS de su VM Linux o vaya a `Dashboard` de su VM en el Portal de Azure y haga clic en `Connect` para conectar su VM Linux, verá la siguiente ventana de inicio de sesión:
+En un equipo de Windows, inicie el cliente de Escritorio remoto, escriba el nombre DNS de su máquina virtual de Linux o vaya a `Dashboard` de su máquina virtual en el Portal de Azure clásico y haga clic en `Connect` para conectar su máquina virtual de Linux. Verá la siguiente ventana de inicio de sesión:
 
 ![imagen](./media/virtual-machines-linux-remote-desktop/no2.png)
 
@@ -116,4 +116,4 @@ Inicie sesión con `user` y `password` de su VM Linux y disfrute de Escritorio r
 ##Pasos siguientes
 Para obtener más información sobre el uso de xrdp, puede consultar [aquí](http://www.xrdp.org/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

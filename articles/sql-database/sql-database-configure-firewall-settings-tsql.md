@@ -22,7 +22,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-configure-firewall-settings.md)
+- [Azure Portal](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 - [REST API](sql-database-configure-firewall-settings-rest.md)
@@ -35,7 +35,7 @@ Base de datos SQL de Microsoft Azure usa reglas de firewall para permitir conexi
 
 ## Administración de reglas de firewall de nivel de servidor a través de Transact-SQL
 
-1. Inicie una ventana de consulta a través del Portal de administración o mediante SQL Server Management Studio.
+1. Inicie una ventana de consulta a través del Portal clásico o mediante SQL Server Management Studio.
 2. Compruebe que está conectado a la base de datos maestra.
 3. Las reglas de firewall de nivel de servidor se pueden seleccionar, crear, actualizar o eliminar desde dentro de la ventana de consulta.
 4. Para crear o actualizar las reglas de firewall de nivel de servidor, ejecute el procedimiento almacenado de regla sp\_set\_firewall. El ejemplo siguiente habilita un intervalo de direcciones IP en el servidor denominado Contoso.<br/>Comience comprobando qué reglas existen ya.
@@ -54,7 +54,7 @@ Base de datos SQL de Microsoft Azure usa reglas de firewall para permitir conexi
  
 ## Reglas de firewall de nivel de base de datos
 
-1. Después de crear un firewall de nivel de servidor para la dirección IP, inicie una ventana de consulta a través del Portal de administración o mediante SQL Server Management Studio.
+1. Después de crear un firewall de nivel de servidor para la dirección IP, inicie una ventana de consulta a través del Portal clásico o mediante SQL Server Management Studio.
 2. Conéctese a la base de datos para la que desea crear una regla de firewall de nivel de base de datos.
 
 	Para crear una nueva regla de firewall de nivel de base de datos o actualizar una existente, ejecute el procedimiento almacenado sp\_set\_database\_firewall\_rule. En el ejemplo siguiente se crea una nueva regla de firewall llamada ContosoFirewallRule.
@@ -70,4 +70,4 @@ Base de datos SQL de Microsoft Azure usa reglas de firewall para permitir conexi
 
 Para obtener un tutorial sobre la creación de una base de datos, consulte [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md). Para obtener ayuda acerca de la conexión a una base de datos SQL de Azure desde aplicaciones de código abierto o de terceros, consulte [Instrucciones para conectar con la Base de datos SQL de Azure mediante programación](https://msdn.microsoft.com/library/azure/ee336282.aspx). Para conseguir más información acerca de cómo acceder a las bases de datos, consulte [Administrar bases de datos e inicios de sesión en la Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Desplazamiento y procesamiento de archivos de registro mediante la factoría de datos de Azure (Portal de Azure)" 
-	description="En este tutorial avanzado se describe un escenario casi real y se implementa el escenario con el servicio Factoría de datos de Azure y Editor de Factoría de datos en el Portal de Azure." 
+	pageTitle="Desplazamiento y procesamiento de archivos de registro mediante la factoría de datos de Azure (Portal de Azure clásico)" 
+	description="En este tutorial avanzado se describe un escenario casi real y se implementa el escenario con el servicio Factoría de datos de Azure y Editor de Factoría de datos en el Portal de Azure clásico." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -48,9 +48,9 @@ En este tutorial, creará canalizaciones de Factoría de datos para evaluar la e
 	- **Base de datos SQL de Azure**: servidor, base de datos, nombre de usuario y contraseña.
 	- **Clúster de HDInsight de Azure**: nombre del clúster de HDInsight, nombre de usuario, contraseña y nombre y clave de la cuenta para el almacenamiento de Azure asociado a este clúster. Si quiere usar un clúster de HDInsight a petición en lugar de su propio clúster de HDInsight, omita este paso.  
 8. Inicie **Azure PowerShell** y ejecute los comandos siguientes: Mantenga abierto Azure PowerShell. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
-	- Ejecute **Add-AzureAccount** y escriba el mismo nombre de usuario y contraseña que usó para iniciar sesión en el Portal de vista previa de Azure.  
+	- Ejecute **Add-AzureAccount** y escriba el mismo nombre de usuario y contraseña que usó para iniciar sesión en el Portal de Azure.  
 	- Ejecute **Get-AzureSubscription** para ver todas las suscripciones para esta cuenta.
-	- Ejecute **Select-AzureSubscription** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que la usada en el Portal de vista previa de Azure.	
+	- Ejecute **Select-AzureSubscription** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que usó en el Portal de Azure.	
 
 ## Información general
 El flujo de trabajo completo se muestra a continuación:
@@ -99,7 +99,7 @@ El flujo de trabajo completo se muestra a continuación:
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [Paso 6: Supervisión de las canalizaciones y los segmentos de datos](#MainStep6) En este paso, supervisará los procesos, las tablas y los segmentos de datos mediante el Portal de Azure.
+6. [Paso 6: Supervisión de las canalizaciones y los segmentos de datos](#MainStep6) En este paso, supervisará los procesos, las tablas y los segmentos de datos mediante el Portal de Azure clásico.
 
 ## <a name="MainStep1"></a> Paso 1: Carga de scripts y datos de ejemplo
 En este paso, cargará todos los datos de ejemplo (incluidos todos los registros y datos de referencia) y los scripts Hive y Pig, que se invocan mediante los flujos de trabajo. Los scripts que ejecuta también crean una base de datos SQL de Azure llamada **MarketingCampaigns**, tablas, tipos definidos por el usuario y procedimientos almacenados.
@@ -120,7 +120,7 @@ Las tablas, los tipos definidos por el usuario y procedimientos almacenados se u
 	
 	Si lo prefiere, puede utilizar los archivos de la carpeta: C:\\ADFWalkthrough\\Scripts cargar los scripts pig y hive y los archivos de ejemplo en el contenedor adfwalkthrough, en el almacenamiento de blobs, y crear la tabla MarketingCampaignEffectiveness en la base de datos SQL de Azure MarketingCamapaigns.
    
-2. Confirme que el equipo local tiene acceso a la base de datos SQL de Azure. Para permitir el acceso, use el **Portal de administración de Azure** o **sp\_set\_firewall\_rule** en la base de datos maestra para crear una regla de firewall para la dirección IP del equipo. Puede tardar hasta cinco minutos que este cambio surta efecto. Consulte [Definición de reglas de firewall para SQL Azure][azure-sql-firewall].
+2. Confirme que el equipo local tiene acceso a la base de datos SQL de Azure. Para permitir el acceso, use el [Portal de Azure clásico](http://manage.windowsazure.com) o **sp\_set\_firewall\_rule** en la base de datos maestra para crear una regla de firewall para la dirección IP del equipo. Puede tardar hasta cinco minutos que este cambio surta efecto. Consulte [Definición de reglas de firewall para SQL Azure][azure-sql-firewall].
 4. En Azure PowerShell, vaya a la ubicación donde ha extraído los ejemplos (por ejemplo, **C:\\ADFWalkthrough**).
 5. Ejecute **uploadSampleDataAndScripts.ps1** 
 6. Una vez que el script se ejecute correctamente, verá lo siguiente:
@@ -157,7 +157,7 @@ Las tablas, los tipos definidos por el usuario y procedimientos almacenados se u
 ## <a name="MainStep2"></a> Paso 2: Creación de una factoría de datos de Azure
 En este paso, creará una factoría de datos de Azure llamada **LogProcessingFactory**.
 
-1.	Tras iniciar sesión en el [Portal de vista previa de Azure][azure-preview-portal], haga clic en **NUEVO** en la esquina inferior izquierda, seleccione **Análisis de datos** en la hoja **Crear** y haga clic en **Factoría de datos** en la hoja **Análisis de datos**. 
+1.	Tras iniciar sesión en el [Portal de Azure][azure-portal], haga clic en **NUEVO** en la esquina inferior izquierda, seleccione **Análisis de datos** en la hoja **Crear** y haga clic en **Factoría de datos**, en la hoja **Análisis de datos**. 
 
 	![New->DataFactory][image-data-factory-new-datafactory-menu]
 
@@ -173,7 +173,7 @@ En este paso, creará una factoría de datos de Azure llamada **LogProcessingFac
 	
 		![Crear grupo de recursos][image-data-factory-tutorial-create-resourcegroup]
 7. Seleccione **ADF** como **NOMBRE DEL GRUPO DE RECURSOS**.  
-8.	En la hoja **Nueva factoría de datos**, observe que **Agregar al Panel de inicio** está seleccionado de forma predeterminada. Esto agrega un vínculo a la factoría de datos al panel de inicio (lo que verá cuando inicie sesión en el Portal de vista previa de Azure).
+8.	En la hoja **Nueva factoría de datos**, observe que **Agregar al Panel de inicio** está seleccionado de forma predeterminada. De esta forma agregará un vínculo a la factoría de datos del panel de inicio (lo que verá cuando inicie sesión en el Portal de Azure).
 
 	![Hoja Crear factoría de datos][image-data-factory-tutorial-create-datafactory]
 
@@ -192,7 +192,7 @@ En este paso, creará una factoría de datos de Azure llamada **LogProcessingFac
  
 ## <a name="MainStep3"></a> Paso 3: Creación de servicios vinculados
 
-> [AZURE.NOTE]En este artículo se usa el Portal de Azure, concretamente el Editor de la Factoría de datos, para crear servicios vinculados, tablas y canalizaciones. Consulte el [tutorial Uso de Azure PowerShell][adftutorial-using-powershell] si desea realizar este tutorial con Azure PowerShell.
+> [AZURE.NOTE]En este artículo se usa el Portal de Azure clásico, concretamente el Editor de la Factoría de datos, para crear servicios vinculados, tablas y canalizaciones. Consulte el [tutorial Uso de Azure PowerShell][adftutorial-using-powershell] si desea realizar este tutorial con Azure PowerShell.
 
 En este paso, creará los siguientes servicios vinculados:
 
@@ -248,7 +248,7 @@ El servicio Factoría de datos de Azure admite la creación de un clúster a pet
 		    	    "type": "HDInsightOnDemandLinkedService",
 		    	    "clusterSize": "4",
 		    	    "timeToLive": "00:05:00",
-		    	    "version": "3.1",
+		    	    "version": "3.2",
 		    	    "linkedServiceName": "HDInsightStorageLinkedService"
 		    	}
 			}
@@ -431,7 +431,7 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises] p
 [tutorial-onpremises]: data-factory-tutorial-extend-onpremises.md
 [download-azure-powershell]: ../powershell-install-configure.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -524,4 +524,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises] p
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

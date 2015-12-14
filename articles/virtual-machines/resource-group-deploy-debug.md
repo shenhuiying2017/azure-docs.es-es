@@ -22,7 +22,7 @@ Cuando se produce un problema durante la implementación, necesita descubrir qu�
 
 Este tema se centra principalmente en el uso de comandos de implementación para solucionar problemas de implementaciones. Para obtener información sobre el uso de los registros de auditoría para realizar el seguimiento de todas las operaciones en los recursos, consulte [Operaciones de auditoría con el Administrador de recursos](../resource-group-audit.md).
 
-En este tema se muestra cómo recuperar información de solución de problemas a través de Azure PowerShell, CLI de Azure y API de REST. Para obtener información sobre el uso del Portal de vista previa para solucionar problemas de implementación, consulte [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
+En este tema se muestra cómo recuperar información de solución de problemas a través de Azure PowerShell, CLI de Azure y API de REST. Para obtener información sobre el uso del Portal de vista previa para solucionar problemas de implementación, consulte [Uso del Portal de Azure para administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
 
 En este tema también se describen las soluciones a los errores comunes que los usuarios encuentran.
 
@@ -292,30 +292,12 @@ Si tuviera que intenta implementar una plantilla que crea más de 4 núcleos en 
 
 En estos casos, debe ir al portal y archivar un problema de soporte técnico para aumentar su cuota para la región en la que desea realizar la implementación.
 
-> [AZURE.NOTE]Recuerde que para los grupos de recursos, la cuota para cada región individual, no para toda la suscripción. Si necesita implementar 30 núcleos en el oeste de Estados Unidos, debe pedir 30 núcleos de administrador de recursos en el oeste de Estados Unidos. Si necesita implementar 30 núcleos en cualquiera de las regiones para las que tiene acceso, debe pedir 30 núcleos de administrador de recursos en todas las regiones.
-<!-- -->
-Para ser específicos sobre núcleos, por ejemplo, puede comprobar las regiones para las que debe solicitar la cantidad adecuada de cuota mediante el comando siguiente, que se canaliza en **jq** para el análisis de json. El proveedor de Azure de
-<!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
-        {
-          "name": "virtualMachines",
-          "apiVersions": [
-            "2015-05-01-preview",
-            "2014-12-01-preview"
-          ],
-          "locations": [
-            "East US",
-            "West US",
-            "West Europe",
-            "East Asia",
-            "Southeast Asia"
-          ]
-        }
+> [AZURE.NOTE]Recuerde que para los grupos de recursos, la cuota para cada región individual, no para toda la suscripción. Si necesita implementar 30 núcleos en el oeste de Estados Unidos, debe pedir 30 núcleos de administrador de recursos en el oeste de Estados Unidos. Si necesita implementar 30 núcleos en cualquiera de las regiones para las que tiene acceso, debe pedir 30 núcleos de administrador de recursos en todas las regiones. <!-- --> Para ser específicos sobre núcleos, por ejemplo, puede comprobar las regiones para las que debe solicitar la cantidad adecuada de cuota mediante el comando siguiente, que se canaliza en **jq** para el análisis de json. El proveedor de Azure de <!-- --> muestra Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "Este de Estados Unidos", "Oeste de Estados Unidos", "Europa occidental", "Asia oriental", "Sudeste de Asia" ] }
 
 
 ## Comprobación del registro del proveedor de recursos
 
-Los recursos son administrados por los proveedores de recursos, y es posible que una cuenta o suscripción esté habilitada para utilizar un proveedor determinado. Si están habilitadas para utilizar un proveedor, también se deben registrar para su uso. La mayoría de los proveedores se registran automáticamente mediante el Portal de vista previa de Azure o la interfaz de línea de comandos que esté utilizando; pero no ocurre con todos.
+Los recursos son administrados por los proveedores de recursos, y es posible que una cuenta o suscripción esté habilitada para utilizar un proveedor determinado. Si están habilitadas para utilizar un proveedor, también se deben registrar para su uso. La mayoría de los proveedores se registran automáticamente mediante el Portal de Azure o la interfaz de línea de comandos que esté utilizando; pero no ocurre con todos.
 
 ### PowerShell
 
@@ -434,4 +416,4 @@ Para dominar la creación de plantillas, lea [Creación de plantillas del Admini
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

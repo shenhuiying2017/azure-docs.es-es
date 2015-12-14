@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Administración de un servicio en la nube | Microsoft Azure" 
-	description="Vea cómo administrar servicios en la nube en el Portal de Azure." 
+	description="Vea cómo administrar servicios en la nube en el Portal de Azure clásico." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -23,17 +23,17 @@
 # Administración de servicios en la nube
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-manage.md)
-- [Azure Preview Portal](cloud-services-how-to-manage-portal.md)
+- [Azure classic portal](cloud-services-how-to-manage.md)
+- [Azure portal](cloud-services-how-to-manage-portal.md)
 
-En el área **Servicios en la nube** del Portal de Azure, puede actualizar un rol de servicio o una implementación, pasar su servicio en la nube de ensayo a producción, vincular recursos con su servicio en la nube de modo que pueda ver las dependencias de los recursos y escalar los recursos juntos, además de eliminar un servicio en la nube o una implementación.
+En el área **Servicios en la nube** del Portal de Azure clásico, puede actualizar un rol de servicio o una implementación, pasar su servicio en la nube de ensayo a producción, vincular recursos con su servicio en la nube de modo que pueda ver las dependencias de los recursos y escalar los recursos juntos, además de eliminar un servicio en la nube o una implementación.
 
 
 ## Actualización del rol de servicio en la nube o implementación
 
 Si necesita actualizar el código de la aplicación para su servicio en la nube, use **Actualizar** en el panel, en la página **Servicios en la nube** o **Instancias**. Puede actualizar un solo rol o todos los roles. Necesitará cargar un paquete de servicio nuevo y el archivo de configuración de servicio.
 
-1. En el [Portal de Azure](https://manage.windowsazure.com/), en el panel, en la página **Servicios en la nube** o **Instancias**, haga clic en **Actualizar**.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com/), en el panel, en la página **Servicios en la nube** o **Instancias**, haga clic en **Actualizar**.
 
 	![Implementación de actualizaciones](./media/cloud-services-how-to-manage/CloudServices_UpdateDeployment.png)
 
@@ -63,7 +63,7 @@ Use **Intercambiar** para pasar una implementación de ensayo de un servicio en 
 
 Puede intercambiar implementaciones desde la página **Servicios en la nube** o el panel.
 
-1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios en la nube**.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en **Servicios en la nube**.
 
 2. En la lista de servicios en la nube, haga clic en el servicio en la nube para seleccionarlo.
 
@@ -85,7 +85,7 @@ Para ver las dependencias de su servicio en la nube en otros recursos, puede vin
 
 Use **Vincular** para vincular una instancia de Base de datos SQL nueva o existente o una cuenta de almacenamiento con su servicio en la nube. Posteriormente, puede escalar la base de datos junto con el rol del servicio en la nube que la está usando en la página **Escalar**. (Una cuenta de almacenamiento escala automáticamente a medida que aumenta el uso). Para obtener más información, consulte [Escalación de un servicio en la nube y recursos vinculados](cloud-services-how-to-scale.md).
 
-Puede también supervisar, administrar y escalar la base de datos en el nodo **Bases de datos** del Portal de administración.
+Puede también supervisar, administrar y escalar la base de datos en el nodo **Bases de datos** del Portal de Azure clásico.
 
 "Vincular" un recurso en este sentido no conecta la aplicación con el recurso. Si crea una base de datos nueva usando **Vincular**, necesitará agregar cadenas de conexión al código de su aplicación y luego actualizar el servicio en la nube. También necesitará agregar cadenas de conexión si su aplicación usa recursos en una cuenta de almacenamiento vinculada.
 
@@ -93,7 +93,7 @@ El siguiente procedimiento describe cómo vincular una instancia de Base de dato
 
 ### Para vincular una instancia de Base de datos SQL con un servicio en la nube
 
-1. En el [Portal de administración](http://manage.windowsazure.com/), haga clic en **Servicios en la nube**. A continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
+1. En el [Portal de Azure clásico](http://manage.windowsazure.com/), haga clic en **Servicios en la nube**. A continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
 
 2. Haga clic en **Recursos vinculados**.
 
@@ -109,9 +109,9 @@ El siguiente procedimiento describe cómo vincular una instancia de Base de dato
 
 4. Haga clic en **Crear un nuevo recurso** o **Vincular un recurso existente**.
 
-5. Seleccione el tipo de recurso que desea vincular. En el [Portal de administración](http://manage.windowsazure.com/), haga clic en **Base de datos SQL**. (El Portal de administración de vista previa no admite la vinculación de una cuenta de almacenamiento con un servicio en la nube).
+5. Seleccione el tipo de recurso que desea vincular. En el [Portal de Azure clásico](http://manage.windowsazure.com/), haga clic en **Base de datos SQL**. (El Portal de vista previa de Azure clásico no admite la vinculación de una cuenta de almacenamiento con un servicio en la nube).
 
-6. Para completar la configuración de la base de datos, siga las instrucciones de ayuda para el área **Bases de datos SQL** del Portal de administración.
+6. Para completar la configuración de la base de datos, siga las instrucciones de ayuda para el área **Bases de datos SQL** del Portal de Azure clásico.
 
 	Puede seguir el progreso de la operación de vinculación en el área de mensajes.
 
@@ -121,13 +121,13 @@ El siguiente procedimiento describe cómo vincular una instancia de Base de dato
 
 ### Para desvincular un recurso vinculado
 
-1. En el [Portal de administración](http://manage.windowsazure.com/), haga clic en **Servicios en la nube**. A continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
+1. En el [Portal de Azure clásico](http://manage.windowsazure.com/), haga clic en **Servicios en la nube**. A continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
 
 2. Haga clic en **Recursos vinculados** y, a continuación, seleccione el recurso.
 
 3. Haga clic en **Desvincular**. Luego, haga clic en **Sí** en la solicitud de confirmación.
 
-	Desvincular una Base de datos SQL no tiene efecto en la base de datos ni en las conexiones de la aplicación con la base de datos. Todavía puede administrar la base de datos en el área **Bases de datos SQL** del Portal de administración.
+	Desvincular una Base de datos SQL no tiene efecto en la base de datos ni en las conexiones de la aplicación con la base de datos. Todavía puede administrar la base de datos en el área **Bases de datos SQL** del Portal de Azure clásico.
 
 
 
@@ -139,7 +139,7 @@ Para ahorrar en los costes de proceso, puede eliminar la implementación de ensa
 
 Use el siguiente procedimiento para eliminar una implementación o su servicio en la nube.
 
-1. En el [Portal de administración](http://manage.windowsazure.com/), haga clic en **Servicios en la nube**.
+1. En el [Portal de Azure clásico](http://manage.windowsazure.com/), haga clic en **Servicios en la nube**.
 
 2. Seleccione el servicio en la nube y, a continuación, haga clic en **Eliminar**. (Para seleccionar un servicio en la nube sin abrir el panel, haga clic en cualquier parte, salvo en el nombre de la entrada del servicio en la nube).
 
@@ -155,8 +155,7 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 
 5. Para eliminar el servicio en la nube, haga clic en **Eliminar servicio en la nube**. Luego, haga clic en **Sí** en la solicitud de confirmación.
 
-> [AZURE.NOTE]Si se configura una supervisión detallada para su servicio en la nube, Azure no elimina los datos de supervisión de la cuenta de almacenamiento al eliminar el servicio en la nube. Tendrá que eliminar los datos manualmente. Para obtener información acerca de dónde buscar las tablas de métricas, vea "Acceso a datos de supervisión detallada fuera del Portal de administración" en <a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">Supervisión de servicios en la nube</a>.
-
+> [AZURE.NOTE]Si se configura una supervisión detallada para su servicio en la nube, Azure no elimina los datos de supervisión de la cuenta de almacenamiento al eliminar el servicio en la nube. Tendrá que eliminar los datos manualmente. Para obtener información sobre dónde buscar las tablas de métricas, vea "Acceso a datos de supervisión detallada fuera del Portal de Azure clásico" en [Supervisión de servicios en la nube](cloud-services-how-to-monitor.md).
 
 ## Pasos siguientes
 
@@ -165,4 +164,4 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

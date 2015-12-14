@@ -48,7 +48,7 @@ A continuación se muestra un ejemplo de la aplicación .NET que supervisa la ta
 
 ## Para crear una máquina virtual
 
-1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com).
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
 2. Haga clic en **Nuevo**.
 3. Haga clic en **Máquina virtual**.
 4. Haga clic en **Creación rápida**.
@@ -57,11 +57,11 @@ A continuación se muestra un ejemplo de la aplicación .NET que supervisa la ta
 7. Escriba un nombre para el administrador en el campo **Nombre de usuario**. Recuerde este nombre y la contraseña que va a escribir a continuación ya que los utilizará cuando inicie sesión de forma remota en la máquina virtual.
 8. Escriba una contraseña en el campo **Contraseña nueva** y vuelva a especificarla en el campo **Confirmar**.
 9. En la lista desplegable **Ubicación**, seleccione la ubicación del centro de datos para la máquina virtual.
-10. Haga clic en **Crear máquina virtual**. Puede supervisar el estado en la sección **Máquinas virtuales** del Portal de Azure. Cuando el estado se muestre como **Activo**, podrá iniciar sesión en la máquina virtual.
+10. Haga clic en **Crear máquina virtual**. Puede supervisar el estado en la sección **Máquinas virtuales** del Portal de Azure clásico. Cuando el estado se muestre como **Activo**, podrá iniciar sesión en la máquina virtual.
 
 ## Para iniciar sesión de manera remota en la máquina virtual
 
-1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com).
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
 2. Haga clic en **Máquinas virtuales**.
 3. Haga clic en el nombre de la máquina virtual en la que desea iniciar sesión.
 4. Haga clic en **Conectar**.
@@ -73,9 +73,9 @@ Para comenzar a usar colas del Bus de servicio en Azure, primero debe crear un e
 
 Para crear un nombre de espacio de servicio:
 
-1.  Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com).
-2.  En el panel de navegación izquierdo del Portal de Azure, haga clic en **Bus de servicio**.
-3.  En el panel inferior del Portal de Azure, haga clic en **Crear**.
+1.  Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
+2.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Bus de servicio**.
+3.  En el panel inferior del Portal de Azure clásico, haga clic en **Crear**.
 
     ![Creación de un nuevo bus de servicio][create_service_bus]
 4.  En el cuadro de diálogo **Crear un espacio de nombres**, especifique un nombre para el espacio de nombres. El sistema realiza la comprobación de inmediato para ver si el nombre está disponible, ya que debe ser un nombre exclusivo.
@@ -90,7 +90,7 @@ Para crear un nombre de espacio de servicio:
 
 	![Captura de pantalla de hacer clic para crear][click_create]
 
-El espacio de nombres que creó aparecerá a continuación en el Portal de Azure y tardará un poco en activarse. Espere hasta que el estado sea **Activo** antes de continuar con el siguiente paso.
+El espacio de nombres que creó aparecerá a continuación en el Portal de Azure clásico y tardará un poco en activarse. Espere hasta que el estado sea **Activo** antes de continuar con el siguiente paso.
 
 ## Obtención de credenciales de administración predeterminadas para el espacio de nombres
 
@@ -539,7 +539,7 @@ El solucionador se ejecutará hasta que acabe de examinar todas las rutas.
 En ambas aplicaciones, el solucionador y el cliente, presione Ctrl+C para salir si desea acabar antes de la finalización normal.
 
 ## Alternativa a la creación y eliminación de la cola con TSPSolver
-En lugar de usar TSPSolver para crear o eliminar la cola, puede crear o eliminar la cola en el [Portal de Azure](https://manage.windowsazure.com). Consulte la sección del Bus de servicio del Portal de Azure para obtener acceso a las interfaces de usuario para la creación o eliminación de una cola, así como para la recuperación de la cadena de conexión, el emisor y la clave de acceso. También puede ver un panel de las colas del Bus de servicio, que le permitirá ver la métrica para los mensajes entrantes y salientes.
+En lugar de usar TSPSolver para crear o eliminar la cola, puede crear o eliminar la cola en el [Portal de Azure clásico](https://manage.windowsazure.com). Consulte la sección del Bus de servicio del Portal de Azure clásico para obtener acceso a las interfaces de usuario para la creación o la eliminación de una cola, así como para la recuperación de la cadena de conexión, el emisor y la clave de acceso. También puede ver un panel de las colas del Bus de servicio, que le permitirá ver la métrica para los mensajes entrantes y salientes.
 
 [solver_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
 [client_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png
@@ -550,4 +550,4 @@ En lugar de usar TSPSolver para crear o eliminar la cola, puede crear o eliminar
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

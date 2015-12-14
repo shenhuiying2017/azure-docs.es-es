@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Supervisión de un host Docker en Application Insights" 
-	description="En Application Insights se pueden mostrar los contadores de rendimiento, los eventos y las excepciones del host Docker, además de la telemetría de las aplicaciones en contenedor." 
+	pageTitle="Supervisar aplicaciones Docker en Application Insights" 
+	description="En Application Insights, se pueden mostrar los contadores de rendimiento, los eventos y las excepciones de Docker, además de la telemetría de las aplicaciones en contenedor." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,56 +12,80 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="12/01/2015" 
 	ms.author="awills"/>
  
-# Supervisión de un host Docker en Application Insights
+# Supervisar aplicaciones Docker en Application Insights
 
-En Application Insights puede representarse los contadores de rendimiento y los informes de excepciones de un host [Docker](https://www.docker.com/). Instale la aplicación [Application Insights](app-insights-overview.md) en un contenedor de su host, y se mostrarán los contadores de rendimiento generales del host, así como de las demás imágenes.
+Los eventos de ciclo de vida y los contadores de rendimiento de los contenedores [Docker](https://www.docker.com/) pueden mostrarse en gráficos en Application Insights. Instale la imagen de [Application Insights](app-insights-overview.md) en un contenedor del host y se mostrarán los contadores de rendimiento del host, así como de las demás imágenes.
 
 Con Docker, distribuye sus aplicaciones en contenedores ligeros junto con todas las dependencias. Estos contenedores se ejecutan en cualquier equipo host que ejecute un motor Docker.
 
-Application Insights puede supervisar el rendimiento y la actividad de los contenedores y el host Docker.
+Al ejecutar la [imagen de Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) en el host Docker, obtendrá estas ventajas:
+
+* Telemetría del ciclo de vida sobre todos los contenedores que se ejecutan en el host: start, stop, etc.
+* Contadores de rendimiento de todos los contenedores. CPU, memoria, uso de red y mucho más.
+* Si [instaló el SDK de Application Insights](app-insights-java-live.md) en las aplicaciones que se ejecutan en los contenedores, toda la telemetría de dichas aplicaciones tendrán propiedades adicionales que identifiquen el contenedor y el equipo host. De esta forma, si tiene, por ejemplo, instancias de una aplicación que se ejecuta en más de un host, podrá filtrar fácilmente los datos de telemetría de la aplicación en función del host.
 
 ![ejemplo](./media/app-insights-docker/00.png)
 
-(Y por supuesto, si usted es el propietario del origen de cualquiera de las aplicaciones de los contenedores, [instale el SDK de Application Insights](app-insights-java-live) en cada uno de ellos para obtener el registro detallado de rendimiento y el seguimiento de uso).
 
-## Creación de recursos en Application Insights
+## Configurar el recurso de Application Insights
 
-Un recurso de Application Insights es el lugar donde verá y analizará los datos. Se hospeda en el Portal de Microsoft Azure.
+1. Inicie sesión en el [Portal de Microsoft Azure](https://azure.com) y abra el recurso de Application Insights de la aplicación; o [cree uno nuevo](app-insights-create-new-resource.md). 
 
-1.	En primer lugar, necesita una suscripción a [Microsoft Azure](https://azure.com). (Hay una opción de pago por uso en la que no paga nada si no usa los servicios. Además, puede usar el nivel Gratis de Application Insights).
-2.	Inicie sesión en el [Portal de Azure](https://portal.azure.com) y cree un nuevo recurso de Application Insights. Elija Otro para el tipo de aplicación. (Esta opción solo afecta a la selección inicial de los gráficos que ve, y no es demasiado importante).
+    *¿Qué recurso debería usar?* Si las aplicaciones que se ejecutan en el host las desarrolló otra persona, deberá [crear un nuevo recurso de Application Insights](app-insights-create-new-resource.md). Es el sitio donde verá y analizará los datos de telemetría. (Seleccione "Otro" como tipo de aplicación).
 
-    ![ejemplo](./media/app-insights-docker/01-new.png)
-3.	Siempre puede llegar a su nuevo recurso de supervisión mediante la opción Examinar, Todo. Pero probablemente también opte por poner un icono para la aplicación en el panel de inicio que aparece cada vez que va al portal.
+    Pero si usted es el desarrollador de las aplicaciones, esperamos que [haya agregado el SDK de Application Insights](app-insights-java-live.md) a cada una de ellas. Si todos son realmente componentes de una aplicación empresarial única, puede configurarlas todas para que envíen telemetría a un recurso y usará ese mismo recurso para mostrar los datos de rendimiento y de ciclo de vida de Docker.
 
-    Abra ahora el nuevo recurso.
-4.	Agregue el icono de Docker; para ello, elija **Editar**, luego **Agregar iconos**, y arrastre el icono de Docker desde la galería. Al principio solo se muestran gráficos vacíos.
+    Un tercer escenario es que haya desarrollado la mayoría de las aplicaciones, pero use recursos independientes para mostrar sus datos de telemetría. En ese caso, probablemente también querrá crear un recurso independiente para los datos de Docker.
+
+2.	Agregue el icono de Docker; para ello, elija **Agregar icono**, arrastre el icono de Docker desde la galería y luego haga clic en **Listo**.
 
     ![ejemplo](./media/app-insights-docker/03.png)
 
-5. Haga clic en la lista desplegable **Essentials** y copie la clave de instrumentación. Se usará para indicar al SDK dónde puede enviar sus datos de telemetría.
+
+3. Haga clic en la lista desplegable **Essentials** y copie la clave de instrumentación. Se usará para indicar al SDK dónde puede enviar sus datos de telemetría.
+
+
+    ![ejemplo](./media/app-insights-docker/02-props.png)
 
 Tenga a mano la ventana del explorador, volverá a ella pronto para examinar los datos de telemetría.
 
 
-## Instalación de Application Insights en el host
+## Ejecutar la supervisión de Application Insights en el host
  
-Ahora que tiene algún sitio para mostrar los datos de telemetría, puede configurar la aplicación que los recopilará y enviará. 1. Inicie sesión en el host Docker. 2. Busque la imagen de Microsoft Application Insights en Docker Hub y extráigala en su host. 3. Establezca la clave de instrumentación:
+Ahora que tiene un lugar donde mostrar los datos de telemetría, puede configurar la aplicación del contenedor que los recopilará y enviará.
+
+1.	Conéctese al host Docker. 
+2.	Edite la clave de instrumentación de este comando y después ejecútelo:
+ 
+    ```
 
     docker run -v /var/run/docker.sock:/docker.sock -d microsoft/applicationinsights ikey=000000-1111-2222-3333-444444444
+    ```
 
-4. Ejecute la imagen.
+Solo es necesaria una imagen de Application Insights por cada host de Docker. Si la aplicación se implementa en varios hosts de Docker, repita el comando en todos los hosts.
+
+## Actualización de la aplicación
+
+Si la aplicación se instrumenta con el [SDK de Application Insights para Java](app-insights-java-get-started.md), agregue la siguiente línea en el archivo ApplicationInsights.xml del proyecto, en el elemento `<TelemetryInitializers>`:
+
+```xml
+
+    <Add type="com.microsoft.applicationinsights.extensibility.initializer.docker.DockerContextInitializer"/> 
+```
+
+Esto agrega información de Docker como el contenedor y el identificador de host a cada uno de los elementos de telemetría que se envían desde la aplicación.
 
 ## Visualización de la telemetría
 
 Vuelva al recurso de Application Insights en el Portal de Azure.
 
-Pronto verá los datos que llegan del contenedor de Docker, en especial si tiene otros contenedores que se ejecutan en el motor de Docker.
+Haga clic en el icono de Docker.
 
-Haga clic en cualquiera de los gráficos para ver su contenido con mayor detalle.
+Pronto verá que llegan datos desde la aplicación de Docker, especialmente si tiene otros contenedores que se ejecutan en el motor de Docker.
+
 
 Estas son algunas de las vistas que puede obtener.
 
@@ -70,21 +94,43 @@ Estas son algunas de las vistas que puede obtener.
 
 ![ejemplo](./media/app-insights-docker/10.png)
 
-Haga clic en cualquier nombre de imagen para más detalles. Para personalizar la vista, haga clic en cualquiera de los gráficos o en el encabezado de cuadrícula, o bien use Agregar gráfico.
 
-[Más información sobre el Explorador de métricas](app-insights-metrics-explorer.md).
-
-## Eventos individuales
+![ejemplo](./media/app-insights-docker/11.png)
 
 
-![ejemplo](./media/app-insights-docker/12.png)
 
-Para investigar eventos individuales, haga clic en [Búsqueda](app-insights-diagnostic-search.md). Busque y filtre para encontrar los eventos deseados. Haga clic en cualquier evento para más detalles.
+Haga clic en cualquier host o imagen para obtener más detalles.
+
+
+
+Para personalizar la vista, haga clic en cualquiera de los gráficos o en el encabezado de cuadrícula, o bien use Agregar gráfico.
+
+[Más información sobre el explorador de métricas](app-insights-metrics-explorer.md).
+
+### Eventos de contenedor Docker
+
+
+![ejemplo](./media/app-insights-docker/13.png)
+
+Para investigar eventos individuales, haga clic en [Buscar](app-insights-diagnostic-search.md). Busque y filtre para encontrar los eventos deseados. Haga clic en cualquier evento para más detalles.
  
-## Excepciones por el nombre del contenedor
+### Excepciones por el nombre del contenedor
  
 
 ![ejemplo](./media/app-insights-docker/14.png)
+
+### Contexto de Docker agregado a los datos de telemetría de la aplicación
+
+Solicite datos de telemetría enviados desde la aplicación instrumentada con el SDK de AI, enriquecidos con el contexto de Docker:
+
+![ejemplo](./media/app-insights-docker/16.png)
+
+Contadores de rendimiento de tiempo de procesador y memoria disponible, enriquecidos y agrupados según el nombre del contenedor de Docker:
+
+
+![ejemplo](./media/app-insights-docker/15.png)
+
+
 
 
 
@@ -98,6 +144,6 @@ Para investigar eventos individuales, haga clic en [Búsqueda](app-insights-diag
 
 *¿Cómo se obtienen datos de telemetría de la propia aplicación?*
 
-* Instale el SDK de Application Insights en la aplicación. Aprenda cómo para [aplicaciones web Java](app-insights-java-get-started.md) y [aplicaciones web de Windows](app-insights-asp-net.md).
+* Instale el SDK de Application Insights en la aplicación. Más información sobre: [aplicaciones web de Java](app-insights-java-get-started.md) y [aplicaciones web de Windows](app-insights-asp-net.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

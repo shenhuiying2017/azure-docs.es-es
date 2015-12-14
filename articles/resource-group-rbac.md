@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="11/28/2015"
    ms.author="tomfitz"/>
 
 # Administración del acceso a los recursos
@@ -26,10 +26,21 @@ Este tema se centra en los comandos que se utilizan para asignar roles y permiso
 
 Hay unos cuantos conceptos claves acerca del control de acceso basado en roles que conviene entender:
 
-1. Entidad de seguridad: la entidad que concede el permiso, por ejemplo, un usuario, un grupo de seguridad o aplicación.
-2. Rol: conjunto de acciones de permitidas
-3. Ámbito: el nivel al que se aplica un rol, como la suscripción, grupo de recursos o recurso.
-3. Asignación de rol: el proceso de agregar una entidad de seguridad a un rol y establecer el ámbito.
+1. Entidad de seguridad: la entidad que concede el permiso, por ejemplo, un usuario de Azure Active Directory, un grupo de seguridad o aplicación.
+2. Rol: un conjunto de acciones permitidas y excluidas.
+3. Acción: una acción que se realiza en un recurso (p. ej., leer, crear). 
+4. Ámbito: el nivel al que se aplica un rol, como la suscripción, grupo de recursos o recurso.
+5. Asignación de rol: el proceso de asociar una entidad de seguridad a un rol y establecer el ámbito.
+
+Puede obtener una lista de **acciones** admitidas mediante la herramienta de la CLI multiplataforma de Azure (xPlat) o el módulo de Azure PowerShell.
+
+Para la herramienta de la CLI multiplataforma de Azure, use el siguiente comando para enumerar **todas** las acciones para todos los proveedores de recursos.
+
+    azure provider operations show --operationSearchString '*';
+
+Si usa el módulo de PowerShell de Administrador de recursos de Azure (AzureRm), use el siguiente comando para enumerar **todas** las acciones para **todos** los proveedores de recursos.
+
+    Get-AzureRmProviderOperation -OperationSearchString *;
 
 ## Ejemplos de rol
 Para comprender los conceptos RBAC, echemos un vistazo a algunos ejemplos de definiciones de roles comunes:
@@ -113,11 +124,11 @@ Para ver todos los roles disponibles para la suscripción, ejecute el comando **
 
         PS C:\> Get-AzureRmRoleDefinition Contributor
 
-2. Obtenga el identificador del objeto de la entidad de seguridad de servicio mediante la ejecución del comando **Get-AzureRmADServicePrincipal** y el suministro del nombre de la aplicación en su suscripción. ExampleApplication se muestra a continuación.
+2. Obtenga el identificador del objeto de la entidad de servicio mediante la ejecución del comando **Get-AzureRmADServicePrincipal** y el suministro del nombre de la aplicación en su suscripción. ExampleApplication se muestra a continuación.
 
         PS C:\> $service = Get-AzureRmADServicePrincipal -SearchString ExampleApplicationName
 
-3. Cree las asignaciones de roles para la entidad de seguridad de servicio mediante la ejecución del comando **New-AzureRmRoleAssignment**.
+3. Cree las asignaciones de roles para la entidad de servicio mediante la ejecución del comando **New-AzureRmRoleAssignment**.
 
         PS C:\> New-AzureRmRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
 
@@ -134,7 +145,7 @@ Para obtener una explicación más completa de la configuración de una aplicaci
 
 
 ###Lista de los registros de auditoría del grupo de recursos.
-Para obtener el registro de auditoría de un grupo de recursos, ejecute el comando **Get-AzureRmLog** (o **Get-AzureResourceGroupLog** para las versiones de Azure PowerShell anteriores a la vista previa 1.0).
+Para obtener el registro de auditoría de un grupo de recursos, ejecute el comando **Get-AzureRmLog** (o **Get-AzureResourceGroupLog** para las versiones de Azure PowerShell anteriores a la versión preliminar 1.0).
 
       PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroupName
 
@@ -263,10 +274,10 @@ Cree la asignación de rol.
 ## Pasos siguientes
 
 - Para obtener más información sobre el control de acceso basado en roles, consulte [Control de acceso basado en roles en el Portal de Microsoft Azure](role-based-access-control-configure.md).
-- Para obtener más información sobre cómo trabajar con entidades de servicio para administrar el acceso a las aplicaciones de su suscripción, vea [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md) y [Creación de una nueva entidad de servicio de Azure mediante el portal de Azure](../resource-group-create-service-principal-portal.md).
+- Para obtener más información sobre cómo trabajar con entidades de servicio para administrar el acceso a las aplicaciones de su suscripción, vea [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md) y [Creación de una nueva entidad de servicio de Azure mediante el Portal de Azure clásico](../resource-group-create-service-principal-portal.md).
 - Para obtener más información sobre las operaciones de auditoría de su organización, consulte [Operaciones de auditoría con el Administrador de recursos](resource-group-audit.md).
 - Puede aplicar restricciones y convenciones a través de su suscripción con directivas personalizadas. Para obtener más información, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

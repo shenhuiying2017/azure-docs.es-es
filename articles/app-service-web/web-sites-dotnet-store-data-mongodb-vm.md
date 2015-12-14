@@ -419,7 +419,7 @@ En el **Explorador de soluciones**, abra el archivo *DAL/Dal.cs*. Busque la sigu
 
 	private string connectionString = "mongodb://<vm-dns-name>";
 
-Reemplace "`<vm-dns-name>`" por el nombre de DNS de la máquina virtual que ejecuta el MongoDB que creó en el paso [Creación de una máquina virtual e instalación de MongoDB de este tutorial][]. Para buscar el nombre de DNS de la máquina virtual, diríjase al Portal de administración de Azure, seleccione **Máquinas virtuales** y busque **Nombre DNS**.
+Reemplace "`<vm-dns-name>`" por el nombre de DNS de la máquina virtual que ejecuta el MongoDB que creó en el paso [Creación de una máquina virtual e instalación de MongoDB de este tutorial][]. Para buscar el nombre de DNS de la máquina virtual, diríjase al Portal de Azure, seleccione **Máquinas virtuales** y busque **Nombre DNS**.
 
 Si el nombre de DNS de la máquina virtual es "testlinuxvm.cloudapp.net" y MongoDB está escuchando en el puerto predeterminado 27017, la línea de la cadena de conexión del código tendrá la siguiente apariencia:
 
@@ -499,4 +499,4 @@ Para obtener más información sobre el desarrollo de aplicaciones C# en relaci�
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

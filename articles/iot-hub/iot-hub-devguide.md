@@ -47,9 +47,9 @@ Esta es una descripción de los extremos:
 * **Extremos de dispositivos**: para cada dispositivo aprovisionado en el registro de identidad del dispositivo, el Centro de IoT muestra un conjunto de extremos que se usan para comunicarse con ese dispositivo y desde él. Actualmente se exponen estos extremos en HTTP y [AMQP][lnk-amqp]\:
     - *Envío de mensajes de dispositivo a nube*. Este extremo se usa para enviar mensajes de dispositivo a nube. Para obtener más información, consulte [Mensajería de dispositivo a nube](#d2c).
     - *Recepción de mensajes de nube a dispositivo*. Este extremo lo usa el dispositivo para recibir mensajes de nube a dispositivos dirigidos. Para obtener más información, consulte [Mensajería de nube a dispositivo](#c2d).
-* **Extremos del servicio**: cada Centro de IoT también muestra un conjunto de extremos que usa el back-end de aplicaciones (*servicio*) para comunicarse con los dispositivos. Estos extremos se exponen actualmente usando solo el protocolo [AMQP][lnk-amqp].
+* **Extremos del servicio**: cada Centro de IoT también muestra un conjunto de puntos de conexión que usa el back-end de aplicaciones (*servicio*) para comunicarse con los dispositivos. Estos extremos se exponen actualmente usando solo el protocolo [AMQP][lnk-amqp].
     - *Recepción de mensajes de dispositivo a nube*. Este extremo es compatible con los [Centros de eventos de Azure][lnk-event-hubs] y puede usarse para leer todos los mensajes de dispositivo a nube enviados por los dispositivos. Para obtener más información, consulte [Mensajería de dispositivo a nube](#d2c).
-    - *Envío de mensajes de nube a dispositivo y recepción de confirmaciones de entrega*. Estos extremos permiten al back-end de aplicaciones enviar mensajes fiables de nube a dispositivo y recibir las confirmaciones de entrega o expiración correspondientes. Para obtener más información, consulte [Mensajería de nube a dispositivo](#c2d).
+    - *Envío de mensajes de nube a dispositivo y recepción de confirmaciones de entrega*. Estos puntos de conexión permiten al back-end de aplicaciones enviar mensajes fiables de nube a dispositivo y recibir las confirmaciones de entrega o expiración correspondientes. Para obtener más información, consulte [Mensajería de nube a dispositivo](#c2d).
 
 El artículo [API y SDK del Centro de IoT][lnk-apis-sdks] describe las distintas formas a las que se puede acceder a estos extremos.
 
@@ -59,7 +59,7 @@ Finalmente, es importante tener en cuenta que todos los extremos del Centro de I
 
 Al usar el [SDK de Bus de servicio de Azure para .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) o el [host del procesador de eventos de los centros de eventos][], puede usar cualquier cadena de conexión del Centro de IoT con los permisos correctos y después usar `messages/events` como nombre del centro de eventos.
 
-Cuando se usan SDK (o integraciones de productos) que no detectan el Centro de IoT, tiene que recuperar un punto de conexión y un nombre de centro de eventos compatibles con los centros de eventos en la configuración del Centro de IoT en el [Portal de vista previa de Azure][]\:
+Cuando se usan SDK (o integraciones de productos) que no detectan el Centro de IoT, tiene que recuperar un punto de conexión y un nombre de centro de eventos compatibles con los centros de eventos en la configuración del Centro de IoT en el [portal de Azure][]\:
 
 1. En la hoja del Centro de IoT, haga clic en **Configuración** y después e **Mensajería**,
 2. En la sección **Configuración de dispositivo a nube**, encontrará un cuadro **Extremo compatible con el Centro de eventos**, **Nombre compatible con el Centro de eventos** y **Particiones**.
@@ -193,7 +193,7 @@ El Centro de IoT usa el siguiente conjunto de *permisos* para conceder acceso al
 
 Se conceden permisos de las maneras siguientes:
 
-* **Directivas de acceso compartido de nivel de centro**. Las *directivas de acceso compartido* pueden conceder cualquier combinación de los permisos enumerados anteriormente. Puede definir las directivas en el [Portal de vista previa de Azure][lnk-management-portal] o mediante programación usando las [API del proveedor de recursos del Centro de IoT de Azure][lnk-resource-provider-apis]. Un Centro de IoT recién creado tiene las siguientes directivas predeterminadas:
+* **Directivas de acceso compartido de nivel de centro**. Las *directivas de acceso compartido* pueden conceder cualquier combinación de los permisos enumerados anteriormente. Puede definir las directivas en el [portal de Azure][lnk-management-portal] o mediante programación usando las [API del proveedor de recursos del Centro de IoT de Azure][lnk-resource-provider-apis]. Un Centro de IoT recién creado tiene las siguientes directivas predeterminadas:
 
     - *iothubowner*: directiva con todos los permisos
     - *service*: directiva con el permiso **ServiceConnect**
@@ -237,7 +237,7 @@ Estos son los valores esperados:
 
 Cada protocolo admitido (como HTTP y AMQP) transporta tokens de diferentes maneras.
 
-La autenticación de HTTP se implementa mediante la inclusión de un token válido en el encabezado de solicitud **Autorización**. Un parámetro de consulta llamado **Authorization** también puede transportar el token.
+La autenticación de HTTP se implementa mediante la inclusión de un token válido en el encabezado de solicitud **Authorization**. Un parámetro de consulta llamado **Authorization** también puede transportar el token.
 
 Al usar [AMQP][lnk-amqp], el Centro de IoT admite [SASL PLAIN][lnk-sasl-plain] y [seguridad basada en notificaciones AMQP][lnk-cbs].
 
@@ -352,7 +352,7 @@ Un Centro de IoT expone las propiedades siguientes para controlar la mensajería
 
 Además, de forma análoga a los Centros de eventos, el Centro de IoT permite la administración de los grupos de consumidores en el extremo de recepción del dispositivo a nube.
 
-Puede modificar todas estas propiedades mediante el [Portal de vista previa de Azure][lnk-management-portal], o por medio de programación con las [API del proveedor de recursos del Centro de IoT de Azure][lnk-resource-provider-apis].
+Puede modificar todas estas propiedades mediante el [Portal de Azure][lnk-management-portal], o por medio de programación con las [API del proveedor de recursos del Centro de IoT de Azure][lnk-resource-provider-apis].
 
 #### Propiedades contra la suplantación <a id="antispoofing"></a>
 
@@ -491,7 +491,7 @@ Ahora que vio información general sobre el desarrollo del Centro de IoT, siga e
 
 [host del procesador de eventos de los centros de eventos]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
 
-[Portal de vista previa de Azure]: https://portal.azure.com
+[portal de Azure]: https://portal.azure.com
 
 [img-summary]: ./media/iot-hub-devguide/summary.png
 [img-endpoints]: ./media/iot-hub-devguide/endpoints.png
@@ -532,4 +532,4 @@ Ahora que vio información general sobre el desarrollo del Centro de IoT, siga e
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

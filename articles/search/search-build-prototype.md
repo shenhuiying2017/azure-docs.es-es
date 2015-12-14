@@ -44,7 +44,7 @@ Para cargar archivos de datos y de esquema con el código de la aplicación de e
 
 ## Prueba de la solución de prototipo en el sistema
 
-1. [Creación de un servicio Búsqueda de Azure en el portal de Azure](search-create-service-portal.md).
+1. [Cree un servicio Búsqueda de Azure en el Portal de Azure clásico](search-create-service-portal.md).
 
     Puede agregar una versión compartida (gratuita) del servicio a cualquier suscripción de Azure. El servicio compartido suele usarse para los prototipos. Tenga en cuenta que el servicio compartido proporciona un total de 50 MB de datos o de 10.000 documentos, lo que suceda primero. Además, los datos y documentos pueden repartirse en un máximo de tres índices.
 
@@ -133,4 +133,4 @@ Visite estos vínculos para obtener más información:
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

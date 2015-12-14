@@ -22,12 +22,12 @@
 # Creación e implementación de un servicio en la nube
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-create-deploy.md)
-- [Azure Preview Portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
+- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
 
-El Portal de Azure ofrece dos formas de crear e implementar un servicio en la nube: **Creación rápida** y **Creación personalizada**.
+El Portal de Azure clásico le ofrece dos formas de crear e implementar un servicio en la nube: **Creación rápida** y **Creación personalizada**.
 
-En este tema se explica cómo usar el método Creación rápida para crear un nuevo servicio en la nube y, luego, usar **Cargar** para cargar e implementar un paquete de servicios en la nube en Azure. Cuando usa este método, el Portal de Azure pone a su disposición los vínculos pertinentes para completar todos los requisitos que vaya necesitando sobre la marcha. Si está listo para implementar su servicio en la nube una vez creado, puede hacer las dos cosas a la vez usando **Creación personalizada**.
+En este tema se explica cómo usar el método Creación rápida para crear un nuevo servicio en la nube y, luego, usar **Cargar** para cargar e implementar un paquete de servicios en la nube en Azure. Cuando usa este método, el Portal de Azure clásico pone a su disposición los vínculos pertinentes para completar todos los requisitos que vaya necesitando sobre la marcha. Si está listo para implementar su servicio en la nube una vez creado, puede hacer las dos cosas a la vez usando **Creación personalizada**.
 
 > [AZURE.NOTE]Si tiene pensado publicar su servicio en la nube desde Visual Studio Team Services (VSTS), use Creación rápida y, a continuación, configure la publicación VSTS desde **Creación rápida** o el panel. Para obtener más información, consulte [Entrega continua a Azure usando Visual Studio Team Services][TFSTutorialForCloudService] o la ayuda de la página **Inicio rápido**.
 
@@ -61,12 +61,12 @@ Hay tres características del servicio en la nube que requieren configuraciones 
 
 - Si hay instancias de rol que necesitan certificados, créelos. Los servicios en la nube requieren un archivo .pfx con una clave privada. Puede cargar los certificados en Azure mientras crea e implementa el servicio en la nube. Para obtener más información acerca de los certificados, consulte [Administrar certificados](http://msdn.microsoft.com/library/gg981929.aspx).
 
-- Si tiene pensado implementar el servicio en la nube en un grupo de afinidad, cree dicho grupo. Puede usar un grupo de afinidad para implementar su servicio en la nube y otros servicios de Azure en la misma ubicación de una región. Puede crear el grupo de afinidad en el área **Redes** del Portal de administración, en la página **Grupos de afinidad**. Para obtener más información, consulte [Crear un grupo de afinidad en el Portal de administración](http://msdn.microsoft.com/library/jj156209.aspx).
+- Si tiene pensado implementar el servicio en la nube en un grupo de afinidad, cree dicho grupo. Puede usar un grupo de afinidad para implementar su servicio en la nube y otros servicios de Azure en la misma ubicación de una región. Puede crear el grupo de afinidad en el área **Redes** del Portal de Azure clásico, en la página **Grupos de afinidad**. Para obtener más información, consulte [Crear un grupo de afinidad en el Portal de Azure clásico](http://msdn.microsoft.com/library/jj156209.aspx).
 
 
 ## Creación de un servicio en la nube usando Creación rápida
 
-1. En el [Portal de administración](http://manage.windowsazure.com/), haga clic en **Nuevo** > **Proceso** > **Servicio en la nube** > **Creación rápida**.
+1. En el [Portal de Azure clásico](http://manage.windowsazure.com/), haga clic en **Nuevo** > **Proceso** > **Servicio en la nube** > **Creación rápida**.
 
 	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
@@ -87,7 +87,7 @@ Hay tres características del servicio en la nube que requieren configuraciones 
 
 ## Carga de un certificado para un servicio en la nube
 
-1. En el [Portal de administración](http://manage.windowsazure.com/), haga clic en **Servicios en la nube**, haga clic en el nombre del servicio en la nube y, a continuación, haga clic en **Certificados**.
+1. En el [Portal de Azure clásico](http://manage.windowsazure.com/), haga clic en **Servicios en la nube**, en el nombre del servicio en la nube y, a continuación, en **Certificados**.
 
 	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
 
@@ -108,7 +108,7 @@ Hay tres características del servicio en la nube que requieren configuraciones 
 
 ## Implementación de un servicio en la nube
 
-1. En el [Portal de administración](http://manage.windowsazure.com/), haga clic en **Servicios en la nube**, haga clic en el nombre del servicio en la nube y, a continuación, haga clic en **Panel**.
+1. En el [Portal de Azure clásico](http://manage.windowsazure.com/), haga clic en **Servicios en la nube**, en el nombre del servicio en la nube y, a continuación, en **Panel**.
 
 	El panel se abre en el entorno de producción y, en este punto, puede seleccionar Staging para implementar la aplicación en el entorno de ensayo. Para obtener más información, consulte [Administrar implementaciones en Azure](http://msdn.microsoft.com/library/gg433027.aspx).
 
@@ -153,4 +153,4 @@ Hay tres características del servicio en la nube que requieren configuraciones 
 * [Administración de su servicio en la nube](cloud-services-how-to-manage.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

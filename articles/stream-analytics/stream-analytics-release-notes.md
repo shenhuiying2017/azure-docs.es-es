@@ -24,7 +24,7 @@ Esta versión contiene la siguiente actualización.
 
 Título | Descripción
 ---|---
-Nuevo comportamiento de SELECT | SELECT en el Análisis de transmisiones se ha ampliado para permitir * como descriptor de acceso de propiedad de un registro anidado. Para obtener más información, consulte [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Tipos de dato complejo").
+Nuevo comportamiento de SELECT | SELECT en el Análisis de transmisiones se ha ampliado para permitir * como descriptor de acceso de propiedad de un registro anidado. Para obtener más información, consulte [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Tipos de datos complejos").
 
 ## Notas de la versión de Análisis de transmisiones del 22/10/2015 ##
 
@@ -45,7 +45,7 @@ Esta versión contiene las siguientes actualizaciones.
 Título | Descripción
 ---|---
 Vista previa pública de Conjunto de aplicaciones de IoT de Azure | Análisis de transmisiones se incluye en la vista previa pública de Conjunto de aplicaciones de IoT de Azure.
-Integración del Portal de vista previa de Azure | Además de presencia continua en el Portal de administración de Azure, Análisis de transmisiones ahora se integra en el [Portal de vista previa de Azure](http://azure.microsoft.com/overview/preview-portal/). Tenga en cuenta que la funcionalidad del Análisis de transmisiones en el Portal de vista previa actualmente es un subconjunto de la funcionalidad ofrecida en el Portal de administración de Azure, sin soporte para pruebas de consultas en el explorador, configuración de salida de Power BI y exploración o creación de nuevos recursos de entrada y salida en suscripciones a las que tiene acceso.
+Integración del Portal de Azure | Además de seguir presente en el Portal de Azure clásico, Análisis de transmisiones ahora se integra en el [Portal de Azure](http://azure.microsoft.com/overview/preview-portal/). Tenga en cuenta que la funcionalidad del Análisis de transmisiones en el portal actualmente es un subconjunto de la funcionalidad ofrecida en el Portal de Azure clásico, sin soporte para pruebas de consultas en el explorador, configuración de salida de Power BI y exploración o creación de nuevos recursos de entrada y salida en suscripciones a las que tiene acceso.
 Soporte técnico para la salida de DocumentDB | Los trabajos de Análisis de transmisiones ahora se pueden enviar a [DocumentDB](http://azure.microsoft.com/services/documentdb/).
 Compatibilidad para entrada de Centro de IoT | Los trabajos de Análisis de transmisiones ahora pueden introducir datos de los Centros de IoT.
 TIMESTAMP BY para eventos heterogéneos | Cuando un único flujo de datos contiene varios tipos de eventos con marcas de tiempo en los distintos campos, ahora puede usar [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) con expresiones para especificar diferentes campos de marca de tiempo para cada caso.
@@ -56,7 +56,7 @@ Esta versión contiene las siguientes actualizaciones.
 
 Título|Descripción
 ---|---
-Soporte para grupos de PowerBI|Para habilitar el uso compartido de datos con otros usuarios de Power BI, los trabajos de Análisis de transmisiones ahora pueden escribir a [grupos de PowerBI](stream-analytics-define-outputs.md#power-bi) dentro de su cuenta de Power BI.
+Soporte para grupos de PowerBI|Para habilitar el uso compartido de datos con otros usuarios de Power BI, los trabajos de Análisis de transmisiones ahora pueden escribir en [grupos de PowerBI](stream-analytics-define-outputs.md#power-bi) dentro de su cuenta de Power BI.
 
 ## Notas de la versión de Análisis de transmisiones del 20/08/2015 ##
 
@@ -74,7 +74,7 @@ Esta versión contiene las siguientes actualizaciones.
 
 Título|Descripción
 ---|---
-Identificador de organización de BI energía desacoplado del identificador de Azure|Esta característica habilita la [salida de Power BI](stream-analytics-power-bi-dashboard.md) para trabajos de ASA en cualquier tipo de cuenta de Azure (Live Id o Id. de organización). Además, puede tener un identificador de organización para su cuenta de Azure y usar otros distinto para autorizar la salida de Power BI.
+Identificador de organización de BI energía desacoplado del identificador de Azure|Esta característica habilita la [salida de Power BI](stream-analytics-power-bi-dashboard.md) para trabajos de ASA en cualquier tipo de cuenta de Azure (Live ID o identificador de organización). Además, puede tener un identificador de organización para su cuenta de Azure y usar otros distinto para autorizar la salida de Power BI.
 Compatibilidad con la salida de Colas del Bus de servicio|Las salidas de [Colas del Bus de servicio](stream-analytics-connect-data-event-outputs.md#service-bus-queues) ahora están disponibles en los trabajos de Análisis de transmisiones.
 Compatibilidad con la salida de Temas del Bus de servicio|Las salidas de [Temas del Bus de servicio](stream-analytics-connect-data-event-outputs.md#service-bus-topics) ahora están disponibles en los trabajos de Análisis de transmisiones.
 
@@ -124,4 +124,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/19/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Exploración de registros de seguimiento de .NET en Application Insights  
@@ -79,6 +79,7 @@ Por ejemplo, puede:
 * Encontrar otros informes de telemetría relacionados con la misma solicitud de usuario (es decir, con el mismo OperationId) 
 * Guardar la configuración de esta página como favorita
 
+> [AZURE.NOTE]**Muestreo.** Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Obtenga más información sobre el muestreo.](app-insights-sampling.md)
 
 ## Pasos siguientes
 
@@ -104,6 +105,10 @@ A veces, el paso de todos los eventos y solicitudes por la canalización puede l
 
 Hasta 500 eventos por segundo de cada aplicación. Los eventos se conservan durante siete días.
 
+### No veo algunas de las entradas del registro que esperaba
+
+Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Obtenga más información sobre el muestreo.](app-insights-sampling.md)
+
 ## <a name="add"></a>Pasos siguientes
 
 * [Configuración de pruebas de disponibilidad y de capacidad de respuesta][availability]
@@ -124,4 +129,4 @@ Hasta 500 eventos por segundo de cada aplicación. Los eventos se conservan dura
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

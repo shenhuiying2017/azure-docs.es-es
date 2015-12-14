@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Supervisión de un servicio en la nube | Microsoft Azure" 
-	description="Vea cómo supervisar servicios en la nube usando el Portal de administración de Azure." 
+	description="Vea cómo supervisar servicios en la nube usando el Portal de Azure clásico." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="rboucher" 
@@ -21,9 +21,9 @@
 
 [AZURE.INCLUDE [declinación de responsabilidades](../../includes/disclaimer.md)]
 
-Puede supervisar las métricas de rendimiento principales de sus servicios en la nube en el Portal de administración de Azure. También es posible configurar el nivel de supervisión a mínimo o detallado para cada rol del servicio, así como personalizar la visualización de la supervisión. Los datos de la supervisión detallada se almacenan en una cuenta de almacenamiento, a la que puede obtener acceso fuera del portal.
+Puede supervisar las métricas de rendimiento principales de sus servicios en la nube en el Portal de Azure clásico. También es posible configurar el nivel de supervisión a mínimo o detallado para cada rol del servicio, así como personalizar la visualización de la supervisión. Los datos de la supervisión detallada se almacenan en una cuenta de almacenamiento, a la que puede obtener acceso fuera del portal.
 
-En el Portal de administración, puede configurar muchos parámetros de las visualizaciones de la supervisión. Puede elegir las métricas que desee supervisar en la lista de métricas, en la página **Supervisión**, así como las métricas que desea mostrar en los gráficos de métricas de la página **Supervisión** y del panel.
+En el Portal de Azure clásico, puede configurar muchos parámetros de las visualizaciones de la supervisión. Puede elegir las métricas que desee supervisar en la lista de métricas, en la página **Supervisión**, así como las métricas que desea mostrar en los gráficos de métricas de la página **Supervisión** y del panel.
 
 ##Conceptos##
 
@@ -38,7 +38,7 @@ Tenga en cuenta que la activación de la supervisión detallada aumentará los c
 
 ##Configuración de la supervisión para los servicios en la nube##
 
-Utilice los siguientes procedimientos para configurar la supervisión detallada o mínima en el Portal de administración.
+Use los siguientes procedimientos para configurar la supervisión detallada o mínima en el Portal de Azure clásico.
 
 ###Antes de empezar###
 
@@ -62,25 +62,25 @@ Asegúrese de que la cadena de conexión de diagnóstico está presente en la co
 
 ###Para cambiar el nivel de supervisión a detallado o mínimo###
 
-1. En el [Portal de administración](https://manage.windowsazure.com/), abra la página **Configurar** de la implementación del servicio en la nube.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com/), abra la página **Configurar** de la implementación del servicio en la nube.
 
 2. En **Nivel**, haga clic en **Detallado** o **Mínimo**.
 
 3. Haga clic en **Guardar**.
 
-Después de activar la supervisión detallada, debería empezar a ver los datos de supervisión en el Portal de administración en menos de una hora.
+Después de activar la supervisión detallada, debería empezar a ver los datos de supervisión en el Portal de Azure clásico en menos de una hora.
 
 Los datos del contador de rendimiento y los datos de supervisión agregados se almacenan en la cuenta de almacenamiento, en tablas, en función del identificador de implementación de los roles.
 
 ##Recepción de alertas de métricas de servicios en la nube##
 
-Puede recibir alertas basadas en las métricas de supervisión de los servicios en la nube. En la página de **Servicios de administración** del Portal de administración de Azure, puede crear una regla para desencadenar una alerta cuando la métrica seleccionada alcance el valor que haya especificado. Puede también elegir que se envíe un correo electrónico cuando se desencadene la alerta. Para obtener más información, consulte [Recepción notificaciones de alerta y administración de reglas de alerta en Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
+Puede recibir alertas basadas en las métricas de supervisión de los servicios en la nube. En la página de **Servicios de administración** del Portal de Azure clásico, puede crear una regla para desencadenar una alerta cuando la métrica seleccionada alcance el valor que haya especificado. Puede también elegir que se envíe un correo electrónico cuando se desencadene la alerta. Para obtener más información, consulte [Recepción notificaciones de alerta y administración de reglas de alerta en Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
 
 ##Adición de métricas a la tabla de métricas##
 
-1. En el [Portal de administración](http://manage.windowsazure.com/), abra la página **Supervisión** del servicio en la nube.
+1. En el [Portal de Azure clásico](http://manage.windowsazure.com/), abra la página **Supervisión** del servicio en la nube.
 
-	La tabla de métricas muestra de forma predeterminada un subconjunto de las métricas disponibles. La ilustración muestra las métricas detalladas predeterminadas de un servicio en la nube, que están limitadas al contador de rendimiento Memoria/MBytes disponibles, con datos agregados en el nivel del rol. Use **Agregar métricas** para seleccionar las métricas agregadas y de nivel del rol adicionales que desee supervisar en el Portal de administración.
+	La tabla de métricas muestra de forma predeterminada un subconjunto de las métricas disponibles. La ilustración muestra las métricas detalladas predeterminadas de un servicio en la nube, que están limitadas al contador de rendimiento Memoria/MBytes disponibles, con datos agregados en el nivel del rol. Use **Agregar métricas** para seleccionar las métricas agregadas y de nivel del rol adicionales que quiera supervisar en el Portal de Azure clásico.
 
 	![Visualización detallada](./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png)
  
@@ -133,7 +133,7 @@ Para mostrar los contadores de rendimiento personalizados en el portal, es preci
 	</PerformanceCounterConfiguration>
 	```
 4. Guarde los cambios y vuelva a cargar el archivo de configuración en la misma ubicación, sobrescribiendo el archivo existente en el blob.
-5. Alterne al modo Detallado de la configuración del Portal de administración. Si ya estaba en dicho modo, tendrá que alternar a Mínimo y volver a Detallado.
+5. Alterne al modo Detallado de la configuración del Portal de Azure clásico. Si ya estaba en dicho modo, tendrá que alternar a Mínimo y volver a Detallado.
 6. El contador de rendimiento personalizado estará disponible en el cuadro de diálogo **Agregar métricas**. 
 
 ##Personalización del gráfico de métricas##
@@ -167,7 +167,7 @@ Para mostrar los contadores de rendimiento personalizados en el portal, es preci
 
 4. Elija 1 hora, 24 horas o 7 días para visualizar los datos correspondientes.
 
-##Acceso a los datos de supervisión detallada fuera del Portal de administración##
+##Acceso a los datos de supervisión detallada fuera del Portal de Azure clásico##
 
 Los datos de la supervisión detallada se almacenan en tablas en las cuentas de almacenamiento que ha especificado para cada rol. Para cada implementación de servicios en la nube, se crean seis tablas para el rol. Se crean dos tablas en cada intervalo (5 minutos, 1 hora y 12 horas). Una de estas tablas almacena los agregados a nivel de rol y, la otra, los agregados de las instancias de rol.
 
@@ -192,4 +192,4 @@ Por ejemplo, las tablas siguientes almacenarían datos de supervisión detallado
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

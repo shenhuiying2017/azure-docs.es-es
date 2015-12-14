@@ -20,7 +20,7 @@
 
 Compruebe el rendimiento de su aplicación web antes de iniciarla o de implementar actualizaciones en la producción. De esa manera, puede evaluar mejor si su aplicación está lista para publicarse. Siéntase más seguro de que su aplicación puede controlar el tráfico durante el uso máximo o en su siguiente inserción de marketing.
 
-Durante la vista previa pública, puede probar el rendimiento de su aplicación de forma gratuita en el Portal de vista previa de Azure. Estas pruebas simulan la carga del usuario en la aplicación durante un período de tiempo específico y miden la respuesta de la aplicación. Por ejemplo, los resultados de las pruebas muestran la rapidez de la aplicación para responder a un número específico de usuarios. También muestran cuántas solicitudes tienen error, lo que podría indicar problemas con su aplicación.
+Durante la vista previa pública, puede probar el rendimiento de su aplicación de forma gratuita en el Portal de Azure. Estas pruebas simulan la carga del usuario en la aplicación durante un período de tiempo específico y miden la respuesta de la aplicación. Por ejemplo, los resultados de las pruebas muestran la rapidez de la aplicación para responder a un número específico de usuarios. También muestran cuántas solicitudes tienen error, lo que podría indicar problemas con su aplicación.
 
 ![Encontrar problemas de rendimiento en su aplicación web][TestOverview]
 
@@ -34,7 +34,7 @@ Durante la vista previa pública, puede probar el rendimiento de su aplicación 
 
 ## Configurar y ejecutar la prueba de rendimiento
 
-0.	Inicie sesión en el [Portal de vista previa de Azure][AzurePortal]. Para usar una cuenta de Visual Studio Team Services que posea, inicie sesión como propietario de la cuenta.
+0.	Inicie sesión en el [Portal de Azure][AzurePortal]. Para usar una cuenta de Visual Studio Team Services que posea, inicie sesión como propietario de la cuenta.
 
 0.	Vaya a la aplicación web.
 
@@ -76,7 +76,7 @@ Agradecemos sus comentarios. Para preguntas o problemas, póngase en contacto co
 
 #### P: ¿Hay un límite en el tiempo durante el cual puedo ejecutar una prueba? 
 
-R: Sí, puede ejecutar la prueba hasta una hora en el Portal de vista previa de Azure.
+R: Sí, puede ejecutar la prueba como máximo durante una hora en el Portal de Azure.
 
 #### P: ¿Cuánto tiempo puedo ejecutar las pruebas de rendimiento? 
 
@@ -84,7 +84,7 @@ R: Tras la vista previa pública, obtendrá 20.000 minutos de usuarios virtuales
 
 #### P: ¿Dónde puedo comprobar cuántos VUM he usado hasta ahora?
 
-R: Puede comprobar este importe en el portal de vista previa de Azure.
+R: Puede comprobar este importe en el Portal de Azure.
 
 ![Ir a su cuenta de VSTS][VSTSAccount]
 
@@ -112,4 +112,4 @@ R: Para encontrar su cuenta nueva, vaya a ```https://{accountname}.visualstudio.
 [AzureFreeTrial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [WhatIsVSTS]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

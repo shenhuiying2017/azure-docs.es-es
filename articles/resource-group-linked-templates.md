@@ -102,6 +102,12 @@ En el ejemplo siguiente se muestra cómo usar una dirección URL base para crear
         }
     }
 
+También puede usar la función [deployment()](resource-group-template-functions.md/#deployment) para obtener la dirección URL base para la plantilla actual y usar esta información para obtener la dirección URL de otras plantillas en la misma ubicación. Esto resulta útil si cambia la ubicación de la plantilla (probablemente debido al control de versiones) o desea evitar la codificación de forma rígida de las direcciones URL en el archivo de plantilla.
+
+    "variables": {
+        "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
+    }
+
 ## Paso de valores de nuevo desde una plantilla vinculada
 
 Si necesita pasar un valor de una plantilla vinculada a la plantilla principal, puede crear un valor en la sección de **resultados** de la plantilla vinculada. Para obtener un ejemplo, consulte [Uso compartido del estado en las plantillas del Administrador de recursos de Azure](best-practices-resource-manager-state.md).
@@ -110,4 +116,4 @@ Si necesita pasar un valor de una plantilla vinculada a la plantilla principal, 
 - [Creación de plantillas](./resource-group-authoring-templates.md)
 - [Implementación de plantillas](resource-group-template-deploy.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

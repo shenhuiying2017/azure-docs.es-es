@@ -13,14 +13,25 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="09/29/2015"
+	ms.date="11/30/2015"
 	ms.author="kenhoff"/>
 
 # Búsqueda de informes de Azure Active Directory
 
+## Artículos de documentación de informes
+
+ - [API de Informes](active-directory-reporting-api-getting-started.md)
+ - [Eventos de auditoría](active-directory-reporting-audit-events.md)
+ - [Retención](active-directory-reporting-retention.md)
+ - [Vistas previas](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [Reposición](active-directory-reporting-backfill.md)
+ - [Latencias](active-directory-reporting-latencies.md)
+ - [Evento "Actor desconocido"](active-directory-reporting-unknown-actor.md)
+
 Azure Active Directory proporciona a los administradores de directorio la capacidad de buscar eventos de auditoría, actividad y seguridad del usuario entre varios informes.
 
-Para encontrar el panel de búsqueda, vaya hasta el **Portal de administración de Azure -> Azure Active Directory -> Informes.** El panel puede encontrarse en la parte superior de la lista de informes.
+Para encontrar el panel de búsqueda, vaya al **Portal de administración de Azure -> Azure Active Directory -> Informes**. El panel puede encontrarse en la parte superior de la lista de informes.
 
 Para buscar eventos de actividad o de auditoría para un determinado usuario, seleccione un intervalo de fechas en los campos De y Para, escriba el nombre para mostrar o el UPN del usuario y haga clic en el botón de marca de verificación.
 
@@ -56,4 +67,4 @@ Uso de dispositivos RMS | No
  - [Informes de Azure Active Directory](active-directory-view-access-usage-reports.md)
  - [Eventos de auditoría de informes de Azure Active Directory](active-directory-reporting-audit-events.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

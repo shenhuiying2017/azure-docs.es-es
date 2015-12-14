@@ -90,9 +90,9 @@ En esta sección, usará una plantilla de [Administrador de recursos de Azure](.
         ./deploy-deis.sh -n "[resource group name]" -l "West US" -f ./azuredeploy.json -e ./azuredeploy-parameters.json
         -c ./cloud-config.yaml  
 
-11. Una vez que se ha aprovisionado el grupo de recursos, puede ver todos los recursos del grupo en el Portal de Azure. Como se muestra en la siguiente captura de pantalla, el grupo de recursos contiene una red virtual con tres máquinas virtuales que se han unido al mismo conjunto de disponibilidad. El grupo también contiene un equilibrador de carga, que tiene una dirección IP pública asociada.
+11. Una vez que se ha aprovisionado el grupo de recursos, puede ver todos los recursos del grupo en el Portal de Azure clásico. Como se muestra en la siguiente captura de pantalla, el grupo de recursos contiene una red virtual con tres máquinas virtuales que se han unido al mismo conjunto de disponibilidad. El grupo también contiene un equilibrador de carga, que tiene una dirección IP pública asociada.
 
-  ![El grupo de recursos aprovisionado en el Portal de Azure](media/virtual-machines-deis-cluster/resource-group.png)
+  ![Grupo de recursos aprovisionado en el Portal de Azure clásico](media/virtual-machines-deis-cluster/resource-group.png)
 
 ## Instalar el cliente
 
@@ -113,7 +113,7 @@ Necesita **deisctl** para controlar su clúster Deis. Aunque deisctl se instala 
 
         export DEISCTL_TUNNEL=[public ip of the load balancer]:2223
 
-La plantilla define reglas NAT de entrada que asignan 2223 a la instancia 1, 2224 a la instancia 2 y 2225 a la instancia 3. Esto proporciona redundancia para el uso de la herramienta deisctl. Puede examinar estas reglas en el Portal de Azure:
+La plantilla define reglas NAT de entrada que asignan 2223 a la instancia 1, 2224 a la instancia 2 y 2225 a la instancia 3. Esto proporciona redundancia para el uso de la herramienta deisctl. Puede examinar estas reglas en el Portal de Azure clásico:
 
 ![Reglas NAT en el equilibrador de carga](media/virtual-machines-deis-cluster/nat-rules.png)
 
@@ -258,4 +258,4 @@ En este artículo le guiamos a través de todos los pasos para aprovisionar un n
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -31,7 +31,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
 ## <a name="register"> </a>Registro de la aplicación con Google
 
-1. Inicie sesión en el [Portal de administración de Azure] y vaya a la aplicación. Copie la **Dirección URL**. La usará para configurar la aplicación de Google.
+1. Inicie sesión en el [Portal de Azure] y vaya a la aplicación. Copie la **Dirección URL**. La usará para configurar la aplicación de Google.
  
 2. Diríjase al sitio web [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303), inicie sesión con las credenciales de su cuenta de Google, haga clic en **Crear proyecto**, proporcione un **Nombre de proyecto**, y haga clic en **Crear**.
 
@@ -58,7 +58,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 > [AZURE.NOTE]Si usa la puerta de enlace del Servicio de aplicaciones, omita esta sección y en su lugar, vaya a la puerta de enlace en el portal. Seleccione **Configuración**, **Identidad** y, luego, **Google**. Pegue los valores que obtuvo anteriormente y haga clic en **Guardar**.
 
 
-8. De nuevo en el [Portal de administración de Azure], vaya a la aplicación. Haga clic en **Configuración** y luego en **Autenticación o autorización**.
+8. Vuelva al [Portal de Azure] y vaya a la aplicación. Haga clic en **Configuración** y luego en **Autenticación o autorización**.
 
 9. Si esta característica no está habilitada, mueva el interruptor a la posición de **activada**.
 
@@ -90,7 +90,7 @@ De este modo ya estará listo para usar Google para realizar la autenticación e
 
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 
-[Portal de administración de Azure]: https://portal.azure.com/
+[Portal de Azure]: https://portal.azure.com/
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

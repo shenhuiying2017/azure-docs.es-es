@@ -59,4 +59,4 @@ La creación de DocumentDB como una salida en Análisis de transmisiones genera 
 -   **Clave de partición**: el nombre del campo en los eventos de salida que se utiliza para especificar la clave de la salida de la creación de particiones entre colecciones. Para una salida de colección sencilla, se puede utilizar cualquier columna de salida arbitraria (por ejemplo, PartitionId).  
 -   **Identificador de documento**: opcional. Nombre del campo de los eventos de salida utilizado para especificar la clave principal en la que se basan las operaciones de inserción o actualización.  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -19,15 +19,15 @@
 # Herramientas de administración para Almacenamiento de datos SQL
 En este tema se examinan y comparan distintas herramientas y opciones para administrar Almacenamiento de datos SQL, con objeto de que se elija la herramienta adecuada para cada necesidad específica. Elegir la herramienta adecuada depende del número de bases de datos que administre, la tarea y la frecuencia con la que se realiza una tarea.
 
-## Portal de Azure
-El [Portal de Azure][] es un portal de administración basado en web donde se pueden crear, actualizar y eliminar bases de datos, así como supervisar recursos de bases de datos. Es una herramienta muy útil si se está empezando a trabajar con Azure, se administran pocas bases de datos de almacenamiento de datos o hay que hacer algo rápidamente.
+## Portal de Azure clásico
+El [Portal de Azure clásico][] es un portal clásico basado en web donde se pueden crear, actualizar y eliminar bases de datos, así como supervisar recursos de bases de datos. Es una herramienta muy útil si se está empezando a trabajar con Azure, se administran pocas bases de datos de almacenamiento de datos o hay que hacer algo rápidamente.
 
 El portal incluye métricas que abarcan la configuración de DWU de rendimiento actual e histórica, la cantidad de almacenamiento que se está usando, las conexiones SQL correctas e incorrectas y un conjunto de datos y elementos visuales que permiten entender las consultas que se ejecutan en la instancia, así como los detalles de dichas consultas.
 
 ## SQL Server Data Tools en Visual Studio	
 [SQL Server Data Tools][] (SSDT) en Visual Studio es una herramienta de cliente que se ejecuta en el equipo y permite conectarse a una base de datos en la nube, así como administrarla y desarrollarla. Si es un programador familiarizado con Visual Studio o con otros entornos de desarrollo integrado (IDE), pruebe a usar SSDT en Visual Studio.
 
-SSDT incluye el Explorador de SQL Server, que permite visualizar, conectar y ejecutar scripts en bases de datos de Almacenamiento de datos SQL. Para conectarse rápidamente a Almacenamiento de datos SQL, simplemente haga clic en el botón **Abrir en Visual Studio** de la barra de comandos cuando se visualicen los detalles de la base de datos en el Portal de Azure.
+SSDT incluye el Explorador de SQL Server, que permite visualizar, conectar y ejecutar scripts en bases de datos de Almacenamiento de datos SQL. Para conectarse rápidamente a Almacenamiento de datos SQL, simplemente haga clic en el botón **Abrir en Visual Studio** de la barra de comandos al visualizar los detalles de la base de datos en el Portal de Azure clásico.
 
 Puede descargar la versión más reciente de [SQL Server Data Tools][] (SSDT), que es compatible con Almacenamiento de datos SQL.
 
@@ -46,6 +46,6 @@ Para comenzar a usar estas herramientas, vaya al tema [conexión][].
 [SQL Server Data Tools]: https://msdn.microsoft.com/es-ES/library/mt204009.aspx
 
 <!--Other web references-->
-[Portal de Azure]: http://portal.azure.com/
+[Portal de Azure clásico]: http://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -18,6 +18,8 @@
 
 # Implementación y configuración de una aplicación de API de conector SaaS en el Servicio de aplicaciones de Azure
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Información general
 
 En este tutorial se muestra cómo instalar, configurar y probar un [conector de software como servicio (SaaS)](../app-service-logic-what-are-bizTalk-api-apps.md) en el [Servicio de aplicaciones de Azure](/documentation/services/app-service/) para llamarlo mediante programación, por ejemplo, desde una aplicación móvil. Un conector SaaS es una [aplicación de API](app-service-api-apps-why-best-platform.md) que simplifica la interacción con una plataforma SaaS, como Office 365, Salesforce, Facebook y Dropbox. Si en lugar de usar un conector preempaquetado, quiere crear una aplicación personalizada de API de .NET, vea [Conexión a una plataforma de SaaS desde una aplicación de API de ASP.NET](app-service-api-dotnet-connect-to-saas.md).
@@ -179,7 +181,7 @@ La solicitud HTTP Post a la puerta de enlace debe incluir el token de autenticac
 
 	![Enviar para solicitar dirección URL de consentimiento](./media/app-service-api-connnect-your-app-to-saas-connector/sendforconsent.png)
 
-	La respuesta incluye una dirección URL que se debe usar para iniciar el proceso de inicio de sesión del usuario con Dropbox. (Si obtiene una respuesta de error que indica que no se admite el método Get aunque se tenga la lista desplegable de método establecida en **Post**, asegúrese de que la dirección URL de la puerta de enlace es HTTPS y no HTTP).
+	La respuesta incluye una dirección URL que se debe usar para iniciar el proceso de inicio de sesión del usuario con Dropbox. (Si obtiene una respuesta de error que indica que no se admite el método Get aunque se tenga la lista desplegable de método establecida en **Post**, asegúrese de que la dirección URL de la puerta de enlace es HTTPS y no HTTP.)
 
 	![Dirección URL de consentimiento](./media/app-service-api-connnect-your-app-to-saas-connector/getconsenturl.png)
 
@@ -237,4 +239,4 @@ Hemos visto cómo instalar, configurar y probar un conector SaaS. Para obtener m
 [portal de Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

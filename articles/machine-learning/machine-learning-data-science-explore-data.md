@@ -29,4 +29,4 @@ Este documento describe cómo explorar datos en cuatro entornos diferentes usado
 - Los datos de las **tablas de Hive** se exploran mediante consultas de Hive.
 - Los datos del **Estudio de aprendizaje automático de Azure (AML)** se exploran mediante módulos AML.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -92,7 +92,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
 - `Content-Type`: obligatorio. Establézcalo en `application/json`
 - `api-key`: obligatorio. `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Crear origen de datos** debe incluir un encabezado `api-key` establecido en su clave de administración (en lugar de una clave de consulta). 
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el [Portal de administración de Azure](https://portal.azure.com/). Consulte [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) para obtener ayuda sobre la navegación en páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el [Portal de Azure clásico](https://portal.azure.com/). Consulte [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) para obtener ayuda sobre la navegación en páginas.
 
 <a name="CreateDataSourceRequestSyntax"></a> **Sintaxis del cuerpo de la solicitud**
 
@@ -120,8 +120,8 @@ La solicitud contiene las siguientes propiedades:
 	- `documentdb`: DocumentDB de Azure
 - `credentials`:
 	- La propiedad `connectionString` obligatoria especifica la cadena de conexión del origen de datos. El formato de la cadena de conexión depende del tipo de origen de datos: 
-		- Para SQL Azure, esta es la cadena de conexión de SQL Server habitual. Si está usando el portal de administración de Azure para recuperar la cadena de conexión, use la `ADO.NET connection string` opción.
-		- Para DocumentDB, la cadena de conexión debe tener el formato siguiente: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Todos los valores son obligatorios. Puede encontrarlos en el [portal de administración de Azure](https://portal.azure.com/).   
+		- Para SQL Azure, esta es la cadena de conexión de SQL Server habitual. Si está usando el Portal de Azure clásico para recuperar la cadena de conexión, use la opción `ADO.NET connection string`.
+		- Para DocumentDB, la cadena de conexión debe tener el formato siguiente: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Todos los valores son obligatorios. Puede encontrarlos en el [Portal de Azure clásico](https://portal.azure.com/).   
 		
 - `container`:
 	- La propiedad `name` obligatoria especifica la tabla o vista (para el origen de datos de SQL Azure) o una colección (para el origen de datos DocumentDB) que se indexarán. 
@@ -776,4 +776,4 @@ Código de estado: 204 Sin contenido para obtener una respuesta correcta.
 </tr>
 </table>
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

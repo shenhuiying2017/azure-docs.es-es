@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 
@@ -33,13 +33,13 @@ Después de leer este tutorial, podrá:
 - Descifrar y editar un paquete de soporte
 
 
-## Crear un paquete de soporte en el Portal de administración
+## Crear un paquete de soporte en el Portal de Azure clásico
 
-Para solucionar los problemas que pudiera experimentar con el servicio de Administrador de StorSimple, puede crear y cargar un paquete de soporte en el sitio de soporte técnico de Microsoft a través de la página **Mantenimiento** del servicio en el Portal de administración. Deberá proporcionar una clave de paso de soporte para permitir la carga. La clave de paso de soporte se la proporcionará el ingeniero de soporte en un correo electrónico. Se crea un paquete de soporte técnico comprimido y sin cifrar (archivo .cab). Una vez que proporciona la clave de paso, el ingeniero de soporte puede recuperar este paquete en el sitio de soporte técnico.
+Para solucionar los problemas que pudiera experimentar con el servicio de Administrador de StorSimple, puede crear y cargar un paquete de soporte en el sitio de soporte técnico de Microsoft a través de la página **Mantenimiento** del servicio en el Portal de Azure clásico. Deberá proporcionar una clave de paso de soporte para permitir la carga. La clave de paso de soporte se la proporcionará el ingeniero de soporte en un correo electrónico. Se crea un paquete de soporte técnico comprimido y sin cifrar (archivo .cab). Una vez que proporciona la clave de paso, el ingeniero de soporte puede recuperar este paquete en el sitio de soporte técnico.
 
-Lleve a cabo los siguientes pasos en el Portal de administración para crear un paquete de soporte técnico:
+Lleve a cabo los siguientes pasos en el Portal clásico para crear un paquete de soporte técnico:
 
-#### Para crear un paquete de soporte en el Portal de administración
+#### Para crear un paquete de soporte en el Portal de Azure clásico
 
 1. Navegue hasta **Dispositivos > Mantenimiento**.
 
@@ -123,7 +123,7 @@ Los distintos parámetros que pueden utilizarse con el cmdlet Export-HcsSupportP
 
 Después de haber generado un paquete de soporte, puede que necesite editarlo para quitar información específica del cliente como nombres de volumen, direcciones IP de dispositivos y nombres de copias de seguridad de los archivos de registro.
 
-> [AZURE.IMPORTANT]Solo pueden editarse los paquetes de soporte generados a través de Windows PowerShell para StorSimple. No es posible editar los paquetes creados en el Portal de Administración con el servicio de Administrador de StorSimple.
+> [AZURE.IMPORTANT]Solo pueden editarse los paquetes de soporte generados a través de Windows PowerShell para StorSimple. No es posible editar los paquetes creados en el Portal de Azure clásico con el servicio de Administrador de StorSimple.
 
 Para editar un paquete de soporte antes de cargarlo en el sitio de soporte técnico de Microsoft, debe descifrar el paquete de soporte, editar los archivos y volver a cifrarlo. Lleve a cabo los siguientes pasos para editar un paquete de soporte:
 
@@ -199,4 +199,4 @@ A continuación se muestra un ejemplo que explica cómo descifrar, editar y volv
 - Aprenda cómo [usar paquetes de soporte y registros de dispositivos para solucionar los problemas de implementación de su dispositivo](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting). 
 - Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

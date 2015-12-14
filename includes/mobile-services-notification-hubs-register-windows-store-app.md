@@ -42,7 +42,7 @@
 
     > [AZURE.NOTE]El secreto de cliente y el SID del paquete son credenciales de seguridad importantes. No comparta esta información con nadie ni la distribuya con su aplicación.
 
-11. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, haga clic en la aplicación.
+11. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en **Servicios móviles** y luego haga clic en la aplicación.
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-selection.png)
 
@@ -57,6 +57,5 @@
 <!-- URLs. -->
 [Get started with Mobile Services]: ../articles/mobile-services-windows-store-get-started.md
 [Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Portal de administración de Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

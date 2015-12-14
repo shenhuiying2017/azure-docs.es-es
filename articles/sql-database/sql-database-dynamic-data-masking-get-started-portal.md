@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introducción al enmascaramiento de datos dinámicos de bases de datos SQL (Portal de Azure)"
-   description="Cómo empezar a usar el enmascaramiento de datos dinámicos de Base de datos SQL en el Portal de Azure"
+   pageTitle="Introducción al enmascaramiento de datos dinámicos de Base de datos SQL (Portal de Azure clásico)"
+   description="Cómo empezar a usar el enmascaramiento de datos dinámicos de Base de datos SQL en el Portal de Azure clásico"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -16,10 +16,10 @@
    ms.date="10/20/2015"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
-# Introducción al enmascaramiento de datos dinámicos de bases de datos SQL (Portal de Azure)
+# Introducción al enmascaramiento de datos dinámicos de Base de datos SQL (Portal de Azure clásico)
 
 > [AZURE.SELECTOR]
-- [Dynamic Data Masking - Azure Preview portal](sql-database-dynamic-data-masking-get-started.md)
+- [Dynamic Data Masking - Azure Portal](sql-database-dynamic-data-masking-get-started.md)
 
 ## Información general
 
@@ -31,10 +31,10 @@ Por ejemplo, un representante de servicio de un centro de llamadas podría ident
 
 ## Conceptos básicos del enmascaramiento de datos dinámicos en Base de datos SQL
 
-Configuración de la directiva de enmascaramiento de datos dinámicos en el Portal de Azure en la pestaña Auditoría y seguridad para la base de datos.
+Configuración de la directiva de enmascaramiento de datos dinámicos en el Portal de Azure clásico en la pestaña Auditoría y seguridad para la base de datos.
 
 
-> [AZURE.NOTE] Para configurar el enmascaramiento de datos dinámicos en el Portal de vista previa de Azure, consulte [Introducción al enmascaramiento de datos dinámicos de Base de datos SQL (Portal de vista previa de Azure)](sql-database-dynamic-data-masking-get-started.md).
+> [AZURE.NOTE]Para configurar el enmascaramiento de datos dinámicos en el Portal de Azure, consulte [Introducción al enmascaramiento de datos dinámicos de Base de datos SQL (Portal de Azure)](sql-database-dynamic-data-masking-get-started.md).
 
 
 ### Permisos de enmascaramiento de datos dinámicos
@@ -61,9 +61,9 @@ El enmascaramiento de datos dinámicos puede configurarse mediante el administra
 
 <a name="Anchor1"></a>
 
-## Configurar el enmascaramiento de datos dinámicos para la base de datos mediante el Portal de Azure
+## Configuración del enmascaramiento de datos dinámicos para la base de datos mediante el Portal de Azure clásico
 
-1. Inicie el Portal de Azure en [https://manage.windowsazure.com](https://manage.windowsazure.com).
+1. Inicie el Portal de Azure clásico en [https://manage.windowsazure.com](https://manage.windowsazure.com).
 
 2. Haga clic en la base de datos que desea enmascarar y luego en la pestaña **AUDITORÍA Y SEGURIDAD**.
 
@@ -71,7 +71,7 @@ El enmascaramiento de datos dinámicos puede configurarse mediante el administra
 
 4. Escriba los usuarios SQL o las identidades AAD que deben excluirse del enmascaramiento y tengan acceso a los datos confidenciales sin máscara. Esto debe ser una lista separada por puntos y coma de usuarios. Tenga en cuenta que los usuarios con privilegios de administrador siempre tienen acceso a los datos originales sin máscara.
 
-	>[AZURE.TIP] Para hacer que el nivel de aplicación pueda mostrar datos confidenciales para los usuarios con privilegios de la aplicación, agregue el usuario SQL o identidad AAD que la aplicación usa para consultar la base de datos. Se recomienda que esta lista incluya un número mínimo de usuarios con privilegio para minimizar la exposición de los datos confidenciales.
+	>[AZURE.TIP]Para hacer que el nivel de aplicación pueda mostrar datos confidenciales para los usuarios con privilegios de la aplicación, agregue el usuario SQL o identidad AAD que la aplicación usa para consultar la base de datos. Se recomienda que esta lista incluya un número mínimo de usuarios con privilegio para minimizar la exposición de los datos confidenciales.
 
 	![Panel de navegación](./media/sql-database-dynamic-data-masking-get-started-portal/4_ddm_policy_classic_portal.png)
 
@@ -96,4 +96,4 @@ Consulte [Cmdlets de Base de datos SQL de Azure](https://msdn.microsoft.com/libr
 
 Consulte [Operaciones para Bases de datos SQL de Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -33,7 +33,7 @@ Estas restricciones y notas pueden cambiar a medida que continuamos mejorando la
 ## Con el botón "Abrir en Power BI"
 La manera más fácil de trasladarse entre la instancia de Almacenamiento de datos SQL y Power BI es con el botón Abrir en Power BI. Este botón le permiten comenzar a crear sin problemas paneles nuevos en Power BI.
 
-1.	Para comenzar, vaya a su instancia de Almacenamiento de datos SQL en el Portal de Azure.
+1.	Para comenzar, vaya a su instancia de Almacenamiento de datos SQL en el Portal de Azure clásico.
 2.	Haga clic en el botón Abrir en Power BI.
 3.	Si no puede iniciar sesión directamente, o bien no tiene una cuenta de Power BI, deberá iniciar sesión.  
 4.	Se le dirigirá a la página de conexión a Almacenamiento de datos SQL, con la información de su instancia de Almacenamiento de datos SQL previamente rellenada.
@@ -50,7 +50,7 @@ Además de utilizar el botón Abrir en Power BI, los usuarios también pueden co
 6.	 Puede hacer clic en el nuevo conjunto de datos para explorar todas las tablas y vistas de la base de datos. Al seleccionar una columna se enviará una consulta de vuelta al origen, creando dinámicamente su objeto visual. Estos objetos visuales se pueden guardar en un informe nuevo y se vuelven a anclar en el panel.
 
 ## Búsqueda de valores de parámetro
-Puede encontrar el nombre completo del servidor y el nombre de la base de datos en el Portal de Azure. Tenga en cuenta que, por el momento, el Almacenamiento de datos SQL solo está presente en el Portal de vista previa de Azure.
+Puede encontrar el nombre completo del servidor y el nombre de la base de datos en el Portal de Azure clásico. Tenga en cuenta que, por el momento, el Almacenamiento de datos SQL solo está presente en el Portal de Azure.
 
 
 <!--Image references-->
@@ -63,4 +63,4 @@ Puede encontrar el nombre completo del servidor y el nombre de la base de datos 
 
 <!--Other Web references-->
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

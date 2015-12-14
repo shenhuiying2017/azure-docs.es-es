@@ -18,9 +18,11 @@
 
 # Implementación de una aplicación de API en el Servicio de aplicaciones de Azure 
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Información general
 
-En este tutorial, implementará el proyecto Web API que creó en el [tutorial anterior](app-service-dotnet-create-api-app.md) en una nueva [aplicación de API](app-service-api-apps-why-best-platform.md). Usa Visual Studio para crear el recurso de aplicación de API en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md) e implementará su código Web API a la aplicación de API de Azure.
+En este tutorial, implementará el proyecto Web API que creó en el [tutorial anterior](app-service-dotnet-create-api-app.md) en una nueva [aplicación de API](app-service-api-apps-why-best-platform.md). Usará Visual Studio para crear el recurso de aplicación de API en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md) e implementará su código Web API en la aplicación de API de Azure.
 
 ### Otras opciones de implementación
 
@@ -30,13 +32,13 @@ El hecho de que las aplicaciones de API se basen en aplicaciones web también si
  
 ## <a id="provision"></a>Creación de la aplicación de API en Azure 
 
-En esta sección, use el asistente **Publicación web** de Visual Studio para crear una nueva aplicación de API en Azure. Cuando las instrucciones indican que escriba un nombre para la aplicación de API, escriba *ContactsList*.
+En esta sección, use el asistente **Publicación web** de Visual Studio para crear una nueva aplicación de API en Azure. Cuando las instrucciones le indiquen que escriba un nombre para la aplicación de API, escriba *ContactsList*.
 
 [AZURE.INCLUDE [app-service-api-pub-web-create](../../includes/app-service-api-pub-web-create.md)]
 
 ## <a id="deploy"></a>Implemente el código en la nueva aplicación de API de Azure
 
-Use el mismo asistente para **Publicación web** para implementar el código en la nueva aplicación de API.
+Usará el mismo asistente **Publicar web** para implementar el código en la nueva aplicación de API.
 
 [AZURE.INCLUDE [app-service-api-pub-web-deploy](../../includes/app-service-api-pub-web-deploy.md)]
 
@@ -54,7 +56,7 @@ Como habilitó la interfaz de usuario de Swagger en el tutorial anterior, puede 
 
 3. En la barra de direcciones del explorador, agregue "/swagger" al final de la dirección URL.
 
-4. En la página de Swagger que aparezca, haga clic en **Contacts > Get > Try it Out** (Contactos > Obtener > Probarlo).
+4. En la página de Swagger que aparece, haga clic en **Contacts > Get > Try it Out** (Contactos > Obtener > Probarlo).
 
 	![Prueba](./media/app-service-dotnet-deploy-api-app/swaggerui.png)
 
@@ -127,4 +129,4 @@ Las aplicaciones de API son aplicaciones web con características adicionales pa
 
 Para obtener información sobre las características de las aplicaciones de API, consulte [¿Qué son las aplicaciones de API?](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

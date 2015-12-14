@@ -46,8 +46,8 @@ En la pestaña Código de origen, haga clic en **Descargar** para obtener un arc
 ## Edición de app.config
 
 1. Después de extraer los archivos, abra la solución en Visual Studio para editar el archivo de configuración.
-1. En el Explorador de soluciones, haga doble clic en **app.config**. Este archivo especifica el extremo de servicio y una `api-key` usada para autenticar la solicitud. Puede obtener estos valores en el Portal de administración.
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. En el Explorador de soluciones, haga doble clic en **app.config**. Este archivo especifica el extremo de servicio y una `api-key` usada para autenticar la solicitud. Puede obtener estos valores en el Portal clásico.
+1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com).
 1. Vaya al panel de servicio de Búsqueda de Azure.
 1. Haga clic en el icono **Propiedades** para copiar la dirección URL del servicio.
 1. Haga clic en el icono **Claves** para copiar la `api-key`.
@@ -126,4 +126,4 @@ Obtenga más información sobre la sintaxis de búsqueda y los parámetros de co
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

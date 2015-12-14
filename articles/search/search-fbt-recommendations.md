@@ -50,7 +50,7 @@ Debería poder abrir este archivo en un explorador como Chrome para ver ahora la
 ## Comando para ejecutar la creación de recomendaciones con Mahout
 
 - Cargue el archivo data\\movie\_usage.txt en Almacenamiento de blobs de Azure. 
-- Cree una instancia de HDInsight (para habilitar el Escritorio remoto) y conéctese al equipo a través de Escritorio remoto (disponible en el Portal de Azure).
+- Cree una instancia de HDInsight (para habilitar el Escritorio remoto) y conéctese a la máquina a través de Escritorio remoto (disponible en el Portal de Azure clásico).
 - En la máquina HDInsight, inicie la "línea de comandos de Hadoop".
 - Acceda al directorio bin Mahout, en c:\\apps\\dist. El aspecto de la minería es este, pero se puede obtener una versión más reciente de Mahout C:\\apps\\dist\\mahout-1.0.0.2.3.3.0-2992\\bin.
 - Ejecute la siguiente línea de comandos, donde sustituirá [CONTAINER] y [STORAGEACT] por los datos del Almacenamiento de Azure (ubicación donde colocó el archivo movie\_usage.txt):
@@ -81,4 +81,4 @@ Los datos los ha proporcionado GroupLens (http://grouplens.org/datasets/hetrec-2
 
 Consulte esta página para obtener más información sobre la licencia de estos datos: http://files.grouplens.org/datasets/hetrec2011/hetrec2011-movielens-readme.txt
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

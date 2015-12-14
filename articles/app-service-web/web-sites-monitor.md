@@ -32,7 +32,7 @@
 
 ##<a name="websitemetrics"></a>Incorporación de métricas de aplicaciones web
 
-1. En el [Portal de Azure](https://manage.windowsazure.com), en la página de la aplicación web, haga clic en la pestaña **Supervisar** para mostrar la página de administración **Supervisar**. De manera predeterminada, el gráfico de la página **Supervisar** muestra las mismas métricas que el gráfico de la página **Panel**.
+1. En el [Portal clásico](https://manage.windowsazure.com), en la página de la aplicación web, haga clic en la pestaña **Supervisar** para mostrar la página de administración **Supervisar**. De manera predeterminada, el gráfico de la página **Supervisar** muestra las mismas métricas que el gráfico de la página **Panel**.
 
 2. Si desea ver métricas adicionales para la aplicación web, haga clic en **Agregar métricas** en la parte inferior de la página para mostrar el cuadro de diálogo **Elegir métricas**.
 
@@ -52,14 +52,14 @@ En el modo de aplicación web **Estándar** puede recibir alertas basadas en las
 
 ##<a name="howtoviewusage"></a>Visualización de cuotas de uso para una aplicación web
 
-Las aplicaciones web pueden configurarse para ejecutarse en modo **Compartido** o **Estándar** en la página de administración **Escalar** de la aplicación web en el [Portal de Azure](https://manage.windowsazure.com). Cada suscripción a Azure tiene acceso a un conjunto de recursos que tienen como finalidad la ejecución de hasta 100 aplicaciones web por región en el modo **Compartido**. El grupo de recursos disponibles para cada suscripción de aplicaciones web con este fin es compartido por otras aplicaciones web en la misma región geográfica que estén configuradas para ejecutarse en modo **Compartido**. Como estos recursos son compartidos para que los usen otras aplicaciones web, todas las suscripciones tienen límites en el uso que hacen de estos recursos. Los límites que se aplican al uso que una suscripción hace de estos recursos se expresan como cuotas de uso enumeradas en la sección de información general de uso de la página de administración **Panel** de cada aplicación web.
+Las aplicaciones web pueden configurarse para ejecutarse en modo **Compartido** o **Estándar** en la página de administración **Escala** de la aplicación web en el [Portal clásico](https://manage.windowsazure.com). Cada suscripción a Azure tiene acceso a un conjunto de recursos que tienen como finalidad la ejecución de hasta 100 aplicaciones web por región en el modo **Compartido**. El grupo de recursos disponibles para cada suscripción de aplicaciones web con este fin es compartido por otras aplicaciones web en la misma región geográfica que estén configuradas para ejecutarse en modo **Compartido**. Como estos recursos son compartidos para que los usen otras aplicaciones web, todas las suscripciones tienen límites en el uso que hacen de estos recursos. Los límites que se aplican al uso que una suscripción hace de estos recursos se expresan como cuotas de uso enumeradas en la sección de información general de uso de la página de administración **Panel** de cada aplicación web.
 
 >[AZURE.NOTE]Cuando una aplicación web está configurada para ejecutarse en modo **Estándar**, se le asignan recursos dedicados equivalentes a los tamaños de máquina virtual **Pequeña** (valor predeterminado), **Mediana** o **Grande** en la tabla de [Máquina virtual y tamaños de servicio en la nube de Azure][vmsizes]. No hay límites en los recursos que puede utilizar una suscripción para ejecutar aplicaciones web en modo **Estándar**. Sin embargo, la cantidad de aplicaciones web en modo **Estándar** que se pueden crear por región es 500.
 
 ### Visualización de las cuotas de uso para aplicaciones web configuradas para el modo Compartido ###
 Para determinar el alcance del impacto de una aplicación web en las cuotas de uso de los recursos, siga estos pasos:
 
-1. Abra la página de administración **Panel** de la aplicación web en el [Portal de Azure](https://manage.windowsazure.com).
+1. Abra la página de administración **Panel** de la aplicación web en el [Portal clásico](https://manage.windowsazure.com).
 2. En la sección **información general del uso** se muestran las cuotas de uso del plan de [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) correspondiente, que es un subconjunto de:
 	-	**Datos de salida**, **Tiempo de CPU** y **Memoria**: cuando se supera la cuota, Azure detiene la aplicación web para el resto del intervalo de cuota actual. Azure iniciará la aplicación web al comienzo del siguiente intervalo de cuota.
 	-	**Almacenamiento del sistema de archivos**: cuando se alcanza la cuota, el almacenamiento del sistema de archivos permanece accesible para las operaciones de lectura, pero se bloquean todas las operaciones de escritura, incluidas las necesarias para el funcionamiento normal de la aplicación web. Las operaciones de escritura se reanudarán si se reduce el uso del archivo o si la aplicación web se transfiere a un plan de Servicio de aplicaciones con una cuota mayor.
@@ -76,7 +76,7 @@ Las cuotas no están relacionadas con el rendimiento ni con el coste, sino que s
 
 ##<a name="howtoconfigdiagnostics"></a>Configuración de registros de diagnóstico y descarga para una aplicación web
 
-Los diagnósticos se habilitan en la pestaña **Configurar** de la aplicación web en el [Portal de Azure](https://manage.windowsazure.com). Existen dos tipos de diagnóstico: los **diagnósticos de la aplicación** y los **diagnósticos del sitio**.
+Los diagnósticos se habilitan en la pestaña **Configurar** de la aplicación web en el [Portal clásico](https://manage.windowsazure.com). Existen dos tipos de diagnóstico: los **diagnósticos de la aplicación** y los **diagnósticos del sitio**.
 
 #### Diagnósticos de la aplicación ####
 
@@ -140,19 +140,19 @@ Después de habilitar los diagnósticos para una aplicación web, haga clic en e
 
 Es posible seguir modificando los diagnósticos si agrega pares clave-valor a la sección **Configuración de aplicaciones** de la página de administración **Configurar**. Se pueden configurar las siguientes opciones en **Configuración de aplicaciones**:
 
-**DIAGNOSTICS_TEXTTRACELOGDIRECTORY**
+**DIAGNOSTICS\_TEXTTRACELOGDIRECTORY**
 
 - La ubicación en que se guardarán los registros de aplicaciones, en relación con la raíz web.
 
-- Valor predeterminado: ..\..\LogFiles\Application
+- Valor predeterminado: ..\\..\\LogFiles\\Application
 
-**DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
+**DIAGNOSTICS\_TEXTTRACEMAXBUFFERSIZEBYTES**
 
 - El tamaño máximo de búfer que se utilizará cuando se capturen registros de aplicación. La información inicialmente se escribe en el búfer antes de vaciarla al archivo o el almacenamiento. Si se escribe información nueva en el búfer antes de poder vaciarla, es posible que pierda la información anteriormente registrada. Si la aplicación genera grandes ráfagas de información de registro, considere aumentar el tamaño del búfer.
 
 - Valor predeterminado: 10 MB
 
-**DIAGNOSTICS_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
+**DIAGNOSTICS\_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
 
 - El tamaño máximo de la carpeta de **aplicaciones**, en la que se almacenan los diagnósticos de la aplicación escritos en el archivo.
 
@@ -164,7 +164,7 @@ Los archivos de registro se pueden descargar mediante el uso de FTP, Azure Power
 
 **FTP**
 
-1. Abra la página de administración **Panel** de la aplicación web en el [Portal de Azure](https://manage.windowsazure.com) y tome nota del sitio FTP que aparece en **Registros de diagnóstico** y la cuenta que aparece en **Usuario de implementación**. El sitio FTP es donde se ubican los archivos de registro y la cuenta que aparece bajo Deployment User se utiliza para autenticarse en el sitio FTP.
+1. Abra la página de administración **Panel** de la aplicación web en el [Portal clásico](https://manage.windowsazure.com) y tome nota del sitio FTP que aparece en **Registros de diagnóstico** y la cuenta que aparece en **Usuario de implementación**. El sitio FTP es donde se ubican los archivos de registro y la cuenta que aparece bajo Deployment User se utiliza para autenticarse en el sitio FTP.
 2. Si todavía no ha creado credenciales de implementación, la cuenta que aparece en **Usuario de implementación** se muestra como **No configurado**. En este caso, debe crear credenciales de implementación tal como se describen en la sección Reset Deployment Credentials del Panel, porque estas credenciales se deben usar para autenticarse en el sitio de FTP donde se almacenan los archivos de registro. Azure no es compatible con la autenticación en este sitio FTP con las credenciales de Live ID.
 3. Considere utilizar un cliente FTP, como [FileZilla][fzilla], para conectarse al sitio FTP. Con un cliente FTP es más fácil especificar las credenciales y visualizar las carpetas en un sitio FTP de lo que normalmente sería posible con un explorador.
 4. Copie los archivos de registro desde el sitio FTP a su equipo local.
@@ -289,4 +289,4 @@ Vea el siguiente vídeo para obtener más información sobre la supervisión de 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

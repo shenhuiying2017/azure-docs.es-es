@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Índice de artículos de HDInsight para el portal de Azure | Microsoft Azure"
-   description="Una página de índice con vínculos a artículos acerca de HDInsight en el Portal de Azure. Microsoft recomienda usar el Portal de vista previa de Azure para los clústeres de Hadoop nuevos en HDInsight:"
+   pageTitle="Índice de artículos de HDInsight para el portal de Azure clásico | Microsoft Azure"
+   description="Una página de índice con vínculos a artículos sobre HDInsight en el Portal de Azure clásico. Microsoft recomienda usar el Portal de Azure para los clústeres de Hadoop nuevos en HDInsight."
    services="hdinsight"
    documentationCenter="na"
    authors="cjgronlund"
@@ -16,25 +16,25 @@
    ms.date="08/17/2015"
    ms.author="cjgronlund"/>
 
-# Índice de artículos de HDInsight para el portal de Azure
+# Índice de artículos de HDInsight para el Portal de Azure clásico
 
-Use esta página de índice para encontrar artículos que traten de HDInsight en el [Portal de Azure](https://manage.windowsazure.com/). HDInsight de Azure es una distribución en la nube de Hadoop de código abierto y de Hortonworks Data Platform.
+Use esta página de índice para encontrar artículos que traten de HDInsight en el [Portal de Azure clásico](https://manage.windowsazure.com/). HDInsight de Azure es una distribución en la nube de Hadoop de código abierto y de Hortonworks Data Platform.
 
 
-> [AZURE.IMPORTANT]Esta página de índice de la documentación es para los clientes que ya tienen soluciones implementadas en el portal de Azure actual.
+> [AZURE.IMPORTANT]Esta página de índice de la documentación es para los clientes que ya tienen soluciones implementadas en el Portal de Azure clásico actual.
 >
-> Microsoft recomienda usar el **Portal de vista previa de Azure** para los clústeres de HDInsight nuevos:
+> Microsoft recomienda usar el **Portal de Azure** para los clústeres de HDInsight nuevos:
 >
-> * [Vaya a la documentación del Portal de vista previa de HDInsight](/documentation/services/hdinsight/)
-> * [Vaya al Portal de vista previa de Azure](https://portal.azure.com/)
+> * [r a la documentación del Portal de HDInsight](/documentation/services/hdinsight/)
+> * [Ir al Portal de Azure](https://portal.azure.com/)
 >
-> Para obtener una explicación de las ventajas del portal de vista previa, consulte [DevOps es ahora mucho más impresionante](/overview/preview-portal/).
+> Para obtener una explicación de las ventajas del Portal, consulte [DevOps es ahora mucho más impresionante](/overview/preview-portal/).
 >
-> HDInsight del portal de Azure no recibirá actualizaciones después de julio de 2015 y será sustituido por el Portal de vista previa de Azure.
+> HDInsight del Portal de Azure clásico no recibirá actualizaciones después de julio de 2015 y se sustituirá por el Portal de Azure.
 
 ## Primeros pasos
 
-Si no está familiarizado con Hadoop en HDInsight, vaya a la [página de documentación de HDInsight](/documentation/services/hdinsight/) para comenzar a usar el Portal de vista previa de Azure.
+Si no está familiarizado con Hadoop en HDInsight, vaya a la [página de documentación de HDInsight](/documentation/services/hdinsight/) para comenzar a usar el Portal de Azure.
 
 ## Linux
 
@@ -81,7 +81,7 @@ Para obtener un conjunto completo de artículos acerca del uso de Linux y clúst
 
 ## Spark de Apache
 
-Para obtener artículos acerca del uso de clústeres de Apache Spark nativos en el Portal de vista previa de Azure, consulte la [página de documentación de HDInsight](/documentation/services/hdinsight/).
+Para obtener artículos acerca del uso de clústeres de Apache Spark nativos en el Portal de Azure, consulte la [página de documentación de HDInsight](/documentation/services/hdinsight/).
 
 * [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
 * [Instalación y uso de Spark en clústeres Hadoop](hdinsight-hadoop-spark-install.md)
@@ -133,4 +133,4 @@ Para obtener artículos acerca del uso de clústeres de Apache Spark nativos en 
 * [Interpretación de mensajes de error](hdinsight-debug-jobs.md)
 * [Obtención de ayuda en el foro](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

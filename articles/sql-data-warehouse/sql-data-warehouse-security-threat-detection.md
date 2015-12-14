@@ -30,7 +30,7 @@ Por ejemplo, Detección de amenazas detecta determinadas actividades anómalas e
 
 ## Configuración de la detección de amenazas para la base de datos
 
-1. Inicie el Portal de vista previa de Azure en [https://portal.azure.com](https://portal.azure.com).
+1. Inicie el Portal de Azure en [https://portal.azure.com](https://portal.azure.com).
 
 2. Vaya a la hoja de configuración de Almacenamiento de datos SQL que desea supervisar. En la hoja Configuración, seleccione **Auditoría y detección de amenazas**.
 
@@ -55,7 +55,7 @@ Por ejemplo, Detección de amenazas detecta determinadas actividades anómalas e
 
 	![Panel de navegación][4]
 
-2. En el correo electrónico, haga clic en el vínculo **Registro de auditoría SQL de Azure**, lo que iniciará el Portal de Azure y mostrará los registros de auditoría pertinentes en torno a la hora del evento sospechoso.
+2. En el correo electrónico, haga clic en el vínculo **Registro de auditoría SQL de Azure**, lo que iniciará el Portal de Azure clásico y mostrará los registros de auditoría pertinentes en torno a la hora del evento sospechoso.
 
 	![Panel de navegación][5]
 
@@ -89,4 +89,4 @@ Por ejemplo, Detección de amenazas detecta determinadas actividades anómalas e
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

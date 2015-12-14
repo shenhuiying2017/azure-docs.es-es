@@ -58,7 +58,7 @@ En esta sección, realizaremos las siguientes tareas:
 
 ###Crear un servicio de Active Directory
 
-1. Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com).
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
 
 2. Desplácese por el panel de navegación izquierdo y haga clic en **Active Directory**.
 
@@ -204,4 +204,4 @@ Una vez terminado este tutorial, puede obtener más información acerca de la ad
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

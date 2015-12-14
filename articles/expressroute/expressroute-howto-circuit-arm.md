@@ -185,7 +185,7 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 
 5. **Compruebe periódicamente el estado y la condición de la clave del circuito.**
 
-	Esto le permitirá saber cuándo ha habilitado el circuito el proveedor. Una vez configurado el circuito, el parámetro *ServiceProviderProvisioningState* aparecerá como *Provisioned* (aprovisionado), tal como se muestra en el ejemplo siguiente.
+	Esto le permitirá saber cuándo ha habilitado el circuito el proveedor. Una vez configurado el circuito, el parámetro *ServiceProviderProvisioningState* aparecerá como *Aprovisionado*, tal como se muestra en el ejemplo siguiente.
 
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
@@ -356,6 +356,5 @@ Si el proveedor de servicios ha desaprovisionado el circuito (el estado de aprov
 ## Pasos siguientes
 
 - [Configuración del enrutamiento](expressroute-howto-routing-arm.md)
-- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md) 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

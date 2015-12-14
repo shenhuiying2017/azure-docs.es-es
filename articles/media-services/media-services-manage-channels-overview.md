@@ -53,7 +53,7 @@ En los pasos siguientes se describen las tareas que intervienen en la creación 
 
 3. Cree un programa.
 
-	Con el Portal de administración de Azure, al crear un programa también se crea un recurso.
+	Con el Portal de Azure clásico, al crear un programa también se crea un recurso.
 
 	Con el SDK de .NET o REST, debe crear un recurso y especificar que este se use al crear un programa. 
 1. Publique el recurso asociado al programa.   
@@ -157,7 +157,7 @@ Puede obtener la dirección URL de vista previa al crear el canal. Para obtenerl
 
 Una vez que el canal empieza a consumir datos, puede obtener una vista previa de la secuencia.
 
-Tenga en cuenta que actualmente la secuencia de vista previa solo se puede entregar en formato MP4 fragmentado (Smooth Streaming) independientemente del tipo de entrada especificado. Puede usar el reproductor [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para probar el formato Smooth Stream. También puede usar un reproductor hospedado en el Portal de administración de Azure para ver la secuencia.
+Tenga en cuenta que actualmente la secuencia de vista previa solo se puede entregar en formato MP4 fragmentado (Smooth Streaming) independientemente del tipo de entrada especificado. Puede usar el reproductor [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para probar el formato Smooth Stream. También puede usar un reproductor hospedado en el Portal de Azure clásico para ver la transmisión.
 
 
 ####Direcciones IP permitidas
@@ -269,4 +269,4 @@ Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

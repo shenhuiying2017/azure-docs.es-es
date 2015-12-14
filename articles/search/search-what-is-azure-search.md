@@ -29,7 +29,7 @@ El servicio Búsqueda de Azure, basado en API, está destinado a desarrolladores
 
 Búsqueda de Azure es un [servicio PaaS](https://wikipedia.org/wiki/Platform_as_a_service) que delega la administración de los servidores y la infraestructura a Microsoft, pero deja un servicio listo para usar que se rellena con los datos de búsqueda y al que se tiene acceso posteriormente desde la aplicación. Dependiendo de cómo se configure, se usará el servicio gratuito que se comparte con otros suscriptores de Búsqueda de Azure o se aplicará el nivel de precios Estándar que ofrece recursos dedicados en exclusividad. La búsqueda estándar es escalable, con opciones que satisfacen el aumento de la demanda de almacenamiento o de cargas de consultas.
 
-Búsqueda de Azure almacena los datos en un índice donde se pueden llevar a cabo consultas de texto completo. Es posible crear el esquema de estos índices en el Portal de Azure o mediante programación, utilizando las API de REST o la biblioteca de cliente. Una vez que se ha definido el esquema, se pueden cargar los datos en el servicio Búsqueda de Azure, donde se indizan seguidamente.
+Búsqueda de Azure almacena los datos en un índice donde se pueden llevar a cabo consultas de texto completo. Es posible crear el esquema de estos índices en el Portal de Azure clásico o mediante programación, usando las API de REST o la biblioteca de cliente. Una vez que se ha definido el esquema, se pueden cargar los datos en el servicio Búsqueda de Azure, donde se indizan seguidamente.
 
 Se pueden emplear modelos de inserción o de extracción para la carga de los datos en el índice. El modelo de extracción se proporciona a través de indizadores que se pueden configurar para actualizaciones bajo demanda o programadas (consulte [Operaciones del indizador (API de REST del servicio Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn946891.aspx)), lo que permite introducir fácilmente datos y cambios de datos de DocumentDB de Azure, Base de datos SQL de Azure o SQL Server hospedado en una máquina virtual de Azure. El modelo de inserción se proporciona a través del SDK o las API de REST usadas para enviar documentos actualizados a un índice. Se puede insertar datos desde cualquier conjunto de datos prácticamente, siempre y cuando tengan formato JSON. Consulte [Adición, actualización o eliminación de documentos](https://msdn.microsoft.com/library/azure/dn798930.aspx) o [Uso del SDK de .NET)](search-howto-dotnet-sdk.md) para obtener instrucciones sobre la carga de datos.
 
@@ -131,4 +131,4 @@ También puede consultar estos tutoriales:
 
 [Uso de Búsqueda de Azure en .NET](search-howto-dotnet-sdk.md) [Introducción a Búsqueda de Azure](search-get-started-dotnet.md) [Búsqueda de Azure: ejemplos, tutoriales y demostraciones en vídeo](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

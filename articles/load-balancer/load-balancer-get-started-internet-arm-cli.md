@@ -328,4 +328,4 @@ donde **nrprg** es el grupo de recursos y **nrplb** el nombre del equilibrador d
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

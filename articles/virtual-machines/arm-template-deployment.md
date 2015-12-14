@@ -48,7 +48,7 @@ Para usar Azure AD para autenticar las solicitudes con el Administrador de recur
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]Anote el identificador de la aplicación que se devuelve después de crear la aplicación, ya que la necesitará para el siguiente paso. También puede encontrar el identificador de la aplicación en el campo de id. de cliente de la aplicación en la sección de Active Directory del portal de vista previa de Azure.
+	>[AZURE.NOTE]Anote el identificador de la aplicación que se devuelve después de crear la aplicación, ya que la necesitará para el siguiente paso. Asimismo, también puede encontrar el identificador de la aplicación en el campo del identificador de cliente de la aplicación, en la sección de Active Directory del Portal de Azure.
 
 3. Reemplace {application-id} por el identificador que acaba de anotar y, a continuación, cree la entidad de servicio correspondiente a la aplicación:
 
@@ -298,7 +298,7 @@ Para especificar los valores de los parámetros del recurso que se definieron en
           }
         }
 
-    >[AZURE.NOTE]Los nombres de imagen vhd cambian de manera constante en la galería de imágenes, por lo que necesita obtener un nombre de imagen actual para implementar la máquina virtual. Para ello, vea [Acerca de las imágenes de máquinas virtuales](https://azure.microsoft.com/es-ES/documentation/articles/virtual-machines-images/) y reemplace {source-image-name} por el nombre del archivo vhd que quiere usar. Por ejemplo, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd". Reemplace {subscription-id} por el identificador de la suscripción.
+    >[AZURE.NOTE]Los nombres de imagen vhd cambian de manera constante en la galería de imágenes, por lo que necesita obtener un nombre de imagen actual para implementar la máquina virtual. Para ello, vea [Información sobre las imágenes de máquinas virtuales](https://azure.microsoft.com/documentation/articles/virtual-machines-images/) y reemplace {source-image-name} por el nombre del archivo vhd que quiera usar. Por ejemplo, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd". Reemplace {subscription-id} por el identificador de la suscripción.
 
 
 4.	Guarde el archivo de parámetros que creó.
@@ -441,10 +441,10 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 2.	Presione **Entrar** después de que se devuelva cada código de estado para crear cada recurso. Después de crear la máquina virtual, realice el siguiente paso antes de presionar Entrar para eliminar todos los recursos.
 
-	Esta aplicación de consola tardará unos cinco minutos en ejecutarse completamente de principio a fin. Antes de presionar Entrar para comenzar la eliminación de recursos, puede dedicar unos minutos a comprobar la creación de los recursos en el Portal de vista previa de Azure antes de eliminarlos.
+	Esta aplicación de consola tardará unos cinco minutos en ejecutarse completamente de principio a fin. Antes de presionar Entrar para comenzar la eliminación de recursos, puede dedicar unos minutos a comprobar la creación de los recursos en el Portal de Azure.
 
-3. Vaya a los registros de auditoría en el Portal de vista previa de Azure para ver el estado de los recursos:
+3. Vaya a los registros de auditoría en el Portal de Azure para ver el estado de los recursos:
 
 	![Crear una aplicación de AD](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

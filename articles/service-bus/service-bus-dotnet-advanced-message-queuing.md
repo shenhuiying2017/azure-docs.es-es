@@ -26,7 +26,7 @@ En este artículo se explica cómo utilizar las funciones de mensajería asíncr
 
 ## Introducción al Bus de servicio
 
-En este artículo se asume que ya dispone de un espacio de nombres del Bus de servicio con una cola denominada "queue1". Si no es así, puede crear el espacio de nombres y la cola con ayuda del [Portal de Azure](http://manage.windowsazure.com). Para obtener más información acerca de cómo crear espacios de nombres y colas del bus de servicio, consulte la guía de instrucciones titulada [Utilización de las colas del bus de servicio](service-bus-dotnet-how-to-use-queues.md).
+En este artículo se asume que ya dispone de un espacio de nombres del Bus de servicio con una cola denominada "queue1". Si no es así, puede crear el espacio de nombres y la cola con ayuda del [Portal de Azure clásico](http://manage.windowsazure.com). Para obtener más información acerca de cómo crear espacios de nombres y colas del bus de servicio, consulte la guía de instrucciones titulada [Utilización de las colas del bus de servicio](service-bus-dotnet-how-to-use-queues.md).
 
 ## Descarga del SDK del Bus de servicio
 
@@ -63,13 +63,13 @@ El valor de configuración **Microsoft.ServiceBus.ConnectionString** es la caden
 Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 ```
 
-Donde `[namespace]` y `[SAS key]` se obtienen en el Portal de Azure. Para obtener más información, consulte [Utilización de las colas del Bus de servicio][].
+Donde `[namespace]` y `[SAS key]` se obtienen en el [Portal de Azure clásico][]. Para obtener más información, consulte [Utilización de las colas del Bus de servicio][].
 
-Al utilizar AMQP, se agrega `;TransportType=Amqp` al final de la cadena de conexión para informar a la biblioteca de cliente de que debe recurrir a AMQP 1.0 para establecer la conexión con el Bus de servicio.
+Al usar AMQP, se agrega `;TransportType=Amqp` al final de la cadena de conexión para informar a la biblioteca de cliente de que debe recurrir a AMQP 1.0 para establecer la conexión con el Bus de servicio.
 
 ### Configuración del nombre de la entidad
 
-Esta aplicación de ejemplo utiliza la configuración `EntityName` de la sección **appSettings** del archivo App.config para configurar el nombre de la cola con la que la aplicación intercambia mensajes.
+Esta aplicación de ejemplo usa la configuración `EntityName` de la sección **appSettings** del archivo App.config para configurar el nombre de la cola con la que la aplicación intercambia mensajes.
 
 ### Una aplicación .NET sencilla que utiliza una cola del Bus de servicio
 
@@ -227,7 +227,7 @@ Hasta ahora hemos visto cómo enviar mensajes al Bus de servicio utilizando .NET
 
 Utilizando la aplicación .NET de ejemplo descrita anteriormente y una aplicación Java similar tomada de la guía complementaria [Uso de la API de Java Message Service (JMS) con el bus de servicio y AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md), es posible intercambiar mensajes entre .NET y Java.
 
-Para obtener más información acerca de la mensajería multiplataforma mediante el Bus de servicio y AMQP 1.0, consulte [Información general sobre AMQP 1.0 del Bus de servicio](service-bus-amqp-overview.md).
+Para obtener más información sobre la mensajería multiplataforma mediante el Bus de servicio y AMQP 1.0, consulte [Información general sobre AMQP 1.0 del Bus de servicio](service-bus-amqp-overview.md).
 
 ### De JMS a .NET
 
@@ -322,5 +322,6 @@ Ahora que ha leído una introducción sobre el Bus de servicio y AMQP con .NET, 
 * [Uso de la API de Java Message Service (JMS) con el Bus de servicio y AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
 * [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
  
+[Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

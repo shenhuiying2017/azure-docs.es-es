@@ -7,7 +7,7 @@
 	manager="dwrede"
 	editor="mollybos"/>
 <tags
-	ms.service="mobile-services" 
+	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
@@ -16,6 +16,11 @@
 	ms.author="glenga"/>
 
 # Compatibilidad de plataformas de varios dispositivos desde un único servicio móvil
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 Uno de los principales beneficios de usar Servicios móviles de Azure en el desarrollo de aplicaciones móviles es la capacidad de usar un servicio back-end único que admita su aplicación en varias plataformas de cliente. La solución Servicios móviles proporciona bibliotecas de cliente nativas para todas las plataformas de dispositivos importantes, lo que facilita el desarrollo de aplicaciones mediante un solo servicio back-end y el uso de herramientas de desarrollador de varias plataformas. En este tema se tratan las siguientes consideraciones para el funcionamiento de su aplicación en varias plataformas de cliente mientras se usa un único back-end de servicios móviles:
 
@@ -145,7 +150,6 @@ Hay herramientas multiplataforma disponibles que ofrecen una experiencia nativa 
 
 
 <!-- URLs -->
-[Azure Management portal]: https://manage.windowsazure.com
 [Centros de notificaciones de Azure]: /develop/net/how-to-guides/service-bus-notification-hubs/
 [SSO Windows Store]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [SSO Windows Phone]: /develop/mobile/tutorials/single-sign-on-wp8/
@@ -169,4 +173,4 @@ Hay herramientas multiplataforma disponibles que ofrecen una experiencia nativa 
 [Building universal Windows apps for all Windows devices]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Universal Windows app project for Azure Mobile Services using MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

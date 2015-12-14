@@ -19,6 +19,10 @@
 
 #Notas de la versión
 
+##4\.1.2 (25/11/2015)
+
+- Mejoras de estabilidad.
+
 ##4\.1.1 (11/04/2015)
 
 - Mejoras de estabilidad.
@@ -27,7 +31,7 @@
 
 - Controle el nuevo modelo de permiso para Android M.
 - Ahora puede configurar las características de ubicación en tiempo de ejecución en lugar de usar `AndroidManifest.xml`.
-- Corrección de un error de permiso: si usa `ACCESS_FINE_LOCATION`, ya no es necesario `ACCESS_COARSE_LOCATION`.
+- Corrija un error de permiso: si usa `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` ya no es necesario.
 - Mejoras de estabilidad.
 
 ##4\.0.0 (07/06/2015)
@@ -49,4 +53,4 @@
 -   Mejoras de seguridad.
 -   Seguimiento de SmartAd y Google Play eliminados.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

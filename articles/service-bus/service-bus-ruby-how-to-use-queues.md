@@ -37,7 +37,7 @@ Las colas del Bus de servicio son una tecnología de uso general que puede utili
 El uso de las colas puede permitirle escalar mejor sus aplicaciones horizontalmente y dotar de más resiliencia a su arquitectura.
 
 ## Creación de un espacio de nombres de servicio
-Para comenzar a usar colas del Bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres de servicio proporciona un contenedor con un ámbito para el desvío de recursos del Bus de servicio en la aplicación. Debe crear el espacio de nombres a través de la interfaz de línea de comandos porque el Portal no crea el Bus de servicio con una conexión de ACS.
+Para comenzar a usar colas del Bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres de servicio proporciona un contenedor con un ámbito para el desvío de recursos del Bus de servicio en la aplicación. Debe crear el espacio de nombres a través de la interfaz de línea de comandos porque el portal no crea el Bus de servicio con una conexión de ACS.
 
 Para crear un nombre de espacio de servicio:
 
@@ -56,7 +56,7 @@ El cmdlet de PowerShell que ejecutó para crear el espacio de nombres del bus de
 
 ![Copiar clave](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
 
-> [AZURE.NOTE]También puede encontrar esta clave si inicia sesión en el [Portal de Azure](http://manage.windowsazure.com/) y va a la información de conexión para el espacio de nombres del bus de servicio.
+> [AZURE.NOTE]También puede encontrar esta clave si inicia sesión en el [Portal de Azure clásico](http://manage.windowsazure.com/) y va a la información de conexión para el espacio de nombres del bus de servicio.
 
 ## Creación de una aplicación de Ruby
 
@@ -151,4 +151,4 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
 Para ver la comparación entre Colas del Bus de servicio de Azure de este artículo y Colas de Azure del artículo [Uso del servicio Cola de Azure](/develop/ruby/how-to-guides/queue-service/), consulte [Colas de Azure y Colas del Bus de servicio de Azure: comparación y diferencias](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

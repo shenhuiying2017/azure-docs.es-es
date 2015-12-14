@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # Métodos de enrutamiento del Administrador de tráfico
@@ -23,7 +23,7 @@ Es importante tener en cuenta que todos los métodos de enrutamiento del tráfic
 
 Los tres métodos de enrutamiento del tráfico del Administrador de tráfico son los siguientes:
 
-- **Conmutación por error**: seleccione la conmutación por error cuando tenga extremos en el mismo centro de datos o en distintos centros de datos de Azure (más conocidos como regiones en el Portal de Administración) y desee usar un extremo principal para todo el tráfico, pero proporcionar copias de seguridad en caso de que los extremos principales o de copia de seguridad no estén disponibles. Para obtener más información, consulte [Método de enrutamiento de tráfico de conmutación por error](#failover-traffic-routing-method).
+- **Conmutación por error**: seleccione la conmutación por error cuando tenga puntos de conexión en el mismo centro de datos o en distintos centros de datos de Azure (más conocidos como regiones en el Portal de Azure) y desee usar un punto de conexión principal para todo el tráfico, pero proporcione copias de seguridad en caso de que los puntos de conexión principales o de copia de seguridad no estén disponibles. Para obtener más información, consulte [Método de enrutamiento de tráfico de conmutación por error](#failover-traffic-routing-method).
 
 - **Round Robin**: seleccione Round Robin cuando desee distribuir la carga entre un conjunto de extremos en el mismo centro de datos o entre diferentes centros de datos. Para obtener más información, consulte [Método de enrutamiento de tráfico round robin](#round-robin-traffic-routing-method).
 
@@ -37,7 +37,7 @@ Tenga en cuenta que Sitios web de Azure ya proporciona la funcionalidad del mét
 
 En ocasiones, una organización desea proporcionar confiabilidad en sus servicios. Puede hacerlo mediante servicios de copia de seguridad en caso de que el servicio principal esté desactivado. Un patrón habitual de conmutación por error del servicio es proporcionar un conjunto de extremos idénticos y enviar tráfico a un servicio principal con una lista de una o más copias de seguridad. Si el servicio principal no está disponible, los clientes que realizan la solicitud se envían al siguiente por orden. Si los servicios del primer y segundo puesto de la lista no están disponibles, el tráfico irá al que esté en tercer puesto y así sucesivamente.
 
-Al configurar el método de enrutamiento de tráfico de conmutación por error, es importante el orden de los extremos seleccionados. Con el Portal de administración, debe configurar el orden de la conmutación por error en la página Configuración del perfil.
+Al configurar el método de enrutamiento de tráfico de conmutación por error, es importante el orden de los extremos seleccionados. Con el Portal de Azure, puede configurar el orden de la conmutación por error en la página Configuración del perfil.
 
 La Figura 1 muestra un ejemplo del método de enrutamiento del tráfico de conmutación por error para un conjunto de extremos.
 
@@ -81,7 +81,7 @@ El enrutamiento de tráfico ponderado round robin le permite distribuir la carga
 - Migración de aplicaciones a Azure: cree un perfil con Azure y los extremos externos, y especifique el peso del tráfico que se redirigirá a cada extremo.
 - Expansión de la nube para conseguir capacidad adicional: expanda rápidamente una implementación local en la nube colocándola detrás de un perfil de Administrador de tráfico. Cuando necesite capacidad adicional en la nube, puede agregar o habilitar más extremos y especificar la porción de tráfico que va a cada extremo.
 
-En este momento, no puede usar el Portal de administración para configurar el enrutamiento de tráfico ponderado. Azure proporciona acceso mediante programación a este método con la API de REST de administración de servicios y los cmdlets de Azure PowerShell asociados.
+En este momento, no puede usar el Portal de Azure para configurar el enrutamiento de tráfico ponderado. Azure proporciona acceso mediante programación a este método con la API de REST de administración de servicios y los cmdlets de Azure PowerShell asociados.
 
 Para obtener información acerca del uso de las API de REST, consulte [Operaciones en el Administrador de tráfico (referencia de la API de REST)](http://go.microsoft.com/fwlink/p/?LinkId=313584).
 
@@ -137,4 +137,4 @@ Si desea incluir las ilustraciones de este tema como diapositivas de PowerPoint 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

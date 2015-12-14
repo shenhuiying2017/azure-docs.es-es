@@ -84,25 +84,25 @@ Al igual que con otros servicios de Azure, el Bus de servicio aplica un conjunto
 
 - **Número de agentes de escucha de retransmisión simultáneos por espacio de nombres**: el Bus de servicio impone un límite de 2000 agentes de escucha de retransmisión simultáneos por espacio de nombres del servicio. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores para abrir agentes de escucha de retransmisión y el código de llamada recibirá una excepción.
 
-- **Número de temas/colas por espacio de nombres del servicio**: el número máximo de temas/colas (entidades con copia en almacenamiento duraderas) en un espacio de nombres del servicio se limita a 10 000. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores para la creación de una nueva cola/tema en el espacio de nombres del servicio. En este caso, el Portal de Azure mostrará un mensaje de error o el código del cliente que llama recibirá una excepción, en función de si el intento de creación se realiza a través del portal o en el código del cliente.
+- **Número de temas/colas por espacio de nombres del servicio**: el número máximo de temas/colas (entidades con copia en almacenamiento duraderas) en un espacio de nombres del servicio se limita a 10 000. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores para la creación de una nueva cola/tema en el espacio de nombres del servicio. En este caso, el [Portal de Azure clásico][] mostrará un mensaje de error o el código del cliente que llama recibirá una excepción, en función de si el intento de creación se realiza a través del portal o en el código del cliente.
 
 - **Cuotas de tamaño de los mensajes**
 	- **Cola/tema/suscripción**
 		- **Tamaño de los mensajes**: cada mensaje se limita a un tamaño total de 256 KB, incluidos los encabezados del mensaje.
 		- **Tamaño de encabezado de mensaje**: cada encabezado de mensaje se limita a 64 KB.
 
-	- **Transmisiones NetOneway y NetEvent**: cada mensaje se limita a un tamaño total de 64 KB, incluidos los encabezados del mensaje.
+	- **Retransmisiones NetOneway y NetEvent**: cada mensaje se limita a un tamaño total de 64 KB, incluidos los encabezados del mensaje.
 	- **Retransmisiones http y NetTcp**: el Bus de servicio no impone un límite superior en el tamaño de estos mensajes.
 
 	Se rechazarán los mensajes que superen estas cuotas de tamaño y el código de llamada recibirá una excepción.
 
-- **Número de suscripciones por tema**: el número máximo de suscripciones por tema se limita a 2 000. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de creación de suscripciones adicionales al tema. En este caso, el portal de administración mostrará un mensaje de error o el código del cliente que llama recibirá una excepción, en función de si el intento de creación se realiza a través del portal o en el código del cliente.
+- **Número de suscripciones por tema**: el número máximo de suscripciones por tema se limita a 2000. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de creación de suscripciones adicionales al tema. En este caso, el [Portal de Azure clásico][] mostrará un mensaje de error o el código del cliente que llama recibirá una excepción, en función de si el intento de creación se realiza a través del portal o en el código del cliente.
 
-- **Número de filtros SQL por tema**: el número máximo de filtros SQL por tema está limitado a 2 000. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de creación de filtros adicionales en el tema y el código de llamada recibirá una excepción.
+- **Número de filtros SQL por tema**: el número máximo de filtros SQL por tema está limitado a 2000. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de creación de filtros adicionales en el tema y el código de llamada recibirá una excepción.
 
-- **Número de filtros de correlación por tema**: el número máximo de filtros de correlación por tema se limita a 100 000. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de creación de filtros adicionales en el tema y el código de llamada recibirá una excepción.
+- **Número de filtros de correlación por tema**: el número máximo de filtros de correlación por tema se limita a 100 000. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de creación de filtros adicionales en el tema y el código de llamada recibirá una excepción.
 
-Para obtener más información sobre las cuotas , consulte [Cuotas del Bus de servicio](service-bus-quotas.md).
+Para obtener más información sobre las cuotas, consulte [Cuotas del Bus de servicio](service-bus-quotas.md).
 
 ## Pasos siguientes
 
@@ -114,4 +114,6 @@ Para obtener más información sobre la mensajería de Bus de servicio, consulte
 - [Información general sobre la arquitectura de Azure Service Bus](fundamentals-service-bus-hybrid-solutions.md)
 - [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Oct15_HO3-->
+[Portal de Azure clásico]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

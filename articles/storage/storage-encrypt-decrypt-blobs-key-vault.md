@@ -167,7 +167,7 @@ Agregue el código siguiente para cifrar un blob y cargarlo en la cuenta de alma
 		blob.UploadFromStream(stream, stream.Length, null, options, null);
 
 
-La siguiente es una captura de pantalla del Portal de Azure actual para un blob que se ha cifrado mediante el cifrado del lado cliente con una clave almacenada en Almacén de claves. La propiedad **KeyId** es el URI de la clave en Almacén de claves que actúa como la clave de cifrado de claves (KEK). La propiedad **EncryptedKey** contiene la versión cifrada de la CEK.
+La siguiente es una captura de pantalla del [Portal de Azure clásico](manage.windowsazure.com) para un blob que se ha cifrado mediante el cifrado del lado cliente con una clave almacenada en Almacén de claves. La propiedad **KeyId** es el URI de la clave en Almacén de claves que actúa como la clave de cifrado de claves (KEK). La propiedad **EncryptedKey** contiene la versión cifrada de la CEK.
 
 ![Captura de pantalla en la que se muestran los metadatos del blob que incluyen los metadatos de cifrado][1]
 
@@ -227,12 +227,12 @@ Eso es todo. ¡Disfrute!
 
 Para obtener más información sobre el uso de Almacenamiento de Microsoft Azure con C#, consulte [Biblioteca de cliente de Almacenamiento de Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-Para obtener más información sobre la API de REST de Blob, consulte [API de REST del servicio Blob](https://msdn.microsoft.com/library/azure/dd135733.aspx)
+Para obtener más información sobre la API de REST de blobs, consulte [API de REST del servicio de blobs](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-Para obtener la información más reciente acerca de Almacenamiento de Microsoft Azure, vaya al [Blog del equipo de almacenamiento de Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/).
+Para obtener la información más reciente sobre Almacenamiento de Microsoft Azure, vaya al [Blog del equipo de Almacenamiento de Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
 
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -38,7 +38,7 @@ Este tutorial requiere lo siguiente:
 
 Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, debe leer [Introducción a los Servicios móviles].
 
-##Actualización del script de inserción registrado en el Portal de administración
+##Actualización del script de inserción registrado en el Portal de Azure clásico
 
 [AZURE.INCLUDE [mobile-services-configure-blob-storage](../../includes/mobile-services-configure-blob-storage.md)]
 
@@ -79,12 +79,10 @@ Ahora que ha podido cargar de manera segura imágenes al integrar su servicio m�
 [Send push notifications to Windows Store apps using Service Bus from a .NET back-end]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
 [Referencia del script del servidor de servicios móviles]: mobile-services-how-to-use-server-scripts.md
 [Introducción a los Servicios móviles]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
 [How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 [Referencia conceptual de Servicios móviles con .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -29,7 +29,7 @@ En general, siempre debe asegurarse de lo siguiente:
 2. Usa la versión más reciente de los SDK de la plataforma. 
 3. Realiza pruebas tanto en un dispositivo real como en un emulador, porque algunos problemas son específicos solo del emulador. 
 4. No supera los límites de Mobile Engagement que se indican [aquí](azure-subscription-service-limits.md).
-5. Si no se puede conectar con el back-end del servicio Mobile Engagement o si ve que los datos no se cargan de forma continuada, asegúrese de que no hay incidentes de servicio activos; compruébelo [aquí](https://azure.microsoft.com/es-ES/status/).
+5. Si no se puede conectar con el back-end del servicio Mobile Engagement o si ve que los datos no se cargan de forma continuada, asegúrese de que no hay incidentes de servicio activos comprobándolo [aquí](https://azure.microsoft.com/status/).
 
 ## Problemas de 'Supervisar'
 
@@ -118,4 +118,4 @@ Si no puede resolver el problema por sí mismo, puede realizar lo siguiente:
 	- Versión de SDK de Mobile Engagement (por ejemplo, Android SDK v2.1.0)
 	- Detalles del error con el mensaje de error exacto y el escenario
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

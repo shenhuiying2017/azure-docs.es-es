@@ -27,9 +27,9 @@ Recientemente se han incluido plantillas del Administrador de recursos de Azure 
 
 ## Opciones de herramienta
 
-### GUI: portal de vista previa de Azure
+### GUI: Portal de Azure
 
-La interfaz gráfica de usuario del Portal de Azure es una manera fácil de probar una máquina virtual, especialmente si no tiene experiencia con Azure. Use el portal de vista previa de Azure para crear la máquina virtual:
+La interfaz gráfica de usuario del Portal de Azure clásico es una manera fácil de probar una máquina virtual, especialmente si no tiene experiencia con Azure. Use el Portal de Azure para crear la máquina virtual:
 
 [Creación de una máquina virtual que ejecuta Windows][]
 
@@ -79,4 +79,4 @@ Elija una imagen basada en el sistema operativo que desea ejecutar. Azure y sus 
 
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

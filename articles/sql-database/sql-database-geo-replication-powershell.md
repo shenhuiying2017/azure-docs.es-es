@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="11/10/2015"
+    ms.date="12/01/2015"
     ms.author="sstein"/>
 
 # Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell
@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-geo-replication-portal.md)
+- [Azure portal](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
@@ -66,7 +66,7 @@ Después de ejecutar correctamente **Select-AzureRMSubscription** volverá al s�
 
 
 
-## Incorporación de una base de datos secundaria
+## Agregar una base de datos secundaria
 
 
 Los pasos siguientes crean otra base de datos secundaria en una asociación de replicación geográfica.
@@ -79,7 +79,7 @@ Este cmdlet reemplaza **Start AzureSqlDatabaseCopy** por el parámetro **: IsCon
 
 La base de datos replicada en el servidor secundario tendrá el mismo nombre que la base de datos en el servidor principal y, de forma predeterminada, tendrán el mismo nivel de servicio. La base de datos secundaria puede ser legible o no legible, y puede ser una base de datos única o elástica. Para obtener más información, consulte [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) y [Niveles de servicio](sql-database-service-tiers.md). Después de crear e inicializar la base de datos secundaria, los datos comenzarán a replicarse desde la base de datos principal a la nueva base de datos secundaria. Los pasos siguientes describen cómo llevar a cabo esta tarea mediante PowerShell para crear bases de datos secundarias legibles y no legibles, con una base de datos única o una base de datos elástica.
 
-Si la base de datos asociada ya existe (por ejemplo, como resultado de la terminación de una relación de replicación geográfica anterior) se producirá un error en el comando.
+Si la base de datos del asociado ya existe (por ejemplo, como resultado de la terminación de una relación de replicación geográfica anterior) se producirá un error en el comando.
 
 
 
@@ -121,9 +121,9 @@ El comando siguiente crea una base de datos secundaria legible de la base de dat
 
 
 
-## Eliminación de una base de datos secundaria
+## Elimine una base de datos secundaria
 
-Use el cmdlet **Remove-AzureRmSqlDatabaseSecondary** para terminar definitivamente la asociación de replicación entre una base de datos secundaria y su principal. Después de terminar la relación, la base de datos secundaria se convierte en una base de datos de lectura y escritura. Si se interrumpe la conectividad con la base de datos secundaria, el comando se ejecuta correctamente pero la base de datos secundaria será de lectura y escritura después de restaurarse la conectividad. Para obtener más información, consulte [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) y [Niveles de servicio](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+Use el cmdlet **Remove-AzureRmSqlDatabaseSecondary** para terminar definitivamente la asociación de replicación entre una base de datos secundaria y su principal. Después de terminar la relación, la base de datos secundaria se convierte en una base de datos de lectura y escritura. Si se interrumpe la conectividad con la base de datos secundaria, el comando se ejecuta correctamente pero la base de datos secundaria será de lectura y escritura después de restaurarse la conectividad. Para obtener más información, consulte [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) y [Niveles de servicio](sql-database-service-tiers.md).
 
 Este cmdlet reemplaza a Stop-AzureSqlDatabaseCopy para la replicación.
 
@@ -147,7 +147,7 @@ Use el cmdlet **Set-AzureRmSqlDatabaseSecondary** con el parámetro **Failover**
 
 El comando ejecuta el siguiente flujo de trabajo:
 
-1. Cambia temporalmente la replicación a modo sincrónico. Esto hará que todas las transacciones pendientes se vacíen en la base de datos secundaria.
+1. Cambiar temporalmente la replicación a modo sincrónico. Esto hará que todas las transacciones pendientes se vacíen en la base de datos secundaria.
 
 2. Cambia los roles de las dos bases de datos en la asociación de replicación geográfica.
 
@@ -189,7 +189,7 @@ El siguiente comando cambia los roles de la base de datos "mydb" a principal cua
 
 
 
-## Supervisión de la configuración y el mantenimiento de replicación geográfica
+## Supervisión y mantenimiento de la configuración de la replicación geográfica
 
 Las tareas de supervisión incluyen la supervisión de la configuración de replicación geográfica y la supervisión del mantenimiento de la replicación de los datos.
 
@@ -218,4 +218,4 @@ El comando siguiente recupera el estado del vínculo de replicación entre la ba
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

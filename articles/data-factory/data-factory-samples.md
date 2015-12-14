@@ -18,8 +18,8 @@
 
 # Factoría de datos de Azure: ejemplos
 
-## Ejemplos en el Portal de Azure
-Puede implementar, revisar y probar rápidamente un ejemplo de Factoría de datos de Azure con la hoja **Canalizaciones de ejemplo** en el Portal de Azure.
+## Ejemplos en el Portal de Azure clásico
+Puede implementar, revisar y probar rápidamente un ejemplo de Factoría de datos de Azure con la hoja **Canalizaciones de ejemplo** en el Portal de Azure clásico.
 
 1. Cree una factoría de datos nueva o abra una ya existente. Consulte [Introducción a Factoría de datos de Azure][data-factory-get-started] para ver los pasos crear una factoría de datos.
 2. En la hoja **FACTORÍA DE DATOS** de la factoría de datos, haga clic en el icono **Canalizaciones de ejemplo**.
@@ -57,4 +57,4 @@ El [repositorio de GitHub Azure-DataFactory](https://github.com/azure/azure-data
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

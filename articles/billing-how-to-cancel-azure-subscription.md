@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/21/2015"
+	ms.date="12/01/2015"
 	ms.author="genli"/>
 
 # Cancelación de su suscripción de Azure
@@ -30,4 +30,4 @@ Si cancela la suscripción, se eliminarán inmediatamente todos sus servicios. A
 4. Seleccione **Sí, cancelar mi suscripción**. </br> ![cancelbox](.\media\billing-how-to-cancel-azure-subscription\cancelbox.png)
 5. Haga clic en ![checkbutton](.\media\billing-how-to-cancel-azure-subscription\checkbutton.png) para cerrar la ventana del cuadro de diálogo y volver a la página de su suscripción.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

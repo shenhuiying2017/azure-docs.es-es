@@ -1,6 +1,6 @@
 
 
-1. En el Portal de administración, haga clic en la pestaña **Datos** y, a continuación, en la tabla **Registros**. 
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en la pestaña **Datos** y en la tabla **Registros**. 
 
 	![](./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png)
 
@@ -28,4 +28,4 @@
 
    De esta manera, se registra un nuevo script de inserción, que almacena la información de registro en la nueva tabla.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

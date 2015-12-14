@@ -26,10 +26,10 @@
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-    Este código envía una notificación de inserción (con el texto del elemento insertado) tras insertar un elemento todo. En caso de error, el código agregará una entrada al registro de errores que aparecerá en la pestaña **Registros** del servicio móvil en el Portal de administración.
+    Este código envía una notificación de inserción (con el texto del elemento insertado) tras insertar un elemento todo. En caso de error, el código agregará una entrada al registro de errores que aparecerá en la pestaña **Registros** del servicio móvil en el [Portal de Azure clásico](https://manage.windowsazure.com/).
 
 	>[AZURE.NOTE]Puede usar las notificaciones de plantilla para enviar una sola notificación de inserción a los clientes en varias plataformas. Para obtener más información, consulte [Compatibilidad de plataformas de varios dispositivos desde un único servicio móvil](../articles/mobile-services-how-to-use-multiple-clients-single-service.md#push).
 
 2. Vuelva a publicar el proyecto de servicio móvil en Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

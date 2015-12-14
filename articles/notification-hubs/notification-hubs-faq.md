@@ -3,7 +3,7 @@
 	description="Preguntas más frecuentes sobre el diseño y la implementación de soluciones en los Centros de notificaciones"
 	services="notification-hubs"
 	documentationCenter="mobile"
-	authors="wesmc"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor="" />
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="11/25/2015" 
 	ms.author="wesmc" />
 
 #Centros de notificaciones de Azure - preguntas frecuentes (FAQ)
@@ -67,14 +67,14 @@ Los Centros de notificaciones de Azure procesan al menos 1 millón de envíos en
 ###8\. ¿Hay alguna garantía de latencia?
 Debido a la naturaleza de las notificaciones de inserción que se entregan por un servicio externo de notificaciones de inserción específico de una plataforma, no hay ninguna garantía de latencia. Normalmente, la mayoría de las notificaciones se entregan en unos minutos.
 
-###9\. ¿Cuáles son las consideraciones que debemos tener en cuenta para elegir el diseño de una solución con espacios de nombres y centros de notificaciones?
+###9\. ¿Cuáles son las consideraciones que debemos tener en cuenta para elegir el diseño de una solución con espacios de nombres y Centros de notificaciones?
 *Aplicación móvil y entorno*: debe haber un Centro de notificaciones por entorno y aplicación móvil. En un escenario de varios inquilinos, cada inquilino debe tener un centro independiente. Nunca debe compartir el mismo centro de notificaciones entre entornos de producción y de prueba, ya que esto puede causar problemas posteriores al enviar notificaciones. Por ejemplo, Apple ofrece extremos de espacio aislado y de inserción de producción, cada uno con unas credenciales distintas. Si el concentrador se ha configurado originalmente con un certificado de espacio aislado de Apple y, a continuación, se vuelve a configurar para usar el certificado de producción de Apple, los tokens antiguos del dispositivo dejan de ser válidos con el nuevo certificado y la inserción no se realiza correctamente. Es mejor separar los entornos de producción y de prueba y utilizar centros diferentes para entornos diferentes.
 
-*Credenciales de PNS*: cuando una aplicación móvil se registra en el portal para desarrolladores de una plataforma (por ejemplo, Apple, Google, etc.), obtiene un identificador de aplicación y tokens de seguridad que el back-end de la aplicación necesita proporcionar a los servicios de notificaciones push de la plataforma para poder enviar estas notificaciones a los dispositivos. Estos tokens de seguridad que pueden ser en forma de certificados (por ejemplo, para Apple iOS o Windows Phone) o claves de seguridad (Google Android, Windows), entre otros, y deben configurarse en los centros de notificaciones. Esto se hace normalmente en el nivel de concentrador de notificación, pero también puede realizarse en el nivel de espacio de nombres en un escenario de varios inquilinos.
+*Credenciales de PNS*: cuando una aplicación móvil se registra en el portal para desarrolladores de una plataforma (por ejemplo, Apple, Google, etc.), obtiene un identificador de aplicación y tokens de seguridad que el back-end de la aplicación necesita proporcionar a los servicios de notificaciones push de la plataforma para poder enviar estas notificaciones a los dispositivos. Estos tokens de seguridad, que pueden ser en forma de certificados (por ejemplo, para Apple iOS o Windows Phone) o de claves de seguridad (Google Android o Windows, entre otros), deben configurarse en los Centros de notificaciones. Esto se hace normalmente en el nivel de concentrador de notificación, pero también puede realizarse en el nivel de espacio de nombres en un escenario de varios inquilinos.
 
 *Espacios de nombres:* los espacios de nombres también se pueden usar para agrupar las implementaciones. También puede utilizarse para representar todos los centros de notificaciones para todos los inquilinos de la misma aplicación en el escenario de varios inquilinos.
 
-*Distribución geográfica*: la distribución geográfica no siempre es crítica en el caso de las notificaciones push. Se realiza para destacar que los distintos servicios de notificación de inserción (APNS, GCM, etc.) que entregan en última instancia las notificaciones de inserción a los dispositivos no se han distribuido de manera uniforme. Sin embargo, si tiene una aplicación que se usa en todo el mundo, puede crear varios centros en distintos espacios de nombres para sacar provecho de la disponibilidad del servicio de los centros de notificaciones en diferentes regiones de Azure en todo el mundo. Tenga en cuenta que esto aumentará el coste de administración, especialmente en relación con los registros, por lo que no es muy recomendable y solo debe realizarse si es realmente necesario.
+*Distribución geográfica*: la distribución geográfica no siempre es crítica en el caso de las notificaciones de inserción. Se realiza para destacar que los distintos servicios de notificación de inserción (APNS, GCM, etc.) que entregan en última instancia las notificaciones de inserción a los dispositivos no se han distribuido de manera uniforme. Sin embargo, si tiene una aplicación que se usa en todo el mundo, puede crear varios centros en distintos espacios de nombres para sacar provecho de la disponibilidad del servicio de los Centros de notificaciones en diferentes regiones de Azure en todo el mundo. Tenga en cuenta que esto aumentará el coste de administración, especialmente en relación con los registros, por lo que no es muy recomendable y solo debe realizarse si es realmente necesario.
 
 ###10\. ¿Debemos llevar a cabo los registros desde el backend de la aplicación o desde los dispositivos directamente?
 Los registros desde el backend de la aplicación son útiles cuando tiene que realizar una autenticación de cliente antes de crear el registro o cuando se tienen etiquetas que deben crearse o modificarse por el back-end de aplicación basándose en alguna lógica de aplicación. Puede encontrar más información en [Instrucciones de registro de back-end] e [Instrucciones de registro de back-end - 2]
@@ -83,7 +83,7 @@ Los registros desde el backend de la aplicación son útiles cuando tiene que re
 Los Centros de notificaciones de Azure usan un modelo de seguridad basado en la firma de acceso compartido (SAS). Puede utilizar los tokens SAS en el nivel de espacio de nombres raíz o en el nivel específico de los centros de notificación. Estos tokens de SAS pueden establecerse con distintas reglas de autorización; por ejemplo, permisos de envío de mensajes, permisos de notificaciones de escucha, etc. Puede encontrar más información en [Seguridad].
 
 ###12\. ¿Cómo se controlan las cargas confidenciales en las notificaciones?
-Todas las notificaciones se entregan a los dispositivos mediante las plataformas de servicios de notificación de inserción (PNS). Cuando un remitente envía una notificación a los centros de notificaciones de Azure, procesamos y pasamos la notificación a las PNS correspondientes. Todas las conexiones desde el remitente a los Centros de notificaciones de Azure y a la PNS usan HTTPS. Los Centros de notificaciones de Azure no registran la carga del mensaje de ninguna manera. No obstante, para enviar cargas confidenciales, recomendamos un patrón de inserción seguro en el que el remitente envía una notificación ’ping’ con un identificador de mensaje al dispositivo sin la carga confidencial y, cuando la aplicación en el dispositivo recibe esta carga, llama a una API de back-end de aplicación segura directamente para capturar los detalles del mensaje. El tutorial para implementar el patrón es [Inserción segura de los Centros de notificaciones].
+Todas las notificaciones se entregan a los dispositivos mediante las plataformas de servicios de notificación de inserción (PNS). Cuando un remitente envía una notificación a los centros de notificaciones de Azure, procesamos y pasamos la notificación a las PNS correspondientes. Todas las conexiones desde el remitente a los Centros de notificaciones de Azure y a la PNS usan HTTPS. Los Centros de notificaciones de Azure no registran la carga del mensaje de ninguna manera. No obstante, para enviar cargas confidenciales, recomendamos un patrón de inserción seguro en el que el remitente envía una notificación ’ping’ con un identificador de mensaje al dispositivo sin la carga confidencial y, cuando la aplicación en el dispositivo recibe esta carga, llama a una API de back-end de aplicación segura directamente para capturar los detalles del mensaje. El tutorial para implementar el patrón es [Inserción segura de los Centros de notificaciones de Azure].
 
 ##Operaciones
 ###1\. ¿Qué es el historial de recuperación ante desastres (DR)?
@@ -128,10 +128,10 @@ Los Centros de notificaciones Azure permiten ver los datos de telemetría en el 
 [Instrucciones de registro de back-end]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Instrucciones de registro de back-end - 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
 [Seguridad]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Inserción segura de los Centros de notificaciones]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[Inserción segura de los Centros de notificaciones de Azure]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Solución de problemas de los Centros de notificaciones]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Métricas de los centros de notificaciones]: https://msdn.microsoft.com/library/dn458822.aspx
 [Ejemplo de métricas de Centro de notificaciones]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Exportación e importación de registros]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

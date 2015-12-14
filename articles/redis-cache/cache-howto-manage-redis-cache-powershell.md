@@ -13,10 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="multiple"
-   ms.date="08/26/2015"
+   ms.date="12/02/2015"
    ms.author="riande"/>
 
 # Administración de Caché en Redis de Azure con Azure PowerShell
+
+> [AZURE.SELECTOR]
+- [PowerShell](cache-howto-manage-redis-cache-powershell.md)
+- [Azure CLI](cache-manage-cli.md)
 
 En este tema se muestra cómo crear, actualizar y eliminar la Caché en Redis de Azure.
 
@@ -42,23 +46,22 @@ Por ejemplo, para obtener ayuda para el cmdlet Add-AzureAccount, escriba:
 
 El siguiente script muestra la creación, actualización y eliminación de una Caché en Redis de Azure.
 
-		# Azure Redis Cache operations require mode set to AzureResourceManager.
-		Switch-AzureMode AzureResourceManager
+		
 		$VerbosePreference = "Continue"
 
-	        # Create a new cache with date string to make name unique. 
-		$cacheName = "MovieCache" + $(Get-Date -Format ('ddhhmm')) 
+    	# Create a new cache with date string to make name unique.
+		$cacheName = "MovieCache" + $(Get-Date -Format ('ddhhmm'))
 		$location = "West US"
 		$resourceGroupName = "Default-Web-WestUS"
-
+		
 		$movieCache = New-AzureRedisCache -Location $location -Name $cacheName  -ResourceGroupName $resourceGroupName -Size 250MB -Sku Basic
-
+		
 		# Wait until the Cache service is provisioned.
-
+		
 		for ($i = 0; $i -le 60; $i++)
 		{
 		    Start-Sleep -s 30
-			$cacheGet = Get-AzureRedisCache -ResourceGroupName $resourceGroupName -Name $cacheName
+		    $cacheGet = Get-AzureRedisCache -ResourceGroupName $resourceGroupName -Name $cacheName
 		    if ([string]::Compare("succeeded", $cacheGet[0].ProvisioningState, $True) -eq 0)
 		    {
 		        break
@@ -68,31 +71,32 @@ El siguiente script muestra la creación, actualización y eliminación de una C
 		        exit
 		    }
 		}
-
+		
 		# Update the access keys.
-
+		
 		Write-Verbose "PrimaryKey: $($movieCache.PrimaryKey)"
 		New-AzureRedisCacheKey -KeyType "Primary" -Name $cacheName  -ResourceGroupName $resourceGroupName -Force
 		$cacheKeys = Get-AzureRedisCacheKey -ResourceGroupName $resourceGroupName  -Name $cacheName
 		Write-Verbose "PrimaryKey: $($cacheKeys.PrimaryKey)"
-
+		
 		# Use Set-AzureRedisCache to set Redis cache updatable parameters.
 		# Set the memory policy to Least Recently Used.
-
-		Set-AzureRedisCache -MaxMemoryPolicy AllKeysLRU -Name $cacheName -ResourceGroupName $resourceGroupName
-
+		
+		Set-AzureRedisCache -Name $cacheName -ResourceGroupName $resourceGroupName -RedisConfiguration @{"maxmemory-policy" = "AllKeys-LRU"}
+		
 		# Delete the cache.
-
+		
 		Remove-AzureRedisCache -Name $movieCache.Name -ResourceGroupName $movieCache.ResourceGroupName  -Force
 
 ## Pasos siguientes
 
 Para obtener más información acerca de Windows PowerShell con Azure, consulte los siguientes recursos:
 
+- [Documentación de cmdlet de caché en Redis de Azure en MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 - [Cmdlets de Administrador de recursos de Azure](http://go.microsoft.com/fwlink/?LinkID=394765): obtenga información acerca del uso de los cmdlets en el módulo AzureResourceManager.
-- [Uso de grupos de recursos para administrar los recursos de Azure](../azure-portal/resource-group-portal.md): obtenga información acerca de la creación y administración de grupos de recursos en el Portal de vista previa de Azure.
+- [Uso de grupos de recursos para administrar los recursos de Azure](../azure-portal/resource-group-portal.md): obtenga información sobre la creación y administración de grupos de recursos en el Portal de vista previa de Azure.
 - [Blog de Azure](http://blogs.msdn.com/windowsazure): obtenga información acerca de las nuevas características de Azure.
 - [Blog de Windows PowerShell](http://blogs.msdn.com/powershell): obtenga información acerca de las nuevas características de Windows PowerShell.
 - [Blog ¡Hola, chicos del scripting!](http://blogs.technet.com/b/heyscriptingguy/): Obtenga sugerencias y trucos del mundo real de la comunidad de Windows PowerShell.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

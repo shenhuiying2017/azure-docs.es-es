@@ -108,7 +108,7 @@ Esta aplicación web le permite:
 - Ver el historial de comandos de un dispositivo.
 
 ### Observación del comportamiento de la solución en la nube
-Puede ver los recursos aprovisionados en [Portal de vista previa de Azure](https://portal.azure.com) y desplazándose al grupo de recursos con el nombre de la solución especificada.
+Puede ver los recursos aprovisionados en el [Portal de Azure](https://portal.azure.com) y desplazándose al grupo de recursos con el nombre de la solución especificada.
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/azureportal_01.png)
 
@@ -144,4 +144,4 @@ Puede deshabilitar un dispositivo y, después, quitarlo:
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

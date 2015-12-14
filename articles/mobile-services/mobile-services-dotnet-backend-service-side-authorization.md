@@ -18,6 +18,11 @@
 
 # Autorización en el servicio de usuarios en Servicios móviles
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
 - [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
 - [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
@@ -34,7 +39,7 @@ Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutoria
 
 	>[AZURE.NOTE]Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe usar [Migraciones de Code First](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
-2. En Visual Studio, expanda la carpeta Controladores, abra **TodoItemController.cs** y agregue la siguiente instrucción using:
+2. En Visual Studio, expanda la carpeta Controladores, abra **TodoItemController.cs** y agregue la siguiente instrucción de uso:
 
 		using Microsoft.Azure.Mobile.Server.Security;
 
@@ -48,7 +53,7 @@ Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutoria
 
 	Este código agrega el identificador de usuario del usuario autenticado al elemento antes de que este se inserte en la tabla TodoItem.
 
-3. Busque el método **GetAllTodoItems** y reemplace la instrucción **return** con esta línea de código:
+3. Busque el método **GetAllTodoItems** y reemplace la instrucción **return** existente por la siguiente línea de código:
 
 		// Get the logged in user
 		var currentUser = User as ServiceUser;
@@ -79,4 +84,4 @@ Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutoria
 <!-- URLs. -->
 [Agregar autenticación a la aplicación de Servicios móviles existente]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -73,7 +73,7 @@ Puede usar Escritorio remoto para acceder al rol y ver más errores de forma rem
 
 2. Durante la implementación de la solución con Visual Studio, elija "Configurar conexiones a Escritorio remoto..." Para obtener más información acerca de cómo configurar la conexión a Escritorio remoto, consulte [Uso de Escritorio remoto con los roles de Azure](https://msdn.microsoft.com/library/gg443832.aspx).
 
-3. En el Portal de administración de Microsoft Azure, cuando la instancia muestre el estado **Listo**, haga clic en una de las instancias de rol.
+3. En el Portal de Microsoft Azure clásico, cuando la instancia muestre el estado **Listo**, haga clic en una de las instancias de rol.
 
 4. Haga clic en el icono **Conectar** en el área de **acceso remoto** de la cinta de opciones.
 
@@ -165,4 +165,4 @@ Cuando haya comprobado que todos los errores se han corregido, el servicio se pu
 
 Vea más [artículos de solución de problemas](..\?tag=top-support-issue&service=cloud-services) para servicios en la nube.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

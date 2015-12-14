@@ -134,9 +134,9 @@ Tenga en cuenta que, si recibió varios códigos de comprobación, solo funciona
 Si anteriormente configuró un teléfono de reserva, le recomendamos que vuelva a intentarlo. Para ello, seleccione ese teléfono cuando se le solicite en la página de inicio de sesión. Si no tiene configurado otro método, póngase en contacto con el administrador y pídale que borre su configuración, para que, la próxima vez que inicie sesión, se le solicite volver a [configurar la autenticación multifactor](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again).
 
 ##Las contraseñas de la aplicación no funcionan
-En primer lugar, asegúrese de haber escrito correctamente la contraseña de la aplicación. Si sigue sin funcionar, vuelva a intentar el inicio de sesión y [cree una contraseña de aplicación nueva](multi-factor-authentication-end-user-app-passwords). Si esto no funciona, póngase en contacto con el administrador y pídale que [elimine sus contraseñas de aplicación existentes](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords) y, luego, cree una nueva y úsela.
+En primer lugar, asegúrese de haber escrito correctamente la contraseña de la aplicación. Si sigue sin funcionar, vuelva a intentar el inicio de sesión y [cree una contraseña de aplicación nueva](multi-factor-authentication-end-user-app-passwords.md). Si esto no funciona, póngase en contacto con el administrador y pídale que [elimine sus contraseñas de aplicación existentes](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords) y, luego, cree una nueva y úsela.
 
 ##¿Cómo puedo quitar Azure Authenticator del dispositivo anterior y moverlo a uno nuevo?
 Cuando desinstala la aplicación del dispositivo o vuelve a programar el dispositivo, no se quita la activación en el back-end. Debe usar los pasos que se detallan en [Migrar a un dispositivo nuevo.](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

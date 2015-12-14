@@ -78,11 +78,11 @@ Cuando aprovisiona un clúster de HDInsight, especifica una cuenta de Almacenami
 
 **Para crear una cuenta de almacenamiento de Azure**
 
-1. Inicie sesión en el [Portal de administración de Azure][azure-classic-portal].
+1. Inicie sesión en el [Portal de Azure clásico][azure-classic-portal].
 	
-	> [AZURE.NOTE]HDInsight de Azure se admite actualmente en el portal de administración de Azure, mientras que Azure DocumentDB solo existe en el portal de Microsoft Azure.
+	> [AZURE.NOTE]HDInsight de Azure se admite actualmente en el Portal de Azure clásico, mientras que Azure DocumentDB solo existe en el portal de Microsoft Azure.
 
-2. Haga clic en **+ NUEVO** en la esquina inferior izquierda, seleccione **SERVICIOS DE DATOS**, seleccione **ALMACENAMIENTO** y después haga clic en **CREACIÓN RÁPIDA**. ![Portal de Azure donde puede utilizar la función de creación rápida para configurar una nueva cuenta de almacenamiento.][image-storageaccount-quickcreate]
+2. Haga clic en **+ NUEVO** en la esquina inferior izquierda, seleccione **SERVICIOS DE DATOS**, seleccione **ALMACENAMIENTO** y después haga clic en **CREACIÓN RÁPIDA**. ![Portal de Azure clásico donde puede usar la función de creación rápida para configurar una nueva cuenta de almacenamiento.][image-storageaccount-quickcreate]
 
 3. Escriba la **dirección URL**, elija los valores de **UBICACIÓN** y **REPLICACIÓN** y, a continuación, haga clic en **CREAR CUENTA DE ALMACENAMIENTO**. No se admiten grupos de afinidad.
 	
@@ -93,9 +93,9 @@ Cuando aprovisiona un clúster de HDInsight, especifica una cuenta de Almacenami
 4. Espere hasta que la característica **STATUS** de la nueva cuenta de almacenamiento cambie a **Online**.
 
 ## <a name="ProvisionHDInsight"></a>Paso 2: Creación de un clúster de HDInsight personalizado.
-En este tutorial, se usa la acción de script del portal de administración de Azure para personalizar su clúster de HDInsight. En este tutorial, utilizaremos el portal de administración de Azure para crear el clúster personalizado. Para obtener instrucciones sobre cómo usar los cmdlets de PowerShell o el SDK de .NET de HDInsight, consulte el artículo [Personalizar los clústeres de HDInsight mediante la acción de script][hdinsight-custom-provision].
+En este tutorial, se usa la acción de script del Portal de Azure clásico para personalizar su clúster de HDInsight. En este tutorial, usaremos el portal de Azure clásico para crear el clúster personalizado. Para obtener instrucciones sobre cómo usar los cmdlets de PowerShell o el SDK de .NET de HDInsight, consulte el artículo [Personalizar los clústeres de HDInsight mediante la acción de script][hdinsight-custom-provision].
 
-1. Inicie sesión en el [Portal de administración de Azure][azure-classic-portal]. Es posible ya haya iniciado sesión el paso anterior.
+1. Inicie sesión en el [Portal de Azure clásico][azure-classic-portal]. Es posible ya haya iniciado sesión el paso anterior.
 
 2. Haga clic en **+ NUEVO** en la parte inferior de la página y después en **SERVICIOS DE DATOS**, **HDINSIGHT** y, a continuación, en **CREACIÓN PERSONALIZADA**.
 
@@ -155,7 +155,7 @@ En este tutorial, se usa la acción de script del portal de administración de A
 		<td>Especifica el contenedor predeterminado de la cuenta de almacenamiento que se usará como sistema de archivos predeterminado para el clúster de HDInsight. Si eligió <strong>Usar almacenamiento existente</strong> para el campo <strong>Cuenta de almacenamiento</strong> y no existen contenedores en esa cuenta, el contenedor se creará de forma predeterminada con el mismo nombre que el del clúster. Si ya existe un contenedor con el nombre del clúster, se anexará un número de secuencia al nombre del contenedor.
     </td></tr>
 	<tr><td>Cuentas de almacenamiento adicionales</td>
-		<td>HDInsight admite varias cuentas de almacenamiento. No hay límite en el número de cuentas de almacenamiento adicionales que un clúster puede usar. No obstante, si crea un clúster mediante el Portal de Azure, tendrá un límite de siete debido a las restricciones de la interfaz de usuario. Por cada cuenta de almacenamiento adicional que especifique, se agregará una página Cuenta de almacenamiento adicional al asistente donde podrá especificar la información de la cuenta.</td></tr>
+		<td>HDInsight admite varias cuentas de almacenamiento. No hay límite en el número de cuentas de almacenamiento adicionales que un clúster puede usar. No obstante, si crea un clúster mediante el Portal de Azure clásico, tendrá un límite de siete debido a las restricciones de la interfaz de usuario. Por cada cuenta de almacenamiento adicional que especifique, se agregará una página Cuenta de almacenamiento adicional al asistente donde podrá especificar la información de la cuenta.</td></tr>
 </table>Haga clic en la flecha derecha.
 
 7. En la página **Acciones de scripts**, haga clic en **agregar acción de script** para proporcionar información detallada sobre el script de PowerShell que se ejecutará para personalizar un clúster durante su creación. El script de PowerShell instalará el conector de Hadoop de DocumentDB en los clústeres de HDInsight durante la creación del clúster.
@@ -181,7 +181,7 @@ En este tutorial, se usa la acción de script del portal de administración de A
 
 1. Instale Azure PowerShell. Puede encontrar instrucciones [aquí][powershell-install-configure].
 
-	> [AZURE.NOTE]En el caso de las consultas de Hive, use el Editor de Hive en línea de HDInsight. Para ello, inicie sesión en el [portal de administración de Azure][azure-classic-portal] y haga clic en **HDInsight** en el panel izquierdo para ver una lista de los clústeres de HDInsight. Haga clic en el clúster en el que desea ejecutar consultas de Hive y, a continuación, haga clic en **Consola de consultas**.
+	> [AZURE.NOTE]En el caso de las consultas de Hive, use el Editor de Hive en línea de HDInsight. Para ello, inicie sesión en el [Portal de Azure clásico][azure-classic-portal] y haga clic en **HDInsight** en el panel izquierdo para ver una lista de los clústeres de HDInsight. Haga clic en el clúster en el que desea ejecutar consultas de Hive y, a continuación, haga clic en **Consola de consultas**.
 
 2. Abra el entorno de script integrado de Azure PowerShell:
 	- Si el equipo dispone de Windows 8 o Windows Server 2012, o una versión posterior, puede utilizar la búsqueda integrada. En la pantalla de inicio, escriba **powershell ise** y haga clic en **Entrar**. 
@@ -280,7 +280,7 @@ En este tutorial, se usa la acción de script del portal de administración de A
 
 9. **Ejecute** el nuevo script. **Haga clic** en el botón verde para llevar a cabo la ejecución.
 
-10. Compruebe los resultados. Inicie sesión en el [Portal de vista previa de Azure][azure-portal].
+10. Compruebe los resultados. Inicie sesión en el [Portal de Azure][azure-portal].
 	1. Haga clic en <strong>Examinar</strong> en el panel de la izquierda. </br>
 	2. Haga clic en <strong>Todo</strong>, en la parte superior derecha del panel de exploración. </br>
 	3. Busque y haga clic en <strong>Cuentas de DocumentDB</strong>. </br>
@@ -362,7 +362,7 @@ En este tutorial, se usa la acción de script del portal de administración de A
 		
 9. **Ejecute** el nuevo script. **Haga clic** en el botón verde para llevar a cabo la ejecución.
 
-10. Compruebe los resultados. Inicie sesión en el [Portal de vista previa de Azure][azure-portal].
+10. Compruebe los resultados. Inicie sesión en el [Portal de Azure][azure-portal].
 	1. Haga clic en <strong>Examinar</strong> en el panel de la izquierda. </br>
 	2. Haga clic en <strong>Todo</strong>, en la parte superior derecha del panel de exploración. </br>
 	3. Busque y haga clic en <strong>Cuentas de DocumentDB</strong>. </br>
@@ -405,7 +405,7 @@ En este tutorial, se usa la acción de script del portal de administración de A
 
 5. **Ejecute** el nuevo script. **Haga clic** en el botón verde para llevar a cabo la ejecución.
 
-6. Compruebe los resultados. Inicie sesión en el [Portal de vista previa de Azure][azure-portal].
+6. Compruebe los resultados. Inicie sesión en el [Portal de Azure][azure-portal].
 	1. Haga clic en <strong>Examinar</strong> en el panel de la izquierda.
 	2. Haga clic en <strong>Todo</strong>, en la parte superior derecha del panel de exploración.
 	3. Busque y haga clic en <strong>Cuentas de DocumentDB</strong>.
@@ -470,4 +470,4 @@ Para obtener más información, consulte los artículos siguientes:
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

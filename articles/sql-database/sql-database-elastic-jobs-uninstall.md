@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2015" 
+	ms.date="12/01/2015" 
 	ms.author="ddove; sidneyh"/>
 
 #Desinstalación de componentes de Trabajos de base de datos elástica.
@@ -64,4 +64,4 @@ Si desea obtener más información sobre Trabajos de base de datos elástica, ve
 [1]: ./media/sql-database-elastic-job-uninstall/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

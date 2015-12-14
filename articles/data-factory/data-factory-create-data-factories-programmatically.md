@@ -261,7 +261,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 
 	
 
-12. Agregue el siguiente método auxiliar usado por el método **Main** a la clase **Program**. Este método abre un cuadro de diálogo emergente que le permite proporcionar un **nombre de usuario** y una **contraseña** que se usa para iniciar sesión en el portal de Azure.
+12. Agregue el siguiente método auxiliar usado por el método **Main** a la clase **Program**. Este método abre un cuadro de diálogo emergente que le permite proporcionar un **nombre de usuario** y una **contraseña** que le servirán para iniciar sesión en el Portal de Azure clásico.
  
 		public static string GetAuthorizationHeader()
         {
@@ -371,7 +371,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 		Jane, Doe
 	 
 17. Para ejecutar el ejemplo haga clic en **Depurar** -> **Iniciar depuración en el menú**. Cuando vea **Obteniendo los detalles de ejecución de un segmento de datos**, espere unos minutos y presione **ENTRAR**.
-18. Usar el Portal de vista previa de Azure para comprobar que la factoría de datos **APITutorialFactory** se crea con los siguientes artefactos: 
+18. Use el Portal de Azure para comprobar que la factoría de datos **APITutorialFactory** se crea con los siguientes artefactos: 
 	- Servicio vinculado: **LinkedService\_AzureStorage** 
 	- Conjunto de datos: **DatasetBlobSource** y **DatasetBlobDestination**.
 	- Canalización: **PipelineBlobSample** 
@@ -392,4 +392,4 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->
