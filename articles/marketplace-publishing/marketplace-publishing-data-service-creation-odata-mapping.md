@@ -72,9 +72,12 @@ Permitir definir funciones (SPROC) y entidades expuestas a través de una base d
 > [AZURE.TIP]Haga clic en el menú desplegable **Otras versiones** y seleccione una versión si no ve el artículo.
 
 ### EDM: modelo de datos de entrada
-- Información general: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink] [OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
-- Vista previa: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink] [PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
-- Tipos de datos: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink] [DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
+- Información general: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx](OverviewLink)
+[OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
+- Vista previa: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx](PreviewLink)
+[PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
+- Tipos de datos: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx](DataTypesLink)
+[DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
 
 El siguiente diagrama el flujo detallado de izquierda a derecha desde donde el cliente ingresa la instrucción OData (llamada al servicio web del proveedor de contenido) para recuperar los resultados/datos:
 
