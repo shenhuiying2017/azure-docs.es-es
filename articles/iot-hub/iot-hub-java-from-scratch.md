@@ -214,7 +214,7 @@ Para cambiar la granularidad del registro, incluya la siguiente línea en el arc
 .level = {LOGGING_LEVEL}
 ```
 
-> [AZURE.NOTE][Aquí](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html) encontrará una explicación de los diferentes niveles de registro.
+> [AZURE.NOTE] [Aquí](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html) encontrará una explicación de los diferentes niveles de registro.
 
 Luego, establezca la propiedad de JVM `java.util.logging.config.file={Path to your config.properties file}`.
 
@@ -229,4 +229,4 @@ Para registrar los marcos AMQP, establezca la variable de entorno `PN_TRACE_FRM=
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 [lnk-iothub-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/doc/provision_device.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

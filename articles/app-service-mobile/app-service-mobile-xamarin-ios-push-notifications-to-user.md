@@ -18,7 +18,9 @@
 
 # Envío de notificaciones entre plataformas a un usuario específico
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 En este tema se muestra cómo enviar notificaciones a todos los dispositivos registrados de un usuario concreto desde su back-end móvil. Introduce las [plantillas], que proporcionan a las aplicaciones cliente la libertad para especificar los formatos de carga y marcadores de posición de variables en el registro. Cuando se envía una notificación de plantilla desde un servidor, la base de datos central de notificaciones la dirige a todas las plataformas con estos marcadores de posición, habilitando notificaciones entre plataformas.
 
@@ -102,4 +104,4 @@ Vuelva a publicar el proyecto de back-end móvil y ejecute cualquiera de las apl
 [Introducción a las notificaciones de inserción]: app-service-mobile-xamarin-ios-get-started-push.md
 [plantillas]: ../notification-hubs/notification-hubs-templates.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

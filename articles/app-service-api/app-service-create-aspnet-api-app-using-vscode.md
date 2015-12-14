@@ -29,7 +29,8 @@ En este tutorial se explica cómo crear una aplicación de API ASP.NET 5 con [Vi
 ## Requisitos previos  
 
 * Instalar y configurar [Visual Studio Code](http://code.visualstudio.com/Docs/setup).
-* Instalar [Node.js](http://nodejs.org/download/).<br> [Node](http://nodejs.org/) es una plataforma para crear aplicaciones de servidor rápidas y escalables mediante JavaScript. Node es el tiempo de ejecución (Node) y [npm](http://www.npmjs.com/) es el Administrador de paquetes para los módulos de Node. Utilizará npm para aplicar la técnica scaffolding a una aplicación de API ASP.NET 5 en este tutorial.
+* Instalar [Node.js](http://nodejs.org/download/).<br\>
+	[Node](http://nodejs.org/) es una plataforma para crear aplicaciones de servidor rápidas y escalables mediante JavaScript. Node es el tiempo de ejecución (Node) y [npm](http://www.npmjs.com/) es el Administrador de paquetes para los módulos de Node. Utilizará npm para aplicar la técnica scaffolding a una aplicación de API ASP.NET 5 en este tutorial.
 
 ## Instalación de ASP.NET 5 y DNX
 ASP.NET 5/DNX es una pila de .NET eficiente que sirve para crear aplicaciones web y de nube modernas que se ejecutan en OS X, Linux y Windows. Se ha desarrollado desde el principio para proporcionar un marco de desarrollo optimizado para las aplicaciones que se implementan en la nube o se ejecutan de forma local. Consta de componentes modulares con una sobrecarga mínima, para continuar disfrutando de flexibilidad al crear soluciones.
@@ -41,15 +42,19 @@ Este tutorial está diseñado para ayudarle a comenzar a crear aplicaciones con 
 1. Para instalar el Administrador de versión de .NET (DNVM) en Windows, ejecute el comando siguiente en la ventana Comandos:
 
 	<pre class="prettyprint">
-@powershell -NoProfile -ExecutionPolicy unrestricted -Command "&amp;{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
-</pre>De esta forma, se descargará el script DNVM y se ubicará en el perfil de usuario.
+	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "&amp;{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
+	</pre>
+
+	De esta forma, se descargará el script DNVM y se ubicará en el perfil de usuario.
 
 2. Necesitará cerrar la sesión después de escribir el comando anterior para que el cambio de la variable de entorno PATH surta efecto.
 3. Compruebe la ubicación de DNVM; para ello, ejecute lo siguiente en la ventana Comandos: 
 
 	<pre class="prettyprint">
-where dnvm
-</pre>En la ventana Comandos se mostrará una ruta de acceso similar a la siguiente:
+	where dnvm
+	</pre>
+
+	En la ventana Comandos se mostrará una ruta de acceso similar a la siguiente:
 
 	![ubicación de dnvm](./media/app-service-create-aspnet-api-app-using-vscode/00-where-dnvm.png)
 
@@ -62,8 +67,10 @@ dnvm upgrade
 5. Verifique el DNVM y consulte el tiempo de ejecución activo; para ello, escriba lo siguiente en la ventana Comandos:
 
 	<pre class="prettyprint">
-dnvm list
-</pre>En la ventana Comandos se mostrarán los detalles del tiempo de ejecución activo:
+	dnvm list
+	</pre>
+
+	En la ventana Comandos se mostrarán los detalles del tiempo de ejecución activo:
 
 	![ubicación de dnvm](./media/app-service-create-aspnet-api-app-using-vscode/00b-dnvm-list.png)
 
@@ -90,8 +97,10 @@ yo aspnet
 
 	![Yoman - Generador de ASP.NET 5](./media/app-service-create-aspnet-api-app-using-vscode/01-yo-aspnet.png)
 
-5. Defina el nombre de la aplicación de API ASP.NET nueva como **ContactsList**. Este nombre se usará en el código más adelante en este tutorial. <br> Yoman creará una carpeta nueva con nombre **ContactsList**, además de los archivos necesarios para la aplicación nueva.
-6. Abra **Visual Studio Code**.<br> Puede abrir VSCode desde la ventana Comandos; para ello, escriba **code .**.
+5. Defina el nombre de la aplicación de API ASP.NET nueva como **ContactsList**. Este nombre se usará en el código más adelante en este tutorial. <br> 
+	Yoman creará una carpeta nueva con nombre **ContactsList**, además de los archivos necesarios para la aplicación nueva.
+6. Abra **Visual Studio Code**.<br>
+	 Puede abrir VSCode desde la ventana Comandos; para ello, escriba **code .**.
 7. En el menú **Archivo**, seleccione **Abrir carpeta** y seleccione la carpeta donde se encuentra la aplicación de API ASP.NET.
 
 	![Cuadro de diálogo Seleccionar carpeta](./media/app-service-create-aspnet-api-app-using-vscode/02-open-folder.png)
@@ -104,8 +113,10 @@ yo aspnet
 9. En la **Paleta de comandos**, escriba los comandos siguientes:
 
 	<pre class="prettyprint">
-dnx:dnu restore - (ContactsList)
-</pre>A medida que empiece a escribir, verá la línea de comandos completa en la lista.
+	dnx:dnu restore - (ContactsList)
+	</pre>
+
+	A medida que empiece a escribir, verá la línea de comandos completa en la lista.
 
 	![Comando Restore](./media/app-service-create-aspnet-api-app-using-vscode/04-dnu-restore.png)
 
@@ -178,7 +189,8 @@ dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server
 Los metadatos que permiten la implementación de un proyecto de API ASP.NET como aplicación de API deben estar incluidos en un archivo *apiapp.json* en la raíz del proyecto.
 
 1. En VSCode, haga clic con el botón secundario en la carpeta *wwwroot* y, a continuación, seleccione la opción **Nuevo archivo**.
-2. Asigne al nuevo archivo el nombre *apiapp.json*.<br> Asegúrese de que *apiapp.json* se encuentra en la carpeta *wwwroot*.
+2. Asigne al nuevo archivo el nombre *apiapp.json*.<br\>
+	 Asegúrese de que *apiapp.json* se encuentra en la carpeta *wwwroot*.
 3. Agregue lo siguiente al archivo *apiapp.json*:
 
 	<pre class="prettyprint">
@@ -415,16 +427,18 @@ git remote add azure [URL del repositorio remoto]
 9. Envíe los cambios a Azure escribiendo el siguiente comando:
 
 	<pre class="prettyprint">
-git push azure master
-</pre>Se le solicitará la contraseña que ha creado anteriormente. **Nota: La contraseña no será visible.**
+	git push azure master
+	</pre>
+
+	Se le solicitará la contraseña que ha creado anteriormente. **Nota: La contraseña no será visible.**
 
 	La salida del comando anterior finaliza con un mensaje que indica que la implementación se ha realizado correctamente:
 
 	<pre class="prettyprint">
-remote: Deployment successful.
-To https://user@testsite.scm.azurewebsites.net/testsite.git
-[new branch]      master -> master
-</pre>
+	remote: Deployment successful.
+	To https://user@testsite.scm.azurewebsites.net/testsite.git
+	[new branch]      master -> master
+	</pre>
 
 > [AZURE.NOTE]Si realiza cambios en la aplicación, puede volver a publicarla; para ello, seleccione la casilla **Confirmar todo** en VSCode y, a continuación, escriba el comando **git push azure master** en **GitBash**.
 
@@ -434,7 +448,8 @@ Ahora que ha implementado una API en su aplicación de API, puede ver la definic
 1. En el portal de vista previa de Azure, vaya a la hoja **Aplicación de API** para la aplicación de API que creó anteriormente y haga clic en el vínculo **Puerta de enlace**.
 2. En la hoja **PUERTA DE ENLACE**, haga clic en **Reiniciar**. Ahora puede cerrar esta hoja.
 3. En la hoja **APLICACIÓN DE API**, haga clic en **Reiniciar**. 
-4. En la hoja **APLICACIÓN DE API**, haga clic en **Definición de API**.<br> La hoja Definición de API muestra dos métodos. Si no ve los métodos GET y POST de forma inmediata, espere unos segundos para que Azure actualice la aplicación. A continuación, haga clic en **Definición de API** en la hoja **APLICACIÓN DE API**.
+4. En la hoja **APLICACIÓN DE API**, haga clic en **Definición de API**.<br>
+	La hoja Definición de API muestra dos métodos. Si no ve los métodos GET y POST de forma inmediata, espere unos segundos para que Azure actualice la aplicación. A continuación, haga clic en **Definición de API** en la hoja **APLICACIÓN DE API**.
 
 ## Ejecución de la aplicación en Azure
 En el portal de vista previa de Azure, vaya a la hoja **HOST DE APLICACIÓN DE API** para su aplicación de API y haga clic en **Examinar**. A continuación, agregue **api/Contacts** al final de la dirección URL para ver los detalles de contacto.

@@ -378,7 +378,12 @@ Notas adicionales:
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	Estos son los valores que se usarán para los demás proveedores: * "microsoftaccount" * "facebook" * "twitter" * "google" <br/><br/>
+	Estos son los valores que se usarán para los demás proveedores:
+	* "microsoftaccount"
+	* "facebook"
+	* "twitter"
+	* "google"
+<br/><br/>
 
 * El segundo parámetro del método `GetConsentLinkAsync()` es la URL de devolución de llamada a la que se redirige el servidor de consentimiento después de que el usuario inicia sesión en Dropbox y da su consentimiento de acceso a la cuenta del usuario.
 

@@ -41,7 +41,9 @@ Este tutorial cuenta con los siguientes requisitos previos:
 -	Una [cuenta de Microsoft Azure activa](/account/)
 -	Visual Studio 2013 con [SDK de Azure para .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
-> [AZURE.NOTE]Necesita una cuenta de Azure para completar este tutorial: + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/?WT.mc_id=A261C142F): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Aplicaciones web. + Puede [activar los beneficios de suscriptores de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): su suscripción a Visual Studio le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
+> [AZURE.NOTE]Necesita una cuenta de Azure para completar este tutorial:
+> + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/?WT.mc_id=A261C142F): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Aplicaciones web. 
+> + Puede [activar los beneficios de suscriptores de MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
 >
 > Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
@@ -68,11 +70,13 @@ En esta sección, implementará la plantilla de aplicación predeterminada ASP.N
 
 8. Suponiendo que no ha creado una aplicación web en Azure, Visual Studio pueden ayudarle a crearla. En el cuadro de diálogo **Configurar el sitio web de Microsoft Azure**, asegúrese de que el nombre del sitio es único. A continuación, haga clic en **Aceptar**.
 
-	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/5-create-website.png)
+	<!--todo: need 2.5.1 screenshot-->
+	![](media/cdn-websites-with-cdn/5-create-website.png)
 
 9. Una vez creada la aplicación ASP.NET, publíquela en Azure en el panel de la actividad de publicación web haciendo clic en **Publicar `<app name>` en este sitio ahora**. Haga clic en **Publicar** para completar el proceso.
 
-	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/6-publish-website.png)
+	<!--todo: need 2.5.1 screenshot-->
+	![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	Verá la aplicación web publicada en el explorador cuando la publicación se complete.
 
@@ -505,8 +509,27 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 4. Vuelva a publicar en la aplicación web de Azure y obtenga acceso a la página principal.
 5. Vea el código HTML de la página. Debería encontrar scripts inyectados simulares a los siguientes:    
 	
-	``` ... <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-<script>(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i < len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) { var meta = document.createElement('meta'); meta.className = 'sr-only'; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue('width'); document.head.removeChild(meta); if (value !== '1px') { document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); } } } return true; }())||document.write('<script src="/Content/css"><\\/script>');</script>
+	```
+	...
+	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+<script>(function() {
+                var loadFallback,
+                    len = document.styleSheets.length;
+                for (var i = 0; i < len; i++) {
+                    var sheet = document.styleSheets[i];
+                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
+                        var meta = document.createElement('meta');
+                        meta.className = 'sr-only';
+                        document.head.appendChild(meta);
+                        var value = window.getComputedStyle(meta).getPropertyValue('width');
+                        document.head.removeChild(meta);
+                        if (value !== '1px') {
+                            document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />');
+                        }
+                    }
+                }
+                return true;
+            }())||document.write('<script src="/Content/css"><\/script>');</script>
 
 	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -519,11 +542,11 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 	...
 	```
 
-	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
+	Observe que el script inyectado para el paquete de CSS contiene aún el residuo errante de la propiedad `CdnFallbackExpression` en la línea:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
+	Pero como la primera parte de la expresión || siempre devolverá true (en la línea directamente encima de esa), la función document.write() nunca se ejecutará.
 
 6. Para probar si el script de reserva funciona, vuelva al panel del extremo de la red CDN y haga clic en **Deshabilitar extremo**.
 

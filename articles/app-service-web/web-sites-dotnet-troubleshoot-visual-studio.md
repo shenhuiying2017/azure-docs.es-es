@@ -569,7 +569,8 @@ Las cuentas de almacenamiento ofrecen más almacenamiento y retención más prol
 
 1. En la ventana **Aplicación web de Azure** de Visual Studio, haga clic en la pestaña **Registros** y a continuación, haga clic en **Configurar registro en el Portal de administración**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![registro](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
+	![registro](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	Esto abre la pestaña **Configurar** en el portal clásico de su aplicación web.
 

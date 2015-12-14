@@ -125,7 +125,8 @@ Para excluir archivos y carpetas de las copias de seguridad, cree u archivo `_ba
 
 Suponga que tiene una aplicación web contiene archivos de registro e imágenes estáticas de los últimos años que nunca van a cambiar. Ya tiene una copia de seguridad completa de la aplicación web que incluye las imágenes anteriores. Ahora me gustaría hacer una copia de seguridad de la aplicación web todos los días, pero no quiere pagar para almacenar los archivos de registro o los archivos de imagen estática que no van a cambiar.
 
-![Carpeta de registros][LogsFolder] ![Carpeta de imágenes][ImagesFolder]
+![Carpeta de registros][LogsFolder]
+![Carpeta de imágenes][ImagesFolder]
 	
 Los pasos siguientes muestran cómo podría excluir estos archivos de la copia de seguridad.
 

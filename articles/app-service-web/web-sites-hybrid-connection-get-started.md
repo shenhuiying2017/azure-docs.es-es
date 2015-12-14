@@ -75,7 +75,11 @@ A continuación, creará una conexión híbrida y un servicio de BizTalk para la
 	
 	![Create a hybrid connection][TwinCreateHCBlades]
 	
-	En la **hoja Crear conexión híbrida**: - En **Nombre**, escriba un nombre para la conexión. - En **Nombre de host**, escriba el nombre del equipo local que hospeda el recurso. - En **Puerto**, escriba el número de puerto que usa su recurso local (1433 para una instancia predeterminada de SQL Server). - Haga clic en **Servicio de BizTalk**.
+	En la **hoja Crear conexión híbrida**:
+	- En **Nombre**, escriba un nombre para la conexión.
+	- En **Nombre de host**, escriba el nombre del equipo local que hospeda el recurso.
+	- En **Puerto**, escriba el número de puerto que usa su recurso local (1433 para una instancia predeterminada de SQL Server).
+	- Haga clic en **Servicio de BizTalk**.
 
 
 4. Se abre la hoja **Crear servicio de BizTalk**. Escriba un nombre para el servicio de BizTalk y, a continuación, haga clic en **Aceptar**.

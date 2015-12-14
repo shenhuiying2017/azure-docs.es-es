@@ -20,9 +20,9 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-
-> [AZURE.NOTE]Este artículo no trata de la implementación de la administración de registros, inicios de sesión y perfiles con Azure AD B2C. Se centra en la llamada a las API web después de que el usuario ya está autenticado. Si no lo ha hecho ya, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para obtener información sobre los conceptos básicos de Azure AD B2C.
-
+> [AZURE.NOTE]
+	Este artículo no trata de la implementación de la administración de registros, inicios de sesión y perfiles con Azure AD B2C. Se centra en la llamada a las API web después de que el usuario ya está autenticado.
+Si no lo ha hecho ya, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para obtener información sobre los conceptos básicos de Azure AD B2C.
 
 > [AZURE.NOTE]Este ejemplo se escribió para estar conectados con nuestra [aplicación de ejemplo B2C para iOS.](active-directory-b2c-devquickstarts-ios.md) Primero realice este tutorial y luego continúe con ese ejemplo.
 
@@ -38,7 +38,7 @@ El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQu
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
 
-La aplicación completa se ofrece también al final de este tutorial.
+The completed application is provided at the end of this tutorial as well.
 
 > [AZURE.WARNING]Para nuestra vista previa de B2C debe usar el mismo identificador de aplicación o de cliente, así como directivas tanto para el servidor de tareas de API web como para el cliente que se conecta a él. Esto se aplica a nuestros tutoriales de iOS y Android. Si previamente ha creado una aplicación en cualquiera de estos tutoriales, use los valores siguientes en lugar de crear otros nuevos.
 
