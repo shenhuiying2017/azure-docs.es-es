@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="Creación de una máquina virtual de base de datos de Oracle con el Portal de Azure clásico | Microsoft Azure"
 	description="Aprenda a crear una máquina virtual con una base de datos de Oracle en ella con el modelo de implementación clásico y el Portal de Azure."
@@ -17,7 +18,9 @@
 
 #Creación de una máquina virtual de base de datos Oracle en Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+
+Modelo del Administrador de recursos.
 
 
 En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada en una imagen de Base de datos de Oracle proporcionada por Microsoft que se ejecuta en Windows Server 2012 en Azure. Hay dos pasos. En primer lugar, cree la máquina virtual y luego cree la base de datos de Oracle dentro de la máquina virtual. El ejemplo mostrado es la versión de la Base de datos de Oracle 12c, pero los pasos son prácticamente idénticos para la versión 11g.
@@ -129,7 +132,7 @@ Para permitir el acceso remoto a la base de datos (por ejemplo, desde un equipo 
 
 		**lsnrctl start**
 
-> [AZURE.NOTE]Puede ejecutar **lsnrctl status** para comprobar el estado del agente de escucha. Si desea detener el agente de escucha, puede ejecutar **lsnrctl stop**.
+> [AZURE.NOTE] Puede ejecutar **lsnrctl status** para comprobar el estado del agente de escucha. Si desea detener el agente de escucha, puede ejecutar **lsnrctl stop**.
 
 ### Abrir el puerto 1521 en el firewall de su máquina virtual
 
