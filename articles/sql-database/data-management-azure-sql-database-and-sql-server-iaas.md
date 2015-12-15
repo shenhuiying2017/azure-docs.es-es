@@ -82,7 +82,7 @@ En la siguiente tabla se resumen las principales características de Base de dat
       <li type=round>Aplicaciones de SQL Server que requieren acceso a recursos locales (como, por ejemplo, Active Directory) desde Azure a través de un túnel seguro.
       <li type=round>Cuando se requiere un entorno de TI personalizado con derechos administrativos completos.
       <li type=round>Escenarios de desarrollo rápido y pruebas cuando no se desea comprar hardware de SQL Server de no producción local.
-      <li type=round>Recuperación ante desastres para aplicaciones de SQL Server locales mediante [Copia de seguridad y restauración de SQL Server con el servicio de almacenamiento Blob de Windows Azure](http://msdn.microsoft.com/library/jj919148.aspx) o [réplicas AlwaysOn en Máquinas virtuales de Azure](../virtual-machines/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
+      <li type=round>Recuperación ante desastres para aplicaciones de SQL Server locales mediante [Copia de seguridad y restauración de SQL Server con el servicio de almacenamiento Blob de Microsoft Azure](http://msdn.microsoft.com/library/jj919148.aspx) o [réplicas AlwaysOn en Máquinas virtuales de Azure](../virtual-machines/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
       <li type=round>Bases de datos grandes con más de 1&#160;TB de tamaño.
       </ul></td>
 </tr>
@@ -113,7 +113,7 @@ En la siguiente tabla se resumen las principales características de Base de dat
    <td valign="middle"><ul><li type=round>La aplicación local puede obtener acceso a datos de Base de datos de SQL de Azure.</ul></td>
    <td valign="middle"><ul>
       <li type=round>Con SQL Server en Máquinas virtuales de Azure, se pueden tener aplicaciones que se ejecuten parcialmente en la nube y parcialmente en la instalación local. Por ejemplo, se puede ampliar la red local y el Dominio de Active Directory a la nube mediante [Redes virtuales de Azure](../virtual-network/virtual-networks-overview.md). Además, se pueden almacenar archivos de datos locales en Almacenamiento de Azure mediante [Archivos de datos de SQL Server en Azure](http://msdn.microsoft.com/library/dn385720.aspx). Para obtener más información, consulte [Introducción a la nube híbrida de SQL Server 2014](http://msdn.microsoft.com/library/dn606154.aspx).
-      <li type=round>Admite recuperación ante desastres para aplicaciones de SQL Server locales mediante [Copia de seguridad y restauración de SQL Server con el servicio de almacenamiento Blob de Windows Azure](http://msdn.microsoft.com/library/jj919148.aspx) o [réplicas AlwaysOn en Máquinas virtuales de Azure](../virtual-machines/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
+      <li type=round>Admite recuperación ante desastres para aplicaciones de SQL Server locales mediante [Copia de seguridad y restauración de SQL Server con el servicio de almacenamiento Blob de Microsoft Azure](http://msdn.microsoft.com/library/jj919148.aspx) o [réplicas AlwaysOn en Máquinas virtuales de Azure](../virtual-machines/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
       </ul></td>
 
 </tr>
@@ -199,4 +199,4 @@ Consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virt
 
 > [AZURE.NOTE]¿Desea probar SQL Server 2016 CTP2? Suscríbase a Microsoft Azure y, a continuación, acceda [aquí](http://aka.ms/sql2016vm "aquí") para crear una máquina virtual con SQL Server 2016 CTP2 ya instalado.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->
