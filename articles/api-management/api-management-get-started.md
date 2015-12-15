@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/16/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Administración de su primera API en Administración de API de Azure
@@ -61,7 +61,7 @@ El sistema consta de los siguientes componentes:
 
 >[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][].
 
-El primer paso para trabajar con Administración de API es crear una instancia de servicio. Inicie sesión en el [Portal de Azure][] y haga clic en **Nuevo** > **Servicios de aplicaciones** > **Administración de API** > **Crear**.
+El primer paso para trabajar con Administración de API es crear una instancia de servicio. Inicie sesión en el [Portal de Azure clásico][] y haga clic en **Nuevo**, **Servicios de aplicaciones**, **Administración de API**, **Crear**.
 
 ![API Management new instance][api-management-create-instance-menu]
 
@@ -95,7 +95,7 @@ Las API se pueden crear (y las operaciones se pueden agregar) manualmente o se p
 
 >[AZURE.NOTE]Para obtener instrucciones sobre la creación de una API y la incorporación manual de operaciones, consulte [Creación de API](api-management-howto-create-apis.md) e [Incorporación de operaciones a una API](api-management-howto-add-operations.md).
 
-Las API se configuran desde el portal para editores, al que se accede a través del Portal de Azure. Para obtener acceso al portal para editores, haga clic en **Administrar** en el Portal de Azure para el servicio Administración de API.
+Las API se configuran desde el portal para editores, al que se accede mediante el Portal de Azure clásico. Para llegar al portal para editores, haga clic en **Administrar** en el Portal de Azure clásico para el servicio Administración de API.
 
 ![Portal del publicador][api-management-management-console]
 
@@ -206,7 +206,7 @@ La sección **Análisis** consta de las cuatro pestañas siguientes:
 [Introducción a la configuración de API avanzada]: api-management-get-started-advanced.md
 [Precios de Administración de API]: http://azure.microsoft.com/pricing/details/api-management/
 
-[Portal de Azure]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
@@ -243,4 +243,4 @@ La sección **Análisis** consta de las cuatro pestañas siguientes:
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

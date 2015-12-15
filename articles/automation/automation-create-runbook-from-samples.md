@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="09/08/2015"
+	ms.date="12/08/2015"
 	ms.author="bwren"/>
 
 
@@ -146,4 +146,4 @@ Microsoft y la comunidad de Automatización de Azure proporcionan runbooks de ej
 
 **Envíenos sus comentarios.** Si está buscando una solución de runbook o un módulo de integración de Automatización de Azure, publique una solicitud de script en el centro de scripts. Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [Voz del usuario](http://feedback.windowsazure.com/forums/34192--general-feedback). Gracias.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

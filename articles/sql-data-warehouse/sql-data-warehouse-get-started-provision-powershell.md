@@ -67,8 +67,8 @@ Si está interesado en obtener más información sobre cómo administrar el Alma
 [cargar datos de ejemplo]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
 [Powershell]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-reference-powershell-cmdlets/
 [API de REST]: https://msdn.microsoft.com/library/azure/dn505719.aspx
-[MSDN]: https://msdn.microsoft.com/es-ES/library/azure/dn546722.aspx
+[MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
 [firewall rules]: https://azure.microsoft.com/es-ES/documentation/articles/sql-database-configure-firewall-settings/
 [Instalación y configuración de Azure PowerShell]: powershell-install-configure.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

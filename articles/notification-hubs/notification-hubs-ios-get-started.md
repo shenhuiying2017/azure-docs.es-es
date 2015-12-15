@@ -157,7 +157,7 @@ El centro de notificaciones está ahora configurado para funcionar con APNS y ti
 ## Envío de notificaciones
 
 
-Para probar la recepción de notificaciones en su aplicación, envíe notificaciones en el Portal de Azure usando la pestaña de depuración en el centro de notificaciones, tal como se muestra en la pantalla que aparece a continuación.
+Para probar la recepción de notificaciones en su aplicación, envíe notificaciones en el [Portal de Azure clásico] mediante la pestaña de depuración en el centro de notificaciones, tal como se muestra en la pantalla que aparece a continuación.
 
 ![][30]
 
@@ -321,7 +321,7 @@ Si desea enviar notificaciones dentro de una aplicación. Esta sección proporci
 		}
 
 
-8. CTRL + arrastrar desde el botón **Enviar notificación** a ViewController.m para agregar una acción denominada **SendNotificationMessage** para **Touch Down**. Método de actualización con el código siguiente para enviar la notificación mediante la API de REST.
+8. CTRL + arrastrar desde el botón **Send Notification** (Enviar notificación) a ViewController.m para agregar una acción denominada **SendNotificationMessage** para **Touch Down**. Método de actualización con el código siguiente para enviar la notificación mediante la API de REST.
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{
@@ -435,7 +435,7 @@ Si desea enviar notificaciones dentro de una aplicación. Esta sección proporci
 
 > [AZURE.NOTE]Si encuentra un error de compilación en Xcode7 sobre la compatibilidad de bitcode, debe cambiar "Configuración de compilación" -> "Habilitar Bitcode"(ENABLE\_BITCODE) en 'NO' en Xcode. El SDK de los Centros de notificaciones no es compatible con bitcode.
 
-Puede buscar todas las cargas de notificaciones posibles en la guía [Local and Push Notification Programming Guide] (Guía de programación de notificaciones locales y push) de Apple.
+Puede buscar todas las cargas de notificaciones posibles en la guía [Local and Push Notification Programming Guide] de Apple.
 
 
 ##Prueba de la aplicación
@@ -446,7 +446,7 @@ Para probar las notificaciones push en iOS, debe implementar la aplicación en u
 
 	![][33]
 
-2. Puede enviar una notificación de prueba desde el Portal de Azure. Si agrega código para enviar la notificación en la aplicación, pulse dentro del campo de texto para escribir un mensaje de notificación. Luego, pulse el botón **Enviar** en el teclado, o el botón **Enviar notificación** en la vista, para enviar el mensaje de notificación.
+2. Puede enviar una notificación de prueba desde el [Portal de Azure clásico]. Si agrega código para enviar la notificación en la aplicación, pulse dentro del campo de texto para escribir un mensaje de notificación. Luego, pulse el botón **Send** (Enviar) en el teclado, o el botón **Send Notification** (Enviar notificación) en la vista, para enviar el mensaje de notificación.
 
 	![][34]
 
@@ -459,11 +459,11 @@ Si tiene algún problema o alguna recomendación que sirva para mejorar este tut
 
 ##Pasos siguientes
 
-En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iOS. Le recomendamos que siga el tutorial [Notificación a los usuarios con los Centros de notificaciones de Azure] como siguiente paso de aprendizaje. Ese tutorial le guiará en la creación de un back-end para enviar las notificaciones mediante etiquetas.
+En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iOS. Le recomendamos que siga el tutorial [Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET] como siguiente paso de aprendizaje. Ese tutorial le guiará en la creación de un back-end para enviar las notificaciones mediante etiquetas.
 
 Si desea segmentar sus usuarios por grupos de interés, puede leer también [Uso de Centros de notificaciones para enviar noticias de última hora].
 
-Para obtener más información general sobre los Centros de notificaciones, consulte [Introducción a los centros de notificaciones].
+Para más información general sobre los Centros de notificaciones, consulte [Introducción a los centros de notificaciones].
 
 
 
@@ -493,15 +493,15 @@ Para obtener más información general sobre los Centros de notificaciones, cons
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Azure portal]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [Introducción a los centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Uso de Centros de notificaciones para enviar noticias de última hora]: notification-hubs-ios-send-breaking-news.md
 
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

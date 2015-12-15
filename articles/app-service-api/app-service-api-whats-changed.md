@@ -18,7 +18,7 @@
 
 # Aplicaciones de API del Servicio de aplicaciones: lo que ha cambiado
 
-En el evento Connect() de noviembre de 2015, se [anunció](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/) una serie de mejoras al Servicio de aplicaciones de Azure. Estas mejoras incluyen cambios subyacentes en Aplicaciones de API para equipararlas con las aplicaciones móviles y web, reducir el número de conceptos y mejorar el rendimiento en tiempo de ejecución e implementación. A partir del 30 de noviembre de 2015, las nuevas aplicaciones de API cree con el portal de administración o con las herramientas más recientes de Azure reflejarán esos cambios. Este artículo describe estos cambios y explica cómo volver a implementar las aplicaciones existentes para sacar partido de las funcionalidades.
+En el evento Connect() de noviembre de 2015, se [anunciaron](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/) varias mejoras que se habían realizado en el Servicio de aplicaciones de Azure. Estas mejoras incluyen cambios subyacentes en Aplicaciones de API para equipararlas con las aplicaciones móviles y web, reducir el número de conceptos y mejorar el rendimiento en tiempo de ejecución e implementación. A partir del 30 de noviembre de 2015, las nuevas aplicaciones de API cree con el portal de administración o con las herramientas más recientes de Azure reflejarán esos cambios. Este artículo describe estos cambios y explica cómo volver a implementar las aplicaciones existentes para sacar partido de las funcionalidades.
 
 
 > [AZURE.NOTE]La versión preliminar inicial de Aplicaciones de API admitía dos escenarios principales: 1) API personalizadas para su uso en aplicaciones lógicas o en sus propios clientes y 2) API de Marketplace (con frecuencia conectores de SaaS) para su uso en aplicaciones lógicas. Este artículo trata el primer escenario, las API personalizadas. Para las API de Marketplace, a principios de 2016 se incorporará mejoras en la experiencia de diseñador de aplicaciones lógicas y en la base de conectividad subyacente. Las API de Marketplace existentes permanecen disponibles en el diseñador de aplicaciones lógicas.
@@ -120,9 +120,9 @@ El modelo de aplicaciones de API anterior tenía API para descubrir otras aplica
 El diseñador de aplicaciones lógicas incorporará una integración especialmente fluida con el nuevo modelo de Aplicaciones de API a principios de 2016. Dicho esto, el conector HTTP integrado en las aplicaciones lógicas puede invocar cualquier punto de conexión HTTP y admite la autenticación de entidad de servicio, que también se admite de forma nativa en los servicios de autenticación del Servicio de aplicaciones. Aprenda a usar una API hospedada por el Servicio de aplicaciones en aplicaciones lógicas en [Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
 ## Pasos siguientes
-Para más información, lea los artículos de la [sección Documentación de Aplicaciones de API](https://azure.microsoft.com/documentation/services/app-service/api/). Se actualizaron para reflejar el nuevo modelo de aplicaciones de API. Además, visite los foros para obtener más información e instrucciones sobre la migración:
+Para más información, lea los artículos de la [sección Documentación de Aplicaciones de API](https://azure.microsoft.com/documentation/services/app-service/api/). Se han actualizado para reflejar el nuevo modelo de Aplicaciones de API. Además, visite los foros para obtener más información e instrucciones sobre la migración:
 
 - [Foro de MSDN](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureAPIApps)
 - [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

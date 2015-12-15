@@ -237,7 +237,10 @@ Con las características de entrega continua integradas que proporciona Servicio
 
     ![Postman que llega a la API](media/app-service-api-nodejs-api-app/postman-hitting-api.png)
 
-## Resumen
-Ya ha creado e implementado correctamente su primera aplicación de API con Node.js. Desde aquí, puede agregar código a los controladores para almacenar los datos en una base de datos o en el disco de la instancia de la aplicación de API. Ahora que ya conectó la implementación continua, el cambio de la funcionalidad de la aplicación de API y la su ampliación es tan fácil como cambiar en insertar de código en el repositorio de Git.
+## Pasos siguientes
 
-<!---HONumber=AcomDC_1203_2015-->
+Ya ha creado e implementado correctamente su primera aplicación de API con Node.js. El siguiente tutorial de la serie de introducción a Aplicaciones de API muestra cómo [consumir aplicaciones de API desde clientes de JavaScript mediante CORS](app-service-api-cors-consume-javascript.md).
+
+Para basarse en este ejemplo, puede agregar código a los controladores para almacenar los datos en una base de datos o en el disco de la instancia de la aplicación de API. Ahora que ya conectó la implementación continua, el cambio de la funcionalidad de la aplicación de API y la su ampliación es tan fácil como cambiar en insertar de código en el repositorio de Git.
+
+<!---HONumber=AcomDC_1210_2015-->

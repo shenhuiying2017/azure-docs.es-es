@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/27/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Protección de su API con límites de frecuencia mediante Administración de API de Azure
@@ -28,7 +28,7 @@ En este tutorial creará un producto de API "Prueba gratuita" que permite a los 
 
 En este paso, creará un producto Prueba gratuita que no requiere aprobación de suscripción.
 
-Para comenzar, haga clic en **Administrar** en el Portal de Azure para el servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
+Para comenzar, haga clic en **Administrar** en el Portal de Azure clásico para el servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
 
 ![Portal del publicador][api-management-management-console]
 
@@ -207,7 +207,7 @@ Ahora que el producto Prueba gratuita está configurado y publicado, podemos lla
 
 ![Portal para desarrolladores][api-management-developer-portal-menu]
 
-Haga clic en **API** en el menú superior y después en **API eco**.
+Haga clic en **API** en el menú superior y, después, en **API Eco**.
 
 ![Portal para desarrolladores][api-management-developer-portal-api-menu]
 
@@ -292,4 +292,4 @@ Cuando la directiva de límite de tasa de 10 llamadas por minuto se aplique, las
 [Limitar frecuencia de llamadas]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Establecer cuota de uso]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

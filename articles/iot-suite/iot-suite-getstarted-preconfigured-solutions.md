@@ -3,7 +3,7 @@
 	description="Siga este tutorial para aprender a implementar una solución preconfigurada del conjunto de IoT de Azure."
 	services=""
 	documentationCenter=""
-	authors="aguilaaj"
+	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
@@ -13,106 +13,150 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/29/2015"
-     ms.author="araguila"/>
+     ms.date="12/03/2015"
+     ms.author="dobett"/>
 
 # Tutorial: Introducción a las soluciones de IoT preconfiguradas
 
 ## Introducción
 
-Las soluciones preconfiguradas del conjunto de soluciones de IoT de Azure conectan varios servicios IoT de Azure para ejemplificar una solución completa que satisface un escenario empresarial de Internet de las cosas.
+Las [soluciones preconfiguradas][lnk-preconfigured-solutions] del Conjunto de aplicaciones de IoT de Azure combinan varios servicios de IoT de Azure para ofrecer soluciones integrales que implementan escenarios de negocio de IoT comunes.
 
-Este tutorial muestra cómo aprovisionar una solución preconfigurada, la **supervisión remota**. También muestra cómo ver las características básicas de la solución preconfigurada de supervisión remota.
+Este tutorial muestra cómo aprovisionar la solución preconfigurada de *supervisión remota*. También guía por las características básicas de la solución preconfigurada de supervisión remota.
 
-Para completar este tutorial, necesitará lo siguiente:
+Para completar este tutorial, deberá tener una suscripción de Azure activa.
 
--   Una suscripción de Azure activa.
-
-    En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][].
+> [AZURE.NOTE]En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][lnk_free_trial].
 
 ## Aprovisionamiento de la solución preconfigurada de supervisión remota
 
-1.  Inicie sesión en https://www.azureiotsuite.com y haga clic en **+** para crear una nueva solución.
+1.  Inicie sesión en [azureiotsuite.com][lnk-azureiotsuite] con sus credenciales de la cuenta de Azure y haga clic en **+** para crear una nueva solución.
 
-2.  Seleccione **Supervisión remota** como el tipo de solución.
+2.  Haga clic en **Seleccionar** en el icono **Supervisión remota**.
 
-3.  Escriba un **Nombre de la solución** para la solución preconfigurada de supervisión remota.
+3.  Escriba un valor en **Nombre de la solución** para la solución preconfigurada de supervisión remota.
 
-4.  Valide la **Región** y la **Suscripción** que desea proporcionar en esta solución.
+4.  Seleccione el valor en **Región** y **Suscripción** que desea usar para aprovisionar la solución.
 
-5.  Haga clic en **Crear solución**.
+5.  Haga clic en **Crear solución** para comenzar el proceso de aprovisionamiento. Normalmente tarda varios minutos en ejecutarse.
 
 ## Visualización del panel de la solución de supervisión remota
 
-1.  Cuando se complete el aprovisionamiento y el icono de su solución preconfigurada indique **Listo**, haga clic en **Iniciar** para abrir el panel de su solución de supervisión remota en una nueva pestaña.
+1.  Cuando se complete el aprovisionamiento y el icono de su solución preconfigurada indique **Listo**, haga clic en **Iniciar** para abrir el portal de su solución de supervisión remota en una nueva pestaña.
 
-2.  De forma predeterminada, el **Panel** está seleccionado en el menú izquierdo. Este es el panel de su solución.
+    ![][img-launch-solution]
+
+2.  De forma predeterminada, el portal de la solución muestra el *panel de la solución*. Puede seleccionar otras vistas mediante el menú izquierdo.
+
+    ![][img-dashboard]
 
 ## Visualización de la lista de dispositivos de la solución
 
-1.  Haga clic en **Dispositivos** en el menú izquierdo para ir a la lista de dispositivos para esta solución.
+1.  Haga clic en **Dispositivos** en el menú izquierdo para mostrar la *lista de dispositivos* para esta solución.
 
-2.  En el aprovisionamiento, verá 4 dispositivos simulados aprovisionados.
+    ![][img-devicelist]
 
-3.  Haga clic en un **dispositivo individual** en la lista de dispositivos para ver los detalles asociados con dicho dispositivo.
+2.  Puede ver que hay cuatro dispositivos simulados creados por el proceso de aprovisionamiento.
+
+3.  Haga clic en un dispositivo en la lista de dispositivos para ver sus detalles.
+
+    ![][img-devicedetails]
 
 ## Envío de un comando a un dispositivo
 
-1.  Haga clic en **Enviar comando** en el panel de detalles del dispositivo simulado seleccionado.
+1.  Haga clic en **Comandos** en el panel de detalles del dispositivo para el dispositivo seleccionado.
+
+    ![][img-devicecommands]
 
 2.  Seleccione **PingDevice** en la lista de comandos.
 
 3.  Haga clic en **Enviar comando**.
 
-4.  Consulte el estado del comando que aparece en el historial de comandos.
+4.  Puede ver el estado del comando en el historial de comandos.
+
+    ![][img-pingcommand]
 
 ## Adición de un nuevo dispositivo simulado
 
-1.  Haga clic en **←** (flecha atrás) para volver a la lista de dispositivos.
+1.  Vuelva a navegar hasta la lista de dispositivos.
 
 2.  Haga clic en **+ Agregar un dispositivo** en la esquina inferior izquierda para agregar un nuevo dispositivo.
 
-3.  Haga clic en **Agregar nuevo** para el **Dispositivo simulado**.
+    ![][img-adddevice]
 
-4.  Seleccione **Permitirme definir mi propio identificador de dispositivo** y agregue un nombre de identificador de dispositivo único.
+3.  Haga clic en **Agregar nuevo** en el icono **Dispositivo simulado**.
+
+    ![][img-addnew]
+
+4.  Seleccione **Permitirme definir mi propio identificador de dispositivo** y escriba un nombre de identificador de dispositivo único como **mydevice\_01**.
 
 5.  Haga clic en **Crear**.
 
-6.  Haga clic en **←** (flecha atrás) para volver a la lista de dispositivos.
+    ![][img-definedevice]
 
-7.  Su dispositivo se mostrará **En ejecución** en la lista de dispositivos.
+6. En el paso 3 de **Agregar un dispositivo simulado**, haga clic en **Listo** para volver a la lista de dispositivos.
+
+7.  Puede ver su dispositivo **En ejecución** en la lista de dispositivos.
+
+    ![][img-runningnew]
 
 ## Visualización y edición de reglas de solución
 
-1.  Observe la tabla **Historial de alarmas** en el **Panel de la solución.**
+1.  Vuelva al panel de la solución y vea el icono **Historial de alarmas**.
 
-2.  Estas alarmas se desencadenan con el resultado de la regla **AlarmTemp** especificado en **Reglas**.
+    ![][img-alarmhistory]
 
-3.  Haga clic en **Reglas** en el menú izquierdo para ir a las reglas de esta solución.
+2.  La regla **AlarmTemp** desencadena estas alarmas.
 
-4.  Tras el aprovisionamiento verá que ya hay una regla habilitada.
+3.  Haga clic en **Reglas** en el menú izquierdo para ver las reglas de esta solución.
 
-5.  Haga clic en la **regla** en la lista de reglas para ver las propiedades asociadas.
+    ![][img-rules]
+
+4.  La solución preconfigurada aprovisiona dos reglas.
+
+5.  Haga clic en la regla **Temperature** en la lista de reglas para ver las propiedades de la regla.
 
 6.  Haga clic en **Editar** en el panel de propiedades de la regla.
 
-7.  Cambie el **Umbral** a 30 y conserve todas las demás propiedades.
+    ![][img-displayrule]
+
+7.  Cambie el valor de **Umbral** a 30 y conserve todas las demás propiedades.
 
 8.  Haga clic en **Guardar y ver reglas**.
 
-9.  Vuelva a la tabla **Historial de alarmas** en el **Panel de la solución** y observe el cambio en el desencadenador como resultado de la actualización de la regla.
+    ![][img-editrule]
+
+9.  Vuelva a la tabla **Historial de alarmas** en el **Panel de la solución** y observe el cambio en el comportamiento que resulta de la regla actualizada.
+
+    ![][img-newhistory]
 
 ## Pasos siguientes
 
 Ahora que ha creado una solución preconfigurada que funciona, puede pasar a las situaciones siguientes:
 
--   [Directrices de personalización de soluciones preconfiguradas][]
+-   [Directrices de personalización de soluciones preconfiguradas][lnk-customize]
+-   [Información general de la solución preconfigurada de mantenimiento predictivo][lnk-predictive]
 
--   [Información general del conjunto de IoT][]
+[img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
+[img-dashboard]: media/iot-suite-getstarted-preconfigured-solutions/dashboard.png
+[img-devicelist]: media/iot-suite-getstarted-preconfigured-solutions/devicelist.png
+[img-devicedetails]: media/iot-suite-getstarted-preconfigured-solutions/devicedetails.png
+[img-devicecommands]: media/iot-suite-getstarted-preconfigured-solutions/devicecommands.png
+[img-pingcommand]: media/iot-suite-getstarted-preconfigured-solutions/pingcommand.png
+[img-adddevice]: media/iot-suite-getstarted-preconfigured-solutions/adddevice.png
+[img-addnew]: media/iot-suite-getstarted-preconfigured-solutions/addnew.png
+[img-definedevice]: media/iot-suite-getstarted-preconfigured-solutions/definedevice.png
+[img-runningnew]: media/iot-suite-getstarted-preconfigured-solutions/runningnew.png
+[img-alarmhistory]: media/iot-suite-getstarted-preconfigured-solutions/alarmhistory.png
+[img-rules]: media/iot-suite-getstarted-preconfigured-solutions/rules.png
+[img-displayrule]: media/iot-suite-getstarted-preconfigured-solutions/displayrule.png
+[img-editrule]: media/iot-suite-getstarted-preconfigured-solutions/editrule.png
+[img-newhistory]: media/iot-suite-getstarted-preconfigured-solutions/newhistory.png
 
-[Evaluación gratuita de Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target=
+[lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
+[lnk-azureiotsuite]: https://www.azureiotsuite.com
+[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-predictive]: iot-suite-predictive-overview.md
 
-[Directrices de personalización de soluciones preconfiguradas]: https://azure.microsoft.com/documentation/articles/iot-suite-guidance-on-customizing-preconfigured-solutions/
-[Información general del conjunto de IoT]: https://azure.microsoft.com/documentation/articles/iot-suite-overview/
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

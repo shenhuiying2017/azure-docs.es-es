@@ -22,21 +22,19 @@
 
 ## Información general
 
-En este tutorial, se muestra cómo usar las características de autenticación y autorización del Servicio de aplicaciones de Azure para proteger una aplicación de API y cómo consumir una aplicación de API protegida en nombre de una cuenta de servicio. La cuenta de servicio se denomina también *entidad de servicio* y la autenticación que usa una cuenta de este tipo se conoce además como escenario *entre servicios*. En este tutorial, va a proteger una aplicación de API para un escenario entre servicios usando Azure Active Directory para la autenticación y consumiendo la API desde un cliente .NET.
+En este tutorial se muestra cómo usar las características de autenticación y autorización del Servicio de aplicaciones de Azure para proteger una aplicación de API y cómo consumir una aplicación de API protegida en nombre de una cuenta de servicio. El proveedor de autenticación que se muestra en el tutorial es Azure Active Directory, y el cliente y API son ASP.NET Web API que se ejecutan en las aplicaciones de API.
 
-El tutorial usa ASP.NET Web API tanto para el cliente que realiza la llamada como para la API a la que se llama, pero las técnicas mostradas también se aplican a otros lenguajes y marcos admitidos por el Servicio de aplicaciones de Azure. El código de cliente que se muestra aquí es código estándar de Azure Active Directory para obtener y pasar un token de portador para una cuenta de servicio. No se necesita ningún código especial solo para Azure, como el que se solía usar para controlar el token de Zumo de Servicios móviles.
+## Autenticación y autorización en el Servicio de aplicaciones
 
-Esta es la cuarta parte de una serie de tutoriales que muestran cómo trabajar con aplicaciones de API en el Servicio de aplicaciones de Azure. Para más información acerca de la serie, consulte el primer tutorial [Introducción a Aplicaciones de API y ASP.NET en el Servicio de aplicaciones de Azure](app-service-api-dotnet-get-started.md). Para más información sobre la autenticación y la autorización en el Servicio de aplicaciones de Azure, consulte el anterior tutorial de la serie, [Autenticación de usuario para aplicaciones de API en el Servicio de aplicaciones de Azure](app-service-api-dotnet-user-principal-auth.md).
+Para ver una introducción sobre las características de autenticación y autorización usadas en este tutorial, consulte el anterior tutorial de la serie, [Introducción a Aplicaciones de API y ASP.NET en el Servicio de aplicaciones de Azure](app-service-api-dotnet-get-started.md).
 
-## Otras opciones para la autenticación entre servicios
+## Seguimiento de este tutorial
 
-Si desea controlar un escenario entre servicios sin usar la autenticación y la autorización del Servicio de aplicaciones, como por ejemplo, usando certificados de cliente, consulte la sección [Pasos siguientes](#next-steps).
+En este tutorial se usa una aplicación de ejemplo que descarga y crea en la aplicación de API en el primer tutorial: [Introducción a Aplicaciones de API y ASP.NET en el Servicio de aplicaciones de Azure](app-service-api-dotnet-get-started.md).
 
 ## Proyecto de ejemplo CompanyUsers.API
 
-En este tutorial, usará los proyectos de ejemplo que descargó en el [primer tutorial de esta serie](app-service-api-dotnet-get-started.md), así como los recursos de Azure (aplicación de API y aplicación web) que creó en los anteriores tutoriales.
-
-El proyecto CompanyUsers.API es un proyecto de API web simple que contiene un método Get que devuelve una lista de contactos codificada de forma rígida. Para mostrar un escenario entre servicios, el método Get en ContactsList.API llama al método Get de CompanyContacts.API, agrega los contactos que obtiene a lo que ya esté presente en su propio almacén de datos y después devuelve la lista combinada.
+En la [aplicación de ejemplo ContactsList](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list), el proyecto CompanyUsers.API es un proyecto de Web API simple que contiene un método Get que devuelve una lista de contactos codificada de forma rígida. Para mostrar un escenario entre servicios, el método Get en ContactsList.API llama al método Get de CompanyContacts.API, agrega los contactos que se le devuelven a lo que ya está en su propio almacén de datos y después devuelve la lista combinada.
 
 Este es el método Get de CompanyUsers.API.
 
@@ -70,7 +68,7 @@ Y este es el método Get de ContactsList.API, donde se muestra cómo llama a Com
 		    return contactsList;
 		}
 
-El objeto de cliente para CompanyContacts.API es una modificación del código de cliente de aplicación de API generado que agrega un token a la solicitud HTTP.
+El objeto de cliente devuelto por `CompanyContactsAPIClientWithAuth()` en el código anterior se basa en el código de cliente generado, pero agrega un token de autorización a las solicitudes HTTP.
 
 		private static CompanyContactsAPI CompanyContactsAPIClientWithAuth()
 		{
@@ -82,15 +80,15 @@ El objeto de cliente para CompanyContacts.API es una modificación del código d
 
 ## Creación de una aplicación de API en Azure e implementación del proyecto CompanyContacts.API en ella
 
-1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto CompanyContacts.API y después haga clic en **Publicar**.
+1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto CompanyContacts.API y después en **Publicar**.
 
-3.  En el paso **Perfil** del asistente **Publicación web**, haga clic en **Servicio de aplicaciones de Microsoft Azure**.
+3.  En el paso **Perfil** del Asistente para **publicación web**, haga clic en **Servicio de aplicaciones de Microsoft Azure**.
 
 	![](./media/app-service-api-dotnet-service-principal-auth/selectappservice.png)
 
 4. Inicie sesión en su cuenta de Azure si aún no lo hizo o actualice sus credenciales si expiraron.
 
-4. En el cuadro de diálogo Servicio de aplicaciones, elija la **suscripción** de Azure que desee usar y después haga clic en **Nuevo**.
+4. En el cuadro de diálogo **Servicio de aplicaciones**, elija la **Suscripción** de Azure que desee usar y haga clic en **Nuevo**.
 
 	![](./media/app-service-api-dotnet-service-principal-auth/clicknew.png)
 
@@ -100,7 +98,7 @@ El objeto de cliente para CompanyContacts.API es una modificación del código d
 
 6. En el menú desplegable **Grupo de recursos**, seleccione el grupo de recursos que haya usado en estos tutoriales.
 
-4. En el menú desplegable **Plan del servicio de aplicaciones**, seleccione el plan que haya usado en estos tutoriales.
+4. En el menú desplegable **Plan de servicio de aplicaciones**, seleccione el plan que haya usado en estos tutoriales.
 
 7. Haga clic en **Crear**.
 
@@ -108,7 +106,7 @@ El objeto de cliente para CompanyContacts.API es una modificación del código d
 
 	Visual Studio crea la aplicación de API y un perfil de publicación que tiene toda la configuración necesaria para la nueva aplicación de API.
 
-8. En la pestaña **Conexión** del asistente **Publicación web**, haga clic en **Publicar**.
+8. En la pestaña **Conexión** del Asistente para **publicación web**, haga clic en **Publicar**.
 
 	![](./media/app-service-api-dotnet-service-principal-auth/conntab.png)
 
@@ -122,11 +120,13 @@ El proyecto ContactsList.API ya tiene el código de cliente generado, pero podr�
 
 1. En el **Explorador de soluciones** de Visual Studio, en el proyecto ContactsList.API, elimine la carpeta *CompanyContactsAPI*.
 
-2. Haga clic con el botón derecho en el proyecto ContactsList.API y después haga clic en **Agregar > Cliente de API de REST**.
+2. Haga clic con el botón derecho en el proyecto ContactsList.API y después en **Agregar > Cliente de API de REST**.
 
-3. En el cuadro de diálogo **Agregar cliente de API de REST**, haga clic en **Descargar desde la aplicación de API de Microsoft Azure** y después en **Examinar**.
+3. En el cuadro de diálogo **Agregar cliente de API de REST**, haga clic en **Descargar desde la aplicación de API de Microsoft Azure** y, a continuación, en **Examinar**.
 
-8. En el cuadro de diálogo **Servicio de aplicaciones**, expanda el grupo de recursos que use para este tutorial y después seleccione la aplicación de API que acaba de crear.
+8. En el cuadro de diálogo **Servicio de aplicaciones**, expanda el grupo de recursos que usa para este tutorial y seleccione la aplicación de API que acaba de crear.
+
+	Si no ve la aplicación de API en la lista, es probable que al crear la aplicación de API accidentalmente omitiera el paso que cambiaba el tipo de aplicación web a aplicación de API. En ese caso, puede crear una aplicación de API nueva, para lo que debe repetir los pasos que realizó anteriormente. Tendrá que elegir un nombre diferente para la aplicación de API, a menos que vaya al portal y elimine primero la aplicación web.
 
 10. Haga clic en **Aceptar**.
 
@@ -152,7 +152,7 @@ El código de ContactsList.API que llama a CompanyContacts.API se convirtió en 
 		     return client;
 		 }
  
-4. En el método Get, quite la marca de comentario del bloque de código que usa el objeto de cliente devuelto por `CompanyContactsAPIClientWithAuth`.
+4. En el método `Get`, quite la marca de comentario del bloque de código que llama a CompanyContacts.API.
 
 		using (var client = CompanyContactsAPIClientWithAuth())
 		{
@@ -165,17 +165,19 @@ El código de ContactsList.API que llama a CompanyContacts.API se convirtió en 
 
 2. Haga clic con el botón derecho en el proyecto ContactsList.API y después haga clic en **Publicar**.
 
-	Se abre el asistente **Publicación web** con el perfil de publicación que usó antes.
+	Se abre el Asistente para **publicación web** con el perfil de publicación que usó antes.
 
 3. En el Asistente para **publicación web**, haga clic en **Publicar**.
+
+	Visual Studio implementa el proyecto y abre una ventana del explorador en la dirección URL base de la aplicación de API. Cierre esta ventana del explorador.
 
 ## Configuración de la autenticación y la autorización en Azure para la nueva aplicación de API
 
 1. En el [Portal de Azure](https://portal.azure.com/), vaya a la hoja Aplicación de API correspondiente a la aplicación de API que creó en este tutorial para el proyecto CompanyContacts.API y después haga clic en **Configuración**.
 
-2. Busque la sección **Características** y después haga clic en **Autenticación y autorización**.
+2. Busque la sección **Características** y después haga clic en **Autenticación/autorización**.
 
-3. En la hoja **Autenticación y autorización**, haga clic en **Activado**.
+3. En la hoja **Autenticación/autorización**, haga clic en **Activado**.
 
 4. En la lista desplegable **Acción por realizar cuando no se autentique la solicitud**, seleccione **Iniciar sesión con Azure Active Directory**.
 
@@ -187,7 +189,7 @@ El código de ContactsList.API que llama a CompanyContacts.API se convirtió en 
 
 7. Haga clic en **Aceptar**.
 
-10. En la hoja **Autenticación y autorización**, haga clic en **Guardar**.
+10. En la hoja **Autenticación/autorización**, haga clic en **Guardar**.
  
 11. En el [Portal de Azure clásico](https://manage.windowsazure.com/), vaya a **Azure Active Directory**.
 
@@ -199,23 +201,11 @@ El código de ContactsList.API que llama a CompanyContacts.API se convirtió en 
 
 16. Haga clic en **Configurar**.
 
-15. En la parte inferior de la página, haga clic en **Administrar manifiesto > Descargar manifiesto** y guarde el archivo en una ubicación donde se pueda editar.
-
-16. En el archivo de manifiesto descargado, busque la propiedad `oauth2AllowImplicitFlow`. Cambie el valor de esta propiedad de `false` a `true` y después guarde el archivo.
-
-16. Haga clic en **Administrar manifiesto > Cargar manifiesto** y cargue el archivo actualizado en el paso anterior.
-
 17. Mantenga esta página abierta para poder copiar y pegar valores desde ella y actualizar los valores de la página en pasos posteriores del tutorial.
 
 ## Actualización de la configuración de la aplicación de API que ejecuta el código del proyecto ContactsList.API
 
-1. En el [Portal de Azure](https://portal.azure.com/), vaya a la hoja Aplicación de API correspondiente a la aplicación de API en la que implementó el proyecto ContactsList.API. Se trata de la aplicación de API que llama y no a la que se llama, que acaba de crear en este tutorial.
-
-2. Haga clic en **Configuración > Configuración de la aplicación**.
-
-	Va a agregar algunos valores de configuración aquí, pero tiene que obtenerlos de otra página del Portal de Azure clásico.
-
-3. En el [Portal de Azure clásico](https://manage.windowsazure.com/), vaya a la pestaña **Configurar** para la aplicación AAD que creó para la aplicación de API de ContactsList.API.
+3. En otra ventana del explorador, vaya al [Portal de Azure clásico](https://manage.windowsazure.com/), vaya a la pestaña **Configurar** para la aplicación AAD que creó para la aplicación de API ContactsList.API.
 
 5. En **Claves**, seleccione **1 año** en la lista desplegable **Seleccionar duración**.
 
@@ -223,20 +213,27 @@ El código de ContactsList.API que llama a CompanyContacts.API se convirtió en 
 
 	![](./media/app-service-api-dotnet-service-principal-auth/genkey.png)
 
-
 7. Copie el valor de la clave.
 
 	![](./media/app-service-api-dotnet-service-principal-auth/genkeycopy.png)
 
-3. En la hoja **Configuración de la aplicación** del Portal de Azure, en la sección **Configuración de aplicación**, agregue una clave denominada ida:ClientSecret y pegue la clave que acaba de crear en el campo de valor.
+1. En otra ventana del explorador, vaya al [Portal de Azure](https://portal.azure.com/) y, después, a la hoja Aplicación de API correspondiente a la aplicación de API en la que implementó el proyecto ContactsList.API. (Esta es la aplicación de API que realiza la llamada, no a la que se llama: ContactsList.API, no CompanyContacts.API).
 
-3. En el Portal de Azure clásico, vaya a la pestaña **Configurar** para la aplicación AAD que creó para la aplicación de API de CompanyContacts.API.
+2. Haga clic en **Configuración > Configuración de la aplicación**.
+
+3. En la sección **Configuración de aplicación**, agregue una clave denominada ida:ClientSecret y pegue la clave que acaba de crear en el campo de valor.
+
+3. Agregue una clave llamada "ida:ClientId" y, en el campo de valor, pegue el identificador de cliente desde la misma página **Configurar** de AAD.
+
+4. Agregue una clave llamada "ida:Authority" y, en el campo de valor, escriba "https://login.windows.net/{suInquilino}"; por ejemplo, "https://login.windows.net/contoso.onmicrosoft.com".
+
+3. En el Portal de Azure clásico, vaya a la pestaña **Configurar** para la aplicación AAD que creó para la aplicación de API CompanyContacts.API.
 
 4. Copie el Id. de cliente.
 
-3. En la hoja **Configuración de la aplicación** del Portal de Azure, en la sección **Configuración de aplicación**, agregue una clave denominada ida:Resource y pegue el identificador de cliente que acaba de copiar en el campo de valor.
+3. En la hoja **Configuración de la aplicación** del Portal de Azure, sección **Configuración de aplicación**, agregue una clave denominada ida:Resource y, en el campo de valor, pegue el identificador de cliente que acaba de copiar.
 
-4. Agregue una clave denominada CompanyContactsAPIUrl y, en el campo de valor, escriba https://{your nombre de la aplicación de API}.azurewebsites.net, por ejemplo: https://companycontactsapi.azurewebsites.net.
+4. Agregue una clave denominada "CompanyContactsAPIUrl" y, en el campo de valor, escriba "https://{nombreDeSuAplicaciónApi}.azurewebsites.net"; por ejemplo, "https://companycontactsapi.azurewebsites.net."
 
 6. Haga clic en Guardar.
 
@@ -252,21 +249,47 @@ El código de ContactsList.API que llama a CompanyContacts.API se convirtió en 
 
 	![](./media/app-service-api-dotnet-service-principal-auth/contactspagewithdavolio.png)
 
+Igual que en el tutorial anterior, también puede configurar los proyectos de Visual Studio con las direcciones URL de SSL de localhost y ejecutar la aplicación localmente. En ese caso, puede almacenar en el archivo Web.config la configuración que almacenó en Azure para que se ejecute en Azure (identificador del cliente, secreto del cliente, etc.). Sin embargo, tenga cuidado de no insertar en el repositorio para el control de código fuente un archivo Web.config que contenga información confidencial, como el secreto del cliente. Para más información, consulte el artículo [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+
+## Protección de la aplicación de API contra el acceso desde el explorador
+
+En este tutorial, utilizó la opción Rápida del portal de Azure para configurar la autenticación de AAD para la aplicación de API a la que desea acceder mediante la autenticación de entidad de servicio. De forma predeterminada, el Servicio de aplicaciones configura la nueva aplicación AAD de manera que permite a un usuario ir a la dirección URL de la aplicación de API en un explorador e iniciar sesión. Esto significa no solo una entidad de servicio puede tener acceso a la API, también un usuario final. Si solo desea que una entidad de servicio tenga acceso a la API, puede impedir el acceso desde el explorador; para ello, cambie la **URL de respuesta** en la aplicación AAD para que sea diferente de la dirección URL base de la aplicación de API.
+
+### Comprobación de que el acceso al explorador funciona
+
+1. En una nueva ventana del explorador, vaya a la dirección URL HTTPS de la aplicación de API que creó para el proyecto CompanyContacts.API.
+
+	El explorador irá a una pantalla de inicio de sesión.
+	
+2. Inicie sesión con las credenciales de un usuario en su inquilino de AAD.
+
+3. El explorador muestra la pantalla de la aplicación de API "creado correctamente".
+
+	Si se ha habilitado la interfaz de usuario de Swagger, podrá ir a la dirección URL `/swagger` y llamar a la API. Para llamar a la API desde el explorador, agregue `/api/contacts/get` a la dirección URL.
+
+### Deshabilitación del acceso desde el explorador
+
+1. En la pestaña **Configurar** del portal clásico para la aplicación AAD que se creó para el proyecto CompanyContacts.API, modifique el valor del campo **URL de respuesta** para que sea una dirección URL válida, pero no la URL de la aplicación de API.
+ 
+2. Haga clic en **Guardar**.
+
+### Comprobación de que el acceso desde el explorador ya no funciona
+
+1. En una nueva ventana del explorador, vaya de nuevo a la dirección URL de la aplicación de API.
+
+2. Inicie la sesión cuando se le solicite.
+
+3. El inicio de sesión se realiza correctamente, pero genera una página de error.
+
+	Aún puede tener acceso a la aplicación de API con un token de entidad de servicio, pero los usuarios en el inquilino de AAD no pueden iniciar sesión y acceder a la API desde un explorador.
+
 ## Pasos siguientes
 
-Este es el último tutorial de la serie de introducción a Aplicaciones de API. En esta sección se ofrecen más sugerencias para aprender a usar las aplicaciones de API.
-
-* Otras formas de consumir una aplicación de API protegida con la autorización y la autenticación del Servicio de aplicaciones de Azure
-
-	En este artículo, se muestra cómo proteger una aplicación de API y cómo llamarla desde código que se ejecuta en otra aplicación de API. Para información sobre cómo llamar a una aplicación de API protegida desde una aplicación lógica, consulte [Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas](../app-service-logic/app-service-logic-custom-hosted-api.md).
-
-* Otras formas de proteger una aplicación de API para los escenarios entre servicios
-
-	Como alternativa a la autorización y la autenticación del Servicio de aplicaciones, puede proteger una aplicación de API con certificados de cliente o la autenticación básica. Para información acerca de los certificados de cliente en Azure, consulte [Configuración de la autenticación mutua de TLS para una aplicación web](../app-service-web/app-service-web-configure-tls-mutual-auth.md).
+Este es el último tutorial de la serie de introducción a Aplicaciones de API. En esta sección se ofrecen más sugerencias para aprender a trabajar con las aplicaciones de API.
 
 * Otras maneras de implementar una aplicación del Servicio de aplicaciones
 
-	Para información sobre otras formas de implementar proyectos web en aplicaciones web, ya sea con Visual Studio o con la [automatización de la implementación](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) desde un [sistema de control de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consulte [Documentación de implementación del Servicio de aplicaciones de Azure](web-sites-deploy.md).
+	Para más información sobre otras formas de implementar proyectos web en aplicaciones web, ya sea con Visual Studio o mediante la [automatización de la implementación](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) desde un [sistema de control de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consulte [Documentación de implementación del Servicio de aplicaciones de Azure](web-sites-deploy.md).
 
 	Visual Studio también puede generar scripts de Windows PowerShell que puede usar para automatizar la implementación. Para obtener más información, consulte [Automatizar todo (creación de aplicaciones en la nube para el mundo real con Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
@@ -281,4 +304,4 @@ Este es el último tutorial de la serie de introducción a Aplicaciones de API. 
 	* [Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure](web-sites-custom-domain-name.md)
 	* [Habilitación de HTTPS en un sitio web de Azure](web-sites-configure-ssl-certificate.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -116,10 +116,12 @@ Todo este tipo de datos puede ampliarse con parámetros (*información adicional
 *Caso de uso: datos declarativos* 1. Segmente las noticias de alerta: recopile datos declarativos para segmentar la audiencia según sus preferencias. Permite enviar notificaciones de inserción de un tema concreto que realmente le interesa a una audiencia concreta. 2. Segmente la audiencia según el estado de inicio de sesión. Recopile datos para saber si un usuario está conectado o ha creado una cuenta. Diríjase a usuarios finales que aún no iniciaron sesión y envíe una notificación de inserción para atraer la participación del usuario final. ![][2]
 
 ### Pasos siguientes
+
 - Visite [Conceptos de Mobile Engagement] para obtener más información sobre conceptos básicos de Mobile Engagement.
-- Visite [Prácticas recomendadas](mobile-engagement-getting-started-best-practices.md) para acceder a los detalles
-- Visite [Escenario de aplicación de juegos](mobile-engagement-gaming-scenario.md) para obtener información sobre la implementación de Mobile Engagement con una aplicación de juegos de ejemplo. 
-- Visite [Escenario de aplicación multimedia](mobile-engagement-media-scenario.md) para obtener información sobre la implementación de Mobile Engagement con una aplicación multimedia de ejemplo. 
+- [Creación de una cuenta de Azure Mobile Engagement](mobile-engagement-create-account.md)
+- Visite [Azure Mobile Engagement - Guía de introducción con prácticas recomendadas](mobile-engagement-getting-started-best-practices.md) para acceder a los detalles
+- Visite [Implementación de Mobile Engagement con una aplicación de juegos](mobile-engagement-gaming-scenario.md) para obtener información sobre la implementación de Mobile Engagement con una aplicación de juegos de ejemplo. 
+- Visite [Implementación de Mobile Engagement con una aplicación de medios](mobile-engagement-media-scenario.md) para obtener información sobre la implementación de Mobile Engagement con una aplicación multimedia de ejemplo. 
 - Visite [Tutoriales] para obtener más información sobre la implementación.
 
 <!-- Images. -->
@@ -130,4 +132,4 @@ Todo este tipo de datos puede ampliarse con parámetros (*información adicional
 [Conceptos de Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Tutoriales]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

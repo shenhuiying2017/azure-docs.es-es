@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
 # Administrar un perfil del Administrador de tráfico de Azure
@@ -21,23 +21,23 @@ Use un perfil del Administrador de tráfico para especificar los servicios en la
 
 ## Crear un perfil del Administrador de tráfico mediante Creación rápida
 
-Puede crear rápidamente un perfil del Administrador de tráfico mediante Creación rápida en el portal de Azure. Creación rápida permite crear perfiles con valores de configuración básicos. Sin embargo, no puede usar Creación rápida para valores como, por ejemplo, el conjunto de extremos (servicios en la nube y sitios web), el orden de conmutación por error para el método de enrutamiento del tráfico de conmutación por error o la configuración de supervisión. Después de crear el perfil, puede configurar estas opciones en el portal de Azure. El Administrador de tráfico admite un máximo de 200 extremos por perfil. Sin embargo, la mayoría de los escenarios de uso tan solo requieren un pequeño número de extremos.
+Puede crear rápidamente un perfil del Administrador de tráfico mediante Creación rápida en el Portal de Azure clásico. Creación rápida permite crear perfiles con valores de configuración básicos. Sin embargo, no puede usar Creación rápida para valores como, por ejemplo, el conjunto de extremos (servicios en la nube y sitios web), el orden de conmutación por error para el método de enrutamiento del tráfico de conmutación por error o la configuración de supervisión. Después de crear el perfil, puede configurar estas opciones en el Portal de Azure clásico. El Administrador de tráfico admite un máximo de 200 extremos por perfil. Sin embargo, la mayoría de los escenarios de uso tan solo requieren un pequeño número de extremos.
 
 ### Para crear un nuevo perfil del Administrador de tráfico
 
 1. **Implemente en el entorno de producción sus servicios en la nube y sitios web.** Para obtener más información sobre servicios en la nube, consulte [Servicios en la nube](http://go.microsoft.com/fwlink/p/?LinkId=314074). Para obtener más información sobre los servicios en la nube, consulte [Procedimientos recomendados](https://msdn.microsoft.com/library/azure/5229dd1c-5a91-4869-8522-bed8597d9cf5#bkmk_TrafficManagerBestPracticesProfile). Para obtener más información acerca de los sitios web, consulte [Sitios web](http://go.microsoft.com/fwlink/p/?LinkId=393327).
 
-2. **Inicie sesión en el Portal de Azure.** Para crear un nuevo perfil del Administrador de tráfico, haga clic en **Nuevo** en la parte inferior izquierda del portal, haga clic en **Servicios de red > Administrador de tráfico** y, a continuación, en **Creación rápida** para comenzar a configurar su perfil.
+2. **Inicie sesión en el Portal de Azure clásico**. Para crear un nuevo perfil del Administrador de tráfico, haga clic en **Nuevo** en la parte inferior izquierda del portal, haga clic en **Servicios de red > Administrador de tráfico** y, a continuación, en **Creación rápida** para comenzar a configurar su perfil.
 3. **Configure el prefijo DNS.** Proporcione a su perfil de Administrador de tráfico un nombre de prefijo DNS único. Puede especificar solo el prefijo de un nombre de dominio de Administrador de tráfico.
 4. **Seleccione la suscripción.** Seleccione la suscripción de Azure apropiada. Cada perfil está asociado a una sola suscripción. Si sólo tiene una suscripción, esta opción no aparecerá.
 5. **Método de enrutamiento del tráfico de rendimiento** Seleccione el método de enrutamiento del tráfico en **Directiva de enrutamiento del tráfico**. Para obtener más información acerca de los métodos de enrutamiento del tráfico, consulte[ Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-load-balancing-methods.md).
-6. **Haga clic en “Crear” para crear un nuevo perfil**. Cuando haya terminado de configurar el perfil, puede buscarlo en el panel del Administrador de tráfico del portal de Azure.
-7. **Configure los extremos, la supervisión y la configuración adicional en el Portal de administración**. Dado que sólo se pueden configurar valores básicos mediante la Creación rápida, es necesario configurar opciones adicionales tales como la lista de extremos y el orden de conmutación por error del extremo, con el fin de completar la configuración deseada. 
+6. **Haga clic en “Crear” para crear un nuevo perfil**. Cuando haya terminado de configurar el perfil, puede buscarlo en el panel del Administrador de tráfico del Portal de Azure clásico.
+7. **Configure los puntos de conexión, la supervisión y la configuración adicional en el Portal de Azure clásico**. Dado que sólo se pueden configurar valores básicos mediante la Creación rápida, es necesario configurar opciones adicionales tales como la lista de extremos y el orden de conmutación por error del extremo, con el fin de completar la configuración deseada. 
 
 
 ## Deshabilitar, habilitar o eliminar un perfil
 
-Puede deshabilitar un perfil de Administrador de tráfico existente de para que no envíe solicitudes de usuario a sus extremos configurados. Cuando deshabilite un perfil de Administrador de tráfico, dicho perfil y la información que contiene se mantendrán intactos y pueden editarse en la interfaz del Administrador de tráfico. Si desea volver a habilitar el perfil, puede hacerlo fácilmente en el portal de Azure y los envíos se reanudarán. Cuando se crea un perfil del Administrador de tráfico en el portal de Azure, este se habilita automáticamente. Si decide que un perfil ya no será necesario, puede eliminarlo.
+Puede deshabilitar un perfil de Administrador de tráfico existente de para que no envíe solicitudes de usuario a sus extremos configurados. Cuando deshabilite un perfil de Administrador de tráfico, dicho perfil y la información que contiene se mantendrán intactos y pueden editarse en la interfaz del Administrador de tráfico. Si desea volver a habilitar el perfil, puede hacerlo fácilmente en el Portal de Azure clásico y los envíos se reanudarán. Cuando se crea un perfil del Administrador de tráfico en el Portal de Azure clásico, este se habilita automáticamente. Si decide que un perfil ya no será necesario, puede eliminarlo.
 
 ### Para deshabilitar un perfil
 
@@ -61,11 +61,11 @@ Puede deshabilitar un perfil de Administrador de tráfico existente de para que 
 
 ## Ver el historial de cambios de perfiles del Administrador de tráfico
 
-Puede ver el historial de cambios del perfil del Administrador de tráfico en el portal de Azure, en Servicios de administración.
+Puede ver el historial de cambios del perfil del Administrador de tráfico en el Portal de Azure clásico, en Servicios de administración.
 
 ### Para ver el historial de cambios del Administrador de tráfico
 
-1. En el panel izquierdo del portal de Azure, haga clic en **Servicios de administración**.
+1. En el panel izquierdo del Portal de Azure clásico, haga clic en **Servicios de administración**.
 2. En la página de Servicios de administración, haga clic en **Registros de operaciones**.
 3. En la página Registros de operaciones puede usar los filtros para ver el historial de cambios del perfil del Administrador de tráfico. Después de seleccionar las opciones de filtrado, haga clic en la marca de verificación para ver los resultados.
    - Para ver los cambios de todos los perfiles, seleccione la suscripción y un intervalo de tiempo y, a continuación, seleccione **Administrador de tráfico** en el menú contextual **Tipo**.
@@ -85,4 +85,4 @@ Puede ver el historial de cambios del perfil del Administrador de tráfico en el
 
 [Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

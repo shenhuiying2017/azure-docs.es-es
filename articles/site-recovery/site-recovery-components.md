@@ -1,5 +1,5 @@
 <properties
-	pageTitle="¿Cómo funciona Azure Site Recovery?"
+	pageTitle="¿Cómo funciona Azure Site Recovery? | Microsoft Azure"
 	description="Este artículo proporciona información general sobre la arquitectura de Site Recovery"
 	services="site-recovery"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/29/2015"
+	ms.date="12/07/2015"
 	ms.author="raynew"/>
 
 # ¿Cómo funciona Azure Site Recovery?
@@ -43,7 +43,7 @@ Si desea proteger máquinas virtuales de VMware o máquinas físicas de Windows/
 
 **Ubicación** | **Lo que necesita** 
 --- | --- 
- Local | **Servidor de proceso**: este servidor optimiza los datos de máquinas virtuales de VMware o máquinas físicas de Windows/Linux protegidas antes de enviarlos a Azure. También controla la instalación de inserción del componente Mobility Service en máquinas protegidas y realiza la detección automática de máquinas virtuales de VMware. <br/><br/> **Servidor vCenter de VMware**: si va a proteger máquinas virtuales de VMware, necesitará un servidor vCenter de VMwave que administre los hipervisores de vSphere<br/><br/> **Servidor ESX**: si va a proteger las máquinas virtuales de VMware, necesitará un servidor que ejecute ESX/ESXi versión 5.1 o 5.5 con las actualizaciones más recientes.<br/><br/> **Máquinas**: si va a proteger VMware deberá tener máquinas virtuales de VMware con herramientas de VMware instaladas y en ejecución. Si va a proteger máquinas físicas, deben ejecutar un sistema operativo Windows o Linux compatible. Consulte [lo que se admite](site-recovery-vmware-to-azure/#before-you-start). <br/><br/> **Mobility Service**: se instala en máquinas que desea proteger para capturar los cambios y comunicarlos con el servidor de procesos. <br/><br/>Componentes de terceros: esta implementación depende de algunos [componentes de terceros](http://download.microsoft.com/download/C/D/7/CD79E327-BF5A-4026-8FF4-9EB990F9CEE2/Third-Party_Notices.txt).
+ Local | **Servidor de proceso**: este servidor optimiza los datos de máquinas virtuales de VMware o máquinas físicas de Windows/Linux protegidas antes de enviarlos a Azure. También controla la instalación de inserción del componente Mobility Service en máquinas protegidas y realiza la detección automática de máquinas virtuales de VMware. <br/><br/> **Servidor vCenter de VMware**: si va a proteger máquinas virtuales de VMware, necesitará un servidor vCenter de VMwave que administre los hipervisores de vSphere<br/><br/> **Servidor ESX**: si va a proteger las máquinas virtuales de VMware, necesitará un servidor que ejecute ESX/ESXi versión 5.1 o 5.5 con las actualizaciones más recientes.<br/><br/> **Máquinas**: si va a proteger VMware deberá tener máquinas virtuales de VMware con herramientas de VMware instaladas y en ejecución. Si va a proteger máquinas físicas, deben ejecutar un sistema operativo Windows o Linux compatible. Consulte [lo que se admite](site-recovery-vmware-to-azure.md/#before-you-start). <br/><br/> **Mobility Service**: se instala en máquinas que desea proteger para capturar los cambios y comunicarlos con el servidor de procesos. <br/><br/>Componentes de terceros: esta implementación depende de algunos [componentes de terceros](http://download.microsoft.com/download/C/D/7/CD79E327-BF5A-4026-8FF4-9EB990F9CEE2/Third-Party_Notices.txt).
 Azure | **Servidor de configuración**: máquina virtual de Azure Estándar A3 estándar que coordina la comunicación entre las máquinas protegidas, el servidor de procesos y los servidores de destino maestros en Azure. Configura la replicación y coordina la recuperación cuando se produce la conmutación por error. <br/><br/>**Servidor de destino maestro**: máquina virtual de Azure que contiene los datos replicados de las máquinas protegidos mediante VHD adjuntos creados en el almacenamiento de blobs de su cuenta de almacenamiento de Azure. Un servidor de destino maestro de conmutación por recuperación se ejecuta en instalaciones locales, por lo que puede producir una conmutación por recuperación de máquinas virtuales de Azure a máquinas virtuales de VMware. <br/><br/> **Almacén de Site Recovery**: al menos un almacén de Azure Site Recovery (configurado con una suscripción al servicio Site Recovery) <br/><br/> **Red virtual**: una red de Azure donde se encuentran el servidor de configuración y los servidores de destino maestros, en la misma suscripción y región que el servicio Site Recovery. <br/><br/> **Almacenamiento de Azure**: cuenta de almacenamiento de Azure para almacenar los datos replicados. Debe ser una cuenta premium o una cuenta estándar con redundancia geográfica, en la misma región que la suscripción a Site Recovery.
 
 
@@ -155,4 +155,4 @@ En este escenario, los cambios diferenciales de la replicación se envían desde
 
 [Prepárese para la implementación](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

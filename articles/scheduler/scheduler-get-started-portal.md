@@ -12,26 +12,22 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="08/18/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
-# Introducción al uso de Programador de Azure en el Portal de Azure
-
-## Configuración del Programador mediante el Portal de Azure para crear trabajos de manera rápida y fácil
-
-Para completar este tutorial, necesita una cuenta de Azure que tenga habilitada la característica Programador de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+# Introducción al uso de Programador de Azure en el Portal de Azure clásico
 
 ## Primeros pasos
 
-Resulta fácil crear trabajos y colecciones de trabajos en el Programador de Azure con el Portal de Azure. Este tutorial le guía por el proceso de creación de la colección de trabajos que se va a usar para almacenar trabajos, la creación de un trabajo en una colección de trabajos y una información general de las tareas de administración y supervisión de los trabajos disponibles mediante el Portal. No es necesario que tenga experiencia previa con Azure para usar este tutorial.
+Resulta fácil crear trabajos y colecciones de trabajos en el Programador de Azure. Este tutorial le guía por el proceso de creación de la colección de trabajos que se va a usar para almacenar trabajos, la creación de un trabajo en una colección de trabajos y una información general de las tareas de administración y supervisión de los trabajos disponibles. No es necesario que tenga experiencia previa con Azure para usar este tutorial.
 
-La primera vez que abra el Portal de Azure, entrará automáticamente en la pestaña **TODOS LOS ELEMENTOS**. Las columnas de la pestaña **TODOS LOS ELEMENTOS** se pueden ordenar. Para ver los trabajos de Programador y las colecciones de trabajos, haga clic en la pestaña **PROGRAMADOR**.
+La primera vez que abra el Portal de Azure clásico, entrará automáticamente en la pestaña **TODOS LOS ELEMENTOS**. Las columnas de la pestaña **ALL ITEMS** se pueden ordenar. Para ver los trabajos de Programador y las colecciones de trabajos, haga clic en la pestaña **PROGRAMADOR**.
 
 ![][1]
 
 ## Creación de una colección de trabajos y de un trabajo
 
-1.  Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com/).  
+1.  Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/).  
 
 2.  Haga clic en **Servicios de aplicaciones** > **Crear nuevo** > **Programador** y luego en **Creación personalizada**. <br /><br /> ![][2]
 
@@ -57,7 +53,7 @@ La primera vez que abra el Portal de Azure, entrará automáticamente en la pest
 
     1.  **Repetir cada:** ` 12 Hours`  
 
-    2.  **Comienzo:** ` Now`
+    2.  **Iniciando:** ` Now`
 
     3.  **Termina el:** ` Select date 2 days after current day and any time`
 
@@ -133,7 +129,7 @@ En la pestaña **Escala**, puede cambiar la configuración y el nivel de servici
 
 #### General
 
-Muestra si se encuentra en un plan **gratuito** o **estándar**.
+Muestra si se encuentra en un plan **Gratis** o **Estándar**.
 
 #### Cuotas
 
@@ -261,4 +257,4 @@ Por último, para todos los tipos de acción, puede cambiar la misma programaci�
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

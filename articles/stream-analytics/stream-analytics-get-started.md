@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Introducción al Análisis de transmisiones: detección de fraudes en tiempo real | Microsoft Azure"
 	description="Aprenda a crear una solución para la detección de fraudes en tiempo real con Análisis de transmisiones. Use un centro de eventos para el procesamiento de eventos en tiempo real."
-	keywords="concentrador de eventos,detección de fraudes,tiempo real,procesamiento en tiempo real"
+	keywords="detección de anomalías, detección de fraudes, detección de anomalías en tiempo real"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,14 +14,14 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/23/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffstok" />
 
 
 
 # Introducción al uso de Análisis de transmisiones de Azure: detección de fraudes en tiempo real
 
-Aprenda a crear una solución de extremo a extremo para la detección de fraudes en tiempo real con Análisis de transmisiones de Azure. Lleve eventos al centro de eventos de Azure, escriba consultas de Análisis de transmisiones para agregación o alertas y envíe los resultados a un receptor de salida para obtener información detallada sobre los datos con procesamiento en tiempo real.
+Aprenda a crear una solución de extremo a extremo para la detección de fraudes en tiempo real con Análisis de transmisiones de Azure. Lleve eventos al centro de eventos de Azure, escriba consultas de Análisis de transmisiones para agregación o alertas y envíe los resultados a un receptor de salida para obtener información detallada sobre los datos con procesamiento en tiempo real. Se describe la detección de anomalías en tiempo real para telecomunicaciones, pero la técnica de ejemplo es igualmente adecuada para otros tipos de detección de fraudes, tales como los escenarios de robo de la tarjeta de crédito o de identidad.
 
 Análisis de transmisiones es un servicio totalmente administrado que proporciona un procesamiento completo de eventos de baja latencia, alta disponibilidad y escalable a través de la transmisión de datos en la nube. Para obtener más información, consulte [Introducción a Análisis de transmisiones de Azure](stream-analytics-introduction.md).
 
@@ -257,4 +257,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

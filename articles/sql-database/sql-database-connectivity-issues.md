@@ -3,8 +3,8 @@
 	description="Acciones para solucionar, diagnosticar y evitar los errores de conexión y otros errores transitorios al interactuar con Base de datos SQL de Azure."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="dalechen"
+	manager="msmets"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/30/2015"
-	ms.author="genemi"/>
+	ms.date="12/10/2015"
+	ms.author="daleche"/>
 
 
 # Acciones para corregir errores de conexión y errores transitorios en Base de datos SQL
@@ -514,4 +514,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* es una biblioteca de reintentos de uso general con licencia de Apache 2.0, escrita en **Python**, para simplificar la tarea de agregar comportamiento de reintento a prácticamente todo.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

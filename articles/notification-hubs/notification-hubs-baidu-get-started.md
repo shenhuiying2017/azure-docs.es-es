@@ -141,7 +141,7 @@ Verá le mensaje **保存成功** (mensaje **¡Guardado correctamente!**).
 
 ##Configuración de su Centro de notificaciones
 
-1. Inicie sesión en el [Portal de Azure] y, luego, haga clic en **NUEVO** en la parte inferior de la pantalla.
+1. Inicie sesión en el [Portal de Azure clásico] y, luego, haga clic en **+NUEVO** en la parte inferior de la pantalla.
 
 2. Haga clic sucesivamente en **Servicios de aplicaciones**, **Bus de servicio**, **Centro de notificaciones** y, finalmente, en **Creación rápida**.
 
@@ -264,7 +264,7 @@ Verá le mensaje **保存成功** (mensaje **¡Guardado correctamente!**).
 				public static String NotificationHubConnectionString = "...";
 			}
 
-	Establezca el valor de **API\_KEY** con el valor recuperado del proyecto de nube Baidu anterior. Establezca **NotificationHubName** con el nombre del Centro de notificaciones del Portal de Azure y **NotificationHubConnectionString** con el valor de DefaultListenSharedAccessSignature del Portal de Azure.
+	Establezca el valor de **API\_KEY** con el valor recuperado del proyecto de nube Baidu anterior. Establezca **NotificationHubName** con el nombre del Centro de notificaciones del Portal de Azure clásico y **NotificationHubConnectionString** con el valor de DefaultListenSharedAccessSignature del Portal de Azure clásico.
 
 11. Agregue una nueva clase denominada **DemoApplication.java** y agréguele el código siguiente:
 
@@ -399,7 +399,7 @@ Verá le mensaje **保存成功** (mensaje **¡Guardado correctamente!**).
 ##Envío de notificaciones a la aplicación
 
 
-Para probar la recepción de notificaciones en su aplicación, envíe notificaciones en el Portal de Azure usando la pestaña de depuración en el centro de notificaciones, tal como se muestra en la pantalla que aparece a continuación.
+Para probar la recepción de notificaciones en su aplicación, envíe notificaciones en el Portal de Azure clásico mediante la pestaña de depuración en el centro de notificaciones, tal como se muestra en la pantalla que aparece a continuación.
 
 ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
 
@@ -459,7 +459,7 @@ Para probar esta aplicación con el emulador, en la barra de herramientas superi
 
 La aplicación recupera los valores de 'userId' y 'channelId' desde el servicio de notificaciones push de Baidu y se registra con el centro de notificaciones.
 
-Para enviar una notificación de prueba puede usar la pestaña Depurar del portal. Si compila la aplicación de la consola .NET para Visual Studio, presione simplemente la tecla F5 en Visual Studio para ejecutar la aplicación. La aplicación enviará una notificación que aparece en el área de notificación superior de su dispositivo o emulador.
+Para enviar una notificación de prueba, puede usar la pestaña de depuración del Portal de Azure clásico. Si compila la aplicación de la consola .NET para Visual Studio, presione simplemente la tecla F5 en Visual Studio para ejecutar la aplicación. La aplicación enviará una notificación que aparece en el área de notificación superior de su dispositivo o emulador.
 
 
 <!-- Images. -->
@@ -501,7 +501,7 @@ Para enviar una notificación de prueba puede usar la pestaña Depurar del porta
 [SDK de Android para Servicios móviles]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [SDK de Android de inserción de Baidu]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
 [SDK de Android para inserciones Baidu]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
-[Portal de Azure]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [portal de Baidu]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

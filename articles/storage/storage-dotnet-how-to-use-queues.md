@@ -3,8 +3,8 @@
 	description="Aprenda a usar el almacenamiento de colas de Microsoft Azure para crear y eliminar colas e insertar, inspeccionar, obtener y eliminar mensajes de cola."
 	services="storage"
 	documentationCenter=".net"
-	authors="tamram"
-	manager="adinah"
+	authors="robinsh"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="10/21/2015"
-	ms.author="tamram"/>
+	ms.date="12/04/2015"
+	ms.author="robinsh"/>
 
 # Uso del almacenamiento de colas de .NET
 
@@ -261,4 +261,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

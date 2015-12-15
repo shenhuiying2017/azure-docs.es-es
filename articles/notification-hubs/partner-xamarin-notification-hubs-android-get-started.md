@@ -114,8 +114,8 @@ El Cliente de mensajería en la nube de Google disponible en el Almacén de comp
 1. Recopile la siguiente información para el centro de notificaciones y la aplicación Android:
 
 	- **GoogleProjectNumber**: obtenga este valor de número de proyecto de la información general de la aplicación en el Portal para desarrolladores de Google. Ha tomado nota de este valor anteriormente al crear la aplicación en el portal.
-	- **Cadena de conexión de escucha**: en el panel del Portal de Azure, haga clic en **Ver cadenas de conexión**. Copie la cadena de conexión *DefaultListenSharedAccessSignature* para este valor.
-	- **Nombre de la base de datos central**: este es el nombre de la base de datos central en el Portal de Azure. Por ejemplo, *mynotificationhub2*.
+	- **Cadena de conexión de escucha**: en el panel del [Portal de Azure clásico], haga clic en **Ver cadenas de conexión**. Copie la cadena de conexión *DefaultListenSharedAccessSignature* para este valor.
+	- **Nombre del centro**: este es el nombre del centro en el [Portal de Azure clásico]. Por ejemplo, *mynotificationhub2*.
 
 	Cree una clase **Constants.cs** para el proyecto Xamarin y defina los siguientes valores de constante en la clase. Reemplace los marcadores de posición por sus valores.
 
@@ -131,7 +131,7 @@ El Cliente de mensajería en la nube de Google disponible en el Almacén de comp
 		using Android.Util;
 		using Gcm.Client;
 
-3. Agregue una variable de instancia a la clase `MainActivity` que se usará para mostrar un cuadro de diálogo de alerta cuando se ejecuta la aplicación:
+3. Agregue una variable de instancia a la clase `MainActivity`, que se usará para mostrar un cuadro de diálogo de alerta cuando se ejecuta la aplicación:
 
 		public static MainActivity instance;
 
@@ -149,7 +149,7 @@ El Cliente de mensajería en la nube de Google disponible en el Almacén de comp
 			GcmClient.Register(this, Constants.SenderID);
 		}
 
-4. En el `OnCreate` método **MainActivity.cs**, inicialice la variable `instance` y agregue una llamada a `RegisterWithGCM`:
+4. En el método `OnCreate` de **MainActivity.cs**, inicialice la variable `instance` y agregue una llamada a `RegisterWithGCM`:
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -168,9 +168,9 @@ El Cliente de mensajería en la nube de Google disponible en el Almacén de comp
 		}
 
 
-4. Cree una nueva clase **MyBroadcastReceiver**.
+4. Cree una nueva clase, **MyBroadcastReceiver**.
 
-	> [AZURE.NOTE]Más adelante, se explicará cómo crear una clase **BroadcastReceiver** desde el principio. De todas formas, una alternativa rápida para crear manualmente una clase **MyBroadcastReceiver.cs** es consultar el archivo **GcmService.cs**, que se encuentra en el proyecto Xamarin.Android de ejemplo incluido con las [muestras de NotificationHubs][GitHub]. Duplicar **GcmService.cs** y cambiar los nombres de las clases también puede ser un buen punto de partida.
+	> [AZURE.NOTE]Más adelante, se explicará cómo crear una clase **BroadcastReceiver** desde el principio. De todas formas, una alternativa rápida para crear manualmente una clase **MyBroadcastReceiver.cs** es consultar el archivo **GcmService.cs**, que se encuentra en el proyecto Xamarin.Android de ejemplo incluido con los [ejemplos NotificationHubs][GitHub]. Duplicar **GcmService.cs** y cambiar los nombres de las clases también puede ser un buen punto de partida.
 
 5. Agregue las siguientes instrucciones using a **MyBroadcastReceiver.cs** (en referencia al componente y al ensamblado que se agregaron anteriormente):
 
@@ -290,7 +290,7 @@ El Cliente de mensajería en la nube de Google disponible en el Almacén de comp
 
 11. Agregue los métodos **createNotification** y **dialogNotify** siguientes para que **PushHandlerService** notifique a los usuarios cuando se recibe una notificación.
 
-	>[AZURE.NOTE]El diseño de notificaciones en Android versión 5.0 y posteriores representa un cambio significativo respecto al de las versiones anteriores. Si la prueba en Android 5.0 o posterior, la aplicación deberá ejecutarse para recibir la notificación. Para obtener más información, consulte [Notificaciones de Android](http://go.microsoft.com/fwlink/?LinkId=615880).
+	>[AZURE.NOTE]El diseño de notificaciones en Android versión 5.0 y posteriores representa un cambio significativo respecto al de las versiones anteriores. Si la prueba en Android 5.0 o posterior, la aplicación deberá ejecutarse para recibir la notificación. Para más información, consulte [Notificaciones de Android](http://go.microsoft.com/fwlink/?LinkId=615880).
 
         void createNotification(string title, string desc)
         {
@@ -358,9 +358,9 @@ El Cliente de mensajería en la nube de Google disponible en el Almacén de comp
 
 Si ejecuta esta aplicación en el emulador, asegúrese de utilizar un dispositivo virtual Android (AVD) compatible con las API de Google.
 
-> [AZURE.IMPORTANT]Para recibir notificaciones push, debe configurar una cuenta de Google en su dispositivo virtual Android. En el emulador, diríjase a **Configuración** y haga clic en **Agregar cuenta**. Además, asegúrese de que el emulador esté conectado a Internet.
+> [AZURE.IMPORTANT]Para recibir notificaciones push, debe configurar una cuenta de Google en su dispositivo virtual Android. (En el emulador, navegue a **Configuración** y haga clic en **Agregar cuenta**). Además, asegúrese de que el emulador esté conectado a Internet.
 
->[AZURE.NOTE]El diseño de notificaciones en Android versión 5.0 y posteriores representa un cambio significativo respecto al de las versiones anteriores. Para obtener más información, consulte [Notificaciones de Android](http://go.microsoft.com/fwlink/?LinkId=615880).
+>[AZURE.NOTE]El diseño de notificaciones en Android versión 5.0 y posteriores representa un cambio significativo respecto al de las versiones anteriores. Para más información, consulte [Notificaciones de Android](http://go.microsoft.com/fwlink/?LinkId=615880).
 
 
 1. En **Tools** (Herramientas), haga clic en **Open Android Emulator Manager** (Abrir Administrador de emulador Android), seleccione su dispositivo y, a continuación, haga clic en **Edit** (Editar).
@@ -378,7 +378,7 @@ Si ejecuta esta aplicación en el emulador, asegúrese de utilizar un dispositiv
 ##Envío de notificaciones desde su backend
 
 
-Para probar la recepción de notificaciones en su aplicación, envíe notificaciones en el Portal de Azure usando la pestaña de depuración en el centro de notificaciones, tal como se muestra en la pantalla que aparece a continuación.
+Para probar la recepción de notificaciones en su aplicación, envíe notificaciones en el [Portal de Azure clásico] mediante la pestaña de depuración en el centro de notificaciones, tal como se muestra en la pantalla que aparece a continuación.
 
 ![][30]
 
@@ -387,7 +387,7 @@ Las notificaciones push se envían normalmente en un servicio back-end como Serv
 
 A continuación, presentamos una lista de algunos otros tutoriales que podría interesarle revisar para enviar notificaciones:
 
-- ASP.NET: consulte [Notificación a los usuarios con los Centros de notificaciones de Azure].
+- ASP.NET: consulte [Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET].
 - SDK de Java para Centros de notificaciones de Azure: consulte [Uso de los Centros de notificaciones desde Java](notification-hubs-java-backend-how-to.md) para enviar notificaciones desde Java. Esto se probó en Eclipse para el desarrollo de Android.
 - PHP: consulte [Uso de los Centros de notificaciones desde PHP](notification-hubs-php-backend-how-to.md).
 
@@ -406,7 +406,7 @@ En esta sección enviará notificaciones con una aplicación de consola .NET.
 
 	Esto muestra la Consola del administrador de paquetes en Visual Studio.
 
-3. En la ventana de la Consola del Administrador de paquetes, establezca el nuevo proyecto de aplicación de consola como **Proyecto predeterminado** y luego ejecute el siguiente comando en la ventana de la consola:
+3. En la ventana de la Consola del administrador de paquetes, establezca el nuevo proyecto de aplicación de consola como **Proyecto predeterminado** y, después, ejecute el siguiente comando en la ventana de la consola:
 
         Install-Package Microsoft.Azure.NotificationHubs
 
@@ -418,7 +418,7 @@ En esta sección enviará notificaciones con una aplicación de consola .NET.
 
         using Microsoft.Azure.NotificationHubs;
 
-5. En la clase `Program`, agregue el método siguiente: Actualice el texto del marcador de posición con la cadena de conexión *DefaultFullSharedAccessSignature* y el nombre del centro de eventos en el Portal de Azure.
+5. En la clase `Program`, agregue el método siguiente: Actualice el texto del marcador de posición con la cadena de conexión *DefaultFullSharedAccessSignature* y el nombre del centro en el [Portal de Azure clásico].
 
         private static async void SendNotificationAsync()
         {
@@ -439,7 +439,7 @@ En esta sección enviará notificaciones con una aplicación de consola .NET.
 
 1. Siga [Introducción a Servicios móviles].
 
-1. Inicie sesión en el [Portal de Azure] y seleccione su servicio móvil.
+1. Inicie sesión en el [Portal de Azure clásico] y seleccione su servicio móvil.
 
 2. Seleccione la pestaña **Programador** en la parte superior.
 
@@ -472,7 +472,7 @@ En esta sección enviará notificaciones con una aplicación de consola .NET.
 
 ##Pasos siguientes
 
-En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Android. Para dirigirse a usuarios específicos, consulte el tutorial [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]. Si desea segmentar a sus usuarios por grupos de interés, puede leer [Uso de Centros de notificaciones para enviar noticias de último minuto]. Para obtener más información acerca del uso de Centros de notificaciones, consulte [Introducción a los centros de notificaciones] y [Procedimientos de Centros de notificaciones para Android].
+En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Android. Para dirigirse a usuarios específicos, consulte el tutorial [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]. Si desea segmentar a sus usuarios por grupos de interés, puede leer [Uso de Centros de notificaciones para enviar noticias de último minuto]. Para más información acerca del uso de Centros de notificaciones, consulte [Introducción a los centros de notificaciones] y [Procedimiento: Centros de notificaciones de Azure (aplicaciones Android)].
 
 <!-- Anchors. -->
 [Enable Google Cloud Messaging]: #register
@@ -507,12 +507,12 @@ En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Androi
 [Introducción a Servicios móviles]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
-[Portal de Azure]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Introducción a los centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
-[Procedimientos de Centros de notificaciones para Android]: http://msdn.microsoft.com/library/dn282661.aspx
+[Procedimiento: Centros de notificaciones de Azure (aplicaciones Android)]: http://msdn.microsoft.com/library/dn282661.aspx
 
-[Notificación a los usuarios con los Centros de notificaciones de Azure]: /manage/services/notification-hubs/notify-users-aspnet
+[Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET]: /manage/services/notification-hubs/notify-users-aspnet
 [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]: /manage/services/notification-hubs/notify-users-aspnet
 [Uso de Centros de notificaciones para enviar noticias de último minuto]: /manage/services/notification-hubs/breaking-news-dotnet
 [GCMClient Component page]: http://components.xamarin.com/view/GCMClient
@@ -523,4 +523,4 @@ En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Androi
 [Componente del Cliente de mensajería en la nube de Google]: http://components.xamarin.com/view/GCMClient/
 [Componente de mensajería de Azure]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

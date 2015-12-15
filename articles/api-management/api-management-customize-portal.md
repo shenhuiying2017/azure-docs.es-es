@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/27/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Personalización del portal para desarrolladores en Administración de API de Azure
@@ -24,7 +24,7 @@ En esta guía se muestra cómo modificar la apariencia del portal para desarroll
 
 Uno de los aspectos más importantes de la personalización del portal es la sustitución del texto que aparece en la parte superior de todas las páginas por el logotipo o el nombre de su empresa.
 
-El contenido del portal para desarrolladores se modifica a través del portal para editores, al que se obtiene acceso desde el Portal de Azure. Para llegar al portal para editores de la API, haga clic en **Administrar** en el Portal de Azure para el servicio Administración de API.
+El contenido del portal para desarrolladores se modifica mediante el portal para editores, al que se accede desde el Portal de Azure clásico. Para llegar al portal para editores de la API, haga clic en **Administrar** en el Portal de Azure clásico para el servicio Administración de API.
 
 ![Portal del publicador][api-management-management-console]
 
@@ -85,7 +85,7 @@ Haga clic en la página de **bienvenida** para editar lo que se muestra en la p�
 [Edit the contents of a page]: #edit-page-contents
 [Next steps]: #next-steps
 
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -99,4 +99,4 @@ Haga clic en la página de **bienvenida** para editar lo que se muestra en la p�
 [bootstrap]: http://getbootstrap.com/
 [variables LESS]: http://getbootstrap.com/css/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

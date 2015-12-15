@@ -37,9 +37,8 @@ Este artículo muestra cómo conseguir los elementos necesarios (incluido el ser
 
 Los pasos para crear un grupo de bases de datos elásticas con Azure PowerShell se detallan y explican para mayor claridad. Para aquellos que simplemente buscan una lista breve de comandos, vea la sección de **Resumen** al final de este artículo.
 
-> [AZURE.IMPORTANT]Tenga en cuenta que el cmdlet Switch-AzureMode ya no está disponible a partir de la versión Vista previa de Azure PowerShell 1.0, y que los cmdlets que estaban en el módulo de Azure ResourceManager han cambiado de nombre. En los ejemplos de este artículo usaremos la nueva convención de nomenclatura de Vista previa de PowerShell 1.0. Para obtener información detallada, consulte [Degradación del cmdlet Switch-AzureMode en Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-Para ejecutar los cmdlets de PowerShell, necesitará tener Azure PowerShell instalado y en marcha; asimismo, debido a la eliminación del cmdlet Switch-AzureMode, deberá descargar e instalar la versión más reciente de Azure PowerShell mediante la ejecución del [Instalador de plataforma web de Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+Para ejecutar los cmdlets de PowerShell, necesitará tener Azure PowerShell instalado y en marcha. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
 
 
@@ -62,7 +61,7 @@ Para seleccionar la suscripción, necesitará el nombre o el identificador de su
 
 ## Creación de un grupo de recursos, un servidor y una regla de firewall
 
-Ya dispone de acceso para ejecutar cmdlets en su suscripción de Azure, por lo que el siguiente paso es establecer el grupo de recursos que contiene el servidor donde se creará el grupo de bases de datos elásticas para contener varias bases de datos. Puede editar el comando siguiente para usar cualquier ubicación válida que elija. Ejecute **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** para obtener una lista de ubicaciones válidas.
+Ya dispone de acceso para ejecutar cmdlets en su suscripción de Azure, por lo que el siguiente paso es establecer el grupo de recursos que contiene el servidor donde se creará el grupo de bases de datos elásticas para contener varias bases de datos. Puede editar el comando siguiente para usar cualquier ubicación válida que elija. Ejecute **(Get-AzureRmLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** para obtener una lista de ubicaciones válidas.
 
 Si ya dispone de un grupo de recursos, puede ir al paso siguiente, o bien puede ejecutar el comando siguiente para crear un nuevo grupo de recursos:
 
@@ -100,7 +99,7 @@ Ahora ya dispone de un grupo de recursos, un servidor y una regla de firewall co
 
 El grupo creado en el paso anterior está vacío, no tiene ninguna base de datos elástica. En las secciones siguientes se muestra cómo crear nuevas bases de datos dentro del grupo y también cómo agregar bases de datos existentes al grupo.
 
-*Después de crear un grupo, también puede usar Transact-SQL para crear nuevas bases de datos elásticas en ese grupo y mover las bases de datos existentes dentro y fuera de un grupo. Para obtener información detallada, consulte [Referencia del grupo de bases de datos elásticas: Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Después de crear un grupo, también puede usar Transact-SQL para crear nuevas bases de datos elásticas en ese grupo y mover las bases de datos existentes dentro y fuera de un grupo. Para más información, consulte [Material de referencia del grupo de bases de datos elásticas: Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 ### Creación de nuevas bases de datos elásticas en un grupo de bases de datos elásticas
 
@@ -236,4 +235,4 @@ Tras la creación de un grupo de bases de datos elásticas, puede administrar la
 
 Para obtener información detallada acerca de los grupos y las bases de datos elásticas, incluidos los detalles de errores y de API, vea la [Referencia acerca de los grupos de bases de datos elásticas](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

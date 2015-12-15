@@ -1,5 +1,5 @@
 <properties
-    pageTitle="¿Cuáles son las imágenes de plantilla de Azure RemoteApp?"
+    pageTitle="¿Cuáles son las imágenes de plantilla de Azure RemoteApp? | Microsoft Azure"
     description="Obtenga información sobre las imágenes de plantilla incluidas con Azure RemoteApp."
     services="remoteapp"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/02/2015" 
+    ms.date="09/02/2015"
     ms.author="elizapo" />
 
 # ¿Cuáles son las imágenes de plantilla de Azure RemoteApp?
@@ -25,7 +25,7 @@ La suscripción de Azure RemoteApp incluye tres imágenes de plantilla:
 - Microsoft Office Professional Plus 2013 (solo versión de prueba)
 
 > [AZURE.IMPORTANT]Su suscripción de Azure RemoteApp le otorga acceso al software en las imágenes, con la excepción de Office 365 ProPlus, que requiere una suscripción independiente y Office 2013, que no se puede usar en producción. Esto significa que puede compartir los programas o aplicaciones en las imágenes de plantilla con los usuarios. Por ejemplo, si crea una colección que usa la imagen de Windows Server 2012 R2, puede publicar System Center Endpoint Protection para que los usuarios tengan acceso a través de RemoteApp.
-> 
+>
 > Consulte los [Detalles de concesión de licencias de RemoteApp](remoteapp-licensing.md) para obtener más información. Y [Uso de Office con Azure RemoteApp](remoteapp-o365.md) para ver la información de licencia de Office.
 
 Siga leyendo para obtener más información sobre lo que contiene cada imagen.
@@ -103,6 +103,5 @@ Esta imagen es una extensión de la vanilla image y tiene los siguientes compone
 - Herramientas de corrección de Microsoft Office
 
 > [AZURE.IMPORTANT]**Información legal:** esta imagen no incluye una licencia de Microsoft Office y *no se puede usar para producción*. La imagen de Office 2013 Professional Plus solo tiene fines de prueba. Si quiere usar aplicaciones de Office en RemoteApp de Azure para producción, deberá usar la imagen de Office 365 ProPlus. Para obtener más detalles sobre las licencias de Office, consulte [Uso de Office 365 con Azure RemoteApp](remoteapp-o365.md)
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

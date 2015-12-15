@@ -139,6 +139,7 @@ Para obtener más información acerca de la asignación de un dominio personaliz
 
 - [Habilitación de la red de entrega de contenido para Azure](cdn-create-new-endpoint.md)
 - [Información general de la red de entrega de contenido (CDN) de Azure](cdn-overview.md)
+- [Purge an Azure CDN Endpoint](cdn-purge-endpoint.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

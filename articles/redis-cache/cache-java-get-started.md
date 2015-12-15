@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="10/23/2015"
+	ms.date="12/03/2015"
 	ms.author="sdanie"/>
 
 # Uso de Caché en Redis de Azure con Java
@@ -38,7 +38,7 @@ Este tutorial usa Jedis, pero puede usar cualquier cliente de Java enumerado en 
 
 ## Crear una caché de Redis en Azure
 
-En el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=398536), haga clic en **Nuevo**, **Datos y almacenamiento** y seleccione **Caché en Redis**.
+En el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=398536), haga clic en **Nuevo**, **Datos y almacenamiento** y seleccione **Caché en Redis**.
 
   ![][1]
 
@@ -47,7 +47,7 @@ Escriba un nombre de host DNS. Tendrá el formato `<name>.redis.cache.windows.ne
   ![][2]
 
 
-Una vez creada la memoria caché, haga clic en ella en el portal de vista previa para ver su configuración. Haga clic en el vínculo bajo **Claves** y copie la clave principal. Necesita esto para autenticar solicitudes.
+Una vez creada la memoria caché, haga clic en ella en el Portal de Azure para ver su configuración. Haga clic en el vínculo bajo **Claves** y copie la clave principal. Necesita esto para autenticar solicitudes.
 
   ![][4]
 
@@ -66,7 +66,7 @@ Haga clic en el vínculo bajo **Puertos** y, a continuación, haga clic en **No*
 	import redis.clients.jedis.Jedis;
 	import redis.clients.jedis.JedisShardInfo;
 
-	/* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the preview portal */
+	/* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the Azure Portal */
 	public class App
 	{
 	  public static void main( String[] args )
@@ -93,4 +93,4 @@ Haga clic en el vínculo bajo **Puertos** y, a continuación, haga clic en **No*
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

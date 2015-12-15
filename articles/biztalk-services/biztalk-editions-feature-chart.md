@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="12/08/2015"
 	ms.author="mandia"/>
 
 
@@ -237,7 +237,10 @@ No podrá implementar ningún otro puente ni crear otro acuerdo. Si desea implem
 
 #### ¿Cómo realizo la migración de un nivel de Servicios de BizTalk a otro?
 
-Utilice el flujo de copia de seguridad y restauración para migrar de un nivel a otro. Solo se admiten algunas rutas de acceso de migración. Consulte [Servicios de BizTalk: copias de seguridad y restauración](biztalk-backup-restore.md) para obtener más detalles sobre las rutas de acceso de migración compatibles.
+La edición gratuita no se puede migrar ni "escalar verticalmente" a otro nivel y tampoco es posible realizar una copia de seguridad y restaurarla a otro nivel. Si necesita otro nivel, cree un nuevo servicio de BizTalk que use el nuevo nivel. Todos los artefactos creados con la edición gratuita, incluidas las conexiones híbridas, deben volver a crearse en el nuevo servicio de BizTalk.
+
+En las ediciones restantes, utilice la copia de seguridad y restauración para migrar los artefactos de un nivel a otro. Por ejemplo, realice una copia de seguridad de los artefactos en el nivel estándar y restáurelos en el nivel Premium. [Servicios de BizTalk: copias de seguridad y restauración](biztalk-backup-restore.md) describe las rutas de acceso de migración compatibles y enumera los artefactos de los que se realiza copia de seguridad. Tenga en cuenta que no se realiza copia de seguridad de las conexiones híbridas. Después de realizar una copia de seguridad y restaurarla en un nuevo nivel, debe volver a crear las conexiones híbridas.
+
 
 #### ¿El servicio de adaptador de BizTalk está incluido en el servicio? ¿Cómo puedo recibir el software?
 
@@ -245,10 +248,10 @@ Sí, el Servicio de adaptador de BizTalk con BizTalk Adapter Pack está incluido
 
 ## Pasos siguientes
 
-Para crear los Servicios de BizTalk de Azure en el portal de Azure, vaya a [Servicios de BizTalk: Aprovisionamiento con el portal de Azure](biztalk-provision-services.md). Para comenzar a crear aplicaciones, vaya a [Servicios de BizTalk de Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Para crear los Servicios de BizTalk de Azure en el Portal de Azure, vaya a [Creación de Servicios de BizTalk mediante el Portal de Azure](biztalk-provision-services.md). Para comenzar a crear aplicaciones, vaya a [Servicios de BizTalk de Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## Recursos adicionales
-- [Servicios de BizTalk: aprovisionamiento con el portal de Azure](biztalk-provision-services.md)<br/>
+- [Creación de Servicios de BizTalk mediante el Portal de Azure](biztalk-provision-services.md)<br/>
 - [Servicios de BizTalk: gráfico del estado de aprovisionamiento](biztalk-service-state-chart.md)<br/>
 - [Servicios de BizTalk: pestañas Panel, Monitor y Escala](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 - [Servicios de BizTalk: copias de seguridad y restauración](biztalk-backup-restore.md)<br/>
@@ -256,4 +259,4 @@ Para crear los Servicios de BizTalk de Azure en el portal de Azure, vaya a [Serv
 - [Servicios de BizTalk: nombre del emisor y clave del emisor](biztalk-issuer-name-issuer-key.md)<br/>
 - [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

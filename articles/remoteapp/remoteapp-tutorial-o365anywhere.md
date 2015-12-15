@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Obtención de la misma experiencia de Office 365 en cualquier dispositivo con Azure RemoteApp"
+   pageTitle="Obtención de la misma experiencia de Office 365 en cualquier dispositivo con Azure RemoteApp | Microsoft Azure"
    description="Aprenda a compartir cualquier aplicación de Office 365 con sus usuarios mediante Azure RemoteApp."
    services="remoteapp"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="08/12/2015"
+   ms.date="12/05/2015"
    ms.author="guscatal;elizapo"/>
 
 
@@ -25,19 +25,19 @@ Para conseguirlo, usaremos Azure RemoteApp hospedando Office 365 en máquinas v
 
 ## Crear una colección en la nube
 
-En primer lugar, tras crear una cuenta de Azure, navegue hasta **RemoteApp** haciendo clic en el vínculo situado a la izquierda. ![Visualización de RemoteApp de Azure en el Portal de Azure](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/1-menu.png)
+En primer lugar, tras crear una cuenta de Azure, navegue hasta **RemoteApp** haciendo clic en el vínculo situado a la izquierda. ![Visualización de RemoteApp de Azure en el Portal de Azure](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
 
-Continúe haciendo clic en **Nuevo** en la parte inferior y en "Creación rápida" para crear así una colección. Proporcione un nombre, la región, la suscripción, el plan y la imagen "Office Proffesional 2013" que proporcionamos. ![Cuadro de diálogo Crear](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/2-quickcreate.PNG)
+Continúe haciendo clic en **Nuevo** en la parte inferior y en "Creación rápida" para crear así una colección. Proporcione un nombre, la región, la suscripción, el plan y la imagen "Office Proffesional 2013" que proporcionamos. ![Cuadro de diálogo Crear](./media/remoteapp-tutorial-o365anywhere/2-quickcreate.png)
 
 Una vez que finalice el formulario, debería comenzar el proceso de creación de la colección. Esto puede tardar hasta una hora aproximadamente.
 
-![En espera](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/3-waiting.PNG)
+![En espera](./media/remoteapp-tutorial-o365anywhere/3-waiting.png)
 
-Cuando el proceso haya finalizado, tendrá un aspecto similar al siguiente. Si hacemos clic en **Publicación**, podemos ver que ya publicamos la mayoría de las aplicaciones de Office. ![Colección creada](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/4-done.PNG)
+Cuando el proceso haya finalizado, tendrá un aspecto similar al siguiente. Si hacemos clic en **Publicación**, podemos ver que ya publicamos la mayoría de las aplicaciones de Office. ![Colección creada](./media/remoteapp-tutorial-o365anywhere/4-done.png)
 
-![Aplicaciones publicadas](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/5-publish.PNG)
+![Aplicaciones publicadas](./media/remoteapp-tutorial-o365anywhere/5-publish.png)
 
-En este momento puede agregar también otros usuarios que tengan acceso a esta colección haciendo clic en **Acceso de usuario**. ![Configurar el acceso del usuario](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/6-user.PNG)
+En este momento puede agregar también otros usuarios que tengan acceso a esta colección haciendo clic en **Acceso de usuario**. ![Configurar el acceso del usuario](./media/remoteapp-tutorial-o365anywhere/6-user.png)
 
 Ahora vamos a intentar la conexión a Office 365.
 
@@ -47,21 +47,20 @@ Iremos a [https://www.remoteapp.windowsazure.com/](https://www.remoteapp.windows
 
 Cuando se inicie la aplicación, se le pedirá que inicie sesión con su cuenta Microsoft (antes llamada "Live ID"); por ahora, use la misma cuenta de Azure. Tras iniciar sesión, debe ver una notificación sobre nuevas invitaciones, haga clic en ella y verá una lista como la siguiente. Acepte la invitación dirigida al correo electrónico del propietario de su cuenta de Azure.
 
-![Nueva invitación](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/7-araclient.PNG)
+![Nueva invitación](./media/remoteapp-tutorial-o365anywhere/7-araclient.png)
 
 Este es lo que aparece cuando hay invitaciones nuevas.
 
-![Aceptar una aplicación](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/8-invitation.PNG)
+![Aceptar una aplicación](./media/remoteapp-tutorial-o365anywhere/8-invitation.png)
 
 Después de aceptar la invitación, debe ver todas las aplicaciones de Office en el cliente de Azure RemoteApp.
 
-![Lista de aplicaciones](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/9-work.PNG)
+![Lista de aplicaciones](./media/remoteapp-tutorial-o365anywhere/9-work.png)
 
 Al hacer clic en cualquiera de las aplicaciones, esta debe iniciarse en la máquina virtual de Azure y, con ello, todo estará configurado. ¡Disfrute!
 
-![iniciando](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/10-arastart.PNG)
+![iniciando](./media/remoteapp-tutorial-o365anywhere/10-arastart.png)
 
-![powerpoint](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/11-pp.PNG)
- 
+![powerpoint](./media/remoteapp-tutorial-o365anywhere/11-pp.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

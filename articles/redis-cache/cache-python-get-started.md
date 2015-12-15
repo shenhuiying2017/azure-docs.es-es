@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="10/23/2015"
+	ms.date="12/03/2015"
 	ms.author="sdanie"/>
 
 # Uso de Caché en Redis de Azure con Python
@@ -34,29 +34,24 @@ Instale [redis-py](https://github.com/andymccurdy/redis-py).
 
 ## Crear una caché de Redis en Azure
 
-En el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=398536), haga clic en **Nuevo**, **Datos y almacenamiento** y seleccione **Caché en Redis**.
+En el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=398536), haga clic en **Nuevo**, **Datos y almacenamiento** y seleccione **Caché en Redis**.
 
   ![][1]
 
-Escriba un nombre de host DNS. Tendrá el formato `<name>.redis.cache.windows.net`. Haga clic en **Crear**.
+Escriba un nombre de host DNS. Tendrá el formato `<name>
+  .redis.cache.windows.net`. Haga clic en **Crear**.
 
   ![][2]
 
-Una vez creada la memoria caché, haga clic en ella en el portal de vista previa para ver su configuración. Necesitará:
+  Cuando haya creado la caché, [acceda a ella](cache-configure.md#configure-redis-cache-settings) para ver su configuración. Necesitará:
 
-- **Nombre de host**. Escribió este nombre cuando creó la memoria caché.
-- **Puerto**. Haga clic en el vínculo bajo **Puertos** para ver los puertos. Use el puerto SSL.
-- **Clave de acceso**. Haga clic en el vínculo bajo **Claves** y copie la clave principal.
+  - **Nombre de host.** Escribió este nombre cuando creó la memoria caché.
+  - **Puerto.** Haga clic en el vínculo bajo **Puertos** para ver los puertos. Use el puerto SSL.
+  - **Clave de acceso.** Haga clic en el vínculo bajo **Claves** y copie la clave principal.
 
-## Agregar algo a la memoria caché y recuperarlo
+  ## Agregue algo a la memoria caché y recupérela.
 
-    >>> import redis
-    >>> r = redis.StrictRedis(host='<name>.redis.cache.windows.net',
-          port=6380, db=0, password='<key>', ssl=True)
-    >>> r.set('foo', 'bar')
-    True
-    >>> r.get('foo')
-    b'bar'
+  >>> import redis >>> r = redis.StrictRedis(host='<name>.redis.cache.windows.net', port=6380, db=0, password='<key>', ssl=True) >>> r.set('foo', 'bar') True >>> r.get('foo') b'bar'
 
 Reemplace *&lt;name&gt;* por el nombre de la memoria caché y *&lt;key&gt;* por la clave de acceso.
 
@@ -65,4 +60,4 @@ Reemplace *&lt;name&gt;* por el nombre de la memoria caché y *&lt;key&gt;* por 
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="11/30/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Uso de Caché en Redis de Azure
@@ -47,7 +47,7 @@ Ponerse en marcha con Caché en Redis de Azure es fácil. En primer lugar, tiene
 <a name="create-cache"></a>
 ## Creación de una caché
 
-Para crear una memoria caché, primero inicie sesión en el [Portal de vista previa de Azure][] y haga clic en **Nuevo**, **Datos y almacenamiento** y **Caché en Redis**.
+Para crear una memoria caché, primero inicie sesión en el [Portal de Azure][] y haga clic en **Nuevo**, **Datos y almacenamiento** y **Caché en Redis**.
 
 ![New cache][NewCacheMenu]
 
@@ -120,7 +120,7 @@ Para trabajar con una caché mediante programación, necesita una referencia a l
 
 La clase `ConnectionMultiplexer` administra la conexión con Caché en Redis de Azure. Esta clase está diseñada para compartirse y reusarse a través de su aplicación cliente y no necesita crearse basándose en operación.
 
-Para conectarse a una Caché en Redis de Azure y que se devuelva una instancia de `ConnectionMultiplexer`, llame al método estático `Connect` y pase el extremo y la clave de caché como en el siguiente ejemplo. Use la clave de Azure generada desde el portal de vista previa como parámetro de contraseña.
+Para conectarse a una Caché en Redis de Azure y que se devuelva una instancia de `ConnectionMultiplexer`, llame al método estático `Connect` y pase el extremo y la clave de caché como en el siguiente ejemplo. Use la clave generada desde el Portal de Azure como parámetro de contraseña.
 
 	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
@@ -231,7 +231,7 @@ Ahora que está familiarizado con los aspectos básicos, siga estos vínculos pa
 -	Consulte los proveedores de ASP.NET para Caché en Redis de Azure.
 	-	[Proveedor de estado de sesión de Redis de Azure](cache-asp.net-session-state-provider.md)
 	-	[Proveedor de caché de resultados de ASP.NET de caché en Redis de Azure](cache-asp.net-output-cache-provider.md)
--	[Habilite los diagnósticos de caché](cache-how-to-monitor.md#enable-cache-diagnostics) para que pueda [supervisar](cache-how-to-monitor.md) el estado de la memoria caché. Puede ver las métricas en el portal de vista previa y también [descargarlas y revisarlas](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) con las herramientas que prefiera.
+-	[Habilite los diagnósticos de caché](cache-how-to-monitor.md#enable-cache-diagnostics) para que pueda [supervisar](cache-how-to-monitor.md) el estado de la memoria caché. Puede ver las métricas en el Portal de Azure y también [descargarlas y revisarlas](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) mediante el uso de las herramientas que prefiera.
 -	Compruebe la [documentación del cliente de caché StackExchange.Redis][].
 	-	Se puede obtener acceso a Caché en Redis de Azure desde numerosos clientes Redis e idiomas de desarrollo. Para obtener más información, vea [http://redis.io/clients][] y [Desarrollar en otros idiomas para Caché en Redis de Azure][].
 	-	Caché en Redis de Azure también se puede usar con servicios como Redsmin. Para obtener más información, vea [Recuperación de una cadena de conexión de Redis de Azure y su uso con Redsmin][].
@@ -309,7 +309,7 @@ Ahora que está familiarizado con los aspectos básicos, siga estos vínculos pa
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Detalles de precios de caché]: http://www.windowsazure.com/pricing/details/cache/
-[Portal de vista previa de Azure]: https://portal.azure.com/
+[Portal de Azure]: https://portal.azure.com/
 
 [Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
@@ -329,4 +329,4 @@ Ahora que está familiarizado con los aspectos básicos, siga estos vínculos pa
 
 [Evaluación gratuita de Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

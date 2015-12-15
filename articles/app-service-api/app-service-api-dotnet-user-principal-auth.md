@@ -22,31 +22,21 @@
 
 ## Información general
 
-En este tutorial, se muestra cómo usar las características de autenticación y autorización de Servicio de aplicaciones de Azure para proteger una aplicación de API y cómo consumir la aplicación de API en nombre de usuarios finales. El proveedor de autenticación que se muestra en el tutorial es Azure Active Directory y el cliente de ejemplo es una aplicación de una única página de AngularJS que se ejecuta en un explorador.
+En este tutorial se muestra cómo usar las características de autenticación y autorización del Servicio de aplicaciones de Azure para proteger una aplicación de API y cómo consumir la aplicación de API en nombre de los usuarios finales. El proveedor de autenticación que se muestra en el tutorial es Azure Active Directory, la API es ASP.NET Web API y el cliente es una aplicación de una sola página de AngularJS que se ejecuta en un explorador.
 
 ![](./media/app-service-api-dotnet-user-principal-auth/contactspageazure.png)
  
-Esta es la tercera de una serie de tutoriales que muestran cómo trabajar con aplicaciones de API del Servicio de aplicaciones de Azure. Para obtener información acerca de la serie, consulte [Introducción a Aplicaciones de API y ASP.NET en el Servicio de aplicaciones de Azure](app-service-api-dotnet-get-started.md).
+## Autenticación y autorización en el Servicio de aplicaciones
 
-## Autenticación y autorización en el Servicio de aplicaciones de Azure
+Para ver una introducción sobre las características de autenticación y autorización usadas en este tutorial, consulte el anterior tutorial de la serie, [Introducción a Aplicaciones de API y ASP.NET en el Servicio de aplicaciones de Azure](app-service-api-dotnet-get-started.md).
 
-Servicio de aplicaciones de Azure ofrece servicios integrados para la autenticación y autorización. El usuario puede controlar la autenticación en el propio código, pero Servicio de aplicaciones ofrece una solución llave en mano si desea minimizar la cantidad de código que hay que escribir y mantener.
+## Seguimiento de este tutorial
 
-Puede usar cualquiera de los cinco proveedores de autenticación admitidos por Servicio de aplicaciones: Azure Active Directory, Facebook, Google, Twitter y cuenta de Microsoft. Y puede proteger una API escrita en cualquier lenguaje compatible con Servicio de aplicaciones: sin escribir ningún código en la API, puede requerir el inicio de sesión del usuario o un token para acceder a él.
-
-Servicio de aplicaciones de Azure controla la autenticación y deja que el código controle la autorización. Puede configurar Servicio de aplicaciones para permitir que solo los usuarios autenticados llamen a la API o bien puede permitir a todos los que llaman. En cualquier caso, Servicio de aplicaciones pasa la información de autenticación a la aplicación en los encabezados HTTP y el código puede usar esa información para tomar decisiones de autorización.
-
-* En una API de .NET, puede usar el atributo `Authorize` y, en el caso de una autorización específica, puede escribir fácilmente código según las notificaciones. La información de notificaciones se rellena en las clases .NET.
-
-* Para las API escritas en otros lenguajes, Servicio de aplicaciones se pasa en el token JWT del encabezado de autorización de una solicitud HTTP. Además, Azure establece algunos encabezados especiales (por ejemplo, `x-ms-client-principal-id`) para darle un acceso más sencillo a las notificaciones más importantes.
-
-Para obtener más información acerca de los servicios de autenticación y autorización del Servicio de aplicaciones de Azure, consulte [Expanding App Service authentication/authorization](/blog/announcing-app-service-authentication-authorization/) y [Aplicaciones de API del Servicio de aplicaciones: lo que ha cambiado](app-service-api-whats-changed.md).
+En este tutorial se usa una aplicación de ejemplo que descarga y crea en la aplicación de API en el primer tutorial: [Introducción a Aplicaciones de API y ASP.NET en el Servicio de aplicaciones de Azure](app-service-api-dotnet-get-started.md).
 
 ## El proyecto de ejemplo ContactsList.Angular.AAD
 
-En este tutorial, puede usar los proyectos de ejemplo que descargó en el [primer tutorial de esta serie](app-service-api-dotnet-get-started.md) así como los recursos de Azure (aplicación de API y aplicación web) que creó en el primer tutorial.
-
-El proyecto ContactsList.Angular.AAD es un cliente de AngularJS que incluye código para trabajar con Azure Active Directory. El código se basa en un ejemplo de AAD que puede encontrarse en el repositorio [Azure-Samples/active-directory-angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp).
+En la [aplicación de ejemplo ContactsList](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list), el proyecto ContactsList.Angular.AAD es un cliente de AngularJS que incluye código para trabajar con Azure Active Directory. El código se basa en un ejemplo de AAD que puede encontrarse en el repositorio [Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi).
 
 El código del proyecto ContactsList.Angular.AAD está estructurado de manera diferente que el proyecto ContactsLists.Angular más sencillo. El código que llama a la API se encuentra en el archivo *app/scripts/contactsSvc.js* del proyecto ContactsList.Angular.AAD.
 
@@ -80,7 +70,7 @@ El código del proyecto ContactsList.Angular.AAD está estructurado de manera di
 		    };
 		}]);
 
-Aquí, el método `Get` está etiquetado como `getItems` y, en el controlador (*app/scripts/contactsCtrl.js*) `getItems` se conecta a `$scope.populate`.
+En este caso, el método `Get` se denomina `getItems`. En el controlador (*app/scripts/contactsCtrl.js*) `getItems` se conecta a `$scope.populate`.
 
 		$scope.populate = function () {
 		    contactsSvc.getItems().then(function (results) {
@@ -96,15 +86,38 @@ En la vista (*app/views/Contacts.html*), se llama a $scope.populate en la inicia
 
 		<div ng-init="populate()">
 
+La [Biblioteca de autenticación de Azure Active Directory para JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js), en los archivos *adal.js* y *adal-angular.js*, proporciona el código adicional para iniciar sesión e incluir un token de autorización con las solicitudes de API.
+
+En el archivo *app.js*, el código pasa la información de configuración y el `$http` proveedor a la función `adalProvider.init`. La información de configuración incluye el identificador de cliente de la aplicación AAD que pertenece a cada punto de conexión de API y el identificador del cliente que pertenece a esta aplicación de AngularJS. La función `init` agrega interceptores al proveedor `$http`; éstos agregan el token de autorización a las solicitudes.
+
+		var endpoints = { 
+		    //"https://{your api app name}.azurewebsites.net/": "{your client id}"
+		    "https://localhost:44300/": "{your client id}"
+		};
+
+		adalProvider.init(
+		    {
+		        instance: 'https://login.microsoftonline.com/', 
+		        tenant: '{your tenant url}',
+		        clientId: '{your client id}',
+		        extraQueryParameter: 'nux=1',
+		        endpoints: endpoints
+		        //cacheLocation: 'localStorage', // enable this for 
+		    },
+		    $httpProvider
+		    );
+
 ## Configuración de la autenticación y autorización en Azure
 
-1. En el [Portal de Azure](https://portal.azure.com/), vaya a la hoja **Aplicación de API** de la Aplicación API que creó en el primer tutorial y después haga clic en **Configuración**.
+1. En el [portal de Azure](https://portal.azure.com/), vaya a la hoja **Aplicación de API** de la aplicación de API que desea proteger para que solo los usuarios autenticados puedan llamarla. (Para este tutorial, elija la aplicación de API para la que se implementó el proyecto de ContactsList.API).
 
-2. Busque la sección **Características** y después haga clic en **Autenticación y autorización**.
+2. Haga clic en **Configuración**
+
+2. Busque la sección **Características** y haga clic en **Autenticación/autorización**.
 
 	![](./media/app-service-api-dotnet-user-principal-auth/features.png)
 
-3. En la hoja **Autenticación y autorización**, haga clic en **Activado**.
+3. En la hoja **Autenticación/autorización**, haga clic en **Activado**.
 
 4. En la lista desplegable **Acción por realizar cuando no se autentique la solicitud**, seleccione **Iniciar sesión con Azure Active Directory**.
 
@@ -112,17 +125,17 @@ En la vista (*app/views/Contacts.html*), se llama a $scope.populate en la inicia
 
 	![](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
 
-6. En la hoja **Configuración de Azure Active Directory**, haga clic en **Rápido**.
+6. En la hoja **Configuración de Azure Active Directory**, haga clic en **Rápida**
 
 	![](./media/app-service-api-dotnet-user-principal-auth/aadsettings.png)
 
-	Azure creará automáticamente una aplicación AAD en su inquilino de AAD. Anote el nombre de la nueva aplicación AAD, pues lo seleccionará más adelante en el Portal de Azure clásico para obtener su identificador de cliente de la nueva aplicación AAD.
+	"Rápida" significa aquí que Azure creará automáticamente una aplicación AAD en su inquilino de AAD. Anote el nombre de la nueva aplicación AAD, pues lo seleccionará más adelante en el Portal de Azure clásico para obtener su identificador de cliente de la nueva aplicación AAD.
 
 7. Haga clic en **Aceptar**.
 
-10. En la hoja **Autenticación y autorización**, haga clic en **Guardar**.
+10. En la hoja **Autenticación/autorización**, haga clic en **Guardar**.
 
-8. Para comprobar que la aplicación de API ya está protegida, vaya a la dirección URL de la aplicación de API `/swagger` como hizo en el primer tutorial para usar la interfaz de usuario de Swagger.
+8. Para comprobar que la aplicación de API ya está protegida, vaya a la dirección URL de la aplicación de API + `/swagger` como hizo en el primer tutorial para usar la interfaz de usuario de Swagger.
 
 	Esta vez, se le redirigirá a una página de inicio de sesión.
 
@@ -130,11 +143,13 @@ En la vista (*app/views/Contacts.html*), se llama a $scope.populate en la inicia
 
 11. En el [Portal de Azure clásico](https://manage.windowsazure.com/), vaya a **Azure Active Directory**.
 
-12. En la pestaña Directorio, haga clic en su inquilino de AAD.
+	Tiene que ir al portal clásico porque determinadas opciones de Azure Active Directory a las que necesita acceder aún no están disponibles en el portal de Azure actual.
+
+12. En la pestaña **Directorio**, haga clic en su inquilino de AAD.
 
 	![](./media/app-service-api-dotnet-user-principal-auth/selecttenant.png)
 
-14. Haga clic en **Aplicaciones > Aplicación propiedad de mi compañía** y después haga clic en la marca de verificación.
+14. Haga clic en **Aplicaciones > Aplicación propiedad de mi compañía** y después clic en la marca de verificación.
 
 	También es posible que tenga que actualizar la página para ver la nueva aplicación.
 
@@ -150,42 +165,32 @@ En la vista (*app/views/Contacts.html*), se llama a $scope.populate en la inicia
 
 16. En el archivo de manifiesto descargado, busque la propiedad `oauth2AllowImplicitFlow`. Cambie el valor de esta propiedad de `false` a `true` y después guarde el archivo.
 
+	Esta configuración es necesaria para el acceso desde una aplicación de una página de JavaScript. Permite que el token de portador de Oauth 2.0 se devuelva al fragmento de dirección URL.
+
 16. Haga clic en **Administrar manifiesto > Cargar manifiesto** y cargue el archivo actualizado en el paso anterior.
 
 17. Mantenga esta página abierta para poder copiar y pegar valores desde ella y actualizar los valores de la página en pasos posteriores del tutorial.
 
-## Configuración de proyectos de Visual Studio para https
+## Configuración del proyecto ContactsList.Angular.AAD para llamar a la aplicación de API de Azure
 
-1. En el **Explorador de soluciones**, haga clic en el proyecto ContactList.API y después en la ventana **Propiedades** cambie **SSL habilitado** a **True**.
+Las instrucciones siguientes explican cómo implementar la aplicación en Azure y ejecutarlo allí, pero con cambios menores que puede ejecutar localmente. El código de ejemplo contiene puntos de conexión de la dirección URL de localhost. Si desea ejecutarlo localmente, configure los proyectos de SSL y utilice las direcciones URL de SSL de localhost en el código del proyecto y en la configuración de la aplicación AAD. Mientras se ejecuta localmente, el código de AngularJS solo permitirá llamar a la API a los usuarios que han iniciado sesión, pero los autores de llamadas no autenticados de otros clientes podrían llamar a la API.
 
-2. Copie la URL de SSL.
+1. En el proyecto ContactsList.Angular.AAD, abra el archivo *app/scripts/app.js*.
 
-	![](./media/app-service-api-dotnet-user-principal-auth/enablessl.png)
+8. En el código que establece la variable `endpoints`, convierta en comentario el punto de conexión de localhost y quite la marca de comentario del punto de conexión de Azure.
 
-3. Haga clic con el botón derecho en el proyecto ContactsList.API y después haga clic en **Propiedades**.
+10. Reemplace "yourclientid" por el valor real del identidicador de cliente de la aplicación de AAD desde la pestaña **Configurar** del portal clásico para la aplicación de AAD.
 
-5. Haga clic en la pestaña **Web**, pegue la dirección URL de SSL en el campo **URL del proyecto** y después guarde los cambios.
+2. Reemplace "{nombreDeSuAplicaciónApi}" por el nombre de la aplicación de API que implementó el proyecto ContactsList.API.
 
-	![](./media/app-service-api-dotnet-user-principal-auth/setprojecturl.png)
-
-1. Siga el mismo procedimiento para habilitar SSL en el proyecto ContactsList.Angular.AAD.
-
-2. Establezca el proyecto ContactsList.API y los proyectos de ContactsList.Angular.AAD como proyectos de inicio y establezca el proyecto ContactsList.API para que comience el primero.
-
-## Actualización de la dirección URL del punto de conexión y la configuración de AAD en el proyecto ContactsList.Angular.AAD
-
-7. En el proyecto ContactsList.Angular.AAD, abra el archivo *app/scripts/app.js*.
-
-8. En el código que establece la variable `endpoints`, asegúrese de que tiene la dirección URL de SSL correcta para el proyecto ContactsList.API y reemplace ambas instancias de "suIdentificadorDeCliente" por el valor real del identificador de cliente de la aplicación de AAD desde la pestaña **Configurar** del portal clásico para la aplicación AAD. Asegúrese de que la dirección URL del punto de conexión termina con una barra diagonal.
-
-	El código será similar al ejemplo siguiente:
+	El código será similar al del ejemplo siguiente:
 
 		var endpoints = {
-		    //"https://{your api app name}.azurewebsites.net/": "1cf55bc9-9ed8-4df31cf55bc9-9ed8-4df3"
-		    "https://localhost:44300/": "1cf55bc9-9ed8-4df31cf55bc9-9ed8-4df3"
+		    "https://contactslistapi.azurewebsites.net/": "1cf55bc9-9ed8-4df31cf55bc9-9ed8-4df3"
+		    //"https://localhost:44300/": "1cf55bc9-9ed8-4df31cf55bc9-9ed8-4df3"
 		};
 
-9. Además en *app.js*, en el código `adalProvider.init`, reemplace "{direcciónURLDelInquilino}" y "{suIdentificadorDeCliente}" por los valores reales.
+9. Además en *app.js*, en la llamada a `adalProvider.init`, reemplace "{direcciónURLDelInquilino}" y "{suIdentificadorDeCliente}" por los valores reales.
 
 	El código será similar al ejemplo siguiente:
 
@@ -200,108 +205,28 @@ En la vista (*app/views/Contacts.html*), se llama a $scope.populate en la inicia
 		    $httpProvider
 		    );
 
-10. En *app/scripts/contactsSvc.js*, asegúrese de que apiEndpoint está establecido en la dirección URL de SSL correcta para el proyecto ContactsList.API.
-
-		//var apiEndpoint = "https://{your api app name}.azurewebsites.net";
-		var apiEndpoint = "https://localhost:44300";
-
-## Actualización de la configuración de AAD en el proyecto ContactsList.API
-
-1. En el proyecto ContactsList.API, abra el archivo *Web.config* de la aplicación.
-
-2. En el elemento appSettings, establezca ida:Authority en el valor "https://login.windows.net/{direcciónURLDelInquilino}" y establezca ida:ClientId en el identificador de cliente de la aplicación AAD, como se muestra en el ejemplo siguiente.
-
-		<appSettings>
-		  <add key="ida:Authority" value="https://login.windows.net/contoso.onmicrosoft.com" />
-		  <add key="ida:ClientId" value="1cf55bc9-9ed8-4df31cf55bc9-9ed8-4df3" />
-		</appSettings>
-
-## Configuración de la aplicación AAD para el localhost 
-
-1. En la pestaña **Configurar** para la aplicación AAD en el portal clásico, en el campo **URL de inicio de sesión**, pegue la dirección URL de SSL del proyecto ContactsList.Angular.AAD y quite la barra diagonal final.
-
-	![](./media/app-service-api-dotnet-user-principal-auth/signonurl.png)
-
-3. Cerca de la parte inferior de la pestaña **Configurar**, en el campo **URL de respuesta**, pegue la dirección URL de SSL del proyecto ContactsList.Angular.AAD, reemplazando el valor ya existente y dejando la barra diagonal final en su lugar.
-
-	![](./media/app-service-api-dotnet-user-principal-auth/replyurl.png)
-
-4. Haga clic en **Guardar**.
-
-## Ejecución de los proyectos de cliente y de API localmente
-
-Cuando se ejecuta localmente HTTPS, recibirá mensajes de advertencia sobre el certificado SSL de IIS Express para localhost. Para ejecutarlo localmente, puede hacer clic después de estos mensajes. Si lo prefiere, puede omitir esta sección e ir directamente a la siguiente sección donde se preparará para ejecutar la aplicación y la API en Azure.
-
-Si tiene problemas al iniciar sesión, pruebe con otro explorador o abra una ventana InPrivate o de incógnito en la dirección URL del proyecto AngularJS, por ejemplo, `https://localhost:44301`.
-
-5. En Visual Studio, presione F5 para ejecutar los proyectos de API y AngularJS localmente.
-
-	Aparece la pestaña de inicio de la aplicación de AngularJS.
-
-10. Haga clic en la pestaña **Inicio de sesión**.
-
-	Se le pedirá que inicie sesión.
-
-7. Inicie sesión con las credenciales de usuario para un usuario en su inquilino de AAD.
-
-10. Haga clic en la pestaña **Contactos**.
-
-	Se muestra la página **Contactos**.
-
-	![](./media/app-service-api-dotnet-user-principal-auth/contactspagelocal.png)
-
-11. Cierre las ventanas del explorador.
-
-El código del proyecto ContactsList.Angular.AAD requiere haber iniciado sesión antes de llamar a la API y mostrar los contactos. Sin embargo, no hay nada que impida que los autores de llamadas no autenticadas llamen a la API. Puede comprobarlo mediante la ejecución de la interfaz de usuario de Swagger en la ventana del explorador que se abre en la dirección URL de SSL del proyecto ContactsList.API. La API estará protegida frente a los autores de llamadas no autenticadas solo cuando se ejecuta en el Servicio de aplicaciones de Azure.
-
-En las secciones siguientes configurará los proyectos y AAD para ejecutar el cliente y la API de Servicio de aplicaciones de Azure, implementar los proyectos en Azure y probarlos en Azure.
-
-## Configuración del proyecto ContactsList.Angular.AAD para llamar a la aplicación de API de Azure
-
-1. En el proyecto ContactsList.Angular.AAD, abra el archivo *app/scripts/app.js*.
-
-2. Comente el punto de conexión de localhost, quite el comentario del punto de conexión de Azure y reemplace "{your api app name}" por el nombre de la aplicación de API.
-
-	El código será similar al del ejemplo siguiente:
-
-		var endpoints = {
-		    "https://contactslistapi.azurewebsites.net/": "1cf55bc9-9ed8-4df31cf55bc9-9ed8-4df3"
-		    //"https://localhost:44300/": "1cf55bc9-9ed8-4df31cf55bc9-9ed8-4df3"
-		};
-
-1. Realice el mismo cambio de la dirección URL del punto de conexión en el archivo *app/scripts/contactsSvc.js*.
+1. En el archivo *app/scripts/contactsSvc.js*, cambie la URL del mismo punto de conexión de cambiar desde localhost a la dirección URL de la aplicación de API que creó anteriormente en *app.js*.
 
 	El código será similar al del ejemplo siguiente:
 
 		var apiEndpoint = "https://contactslistapi.azurewebsites.net";
 		//var apiEndpoint = "https://localhost:44300";
 
-
 ## Configuración de la aplicación AAD para la aplicación web de Azure
 
-1. En la pestaña **Configurar** para la aplicación AAD en el portal clásico, en el campo **URL de inicio de sesión**, elimine la dirección URL de SSL del proyecto ContactsList.Angular.AAD y reemplácela por la URL base de la aplicación web sin la barra diagonal final. (Tenga en cuenta que esta es la dirección URL de la aplicación web, no de la aplicación de API).
+1. En la pestaña **Configurar** para la aplicación AAD en el portal clásico, en el campo **URL de inicio de sesión**, elimine la dirección URL que ya está ahí y reemplácela por la URL base de la aplicación web, incluida la barra diagonal final. (Tenga en cuenta que se trata de la dirección URL de la aplicación web que ejecutará el código de AngularJS, no la URL de la aplicación de API).
 
 	![](./media/app-service-api-dotnet-user-principal-auth/signonurlazure.png)
 
-3. En el campo **URL de respuesta**, reemplace la dirección URL de SSL del proyecto ContactsList.Angular.AAD por la URL base de la aplicación web, sin quitar la barra diagonal final.
+3. En el campo **URL de respuesta**, reemplace la dirección URL que ya existe por la dirección URL base de la aplicación web.
 
 	![](./media/app-service-api-dotnet-user-principal-auth/replyurlazure.png)
 
 4. Haga clic en **Guardar**.
 
-## Implementación del proyecto ContactsList.API en Azure
-
-8. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto ContactsList.API y, después, haga clic en **Publicar**.
-
-	Se abre el asistente **Publicación web** en el último perfil de publicación usado en este proyecto, que es para implementar en la aplicación de API creada anteriormente.
-
-7. Haga clic en **Publicar**.
-
-8. Cierre la ventana del explorador que se abre automáticamente.
-
 ## Implementación del proyecto ContactsList.Angular.AAD en Azure
 
-8. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto ContactsList.Angular.API y, después, haga clic en **Publicar**.
+8. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto ContactsList.Angular.AAD y, después, en **Publicar**.
 
 9. Haga clic en **Servicio de aplicaciones de Microsoft Azure**.
 
@@ -313,11 +238,13 @@ En las secciones siguientes configurará los proyectos y AAD para ejecutar el cl
 
 12. Haga clic en **Aceptar**.
 
-12. En el asistente **Publicación web**, haga clic en la pestaña **Conexión** y, después, en el cuadro **Dirección URL de destino** cambie `http://` por `https://`.
+12. En el Asistente para **publicación web**, haga clic en la pestaña **Conexión** y, después, en el cuadro **Dirección URL de destino** cambie `http://` a `https://`.
 
 	![](./media/app-service-api-dotnet-user-principal-auth/httpsinconntab.png)
 
-12. En el asistente **Publicación web**, haga clic en la pestaña **Configuración**, expanda **Opciones de publicación de archivos** y active la casilla **Quitar archivos adicionales en destino**.
+	Esta configuración determina qué dirección URL en la que se abrirá el explorador predeterminado después de una implementación correcta.
+
+12. En el Asistente para **publicación web**, haga clic en la pestaña **Configuración**, expanda **Opciones de publicación de archivos** y active la casilla **Quitar archivos adicionales en el destino**.
 
 7. Haga clic en **Publicar**.
 
@@ -335,14 +262,10 @@ En las secciones siguientes configurará los proyectos y AAD para ejecutar el cl
 
 	![](./media/app-service-api-dotnet-user-principal-auth/contactspageazure.png)
 
-11. Para comprobar que la aplicación de API está protegida, vaya a la dirección URL de la interfaz de usuario de Swagger en una ventana de explorador InPrivate o de incógnito.
-
-	Se le redirigirá a una página de inicio de sesión.
-
-	El front-end ahora puede llamar a la API en nombre de un usuario autenticado, pero los usuarios no autenticados no pueden llamar a la API.
+El front-end ahora puede llamar a la API en nombre de un usuario autenticado, pero los usuarios no autenticados no pueden llamar a la API.
 
 ## Pasos siguientes
 
 En este tutorial se usó la autenticación y autorización de Servicio de aplicaciones para restringir el acceso a una aplicación de API para que solo los usuarios autenticados pueden llamarla. En el siguiente tutorial de la serie, aprenderá cómo [restringir el acceso a la aplicación de API en escenarios de servicio a servicio](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->
