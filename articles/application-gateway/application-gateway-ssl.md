@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configuración de una pasarela de aplicaciones para la descarga SSL mediante la implementación clásica | Microsoft Azure"
-   description="En este artículo se ofrecen instrucciones para crear una Pasarela de aplicaciones con descarga SSL mediante el modelo de implementación clásica de Azure."
+   pageTitle="Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante la implementación clásica | Microsoft Azure"
+   description="En este artículo se ofrecen instrucciones para crear una Puerta de enlace de aplicaciones con descarga SSL mediante el modelo de implementación clásica de Azure."
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
@@ -15,7 +15,7 @@
    ms.date="10/28/2015"
    ms.author="joaoma"/>
 
-# Configuración de una pasarela de aplicaciones para la descarga SSL mediante el modelo de implementación clásica 
+# Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica 
 
 > [AZURE.SELECTOR]
 -[Azure Classic Powershell](application-gateway-ssl.md)
@@ -23,7 +23,7 @@
 
 Puerta de enlace de aplicaciones puede configurarse para terminar la sesión SSL en la puerta de enlace para evitar la costosa tarea de descifrado SSL que tiene lugar en la granja de servidores web. La descarga SSL también simplifica la configuración del servidor front-end y la administración de la aplicación web.
 
->[AZURE.IMPORTANT]Antes de trabajar con recursos de Azure, es importante comprender que Azure tiene actualmente dos modelos de implementación: el modelo clásico y el Administrador de recursos. Asegúrese de que comprende los [modelos de implementación y las herramientas](azure-classic-rm.md) antes de trabajar con recursos de Azure. Puede ver la documentación de las distintas herramientas haciendo clic en las pestañas de la parte superior de este artículo. Este documento tratará de la creación de una Pasarela de aplicaciones con el modelo de implementación clásica de Azure. Para usar la versión del Administrador de recursos de Azure, vaya a [Configuración de descarga SSL de pasarela de aplicaciones mediante el Administrador de recursos de Azure](application-gateway-ssl-arm.md).
+>[AZURE.IMPORTANT]Antes de trabajar con recursos de Azure, es importante comprender que Azure tiene actualmente dos modelos de implementación: el modelo clásico y el Administrador de recursos. Asegúrese de que comprende los [modelos de implementación y las herramientas](azure-classic-rm.md) antes de trabajar con recursos de Azure. Puede ver la documentación de las distintas herramientas haciendo clic en las pestañas de la parte superior de este artículo. Este documento tratará de la creación de una Puerta de enlace de aplicaciones con el modelo de implementación clásica de Azure. Para usar la versión del Administrador de recursos de Azure, vaya a [Configuración de descarga SSL de puerta de enlace de aplicaciones mediante el Administrador de recursos de Azure](application-gateway-ssl-arm.md).
 
 
 ## Antes de empezar
@@ -32,7 +32,7 @@ Puerta de enlace de aplicaciones puede configurarse para terminar la sesión SSL
 2. Compruebe que tiene una red virtual de trabajo con una subred válida.
 3. Compruebe que dispone de servidores backend, ya sea en la red virtual o con una dirección IP virtual o dirección IP pública asignada.
 
-Para configurar la descarga SSL en una pasarela de aplicaciones, realice los pasos siguientes en el orden mostrado.
+Para configurar la descarga SSL en una puerta de enlace de aplicaciones, realice los pasos siguientes en el orden mostrado.
 
 1. [Creación de una nueva puerta de enlace de aplicaciones](#create-a-new-application-gateway)
 2. [Carga de certificados SSL](#upload-ssl-certificates) 

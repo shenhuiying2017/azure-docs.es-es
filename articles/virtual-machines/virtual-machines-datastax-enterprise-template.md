@@ -90,7 +90,8 @@ Clone todo el repositorio de plantillas mediante un cliente GIT de su elección,
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Cuando haya finalizado, busque la carpeta datastax-enterprise en el directorio C:\\Azure\\Templates. <!--Wrapping name of folder in bold typeface is not corp style  -->
+Cuando haya finalizado, busque la carpeta datastax-enterprise en el directorio C:\\Azure\\Templates.
+<!--Wrapping name of folder in bold typeface is not corp style  -->
 ### Paso 2 (opcional): Comprender los parámetros de plantilla
 
 Al implementar soluciones no triviales, como un clúster de Apache Cassandra basado en DataStax, debe especificar un conjunto de parámetros de configuración para resolver algunos valores necesarios. Al declarar estos parámetros en la definición de la plantilla, es posible especificar valores durante la ejecución de la implementación mediante un archivo externo o en la línea de comandos.
@@ -383,7 +384,12 @@ La sección “resources” es donde ocurre la mayor parte de la acción. Al ana
 
 A partir de este primer ejemplo está claro que azuredeploy.json se organizó en este escenario como un mecanismo de coordinación, al invocar cierto número de otros archivos de plantillas, cada uno de los cuales es responsable de una parte de las actividades de implementación necesarias.
 
-En particular, las siguientes plantillas vinculadas se usarán para esta implementación: <!-- In list format, using bold typeface in the following manner is ok --> - **shared-resource.json**: contiene la definición de todos los recursos que se van a compartir a través de la implementación. Algunos ejemplos son cuentas de almacenamiento usadas para almacenar discos de sistema operativo de la máquina virtual y redes virtuales. -**opscenter-resources.json**: implementa una VM OpsCenter y todos los recursos relacionados, incluida una interfaz de red y una dirección IP pública. - **opscenter-install-resources.json**: implementa la extensión de VM OpsCenter (script personalizado para Linux) que invocará el archivo de script de bash específico (opscenter.sh) necesario para configurar el servicio de OpsCenter dentro de esa VM. -**ephemeral-nodes-resources.json**: implementa todas las VM de nodos de clúster y los recursos conectados (por ejemplo, tarjetas de red y direcciones IP privadas). Esta plantilla también implementará extensiones de máquinas virtuales (scripts personalizados para Linux) e invocará un script Bash (dsenode.sh) para instalar físicamente los bits de Apache Cassandra en cada nodo.
+En particular, las siguientes plantillas vinculadas se usarán para esta implementación:
+<!-- In list format, using bold typeface in the following manner is ok -->
+- **shared-resource.json**: contiene la definición de todos los recursos que se van a compartir a través de la implementación. Algunos ejemplos son cuentas de almacenamiento usadas para almacenar discos de sistema operativo de la máquina virtual y redes virtuales.
+-**opscenter-resources.json**: implementa una VM OpsCenter y todos los recursos relacionados, incluida una interfaz de red y una dirección IP pública.
+- **opscenter-install-resources.json**: implementa la extensión de VM OpsCenter (script personalizado para Linux) que invocará el archivo de script de bash específico (opscenter.sh) necesario para configurar el servicio de OpsCenter dentro de esa VM.
+-**ephemeral-nodes-resources.json**: implementa todas las VM de nodos de clúster y los recursos conectados (por ejemplo, tarjetas de red y direcciones IP privadas). Esta plantilla también implementará extensiones de máquinas virtuales (scripts personalizados para Linux) e invocará un script Bash (dsenode.sh) para instalar físicamente los bits de Apache Cassandra en cada nodo.
 
 Analicemos cómo se usa esta última plantilla, ya que es una de las más interesantes desde el punto de vista del desarrollo de una plantilla. Un concepto importante que se debe resaltar es cómo puede una sola plantilla implementar varias copias de un tipo de recurso único y puede establecer para cada instancia valores únicos para la configuración requerida. Este concepto se conoce como bucle de recursos.
 
