@@ -22,7 +22,7 @@
 
 La API Graph de Azure Active Directory (AD) proporciona acceso mediante programación a Azure AD a través de los extremos de la API de REST OData. Las aplicaciones pueden usar la API Graph para ejecutar operaciones de creación, lectura, actualización y eliminación (CRUD) en objetos y datos de directorio. Por ejemplo, la API Graph se puede usar para crear un nuevo usuario, ver o actualizar las propiedades de un usuario, cambiar la contraseña de un usuario, comprobar la pertenencia al grupo para el acceso basado en roles y deshabilitar o eliminar el usuario. Para más información sobre los escenarios de aplicaciones y las características de API Graph, consulte [API Graph de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) y los requisitos previos de la API Graph de Azure AD https://msdn.microsoft.com/es-ES/library/hh974476(Azure.100).aspx)
 
-> [AZURE.IMPORTANT]Esta función también está disponible mediante [Microsoft Graph](https://graph.microsoft.io/), una API unificada que incluye las API de otros servicios de Microsoft como Outlook, OneDrive, OneNote, Organizador y Office Graph, accesible con un único punto de conexión y un solo token de acceso.
+> [AZURE.IMPORTANT] Esta función también está disponible mediante [Microsoft Graph](https://graph.microsoft.io/), una API unificada que incluye las API de otros servicios de Microsoft como Outlook, OneDrive, OneNote, Organizador y Office Graph, accesible con un único punto de conexión y un solo token de acceso.
 
 ## Construcción de una dirección URL de la API Graph
 
@@ -60,7 +60,7 @@ O, `https://graph.windows.net/contoso.com/users?api-version=1.5` enumera todos l
 
 El Explorador de gráficos se puede usar para que la API Graph de Azure AD consulte los datos de directorio al compilar la aplicación.
 
-> [AZURE.IMPORTANT]El Explorador de gráficos no admite la escritura ni la eliminación los datos de un directorio. Con el Explorador de gráficos solo se pueden realizar operaciones de lectura en el directorio de Azure AD.
+> [AZURE.IMPORTANT] El Explorador de gráficos no admite la escritura ni la eliminación los datos de un directorio. Con el Explorador de gráficos solo se pueden realizar operaciones de lectura en el directorio de Azure AD.
 
 A continuación se muestra el resultado que vería si fuera al Explorador de gráficos, seleccionara Usar compañía de demostración y escribiera `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.5` para mostrar todos los usuarios del directorio de demostración:
 
@@ -70,7 +70,8 @@ A continuación se muestra el resultado que vería si fuera al Explorador de gr�
 
 **Ejecutar una consulta**: para ejecutar una consulta, escríbala en el cuadro de texto de la solicitud y haga clic en **GET** o en la tecla **Entrar**. Los resultados se muestran en el cuadro de respuesta. Por ejemplo, `https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.5` enumerará todos los objetos de grupo del directorio de demostración.
 
-Tenga en cuenta las siguientes características y limitaciones del Explorador de gráficos:-la funcionalidad Autocompletar en conjuntos de recursos. Para verla, haga clic en **Usar compañía de demostración** y luego haga clic en el cuadro de texto de la solicitud (donde aparece la dirección URL de la compañía). Puede seleccionar un conjunto de recursos en la lista desplegable.
+Tenga en cuenta las siguientes características y limitaciones del Explorador de gráficos:
+- la funcionalidad Autocompletar en conjuntos de recursos. Para verla, haga clic en **Usar compañía de demostración** y luego haga clic en el cuadro de texto de la solicitud (donde aparece la dirección URL de la compañía). Puede seleccionar un conjunto de recursos en la lista desplegable.
 
 - Admite los alias de direccionamiento “me” y “myorganization”. Por ejemplo, puede usar `https://graph.windows.net/me?api-version=1.5` para devolver el objeto de usuario del usuario con sesión iniciada o `https://graph.windows.net/myorganization/users?api-version=1.5` para devolver todos los usuarios del directorio actual. Tenga en cuenta que el alias "me" devuelve un error de la compañía de demostración porque no hay ningún usuario con sesión iniciada que realice la solicitud.
 
@@ -94,7 +95,7 @@ En el ejemplo siguiente, usará el depurador web Fiddler para crear un nuevo gru
 2. Puesto que desea crear un nuevo grupo de seguridad, seleccione **Post** como método de HTTP en el menú desplegable. Para más información sobre las operaciones y los permisos de los objeto de grupo, consulte la sección sobre los [grupos](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#GroupEntity) en [Referencia de entidad y de tipo complejo | Referencia de la API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 3. En el campo que se encuentra junto a **Post**, escriba la siguiente dirección URL de solicitud: `https://graph.windows.net/mytenantdomain/groups?api-version=1.5`.
 
-    > [AZURE.NOTE]Debe sustituir mytenantdomain por el nombre de dominio de su directorio de Azure AD.
+    > [AZURE.NOTE] Debe sustituir mytenantdomain por el nombre de dominio de su directorio de Azure AD.
 
 4. En el campo que se encuentra inmediatamente debajo de Post, escriba lo siguiente:
 
@@ -104,7 +105,7 @@ Authorization: your access token
 Content-Type: application/json
 ```
 
-    > [AZURE.NOTE]Sustituya & lt; el token de acceso & gt; por el token de acceso del directorio de Azure AD.
+    > [AZURE.NOTE] Sustituya & lt; el token de acceso & gt; por el token de acceso del directorio de Azure AD.
 
 5. En el campo **Request body** (Cuerpo de la solicitud) escriba lo siguiente:
 
