@@ -28,7 +28,10 @@ Al abrir el Portal de Azure clásico, entrará automáticamente en la pestaña *
 De este modo se abre una nueva ventana con las pestañas siguientes. El tema describe estas pestañas.
 
 ## Inicio rápido (![Inicio rápido][QuickStart])
-En función de la edición de Servicios de BizTalk, puede que no estén disponibles todas las opciones mostradas. <table border="1"> <tr> <td><strong>Obtener las herramientas</strong></td>
+En función de la edición de Servicios de BizTalk, puede que no estén disponibles todas las opciones mostradas.
+<table border="1">
+    <tr>
+        <td><strong>Get the tools</strong></td>
 
         <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
         <br/><br/>
@@ -46,8 +49,8 @@ En función de la edición de Servicios de BizTalk, puede que no estén disponib
     </tr>
 
 <tr>
-        <td><strong>Más información acerca de los servicios de BizTalk</strong></td>
-        <td>Vaya al <a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">centro de aprendizaje</a> para obtener más información acerca de los Servicios de BizTalk de Azure.</td>
+        <td><strong>Learn more about BizTalk Services</strong></td>
+        <td>Go to the <a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">learning center</a> to learn more about Azure BizTalk Services.</td>
 </tr>
 </table>
 
