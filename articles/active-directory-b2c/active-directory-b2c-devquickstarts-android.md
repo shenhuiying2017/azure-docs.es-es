@@ -1,4 +1,11 @@
-<properties pageTitle="Vista previa de Azure AD B2C: Llamada a una API web desde una aplicación Android | Microsoft Azure" description="Este artículo le mostrará cómo crear una aplicación Android de "Lista de tareas pendientes" que llama a una API web de node.js mediante tokens de portador de OAuth 2.0. Tanto la aplicación Android como la API web usan Azure AD B2C para administrar identidades de usuario y autenticar usuarios." services="active-directory-b2c" documentationCenter="android" authors="brandwe" manager="msmbaldwin" editor=""/>
+<properties
+	pageTitle="Vista previa de Azure AD B2C: Llamada a una API web desde una aplicación Android | Microsoft Azure"
+	description="Este artículo le mostrará cómo crear una aplicación Android de "Lista de tareas pendientes" que llama a una API web de node.js mediante tokens de portador de OAuth 2.0. Tanto la aplicación Android como la API web usan Azure AD B2C para administrar identidades de usuario y autenticar usuarios."
+	services="active-directory-b2c"
+	documentationCenter="android"
+	authors="brandwe"
+	manager="msmbaldwin"
+	editor=""/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -16,10 +23,12 @@ Con Azure AD B2C, puede agregar unas características de administración de iden
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
  	
-> [AZURE.NOTE]Este inicio rápido presenta un requisito previo de que hay que tener una API web protegida por Azure AD con B2C para poder funcionar completamente. Hemos creado uno para que lo pueda usar tanto para .Net como para node.js. Este tutorial supone que está configurado el ejemplo de API web de node.js. Consulte el [tutorial de la API de Azure AD B2C para node.js](active-directory-b2c-devquickstarts-api-node.md).
+> [AZURE.NOTE]
+	Este inicio rápido presenta un requisito previo de que hay que tener una API web protegida por Azure AD con B2C para poder funcionar completamente. Hemos creado uno para que lo pueda usar tanto para .Net como para node.js. Este tutorial supone que está configurado el ejemplo de API web de node.js. Consulte el [tutorial de la API de Azure AD B2C para node.js](active-directory-b2c-devquickstarts-api-node.md).
 
  
-> [AZURE.NOTE]Este artículo no trata de la implementación de registros, inicios de sesión y administración de perfiles con Azure AD B2C. Se centra en la llamada a las API web después de que el usuario ya está autenticado. Si no lo ha hecho ya, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para obtener información sobre los conceptos básicos de Azure AD B2C.
+> [AZURE.NOTE]
+	Este artículo no trata de la implementación de registros, inicios de sesión y administración de perfiles con Azure AD B2C. Se centra en la llamada a las API web después de que el usuario ya está autenticado. Si no lo ha hecho ya, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para obtener información sobre los conceptos básicos de Azure AD B2C.
 
 
 Para los clientes de Android que necesitan tener acceso a recursos protegidos, Azure AD proporciona la Biblioteca de autenticación de Active Directory (ADAL). El único propósito de ADAL es facilitar a su aplicación la obtención de tokens de acceso. Para demostrar lo fácil que es, crearemos aquí una aplicación de lista de tareas pendientes de Android que permita realizar las siguientes acciones:
@@ -189,7 +198,14 @@ public class Constants {
 
 
 ```
-**SCOPES**: se trata de los ámbitos que pasamos al servidor que queremos solicitar desde el servidor para el inicio de sesión del usuario. Para la vista previa de B2C, pasamos client\_id. Sin embargo, esto cambiará la lectura de ámbitos en el futuro. Entonces se actualizará este documento. **ADDITIONAL\_SCOPES**: son los ámbitos adicionales que podemos usar para la aplicación. Esto se usará en el futuro. **CLIENT\_ID**: el id. de aplicación que obtuvo en el portal. **REDIRECT\_URL**: la redirección donde se espera que se envíe de nuevo el token. **EXTRA\_QP**: cualquier elemento adicional que desea pasar al servidor en formato codificado de dirección URL. **FB\_POLICY**: la directiva que está invocando. La parte más importante de este tutorial. **EMAIL\_SIGNIN\_POLICY**: la directiva que está invocando. La parte más importante de este tutorial. **EMAIL\_SIGNUP\_POLICY**: la directiva que está invocando. La parte más importante de este tutorial.
+**SCOPES**: se trata de los ámbitos que pasamos al servidor que queremos solicitar desde el servidor para el inicio de sesión del usuario. Para la vista previa de B2C, pasamos client\_id. Sin embargo, esto cambiará la lectura de ámbitos en el futuro. Entonces se actualizará este documento.
+**ADDITIONAL\_SCOPES**: son los ámbitos adicionales que podemos usar para la aplicación. Esto se usará en el futuro.
+**CLIENT\_ID**: el id. de aplicación que obtuvo en el portal.
+**REDIRECT\_URL**: la redirección donde se espera que se envíe de nuevo el token.
+**EXTRA\_QP**: cualquier elemento adicional que desea pasar al servidor en formato codificado de dirección URL.
+**FB\_POLICY**: la directiva que está invocando. La parte más importante de este tutorial.
+**EMAIL\_SIGNIN\_POLICY**: la directiva que está invocando. La parte más importante de este tutorial.
+**EMAIL\_SIGNUP\_POLICY**: la directiva que está invocando. La parte más importante de este tutorial.
 
 ### Paso 7: Agregar referencias a ADAL de Android en el proyecto
 
@@ -891,7 +907,16 @@ Vamos a escribir primero nuestro `getTask`:
  
  **En el mismo archivo** llamado `ToDoActivity.java`
  
- ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
+  ```
+    private URL getEndpointUrl() {
+        URL endpoint = null;
+        try {
+            endpoint = new URL(Constants.SERVICE_URL);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return endpoint;
+    }
 
  ```
 
@@ -976,12 +1001,16 @@ ADAL cifra los tokens y los almacena en SharedPreferences de forma predeterminad
 
 #### Cookies de sesión en WebView
 
-Android WebView no elimina las cookies de sesión después de cerrar la aplicación. Se puede controlar con el código de ejemplo siguiente: ```
+Android WebView no elimina las cookies de sesión después de cerrar la aplicación. Se puede controlar con el código de ejemplo siguiente:
+```
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-``` Más información sobre las cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+```
+Más información sobre las cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
 <!---HONumber=AcomDC_1125_2015-->
+
+
