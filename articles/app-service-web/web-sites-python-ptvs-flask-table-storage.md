@@ -74,7 +74,9 @@ Necesita una cuenta de almacenamiento de Azure para usar operaciones de almacena
 
 2. Haga clic en el icono **Nuevo** situado en la parte superior izquierda del portal y haga clic en **Datos y almacenamiento** > **Cuenta de almacenamiento**. Haga clic en **Crear** y, a continuación, asigne un nombre único a la cuenta de almacenamiento y cree un [grupo de recursos](../resource-group-overview.md) nuevo para ella.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->Una vez creada la cuenta de almacenamiento, el botón **Notificaciones** emitirá el mensaje **CORRECTO** en color verde y la hoja de la cuenta de almacenamiento se abrirá para mostrar que pertenece al nuevo grupo de recursos que ha creado.
+  	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->
+
+	Una vez creada la cuenta de almacenamiento, el botón **Notificaciones** emitirá el mensaje **CORRECTO** en color verde y la hoja de la cuenta de almacenamiento se abrirá para mostrar que pertenece al nuevo grupo de recursos que ha creado.
 
 5. Haga clic en la parte **Configuración** de la hoja de la cuenta de almacenamiento. Anote el nombre de la cuenta y la clave principal.
 
@@ -211,4 +213,4 @@ Siga estos vínculos para obtener más información acerca de Python Tools para 
 [SDK de Azure para Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
