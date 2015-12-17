@@ -23,7 +23,8 @@ Este artículo ofrece información general del uso de la extensión de script pe
 
 Las extensiones de máquina virtual (VM) se crean por Microsoft y editores de confianza de terceros para extender la funcionalidad de la máquina virtual. Para obtener información general de las extensiones de máquina virtual, vea [Características y extensiones de máquina virtual de Azure](virtual-machines-extensions-features.md).
 
-Vínculo:[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript%20-with%20template.md).
+Vínculo:
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Modelo del Administrador de recursos](virtual-machines-extensions-customscript%20-with%20template.md).
 
 
 ## Introducción a la extensión de script personalizada
@@ -92,3 +93,4 @@ Para obtener información sobre cómo usar la extensión de scripts personalizad
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
 <!---HONumber=AcomDC_1203_2015-->
+

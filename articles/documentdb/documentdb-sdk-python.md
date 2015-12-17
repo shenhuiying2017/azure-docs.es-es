@@ -61,7 +61,17 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.4.2](#1.4.2) | 06 de octubre de 2015 |---| [1\.4.1](#1.4.1) | 06 de octubre de 2015 |---| [1\.2.0](#1.2.0) | 06 de agosto de 2015 |---| [1\.1.0](#1.1.0) | 09 de julio de 2015 |---| [1\.0.1](#1.0.1) | 25 de mayo de 2015 |---| [1\.0.0](#1.0.0) | 07 de abril de 2015 |---| 0.9.4-prelease | 14 de enero de 2015 | 29 de febrero de 2016 | 0.9.3-prelease | 09 de diciembre de 2014 | 29 de febrero de 2016 | 0.9.2-prelease | 25 de noviembre de 2014 | 29 de febrero de 2016 | 0.9.1-prelease | 23 de septiembre de 2014 | 29 de febrero de 2016 | 0.9.0-prelease | 21 de agosto de 2014 | 29 de febrero de 2016
+| [1\.4.2](#1.4.2) | 06 de octubre de 2015 |---
+| [1\.4.1](#1.4.1) | 06 de octubre de 2015 |---
+| [1\.2.0](#1.2.0) | 06 de agosto de 2015 |---
+| [1\.1.0](#1.1.0) | 09 de julio de 2015 |---
+| [1\.0.1](#1.0.1) | 25 de mayo de 2015 |---
+| [1\.0.0](#1.0.0) | 07 de abril de 2015 |---
+| 0.9.4-prelease | 14 de enero de 2015 | 29 de febrero de 2016 
+| 0.9.3-prelease | 09 de diciembre de 2014 | 29 de febrero de 2016 
+| 0.9.2-prelease | 25 de noviembre de 2014 | 29 de febrero de 2016 
+| 0.9.1-prelease | 23 de septiembre de 2014 | 29 de febrero de 2016 
+| 0.9.0-prelease | 21 de agosto de 2014 | 29 de febrero de 2016
 
 ## P+F
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
