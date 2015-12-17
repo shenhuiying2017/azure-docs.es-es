@@ -127,13 +127,15 @@ Al igual que otros clústeres de HDInsight, el clúster de HBase requiere una cu
 	![Proporcionar detalles para el clúster de HBase](./media/hdinsight-hbase-provision-vnet/hbasewizard2.png)
 
 	<table border='1'>
-	<tr><th>Propiedad</th><th>Valor</th></tr>
-	<tr><td>Nodos de datos</td><td>Seleccione el número de nodos de datos que desea implementar. Para propósitos de prueba, cree un clúster de un solo nodo. <br />El límite de tamaño del clúster varía según las suscripciones a Azure. Póngase en contacto con el servicio de soporte relacionado con la facturación de Azure para aumentar el límite.</td></tr>
-	<tr><td>Región/Red virtual</td><td><p>Seleccione una región o una red virtual de Azure, si ha creado ya una. Para este tutorial, seleccione la red que creó anteriormente y, a continuación, seleccione una subred correspondiente. El nombre predeterminado es <b>Subred-1</b>.</p></td></tr>
-	<tr><td>Tamaño de nodo principal</td><td><p>Seleccione un tamaño de máquina virtual para el nodo principal.</p></td></tr>
-	<tr><td>Tamaño de nodo de datos</td><td><p>Seleccione un tamaño de máquina virtual para los nodos de datos.</p></td></tr>
-	<tr><td>Tamaño de Zookeeper</td><td><p>Seleccione un tamaño de máquina virtual para el nodo Zookeeper.</p></td></tr>
-</table>>[AZURE.NOTE]En función de la elección de máquinas virtuales, su coste puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
+		<tr><th>Propiedad</th><th>Valor</th></tr>
+		<tr><td>Nodos de datos</td><td>Seleccione el número de nodos de datos que desea implementar. Para propósitos de prueba, cree un clúster de un solo nodo. <br />El límite de tamaño del clúster varía según las suscripciones a Azure. Póngase en contacto con el servicio de soporte relacionado con la facturación de Azure para aumentar el límite.</td></tr>
+		<tr><td>Región/Red virtual</td><td><p>Seleccione una región o una red virtual de Azure, si ha creado ya una. Para este tutorial, seleccione la red que creó anteriormente y, a continuación, seleccione una subred correspondiente. El nombre predeterminado es <b>Subred-1</b>.</p></td></tr>
+		<tr><td>Tamaño de nodo principal</td><td><p>Seleccione un tamaño de máquina virtual para el nodo principal.</p></td></tr>
+		<tr><td>Tamaño de nodo de datos</td><td><p>Seleccione un tamaño de máquina virtual para los nodos de datos.</p></td></tr>
+		<tr><td>Tamaño de Zookeeper</td><td><p>Seleccione un tamaño de máquina virtual para el nodo Zookeeper.</p></td></tr>
+	</table>
+
+	>[AZURE.NOTE] En función de la elección de máquinas virtuales, su coste puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
 
 	Haga clic en el botón derecho.
 
@@ -430,4 +432,4 @@ En este tutorial, ha aprendido a aprovisionar un clúster de HBase. Para obtener
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Detalles de aprovisionamiento para el nuevo clúster de HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Uso de la acción de script para personalizar un clúster de HBase"
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
