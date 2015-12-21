@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de definiciones de aplicación lógica" 
+	pageTitle="Creación de definiciones de aplicación lógica | Microsoft Azure" 
 	description="Obtenga información sobre cómo escribir la definición de JSON para aplicaciones lógicas." 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="12/07/2015"
 	ms.author="stepsic"/>
 	
-#Creación de definiciones de aplicación lógica
+# Creación de definiciones de aplicación lógica
 En este tema se explica cómo usar definiciones de [aplicaciones lógicas de servicios de aplicaciones](app-service-logic-what-are-logic-apps.md), que es un lenguaje JSON declarativo simple. Si no lo ha hecho todavía, consulte primero [Creación de una aplicación lógica nueva](../app-service-create-a-logic-app.md). También puede leer el [material de referencia completo del lenguaje de definición en MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
 ## Varios pasos que se repiten en una lista
 
-Un patrón común es tener un paso que obtiene una lista de elementos y, a continuación, disponer de una serie de dos o más acciones que desea realizar en la lista.
+Un patrón común es tener un paso que obtiene una lista de elementos y, a continuación, disponer de una serie de dos o más acciones que desea realizar en la lista:
 
 ![Repetir sobre listas](./media/app-service-logic-author-definitions/repeatoverlists.png)
 
@@ -29,7 +29,7 @@ En este ejemplo hay 3 acciones:
 
 1. Obtener una lista de artículos. Esto devuelve un objeto que contiene una matriz.
 
-2. Una acción que remite a una propiedad de enlace en cada artículo, que devolverá la ubicación real del artículo nuevo.
+2. Una acción que va a una propiedad de vínculo en cada artículo, que devuelve la ubicación real del artículo.
 
 3. Una acción que itera todos los resultados de la segunda acción para descargar los artículos reales.
 
@@ -79,7 +79,7 @@ Dentro de la acción se pueden usar las funciones siguientes: [`repeatItem()`](h
 
 ## Asignación de elementos de una lista a una configuración diferente
 
-A continuación, supongamos que queremos obtener contenido completamente diferente según un valor de una propiedad. Podemos crear una asignación de valores a destinos como un parámetro.
+A continuación, supongamos que queremos obtener contenido completamente diferente según un valor de una propiedad. Podemos crear una asignación de valores a destinos como un parámetro:
 
 ```
 {
@@ -234,14 +234,14 @@ A continuación, en la aplicación lógica secundaria usará la función [`trigg
 }
 ```
 
-Puede leer sobre la [acción del tipo de aplicación lógica en MSDN](https://msdn.microsoft.com/es-ES/library/azure/dn948511.aspx).
+Puede leer sobre la [acción del tipo de aplicación lógica en MSDN](https://msdn.microsoft.com/library/azure/dn948511.aspx).
 
 >[AZURE.NOTE]El Diseñador de aplicaciones lógicas no admite acciones de tipo de aplicación lógica, por lo que deberá editar manualmente la definición.
 
 
 ## Un paso de control de errores si algo va mal
 
-Normalmente desea poder escribir un *paso de corrección*; cierta lógica que se ejecuta, si, **y solo si**, una o varias llamadas no se han podido realizar correctamente. En este ejemplo, obtenemos datos desde diversos lugares, pero si se produce un error en la llamada, es necesario PUBLICAR un mensaje en alguna parte, para poder localizar ese error más adelante.
+Normalmente desea poder escribir un *paso de corrección*; cierta lógica que se ejecuta, si, **y solo si**, una o varias llamadas no se han podido realizar correctamente. En este ejemplo, obtenemos datos desde diversos lugares, pero si se produce un error en la llamada, es necesario PUBLICAR un mensaje en alguna parte para poder localizar ese error más adelante:
 
 ```
 {
@@ -287,7 +287,7 @@ Normalmente desea poder escribir un *paso de corrección*; cierta lógica que se
 }
 ```
 
-Estoy utilizando dos condiciones porque en el primer paso estoy repetición de una lista. Si tiene una sola acción, sólo necesitaría una condición (la primera). Tenga en cuenta también que puede usar las *entradas* a la acción incorrecta en el paso de solución (aquí se pasa la URL con error al segundo paso).
+Estoy utilizando dos condiciones porque en el primer paso estoy repetición de una lista. Si tiene una sola acción, sólo necesitaría una condición (la primera). Tenga en cuenta también que puede usar las *entradas* a la acción incorrecta en el paso de solución (aquí se pasa la URL con error al segundo paso):
 
 ![Corrección](./media/app-service-logic-author-definitions/remediation.png)
 
@@ -723,4 +723,4 @@ Es posible que tenga una API a la que está llamando y quiera esperar una respue
 
 Consulte la [documentación sobre la API de REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) para conocer todas las opciones disponibles para crear y administrar aplicaciones lógicas.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

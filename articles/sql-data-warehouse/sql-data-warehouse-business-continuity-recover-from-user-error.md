@@ -132,8 +132,8 @@ Para obtener información sobre las características de continuidad del negocio 
 [Estado de operación de base de datos]: http://msdn.microsoft.com/library/azure/dn720371.aspx
 [Obtener base de datos eliminada que se puede restaurar]: http://msdn.microsoft.com/library/azure/dn509574.aspx
 [Lista de bases de datos eliminadas que se pueden restaurar]: http://msdn.microsoft.com/library/azure/dn509562.aspx
-[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/es-ES/library/dn720218.aspx
+[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/library/dn720218.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/16/2015"
+   ms.date="12/06/2015"
    ms.author="seanmck"/>
 
 # Su aplicación de Service Fabric y próximos pasos
@@ -59,6 +59,10 @@ Service Fabric proporciona integración con ASP.NET 5 para la creación de punto
 ### Creación de un clúster de Azure
 El SDK de Service Fabric proporciona un clúster local para desarrollo y pruebas. Para crear un clúster de Azure, consulte [Configuración de un clúster de Service Fabric en el Portal de Azure][create-cluster-in-portal]
 
+### Pruebe a implementar en Azure de forma gratuita con clústeres de Party Cluster.
+
+Si quiere probar la implementación y administración de aplicaciones de Azure sin necesidad de configurar sus propios clústeres, puede utilizar la versión de evaluación del [Servicio Party Cluster](http://aka.ms/tryservicefabric).
+
 ### Publicación de su aplicación en Azure
 Puede publicar su aplicación directamente desde Visual Studio a un clúster de Azure. Para obtener información sobre cómo hacerlo, consulte [Publicación de la aplicación en Azure][publish-app-to-azure].
 
@@ -66,7 +70,7 @@ Puede publicar su aplicación directamente desde Visual Studio a un clúster de 
 El explorador de Service Fabric ofrece una forma sencilla de visualizar el clúster, como las aplicaciones implementadas y el diseño físico. Para más información, consulte [Visualización del clúster mediante el explorador de Service Fabric][visualize-with-sfx].
 
 ### Control de versiones y actualización de los servicios
-Service Fabric permite el control de versiones independiente y la actualización de servicios independiente en una aplicación. Para obtener más información, consulte [Control de versiones y actualización de los servicios][app-upgrade-tutorial].
+Service Fabric permite el control de versiones independiente y la actualización de servicios independiente en una aplicación. Para más información, consulte [Control de versiones y actualización de los servicios][app-upgrade-tutorial].
 
 ### Configuración de la integración continua con Visual Studio Online
 Para obtener información sobre cómo puede configurar un proceso de integración continua para su aplicación de Service Fabric, consulte [Configuración de la integración continua con Visual Studio Online][ci-with-vso].
@@ -81,4 +85,4 @@ Para obtener información sobre cómo puede configurar un proceso de integració
 [reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

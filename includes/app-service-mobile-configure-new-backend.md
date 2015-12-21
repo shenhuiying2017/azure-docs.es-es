@@ -1,5 +1,5 @@
 
-1. De nuevo en la configuración del back-end de aplicación móvil, desplácese hacia abajo hasta **Móvil**, haga clic en **Introducción** > la plataforma cliente. 
+1. De nuevo en la configuración del back-end de la aplicación móvil, haga clic en **Introducción** > la plataforma cliente. 
 
 2. En **Crear una API de tabla**, seleccione su **Lenguaje back-end**, ya sea **C#** o **Node.js**:
 
@@ -11,4 +11,4 @@
 	 
 Ahora el back-end de aplicación móvil está listo para usarse con la aplicación cliente.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

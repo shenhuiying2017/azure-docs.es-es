@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" y
-	ms.date="10/20/2015" 
+	ms.date="12/08/2015" 
 	ms.author="spelluru"/>
 
 # Descripción de canalizaciones y actividades
@@ -224,18 +224,18 @@ En la tabla siguiente se describen las propiedades dentro de las definiciones de
 
 Etiqueta | Descripción | Obligatorio
 --- | ----------- | --------
-name | Nombre de la actividad o la canalización. Especifique un nombre que representa la acción que la actividad o la canalización está configurado para realizar<br/><ul><li>Número máximo de caracteres: 260</li><li>Debe comenzar con una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten caracteres siguientes: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Sí
+name | Nombre de la actividad o la canalización. Especifique un nombre que representa la acción que la actividad o la canalización está configurado para realizar<br/><ul><li>Número máximo de caracteres: 260</li><li>Debe comenzar con una letra, un número o un carácter de subrayado (_)</li><li>No se permiten caracteres siguientes: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> | Sí
 description | Texto que describe para qué se usa la actividad o la canalización | Sí
 type | Especifica el tipo de la actividad. Consulte los artículos [Actividades de movimiento de datos](data-factory-data-movement-activities.md) y [Actividades de transformación de datos](data-factory-data-transformation-activities.md) para diferentes tipos de actividades. | Sí
-inputs | Tablas de entrada usadas por la actividad<p>// una tabla de entrada<br/>"inputs":  [ { "name": "inputtable1" } ],</p><p>// dos tablas de entrada <br/>"inputs":  [ { "name": "inputtable1" }, { "name": "inputtable2" } ],</p> | Sí
-outputs | Tablas de salida usadas por la actividad.<p>// una tabla de salida<br/>"outputs":  [ { "name": “outputtable1” } ],</p><p>//dos tablas de salida<br/>"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” } ],</p> | Sí
+inputs | Tablas de entrada usadas por la actividad<p>// una tabla de entrada<br/>"inputs": [ { "name": "inputtable1" } ],</p><p>// dos tablas de entrada <br/>"inputs": [ { "name": "inputtable1" }, { "name": "inputtable2" } ],</p> | Sí
+outputs | Tablas de salida usadas por la actividad.<p>// una tabla de salida<br/>"outputs": [ { "name": “outputtable1” } ],</p><p>//dos tablas de salida<br/>"outputs": [ { "name": “outputtable1” }, { "name": “outputtable2” } ],</p> | Sí
 linkedServiceName | Nombre del servicio vinculado usado por la actividad. <p>Una actividad puede requerir que especifique el servicio vinculado que se vincula al entorno de proceso necesario.</p>| Sí para Actividad de HDInsight y Actividad de puntuación por lotes de Aprendizaje automático de Azure<p>No para todos los demás</p>
 typeProperties | Las propiedades de la sección typeProperties dependen del tipo de la actividad. Consulte el artículo sobre cada actividad para obtener más información | No
 policy | Directivas que afectan al comportamiento de la actividad en tiempo de ejecución. Si no se especifica, se usan las directivas predeterminadas. Desplácese a continuación para obtener detalles | No
-start | Fecha y hora de inicio de la canalización. Debe estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. <p>Las propiedades start y end juntas especifican un período activo para la canalización. Los segmentos de salida solo se producen con en este período activo.</p> | No<p>Si especifica un valor para la propiedad end, debe especificar el valor de la propiedad start.</p><p>Los tiempos de inicio y finalización pueden estar vacíos para crear una canalización, pero ambos deben tener valores para establecer un período activo para que se ejecute la canalización. Si no especifica horas de inicio y finalización al crear una canalización, puede establecerlas mediante el cmdlet Set-AzureDataFactoryPipelineActivePeriod más adelante.</p>
-end | Hora y fecha de finalización de la canalización. Si se especifica, debe estar en formato ISO. Por ejemplo: 2014-10-14T17:32:41Z <p>Para ejecutar la canalización de forma indefinida, especifique 9999-09-09 como el valor de la propiedad end.</p>| No <p>Si especifica un valor para la propiedad start, debe especificar el valor para la propiedad end.</p><p>Consulte las notas de la propiedad **iniciar**.</p>
-isPaused | Si se establece en true, la canalización no se ejecutará. Valor predeterminado = false. Puede usar esta propiedad para habilitar o deshabilitar. | No
-programador | La propiedad "scheduler" se usa para definir la programación deseada de la actividad. Sus subpropiedades son las mismas que las de la [propiedad availability de un conjunto de datos](data-factory-create-datasets.md#Availability). | No |   
+start | Fecha y hora de inicio de la canalización. Debe estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. Las propiedades start y end juntas especifican un período activo para la canalización. Los segmentos de salida solo se producen en este período activo. | No<p>El período activo de una canalización también puede establecerse mediante el cmdlet Set-AzureDataFactoryPipelineActivePeriod</p>
+End | Hora y fecha de finalización de la canalización. Si se especifica, debe estar en formato ISO. Por ejemplo: 2014-10-14T17:32:41Z <p>Si no se especifica, se calcula como "start + 48 horas". Para ejecutar la canalización de forma indefinida, especifique 9999-09-09 como el valor de la propiedad end.</p>| No
+isPaused | Si está establecido en true, la canalización no se ejecutará. Valor predeterminado = false. Puede usar esta propiedad para habilitar o deshabilitar. | No
+programador | La propiedad "scheduler" se usa para definir la programación deseada de la actividad. Sus subpropiedades son las mismas que las de la [propiedad availability en un conjunto de datos](data-factory-create-datasets.md#Availability). | No |   
 
 ### Tipos de actividad
 Factoría de datos de Azure ofrece una amplia gama de actividades de [movimiento de datos](data-factory-data-movement-activities.md) y de [transformación de datos](data-factory-data-transformation-activities.md).
@@ -282,9 +282,9 @@ Puede usar Visual Studio para crear e implementar canalizaciones en Factoría de
 ### Uso de Azure PowerShell
 Puede usar Azure PowerShell para crear canalizaciones en Factoría de datos de Azure. Digamos que ha definido la canalización JSON en un archivo c:\\DPWikisample.json. Puede cargarlo en su instancia de Factoría de datos de Azure, tal como se muestra en el ejemplo siguiente.
 
-	New-AzureDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
+	New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
 
-Para obtener más información acerca de este cmdlet, consulte el [cmdlet New-AzureDataFactoryPipeline](https://msdn.microsoft.com/library/dn820227.aspx).
+Para más información sobre este cmdlet, consulte el [cmdlet New-AzureDataFactoryPipeline](https://msdn.microsoft.com/library/mt619358.aspx).
 
 ### Uso de la API de REST
 También puede crear e implementar la canalización mediante las API de REST. Este mecanismo se puede aprovechar para crear canalizaciones mediante programación. Para obtener más información sobre esto, consulte [Creación o actualización de una canalización](https://msdn.microsoft.com/library/azure/dn906741.aspx).
@@ -335,4 +335,4 @@ Una vez implementada una canalización, puede administrar y supervisar la canali
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

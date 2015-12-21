@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
 # Acerca de la supervisión del Administrador de tráfico
 
-El Administrador de tráfico de Azure supervisa los extremos, incluidos los servicios en la nube y los sitios web, para garantizar que están disponibles. Para que la supervisión funcione correctamente, debe configurarla del mismo modo para todos los extremos que especifique en el perfil del Administrador de tráfico. Después de configurar la supervisión, el Administrador de tráfico mostrará el estado de los puntos de conexión y el perfil en el Portal de Azure. Puede configurar las opciones de supervisión en el Portal de Azure, en la página Configurar del perfil del Administrador de tráfico. Puede especificar las siguientes opciones:
+El Administrador de tráfico de Azure supervisa los extremos, incluidos los servicios en la nube y los sitios web, para garantizar que están disponibles. Para que la supervisión funcione correctamente, debe configurarla del mismo modo para todos los extremos que especifique en el perfil del Administrador de tráfico. Después de configurar la supervisión, el Administrador de tráfico mostrará el estado de los puntos de conexión y el perfil en el Portal de Azure clásico. Puede configurar las opciones de supervisión en el Portal de Azure clásico, en la página Configurar del perfil del Administrador de tráfico. Puede especificar las siguientes opciones:
 
 - **Protocolo**: elija HTTP o HTTPS. Es importante que tenga en cuenta que la supervisión HTTPS no comprueba si el certificado SSL es válido, solo comprueba que está presente.
 
@@ -27,7 +27,7 @@ El Administrador de tráfico de Azure supervisa los extremos, incluidos los serv
 
 ## Acerca de la supervisión del estado de mantenimiento
 
-El Administrador de tráfico de Azure muestra el estado del servicio de perfiles y de puntos de conexión en el Portal de Azure. La columna de estado del perfil y el extremo muestran el estado más reciente de supervisión. Puede usar este estado para comprender el estado del perfil de acuerdo con la configuración de supervisión del Administrador de tráfico. Cuando el estado del perfil es correcto, las consultas DNS se distribuirán a los servicios en función de la configuración del enrutamiento del tráfico (round robin, rendimiento o conmutación por error) del perfil. Cuando el sistema de supervisión de Administrador de tráfico detecta un cambio en el estado de supervisión, actualiza la entrada de estado en el Portal de Azure. Se puede tardar hasta cinco minutos en actualizar el cambio de estado.
+El Administrador de tráfico de Azure muestra el estado del servicio de perfiles y puntos de conexión en el Portal de Azure clásico. La columna de estado del perfil y el extremo muestran el estado más reciente de supervisión. Puede usar este estado para comprender el estado del perfil de acuerdo con la configuración de supervisión del Administrador de tráfico. Cuando el estado del perfil es correcto, las consultas DNS se distribuirán a los servicios en función de la configuración del enrutamiento del tráfico (round robin, rendimiento o conmutación por error) del perfil. Cuando el sistema de supervisión de Administrador de tráfico detecta un cambio en el estado de supervisión, actualiza la entrada de estado en el Portal de Azure clásico. Se puede tardar hasta cinco minutos en actualizar el cambio de estado.
 
 ### Estado de supervisión de extremos
 
@@ -93,7 +93,7 @@ En la tabla siguiente se describe el comportamiento de la supervisión del Admin
 
 |Estado de supervisión de perfiles secundarios|Estado de supervisión de extremos principales|Notas|
 |---|---|---|
-|Deshabilitado: este elemento indica que el perfil está deshabilitado por el usuario.|Stopped|El estado del extremo primario es “Detenido”, no “Deshabilitado”. El estado “Deshabilitado” se reserva para indicar que el usuario ha deshabilitado el extremo en el perfil principal.|
+|Deshabilitado: este estado indica que el perfil está deshabilitado por el usuario.|Detenido|El estado del extremo primario es “Detenido”, no “Deshabilitado”. El estado “Deshabilitado” se reserva para indicar que el usuario ha deshabilitado el extremo en el perfil principal.|
 |Degradado: el estado de al menos uno de los extremos secundarios es “Degradado”.|Estado en línea si el número de extremos en línea del perfil secundario es al menos el valor de estado de minChildEndpoints.CheckingEndpoint, o si el número de extremos en línea más CheckingEndpoint en el perfil secundario, es al menos el valor de minChildEndpoints.Otherwise, en estado “Degradado”.|El tráfico se enruta a un extremo de estado CheckingEndpoint. Si minChildEndpoints se establece demasiado alto, el extremo primario siempre será degradado.|
 |En línea: como mínimo, hay un elemento secundario con estado “En línea” y ninguno se encuentra en estado “Degradado”.|Igual que el anterior.||
 |CheckingEndpoints: como mínimo, hay un elemento “CheckingEndpoint”; ninguno está “En línea” ni “Degradado”|Igual que el anterior.||
@@ -103,7 +103,7 @@ En la tabla siguiente se describe el comportamiento de la supervisión del Admin
 
 1. Cree un archivo con el mismo nombre en cada extremo que piense incluir en el perfil.
 2. Para cada extremo, use un explorador web para probar el acceso al archivo. La dirección URL consta del nombre de dominio del extremo específico (el servicio en la nube o el sitio web), la ruta de acceso al archivo y el nombre del archivo. 
-3. En el Portal de Azure, en **Configuración de supervisión**, en el campo **Ruta de acceso relativa y nombre de archivo**, especifique la ruta de acceso y el nombre del archivo.
+3. En el Portal de Azure clásico, en **Configuración de supervisión**, en el campo **Ruta de acceso relativa y nombre de archivo**, especifique la ruta de acceso y el nombre del archivo.
 4. Cuando haya terminado de realizar los cambios de configuración, haga clic en **Guardar** en la parte inferior de la página.
 
 ## Otras referencias
@@ -115,4 +115,4 @@ En la tabla siguiente se describe el comportamiento de la supervisión del Admin
 [Solución de problemas de estado degradado en Administrador de tráfico de Azure](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

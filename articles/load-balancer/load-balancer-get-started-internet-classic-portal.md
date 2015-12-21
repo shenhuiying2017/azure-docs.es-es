@@ -1,6 +1,7 @@
+
 <properties 
-   pageTitle="Introducción a la creación de un equilibrador de carga orientado a Internet en un modelo de implementación clásica con el portal de Azure | Microsoft Azure"
-   description="Obtenga información sobre cómo crear un equilibrador de carga orientado a Internet en el modelo de implementación clásica mediante el portal de Azure"
+   pageTitle="Introducción a la creación de un equilibrador de carga accesible desde Internet en un modelo de implementación clásica con el Portal de Azure clásico | Microsoft Azure"
+   description="Aprenda a crear un equilibrador de carga accesible desde Internet en el modelo de implementación clásica mediante el Portal de Azure clásico"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -14,10 +15,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
-# Introducción a la creación de un equilibrador de carga orientado a Internet (clásico) en el portal de Azure
+# Introducción a la creación de un equilibrador de carga accesible desde Internet (clásico) en el Portal de Azure clásico
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
@@ -34,7 +35,7 @@ Para equilibrar la carga del tráfico de red de Internet entre las máquinas vir
 
 **Para configurar un equilibrio de carga establecido para máquinas virtuales**
 
-1. En el Portal de Azure, haga clic en **Máquinas virtuales** y luego en el nombre de una máquina virtual del conjunto con equilibrio de carga.
+1. En el Portal de Azure clásico, haga clic en **Máquinas virtuales** y luego en el nombre de una máquina virtual del conjunto con equilibrio de carga.
 2.	Haga clic en **Puntos de conexión** y luego haga clic en **Agregar**.
 
 4.	En la página **Agregar un extremo a una máquina virtual**, haga clic en la flecha derecha.
@@ -66,4 +67,4 @@ Para equilibrar la carga del tráfico de red de Internet entre las máquinas vir
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

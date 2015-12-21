@@ -46,9 +46,9 @@ El cuadro de diálogo **Seleccionar clúster de Service Fabric** valida automát
 
 4.	[Opcional]: puede editar el perfil de publicación para especificar una conexión de clúster segura.
 
-    Dado que está editando manualmente el archivo XML de perfil de publicación para especificar la información del certificado, asegúrese de anotar el nombre de almacén de certificados, ubicación de almacén y huella digital de certificado. Necesitará proporcionar estos valores para la ubicación del almacén y el nombre del almacén del certificado. Consulte [Recuperación de la huella digital de un certificado] (https://msdn.microsoft.com/es-ES/library/ms734695(v=vs.110).aspx) para obtener más información.
+    Dado que está editando manualmente el archivo XML de perfil de publicación para especificar la información del certificado, asegúrese de anotar el nombre de almacén de certificados, ubicación de almacén y huella digital de certificado. Necesitará proporcionar estos valores para la ubicación del almacén y el nombre del almacén del certificado. Consulte [Recuperación de la huella digital de un certificado] (https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx) para más información.
 
-    Los parámetros *ClusterConnectionParameters* le permiten especificar los parámetros de PowerShell que usar cuando se conecte con el clúster de Service Fabric. Los parámetros válidos son los aceptados por el cmdlet Connect-ServiceFabricCluster. Vea [Conectar ServiceFabricCluster](https://msdn.microsoft.com/es-ES/library/mt125938.aspx) para obtener una lista de parámetros disponibles.
+    Los parámetros *ClusterConnectionParameters* le permiten especificar los parámetros de PowerShell que usar cuando se conecte con el clúster de Service Fabric. Los parámetros válidos son los aceptados por el cmdlet Connect-ServiceFabricCluster. Consulte [Conexión de ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) para obtener una lista de parámetros disponibles.
 
     Si va a publicar en un clúster remoto, deberá especificar los parámetros adecuados para ese clúster concreto. El siguiente es un ejemplo de para conectarse a un clúster no seguro:
 
@@ -76,4 +76,4 @@ Para obtener más información acerca del acceso a los clústeres de Service Fab
 [publishdialog]: ./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
 [selectsfcluster]: ./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

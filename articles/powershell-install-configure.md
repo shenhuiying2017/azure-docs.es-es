@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/02/2015"
 	ms.author="coreyp"/>
 
 # Cómo instalar y configurar Azure PowerShell#
@@ -36,9 +36,9 @@ Descargue e instale [PowerShell 1.0.1](https://github.com/Azure/azure-powershell
 El módulo instala una consola personalizada para Azure PowerShell. Puede ejecutar los cmdlet desde la consola estándar de Windows PowerShell o desde la consola de Azure PowerShell.
 
 ## Paso 3: Conectar
-Los cmdlets necesitan la suscripción para que puedan administrar los servicios. Puede comprar una suscripción de Azure si no tiene ya una. Para obtener instrucciones, consulte [Introducción a Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
+Los cmdlets necesitan la suscripción para que puedan administrar los servicios. Puede comprar una suscripción de Azure si no tiene ya una. Para instrucciones, consulte [Instrucciones para contratar Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
 
-1. Escriba Add-AzureAccount
+1. Escriba **Add-AzureAccount**
 
 2. Escriba la dirección de correo electrónico y la contraseña asociadas a su cuenta. Azure autentica y guarda las credenciales y, a continuación, cierra la ventana.
 
@@ -49,42 +49,27 @@ Inicie sesión en su cuenta profesional o educativa:
         $cred = Get-Credential
         Add-AzureAccount -Credential $cred
 
-	>
-	> [AZURE.NOTE] This non-interactive login method only works with a work or school account. A work or school account is a user that is managed by your work or school, and defined in the Azure Active Directory instance for your work or school. If you do not currently have a work or school account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
-	>
-	> 1. Login to the [Azure Management Portal](https://manage.windowsazure.com), and click on **Active Directory**.
-	>
-	> 2. If no directory exists, select **Create your directory** and provide the requested information.
-	>
-	> 3. Select your directory and add a new user. This new user can sign in using a work or school account.
-	>
-	>     During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this  information as it is used in another step.
-	>
-	> 4. From the management portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the work or school account to manage your Azure subscription.
-	>
-	> 5. Finally, log out of the Azure portal and then log back in using the work or school account. If this is the first time logging in with this account, you will be prompted to change the password.
-	>
-	>For more information on signing up for Microsoft Azure with a work or school account, see [Sign up for Microsoft Azure as an Organization](sign-up-organization.md).
+> [AZURE.NOTE]Este método de inicio de sesión no interactivo solo funciona con una cuenta profesional o educativa. Una cuenta profesional o educativa es un usuario bajo la administración del trabajo o de la escuela y que está definido en la instancia de Azure Active Directory para el trabajo o la escuela. Si actualmente no tiene una cuenta profesional o educativa y usa una cuenta Microsoft para iniciar sesión en su suscripción de Azure, puede crear una fácilmente siguiente los pasos que se indican a continuación.
 
+> 1. Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com) y haga clic en **Active Directory**.
+
+> 2. Si no hay ningún directorio, seleccione **Crear su directorio** y proporcione la información que se le pida.
+
+> 3. Seleccione su directorio y agregue un nuevo usuario. Este usuario nuevo puede iniciar sesión con una cuenta profesional o educativa. Durante la creación del usuario, se le proporcionará una dirección de correo electrónico para el usuario y una contraseña temporal. Guarde esta información, la usará en el paso 5 que viene a continuación.
+
+> 4. En el portal de administración, seleccione **Configuración** y, a continuación, **Administradores**. Seleccione **Agregar** y agregue el usuario nuevo como coadministrador. Esto permite que la cuenta profesional o educativa administre su suscripción de Azure.
+
+> 5. Finalmente, cierre sesión en el portal de Azure y, a continuación, vuelva a iniciarla usando la cuenta profesional o educativa. Si es la primera vez que inicia sesión con esta cuenta, se le pedirá que cambie la contraseña.
+
+> Para obtener más información acerca del inicio de sesión en Microsoft Azure con una cuenta profesional o educativa, consulte [Inicio de sesión en Azure como una organización](sign-up-organization.md).
 
 ### Visualización de los detalles de las cuentas y las suscripciones
 
 Puede tener varias cuentas y suscripciones disponibles para su uso por parte de Azure PowerShell. Puede agregar múltiples cuentas ejecutando **Add-AzureAccount** más de una vez.
 
-Para obtener las cuentas de Azure disponibles, escriba lo siguiente:
+Para mostrar las cuentas de Azure disponibles, escriba **Get-AzureAccount**.
 
-	Get-AzureAccount
-
-Para obtener sus suscripciones de Azure, escriba lo siguiente:
-
-	Get-AzureSubscription
-
-
-
-
-
-
-
+Para mostrar las suscripciones de Azure, escriba **Get-AzureSubscription**.
 
 ## Paso 4: Prueba<a id="Ex"></a>
 
@@ -143,4 +128,4 @@ Para obtener ayuda de la comunidad, utilice estos foros populares:
 - [Foro de Azure en MSDN](http://go.microsoft.com/fwlink/p/?LinkId=320212)
 - [Stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

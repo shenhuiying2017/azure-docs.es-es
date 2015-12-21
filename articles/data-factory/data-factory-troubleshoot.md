@@ -20,6 +20,8 @@
 Puede solucionar los problemas de la Factoría de datos de Azure mediante el Portal de Azure clásico (o) cmdlets de Azure PowerShell. Este tema contiene tutoriales que muestran cómo usar el Portal de Azure clásico para solucionar rápidamente los errores que se producen con la factoría de datos.
 
 ## Problema: no se pueden ejecutar los cmdlets de Factoría de datos
+Si está usando Azure PowerShell, versión < 1.0:
+ 
 Para resolver este problema, cambie el modo de Azure a **AzureResourceManager**:
 
 Inicie **Azure PowerShell** y ejecute el siguiente comando para cambiar al modo **AzureResourceManager**. Los cmdlets de Factoría de datos de Azure están disponibles en el modo **AzureResourceManager**.
@@ -52,7 +54,7 @@ Compruebe que el servidor SQL Server es accesible desde la máquina donde está 
 
 ## Problema: los segmentos de entrada están en el estado PendingExecution o PendingValidation de forma permanente.
 
-Los intervalos pueden estar en el estado **PendingExecution** o **PendingValidation** por varias razones. Una de las más comunes es que la propiedad **external** no se establece en **true**. Cualquier conjunto de datos que se produce fuera del ámbito de Factoría de datos de Azure debe marcarse con la propiedad **external**. Esto indica que los datos son externos y no están respaldados por ninguna canalización dentro de la factoría de datos. Los segmentos de datos se marcan con el estado **Listo** una vez que están disponibles en el almacén correspondiente.
+Los segmentos pueden estar en el estado **PendingExecution** o **PendingValidation** por varias razones. Una de las más comunes es que la propiedad **external** no está establecida en **true**. Cualquier conjunto de datos que se produce fuera del ámbito de Factoría de datos de Azure debe marcarse con la propiedad **external**. Esto indica que los datos son externos y no están respaldados por ninguna canalización dentro de la factoría de datos. Los segmentos de datos se marcan con el estado **Listo** una vez que están disponibles en el almacén correspondiente.
 
 Consulte el ejemplo siguiente para el uso de la propiedad **external**. Opcionalmente, puede especificar**externalData*** al establecer external en true.
 
@@ -92,7 +94,7 @@ Consulte el tema Tablas en [Referencia de scripting JSON][json-scripting-referen
 ## Problema: la operación de copia híbrida produce un error.
 Para obtener más información:
 
-1. Inicie el Administrador de configuración de Data Management Gateway en el equipo donde se instaló la puerta de enlace. Compruebe que **Nombre de la puerta de enlace** se establece en el nombre lógico de la puerta de enlace en el **Portal de Azure clásico**, **Estado de la clave de la puerta de enlace** es **registrado** y **Estado del servicio** es **Iniciado**. 
+1. Inicie el Administrador de configuración de Data Management Gateway en el equipo donde se instaló la puerta de enlace. Compruebe que **Nombre de la puerta de enlace** se establece en el nombre lógico de la puerta de enlace en el **Portal de Azure clásico**, **Estado de clave de puerta de enlace** es **Registrado** y **Estado del servicio** es **Iniciado**. 
 2. Inicie el **Visor de eventos**. Expanda **Registros de aplicaciones y servicios** y haga clic en **Data Management Gateway**. Vea si hay errores relacionados con Data Management Gateway. 
 
 ## Problema: el aprovisionamiento de HDInsight a petición provoca un error.
@@ -173,11 +175,11 @@ En este tutorial, presentará un error en el tutorial del artículo Introducció
 ### Requisitos previos
 1. Complete el tutorial en el artículo [Introducción a Factoría de datos de Azure][adfgetstarted].
 2. Confirme que **ADFTutorialDataFactory** genera datos de la tabla **emp** en Base de datos SQL de Azure.  
-3. Ahora, elimine la tabla **emp** (**quitar tabla emp**) de Base de datos SQL de Azure. Esto presentará un error.
+3. Ahora, elimine la tabla **emp** (**drop table emp**) de Base de datos SQL de Azure. Esto presentará un error.
 4. Ejecute el siguiente comando en **Azure PowerShell** para actualizar el período activo de la canalización y que intente escribir datos en la tabla **emp** , que ya no existe.
 
          
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
 	
 	Reemplace el valor de **StartDateTime** por el día actual y el de **EndDateTime** por el día siguiente.
 
@@ -214,17 +216,12 @@ Para resolver este problema, cree la tabla **emp** con el script SQL del artícu
 
 ### Uso de cmdlets de Azure PowerShell para solucionar el error
 1.	Inicie **Azure PowerShell**. 
-2.	Cambie al modo **AzureResourceManager**, ya que los cmdlets de Factoría de datos solo están disponibles en este modo.
+3. Ejecute el comando Get-AzureRmDataFactorySlice para ver los segmentos y sus estados. Debería ver un sector con el estado: error.	
 
          
-		switch-azuremode AzureResourceManager
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
 
-3. Ejecute el comando Get-AzureDataFactorySlice para ver los segmentos y sus estados. Debería ver un sector con el estado: error.
-
-         
-		Get-AzureDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
-
-	Reemplace **StartDateTime** por el valor de StartDateTime especificado para **Set-AzureDataFactoryPipelineActivePeriod**.
+	Reemplace **StartDateTime** por el valor de StartDateTime especificado para **Set-AzureRmDataFactoryPipelineActivePeriod**.
 
 		ResourceGroupName 		: ADFTutorialResourceGroup
 		DataFactoryName   		: ADFTutorialDataFactory
@@ -237,9 +234,9 @@ Para resolver este problema, cree la tabla **emp** con el script SQL del artícu
 		LongRetryCount    		: 0
 
 	Anote la hora de **Inicio** del segmento con problemas (el segmento con **Estado** establecido en **Error**) en la salida. 
-4. Ahora, ejecute el cmdlet **Get-AzureDataFactoryRun** para obtener detalles sobre la ejecución de actividad para el segmento.
+4. Ahora, ejecute el cmdlet **Get-AzureRmDataFactoryRun** para obtener detalles sobre la ejecución de actividad para el segmento.
          
-		Get-AzureDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
 
 	El valor de **StartDateTime** es la hora de inicio del segmento con error o con problemas que anotó en el paso anterior. La fecha y hora debe ir encerrada entre comillas dobles.
 5. Debería ver la salida con detalles sobre el error (similar a la siguiente):
@@ -296,17 +293,12 @@ En este escenario, el conjunto de datos está en estado de error debido a un err
     
 ### Tutorial: Uso de Azure PowerShell para solucionar un error de procesamiento de Pig/Hive
 1.	Inicie **Azure PowerShell**. 
-2.	Cambie al modo **AzureResourceManager**, ya que los cmdlets de Factoría de datos solo están disponibles en este modo.
+3. Ejecute el comando Get-AzureRmDataFactorySlice para ver los segmentos y sus estados. Debería ver un sector con el estado: error.	
 
          
-		switch-azuremode AzureResourceManager
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
-3. Ejecute el comando Get-AzureDataFactorySlice para ver los segmentos y sus estados. Debería ver un sector con el estado: error.
-
-         
-		Get-AzureDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
-
-	Reemplace **StartDateTime** por el valor de StartDateTime especificado para **Set-AzureDataFactoryPipelineActivePeriod**.
+	Reemplace **StartDateTime** por el valor de StartDateTime especificado para **Set-AzureRmDataFactoryPipelineActivePeriod**.
 
 		ResourceGroupName : ADF
 		DataFactoryName   : LogProcessingFactory
@@ -320,9 +312,9 @@ En este escenario, el conjunto de datos está en estado de error debido a un err
 
 
 	Anote la hora de **Inicio** del segmento con problemas (el segmento con **Estado** establecido en **Error**) en la salida. 
-4. Ahora, ejecute el cmdlet **Get-AzureDataFactoryRun** para obtener detalles sobre la ejecución de actividad para el segmento.
+4. Ahora, ejecute el cmdlet **Get-AzureRmDataFactoryRun** para obtener detalles sobre la ejecución de actividad para el segmento.
          
-		Get-AzureDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
 	El valor de **StartDateTime** es la hora de inicio del segmento con error o con problemas que anotó en el paso anterior. La fecha y hora debe ir encerrada entre comillas dobles.
 5. Debería ver la salida con detalles sobre el error (similar a la siguiente):
@@ -346,7 +338,7 @@ En este escenario, el conjunto de datos está en estado de error debido a un err
 		PipelineName        : EnrichGameLogsPipeline
 		Type                :
 
-6. Puede ejecutar el cmdlet **Save-AzureDataFactoryLog** con el valor de id. que ve en la salida anterior y descargar los archivos de registro mediante la opción **-DownloadLogs** para el cmdlet.
+6. Puede ejecutar el cmdlet **Save-AzureRmDataFactoryLog** con el valor de id. que ve en la salida anterior y descargar los archivos de registro mediante la opción **-DownloadLogs** para el cmdlet.
 
 
 
@@ -382,4 +374,4 @@ En este escenario, el conjunto de datos está en estado de error debido a un err
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

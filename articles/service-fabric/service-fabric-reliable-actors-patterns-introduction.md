@@ -74,4 +74,4 @@ Las principales ventajas de Reliable Actors son: 1) **la productividad del desar
 
 * *Asincronía explícita.* El modelo de programación Reliable Actors hace que la naturaleza asincrónica de una aplicación distribuida sea explícita y ayuda a los programadores a escribir código asincrónico sin bloqueo. Esto permite un alto grado de paralelismo distribuido y de rendimiento general sin el uso explícito de subprocesamiento múltiple.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

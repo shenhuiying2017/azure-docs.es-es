@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/08/2015" 
 	ms.author="mandia"/>
 
 
@@ -23,11 +23,11 @@ Servicios de BizTalk de Azure incluye las capacidades de copia de seguridad y re
 
 También puede realizar la copia de seguridad de los Servicios de BizTalk mediante la [API REST de Servicios de BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584).
 
+> [AZURE.NOTE]NO se realiza ninguna copia de seguridad de las conexiones híbridas, independientemente de la edición. Debe volver a crear las conexiones híbridas.
+
 ## Introducción
 
 - Puede que las copias de seguridad y restauración no estén disponible para todas las ediciones. Consulte [Servicios de BizTalk: gráfico de ediciones](biztalk-editions-feature-chart.md).
-
-	**Nota** NO se realiza ninguna copia de seguridad de las conexiones híbridas, independientemente de la edición.
 
 - En el Portal de Azure clásico puede crear una copia de seguridad bajo demanda o crear una copia de seguridad programada.
 
@@ -55,7 +55,7 @@ Puede realizar una copia de seguridad en cualquier momento y controlarla por com
 [Programación de una copia de seguridad](#backupschedule)
 
 #### <a name="backupnow"></a>Copia de seguridad bajo demanda
-1. En el Portal de Azure clásico, seleccione **Servicios de BizTalk** y, luego, el servicio de BizTalk del que quiera realizar la copia de seguridad.
+1. En el Portal de Azure clásico, seleccione **Servicios de BizTalk** y luego el servicio de BizTalk del que quiera realizar la copia de seguridad.
 2. En la pestaña **Panel**, seleccione **Hacer una copia de seguridad** en la parte inferior de la página.
 3. Escriba un nombre para la copia de seguridad. Por ejemplo, escriba *myBizTalkService*BU*Fecha*.
 4. Elija una cuenta de almacenamiento de blobs y seleccione la marca de verificación para iniciar la copia de seguridad.
@@ -65,7 +65,7 @@ Una vez que finalice la copia de seguridad, en la cuenta de almacenamiento se cr
 #### <a name="backupschedule"></a>Programación de una copia de seguridad
 
 1. En el Portal de Azure clásico, seleccione **Servicios de BizTalk**, seleccione el nombre del servicio de BizTalk del que quiere programar la copia de seguridad y luego seleccione la pestaña **Configurar**.
-2. Establezca el **Estado de copia de seguridad** en **Automático**. 
+2. Establezca **Estado de la copia de seguridad** en **Automático**. 
 3. Seleccione la **Cuenta de almacenamiento** para almacenar la copia de seguridad, especifique la **Frecuencia** con la que desea crear las copias de seguridad y cuánto tiempo quiere conservar las copias de seguridad (**Días de retención**):
 
 	![][AutomaticBU]
@@ -214,7 +214,7 @@ Si la base de datos de seguimiento se elimina y hay que recuperarla, debe existi
 
 ## Pasos siguientes
 
-Para crear los Servicios de BizTalk de Azure en el portal de Azure clásico, vaya a [Servicios de BizTalk: Aprovisionamiento con el portal de Azure clásico](http://go.microsoft.com/fwlink/p/?LinkID=302280). Para comenzar a crear aplicaciones, vaya a [Servicios de BizTalk de Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Para crear los Servicios de BizTalk de Azure en el Portal de Azure clásico, vaya a [Creación de Servicios de BizTalk mediante el Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280). Para comenzar a crear aplicaciones, vaya a [Servicios de BizTalk de Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## Otras referencias
 - [Copia de seguridad del servicio de BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584)
@@ -233,4 +233,4 @@ Para crear los Servicios de BizTalk de Azure en el portal de Azure clásico, vay
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -243,17 +243,20 @@ El servicio Factoría de datos de Azure admite la creación de un clúster a pet
 	5. En **linkedServiceName**, especifique el elemento **StorageLinkedService** que creó en el tutorial Introducción. 
 
 			{
-		    	"name": "HDInsightLinkedService",
-				    "properties": {
-		    	    "type": "HDInsightOnDemandLinkedService",
-		    	    "clusterSize": "4",
-		    	    "timeToLive": "00:05:00",
-		    	    "version": "3.2",
-		    	    "linkedServiceName": "HDInsightStorageLinkedService"
-		    	}
+			    "name": "HDInsightOnDemandLinkedService",
+			    "properties": {
+			        "type": "HDInsightOnDemand",
+			        "description": "",
+			        "typeProperties": {
+			            "clusterSize": "4",
+			            "timeToLive": "00:30:00",
+			            "version": "3.2",
+			            "linkedServiceName": "StorageLinkedService"
+			        }
+			    }
 			}
 
-		Tenga en cuenta que el **tipo** de servicios vinculados se establece en **HDInsightOnDemandLinkedService**.
+		Tenga en cuenta que el **tipo** de servicio vinculado se establece en **HDInsightOnDemand**.
 
 2. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
    
@@ -321,12 +324,13 @@ En este paso, creará los siguientes procesos:
         "isPaused": false
 
 	Tenga en cuenta que las horas de inicio y finalización están establecidas en 01/05/2014 y 05/05/2014, dado que los datos de ejemplo de este tutorial van del 01/05/2014 al 05/05/2014.
- 
+ 	
+	Si está utilizando el servicio vinculado de HDInsight a petición, establezca la propiedad **linkedServiceName** en **HDInsightOnDemandLinkedService**.
 3. Haga clic en **Implementar** en la barra de herramientas para implementar la canalización. Confirme que aparece el mensaje **LA CANALIZACIÓN SE HA CREADO CORRECTAMENTE** en la barra de título del Editor.
 4. Repita los pasos del 1 al 3 con el contenido de los archivos siguientes: 
 	1. EnrichGameLogsPipeline.json
 	2. AnalyzeMarketingCampaignPipeline.json
-4. Cierre las hojas de la Factoría de datos presionando **X** (esquina superior derecha) para ver la página principal (hoja **FACTORÍA DE DATOS**) de la Factoría de datos.
+4. Cierre las hojas de Factoría de datos presionando **X** (esquina superior derecha) para ver la página principal (hoja **FACTORÍA DE DATOS**) para Factoría de datos.
 
 ### Vista de diagrama
 
@@ -355,11 +359,7 @@ En este paso, creará los siguientes procesos:
 
 		![Supervisión del Panel de Inicio][image-data-factory-monitoring-startboard]
 
-	2. Haga clic en el centro **EXAMINAR** y en **Todo**.
-	 	
-		![Supervisión de Todo en centro][image-data-factory-monitoring-hub-everything]
-
-		En la hoja **Examinar**, seleccione **Factorías de datos** y elija **LogProcessingFactory** en la hoja **Factorías de datos**.
+	2. Haga clic en **EXAMINAR**, en la hoja **Examinar**, seleccione **Factorías de datos** y, en la hoja **Factorías de datos**, seleccione **LogProcessingFactory**.
 
 		![Supervisión de Examinar factorías de datos][image-data-factory-monitoring-browse-datafactories]
 2. Puede supervisar su factoría de datos de varias maneras. Puede iniciar con procesos o conjuntos de datos. Vamos a comenzar con los procesos e iremos profundizando. 
@@ -375,7 +375,7 @@ En este paso, creará los siguientes procesos:
 
 	Las listas **Segmentos actualizados recientemente** y **Segmentos erróneos recientes** se ordenan por la **HORA DE LA ÚLTIMA ACTUALIZACIÓN**. En las situaciones siguientes, se cambia la hora de actualización de un segmento.
 
-	-  El estado del segmento se actualiza manualmente, por ejemplo, con **Set-AzureDataFactorySliceStatus** (o) al hacer clic en **EJECUTAR** en la hoja **SEGMENTO** para el segmento.
+	-  El estado del segmento se actualiza manualmente, por ejemplo, con **Set-AzureRmDataFactorySliceStatus** (o) al hacer clic en **EJECUTAR** en la hoja **SEGMENTO** para el segmento.
 	-  El segmento cambia de estado debido a una ejecución (por ejemplo, una ejecución se inició, una ejecución finalizó y produjo un error, una ejecución finalizó correctamente, etc.).
  
 	Haga clic en el título de las listas o **... (puntos suspensivos)** para ver la lista más amplia de segmentos. Haga clic en **Filtro** en la barra de herramientas para filtrar los segmentos.
@@ -524,4 +524,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises] p
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

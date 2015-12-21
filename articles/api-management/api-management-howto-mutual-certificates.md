@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Administración de API de Azure
@@ -28,7 +28,7 @@ Esta guía muestra cómo configurar la instancia de servicio de Administración 
 
 ## <a name="step1"> </a>Cargar un certificado de cliente
 
-Para comenzar, haga clic en **Administrar** en el Portal de Azure para el servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
+Para comenzar, haga clic en **Administrar** en el Portal de Azure clásico para el servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
 
 ![Portal del publicador de API][api-management-management-console]
 
@@ -141,4 +141,4 @@ Para más información sobre otras formas de proteger el servicio back-end, como
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

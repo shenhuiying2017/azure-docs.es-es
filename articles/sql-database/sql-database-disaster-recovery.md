@@ -23,7 +23,7 @@ Base de datos SQL de Azure ofrece las siguientes capacidades para recuperarse de
 - Replicación geográfica activa [(blog)](http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/)
 - Replicación geográfica estándar [(blog)](http://azure.microsoft.com/blog/2014/09/03/azure-sql-database-standard-geo-replication/)
 - Restauración geográfica [(blog)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
-- Nuevas capacidades de replicación geográfica [(blog)](https://azure.microsoft.com/blog/azure-sql-database-geo-replication-october-2015-update/)
+- Nuevas capacidades de replicación geográfica [(blog)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 
 Para obtener información acerca de cómo prepararse ante desastres y sobre cuándo se debe recuperar la base de datos, visite la página [Diseño para la continuidad del negocio](sql-database-business-continuity-design.md).
 
@@ -131,4 +131,4 @@ Para obtener más información sobre las reglas de alerta de las bases de datos,
 
 Si se requiere una auditoría para tener acceso a una base de datos, será preciso habilitar Auditoría tras la recuperación de la base de datos. Un buen indicador de que es necesaria una auditoría es que las aplicaciones cliente usen cadenas de conexión seguras en un patrón de *.database.secure.windows.net. Para obtener más información, consulte [Introducción a la auditoría de la Base de datos SQL](sql-database-auditing-get-started.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

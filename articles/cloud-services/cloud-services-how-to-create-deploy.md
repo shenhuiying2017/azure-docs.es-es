@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="12/07/2015"
 	ms.author="adegeo"/>
 
 
@@ -29,7 +29,7 @@ El Portal de Azure clásico le ofrece dos formas de crear e implementar un servi
 
 En este tema se explica cómo usar el método Creación rápida para crear un nuevo servicio en la nube y, luego, usar **Cargar** para cargar e implementar un paquete de servicios en la nube en Azure. Cuando usa este método, el Portal de Azure clásico pone a su disposición los vínculos pertinentes para completar todos los requisitos que vaya necesitando sobre la marcha. Si está listo para implementar su servicio en la nube una vez creado, puede hacer las dos cosas a la vez usando **Creación personalizada**.
 
-> [AZURE.NOTE]Si tiene pensado publicar su servicio en la nube desde Visual Studio Team Services (VSTS), use Creación rápida y, a continuación, configure la publicación VSTS desde **Creación rápida** o el panel. Para obtener más información, consulte [Entrega continua a Azure usando Visual Studio Team Services][TFSTutorialForCloudService] o la ayuda de la página **Inicio rápido**.
+> [AZURE.NOTE]Si tiene pensado publicar su servicio en la nube desde Visual Studio Team Services (VSTS), use Creación rápida y, a continuación, configure la publicación VSTS desde **Creación rápida** o el panel. Para más información, consulte [Entrega continua a Azure con Visual Studio Team Services][TFSTutorialForCloudService] o la ayuda de la página **Inicio rápido**.
 
 ## Conceptos
 se necesitan tres componentes para implementar una aplicación como servicio en la nube en Azure:
@@ -47,21 +47,21 @@ Antes de implementar un servicio en la nube, debe crear el paquete de servicio e
 
 Hay tres características del servicio en la nube que requieren configuraciones especiales antes de exportar un paquete de servicio:
 
-- Si desea implementar un servicio en la nube que utilice Capa de sockets seguros (SSL) para el cifrado de datos, configure la aplicación para SSL. Para obtener más información, consulte [Configuración de un certificado SSL en un extremo HTTPS](http://msdn.microsoft.com/library/azure/ff795779.aspx).
+- Si desea implementar un servicio en la nube que utilice Capa de sockets seguros (SSL) para el cifrado de datos, [configure la aplicación](cloud-services-configure-ssl-certificate.md#step-2-modify-the-service-definition-and-configuration-files) para SSL.
 
-- Si desea configurar una conexión a Escritorio remoto en instancias de rol, configure los roles para Escritorio remoto. Para obtener más información acerca de cómo preparar el archivo de definición de servicio para el acceso remoto, consulte [Configuración de una conexión a Escritorio remoto para un rol de Azure](http://msdn.microsoft.com/library/hh124107.aspx).
+- Si desea configurar una conexión de Escritorio remoto a instancias de rol, [configure los roles](cloud-services-role-enable-remote-desktop.md) para Escritorio remoto.
 
 - Si desea configurar una supervisión exhaustiva para su servicio en la nube, habilite Diagnósticos de Azure para el servicio en la nube. *Supervisión mínima* (nivel predeterminado de supervisión) usa contadores de rendimiento recopilados de los sistemas operativos host para las instancias de rol (máquinas virtuales). "La supervisión exhaustiva* recopila métricas adicionales basadas en los datos del rendimiento dentro de las instancias de rol para permitir un análisis más profundo de los problemas que se producen durante el procesamiento de la aplicación. Para obtener información acerca de cómo habilitar Diagnósticos de Azure, consulte [Habilitación de Diagnósticos en Azure](cloud-services-dotnet-diagnostics.md).
 
-- Para crear un servicio en la nube con implementaciones de roles web o roles de trabajo, debe crear el paquete de servicio. Para obtener más información acerca de los archivos relacionados con el paquete, consulte [Configuración de un servicio en la nube para Azure](http://msdn.microsoft.com/library/hh124108.aspx). Para crear el archivo del paquete, consulte [Empaquetar una aplicación de Azure](http://msdn.microsoft.com/library/hh403979.aspx). Si utiliza Visual Studio para desarrollar su aplicación, consulte [Publicar un servicio en la nube mediante Azure Tools](http://msdn.microsoft.com/library/ff683672.aspx).
+Para crear un servicio en la nube con implementaciones de roles web o de trabajo, debe [crear el paquete de servicio](cloud-services-model-and-package.md#servicepackagecspkg).
 
 ## Antes de empezar
 
 - Si no ha instalado el SDK de Azure, haga clic en **Instalación de SDK de Azure** para abrir la [página Descargas de Azure](http://azure.microsoft.com/downloads/) y, a continuación, descargue el SDK en el idioma en que prefiera desarrollar el código. (Tendrá la oportunidad de hacer esto más tarde).
 
-- Si hay instancias de rol que necesitan certificados, créelos. Los servicios en la nube requieren un archivo .pfx con una clave privada. Puede cargar los certificados en Azure mientras crea e implementa el servicio en la nube. Para obtener más información acerca de los certificados, consulte [Administrar certificados](http://msdn.microsoft.com/library/gg981929.aspx).
+- Si hay instancias de rol que necesitan certificados, créelos. Los servicios en la nube requieren un archivo .pfx con una clave privada. Puede [cargar los certificados en Azure](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) mientras crea e implementa el servicio en la nube.
 
-- Si tiene pensado implementar el servicio en la nube en un grupo de afinidad, cree dicho grupo. Puede usar un grupo de afinidad para implementar su servicio en la nube y otros servicios de Azure en la misma ubicación de una región. Puede crear el grupo de afinidad en el área **Redes** del Portal de Azure clásico, en la página **Grupos de afinidad**. Para obtener más información, consulte [Crear un grupo de afinidad en el Portal de Azure clásico](http://msdn.microsoft.com/library/jj156209.aspx).
+- Si tiene pensado implementar el servicio en la nube en un grupo de afinidad, cree dicho grupo. Puede usar un grupo de afinidad para implementar su servicio en la nube y otros servicios de Azure en la misma ubicación de una región. Puede crear el grupo de afinidad en el área **Redes** del Portal de Azure clásico, en la página **Grupos de afinidad**.
 
 
 ## Creación de un servicio en la nube usando Creación rápida
@@ -110,9 +110,6 @@ Hay tres características del servicio en la nube que requieren configuraciones 
 
 1. En el [Portal de Azure clásico](http://manage.windowsazure.com/), haga clic en **Servicios en la nube**, en el nombre del servicio en la nube y, a continuación, en **Panel**.
 
-	El panel se abre en el entorno de producción y, en este punto, puede seleccionar Staging para implementar la aplicación en el entorno de ensayo. Para obtener más información, consulte [Administrar implementaciones en Azure](http://msdn.microsoft.com/library/gg433027.aspx).
-
-
 2. Haga clic en **Cargar una nueva implementación de producción** o **Cargar**.
 
 3. En **Etiqueta de implementación**, escriba un nombre para la nueva implementación; por ejemplo, MyCloudServicev4.
@@ -144,13 +141,13 @@ Hay tres características del servicio en la nube que requieren configuraciones 
     ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
 
-[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
+[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
  
 ## Pasos siguientes
 
 * [Configuración general de su servicio en la nube](cloud-services-how-to-configure.md).
-* Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name.md).
+* [Configuración de un nombre de dominio personalizado](cloud-services-custom-domain-name.md)
 * [Administración de su servicio en la nube](cloud-services-how-to-manage.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

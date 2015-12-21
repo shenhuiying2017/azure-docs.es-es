@@ -18,14 +18,13 @@
 
 # Uso del cliente administrado para Aplicaciones móviles de Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
-&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Información general 
 
-En esta guía se muestra cómo realizar escenarios comunes con la biblioteca de cliente administrada para Aplicaciones móviles del Servicio de aplicaciones de Azure para Windows y Xamarin. Si no tiene experiencia en el uso de Aplicaciones móviles, considere primero la opción de completar el tutorial [Guía de inicio rápido de Aplicaciones móviles](app-service-mobile-windows-store-dotnet-get-started.md). En esta guía, nos centramos en el SDK administrado de cliente. Para obtener más información sobre el SDK de servidor para el back-end de .NET, consulte [Back-end de .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+En esta guía se muestra cómo realizar escenarios comunes con la biblioteca de cliente administrada para Aplicaciones móviles del Servicio de aplicaciones de Azure para Windows y Xamarin. Si no tiene experiencia en el uso de Aplicaciones móviles, considere primero la opción de completar el tutorial [Guía de inicio rápido de Aplicaciones móviles](app-service-mobile-windows-store-dotnet-get-started.md). En esta guía, nos centramos en el SDK administrado de cliente. Para más información sobre los SDK del lado servidor para aplicaciones móviles, vea [Trabajar con el SDK del back-end de .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) o [Cómo usar el SDK del back-end de Node.js](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
 ## Documentación de referencia
 
@@ -51,19 +50,19 @@ El tipo del cliente con tipo correspondiente en C# es el siguiente:
 
 Tenga en cuenta que [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) se usa para definir la asignación *PropertyName* entre el tipo de cliente y la tabla.
 
+Para información sobre cómo crear tablas nuevas en el back-end de aplicaciones móviles, vea [Cómo definir un controlador de tabla](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (back-end de. NET) o [Definir tablas con un esquema dinámico](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (back-end de Node.js). Para un back-end de Node.js, también puede usar la configuración **Tablas fáciles** en el [Portal de Azure](https://portal.azure.com).
+
 ##<a name="create-client"></a>Creación del cliente de aplicación móvil
 
-El código siguiente crea el objeto `MobileServiceClient` que se usa para acceder al back-end de la aplicación móvil.
+El código siguiente crea el objeto `MobileServiceClient` que se usa para tener acceso al back-end de la aplicación móvil.
 
-
-	MobileServiceClient client = new MobileServiceClient(
-		"MOBILE_APP_URL", "", "");
+	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
 En el código anterior, reemplace `MOBILE_APP_URL` por la dirección URL del back-end de la aplicación móvil, que se encuentra en la hoja de la aplicación móvil en el [Portal de Azure](https://portal.azure.com).
 
 ##<a name="instantiating"></a>Creación de una referencia de tabla
 
-Todo el código que accede a datos o los modifica en una tabla de back-end llama a las funciones del objeto `MobileServiceTable`. Obtenga una referencia a la tabla llamando al método [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) en una instancia de `MobileServiceClient` del modo indicado a continuación:
+Todo el código que obtiene acceso a datos o los modifica en una tabla de back-end llama a las funciones del objeto `MobileServiceTable`. Obtenga una referencia a la tabla llamando al método [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) en una instancia de `MobileServiceClient` del modo indicado a continuación:
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
@@ -89,7 +88,7 @@ En esta sección se describe cómo generar consultas al back-end de la aplicaci�
 
 ### <a name="filtering"></a>Filtro de datos devueltos
 
-El siguiente código muestra cómo filtrar los datos incluyendo una cláusula `Where` en una consulta. Devuelve todos los elementos de `todoTable` cuya propiedad `Complete` es igual a `false`. La función `Where` aplica un predicado de filtrado de fila a la consulta en la tabla.
+El siguiente código muestra cómo filtrar los datos incluyendo una cláusula `Where` en una consulta. Devuelve todos los elementos de `todoTable` cuya propiedad `Complete` es igual a `false`. La función `Where` aplica un predicado de filtrado de filas a la consulta en la tabla.
 
 	// This query filters out completed TodoItems and
 	// items without a timestamp.
@@ -312,9 +311,9 @@ El cliente de Aplicaciones móviles permite registrar las notificaciones push co
 		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
 		}
 
-Tenga en cuenta que en este ejemplo se incluyen dos etiquetas en el registro. Para más información sobre las aplicaciones de Windows, incluyendo cómo registrarse para los registros de plantillas, consulte [Incorporación de notificaciones push a la aplicación](app-service-mobile-windows-store-dotnet-get-started-push.md).
+Tenga en cuenta que en este ejemplo se incluyen dos etiquetas en el registro. Para más información sobre las aplicaciones de Windows, incluyendo cómo registrarse para los registros de plantillas, vea [Agregar notificaciones de inserción a la aplicación](app-service-mobile-windows-store-dotnet-get-started-push.md).
 
-Las aplicaciones de Xamarin requieren código adicional para poder registrar una aplicación que se ejecute en la aplicación iOS o Android con el Servicio de notificaciones push de Apple (APNS) y el Servicio de mensajería en la nube de Google (GCM), respectivamente. Para más información, consulte **Incorporación de notificaciones push a la aplicación** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
+Las aplicaciones de Xamarin requieren código adicional para poder registrar una aplicación que se ejecute en la aplicación iOS o Android con el Servicio de notificaciones push de Apple (APNS) y el Servicio de mensajería en la nube de Google (GCM), respectivamente. Para más información, vea **Agregar notificaciones de inserción a la aplicación** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
 ## Registro de plantillas de inserción para enviar notificaciones entre plataformas
 
@@ -482,7 +481,7 @@ Para finalizar, imagine que la tabla contiene muchos campos, pero solo desea que
 
 En aplicaciones de Windows, se necesita un SID de paquete para habilitar las notificaciones push y determinados modos de autenticación. Para obtener este valor:
 
-1. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en el proyecto de la aplicación de la Tienda Windows y luego haga clic en **Tienda** > **Asociar aplicación con la Tienda...**.
+1. En el Explorador de soluciones de Visual Studio, haga clic con el botón secundario en el proyecto de la aplicación de la Tienda Windows y luego haga clic en **Tienda** > **Asociar aplicación con la Tienda...**.
 2. En el asistente, haga clic en **Siguiente**, inicie sesión con su cuenta Microsoft, escriba un nombre para la aplicación en **Reserve un nuevo nombre de aplicación** y luego haga clic en **Reservar**.
 3. Después de crear correctamente el registro de la aplicación, seleccione el nuevo nombre de la aplicación, haga clic en **Siguiente** y después en **Asociar**. Se agrega la información de registro necesaria de la Tienda Windows al manifiesto de aplicación.
 4. Inicie sesión en el [Centro de desarrollo de Windows](https://dev.windows.com/es-ES/overview) con su cuenta Microsoft. En **Mis aplicaciones**, haga clic en el registro de la aplicación que acaba de crear.
@@ -688,7 +687,7 @@ Esta sección muestra formas en que puede personalizar los encabezados de solici
 
 ### <a name="headers"></a>Personalización de encabezados de solicitud
 
-Para admitir su escenario de aplicación específico, deberá personalizar la comunicación con el back-end de la aplicación móvil. Por ejemplo, es posible que desee agregar un encabezado personalizado a cada solicitud saliente o cambiar los códigos de estado de las respuestas. Puede hacerlo si ofrece un elemento [DelegatingHandler] personalizado, como en el ejemplo siguiente:
+Para admitir su escenario de aplicación específico, deberá personalizar la comunicación con el back-end de la aplicación móvil. Por ejemplo, es posible que desee agregar un encabezado personalizado a cada solicitud saliente o cambiar los códigos de estado de las respuestas. Puede hacer esto proporcionando un [DelegatingHandler] personalizado, como en el ejemplo siguiente:
 
     public async Task CallClientWithHandler()
     {
@@ -763,4 +762,4 @@ Esta propiedad convierte todas las propiedades en minúsculas durante la seriali
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

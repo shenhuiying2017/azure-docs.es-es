@@ -35,9 +35,9 @@ Las transacciones de base de datos elástica para Base de datos SQL permiten a l
 
 ## Instalación y migración
 
-Las funcionalidades de las transacciones de base de datos elástica en Base de datos SQL se proporcionan a través de actualizaciones de las bibliotecas .NET System.Data.dll y System.Transactions.dll. Los archivos DLL garantizan que la confirmación en dos fases se usa cuando es necesario para asegurar la atomicidad. Para empezar a desarrollar aplicaciones mediante transacciones de base de datos elástica, instale [.NET 4.6.1 Release Candidate](http://blogs.msdn.com/b/dotnet/archive/2015/10/29/announcing-net-framework-4-6-1-rc.aspx) o una versión posterior de .NET Framework. Cuando se ejecutan en una versión anterior de .NET Framework, las transacciones no podrán promoverse a una transacción distribuida y se producirá una excepción.
+Las funcionalidades de las transacciones de base de datos elástica en Base de datos SQL se proporcionan a través de actualizaciones de las bibliotecas .NET System.Data.dll y System.Transactions.dll. Los archivos DLL garantizan que la confirmación en dos fases se usa cuando es necesario para asegurar la atomicidad. Para empezar a desarrollar aplicaciones mediante transacciones de base de datos elástica, instale [.NET Framework 4.6.1](https://www.microsoft.com/es-ES/download/details.aspx?id=49981) o versión posterior. Cuando se ejecutan en una versión anterior de .NET Framework, las transacciones no podrán promoverse a una transacción distribuida y se producirá una excepción.
 
-Tras la instalación, puede usar las API de transacciones distribuidas de System.Transactions con conexiones a Base de datos SQL. Si tiene aplicaciones de MSDTC existentes que usan estas API, basta con que las regenere para .NET 4.6 después de instalar la versión candidata para lanzamiento. Si los proyectos van dirigidos a .NET 4.6, usarán automáticamente los archivos DLL actualizados de la versión candidata para lanzamiento y las llamadas a API de transacciones distribuidas en combinación con las conexiones a Base de datos SQL ahora se realizarán correctamente.
+Tras la instalación, puede usar las API de transacciones distribuidas de System.Transactions con conexiones a Base de datos SQL. Si tiene aplicaciones de MSDTC existentes que usan estas API, basta con que las regenere para .NET 4.6 después de instalar 4.6.1 Framework. Si los proyectos se destinan a .NET 4.6, usarán automáticamente los archivos DLL actualizados de la nueva versión de Framework, y las llamadas a API de transacciones distribuidas en combinación con las conexiones a Base de datos SQL ahora se realizarán correctamente.
 
 Recuerde que las transacciones de base de datos elástica no precisan la instalación de MSDTC. Por el contrario, se administran directamente mediante y dentro de Base de datos SQL. Con ello se simplifican enormemente los escenarios de nube, ya que no es necesario implementar MSDTC para usar transacciones distribuidas con Base de datos SQL. En la sección 4 se explica con más detalle cómo implementar transacciones de base de datos elástica y la versión de .NET Framework necesaria junto con sus aplicaciones de nube en Azure.
 
@@ -96,7 +96,7 @@ Las transacciones de base de datos elástica para Base de datos SQL también adm
 
 ## Configuración de roles de trabajo de Azure
 
-Puede automatizar la instalación y la implementación de la versión y las bibliotecas de .NET necesarias para las transacciones de base de datos elástica en Azure (en el sistema operativo invitado de su servicio en la nube). Para los roles de trabajo de Azure, use las tareas de inicio. Los conceptos y los pasos se documentan en [Instalación de .NET en un rol de servicio en la nube](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/).
+Puede automatizar la instalación y la implementación de la versión y las bibliotecas de .NET necesarias para las transacciones de base de datos elástica en Azure (en el sistema operativo invitado de su servicio en la nube). Para los roles de trabajo de Azure, use las tareas de inicio. Los conceptos y los pasos se documentan en [Instalación de .NET en un rol de servicio en la nube](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
 Tenga en cuenta que el instalador de .NET 4.6.1 requiere más espacio de almacenamiento temporal durante el proceso de arranque en los servicios en la nube de Azure que el instalador de .NET 4.6. Para garantizar una instalación correcta, debe aumentar el almacenamiento temporal para el servicio en la nube de Azure en el archivo ServiceDefinition.csdef en la sección LocalResources y en la configuración del entorno de la tarea de inicio, como se muestra en el ejemplo siguiente:
 
@@ -126,8 +126,8 @@ Use vistas de administración dinámica (DMV) en Base de datos SQL para supervis
 Estas DMV son especialmente útiles:
 
 * **sys.dm\_tran\_active\_transactions**: enumera las transacciones actualmente activas y su estado. La columna UOW (unidad de trabajo) puede identificar las distintas transacciones secundarias que pertenecen a la misma transacción distribuida. Todas las transacciones de la misma transacción distribuida llevan el mismo valor de UOW. Consulte la [documentación de DMV](https://msdn.microsoft.com/library/ms174302.aspx) para obtener más detalles.
-* **sys.dm\_tran\_database\_transactions**: proporciona información adicional sobre las transacciones, como la colocación de la transacción en el registro. Consulte la [documentación de DMV](https://msdn.microsoft.com/library/ms186957.aspx) para obtener más detalles.
-* **sys.dm\_tran\_locks**: proporciona información sobre los bloqueos mantenidos actualmente por las transacciones en curso. Consulte la [documentación de DMV](https://msdn.microsoft.com/library/ms190345.aspx) para obtener más detalles.
+* **sys.dm\_tran\_database\_transactions**: ofrece información adicional sobre las transacciones, como la ubicación de la transacción en el registro. Consulte la [documentación de DMV](https://msdn.microsoft.com/library/ms186957.aspx) para obtener más detalles.
+* **sys.dm\_tran\_locks**: ofrece información sobre los bloqueos que las transacciones en curso mantienen actualmente. Consulte la [documentación de DMV](https://msdn.microsoft.com/library/ms190345.aspx) para obtener más detalles.
 
 ## Limitaciones 
 
@@ -140,9 +140,9 @@ Las siguientes limitaciones se aplican actualmente a transacciones de base de da
 
 ## Más información
 
-¿Aún no usa las funcionalidades de base de datos elástica en sus aplicaciones de Azure? Consulte nuestro [mapa de documentación](https://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-documentation-map/). Si tiene alguna pregunta, póngase en contacto con nosotros en el [foro de Base de datos SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Para efectuar solicitudes de características, agréguelas en el [foro de comentarios sobre Base de datos SQL](http://feedback.azure.com/forums/217321-sql-database).
+¿Aún no usa las funcionalidades de base de datos elástica en sus aplicaciones de Azure? Consulte nuestro [mapa de documentación](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Si tiene alguna pregunta, póngase en contacto con nosotros en el [foro de Base de datos SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Para efectuar solicitudes de características, agréguelas en el [foro de comentarios sobre Base de datos SQL](http://feedback.azure.com/forums/217321-sql-database).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

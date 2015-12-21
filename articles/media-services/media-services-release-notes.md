@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/03/2015"   
+	ms.date="12/09/2015"   
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ Estas notas de la versión resumen los cambios realizados desde las versiones an
 
 - [Problemas actualmente conocidos](#issues)
 - [Historial de versiones de API de REST](#rest_version_history)
+- [Versión de diciembre de 2015](#dec_changes_15)
 - [Versión de noviembre de 2015](#nov_changes_15)
 - [Versión de octubre de 2015](#oct_changes_15)
 - [Versión de septiembre de 2015](#september_changes_15)
@@ -76,9 +77,22 @@ Los objetos de Servicios multimedia del SDK no se pueden serializar y, como resu
 
 Para obtener información sobre el historial de versiones de la API de REST de Servicios multimedia, consulte [Referencia de la API de REST de Servicios multimedia de Azure].
 
+##<a id="dec_changes_15"></a>Versión de diciembre de 2015
+
+El equipo del SDK de Azure publicó una nueva versión del paquete [SDK de Azure para PHP](http://github.com/Azure/azure-sdk-for-php) que contiene las actualizaciones y nuevas características de los Servicios multimedia de Microsoft Azure. En concreto, el SDK de Servicios multimedia de Azure para PHP admite ahora las características más recientes de la [protección de contenido](media-services-content-protection-overview.md): el cifrado dinámico con AES y DRM (PlayReady y Widevine) con y sin ninguna restricción de tokens. También admite el escalado de [unidades de codificación](media-services-dotnet-encoding-units.md).
+
+Para más información, consulte:
+
+- El blog del [SDK de Servicios multimedia de Microsoft Azure para PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/).
+- Los siguientes [ejemplos de código](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) para obtener ayuda para empezar rápidamente:
+	- **vodworkflow\_aes.php**: se trata de un archivo PHP que muestra cómo usar el cifrado dinámico AES-128 y el servicio de entrega de claves. Se basa en el ejemplo de .NET que se explica en [este](media-services-protect-with-aes128.md) artículo.
+	- **vodworkflow\_aes.php**: se trata de un archivo PHP que muestra cómo usar el cifrado dinámico PlayReady y el servicio de entrega de licencias. Se basa en el ejemplo de .NET que se explica en [este](media-services-protect-with-drm.md) artículo.
+	- **scale\_encoding\_units.php**: se trata de un archivo PHP que muestra cómo escalar la unidad reservada de codificación.
+
+
 ##<a id="nov_changes_15"></a>Versión de noviembre de 2015
 
-Los Servicios multimedia de Azure ofrecen ahora el servicio de entrega de licencias en la nube. Para más detalles, consulte [este blog de anuncios](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Consulte también [este tutorial](media-services-protect-with-drm.md) y el [repositorio de GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
+Los Servicios multimedia de Azure ofrecen ahora el servicio de entrega de licencias en la nube. Para más detalles, vea [este blog de anuncios](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Vea también [este tutorial](media-services-protect-with-drm.md) y el [repositorio de GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
 Tenga en cuenta que los servicios de entrega de licencias de Widevine proporcionados por Servicios de multimedia de Azure están en vista previa. Para obtener más información, consulte [este blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
@@ -105,11 +119,11 @@ Servicios multimedia de Azure (AMS) ahora también está disponible en los centr
 	- Ahora puede usar el formato Apple HTTP Live Streaming (HLS) con filtro solo de audio. Esta actualización le permite quitar la pista solo de audio mediante la especificación de (audio-only=false) en la dirección URL.
 	- Al definir filtros para los activos, ahora tiene la posibilidad de combinar varios filtros (hasta 3) en una sola dirección URL.
 
-	Para obtener más información, consulte [este blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+	Para más información, vea [este blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
 
 - AMS admite ahora I-Frames en HLS v4. La compatibilidad con I-Frames optimiza las operaciones de avance rápido y rebobinado. De forma predeterminada, todas las salidas de HLS v4 incluyen la lista de reproducción de I-Frame (EXT-X-I-FRAME-STREAM-INF).
  
-	Para obtener más información, consulte [este blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+	Para más información, vea [este blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
 
 ##<a id="august_changes_15"></a>Versión de agosto de 2015
 
@@ -124,8 +138,8 @@ Servicios multimedia de Azure (AMS) ahora también está disponible en los centr
 
 - Anuncia la disponibilidad general de Media Encoder estándar. Para más información, vea [esta publicación del blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-	El Codificador multimedia Estándar usa valores predefinidos que se describen en [esta](http://go.microsoft.com/fwlink/?LinkId=618336) sección. Tenga en cuenta que cuando se usa un valor preestablecido para codificaciones de 4k, debe obtener el tipo de unidad reservada **Premium**. Para obtener más información, consulte [Escalación de codificación](media-services-portal-encoding-units).
-- Subtítulos en tiempo real con Servicios multimedia de Azure y el Reproductor. Para obtener más información, consulte [esta publicación del blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
+	El Codificador multimedia Estándar usa valores predefinidos que se describen en [esta](http://go.microsoft.com/fwlink/?LinkId=618336) sección. Tenga en cuenta que cuando se usa un valor preestablecido para codificaciones de 4k, debe obtener el tipo de unidad reservada **Premium**. Para más información, vea [Escalación de codificación](media-services-portal-encoding-units).
+- Subtítulos en tiempo real con Servicios multimedia de Azure y el Reproductor. Para más información, vea [esta publicación del blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ###Actualizaciones del SDK .NET de Servicios multimedia
 
@@ -620,4 +634,4 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 [Control de notificaciones de trabajo de Servicios multimedia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

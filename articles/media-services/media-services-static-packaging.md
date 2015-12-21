@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/10/2015"   
+	ms.date="12/05/2015"   
 	ms.author="juliako"/>
 
 
 # Uso de Azure Media Packager para realizar tareas de paquetes estáticos
 
->[AZURE.NOTE]La vida de Windows Azure Media Packager y Windows Azure Media Encryptor terminará el 1 de marzo de 2016. En ese momento, estos componentes ya no estará disponibles. Las capacidades de cifrado y conversión de formato estarán disponibles a través de paquetes dinámicos y cifrado dinámico.
+>[AZURE.NOTE]La vida de Microsoft Azure Media Packager y Microsoft Azure Media Encryptor terminará el 1 de marzo de 2016. En ese momento, estos componentes ya no estará disponibles. Las capacidades de cifrado y conversión de formato estarán disponibles a través de paquetes dinámicos y cifrado dinámico.
 
 ## Información general
 
@@ -1447,4 +1447,4 @@ Asegúrese de actualizar el código siguiente para que señale a la carpeta dond
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

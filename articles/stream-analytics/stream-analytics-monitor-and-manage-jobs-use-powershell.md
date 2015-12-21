@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Supervisar y administrar los trabajos de Análisis de transmisiones con PowerShell | Microsoft Azure" 
 	description="Aprenda a usar los cmdlets de Azure PowerShell para supervisar y administrar trabajos de Análisis de transmisiones." 
-	keywords="azure powershell,cmdlets de azure powershell,comando de powershell"	
+	keywords="azure powershell, cmdlets de azure powershell, comando de powershell, scripting de powershell"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,14 +14,13 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/17/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 
 # Supervisar y administrar los trabajos de Análisis de transmisiones con los cmdlets de Azure PowerShell
 
-Aprenda a supervisar y administrar los recursos de Análisis de transmisiones con los cmdlets de Azure PowerShell que se encargan de ejecutar las tareas básicas de Análisis de transmisiones.
-
+Aprenda a supervisar y administrar los recursos de Análisis de transmisiones con los cmdlets de Azure PowerShell y el scripting de PowerShell que se encargan de ejecutar las tareas básicas de Análisis de transmisiones.
 
 ## Requisitos previos para ejecutar cmdlets de Azure PowerShell en Análisis de transmisiones
 
@@ -290,4 +289,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

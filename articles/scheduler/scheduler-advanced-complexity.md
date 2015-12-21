@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="08/04/2015" 
+ ms.date="12/04/2015" 
  ms.author="krisragh"/>
 
 # Creación de programaciones complejas y periodicidad avanzada con Programador de Azure  
@@ -178,24 +178,25 @@ Todas las programaciones siguientes asumen que el _intervalo_ está establecido 
 
 ## Otras referencias
  
+
  [¿Qué es Programador?](scheduler-intro.md)
  
- [Conceptos, terminología y jerarquía de entidades de Programador](scheduler-concepts-terms.md)
- 
- [Introducción al uso de Programador en el Portal de administración](scheduler-get-started-portal.md)
- 
+ [Conceptos, terminología y jerarquía de entidades de Programador de Azure](scheduler-concepts-terms.md)
+
+ [Introducción al Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
+
  [Planes y facturación en Programador de Azure](scheduler-plans-billing.md)
- 
- [Referencia de API de REST de Programador](https://msdn.microsoft.com/library/dn528946)
- 
- [Referencia de cmdlets de PowerShell de Programador](scheduler-powershell-reference.md)
- 
- [Alta disponibilidad y confiabilidad de Programador](scheduler-high-availability-reliability.md)
- 
- [Límites, valores predeterminados y códigos de error de Programador](scheduler-limits-defaults-errors.md)
- 
- [Autenticación de salida de Programador](scheduler-outbound-authentication.md)
+
+ [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/dn528946)
+
+ [Referencia de cmdlets de PowerShell de Programador de Azure](scheduler-powershell-reference.md)
+
+ [Alta disponibilidad y confiabilidad de Programador de Azure](scheduler-high-availability-reliability.md)
+
+ [Límites, valores predeterminados y códigos de error de Programador de Azure](scheduler-limits-defaults-errors.md)
+
+ [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
  
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

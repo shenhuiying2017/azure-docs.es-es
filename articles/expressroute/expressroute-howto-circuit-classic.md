@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="12/08/2015"
    ms.author="cherylmc"/>
 
 # Creación y modificación de un circuito ExpressRoute mediante PowerShell
@@ -22,17 +22,17 @@
 [PowerShell - Classic](expressroute-howto-circuit-classic.md)
 [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
-Este artículo le guiará por los pasos necesarios para crear un circuito ExpressRoute con los cmdlets de PowerShell y el modelo clásico de implementación. Los siguientes pasos también le mostrarán cómo comprobar el estado, actualizar, o eliminar y desaprovisionar un circuito ExpressRoute.
+Este artículo le guiará por los pasos necesarios para crear un circuito ExpressRoute con los cmdlets de PowerShell y el modelo de implementación clásica. Los siguientes pasos también le mostrarán cómo comprobar el estado, actualizar, o eliminar y desaprovisionar un circuito ExpressRoute.
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 
 ## Requisitos previos de configuración
 
-- Necesitará la versión más reciente de los cmdlets de Azure PowerShell. Puede descargar el módulo de PowerShell más reciente desde la sección de PowerShell en la [página de descargas de Azure](http://azure.microsoft.com/downloads). Siga las instrucciones de la página [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para obtener instrucciones detalladas sobre cómo configurar el equipo para utilizar los módulos de Azure PowerShell. 
-- Asegúrese de que ha revisado la página de [requisitos previos](expressroute-prerequisites.md) y la página de [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
+- Necesitará la versión más reciente de los cmdlets de Azure PowerShell. Puede descargar el módulo de PowerShell más reciente desde la sección de PowerShell en la [página de descargas de Azure](http://azure.microsoft.com/downloads). Siga las instrucciones de la página [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para obtener instrucciones detalladas sobre cómo configurar el equipo para usar los módulos de Azure PowerShell. 
+- Asegúrese de que ha revisado la página [Requisitos previos](expressroute-prerequisites.md) y la página [Flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
 
-## Creación y aprovisionamiento de un circuito ExpressRoute
+## Para crear y aprovisionar un circuito ExpressRoute
 
 1. **Importe el módulo de PowerShell para ExpressRoute.**
 
@@ -108,11 +108,11 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 		$ServiceProvider = "Equinix"
 		$Location = "Silicon Valley"
 
-		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard
+		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard -BillingType MeteredData 
 
-	O bien, si desea crear un circuito ExpressRoute con el complemento Premium, use el ejemplo a continuación. Consulte la página [P+F de ExpressRoute](expressroute-faqs.md) para obtener más información sobre el complemento Premium.
+	O bien, si desea crear un circuito ExpressRoute con el complemento Premium, use el ejemplo a continuación. Consulte la página [P+F de ExpressRoute](expressroute-faqs.md) para más información sobre el complemento Premium.
 
-		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium
+		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium - BillingType MeteredData
 	
 	
 	La respuesta contendrá la clave del servicio. Puede obtener una descripción detallada de todos los parámetros ejecutando lo siguiente:
@@ -162,7 +162,7 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 		
 		Status                           : Enabled
 
-	*ServiceProviderProvisioningState* proporciona información sobre el estado actual de aprovisionamiento en la parte del proveedor del servicios y el estado proporciona el estado en Microsoft. Un circuito ExpressRoute tiene que estar en el siguiente estado para poder usarlo.
+	*ServiceProviderProvisioningState* proporciona información sobre el estado actual de aprovisionamiento en el lado del proveedor de servicios y el estado proporciona el estado en el lado de Microsoft. Un circuito ExpressRoute tiene que estar en el siguiente estado para poder usarlo.
 
 		ServiceProviderProvisioningState : Provisioned
 		
@@ -178,7 +178,7 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 
 5. **Compruebe periódicamente el estado y la condición de la clave del circuito.**
 
-	Esto le permitirá saber cuándo ha habilitado el circuito el proveedor. Una vez configurado el circuito, el parámetro *ServiceProviderProvisioningState* aparecerá como *Provisioned* (aprovisionado), tal como se muestra en el ejemplo siguiente.
+	Esto le permitirá saber cuándo ha habilitado el circuito el proveedor. Una vez configurado el circuito, el parámetro *ServiceProviderProvisioningState* aparecerá como *Provisioned*, tal como se muestra en el ejemplo siguiente.
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -193,11 +193,11 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 
 6. **Cree la configuración de enrutamiento.**
 	
-	Consulte la página [Configuración de enrutamiento de circuitos ExpressRoute (crear y modificar emparejamientos de circuito)](expressroute-howto-routing-classic.md) para obtener instrucciones paso a paso.
+	Consulte la página [Configuración de enrutamiento de circuitos ExpressRoute (creación y modificación de emparejamientos de circuito)](expressroute-howto-routing-classic.md) para instrucciones paso a paso.
 
 7. **Vincule una red virtual a un circuito ExpressRoute.**
 
-	A continuación, vincule una red virtual al circuito ExpressRoute. Consulte [Vinculación de circuitos ExpressRoute a redes virtuales](expressroute-howto-linkvnet-classic.md) para obtener instrucciones paso a paso. Si necesita crear una red virtual para ExpressRoute, consulte [Creación de una red virtual para ExpressRoute](expressroute-howto-createvnet-classic.md) para obtener instrucciones.
+	A continuación, vincule una red virtual al circuito ExpressRoute. Consulte [Vinculación de circuitos ExpressRoute a redes virtuales](expressroute-howto-linkvnet-classic.md) para instrucciones paso a paso. Si necesita crear una red virtual para ExpressRoute, consulte [Creación de una red virtual para ExpressRoute](expressroute-howto-createvnet-classic.md) para instrucciones.
 
 ##  Obtención del estado de un circuito ExpressRoute
 
@@ -322,11 +322,10 @@ Tenga en cuenta que para realizar esta operación correctamente tiene que desvin
 
 Si está habilitado el estado de aprovisionamiento del proveedor de servicios del circuito ExpressRoute, el estado cambiará de habilitado a *deshabilitado*. Tiene que cooperar con su proveedor de servicios para desaprovisionar el circuito en su lado. Hasta que el proveedor de servicios finalice la cancelación del aprovisionamiento del circuito y nos envíe una notificación continuaremos reservando recursos y facturándole por ello.
 
-Si el proveedor de servicios ha desaprovisionado el circuito (el estado de aprovisionamiento del proveedor de servicios se establece en *no aprovisionado*) antes de ejecutar el cmdlet anterior, cancelaremos el aprovisionamiento del circuito y dejaremos de facturarle.
+Si el proveedor de servicios ha desaprovisionado el circuito (el estado de aprovisionamiento del proveedor de servicios está establecido en *no aprovisionado*) antes de ejecutar el cmdlet anterior, cancelaremos el aprovisionamiento del circuito y dejaremos de facturarle.
 
 ## Pasos siguientes
 
 - [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
-- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

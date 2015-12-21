@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="12/06/2015" 
 	ms.author="genemi"/>
 
 
@@ -80,15 +80,13 @@ Los errores transitorios deberían dar lugar a que el programa cliente ejecute *
 |49919|16|No se procesar, crear ni actualizar la solicitud. Hay demasiadas operaciones de creación o actualización en curso para la suscripción "%ld".<br/><br/>El servicio está ocupado procesando varias solicitudes de creación o actualización para su suscripción o servidor. Actualmente las solicitudes están bloqueadas para la optimización de recursos. Consulta [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) para las operaciones pendientes. Espere a que se completen solicitudes de creación o actualización pendientes o elimine una de las solicitudes pendientes y vuelva a intentar la solicitud más tarde. |
 |49920|16|No se puede procesar la solicitud. Hay demasiadas operaciones en curso para la suscripción "%ld".<br/><br/>El servicio está ocupado procesando varias solicitudes para esta suscripción. Actualmente las solicitudes están bloqueadas para la optimización de recursos. Consulta [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) para el estado de la operación. Espere a que las solicitudes pendientes se hayan completado o elimine una de las solicitudes pendientes y vuelva a intentar la solicitud más tarde. |
 
-**Nota:** Es posible que los errores 10053 y 10054 requieran también la inclusión en su lógica de reintento.
-
 
 <a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
 
 ## Errores de copia de base de datos
 
 
-En la tabla siguiente se describen los diversos errores que puede encontrarse al copiar una base de datos en la Base de datos SQL de Azure. Para obtener más información, consulte [Copiar una base de datos SQL de Azure](sql-database-copy.md).
+En la tabla siguiente se describen los diversos errores que puede encontrarse al copiar una base de datos en la Base de datos SQL de Azure. Para más información, vea [Copiar una base de datos SQL de Azure](sql-database-copy.md).
 
 
 |Número de error|Gravedad|Descripción|
@@ -130,8 +128,8 @@ En la tabla siguiente se muestran los errores causados por un uso excesivo de re
 
 |Número de error|Gravedad|Descripción|
 |---:|---:|:---|
-|10928|20|Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para obtener más información, visite [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>El identificador de recurso indica el recurso que alcanzó el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el identificador de recurso = 2.<br/><br/>*Nota:* para obtener más información sobre este error y cómo resolverlo, consulte:<br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md). |
-|10929|20|Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para obtener más información, visite [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). De lo contrario, vuelva a intentarlo más tarde.<br/><br/>El identificador de recurso indica el recurso que alcanzó el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el identificador de recurso = 2.<br/><br/>*Nota:* para obtener más información sobre este error y cómo resolverlo, consulte:<br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md).|
+|10928|20|Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para más información, vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>El id. de recurso indica el recurso que alcanzó el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el id. de recurso = 2.<br/><br/>*Nota:* para más información sobre este error y cómo resolverlo, vea:<br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md). |
+|10929|20|Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para más información, vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). De lo contrario, vuelva a intentarlo más tarde.<br/><br/>El id. de recurso indica el recurso que alcanzó el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el id. de recurso = 2.<br/><br/>*Nota:* para más información sobre este error y cómo resolverlo, vea:<br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md).|
 |40544|20|La base de datos ha alcanzado su cuota de tamaño. Cree particiones o elimine datos, quite índices o consulte la documentación para obtener soluciones posibles.|
 |40549|16|La sesión terminó porque tiene una transacción de larga duración. Intente reducir la transacción.|
 |40550|16|La sesión ha terminado porque ha adquirido demasiados bloqueos. Intente leer o modificar menos filas en una sola transacción.|
@@ -143,7 +141,7 @@ En la tabla siguiente se muestran los errores causados por un uso excesivo de re
 Para obtener más información sobre la regulación de recursos y los errores asociados, vea:
 
 
-- [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md).
+- [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md)
 
 
 
@@ -218,8 +216,7 @@ En la tabla siguiente se muestran todos los errores generales que no pertenecen 
 |40651|16|No se pudo crear el servidor porque la suscripción <subscription-id> está deshabilitada.|
 |40652|16|No se puede mover ni crear un servidor. La suscripción <subscription-id> superará la cuota de servidor.|
 |40671|17|Error de comunicación entre la puerta de enlace y el servicio de administración. Inténtelo de nuevo más tarde.|
-|45168|16|El sistema de SQL Azure está bajo carga y está colocando un límite superior en operaciones DB CRUD simultáneas para un único servidor (por ejemplo, crear base de datos). El servidor especificado en el mensaje de error ha superado el número máximo de conexiones simultáneas. Inténtelo de nuevo más tarde.|
-|45169|16|El sistema de SQL Azure está bajo carga y está colocando un límite superior en operaciones CRUD de servidor simultáneas para una única suscripción (por ejemplo, crear servidor). La suscripción especificada en el mensaje de error ha superado el número máximo de conexiones simultáneas y se denegó la solicitud. Inténtelo de nuevo más tarde.|
+|40852|16|No se puede abrir la base de datos '%.*ls' del servidor '%.*ls' solicitada por el inicio de sesión. Solo se permite el acceso a la base de datos mediante una cadena de conexión habilitada para seguridad. Para obtener acceso a esta base de datos, modifique sus cadenas de conexión que contienen 'secure' en el FQDN del servidor. -'server name'.database.windows.net debe modificarse para 'server name'.database.`secure`.windows.net.| |45168|16|El sistema de SQL Azure está bajo carga y está colocando un límite superior en operaciones DB CRUD simultáneas para un único servidor (por ejemplo, crear base de datos). El servidor especificado en el mensaje de error ha superado el número máximo de conexiones simultáneas. Inténtelo de nuevo más tarde.| |45169|16|El sistema de SQL Azure está bajo carga y está colocando un límite superior en operaciones CRUD de servidor simultáneas para una única suscripción (por ejemplo, crear servidor). La suscripción especificada en el mensaje de error ha superado el número máximo de conexiones simultáneas y se denegó la solicitud. Inténtelo de nuevo más tarde.|
 
 
 ## Vínculos relacionados
@@ -227,4 +224,4 @@ En la tabla siguiente se muestran todos los errores generales que no pertenecen 
 - [Instrucciones y limitaciones generales de Base de datos SQL de Azure](sql-database-general-limitations.md)
 - [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

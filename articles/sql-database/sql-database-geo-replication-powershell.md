@@ -38,10 +38,7 @@ Para configurar la replicación geográfica, necesita lo siguiente:
 
 - Una suscripción de Azure. Si necesita una suscripción a Azure, haga clic en la opción **PRUEBA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva para finalizar este artículo.
 - Una base de datos SQL de Azure: la base de datos principal que quiere replicar en una región geográfica diferente.
-- Vista previa de Azure PowerShell 1.0. Para descargar e instalar los módulos de Azure PowerShell, siga las instrucciones de [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md).
-
-> [AZURE.IMPORTANT]Tenga en cuenta que el cmdlet Switch-AzureMode ya no está disponible a partir de la versión Vista previa de Azure PowerShell 1.0, y que los cmdlets que estaban en el módulo de Azure ResourceManager han cambiado de nombre. En los ejemplos de este artículo usaremos la nueva convención de nomenclatura de Vista previa de PowerShell 1.0. Para obtener más información detallada, consulte [Degradación del cmdlet Switch-AzureMode en Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
-
+- Azure PowerShell 1.0 o posterior. Para descargar e instalar los módulos de Azure PowerShell, siga las instrucciones de [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md).
 
 
 
@@ -58,11 +55,11 @@ Después de iniciar sesión correctamente, verá información en la pantalla que
 
 ### Selección de su suscripción a Azure
 
-Para seleccionar la suscripción, necesita su id. de suscripción. Puede copiar el identificador de suscripción de la información que se muestra en el paso anterior o, si dispone de varias suscripciones y necesita más detalles, puede ejecutar el cmdlet **Get-AzureRmSubscription** y copiar la información de suscripción que desee del conjunto de resultados. El siguiente cmdlet usa el identificador de suscripción para establecer la suscripción actual:
+Para seleccionar la suscripción, necesita su id. de suscripción. Puede copiar el identificador de suscripción de la información mostrada en el paso anterior o, si dispone de varias suscripciones y necesita más detalles, puede ejecutar el cmdlet **Get-AzureSubscription** y copiar la información de suscripción que quiera del conjunto de resultados. El siguiente cmdlet usa el identificador de suscripción para establecer la suscripción actual:
 
 	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-Después de ejecutar correctamente **Select-AzureRMSubscription** volverá al símbolo del sistema de PowerShell.
+Después de ejecutar correctamente **Select-AzureRmSubscription**, volverá al símbolo del sistema de PowerShell.
 
 
 
@@ -73,11 +70,11 @@ Los pasos siguientes crean otra base de datos secundaria en una asociación de r
   
 Para habilitar una base de datos secundaria debe ser el propietario o copropietario de la suscripción.
 
-Puede usar el cmdlet **New-AzureRmSqlDatabaseSecondary** para agregar una base de datos secundaria en un servidor asociado a una base de datos local en el servidor a la que está conectado (la base de datos principal).
+Puede usar el cmdlet **New-AzureRmSqlDatabaseSecondary** para agregar una base de datos secundaria en un servidor asociado a una base de datos local en el servidor al que está conectado (la base de datos principal).
 
-Este cmdlet reemplaza **Start AzureSqlDatabaseCopy** por el parámetro **: IsContinuous**. Dará como resultado un objeto **AzureRmSqlDatabaseSecondary** que otros cmdlets pueden usar para identificar claramente un vínculo de replicación específico. Este cmdlet devolverá un resultado cuando la base de datos secundaria esté creada y totalmente inicializada. Puede tardar desde unos minutos hasta varias horas según el tamaño de la base de datos.
+Este cmdlet reemplaza **Start AzureSqlDatabaseCopy** por el parámetro **–IsContinuous**. Dará como resultado un objeto **AzureRmSqlDatabaseSecondary** que otros cmdlets pueden usar para identificar claramente un vínculo de replicación específico. Este cmdlet devolverá un resultado cuando la base de datos secundaria esté creada y totalmente inicializada. Puede tardar desde unos minutos hasta varias horas según el tamaño de la base de datos.
 
-La base de datos replicada en el servidor secundario tendrá el mismo nombre que la base de datos en el servidor principal y, de forma predeterminada, tendrán el mismo nivel de servicio. La base de datos secundaria puede ser legible o no legible, y puede ser una base de datos única o elástica. Para obtener más información, consulte [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) y [Niveles de servicio](sql-database-service-tiers.md). Después de crear e inicializar la base de datos secundaria, los datos comenzarán a replicarse desde la base de datos principal a la nueva base de datos secundaria. Los pasos siguientes describen cómo llevar a cabo esta tarea mediante PowerShell para crear bases de datos secundarias legibles y no legibles, con una base de datos única o una base de datos elástica.
+La base de datos replicada en el servidor secundario tendrá el mismo nombre que la base de datos en el servidor principal y, de forma predeterminada, tendrán el mismo nivel de servicio. La base de datos secundaria puede ser legible o no legible, y puede ser una base de datos única o elástica. Para más información, consulte [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) y [Niveles de servicio](sql-database-service-tiers.md). Después de crear e inicializar la base de datos secundaria, los datos comenzarán a replicarse desde la base de datos principal a la nueva base de datos secundaria. Los pasos siguientes describen cómo llevar a cabo esta tarea mediante PowerShell para crear bases de datos secundarias legibles y no legibles, con una base de datos única o una base de datos elástica.
 
 Si la base de datos del asociado ya existe (por ejemplo, como resultado de la terminación de una relación de replicación geográfica anterior) se producirá un error en el comando.
 
@@ -123,7 +120,7 @@ El comando siguiente crea una base de datos secundaria legible de la base de dat
 
 ## Elimine una base de datos secundaria
 
-Use el cmdlet **Remove-AzureRmSqlDatabaseSecondary** para terminar definitivamente la asociación de replicación entre una base de datos secundaria y su principal. Después de terminar la relación, la base de datos secundaria se convierte en una base de datos de lectura y escritura. Si se interrumpe la conectividad con la base de datos secundaria, el comando se ejecuta correctamente pero la base de datos secundaria será de lectura y escritura después de restaurarse la conectividad. Para obtener más información, consulte [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) y [Niveles de servicio](sql-database-service-tiers.md).
+Use el cmdlet **Remove-AzureRmSqlDatabaseSecondary** para terminar definitivamente la asociación de replicación entre una base de datos secundaria y su principal. Después de terminar la relación, la base de datos secundaria se convierte en una base de datos de lectura y escritura. Si se interrumpe la conectividad con la base de datos secundaria, el comando se ejecuta correctamente pero la base de datos secundaria será de lectura y escritura después de restaurarse la conectividad. Para más información, consulte [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) y [Niveles de servicio](sql-database-service-tiers.md).
 
 Este cmdlet reemplaza a Stop-AzureSqlDatabaseCopy para la replicación.
 
@@ -143,7 +140,7 @@ El código siguiente quita el vínculo de replicación de la base de datos "mydb
 
 ## Inicio de una conmutación por error planeada
 
-Use el cmdlet **Set-AzureRmSqlDatabaseSecondary** con el parámetro **Failover** para promover una base de datos secundaria a nueva base de datos principal, y degradar la base de datos principal existente a secundaria. Esta funcionalidad está diseñada para la conmutación por error planeada, por ejemplo, durante las exploraciones de recuperación ante desastres, y requiere que la base de datos principal esté disponible.
+Use el cmdlet **Set-AzureRmSqlDatabaseSecondary** con el parámetro **-Failover** para promover una base de datos secundaria a nueva base de datos principal, y degradar la base de datos principal existente a secundaria. Esta funcionalidad está diseñada para la conmutación por error planeada, por ejemplo, durante las exploraciones de recuperación ante desastres, y requiere que la base de datos principal esté disponible.
 
 El comando ejecuta el siguiente flujo de trabajo:
 
@@ -151,7 +148,7 @@ El comando ejecuta el siguiente flujo de trabajo:
 
 2. Cambia los roles de las dos bases de datos en la asociación de replicación geográfica.
 
-Esta secuencia garantiza que no se producirá ninguna pérdida de datos. Hay un breve período durante el que ambas bases de datos no están disponibles (del orden de 0 a 25 segundos) mientras se cambian los roles. En circunstancias normales, toda la operación debería tardar menos de un minuto en completarse. Para obtener más información, consulte [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
+Esta secuencia garantiza que no se producirá ninguna pérdida de datos. Hay un breve período durante el que ambas bases de datos no están disponibles (del orden de 0 a 25 segundos) mientras se cambian los roles. En circunstancias normales, toda la operación debería tardar menos de un minuto en completarse. Para más información, consulte [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
 
 
 > [AZURE.NOTE]Si la base de datos principal no está disponible cuando se emite el comando, se producirá un error con un mensaje que indica que el servidor principal no está disponible. En contadas ocasiones, es posible que la operación no pueda completarse y que aparezca detenida. En este caso, el usuario puede ejecutar el comando de conmutación por error forzada (conmutación por error no planeada) y aceptar la pérdida de datos.
@@ -170,7 +167,7 @@ El siguiente comando cambia los roles de la base de datos "mydb" en el servidor 
 ## Inicio de una conmutación por error no planeada desde la base de datos principal a la base de datos secundaria
 
 
-Puede usar el cmdlet **Set-AzureRmSqlDatabaseSecondary** con los parámetros **–Failover** y **-AllowDataLoss** para promover una base de datos secundaria a nueva base de datos principal de forma no planeada, y forzar la degradación de la base de datos principal existente a secundaria en un momento en el que la base de datos principal ya no está disponible.
+Puede usar el cmdlet **Set-AzureRmSqlDatabaseSecondary** con los parámetros **–Failover** y **-AllowDataLoss** para promover una base de datos secundaria a nueva base de datos principal de forma no planeada, y forzar la degradación de la base de datos principal existente a secundaria en un momento cuando la base de datos principal ya no está disponible.
 
 Esta funcionalidad está diseñada para situaciones de recuperación ante desastres en los que resulta fundamental restaurar la disponibilidad de la base de datos y la pérdida de algunos datos resulta aceptable. Cuando se invoca la conmutación por error forzada, la base de datos secundaria especificada se convierte inmediatamente en la base de datos principal y comienza a aceptar transacciones de escritura. Tan pronto como la base de datos principal original puede volver a conectar con esta nueva base de datos principal después de la operación de conmutación por error forzada, se realiza una copia de seguridad incremental de la base de datos principal original y la base de datos principal anterior se convierte en base de datos secundaria para la nueva base de datos principal; por consiguiente, es simplemente una réplica de la nueva principal.
 
@@ -193,7 +190,7 @@ El siguiente comando cambia los roles de la base de datos "mydb" a principal cua
 
 Las tareas de supervisión incluyen la supervisión de la configuración de replicación geográfica y la supervisión del mantenimiento de la replicación de los datos.
 
-[Get-AzureRmSqlDatabaseReplicationLink](https://msdn.microsoft.com/library/mt619330.aspx) puede usarse para recuperar la información acerca de los vínculos de replicación de reenvío visibles en la vista de catálogo sys.geo\_replication\_links.
+Puede usarse [Get-AzureRmSqlDatabaseReplicationLink](https://msdn.microsoft.com/library/mt619330.aspx) para recuperar la información sobre los vínculos de replicación de reenvío visibles en la vista de catálogo sys.geo\_replication\_links.
 
 El comando siguiente recupera el estado del vínculo de replicación entre la base de datos principal "mydb" y la secundaria en el servidor "srv2" del grupo de recursos "rg2".
 
@@ -218,4 +215,4 @@ El comando siguiente recupera el estado del vínculo de replicación entre la ba
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

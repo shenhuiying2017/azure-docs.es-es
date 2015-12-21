@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Ejemplos de Caché en Redis de Azure 
@@ -65,7 +65,7 @@ El ejemplo [Administración de Caché en Redis de Azure mediante bibliotecas de 
 
 ## Ejemplo de personalización de supervisión
 
-El ejemplo [Acceso a los datos de supervisión de Caché en Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) muestra cómo puede obtener acceso a datos de supervisión para su Caché en Redis de Azure fuera del Portal de vista previa de Azure.
+El [ejemplo de acceso a los datos de supervisión de Caché en Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) muestra cómo puede obtener acceso a datos de supervisión para su Caché en Redis de Azure fuera del Portal de Azure.
 
 ## Un clon de estilo Twitter escrito mediante PHP y Redis
 
@@ -75,4 +75,4 @@ El ejemplo [Retwis](https://github.com/SyntaxC4-MSFT/retwis) es el Hello World d
 
 El ejemplo [Supervisión del ancho de banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) permite supervisar el ancho de banda utilizado en el cliente. Para medir el ancho de banda, ejecute el ejemplo en el equipo cliente de la caché, realice llamadas a la memoria caché y observe el ancho de banda notificado por el ejemplo de supervisión de ancho de banda.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

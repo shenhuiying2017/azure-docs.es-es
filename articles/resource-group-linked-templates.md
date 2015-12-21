@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/04/2015"
+   ms.date="12/07/2015"
    ms.author="tomfitz"/>
 
 # Uso de plantillas vinculadas con el Administrador de recursos de Azure
@@ -102,7 +102,7 @@ En el ejemplo siguiente se muestra cómo usar una dirección URL base para crear
         }
     }
 
-También puede usar la función [deployment()](resource-group-template-functions.md/#deployment) para obtener la dirección URL base para la plantilla actual y usar esta información para obtener la dirección URL de otras plantillas en la misma ubicación. Esto resulta útil si cambia la ubicación de la plantilla (probablemente debido al control de versiones) o desea evitar la codificación de forma rígida de las direcciones URL en el archivo de plantilla.
+También puede usar la función [deployment()](../resource-group-template-functions/#deployment) para obtener la dirección URL base de la plantilla actual y usar esta información para obtener la dirección URL de otras plantillas en la misma ubicación. Esto resulta útil si cambia la ubicación de la plantilla (probablemente debido al control de versiones) o desea evitar la codificación de forma rígida de las direcciones URL en el archivo de plantilla.
 
     "variables": {
         "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
@@ -116,4 +116,4 @@ Si necesita pasar un valor de una plantilla vinculada a la plantilla principal, 
 - [Creación de plantillas](./resource-group-authoring-templates.md)
 - [Implementación de plantillas](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

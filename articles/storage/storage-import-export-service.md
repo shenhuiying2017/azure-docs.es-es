@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="Uso de la importación y exportación para transferir datos al almacenamiento en blobs | Microsoft Azure" 
 	description="Aprenda a crear trabajos de importación y exportación en el Portal de Azure para transferir datos al almacenamiento de blobs." 
-	authors="tamram" 
-	manager="adinah" 
+	authors="robinsh" 
+	manager="carmonm" 
 	editor="" 
 	services="storage" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 
 # Uso del servicio de importación y exportación de Microsoft Azure para transferir datos al almacenamiento en blobs
@@ -269,4 +269,4 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

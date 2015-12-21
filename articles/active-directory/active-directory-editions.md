@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/17/2015"
+	ms.date="12/04/2015"
 	ms.author="markvi"/>
 
 # Ediciones de Azure Active Directory
@@ -47,48 +47,41 @@ Para suscribirse y empezar a usar Active Directory Premium hoy, vea [Introducci�
 
 <br>
 
-
-
-
-| Tipo de característica| Características| Edición gratuita| Edición básica| Edición premium |
-| --- | --- | --- | --- | --- |
-| **Características frecuentes**| Directorio como servicio| ![Comprobar][12] Hasta 500.000 usuarios [1]| ![Comprobar][12] Sin límite de objetos| ![Comprobar][12] Sin límite de objetos|
-| | [Administración de usuario y de grupo mediante la interfaz de usuario o cmdlets de Windows PowerShell](active-directory-administer.md)| ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]|
-| | [Registro de dispositivos](active-directory-conditional-access-device-registration-overview.md)| ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]|
-| | [Portal de Panel de acceso para el acceso de usuario basado en SSO a aplicaciones SaaS y personalizadas](active-directory-saas-access-panel-introduction.md)| ![Comprobar][12] Hasta 10 aplicaciones por usuario [2]| ![Comprobar][12] Hasta 1 aplicación por usuario [2]| ![Comprobar][12] Sin límite de aplicaciones|
-| | [Aprovisionamiento y administración de acceso a aplicaciones basadas en usuarios](active-directory-saas-app-provisioning.md)| ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]|
-| | Cambio de contraseña de autoservicio para usuarios en la nube| ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]|
-| | [Azure AD Connect: para la sincronización entre directorios locales y Azure Active Directory](active-directory-aadconnect.md)| ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]|
-| | [Informes de seguridad estándar](active-directory-view-access-usage-reports.md)| ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]|
-| | [Colaboración B2B (colaboración entre organizaciones) (en versión preliminar)](active-directory-b2b-collaboration-overview.md)| ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]|
-| **Características premium y básicas**| [Personalización de colores y logotipos empresariales para las páginas de panel de acceso e inicio de sesión](active-directory-add-company-branding.md)| Incluido en suscripciones de Office 365 [4]| ![Comprobar][12]| ![Comprobar][12]|
-| | [Restablecimiento de contraseña de autoservicio para usuarios en la nube](active-directory-passwords.md)| Incluido en suscripciones de Office 365 [4]| ![Comprobar][12]| ![Comprobar][12]|
-| | [Proxy de aplicación: acceso remoto seguro y SSO en aplicaciones web locales](active-directory-application-proxy-get-started.md)| | ![Comprobar][12]| ![Comprobar][12]|
-| | [Aprovisionamiento y administración de acceso a aplicaciones basadas en grupos](active-directory-accessmanagement-group-saasapps.md)| | ![Comprobar][12]| ![Comprobar][12]|
-| | [Tiempo de actividad de SLA de alta disponibilidad (99,9 %)](https://azure.microsoft.com/support/legal/sla/)| SLA de Microsoft Online Services [5]| ![Comprobar][12]| ![Comprobar][12]|
-| **Características solo de Premium**| [Informes de uso avanzado de las aplicaciones](active-directory-view-access-usage-reports.md)| | | ![Comprobar][12]|
-| | [Administración de grupos de autoservicio para usuarios de la nube] (Administración de grupos de autoservicio para usuarios de Azure AD)| | | ![Comprobar][12]|
-| | [Restablecimiento de contraseña de autoservicio con reescritura local](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)| | | ![Comprobar][12]|
-| | [Licencias de usuario de Microsoft Identity Manager (MIM): para la administración de identidades y acceso local](http://www.microsoft.com/es-ES/server-cloud/products/microsoft-identity-manager/default.aspx)| | | ![Comprobar][12] [3]|
-| | [Informes de seguridad avanzados de anomalías (basados en aprendizaje automático)](active-directory-view-access-usage-reports.md)| | | ![Comprobar][12]|
-| | [Detección de aplicaciones de nube](active-directory-cloudappdiscovery-whatis.md)| | | ![Comprobar][12]|
-| | [Servicio Multi-Factor Authentication para usuarios en la nube](multi-factor-authentication.md)| Incluido en suscripciones de Office 365 [4]| | ![Comprobar][12]|
-| | [Servicio Multi-Factor Authentication para usuarios locales](multi-factor-authentication.md)| | | ![Comprobar][12]|
-| | [Azure Active Directory Connect Health](active-directory-aadconnect-health.md): permite supervisar el mantenimiento de la infraestructura de Active Directory local y obtener análisis de uso.| | | ![Comprobar][12]|
+| Tipo de característica| Características| Edición gratuita| Edición básica| Edición premium| Solo aplicaciones de Office 365 |
+| --- | --- | --- | --- | --- | --- |
+| **Características frecuentes**| Objetos de directorio [1]| Hasta 500.000 objetos| Sin límite de objetos| Sin límite de objetos| Sin límite de objetos para las cuentas de usuario de Office 365|
+| | [Administración de usuarios y grupos (agregar/actualizar/eliminar), aprovisionamiento basado en el usuario](active-directory-administer.md), [registro de dispositivos](active-directory-conditional-access-device-registration-overview.md)| ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]|
+| | [SSO a aplicaciones SaaS, aplicaciones personalizadas, aplicaciones de proxy de aplicación](active-directory-enable-sso-scenario.md)| 10 aplicaciones por usuario [2]| 10 aplicaciones por usuario [2]| sin límite| 10 aplicaciones por usuario [2]|
+| | [Cambio de contraseña de autoservicio para usuarios en la nube](active-directory-passwords-update-your-own-password.md)| ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]|
+| | [Connect: para la sincronización entre directorios locales y Azure Active Directory](active-directory-aadconnect.md)| ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]|
+| | **Versión preliminar**:[ colaboración B2B](active-directory-b2b-collaboration-overview.md)| ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]|
+| | [Seguridad/informes de uso](active-directory-view-access-usage-reports.md)| Informes básicos| Informes básicos| Informes avanzados| Informes básicos|
+| **Características premium y básicas**| [Aprovisionamiento y administración de acceso a aplicaciones basadas en grupos](active-directory-accessmanagement-group-saasapps.md)| | ![Comprobar][12]| ![Comprobar][12]| |
+| | [Restablecimiento de contraseña de autoservicio para usuarios en la nube](active-directory-passwords.md)| | ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]|
+| | [Personalización de marca de la compañía (personalización de las páginas de inicio de sesión y del panel de acceso)](active-directory-add-company-branding.md)| | ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]|
+| | [Proxy de aplicación](active-directory-application-proxy-get-started.md)| | ![Comprobar][12]| ![Comprobar][12]| |
+| | [Tiempo de actividad de SLA de alta disponibilidad (99,9 %)](https://azure.microsoft.com/support/legal/sla/)| | ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]|
+| **Características solo de Premium**| Administración de grupos de autoservicio/incorporación de aplicaciones de autoservicio/pertenencia a grupos dinámicos| | | ![Comprobar][12]| |
+| | [Restablecimiento de contraseñas de autoservicio, cambio, desbloqueo con escritura diferida local](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)| | | ![Comprobar][12]| |
+| | [Multi-Factor Authentication (en la nube y local)](multi-factor-authentication.md)| | | ![Comprobar][12]| Se limita a la nube solo para aplicaciones de Office 365|
+| | [Licencias de usuario de Microsoft Identity Manager (MIM) y servidor MIM [3]](http://www.microsoft.com/server-cloud/products/microsoft-identity-manager/default.aspx)| | | ![Comprobar][12]| |
+| | [Detección de aplicaciones de nube](active-directory-cloudappdiscovery-whatis.md)| | | ![Comprobar][12]| |
+| | [Azure Active Directory Connect Health](active-directory-aadconnect-health.md)| | | ![Comprobar][12]| |
+| | Sustitución automática de la contraseña para cuentas de grupo| | | ![Comprobar][12]| |
+| | **Versión preliminar**: acceso condicional| | | ![Comprobar][12]| |
+| | **Versión preliminar**: Privileged Identity Management| | | ![Comprobar][12]| |
+| **Características relacionadas con Windows 10 y Azure AD Join**| Conectar un dispositivo de Windows 10 a Azure AD, SSO de escritorio, Microsoft Passport para Azure AD, recuperación de Bitlocker de administrador| ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]|
+| | Inscripción automática de MDM, recuperación de Bitlocker de autoservicio, administradores locales adicionales para dispositivos con Windows 10 a través de Azure AD Join| | | ![Comprobar][12]| |
 
 
 
 
-[1] El límite de 500 000 objetos no se aplica a Office 365, Microsoft Intune o cualquier otro servicio en línea de Microsoft que se base en Azure Active Directory para servicios de directorio.
 
-[2] Con las versiones gratuita y básica de Azure Active Directory, los usuarios finales a los que se les haya asignado acceso a cada aplicación SaaS, pueden ver hasta 10 aplicaciones en el Panel de acceso y obtener acceso SSO a ellas (suponiendo que el administrador las haya configurado primero con SSO). Los administradores pueden configurar SSO y asignar acceso de usuario a tantas aplicaciones SaaS como deseen con Gratis. Sin embargo, los usuarios finales solo verán 10 aplicaciones en su panel de acceso a la vez.
+[1] La cuota de uso predeterminado es de 150.000 objetos. Un objeto es una entrada del servicio de directorio que está representada por un nombre completo único. Un ejemplo de objeto sería una entrada de usuario empleada para la autenticación. Si necesita sobrepasar la cuota predeterminada, póngase en contacto con el servicio de soporte técnico. El límite de 500 000 objetos no se aplica a Office 365, Microsoft Intune o cualquier otro servicio en línea de pago de Microsoft que se base en Azure Active Directory para servicios de directorio.
 
-[3] Con las licencias de Windows Server (cualquier edición), se conceden derechos de software de servidor de Microsoft Identity Manager. Dado que Microsoft Identity Manager se ejecuta en el sistema operativo Windows Server, se puede instalar y usarse en ese servidor siempre y cuando el servidor esté ejecutando una copia con licencia válida. No se necesita ninguna otra licencia de servidor de Microsoft Identity Manager.
+[2] Con las ediciones Gratis y Básica de Azure AD, los usuarios finales a los que se haya asignado acceso a aplicaciones de SaaS pueden ver hasta 10 aplicaciones en su Panel de acceso y obtener inicio de sesión único en ellas. Los usuarios pueden configurar el inicio de sesión único y asignar acceso de usuario a tantas aplicaciones de SaaS como deseen con los niveles Gratis y Básico; sin embargo, los usuarios finales verán solo 10 aplicaciones en su Panel de acceso a la vez.
 
-[4] Las características de pago de Azure AD que se incluyen en Office 365 son de uso limitado cuando se accede a aplicaciones de Office 365 únicamente.
-
-[5] Cada servicio empresarial en línea de Microsoft, Office 365, Microsoft Intune, o cualquier otro servicio en línea de Microsoft que dependa de Azure Active Directory para los servicios de directorio, conlleva su propio SLA de servicio que amplía su uso de Azure Active Directory. Para obtener más información, consulte [SLA de Microsoft Online Services](https://gallery.technet.microsoft.com/online-SLA-ea09109e).
-
+[3] Con las licencias de Windows Server (cualquier edición), se conceden derechos de software de servidor de Microsoft Identity Manager. Puesto que Microsoft Identity Manager se ejecuta en el sistema operativo Windows Server, siempre que un servidor ejecute una copia válida y con licencia de Windows Server, Microsoft Identity Manager podrá instalarse y usarse en ese servidor. No se necesita ninguna otra licencia de servidor de Microsoft Identity Manager.
 
 
 
@@ -102,4 +95,4 @@ Para suscribirse y empezar a usar Active Directory Premium hoy, vea [Introducci�
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

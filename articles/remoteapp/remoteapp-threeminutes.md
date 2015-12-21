@@ -1,19 +1,19 @@
 
-<properties 
-    pageTitle="Pruebe RemoteApp en su dispositivo en tres minutos o menos"
-    description="Pruebe la funcionalidad de Azure RemoteApp sin instalar el servicio." 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Prueba de Azure RemoteApp en un dispositivo en tres minutos o menos | Microsoft Azure"
+    description="Pruebe la funcionalidad de Azure RemoteApp sin instalar el servicio."
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="mbaldwin" />
 
 
@@ -28,13 +28,11 @@
 2. Haga clic en **Instalar cliente** en la esquina superior derecha.  
 3. El sistema detecta automáticamente el dispositivo y lo dirigirá al cliente correspondiente. Instale el cliente.
 4. Vuelva a [http://remoteapp.azure.com](http://remoteapp.azure.com) e inicie sesión con su cuenta Microsoft.
- 
+
 Ahora puede tener acceso a aplicaciones que se ejecutan en tiempo real en Azure RemoteApp.
 
 Su opinión es importante. Al final de cada sesión, verá un cuadro de diálogo para ingresar sus comentarios. Si tiene un momento, indíquenos sus opiniones y permítanos saber si quisiera que Microsoft se pusiera en contacto con usted para obtener información adicional.
 
 >[AZURE.NOTE]Debido a que este es un entorno controlado para uso de demostración, no tenemos habilitado el acceso externo a Internet desde las aplicaciones de demostración publicadas. Por lo tanto, servicios como OneDrive no se encuentran accesibles. Además, también está desactivado el uso compartido del portapapeles (copiar y pegar) y la redirección de impresora y USB.
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

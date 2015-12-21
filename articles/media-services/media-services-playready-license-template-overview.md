@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="12/05/2015"
 	ms.author="juliako"/>
 
 #Información general de plantillas de licencias de PlayReady de Servicios multimedia
@@ -74,9 +74,9 @@ Esta es la clase de "nivel superior" en la jerarquía de plantillas. Lo que sign
 
 [PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx): esta clase representa el derecho PlayRight de una licencia de PlayReady. Concede al usuario la capacidad de reproducir contenido sujeto a las restricciones configuradas en la licencia y en el propio derecho PlayRight (para la directiva de reproducción específica). En lo referente a PlayRight, gran parte de la directiva tiene que ver con las restricciones de salida que controlan los tipos de salida sobre los que se puede reproducir el contenido y las restricciones que se deben aplicar cuando se usa una salida determinada. Por ejemplo, si DigitalVideoOnlyContentRestriction está habilitada, el tiempo de ejecución DRM solo permitirá que el vídeo se muestre mostrarse en salidas digitales (las salidas de vídeo analógicas no podrán pasar el contenido).
 
->[AZURE.IMPORTANT]Estos tipos de restricciones pueden ser muy eficaces, pero también pueden afectar a la experiencia del consumidor. Si las protecciones de salida son demasiado restrictivas, puede que el contenido no se reproduzca en algunos clientes. Para obtener más información, consulte el documento [Reglas de cumplimiento normativo de PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
+>[AZURE.IMPORTANT]Estos tipos de restricciones pueden ser muy eficaces, pero también pueden afectar a la experiencia del consumidor. Si las protecciones de salida son demasiado restrictivas, puede que el contenido no se reproduzca en algunos clientes. Para más información, consulte el documento [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/).
 
-Para ver un ejemplo de los niveles de protección que Silverlight admite, consulte: [Compatibilidad de Silverlight con protecciones de salida](http://go.microsoft.com/fwlink/?LinkId=617318).
+Para ver un ejemplo de los niveles de protección que admite Silverlight, consulte: [Silverlight support for output protections](http://go.microsoft.com/fwlink/?LinkId=617318).
 
 ##<a id="schema"></a>Esquema XML de la plantilla de licencia de PlayReady
 	
@@ -311,4 +311,4 @@ Para ver un ejemplo de los niveles de protección que Silverlight admite, consul
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

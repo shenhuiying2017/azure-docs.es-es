@@ -33,7 +33,7 @@ Para empezar, necesitará lo siguiente:
 
 En el portal de Azure, copie la cadena de conexión SAS raíz de Bus de servicio. Esta cadena de conexión conecta el conector de Azure con el sistema local.
 
-1. En el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885), seleccione el espacio de nombres del Bus de servicio y seleccione **Información de conexión**:
+1. En el [Portal de Azure clásico](http://go.microsoft.com/fwlink/p/?LinkID=213885), seleccione el espacio de nombres del Bus de servicio y seleccione **Información de conexión**:
 
 	![][SB_ConnectInfo]
 
@@ -43,7 +43,7 @@ En el portal de Azure, copie la cadena de conexión SAS raíz de Bus de servicio
 
 ## Instalación del Administrador de conexiones híbridas
 
-1. En la vista previa del [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), seleccione el conector que ha creado. Para abrirlo, puede seleccionar **Examinar**, **Aplicaciones de la API** y luego el conector o la aplicación de API. <br/><br/> En **Conexión híbrida**, la instalación está **incompleta**: <br/> ![][2] 
+1. En el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), seleccione el conector que ha creado. Para abrirlo, puede seleccionar **Examinar**, **Aplicaciones de la API** y luego el conector o la aplicación de API. <br/><br/> En **Conexión híbrida**, la instalación está **incompleta**: <br/> ![][2] 
 
 2. Seleccione **Conexión híbrida**. Se muestra la cadena de conexión del Bus de servicio que escribió anteriormente.
 3. Copie la **Cadena de configuración principal**: <br/> ![][PrimaryConfigString]
@@ -98,7 +98,7 @@ Puerto del sistema local | En el sistema local, abra el puerto usado por el sist
 
 
 
-### En el Portal de Azure
+### En el Portal de Azure clásico
 
 1. Confirme que el espacio de nombres del Bus de servicio tiene un estado **Activo**.
 2. Al crear el conector, escriba la cadena de conexión de SAS del Bus de servicio. No escriba la cadena de conexión de ACS.
@@ -133,4 +133,4 @@ Si la API personalizada usa un puerto TCP o HTTP, puede usar [Conexiones híbrid
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

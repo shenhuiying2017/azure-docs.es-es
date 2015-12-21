@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/12/2015"
+	ms.date="12/04/2015"
 	ms.author="inhenk"/>
 
 # Administración del control de acceso basado en rol (RBAC) con la interfaz de la línea de comandos (CLI) de Azure
@@ -107,7 +107,50 @@ En el ejemplo siguiente se quita la asignación de rol *Colaborador de la máqui
 
 ![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
 
+## Crear un rol personalizado
+Para crear un rol personalizado, use el comando `azure role create`.
+
+En el ejemplo siguiente se crea un rol personalizado denominado *Operador de máquina virtual* que concede acceso a todas las operaciones de lectura de los proveedores de recursos *Microsoft.Compute*, *Microsoft.Storage* y *Microsoft.Network* y concede acceso para iniciar, reiniciar y supervisar las máquinas virtuales. El rol personalizado se puede usar en dos suscripciones. En este ejemplo se usa un archivo json como entrada.
+
+![](./media/role-based-access-control-manage-access-azure-cli/2-azure-role create-1.png)
+
+![](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
+
+## Modificar un rol personalizado
+
+Para modificar un rol personalizado primero, use el comando role show de Azure para recuperar la definición del rol. Luego realice los cambios que quiera a la definición del rol. Por último, use el comando role set de Azure para guardar la definición de rol modificada.
+
+En el ejemplo siguiente se agrega la operación Microsoft.Insights/diagnosticSettings/* a las acciones y una suscripción de Azure a AssignableScopes del rol personalizado de operador de máquina virtual.
+
+![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
+
+![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
+
+## Eliminar un rol personalizado
+
+Para eliminar un rol personalizado primero, use el comando `azure role show` para determinar el **id** del rol. Luego use el comando `azure role delete` para eliminar el rol especificando el **id.**.
+
+En el ejemplo siguiente se quita el rol personalizado *Operador de máquina virtual*.
+
+![](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-delete.png)
+
+## Lista de roles personalizados
+
+Para enumerar los roles que están disponibles para la asignación en un ámbito, use el comando `azure role list`.
+
+En el ejemplo siguiente se enumeran todos los roles disponibles para la asignación en la suscripción seleccionada.
+
+![](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
+
+En el ejemplo siguiente, el rol personalizado *Operador de máquina virtual* no está disponible en la suscripción *Production4* debido a que la suscripción no se encuentra entre los **AssignableScopes** del rol.
+
+![](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
+
+
+
+
+
 ## Temas de RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

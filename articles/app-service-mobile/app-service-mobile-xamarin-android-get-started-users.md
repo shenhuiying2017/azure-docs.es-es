@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/27/2015" 
+	ms.date="12/07/2015" 
 	ms.author="mahender"/>
 
 # Adición de la autenticación a la aplicación Xamarin.Android
@@ -97,7 +97,11 @@ La aplicación se actualiza para requerir a los usuarios que pulsen el botón **
             android:onClick="LoginUser"
             android:text="@string/login_button_text" />
 
-4. En Visual Studio o Xamarin Studio, ejecute el proyecto de cliente en un dispositivo o emulador, e inicie sesión con el proveedor de identidades elegido.
+5. Agregue el siguiente elemento al archivo de recursos Strings.xml:
+
+		<string name="login_button_text">Sign in</string> 
+
+6. En Visual Studio o Xamarin Studio, ejecute el proyecto de cliente en un dispositivo o emulador, e inicie sesión con el proveedor de identidades elegido.
 
    	Una vez iniciada la sesión correctamente, la aplicación mostrará el id. de inicio de sesión y la lista de tareas pendientes, y podrá realizar actualizaciones en los datos.
 
@@ -106,4 +110,4 @@ La aplicación se actualiza para requerir a los usuarios que pulsen el botón **
 [Creación de una aplicación Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015--->

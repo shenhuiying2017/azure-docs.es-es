@@ -67,7 +67,7 @@ Una vez que conozca la dirección URL de blob, podrá descargar el disco duro vi
   ![dibujo](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
 
 ### Descarga de un disco duro virtual mediante PowerShell
-Además del Portal de Azure, puede usar el cmdlet [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) para descargar el disco duro virtual del sistema operativo:
+Además de utilizar el Portal de Azure, puede usar el cmdlet [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) para descargar el disco duro virtual del sistema operativo.
 
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
@@ -138,4 +138,4 @@ Con la [Herramienta de línea de comandos de Linux](../virtual-machines/command-
 - [Creación de una imagen de máquina virtual para Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Configuración de Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

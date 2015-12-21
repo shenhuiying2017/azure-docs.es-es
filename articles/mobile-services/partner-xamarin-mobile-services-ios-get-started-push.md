@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/03/2015"
 	ms.author="yuaxu"/>
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
@@ -267,7 +267,7 @@ El servicio móvil está configurado ahora para que funcione con APNS.
             }
         }
 
-8. En **TodoListViewController**, modifique la acción **OnAdd** para que el token del dispositivo se almacene en **AppDelegeate** y almacénelo en la clase **TodoItem** que se está agregando.
+8. En **QSTodoListViewController**, modifique la acción **OnAdd** para que el token del dispositivo se almacene en **AppDelegeate** y almacénelo en la clase **TodoItem** que se está agregando.
 
         string deviceToken = ((AppDelegate)UIApplication.SharedApplication.Delegate).DeviceToken;
 
@@ -403,4 +403,4 @@ Ha completado correctamente este tutorial.
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

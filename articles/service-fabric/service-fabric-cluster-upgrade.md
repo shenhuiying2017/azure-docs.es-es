@@ -66,6 +66,8 @@ Puede actualizar los certificados principales o secundarios fácilmente desde el
 
 ![CertificateUpgrade][CertificateUpgrade]
 
+**Nota** Antes de identificar los certificados que quiere usar con los recursos del clúster, tiene que haber completado los pasos siguientes, de lo contrario no se usará el nuevo certificado. (1) cargue el nuevo certificado en el almacén de claves: consulte [Seguridad de Service Fabric](service-fabric-cluster-security.md) para obtener instrucciones y empiece en el paso 2 del documento. (2) actualice todas las máquinas virtuales que componen el clúster para que el certificado se implemente en ellas. Consulte [esta entrada de blog](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx) sobre cómo hacerlo.
+
 ### Puertos de la aplicación
 
 Para hacerlo, cambie las propiedades del recurso de equilibrador de carga asociadas al tipo de nodo. Puede usar el portal o ARM con PowerShell directamente.
@@ -90,11 +92,11 @@ Para abrir un nuevo puerto en todas las máquinas virtuales en un tipo de nodo, 
 
   Para cada uno de los tipos de nodos, puede agregar las propiedades de colocación personalizadas que desee usar en sus aplicaciones. NodeType es una propiedad predeterminada que se puede usar sin agregarla explícitamente.
 
-  >[AZURE.NOTE]Para obtener más información sobre el uso de la propiedad de colocación, consulte [la documentación de restricciones de colocación](service-fabric-placement-constraint.md).
+  >[AZURE.NOTE]Para más información sobre el uso de la propiedad placement, consulte [la documentación de restricciones de ubicación](service-fabric-placement-constraint.md).
 
 ### Métricas de capacidad
 
-Para cada uno de los tipos de nodo puede agregar las métricas de capacidad personalizadas que desee usar en las aplicaciones para la carga de informes. Para obtener más información sobre el uso de las métricas de capacidad para cargar informes, consulte [la información general de informes de carga dinámicos](service-fabric-resource-balancer-dynamic-load-reporting.md).
+Para cada uno de los tipos de nodo puede agregar las métricas de capacidad personalizadas que desee usar en las aplicaciones para la carga de informes. Para más información sobre el uso de métricas de capacidad en informes de carga, consulte [información general de informes de carga dinámicos](service-fabric-resource-balancer-dynamic-load-reporting.md).
 
 ### Aplicación de revisiones del sistema operativo a las máquinas virtuales que componen el clúster
 Se trata de una característica que estará disponible pronto. En la actualidad, es responsabilidad suya revisar sus máquinas virtuales; debe hacerlo una máquina virtual cada vez, para que no haya más de una máquina virtual inactiva a la vez.
@@ -105,12 +107,12 @@ Si debe actualizar la imagen de sistema operativo que usa, debe hacerlo una máq
 
 ## Pasos siguientes
 
-- Obtenga información acerca de cómo [escalar o reducir verticalmente el clúster](service-fabric-cluster-scale-up-down.md)
-- Obtenga información acerca de las [actualizaciones de las aplicaciones](service-fabric-application-upgrade.md)
+- Obtenga información sobre cómo [escalar o reducir verticalmente el clúster](service-fabric-cluster-scale-up-down.md).
+- Obtenga información sobre [actualizaciones de aplicaciones](service-fabric-application-upgrade.md).
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade.png
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

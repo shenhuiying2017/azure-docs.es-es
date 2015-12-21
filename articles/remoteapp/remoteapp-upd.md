@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/28/2015" 
+    ms.date="12/04/2015" 
     ms.author="elizapo" />
 
 
@@ -28,9 +28,12 @@ Cada UPD tiene 50 GB de almacenamiento persistente y contiene datos de usuarios 
 
 Siga leyendo para obtener información específica sobre los datos del perfil de usuario.
 
+>[AZURE.NOTE]¿Necesidad de deshabilitar el UPD? Puede hacerlo ahora: compruebe la entrada de blog de Pavithra, [Deshabilitar discos de perfil de usuario (UPD) en Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx), para más información.
+
+
 ## ¿Cómo puede un administrador acceder a los datos?
 
-Si necesita acceder a los datos de uno de los usuarios (para efectuar la recuperación ante desastres o si el usuario abandona la empresa), póngase en contacto con [Azure RemoteApp](mailto:remoteappforum@microsoft.com) y proporcione la información de suscripción de la recopilación y la identidad del usuario. El equipo de Azure RemoteApp le proporcionará una dirección URL para el disco duro virtual. Descargue ese VHD y recupere los documentos o archivos que necesite. Tenga en cuenta que el disco duro virtual es de 50 GB, por lo que tardará un poco en descargarlo.
+Si necesita obtener acceso a los datos de uno de los usuarios (para efectuar la recuperación ante desastres o si el usuario abandona la empresa), póngase en contacto con [Azure RemoteApp](mailto:remoteappforum@microsoft.com) y ofrezca la información de suscripción de la recopilación y la identidad del usuario. El equipo de Azure RemoteApp le proporcionará una dirección URL para el disco duro virtual. Descargue ese VHD y recupere los documentos o archivos que necesite. Tenga en cuenta que el disco duro virtual es de 50 GB, por lo que tardará un poco en descargarlo.
 
 
 ## ¿Se efectúa una copia de seguridad de los datos?
@@ -47,11 +50,13 @@ Azure RemoteApp guarda el estado de Outlook (buzones, PST) entre sesiones. Para 
 
 También se recomienda usar el modo "en caché" en Outlook y usar el modo "servidor/online" para buscar.
 
+Consulte [este artículo](remoteapp-outlook.md) para más información sobre el uso de Outlook y Azure RemoteApp.
+
 ## ¿Podemos usar soluciones de datos compartidos?
 Sí, Azure RemoteApp admite el uso de soluciones de datos compartidos (especialmente OneDrive para la Empresa y Dropbox). Sin embargo, tenga en cuenta que no se admiten OneDrive Consumer (la versión personal) ni Box.
 
 ## Información acerca del redireccionamiento
-Puede configurar Azure RemoteApp para permitir a los usuarios acceder a dispositivos locales configurando el [redireccionamiento](remoteapp-redirection.md). A continuación, los dispositivos locales podrán tener acceso a los datos en el UPD.
+Puede configurar Azure RemoteApp para permitir a los usuarios obtener acceso a dispositivos locales configurando el [redireccionamiento](remoteapp-redirection.md). A continuación, los dispositivos locales podrán tener acceso a los datos en el UPD.
 
 ## ¿Puedo usar mi UPD como un recurso compartido de red?
 No. Los UPD no pueden utilizarse como un recurso compartido de red. Los UPD solo están disponibles si el usuario está conectado activamente a Azure RemoteApp.
@@ -76,6 +81,14 @@ Sí, todo lo escrito en HKEY\_Current\_User forma parte de los UPD.
 ## ¿Puedo deshabilitar los UPD para una colección?
 
 Sí, puede pedir a Azure RemoteApp que deshabilite los UPD para una suscripción, pero no puede hacerlo usted. Esto significa que los UPDs se deshabilitarán para todas las colecciones de la suscripción.
+
+Es posible que quiera deshabilitar UPD en cualquiera de las siguientes situaciones:
+
+- Debe completar el acceso y el control de los datos de usuario (para fines de auditoría y revisión como instituciones financieras).
+- Dispone de soluciones de administración de perfiles de usuario de terceros locales y quiere seguir usándolas en su implementación de Azure RemoteApp unida al dominio. Esto requeriría que se cargue el agente de perfil en la imagen dorada. 
+- No necesita ningún almacenamiento de datos local o tiene todos los datos en la nube (como OneDrive para la Empresa) o un recurso compartido de archivos y quiere controlar el almacenamiento local de datos con Azure RemoteApp.
+
+Vea [Deshabilitar discos de perfil de usuario (UPD) en Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx) para más información.
 
 ## ¿Puedo impedir que los usuarios guardar los datos en la unidad del sistema?
 
@@ -126,4 +139,4 @@ No, eso no es compatible con Azure RemoteApp, que usa RDSH, que a su vez tampoco
 
 No, no es compatible con Azure RemoteApp.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

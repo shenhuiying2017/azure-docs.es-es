@@ -10,7 +10,11 @@
 
 # Configuración de tunelización forzada mediante PowerShell y el Administrador de recursos de Azure
 
-Este artículo se aplica a las redes virtuales y a las puertas de enlace de VPN creadas con el modelo de implementación del Administrador de recursos de Azure. Si desea configurar la tunelización forzada mediante el modelo de implementación de administración de servicios, consulte [Configuración de la tunelización forzada](vpn-gateway-about-forced-tunneling.md).
+> [AZURE.SELECTOR]
+- [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
+
+Este artículo se aplica a las redes virtuales y a las puertas de enlace de VPN creadas con el modelo de implementación del Administrador de recursos de Azure. Si desea configurar la tunelización forzada para redes virtuales que se crearon con Administración de servicios (lo que se conoce también como modelo de implementación clásica), consulte [Configuración de la tunelización forzada](vpn-gateway-about-forced-tunneling.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -26,11 +30,11 @@ En el ejemplo anterior, la subred Frontend no usa la tunelización forzada. Las 
 
 ## Requisitos y consideraciones
 
-La tunelización forzada en Azure se configura a través de rutas definidas por el usuario de redes virtuales. La redirección del tráfico a un sitio local se expresa como una ruta predeterminada a la puerta de enlace de VPN de Azure. Para más información sobre las rutas y redes virtuales definidas por el usuario, consulte [Rutas definidas por el usuario y reenvío IP](../virtual-network/virtual-networks-udr-overview.md).
+La tunelización forzada en Azure se configura a través de rutas definidas por el usuario de redes virtuales. La redirección del tráfico a un sitio local se expresa como una ruta predeterminada a la puerta de enlace de VPN de Azure. Para más información sobre las redes virtuales y las rutas definidas por el usuario, consulte [Rutas definidas por el usuario y reenvío de IP](../virtual-network/virtual-networks-udr-overview.md).
 
 - Cada subred de la red virtual tiene una tabla de enrutamiento del sistema integrada. La tabla de enrutamiento del sistema tiene los siguientes tres grupos de rutas:
 
-	- **Rutas de redes virtuales locales**: directamente a las máquinas virtuales de destino en la misma red virtual.
+	- **Rutas de red virtual local**: directamente a las máquinas virtuales de destino en la misma red virtual.
 	
 	- **Rutas locales**: a la puerta de enlace de VPN de Azure.
 	
@@ -40,7 +44,7 @@ La tunelización forzada en Azure se configura a través de rutas definidas por 
 
 - La tunelización forzada debe asociarse a una red virtual que tenga una puerta de enlace de VPN basada en rutas. Deberá establecer un "sitio predeterminado" entre los sitios locales entre entornos conectados a la red virtual.
 
-- Tenga en cuenta que la tunelización forzada ExpressRoute no se configura mediante este mecanismo, sino que se habilita mediante el anuncio de una ruta predeterminada a través de las sesiones de emparejamiento BGP de ExpressRoute. Consulte la [Documentación de ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) para más información.
+- Tenga en cuenta que la tunelización forzada ExpressRoute no se configura mediante este mecanismo, sino que se habilita mediante el anuncio de una ruta predeterminada a través de las sesiones de emparejamiento BGP de ExpressRoute. Consulte la [documentación de ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) para más información.
 
 ## Configuración de la tunelización forzada
 
@@ -48,7 +52,7 @@ La tunelización forzada en Azure se configura a través de rutas definidas por 
 
 El procedimiento siguiente le ayudará a crear un grupo de recursos y una red virtual. A continuación, creará una puerta de enlace de VPN y configurará la tunelización forzada.
 
-En el ejemplo, esta red virtual "MultiTier-VNet" tiene tres subredes: *Frontend*, *Midtier* y *Backend*, con cuatro conexiones entre entornos: *DefaultSiteHQ* y tres *Branches*. Los pasos del procedimiento establecerán *DefaultSiteHQ* como la conexión de sitio predeterminada para la tunelización forzada y configurarán las subredes *Midtier* y *Backend* para usar la tunelización forzada.
+En el ejemplo, la red virtual "MultiTier-VNet" tiene tres subredes: *Frontend*, *Midtier* y *Backend*, con cuatro conexiones entre locales: *DefaultSiteHQ* y tres *Branches*. Los pasos del procedimiento establecerán *DefaultSiteHQ* como la conexión de sitio predeterminada para la tunelización forzada y configurarán las subredes *Midtier* y *Backend* para usar dicha tunelización.
 
 	
 ### Antes de comenzar
@@ -132,4 +136,4 @@ Antes de comenzar con la configuración, comprueba que dispones de los elementos
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

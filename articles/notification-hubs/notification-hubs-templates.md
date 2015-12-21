@@ -36,7 +36,7 @@ Esta sección proporciona ejemplos detallados sobre cómo usar las plantillas pa
 
 La forma estándar de enviar notificaciones push es enviar una carga específica a los servicios de notificación de plataforma (WNS, APNS) para cada notificación que se debe enviar. Por ejemplo, para enviar una alerta a APNS, la carga es un objeto JSON con el formato siguiente:
 
-	{“aps”: {“alert” : “Hello!” }}
+	{"aps": {"alert" : "Hello!" }}
 
 Para enviar un mensaje de notificación del sistema similar en una aplicación de la Tienda Windows, la carga XML es la siguiente:
 
@@ -61,7 +61,7 @@ La siguiente ilustración muestra el proceso anterior:
 
 La plantilla para el registro de una aplicación cliente de iOS es la siguiente:
 
-	{“aps”:{“alert”:”$(message)”}}
+	{"aps": {"alert": "$(message)"}}
 
 La plantilla correspondiente a una aplicación cliente de la Tienda Windows es:
 
@@ -151,4 +151,4 @@ Como se explicó anteriormente, cuando se usa la concatenación, las expresiones
 	  </visual>
 	</tile>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

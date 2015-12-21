@@ -118,8 +118,7 @@ Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación 
 [Notificación a los usuarios con los Centros de notificaciones]: /manage/services/notification-hubs/notify-users
 [Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-ios/
 
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

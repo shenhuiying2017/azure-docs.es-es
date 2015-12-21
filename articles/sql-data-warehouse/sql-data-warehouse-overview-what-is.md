@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/18/2015"
+   ms.date="12/10/2015"
    ms.author="lodipalm;barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
 
@@ -29,7 +29,7 @@ En su núcleo, el Almacenamiento de datos SQL se ejecuta con la arquitectura de 
 
 ![Arquitectura de Almacenamiento de datos SQL][1]
 
-- **Nodo de control:** se conecta al nodo de control al usar el Almacenamiento de datos SQL con cualquier herramienta de inteligencia empresarial, carga o desarrollo. En el Almacenamiento de datos SQL, el nodo de proceso es una Base de datos SQL y, al conectarse, su apariencia es como el de una Base de datos SQL estándar. Sin embargo, bajo la superficie, coordina todo el movimiento de datos y los procesos que se llevan a cabo en el sistema. Cuando se emite un comando al nodo de control, se divide en un conjunto de consultas que se pasarán a los nodos de proceso del servicio.
+- **Nodo de control:** se conecta al nodo de control al usar el Almacenamiento de datos SQL con cualquier herramienta de inteligencia empresarial, carga o desarrollo. En el Almacenamiento de datos SQL, el nodo de control es una Base de datos SQL que, al conectarse, adopta la apariencia de una Base de datos SQL estándar. Sin embargo, bajo la superficie, coordina todo el movimiento de datos y los procesos que se llevan a cabo en el sistema. Cuando se emite un comando al nodo de control, se divide en un conjunto de consultas que se pasarán a los nodos de proceso del servicio.
 
 - **Nodos de proceso:** al igual que el nodo de control, los nodos de proceso del Almacenamiento de datos SQL se activan mediante Bases de datos SQL. Su función es servir como capacidad de proceso del servicio. En segundo plano, cada vez que se cargan datos en el Almacenamiento de datos SQL, se distribuyen entre los nodos del servicio. A continuación, cada vez que el nodo de control recibe un comando, lo divide en partes para los nodos de proceso, que operan sobre los datos correspondientes. Después de completar su proceso, los nodos de proceso pasan los resultados parciales al nodo de control que combina, a continuación, los resultados antes de devolver una respuesta.
 
@@ -138,4 +138,4 @@ Ahora que ya conoce un poco el Almacenamiento de datos SQL, obtenga información
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

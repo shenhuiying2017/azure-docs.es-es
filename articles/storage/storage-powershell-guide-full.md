@@ -3,8 +3,8 @@
 	description="Aprenda a usar los cmdlets de Azure PowerShell para el almacenamiento de Azure para crear y administrar cuentas de almacenamiento; trabajar con blobs, tablas, colas y archivos; configurar y consultar el análisis de almacenamiento, y crear firmas de acceso compartido."
 	services="storage"
 	documentationCenter="na"
-	authors="tamram" 
-	manager="adinah"/>
+	authors="robinsh" 
+	manager="carmonm"/>
 
 <tags
 	ms.service="storage"
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
-	ms.author="selcint"/>
+	ms.date="12/07/2015"
+	ms.author="robinsh"/>
 
 # Usar Azure PowerShell con Almacenamiento de Azure
 
@@ -730,4 +730,4 @@ En esta guía ha aprendido a administrar Almacenamiento de Azure con Azure Power
 [Next Steps]: #next
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

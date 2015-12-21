@@ -14,10 +14,14 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/18/2015"
+	ms.date="12/03/2015"
 	ms.author="glenga"/>
 
 # Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure
+
+[AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]&nbsp;
+
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 En este tema se muestra cómo usar el SDK del servidor back-end de .NET en escenarios clave de Aplicaciones móviles del Servicio de aplicaciones de Azure. El SDK de Aplicaciones móviles de Azure le permite trabajar con clientes móviles de su aplicación ASP.NET.
 
@@ -31,7 +35,7 @@ La documentación de referencia del SDK del servidor se encuentra aquí: [Refere
 
 Si va a iniciar un nuevo proyecto, puede crear una aplicación del Servicio de aplicaciones mediante el [Portal de Azure] o Visual Studio. Esta sección le ayudará a usar una de estas opciones para crear un nuevo back-end de aplicación móvil que hospeda una API sencilla de lista de tareas. Puede ejecutar el proyecto localmente o publicarlo en la aplicación móvil del Servicio de aplicaciones basada en la nube.
 
-Si va a agregar funciones de movilidad a un proyecto existente, consulte la sección [Descargar e inicializar el SDK](#install-sdk) que se encuentra más adelante.
+Si va a agregar funciones de movilidad a un proyecto existente, vea la sección [Descargar e inicializar el SDK](#install-sdk) que se encuentra más adelante.
 
 ### Creación de un back-end .NET mediante el Portal de Azure
 
@@ -124,7 +128,7 @@ Los siguientes paquetes de extensión basados en NuGet proporcionan diversas car
 
 - [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) incluye clases para trabajar con datos y configura la canalización de datos. Se agrega a la configuración mediante una llamada al método de extensión **AddTables**.
 
-- [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) permite a Entity Framework acceder a los datos de la base de datos SQL. Se agrega a la configuración mediante una llamada al método de extensión **AddTablesWithEntityFramework**.
+- [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) permite a Entity Framework obtener acceso a los datos de la base de datos SQL. Se agrega a la configuración mediante una llamada al método de extensión **AddTablesWithEntityFramework**.
 
 - [Microsoft.Azure.Mobile.Server.Authentication] habilita la autenticación y configura el middleware OWIN que se usa para validar los tokens. Se agrega a la configuración mediante una llamada a los métodos de extensión **AddAppServiceAuthentication** y **IAppBuilder**.**UseMobileAppAuthentication**.
 
@@ -158,7 +162,7 @@ En el ejemplo siguiente se inicializa un controlador de tabla que usa Entity Fra
         .MapTableControllers()
         .AddEntityFramework()).ApplyTo(config);
  
-Para obtener un ejemplo de un controlador de tabla que usa Entity Framework para acceder a los datos desde una base de datos SQL de Azure, consulte la clase **TodoItemController** en la descarga del proyecto de servidor de inicio rápido del Portal de Azure.
+Para obtener un ejemplo de un controlador de tabla que usa Entity Framework para obtener acceso a los datos desde una base de datos SQL de Azure, consulte la clase **TodoItemController** en la descarga del proyecto de servidor de inicio rápido del Portal de Azure.
 
 ## Cómo definir un controlador de API personalizada
 
@@ -188,7 +192,7 @@ El controlador de API personalizada proporciona la funcionalidad más básica al
     
 	Tenga en cuenta que no es necesario llamar a **MapApiControllers** si en su lugar llama a **UseDefaultConfiguration**, ya que se inicializan todas las características.
 
-Los clientes pueden acceder a un controlador aunque este no tenga un elemento **MobileAppControllerAttribute** aplicado, pero puede que no lo consuman correctamente si usan un SDK de cliente de aplicación móvil.
+Los clientes pueden obtener acceso a un controlador aunque este no tenga un elemento **MobileAppControllerAttribute** aplicado, pero puede que no lo consuman correctamente si usan un SDK de cliente de aplicación móvil.
 
 
 ## Cómo agregar autenticación a un proyecto de servidor
@@ -289,7 +293,7 @@ Para agregar notificaciones push al proyecto de servidor, extienda el objeto **M
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-En este momento, puede usar el cliente de Centros de notificaciones para enviar notificaciones push a dispositivos registrados. Para más información, consulte [Incorporación de notificaciones push a la aplicación](app-service-mobile-ios-get-started-push.md). Para más información sobre todo lo que puede hacer con los Centros de notificaciones, consulte [Información general de los Centros de notificaciones](../notification-hubs/notification-hubs-overview.md).
+En este momento, puede usar el cliente de Centros de notificaciones para enviar notificaciones push a dispositivos registrados. Para más información, vea [Incorporación de notificaciones push a la aplicación](app-service-mobile-ios-get-started-push.md). Para más información sobre todo lo que puede hacer con los Centros de notificaciones, vea [Información general de los Centros de notificaciones](../notification-hubs/notification-hubs-overview.md).
 
 ##<a name="tags"></a>Adición de etiquetas a la instalación de un dispositivo para habilitar la inserción en etiquetas
 
@@ -332,7 +336,7 @@ Puede escribir en registros de diagnóstico del Servicio de aplicaciones mediant
 
 Puede ejecutar la aplicación localmente para probar los cambios antes de publicarlos en la nube. En muchas aplicaciones, solo es cuestión de presionar *F5* mientras se está en Visual Studio. Sin embargo, existen algunas consideraciones adicionales cuando se usa la autenticación.
 
-Debe tener una aplicación móvil basada en la nube que tenga configurada la característica Autenticación/autorización del Servicio de aplicaciones, y su cliente debe haber especificado el punto de conexión de nube como host de inicio de sesión alternativo. Consulte la documentación de la plataforma cliente elegida ([iOS](app-service-mobile-ios-how-to-use-client-library.md), [Windows/Xamarin](app-service-mobile-dotnet-how-to-use-client-library.md)) para conocer los pasos concretos necesarios.
+Debe tener una aplicación móvil basada en la nube que tenga configurada la característica Autenticación/autorización del Servicio de aplicaciones, y su cliente debe haber especificado el punto de conexión de nube como host de inicio de sesión alternativo. Vea la documentación de la plataforma cliente elegida ([iOS](app-service-mobile-ios-how-to-use-client-library.md), [Windows/Xamarin](app-service-mobile-dotnet-how-to-use-client-library.md)) para conocer los pasos concretos necesarios.
 
 Asegúrese de que la aplicación tiene instalado [Microsoft.Azure.Mobile.Server.Authentication]. Después, en la clase de inicio OWIN de la aplicación, agregue lo siguiente, después de aplicar `MobileAppConfiguration` a `HttpConfiguration`:
 		
@@ -344,7 +348,7 @@ Asegúrese de que la aplicación tiene instalado [Microsoft.Azure.Mobile.Server.
 			TokenHandler = config.GetMobileAppTokenHandler()
 		});
 
-En el ejemplo anterior, debe configurar los parámetros de la aplicación _authAudience_ y _authIssuer_ en el archivo Web.config para que cada uno sea la dirección URL de la raíz de la aplicación, mediante el esquema HTTPS. De igual modo, debe establecer _authSigningKey_ como el valor de la clave de firma de la aplicación. Se trata de un valor confidencial que nunca se comparte ni se incluye en un cliente. Para obtenerlo, vaya a la aplicación en el [Portal de Azure] y haga clic en **Herramientas**. A continuación, seleccione **Kudu** y haga clic en **Ir**. Llegará al punto de conexión de administración de Kudu de su sitio. Haga clic en **Entorno** y busque el valor en _WEBSITE\_AUTH\_SIGNING\_KEY_. Este es el valor que debería usar para _authSigningKey_ en la configuración de la aplicación local.
+En el ejemplo anterior, debe configurar los parámetros de la aplicación _authAudience_ y _authIssuer_ en el archivo Web.config para que cada uno sea la dirección URL de la raíz de la aplicación, mediante el esquema HTTPS. De igual modo, debe establecer _authSigningKey_ como el valor de la clave de firma de la aplicación. Se trata de un valor confidencial que nunca se comparte ni se incluye en un cliente. Para obtenerlo, vaya a la aplicación en el [Portal de Azure] y haga clic en **Herramientas**. Luego seleccione **Kudu** y haga clic en **Ir**. Llegará al punto de conexión de administración de Kudu de su sitio. Haga clic en **Entorno** y busque el valor en _WEBSITE\_AUTH\_SIGNING\_KEY_. Este es el valor que debería usar para _authSigningKey_ en la configuración de la aplicación local.
 
 El servidor de ejecución local está ahora preparado para validar los tokens que el cliente obtiene del punto de conexión basado en la nube.
 
@@ -356,4 +360,4 @@ El servidor de ejecución local está ahora preparado para validar los tokens qu
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

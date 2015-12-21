@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/17/2015" 
+	ms.date="12/01/2015" 
 	ms.author="ricksal"/>
 
 
@@ -289,7 +289,7 @@ En JavaScript es una versión compacta del equivalente más largo:
 
 ###<a name="work-with-users"></a>Trabajo con usuarios
 
-En Servicios móviles de Azure puede usar un proveedor de identidades para autenticar usuarios. Para obtener más información, vea [Introducción a la autenticación]. Cuando un usuario autenticado invoca una operación de tabla, los Servicios móviles usan el [objeto de usuario] para proporcionar información sobre el usuario a la función script registrada. La propiedad **userId** puede usarse para almacenar y recuperar información específica del usuario. En el siguiente ejemplo se establece la propiedad owner de un elemento basado en el userId de un usuario autenticado:
+En Servicios móviles de Azure puede usar un proveedor de identidades para autenticar usuarios. Para obtener más información, vea [Introducción a la autenticación]. Cuando un usuario autenticado invoca una operación de tabla, los Servicios móviles usan el [objeto de usuario] para proporcionar información sobre el usuario a la función script registrada. La propiedad **userId** puede usarse para almacenar y recuperar información específica del usuario. En el siguiente ejemplo se establece la propiedad owner de un elemento basado en el **userId** de un usuario autenticado:
 
 	function insert(item, user, request) {
 	    item.owner = user.userId;
@@ -378,7 +378,7 @@ Una solicitud HTTP GET invoca esta función de la API personalizada para el sigu
 
 En Servicios móviles de Azure puede usar un proveedor de identidades para autenticar usuarios. Para obtener más información, vea [Introducción a la autenticación]. Cuando un usuario autenticado solicita una API personalizada, los Servicios móviles usan el [objeto de usuario] para proporcionar información sobre el usuario al código de API personalizada. Al [objeto de usuario] se obtiene acceso desde la propiedad user del [objeto de solicitud]. La propiedad **userId** puede usarse para almacenar y recuperar información específica del usuario.
 
-En la siguiente función de la API personalizada **OrderPizza** se establece la propiedad owner de un elemento basado en el userId de un usuario autenticado:
+En la siguiente función de la API personalizada **OrderPizza** se establece la propiedad owner de un elemento basado en el **userId** de un usuario autenticado:
 
 		exports.post = function(request, response) {
 			var userTable = request.service.tables.getTable('user');
@@ -924,7 +924,7 @@ La forma más sencilla de depurar y solucionar los problemas de los scripts del 
 
 Para escribir en los registros, use el objeto de [consola global]. Use la función **log** o **info** para registrar advertencias de nivel de información. Las funciones **warning** y **error** registran sus niveles respectivos, a los que se llama en los registros.
 
-> [AZURE.NOTE]Para ver los registros para el servicio móvil, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/), seleccione el servicio móvil y seleccione la pestaña **Registros**.
+> [AZURE.NOTE]Para ver los registros del servicio móvil, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/), seleccione el servicio móvil y luego elija la pestaña **Registros**.
 
 También puede usar las funciones de registro del [objeto de consola] para dar formato a sus mensajes mediante parámetros. En el siguiente ejemplo se proporciona un objeto JSON como parámetro para la cadena de mensaje:
 
@@ -1055,4 +1055,4 @@ Para evitar la sobrecarga del registro, debe quitar o deshabilitar las llamadas 
 [Support for package.json in Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

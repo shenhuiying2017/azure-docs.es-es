@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Creación de un proceso B2B en el Servicio de aplicaciones de Microsoft Azure" 
+   pageTitle="Creación de un proceso B2B en el Servicio de aplicaciones de Azure | Microsoft Azure" 
    description="Información general para crear un proceso negocio a negocio" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="10/01/2015"
+   ms.date="12/07/2015"
    ms.author="rajram"/>
 
 
@@ -44,7 +44,7 @@ En este tutorial se supone que tiene conocimientos básicos de Servicios de apli
 1. Cree una instancia del **conector Blob de almacenamiento de Azure**. Esto requiere las credenciales para una cuenta de almacenamiento de Azure. Asegúrese de que está listo antes de comenzar la creación.
 2. Cree una instancia de **Administración de socios comerciales de BizTalk**. Para que esto funcione, se necesita una base de datos SQL en blanco. Asegúrese de que está listo antes de comenzar la creación.
 3. Cree una instancia del **conector AS2**. Para que esto funcione, también se necesita una base de datos SQL en blanco. Asegúrese de que está listo antes de comenzar la creación. Además, si desea archivar mensajes como parte del procesamiento de AS2, puede proporcionar credenciales a un blob de Azure durante su creación.
-4. Configure el servicio TPM (Administración de socios comerciales) que se crea:
+4. Configure el servicio TPM (Administración de socios comerciales) que se crea:  
 	1. Vaya a la instancia del servicio TPM creada como parte de los pasos anteriores.
 	2. Use la opción **Socios** en *Componentes* para **agregar** un nuevo asociado denominado **Contoso** y, en su perfil, agregue la identidad AS2 necesaria.
 	3. Use la opción **Socios** en *Componentes* para **agregar** un nuevo asociado denominado **Northwind** y, en su perfil, agregue la identidad AS2 necesaria.
@@ -52,25 +52,21 @@ En este tutorial se supone que tiene conocimientos básicos de Servicios de apli
 
 
 ## Creación de un flujo o proceso empresarial
-1. Cree un nuevo flujo en el que el primer paso sea AS2. Arrastre y coloque el **conector AS2** y elija la instancia ya creada. Elección del desencadenador como la funcionalidad
-
-![][1]
-
-2. A continuación, arrastre y coloque el **conector de blobs de almacenamiento de Azure** y elija la instancia ya creada. Elija la acción como la funcionalidad y, dentro de ella, seleccione Cargar blob como la funcionalidad deseada. Realice la configuración según corresponda.
-
-3. Ahora, cree e implemente el flujo.
+1. Cree un nuevo flujo en el que el primer paso sea AS2. Arrastre y coloque el **conector AS2** y elija la instancia ya creada. Elección del desencadenador como la funcionalidad: ![][1]  
+2. A continuación, arrastre y coloque el **conector de blobs de almacenamiento de Azure** y elija la instancia ya creada. Elija la acción como la funcionalidad y, dentro de ella, seleccione **Cargar blob** como la funcionalidad deseada. Realice la configuración según corresponda.
+3. Ahora, cree o implemente el flujo.
 
 
 ## Procesamiento de mensajes y solución de problemas
-1. Es el momento de probar el flujo que hemos implementado. Envíe mensajes XML encapsulados en AS2 (según el acuerdo de AS2 creado anteriormente) al extremo de AS2 obtenido por la instancia del conector AS2 que se creó. Puede que necesite configurar la autenticación para el extremo para que sea accesible públicamente.
+1. Es el momento de probar el flujo que hemos implementado. Envíe mensajes XML encapsulados en AS2 (según el acuerdo de AS2 creado anteriormente) al punto de conexión de AS2 obtenido por la instancia del conector AS2 que se creó. Puede que necesite configurar la autenticación para el extremo para que sea accesible públicamente.
 2. La información de ejecución sobre el flujo aparece examinando el flujo y, a continuación, entrando en la instancia de flujo que se ejecutó.
 3. Para obtener información de procesamiento de AS2, vaya a la instancia del conector AS2 implicada y, a continuación, continúe y entre en la parte de seguimiento. Puede usar los filtros necesarios para restringir la vista a la información que se desea.
 
 ![][2]
 
 <!--Image references-->
-[1]: ./media/app-service-logic-create-a-b2b-process/Flow.jpg
-[2]: ./media/app-service-logic-create-a-b2b-process/Tracking.jpg
+[1]: ./media/app-service-logic-create-a-b2b-process/Flow.png
+[2]: ./media/app-service-logic-create-a-b2b-process/Tracking.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

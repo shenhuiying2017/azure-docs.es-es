@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="10/16/2015"
+  ms.date="12/08/2015"
   ms.author="stevenpo"/>
 
 
@@ -25,13 +25,13 @@ El acceso continuo a las aplicaciones, la evaluación del uso y la generación d
 
  Azure AD proporciona una exhaustiva administración del acceso para aplicaciones configuradas, lo que permite a las organizaciones lograr fácilmente las directivas de acceso adecuadas: desde asignación automática y basada en atributos (escenarios ABAC o RBAC) hasta la delegación y la administración de administradores. Con Azure AD pueden conseguir fácilmente directivas complejas al combinar varios modelos de administración para una sola aplicación, e incluso puede volver a usar las reglas de administración entre aplicaciones con los mismos destinatarios.
 
- - [Agregar nuevas aplicaciones](active-directory-sso-newly-acquired-saas-apps.md)
- - [Agregar aplicaciones existentes](active-directory-sso-integrate-existing-apps)
+ - [Adición de aplicaciones nuevas o existentes](active-directory-sso-integrate-saas-apps.md)
+
 
  La asignación de aplicaciones de Azure AD se centra en dos modos de asignación principales:
 
-- **Asignación individual**: un administrador de TI con privilegios globales, de usuario o AU puede seleccionar cuentas de usuario individuales y concederles acceso a la aplicación.
-- **Asignación basada en grupo (solo Azure AD de pago)**: un administrador de TI con privilegios globales, de usuario o AU puede asignar un grupo a la aplicación. El acceso de usuarios específicos se determina en función de si son miembros del grupo en el momento de intentar el acceso a la aplicación. En este modo, un administrador puede crear en la práctica una regla de asignación que diga "cualquier miembro actual del grupo asignado tiene acceso a la aplicación". Con esta opción de asignación, los administradores pueden beneficiarse de cualquier opción de administración de grupos de Azure AD, como grupos dinámicos basados en atributos, grupos externos del sistema (por ejemplo, AD local o Workday), administrador o grupos administrados de autoservicio. Un único grupo se puede asignar fácilmente a varias aplicaciones, lo que garantiza que las aplicaciones con afinidad de asignación puedan compartir reglas de asignación y así reducirse la complejidad de la administración en general. Tenga en cuenta que no se admiten las pertenencias a grupos anidadas para la asignación basada en grupo a aplicaciones en este momento.
+- **Asignación individual**: un administrador de TI con permisos de administrador global de directorios puede seleccionar cuentas de usuario individuales y concederles acceso a la aplicación.
+- **Asignación basada en grupos (solo en la versión de Azure AD de pago)**: un administrador de TI con permisos de administrador global de directorios puede asignar un grupo a la aplicación. El acceso de usuarios específicos se determina en función de si son miembros del grupo en el momento de intentar el acceso a la aplicación. En este modo, un administrador puede crear en la práctica una regla de asignación que diga "cualquier miembro actual del grupo asignado tiene acceso a la aplicación". Con esta opción de asignación, los administradores pueden beneficiarse de cualquier opción de administración de grupos de Azure AD, como grupos dinámicos basados en atributos, grupos externos del sistema (por ejemplo, AD local o Workday), administrador o grupos administrados de autoservicio. Un único grupo se puede asignar fácilmente a varias aplicaciones, lo que garantiza que las aplicaciones con afinidad de asignación puedan compartir reglas de asignación y así reducirse la complejidad de la administración en general. Tenga en cuenta que no se admiten las pertenencias a grupos anidadas para la asignación basada en grupos a aplicaciones en este momento.
 
 Con estos dos modos de asignación, los administradores pueden conseguir cualquier enfoque deseable de administración de asignaciones.
 
@@ -48,7 +48,7 @@ Con Azure AD, las aplicaciones como Salesforce se pueden configurar previamente 
     - Todos los miembros de los grupos de equipo de ventas se asignarían al rol "ventas" en Salesforce. Para afinar más, se podrían usar varios grupos que representan los equipos de ventas regionales asignados a diferentes roles de Salesforce.
 - Para habilitar el mecanismo de excepciones, se podría crear un grupo de autoservicio para cada rol. Por ejemplo, el grupo de "excepción de marketing de Salesforce" se puede crear como un grupo de autoservicio. El grupo se puede asignar al rol de marketing de Salesforce y se puede convertir en propietarios al equipo de liderazgo de marketing. Los miembros del equipo de liderazgo de marketing podrían agregar o quitar usuarios, establecer una directiva de unión o incluso aprobar o rechazar solicitudes de unión de usuarios individuales. Esto es posible mediante una experiencia adecuada del trabajador de la información en la que los propietarios o miembros no necesitan aprendizaje especializado.
 
-En este caso, todos los usuarios asignados se aprovisionarían automáticamente para Salesforce, ya que como se agregan a diferentes grupos, su asignación de roles se actualizaría en Salesforce. Los usuarios podrán detectar Salesforce y acceder a esta aplicación mediante el panel de acceso a las aplicaciones de Microsoft, los clientes web de Office, o incluso navegando a su página de inicio de sesión organizativa de Salesforce. Los administradores podrán ver fácilmente el estado de uso y asignación mediante los informes de Azure AD.
+En este caso, todos los usuarios asignados se aprovisionarían automáticamente a Salesforce, ya que como se agregan a diferentes grupos, su asignación de roles se actualizaría en Salesforce. Los usuarios podrán detectar Salesforce y acceder a esta aplicación mediante el panel de acceso a las aplicaciones de Microsoft, los clientes web de Office, o incluso navegando a su página de inicio de sesión organizativa de Salesforce. Los administradores podrán ver fácilmente el estado de uso y asignación mediante los informes de Azure AD.
 
  Los administradores pueden emplear el [acceso condicional de Azure AD](active-directory-conditional-access.md) para establecer directivas de acceso para roles específicos. Estas directivas pueden incluir si se permite el acceso fuera del entorno corporativo e incluso los requisitos de Multi-Factor Authentication o de los dispositivo para obtener acceso en diversos casos.
 
@@ -71,4 +71,4 @@ Entre las características de Azure AD que permiten el uso compartido de las cue
 - [Protección de aplicaciones con acceso condicional](active-directory-conditional-access.md)
 - [Administración de grupos de autoservicio/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

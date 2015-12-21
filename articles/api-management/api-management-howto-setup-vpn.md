@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="12/03/2015"
 	ms.author="antonba"/>
 
 # Configuración de conexiones VPN en Administración de API de Azure
@@ -22,9 +22,9 @@ La compatibilidad con VPN de Administración de API le permite conectar la puert
 
 ## <a name="enable-vpn"> </a>Habilitación de conexiones VPN
 
->La conectividad VPN solo está disponible en el nivel **Premium**. Para cambiar a ella, abra el servicio Administración de API en el [Portal de administración de][] y luego abra la pestaña **Escala**. En la sección **General** seleccione el nivel Premium y haga clic en Guardar.
+>La conectividad VPN solo está disponible en el nivel **Premium**. Para cambiar, abra el servicio Administración de API en el [Portal de Azure clásico ][] y luego abra la pestaña **Escala**. En la sección **General** seleccione el nivel Premium y haga clic en Guardar.
 
-Para habilitar la conectividad VPN, abra su servicio Administración de API en el [Portal de administración][] y cambie a la pestaña **Configurar**.
+Para habilitar la conectividad VPN, abra su servicio Administración de API en el [Portal de Azure clásico][] y cambie a la pestaña **Configurar**.
 
 En la sección VPN, cambie **Conexión VPN** a **Activar**.
 
@@ -36,7 +36,7 @@ Seleccione una VPN y la subred para cada región. La lista de VPN se rellena en 
 
 ![Selección de una VPN][api-management-setup-vpn-select]
 
-Haga clic en **Guardar** en la parte inferior de la pantalla. No podrá realizar otras operaciones en el servicio Administración de API desde el Portal de administración de Azure mientras se esté actualizando. La puerta de enlace de servicio seguirá estando disponible y las llamadas en tiempo de ejecución no se debería ver afectadas.
+Haga clic en **Guardar** en la parte inferior de la pantalla. No podrá realizar otras operaciones en el servicio Administración de API desde el Portal de Azure clásico mientras este se esté actualizando. La puerta de enlace de servicio seguirá estando disponible y las llamadas en tiempo de ejecución no se debería ver afectadas.
 
 Tenga en cuenta que la dirección VIP de la puerta de enlace cambiará cada vez que se habilite o deshabilite VPN.
 
@@ -50,8 +50,8 @@ Después de que el servicio Administración de API se conecta a la VPN, el acces
 ## <a name="related-content"> </a>Contenido relacionado
 
 
- * [Tutorial: Creación de una red virtual entre locales para una conectividad sitio a sitio][]
- * [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure][]
+* [Tutorial: Creación de una red virtual entre locales para una conectividad sitio a sitio][]
+* [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
 [api-management-setup-vpn-select]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-select.png
@@ -61,11 +61,10 @@ Después de que el servicio Administración de API se conecta a la VPN, el acces
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-[Portal de administración]: https://manage.windowsazure.com/
-[Portal de administración de]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
+[Portal de Azure clásico ]: https://manage.windowsazure.com/
 
 [Tutorial: Creación de una red virtual entre locales para una conectividad sitio a sitio]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure]: api-management-howto-api-inspector.md
- 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

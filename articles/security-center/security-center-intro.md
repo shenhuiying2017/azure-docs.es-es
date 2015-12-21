@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="stevenpo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -42,7 +42,7 @@ Centro de seguridad de Azure ofrece las capacidades de prevención, detección y
 | | Sugiere formas de detener el ataque actual y de ayudar a impedir ataques futuros |
 
 ## Tutorial de introducción
-Al Centro de seguridad de Azure se accede desde el [Portal de vista previa de Microsoft Azure](http://azure.microsoft.com/features/azure-portal/). Para acceder, [inicie sesión en el Portal de vista previa de Azure](https://ms.portal.azure.com/), seleccione **Examinar** y desplácese hasta la opción **Centro de seguridad** o seleccione el icono **Centro de seguridad** fijado anteriormente al panel del Portal de vista previa de Azure.
+Al Centro de seguridad de Azure se accede desde el [Portal de Azure](http://azure.microsoft.com/features/azure-portal/). Para acceder, [inicie sesión en el portal](https://portal.azure.com), seleccione **Examinar** y desplácese hasta la opción **Centro de seguridad** o seleccione el icono **Centro de seguridad** que anteriormente ancló al panel del portal.
 
 ![][1]
 
@@ -69,7 +69,7 @@ El Centro de seguridad de Azure analiza el estado de seguridad de los recursos d
 - Aprovisionamiento de antimalware para ayudar a identificar y eliminar el software malintencionado
 - Configuración de reglas y Grupos de seguridad de red para controlar el tráfico a las máquinas virtuales
 - Aprovisionamiento de un firewall de aplicaciones web para ayudar a defenderse contra ataques dirigidos a las aplicaciones web
-- Implementación de actualizaciones del sistema que faltan
+- Implementación de actualizaciones del sistema que faltan.
 - Resolución de las configuraciones de sistema operativo que no coinciden con las líneas de base recomendadas
 
 Haga clic en el icono **Recomendaciones** para obtener una lista de recomendaciones. Haga clic en cada recomendación para ver información adicional o para llevar a cabo acciones para resolverla.
@@ -88,7 +88,7 @@ Seleccione un tipo de recurso en el icono **Estado de recursos** para ver más i
 
 El Centro de seguridad de Azure recopila, analiza e integra automáticamente los datos de registro de los recursos de Azure, la red y soluciones de asociados como firewalls y antimalware. Cuando se detecten amenazas, se creará una alerta de seguridad. Como ejemplos se incluye la detección de:
 
-- Máquinas virtuales en peligro que se comunican con direcciones IP malintencionadas conocidas
+- Máquinas virtuales en peligro que se comunican con direcciones IP malintencionadas conocidas.
 - Malware avanzado detectado mediante la generación de informes de errores de Windows
 - Ataques por fuerza bruta contra máquinas virtuales
 - Alertas de seguridad de antimalware y firewalls integrados
@@ -104,7 +104,7 @@ Al seleccionar una alerta se muestra más información sobre el ataque y sugeren
 ## Primeros pasos
 Para empezar a trabajar con el Centro de seguridad de Azure, debe disponer de una suscripción a Microsoft Azure. Centro de seguridad de Azure se habilita con su suscripción de Azure. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial).
 
-Al Centro de seguridad de Azure se accede desde el [Portal de vista previa de Microsoft Azure](http://azure.microsoft.com/features/azure-portal/). Consulte [Documentación del Portal de vista previa de Azure](https://azure.microsoft.com/documentation/services/azure-portal/) para obtener más información.
+Al Centro de seguridad de Azure se accede desde el [Portal de Azure](http://azure.microsoft.com/features/azure-portal/). Consulte [Documentación del portal](https://azure.microsoft.com/documentation/services/azure-portal/) para más información.
 
 [Introducción al Centro de seguridad de Azure](security-center-get-started.md) rápidamente le guía a través de los componentes de administración de directivas y supervisión de seguridad del Centro de seguridad de Azure.
 
@@ -126,4 +126,4 @@ En este documento se presentó el Centro de seguridad de Azure, sus capacidades 
 [5]: ./media/security-center-intro/security-alert.png
 [6]: ./media/security-center-intro/security-alert-detail.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

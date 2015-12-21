@@ -13,22 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="12/07/2015"
 	ms.author="kenhoff;Justinha;curtand"/>
 
 
 # Visualización de los informes de acceso y uso
 
-## Artículos de documentación de informes
-
- - [API de Informes](active-directory-reporting-api-getting-started.md)
- - [Eventos de auditoría](active-directory-reporting-audit-events.md)
- - [Retención](active-directory-reporting-retention.md)
- - [Vistas previas](active-directory-reporting-previews.md)
- - [Search](active-directory-reporting-search.md)
- - [Reposición](active-directory-reporting-backfill.md)
- - [Latencias](active-directory-reporting-latencies.md)
- - [Evento "Actor desconocido"](active-directory-reporting-unknown-actor.md)
+*Esta documentación forma parte de la [guía de informes de Azure Active Directory](active-directory-reporting-guide.md).*
 
 Puede usar los informes de acceso y uso de Active Directory de Azure para proporcionar visibilidad sobre la integridad y la seguridad del directorio de su organización. Con esta información, un administrador de directorios puede determinar mejor dónde puede haber posibles riesgos de seguridad de modo que pueda planear adecuadamente la mitigación de estos riesgos.
 
@@ -108,7 +99,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 ## Informes de actividades anómalas
 <p>Los informes de actividades anómalas de inicio de sesión marcan actividades de inicio de sesión sospechosos en Office365, en el Portal de administración de Azure, el Panel de acceso de Azure AD, Sharepoint Online, Dynamics CRM Online y otros servicios en línea de Microsoft.</p>
 <p>Todos estos informes, excepto el informe "Inicios de sesión tras varios errores", también marcan inicios de sesión <i>federados</i> sospechosos en los servicios mencionados anteriormente, independientemente del proveedor de federación. </p>
-<p>Están disponibles los siguientes informes: </p><ul> <li>[Inicios de sesión de orígenes desconocidos](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Inicios de sesión tras varios errores](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Inicios de sesión desde varias ubicaciones geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Inicios de sesión desde direcciones IP con actividad sospechosa](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Actividad de inicio de sesión irregular](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Inicios de sesión desde dispositivos posiblemente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Usuarios con actividad de inicio de sesión erróneo](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Usuarios con credenciales perdidas</li></ul>
+<p>Están disponibles los siguientes informes: </p><ul> <li>[Inicios de sesión de orígenes desconocidos](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Inicios de sesión tras varios errores](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Inicios de sesión desde varias ubicaciones geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Inicios de sesión desde direcciones IP con actividad sospechosa](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Actividad de inicio de sesión irregular](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Inicios de sesión desde dispositivos posiblemente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Usuarios con actividad de inicio de sesión anómalo](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Usuarios con credenciales perdidas</li></ul>
 
 
 
@@ -238,7 +229,7 @@ Solo determinados tipos de eventos de inicio de sesión aparecerán en el inform
 | Inicios de sesión en una aplicación empresarial personalizada que se ha agregado al directorio | No (próximamente) |
 | Inicios de sesión en una aplicación de Proxy de aplicación de Azure AD que se ha agregado al directorio | No (próximamente) |
 
-> Nota: para reducir la cantidad de ruido en este informe, no se muestran los inicios de sesión del [Asistente para el inicio de sesión de Microsoft Online Services](http://community.office365.com/es-ES/w/sso/534.aspx).
+> Nota: Para reducir la cantidad de ruido en este informe, no se muestran los inicios de sesión del [Asistente para el inicio de sesión de Microsoft Online Services](http://community.office365.com/es-ES/w/sso/534.aspx).
 
 
 
@@ -272,7 +263,7 @@ Si sospecha que una cuenta de usuario puede estar en peligro o que cualquier tip
 	- Se mostrarán hasta 1000 eventos en el Portal de administración de Azure.
 5. Si corresponde, haga clic en **Descargar** para descargar el informe en un archivo comprimido en formato de valores separados por comas (CSV) para verlo sin conexión o con fines de archivo.
 	- Hasta 75000 eventos se incluirán en el archivo descargado.
-	- Para ver más datos, consulte [API de informes de Azure AD](active-directory-reporting-api-getting-started.md).
+	- Para ver más datos, consulte la [API de informes de Azure AD](active-directory-reporting-api-getting-started.md).
 
 ## Ignorar un evento
 
@@ -287,4 +278,4 @@ Para obtener más información sobre las notificaciones de informes de Azure AD,
 - [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

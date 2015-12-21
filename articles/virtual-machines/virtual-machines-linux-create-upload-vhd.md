@@ -54,6 +54,7 @@ En este artículo se supone que tiene los siguientes elementos:
 Azure admite varias distribuciones de Linux (consulte [Distribuciones aprobadas](../linux-endorsed-distributions.md)). Los artículos siguientes le guiarán a través del proceso de preparación de las distintas distribuciones de Linux admitidas en Azure:
 
 - **[Distribuciones basadas en CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
 - **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES y openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
@@ -74,7 +75,7 @@ Antes de cargar el archivo .vhd, debe establecer una conexión segura entre el e
 
 Los valores más recientes de la CLI de Azure pasan de forma predeterminada al modelo de implementación del Administrador de recursos, así que asegúrese de que esté en el modelo de implementación clásica mediante este comando:
 
-		azure change mode asm  
+		azure config mode asm  
 
 Luego, use uno de los siguientes métodos de inicio de sesión para conectarse a su suscripción de Azure.
 
@@ -88,7 +89,7 @@ Use el método de Azure AD para iniciar sesión:
 
 	Cuando se le pida, escriba su nombre de usuario y su contraseña.
 
-**O**, use un archivo PublishSettings en su lugar:
+**O bien**, use en su lugar un archivo PublishSettings:
 
 1. Abra una ventana de la CLI de Azure
 
@@ -106,7 +107,7 @@ Use el método de Azure AD para iniciar sesión:
 
 	Donde `<PathToFile>` es la ruta completa al archivo .publishsettings.
 
-	Para obtener más información, consulte [Conectar a Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-connect.md).
+	Para más información, consulte [Conexión a Azure desde la CLI de Azure](../xplat-cli-connect.md).
 
 
 ### Si usa Azure PowerShell
@@ -121,7 +122,7 @@ Use el método de Azure AD para iniciar sesión:
 
 	Cuando se le solicite, escriba su Id. de usuario de organización y la contraseña.
 
-**O**, use los archivos PublishSettings en su lugar:
+**O bien**, use en su lugar los archivos PublishSettings:
 
 1. Abra una ventana de Azure PowerShell.
 
@@ -164,11 +165,11 @@ Desde la ventana de Azure PowerShell que ha usado en el paso anterior, escriba:
 
 Para obtener más información, consulte [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
-> [AZURE.NOTE]La [versión de vista previa de Azure Powershell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/) cambia considerablemente el modo de gestionar los cmdlets del modelo de implementación clásico y del Administrador de recursos. En este artículo todavía no se usa la versión de vista previa.
+> [AZURE.NOTE]La [versión de vista previa de Azure Powershell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/) cambia considerablemente el modo de gestionar los cmdlets del modelo de implementación clásica y del Administrador de recursos. En este artículo todavía no se usa la versión de vista previa.
 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

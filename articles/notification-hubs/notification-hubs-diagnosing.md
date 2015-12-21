@@ -24,13 +24,13 @@ Una de las preguntas más comunes que escucharemos de los clientes de los Centro
 
 En primer lugar, es vital comprender el modo en que los Centros de notificaciones de Azure insertan las notificaciones en los dispositivos. ![][0]
 
-En un flujo típico de envío de notificaciones, el mensaje se envía desde el **back-end de la aplicación** al **Centro de notificaciones de Azure (NH)**, el cual, a su vez, lleva a cabo algún tipo de procesamiento en todos los registros teniendo en cuenta las etiquetas y expresiones de etiqueta para determinar los "destinos", es decir, todos los registros que deben recibir la notificación de inserción. Estos registros se pueden distribuir en cualquiera de nuestras plataformas compatibles o en todas ellas: iOS, Google, Windows, Windows Phone, Kindle y Baidu para Android de China. Una vez que se establecen los destinos, el centro de notificaciones inserta las notificaciones, divididas entre varios lotes de registros, en el **Servicio de notificaciones de inserción (PNS)** específico de la plataforma del dispositivo, por ejemplo, APNS para Apple, GCM para Google, etc. NH se autentica con el PNS respectivo basándose en las credenciales definidas en el Portal de Azure en la página Configurar centro de notificaciones. Luego, el PNS reenvía las notificaciones a los **dispositivos cliente** respectivos. Esta es la manera recomendada por la plataforma de entregar las notificaciones de inserción y, tenga en cuenta, que el tramo final de la entrega de notificaciones tiene lugar entre el PNS de la plataforma y el dispositivo. Por lo tanto, hay cuatro componentes principales: *cliente*, *back-end de la aplicación*, *Centros de notificaciones de Azure (NH)* y *servicios de notificación de inserción (PNS)*, y cualquiera de ellos puede provocar que se eliminen las notificaciones. Se puede encontrar más información sobre esta arquitectura en [Información general acerca de los Centros de notificaciones].
+En un flujo típico de envío de notificaciones, el mensaje se envía desde el **back-end de la aplicación** al **Centro de notificaciones de Azure (NH)**, el cual, a su vez, lleva a cabo algún tipo de procesamiento en todos los registros teniendo en cuenta las etiquetas y expresiones de etiqueta para determinar los "destinos", es decir, todos los registros que deben recibir la notificación de inserción. Estos registros se pueden distribuir en cualquiera de nuestras plataformas compatibles o en todas ellas: iOS, Google, Windows, Windows Phone, Kindle y Baidu para Android de China. Una vez que se establecen los destinos, el centro de notificaciones inserta las notificaciones, divididas entre varios lotes de registros, en el **Servicio de notificaciones de inserción (PNS)** específico de la plataforma del dispositivo, por ejemplo, APNS para Apple, GCM para Google, etc. NH se autentica con el PNS respectivo según las credenciales definidas en el Portal de Azure clásico en la página Configurar centro de notificaciones. Luego, el PNS reenvía las notificaciones a los **dispositivos cliente** respectivos. Esta es la manera recomendada por la plataforma de entregar las notificaciones de inserción y, tenga en cuenta, que el tramo final de la entrega de notificaciones tiene lugar entre el PNS de la plataforma y el dispositivo. Por lo tanto, hay cuatro componentes principales: *cliente*, *back-end de la aplicación*, *Centros de notificaciones de Azure (NH)* y *servicios de notificación de inserción (PNS)*, y cualquiera de ellos puede provocar que se eliminen las notificaciones. Se puede encontrar más información sobre esta arquitectura en [Información general acerca de los Centros de notificaciones].
 
 La no entrega de las notificaciones puede tener lugar durante la fase inicial de prueba/ensayo, lo que podría indicar un problema de configuración, o se puede producir en producción, cuando todas o algunas notificaciones se pierden, lo que puede indicar un problema más serio con la aplicación o con el patrón de mensajería. En la siguiente sección, examinaremos diversos escenarios de pérdida de notificaciones, desde el más común al más raro. Algunos los encontrará obvios y otros no tanto.
 
 ##Error de configuración del Centro de notificaciones de Azure 
 
-Los Centros de notificaciones de Azure deben autenticarse a sí mismos en el contexto de la aplicación del desarrollador para poder enviar notificaciones correctamente a los PNS respectivos. Esto es posible gracias al desarrollador, que crea una cuenta de desarrollador con la plataforma respectiva (Google, Apple, Windows, etc.) y luego registra su aplicación donde obtiene las credenciales que es necesario configurar en el portal de Azure en la sección de configuración de los Centros de notificaciones. Si no se logra entregar ninguna notificación, el primer paso debe ser asegurarse de que se han configurado las credenciales correctas en el Centro de notificaciones y que coinciden con las de la aplicación creada con su cuenta de desarrollador específica de la plataforma. Encontrará útiles nuestros [tutoriales introductorios] para recorrer este proceso paso a paso. A continuación se indican algunos errores de configuración comunes:
+Los Centros de notificaciones de Azure deben autenticarse a sí mismos en el contexto de la aplicación del desarrollador para poder enviar notificaciones correctamente a los PNS respectivos. Esto es posible gracias al desarrollador, que crea una cuenta de desarrollador con la plataforma respectiva (Google, Apple, Windows, etc.) y luego registra su aplicación donde obtiene las credenciales que es necesario configurar en el portal en la sección de configuración de los Centros de notificaciones. Si no se logra entregar ninguna notificación, el primer paso debe ser asegurarse de que se han configurado las credenciales correctas en el Centro de notificaciones y que coinciden con las de la aplicación creada con su cuenta de desarrollador específica de la plataforma. Encontrará útiles nuestros [tutoriales introductorios] para recorrer este proceso paso a paso. A continuación se indican algunos errores de configuración comunes:
 
 1. **General**
  
@@ -97,7 +97,7 @@ A continuación, examinaremos las diversas formas de diagnosticar y encontrar la
 
 	Compruébelas en el portal para desarrolladores del PNS respectivo (APNS, GCM, WNS, etc.) mediante [nuestros tutoriales introductorios].
 
-2. **Portal de administración de Azure**
+2. **Portal de Azure clásico**
 
 	Vaya a la pestaña Configurar para revisar y comprobar que las credenciales coinciden con las obtenidas en el portal para desarrolladores del PNS.
 
@@ -123,7 +123,7 @@ A continuación, examinaremos las diversas formas de diagnosticar y encontrar la
 
 ###Comprobar las notificaciones de mensajes
 
-1. **Portal de Azure**
+1. **Portal de Azure clásico**
 
 	Puede ir a la pestaña "Depurar" para enviar notificaciones de prueba a sus clientes sin necesidad de que ningún back-end de servicios esté funcionando.
 
@@ -183,9 +183,9 @@ Este mensaje indica que se han configurado credenciales no válidas en el centro
 
 ###Revisar la telemetría 
 
-1. **Usar el portal de Azure**
+1. **Uso del Portal de Azure clásico**
 
-	El portal de Azure le permite obtener una visión general rápida de toda la actividad que tiene lugar en el Centro de notificaciones.
+	El portal le permite obtener una visión general rápida de toda la actividad que tiene lugar en el centro de notificaciones.
 	
 	a) Desde la pestaña "Panel", puede tener una vista agregada de registros, notificaciones y errores por plataforma.
 	
@@ -206,7 +206,7 @@ Más detalles aquí:
 - [Acceso de telemetría mediante programación]
 - [Ejemplo de acceso de telemetría mediante API] 
 
-> [AZURE.NOTE]Varias características relacionadas con la telemetría, como **exportación o importación de registros**, **acceso a telemetría a través de API**, etc., están solamente disponibles en el nivel Estándar. Si intenta usar estas características en el nivel Gratuito o Básico, recibirá un mensaje de excepción al respecto mientras usa el SDK y un error HTTP 403 (Prohibido) cuando las usa directamente desde las API de REST. Asegúrese de que ha pasado al nivel Estándar a través del Portal de administración de Azure.
+> [AZURE.NOTE]Varias características relacionadas con la telemetría, como **exportación o importación de registros**, **acceso a telemetría a través de API**, etc., están solamente disponibles en el nivel Estándar. Si intenta usar estas características en el nivel Gratuito o Básico, recibirá un mensaje de excepción al respecto mientras usa el SDK y un error HTTP 403 (Prohibido) cuando las usa directamente desde las API de REST. Asegúrese de que ha pasado al nivel Estándar a través del Portal de Azure clásico.
 
 <!-- IMAGES -->
 [0]: ./media/notification-hubs-diagnosing/Architecture.png
@@ -240,4 +240,4 @@ Más detalles aquí:
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

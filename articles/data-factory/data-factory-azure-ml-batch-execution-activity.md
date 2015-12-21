@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="12/06/2015" 
 	ms.author="spelluru"/>
 
 # Creación de canalizaciones predictivas con las actividades de Aprendizaje automático de Azure   
@@ -624,4 +624,4 @@ Si quiere seguir usando la actividad AzureMLBatchScoring, consulte el artículo 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

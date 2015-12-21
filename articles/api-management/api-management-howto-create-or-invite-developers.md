@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Administración de cuentas de usuario en Administración de API de Azure
@@ -22,7 +22,7 @@ En Administración de API, los desarrolladores son los usuarios de las API que s
 
 ## <a name="create-developer"> </a>Creación de un desarrollador
 
-Para crear un desarrollador, haga clic en **Administrar** en el Portal de Azure para su servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API. Si todavía no ha creado una instancia del servicio Administración de API, consulte [Creación de una instancia del servicio de Administración de API][] en el tutorial [Introducción a la Administración de API de Azure][].
+Para crear un desarrollador, haga clic en **Administrar** en el Portal de Azure clásico para su servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API. Si todavía no ha creado una instancia del servicio Administración de API, consulte [Creación de una instancia del servicio de Administración de API][] en el tutorial [Introducción a la Administración de API de Azure][].
 
 ![Portal del publicador][api-management-management-console]
 
@@ -91,4 +91,4 @@ Una vez creada una cuenta de desarrollador, se puede asociar a roles y suscribir
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
 [Configuración de plantillas de correo electrónico]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

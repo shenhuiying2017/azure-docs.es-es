@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="Definición de salidas | Microsoft Azure" 
-	description="Descripción de salidas de Análisis de transmisiones" 
-	keywords="análisis de macrodatos,servicio en la nube,internet de las cosas,servicio administrado, procesamiento de transmisiones,streaming de datos"
-	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
+<properties
+	pageTitle="Salidas de transformación de datos: Opciones de almacenamiento y análisis | Microsoft Azure"
+	description="Obtenga información sobre salidas de transformación de datos de Análisis de transmisiones de destino para opciones de almacenamiento de datos Además, puede usar Power BI para los resultados del análisis."
+	keywords="transformación de datos, resultados del análisis, opciones de almacenamiento de datos"
+	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="12/01/2015" 
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="12/01/2015"
 	ms.author="jeffstok"/>
 
-# Descripción de salidas de Análisis de transmisiones
+# Salidas de transformación de datos de Análisis de transmisiones de destino para herramientas de análisis y opciones de almacenamiento de datos
 
-Al crear un trabajo de Análisis de transmisiones, una de las consideraciones es cómo se consumirá la salida del trabajo. ¿Cómo visualizan los consumidores de la transformación de datos los resultados del trabajo Análisis de transmisiones? ¿Qué herramientas van a usar para analizar la salida? ¿El almacenamiento o retención de datos es un requisito?
+Al crear un trabajo de Análisis de transmisiones, tenga en cuenta cómo se consumirá la salida del trabajo. ¿Cómo se van a ver los resultados del trabajo de Análisis de transmisiones? ¿Qué herramientas se usan para mostrar los resultados del análisis de datos? ¿Es una opción de almacenamiento de datos un requisito?
 
-Para habilitar una variedad de patrones de aplicación, Análisis de transmisiones de Azure proporciona métodos diferentes para almacenar y ver los resultados del trabajo. Esto proporciona facilidad de visualización de la salida del trabajo y flexibilidad en el consumo y almacenamiento de la salida del trabajo para el almacenamiento de datos y otros fines. Todos los elementos de salida que se configuren en el trabajo deben existir antes de que se inicie el trabajo y los eventos empiecen a fluir. Por ejemplo, si usa el almacenamiento de blobs como salida, el trabajo no creará una cuenta de almacenamiento automáticamente. Debe crearla el usuario antes de que se inicie el trabajo ASA.
+Para habilitar diversos patrones de aplicación, Análisis de transmisiones de Azure ofrece distintas opciones para el almacenamiento y la visualización de los resultados del trabajo. Esto facilita la visualización de la salida del trabajo y proporciona flexibilidad en el consumo y almacenamiento de la salida del trabajo para el almacenamiento de datos y otros fines. Todos los elementos de salida que se configuren en el trabajo deben existir antes de que se inicie el trabajo y los eventos empiecen a fluir. Por ejemplo, si usa el almacenamiento de blobs como salida, el trabajo no creará una cuenta de almacenamiento automáticamente. Debe crearla el usuario antes de que se inicie el trabajo ASA.
 
 
 ## Base de datos SQL ##
@@ -116,13 +116,13 @@ Hay unos cuantos parámetros que son necesarios para configurar los flujos de da
 | Formato | Solo se aplica para el tipo JSON. Separado por líneas especifica que la salida se formateará de tal forma que cada objeto JSON esté separado por una línea nueva. Matriz especifica que la salida se formateará como una matriz de objetos JSON. |
 ## Power BI
 
-[Power BI](https://powerbi.microsoft.com/) puede usarse como salida para un trabajo de Análisis de transmisiones para proporcionar una experiencia de visualización enriquecida para usuarios de Análisis de transmisiones. Esta capacidad puede utilizarse para paneles operacionales, generación de informes e informes basados en métricas.
+Puede usarse [Power BI](https://powerbi.microsoft.com/) como salida para un trabajo de Análisis de transmisiones a fin de ofrecer una amplia experiencia de visualización de los resultados del análisis. Esta capacidad puede usarse con paneles operativos, generación de informes e informes basados en métricas.
 
-> [AZURE.NOTE]En este momento, la creación y configuración de salidas de Power BI no se admite en el Portal de Azure.
+> [AZURE.NOTE]En este momento, la creación y configuración de salidas de Power BI no se admite en el Portal de vista previa de Azure.
 
 ### Autorización de una cuenta de Power BI
 
-1.	Cuando se selecciona Power BI como salida en el Portal de Azure clásico, se le pedirá que autorice a un usuario de Power BI existente o que cree una nueva cuenta de Power BI.  
+1.	Cuando se selecciona Power BI como salida en el Portal de administración de Azure, se le pedirá que autorice a un usuario de Power BI existente o que cree una nueva cuenta de Power BI.  
 
     ![Autorización de un usuario de Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
 
@@ -267,4 +267,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

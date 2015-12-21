@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="12/08/2015" 
 	ms.author="stefsch"/>
 
 # Cómo controlar el tráfico de entrada a un entorno del Servicio de aplicaciones
 
 ## Información general ##
 Siempre se crea un entorno del Servicio de aplicaciones en una subred de una [red virtual][virtualnetwork] "v1" regional clásica. Una nueva red virtual "v1" regional clásica y una nueva subred pueden definirse en el momento en que se crea un entorno del Servicio de aplicaciones. También puede crearse un entorno del Servicio de aplicaciones en una red virtual regional clásica "v1" y una subred preexistentes. Para obtener más detalles sobre la creación de un entorno del Servicio de aplicaciones, consulte [Creación de un entorno del Servicio de aplicaciones][HowToCreateAnAppServiceEnvironment].
+
+**Nota:** No se puede crear un Entorno del Servicio de aplicaciones en una red virtual "v2" administrada por ARM.
 
 Siempre debe crearse un entorno del Servicio de aplicaciones dentro de una subred al proporcionar esta un límite de red que puede utilizarse para bloquear el tráfico entrante tras dispositivos y servicios ascendentes de forma que solo se acepta el tráfico HTTP y HTTPS de determinadas direcciones IP ascendentes.
 
@@ -39,22 +41,33 @@ A continuación se muestra una lista de puertos utilizados por un entorno del Se
 - 80: puerto predeterminado para el tráfico HTTP entrante a aplicaciones que se ejecutan en planes del Servicio de aplicaciones en un entorno del Servicio de aplicaciones
 - 443: puerto predeterminado para el tráfico SSL entrante a aplicaciones que se ejecutan en planes del Servicio de aplicaciones en un entorno del Servicio de aplicaciones
 - 21: canal de control para FTP. Este puerto se puede bloquear de forma segura si no se utiliza FTP.
-- 10001-10020: canales de datos para FTP. Al igual que ocurre con el canal de control, estos puertos se pueden bloquear de forma segura si no se utiliza FTP (**Nota:** los canales de datos FTP pueden cambiar durante la vista previa).
+- 10001-10020: canales de datos para FTP. Al igual que ocurre con el canal de control, estos puertos se pueden bloquear de forma segura si no se utiliza FTP (**Nota:** Los canales de datos FTP pueden cambiar durante la vista previa).
 - 4016: usado para la depuración remota con Visual Studio 2012. Este puerto se puede bloquear de forma segura si no se utiliza la característica.
 - 4018: usado para la depuración remota con Visual Studio 2013. Este puerto se puede bloquear de forma segura si no se utiliza la característica.
 - 4020: usado para la depuración remota con Visual Studio 2015. Este puerto se puede bloquear de forma segura si no se utiliza la característica.
 
 ## Requisitos de DNS y conectividad saliente ##
-Tenga en cuenta que, para que un entorno del Servicio de aplicaciones funcione correctamente, también necesita acceso de salida al Almacenamiento de Azure en todo el mundo, así como a la base de datos SQL en la misma región de Azure. Si se bloquea el acceso de salida a Internet en la red virtual, los entornos del Servicio de aplicaciones no podrán tener acceso a estos extremos de Azure.
+Para que un Entorno del Servicio de aplicaciones funcione correctamente, necesita acceso de salida al Almacenamiento de Azure en todo el mundo, así como a la Base de datos SQL en la misma región de Azure. Si se bloquea el acceso de salida a Internet en la red virtual, los entornos del Servicio de aplicaciones no podrán tener acceso a estos extremos de Azure.
 
-El cliente también puede tener los servidores DNS personalizados configurados en la red virtual. Los entornos del Servicio de aplicaciones necesitan poder resolver los extremos de Azure en *.database.windows.net, *.file.core.windows.net y *.blob.core.windows.net.
+Los Entornos del Servicio de aplicaciones también requieren una infraestructura DNS válida configurada para la red virtual. Si por algún motivo se cambia la configuración de DNS después de haber creado un entorno del Servicio de aplicaciones, los desarrolladores pueden forzar a un entorno del Servicio de aplicaciones para recoger la nueva configuración de DNS. Si se desencadena un reinicio gradual del entorno mediante el icono "Reiniciar" ubicado en la parte superior de la hoja de administración del Entorno del Servicio de aplicaciones en el [nuevo Portal de administración][NewPortal], el entorno recogerá la nueva configuración de DNS.
+
+La siguiente lista detalla los requisitos de conectividad y DNS para un Entorno del Servicio de aplicaciones:
+
+-  Conectividad de red saliente a los puntos de conexión de Almacenamiento de Azure en todo el mundo. Esto incluye los puntos de conexión situados en la misma región que el Entorno del Servicio de aplicaciones, así como los puntos de conexión de almacenamiento ubicados en **otras** regiones de Azure. Los puntos de conexión de Almacenamiento de Azure se resuelven en los dominios DNS siguientes: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* y *file.core.windows.net*.  
+-  Conectividad de red saliente a los puntos de conexión de Base de datos SQL ubicados en la misma región que el entorno del Servicio de aplicaciones. Los puntos de conexión de la Base de datos SQL se resuelven el dominio siguiente: *database.windows.net*.
+-  Conectividad de la red saliente a los puntos de conexión del plano de administración de Azure (puntos de conexión ASM y ARM). Incluye conectividad saliente tanto a *management.core.windows.net* como a *management.azure.com*. 
+-  Conectividad de red saliente a *ocsp.msocsp.com*. Es necesario para admitir la funcionalidad SSL.
+-  La configuración de DNS para la red virtual debe ser capaz de resolver todos los puntos de conexión y dominios mencionados en los puntos anteriores. Si estos puntos de conexión no se pueden resolver, se producirá un error en los intentos de creación del entorno del Servicio de aplicaciones y los entornos del Servicio de aplicaciones existentes se marcarán como incorrectos.
+-  Si existe un servidor DNS personalizado en el otro punto de conexión de una puerta de enlace de VPN, el servidor DNS debe estar accesible desde la subred que contiene el entorno de Servicio de aplicaciones. 
+-  La ruta de acceso de la red saliente no puede atravesar los servidores proxy corporativos internos, ni puede forzar la tunelización a local. Si lo hace, se cambiará la dirección NAT en vigor del tráfico de red saliente del entorno del Servicio de aplicaciones. Al cambiar la dirección NAT del tráfico de red de salida de un entorno del Servicio de aplicaciones causará errores de conectividad a muchos de los puntos de conexión enumerados anteriormente. Lo que da como resultado un error al intentar la creación del entorno del Servicio de aplicaciones, y además, los entornos del Servicio de aplicaciones previamente correctos estarán marcados como incorrectos.  
+-  El acceso de red entrante a los puertos necesarios para los Entornos del Servicio de aplicaciones debe estar permitido, como se describe en este [artículo](app-service-app-service-environment-control-inbound-traffic.md).
 
 También se recomienda configurar de antemano los servidores DNS personalizados de la red virtual antes de crear un entorno del Servicio de aplicaciones. Si se cambia la configuración de DNS de una red virtual al crear un entorno del Servicio de aplicaciones, se generará un error en el proceso de creación de dicho entorno. De manera similar, si existe un servidor DNS personalizado en el otro extremo de una puerta de enlace de VPN y el servidor DNS es inaccesible o no está disponible, el proceso de creación del entorno de servicio de aplicaciones también producirá un error.
 
 ## Creación de un grupo de seguridad de red ##
 Para obtener los detalles completos de cómo funcionan los grupos de seguridad de red, consulte la siguiente [información][NetworkSecurityGroups]. Los detalles siguientes hacen referencia a los puntos destacados de los grupos de seguridad de red, centrándose en la configuración y aplicación de un grupo de seguridad de red a una subred que contiene un entorno del Servicio de aplicaciones.
 
-**Nota:** solo se puede configurar grupos de seguridad de red con los cmdlets de Powershell descritos a continuación. Los grupos de seguridad de red no se pueden configurarse gráficamente mediante el [Portal de Azure](portal.azure.com), porque el Portal de Azure solo permite la configuración gráfica de grupos de seguridad de red asociados a las redes virtuales "v2". Sin embargo, los entornos de servicio de aplicaciones solo funcionan actualmente con las redes virtuales clásicas "v1". Como resultado, solo se pueden utilizar los cmdlets de Powershell para configurar los grupos de seguridad de red asociados a las redes virtuales "v1".
+**Nota:** Solo se pueden configurar grupos de seguridad de red con los cmdlets de Powershell descritos a continuación. Los grupos de seguridad de red no se pueden configurar gráficamente mediante el [Portal de Azure](portal.azure.com) porque este solo permite la configuración gráfica de grupos de seguridad de red asociados a las redes virtuales "v2". Sin embargo, los entornos de servicio de aplicaciones solo funcionan actualmente con las redes virtuales clásicas "v1". Como resultado, solo se pueden utilizar los cmdlets de Powershell para configurar los grupos de seguridad de red asociados a las redes virtuales "v1".
 
 Los grupos de seguridad de red se crean por primera vez como una entidad independiente asociada a una suscripción. Puesto que los grupos de seguridad de red se crean en una región de Azure, asegúrese de que el grupo de seguridad de red se crea en la misma región que el entorno del Servicio de aplicaciones.
 
@@ -82,7 +95,7 @@ Si se desea compatibilidad con FTP, las reglas siguientes pueden utilizarse como
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 
-(**Nota:** el intervalo de puertos del canal de datos puede cambiar durante el período de vista previa).
+(**Nota:** El intervalo de puertos del canal de datos puede cambiar durante el período de vista previa).
 
 Si se usa la depuración remota con Visual Studio, las reglas siguientes muestran cómo conceder acceso. Puesto que cada versión usa un puerto diferente para la depuración remota, hay una regla distinta para cada versión compatible de Visual Studio. Al igual que ocurre con el acceso FTP, es posible que el tráfico de depuración remoto no fluya correctamente a través de un dispositivo de proxy o WAF tradicional. En su lugar, *SourceAddressPrefix* se puede establecer en el intervalo de direcciones IP de los equipos del desarrollador que ejecutan Visual Studio.
 
@@ -131,7 +144,8 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [IntroToAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [SecurelyConnecttoBackend]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-securely-connecting-to-backend-resources/
+[NewPortal]: https://portal.azure.com
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

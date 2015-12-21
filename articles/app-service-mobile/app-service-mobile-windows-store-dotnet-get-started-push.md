@@ -55,10 +55,103 @@ Para poder enviar notificaciones push a las aplicaciones Windows desde Azure, de
 
 ##<a id="update-service"></a>Actualización del servidor para enviar notificaciones de inserción
 
-Tras habilitar las notificaciones push en la aplicación, debe actualizar el back-end de la aplicación para enviarlas.
+Tras habilitar las notificaciones push en la aplicación, debe actualizar el back-end de la aplicación para enviarlas. Use el procedimiento a continuación que corresponda al tipo de proyecto de back-end: [back-end de .NET](#dotnet) o [back-end de Node.js](#nodejs).
 
-[AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
+### <a name="dotnet"></a>Proyecto de back-end de .NET
 
+1. En Visual Studio, haga clic con el botón derecho en el proyecto de servidor, haga clic en **Administrar paquetes de NuGet**, busque Microsoft.Azure.NotificationHubs y después haga clic en **Instalar**. Esto instala la biblioteca de cliente de Centros de notificaciones.
+
+2. Expanda **Controladores**, abra TodoItemController.cs y agregue las siguientes instrucciones using:
+
+		using System.Collections.Generic;
+		using Microsoft.Azure.NotificationHubs;
+		using Microsoft.Azure.Mobile.Server.Config;
+
+3. En el método **PostTodoItem**, agregue el código siguiente después de la llamada a **InsertAsync**:
+
+	    // Get the settings for the server project.
+	    HttpConfiguration config = this.Configuration;
+	    MobileAppSettingsDictionary settings =
+	        this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+	
+	    // Get the Notification Hubs credentials for the Mobile App.
+	    string notificationHubName = settings.NotificationHubName;
+	    string notificationHubConnection = settings
+	        .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
+	
+	    // Create the notification hub client.
+	    NotificationHubClient hub = NotificationHubClient
+	        .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
+	
+	    // Define a WNS payload
+	    var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">"
+	                            + item.Text + @"</text></binding></visual></toast>";
+	    try
+	    {
+	        // Send the push notification.
+	        var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
+	
+	        // Write the success result to the logs.
+	        config.Services.GetTraceWriter().Info(result.State.ToString());
+	    }
+	    catch (System.Exception ex)
+	    {
+	        // Write the failure result to the logs.
+	        config.Services.GetTraceWriter()
+	            .Error(ex.Message, null, "Push.SendAsync Error");
+	    }
+	
+	Este código indica al centro de notificaciones que envíe una notificación push después de la inserción de un elemento nuevo.
+
+### <a name="nodejs"></a>Proyecto de back-end de Node.js
+
+1. Si no lo ha hecho todavía, [descargue el proyecto de inicio rápido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) o utilice el [editor en línea del Portal de Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+
+2. Reemplace el código existente en el archivo todoitem.js por lo siguiente:
+
+		var azureMobileApps = require('azure-mobile-apps'),
+	    promises = require('azure-mobile-apps/src/utilities/promises'),
+	    logger = require('azure-mobile-apps/src/logger');
+	
+		var table = azureMobileApps.table();
+		
+		table.insert(function (context) {
+	    // For more information about the Notification Hubs JavaScript SDK,  
+	    // see http://aka.ms/nodejshubs
+	    logger.info('Running TodoItem.insert');
+	    
+	    // Define the WNS payload that contains the new item Text.
+	    var payload = "<toast><visual><binding template=\ToastText01><text id="1">"
+		                            + context.item.text + "</text></binding></visual></toast>";
+	    
+	    // Execute the insert.  The insert returns the results as a Promise,
+	    // Do the push as a post-execute action within the promise flow.
+	    return context.execute()
+	        .then(function (results) {
+	            // Only do the push if configured
+	            if (context.push) {
+					// Send a WNS native toast notification.
+	                context.push.wns.sendToast(null, payload, function (error) {
+	                    if (error) {
+	                        logger.error('Error while sending push notification: ', error);
+	                    } else {
+	                        logger.info('Push notification sent successfully!');
+	                    }
+	                });
+	            }
+	            // Don't forget to return the results from the context.execute()
+	            return results;
+	        })
+	        .catch(function (error) {
+	            logger.error('Error while running context.execute: ', error);
+	        });
+		});
+
+		module.exports = table;  
+
+	Esta acción envía una notificación del sistema de WNS que contiene el item.text cuando se inserta un nuevo elemento todo.
+
+2. Cuando edite el archivo en el equipo local, vuelva a publicar el proyecto de servidor.
 
 ## <a name="publish-the-service"></a>Publicación del back-end móvil en Azure
 
@@ -75,15 +168,17 @@ Tras habilitar las notificaciones push en la aplicación, debe actualizar el bac
     
         private async Task InitNotificationsAsync()
         {
+            // Get a channel URI from WNS.
             var channel = await PushNotificationChannelManager
                 .CreatePushNotificationChannelForApplicationAsync();
 
-            await MobileService.GetPush().RegisterAsync(channel.Uri);
+            // Register the channel URI with Notification Hubs.
+            await App.MobileService.GetPush().RegisterAsync(channel.Uri);
         }
     
     Este código recupera el valor de ChannelURI de la aplicación desde WNS y, a continuación, lo registra con sus Aplicaciones móviles del Servicio de aplicaciones.
     
-3. En la parte superior del controlador de eventos **OnLaunched**, en **App.xaml.cs**, agregue el modificador **async** a la definición del método y la siguiente llamada al nuevo método **InitNotificationsAsync**, como en el siguiente ejemplo:
+3. En la parte superior del controlador de eventos **OnLaunched**, en **App.xaml.cs**, agregue el modificador **async** a la definición del método y agregue la siguiente llamada al nuevo método **InitNotificationsAsync**, como en el siguiente ejemplo:
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -106,14 +201,11 @@ La carpeta ahora ya está lista para recibir notificaciones.
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
-##Pasos siguientes
-
-Por último, el tutorial [Enviar notificaciones entre plataformas a un usuario específico](app-service-mobile-windows-store-dotnet-push-notifications-to-users.md) le mostrará cómo enviar una notificación push a todos los registros de dispositivos que pertenecen a un usuario autenticado concreto, en cualquier plataforma de dispositivo.
 
 ##<a id="more"></a>Más
 
-* Las plantillas proporcionan flexibilidad para enviar inserciones multiplataforma e inserciones localizadas. [Uso del cliente administrado para Aplicaciones móviles de Azure](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications) muestra cómo registrar plantillas.
-* Las etiquetas permiten dirigirse a clientes segmentados con inserciones. [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) muestra cómo agregar etiquetas a la instalación de un dispositivo.
+* Las plantillas proporcionan flexibilidad para enviar inserciones multiplataforma e inserciones localizadas. El artículo [Uso del cliente administrado para Aplicaciones móviles de Azure](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications) muestra cómo registrar plantillas.
+* Las etiquetas permiten dirigirse a clientes segmentados con inserciones. El articulo [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) muestra cómo agregar etiquetas a la instalación de un dispositivo.
 
 <!-- Anchors. -->
 
@@ -122,4 +214,4 @@ Por último, el tutorial [Enviar notificaciones entre plataformas a un usuario e
 
 <!-- Images. -->
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015--->

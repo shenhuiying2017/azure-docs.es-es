@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 #¿Qué es Administración de API?
@@ -88,7 +88,7 @@ Para obtener una lista completa de las directivas de Administración de API, con
 
 ## <a name="developer-portal"> </a> Portal para desarrolladores
 
-El portal para desarrolladores es el lugar en el que los desarrolladores pueden aprender acerca de sus API, ver operaciones y llamarlas y suscribirse a productos. Los clientes potenciales pueden visitar el portal para desarrolladores, ver API y operaciones y suscribirse. La dirección URL del portal para desarrolladores se encuentra en el panel del Portal de Azure para su instancia del servicio Administración de API.
+El portal para desarrolladores es el lugar en el que los desarrolladores pueden aprender acerca de sus API, ver operaciones y llamarlas y suscribirse a productos. Los clientes potenciales pueden visitar el portal para desarrolladores, ver API y operaciones y suscribirse. La dirección URL del portal para desarrolladores se encuentra en el panel del Portal de Azure clásico para su instancia del servicio Administración de API.
 
 Puede personalizar el aspecto y apariencia del portal para desarrolladores agregando contenido personalizado, personalizando estilos e incorporando su toque diferenciador.
 
@@ -114,4 +114,4 @@ Puede personalizar el aspecto y apariencia del portal para desarrolladores agreg
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

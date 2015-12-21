@@ -123,7 +123,7 @@ Para facilitar una experiencia perfecta y unificadora en servicios de Azure, [Ap
 Los desarrolladores de aplicaciones móviles pueden usar centros de notificaciones con el siguiente flujo de trabajo:
 
 1. Recuperar controlador PNS de dispositivo
-2. Registrar el dispositivo y las [plantillas] con los centros de notificaciones a través de la API adecuada del registro del SDK de cliente de aplicaciones móviles
+2. Registrar el dispositivo y las [plantillas] en los Centros de notificaciones a través de la API adecuada de registro del SDK de cliente de Aplicaciones móviles
     + Tenga en cuenta que las aplicaciones móviles eliminan todas las etiquetas en los registros por motivos de seguridad. Trabaje con centros de notificaciones desde su back-end directamente para asociar etiquetas a dispositivos.
 3. Enviar notificaciones desde su back-end de aplicación con los centros de notificaciones
 
@@ -161,8 +161,8 @@ Las referencias pertinentes para la API administrada de .NET referidas a las not
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
   [Aplicaciones móviles del Servicio de aplicaciones]: https://azure.microsoft.com/es-ES/documentation/articles/app-service-mobile-value-prop/
-  [plantillas]: https://msdn.microsoft.com/es-ES/library/azure/dn530748.aspx
+  [plantillas]: https://msdn.microsoft.com/library/azure/dn530748.aspx
   [portal de Azure]: https://portal.azure.com
   [etiquetas]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

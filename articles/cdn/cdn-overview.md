@@ -20,7 +20,7 @@
 
 La Red de entrega de contenido (CDN) de Azure almacena en caché blobs de Azure y contenido estático usado por servicios en la nube en ubicaciones colocadas estratégicamente para proporcionar el ancho de banda máximo para entregar contenido a los usuarios.
 
-Si es un cliente de red CDN existente, ahora puede administrar sus extremos de red CDN a través del [Portal de administración de Microsoft Azure](https://portal.azure.com).
+Si es un cliente de red de entrega de contenido existente, ahora puede administrar sus puntos de conexión de red de entrega de contenido a través del [Portal de Microsoft Azure](https://portal.azure.com).
 
 
 CDN ofrece a los desarrolladores una solución global para entregar contenido de alto ancho de banda almacenando en caché el contenido en nodos físicos en todo el mundo. Para obtener una lista actualizada de las ubicaciones de nodos de la red CDN, consulte [Ubicaciones POP de la Red de entrega de contenido (CDN) de Azure](cdn-pop-locations.md).
@@ -48,15 +48,15 @@ El nivel de red CDN estándar incluye las siguientes funciones:
 - [Compatibilidad con HTTPS](cdn-how-to-use-cdn.md#accessing-cached-content-over-https)
 - Equilibrio de carga
 - Protección DDOS
-- Purga rápida
+- [Purga rápida](cdn-purge-endpoint.md)
 
  
 ## Características de la edición Premium
 
-El nivel de red CDN premium incluye todas las características del nivel estándar, más estas características adicionales:
+El nivel premium de la red de entrega de contenido incluye todas las características del nivel estándar, más estas características adicionales:
 
 - [Motor de entrega de contenido personalizable, basado en reglas](cdn-rules-engine.md)
 - [Informes de HTTP avanzados](cdn-advanced-http-reports.md)
 - [Estadísticas en tiempo real](cdn-read-time-stats.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

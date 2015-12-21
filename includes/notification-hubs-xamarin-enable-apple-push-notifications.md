@@ -78,7 +78,7 @@ Cree un nuevo identificador de aplicación explícita para la aplicación con Ap
 
 10. En Acceso a llaves, haga clic con el botón derecho en el nuevo certificado de inserción que acaba de crear, en la categoría **Certificados**. Haga clic en **Exportar**, asigne un nombre al archivo, seleccione el formato **.p12** y, luego, haga clic en **Guardar**.
 
-	Recuerde el nombre de archivo y la ubicación del certificado de inserción p12 exportado. Se usará para habilitar la autenticación con APNS mediante la carga en el Portal de Azure.
+	Recuerde el nombre de archivo y la ubicación del certificado de inserción p12 exportado. Se usará para habilitar la autenticación con APNS mediante su carga en el Portal de Azure clásico.
 
 
 
@@ -110,4 +110,4 @@ Cree un nuevo identificador de aplicación explícita para la aplicación con Ap
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

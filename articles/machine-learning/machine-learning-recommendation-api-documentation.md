@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="12/07/2015" 
 	ms.author="LuisCa"/>
 
 #Documentación de la API de recomendación de Aprendizaje automático de Azure
@@ -1868,6 +1868,8 @@ En la siguiente tabla se describen los parámetros de compilación para una comp
 |FbtSupportThreshold | Cómo es el modelo conservador. Número de concurrencias de elementos que deben tenerse en cuenta para el modelado.| Entero | 3-50 (6) |
 |FbtMaxItemSetSize | Limita el número de elementos en un conjunto frecuente.| Entero | 2-3 (2) |
 |FbtMinimalScore | Puntuación mínima que debe tener un conjunto frecuente para incluirlo en los resultados devueltos. Cuanto mayor sea mejor.| Doble | 0 y superior (0) |
+|FbtSimilarityFunction | Define la función de similitud que usará la compilación. | String | cooccurrence, lift, jaccard (lift) |
+
 
 ###11\.2. Desencadenar una compilación de recomendación
 
@@ -3074,7 +3076,10 @@ código de estado HTTP: 200
 
 
 ##15\. Información legal
-Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso.<br><br> Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse.<br><br> Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia.<br><br> © 2015 Microsoft. Todos los derechos reservados.
+Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso.<br><br>
+Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse.<br><br>
+Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia.<br><br>
+© 2015 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

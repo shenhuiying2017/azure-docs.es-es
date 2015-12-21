@@ -126,14 +126,14 @@ A continuación se muestran los pasos necesarios para integrar AlwaysOn de SQL c
 - Grupo de disponibilidad de SQL configurado entre el servidor local de SQL Server y el servidor de SQL Server que se ejecuta en Azure
 - El acceso remoto a PowerShell debe habilitarse en el servidor local de SQL Server. El servidor VMM debe poder realizar llamadas remotas de PowerShell a SQL Server
 - En el servidor local de SQL Server debe agregarse una cuenta de usuario en los grupos de usuario SQL con los permisos siguientes como mínimo
-	- ALTER AVAILABILITY GROUP: [ referencia 1](https://msdn.microsoft.com/es-ES/library/hh231018.aspx), [referencia 2](https://msdn.microsoft.com/es-ES/library/ff878601.aspx#Anchor_3)
-	- ALTER DATABASE: [referencia 1](https://msdn.microsoft.com/es-ES/library/ff877956.aspx#Security)
+	- ALTER AVAILABILITY GROUP: [ referencia 1](https://msdn.microsoft.com/library/hh231018.aspx), [referencia 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE: [referencia 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 - Debe crearse una cuenta de ejecución en el servidor VMM para la cuenta en el paso anterior
 - Se debe instalar el módulo PS de SQL en los servidores SQL Server locales y en las máquinas virtuales de Azure
 - Se debe instalar el Agente de máquina virtual en las máquinas virtuales que se ejecutan en Azure
 - NTAUTHORITY\\System debe tener los siguientes permisos en el servidor de SQL Server que se ejecuta en las máquinas virtuales en Azure
-	- ALTER AVAILABILITY GROUP: [ referencia 1](https://msdn.microsoft.com/es-ES/library/hh231018.aspx), [referencia 2](https://msdn.microsoft.com/es-ES/library/ff878601.aspx#Anchor_3)
-	- ALTER DATABASE: [referencia 1](https://msdn.microsoft.com/es-ES/library/ff877956.aspx#Security)
+	- ALTER AVAILABILITY GROUP: [ referencia 1](https://msdn.microsoft.com/library/hh231018.aspx), [referencia 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE: [referencia 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 
 ##### 1\. Incorporación de un servidor de SQL Server
 
@@ -374,4 +374,4 @@ Para los clústeres SQL estándar, la conmutación por recuperación después de
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

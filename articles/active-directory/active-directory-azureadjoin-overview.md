@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="12/07/2015" 
 	ms.author="femila"/>
 
 # Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join
@@ -66,7 +66,7 @@ Con Azure AD Join, obtendrá lo siguiente:
 | Los usuarios inician sesión en Windows con las credenciales de trabajo (como lo hacen hoy) | Los usuarios pueden iniciar sesión en Windows con las credenciales de trabajo que se administran en Azure AD. Esto es importante para los dispositivos corporativos en tres casos: la organización no tiene AD local (por ejemplo, las pequeñas empresas), la organización no crea todas las cuentas de usuario en AD (por ejemplo, los estudiantes, los consultores y los trabajadores de temporada), los dispositivos corporativos no se pueden unir a un dominio (local), como los teléfonos o tabletas con un SKU móvil. Por ejemplo, un dispositivo secundario llevado a la planta de fábrica o comercial, funciona para organizaciones administradas y federadas. | Los usuarios inician sesión en Windows con sus credenciales de MSA personales (sin cambios). |
 | Los usuarios tienen acceso móvil a la configuración y a la Tienda Windows; estos servicios funcionan con la cuenta profesional (sin necesidad de MSA personal) y es necesario que las organizaciones conecten su AD local a Azure AD. | Configuración de autoservicio: los usuarios pueden realizar la configuración rápida (FRX) a través de su cuenta profesional (como una alternativa al aprovisionamiento de TI de los dispositivos; se admiten ambos métodos). | Es sencillísimo agregar una cuenta de trabajo administrada en AD o Azure AD. |
 | Inicio de sesión único (SSO) desde el escritorio para trabajar en aplicaciones, sitios web y recursos de forma local y en aplicaciones en la nube que usan Azure AD para la autenticación. | Registro automático en el directorio empresarial (Azure AD) e inscripción automática en MDM. (Característica de Azure AD Premium) | Proporciona SSO entre aplicaciones y en sitios web y recursos con esta cuenta profesional. |
-| Los usuarios pueden agregar su MSA personal para tener acceso a sus imágenes y archivos personales sin que por ello se vean afectados los datos empresariales (la configuración de movilidad sigue funcionando con la cuenta profesional). La cuenta MSA permite SSO y ya no controla la movilidad de la configuración. | Autoservicio de restablecimiento de contraseña (SSPR) en Winlogon (posibilidad de restablecer contraseñas olvidadas) (Para esto, necesita la edición Premium). | Proporciona acceso a la parte principal de la Tienda corporativa, o a alguna de sus secciones, para que los usuarios puedan comprar y usar aplicaciones de línea de negocio en sus dispositivos personales. | |
+| Los usuarios pueden agregar su MSA personal para tener acceso a sus imágenes y archivos personales sin que por ello se vean afectados los datos empresariales (la configuración de movilidad sigue funcionando con la cuenta profesional). La cuenta MSA permite SSO y ya no controla la movilidad de la configuración. | Autoservicio de restablecimiento de contraseña (SSPR) en Winlogon (posibilidad de restablecer contraseñas olvidadas) (Para esto, necesita la edición Premium). | Proporciona acceso a la Tienda corporativa para que los usuarios puedan comprar y usar aplicaciones de línea de negocio en sus dispositivos personales. | |
 
 
 ## Información adicional
@@ -77,4 +77,4 @@ Con Azure AD Join, obtendrá lo siguiente:
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

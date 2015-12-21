@@ -87,11 +87,11 @@ La operación POST contendrá el siguiente esquema y carga de JSON para todas la
 |conditionType |Y |"Métrica", "Evento" |Se admiten dos tipos de alertas. Una basada en métrica y la otra basada en evento. En el futuro admitiremos alertas para eventos; por tanto, use este valor para comprobar si la alerta se basa en métrica o evento.|
 |condition |Y | |Esto tendrá los campos específicos para buscar en función del conditionType.|
 |metricName |para alertas de métricas | |El nombre de la métrica que define qué supervisa la regla.|
-|metricUnit |para alertas de métricas |"Bytes", "BytesPerSecond" , "Count" , "CountPerSecond" , "Percent", "Seconds"|	 La unidad permitida en la métrica. Valores permitidos: https://msdn.microsoft.com/es-ES/library/microsoft.azure.insights.models.unit.aspx|
+|metricUnit |para alertas de métricas |"Bytes", "BytesPerSecond" , "Count" , "CountPerSecond" , "Percent", "Seconds"|	 La unidad permitida en la métrica. Valores permitidos: https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx|
 |metricValue |para alertas de métricas | |El valor real de la métrica que provocó la alerta|
 |threshold |para alertas de métricas | |El valor de umbral que activa la alerta|
 |windowSize |para alertas de métricas | |El período de tiempo que se usa para supervisar la actividad de la alerta según el umbral. Debe estar comprendido entre 5 minutos y 1 día. Formato de duración ISO 8601.|
-|timeAggregation |para alertas de métricas |"Average", "Last" , "Maximum" , "Minimum" , "None", "Total" |	La manera en que se recopilan los datos se debería combinar con el tiempo. El valor predeterminado es Average. Valores permitidos: https://msdn.microsoft.com/es-ES/library/microsoft.azure.insights.models.aggregationtype.aspx|
+|timeAggregation |para alertas de métricas |"Average", "Last" , "Maximum" , "Minimum" , "None", "Total" |	La manera en que se recopilan los datos se debería combinar con el tiempo. El valor predeterminado es Average. Valores permitidos: https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx|
 |operator |para alertas de métricas | |El operador que se usa para comparar los datos y el umbral.|
 |subscriptionId |Y | |GUID de suscripción de Azure|
 |resourceGroupName |Y | |resource-group-name del recurso afectado|
@@ -123,4 +123,4 @@ Use las alertas de Azure para enviar mensajes a otros servicios. Use las siguien
 
 [Usar la aplicación lógica para enviar mensajes a una cola de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

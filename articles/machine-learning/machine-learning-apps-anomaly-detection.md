@@ -13,8 +13,8 @@
 	ms.topic="reference" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
-	ms.date="07/28/2015" 
-	ms.author="luisca"/>
+	ms.date="12/08/2015" 
+	ms.author="pingf"/>
 
 
 # Servicio de detección de anomalías de aprendizaje automático#
@@ -89,4 +89,4 @@ Hora|Datos|Tspike|Zspike|Valores de martingala|Indicador de alerta|Valores de ma
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

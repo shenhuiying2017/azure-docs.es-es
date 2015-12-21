@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Concesión de licencias de RemoteApp de Azure" 
-    description="Obtenga información sobre cómo funcionan las licencias en RemoteApp de Azure." 
-    services="remoteapp" 
-    solutions="" documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Licencias de Azure RemoteApp | Microsoft Azure"
+    description="Obtenga información sobre cómo funcionan las licencias en RemoteApp de Azure."
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 
@@ -34,6 +34,5 @@ Para otras aplicaciones, deberá asegurarse de que dispone de la licencia necesa
 Esto tiene sentido, ¿no? Puede publicar cualquier aplicación que pueda compartir legalmente. Además, deberá asegurarse de que realmente tiene derecho a compartir sus programas.
 
 Tenga en cuenta que no puede usar un contrato de licencia por volumen ni una licencia CAL en una colección en la nube. *Puede* usar un contrato de licencia por volumen para activar aplicaciones en su colección híbrida (excepto para Office). Necesitará instalarlas en la imagen de plantilla desde los soportes de licencias por volumen. Siga la información del proveedor de la aplicación para instalar licencias en un entorno de Escritorio remoto.
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

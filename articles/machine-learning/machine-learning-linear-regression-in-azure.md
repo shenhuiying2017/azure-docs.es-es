@@ -3,7 +3,6 @@
 	description="Una comparación de los modelos de regresión lineal en Excel y en Estudio de aprendizaje automático de Azure" 
 	metaKeywords="" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="garyericson" 
 	manager="paulettm" 
@@ -15,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="12/11/2015" 
 	ms.author="kbaroni;garye" />
 
 # Uso de regresión lineal en Aprendizaje automático de Azure
@@ -75,18 +74,18 @@ Cuando ejecutamos el proceso y los resultados para los desarrolladores y cientí
 ### ¡Misterio resuelto!
 Al aplicar las recomendaciones, logramos el mismo rendimiento de línea de base en Aprendizaje automático de Azure que con Excel:
 
-|| Excel|ML de Azure (Inicial)|ML de Azure con mínimos cuadrados|
+|| Excel|ML de Azure (Inicial)|ML de Azure con mínimos cuadrados| 
 |---|:---:|:---:|:---:|
-|Valor etiquetado |Datos reales (numéricos)|igual|igual|
-|Aprendiz |Excel -> Análisis de datos -> Regresión|Regresión lineal|Regresión lineal|
-|Opciones del aprendiz|N/A|Predeterminado|Ordinaria de mínimos cuadrados<br />L2 = 0,005|
-|Conjunto de datos|26 filas, 3 características, 1 etiqueta Todo numérico|igual|igual|
-|División: entrenamiento|Entrenamiento de Excel en las primeras 18 filas, probado en las últimas 8 filas|igual|igual|
-|División: prueba|Fórmula de regresión de Excel aplicada a las últimas 8 filas|igual|igual|
-|**Rendimiento**||||
-|R cuadrado ajustado|0,96|N/A||
-|Coeficiente de determinación|N/A|0,78|0,952049|
-|Error medio absoluto|9,5 millones de $|19,4 millones de $|9,5 millones de $|
+|Valor etiquetado |Datos reales (numéricos)|igual|igual| 
+|Aprendiz |Excel -> Análisis de datos -> Regresión|Regresión lineal|Regresión lineal| 
+|Opciones del aprendiz|N/A|Predeterminado|Ordinaria de mínimos cuadrados<br />L2 = 0,005| 
+|Conjunto de datos|26 filas, 3 características, 1 etiqueta Todo numérico|igual|igual| 
+|División: entrenamiento|Entrenamiento de Excel en las primeras 18 filas, probado en las últimas 8 filas|igual|igual| 
+|División: prueba|Fórmula de regresión de Excel aplicada a las últimas 8 filas|igual|igual| 
+|**Rendimiento**|||| 
+|R cuadrado ajustado|0,96|N/A|| 
+|Coeficiente de determinación|N/A|0,78|0,952049| 
+|Error medio absoluto|9,5 millones de $|19,4 millones de $|9,5 millones de $| 
 |Error medio absoluto (%)|<span style="background-color: 00FF00;"> 6,03 %</span>|12,2 %|<span style="background-color: 00FF00;"> 6,03 %</span>|
 
 Además, los coeficientes de Excel son muy similares a los pesos de la característica en el modelo de entrenamiento de Azure:
@@ -153,4 +152,4 @@ A continuación, encontrará algunos recursos que le ayudarán a trabajar con la
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

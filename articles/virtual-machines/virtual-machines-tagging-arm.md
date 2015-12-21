@@ -132,7 +132,7 @@ El quinto comando muestra todas las etiquetas en el recurso. Como puede ver, *Lo
         Value		MyLocation
         Name		Location
 
-Para obtener más información sobre el etiquetado a través de PowerShell, consulte [Cmdlets de recursos de Azure][].
+Para más información sobre el etiquetado a través de PowerShell, consulte los [cmdlets de recursos de Azure][].
 
 
 ## Etiquetado con la CLI de Azure
@@ -183,11 +183,11 @@ Mediante el análisis de estas junto con el uso, las organizaciones podrán obte
 
 
 [entorno de PowerShell con Administrador de recursos de Azure]: ../powershell-azure-resource-manager.md
-[Cmdlets de recursos de Azure]: https://msdn.microsoft.com/es-ES/library/azure/dn757692.aspx
+[cmdlets de recursos de Azure]: https://msdn.microsoft.com/library/azure/dn757692.aspx
 [entorno de la CLI de Azure]: ./xplat-cli-azure-resource-manager.md
 [Información general del Administrador de recursos de Azure]: ../resource-group-overview.md
 [Uso de etiquetas para organizar los recursos de Azure]: ../resource-group-using-tags.md
 [Comprender la factura de Azure]: ../billing-understand-your-bill.md
 [Obtención de información sobre el consumo de recursos de Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

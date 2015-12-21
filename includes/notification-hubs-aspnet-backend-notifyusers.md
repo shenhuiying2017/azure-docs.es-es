@@ -132,7 +132,7 @@ En esta sección, agregaremos un nuevo controlador al back-end de WebAPI para ge
 
         using Microsoft.Azure.NotificationHubs;
 
-6. A continuación, reemplace la definición de clase `Notifications` por lo siguiente y asegúrese de reemplazar los dos marcadores de posición con la cadena de conexión (con acceso total) para el centro de notificaciones y el nombre del centro (disponible en el [Portal de administración de Azure](http://manage.windowsazure.com)):
+6. Reemplace la definición de clase `Notifications` por lo siguiente y asegúrese de reemplazar los dos marcadores de posición por la cadena de conexión (con acceso total) de su centro de notificaciones, y el nombre del centro (disponible en el [Portal de Azure clásico](http://manage.windowsazure.com)):
 
 		public class Notifications
         {
@@ -364,4 +364,4 @@ En esta sección agregará un nuevo controlador que expone una forma de que los 
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

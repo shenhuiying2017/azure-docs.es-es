@@ -37,6 +37,7 @@ En la vista previa actual, el **Catálogo de datos de Azure** admite el registro
 * Tablas de modo tabular de SQL Server Analysis Services
 * Informes de SQL Server Reporting Services
 * Directorios y los blobs de almacenamiento de Azure
+* Almacén de Azure Data Lake
 * Archivos y directorios HDFS
 * Tablas de Apache Hive
 * Vistas y tablas de Teradata
@@ -74,7 +75,7 @@ La herramienta de registro de orígenes de datos del **Catálogo de datos de Azu
 
 De la misma manera que incluir vistas previas puede proporcionar contexto valioso para los usuarios que buscan orígenes de datos en el **Catálogo de datos de Azure**, incluir un perfil de datos también puede facilitar la comprensión de los orígenes de datos detectados.
 
-La herramienta de registro de orígenes de datos del **Catálogo de datos de Azure** permite a los usuarios incluir un perfil de datos para tabla y vista que se registre. Si el usuario decide incluir un perfil de datos durante el registro, la herramienta de registro incluirá estadísticas agregadas sobre los datos de cada tabla o vista, incluyendo:
+La herramienta de registro de orígenes de datos del **Catálogo de datos de Azure** permite a los usuarios incluir un perfil de datos para cada tabla y vista que se registre. Si el usuario decide incluir un perfil de datos durante el registro, la herramienta de registro incluirá estadísticas agregadas sobre los datos de cada tabla o vista, incluyendo:
 
 * El número de filas y el tamaño de los datos que contiene el objeto
 * La fecha de la actualización más reciente de los datos y el esquema de objeto
@@ -93,6 +94,6 @@ El registro de un origen de datos hará que sea detectable en el **Catálogo de 
 Al volver a registrar un origen de datos ya registrado se realiza una operación de combinación "upsert": los objetos existentes se actualizan al tiempo que los nuevos objetos se crean. Los metadatos especificados por los usuarios en el portal del **Catálogo de datos de Azure** se mantendrán.
 
 ## Resumen
-Al registrar un origen de datos con el **Catálogo de datos de Azure** se facilita la detección y comprensión de ese origen de datos, copiando los metadatos estructurales y descriptivos del origen de datos en el servicio Catálogo. Una vez registrado un origen de datos, se puede anotar, administrar y detectar mediante el portal **Catálogo de datos de Azure**.
+Al registrar un origen de datos con el **Catálogo de datos de Azure** se facilita la detección y comprensión de ese origen de datos, al copiar los metadatos estructurales y descriptivos del origen de datos en el servicio Catálogo. Una vez registrado un origen de datos, se puede anotar, administrar y detectar mediante el portal **Catálogo de datos de Azure**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

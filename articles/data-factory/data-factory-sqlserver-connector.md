@@ -397,7 +397,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | nombre de usuario | Especifique el nombre de usuario si usa la autenticación de Windows. | No |
 | contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. | No |
 
-Puede cifrar las credenciales con el cmdlet **New-AzureDataFactoryEncryptValue** y usarlas en la cadena de conexión, como se muestra en el ejemplo siguiente (propiedad **EncryptedCredential**):
+Puede cifrar las credenciales con el cmdlet **New-AzureRmDataFactoryEncryptValue** y usarlas en la cadena de conexión, como se muestra en el ejemplo siguiente (propiedad **EncryptedCredential**):
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -543,4 +543,4 @@ La asignación es igual que la asignación de tipo de datos de SQL Server para A
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

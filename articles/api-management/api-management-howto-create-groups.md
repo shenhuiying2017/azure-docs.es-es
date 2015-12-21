@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Creación y uso de grupos para administrar cuentas de desarrollador en Administración de API de Azure
@@ -34,7 +34,7 @@ En esta guía se muestra cómo los administradores de una instancia de Administr
 
 ## <a name="create-group"> </a>Creación de un grupo
 
-Para crear un grupo nuevo, haga clic en **Administrar** en el Portal de Azure para su servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
+Para crear un grupo nuevo, haga clic en **Administrar** en el Portal de Azure clásico para su servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
 
 ![Portal del publicador][api-management-management-console]
 
@@ -111,4 +111,4 @@ Una vez agregada, la asociación entre el desarrollador y el grupo se puede ver 
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
 [aprovechar los grupos externos en inquilinos de Azure Active Directory asociados]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

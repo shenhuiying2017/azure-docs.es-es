@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Funciones de la plantilla del Administrador de recursos | Microsoft Azure"
+   pageTitle="Expresiones de la plantilla del Administrador de recursos | Microsoft Azure"
    description="Describe las funciones que se van a usar en una plantilla del Administrador de recursos de Azure para recuperar valores, trabajar con cadenas y valores numéricos y recuperar información de implementación."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,16 +13,31 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="12/07/2015"
    ms.author="tomfitz"/>
 
-# Funciones de la plantilla del Administrador de recursos de Azure
+# Expresiones de la plantilla del Administrador de recursos de Azure
 
-Este tema describe todas las funciones que puede utilizar en una plantilla del Administrador de recursos de Azure.
+En este tema se describen todas las expresiones que puede usar en una plantilla del Administrador de recursos de Azure.
 
-Las funciones de plantilla y sus parámetros no distinguen mayúsculas de minúsculas. Por ejemplo, el Administrador de recursos resuelve **variables('var1')** y **VARIABLES('VAR1')** de la misma manera. Cuando se evalúa, a menos que la función modifique expresamente las mayúsculas (como toUpper o toLower), la función conservará el caso. Es posible que determinados tipos de recursos tengan requisitos de mayúsculas independientemente de cómo se evalúen las expresiones.
+Las expresiones de plantilla y sus parámetros no distinguen mayúsculas de minúsculas. Por ejemplo, el Administrador de recursos resuelve **variables('var1')** y **VARIABLES('VAR1')** de la misma manera. Cuando se evalúa, a menos que la expresión modifique expresamente las mayúsculas (como toUpper o toLower), la expresión conservará el caso. Es posible que determinados tipos de recursos tengan requisitos de mayúsculas independientemente de cómo se evalúen las expresiones.
 
-## agregar
+## Expresiones numéricas
+
+El Administrador de recursos ofrece las siguientes expresiones para trabajar con números enteros:
+
+- [agregar](#add)
+- [copyIndex](#copyindex)
+- [div](#div)
+- [int](#int)
+- [length](#length)
+- [mod](#mod)
+- [mul](#mul)
+- [sub](#sub)
+
+
+<a id="add" />
+### agregar
 
 **add(operand1, operand2)**
 
@@ -34,7 +49,134 @@ Devuelve la suma de los dos enteros especificados.
 | operand2 | Sí | Segundo operando que se va a usar.
 
 
-## base64
+<a id="copyindex" />
+### copyIndex
+
+**copyIndex(offset)**
+
+Devuelve el índice actual de un bucle de iteración.
+
+Esta expresión siempre se usa con un objeto de **copia**. Para ejemplos de cómo usar **copyIndex**, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
+
+
+<a id="div" />
+### div
+
+**div(operand1, operand2)**
+
+Devuelve la división de enteros de los dos enteros especificados.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| operand1 | Sí | Número que se va a dividir.
+| operand2 | Sí | Número que se usa para dividir, tiene que ser distinto de 0.
+
+
+<a id="int" />
+### int
+
+**int(valueToConvert)**
+
+Convierte el valor especificado en entero.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| valueToConvert | Sí | Valor que se convierte en entero. Solo puede ser de tipo cadena o entero.
+
+En el siguiente ejemplo se convierte el valor del parámetro proporcionado por el usuario en entero.
+
+    "parameters": {
+        "appId": { "type": "string" }
+    },
+    "variables": { 
+        "intValue": "[int(parameters('appId'))]"
+    }
+
+
+<a id="length" />
+### length
+
+**longitud (matriz o cadena)**
+
+Devuelve el número de elementos de una matriz o el número de caracteres de una cadena. Puede usar esta función con una matriz para especificar el número de iteraciones al crear recursos. En el ejemplo siguiente, el parámetro **siteNames** debería hacer referencia a una matriz de nombres que se usará al crear los sitios web.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
+
+Para más información sobre cómo usar esta función con una matriz, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
+
+O bien, puede usarla con una cadena:
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
+
+
+<a id="mod" />
+### mod
+
+**mod(operand1, operand2)**
+
+Devuelve el resto de la división de enteros de los dos enteros especificados.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| operand1 | Sí | Número que se va a dividir.
+| operand2 | Sí | Número que se usa para dividir, tiene que ser distinto de 0.
+
+
+
+<a id="mul" />
+### mul
+
+**mul(operand1, operand2)**
+
+Devuelve la multiplicación de los dos enteros especificados.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| operand1 | Sí | Primer operando que se va a usar.
+| operand2 | Sí | Segundo operando que se va a usar.
+
+
+<a id="sub" />
+### sub
+
+**sub(operand1, operand2)**
+
+Devuelve la resta de los dos enteros especificados.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| operand1 | Sí | Número del que se va a restar.
+| operand2 | Sí | Número que se va a restar.
+
+
+## Expresiones de cadena
+
+El Administrador de recursos ofrece las siguientes expresiones para trabajar con cadenas:
+
+- [base64](#base64)
+- [concat](#concat)
+- [padLeft](#padleft)
+- [replace](#replace)
+- [split](#split)
+- [cadena](#string)
+- [toLower](#tolower)
+- [toUpper](#toupper)
+- [trim](#trim)
+- [uniqueString](#uniquestring)
+- [uri](#uri)
+
+Para obtener el número de caracteres de una cadena o una matriz, vea [longitud](#length).
+
+<a id="base64" />
+### base64
 
 **base64 (inputString)**
 
@@ -51,7 +193,8 @@ En el ejemplo siguiente se muestra cómo utilizar la función de base64.
       "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
     }
 
-## concat
+<a id="concat" />
+### concat
 
 **concat (arg1, arg2, arg3, ...)**
 
@@ -66,13 +209,218 @@ En el ejemplo siguiente se muestra cómo combinar varios valores para devolver u
         }
     }
 
-## copyIndex
+<a id="padleft" />
+### padLeft
 
-**copyIndex(offset)**
+**padLeft(stringToPad, totalLength, paddingCharacter)**
 
-Devuelve el índice actual de un bucle de iteración. Para obtener ejemplos de cómo usar esta función, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
+Devuelve una cadena alineada a la derecha agregando caracteres a la izquierda hasta alcanzar la longitud total especificada.
+  
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| stringToPad | Sí | La cadena que se va a alinear a la derecha.
+| totalLength | Sí | El número total de caracteres de la cadena devuelta.
+| paddingCharacter | Sí | El carácter que se va a usar para el relleno a la izquierda hasta alcanza la longitud total.
 
-## deployment
+En el ejemplo siguiente se muestra cómo rellenar el valor del parámetro proporcionado por el usuario agregando el carácter cero hasta que la cadena llegue a 10 caracteres. Si el valor del parámetro original tiene más de 10 caracteres, no se agrega ningún carácter.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "paddedAppName": "[padLeft(parameters('appName'),10,'0')]"
+    }
+
+<a id="replace" />
+### replace
+
+**replace(originalString, oldCharacter, newCharacter)**
+
+Devuelve una nueva cadena con todas las instancias de un carácter de la cadena especificada sustituidas por otro carácter.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| originalString | Sí | La cadena que tendrá todas las instancias de un carácter sustituido por otro carácter.
+| oldCharacter | Sí | El carácter que se va a quitar de la cadena original.
+| newCharacter | Sí | El carácter que se va a agregar en lugar del carácter eliminado.
+
+En el ejemplo siguiente se muestra cómo quitar todos los guiones de la cadena proporcionada por el usuario.
+
+    "parameters": {
+        "identifier": { "type": "string" }
+    },
+    "variables": { 
+        "newidentifier": "[replace(parameters('identifier'),'-','')]"
+    }
+
+<a id="split" />
+### split
+
+**split(inputString, delimiter)** **split(inputString, [delimiters])**
+
+Devuelve una matriz de cadenas que contiene las subcadenas de la cadena de entrada que están delimitadas por los delimitadores enviados.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| inputString | Sí | Cadena que se va a dividir.
+| delimiter | Sí | Delimitador que se va a usar, puede ser una cadena o una matriz de cadenas.
+
+En el ejemplo siguiente la cadena de entrada se divide con una coma.
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "stringPieces": "[split(parameters('inputString'), ',')]"
+    }
+
+<a id="string" />
+### cadena
+
+**string(valueToConvert)**
+
+Convierte el valor especificado en cadena.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| valueToConvert | Sí | Valor que se convierte en cadena. Solo puede ser de tipo booleano, entero o cadena.
+
+En el siguiente ejemplo se convierte el valor del parámetro proporcionado por el usuario en cadena.
+
+    "parameters": {
+        "appId": { "type": "int" }
+    },
+    "variables": { 
+        "stringValue": "[string(parameters('appId'))]"
+    }
+
+<a id="tolower" />
+### toLower
+
+**toLower(stringToChange)**
+
+Convierte la cadena especificada a minúsculas.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| stringToChange | Sí | La cadena que se va a convertir a minúsculas.
+
+En el siguiente ejemplo se convierte el valor del parámetro proporcionado por el usuario a minúsculas.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "lowerCaseAppName": "[toLower(parameters('appName'))]"
+    }
+
+<a id="toupper" />
+### toUpper
+
+**toUpper(stringToChange)**
+
+Convierte la cadena especificada a mayúsculas.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| stringToChange | Sí | La cadena que se va a convertir a mayúsculas.
+
+En el siguiente ejemplo se convierte el valor del parámetro proporcionado por el usuario a mayúsculas.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "upperCaseAppName": "[toUpper(parameters('appName'))]"
+    }
+
+<a id="trim" />
+### trim
+
+**trim (stringToTrim)**
+
+Quita todos los caracteres de espacio en blanco iniciales y finales de la cadena especificada.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| stringToTrim | Sí | La cadena que se recortará.
+
+En el ejemplo siguiente se recortan los caracteres de espacio en blanco del valor de parámetro proporcionado por el usuario.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "trimAppName": "[trim(parameters('appName'))]"
+    }
+
+<a id="uniquestring" />
+### uniqueString
+
+**uniqueString (stringForCreatingUniqueString,...)**
+
+Realiza un hash de 64 bits de las cadenas proporcionadas para crear una cadena única. Esta función es útil cuando se debe crear un nombre único para un recurso. Proporciona valores de parámetros que representan el nivel de unicidad del resultado. Puede especificar si el nombre es único para la suscripción, el grupo de recursos o la implementación.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| stringForCreatingUniqueString | Sí | Cadena base utilizada en la función hash para crear una cadena única.
+| parámetros adicionales según sea necesario | No | Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad.
+
+El valor devuelto no es una cadena completamente aleatoria, sino que es el resultado de una función hash. El valor devuelto tiene 13 caracteres. No se garantiza que sea único global. Puede que desee combinar el valor con un prefijo de su convención de nomenclatura para crear un nombre más descriptivo.
+
+En los ejemplos siguientes se muestra cómo utilizar uniqueString para crear un valor único para diferentes niveles de uso común.
+
+Único basado en la suscripción
+
+    "[uniqueString(subscription().subscriptionId)]"
+
+Único basado en el grupo de recursos
+
+    "[uniqueString(resourceGroup().id)]"
+
+Único basado en la implementación de un grupo de recursos
+
+    "[uniqueString(resourceGroup().id, deployment().name)]"
+    
+En el ejemplo siguiente se muestra cómo crear un nombre único para una cuenta de almacenamiento basada en el grupo de recursos.
+
+    "resources": [{ 
+        "name": "[concat('ContosoStorage', uniqueString(resourceGroup().id))]", 
+        "type": "Microsoft.Storage/storageAccounts", 
+        ...
+
+<a id="uri" />
+### uri
+
+**uri (baseUri, relativeUri)**
+
+Crea un URI absoluto mediante la combinación de la cadena de relativeUri y baseUri.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| baseUri | Sí | La cadena de uri base.
+| relativeUri | Sí | La cadena de uri relativo que se agregará a la cadena de uri base.
+
+El valor del parámetro **baseUri** puede incluir un archivo específico, pero al construir el identificador URI, solo se usa la ruta de acceso base. Por ejemplo, al pasar ****http://contoso.com/resources/azuredeploy.json** como parámetro baseUri dará como resultado un identificador URI base de ****http://contoso.com/resources/**.
+
+En el ejemplo siguiente se muestra cómo construir un vínculo a una plantilla anidada en función del valor de la plantilla principal.
+
+    "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
+
+
+
+## Expresiones de valor de implementación
+
+El Administrador de recursos ofrece las siguientes expresiones para obtener valores de las secciones de la plantilla y valores relacionados con la implementación:
+
+- [deployment](#deployment)
+- [parameters](#parameters)
+- [variables](#variables)
+
+Para obtener valores de recursos, grupos de recursos o suscripciones, vea [Expresiones de recursos](#resource-expressions).
+
+<a id="deployment" />
+### deployment
 
 **deployment()**
 
@@ -117,125 +465,8 @@ En el ejemplo siguiente se muestra cómo usar deployment() para establecer un v�
     }  
 
 
-## div
-
-**div(operand1, operand2)**
-
-Devuelve la división de enteros de los dos enteros especificados.
-
-| Parámetro | Obligatorio | Descripción
-| :--------------------------------: | :------: | :----------
-| operand1 | Sí | Número que se va a dividir.
-| operand2 | Sí | Número que se usa para dividir, tiene que ser distinto de 0.
-
-## int
-
-**int(valueToConvert)**
-
-Convierte el valor especificado en entero.
-
-| Parámetro | Obligatorio | Descripción
-| :--------------------------------: | :------: | :----------
-| valueToConvert | Sí | Valor que se convierte en entero. Solo puede ser de tipo cadena o entero.
-
-En el siguiente ejemplo se convierte el valor del parámetro proporcionado por el usuario en entero.
-
-    "parameters": {
-        "appId": { "type": "string" }
-    },
-    "variables": { 
-        "intValue": "[int(parameters('appId'))]"
-    }
-
-## length
-
-**longitud (matriz o cadena)**
-
-Devuelve el número de elementos de una matriz o el número de caracteres de una cadena. Puede usar esta función con una matriz para especificar el número de iteraciones al crear recursos. En el ejemplo siguiente, el parámetro **siteNames** debería hacer referencia a una matriz de nombres que se usará al crear los sitios web.
-
-    "copy": {
-        "name": "websitescopy",
-        "count": "[length(parameters('siteNames'))]"
-    }
-
-Para obtener más información acerca de cómo usar esta función con una matriz, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
-
-O bien, puede usarla con una cadena:
-
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "nameLength": "[length(parameters('appName'))]"
-    }
-
-## listKeys
-
-**listKeys (resourceName o resourceIdentifier, apiVersion)**
-
-Devuelve las claves de una cuenta de almacenamiento. El valor de resourceId puede especificarse mediante la [función resourceId](./#resourceid) o mediante el formato **providerNamespace/resourceType/resourceName**. Puede utilizar la función para obtener los valores de primaryKey y secondaryKey.
-  
-| Parámetro | Obligatorio | Descripción
-| :--------------------------------: | :------: | :----------
-| resourceName o resourceIdentifier | Sí | Identificador único de una cuenta de almacenamiento.
-| apiVersion | Sí | Versión de API de estado en tiempo de ejecución de un recurso.
-
-En el ejemplo siguiente se muestra cómo se devuelven las claves de una cuenta de almacenamiento en la sección de salidas.
-
-    "outputs": { 
-      "exampleOutput": { 
-        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-05-01-preview')]", 
-        "type" : "object" 
-      } 
-    } 
-
-## mod
-
-**mod(operand1, operand2)**
-
-Devuelve el resto de la división de enteros de los dos enteros especificados.
-
-| Parámetro | Obligatorio | Descripción
-| :--------------------------------: | :------: | :----------
-| operand1 | Sí | Número que se va a dividir.
-| operand2 | Sí | Número que se usa para dividir, tiene que ser distinto de 0.
-
-
-## mul
-
-**mul(operand1, operand2)**
-
-Devuelve la multiplicación de los dos enteros especificados.
-
-| Parámetro | Obligatorio | Descripción
-| :--------------------------------: | :------: | :----------
-| operand1 | Sí | Primer operando que se va a usar.
-| operand2 | Sí | Segundo operando que se va a usar.
-
-
-## padLeft
-
-**padLeft(stringToPad, totalLength, paddingCharacter)**
-
-Devuelve una cadena alineada a la derecha agregando caracteres a la izquierda hasta alcanzar la longitud total especificada.
-  
-| Parámetro | Obligatorio | Descripción
-| :--------------------------------: | :------: | :----------
-| stringToPad | Sí | La cadena que se va a alinear a la derecha.
-| totalLength | Sí | El número total de caracteres de la cadena devuelta.
-| paddingCharacter | Sí | El carácter que se va a usar para el relleno a la izquierda hasta alcanza la longitud total.
-
-En el ejemplo siguiente se muestra cómo rellenar el valor del parámetro proporcionado por el usuario agregando el carácter cero hasta que la cadena llegue a 10 caracteres. Si el valor del parámetro original tiene más de 10 caracteres, no se agrega ningún carácter.
-
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "paddedAppName": "[padLeft(parameters('appName'),10,'0')]"
-    }
-
-
-## parameters
+<a id="parameters" />
+### parameters
 
 **parámetros (parameterName)**
 
@@ -261,7 +492,55 @@ En el ejemplo siguiente se muestra un uso simplificado de la función de los par
        }
     ]
 
-## providers
+<a id="variables" />
+### variables
+
+**variables (variableName)**
+
+Devuelve el valor de variable. El nombre de la variable especificada debe definirse en la sección de variables de la plantilla.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| variable Name | Sí | El nombre de la variable que se va a devolver.
+
+
+
+## Expresiones de recurso
+
+El Administrador de recursos ofrece las siguientes expresiones para obtener valores de recursos:
+
+- [listkeys](#listkeys)
+- [providers](#providers)
+- [reference](#reference)
+- [resourceGroup](#resourcegroup)
+- [resourceId](#resourceid)
+- [suscripción](#subscription)
+
+Para obtener valores de parámetros, variables o la implementación actual, vea [Expresiones de valor de implementación](#deployment-value-expressions).
+
+<a id="listkeys" />
+### listKeys
+
+**listKeys (resourceName o resourceIdentifier, apiVersion)**
+
+Devuelve las claves de una cuenta de almacenamiento. El valor de resourceId puede especificarse mediante la [función resourceId](./#resourceid) o mediante el formato **providerNamespace/resourceType/resourceName**. Puede utilizar la función para obtener los valores de primaryKey y secondaryKey.
+  
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| resourceName o resourceIdentifier | Sí | Identificador único de una cuenta de almacenamiento.
+| apiVersion | Sí | Versión de API de estado en tiempo de ejecución de un recurso.
+
+En el ejemplo siguiente se muestra cómo se devuelven las claves de una cuenta de almacenamiento en la sección de salidas.
+
+    "outputs": { 
+      "exampleOutput": { 
+        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-05-01-preview')]", 
+        "type" : "object" 
+      } 
+    } 
+
+<a id="providers" />
+### providers
 
 **providers (providerNamespace, [resourceType])**
 
@@ -289,7 +568,8 @@ En el ejemplo siguiente se muestra cómo utilizar la función de proveedor:
 	    }
     }
 
-## reference
+<a id="reference" />
+### reference
 
 **reference (resourceName or resourceIdentifier, [apiVersion])**
 
@@ -298,41 +578,59 @@ Permite que una expresión derive su valor del estado de tiempo de ejecución de
 | Parámetro | Obligatorio | Descripción
 | :--------------------------------: | :------: | :----------
 | resourceName o resourceIdentifier | Sí | Nombre o identificador único de un recurso.
-| apiVersion | No | Versión de API de estado en tiempo de ejecución de un recurso. El parámetro debe utilizarse si el recurso no se ha aprovisionado en la misma plantilla.
+| apiVersion | No | Versión de la API del recurso especificado. Debe incluir este parámetro cuando el recurso no esté aprovisionado en la misma plantilla.
 
 La función **reference** deriva su valor desde un estado de tiempo de ejecución y, por tanto, no se puede utilizar en la sección de variables. Se puede utilizar en la sección de salidas de una plantilla.
 
 Mediante el uso de la expresión de referencia, se declara implícitamente que un recurso depende de otro recurso si el recurso al que se hace referencia se aprovisiona en la misma plantilla. No tiene que usar también la propiedad **dependsOn**. La expresión no se evalúa hasta que el recurso al que se hace referencia complete la implementación.
 
+En el ejemplo siguiente se hace referencia a una cuenta de almacenamiento que se implementa en la misma plantilla.
+
     "outputs": {
-      "siteUri": {
-          "type": "string",
-          "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-      }
-    }
+		"NewStorage": {
+			"value": "[reference(parameters('storageAccountName'))]",
+			"type" : "object"
+		}
+	}
 
-## replace
+En el ejemplo siguiente se hace referencia a una cuenta de almacenamiento que no se implementa en esta plantilla, pero que existe dentro del mismo grupo de recursos conforme se implementan los recursos.
 
-**replace(originalString, oldCharacter, newCharacter)**
+    "outputs": {
+		"ExistingStorage": {
+			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15')]",
+			"type" : "object"
+		}
+	}
 
-Devuelve una nueva cadena con todas las instancias de un carácter de la cadena especificada sustituidas por otro carácter.
+Puede recuperar un valor concreto del objeto devuelto, como el URI del punto de conexión del blob, como se muestra a continuación.
 
-| Parámetro | Obligatorio | Descripción
-| :--------------------------------: | :------: | :----------
-| originalString | Sí | La cadena que tendrá todas las instancias de un carácter sustituido por otro carácter.
-| oldCharacter | Sí | El carácter que se va a quitar de la cadena original.
-| newCharacter | Sí | El carácter que se va a agregar en lugar del carácter eliminado.
+    "outputs": {
+		"BlobUri": {
+			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15').primaryEndpoints.blob]",
+			"type" : "string"
+		}
+	}
 
-En el ejemplo siguiente se muestra cómo quitar todos los guiones de la cadena proporcionada por el usuario.
+Si ahora quiere especificar directamente la versión de la API en su plantilla, puede usar la expresión **proveedores** y recuperar uno de los valores, como la versión más reciente, como se muestra a continuación.
 
-    "parameters": {
-        "identifier": { "type": "string" }
-    },
-    "variables": { 
-        "newidentifier": "[replace(parameters('identifier'),'-','')]"
-    }
+    "outputs": {
+		"BlobUri": {
+			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob]",
+			"type" : "string"
+		}
+	}
 
-## resourceGroup
+En el ejemplo siguiente se hace referencia a una cuenta de almacenamiento en otro grupo de recursos.
+
+    "outputs": {
+		"BlobUri": {
+			"value": "[reference(resourceId(parameters('relatedGroup'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15').primaryEndpoints.blob]",
+			"type" : "string"
+		}
+	}
+
+<a id="resourcegroup" />
+### resourceGroup
 
 **resourceGroup()**
 
@@ -356,7 +654,8 @@ En el ejemplo siguiente se utiliza la ubicación del grupo de recursos para asig
        }
     ]
 
-## resourceId
+<a id="resourceid" />
+### resourceId
 
 **resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
@@ -419,58 +718,8 @@ A menudo, necesitará utilizar esta función cuando se usa una cuenta de almacen
       }]
     }
 
-## split
-
-**split(inputString, delimiter)** **split(inputString, [delimiters])**
-
-Devuelve una matriz de cadenas que contiene las subcadenas de la cadena de entrada que están delimitadas por los delimitadores enviados.
-
-| Parámetro | Obligatorio | Descripción
-| :--------------------------------: | :------: | :----------
-| inputString | Sí | Cadena que se va a dividir.
-| delimiter | Sí | Delimitador que se va a usar, puede ser una cadena o una matriz de cadenas.
-
-En el ejemplo siguiente la cadena de entrada se divide con una coma.
-
-    "parameters": {
-        "inputString": { "type": "string" }
-    },
-    "variables": { 
-        "stringPieces": "[split(parameters('inputString'), ',')]"
-    }
-
-## cadena
-
-**string(valueToConvert)**
-
-Convierte el valor especificado en cadena.
-
-| Parámetro | Obligatorio | Descripción
-| :--------------------------------: | :------: | :----------
-| valueToConvert | Sí | Valor que se convierte en cadena. Solo puede ser de tipo booleano, entero o cadena.
-
-En el siguiente ejemplo se convierte el valor del parámetro proporcionado por el usuario en cadena.
-
-    "parameters": {
-        "appId": { "type": "int" }
-    },
-    "variables": { 
-        "stringValue": "[string(parameters('appId'))]"
-    }
-
-## sub
-
-**sub(operand1, operand2)**
-
-Devuelve la resta de los dos enteros especificados.
-
-| Parámetro | Obligatorio | Descripción
-| :--------------------------------: | :------: | :----------
-| operand1 | Sí | Número del que se va a restar.
-| operand2 | Sí | Número que se va a restar.
-
-
-## subscription
+<a id="subscription" />
+### subscription
 
 **subscription()**
 
@@ -490,131 +739,11 @@ En el ejemplo siguiente se muestra la función de suscripción a la que se llama
       } 
     } 
 
-## toLower
-
-**toLower(stringToChange)**
-
-Convierte la cadena especificada a minúsculas.
-
-| Parámetro | Obligatorio | Descripción
-| :--------------------------------: | :------: | :----------
-| stringToChange | Sí | La cadena que se va a convertir a minúsculas.
-
-En el siguiente ejemplo se convierte el valor del parámetro proporcionado por el usuario a minúsculas.
-
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "lowerCaseAppName": "[toLower(parameters('appName'))]"
-    }
-
-## toUpper
-
-**toUpper(stringToChange)**
-
-Convierte la cadena especificada a mayúsculas.
-
-| Parámetro | Obligatorio | Descripción
-| :--------------------------------: | :------: | :----------
-| stringToChange | Sí | La cadena que se va a convertir a mayúsculas.
-
-En el siguiente ejemplo se convierte el valor del parámetro proporcionado por el usuario a mayúsculas.
-
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "upperCaseAppName": "[toUpper(parameters('appName'))]"
-    }
-
-## trim
-
-**trim (stringToTrim)**
-
-Quita todos los caracteres de espacio en blanco iniciales y finales de la cadena especificada.
-
-| Parámetro | Obligatorio | Descripción
-| :--------------------------------: | :------: | :----------
-| stringToTrim | Sí | La cadena que se recortará.
-
-En el ejemplo siguiente se recortan los caracteres de espacio en blanco del valor de parámetro proporcionado por el usuario.
-
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "trimAppName": "[trim(parameters('appName'))]"
-    }
-
-
-## uniqueString
-
-**uniqueString (stringForCreatingUniqueString,...)**
-
-Realiza un hash de 64 bits de las cadenas proporcionadas para crear una cadena única. Esta función es útil cuando se debe crear un nombre único para un recurso. Proporciona valores de parámetros que representan el nivel de unicidad del resultado. Puede especificar si el nombre es único para la suscripción, el grupo de recursos o la implementación.
-
-| Parámetro | Obligatorio | Descripción
-| :--------------------------------: | :------: | :----------
-| stringForCreatingUniqueString | Sí | Cadena base utilizada en la función hash para crear una cadena única.
-| parámetros adicionales según sea necesario | No | Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad.
-
-El valor devuelto no es una cadena completamente aleatoria, sino que es el resultado de una función hash. El valor devuelto tiene 13 caracteres. No se garantiza que sea único global. Puede que desee combinar el valor con un prefijo de su convención de nomenclatura para crear un nombre más descriptivo.
-
-En los ejemplos siguientes se muestra cómo utilizar uniqueString para crear un valor único para diferentes niveles de uso común.
-
-Único basado en la suscripción
-
-    "[uniqueString(subscription().subscriptionId)]"
-
-Único basado en el grupo de recursos
-
-    "[uniqueString(resourceGroup().id)]"
-
-Único basado en la implementación de un grupo de recursos
-
-    "[uniqueString(resourceGroup().id, deployment().name)]"
-    
-En el ejemplo siguiente se muestra cómo crear un nombre único para una cuenta de almacenamiento basada en el grupo de recursos.
-
-    "resources": [{ 
-        "name": "[concat('ContosoStorage', uniqueString(resourceGroup().id))]", 
-        "type": "Microsoft.Storage/storageAccounts", 
-        ...
-
-## uri
-
-**uri (baseUri, relativeUri)**
-
-Crea un URI absoluto mediante la combinación de la cadena de relativeUri y baseUri.
-
-| Parámetro | Obligatorio | Descripción
-| :--------------------------------: | :------: | :----------
-| baseUri | Sí | La cadena de uri base.
-| relativeUri | Sí | La cadena de uri relativo que se agregará a la cadena de uri base.
-
-El valor del parámetro **baseUri** puede incluir un archivo específico, pero al construir el identificador URI, solo se usa la ruta de acceso base. Por ejemplo, al pasar ****http://contoso.com/resources/azuredeploy.json** como parámetro baseUri dará como resultado un identificador URI base de ****http://contoso.com/resources/**.
-
-En el ejemplo siguiente se muestra cómo construir un vínculo a una plantilla anidada en función del valor de la plantilla principal.
-
-    "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
-
-
-## variables
-
-**variables (variableName)**
-
-Devuelve el valor de variable. El nombre de la variable especificada debe definirse en la sección de variables de la plantilla.
-
-| Parámetro | Obligatorio | Descripción
-| :--------------------------------: | :------: | :----------
-| variable Name | Sí | El nombre de la variable que se va a devolver.
-
 
 ## Pasos siguientes
-- Para obtener una descripción de las secciones de una plantilla del Administrador de recursos de Azure, vea [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
-- Para combinar varias plantillas, vea [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md)
-- Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md)
-- Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md)
+- Para una descripción de las secciones de una plantilla del Administrador de recursos de Azure, vea [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
+- Para combinar varias plantillas, vea [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
+- Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
+- Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

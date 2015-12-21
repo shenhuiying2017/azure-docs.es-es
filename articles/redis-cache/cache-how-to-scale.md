@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Escalado de Caché en Redis de Azure
 
->[AZURE.NOTE]Actualmente, la característica de escalado Caché en Redis de Azure está en vista previa. Durante el período de vista previa, las memorias caché de nivel Premium quedan excluidas de las operaciones de escalado.
+>[AZURE.NOTE]Actualmente, la característica de escalado Caché en Redis de Azure está en vista previa. Durante el período de vista previa, no se puede escalar a una caché de nivel premium o desde ella, pero puede cambiar el plan de tarifa dentro de una caché premium.
 
-Caché en Redis de Azure tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché. Si los requisitos de la aplicación cambian después de crear una memoria caché, puede escalar el tamaño de la caché mediante la hoja **cambio de nivel de precios** en el [Portal de vista previa de Azure](https://portal.azure.com).
+Caché en Redis de Azure tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché. Si los requisitos de la aplicación cambian después de crear una memoria caché, puede escalar el tamaño de la caché mediante la hoja **Cambio de nivel de precios** del [Portal de Azure](https://portal.azure.com).
 
 ## Cuándo se debe escalar
 
@@ -36,7 +36,7 @@ Puede supervisar las métricas siguientes para ayudar a determinar si necesita e
 Si determina que la memoria caché ya no cumple los requisitos de su aplicación, puede cambiar a un nivel de precios de caché mayor o menor que sea adecuado para su aplicación. Para obtener más información acerca de cómo determinar qué nivel de precios de caché, consulte [¿Qué oferta y tamaño de Caché en Redis debo utilizar?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## Escalado de una caché
-Para escalar la memoria caché, [vaya a la memoria caché](cache-configure.md#configure-redis-cache-settings) en el [portal de vista previa](https://portal.azure.com) y haga clic en **Configuración**, **Nivel de precios**.
+Para escalar la memoria caché, [vaya a la memoria caché](cache-configure.md#configure-redis-cache-settings) en el [Portal de Azure](https://portal.azure.com) y haga clic en **Configuración**, **Plan de tarifa**.
 
 También puede hacer clic en la parte **Nivel estándar** o **Nivel básico** de la hoja **Caché en Redis**.
 
@@ -61,7 +61,7 @@ Cuando se completa el escalado, el estado cambia de **Escalado** a **En ejecuci�
 
 ## Automatización de una operación de escalado
 
-Además del escalado de la instancia de Caché en Redis de Azure en el Portal de vista previa, se puede escalar mediante las [Bibliotecas de administración de Microsoft Azure (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Para escalar la memoria caché, llame al método `IRedisOperations.CreateOrUpdate` y pase el nuevo tamaño de `RedisProperties.SKU.Capacity`.
+Además del escalado de la instancia de Caché en Redis de Azure en el Portal de Azure, puede escalar mediante las [Bibliotecas de administración de Microsoft Azure (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Para escalar la memoria caché, llame al método `IRedisOperations.CreateOrUpdate` y pase el nuevo tamaño de `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {
@@ -89,7 +89,7 @@ La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre
 
 ## ¿Puedo realizar operaciones de escalado en una memoria caché Premium?
 
-Durante el período de vista previa, el escalado no está disponible para las memorias caché de nivel **Premium**.
+Durante el período de vista previa, el escalado no está disponible para las cachés **premium**, pero puede cambiar el plan de tarifa dentro de una caché premium.
 
 ## Después de escalar, ¿tengo que cambiar el nombre de la memoria caché o las teclas de acceso?
 
@@ -121,7 +121,7 @@ Las memorias caché **Basic** están sin conexión durante las operaciones de es
 
 ## Operaciones que no son compatibles
 
-Las memorias caché **Premium** quedan excluidas de las operaciones de escalado.
+No puede escalar a una memoria caché de nivel **premium** o desde esta.
 
 No puede cambiar de una memoria caché **Standard** a una **Basic**.
 
@@ -137,7 +137,7 @@ El escalado tarda aproximadamente 20 minutos, según la cantidad de datos que ha
 
 ## ¿Cómo puedo saber si el escalado ha terminado?
 
-En el portal de vista previa puede ver la operación de escalado en curso. Cuando se completa el escalado, el estado de la memoria caché cambia de **En ejecución**.
+En el Portal de Azure puede ver la operación de escalado en curso. Cuando se completa el escalado, el estado de la memoria caché cambia de **En ejecución**.
 
 ## ¿Por qué esta característica está en vista previa?
 
@@ -155,4 +155,4 @@ Estamos lanzando esta característica para obtener comentarios. Nos basaremos en
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

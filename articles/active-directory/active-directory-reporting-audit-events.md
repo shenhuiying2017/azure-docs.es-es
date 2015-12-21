@@ -13,21 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/30/2015"
+   ms.date="12/07/2015"
    ms.author="kenhoff"/>
 
 # Eventos del Informe de auditoría de Azure Active Directory
 
-## Artículos de documentación de informes
-
- - [API de Informes](active-directory-reporting-api-getting-started.md)
- - [Eventos de auditoría](active-directory-reporting-audit-events.md)
- - [Retención](active-directory-reporting-retention.md)
- - [Vistas previas](active-directory-reporting-previews.md)
- - [Search](active-directory-reporting-search.md)
- - [Reposición](active-directory-reporting-backfill.md)
- - [Latencias](active-directory-reporting-latencies.md)
- - [Evento "Actor desconocido"](active-directory-reporting-unknown-actor.md)
+*Esta documentación forma parte de la [guía de informes de Azure Active Directory](active-directory-reporting-guide.md).*
 
 El Informe de auditoría de Azure Active Directory ayuda a los clientes a identificar las acciones con privilegios que se produjeron en su Azure Active Directory. Las acciones con privilegios incluyen cambios de elevación (por ejemplo, creación de roles o restablecimientos de contraseña), cambios de configuraciones de directiva (por ejemplo, directivas de contraseña) o cambios de configuración de directorio (por ejemplo, cambios en la configuración de la federación de dominio). Los informes proporcionan el registro de auditoría para el nombre del evento, el actor que realizó la acción, el recurso de destino que se ve afectado por el cambio y la fecha y hora (en UTC). Los clientes pueden recuperar la lista de eventos de auditoría para su Azure Active Directory a través del [Portal de administración de Azure](https://manage.windowsazure.com/), como se describe en [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
 
@@ -131,4 +122,4 @@ TelephoneNumber | Número de teléfono del usuario.
 
 Los registros de auditoría son un control necesario para muchas regulaciones de conformidad. Para que los clientes que usan el Informe de auditoría de Azure Active Directory cumplan las regulaciones de conformidad, se recomienda que el cliente envíe una copia de este tema de ayuda con la copia del informe de auditoría exportado del cliente para ayudar a explicar los detalles del informe. Si el auditor desea conocer las regulaciones de conformidad que cumple actualmente Azure, diríjalo a la [página Conformidad](http://azure.microsoft.com/support/trust-center/compliance/) del Centro de confianza de Microsoft Azure.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

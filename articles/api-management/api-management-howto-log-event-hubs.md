@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Cómo registrar eventos en los centros de eventos de Azure en la administración de API de Azure
@@ -24,11 +24,11 @@ Este artículo es un complemento del vídeo [Integración de Administración de 
 
 ## Crear un centro de eventos de Azure
 
-Para crear un nuevo centro de eventos, inicie sesión en el [Portal de Azure](https://manage.windowsazure.com) y haga clic en **Nuevo**->**Servicios de aplicaciones**->**Bus de servicios**->**Centro de eventos**->**Creación rápida**. Escriba un nombre para el centro de eventos y la región. Seleccione una suscripción y elija un espacio de nombres. Si no ha creado previamente un espacio de nombres, puede crear uno escribiendo un nombre en el cuadro de texto **Espacio de nombres**. Una vez configuradas todas las propiedades, haga clic en **Crear un centro de eventos** para crear el centro de eventos.
+Para crear un nuevo centro de eventos, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) y haga clic en **Nuevo**->**Servicios de aplicaciones**->**Bus de servicios**->**Centro de eventos**->**Creación rápida**. Escriba un nombre para el centro de eventos y la región. Seleccione una suscripción y elija un espacio de nombres. Si no ha creado un espacio de nombres anteriormente, puede crear uno escribiendo un nombre en el cuadro de texto **Espacio de nombres**. Una vez configuradas todas las propiedades, haga clic en **Crear un centro de eventos** para crear el centro de eventos.
 
 ![Creación de un centro de eventos][create-event-hub]
 
-A continuación, acceda a la pestaña **Configurar** para el nuevo centro de eventos y cree dos **directivas de acceso compartido**. La primera de ellas se debe llamar **Envío**. Asígnele permisos de **envío**.
+Luego navegue a la pestaña **Configurar** para el nuevo centro de eventos y cree dos **directivas de acceso compartido**. La primera de ellas se debe llamar **Envío**. Asígnele permisos de **envío**.
 
 ![Directiva de envío][sending-policy]
 
@@ -36,7 +36,7 @@ La segunda de ellas se debe llamar **Recepción**. Asígnele permisos de **escuc
 
 ![Directiva de recepción][receiving-policy]
 
-Cada directiva de acceso compartido permite a las aplicaciones enviar y recibir eventos desde y hacia el centro de eventos. Para acceder a las cadenas de conexión de estas directivas, acceda a la pestaña **Panel** del centro de eventos y haga clic en **Información de conexión**.
+Cada directiva de acceso compartido permite a las aplicaciones enviar y recibir eventos desde y hacia el centro de eventos. Para obtener acceso a las cadenas de conexión de estas directivas, navegue a la pestaña **Panel** del centro de eventos y haga clic en **Información de conexión**.
 
 ![Cadena de conexión][event-hub-dashboard]
 
@@ -61,7 +61,7 @@ Agregue los siguientes encabezados a la solicitud.
 
 -	Content-Type : application/json
 -	Authorization : SharedAccessSignature uid=...
-	-	Para obtener instrucciones sobre cómo generar `SharedAccessSignature`, consulte [Autenticación de la API de REST de administración de API de Azure](https://msdn.microsoft.com/library/azure/dn798668.aspx).
+	-	Para instrucciones sobre cómo generar `SharedAccessSignature`, vea [Autenticación de la API de REST de administración de API de Azure](https://msdn.microsoft.com/library/azure/dn798668.aspx).
 
 Especifique el cuerpo de la solicitud utilizando la siguiente plantilla.
 
@@ -69,28 +69,28 @@ Especifique el cuerpo de la solicitud utilizando la siguiente plantilla.
       "type" : "AzureEventHub",
       "description" : "Sample logger description",
       "credentials" : {
-        "name" : "Name of the Event Hub from the Azure portal",
+        "name" : "Name of the Event Hub from the Azure Classic Portal",
         "connectionString" : "Endpoint=Event Hub Sender connection string"
         }
     }
 
 -	`type` se debe establecer en `AzureEventHub`.
--	`description` proporciona una descripción opcional del registrador y puede ser una cadena de longitud cero si lo desea.
+-	`description` ofrece una descripción opcional del registrador y puede ser una cadena de longitud cero si lo desea.
 -	`credentials` contiene el `name` y `connectionString` del centro de eventos de Azure.
 
 Al realizar la solicitud, si se crea el registrador, se devuelve un código de estado de `201 Created`.
 
->[AZURE.NOTE]Para conocer otros posibles códigos de retorno y sus razones, consulte [Creación de un registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Para conocer la forma de realizar otras operaciones como crear listas, actualizar y eliminar, consulte la documentación de la entidad del [registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx).
+>[AZURE.NOTE]Para conocer otros posibles códigos de retorno y sus razones, vea [Creación de un registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Para conocer la forma de realizar otras operaciones como crear listas, actualizar y eliminar, vea la documentación de la entidad del [registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx).
 
 ## Configuración de directivas log-to-eventhubs
 
 Una vez que el registrador está configurado en la administración de API, puede configurar las directivas de log-to-eventhubs para registrar los eventos oportunos. La directiva log-to-eventhubs puede utilizarse en la sección de las directivas de entrada o de salida.
 
-Para configurar las directivas, inicie sesión en el [Portal de Azure](https://manage.windowsazure.com), acceda al servicio Administración de API y haga clic en el **portal para editores** o en **Administrar** para acceder al portal para editores.
+Para configurar las directivas, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com), navegue hasta el servicio de administración de API y haga clic en el **portal para editores** o en **Administrar** para obtener acceso al portal para editores.
 
 ![Portal del publicador][publisher-portal]
 
-Haga clic en **Directivas** en el menú de Administración de API situado a la izquierda. Seleccione el producto que desee y la API. Por último, haga clic en **Agregar directiva**. En este ejemplo, vamos a agregar una directiva para la **API Echo** en el producto **Sin límites**.
+Haga clic en **Directivas** en el menú de Administración de API situado a la izquierda. Seleccione el producto que quiera y la API. Por último, haga clic en **Agregar directiva**. En este ejemplo, vamos a agregar una directiva para la **API Echo** en el producto **Sin límites**.
 
 ![Add policy][add-policy]
 
@@ -133,4 +133,4 @@ Haga clic en **Guardar** para guardar la configuración de la directiva actualiz
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

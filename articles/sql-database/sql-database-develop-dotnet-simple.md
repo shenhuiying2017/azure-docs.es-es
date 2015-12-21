@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="Uso de bases de datos SQL de .NET (C#)" 
+<properties
+	pageTitle="Conexión a Base de datos SQL mediante .NET (C#)"
 	description="Use el código de ejemplo de este inicio rápido para crear una aplicación moderna con C# con el respaldado de una base de datos relacional eficaz en la nube con la base de datos SQL de Azure."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="tobbox" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="tobbox"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="07/16/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="sql-database"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/08/2015"
 	ms.author="tobiast"/>
 
 
-# Uso de bases de datos SQL de .NET (C#) 
+# Uso de bases de datos SQL de .NET (C#)
 
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-## Requisitos
+## Requisitos previos
 
 ### .NET Framework
 
@@ -32,12 +32,17 @@
 
 ### Base de datos SQL
 
-Vea la [página de introducción](sql-database-get-started.md) para obtener información sobre cómo crear una base de datos de ejemplo y obtener la cadena de conexión.
+Consulte la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
 
-## Conexión a la base de datos SQL
+## Paso 1: Obtención de la cadena de conexión
+
+[AZURE.INCLUDE [sql-database-include-connection-string-dotnet-20-portalshots](../../includes/sql-database-include-connection-string-dotnet-20-portalshots.md)]
+
+## Paso 2: Conexión
 
 La clase [System.Data.SqlClient.SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) se usa para conectarse a la base de datos SQL.
-	
+
+
 ```
 using System.Data.SqlClient;
 
@@ -45,18 +50,18 @@ class Sample
 {
   static void Main()
   {
-	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
 	  {
-		  conn.Open();	
+		  conn.Open();
 	  }
   }
-}	
+}
 ```
 
-## Ejecución de una consulta y recuperación del conjunto de resultados 
+## Paso 3: Ejecución de una consulta
 
 Las clases [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) y [SqlDataReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqldatareader.aspx) pueden usarse para recuperar un conjunto de resultados de una consulta realizada a la base de datos SQL. Tenga en cuenta que System.Data.SqlClient también admite la recuperación de datos en [System.Data.DataSet](https://msdn.microsoft.com/library/system.data.dataset.aspx) sin conexión.
-	
+
 ```
 using System;
 using System.Data.SqlClient;
@@ -65,11 +70,11 @@ class Sample
 {
 	static void Main()
 	{
-	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
 		{
 			var cmd = conn.CreateCommand();
 			cmd.CommandText = @"
-					SELECT 
+					SELECT
 						c.CustomerID
 						,c.CompanyName
 						,COUNT(soh.SalesOrderID) AS OrderCount
@@ -78,8 +83,8 @@ class Sample
 					GROUP BY c.CustomerID, c.CompanyName
 					ORDER BY OrderCount DESC;";
 
-			conn.Open();	
-		
+			conn.Open();
+
 			using(var reader = cmd.ExecuteReader())
 			{
 				while(reader.Read())
@@ -91,24 +96,25 @@ class Sample
 	}
 }
 
+```  
+
+## Paso 4: Inserción de una fila
+
+En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) de forma segura, pasar parámetros que protejan la aplicación ante vulnerabilidad de [inyección de código SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) y recuperar el valor [Clave principal](https://msdn.microsoft.com/library/ms179610.aspx) generado automáticamente.
+
 ```
+using System;
+using System.Data.SqlClient;
 
-## Inserción de filas, mediante el paso de parámetros, y recuperación del valor clave principal generado 
-
-En la base de datos SQL, la propiedad [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) y el objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) pueden usarse para generar automáticamente los valores de [clave principal](https://msdn.microsoft.com/library/ms179610.aspx). En este ejemplo se mostrará cómo ejecutar la instrucción [insert-statement](https://msdn.microsoft.com/library/ms174335.aspx), mediante el paso seguro de parámetros que ofrecen protección frente a la [inyección SQL](https://msdn.microsoft.com/magazine/cc163917.aspx), y recuperar el valor de clave principal generado automáticamente.
-
-El método [ExecuteScalar](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executescalar.aspx) de la clase [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) puede usarse para ejecutar una instrucción y recuperar la primera columna y fila devuelta por esta instrucción. La cláusula [OUTPUT](https://msdn.microsoft.com/library/ms177564.aspx) de la instrucción INSERT puede usarse para devolver los valores insertados como conjunto de resultados a la aplicación que realiza la llamada. Tenga en cuenta la cláusula OUTPUT también es compatible con las instrucciones [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx), [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) y [MERGE](https://msdn.microsoft.com/library/bb510625.aspx). Si se inserta más de una fila, deberá usar el método [ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) para recuperar los valores insertados de todas las filas.
-	
-```
 class Sample
 {
     static void Main()
     {
-		using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+		using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
         {
             var cmd = conn.CreateCommand();
             cmd.CommandText = @"
-                INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) 
+                INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate)
                 OUTPUT INSERTED.ProductID
                 VALUES (@Name, @Number, @Cost, @Price, CURRENT_TIMESTAMP)";
 
@@ -127,6 +133,4 @@ class Sample
 }
 ```
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

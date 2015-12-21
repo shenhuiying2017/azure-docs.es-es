@@ -213,7 +213,7 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 
 	![][3]
 
-	g. Configure el trabajo como "Ejecutar continuamente", de modo que cuando inicie sesión en el Portal de administración de Azure vea algo parecido a esto:
+	g. Configure el trabajo como "Ejecutar continuamente", de modo que cuando inicie sesión en el [Portal de Azure clásico] vea algo parecido a esto:
 
 	![][4]
 
@@ -250,7 +250,7 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 
 	![][5]
 
-4. Los mensajes se enviaron originalmente a temas del Bus de servicio, los cuales son supervisadas por las suscripciones del Bus de servicio en el trabajo web. Cuando se recibe un mensaje, se crea una notificación y se envía a la aplicación móvil. Puede examinar los registros del trabajo web para confirmar el procesamiento en el vínculo Registros en el Portal de administración de Azure correspondiente a su trabajo web:
+4. Los mensajes se enviaron originalmente a temas del Bus de servicio, los cuales son supervisadas por las suscripciones del Bus de servicio en el trabajo web. Cuando se recibe un mensaje, se crea una notificación y se envía a la aplicación móvil. Puede examinar los registros del trabajo web para confirmar el procesamiento en el vínculo Registros en el [Portal de Azure clásico] correspondiente a su trabajo web:
 
 	![][6]
 
@@ -269,5 +269,6 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 [Programación Pub/Sub del Bus de servicio]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [trabajo web de Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
 [Tutorial sobre Centros de notificaciones: Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

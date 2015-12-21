@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/20/2015"
+   ms.date="12/07/2015"
    ms.author="mmercuri"/>
 
 # Definición de dependencias en plantillas del Administrador de recursos de Azure
@@ -49,19 +49,21 @@ Si necesita definir una dependencia entre un recurso y recursos que se crean a t
 
 La propiedad resources permite especificar los recursos secundarios que están relacionados con el recurso que se está definiendo. Los recursos secundarios solo se pueden definir en cinco niveles de profundidad. Es importante tener en cuenta que no se crea una dependencia implícita entre un recurso secundario y el recurso primario. Si necesita que el recurso secundario se implemente después del recurso primario, debe declarar explícitamente esa dependencia con la propiedad dependsOn.
 
+Cada recurso primario solo acepta determinados tipos de recursos como recursos secundarios. Los tipos de recursos que se aceptan se especifican en el [esquema de plantilla](https://github.com/Azure/azure-resource-manager-schemas) del recurso principal. El nombre del tipo de recurso secundario incluye el nombre del tipo de recurso primario, por ejemplo, **Microsoft.Web/sites/config** y **Microsoft.Web/sites/extensions** son ambos recursos secundarios de **Microsoft.Web/Sites**.
+
 ## función reference
 
-La función reference permite que una expresión derive su valor de otros pares de valor y nombre JSON o de recursos en tiempo de ejecución. Las expresiones de referencia declaran implícitamente que un recurso depende de otro. La propiedad representada por **propertyPath** a continuación es opcional, de manera que si no se especifica, la referencia es al recurso.
+La función reference permite que una expresión derive su valor de otros pares de valor y nombre JSON o de recursos en tiempo de ejecución. Las expresiones de referencia declaran implícitamente que un recurso depende de otro. La propiedad representada por **propertyPath** a continuación es opcional, si no se especifica, la referencia se hace al recurso.
 
     reference('resourceName').propertyPath
 
 Puede usar este elemento o el elemento dependsOn para especificar las dependencias, pero no es necesario usar ambos para el mismo recurso dependiente. Lo aconsejable es usar la referencia implícita para evitar el riesgo de tener por accidente un elemento dependsOn innecesario que impida que el motor de implementación realice aspectos de la implementación en paralelo.
 
-Para obtener más información, vea [función reference](../resource-group-template-functions/#reference).
+Para más información, consulte [función reference](../resource-group-template-functions/#reference).
 
 ## Pasos siguientes
 
-- Para obtener más información sobre la creación de plantillas del Administrador de recursos de Azure, vea [Creación de plantillas](resource-group-authoring-templates.md). 
-- Para obtener una lista de las funciones disponibles en una plantilla, vea [Funciones de plantilla](resource-group-template-functions.md).
+- Para más información sobre la creación de plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas](resource-group-authoring-templates.md). 
+- Para obtener una lista de las funciones disponibles en una plantilla, consulte [Funciones de plantilla](resource-group-template-functions.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Alertas del Análisis de transmisiones | Microsoft Azure" 
+	pageTitle="Configuración de alertas para consultas en Análisis de transmisiones | Microsoft Azure" 
 	description="Descripción de las entradas del Análisis de transmisiones" 
-	keywords="análisis de macrodatos,servicio en la nube,internet de las cosas,servicio administrado, procesamiento de transmisiones,streaming de datos"
+	keywords="configuración de alertas"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,28 +14,28 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 
 # Configuración de alertas en Análisis de transmisiones de Azure
 
-## Página de supervisión
+## Introducción: Página de supervisión
 
-Puede configurar una regla para desencadenar una alerta cuando una métrica alcance una condición que especifique.
+Puede configurar alertas para desencadenar una alerta cuando una métrica alcance una condición que especifique.
 
 Por ejemplo, "Si los eventos de salida para los últimos 15 minutos son <100, enviar notificación por correo electrónico al identificador de correo electrónico: xyz@company.com”.
 
-Las reglas se pueden configurar en las métricas a través del portal o se pueden configurar [mediante programación](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) sobre los datos de registros de operaciones.
+Las reglas se pueden configurar en las métricas a través del portal o se pueden configurar [mediante programación](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) sobre datos de registros de operaciones.
 
-## Configuración de alertas a través del Portal de Azure clásico
+## Configuración de alertas a través del Portal de Azure
 
-Hay dos maneras de configurar alertas en el Portal de Azure clásico:
+Hay dos maneras de configurar alertas en el Portal de administración de Azure:
 
 1.	La pestaña **Supervisar** del trabajo de Análisis de transmisiones  
 2.	El registro de operaciones en los servicios de administración  
 
-## Alertas a través de la pestaña Supervisar del trabajo en el portal
+## Configuración de alertas a través de la pestaña Supervisar del trabajo en el portal
 
 1.	Seleccione la métrica en la pestaña Supervisar, haga clic en el botón **Agregar regla** en la parte inferior del panel y configure las reglas.  
 
@@ -49,9 +49,9 @@ Hay dos maneras de configurar alertas en el Portal de Azure clásico:
 
     ![Definir condiciones](./media/stream-analytics-set-up-alerts/03-stream-analytics-set-up-alerts.png)
 
-## Configurar las alertas a través de las operaciones de registros
+## Configuración de alertas a través de registros de operaciones
 
-1.	Vaya a la pestaña **Alertas** en Servicios de administración en el [Portal de Azure clásico](https://manage.windowsazure.com).  
+1.	Vaya a la pestaña **Alertas** en Servicios de administración en el [Portal de Azure](https://manage.windowsazure.com).  
 2.	Haga clic en **Agregar regla**.  
 
     ![Criterios](./media/stream-analytics-set-up-alerts/04-stream-analytics-set-up-alerts.png)
@@ -60,19 +60,19 @@ Hay dos maneras de configurar alertas en el Portal de Azure clásico:
 
     ![Definir alerta](./media/stream-analytics-set-up-alerts/05-stream-analytics-set-up-alerts.png)
 
-## Configuración de alertas en el Portal de Azure ##
+## Configuración de alertas en el Portal de vista previa de Azure ##
 
-En el Portal de Azure, vaya al trabajo de Análisis de transmisiones sobre el que le interesa alertar y haga clic en la sección **Supervisión**. En la hoja **Métrica** que se abre, haga clic en el comando **Agregar alerta**.
+En el Portal de vista previa de Azure, vaya al trabajo de Análisis de transmisiones en el que está interesado en las alertas y haga clic en la sección **Supervisión**. En la hoja **Métrica** que se abre, haga clic en el comando **Agregar alerta**.
 
-  ![Configuración del Portal de Azure](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)
+  ![Portal de vista previa de Azure - Configurar](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)
 
 Puede asignar un nombre a la regla de alerta y elegir una descripción que se mostrará en el correo electrónico de notificación.
 
 Cuando seleccione Métricas, elegirá una condición y el valor de umbral para la métrica.
 
-  ![Seleccionar métrica en el Portal de Azure](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)
+  ![Portal de vista previa de Azure - Seleccionar métrica](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)
 
-Para obtener más información sobre la configuración de alertas en el Portal de Azure, consulte [Recibir notificaciones de alerta](./azure-portal/insights-receive-alert-notifications.md).
+Para obtener más información sobre la configuración de alertas en el Portal de vista previa de Azure, consulte [Recibir notificaciones de alerta](./azure-portal/insights-receive-alert-notifications.md).
 
 ## Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
@@ -85,4 +85,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

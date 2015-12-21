@@ -24,12 +24,6 @@ En el último paso del escenario de procesamiento de registro desde el primer tu
  
 Para copiar los datos de eficacia de la campaña de marketing de blobs de Azure a un SQL Server local, deberá crear servicios vinculados locales adicionales, una tabla y un proceso con el mismo conjunto de cmdlets que se introdujo en el primer tutorial.
 
-> [AZURE.IMPORTANT]Este artículo no abarca todos los cmdlets de Factoría de datos. Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener la documentación completa sobre los cmdlets de la factoría de datos.
->    
-> Si usa Azure PowerShell 1.0, deberá usar los cmdlets que se documentan [aquí](https://msdn.microsoft.com/library/dn820234.aspx). Por ejemplo, use New-AzureRMDataFactory en lugar de usar New-AzureDataFactory.
-
-## Requisitos previos
-
 **Debe** seguir los pasos del [Tutorial: mover y procesar archivos de registro mediante la Factoría de datos][datafactorytutorial] antes de realizar el tutorial de este artículo.
 
 **(recomendado)** Revise y practique el tutorial del artículo [Habilitar la canalización para trabajar con datos locales][useonpremisesdatasources] para obtener un tutorial sobre cómo crear una canalización para mover datos de un SQL Server local a un almacén de blobs de Azure.
@@ -120,22 +114,22 @@ Para empezar, deberá crear la base de datos de SQL Server, tabla, tipos definid
 ### Creación de la tabla lógica local
 
 1.	En **Azure PowerShell**, cambie a la carpeta **C:\\ADFWalkthrough\\OnPremises**. 
-2.	Use el cmdlet **New-AzureDataFactoryDataset** para crear las tablas para **MarketingCampaignEffectivenessOnPremSQLTable.json** de la manera siguiente.
+2.	Use el cmdlet **New-AzureRmDataFactoryDataset** para crear las tablas para **MarketingCampaignEffectivenessOnPremSQLTable.json** de la manera siguiente.
 
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### Creación del proceso para copiar los datos del blob de Azure a SQL Server
 
-1.	Use el cmdlet **New-AzureDataFactoryPipeline** para crear la canalización para **EgressDataToOnPremPipeline.json** de la manera siguiente.
+1.	Use el cmdlet **New-AzureRmDataFactoryPipeline** para crear la canalización para **EgressDataToOnPremPipeline.json** de la manera siguiente.
 
 			
-		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
+		New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
 	 
-2. Use el cmdlet **Set-AzureDataFactoryPipelineActivePeriod** para especificar el período activo para **EgressDataToOnPremPipeline**.
+2. Use el cmdlet **Set-AzureRmDataFactoryPipelineActivePeriod** para especificar el período activo para **EgressDataToOnPremPipeline**.
 
 			
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
 
 	Presione **‘Y’** para continuar.
 	
@@ -169,9 +163,11 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 [download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+
 
 [image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises-using-powershell/DataManagementGatewayConfigurationManager.png
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

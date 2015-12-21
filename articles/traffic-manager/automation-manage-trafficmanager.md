@@ -3,7 +3,7 @@
  description="Obtenga información sobre cómo el servicio Automatización de Azure se puede usar para administrar Administrador de tráfico de Azure." 
  services="traffic-manager, automation" 
  documentationCenter="" 
- authors="eamonoreilly" 
+ authors="joaoma" 
  manager="carmonm" 
  editor=""/>
 
@@ -42,4 +42,4 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 * Consulte la [Guía de introducción](http://go.microsoft.com/fwlink/?LinkId=390560) a Automatización de Azure.
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

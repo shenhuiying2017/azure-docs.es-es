@@ -16,7 +16,7 @@
     ms.date="11/19/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/es-ES/library/azure/hh690944.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
 
 # Creación de una aplicación Hola a todos para Azure en Eclipse #
 
@@ -61,7 +61,7 @@ Tan pronto como tenga una aplicación web de Java lista para probar, puede usar 
 1. En el cuadro de diálogo **Publicar en Azure**:
     1. Si no hay aún ninguna suscripción que seleccionar en la lista **Suscripción**, siga estos pasos para importar la información de suscripción:
         1. Haga clic en **Importar desde el archivo PUBLISH-SETTINGS**.
-        1. En el cuadro de diálogo **Importar información de suscripción**, haga clic en **Descargar archivo PUBLISH-SETTINGS**. Si todavía no ha iniciado sesión en su cuenta de Azure, se le solicitará que inicie sesión. A continuación, se le solicitará que guarde un archivo de configuración de publicación de Azure. Guárdelo en su equipo local.
+        1. En el cuadro de diálogo **Importar información de suscripción**, haga clic en **Descargar archivo PUBLISH-SETTINGS**. Si todavía no ha iniciado sesión en su cuenta de Azure, se le solicitará que lo haga. A continuación, se le solicitará que guarde un archivo de configuración de publicación de Azure. Guárdelo en su equipo local.
         1. Todavía en el cuadro de diálogo **Importar información de suscripción**, haga clic en el botón **Examinar**, seleccione el archivo de configuración de publicación que guardó localmente en el paso anterior y, a continuación, haga clic en **Abrir**. La pantalla debe parecerse a la siguiente: ![][ic644267].
         1. Haga clic en **Aceptar**.
     1. En **Suscripción**, seleccione la suscripción que desee usar para la implementación.
@@ -176,4 +176,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [ic719491]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719491.png
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

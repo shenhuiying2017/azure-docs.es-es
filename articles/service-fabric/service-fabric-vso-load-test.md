@@ -3,7 +3,7 @@
     description="Aprenda a realizar pruebas de esfuerzo en sus aplicaciones de Azure Service Fabric mediante Visual Studio Online."
     services="service-fabric"
     documentationCenter="na"
-    authors="cawa"
+    authors="cawams"
     manager="timlt"
     editor="" />
 
@@ -140,4 +140,4 @@ La prueba de carga de Visual Studio Online proporciona las API que le permiten a
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Conexión a la base de datos SQL mediante Python en Mac OS" 
+<properties
+	pageTitle="Conexión a la base de datos SQL mediante Python en Mac OS"
 	description="Este tema muestra un ejemplo de código Pyton que puede usar para conectarse a la Base de datos SQL de Azure desde un Mac. El ejemplo usa el controlador pymssql."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="meet-bhagdev" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="meet-bhagdev"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="10/20/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="12/08/2015"
 	ms.author="meetb"/>
 
 
@@ -27,7 +27,7 @@
 Este tema presenta un ejemplo de código escrito en Python. El ejemplo se ejecuta en un equipo Mac. El ejemplo se conecta a una base de datos SQL de Azure mediante el controlador **pymssql**. Adicionalmente, use nuestro vídeo [Introducción a Python en Mac](https://www.youtube.com/watch?v=OMpugPTwnTI) para complementar esta documentación.
 
 
-## Requisitos
+## Requisitos previos
 
 
 - [Python 2.7.6](https://www.python.org/download/releases/2.7.6/).
@@ -46,19 +46,20 @@ Abra el terminal e instale
 **2) FreeTDS**: ejecute el siguiente comando desde su terminal. FreeTDS se descargará en su equipo. FreeTDS es necesario para que pymmsql funcione.
 
     brew install FreeTDS
-  
+
 **3) Pymmsql**: ejecute el siguiente comando desde su terminal. Esto instalará pymmsql en su equipo.
 
     sudo -H pip install pymssql
 
-### Creación de una base de datos y recuperación de la cadena de conexión
+### Base de datos SQL
 
+Consulte la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
 
-Vea la [página de introducción](sql-database-get-started.md) para obtener información sobre cómo crear una base de datos de ejemplo y obtener la cadena de conexión. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
+## Paso 1: Obtención de detalles de la conexión
 
+[AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Conexión a la base de datos SQL
-
+## Paso 2: Conexión
 
 La función [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) se usa para conectarse a la base de datos SQL.
 
@@ -66,7 +67,7 @@ La función [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) se 
 	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
 
 
-## Ejecución de la instrucción SQL SELECT
+## Paso 3: Ejecución de una consulta
 
 La función [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) puede usarse para recuperar un conjunto de resultados de una consulta realizada a la base de datos SQL. Esta función acepta cualquier consulta y devuelve un conjunto de resultados que se puede iterar mediante el uso de [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
 
@@ -81,9 +82,10 @@ La función [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymss
 	    row = cursor.fetchone()
 
 
-## Inserción de filas, paso de parámetros y recuperación de la clave principal generada
+## Paso 4: Inserción de una fila
 
-En Base de datos SQL, la propiedad [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) y el objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) pueden usarse para generar automáticamente los valores de [clave principal](https://msdn.microsoft.com/library/ms179610.aspx).
+En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) de forma segura, pasar parámetros que protejan la aplicación ante vulnerabilidad de [inyección de código SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) y recuperar el valor [Clave principal](https://msdn.microsoft.com/library/ms179610.aspx) generado automáticamente.
+
 
 
 	import pymssql
@@ -96,7 +98,7 @@ En Base de datos SQL, la propiedad [IDENTITY](https://msdn.microsoft.com/library
 	    row = cursor.fetchone()
 
 
-## Transacciones
+## Paso 5: Reversión de una transacción
 
 
 Este ejemplo de código muestra el uso de transacciones con las que podrá realizar lo siguiente:
@@ -116,6 +118,9 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
 	cnxn.rollback()
 
- 
 
-<!---HONumber=Oct15_HO4-->
+## Pasos siguientes
+
+Para más información, consulte el [Centro para desarrolladores de Python](/develop/python/).
+
+<!---HONumber=AcomDC_1210_2015-->

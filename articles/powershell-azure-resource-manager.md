@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="tomfitz"/>
 
 # Uso de Azure PowerShell con Administrador de recursos de Azure
@@ -338,7 +338,7 @@ Tiene el grupo de recursos y tiene la plantilla, así que ahora está listo para
 
     PS C:\> New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -TemplateFile c:\Azure\Templates\azuredeploy.json
 
-Especifique el grupo de recursos y la ubicación de la plantilla. Si la plantilla no es local, puede usar el parámetro - TemplateUri y especificar un URI para la plantilla.
+Especifique el grupo de recursos y la ubicación de la plantilla. Si la plantilla no es local, puede usar el parámetro **- TemplateUri** y especificar un URI para la plantilla. Puede establecer el parámetro **-Mode** en **Incremental** o **Complete**. De forma predeterminada, el Administrador de recursos realiza una actualización incremental durante la implementación; por lo tanto, no es esencial establecer **-Mode** cuando desee **Incremental**. Para comprender las diferencias entre estos modos de implementación, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
 ###Parámetros dinámicos de la plantilla
 
@@ -414,7 +414,7 @@ Para agregar un recurso al grupo de recursos, puede usar el cmdlet **New-AzureRm
 
 ## Movimiento de un recurso
 
-Puede mover recursos existentes a un nuevo grupo de recursos. Para obtener ejemplos, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](resource-group-move-resources.md).
+Puede mover recursos existentes a un nuevo grupo de recursos. Para ver ejemplos, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](resource-group-move-resources.md).
 
 ## Eliminación de un grupo de recursos
 
@@ -436,9 +436,9 @@ Puede mover recursos existentes a un nuevo grupo de recursos. Para obtener ejemp
 
 ## Pasos siguientes
 
-- Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](./resource-group-authoring-templates.md).
-- Para obtener información sobre cómo implementar plantillas, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](./resource-group-template-deploy.md).
-- Si desea obtener un ejemplo detallado de cómo implementar un proyecto, consulte [Implementación predecible de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
-- Para obtener información sobre la solución de problemas de una implementación que da error, consulte [Solución de problemas de implementaciones de grupos de recursos en Azure](./virtual-machines/resource-group-deploy-debug.md).
+- Para más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](./resource-group-authoring-templates.md).
+- Para información sobre cómo implementar plantillas, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](./resource-group-template-deploy.md).
+- Para ver un ejemplo detallado de cómo implementar un proyecto, consulte [Implementación predecible de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
+- Para información sobre la solución de problemas de una implementación que da error, consulte [Solución de problemas de implementaciones de grupos de recursos en Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->
